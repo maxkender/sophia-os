@@ -78,6 +78,8 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
    - **Texte dit = texte à l'oral** : jamais de « : » (ElevenLabs en fait une vraie pause), peu de points, une
      virgule seulement où on respire, « … » seulement pour un effet voulu (« you win… nothing »). Les blancs
      trop longs sont resserrés automatiquement par `voix` (`scripts/resserrer.mjs`, horodatages recalés).
+     Garde-fou : `voix` remplace de lui-même « : », « ; » et les tirets du texte dit par une virgule (et corrige
+     le script) ; relis alors la phrase, et vérifie que tes repères sont toujours des mots du texte.
    - Voix (dans `voix`) : en `nPczCjzI2devNBz1zQrb` (Brian, speed 1.06) ; fr `3HZyQcLKlT0a3RDeXVsP`
      (Guillaume, 1.18) ; de `NlRO8ABjJNJNYaRaLiPJ` (Konrad, 1.2, style 0.45) ; it `32vqZVYOe7sQVGys0soJ`
      (Roberto, 1.2). Modèle `eleven_multilingual_v2`. Pas d'espace avant « ? » / « : » en français dans le
@@ -93,7 +95,8 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 5. **Contrôle visuel avant le rendu complet** (obligatoire) : rends 15 à 30 images en JPEG à l'échelle 0,4
    (`npx remotion render <Composition> out/frames --props='{"langue":"L","sousTitres":true}' --frames=…`),
    fais une planche avec ffmpeg (`tile`), **regarde-la**, corrige.
-6. `rendre --projet P --langue L` (avec et sans sous-titres, son à −14 LUFS), puis `livrer --video V --projet P --langue L`.
+6. `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
+   seulement si l'admin demande la version sans), puis `livrer --video V --projet P --langue L`.
 7. `journal` à chaque étape importante. À la fin : `finir --tache T`.
 
 ## 4. Tâche `corriger`

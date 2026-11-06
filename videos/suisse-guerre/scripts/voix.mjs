@@ -14,6 +14,26 @@ const forcer = process.argv.includes('--forcer');
 const racine = new URL('..', import.meta.url);
 const script = JSON.parse(readFileSync(new URL(`src/langues/${langue}/script.json`, racine)));
 const CLE = process.env.ELEVENLABS_API_KEY || 'proxy-injected';
+
+// Garde-fou : la voix marque une vraie pause sur « : », « ; » et les tirets. Le texte dit n'en garde aucun :
+// ils deviennent une virgule, dans le script aussi (les sous-titres et les repères suivent le texte dit).
+export const pourLOral = (texte) =>
+  texte
+    .replace(/\s*[:;]\s*/g, ', ')
+    .replace(/\s+[—–-]\s+/g, ', ')
+    .replace(/,\s*,/g, ',')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+let corrige = false;
+for (const bloc of [...script.scenes, script.outro]) {
+  const oral = pourLOral(bloc.texte);
+  if (oral !== bloc.texte) {
+    console.log(`texte dit corrigé : « ${bloc.texte} » → « ${oral} »`);
+    bloc.texte = oral;
+    corrige = true;
+  }
+}
+if (corrige) writeFileSync(new URL(`src/langues/${langue}/script.json`, racine), JSON.stringify(script, null, 2) + '\n');
 mkdirSync(new URL(`public/audio/${langue}/`, racine), {recursive: true});
 
 const tts = async (texte, nom) => {

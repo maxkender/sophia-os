@@ -72,7 +72,7 @@ group by 1, 2, 3 order by 1, 2, 3;
 Les vidéos sont dans `ugc_ia_generations.video_url`, rangées par source
 (`medias/ugc-ia/<source_id>/<generation_id>.mp4`).
 
-## Montage (migration 0659)
+## Montage (migration 0660)
 
 Dans la page, « Monter » sur une vidéo générée la recadre dans le temps et
 pose le bandeau style Snapchat (texte du CTA par défaut, hauteur réglable).

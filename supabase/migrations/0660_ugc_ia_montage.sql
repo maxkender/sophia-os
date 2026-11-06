@@ -1,4 +1,4 @@
--- 0659 : UGC IA, le montage des vidéos générées (demande d'Adrien du 6/11).
+-- 0660 : UGC IA, le montage des vidéos générées (demande d'Adrien du 6/11).
 --
 -- Une vidéo Genjutsu se monte dans la page :
 --   * recadrée dans le temps (début, fin) ;

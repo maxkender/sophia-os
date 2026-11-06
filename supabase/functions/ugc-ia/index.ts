@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0659) : une réaction TikTok
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0660) : une réaction TikTok
  * (la source) refaite par un ou plusieurs personas synthétiques avec
  * Higgsfield Genjutsu (transfert de mouvement). Admin seulement. La page lit
  * les tables directement ; tout changement passe ici.

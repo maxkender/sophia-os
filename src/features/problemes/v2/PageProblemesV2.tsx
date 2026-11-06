@@ -4,6 +4,7 @@ import { I18nextProvider } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import { SectionSure } from "@/components/erreurs/SectionSure";
+import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -101,6 +102,10 @@ function ContenuV2() {
         </div>
         <Aide />
       </div>
+
+      <SectionSure nom="Cohérence">
+        <BandeauCoherence />
+      </SectionSure>
 
       <SectionSure nom="Ton point du jour">
         <PointDuJourBloc

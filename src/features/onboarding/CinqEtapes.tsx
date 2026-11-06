@@ -16,6 +16,7 @@ import {
   jourAnglais,
   premierPostLe,
   premiereSemaineFinie,
+  guideTermine,
   type CleEtape,
   type EtatCinq,
 } from "./cinqEtapes";
@@ -84,6 +85,8 @@ export function CinqEtapes({
     aujourdhui,
   });
   if (premiereSemaineFinie(premierPost, aujourdhui)) return null;
+  // 0544 : 24 h après le 1er post publié avec lien, le guide disparaît.
+  if (guideTermine(profil.data.premierPostLienAt, maintenant)) return null;
   // Refusée par l'équipe : la déclaration ne compte plus.
   const actives = (declarations.data ?? []).filter((d) => d.statut !== "refuse");
   const declares = new Set(actives.map((d) => d.etape));
@@ -95,6 +98,7 @@ export function CinqEtapes({
     aujourdhui,
     pret: monWarmup.data?.pret ?? false,
     declares,
+    premierPostLienAt: profil.data.premierPostLienAt,
   });
   // Déclarée seulement (l'OS ne la voit pas encore) : « we'll check ».
   const enVerification = (cle: CleEtape) =>

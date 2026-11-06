@@ -44,6 +44,11 @@ export function premiereSemaineFinie(premierPost: string, aujourdhui: string): b
   return aujourdhui > ajouterJours(premierPost, 6);
 }
 
+/** 0544 : le guide disparaît 24 h après le 1er post publié avec lien. */
+export function guideTermine(premierPostLienAt: string | null | undefined, maintenant: Date): boolean {
+  return Boolean(premierPostLienAt) && maintenant.getTime() - new Date(premierPostLienAt!).getTime() >= 24 * 3600_000;
+}
+
 /**
  * L'état des 5 étapes. Le posteur ne coche pas « TikTok créé » : le clic sur
  * « Start warmup » vaut pour les deux (on crée le compte avant de le lancer).
@@ -59,17 +64,20 @@ export function etatsCinqEtapes(o: {
   aujourdhui: string;
   pret?: boolean;
   declares?: ReadonlySet<string>;
+  /** 0544 : le 1er post publié avec lien coche l'étape 5. */
+  premierPostLienAt?: string | null;
 }): Record<CleEtape, EtatCinq> {
   const declare = (cle: CleEtape) => o.declares?.has(cle) ?? false;
   const lance = Boolean(o.warmupStartedAt);
   const postsCommences = o.aujourdhui >= o.premierPost;
-  const warmupFait = (lance && (o.pret || postsCommences)) || declare("warmup");
+  // 0544 : un post publié avec lien prouve aussi le TikTok et le warm-up.
+  const warmupFait = (lance && (o.pret || postsCommences)) || declare("warmup") || Boolean(o.premierPostLienAt);
   return {
     connexion: "fait",
     slack: o.slackLie || declare("slack") ? "fait" : "recommande",
-    tiktok: lance || declare("tiktok") ? "fait" : "en_cours",
+    tiktok: lance || declare("tiktok") || o.premierPostLienAt ? "fait" : "en_cours",
     warmup: warmupFait ? "fait" : lance ? "en_cours" : "a_venir",
-    post: postsCommences ? "en_cours" : "a_venir",
+    post: o.premierPostLienAt ? "fait" : postsCommences ? "en_cours" : "a_venir",
   };
 }
 

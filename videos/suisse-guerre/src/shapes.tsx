@@ -9,17 +9,17 @@ export const PaperDefs: React.FC<{frame: number}> = ({frame}) => {
     <defs>
       <filter id="pp" x="-12%" y="-12%" width="124%" height="130%" colorInterpolationFilters="sRGB">
         <feTurbulence type="fractalNoise" baseFrequency="0.045" numOctaves={2} seed={seed} result="n" />
-        <feDisplacementMap in="SourceGraphic" in2="n" scale={5} xChannelSelector="R" yChannelSelector="G" result="d" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale={3.5} xChannelSelector="R" yChannelSelector="G" result="d" />
         <feDropShadow in="d" dx={0} dy={6} stdDeviation={4} floodColor="#3b2a12" floodOpacity={0.4} />
       </filter>
       <filter id="ppl" x="-15%" y="-15%" width="130%" height="140%" colorInterpolationFilters="sRGB">
         <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves={2} seed={seed} result="n" />
-        <feDisplacementMap in="SourceGraphic" in2="n" scale={6} xChannelSelector="R" yChannelSelector="G" result="d" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale={4} xChannelSelector="R" yChannelSelector="G" result="d" />
         <feDropShadow in="d" dx={0} dy={16} stdDeviation={10} floodColor="#2e1f0c" floodOpacity={0.45} />
       </filter>
       <filter id="rough" x="-5%" y="-5%" width="110%" height="110%" colorInterpolationFilters="sRGB">
         <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves={2} seed={seed} result="n" />
-        <feDisplacementMap in="SourceGraphic" in2="n" scale={5} xChannelSelector="R" yChannelSelector="G" />
+        <feDisplacementMap in="SourceGraphic" in2="n" scale={3.5} xChannelSelector="R" yChannelSelector="G" />
       </filter>
     </defs>
   );
@@ -100,7 +100,7 @@ export const Boom: React.FC<{
   if (fade <= 0) return null;
   return (
     <g
-      transform={`translate(${x} ${y}) scale(${(sc * fl * size) / 100}) rotate(${boil(frame, seed, 10, 2)})`}
+      transform={`translate(${x} ${y}) scale(${(sc * fl * size) / 100}) rotate(${boil(frame, seed, 5, 3)})`}
       opacity={fade}
       filter="url(#pp)"
     >

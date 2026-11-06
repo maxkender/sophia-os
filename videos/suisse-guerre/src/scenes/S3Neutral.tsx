@@ -1,6 +1,6 @@
 import React from 'react';
-import {useCurrentFrame} from 'remotion';
-import {C, camera, ease, lerp, pop} from '../lib';
+
+import {C, camera, ease, lerp, pop, useFrame} from '../lib';
 import {Crown, Debris, Rays, Ring, SwissCross} from '../shapes';
 import {Stage} from '../Stage';
 
@@ -37,7 +37,7 @@ const SIGS = [290, 415, 540, 665, 790];
 
 // 0:07–0:11 — 1815 : le traité, les couronnes signent, le sceau tombe
 export const S3Neutral: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useFrame();
   const cam = camera(
     f,
     [

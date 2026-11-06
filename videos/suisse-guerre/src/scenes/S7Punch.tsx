@@ -1,7 +1,6 @@
 import React from 'react';
-import {useCurrentFrame} from 'remotion';
-import {C, ease, lerp, pop, shake} from '../lib';
-import {EuropeMap, GEO} from '../map';
+
+import {C, ease, lerp, pop, shake, useFrame} from '../lib';
 import {Bomb, Coin, Rays, Sparkle} from '../shapes';
 import {Stage} from '../Stage';
 
@@ -31,9 +30,9 @@ const Pan: React.FC<{x: number; y: number; children?: React.ReactNode}> = ({x, y
   </g>
 );
 
-// 0:26–0:30 — la balance : les bombes coûtent, l'argent pèse plus. Retour à la carte (boucle).
+// 0:31–0:36 — la balance : les bombes coûtent, l'argent pèse plus
 export const S7Punch: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useFrame();
   // angle du fléau : négatif = côté bombes en bas
   const bombsIn = BOMBS.filter((b) => f >= b.s + 6).length;
   const coinsIn = COINS.filter((_, i) => f >= coinStart(i) + 6).length;
@@ -44,28 +43,19 @@ export const S7Punch: React.FC = () => {
   const L: [number, number] = [PIV[0] - ARM * Math.cos(th), PIV[1] - ARM * Math.sin(th)];
   const R: [number, number] = [PIV[0] + ARM * Math.cos(th), PIV[1] + ARM * Math.sin(th)];
   const enter = pop(f, 0, {damping: 10, stiffness: 200});
-  // sortie : la balance est aspirée, la carte revient (même cadrage que le début → boucle)
-  const outQ = lerp(f, [84, 98], [0, 1], ease.in);
-  const mapZ = lerp(f, [84, 123], [3.2, 1.38], ease.out);
-  const mapR = lerp(f, [84, 123], [-14, -4], ease.out);
+  const push = lerp(f, [70, 128], [1, 1.12], ease.out);
   const s = shake(f, [
     [4, 18],
     ...BOMBS.map((b): [number, number] => [b.s + 6, 9]),
     ...COINS.map((_, i): [number, number] => [coinStart(i) + 6, 3]),
     [TIP + 2, 34],
   ]);
-  const [cx, cy] = GEO.chCenter;
 
   return (
     <Stage bg={C.kraft}>
-      {f >= 84 && (
-        <g transform={`translate(540 960) rotate(${mapR}) scale(${mapZ}) translate(${-cx} ${-cy})`}>
-          <EuropeMap />
-        </g>
-      )}
-      {outQ < 1 && (
+      {(
         <g
-          transform={`translate(${540 + s.x} ${960 + s.y}) rotate(${s.r + outQ * 220}) scale(${(1 - outQ) * (0.7 + 0.3 * enter) * lerp(f, [0, 84], [1, 1.08], ease.linear)}) translate(-540 -960)`}
+          transform={`translate(${540 + s.x} ${960 + s.y}) rotate(${s.r}) scale(${(0.7 + 0.3 * enter) * push}) translate(-540 -960)`}
         >
           <rect x={-800} y={-800} width={2700} height={3600} fill={C.kraft} />
           <Rays cx={540} cy={900} n={20} color={C.cream} rot={-f * 0.9} opacity={0.8} />
@@ -108,7 +98,9 @@ export const S7Punch: React.FC = () => {
                 [-80, -190],
                 [70, -220],
                 [0, -260],
-              ].map(([x, y], i) => <Sparkle key={i} x={x} y={y} frame={f + i * 4} size={26} />)}
+                [-130, -110],
+                [120, -130],
+              ].map(([x, y], i) => <Sparkle key={i} x={x} y={y} frame={f + i * 4} size={26 + (i % 2) * 8} />)}
           </Pan>
           {/* fléau */}
           <g transform={`translate(${PIV[0]} ${PIV[1]}) rotate(${theta})`} filter="url(#ppl)">

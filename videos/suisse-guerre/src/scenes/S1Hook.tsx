@@ -1,6 +1,6 @@
 import React from 'react';
-import {random, useCurrentFrame} from 'remotion';
-import {C, ease, lerp, pop, shake} from '../lib';
+import {random} from 'remotion';
+import {C, ease, lerp, pop, shake, useFrame} from '../lib';
 import {EuropeMap, GEO} from '../map';
 import {Boom, FlagPole, Rays} from '../shapes';
 import {Stage} from '../Stage';
@@ -11,7 +11,7 @@ const nearStart = (i: number) => 52 + i * 3;
 
 // 0:00–0:03 — la carte claque, l'Europe explose, la Suisse reste calme
 export const S1Hook: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useFrame();
   const [cx, cy] = GEO.chCenter;
 
   const slam = pop(f, 0, {damping: 13, stiffness: 240, mass: 0.8});

@@ -1,6 +1,6 @@
 import React from 'react';
-import {useCurrentFrame} from 'remotion';
-import {C, camera, ease, lerp, pop, shake} from '../lib';
+
+import {C, camera, ease, lerp, pop, shake, useFrame} from '../lib';
 import {Chalet, Cloud, DollChain, Mountain, Rifle, Sparkle, SwissFlagRect} from '../shapes';
 import {Stage} from '../Stage';
 
@@ -97,7 +97,7 @@ const Interior: React.FC<{f: number}> = ({f}) => {
 
 // 0:11–0:16 — la guirlande de soldats sort du chalet, puis le fusil au mur
 export const S4Army: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useFrame();
   const cam = camera(
     f,
     [

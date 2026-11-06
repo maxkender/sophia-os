@@ -1,6 +1,6 @@
 import React from 'react';
-import {useCurrentFrame} from 'remotion';
-import {C, camera, ease, lerp, pop} from '../lib';
+
+import {C, camera, ease, lerp, pop, useFrame} from '../lib';
 import {Cloud, Debris, FlagPole, Mountain, Rays, Tank} from '../shapes';
 import {Stage} from '../Stage';
 
@@ -75,7 +75,7 @@ const TankRun: React.FC<{f: number; start: number; stall: number; k: number}> = 
 
 // 0:03–0:07 — les Alpes jaillissent, les chars n'arrivent pas à monter
 export const S2Alps: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useFrame();
   const cam = camera(
     f,
     [

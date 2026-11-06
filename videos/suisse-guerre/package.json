@@ -10,6 +10,7 @@
   "private": true,
   "dependencies": {
     "@remotion/cli": "4.0.541",
+    "@remotion/fonts": "4.0.541",
     "@remotion/noise": "4.0.541",
     "@remotion/paths": "4.0.541",
     "@remotion/shapes": "4.0.541",
@@ -19,6 +20,7 @@
     "remotion": "4.0.541"
   },
   "devDependencies": {
+    "@fontsource/plus-jakarta-sans": "^5.3.0",
     "@remotion/eslint-config-flat": "4.0.541",
     "@types/d3-geo": "^3.1.1",
     "@types/react": "19.3.0",

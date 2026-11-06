@@ -2,7 +2,7 @@ import React from 'react';
 import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
 import {TransitionSeries, linearTiming} from '@remotion/transitions';
 import type {TransitionPresentation} from '@remotion/transitions';
-import {step} from './lib';
+import {lerp, step} from './lib';
 import {S1Hook} from './scenes/S1Hook';
 import {S2Alps} from './scenes/S2Alps';
 import {S3Neutral} from './scenes/S3Neutral';
@@ -10,19 +10,23 @@ import {S4Army} from './scenes/S4Army';
 import {S5Tunnel} from './scenes/S5Tunnel';
 import {S6Useful} from './scenes/S6Useful';
 import {S7Punch} from './scenes/S7Punch';
+import {Outro} from './scenes/Outro';
 import {tear, whip} from './transitions';
 
-const T = 8;
-// Durées calées pour que chaque coupe tombe sur le script : 3s, 7s, 11s, 16s, 22s, 26s (total 30s)
+const T = 10;
+// Coupes calées sur le script (récit ralenti ×1,2) : 3,6 s · 8,4 s · 13,2 s · 19,2 s · 26,4 s · 31,2 s · 36 s,
+// puis 9 s de séquence Sophia (total 45 s)
 export const SCENES = [
-  {id: 'S1-Accroche', d: 94, C: S1Hook},
-  {id: 'S2-Alpes', d: 128, C: S2Alps},
-  {id: 'S3-Neutralite', d: 128, C: S3Neutral},
-  {id: 'S4-Armee', d: 158, C: S4Army},
-  {id: 'S5-Tunnels', d: 188, C: S5Tunnel},
-  {id: 'S6-Utile', d: 128, C: S6Useful},
-  {id: 'S7-Chute', d: 124, C: S7Punch},
+  {id: 'S1-Accroche', d: 113, C: S1Hook},
+  {id: 'S2-Alpes', d: 154, C: S2Alps},
+  {id: 'S3-Neutralite', d: 154, C: S3Neutral},
+  {id: 'S4-Armee', d: 190, C: S4Army},
+  {id: 'S5-Tunnels', d: 226, C: S5Tunnel},
+  {id: 'S6-Utile', d: 154, C: S6Useful},
+  {id: 'S7-Chute', d: 154, C: S7Punch},
+  {id: 'S8-Sophia', d: 275, C: Outro},
 ] as const;
+export const OUTRO_START = SCENES.slice(0, -1).reduce((a, s) => a + s.d, 0) - T * (SCENES.length - 1);
 export const TOTAL = SCENES.reduce((a, s) => a + s.d, 0) - T * (SCENES.length - 1);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,6 +37,7 @@ const PRESENTATIONS: TransitionPresentation<any>[] = [
   whip({dir: 'up'}),
   tear({seed: 'c', tilt: 5}),
   whip({dir: 'right'}),
+  tear({seed: 'd', tilt: -5}),
 ];
 
 /** Grain de papier + vignette par-dessus tout */
@@ -45,7 +50,7 @@ export const Paper: React.FC = () => {
     <AbsoluteFill style={{pointerEvents: 'none'}}>
       <Img
         src={staticFile('grain.jpg')}
-        style={{position: 'absolute', width: 1140, height: 2000, left: -30 + ox, top: -40 + oy, mixBlendMode: 'overlay', opacity: 0.55}}
+        style={{position: 'absolute', width: 1140, height: 2000, left: -30 + ox, top: -40 + oy, mixBlendMode: 'overlay', opacity: lerp(f, [OUTRO_START, OUTRO_START + 12], [0.55, 0.25])}}
       />
       <AbsoluteFill style={{background: 'radial-gradient(ellipse at center, rgba(0,0,0,0) 55%, rgba(60,38,15,0.32) 100%)'}} />
     </AbsoluteFill>

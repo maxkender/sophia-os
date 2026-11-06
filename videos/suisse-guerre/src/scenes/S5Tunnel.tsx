@@ -1,7 +1,7 @@
 import React from 'react';
 import {getLength, getPointAtLength} from '@remotion/paths';
-import {random, useCurrentFrame} from 'remotion';
-import {C, camera, ease, lerp, pop, starPoints} from '../lib';
+import {random} from 'remotion';
+import {C, camera, ease, lerp, pop, starPoints, useFrame} from '../lib';
 import {Boom, Chalet, Debris, Dynamite, Mountain, Ring, Sparkle, Tank, Train} from '../shapes';
 import {Stage} from '../Stage';
 
@@ -45,7 +45,7 @@ const Rubble: React.FC<{f: number; x0: number; x1: number; start: number; seed: 
 
 // 0:16–0:22 — le train passe, les tunnels sont minés, BOUM, l'envahisseur ne gagne rien
 export const S5Tunnel: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useFrame();
   const cam = camera(
     f,
     [

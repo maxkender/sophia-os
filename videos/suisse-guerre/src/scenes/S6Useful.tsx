@@ -1,6 +1,6 @@
 import React from 'react';
-import {random, useCurrentFrame} from 'remotion';
-import {C, camera, ease, lerp, pop} from '../lib';
+import {random} from 'remotion';
+import {C, camera, ease, lerp, pop, useFrame} from '../lib';
 import {GEO} from '../map';
 import {Coin, Dove, FlagPole, GoldBar, Handshake, Rays, SwissCross} from '../shapes';
 import {Stage} from '../Stage';
@@ -51,7 +51,7 @@ const Pin: React.FC<{f: number}> = ({f}) => {
 
 // 0:22–0:26 — banques, Croix-Rouge, colombes, poignée de main à Genève
 export const S6Useful: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useFrame();
   const cam = camera(
     f,
     [

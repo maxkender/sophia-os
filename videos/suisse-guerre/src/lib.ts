@@ -1,9 +1,16 @@
-import {Easing, interpolate, random, spring} from 'remotion';
+import {Easing, interpolate, random, spring, useCurrentFrame} from 'remotion';
 import {noise2D} from '@remotion/noise';
 
 export const W = 1080;
 export const H = 1920;
 export const FPS = 30;
+
+/** Le récit est ralenti d'un poil : 30 s → 36 s. Chaque scène lit son temps avec useFrame(). */
+export const STRETCH = 1.2;
+export const useFrame = () => useCurrentFrame() / STRETCH;
+
+/** Force globale des tremblements de caméra (1 = version d'origine) */
+export const SHAKE_K = 0.35;
 
 // Palette papier
 export const C = {
@@ -84,7 +91,7 @@ export const boil = (frame: number, seed: string | number, amp: number, every = 
 export const shake = (frame: number, impacts: readonly (readonly [number, number])[], decay = 7) => {
   let a = 0;
   for (const [t, amp] of impacts) {
-    if (frame >= t) a += amp * Math.exp(-(frame - t) / decay);
+    if (frame >= t) a += amp * SHAKE_K * Math.exp(-(frame - t) / decay);
   }
   return {
     x: noise2D('sx', frame * 0.85, 0) * a,

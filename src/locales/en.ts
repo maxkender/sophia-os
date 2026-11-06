@@ -7428,6 +7428,7 @@ export const en = {
       rechargerOk: "New post ready.",
       rechargerAucun:
         "No other slideshow available right now — try again later, or ask in #questions on Slack.",
+      rechargerEnCoursAilleurs: "This post is already being reloaded. Wait a minute, then refresh the page.",
       rechargerLimite: "Limit reached: 2 reloads maximum for this post.",
       rechargerPublie: "This post is already published — it can’t be reloaded.",
       lienTikTok: "TikTok post link",

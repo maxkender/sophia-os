@@ -8197,7 +8197,7 @@ export const fr = {
         },
       },
       carte: {
-        faire: "Faire ça",
+        faire: "✅ Valider",
         autre: "Autre choix",
         details: "détails",
         sujets_one: "+{{count}} sujet",

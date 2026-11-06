@@ -80,6 +80,9 @@ export function PageProblemesPosteurs() {
           {t(`${P}.modeTest`)}
         </p>
       )}
+      <Link to="/admin/auto/problemes-v2" className="block rounded-md border border-primary/40 bg-primary/5 p-2 text-sm font-medium text-primary" data-testid="lien-v2">
+        ✨ Essayer la nouvelle page Problèmes (en français, « Ton point du jour ») →
+      </Link>
       <div className="flex flex-wrap items-center gap-2">
         <StatsBots />
         <div className="ml-auto flex gap-2">

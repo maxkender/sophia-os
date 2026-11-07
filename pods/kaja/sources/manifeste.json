@@ -143,8 +143,8 @@
    },
    "decor_chez_lui": "falaise",
    "competences": "small talk, glow up, stop being boring, smell good",
-   "statut": "a_faire",
-   "note": "sauté le 06/11 : reprendrait les compétences et titres d'étape de ka-001/ka-002 (flirt, fight / small talk) ; à faire avec d'autres étapes ou plus tard"
+   "statut": "fait",
+   "motif": "ka-008, livraison 72d7f8de du 07/11 en en et de : « SMALL TALK » devient « TALK TO GIRLS », Sophia en étape 3 « BE CULTURED » (cta A)"
   },
   {
    "id": "7672387246825295126",
@@ -176,7 +176,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7240852724106005291"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "sauté le 07/11 : NEGOTIATE et RIZZ déjà dans ka-004 et ka-006"
   },
   {
    "id": "7687211191055174934",
@@ -193,7 +194,7 @@
    },
    "decor_chez_lui": "falaise",
    "statut": "a_faire",
-   "note": "essayé le 06/11 : pas de vraie vidéo française au niveau pour « talk your way out » et « being followed » ; attend"
+   "note": "essayé le 06/11 et le 07/11 : pas de vraie vidéo au niveau en fr puis en de pour « talk your way out », « disappear » et « being followed » ; attend"
   },
   {
    "id": "7673516970519563542",
@@ -225,7 +226,8 @@
     "url": "https://www.tiktok.com/music/seventh-heaven-7359926862746355729"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-009, livraison 2fcc41fc du 07/11 en en et de : Sophia en étape 3 « GET SMARTER » (cta C)"
   },
   {
    "id": "7671587006027205910",

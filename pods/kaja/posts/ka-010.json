@@ -1,0 +1,285 @@
+{
+ "id": "ka-010",
+ "titre": {
+  "en": "10/10 skills every man should know",
+  "de": "10/10 Skills für jeden Mann"
+ },
+ "legendes": {
+  "en": "10/10 skills every man should know #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills für jeden Mann #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 07/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor branche (pendue des deux ailes), en en et de. Des compétences pratiques qu'il n'a pas encore faites (pneu, chemise, steak, rasage), d'autres couleurs de sa palette, des temps réalistes. Sophia en étape 3 « HOW TO TALK ABOUT ANYTHING » : cta A, « 5 min a day ». Vraies vidéos : en ChrisFix, Art of Manliness, Joshua Weissman, Dad, how do I? ; de AUTO BILD, Breuninger, Galileo, Daniel Korte. Musique : un « original sound » qu'il utilise souvent.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "EVERY MAN",
+     "SHOULD KNOW"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "FÜR JEDEN",
+     "MANN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "CHANGE A TIRE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "314HE4aMG-g",
+     "titre": "How to Change a Tire (plus jacking it up)",
+     "chaine": "ChrisFix",
+     "vues": "3.8M views",
+     "date": "12 years ago",
+     "duree": "14:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lsMlPXxQcSMI_EveG6eb7sd1T9vFkEQrXKruSjabO_ANY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WECHSELST DU",
+     [
+      {
+       "t": "EINEN REIFEN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ySvKbGSE5dw",
+     "titre": "AUTO BILD Ratgeber  Reifenwechsel / Radwechsel / Tutorial / How to",
+     "chaine": "AUTO BILD",
+     "vues": "313.538 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/tGLDV7gQK95X_Bkguw4zbVXzSs_UEHx8zDBVr6Fwc4Z1-J8d3o7jOfnDCFW69zz2UEIpazie=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "IRON A SHIRT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0EpinulvKTA",
+     "titre": "How to Iron a Dress Shirt | Art of Manliness",
+     "chaine": "Art of Manliness",
+     "vues": "3.8M views",
+     "date": "12 years ago",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/ZTf0fjWtbo309aFYf0vIMJ0KSBkAfpzgmbk7JyE7bEQf1BP1KTGkQAx1V-NnU6_W-ebbmaQsS2c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BÜGELST DU",
+     [
+      {
+       "t": "EIN HEMD",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TLwKSAOXQ7s",
+     "titre": "Hemd bügeln ANLEITUNG: So geht’s richtig [schnell & einfach]",
+     "chaine": "Breuninger",
+     "vues": "108.628 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "2:05",
+     "avatar": "https://yt3.ggpht.com/9hnEIs2gcN3AOnmWOdyiiqQefG-kOKtLg1JccbvJyTfJiqx9nm6tJr1wnrNNXYEeeJDK6ptuSQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "TALK ABOUT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ANYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO REDEST DU",
+     [
+      {
+       "t": "ÜBER ALLES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "COOK A STEAK",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SdHE2zgSaxU",
+     "titre": "How To Cook A Perfect Steak Every Time",
+     "chaine": "Joshua Weissman",
+     "vues": "5.4M views",
+     "date": "7 years ago",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfXRvoxu5cFt2H4WhJfFLbL5SVdzmvEnFymnPzH3_1qPM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BRÄTST DU",
+     [
+      {
+       "t": "EIN STEAK",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QrF9lUeMQv0",
+     "titre": "So gelingt das perfekte Steak | Galileo | ProSieben",
+     "chaine": "Galileo",
+     "vues": "855.934 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/jOOP8uUA5oWawWRaPnxVuNikKpZ9xzGBZh6opFnlTWe5ty78fcqi8kHUfW6pQP8CFn6JB-48nBs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SHAVE PROPERLY",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vYurKVxFXPI",
+     "titre": "How to Shave Your Face Correctly",
+     "chaine": "Dad, how do I?",
+     "vues": "3.4M views",
+     "date": "6 years ago",
+     "duree": "3:52",
+     "avatar": "https://yt3.ggpht.com/yUgLBMhcFWIXszs2BOojkGbNhLkj5yM1RAgpR3pYf7NeQZGAKhRAHDBQvTlXI433eEiAmbGX5A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO RASIERST DU",
+     [
+      {
+       "t": "DICH RICHTIG",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m-FTTtGAKaQ",
+     "titre": "Rasierpickel vermeiden ● Tipps gegen Pickel nach dem Rasieren",
+     "chaine": "Daniel Korte",
+     "vues": "27.141 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "6:04",
+     "avatar": "https://yt3.ggpht.com/zFRgJY7iKJBjeZFgLGhS-WkWWr0Hbhl-okJA4kSl0b0ARCvapPQliP8vU3CkLuiks-V9i4kj-g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

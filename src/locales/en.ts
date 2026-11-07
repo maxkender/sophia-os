@@ -6229,6 +6229,7 @@ export const en = {
       languesVideo: "Languages",
       pasEncoreDeVideo: "No video yet: the engine is rendering it.",
       duree: "{{s}} s",
+      telecharger: "Download the video",
       sansSousTitres: "Version without subtitles",
       commentaireRejet: "Rejected: {{commentaire}}",
       compteCible: "Will be posted on {{compte}}",

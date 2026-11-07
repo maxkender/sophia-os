@@ -6239,6 +6239,7 @@ export const fr = {
       languesVideo: "Langues",
       pasEncoreDeVideo: "Pas encore de vidéo : le moteur la rend.",
       duree: "{{s}} s",
+      telecharger: "Télécharger la vidéo",
       sansSousTitres: "Version sans sous-titres",
       commentaireRejet: "Rejetée : {{commentaire}}",
       compteCible: "Sera postée sur {{compte}}",

@@ -113,6 +113,7 @@ import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/paus
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, estCompteDeMax, lireCompte, UPWORK_USER_MAX } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
 import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
+import { planCompleterOffre, semainesDepuis } from "../_shared/offres.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -355,6 +356,12 @@ Deno.serve(async (request) => {
       }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
+      case "offres_completer":
+        // 7/11 : une offre HM incomplète (VIk) est corrigée : « Week NN » renommés et semaines manquantes créées, jamais financées.
+        return json(await offresCompleter(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
+      case "deuxieme_contrat_fermer":
+        // 7/11 : « Fermer le 2e contrat » (carte samedi, après le clic de Max) : ferme ce contrat seulement.
+        return json(await deuxiemeContratFermer(supabase, par, String(body.id ?? "")));
       case "jalon_creer":
         // 31/10 : créer une milestone sans la financer (confirmer explicite, aucun cron ne l'envoie) ; elle va dans « To fund by hand ».
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
@@ -4705,3 +4712,110 @@ async function killLot(supabase: Supabase, par: string | null, contrats: { contr
   }
   return { ok: true, executer, lignes };
 }
+
+const ORG_VIK_OFFRES = "2074065383597823773";
+
+/**
+ * 7/11 : les offres HM incomplètes des cohortes en cours (VIk Studios) sont
+ * corrigées sans rien financer : milestone sans semaine → « Week NN » de la
+ * cohorte, « week 46 - … » → « Week 46 », semaines manquantes créées au tarif
+ * de la zone (4 au total). Un seul passage automatique par contrat
+ * (offres_completions) ; une liste de contrats force un nouveau passage.
+ * Réussi : les alertes et cartes « offre incomplète » du contrat sont fermées.
+ */
+async function offresCompleter(supabase: Supabase, par: string | null, contrats: string[] | null) {
+  const auj = maintenantParis().jour;
+  let q = supabase.from("accueils").select("contrat_id, poster_id, pays, cohorte_lundi, organisation_id, classement, statut")
+    .eq("organisation_id", ORG_VIK_OFFRES).gte("cohorte_lundi", ajouterJours(auj, -7));
+  if (contrats?.length) q = q.in("contrat_id", contrats);
+  const { data: accueils, error } = await q;
+  if (error) return { ok: false, error: error.message };
+  const { data: deja } = await supabase.from("offres_completions").select("contrat_id");
+  const faits = new Set((deja ?? []).map((x) => String(x.contrat_id)));
+  const bilan: Record<string, unknown>[] = [];
+  for (const a of accueils ?? []) {
+    const contrat = String(a.contrat_id ?? "");
+    if (!contrat || ["autre_activite", "hm"].includes(String(a.classement ?? "")) || a.statut === "doublon") continue;
+    if (!contrats?.length && faits.has(contrat)) continue;
+    const { data: zp } = await supabase.from("zones_paie_pays").select("zone").eq("pays", String(a.pays ?? "").toUpperCase()).is("retire_at", null).maybeSingle();
+    const { data: z } = zp ? await supabase.from("zones_paie").select("tarif").eq("zone", zp.zone).maybeSingle() : { data: null };
+    const tarif = z?.tarif !== undefined && z?.tarif !== null ? Number(z.tarif) : null;
+    const relu = await relireJalons(supabase, par, contrat, ORG_VIK_OFFRES, "offre_completer_lecture");
+    if (!relu.jalons) {
+      bilan.push({ contrat, erreur: `milestones illisibles : ${relu.erreur}` });
+      continue;
+    }
+    const plan = planCompleterOffre(relu.jalons, semainesDepuis(String(a.cohorte_lundi)), tarif);
+    if (plan.refus || plan.actions.length === 0) {
+      if (plan.actions.length === 0 && !plan.refus) bilan.push({ contrat, rien: true });
+      else bilan.push({ contrat, refus: plan.refus });
+      if (!contrats?.length && plan.refus) {
+        await supabase.from("offres_completions").upsert({ contrat_id: contrat, statut: "refus", actions: [], erreur: plan.refus, at: new Date().toISOString() }, { onConflict: "contrat_id" });
+      }
+      continue;
+    }
+    const faites: Record<string, unknown>[] = [];
+    let erreur: string | null = null;
+    for (const act of plan.actions) {
+      if (act.type === "renommer") {
+        const r = await ecrire(supabase, {
+          par, action: "offre_renommer_jalon", query: MUTATION_EDITER_JALON, tenant: ORG_VIK_OFFRES, contrat, montant: 0,
+          variables: { input: { id: act.jalon_id, description: act.vers } },
+        });
+        if (r.erreur || !r.data?.editMilestone) { erreur = `renommer « ${act.de} » : ${r.erreur ?? "réponse vide"}`; break; }
+        faites.push(act);
+      } else {
+        const r = await ecrire(supabase, {
+          par, action: "offre_creer_jalon", query: MUTATION_CREER_JALON, tenant: ORG_VIK_OFFRES, contrat, montant: act.montant,
+          variables: { input: { contractId: contrat, description: act.nom, depositAmount: centimes(act.montant), ...(await echeanceJalon(supabase, par, ORG_VIK_OFFRES, act.nom)) } },
+        });
+        const id = r.data?.createMilestoneV2?.id ? String(r.data.createMilestoneV2.id) : null;
+        if (r.erreur || !id) { erreur = `créer ${act.nom} : ${r.erreur ?? "réponse vide"}`; break; }
+        faites.push({ ...act, jalon_id: id, etat: r.data?.createMilestoneV2?.state ?? null });
+      }
+    }
+    // Les milestones relus et gardés (lecture de l'OS à jour).
+    const apres = await relireJalons(supabase, par, contrat, ORG_VIK_OFFRES, "offre_completer_relecture");
+    if (apres.jalons) {
+      await supabase.from("upwork_jalons").upsert({ contrat_id: contrat, organisation_id: ORG_VIK_OFFRES, jalons: apres.jalons, erreur: null, lu_at: new Date().toISOString() }, { onConflict: "contrat_id" });
+    }
+    await supabase.from("offres_completions").upsert({
+      contrat_id: contrat, statut: erreur ? "erreur" : "fait", actions: faites, erreur, at: new Date().toISOString(),
+    }, { onConflict: "contrat_id" });
+    if (!erreur) {
+      const note = `Offre complétée par l'OS (${faites.length} changement(s), rien financé)`;
+      await supabase.from("offres_alertes").update({ ferme_at: new Date().toISOString(), ferme_raison: note })
+        .eq("contrat_id", contrat).is("ferme_at", null).in("motif", ["nb_milestones", "nom_1er"]);
+      await supabase.from("problemes").update({ statut: "ferme_auto", ferme_at: new Date().toISOString(), ferme_raison: note, maj_at: new Date().toISOString() })
+        .eq("contrat_id", contrat).eq("categorie", "offre_hm_incorrecte").eq("statut", "ouvert");
+    }
+    bilan.push({ contrat, faites, erreur });
+  }
+  return { ok: true, contrats: bilan };
+}
+
+/**
+ * 7/11 : « Fermer le 2e contrat » : seulement ce contrat, seulement si la
+ * personne a un autre contrat VIk actif et que ce n'est pas celui de sa fiche.
+ * Le milestone financé éventuel revient (comme un kill) ; échec → carte Paie.
+ */
+async function deuxiemeContratFermer(supabase: Supabase, par: string | null, id: string) {
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: "id requis" };
+  const { data: carte } = await supabase.from("problemes").select("id, categorie, decision_choisie, contrat_id, poster_id, journal").eq("id", id).maybeSingle();
+  if (!carte || carte.categorie !== "deuxieme_contrat" || carte.decision_choisie !== 1 || !carte.contrat_id) return { ok: false, error: "carte non validée pour fermer" };
+  const contrat = String(carte.contrat_id);
+  const { data: uc } = await supabase.from("upwork_contrats").select("freelancer_id").eq("contrat_id", contrat).maybeSingle();
+  const { data: autres } = await supabase.from("upwork_contrats").select("contrat_id").eq("freelancer_id", uc?.freelancer_id ?? "-")
+    .eq("organisation_id", ORG_VIK_OFFRES).eq("actif", true).eq("etat", "Active").neq("contrat_id", contrat);
+  const { data: fiche } = await supabase.from("profiles").select("upwork_contract_id").eq("id", carte.poster_id ?? "").maybeSingle();
+  if (!autres?.length || fiche?.upwork_contract_id === contrat) {
+    return { ok: false, error: "pas d'autre contrat actif, ou c'est le contrat de sa fiche : rien fermé" };
+  }
+  const r = await killLot(supabase, par, [{ contrat_id: contrat, poster_id: null }], true);
+  await supabase.from("problemes").update({
+    ferme_raison: r.ok ? `2e contrat ${contrat} fermé` : `2e contrat ${contrat} : ${(r as { error?: string }).error ?? "à fermer à la main"}`,
+    journal: [...((carte.journal as unknown[]) ?? []), { at: new Date().toISOString(), par: "upwork", action: "deuxieme_contrat_fermer", resultat: r }],
+  }).eq("id", id);
+  return r;
+}
+

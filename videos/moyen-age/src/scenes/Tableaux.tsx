@@ -38,7 +38,6 @@ import {
   Snow,
   Stars,
   Steam,
-  Steps,
   Sun,
   Sword,
   Table,
@@ -67,7 +66,7 @@ const usePage = () => {
  *  `plat` garde le plan entier (pages en grille). */
 const Cam: React.FC<{children: React.ReactNode; dx?: number; dy?: number; z1?: number; cx?: number; cy?: number; plat?: boolean}> = ({
   children,
-  dx = 30,
+  dx = 110,
   dy = 0,
   z1 = 1.06,
   cx = 540,
@@ -78,12 +77,13 @@ const Cam: React.FC<{children: React.ReactNode; dx?: number; dy?: number; z1?: n
   const t = lerp(f, [0, d], [0, 1], ease.linear);
   const base = plat ? 1 : 1.15;
   // entrée : la page arrive d'un peu plus près ; moment fort : petite poussée de caméra qui reste
-  const entree = lerp(f, [0, 24], [0.06, 0], ease.out);
-  const poussee = lerp(f, [m - 2, m + 18], [0, 0.045], ease.out);
-  const z = base * (1 + (z1 - 1) * t + entree + poussee);
+  const entree = lerp(f, [0, 20], [0.1, 0], ease.out);
+  const poussee = lerp(f, [m - 2, m + 14], [0, 0.08], ease.out);
+  const z = base * (1 + (z1 - 1) * 1.6 * t + entree + poussee);
+  const rot = (dx >= 0 ? 1 : -1) * lerp(f, [0, d], [-1.2, 1.2], ease.linear);
   const x = cx + dx * (t - 0.5);
   const y = cy + (plat ? 0 : 250) + dy * (t - 0.5);
-  return <g transform={`translate(540 960) scale(${z}) translate(${-x} ${-y})`}>{children}</g>;
+  return <g transform={`translate(540 960) rotate(${rot}) scale(${z}) translate(${-x} ${-y})`}>{children}</g>;
 };
 
 const Village: React.FC = () => (
@@ -117,14 +117,14 @@ const P02: React.FC = () => {
   const {soft} = usePage();
   const t = soft(30);
   return (
-    <Stage bg={M.skyWarm}>
-      <Cam z1={1.04} plat>
-        <rect x={-600} y={-600} width={2280} height={3200} fill={M.skyWarm} />
-        <Steps n={1} t={t} />
+    <Stage bg={M.sky}>
+      <Cam dx={-90}>
+        <Countryside />
+        <Village />
         {Array.from({length: 10}, (_, i) => (
-          <Person key={i} x={120 + i * 92} y={1200} s={0.42} tunic={i < 9 ? M.tunicBrown : M.royalBlue} hat={i < 9 ? 'capuche' : 'aucun'} opacity={i < 9 ? 0.35 + t * 0.65 : 0.35} />
+          <Person key={i} x={90 + i * 100} y={1330 - (i % 2) * 30} s={0.5} tunic={i < 9 ? M.tunicBrown : M.royalBlue} hat={i < 9 ? 'capuche' : 'couronne'} opacity={i < 9 ? 1 : 0.5 + (1 - t) * 0.5} />
         ))}
-        <Person x={225} y={1060} s={0.9 * t + 0.001} tunic={M.tunicBrown} hat="capuche" opacity={t} />
+        <Person x={540} y={1560} s={1.2 + t * 0.1} tunic={M.tunicBrown} hat="capuche" arm={20} />
       </Cam>
     </Stage>
   );
@@ -137,12 +137,10 @@ const P03: React.FC = () => {
     <Stage bg={M.plank}>
       <Cam dx={-30} z1={1.05}>
         <Interior fire={1} />
-        <Cradle x={360} y={1440} s={1.1} />
-        <Person x={250} y={1500} s={1.1} tunic={M.dress} hat="voile" robe arm={40} />
-        <g opacity={t}>
-          <Cow x={lerp(t, [0, 1], [1250, 900], ease.inOut)} y={1520} s={0.9} flip />
-          <Pig x={lerp(t, [0, 1], [1200, 700], ease.inOut)} y={1620} s={0.8} flip />
-        </g>
+        <Cradle x={560} y={1500} s={1.1} />
+        <Person x={400} y={1520} s={1.05} tunic={M.dress} hat="voile" robe arm={50} />
+        <Cow x={lerp(t, [0, 1], [1400, 860], ease.inOut)} y={1540} s={0.75} flip />
+        <Pig x={lerp(t, [0, 1], [1350, 720], ease.inOut)} y={1660} s={0.7} flip />
       </Cam>
     </Stage>
   );
@@ -181,7 +179,7 @@ const P05: React.FC = () => {
         {Array.from({length: 10}, (_, i) => {
           const last = i === 9;
           const x = 160 + (i % 5) * 150 + (last ? t * 330 : 0);
-          const y = 1560 + Math.floor(i / 5) * 150 - (last ? t * 160 : 0);
+          const y = 1420 + Math.floor(i / 5) * 120 - (last ? t * 160 : 0);
           return <Sack key={i} x={x} y={y} s={0.9} c={last ? '#E2C27E' : '#C9A66B'} />;
         })}
       </Cam>
@@ -310,19 +308,24 @@ const P11: React.FC = () => {
 const P12: React.FC = () => {
   const {soft} = usePage();
   const t = soft(24);
+  const bras = 30 + t * 50;
+  // main du guérisseur (personnage retourné en x 860, épaule à 48 px, bras de 130 px, échelle 1,05)
+  const r = (bras * Math.PI) / 180;
+  const hx = 860 - 1.05 * (48 + 130 * Math.sin(r));
+  const hy = 1560 + 1.05 * (-230 + 130 * Math.cos(r));
   return (
     <Stage bg={M.plank}>
-      <Cam dx={-30} cy={1150}>
+      <Cam dx={-90} cy={1150}>
         <Interior fire={0.6} />
         <Bed x={420} y={1520} />
         <Person x={640} y={1385} s={0.95} tunic={M.tunicBrown} lie />
         <Blanket x={480} y={1430} s={0.95} />
-        <Person x={860} y={1560} s={1.05} tunic={M.tunicGreen} hat="capuche" flip arm={70 * t} />
-        <g transform={`translate(760 ${1180 - t * 20}) rotate(${-30 + t * 10})`} opacity={0.4 + t * 0.6} filter="url(#pp)">
-          <polygon points="0,0 120,-14 120,14" fill={M.steel} />
-          <rect x={-60} y={-10} width={60} height={20} rx={6} fill={M.timber} />
+        <Bowl x={660} y={1600} s={0.8} fill={0.6} />
+        <Person x={860} y={1560} s={1.05} tunic={M.tunicGreen} hat="capuche" flip arm={bras} />
+        <g transform={`translate(${hx} ${hy}) rotate(${190 - bras * 0.6})`} filter="url(#pp)">
+          <polygon points="0,-8 110,-2 0,8" fill={M.steel} />
+          <rect x={-46} y={-9} width={46} height={18} rx={6} fill={M.timber} />
         </g>
-        <Bowl x={640} y={1600} s={0.8} fill={0.6} />
       </Cam>
     </Stage>
   );
@@ -345,17 +348,19 @@ const P13: React.FC = () => {
 
 // ——— Niveau 2 : l'artisan ———
 const P14: React.FC = () => {
-  const {soft} = usePage();
+  const {f, soft} = usePage();
   const t = soft(30);
   return (
     <Stage bg={M.sky}>
       <Cam z1={1.05}>
         <TownStreet />
-        <g transform="translate(470 820)">
-          <rect x={-4} y={-20} width={180} height={10} fill={M.timber} />
-          <g transform={`translate(150 -10) rotate(${(1 - t) * -25})`} opacity={t}>
-            <rect x={-2} y={0} width={4} height={40} fill={M.timber} />
-            <Shoe x={0} y={120} s={0.8} />
+        <g transform="translate(350 1000)">
+          <rect x={0} y={-8} width={260} height={16} fill={M.timber} filter="url(#pp)" />
+          <g transform={`translate(200 8) rotate(${(1 - t) * -70 + Math.sin(f / 12) * 4})`}>
+            <rect x={-60} y={0} width={4} height={40} fill={M.timber} />
+            <rect x={56} y={0} width={4} height={40} fill={M.timber} />
+            <rect x={-90} y={40} width={180} height={130} rx={10} fill={M.gold} filter="url(#pp)" />
+            <Shoe x={-8} y={140} s={0.7} />
           </g>
         </g>
         <Person x={500} y={1450} s={1} tunic={M.tunicBlue} hat="bonnet" />
@@ -376,7 +381,7 @@ const P15: React.FC = () => {
         <path d="M 100 1900 Q 400 1400 760 1100" stroke={M.dirt} strokeWidth={120} fill="none" filter="url(#pp)" />
         <Person x={360} y={1560} s={0.65} tunic={M.tunicRed} />
         <Sack x={410} y={1290} s={0.35} />
-        <Hourglass x={760} y={600} s={0.9} r={t * 180} t={t} />
+        <Hourglass x={300} y={1000} s={0.75} r={t * 180} t={t} />
       </Cam>
     </Stage>
   );
@@ -438,7 +443,7 @@ const P18: React.FC = () => {
 };
 
 const P19: React.FC = () => {
-  const {soft} = usePage();
+  const {f, soft} = usePage();
   const t = soft(60);
   return (
     <Stage bg={M.sky}>
@@ -446,10 +451,10 @@ const P19: React.FC = () => {
         <rect x={-600} y={-600} width={2280} height={3200} fill={interpolateColors(t, [0, 1], [M.sky, '#B3B2B5'])} />
         <Sea y={1150} />
         <g filter="url(#pp)">
-          <rect x={-100} y={1100} width={500} height={120} fill={M.plankDark} />
+          <rect x={60} y={1100} width={440} height={120} fill={M.plankDark} />
         </g>
-        <Ship x={lerp(t, [0, 1], [1400, 640], ease.inOut)} y={1230} s={1.1} />
-        <Person x={120} y={1110} s={0.6} tunic={M.tunicBlue} />
+        <Ship x={lerp(t, [0, 1], [1300, 720], ease.inOut)} y={1230 + Math.sin(f / 15) * 8} s={1.1} />
+        <Person x={300} y={1110} s={0.6} tunic={M.tunicBlue} />
       </Cam>
     </Stage>
   );
@@ -522,8 +527,9 @@ const P23: React.FC = () => {
         <Castle x={820} y={1020} s={0.6} />
         <Horse x={300} y={1560} s={0.95} />
         <Person x={760} y={1580} s={0.85} tunic={M.tunicRed} flip arm={t * 70} />
-        <g opacity={t} transform={`translate(690 ${1260 - t * 30})`}>
+        <g opacity={t} transform={`translate(${760 - 95} ${1580 - 0.85 * 120 - t * 20}) scale(0.8)`}>
           <path d="M -50 0 L -50 -60 Q -50 -110 0 -112 Q 50 -110 50 -60 L 50 0 Z" fill={M.steel} filter="url(#pp)" />
+          <rect x={-40} y={-56} width={80} height={9} fill={C.ink} />
         </g>
       </Cam>
     </Stage>
@@ -594,7 +600,7 @@ const P27: React.FC = () => {
             <Shield x={190 + (i % 4) * 235} y={300 + Math.floor(i / 4) * 250} s={0.8} c={i < 4 ? M.tunicRed : interpolateColors(t, [0, 1], [M.tunicBlue, '#7D7A76'])} />
           </g>
         ))}
-        <Person x={540} y={1240} s={0.8} armor hat="aucun" cape={M.tunicRed} />
+        <Person x={540} y={1500} s={1.15} armor hat="aucun" cape={M.tunicRed} />
       </Cam>
     </Stage>
   );
@@ -608,12 +614,13 @@ const P28: React.FC = () => {
     <Stage bg={M.stoneDark}>
       <Cam z1={1.07} cy={1050}>
         <ThroneRoom />
-        <Throne x={540} y={1500} s={1} />
-        <Person x={540} y={1500} s={0.8} tunic={M.royalBlue} cape={M.royal} />
-        <g transform={`translate(540 ${lerp(t, [0, 1], [500, 1006], ease.inOut)}) scale(0.8)`}>
+        <Throne x={540} y={1520} s={1.15} />
+        <Person x={540} y={1520} s={1} tunic={M.royalBlue} cape={M.royal} />
+        <g transform={`translate(540 ${lerp(t, [0, 1], [700, 1520 - 336], ease.inOut)}) scale(1.1)`}>
           <polygon points="-40,0 -40,-44 -20,-20 0,-50 20,-20 40,-44 40,0" fill={M.gold} filter="url(#pp)" />
+          <circle cx={0} cy={-14} r={6} fill={C.red} />
         </g>
-        <Person x={220} y={1560} s={0.9} tunic={M.tunicGrey} hat="capuche" />
+        <Person x={200} y={1580} s={1.05} tunic={M.tunicGrey} hat="capuche" arm={40} />
       </Cam>
     </Stage>
   );
@@ -647,9 +654,9 @@ const P30: React.FC = () => {
       <Cam z1={1.07} cy={1150}>
         <ThroneRoom />
         <Table x={540} y={1380} w={760} />
-        <Goblet x={430 + t * 60} y={1350 - t * 140} s={1.1} r={-t * 30} />
+        <Goblet x={lerp(t, [0, 1], [430, 470])} y={lerp(t, [0, 1], [1350, 1340])} s={1.1} r={-t * 20} />
         <Bowl x={700} y={1350} s={0.9} fill={1} />
-        <Person x={560} y={1600} s={0.9} tunic={M.tunicGrey} arm={t * 100} />
+        <Person x={560} y={1600} s={0.9} tunic={M.tunicGrey} arm={t * 70} />
         <Person x={900} y={1600} s={1.05} tunic={M.royalBlue} cape={M.royal} hat="couronne" flip />
       </Cam>
     </Stage>
@@ -687,7 +694,7 @@ const P32: React.FC = () => {
           <Tree key={k} x={x} y={1300 + (k % 2) * 40} s={1.3} c="#4F7A3E" />
         ))}
         <Horse x={420} y={1560} s={0.9} />
-        <g transform={`translate(${lerp(t, [0, 1], [500, 760])} ${lerp(t, [0, 1], [1100, 1620], ease.in)}) rotate(${t * 220})`}>
+        <g transform={`translate(${lerp(t, [0, 1], [500, 760])} ${lerp(t, [0, 1], [1100, 1560], ease.in)}) rotate(${t * 220}) scale(1.8)`}>
           <polygon points="-40,0 -40,-44 -20,-20 0,-50 20,-20 40,-44 40,0" fill={M.gold} filter="url(#pp)" />
         </g>
       </Cam>

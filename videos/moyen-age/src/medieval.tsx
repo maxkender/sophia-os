@@ -2,7 +2,13 @@
 import React from 'react';
 import {random, useCurrentFrame} from 'remotion';
 import {noise2D} from '@remotion/noise';
-import {C} from './lib';
+import {C, pop} from './lib';
+
+/** Apparition au début de la page : petit saut élastique, décalé selon la position (de gauche à droite) */
+export const usePopIn = (x: number, retard = 0) => {
+  const f = useCurrentFrame();
+  return Math.max(0.001, pop(f, 2 + retard + Math.max(0, Math.min(14, x / 80)), {damping: 11, stiffness: 170}));
+};
 
 export const M = {
   sky: '#BFDDEB',
@@ -79,8 +85,9 @@ export const Person: React.FC<{
   const balance = Math.sin(f / 17 + ph) * 4;
   arm = arm + balance;
   armL = armL - balance;
+  const k = usePopIn(x);
   return (
-    <g transform={`translate(${x} ${y + souffle * s * 0.5}) scale(${flip ? -s : s} ${s * (1 + souffle * 0.002)}) ${lie ? 'rotate(-90)' : ''}`} opacity={opacity}>
+    <g transform={`translate(${x} ${y + souffle * s * 0.5}) scale(${(flip ? -s : s) * k} ${s * k * (1 + souffle * 0.002)}) ${lie ? 'rotate(-90)' : ''}`} opacity={opacity}>
       {cape && <path d="M -62 -250 Q -80 -120 -70 -30 L 70 -30 Q 80 -120 62 -250 Z" fill={cape} />}
       {!robe && (
         <>
@@ -175,8 +182,11 @@ export const Countryside: React.FC<{sky?: string; hill?: string; field?: string;
   );
 };
 
-export const Tree: React.FC<{x: number; y: number; s?: number; c?: string; bare?: boolean}> = ({x, y, s = 1, c = '#5E8A47', bare = false}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
+export const Tree: React.FC<{x: number; y: number; s?: number; c?: string; bare?: boolean}> = ({x, y, s = 1, c = '#5E8A47', bare = false}) => {
+  const k = usePopIn(x, 4);
+  const vent = Math.sin(useCurrentFrame() / 14 + x) * 1.5;
+  return (
+  <g transform={`translate(${x} ${y}) scale(${s * k}) rotate(${vent})`} filter="url(#pp)">
     <path d="M -16 0 L -10 -200 L 10 -200 L 16 0 Z" fill={M.timber} />
     {bare ? (
       <g stroke={M.timber} strokeWidth={10} strokeLinecap="round">
@@ -193,7 +203,8 @@ export const Tree: React.FC<{x: number; y: number; s?: number; c?: string; bare?
       </>
     )}
   </g>
-);
+  );
+};
 
 /** Château sur une colline (origine : base au centre) */
 export const Castle: React.FC<{x: number; y: number; s?: number; banner?: string; flag?: number}> = ({x, y, s = 1, banner = M.tunicRed, flag: flag0 = 0}) => {
@@ -303,8 +314,10 @@ export const Interior: React.FC<{fire?: number; dark?: number; window?: number}>
   );
 };
 
-export const Pig: React.FC<{x: number; y: number; s?: number; flip?: boolean}> = ({x, y, s = 1, flip}) => (
-  <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s})`} filter="url(#pp)">
+export const Pig: React.FC<{x: number; y: number; s?: number; flip?: boolean}> = ({x, y, s = 1, flip}) => {
+  const k = usePopIn(x, 6);
+  return (
+  <g transform={`translate(${x} ${y}) scale(${(flip ? -s : s) * k} ${s * k})`} filter="url(#pp)">
     {[-50, -20, 30, 60].map((lx) => (
       <rect key={lx} x={lx - 9} y={-40} width={18} height={40} rx={6} fill="#D88E8A" />
     ))}
@@ -315,10 +328,13 @@ export const Pig: React.FC<{x: number; y: number; s?: number; flip?: boolean}> =
     <circle cx={108} cy={-104} r={5} fill={C.ink} />
     <path d="M -100 -96 q -24 -10 -16 -30" stroke="#D88E8A" strokeWidth={7} fill="none" />
   </g>
-);
+  );
+};
 
-export const Cow: React.FC<{x: number; y: number; s?: number; flip?: boolean}> = ({x, y, s = 1, flip}) => (
-  <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s})`} filter="url(#pp)">
+export const Cow: React.FC<{x: number; y: number; s?: number; flip?: boolean}> = ({x, y, s = 1, flip}) => {
+  const k = usePopIn(x, 6);
+  return (
+  <g transform={`translate(${x} ${y}) scale(${(flip ? -s : s) * k} ${s * k})`} filter="url(#pp)">
     {[-90, -55, 55, 90].map((lx) => (
       <rect key={lx} x={lx - 12} y={-80} width={24} height={80} rx={6} fill="#7B5A3E" />
     ))}
@@ -330,7 +346,8 @@ export const Cow: React.FC<{x: number; y: number; s?: number; flip?: boolean}> =
     <circle cx={140} cy={-210} r={6} fill={C.ink} />
     <circle cx={176} cy={-210} r={6} fill={C.ink} />
   </g>
-);
+  );
+};
 
 export const Crow: React.FC<{x: number; y: number; s?: number; flap?: number}> = ({x, y, s = 1, flap = 0}) => (
   <g transform={`translate(${x} ${y}) scale(${s})`}>
@@ -341,13 +358,16 @@ export const Crow: React.FC<{x: number; y: number; s?: number; flap?: number}> =
   </g>
 );
 
-export const Sack: React.FC<{x: number; y: number; s?: number; c?: string}> = ({x, y, s = 1, c = '#C9A66B'}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
+export const Sack: React.FC<{x: number; y: number; s?: number; c?: string}> = ({x, y, s = 1, c = '#C9A66B'}) => {
+  const k = usePopIn(x, 6);
+  return (
+  <g transform={`translate(${x} ${y}) scale(${s * k})`} filter="url(#pp)">
     <path d="M -60 0 Q -78 -80 -40 -130 L 40 -130 Q 78 -80 60 0 Z" fill={c} />
     <rect x={-30} y={-148} width={60} height={22} rx={8} fill={c} />
     <path d="M -34 -130 L 34 -130" stroke="#8C6A3A" strokeWidth={8} />
   </g>
-);
+  );
+};
 
 export const Bowl: React.FC<{x: number; y: number; s?: number; fill?: number}> = ({x, y, s = 1, fill = 0}) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
@@ -467,12 +487,15 @@ export const TownStreet: React.FC<{dusk?: number; lit?: number[]; mud?: boolean}
   );
 };
 
-export const Shoe: React.FC<{x: number; y: number; s?: number; r?: number}> = ({x, y, s = 1, r = 0}) => (
-  <g transform={`translate(${x} ${y}) scale(${s}) rotate(${r})`} filter="url(#pp)">
+export const Shoe: React.FC<{x: number; y: number; s?: number; r?: number}> = ({x, y, s = 1, r = 0}) => {
+  const k = usePopIn(x, 6);
+  return (
+  <g transform={`translate(${x} ${y}) scale(${s * k}) rotate(${r})`} filter="url(#pp)">
     <path d="M -90 0 L -90 -80 Q -60 -100 -20 -70 Q 40 -40 110 -30 Q 130 -10 110 0 Z" fill="#6B4528" />
     <rect x={-96} y={-6} width={210} height={14} rx={6} fill="#3A2614" />
   </g>
-);
+  );
+};
 
 export const Workbench: React.FC<{x: number; y: number}> = ({x, y}) => (
   <g transform={`translate(${x} ${y})`} filter="url(#pp)">
@@ -523,12 +546,15 @@ export const Sword: React.FC<{x: number; y: number; s?: number; r?: number}> = (
   </g>
 );
 
-export const Shield: React.FC<{x: number; y: number; s?: number; c?: string; c2?: string}> = ({x, y, s = 1, c = M.tunicRed, c2 = M.gold}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
+export const Shield: React.FC<{x: number; y: number; s?: number; c?: string; c2?: string}> = ({x, y, s = 1, c = M.tunicRed, c2 = M.gold}) => {
+  const k = usePopIn(x, 6);
+  return (
+  <g transform={`translate(${x} ${y}) scale(${s * k})`} filter="url(#pp)">
     <path d="M -80 -100 L 80 -100 L 80 0 Q 80 80 0 120 Q -80 80 -80 0 Z" fill={c} />
     <path d="M -10 -100 L 10 -100 L 10 110 Q 0 118 -10 110 Z" fill={c2} />
   </g>
-);
+  );
+};
 
 export const Horse: React.FC<{x: number; y: number; s?: number; flip?: boolean; c?: string; lie?: number}> = ({x, y, s = 1, flip, c = '#7A5236', lie = 0}) => (
   <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s}) rotate(${lie * -12})`} filter="url(#pp)">
@@ -545,14 +571,17 @@ export const Horse: React.FC<{x: number; y: number; s?: number; flip?: boolean; 
   </g>
 );
 
-export const Tent: React.FC<{x: number; y: number; s?: number; c?: string; lit?: number}> = ({x, y, s = 1, c = M.plaster, lit = 0}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
+export const Tent: React.FC<{x: number; y: number; s?: number; c?: string; lit?: number}> = ({x, y, s = 1, c = M.plaster, lit = 0}) => {
+  const k = usePopIn(x, 6);
+  return (
+  <g transform={`translate(${x} ${y}) scale(${s * k})`} filter="url(#pp)">
     <polygon points="-200,0 0,-280 200,0" fill={c} />
     <polygon points="-50,0 0,-160 50,0" fill={lit > 0 ? M.fireHot : M.timber} opacity={lit > 0 ? 0.5 + lit * 0.5 : 0.8} />
     <rect x={-4} y={-330} width={8} height={60} fill={M.timber} />
     <path d="M 4 -330 L 60 -316 L 4 -300 Z" fill={M.tunicRed} />
   </g>
-);
+  );
+};
 
 export const Throne: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 1}) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">

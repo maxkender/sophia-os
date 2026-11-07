@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o160",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "91d8b0a6-0223-489b-ac2e-42d4ed22b054",
+ "titre": "Classic skills that make you the man nobody forgets #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "91d8b0a6-0223-489b-ac2e-42d4ed22b054"
+ ],
+ "notes": "cta B : avant/après, slide 5, sur une image sans visage. Couverture 9e66209e. déclinaison G2 de la ligne 2 de la boîte (91d8b0a6, « Old school skills that will make you unforgettable », pt-BR 10,5 k r 6,4), 3e et dernière déclinaison de ce parent après ay-o109 et ay-o133. Même promesse, autres mots. Items neufs, aucun repris du parent, d'ay-o109 ni d'ay-o133.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9e66209e",
+   "texte_overlay": "Classic skills that make you\nthe man nobody forgets",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Knowing how to carve and serve. A roast chicken at a family dinner, cut cleanly and served to everyone first. It's an old skill, and people notice the man who does it.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Dancing a simple slow dance. At a wedding, with your grandmother, your partner, a friend. Knowing a few basic steps makes the moment special for both of you.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Telling a story at a dinner table. A short, funny, well-timed story. Grandfathers were masters at it, and the man who can do it today is remembered at every party.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Knowing a bit of history. I do five minutes a day of history, art or science, and old-fashioned general knowledge still impresses people more than any gadget.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Old-fashioned general knowledge still impresses more than any gadget.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Shining your own shoes. A tin of polish, a brush, ten minutes on a Sunday. Well-kept shoes are a classic sign of a man who takes care of the details.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Lighting a proper fire. At a cabin, a beach, a garden. Building a fire from scratch is a primal skill, and everyone gathers around the man who can do it.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Writing a heartfelt speech. A best man speech, a retirement toast, a few words at a funeral. Finding the right words for big moments is a gift people never forget.",
+   "media_id": "e1140173"
+  }
+ ]
+}

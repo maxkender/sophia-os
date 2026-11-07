@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o113",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "945918ab-66c5-44b9-99cb-dc617c4d41c5",
+ "titre": "how i fell in love with myself again #selflove #healing #smartgirl #selfcare #softlife",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "3de75259-9d95-4432-bf3f-ea6b021da44b"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 8 de la boîte (parent 945918ab, langue source en) : accroche du parent mot pour mot. Étapes neuves face au parent (petites promesses tenues, cinéma seule, une chambre qu'on aime retrouver, se reposer sans le mériter, trois choses aimées chaque soir, nourrir son esprit pour soi). Présence, jamais corps. Sophia en cta C (à la place du scroll). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f3b0d9c1",
+   "texte_overlay": "how i fell in love\nwith myself again",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8fe766a4",
+   "texte_overlay": "i stopped waiting for someone\nelse to choose me.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "72b86364",
+   "texte_overlay": "i kept small promises to myself.\nwater. a walk. bed before\nmidnight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b168e18d",
+   "texte_overlay": "i went to the cinema alone\nand loved it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "60bc84ba",
+   "texte_overlay": "i made my room a place i love\ncoming home to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3326173e",
+   "texte_overlay": "i let myself rest without\nearning it first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2a91deb5",
+   "texte_overlay": "every night, i wrote down\nthree things i liked\nabout my day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5813b3dc",
+   "texte_overlay": "i fed my mind for me, not to\nimpress anyone. a painting,\na poem, a page of history.",
+   "texte_sophia": "i fed my mind for me, not to\nimpress anyone. 5 minutes\na day on an app like Sophia\ninstead of scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "39133d2c",
+   "texte_overlay": "be gentle with yourself.\nsave this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  }
+ ]
+}

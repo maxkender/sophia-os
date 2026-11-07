@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o062",
+ "type_bleo": "full_test",
+ "titre": "Habits of men who are quietly respected everywhere #men #respect #discipline #selfimprovement #mindset",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 7/11. Full test du jour (jauge : 1 sur 4). Accroche jamais faite chez nous : aucun « quietly respected » ni « respected everywhere » dans donnees/label.json (« respected man » n'y est qu'une fois, dans un corps de texte). Le respect concret, comme la famille protecteur (am-o010) et « raised right » (am-o002), les deux percées du pod, mais une promesse neuve. Format : numéro, habitude, puis deux lignes. Images de la banque ; slide Sophia : fenêtre sur la montagne, sans personne. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "004c964a",
+   "texte_overlay": "Habits of men who are\nquietly respected everywhere",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "12812cb9",
+   "texte_overlay": "1. He's on time\n\nEvery time.\nPeople notice before\nhe says a word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "01e851de",
+   "texte_overlay": "2. He treats the waiter\nlike the boss\n\nSame tone. Same respect.\nEveryone at the table sees it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1a8634e5",
+   "texte_overlay": "3. He never talks\nabout his money\n\nNo flexing. No numbers.\nQuiet looks stronger.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9b40686e",
+   "texte_overlay": "4. He keeps small promises\n\n\"I'll send it tonight.\"\nAnd he does.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "22228ad9",
+   "texte_overlay": "5. He listens more\nthan he talks\n\nWhen he finally speaks,\nthe room listens.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d6e5f11",
+   "texte_overlay": "6. He keeps learning\n\nFive minutes a day,\nevery day. A sharp mind\nnever goes out of style.",
+   "texte_sophia": "6. He keeps learning\n\nI give it 5 minutes a day\non the Sophia app.\nA sharp mind never\ngoes out of style.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

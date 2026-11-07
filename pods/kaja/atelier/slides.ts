@@ -81,7 +81,7 @@ export type Slide = {
 export type Post = {
   id: string;
   /** Le post refait : url, vues, date, accroche. */
-  source: { url: string; vues: number; publie_le?: string; accroche: string };
+  source?: { url: string; vues: number; publie_le?: string; accroche: string };
   /** L'accroche, lue par l'OS comme le hook. */
   titre: Record<string, string>;
   /** La légende TikTok, 3 ou 4 hashtags. */

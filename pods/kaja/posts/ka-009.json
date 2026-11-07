@@ -1,0 +1,285 @@
+{
+ "id": "ka-009",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7675118463802756374",
+  "vues": 170300,
+  "publie_le": "2026-08-17",
+  "accroche": "10/10 SKILLS YOU CAN LEARN INSTED IF SCROLLING"
+ },
+ "titre": {
+  "en": "10/10 skills you can learn insted if scrolling",
+  "de": "10/10 Skills statt Scrollen"
+ },
+ "legendes": {
+  "en": "10/10 skills you can learn insted if scrolling #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills statt Scrollen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Seventh Heaven",
+  "url": "https://www.tiktok.com/music/seventh-heaven-7359926862746355729"
+ },
+ "notes": "Remake de son post à 170 k, décor falaise (le sien), en en et de. Son accroche mot pour mot (« INSTED IF SCROLLING »), ses 4 compétences, ses couleurs (corail, jaune, rouge, rouge brique) et ses temps. Sophia en étape 3 « HOW TO GET SMARTER », à la place de sa slide d'appli de fin : cta C (« what I open » / « instead of scrolling. »), qui répond à son accroche ; « 5 min a day ». D'autres vraies vidéos que les siennes (Bob Reese, Aaron Honer, Pianote, Jesse Itzler) : en Nick Pro, Ultimate Baseball Training, Become a Piano Superhuman, Vinh Giang ; de Andiletics, Hochschulsport Uni Augsburg, werdemusiker.de, Investmentpunk.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "YOU CAN",
+     "LEARN INSTED",
+     "IF SCROLLING"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "STATT",
+     "SCROLLEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BACKFLIP",
+       "couleur": "#dd524b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "phM_SYH6aA0",
+     "titre": "Learn How To Backflip AT HOME (Easy Tutorial for Beginners)",
+     "chaine": "Nick Pro",
+     "vues": "3.5M views",
+     "date": "5 years ago",
+     "duree": "6:00",
+     "avatar": "https://yt3.ggpht.com/DouCUVfjuscIkuSk6KaJyY4cEjPZD2FB9bc5eMG0jsTiK6G1EBcvCWU4TycFgEBKix7UwS4eT14=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "DEN BACKFLIP",
+       "couleur": "#dd524b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MrrjFvG2Bco",
+     "titre": "RÜCKWÄRTSSALTO lernen in 3 MINUTEN - Backflip Tutorial | Andiletics",
+     "chaine": "Andiletics",
+     "vues": "246.810 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:22",
+     "avatar": "https://yt3.ggpht.com/eF6eDl7sNSk7oWR6tB2qgEmqaZwzZ_cOXtHUNy8ouxNgsLeo4M7HvJIAgkR29B5CEggAupo9=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO THROW",
+     [
+      {
+       "t": "A BALL HARD",
+       "couleur": "#fad139"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZBTqnqTtHhU",
+     "titre": "2 Drills to Throw Harder - Baseball Throwing Drills!",
+     "chaine": "Ultimate Baseball Training",
+     "vues": "1.9M views",
+     "date": "10 years ago",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n3RNtqcvB_RIjwVxm8rYJ0b7zMeq-zSHfuFqSUBhRQ9gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRFST DU",
+     [
+      {
+       "t": "EINEN BALL HART",
+       "couleur": "#fad139"
+      }
+     ]
+    ],
+    "video": {
+     "id": "We47z7ZjFEM",
+     "titre": "Ballwurf Lehrvideo",
+     "chaine": "Hochschulsport Uni Augsburg",
+     "vues": "140.384 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/pFVO_ZaQrnxRHoy9vQZDJWb9QYOrLxk-Dchbxy2XNdJtojI_w55XE4tkHE-q7i9eA6pOc6zvWwY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "GET SMARTER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRST DU",
+     [
+      {
+       "t": "KLÜGER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PLAY PIANO",
+       "couleur": "#f01b31"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4SXQ_wlbWog",
+     "titre": "How to Play Piano: Day 1 - EASY First Lesson for Beginners",
+     "chaine": "Become a Piano Superhuman",
+     "vues": "11M views",
+     "date": "4 years ago",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZUktXAUlNr6ahTgVwEFUlrc8lA-l5oxOFWhmgDc1Pkg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPIELST DU",
+     [
+      {
+       "t": "KLAVIER",
+       "couleur": "#f01b31"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gMQC5sJaVN8",
+     "titre": "Klavier lernen - Deine 1. Klavierstunde",
+     "chaine": "Klavier lernen (werdemusiker.de)",
+     "vues": "2,4 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "22:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_njDXQmFjISEo22W_rsfQv2Q2bIbLZvEvlxbws4EOB_Mw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "NETWORK",
+       "couleur": "#d53c34"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EC1ut0gmspk",
+     "titre": "How to Network Like the Top 1% (6 Key Lessons)",
+     "chaine": "Vinh Giang",
+     "vues": "304K views",
+     "date": "1 year ago",
+     "duree": "14:25",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT",
+     [
+      {
+       "t": "NETWORKING",
+       "couleur": "#d53c34"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3c4r3IEJSzs",
+     "titre": "Networking: So kommst du an RICHTIG gute Kontakte und fette Deals",
+     "chaine": "Investmentpunk",
+     "vues": "24.396 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "10:50",
+     "avatar": "https://yt3.ggpht.com/WHX1ot0f35Rk0tzgvliQs9qKUYxKQjQvHqCfkv7Rl1V4NOQ7NyoqCjj5jb-pKt4hs2J6ep323w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  }
+ ]
+}

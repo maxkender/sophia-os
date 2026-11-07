@@ -1,0 +1,412 @@
+{
+ "id": "fa-057",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "4 Hobbies That Keep Your Brain Young",
+  "de": "4 Hobbys für ein junges Gehirn",
+  "it": "4 hobby per un cervello sempre giovane",
+  "pt-BR": "4 hobbies que mantêm seu cérebro jovem",
+  "es-419": "4 pasatiempos que mantienen tu cerebro joven"
+ },
+ "legendes": {
+  "en": "4 Hobbies That Keep Your Brain Young #brainhealth #learnontiktok #selfimprovement",
+  "de": "4 Hobbys für ein junges Gehirn #gehirn #lernenmittiktok #selbstverbesserung",
+  "it": "4 hobby per un cervello sempre giovane #cervello #imparacontiktok #crescitapersonale",
+  "pt-BR": "4 hobbies que mantêm seu cérebro jovem #cérebro #aprendanotiktok #desenvolvimentopessoal",
+  "es-419": "4 pasatiempos que mantienen tu cerebro joven #cerebro #aprendeentiktok #desarrollopersonal"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta C. Full test (jauge BLEO du 07/11) : accroche neuve au format liste de @fathom0g (« 4 Hobbies That Keep Your Brain Young »), jamais faite chez nous. Étapes : échecs, Rubik's cube, Sophia, course à pied. Langues des comptes du label (en, de, it, pt-BR, es-419), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "4 HOBBIES",
+       "bronze": true
+      }
+     ],
+     "THAT KEEP YOUR",
+     [
+      {
+       "t": "BRAIN YOUNG",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "4 HOBBYS",
+       "bronze": true
+      }
+     ],
+     "FÜR EIN",
+     [
+      {
+       "t": "JUNGES GEHIRN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "4 HOBBY",
+       "bronze": true
+      }
+     ],
+     "PER UN CERVELLO",
+     [
+      {
+       "t": "SEMPRE GIOVANE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "4 HOBBIES",
+       "bronze": true
+      }
+     ],
+     "QUE MANTÊM SEU",
+     [
+      {
+       "t": "CÉREBRO JOVEM",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "4 PASATIEMPOS",
+       "bronze": true
+      }
+     ],
+     "QUE MANTIENEN",
+     [
+      {
+       "t": "TU CEREBRO JOVEN",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY CHESS"
+    ],
+    "video": {
+     "id": "OCSbzArwB10",
+     "titre": "How To Play Chess: The Ultimate Beginner Guide",
+     "chaine": "GothamChess",
+     "vues": "13M views",
+     "date": "5 years ago",
+     "duree": "31:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJ4RQwl-WnWQ_3AgLxvPrLkVdfLHPCRKMxUtLJnjUkhkg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPIEL SCHACH"
+    ],
+    "video": {
+     "id": "y6vQRcp0w40",
+     "titre": "SCHACH LERNEN: Das einzige Video, das du brauchst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "763.442 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "21:55",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "GIOCA A SCACCHI"
+    ],
+    "video": {
+     "id": "9WYTmBDFQfI",
+     "titre": "Come Giocare A Scacchi: Guida Completa Per Principianti",
+     "chaine": "IL LATO POSITIVO",
+     "vues": "443K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "12:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kIdS0V93z_CqiryUuoI4W2asMqZ-q_-Jk3uwPpuytzYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "JOGUE XADREZ"
+    ],
+    "video": {
+     "id": "kJTwOfl0RmA",
+     "titre": "Xadrez Total | Aprendendo a jogar xadrez",
+     "chaine": "Xadrez Total",
+     "vues": "908 mil visualizações",
+     "date": "há 11 anos",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/ueIZlYmJQTXN1X5rS2rWu2XB_Ap25uQdK9H4E1zVXEUZj1hkyIKSm7j47VXWqQ09EyPzg8kYLw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "JUEGA AJEDREZ"
+    ],
+    "video": {
+     "id": "x4R2EPkYzZk",
+     "titre": "Cómo jugar al Ajedrez. Tutorial de Ajedrez para principiantes por Pepe Cuenca",
+     "chaine": "chess24 en Español",
+     "vues": "2.6 M de vistas",
+     "date": "hace 6 años",
+     "duree": "13:45",
+     "avatar": "https://yt3.ggpht.com/PBHX0FLo9QGmDh5wh5QBdU1vBDwf7DNJ6KUR2dWZYfConH-k8CNj2ZPdjBCUwha9xwWMK_JHMg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE A",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "102M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LÖSE DEN",
+     "ZAUBERWÜRFEL"
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RISOLVI IL",
+     "CUBO DI RUBIK"
+    ],
+    "video": {
+     "id": "q6gapVA8TaA",
+     "titre": "Come Risolvere Il Cubo di Rubik 3x3 in un Batter d'Occhio | Tutorial Semplicissimo",
+     "chaine": "IL LATO POSITIVO",
+     "vues": "2,4 Mln visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kIdS0V93z_CqiryUuoI4W2asMqZ-q_-Jk3uwPpuytzYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "RESOLVA O",
+     "CUBO MÁGICO"
+    ],
+    "video": {
+     "id": "aJuUOG9FYlM",
+     "titre": "Como Resolver Rapidamente um Cubo de Rubik 3x3 | O Tutorial Mais Fácil",
+     "chaine": "INCRÍVEL",
+     "vues": "14 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_moyLRg4mLejXMsF2FPiI_dpzjG5v2Evy5mw_f8VLES9pc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "RESUELVE EL",
+     "CUBO DE RUBIK"
+    ],
+    "video": {
+     "id": "sXGdZrDXMgU",
+     "titre": "Cómo resolver un cubo de Rubik de 3x3 en muy poco tiempo",
+     "chaine": "GENIAL",
+     "vues": "30 M de vistas",
+     "date": "hace 7 años",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMLEWxNh6DAng8uyCux9DtPpIKIaQyGqT6tgEQNjB0i1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "NEW EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA OGNI GIORNO",
+     "QUALCOSA DI NUOVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA ALGO",
+     "NOVO TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE ALGO",
+     "NUEVO CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "GO FOR",
+     "A RUN"
+    ],
+    "video": {
+     "id": "kVnyY17VS9Y",
+     "titre": "11 Beginner Run Tips | How To Start Running!",
+     "chaine": "Global Triathlon Network",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GEH",
+     "LAUFEN"
+    ],
+    "video": {
+     "id": "lhEwMUCPyk0",
+     "titre": "Joggen für Anfänger: So gelingt der Einstieg ins Lauftraining - Tipps, Trainingsplan & Fallstricke",
+     "chaine": "DoktorWeigl",
+     "vues": "203.102 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "VAI A",
+     "CORRERE"
+    ],
+    "video": {
+     "id": "LLL8Q_izTP8",
+     "titre": "Come INIZIARE A CORRERE - Tutto quello che devi sapere",
+     "chaine": "Your Personal Best",
+     "vues": "91K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/fIGTMynqyV9apkB6Hgq6tLgYe5UOLYZbZqZMK46dw7FAEDEAyVlrEdpRLnzTmjLqiTsKskPG=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMECE",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "5FJoqhlszTI",
+     "titre": "Corrida para iniciantes: como começar a correr?",
+     "chaine": "Drauzio Varella",
+     "vues": "185 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/eKO6HupEds-Nnin2SJBUqojJww8qz6k76qWrKVZGJ3wYxBvRmtmjtfhd8UfFTyoYFgL99xr8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SAL A",
+     "CORRER"
+    ],
+    "video": {
+     "id": "gImHug3sGKI",
+     "titre": "CÓMO EMPEZAR a CORRER sin cansarte | 7 consejos para principiantes",
+     "chaine": "The Saiyan Kiwi",
+     "vues": "2 M de vistas",
+     "date": "hace 3 años",
+     "duree": "17:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYf6yz2VdprFSCb7RwQt2TZm6_7C1k62qtlNVhSAkVWjI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

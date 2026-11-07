@@ -9,12 +9,16 @@
  "titre": {
   "en": "10/10 Skills To Learn Before You Are 30",
   "de": "10/10 Skills, die du vor 30 lernen solltest",
-  "pt": "10/10 habilidades para aprender antes dos 30"
+  "pt": "10/10 habilidades para aprender antes dos 30",
+  "it": "10/10 abilità da imparare prima dei 30 anni",
+  "es-419": "10/10 habilidades para aprender antes de los 30"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #skills #learnontiktok #selfimprovement",
   "de": "10/10 Skills, die du vor 30 lernen solltest #skills #lernenmittiktok #selbstverbesserung",
-  "pt": "10/10 habilidades para aprender antes dos 30 #habilidades #aprendernotiktok #desenvolvimentopessoal"
+  "pt": "10/10 habilidades para aprender antes dos 30 #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "it": "10/10 abilità da imparare prima dei 30 anni #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades"
  },
  "musique": {
   "titre": "original sound",
@@ -75,6 +79,40 @@
       }
      ]
     ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ DA IMPARARE",
+     [
+      {
+       "t": "PRIMA DEI 30 ANNI",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "ANTES DE LOS 30",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -122,6 +160,36 @@
      "date": "há 2 anos",
      "duree": "17:11",
      "avatar": "https://yt3.ggpht.com/LCo8H61PK3qrfIMmUE91k1OcicVSuuzOI5siABT7fM24LEw7H-WcsAHptk4PnbQ_uhK7vB6S=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "GESTISCI",
+     "I TUOI SOLDI"
+    ],
+    "video": {
+     "id": "Rn6EndC4oB8",
+     "titre": "Come Gestire i SOLDI?💰 La Regola 50/30/20",
+     "chaine": "Riccardo Zanetti",
+     "vues": "52K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcrsJDHJzTJFeNXk2K1YBtdowusNflgexjVGC-htCtzJ4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ UN",
+     "PRESUPUESTO"
+    ],
+    "video": {
+     "id": "f2O4Q-T12FI",
+     "titre": "¿Cómo CREAR un PRESUPUESTO PERSONAL? | Guía Completa",
+     "chaine": "Andres Garza",
+     "vues": "137 k vistas",
+     "date": "hace 4 años",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/cIr0soR9lJgvp54ZznA6CwRpN9Nd09_OiIMjaAI_F_--5qraoZp-W0aOPEKSdu_noRZD4cUgEA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -171,6 +239,36 @@
      "duree": "8:50",
      "avatar": "https://yt3.ggpht.com/rP1nk5acSTAZ_39dY9GnRIOx6fr5SdhHvXmcFMhx6lAkQrjRT6zbt0g14fSno3cWgsUcQXvCJZA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "PARLA IN",
+     "PUBBLICO"
+    ],
+    "video": {
+     "id": "pZ8hpckJRq0",
+     "titre": "Come Parlare in Pubblico: 12 Regole per un Discorso Perfetto!",
+     "chaine": "Sprouts Italia",
+     "vues": "6,3K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "7:04",
+     "avatar": "https://yt3.ggpht.com/CsUVFb3LEd3BRrtZeN3MVBoMIg0oIzJegJxjZcFE10e1wforAkHbxdMBRLzYb9QDt3tEBRVrdyY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HABLA EN",
+     "PÚBLICO"
+    ],
+    "video": {
+     "id": "U2lWFRFwZLE",
+     "titre": "Técnicas para hablar fluido y claro",
+     "chaine": "Teresa Baró • Comunicación de éxito",
+     "vues": "3.6 M de vistas",
+     "date": "hace 4 años",
+     "duree": "9:02",
+     "avatar": "https://yt3.ggpht.com/SpCnWtGCgzS65JJTetZqeVuZJ8u3s2e9JyUh_rMT5XR4ncLwIONo8sZn84U_6a4SENq1dG4z9ok=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -212,6 +310,32 @@
      "texte": [
       "o que eu abro",
       "em vez de fazer scroll."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "QUALCOSA DI NUOVO",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ALGO NUEVO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
      ]
     }
    }
@@ -261,6 +385,34 @@
      "duree": "4:57",
      "avatar": "https://yt3.ggpht.com/EMv__pRqzJOLGZT7CtGn45GegIgQsAlqe7UqSKqt4BjWvbS_ZMXkNVdQtVr_FiCes-GXRfTomg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "MASSAGGIO CARDIACO"
+    ],
+    "video": {
+     "id": "-QE8C-DQu_0",
+     "titre": "Massaggio cardiaco e uso del defibrillatore: così puoi salvare una vita",
+     "chaine": "Senior Italia FederAnziani",
+     "vues": "152K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/jTxTSrbwLb2t7_isyltNdqWgRJJRw4Y6EaaX6eunORwQALyWXMQyac7h8mdvOFDhT-CNBEoR7Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE RCP"
+    ],
+    "video": {
+     "id": "lG--e0vGX3w",
+     "titre": "Cómo hacer RCP en adultos(2022) | Doctor Negrete",
+     "chaine": "Doctor Negrete",
+     "vues": "210 k vistas",
+     "date": "hace 4 años",
+     "duree": "4:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMET0LOuZpFPAx3VVYnhvwFeMr5xJ-Lmn_quEV4LYBhFE=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -308,6 +460,36 @@
      "date": "há 5 anos",
      "duree": "13:30",
      "avatar": "https://yt3.ggpht.com/VAGYYfpqzCkK4XpDK5hxeXF6j2avmLDEt1DQq1crCE_FsG4qBW0atILMpKq2FGbmHGarejbtjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "GESTISCI",
+     "IL TUO TEMPO"
+    ],
+    "video": {
+     "id": "CHQdOE5ZvKw",
+     "titre": "Gestione del tempo: come aumentare la produttività con il time management",
+     "chaine": "EfficaceMente (con Andrea Giuliodori)",
+     "vues": "30K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/ixZegPxbLUlAo8YklFToyRu3NK5jNhnVJoagaVRTkLl5AN8hWEUiXc3UC8cSSW5P0HOSsGsdHQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ADMINISTRA",
+     "TU TIEMPO"
+    ],
+    "video": {
+     "id": "864228rfcv4",
+     "titre": "Cómo GESTIONAR BIEN TU TIEMPO, ¡Según La Ciencia!",
+     "chaine": "Sandra Gonzalez",
+     "vues": "181 k vistas",
+     "date": "hace 3 años",
+     "duree": "13:20",
+     "avatar": "https://yt3.ggpht.com/TRRbX9TWNo10L8LjxgV-1IRERisth6uwgC1h49O6BnqTJnH2Nm8PIi86ti-obOtSzmsfwpC1EUc=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

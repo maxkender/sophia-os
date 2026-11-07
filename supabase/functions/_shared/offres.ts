@@ -5,6 +5,8 @@
  *   - un milestone sans numéro de semaine (« Trial week », le titre de l'offre)
  *     en 1re position devient « Week NN » (la semaine de la cohorte) ;
  *   - « week 46 - TikTok slideshows posting » devient « Week 46 » ;
+ *   - un milestone financé ne se renomme pas (Upwork le refuse) : sans numéro,
+ *     l'OS le compte pour la semaine de la cohorte ; avec un numéro, il reste ;
  *   - les semaines manquantes sont créées (jamais financées).
  * Rien n'est fait si un montant n'est pas celui de la zone (la carte reste).
  */
@@ -12,6 +14,8 @@ import { type JalonUpwork, semaineDuNom } from "./paiement.ts";
 
 export type ActionOffre =
   | { type: "renommer"; jalon_id: string; de: string; vers: string }
+  /** Financé : Upwork refuse de le renommer ; l'OS le compte pour cette semaine (paie_jalons_semaine). */
+  | { type: "compter"; jalon_id: string; nom: string; semaine: number }
   | { type: "creer"; nom: string; montant: number };
 
 export interface PlanOffre {
@@ -21,6 +25,8 @@ export interface PlanOffre {
 }
 
 const nomSemaine = (n: number) => `Week ${n}`;
+/** Financé (ou payé) : Upwork n'accepte plus de le renommer. */
+const finance = (j: JalonUpwork) => !/^NotFunded$/i.test(j.etat);
 
 /** Les numéros ISO des `n` semaines à partir du lundi donné (« 2026-11-09 » → [46, 47, 48, 49]). */
 export function semainesDepuis(lundi: string, n = 4): number[] {
@@ -58,14 +64,16 @@ export function planCompleterOffre(jalons: JalonUpwork[], semaines: number[], ta
     if (n === null) continue;
     presentes.add(n);
     const vers = nomSemaine(n);
-    if (j.nom.trim() !== vers && !nomsExacts.has(vers)) actions.push({ type: "renommer", jalon_id: j.id, de: j.nom, vers });
+    if (j.nom.trim() !== vers && !nomsExacts.has(vers) && !finance(j)) actions.push({ type: "renommer", jalon_id: j.id, de: j.nom, vers });
   }
   if (sansSemaine.length === 1) {
     const j = sansSemaine[0];
     const premier = [...actifs].sort((a, b) => a.sequence - b.sequence)[0];
     if (premier?.id !== j.id) return { actions: [], refus: `« ${j.nom} » sans numéro de semaine n'est pas le 1er milestone` };
     if (presentes.has(semaines[0])) return { actions: [], refus: `« ${j.nom} » sans semaine alors que ${nomSemaine(semaines[0])} existe` };
-    actions.push({ type: "renommer", jalon_id: j.id, de: j.nom, vers: nomSemaine(semaines[0]) });
+    actions.push(finance(j)
+      ? { type: "compter", jalon_id: j.id, nom: j.nom, semaine: semaines[0] }
+      : { type: "renommer", jalon_id: j.id, de: j.nom, vers: nomSemaine(semaines[0]) });
     presentes.add(semaines[0]);
   }
   for (const s of semaines) {

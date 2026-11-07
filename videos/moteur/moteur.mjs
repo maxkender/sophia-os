@@ -14,13 +14,30 @@
 //
 // Le jeton du moteur vient de l'environnement (MOTION_JETON), jamais d'un fichier.
 import {spawnSync} from 'node:child_process';
-import {existsSync, readFileSync, renameSync, rmSync, statSync} from 'node:fs';
+import {existsSync, readFileSync, renameSync, rmSync, statSync, writeFileSync} from 'node:fs';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const ICI = dirname(fileURLToPath(import.meta.url));
 const VIDEOS = resolve(ICI, '..');
 const URL_OS = process.env.SUPABASE_URL ?? 'https://mbikecieskoobeizixig.supabase.co';
+// Remotion Lambda : la clé AWS vient de l'environnement (REMOTION_AWS_ACCESS_KEY_ID / _SECRET_ACCESS_KEY / _REGION)
+const siteLambda = (projet) => `motion-${projet}`;
+const regionLambda = () => (process.env.REMOTION_AWS_REGION ? [`--region=${process.env.REMOTION_AWS_REGION}`] : []);
+// Fonction : 3008 Mo (≈ 2 vCPU, le maximum d'un compte neuf) et 900 s (le maximum AWS), car peu de Lambdas
+// tournent en parallèle tant que le quota de concurrence est bas.
+const FONCTION_LAMBDA = ['--memory=3008', '--timeout=900'];
+// Nombre de Lambdas de rendu. Le quota compte aussi la Lambda qui orchestre et les appels de suivi du CLI
+// (une invocation par seconde) : avec le quota de départ (10), 1 + 8 + suivi donne « Rate Exceeded » ; 6 laisse de la marge.
+// À monter (--concurrence N ou REMOTION_LAMBDA_CONCURRENCE) une fois le quota relevé par AWS. Au-delà du
+// quota, le rendu échoue mais les Lambdas déjà lancées (et leurs reprises) tournent jusqu'au bout sans
+// pouvoir être annulées : attendre ~15 min avant de relancer.
+const concurrenceLambda = () => Number(opt('concurrence') ?? process.env.REMOTION_LAMBDA_CONCURRENCE ?? 6);
+const verifierCleAws = () => {
+  if (!process.env.REMOTION_AWS_ACCESS_KEY_ID || !process.env.REMOTION_AWS_SECRET_ACCESS_KEY) {
+    throw new Error('clé AWS absente : REMOTION_AWS_ACCESS_KEY_ID et REMOTION_AWS_SECRET_ACCESS_KEY (réglages de l’environnement, puis nouvelle session)');
+  }
+};
 const TAILLE_MAX = 48e6; // octets : au-delà, la vidéo est recompressée avant l'envoi
 const CHROME = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 
@@ -62,6 +79,63 @@ const duree = (f) => {
   return Number(r.stdout.trim()) || null;
 };
 
+// Rendu sur Remotion Lambda, à partir du site envoyé par « lambda --projet P ».
+// Une Lambda ne vit que 900 s et ne rend que ~0,8 image/s (3008 Mo) : au-delà de IMAGES_PAR_LAMBDA images par
+// Lambda, la vidéo est rendue en tranches successives (chacune avec son son), puis recollée avec ffmpeg
+// (images copiées, son décodé puis recollé, sans trou à la jointure). Avec un quota relevé, une seule tranche.
+// (Pas de bande son rendue à part : même sans image, Remotion parcourt toutes les images, trop lent sur une Lambda.)
+const IMAGES_PAR_LAMBDA = 450; // ~0,65 à 0,9 image/s selon les scènes : ≤ ~700 s, sous les 900 s
+function imagesComposition(dir, composition, props) {
+  const r = spawnSync('npx', ['remotion', 'compositions', 'src/index.ts', props], {cwd: dir, encoding: 'utf8', env: process.env});
+  const cols = r.stdout.split('\n').find((l) => l.trim().split(/\s+/)[0] === composition)?.trim().split(/\s+/) ?? [];
+  const [fps, n] = [Number(cols[1]), Number(cols[3])];
+  if (!n || !fps) throw new Error(`durée de ${composition} introuvable (npx remotion compositions)`);
+  return {total: n, fps};
+}
+function lancerLambda(args, dir) {
+  const t0 = Date.now();
+  const r = spawnSync('npx', ['remotion', 'lambda', 'render', ...args, ...regionLambda()], {cwd: dir, encoding: 'utf8', env: {...process.env, NODE_USE_ENV_PROXY: '1'}, stdio: ['inherit', 'pipe', 'inherit'], maxBuffer: 64e6});
+  process.stdout.write(r.stdout ?? '');
+  const couts = [...(r.stdout ?? '').matchAll(/(?:Estimated cost|Accrued costs until error was thrown:) [<~]?\$(\d+(?:\.\d+)?)/g)];
+  const cout = couts.length ? Number(couts.at(-1)[1]) : 0;
+  if (r.status !== 0) throw new Error(`remotion lambda render ${args.join(' ')} : code ${r.status} (coût ~$${cout})`);
+  return {cout, secondes: (Date.now() - t0) / 1000};
+}
+function rendreSurLambda(dir, projet, composition, props, langue, nom, brut) {
+  const site = siteLambda(projet);
+  const n = concurrenceLambda();
+  const {total, fps} = imagesComposition(dir, composition, props);
+  const tranches = Math.ceil(total / (n * IMAGES_PAR_LAMBDA));
+  const commun = ['--codec=h264', '--crf=22', `--concurrency=${n}`, '--concurrency-per-lambda=2'];
+  const t0 = Date.now();
+  let cout = 0;
+  if (tranches === 1) {
+    cout += lancerLambda([site, composition, brut, props, ...commun], dir).cout;
+  } else {
+    console.log(`${total} images, ${n} Lambdas : ${tranches} tranches`);
+    const morceaux = [];
+    for (let i = 0; i < tranches; i++) {
+      const a = Math.floor((i * total) / tranches);
+      const b = Math.floor(((i + 1) * total) / tranches) - 1;
+      const morceau = `out/${langue}/${nom}-tranche-${i}.mp4`;
+      const r = lancerLambda([site, composition, morceau, props, ...commun, `--frames=${a}-${b}`], dir);
+      console.log(`tranche ${i + 1}/${tranches} (images ${a}-${b}) : ${r.secondes.toFixed(0)} s, ~$${r.cout}`);
+      cout += r.cout;
+      morceaux.push({morceau, duree: (b - a + 1) / fps});
+    }
+    const liste = join(dir, `out/${langue}/${nom}-tranches.txt`);
+    // « duration » : chaque tranche commence pile à son image (sans elle, ~11 ms de trou à chaque jointure,
+    // que le réencodage final transforme en images doublées et en décalage image/son).
+    writeFileSync(liste, morceaux.map((m) => `file '${resolve(dir, m.morceau)}'\nduration ${m.duree.toFixed(6)}`).join('\n') + '\n');
+    const sons = morceaux.flatMap((m) => ['-i', m.morceau]);
+    const filtre = `${morceaux.map((_, i) => `[${i + 1}:a]`).join('')}concat=n=${morceaux.length}:v=0:a=1[a]`;
+    lancer('ffmpeg', ['-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', liste, ...sons, '-filter_complex', filtre, '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '320k', brut], dir);
+    for (const m of morceaux) rmSync(join(dir, m.morceau));
+    rmSync(liste);
+  }
+  console.log(`Lambda : ${((Date.now() - t0) / 60000).toFixed(1)} min, coût estimé ~$${cout.toFixed(3)}`);
+}
+
 async function envoyer(video, langue, fichier, nom) {
   const u = await appel('upload_url', {video_id: video, langue, nom});
   const url = u.url_upload ?? u.upload_url;
@@ -99,11 +173,13 @@ const commandes = {
     else if (existsSync(sans)) rmSync(sans); // jamais livrer une ancienne version sans sous-titres
     for (const [sousTitres, nom] of versions) {
       const brut = `out/${langue}/${nom}-brut.mp4`;
-      lancer(
-        'npx',
-        ['remotion', 'render', composition, brut, `--props=${JSON.stringify({langue, sousTitres})}`, '--codec=h264', '--crf=22', '--concurrency=4', ...navigateur],
-        dir,
-      );
+      const props = `--props=${JSON.stringify({langue, sousTitres})}`;
+      if (reste.includes('--lambda')) {
+        verifierCleAws();
+        rendreSurLambda(dir, requis('projet'), composition, props, langue, nom, brut);
+      } else {
+        lancer('npx', ['remotion', 'render', composition, brut, props, '--codec=h264', '--crf=22', '--concurrency=4', ...navigateur], dir);
+      }
       lancer(
         'ffmpeg',
         ['-loglevel', 'error', '-y', '-i', brut, '-c:v', 'copy', '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', `out/${langue}/${nom}.mp4`],
@@ -134,6 +210,19 @@ const commandes = {
     const video_brute_chemin = existsSync(sans) ? await envoyer(video, langue, sans, `video-sans-sous-titres-${Date.now()}.mp4`) : null;
     await appel('langue_prete', {video_id: video, langue, script, legende: script.legende ?? null, video_chemin, video_brute_chemin, duree_s: duree(final)});
     console.log(`${langue} livrée : à valider dans la page Motion`);
+  },
+  async lambda() {
+    const projet = requis('projet');
+    const dir = projetDir(projet);
+    verifierCleAws();
+    lancer('node', ['scripts/langues.mjs'], dir);
+    const fonctions = spawnSync('npx', ['remotion', 'lambda', 'functions', 'ls', '-q', ...regionLambda()], {cwd: dir, encoding: 'utf8', env: process.env});
+    // Le nom porte la version, la mémoire et le délai : on ne redéploie que si la bonne fonction manque.
+    const voulue = fonctions.stdout.split('\n').find((f) => f.includes('mem3008mb') && f.includes('900sec'));
+    if (!voulue) lancer('npx', ['remotion', 'lambda', 'functions', 'deploy', ...FONCTION_LAMBDA, ...regionLambda()], dir);
+    else console.log(`fonction Lambda déjà là : ${voulue.trim()}`);
+    lancer('npx', ['remotion', 'lambda', 'sites', 'create', 'src/index.ts', `--site-name=${siteLambda(projet)}`, ...regionLambda()], dir);
+    console.log(`site ${siteLambda(projet)} à jour : « rendre --projet ${projet} --langue L --lambda »`);
   },
   async 'en-cours'() {
     await appel('langue_en_cours', {video_id: requis('video'), langue: requis('langue')});

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Archive, Clapperboard, Film, ImageUp, KeyRound, Languages, ScrollText, Sparkles } from "lucide-react";
+import { Archive, Clapperboard, Download, Film, ImageUp, KeyRound, Languages, ScrollText, Sparkles } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
@@ -12,6 +12,8 @@ import { Input } from "@/components/ui/input";
 import { Replie } from "@/components/ui/replie";
 import { Textarea } from "@/components/ui/textarea";
 import { EtatRequete, TitreCarte } from "@/features/bleo/ui";
+import { lienTelechargement, nomFichierMotion } from "@/features/motion/telechargement";
+import { ZoneCapture } from "@/features/motion/ZoneCapture";
 import {
   archiverVideoMotion,
   CLE_COMPTES_MOTION,
@@ -104,7 +106,6 @@ function CarteNouveauSujet({ onCree }: { onCree: (id: string) => void }) {
   const [consigne, setConsigne] = React.useState("");
   const [langues, setLangues] = React.useState<string[]>([...LANGUES_MOTION]);
   const [capture, setCapture] = React.useState<File | null>(null);
-  const champCapture = React.useRef<HTMLInputElement>(null);
   const creer = useMutation({
     mutationFn: async () => {
       const { video } = await creerVideoMotion(sujet.trim(), consigne.trim(), langues);
@@ -115,7 +116,6 @@ function CarteNouveauSujet({ onCree }: { onCree: (id: string) => void }) {
       setSujet("");
       setConsigne("");
       setCapture(null);
-      if (champCapture.current) champCapture.current.value = "";
       onCree(id);
     },
     onSettled: () => qc.invalidateQueries({ queryKey: CLE_VIDEOS_MOTION }),
@@ -153,16 +153,7 @@ function CarteNouveauSujet({ onCree }: { onCree: (id: string) => void }) {
               </label>
             ))}
           </fieldset>
-          <label className="block space-y-1 text-xs text-muted-foreground">
-            <span>{t("motion.captureAnglais")}</span>
-            <input
-              ref={champCapture}
-              type="file"
-              accept="image/png,image/jpeg,image/webp"
-              className="block w-full text-xs"
-              onChange={(e) => setCapture(e.target.files?.[0] ?? null)}
-            />
-          </label>
+          <ZoneCapture fichier={capture} onFichier={setCapture} disabled={creer.isPending} />
           <Button type="submit" loading={creer.isPending} disabled={!sujet.trim() || langues.length === 0}>
             {t("motion.creer")}
           </Button>
@@ -538,10 +529,25 @@ function CarteLangue({ video, langue, comptes }: { video: VideoMotion; langue: L
         ) : (
           <p className="text-xs text-muted-foreground">{t("motion.pasEncoreDeVideo")}</p>
         )}
+        {langue.video_url && (
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full"
+            render={<a href={lienTelechargement(langue.video_url, nomFichierMotion(video.sujet, langue.langue))} download />}
+          >
+            <Download aria-hidden />
+            {t("motion.telecharger")}
+          </Button>
+        )}
         <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted-foreground">
           {langue.duree_s != null && <span>{t("motion.duree", { s: langue.duree_s })}</span>}
           {langue.video_brute_url && (
-            <a href={langue.video_brute_url} target="_blank" rel="noreferrer" className="underline">
+            <a
+              href={lienTelechargement(langue.video_brute_url, nomFichierMotion(video.sujet, langue.langue, "sans-sous-titres"))}
+              download
+              className="underline"
+            >
               {t("motion.sansSousTitres")}
             </a>
           )}

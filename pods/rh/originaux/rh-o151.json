@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o151",
+ "type_bleo": "full_test",
+ "titre": "les 5 choses que je fais le vendredi à 16 h (et mon lundi est enfin calme) #travail #organisation #routine #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le rituel du vendredi après-midi). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c6324f58",
+   "texte_overlay": "les 5 choses que je fais le vendredi à 16 h\n(et mon lundi est enfin calme)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "952260cf",
+   "texte_overlay": "je ferme ce qui peut l'être\nles petits mails, les validations en attente",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c6c5d68e",
+   "texte_overlay": "je note où j'en suis sur chaque dossier\n2 lignes. lundi, je reprends sans chercher",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ca9b2b14",
+   "texte_overlay": "je choisis ma première tâche de lundi\navant de partir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cc818cbf",
+   "texte_overlay": "je range mon bureau\nphysique et écran. 5 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d26ce69",
+   "texte_overlay": "je garde 5 minutes pour moi\nà apprendre un truc sans rapport avec le boulot. je pars le cerveau léger",
+   "texte_sophia": "je garde 5 minutes pour moi\nsur l'appli Sophia, un truc sans rapport avec le boulot. je pars le cerveau léger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cf0adb46",
+   "texte_overlay": "et à 17 h, je ferme vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d00d89e2",
+   "texte_overlay": "et toi, ton vendredi à 16 h ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

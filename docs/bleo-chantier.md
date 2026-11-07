@@ -375,6 +375,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0649_bleo_contenus_ui_image_sans_scan` | La fiche d'une famille tombait en « statement timeout » pour un admin connecté : `bleo_contenus_ui` joignait `media_library` sur une expression (`CASE … ::uuid`) que la RLS empêche d'utiliser comme condition d'index. Postgres relisait les ~32 000 médias pour chaque contenu en évaluant `media_dans_slides_du_poster`, ce qui faisait plus de 25 s pour une famille, contre 8 s de délai. L'identifiant du média est maintenant calculé à part (sous-requête LIMIT 1) : même résultat (hash identique sur 151 lignes), 0,3 à 1,3 s | Appliquée le 5/11 à 10 h 45 |
 | `0650_bleo_remplacants_themes_a_venir` | Suite de D52 : l'historique du compte vu par `bleo_remplacants` compte aussi les lignes des plans suivis à venir. Un remplaçant évite donc aussi les thèmes et les photos prévus pour le compte les jours suivants, pas seulement les contenus (4 « même thème » non déclarés au rapport du 5/11) | Appliquée le 6/11 à 10 h |
 | `0660_bleo_reglages_declinaisons_imports` | Décision d'Adrien du 6/11, après les mesures à âge égal. (a) `classes.depart.accroche_gagnante` passe de 3,2 à 2,0 : la valeur de départ des déclinaisons, relue chaque nuit, y compris pour celles déjà déposées. (b) `file_juger.age_max_import_jours` = 30 : un import (contenu hors podz) arrivé depuis plus longtemps n'est plus testé et reste en réserve. Le tirage lit ce réglage | Appliquée le 6/11 à 17 h 59 ; nuit relancée, plan du 7/11 retiré |
+| `0661_bleo_perdants_et_declinaisons_livrees` | Décisions d'Adrien du 7/11. (1) `valeur.facteur_non_gagnant` = 0,5 : au tirage et pour les remplaçants, la valeur d'un candidat non gagnant est multipliée par 0,5 avant l'exposant (poids divisé par 8). (2) Les 14 déclinaisons des podz de remakes en classe `livre` (4,0) passent en `accroche_gagnante` (2,0) ; depuis 0652, les nouvelles prennent déjà cette classe | Appliquée le 7/11 à 17 h 19 ; nuit relancée, plan du 8/11 retiré |
 
 Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
@@ -655,6 +656,19 @@ recalculée à la main, rejouabilité, derniers plans).
 
   - **Effet de bord :** une partie des créneaux libérés part aux perdants resservis (r 0,66 à J+3), au-delà de la limite de 15 % de la spec. C'est le 3e levier proposé (réduire leur poids), pas encore décidé.
   - **Pas touché :** 14 déclinaisons de la voie 2 ont la classe `livre` (4,0), posée par l'autre session ; Adrien doit dire s'il faut les passer en `accroche_gagnante`.
+- **7/11, 17 h : compte rendu de la semaine, puis 0661 (Adrien : « baisse les perdants resservis et passe les 14 à 2,0 »).** Plan du 8/11 retiré (26dcce43 remplace 19825ea0) :
+
+  | | Plan de 14 h | Plan de 17 h 19 |
+  |---|---|---|
+  | Perdants resservis | 130 (21 %) | **19 (3 %)** |
+  | Récolte | 330 | 407 |
+  | Gagnants, langue déjà servie | 73 | 106 |
+  | Déclinaisons | 82 | 112 |
+  | Tests | 74 | 75 |
+  | Créneaux vides | 0 | 0 |
+
+  - Les déclinaisons héritent du verdict « gagnant » de leur famille : le facteur ne les touche pas, et elles reprennent une partie des créneaux libérés.
+  - **Question d'Adrien sur les podz (« c'est pas automatique ? ») :** oui, la jauge (`reglages.bleo.jauge`) fixe la part de full tests de chaque podz d'après les semaines de stock de sa boîte : 10 % à 6 semaines et plus, 20 % de 3 à 6, 30 % de 1 à 3, 40 % en dessous. smart_girl (8 semaines, 167 familles en boîte) est à 10 % ; weird_alpha (1,5 semaine) à 30 %. Plus un label a de gagnants à décliner, moins il fait d'accroches neuves.
 - **5/11, après-midi : les labels 100 % podz dans BLEO, lot 1 (0650 à 0652, décisions d'Adrien).**
   - **0650 :** une seule définition d'un label 100 % podz, la vue `labels_100_podz` (un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active). Le choix de label, la page Répartition, la voie BLEO (colonne calculée `voie(labels)`, plus de colonne tenue à la main), `empreintes` et le chef la lisent.
   - **0651 :** mentalmaxxing fermé (UnSwipe arrêté) ; 8 livraisons en attente rejetées.

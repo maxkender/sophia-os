@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o114",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9c83dcaa-6100-4443-b67d-53b57bfe0342",
+ "titre": "12 things people normalized that are actually toxic #toxichabits #selfrespect #smartgirl #boundaries #mindset",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 9 de la boîte (parent 9c83dcaa, langue source en) : accroche du parent mot pour mot. Douze choses, deux par slide, en partie neuves face au parent (téléphone en pleine conversation, épuisement appelé productivité, ne jamais être seule avec ses pensées, faire semblant de tout savoir…). Sophia sur la douzième à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9d58bc93",
+   "texte_overlay": "12 things people normalized\nthat are actually toxic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "eff9b4fa",
+   "texte_overlay": "1. checking your phone in the\nmiddle of a conversation\n\n2. calling exhaustion\n\"productivity\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "54b5dc4a",
+   "texte_overlay": "3. bonding only by complaining\n\n4. never being alone\nwith your thoughts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ee10ca1c",
+   "texte_overlay": "5. gossip as entertainment\n\n6. jokes that are really\ninsults",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1816d097",
+   "texte_overlay": "7. saying yes to everything\n\n8. skipping sleep to\nlook busy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bc8606e5",
+   "texte_overlay": "9. posting your whole life\nfor strangers\n\n10. comparing your pace\nto everyone's",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0ab3d276",
+   "texte_overlay": "11. pretending to know\neverything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "98c0ce34",
+   "texte_overlay": "12. scrolling until 2am\n\ni swapped it for a book or a\npainting before bed.",
+   "texte_sophia": "12. scrolling until 2am\n\ni swapped it for a 5-minute\nlesson on a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "f8a797f4",
+   "texte_overlay": "normal isn't the same\nas healthy. save this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/9.jpg"
+  }
+ ]
+}

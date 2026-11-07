@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o157",
+ "type_bleo": "full_test",
+ "titre": "Weekend habits of men who get better every year #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 5, sur une image sans visage. Couverture 4ce88dcf. full test. Accroche jamais faite chez nous : le week-end comme levier de progrès, voisin des routines qui gagnent (ay-o117 dimanche soir) mais sur le week-end entier. Accroches écrites : « Weekend habits of men who get better every year » (retenue), « How successful men spend their weekends » (écartée : cliché), « Saturday habits that change your life » (écartée : racoleur).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ce88dcf",
+   "texte_overlay": "Weekend habits of men\nwho get better every year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They wake up at roughly the same time. Not 5am, just not noon either. Keeping your body clock steady means Monday doesn't feel like jet lag every single week.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They do one physical challenge. A long hike, a new climbing route, a football match. Pushing your body at the weekend builds energy for the whole week ahead.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They see people in real life. Brunch with friends, a family lunch, a game with neighbours. Real connection on the weekend refills what the work week drains.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They learn something just for fun. I do five minutes of history, art or science every Saturday morning, and the weekend feels richer than any scrolling session.",
+   "texte_sophia": "Every Saturday morning I do five minutes on a micro-learning app like the Sophia app. History, art, science. My weekend feels richer than any scrolling session.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "They work on a personal project. A song, a garden, a side business, a bike. A couple of hours on something that's yours brings a deep kind of satisfaction.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They take care of the boring stuff early. Laundry, groceries, paying bills on Saturday morning. Then the rest of the weekend is free and guilt-free.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "They switch off from work completely. No emails, no Slack, no checking in. Real rest is what lets them come back sharper, calmer and more creative on Monday.",
+   "media_id": "62463b6a"
+  }
+ ]
+}

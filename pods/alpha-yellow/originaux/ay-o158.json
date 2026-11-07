@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o158",
+ "type_bleo": "full_test",
+ "titre": "Small acts of kindness that make men unforgettable #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "91d8b0a6-0223-489b-ac2e-42d4ed22b054"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 53f40240. full test. Accroche jamais faite chez nous : la gentillesse concrète, angle chaleureux. « unforgettable » est dans le thème « rare skills… unforgettable », mais la promesse ici est la gentillesse et non des compétences. Accroches écrites : « Small acts of kindness that make men unforgettable » (retenue), « Kind things real men do » (écartée : jugement), « The quiet power of being kind » (écartée : contemplatif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "53f40240",
+   "texte_overlay": "Small acts of kindness\nthat make men unforgettable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Carrying something for a stranger. A heavy suitcase up the metro stairs, a pram on the bus. Ten seconds of help that someone will remember for the whole day.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Paying for the coffee of the person behind you. Once in a while, for no reason. A small surprise that turns a stranger's ordinary morning into a good story.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Remembering the barista's name. \"Morning, Sofia.\" People who serve others all day rarely hear their names. It makes them feel seen, and it costs you nothing.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Checking on the friend who went quiet. \"Haven't heard from you in a while, you okay?\" Sometimes that one message arrives on the exact day someone needs it most.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: kindness felt awkward, I never knew what to say. After: five minutes a day of history, art or science, and a curiosity that makes talking to anyone easy.",
+   "texte_sophia": "Before: kindness felt awkward, I never knew what to say. After: five minutes a day on a micro-learning app like the Sophia app. Now talking to anyone is easy.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Giving a sincere compliment to someone's parent. \"Your son is one of the most reliable guys I know.\" Parents never forget hearing good things about their kids.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Leaving a kind review for a small business. The local barber, the family restaurant, the repair shop. A few words online can make an owner's whole week.",
+   "media_id": "9879c45f"
+  }
+ ]
+}

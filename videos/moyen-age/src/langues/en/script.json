@@ -1,0 +1,474 @@
+{
+  "langue": "en",
+  "voix": {
+    "id": "nPczCjzI2devNBz1zQrb",
+    "nom": "Brian",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 0.98
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "What would your life be like during the Middle Ages?",
+      "reperes": [
+        {
+          "mot": "Ages?",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "Level one. You're a peasant, like nearly nine people out of ten.",
+      "reperes": [
+        {
+          "mot": "peasant,",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "texte": "You're born in a one-room house with a dirt floor. In winter, the animals sleep inside with you, for the warmth.",
+      "reperes": [
+        {
+          "mot": "animals",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "At six, you're already working. Scaring birds off the fields, gathering wood, watching the pigs.",
+      "reperes": [
+        {
+          "mot": "working.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "The land isn't yours. You owe the lord days of work every week, and the church a tenth of your harvest.",
+      "reperes": [
+        {
+          "mot": "tenth",
+          "image": 60
+        }
+      ],
+      "ecran": "Une page des Très Riches Heures du duc de Berry (paysans aux champs, domaine public)"
+    },
+    {
+      "id": "S6",
+      "texte": "In your early twenties, you marry a girl from the next village. Your parents chose her.",
+      "reperes": [
+        {
+          "mot": "marry",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Together, you have seven children. Two of them die before their fifth birthday.",
+      "reperes": [
+        {
+          "mot": "Two",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "texte": "Then comes the summer of 1315. It rains for months, and the wheat rots in the fields.",
+      "reperes": [
+        {
+          "mot": "rains",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S9",
+      "texte": "For two years, there's barely anything to eat. People eat their seed grain, then their animals.",
+      "reperes": [
+        {
+          "mot": "eat.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "texte": "You survive. Your youngest doesn't.",
+      "reperes": [
+        {
+          "mot": "doesn't.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "texte": "One winter, your wife dies giving birth to your eighth child. She was thirty-two.",
+      "reperes": [
+        {
+          "mot": "thirty-two.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "texte": "Then one morning, you wake up sick. The village healer has nothing for you but herbs, prayers, and a blade to bleed you.",
+      "reperes": [
+        {
+          "mot": "blade",
+          "image": 60
+        }
+      ],
+      "ecran": "Une enluminure de saignée (manuscrit médiéval, domaine public)"
+    },
+    {
+      "id": "S13",
+      "texte": "You die at forty-one, in the same room you were born in.",
+      "reperes": [
+        {
+          "mot": "forty-one,",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "texte": "Level two. This time, you're born in town, the son of a shoemaker.",
+      "reperes": [
+        {
+          "mot": "shoemaker.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "texte": "At twelve, your father sends you away. Seven years as an apprentice, in another master's house.",
+      "reperes": [
+        {
+          "mot": "Seven",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "texte": "You sleep under the workbench. You're fed, but rarely paid. One mistake, and you're beaten.",
+      "reperes": [
+        {
+          "mot": "beaten.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "texte": "The town around you stinks. Waste runs down the middle of the street, and pigs wander everywhere.",
+      "reperes": [
+        {
+          "mot": "pigs",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "texte": "At twenty-five, you finally become a master and open your own shop.",
+      "reperes": [
+        {
+          "mot": "master",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "texte": "Then in 1348, ships bring a new disease from the east. People call it the great mortality.",
+      "reperes": [
+        {
+          "mot": "disease",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "texte": "Your neighbors die within days. Swellings, fever, and then nothing.",
+      "reperes": [
+        {
+          "mot": "Swellings,",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "texte": "In a few years, at least a third of Europe is gone. You lose your wife and two of your sons.",
+      "reperes": [
+        {
+          "mot": "third",
+          "image": 60
+        }
+      ],
+      "ecran": "La miniature des enterrements de la peste à Tournai (chronique de Gilles Li Muisis, 1349)"
+    },
+    {
+      "id": "S22",
+      "texte": "Level three. You're born a lord's son. At seven, you leave home to serve another lord as a page.",
+      "reperes": [
+        {
+          "mot": "page.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S23",
+      "texte": "At fourteen, you become a squire. You polish armor, care for the horses, and follow your knight into battle.",
+      "reperes": [
+        {
+          "mot": "squire.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S24",
+      "texte": "At twenty-one, you're knighted. A tap of the sword on your shoulder, and your life belongs to war.",
+      "reperes": [
+        {
+          "mot": "sword",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S25",
+      "texte": "In battle, you wear over twenty kilos of steel. You can hardly see, and you can barely breathe.",
+      "reperes": [
+        {
+          "mot": "steel.",
+          "image": 60
+        }
+      ],
+      "ecran": "Une vraie armure de plaque en photo (musée)"
+    },
+    {
+      "id": "S26",
+      "texte": "But it isn't the arrows that kill your friends. On campaign, disease often kills more men than swords.",
+      "reperes": [
+        {
+          "mot": "disease",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S27",
+      "texte": "You come home scarred, rich, and alone. Of the twelve squires you trained with, four are still alive.",
+      "reperes": [
+        {
+          "mot": "four",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S28",
+      "texte": "Level four. You're the king's eldest son. Your father dies of a fever, and you're crowned at fourteen.",
+      "reperes": [
+        {
+          "mot": "crowned",
+          "image": 60
+        }
+      ],
+      "ecran": "Une miniature de sacre royal (manuscrit médiéval, domaine public)"
+    },
+    {
+      "id": "S29",
+      "texte": "Too young to rule, so your uncles rule for you. And every one of them wants your throne.",
+      "reperes": [
+        {
+          "mot": "throne.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S30",
+      "texte": "You eat nothing until someone else has tasted it first. You trust no one.",
+      "reperes": [
+        {
+          "mot": "tasted",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S31",
+      "texte": "At thirty, your barons rebel. You win the war, but your treasury is empty.",
+      "reperes": [
+        {
+          "mot": "rebel.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S32",
+      "texte": "And at forty-three, you fall from your horse while hunting. Three days later, you're dead.",
+      "reperes": [
+        {
+          "mot": "fall",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S33",
+      "texte": "Four lives. Four hard lives. So was the Middle Ages really that miserable?",
+      "reperes": [
+        {
+          "mot": "miserable?",
+          "image": 60
+        }
+      ],
+      "ecran": "La capture de la carte Sophia du cours (le titre pose la même question)"
+    },
+    {
+      "id": "S34",
+      "texte": "Not quite. The famous life expectancy of thirty is an average, dragged down by all the children who died young.",
+      "reperes": [
+        {
+          "mot": "thirty",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S35",
+      "texte": "Make it past childhood, and you could easily reach your fifties or sixties.",
+      "reperes": [
+        {
+          "mot": "sixties.",
+          "image": 60
+        }
+      ]
+    },
+    {
+      "id": "S36",
+      "texte": "And no, people weren't all filthy. Towns had public bathhouses, and people washed far more than we think.",
+      "reperes": [
+        {
+          "mot": "bathhouses,",
+          "image": 60
+        }
+      ],
+      "ecran": "Une enluminure d'étuve médiévale (bains publics, domaine public)"
+    }
+  ],
+  "outro": {
+    "texte": "Get answers to all these questions and many more on the Sophia app, then put your knowledge to the test with quizzes."
+  },
+  "legende": "You're born in the Middle Ages. Four lives, from peasant to king. Would you survive? 🏰 #middleages #history #medieval #blackdeath #learnontiktok",
+  "appli": {
+    "categorie": "HISTORY",
+    "lectures": "60 k reads",
+    "jours": "DAYS",
+    "commencer": "Start",
+    "onglets": [
+      "Home",
+      "Library",
+      "Path",
+      "Practice",
+      "Profile"
+    ],
+    "titre": "Was life in the Middle Ages really so miserable?",
+    "description": "Short lives, dirty bodies, empty stomachs: the archives and the skeletons tell another story.",
+    "lecon": {
+      "sousTitre": "Hard, yes. But not what you've been told.",
+      "paragraphes": [
+        [
+          {
+            "t": "Most medieval Europeans were peasants who owed work to their lord and a tenth of their harvest to the Church. The Great Famine of 1315 struck after months of rain, and "
+          },
+          {
+            "m": "the Black Death of 1348 killed at least a third of Europe"
+          },
+          {
+            "t": "."
+          }
+        ],
+        [
+          {
+            "t": "Yet the famous life expectancy of thirty is misleading. "
+          },
+          {
+            "m": "It is an average dragged down by child mortality"
+          },
+          {
+            "t": ", and adults who survived childhood often lived into their fifties or sixties. Skeletons and town records also show that "
+          },
+          {
+            "m": "public bathhouses were common in medieval towns"
+          },
+          {
+            "t": "."
+          }
+        ]
+      ],
+      "continuer": "Continue"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} OF 2",
+      "bravo": "Correct!",
+      "questions": [
+        {
+          "q": "How much of Europe did the Black Death kill?",
+          "options": [
+            "About a tenth",
+            "At least a third",
+            "Nine in ten",
+            "Almost no one"
+          ],
+          "bonne": 1,
+          "fait": "1347 to 1351, at least a third of Europe."
+        },
+        {
+          "q": "Why was medieval life expectancy so low on average?",
+          "options": [
+            "Constant wars",
+            "Many children died young",
+            "Nobody washed",
+            "The cold weather"
+          ],
+          "bonne": 1,
+          "fait": "Survive childhood, and you could reach sixty."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lesson complete!",
+      "score": "2/2 correct answers",
+      "serie": "DAYS STREAK",
+      "xp": "XP EARNED",
+      "suivant": "UP NEXT",
+      "suivantTitre": "What would happen if a supervolcano woke up?",
+      "bouton": "Next lesson"
+    }
+  }
+}

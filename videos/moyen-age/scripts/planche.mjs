@@ -1,5 +1,5 @@
 // Planche de contrôle : quelques images fixes de la vidéo, assemblées en mosaïque.
-// Usage : node scripts/planche.mjs <sortie.jpg> <image> <image> ... [--langue en] [--colonnes 6] [--echelle 0.3]
+// Usage : node scripts/planche.mjs <sortie.jpg> <image> <image> ... [--langue en] [--colonnes 6] [--echelle 0.3] [--sous-titres]
 // Affiche aussi le temps de rendu de chaque image (à --echelle 1, c'est le coût réel d'une image du rendu).
 import {bundle} from '@remotion/bundler';
 import {renderStill, selectComposition} from '@remotion/renderer';
@@ -16,6 +16,8 @@ const opt = (n, d) => {
   args.splice(i, 2);
   return v;
 };
+const sousTitres = args.includes('--sous-titres');
+if (sousTitres) args.splice(args.indexOf('--sous-titres'), 1);
 const langue = opt('langue', 'en');
 const cols = Number(opt('colonnes', '6'));
 const echelle = Number(opt('echelle', '0.3'));
@@ -24,7 +26,7 @@ const racine = path.resolve(new URL('..', import.meta.url).pathname);
 const {composition: id} = JSON.parse(readFileSync(path.join(racine, 'motion.json'), 'utf8'));
 const browserExecutable = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 const serveUrl = await bundle({entryPoint: path.join(racine, 'src/index.ts')});
-const inputProps = {langue, sousTitres: false};
+const inputProps = {langue, sousTitres};
 const composition = await selectComposition({serveUrl, id, inputProps, browserExecutable});
 const dir = mkdtempSync(path.join(tmpdir(), 'planche-'));
 const fichiers = [];

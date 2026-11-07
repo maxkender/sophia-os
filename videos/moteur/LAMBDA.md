@@ -88,6 +88,31 @@ la clé doit donc être présente dans la machine.
 - Le moteur est déjà branché : `moteur.mjs lambda --projet P` (fonction + site), puis
   `moteur.mjs rendre --projet P --langue L --lambda`. Premier essai : le Moyen Âge, pour mesurer temps et coût.
 
+
+## 8. Premier essai (7/11/2026, Moyen Âge en anglais, 3 min 29, 6264 images)
+
+- Droits : tous valides. Région `eu-west-3`. Fonction `remotion-render-4-0-541-mem3008mb-disk2048mb-900sec`.
+- Le compte est un compte neuf, bridé par AWS : **10 exécutions simultanées** et **3008 Mo maximum** par fonction
+  (10240 Mo refusé). Une Lambda à 3008 Mo rend ~0,6 à 0,9 image/s.
+- Le quota compte la Lambda qui orchestre **et** les appels de suivi du CLI : au-delà de ~8, « Rate Exceeded ».
+  Piège : après un échec, l'orchestrateur continue de relancer ses Lambdas de rendu pendant jusqu'à 15 min,
+  qui occupent le quota (et chaque nouvel essai pendant ce temps échoue et en crée d'autres). Attendre.
+- Le moteur rend donc avec **6 Lambdas** et au plus **450 images par Lambda** : la vidéo est coupée en tranches
+  rendues l'une après l'autre (3 pour le Moyen Âge), puis recollée par ffmpeg (images copiées, son décodé et
+  recollé, durée exacte de chaque tranche pour que les jointures tombent pile).
+- Résultat : **28 min sur Lambda** (31 min avec l'assemblage), **~0,28 $** estimé par Remotion. C'est à peine mieux
+  que le rendu local (~35 min) : le gain viendra du relèvement du quota.
+
+### À faire chez AWS pour que Lambda vaille le coup
+
+1. Relever le quota de concurrence (10 → 1000) : `npx remotion lambda quotas increase` (dans `videos/<projet>`),
+   ou console **Service Quotas → AWS Lambda → Concurrent executions → Request increase**. Réponse en 1 à 3 jours.
+   Ensuite : `REMOTION_LAMBDA_CONCURRENCE=100` dans l'environnement → une seule tranche, ~2 à 3 min par vidéo.
+2. (Facultatif) Faire lever la limite de mémoire à 3008 Mo (support AWS) : plus de vCPU par Lambda.
+3. (Facultatif, pour diagnostiquer) Ajouter à `remotion-user-policy` la lecture des journaux et des réglages :
+   `logs:FilterLogEvents`, `logs:GetLogEvents` sur `arn:aws:logs:*:*:log-group:/aws/lambda/remotion-render-*:*`,
+   et `lambda:GetAccountSettings` sur `*`.
+
 ---
 
 ## Politique du rôle (étape 1, `remotion-lambda-policy`)

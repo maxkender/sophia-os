@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o106",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e6a6e3d9-4309-4126-a3ec-c89c76f2993e",
+  "titre": "comment avoir plus de confiance et d'indépendance #confiance #independante #pourtoi",
+  "inspirations": [
+    "e6a6e3d9-4309-4126-a3ec-c89c76f2993e"
+  ],
+  "notes": "G1, déclinaison de e6a6e3d9 (« comment avoir plus de confiance et d'indépendance », génération 0 en français ; meilleur passage tr 5,2 k vues, r 3,78), en français. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni sortir seule, ni « je vais réfléchir », ni promesses tenues, ni autre appli). Routine du 7/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 5, 7 et 8 de la boîte). Ligne 6 sautée (5c676138, métiers du droit : treize fiches métier à vérifier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "comment avoir plus de confiance\net d'indépendance",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "09067fa3",
+      "texte_overlay": "1. apprends à te débrouiller dans une ville inconnue\n\nsans gps une heure.\ntu te perds, tu demandes, tu trouves.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "057091a3",
+      "texte_overlay": "2. gère ton propre argent\n\nun carnet, chaque dépense.\nsavoir où tu en es, c'est déjà être libre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "03d4534a",
+      "texte_overlay": "3. forme-toi ton propre avis\n\nlis deux points de vue avant de choisir le tien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01be1362",
+      "texte_overlay": "4. fais-toi des plans à toi\n\nun film, une expo, un café.\nn'attends personne pour vivre ce qui te plaît.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. nourris ta curiosité chaque jour\n\navant, je doutais de tout ce que je disais.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai toujours quelque chose à raconter.",
+      "texte_sophia": "5. nourris ta curiosité chaque jour\n\navant, je doutais de tout ce que je disais.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai toujours quelque chose à raconter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "tu commences par laquelle cette semaine ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

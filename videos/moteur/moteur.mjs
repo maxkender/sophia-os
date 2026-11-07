@@ -14,13 +14,14 @@
 //
 // Le jeton du moteur vient de l'environnement (MOTION_JETON), jamais d'un fichier.
 import {spawnSync} from 'node:child_process';
-import {existsSync, readFileSync, rmSync, statSync} from 'node:fs';
+import {existsSync, readFileSync, renameSync, rmSync, statSync} from 'node:fs';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
 const ICI = dirname(fileURLToPath(import.meta.url));
 const VIDEOS = resolve(ICI, '..');
 const URL_OS = process.env.SUPABASE_URL ?? 'https://mbikecieskoobeizixig.supabase.co';
+const TAILLE_MAX = 48e6; // octets : au-delà, la vidéo est recompressée avant l'envoi
 const CHROME = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 
 const [, , commande, ...reste] = process.argv;
@@ -108,6 +109,15 @@ const commandes = {
         ['-loglevel', 'error', '-y', '-i', brut, '-c:v', 'copy', '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', `out/${langue}/${nom}.mp4`],
         dir,
       );
+      // Le stockage refuse les gros fichiers (une vidéo de 140 Mo est passée en 413) : au-delà de 48 Mo,
+      // on réencode en x264 lent crf 28 (sans perte visible sur le papier découpé, ~40 Mo pour 3 min 30).
+      const fichier = join(dir, `out/${langue}/${nom}.mp4`);
+      if (statSync(fichier).size > TAILLE_MAX) {
+        const compact = `out/${langue}/${nom}-compact.mp4`;
+        lancer('ffmpeg', ['-loglevel', 'error', '-y', '-i', `out/${langue}/${nom}.mp4`, '-c:v', 'libx264', '-preset', 'slow', '-crf', '28', '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', compact], dir);
+        renameSync(join(dir, compact), fichier);
+        console.log(`${nom}.mp4 recompressé : ${(statSync(fichier).size / 1e6).toFixed(1)} Mo`);
+      }
     }
     console.log(`rendu : videos/${requis('projet')}/out/${langue}/final.mp4${versions.length > 1 ? ' (+ final-sans-sous-titres.mp4)' : ''}`);
   },

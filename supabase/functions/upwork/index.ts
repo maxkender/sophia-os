@@ -4757,7 +4757,15 @@ async function offresCompleter(supabase: Supabase, par: string | null, contrats:
     const faites: Record<string, unknown>[] = [];
     let erreur: string | null = null;
     for (const act of plan.actions) {
-      if (act.type === "renommer") {
+      if (act.type === "compter") {
+        // Financé : Upwork refuse de le renommer ; la paie le compte pour la semaine de la cohorte.
+        const { error: e } = await supabase.from("paie_jalons_semaine").upsert({
+          jalon_id: act.jalon_id, contrat_id: contrat, nom: act.nom, semaine: String(a.cohorte_lundi),
+          raison: `offre HM : « ${act.nom} » compté Week ${act.semaine} (7/11, financé, non renommable)`, annule_at: null,
+        }, { onConflict: "jalon_id" });
+        if (e) { erreur = `compter « ${act.nom} » : ${e.message}`; break; }
+        faites.push(act);
+      } else if (act.type === "renommer") {
         const r = await ecrire(supabase, {
           par, action: "offre_renommer_jalon", query: MUTATION_EDITER_JALON, tenant: ORG_VIK_OFFRES, contrat, montant: 0,
           variables: { input: { id: act.jalon_id, description: act.vers } },

@@ -2887,6 +2887,32 @@
     "url_tiktok": "https://www.tiktok.com/music/x-7584564476481948428"
    },
    "statut": "nouveau"
+  },
+  {
+   "post_id": "original-073",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#algorithm #phonefree #smallhabits",
+   "musique": {
+    "titre": "Better in the Dark",
+    "auteur": "Jordana & TV Girl",
+    "original": false,
+    "id": "7015372949901281281",
+    "url_tiktok": "https://www.tiktok.com/music/x-7015372949901281281"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7681048823824649494_1",
+    "2": "7704751322830064929_6",
+    "3": "7704751322830064929_3",
+    "4": "7696527080426655009_3",
+    "5": "7696836327026724128_4",
+    "6": "7696527080426655009_2"
+   },
+   "notes": "full test BLEO (petites rébellions contre l'algorithme); cta C",
+   "type_bleo": "full_test"
   }
  ]
 }

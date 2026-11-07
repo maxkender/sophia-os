@@ -33,6 +33,7 @@ import {
   Sea,
   Shield,
   Ship,
+  Fireflies,
   Shoe,
   Snow,
   Stars,
@@ -73,10 +74,13 @@ const Cam: React.FC<{children: React.ReactNode; dx?: number; dy?: number; z1?: n
   cy = 960,
   plat = false,
 }) => {
-  const {f, d} = usePage();
+  const {f, d, m} = usePage();
   const t = lerp(f, [0, d], [0, 1], ease.linear);
   const base = plat ? 1 : 1.15;
-  const z = base * (1 + (z1 - 1) * t);
+  // entrée : la page arrive d'un peu plus près ; moment fort : petite poussée de caméra qui reste
+  const entree = lerp(f, [0, 24], [0.06, 0], ease.out);
+  const poussee = lerp(f, [m - 2, m + 18], [0, 0.045], ease.out);
+  const z = base * (1 + (z1 - 1) * t + entree + poussee);
   const x = cx + dx * (t - 0.5);
   const y = cy + (plat ? 0 : 250) + dy * (t - 0.5);
   return <g transform={`translate(540 960) scale(${z}) translate(${-x} ${-y})`}>{children}</g>;
@@ -460,6 +464,7 @@ const P20: React.FC = () => {
       <Cam z1={1.04}>
         <TownStreet dusk={1} lit={lit} mud={false} />
         <Moon x={860} y={300} />
+        <Fireflies y={1250} />
       </Cam>
     </Stage>
   );
@@ -571,6 +576,7 @@ const P26: React.FC = () => {
         {[0, 1, 2, 3].map((k) => (
           <Tent key={k} x={140 + k * 270} y={1300 + (k % 2) * 60} s={0.9} c={k % 2 ? '#C9BFA6' : M.plaster} lit={Math.max(0, 1 - t * 1.4 + k * 0.15)} />
         ))}
+        <Fireflies y={1150} />
       </Cam>
     </Stage>
   );

@@ -1,6 +1,7 @@
 // Bibliothèque papier du Moyen Âge : personnages, décors et accessoires (tableaux calmes, peu d'animation).
 import React from 'react';
-import {random} from 'remotion';
+import {random, useCurrentFrame} from 'remotion';
+import {noise2D} from '@remotion/noise';
 import {C} from './lib';
 
 export const M = {
@@ -71,8 +72,15 @@ export const Person: React.FC<{
 }> = ({x = 0, y = 0, s = 1, tunic = M.tunicBrown, hair = M.hair, hat = 'aucun', robe = false, flip = false, arm = 0, armL = 0, lie = false, opacity = 1, cape, armor = false}) => {
   const body = armor ? M.steel : tunic;
   const legs = armor ? M.steelDark : '#4E3A2A';
+  const f = useCurrentFrame();
+  const ph = x * 0.013 + y * 0.007;
+  const souffle = lie ? 0 : Math.sin(f / 11 + ph) * 4;
+  const cligne = (f + Math.round(x)) % 97 < 4;
+  const balance = Math.sin(f / 17 + ph) * 4;
+  arm = arm + balance;
+  armL = armL - balance;
   return (
-    <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s}) ${lie ? 'rotate(-90)' : ''}`} opacity={opacity}>
+    <g transform={`translate(${x} ${y + souffle * s * 0.5}) scale(${flip ? -s : s} ${s * (1 + souffle * 0.002)}) ${lie ? 'rotate(-90)' : ''}`} opacity={opacity}>
       {cape && <path d="M -62 -250 Q -80 -120 -70 -30 L 70 -30 Q 80 -120 62 -250 Z" fill={cape} />}
       {!robe && (
         <>
@@ -101,8 +109,8 @@ export const Person: React.FC<{
       <circle cx={0} cy={-305} r={44} fill={M.skin} />
       {hat !== 'heaume' && (
         <>
-          <circle cx={-15} cy={-306} r={5} fill={C.ink} />
-          <circle cx={15} cy={-306} r={5} fill={C.ink} />
+          <ellipse cx={-15} cy={-306} rx={5} ry={cligne ? 1 : 5} fill={C.ink} />
+          <ellipse cx={15} cy={-306} rx={5} ry={cligne ? 1 : 5} fill={C.ink} />
           <path d="M -10 -284 Q 0 -278 10 -284" stroke={C.ink} strokeWidth={4} fill="none" strokeLinecap="round" />
         </>
       )}
@@ -135,18 +143,37 @@ export const Person: React.FC<{
 };
 
 /** Fond : ciel, collines, champ (origine 0,0 du plan 1080x1920) */
-export const Countryside: React.FC<{sky?: string; hill?: string; field?: string; winter?: boolean}> = ({sky = M.sky, hill = M.hill, field = M.field, winter = false}) => (
+export const Countryside: React.FC<{sky?: string; hill?: string; field?: string; winter?: boolean; vie?: boolean}> = ({sky = M.sky, hill = M.hill, field = M.field, winter = false, vie = true}) => {
+  const f = useCurrentFrame();
+  return (
   <g>
     <rect x={-600} y={-600} width={2280} height={3200} fill={sky} />
+    {vie && sky !== 'transparent' && (
+      <>
+        {[0, 1, 2].map((k) => (
+          <g key={k} opacity={0.9}>
+            <Cloudy x={((k * 520 + f * (0.8 + k * 0.3)) % 1900) - 450} y={420 + k * 130} s={0.9 + k * 0.25} c={winter ? '#F2F4F6' : '#FFFFFF'} />
+          </g>
+        ))}
+        {!winter &&
+          [0, 1, 2].map((k) => {
+            const bx = ((f * 3.2 + k * 60) % 1700) - 300;
+            const by = 640 + k * 34 + Math.sin(f / 9 + k) * 10;
+            const w = Math.sin(f / 3 + k) * 10;
+            return <path key={`b${k}`} d={`M ${bx - 22} ${by + w} Q ${bx - 10} ${by - 8} ${bx} ${by} Q ${bx + 10} ${by - 8} ${bx + 22} ${by + w}`} stroke="#3B3A44" strokeWidth={5} fill="none" strokeLinecap="round" />;
+          })}
+      </>
+    )}
     <path d="M -600 1050 Q 0 880 540 980 Q 1100 1080 1680 920 L 1680 2600 L -600 2600 Z" fill={winter ? '#E6EBEF' : M.hillFar} filter="url(#pp)" />
     <path d="M -600 1200 Q 200 1060 700 1150 Q 1200 1240 1680 1110 L 1680 2600 L -600 2600 Z" fill={winter ? '#F4F6F8' : hill} filter="url(#pp)" />
     <path d="M -600 1420 Q 300 1340 1680 1400 L 1680 2600 L -600 2600 Z" fill={winter ? '#FBFCFD' : field} filter="url(#pp)" />
     {!winter &&
       Array.from({length: 9}, (_, i) => (
-        <path key={i} d={`M -600 ${1500 + i * 70} Q 540 ${1460 + i * 72} 1680 ${1490 + i * 70}`} stroke={M.fieldDark} strokeWidth={6} fill="none" opacity={0.45} />
+        <path key={i} d={`M -600 ${1500 + i * 70} Q ${540 + Math.sin(f / 20 + i) * 40} ${1460 + i * 72} 1680 ${1490 + i * 70}`} stroke={M.fieldDark} strokeWidth={6} fill="none" opacity={0.45} />
       ))}
   </g>
-);
+  );
+};
 
 export const Tree: React.FC<{x: number; y: number; s?: number; c?: string; bare?: boolean}> = ({x, y, s = 1, c = '#5E8A47', bare = false}) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
@@ -169,7 +196,9 @@ export const Tree: React.FC<{x: number; y: number; s?: number; c?: string; bare?
 );
 
 /** Château sur une colline (origine : base au centre) */
-export const Castle: React.FC<{x: number; y: number; s?: number; banner?: string; flag?: number}> = ({x, y, s = 1, banner = M.tunicRed, flag = 0}) => (
+export const Castle: React.FC<{x: number; y: number; s?: number; banner?: string; flag?: number}> = ({x, y, s = 1, banner = M.tunicRed, flag: flag0 = 0}) => {
+  const flag = flag0 + Math.sin(useCurrentFrame() / 5) * 1.5;
+  return (
   <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
     <rect x={-220} y={-260} width={440} height={260} fill={M.stone} />
     {[-220, 160].map((tx) => (
@@ -190,7 +219,8 @@ export const Castle: React.FC<{x: number; y: number; s?: number; banner?: string
       <rect key={wx} x={wx} y={-200} width={28} height={50} rx={14} fill={C.ink} opacity={0.7} />
     ))}
   </g>
-);
+  );
+};
 
 export const Church: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 1}) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
@@ -206,8 +236,22 @@ export const Church: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 
 );
 
 /** Chaumière vue de dehors (origine : bas du mur, au centre) */
+const Fumee: React.FC<{x: number; y: number}> = ({x, y}) => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      {[0, 1, 2, 3].map((k) => {
+        const t = ((f + k * 30) % 120) / 120;
+        return <circle key={k} cx={x + Math.sin(t * 6 + k) * 20 + t * 40} cy={y - t * 260} r={22 + t * 40} fill="#E8E4DE" opacity={(1 - t) * 0.7} />;
+      })}
+    </g>
+  );
+};
+
 export const Hut: React.FC<{x: number; y: number; s?: number; light?: number; snow?: boolean}> = ({x, y, s = 1, light = 0, snow = false}) => (
   <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
+    <rect x={80} y={-300} width={40} height={90} fill={M.stoneDark} />
+    <Fumee x={100} y={-310} />
     <rect x={-150} y={-170} width={300} height={170} fill={M.plaster} />
     {[-150, -40, 60, 145].map((bx) => (
       <rect key={bx} x={bx} y={-170} width={10} height={170} fill={M.timber} />
@@ -220,7 +264,10 @@ export const Hut: React.FC<{x: number; y: number; s?: number; light?: number; sn
 );
 
 /** Intérieur d'une chaumière : murs de planches, sol de terre, âtre */
-export const Interior: React.FC<{fire?: number; dark?: number; window?: number}> = ({fire = 1, dark = 0, window = 1}) => (
+export const Interior: React.FC<{fire?: number; dark?: number; window?: number}> = ({fire: fire0 = 1, dark = 0, window = 1}) => {
+  const f = useCurrentFrame();
+  const fire = fire0 * (0.85 + noise2D('feu', f / 6, 0) * 0.25);
+  return (
   <g>
     <rect x={-600} y={-600} width={2280} height={3200} fill={M.plank} />
     {Array.from({length: 16}, (_, i) => (
@@ -239,10 +286,22 @@ export const Interior: React.FC<{fire?: number; dark?: number; window?: number}>
       ))}
       <path d={`M -60 -20 Q -40 ${-110 - fire * 30} -10 -40 Q 0 ${-150 - fire * 40} 20 -30 Q 50 ${-100 - fire * 30} 60 -20 Z`} fill={M.fire} opacity={fire} />
       <path d={`M -30 -22 Q 0 ${-90 - fire * 20} 30 -22 Z`} fill={M.fireHot} opacity={fire} />
+      {fire0 > 0.05 &&
+        [0, 1, 2, 3, 4].map((k) => {
+          const t = ((f * 1.3 + k * 23) % 60) / 60;
+          return <circle key={k} cx={Math.sin(k * 7 + t * 5) * 40} cy={-60 - t * 260} r={5} fill={M.fireHot} opacity={(1 - t) * fire0} />;
+        })}
     </g>
+    {window > 0.05 &&
+      Array.from({length: 14}, (_, k) => {
+        const px = 620 + random(`dx${k}`) * 260 + Math.sin(f / 40 + k) * 30;
+        const py = 700 + ((random(`dy${k}`) * 700 + f * 0.6) % 700);
+        return <circle key={k} cx={px} cy={py} r={3 + random(`dr${k}`) * 3} fill="#FFF3D0" opacity={0.5 * window} />;
+      })}
     <rect x={-600} y={-600} width={2280} height={3200} fill={M.nightDeep} opacity={dark} />
   </g>
-);
+  );
+};
 
 export const Pig: React.FC<{x: number; y: number; s?: number; flip?: boolean}> = ({x, y, s = 1, flip}) => (
   <g transform={`translate(${x} ${y}) scale(${flip ? -s : s} ${s})`} filter="url(#pp)">
@@ -443,14 +502,17 @@ export const Ship: React.FC<{x: number; y: number; s?: number; sail?: string}> =
   </g>
 );
 
-export const Sea: React.FC<{y: number}> = ({y}) => (
+export const Sea: React.FC<{y: number}> = ({y}) => {
+  const f = useCurrentFrame();
+  return (
   <g filter="url(#pp)">
     <rect x={-600} y={y} width={2280} height={2000} fill="#5E8FA8" />
     {Array.from({length: 6}, (_, i) => (
-      <path key={i} d={`M -600 ${y + 60 + i * 90} q 60 -24 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0`} stroke="#86B3C8" strokeWidth={8} fill="none" />
+      <path key={i} transform={`translate(${((f * (1 + i * 0.3)) % 240) - 120} 0)`} d={`M -600 ${y + 60 + i * 90} q 60 -24 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0 t 120 0`} stroke="#86B3C8" strokeWidth={8} fill="none" />
     ))}
   </g>
-);
+  );
+};
 
 export const Sword: React.FC<{x: number; y: number; s?: number; r?: number}> = ({x, y, s = 1, r = 0}) => (
   <g transform={`translate(${x} ${y}) scale(${s}) rotate(${r})`} filter="url(#pp)">
@@ -503,6 +565,19 @@ export const Throne: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 
   </g>
 );
 
+const Torche: React.FC<{x: number; y: number}> = ({x, y}) => {
+  const f = useCurrentFrame();
+  const v = 0.8 + noise2D(`t${x}`, f / 5, 0) * 0.3;
+  return (
+    <g transform={`translate(${x} ${y})`}>
+      <circle cx={0} cy={-60} r={130} fill={M.fireHot} opacity={0.12 * v} />
+      <rect x={-10} y={-20} width={20} height={90} fill={M.timber} />
+      <path d={`M -22 -20 Q 0 ${-90 * v} 22 -20 Z`} fill={M.fire} />
+      <path d={`M -10 -22 Q 0 ${-56 * v} 10 -22 Z`} fill={M.fireHot} />
+    </g>
+  );
+};
+
 export const ThroneRoom: React.FC = () => (
   <g>
     <rect x={-600} y={-600} width={2280} height={3200} fill={M.stoneDark} />
@@ -519,6 +594,8 @@ export const ThroneRoom: React.FC = () => (
         <circle cx={px} cy={300} r={50} fill={M.gold} />
       </g>
     ))}
+    <Torche x={300} y={760} />
+    <Torche x={780} y={760} />
     <path d="M -600 1500 L 1680 1500 L 1680 2600 L -600 2600 Z" fill="#6A5F52" filter="url(#pp)" />
     <path d="M 380 1500 L 700 1500 L 900 2600 L 180 2600 Z" fill={M.tunicRed} filter="url(#pp)" />
   </g>
@@ -573,13 +650,35 @@ export const Moon: React.FC<{x: number; y: number}> = ({x, y}) => (
   </g>
 );
 
-export const Stars: React.FC = () => (
-  <g>
-    {Array.from({length: 40}, (_, i) => (
-      <circle key={i} cx={random(`sx${i}`) * 1080} cy={random(`sy${i}`) * 900} r={2 + random(`sr${i}`) * 4} fill="#F5EBC8" opacity={0.8} />
-    ))}
-  </g>
-);
+export const Stars: React.FC = () => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      {Array.from({length: 40}, (_, i) => (
+        <circle key={i} cx={random(`sx${i}`) * 1080} cy={random(`sy${i}`) * 900} r={2 + random(`sr${i}`) * 4} fill="#F5EBC8" opacity={0.45 + 0.4 * Math.sin(f / 8 + i * 1.7)} />
+      ))}
+    </g>
+  );
+};
+
+/** Lucioles de nuit */
+export const Fireflies: React.FC<{y?: number}> = ({y = 1100}) => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      {Array.from({length: 16}, (_, i) => (
+        <circle
+          key={i}
+          cx={random(`fx${i}`) * 1080 + Math.sin(f / 25 + i) * 40}
+          cy={y + random(`fy${i}`) * 500 + Math.cos(f / 30 + i * 2) * 30}
+          r={5}
+          fill="#F8E58A"
+          opacity={0.3 + 0.6 * Math.max(0, Math.sin(f / 10 + i * 2.3))}
+        />
+      ))}
+    </g>
+  );
+};
 
 export const Rain: React.FC<{t: number; f: number}> = ({t, f}) => (
   <g opacity={t}>

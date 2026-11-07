@@ -4,13 +4,20 @@ import {TransitionSeries, linearTiming} from '@remotion/transitions';
 import {lerp, step, WarpContext} from './lib';
 import {PageContext, TABLEAUX} from './scenes/Tableaux';
 import {Outro} from './scenes/Outro';
-import {fade} from '@remotion/transitions/fade';
-import {OUTRO_D, T, TimelineContext, timelineDe, useTimeline} from './timeline';
+import type {TransitionPresentation} from '@remotion/transitions';
+import {tear, whip} from './transitions';
+import {NOUVELLE_VIE, OUTRO_D, T, TimelineContext, timelineDe, useTimeline} from './timeline';
 import {Sound} from './Sound';
 import {Captions} from './Captions';
 
 // Les 36 pages du récit ; leur durée vient de la voix (timeline.ts), leur moment fort du mot repère
 export const SCENES = TABLEAUX.map((C, i) => ({id: `P${String(i + 1).padStart(2, '0')}`, C, base: 180}));
+
+/** Transitions : déchirure de papier à chaque nouvelle vie, panoramique fouetté entre les autres pages */
+const DIRS = ['left', 'up', 'right'] as const;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const transition = (i: number): TransitionPresentation<any> =>
+  NOUVELLE_VIE.has(i) ? tear({seed: `v${i}`, tilt: i % 2 ? 6 : -6}) : whip({dir: DIRS[i % 3]});
 
 /** Grain de papier + vignette par-dessus tout */
 export const Paper: React.FC = () => {
@@ -50,7 +57,7 @@ const Film: React.FC = () => {
             </PageContext.Provider>
           </WarpContext.Provider>
         </TransitionSeries.Sequence>,
-        <TransitionSeries.Transition key={`t${i}`} presentation={fade()} timing={linearTiming({durationInFrames: T})} />,
+        <TransitionSeries.Transition key={`t${i}`} presentation={transition(i)} timing={linearTiming({durationInFrames: T})} />,
       ])}
       <TransitionSeries.Sequence name="S9-Sophia" durationInFrames={OUTRO_D}>
         <Outro />

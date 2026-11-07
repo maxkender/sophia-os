@@ -6,7 +6,9 @@ import {LANGUES} from './langues';
 import type {DonneesLangue, Voix} from './langues/types';
 
 export const FPS = 30;
-export const T = 16; // fondu doux entre pages (images)
+export const T = 12; // transition entre pages (images)
+/** Transitions en déchirure (nouvelle vie) : index de la page qu'elles suivent */
+export const NOUVELLE_VIE = new Set([0, 12, 20, 26, 31]);
 export const VOICE_START = 6; // la voix démarre à 0,2 s
 export const OUTRO_D = 275;
 export const OUTRO_VOICE = 8; // la phrase de fin démarre 8 images après le début de la séquence Sophia

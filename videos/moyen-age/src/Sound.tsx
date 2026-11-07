@@ -2,7 +2,7 @@ import React from 'react';
 import {Audio} from '@remotion/media';
 import {interpolate, Sequence, staticFile} from 'remotion';
 import {PUSH, TAPS} from './scenes/Outro';
-import {OUTRO_VOICE, useTimeline, VOICE_START, type Timeline} from './timeline';
+import {NOUVELLE_VIE, OUTRO_VOICE, useTimeline, VOICE_START, type Timeline} from './timeline';
 
 // Son calme : une ambiance douce par page (en boucle, sous la voix) et un seul bruitage léger au moment fort.
 type Page = [ambiance: string | null, moment: string | null];
@@ -57,8 +57,8 @@ export const evenements = (tl: Timeline): Ev[] => {
       const son = PAGES[i]?.[1];
       return son ? [{f: s.from + s.moment, son, vol: MOMENT}] : [];
     }),
-    ...scenes.slice(1).map((s): Ev => ({f: s.from, son: 'pageSoft', vol: 0.18})),
-    {f: outroFrom, son: 'pageSoft', vol: 0.25},
+    ...scenes.slice(1).map((s, i): Ev => (NOUVELLE_VIE.has(i) ? {f: s.from, son: 'tear', vol: 0.45} : {f: s.from, son: 'whoosh', vol: 0.28})),
+    {f: outroFrom, son: 'whoosh', vol: 0.35},
     {f: outroFrom + 2, son: 'phone', vol: 0.5},
     ...TAPS.map((t): Ev => ({f: outroFrom + t.f - 1, son: 'click', vol: 0.7})),
     {f: outroFrom + TAPS[2].f + 1, son: 'correct', vol: 0.6},

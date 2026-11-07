@@ -1,0 +1,343 @@
+{
+ "id": "yp-039",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "ce que je fais quand j’ai zéro motivation pour réviser",
+  "es": "lo que hago cuando tengo cero motivación para estudiar",
+  "tr": "hiç motivasyonum yokken ne yapıyorum"
+ },
+ "legendes": {
+  "fr": "pour les jours sans 🫠 #motivation #revisions #studytok #thatgirl #conseils",
+  "es": "para los días sin ganas 🫠 #motivacion #estudiar #studytok #thatgirl #consejos",
+  "tr": "isteksiz günler için 🫠 #motivasyon #ders #studytok #thatgirl #tavsiye"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7495865113889065750"
+ },
+ "fond": {
+  "media_id": "267ac3d5-7921-4861-b7bf-16d0ee529586",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/95d946a8-a288-42d9-aa72-b7b0d2e23499/3.jpg?v=1791725980526",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je commence par 5 minutes », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ce que je fais quand",
+     "lignes": [
+      "ZÉRO",
+      "MOTIVATION"
+     ],
+     "taille": 150,
+     "taille_script": 80,
+     "script_bas": "pour réviser",
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "lo que hago cuando tengo",
+     "lignes": [
+      "CERO",
+      "MOTIVACIÓN"
+     ],
+     "taille": 150,
+     "taille_script": 76,
+     "script_bas": "para estudiar",
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MOTİVASYONSUZ",
+      "GÜNLERDE",
+      "NE YAPIYORUM"
+     ],
+     "taille": 104,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1570817f-85dd-44f7-b639-9460399fd232",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ee533d93-d196-421a-9063-227fd647e3ec/4.jpg?v=1787157842321",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "je range mon bureau🧹",
+      "texte": "2 min, pas plus. un espace propre, et j’ai déjà l’impression d’avoir commencé.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "ordeno mi escritorio🧹",
+      "texte": "2 min, no más. un espacio limpio y ya siento que he empezado.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "masamı topluyorum🧹",
+      "texte": "2 dakika, fazlası değil. temiz bir alan ve şimdiden başlamış gibi hissediyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "15acb423-7009-46a2-8e51-8cb7bd414776",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/018c05df-e7fd-4ccd-b5e3-2692d8b82758/5.png?v=1790687853035",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 200,
+      "titre": "je me fais un thé🍵",
+      "texte": "un petit rituel avant de m’asseoir. mon cerveau comprend que c’est l’heure.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 200,
+      "titre": "me preparo un té🍵",
+      "texte": "un pequeño ritual antes de sentarme. mi cerebro entiende que es la hora.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 200,
+      "titre": "kendime bir çay yapıyorum🍵",
+      "texte": "oturmadan önce küçük bir ritüel. beynim zamanın geldiğini anlıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "0208be7d-1a24-4b42-b5a6-df2612093710",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/73a512e7-fbc1-4416-8c9d-877c00f4488e/7.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "je commence par 5 minutes⏱️",
+      "texte": "juste un quiz micabo sur le cours d’hier. 5 min, c’est rien. et une fois lancée, je continue.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "empiezo con 5 minutos⏱️",
+      "texte": "solo un quiz de micabo sobre la clase de ayer. 5 min no son nada. y una vez que empiezo, sigo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "5 dakikayla başlıyorum⏱️",
+      "texte": "dünkü dersten sadece bir micabo testi. 5 dakika hiçbir şey. bir kez başlayınca devam ediyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6cc8b552-cd5b-4221-b9c9-2cc149da1507",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4a50bbb1-6665-4839-b774-4f62acd8bea5/2.png?v=1790689032769",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "je mets mon téléphone ailleurs📵",
+      "texte": "pas sur le bureau, pas en silencieux : dans une autre pièce.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "dejo el móvil en otro sitio📵",
+      "texte": "no en la mesa, no en silencio: en otra habitación.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "telefonumu başka yere koyuyorum📵",
+      "texte": "masada değil, sessizde değil: başka bir odada.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "092c749d-2d69-43c1-aab3-57d8a0c92dbd",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e9948ff4-c6a2-49c4-aa31-ba68ff180103/1.jpg?v=1787136636705",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1200,
+      "titre": "je change d’endroit☕",
+      "texte": "un café, la bibliothèque, la cuisine. un nouveau décor, une nouvelle énergie.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1200,
+      "titre": "cambio de sitio☕",
+      "texte": "una cafetería, la biblioteca, la cocina. otro lugar, otra energía.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1200,
+      "titre": "yer değiştiriyorum☕",
+      "texte": "bir kafe, kütüphane, mutfak. yeni bir ortam, yeni bir enerji.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9975a578-aa9d-40fb-af5a-64b54d5cecf5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d472544d-8222-4f66-a99d-06e6935b3b3d/2.jpg?v=1790611135678",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 200,
+      "titre": "je me rappelle pourquoi🤍",
+      "texte": "ce n’est pas pour la note. c’est pour la version de moi qui sera fière dans 6 mois.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 200,
+      "titre": "recuerdo por qué lo hago🤍",
+      "texte": "no es por la nota. es por la versión de mí que estará orgullosa en 6 meses.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 200,
+      "titre": "neden yaptığımı hatırlıyorum🤍",
+      "texte": "not için değil. 6 ay sonra gurur duyacak olan benim için.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "ce que je fais quand j’ai zéro motivation pour réviser"
+ }
+}

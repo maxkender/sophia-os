@@ -40,8 +40,7 @@ import {
   scriptModifie,
   scriptsDifferents,
   VARIANTE_LANGUE,
-  VARIANTE_VIDEO,
-} from "@/features/motion/logique";
+  VARIANTE_VIDEO, attendLaPilote, languePiloteDe } from "@/features/motion/logique";
 import { messageErreur } from "@/features/ugcIa/logique";
 
 /** Toutes les 10 s tant que le moteur travaille (script demandé, langues à rendre). */
@@ -510,6 +509,10 @@ function CarteLangue({ video, langue, comptes }: { video: VideoMotion; langue: L
   });
   const cible = comptes.find((c) => c.is_active) ?? null;
   const decidable = langue.statut === "a_valider" || langue.statut === "validee";
+  const pilote = languePiloteDe(video.langues.map((l) => l.langue));
+  const estPilote = langue.langue === pilote;
+  // La pilote validée lance les autres langues, même sans compte MOTION pour la publier tout de suite.
+  const sansPublier = estPilote && !cible;
   const erreur = valider.error ?? rejeter.error;
 
   return (
@@ -521,6 +524,9 @@ function CarteLangue({ video, langue, comptes }: { video: VideoMotion; langue: L
         </div>
       </CardHeader>
       <CardContent className="space-y-2">
+        {attendLaPilote(langue, video.langues, pilote) && (
+          <p className="text-xs text-muted-foreground">{t("motion.apresPilote", { pilote: pilote.toUpperCase() })}</p>
+        )}
         {langue.video_url ? (
           <video
             src={langue.video_url}
@@ -556,13 +562,16 @@ function CarteLangue({ video, langue, comptes }: { video: VideoMotion; langue: L
             <div className="flex flex-wrap gap-2">
               <Button
                 size="sm"
-                disabled={!cible || !langue.video_url}
+                disabled={(!cible && !estPilote) || !langue.video_url}
                 loading={valider.isPending}
                 onClick={() => {
-                  if (window.confirm(t("motion.confirmPublier", { langue: langue.langue.toUpperCase() }))) valider.mutate();
+                  const message = sansPublier
+                    ? t("motion.confirmPilote", { langue: langue.langue.toUpperCase() })
+                    : t("motion.confirmPublier", { langue: langue.langue.toUpperCase() });
+                  if (window.confirm(message)) valider.mutate();
                 }}
               >
-                {t("motion.validerPublier")}
+                {sansPublier ? t("motion.validerPilote") : t("motion.validerPublier")}
               </Button>
               <Button size="sm" variant="outline" onClick={() => setRejet((r) => !r)}>
                 {t("motion.rejeter")}
@@ -590,7 +599,12 @@ function CarteLangue({ video, langue, comptes }: { video: VideoMotion; langue: L
             )}
           </div>
         )}
-        {valider.data && <p className="text-xs text-success-foreground">{t("motion.postCree", { date: valider.data.date })}</p>}
+        {valider.data?.date && <p className="text-xs text-success-foreground">{t("motion.postCree", { date: valider.data.date })}</p>}
+        {valider.data?.lancees && valider.data.lancees.length > 0 && (
+          <p className="text-xs text-success-foreground">
+            {t("motion.languesLancees", { langues: valider.data.lancees.map((l) => l.toUpperCase()).join(", ") })}
+          </p>
+        )}
         {erreur && (
           <p role="alert" className="text-xs text-destructive">
             {messageErreur(erreur)}

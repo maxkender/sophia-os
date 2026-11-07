@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o155",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "468d919a-1b42-46ec-8b10-ac3cb3f7a2ca",
+ "titre": "signs your brain needs a reset (and how to give it one) #brainfog #mentalhealth #selfimprovement #reset #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "ef0b3acc-52cf-47b2-9310-3a4062bfa437"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, ef0b3acc). déclinaison G1 de « signs your brain needs a reset and how to give it one » (parent 468d919a, famille née de wa-o091). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b70d19f8-2654-417f-95fd-88d7a7e8157f",
+   "texte_overlay": "signs your brain needs a\nreset (and how to give it one)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483558413913357/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d0d93894-6f88-4e00-9077-31c1c31d0816",
+   "texte_overlay": "you forget why you walked in\n\nyou keep walking into rooms and forgetting why. a brain juggling too much needs fewer tabs open, so write things down on paper and finally let your memory rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483558413913357/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a5998691-1191-4791-a567-e7ce8fa96d45",
+   "texte_overlay": "small decisions feel huge\n\nchoosing what to eat or wear feels exhausting. that's decision fatigue, and simplifying your routine for a week gives your tired brain the room it needs to recover.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483558413913357/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "27b72a3f-d46d-45a3-817c-91d21b9bc5af",
+   "texte_overlay": "you can't finish a film\n\nyou check your phone every few minutes even during something you enjoy. a weekend without short videos is often enough to slowly bring your attention back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483558413913357/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "90a02780-be9c-40a2-a5ea-d81e1962d400",
+   "texte_overlay": "learning feels heavy\n\nwhen nothing new seems interesting, start tiny: 5 minutes a day on one lesson about a planet, a painting or a moment in history. small doses wake curiosity back up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483558413913357/5.jpg",
+   "texte_sophia": "learning feels heavy\n\nwhen nothing new seems interesting, start tiny. i spend 5 minutes a day on one lesson in the Sophia app: a planet, a painting. small doses woke my curiosity back up."
+  },
+  {
+   "position": 6,
+   "media_id": "51b1b50e-d608-45d9-aac3-954eb6c377f0",
+   "texte_overlay": "you wake up tired\n\nyou sleep eight hours and still wake up drained. an hour without screens before bed and a fixed wake up time reset your sleep faster than anything else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651483558413913357/6.jpg"
+  }
+ ]
+}

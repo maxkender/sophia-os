@@ -111,7 +111,7 @@ const textes = post.slides
 const anterieurs = readdirSync(join(RACINE, "posts"))
   .filter((f) => /^ka-\d+\.json$/.test(f) && f < `${id}.json`)
   .map((f) => JSON.parse(readFileSync(join(RACINE, "posts", f), "utf8")) as { source?: { url?: string } });
-const sourceUrl = anterieurs.some((p) => p.source?.url === post.source.url) ? `${post.source.url}?variante=${id}` : post.source.url;
+const sourceUrl = anterieurs.some((p) => p.source?.url === post.source?.url && post.source?.url) ? `${post.source?.url}?variante=${id}` : post.source?.url;
 
 const corps = {
   action: "deposer",
@@ -119,7 +119,7 @@ const corps = {
   // Un full test (accroche neuve) part sans le post modèle : un original en images finies, rang fixe.
   source_url: post.type_bleo === "full_test" ? null : sourceUrl,
   source_id: post.id,
-  source_vues: post.type_bleo === "full_test" ? undefined : post.source.vues,
+  source_vues: post.type_bleo === "full_test" ? undefined : post.source?.vues,
   titre: post.titre[LANGUE_SOURCE].slice(0, 160),
   langue_source: LANGUE_SOURCE,
   musique_url: post.musique.url,

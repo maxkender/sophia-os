@@ -5,8 +5,8 @@
 //   prendre                                         prend la prochaine tâche (script / produire / corriger) et l'affiche
 //   script   --tache T --video V --fichier F [--projet P]   envoie le script écrit (JSON) → la page le montre à valider
 //   voix     --projet P --langue L [--forcer]       génère la voix ElevenLabs horodatée de la langue
-//   rendre   --projet P --langue L                  rend la vidéo (avec et sans sous-titres) + son normalisé -14 LUFS
-//   livrer   --video V --projet P --langue L        envoie les deux fichiers + script + légende → « à valider » dans la page
+//   rendre   --projet P --langue L [--sans-sous-titres]   rend la vidéo avec sous-titres (+ sans, sur demande), son à -14 LUFS
+//   livrer   --video V --projet P --langue L        envoie la vidéo (+ la version sans sous-titres si rendue) → « à valider »
 //   en-cours --video V --langue L                   marque une langue en cours de production
 //   journal  --video V --message "…"                ajoute une ligne au journal de la vidéo
 //   finir    --tache T [--resultat '{…}']           tâche faite
@@ -14,7 +14,7 @@
 //
 // Le jeton du moteur vient de l'environnement (MOTION_JETON), jamais d'un fichier.
 import {spawnSync} from 'node:child_process';
-import {existsSync, readFileSync, statSync} from 'node:fs';
+import {existsSync, readFileSync, rmSync, statSync} from 'node:fs';
 import {dirname, join, resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 
@@ -91,10 +91,12 @@ const commandes = {
     const {composition} = JSON.parse(readFileSync(join(dir, 'motion.json'), 'utf8'));
     lancer('node', ['scripts/langues.mjs'], dir);
     const navigateur = existsSync(CHROME) ? [`--browser-executable=${CHROME}`] : [];
-    for (const [sousTitres, nom] of [
-      [true, 'final'],
-      [false, 'final-sans-sous-titres'],
-    ]) {
+    // Par défaut, seulement la version postée (avec sous-titres) ; --sans-sous-titres rend aussi l'autre.
+    const versions = [[true, 'final']];
+    const sans = join(dir, `out/${langue}/final-sans-sous-titres.mp4`);
+    if (reste.includes('--sans-sous-titres')) versions.push([false, 'final-sans-sous-titres']);
+    else if (existsSync(sans)) rmSync(sans); // jamais livrer une ancienne version sans sous-titres
+    for (const [sousTitres, nom] of versions) {
       const brut = `out/${langue}/${nom}-brut.mp4`;
       lancer(
         'npx',
@@ -107,7 +109,7 @@ const commandes = {
         dir,
       );
     }
-    console.log(`rendu : videos/${requis('projet')}/out/${langue}/final.mp4 (+ final-sans-sous-titres.mp4)`);
+    console.log(`rendu : videos/${requis('projet')}/out/${langue}/final.mp4${versions.length > 1 ? ' (+ final-sans-sous-titres.mp4)' : ''}`);
   },
   async livrer() {
     const video = requis('video');
@@ -115,10 +117,11 @@ const commandes = {
     const dir = projetDir(requis('projet'));
     const final = join(dir, `out/${langue}/final.mp4`);
     const sans = join(dir, `out/${langue}/final-sans-sous-titres.mp4`);
-    if (!existsSync(final) || !existsSync(sans)) throw new Error('rendre la langue avant de la livrer');
+    if (!existsSync(final)) throw new Error('rendre la langue avant de la livrer');
     const script = JSON.parse(readFileSync(join(dir, `src/langues/${langue}/script.json`), 'utf8'));
     const video_chemin = await envoyer(video, langue, final, `video-${Date.now()}.mp4`);
-    const video_brute_chemin = await envoyer(video, langue, sans, `video-sans-sous-titres-${Date.now()}.mp4`);
+    // la version sans sous-titres n'est livrée que si elle a été rendue (rendre --sans-sous-titres)
+    const video_brute_chemin = existsSync(sans) ? await envoyer(video, langue, sans, `video-sans-sous-titres-${Date.now()}.mp4`) : null;
     await appel('langue_prete', {video_id: video, langue, script, legende: script.legende ?? null, video_chemin, video_brute_chemin, duree_s: duree(final)});
     console.log(`${langue} livrée : à valider dans la page Motion`);
   },

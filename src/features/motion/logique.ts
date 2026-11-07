@@ -3,6 +3,18 @@
 
 export const LANGUES_MOTION = ["fr", "en", "de", "it"] as const;
 
+/** Langue pilote (même règle que la fonction `motion`) : la vidéo se fait d'abord en anglais, les autres après sa validation. */
+export function languePiloteDe(langues: string[]): string {
+  return langues.includes("en") ? "en" : (langues[0] ?? "en");
+}
+
+/** Une langue qui attend la validation de la pilote (pas encore lancée). */
+export function attendLaPilote(langue: { langue: string; statut: string }, toutes: Array<{ langue: string; statut: string }>, pilote: string): boolean {
+  if (langue.langue === pilote || langue.statut !== "en_attente") return false;
+  const p = toutes.find((l) => l.langue === pilote);
+  return !p || !["validee", "distribuee"].includes(p.statut);
+}
+
 export type StatutVideoMotion =
   | "brouillon"
   | "script_demande"

@@ -25,12 +25,12 @@
     },
     {
       "id": "S2",
-      "texte": "Uno: le Alpi. Più di metà del paese è fatta di montagne. Invaderla sarebbe un incubo.",
+      "texte": "Primo, le Alpi. Più di metà del paese è fatta di montagne, e invaderla sarebbe un incubo.",
       "reperes": []
     },
     {
       "id": "S3",
-      "texte": "Due: nel 1815, le grandi potenze europee hanno riconosciuto ufficialmente la sua neutralità.",
+      "texte": "Secondo, nel 1815 le grandi potenze europee hanno riconosciuto ufficialmente la sua neutralità.",
       "reperes": [
         {
           "mot": "neutralità.",
@@ -40,7 +40,7 @@
     },
     {
       "id": "S4",
-      "texte": "Ma neutrale non vuol dire debole: la maggior parte degli uomini presta servizio nell'esercito, e tiene il fucile a casa.",
+      "texte": "Ma neutrale non vuol dire debole. La maggior parte degli uomini presta servizio nell'esercito e tiene il fucile a casa.",
       "reperes": [
         {
           "mot": "fucile",
@@ -50,7 +50,7 @@
     },
     {
       "id": "S5",
-      "texte": "Nella Seconda guerra mondiale, hanno minato i loro tunnel alpini con l'esplosivo. Invadi, e non vinci… niente.",
+      "texte": "Nella Seconda guerra mondiale hanno minato i loro tunnel alpini con l'esplosivo. Invadi, e non vinci… niente.",
       "reperes": [
         {
           "mot": "l'esplosivo.",
@@ -61,10 +61,10 @@
     },
     {
       "id": "S6",
-      "texte": "E sono utili a tutti: banche, diplomazia, negoziati di pace a Ginevra.",
+      "texte": "E sono utili a tutti, con banche, diplomazia e negoziati di pace a Ginevra.",
       "reperes": [
         {
-          "mot": "diplomazia,",
+          "mot": "diplomazia",
           "image": 46
         },
         {

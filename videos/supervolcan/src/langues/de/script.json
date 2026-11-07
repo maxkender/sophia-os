@@ -1,0 +1,287 @@
+{
+  "langue": "de",
+  "voix": {
+    "id": "NlRO8ABjJNJNYaRaLiPJ",
+    "nom": "Konrad",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.45,
+      "use_speaker_boost": true,
+      "speed": 1.2
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "Ein Supervulkan schläft unter dem Yellowstone. Würde er erwachen, passiert Folgendes, Minute für Minute.",
+      "reperes": [
+        {
+          "mot": "Supervulkan",
+          "image": 12
+        },
+        {
+          "mot": "Yellowstone.",
+          "image": 54
+        },
+        {
+          "mot": "erwachen,",
+          "image": 90
+        },
+        {
+          "mot": "Minute",
+          "image": 140
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "In den ersten Minuten rasen Wolken aus glühender Asche heran, schneller als ein Auto. Wer im Umkreis von Dutzenden Kilometern ist, hätte keine Chance.",
+      "reperes": [
+        {
+          "mot": "Wolken",
+          "image": 40
+        },
+        {
+          "mot": "Auto.",
+          "image": 110
+        },
+        {
+          "mot": "Dutzenden",
+          "image": 156
+        },
+        {
+          "mot": "Kilometern",
+          "image": 173
+        },
+        {
+          "mot": "Chance.",
+          "image": 214
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "texte": "Binnen einer Stunde schießt eine Aschesäule über 30 Kilometer hoch.",
+      "reperes": [
+        {
+          "mot": "30",
+          "image": 84
+        },
+        {
+          "mot": "hoch.",
+          "image": 123
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "Danach fällt tagelang Asche auf große Teile Nordamerikas. Genug, um Dächer einzudrücken und Flugzeuge am Boden zu halten.",
+      "reperes": [
+        {
+          "mot": "Asche",
+          "image": 37
+        },
+        {
+          "mot": "Nordamerikas.",
+          "image": 79
+        },
+        {
+          "mot": "Flugzeuge",
+          "image": 193
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "Nach wenigen Wochen legt Schwefelgas einen Schleier über die Sonne, auf dem ganzen Planeten.",
+      "reperes": [
+        {
+          "mot": "Schwefelgas",
+          "image": 35
+        },
+        {
+          "mot": "Schleier",
+          "image": 58
+        },
+        {
+          "mot": "Sonne,",
+          "image": 72
+        },
+        {
+          "mot": "Planeten.",
+          "image": 107
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "Jahrelang wird es weltweit ein paar Grad kälter. Ein vulkanischer Winter. Die Ernten fallen aus, und die ganze Welt könnte hungern.",
+      "reperes": [
+        {
+          "mot": "kälter.",
+          "image": 59
+        },
+        {
+          "mot": "vulkanischer",
+          "image": 86
+        },
+        {
+          "mot": "Ernten",
+          "image": 128
+        },
+        {
+          "mot": "aus,",
+          "image": 142
+        },
+        {
+          "mot": "hungern.",
+          "image": 192
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Klingt verrückt? 1816 brachte der viel kleinere Tambora schon ein Jahr ohne Sommer.",
+      "reperes": [
+        {
+          "mot": "verrückt?",
+          "image": 19
+        },
+        {
+          "mot": "1816",
+          "image": 47
+        },
+        {
+          "mot": "kleinere",
+          "image": 92
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "texte": "Die gute Nachricht? Am Yellowstone liegt der letzte Superausbruch 640.000 Jahre zurück, und Forscher sehen kein Zeichen für den nächsten.",
+      "reperes": [
+        {
+          "mot": "Nachricht?",
+          "image": 21
+        },
+        {
+          "mot": "Yellowstone",
+          "image": 42
+        },
+        {
+          "mot": "Superausbruch",
+          "image": 79
+        },
+        {
+          "mot": "640.000",
+          "image": 100
+        },
+        {
+          "mot": "Forscher",
+          "image": 167
+        },
+        {
+          "mot": "Zeichen",
+          "image": 194
+        },
+        {
+          "mot": "nächsten.",
+          "image": 213
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Finde Antworten auf all diese Fragen und viele mehr in der Sophia-App, und teste dann dein Wissen mit Quizzen."
+  },
+  "legende": "Wenn der Yellowstone ausbrechen würde, passiert das hier Minute für Minute 🌋 #vulkan #yellowstone #wissenschaft #katastrophe #lernenauftiktok",
+  "appli": {
+    "categorie": "WISSENSCHAFT",
+    "lectures": "47 k Aufrufe",
+    "jours": "TAGE",
+    "commencer": "Starten",
+    "onglets": [
+      "Start",
+      "Bibliothek",
+      "Pfad",
+      "Üben",
+      "Profil"
+    ],
+    "titre": "Was würde passieren, wenn ein Supervulkan erwacht?",
+    "description": "Der Ausbruch würde an einem einzigen Ort beginnen, aber seine Folgen würden um die ganze Welt gehen.",
+    "lecon": {
+      "sousTitre": "Ein Ausbruch, den der ganze Planet spürt.",
+      "paragraphes": [
+        [
+          {
+            "t": "Ein Superausbruch schleudert "
+          },
+          {
+            "m": "mehr als 1.000 km³ Gestein und Asche"
+          },
+          {
+            "t": " heraus. In den ersten Minuten würden pyroklastische Ströme, Wolken aus Gas und Asche heißer als ein Ofen, das Land im Umkreis von Dutzenden Kilometern verwüsten. Dann fiele Asche auf große Teile Nordamerikas, dick in der Nähe des Vulkans, wenige Millimeter an den Küsten."
+          }
+        ],
+        [
+          {
+            "t": "Die eigentliche Gefahr liegt am Himmel. Schwefelgas bildet einen Schleier, der das Sonnenlicht zurückwirft, und "
+          },
+          {
+            "m": "der Planet könnte sich für mehrere Jahre um einige Grad abkühlen"
+          },
+          {
+            "t": ". 1816 sorgte der viel kleinere Ausbruch des Tambora bereits für "
+          },
+          {
+            "m": "das „Jahr ohne Sommer“"
+          },
+          {
+            "t": ". Der letzte Superausbruch des Yellowstone liegt rund 640.000 Jahre zurück, und der USGS sieht kein Anzeichen für einen bevorstehenden Ausbruch."
+          }
+        ]
+      ],
+      "continuer": "Weiter"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} VON 2",
+      "bravo": "Richtig!",
+      "questions": [
+        {
+          "q": "Was würde in den ersten Minuten eines Superausbruchs über das Land fegen?",
+          "options": [
+            "Ein Tsunami",
+            "Wolken aus glühender Asche",
+            "Ein Lavasee",
+            "Ein Erdbebenschwarm"
+          ],
+          "bonne": 1,
+          "fait": "Pyroklastische Ströme, schneller als ein Auto."
+        },
+        {
+          "q": "Welcher Ausbruch verursachte 1816 das „Jahr ohne Sommer“?",
+          "options": [
+            "Yellowstone",
+            "Tambora",
+            "Toba",
+            "Vesuv"
+          ],
+          "bonne": 1,
+          "fait": "Tambora, Indonesien, 1815."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lektion abgeschlossen!",
+      "score": "2/2 richtige Antworten",
+      "serie": "TAGE IN FOLGE",
+      "xp": "XP VERDIENT",
+      "suivant": "ALS NÄCHSTES",
+      "suivantTitre": "Warum führt die Schweiz nie Krieg?",
+      "bouton": "Nächste Lektion"
+    }
+  }
+}

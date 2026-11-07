@@ -46,6 +46,7 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
   (`{mot, image, ou?}` ; `mot` = un mot exact du texte, ponctuation comprise ; `image` = l'image de la
   scène où tombe l'événement ; `ou: "fin"` pour caler sur la fin du mot, ex. une explosion après le mot).
 - `outro.texte` : « Answer all these questions with the Sophia app. »
+- Écris pour l'oral : pas de « : » (pause forcée de la voix), « First, … / Second, … » plutôt que « One: … ».
 - `appli` : les textes de l'appli. **Recopie de la capture** la catégorie, le titre, la description,
   « 100 k reads », etc. Écris la leçon (sous-titre + 2 paragraphes, 3 passages surlignés `{m}`) et
   **2 questions de quiz** dont la réponse est dans le script (`bonne` = index de la bonne réponse, B de
@@ -57,7 +58,12 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
 Envoie : `moteur.mjs script --tache T --video V --fichier chemin.json --projet slug`. La page le montre à
 l'admin, qui le modifie ou le valide (ce qui crée la tâche `produire`).
 
-## 3. Tâche `produire` : toutes les langues (ou `langue`)
+## 3. Tâche `produire` : une langue (`langue`)
+
+Le circuit (demande d'Adrien) : script validé → **vidéo anglaise seule** (tâche `produire` avec `langue: "en"`)
+→ l'admin la valide → une tâche `produire` par autre langue. Pour un nouveau sujet, c'est donc pendant la
+tâche anglaise que tu écris les scènes (§5) ; les autres langues réutilisent les mêmes scènes, il n'y a plus
+qu'à traduire, faire la voix, rendre et livrer. Une ancienne tâche sans `langue` = toutes les langues.
 
 Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 1. `en-cours --video V --langue L`.
@@ -74,6 +80,11 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 | de | Starten | TAGE | 100 k Aufrufe | Start, Bibliothek, Pfad, Üben, Profil | Weiter | QUIZ · {n} VON 2 |
 | it | Inizia | GIORNI | 100 k letture | Home, Biblioteca, Percorso, Ripasso, Profilo | Continua | QUIZ · {n} DI 2 |
 
+   - **Texte dit = texte à l'oral** : jamais de « : » (ElevenLabs en fait une vraie pause), peu de points, une
+     virgule seulement où on respire, « … » seulement pour un effet voulu (« you win… nothing »). Les blancs
+     trop longs sont resserrés automatiquement par `voix` (`scripts/resserrer.mjs`, horodatages recalés).
+     Garde-fou : `voix` remplace de lui-même « : », « ; » et les tirets du texte dit par une virgule (et corrige
+     le script) ; relis alors la phrase, et vérifie que tes repères sont toujours des mots du texte.
    - Voix (dans `voix`) : en `nPczCjzI2devNBz1zQrb` (Brian, speed 1.06) ; fr `3HZyQcLKlT0a3RDeXVsP`
      (Guillaume, 1.18) ; de `NlRO8ABjJNJNYaRaLiPJ` (Konrad, 1.2, style 0.45) ; it `32vqZVYOe7sQVGys0soJ`
      (Roberto, 1.2). Modèle `eleven_multilingual_v2`. Pas d'espace avant « ? » / « : » en français dans le
@@ -86,10 +97,11 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 4. `voix --projet P --langue L`, puis contrôle le minutage : les pentes de chaque scène doivent rester
    entre ~0,5 et ~1,5 (sinon déplace ou retire un repère). Une langue trop longue (> 42 s de récit) :
    accélère la voix (speed max 1.2) ou resserre la traduction.
-5. **Contrôle visuel avant le rendu complet** (obligatoire) : rends 15 à 30 images en JPEG à l'échelle 0,4
-   (`npx remotion render <Composition> out/frames --props='{"langue":"L","sousTitres":true}' --frames=…`),
-   fais une planche avec ffmpeg (`tile`), **regarde-la**, corrige.
-6. `rendre --projet P --langue L` (avec et sans sous-titres, son à −14 LUFS), puis `livrer --video V --projet P --langue L`.
+5. **Contrôle visuel avant le rendu complet** (obligatoire) : `node scripts/planche.mjs /tmp/planche.jpg <images…> --langue L`
+   (15 à 30 images globales, mosaïque à l'échelle 0,3 ; le script existe dans `videos/supervolcan`, copie-le
+   si le projet ne l'a pas), **regarde-la**, corrige.
+6. `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
+   seulement si l'admin demande la version sans), puis `livrer --video V --projet P --langue L`.
 7. `journal` à chaque étape importante. À la fin : `finir --tache T`.
 
 ## 4. Tâche `corriger`
@@ -101,20 +113,37 @@ Ce que l'admin redemande souvent devient une règle : ajoute-le au §6.
 
 ## 5. Nouveau sujet : écrire les scènes
 
-Copie `videos/suisse-guerre` dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`, `src/langues/*/voix-*`),
-mets à jour `motion.json` (`composition`), `package.json` (`name`) et `src/Root.tsx` (id de composition).
-Puis écris les 7 scènes du sujet dans `src/scenes/` (une scène = un fichier, un SVG 1080×1920 via `Stage`) :
+Copie `videos/supervolcan` (le modèle le plus récent) dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`,
+`src/langues/*/voix-*`), mets à jour `motion.json` (`composition`, `scenes`), `package.json` (`name`) et `src/Root.tsx`
+(id de composition). Puis écris les scènes du sujet dans `src/scenes/` (autant que le script en a ; une scène = un
+fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 
-- **Bibliothèque papier** (`src/shapes.tsx`, `src/map.tsx`) : `Boom`, `Ring`, `Debris`, `FlagPole`, `SwissFlagRect`,
+1. Génère d'abord la voix anglaise, puis calcule pour chaque scène son début, sa durée et l'image locale de chaque mot
+   (même calcul que `construireTimeline`) : la scène se conçoit **à la vitesse de la voix anglaise** (`STRETCH = 1`,
+   `BASE` = ces durées), chaque action tombe sur l'image de son mot.
+2. Mets les repères de `script.json` sur les mots forts avec ces mêmes images (pente 1 en anglais) : les autres langues
+   se recalent dessus.
+3. Plusieurs plans dans une scène : glissement de page (`translate` sur 10 images) entre deux groupes, comme S2, S4, S7, S8.
+4. Planches de contrôle, corrections, puis rendu.
+
+- **Bibliothèque papier** (`src/shapes.tsx`) : `Boom`, `Ring`, `Debris`, `FlagPole`, `SwissFlagRect`,
   `RedCrossRect`, `Tank`, `Chalet`, `DollChain`, `Rifle`, `Train`, `Dynamite`, `Crown`, `Coin`, `GoldBar`,
-  `Dove`, `Handshake`, `Bomb`, `Cloud`, `Rays`, `Mountain`, `Sparkle`, `EuropeMap` (cartes : `scripts/geo.mjs`).
+  `Dove`, `Handshake`, `Bomb`, `Cloud`, `Rays`, `Mountain`, `Sparkle` ; et (`src/volcan.tsx`) `Pine`, `Bison`, `Pool`,
+  `Steam`, `Stopwatch`, `Calendar`, `Car`, `Billow` (nuée/fumée), `House` (toit qui cède), `Plane`, `NoSign`,
+  `Thermometer`, `Fall` (neige/cendres), `Wheat`, `Parasol`, `Sandcastle`, `Scientist`, `Check`, `Mammoth`, `Pyramid`,
+  `Volcano`, `Bolt`, `Embers`, `blob`/`smooth` (formes organiques). Cartes : `scripts/geo.mjs` (Europe),
+  `scripts/geo-na.mjs` (Amérique du Nord ; attention aux pays à cheval sur l'antiméridien, comme les États-Unis) ;
+  globe : `geoOrthographic` de d3-geo (S5 du supervolcan).
   Ajoute ce qui manque **dans la bibliothèque**, pas dans la scène, pour qu'il serve aux prochains sujets.
 - **Outils** (`src/lib.ts`) : `useFrame()` (le temps de la scène, déformé par la voix), `pop`, `lerp`,
   `ease`, `camera`, `shake`, `boil`, filtres `url(#pp)` / `url(#ppl)` (bord déchiré + ombre).
 - `src/timeline.ts` : mets dans `BASE` la durée de conception de chaque scène (images).
 - `src/Sound.tsx` : `PAR_SCENE`, les bruitages de chaque scène sur ses événements (banque `public/sfx`,
   générée par `scripts/bruitages.mjs` ; un son qui manque s'ajoute à `BRUITAGES` puis se génère une fois).
-- La fin Sophia (`src/scenes/Outro.tsx`) et les sous-titres ne changent pas d'un sujet à l'autre.
+- La fin Sophia (`src/scenes/Outro.tsx`) et les sous-titres ne changent pas d'un sujet à l'autre, sauf `Decor`
+  (les bouts de papier qui flottent derrière le téléphone) : mets-y des formes du sujet, jamais celles d'un autre.
+- Mix : les gros impacts (éruption, explosion, craquement) dits pendant la voix restent à 0,5–0,6 ; au-dessus,
+  ils couvrent la voix.
 
 ## 6. Règles de qualité (retours de l'admin)
 
@@ -123,6 +152,7 @@ Puis écris les 7 scènes du sujet dans `src/scenes/` (une scène = un fichier, 
 - **Très dynamique** : une action toutes les 1 à 2 s, transitions déchirure / panoramique fouetté entre scènes.
 - **Peu de tremblements** : `SHAKE_K = 0.35`, pas de secousse forte hors des gros impacts.
 - Rythme : le récit dure ~36 s en anglais (un poil plus que 30 s). Pentes de scène ≥ 0,5.
+- Voix fluide : aucun « : » dans le texte dit, blancs resserrés (0,28 s max entre deux phrases).
 - La voix passe devant les bruitages (baisse automatique sous la voix) ; son final à −14 LUFS.
 - Sous-titres : 1 à 3 mots, majuscules, mot prononcé en jaune ; zone y 1240–1500 (en haut pendant la fin Sophia).
 - Fin : la capture Sophia de l'admin, traduite, puis Start → cours → 2 quiz → leçon terminée.

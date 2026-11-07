@@ -374,6 +374,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0648_bleo_plan_ui_generation` | `bleo_plan_ui` ajoute `generation` et `type_bleo`. Page Plan : badge « G1 Déclinaison » ou « Full test » à côté de la catégorie, et filtre « Origine du contenu » (déclinaisons, full tests, autres). Affichage seulement | Appliquée le 5/11 à 10 h 30 |
 | `0649_bleo_contenus_ui_image_sans_scan` | La fiche d'une famille tombait en « statement timeout » pour un admin connecté : `bleo_contenus_ui` joignait `media_library` sur une expression (`CASE … ::uuid`) que la RLS empêche d'utiliser comme condition d'index. Postgres relisait les ~32 000 médias pour chaque contenu en évaluant `media_dans_slides_du_poster`, ce qui faisait plus de 25 s pour une famille, contre 8 s de délai. L'identifiant du média est maintenant calculé à part (sous-requête LIMIT 1) : même résultat (hash identique sur 151 lignes), 0,3 à 1,3 s | Appliquée le 5/11 à 10 h 45 |
 | `0650_bleo_remplacants_themes_a_venir` | Suite de D52 : l'historique du compte vu par `bleo_remplacants` compte aussi les lignes des plans suivis à venir. Un remplaçant évite donc aussi les thèmes et les photos prévus pour le compte les jours suivants, pas seulement les contenus (4 « même thème » non déclarés au rapport du 5/11) | Appliquée le 6/11 à 10 h |
+| `0660_bleo_reglages_declinaisons_imports` | Décision d'Adrien du 6/11, après les mesures à âge égal. (a) `classes.depart.accroche_gagnante` passe de 3,2 à 2,0 : la valeur de départ des déclinaisons, relue chaque nuit, y compris pour celles déjà déposées. (b) `file_juger.age_max_import_jours` = 30 : un import (contenu hors podz) arrivé depuis plus longtemps n'est plus testé et reste en réserve. Le tirage lit ce réglage | Appliquée le 6/11 à 17 h 59 ; nuit relancée, plan du 7/11 retiré |
 
 Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
@@ -638,6 +639,22 @@ recalculée à la main, rejouabilité, derniers plans).
   - **Répétitions du 6/11 :** 10 même thème, 2 même contenu (le compte UGC), 2 même photo. Thèmes de 5 familles et plus : 6,1 % des posts (weird_alpha 5,9 %).
 - **6/11, 10 h 45 : doublon de tamas.ambicio760, verrou de recharge (0659).** Deux recharges du même post, lancées à 33 s d'écart (10 h 06), ont créé chacune un remplaçant avec le même contenu du plan : 3 posts au lieu de 2, dont 2 identiques. Le doublon (passage b7bba159, post 303533d4, pas publié) est supprimé avec l'accord d'Adrien. Le compte garde son rappel et un post, deux contenus alpha_male, son seul label depuis qu'Adrien lui a retiré white_bg. `revoquer-post` prend maintenant un verrou sur le post (`posts.recharge_en_cours_at`, UPDATE conditionnel) : une 2e recharge pendant la 1re reçoit `RECHARGE_EN_COURS` (409), et la page du posteur lui dit d'attendre une minute.
 - **Labels 100 % podz dans BLEO (lots 1 à 4, autre session, 5/11) :** les premiers posts sous ce circuit sont ceux du plan du 7/11. Mesure prévue le 10/11. Numéros de migration en double entre les deux sessions (0647 et 0650) : ce sont des fichiers distincts, sans conflit en base.
+- **6/11, 18 h : réglages 0660 appliqués (Adrien : « oui applique les deux réglages »).** Nuit relancée : une déclinaison jamais postée vaut 2,0 au lieu de 3,2. Le plan du 7/11 est retiré (d1bf8097 remplace 1ca431e9) :
+
+  | | Plan de 14 h | Plan de 18 h |
+  |---|---|---|
+  | Déclinaisons | 129 | 60 |
+  | Tests d'imports de 30 jours et plus | 103 | 0 |
+  | Tests des podz | 49 | 49 |
+  | Tests d'imports récents | 17 | 17 |
+  | Familles avec G0 gagnant + déclinaison, en récolte (G0 / déclinaisons) | 53 / 121 | 77 / 54 |
+  | Récolte | 304 | 335 |
+  | Gagnants, langue déjà servie | 58 | 67 |
+  | Perdants resservis | 81 | **138 (22 %)** |
+  | Créneaux | 620 | 614 (comptes désactivés entre-temps) |
+
+  - **Effet de bord :** une partie des créneaux libérés part aux perdants resservis (r 0,66 à J+3), au-delà de la limite de 15 % de la spec. C'est le 3e levier proposé (réduire leur poids), pas encore décidé.
+  - **Pas touché :** 14 déclinaisons de la voie 2 ont la classe `livre` (4,0), posée par l'autre session ; Adrien doit dire s'il faut les passer en `accroche_gagnante`.
 - **5/11, après-midi : les labels 100 % podz dans BLEO, lot 1 (0650 à 0652, décisions d'Adrien).**
   - **0650 :** une seule définition d'un label 100 % podz, la vue `labels_100_podz` (un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active). Le choix de label, la page Répartition, la voie BLEO (colonne calculée `voie(labels)`, plus de colonne tenue à la main), `empreintes` et le chef la lisent.
   - **0651 :** mentalmaxxing fermé (UnSwipe arrêté) ; 8 livraisons en attente rejetées.

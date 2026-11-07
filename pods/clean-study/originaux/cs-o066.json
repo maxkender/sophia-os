@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o066",
+  "type_bleo": "full_test",
+  "titre": "how i revise for a test in 3 days without cramming #studytok #studytips #school #exams",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« 3 days » et « cramming » absents des accroches du label). Accroches écrites : « how i revise for a test in 3 days without cramming » (retenue : un plan court et concret), « my 3-day test plan » (écartée : moins clair), « stop cramming the night before, do this instead » (écartée : injonction, proche de « studying the night before »). Plan vrai : jour 1 tout relire une fois et lister ce que je ne sais pas, jour 2 travailler seulement la liste, jour 2 au soir me tester sur tout (place micabo, slide 5), jour 3 refaire les questions ratées, la veille au soir rien de neuf, puis dormir. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne (reprise d'un original de plus d'une semaine : la banque n'en a plus de propres). Slides de personnes : les 13 dernières photos libres, puis des photos les moins utilisées d'originaux de plus d'une semaine (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ef7e50d6",
+      "texte_overlay": "how i revise for a test\nin 3 days without cramming",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f1159f33",
+      "texte_overlay": "day 1: i go through everything once.\nand list what i don't know yet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f4817af8",
+      "texte_overlay": "day 2: i only work on that list.\nnot the parts i already know.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6bce7551",
+      "texte_overlay": "day 2, evening: i test myself on EVERYTHING.\nnotes closed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f48c653c",
+      "texte_overlay": "day 3: i redo only the questions i missed.\nuntil i get them right without looking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f6bc78e5",
+      "texte_overlay": "the night before: nothing new.\none quick look at my list, then bed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f76eb4ce",
+      "texte_overlay": "3 calm days beat 1 panicked night.\nevery time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

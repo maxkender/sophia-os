@@ -25,12 +25,12 @@
     },
     {
       "id": "S2",
-      "texte": "Erstens: die Alpen. Über die Hälfte des Landes besteht aus Bergen. Eine Invasion wäre ein Albtraum.",
+      "texte": "Erstens, die Alpen. Über die Hälfte des Landes besteht aus Bergen, eine Invasion wäre ein Albtraum.",
       "reperes": []
     },
     {
       "id": "S3",
-      "texte": "Zweitens: 1815 haben die Großmächte Europas ihre Neutralität offiziell anerkannt.",
+      "texte": "Zweitens, 1815 haben die Großmächte Europas ihre Neutralität offiziell anerkannt.",
       "reperes": [
         {
           "mot": "anerkannt.",
@@ -40,7 +40,7 @@
     },
     {
       "id": "S4",
-      "texte": "Aber neutral heißt nicht schwach: Die meisten Männer dienen in der Armee und bewahren ihr Gewehr zu Hause auf.",
+      "texte": "Aber neutral heißt nicht schwach. Die meisten Männer dienen in der Armee und bewahren ihr Gewehr zu Hause auf.",
       "reperes": [
         {
           "mot": "Gewehr",
@@ -61,10 +61,10 @@
     },
     {
       "id": "S6",
-      "texte": "Und sie sind für alle nützlich: Banken, Diplomatie, Friedensgespräche in Genf.",
+      "texte": "Und sie sind für alle nützlich, mit Banken, Diplomatie und Friedensgesprächen in Genf.",
       "reperes": [
         {
-          "mot": "Diplomatie,",
+          "mot": "Diplomatie",
           "image": 46
         },
         {

@@ -1,0 +1,315 @@
+{
+  "langue": "it",
+  "voix": {
+    "id": "32vqZVYOe7sQVGys0soJ",
+    "nom": "Roberto",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.2
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "Un supervulcano dorme sotto Yellowstone. Se si risvegliasse, ecco cosa succederebbe, minuto per minuto.",
+      "reperes": [
+        {
+          "mot": "supervulcano",
+          "image": 12
+        },
+        {
+          "mot": "Yellowstone.",
+          "image": 54
+        },
+        {
+          "mot": "risvegliasse,",
+          "image": 90
+        },
+        {
+          "mot": "minuto",
+          "image": 140
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "Nei primi minuti, nubi di cenere rovente corrono più veloci di un'auto. Chiunque nel raggio di decine di chilometri non avrebbe alcuno scampo.",
+      "reperes": [
+        {
+          "mot": "nubi",
+          "image": 40
+        },
+        {
+          "mot": "corrono",
+          "image": 76
+        },
+        {
+          "mot": "un'auto.",
+          "image": 110
+        },
+        {
+          "mot": "Chiunque",
+          "image": 131
+        },
+        {
+          "mot": "decine",
+          "image": 156
+        },
+        {
+          "mot": "scampo.",
+          "image": 214
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "texte": "Entro un'ora, una colonna di cenere sale a oltre 30 chilometri nel cielo.",
+      "reperes": [
+        {
+          "mot": "colonna",
+          "image": 38
+        },
+        {
+          "mot": "sale",
+          "image": 62
+        },
+        {
+          "mot": "30",
+          "image": 84
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "Nei giorni seguenti, la cenere cade su gran parte del Nord America. Abbastanza da sfondare i tetti vicino al vulcano, e da tenere a terra gli aerei lontano.",
+      "reperes": [
+        {
+          "mot": "America.",
+          "image": 79
+        },
+        {
+          "mot": "sfondare",
+          "image": 119
+        },
+        {
+          "mot": "tetti",
+          "image": 130
+        },
+        {
+          "mot": "vulcano,",
+          "image": 149
+        },
+        {
+          "mot": "terra",
+          "image": 184
+        },
+        {
+          "mot": "aerei",
+          "image": 193
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "In poche settimane, il gas di zolfo stende un velo sul Sole, su tutto il pianeta.",
+      "reperes": [
+        {
+          "mot": "zolfo",
+          "image": 35
+        },
+        {
+          "mot": "velo",
+          "image": 58
+        },
+        {
+          "mot": "Sole,",
+          "image": 72
+        },
+        {
+          "mot": "pianeta.",
+          "image": 107
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "Per anni, il mondo perde qualche grado. Un inverno vulcanico. I raccolti falliscono, e il mondo intero potrebbe soffrire la fame.",
+      "reperes": [
+        {
+          "mot": "anni,",
+          "image": 16
+        },
+        {
+          "mot": "grado.",
+          "image": 59
+        },
+        {
+          "mot": "inverno",
+          "image": 86
+        },
+        {
+          "mot": "raccolti",
+          "image": 128
+        },
+        {
+          "mot": "falliscono,",
+          "image": 142
+        },
+        {
+          "mot": "fame.",
+          "image": 192
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Sembra assurdo? Nel 1816, l'eruzione molto più piccola del Tambora causò già un anno senza estate.",
+      "reperes": [
+        {
+          "mot": "assurdo?",
+          "image": 19
+        },
+        {
+          "mot": "1816,",
+          "image": 47
+        },
+        {
+          "mot": "piccola",
+          "image": 92
+        },
+        {
+          "mot": "Tambora",
+          "image": 103
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "texte": "La buona notizia? Per Yellowstone, l'ultima super eruzione risale a 640.000 anni fa, e gli scienziati non vedono alcun segno della prossima.",
+      "reperes": [
+        {
+          "mot": "notizia?",
+          "image": 21
+        },
+        {
+          "mot": "Yellowstone,",
+          "image": 42
+        },
+        {
+          "mot": "eruzione",
+          "image": 79
+        },
+        {
+          "mot": "640.000",
+          "image": 100
+        },
+        {
+          "mot": "scienziati",
+          "image": 167
+        },
+        {
+          "mot": "segno",
+          "image": 194
+        },
+        {
+          "mot": "prossima.",
+          "image": 213
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Trova le risposte a tutte queste domande e a molte altre nell'app Sophia, poi metti alla prova le tue conoscenze con i quiz."
+  },
+  "legende": "Se Yellowstone eruttasse, ecco cosa succederebbe minuto per minuto 🌋 #vulcano #yellowstone #scienza #catastrofe #imparacontiktok",
+  "appli": {
+    "categorie": "SCIENZA",
+    "lectures": "47 k letture",
+    "jours": "GIORNI",
+    "commencer": "Inizia",
+    "onglets": [
+      "Home",
+      "Biblioteca",
+      "Percorso",
+      "Ripasso",
+      "Profilo"
+    ],
+    "titre": "Cosa succederebbe se un supervulcano si risvegliasse?",
+    "description": "L'eruzione inizierebbe in un solo luogo, ma i suoi effetti farebbero il giro del pianeta.",
+    "lecon": {
+      "sousTitre": "Un'eruzione, sentita da tutto il pianeta.",
+      "paragraphes": [
+        [
+          {
+            "t": "Una super eruzione scaglia "
+          },
+          {
+            "m": "oltre 1.000 km³ di roccia e cenere"
+          },
+          {
+            "t": ". Nei primi minuti, i flussi piroclastici, nubi di gas e cenere più calde di un forno, spazzerebbero via tutto per decine di chilometri. Poi la cenere cadrebbe su gran parte del Nord America, spessa vicino al vulcano, pochi millimetri sulle coste."
+          }
+        ],
+        [
+          {
+            "t": "Il vero pericolo è nel cielo. Lo zolfo forma un velo che riflette la luce del Sole, e "
+          },
+          {
+            "m": "il pianeta potrebbe raffreddarsi di qualche grado per diversi anni"
+          },
+          {
+            "t": ". Nel 1816, l'eruzione molto più piccola del Tambora causò già "
+          },
+          {
+            "m": "«l'anno senza estate»"
+          },
+          {
+            "t": ". L'ultima super eruzione di Yellowstone risale a circa 640.000 anni fa, e l'USGS non vede alcun segno di un'eruzione imminente."
+          }
+        ]
+      ],
+      "continuer": "Continua"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} DI 2",
+      "bravo": "Esatto!",
+      "questions": [
+        {
+          "q": "Cosa spazzerebbe la terra nei primi minuti di una super eruzione?",
+          "options": [
+            "Uno tsunami",
+            "Nubi di cenere rovente",
+            "Un lago di lava",
+            "Uno sciame sismico"
+          ],
+          "bonne": 1,
+          "fait": "Flussi piroclastici, più veloci di un'auto."
+        },
+        {
+          "q": "Quale eruzione causò «l'anno senza estate» nel 1816?",
+          "options": [
+            "Yellowstone",
+            "Tambora",
+            "Toba",
+            "Il Vesuvio"
+          ],
+          "bonne": 1,
+          "fait": "Tambora, Indonesia, 1815."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lezione completata!",
+      "score": "2/2 risposte corrette",
+      "serie": "GIORNI DI FILA",
+      "xp": "XP GUADAGNATI",
+      "suivant": "PROSSIMA",
+      "suivantTitre": "Perché la Svizzera non è mai in guerra?",
+      "bouton": "Prossima lezione"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o105",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "512f4d04-e547-46de-8a3b-3fbe8fa86c54",
+  "titre": "les phrases que les filles sûres d'elles ne disent jamais #confiance #pourtoi",
+  "inspirations": [
+    "512f4d04-e547-46de-8a3b-3fbe8fa86c54"
+  ],
+  "notes": "G1, déclinaison de 512f4d04 (« les phrases que les filles sûres d'elles ne disent jamais », génération 0 en français ; meilleur passage tr 58,1 k vues, r 10,63), en français. cta C (le défi de 7 jours en slide 2). Phrases neuves (rien de repris du parent : ni question bête, ni « pas douée », ni refus du compliment, ni « je ne sais pas si c'est intéressant »). Pas de guillemets français (le rendu casse la ligne). Routine du 7/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 5, 7 et 8 de la boîte). Ligne 6 sautée (5c676138, métiers du droit : treize fiches métier à vérifier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "les phrases que les filles sûres d'elles\nne disent jamais",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0f057bec",
+      "texte_overlay": "1. désolée, je parle trop\n\nelles finissent leur histoire.\nles bonnes histoires méritent leur fin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "16a06d13",
+      "texte_overlay": "2. j'ai juste eu de la chance\n\nelles disent merci, j'ai beaucoup travaillé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "3. je ne suis pas une fille qui lit\n\npersonne n'est une fille qui lit.\non le devient, page après page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "4. tu dois me trouver bizarre\n\nelles assument leurs passions,\nmême les plus niches.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "414511dc",
+      "texte_overlay": "5. ce n'est pas pour moi\n\nles musées, l'opéra, la philo.\ntout est pour elles. et pour toi aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu arrêtes laquelle aujourd'hui ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

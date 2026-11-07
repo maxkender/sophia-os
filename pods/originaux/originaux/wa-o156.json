@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o156",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c3acde12-98ad-4011-95c8-244d7edb6fe9",
+ "titre": "hobbies that make your energy impossible to ignore #energy #selfimprovement #hobbies #mindset #charisma",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "a5a8f2ea-8f31-4725-9335-7e61335aac8b"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, a5a8f2ea). déclinaison G1 de « hobbies that make your energy impossible to ignore » (parent c3acde12). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ba9f9533-0b2b-45d7-bc0a-eba2b92c26ce",
+   "texte_overlay": "hobbies that make your energy\nimpossible to ignore",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667313211183467789/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9019a6e6-52d8-45cc-a09c-2a2385aee1ea",
+   "texte_overlay": "morning swims\n\nswim a few lengths before work once or twice a week. starting the day in cold water gives you a calm, awake energy that people notice the moment you walk in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667313211183467789/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7cf64b13-22d9-40d6-8863-cb0fc8f29ddb",
+   "texte_overlay": "salsa classes\n\ntake a beginner salsa or swing class with complete strangers. moving to music with other people makes you looser, warmer and so much more fun to be around.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667313211183467789/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "60040017-a04c-4c02-a6ea-a4c4e78b4563",
+   "texte_overlay": "cooking for friends\n\nhost a simple, cosy dinner for a few friends once a month. people always remember the warm, generous energy of whoever gathers everyone around a table.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667313211183467789/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "aa6b77a9-ab21-4f31-9aee-956830ac833d",
+   "texte_overlay": "being curious\n\nspend 5 minutes a day learning one fascinating thing: how bees talk, why the ocean glows. people light up around someone who's genuinely excited about ideas.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667313211183467789/5.jpg",
+   "texte_sophia": "being curious\n\nspend 5 minutes a day learning one fascinating thing: how bees talk, why the ocean glows. the Sophia app turns it into one short lesson a day, and people light up around curious minds."
+  },
+  {
+   "position": 6,
+   "media_id": "fce08608-58ee-4407-91fc-dd96dad32bed",
+   "texte_overlay": "early runs\n\nrun three mornings a week before breakfast. the energy you build before anyone else is awake quietly carries into every single conversation you have that day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667313211183467789/6.jpg"
+  }
+ ]
+}

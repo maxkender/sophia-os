@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o102",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "541005ec-2f5b-4190-ba5b-87894786d42b",
+  "titre": "les mots rares que j'ai appris et que je place vraiment dans mes conversations #vocabulaire #culture #pourtoi",
+  "inspirations": [
+    "541005ec-2f5b-4190-ba5b-87894786d42b"
+  ],
+  "notes": "G1, déclinaison de 541005ec (« les mots rares que j'ai appris et que je place vraiment dans mes conversations », génération 0 en français ; meilleur passage tr 2,1 k vues, r 3,7), en français. cta C (le défi de 7 jours en slide 2). Mots neufs (le parent bsg-o061 avait sérendipité, pétrichor, acmé, ineffable, palimpseste). Définitions courantes : alacrité (vivacité joyeuse), lénifiant (qui apaise, adoucit), thuriféraire (admirateur qui flatte à l'excès), nyctalope (qui voit dans l'obscurité), apophénie (voir des liens ou des motifs là où il n'y en a pas). Routine du 7/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 5, 7 et 8 de la boîte). Ligne 6 sautée (5c676138, métiers du droit : treize fiches métier à vérifier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "les mots rares que j'ai appris\net que je place vraiment\ndans mes conversations",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. alacrité\n\nune vivacité joyeuse.\nelle s'est levée avec alacrité. tellement plus joli que motivée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. lénifiant\n\nqui apaise, qui adoucit.\nun discours lénifiant, une musique lénifiante.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41a74286",
+      "texte_overlay": "3. thuriféraire\n\nun admirateur qui flatte à l'excès.\nparfait pour parler des fans un peu trop fans.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. nyctalope\n\nqui voit dans l'obscurité.\nle chat est nyctalope. moi, à 2 h du matin devant mes révisions, aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "62e25601",
+      "texte_overlay": "5. apophénie\n\nvoir des liens là où il n'y en a pas.\nun visage dans un nuage, un signe dans un hasard.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3615b305",
+      "texte_overlay": "lequel tu places cette semaine ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

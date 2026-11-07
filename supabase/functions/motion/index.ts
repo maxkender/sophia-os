@@ -60,6 +60,8 @@ import {
   statutVideoDepuisLangues,
   CONSIGNE_MAX,
   JOURS_RECHERCHE,
+  languePilote,
+  languesALancer,
 } from "../_shared/motion.ts";
 import { poserPostVideo } from "../_shared/posts_video.ts";
 import { assertRole, aujourdhuiParis, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -207,9 +209,11 @@ async function validerScript(supabase: Supabase, body: Corps): Promise<Response>
   for (const langue of video.langues as string[]) {
     await majLangue(supabase, video.id, langue, { statut: "en_attente", commentaire: null });
   }
-  await nouvelleTache(supabase, video.id, "produire", null, null);
+  // La langue pilote d'abord ; les autres se lancent à sa validation (valider_langue).
+  const pilote = languePilote(video.langues as string[]);
+  await nouvelleTache(supabase, video.id, "produire", pilote, null);
   await majVideo(supabase, video.id, { statut: "production", erreur: null });
-  await journaliser(supabase, video.id, "Script validé : production lancée.");
+  await journaliser(supabase, video.id, `Script validé : vidéo ${pilote.toUpperCase()} lancée (les autres langues après sa validation).`);
   return ok();
 }
 
@@ -230,8 +234,18 @@ async function validerLangue(supabase: Supabase, body: Corps): Promise<Response>
   if (!["a_valider", "validee"].includes(ligne.statut)) return refus("Cette langue n'est pas prête");
   if (!ligne.video_url) return refus("Pas de vidéo pour cette langue");
 
+  // La langue pilote validée lance les autres langues, même sans compte pour la publier tout de suite.
+  const pilote = languePilote(video.langues as string[]);
+  let lancees: string[] = [];
+  if (langue === pilote) lancees = await lancerAutresLangues(supabase, video.id, pilote);
+
   const compte = compteMotionDeLaLangue(await comptesMotion(supabase), langue);
-  if (!compte) return refus(`Aucun compte MOTION en ${langue}`);
+  if (!compte) {
+    if (langue !== pilote) return refus(`Aucun compte MOTION en ${langue}`);
+    await majLangue(supabase, video.id, langue, { statut: "validee", validee_at: maintenant() });
+    await journaliser(supabase, video.id, `${langue.toUpperCase()} validée (pas encore de compte MOTION ${langue} pour la publier).`);
+    return ok({ postId: null, compteId: null, date: null, lancees });
+  }
 
   // 1 post par jour sur le compte : le premier jour libre à partir d'aujourd'hui.
   const aujourdhui = aujourdhuiParis();
@@ -270,7 +284,24 @@ async function validerLangue(supabase: Supabase, body: Corps): Promise<Response>
   const handle = compte.handle_tiktok ? `@${compte.handle_tiktok}` : compte.id.slice(0, 8);
   await journaliser(supabase, video.id, `${langue.toUpperCase()} validée : post du ${date} sur ${handle}.`);
   await suivreStatutVideo(supabase, video.id);
-  return ok({ postId, compteId: compte.id, date });
+  return ok({ postId, compteId: compte.id, date, lancees });
+}
+
+/** Après validation de la pilote : une tâche « produire » par langue encore en attente. */
+async function lancerAutresLangues(supabase: Supabase, videoId: string, pilote: string): Promise<string[]> {
+  const { data: langues, error } = await supabase.from("motion_langues").select("langue, statut").eq("video_id", videoId);
+  if (error) throw new Error(error.message);
+  const { data: enFile, error: errT } = await supabase
+    .from("motion_taches")
+    .select("langue")
+    .eq("video_id", videoId)
+    .eq("type", "produire")
+    .in("statut", ["en_attente", "en_cours"]);
+  if (errT) throw new Error(errT.message);
+  const aLancer = languesALancer(langues ?? [], pilote, (enFile ?? []).map((t: { langue: string | null }) => t.langue ?? ""));
+  for (const l of aLancer) await nouvelleTache(supabase, videoId, "produire", l, null);
+  if (aLancer.length) await journaliser(supabase, videoId, `${pilote.toUpperCase()} validée : ${aLancer.map((l) => l.toUpperCase()).join(", ")} lancées.`);
+  return aLancer;
 }
 
 async function rejeterLangue(supabase: Supabase, body: Corps): Promise<Response> {

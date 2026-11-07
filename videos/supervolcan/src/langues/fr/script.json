@@ -1,0 +1,323 @@
+{
+  "langue": "fr",
+  "voix": {
+    "id": "3HZyQcLKlT0a3RDeXVsP",
+    "nom": "Guillaume",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.18
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "Un supervolcan dort sous Yellowstone. S'il se réveillait, voici ce qui se passerait, minute par minute.",
+      "reperes": [
+        {
+          "mot": "supervolcan",
+          "image": 12
+        },
+        {
+          "mot": "Yellowstone.",
+          "image": 54
+        },
+        {
+          "mot": "réveillait,",
+          "image": 90
+        },
+        {
+          "mot": "minute",
+          "image": 140
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "Dans les premières minutes, des nuages de cendres brûlantes déferlent plus vite qu'une voiture. Personne, à des dizaines de kilomètres, n'aurait la moindre chance.",
+      "reperes": [
+        {
+          "mot": "nuages",
+          "image": 40
+        },
+        {
+          "mot": "déferlent",
+          "image": 76
+        },
+        {
+          "mot": "voiture.",
+          "image": 110
+        },
+        {
+          "mot": "Personne,",
+          "image": 131
+        },
+        {
+          "mot": "dizaines",
+          "image": 156
+        },
+        {
+          "mot": "kilomètres,",
+          "image": 173
+        },
+        {
+          "mot": "chance.",
+          "image": 214
+        }
+      ]
+    },
+    {
+      "id": "S3",
+      "texte": "En moins d'une heure, une colonne de cendres monte à plus de 30 kilomètres dans le ciel.",
+      "reperes": [
+        {
+          "mot": "colonne",
+          "image": 38
+        },
+        {
+          "mot": "monte",
+          "image": 62
+        },
+        {
+          "mot": "30",
+          "image": 84
+        },
+        {
+          "mot": "ciel.",
+          "image": 123
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "Dans les jours suivants, la cendre tombe sur une grande partie de l'Amérique du Nord. De quoi écraser des toits près du volcan, et clouer les avions au sol loin de là.",
+      "reperes": [
+        {
+          "mot": "Nord.",
+          "image": 79
+        },
+        {
+          "mot": "écraser",
+          "image": 119
+        },
+        {
+          "mot": "toits",
+          "image": 130
+        },
+        {
+          "mot": "volcan,",
+          "image": 149
+        },
+        {
+          "mot": "clouer",
+          "image": 184
+        },
+        {
+          "mot": "avions",
+          "image": 193
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "En quelques semaines, le soufre voile le Soleil sur toute la planète.",
+      "reperes": [
+        {
+          "mot": "soufre",
+          "image": 35
+        },
+        {
+          "mot": "Soleil",
+          "image": 72
+        },
+        {
+          "mot": "planète.",
+          "image": 107
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "Pendant des années, le monde perd quelques degrés. Un hiver volcanique. Les récoltes échouent, et le monde entier pourrait avoir faim.",
+      "reperes": [
+        {
+          "mot": "années,",
+          "image": 16
+        },
+        {
+          "mot": "degrés.",
+          "image": 59
+        },
+        {
+          "mot": "hiver",
+          "image": 86
+        },
+        {
+          "mot": "récoltes",
+          "image": 128
+        },
+        {
+          "mot": "échouent,",
+          "image": 142
+        },
+        {
+          "mot": "faim.",
+          "image": 192
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Ça paraît fou? En 1816, l'éruption bien plus petite du Tambora a déjà provoqué une année sans été.",
+      "reperes": [
+        {
+          "mot": "fou?",
+          "image": 19
+        },
+        {
+          "mot": "1816,",
+          "image": 47
+        },
+        {
+          "mot": "petite",
+          "image": 92
+        },
+        {
+          "mot": "Tambora",
+          "image": 103
+        },
+        {
+          "mot": "année",
+          "image": 162
+        },
+        {
+          "mot": "été.",
+          "image": 179
+        }
+      ]
+    },
+    {
+      "id": "S8",
+      "texte": "La bonne nouvelle? Yellowstone n'a pas connu de super-éruption depuis 640 000 ans, et les scientifiques ne voient aucun signe de la prochaine.",
+      "reperes": [
+        {
+          "mot": "nouvelle?",
+          "image": 21
+        },
+        {
+          "mot": "Yellowstone",
+          "image": 42
+        },
+        {
+          "mot": "super-éruption",
+          "image": 79
+        },
+        {
+          "mot": "640",
+          "image": 100
+        },
+        {
+          "mot": "scientifiques",
+          "image": 167
+        },
+        {
+          "mot": "prochaine.",
+          "image": 213
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Trouve les réponses à toutes ces questions et à bien d'autres dans l'appli Sophia, puis teste tes connaissances avec des quiz."
+  },
+  "legende": "Si Yellowstone entrait en éruption, voici ce qui se passerait minute par minute 🌋 #volcan #yellowstone #science #catastrophe #apprendresurtiktok",
+  "appli": {
+    "categorie": "SCIENCES",
+    "lectures": "47 k lectures",
+    "jours": "JOURS",
+    "commencer": "Commencer",
+    "onglets": [
+      "Accueil",
+      "Biblio",
+      "Parcours",
+      "Entraînement",
+      "Profil"
+    ],
+    "titre": "Que se passerait-il si un supervolcan se réveillait ?",
+    "description": "L'éruption commencerait en un seul endroit, mais ses effets feraient le tour de la planète.",
+    "lecon": {
+      "sousTitre": "Une éruption, ressentie par toute la planète.",
+      "paragraphes": [
+        [
+          {
+            "t": "Une super-éruption projette "
+          },
+          {
+            "m": "plus de 1 000 km³ de roches et de cendres"
+          },
+          {
+            "t": ". Dans les premières minutes, des nuées ardentes, des nuages de gaz et de cendres plus chauds qu'un four, balaieraient tout sur des dizaines de kilomètres. Puis la cendre tomberait sur une grande partie de l'Amérique du Nord, épaisse près du volcan, de quelques millimètres sur les côtes."
+          }
+        ],
+        [
+          {
+            "t": "Le vrai danger vient du ciel. Le soufre forme un voile qui renvoie la lumière du Soleil, et "
+          },
+          {
+            "m": "la planète pourrait perdre quelques degrés pendant plusieurs années"
+          },
+          {
+            "t": ". En 1816, l'éruption bien plus petite du Tambora a déjà provoqué "
+          },
+          {
+            "m": "« l'année sans été »"
+          },
+          {
+            "t": ". La dernière super-éruption de Yellowstone remonte à environ 640 000 ans, et l'USGS ne voit aucun signe d'une éruption imminente."
+          }
+        ]
+      ],
+      "continuer": "Continuer"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} SUR 2",
+      "bravo": "Bonne réponse !",
+      "questions": [
+        {
+          "q": "Qu'est-ce qui balaierait tout dans les premières minutes d'une super-éruption ?",
+          "options": [
+            "Un tsunami",
+            "Des nuages de cendres brûlantes",
+            "Un lac de lave",
+            "Une série de séismes"
+          ],
+          "bonne": 1,
+          "fait": "Des nuées ardentes, plus rapides qu'une voiture."
+        },
+        {
+          "q": "Quelle éruption a provoqué « l'année sans été » en 1816 ?",
+          "options": [
+            "Yellowstone",
+            "Tambora",
+            "Toba",
+            "Le Vésuve"
+          ],
+          "bonne": 1,
+          "fait": "Le Tambora, en Indonésie, en 1815."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Leçon terminée !",
+      "score": "2/2 bonnes réponses",
+      "serie": "JOURS DE SÉRIE",
+      "xp": "XP GAGNÉS",
+      "suivant": "À SUIVRE",
+      "suivantTitre": "Pourquoi la Suisse n'est-elle jamais en guerre ?",
+      "bouton": "Leçon suivante"
+    }
+  }
+}

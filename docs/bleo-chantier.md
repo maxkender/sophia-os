@@ -376,6 +376,7 @@ modifié, aucune fonction Edge redéployée) :
 | `0650_bleo_remplacants_themes_a_venir` | Suite de D52 : l'historique du compte vu par `bleo_remplacants` compte aussi les lignes des plans suivis à venir. Un remplaçant évite donc aussi les thèmes et les photos prévus pour le compte les jours suivants, pas seulement les contenus (4 « même thème » non déclarés au rapport du 5/11) | Appliquée le 6/11 à 10 h |
 | `0660_bleo_reglages_declinaisons_imports` | Décision d'Adrien du 6/11, après les mesures à âge égal. (a) `classes.depart.accroche_gagnante` passe de 3,2 à 2,0 : la valeur de départ des déclinaisons, relue chaque nuit, y compris pour celles déjà déposées. (b) `file_juger.age_max_import_jours` = 30 : un import (contenu hors podz) arrivé depuis plus longtemps n'est plus testé et reste en réserve. Le tirage lit ce réglage | Appliquée le 6/11 à 17 h 59 ; nuit relancée, plan du 7/11 retiré |
 | `0661_bleo_perdants_et_declinaisons_livrees` | Décisions d'Adrien du 7/11. (1) `valeur.facteur_non_gagnant` = 0,5 : au tirage et pour les remplaçants, la valeur d'un candidat non gagnant est multipliée par 0,5 avant l'exposant (poids divisé par 8). (2) Les 14 déclinaisons des podz de remakes en classe `livre` (4,0) passent en `accroche_gagnante` (2,0) ; depuis 0652, les nouvelles prennent déjà cette classe | Appliquée le 7/11 à 17 h 19 ; nuit relancée, plan du 8/11 retiré |
+| `0662_bleo_jauge_full_tests_minimum` | Décision d'Adrien du 7/11 : `jauge.parts` passe de 10/20/30/40 % à 30/30/40/50 % de full tests, selon les semaines de stock de la boîte (6, 3, 1). smart_girl 10 % → 30 %, alpha_male et beau_smart_girl 10 % → 30 %, weird_alpha 30 % → 40 %, remakes 40 % → 50 % | Appliquée le 7/11 à 17 h 35 |
 
 Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
@@ -669,6 +670,11 @@ recalculée à la main, rejouabilité, derniers plans).
 
   - Les déclinaisons héritent du verdict « gagnant » de leur famille : le facteur ne les touche pas, et elles reprennent une partie des créneaux libérés.
   - **Question d'Adrien sur les podz (« c'est pas automatique ? ») :** oui, la jauge (`reglages.bleo.jauge`) fixe la part de full tests de chaque podz d'après les semaines de stock de sa boîte : 10 % à 6 semaines et plus, 20 % de 3 à 6, 30 % de 1 à 3, 40 % en dessous. smart_girl (8 semaines, 167 familles en boîte) est à 10 % ; weird_alpha (1,5 semaine) à 30 %. Plus un label a de gagnants à décliner, moins il fait d'accroches neuves.
+  - **0662 (Adrien : « oui fais-le ») :** au moins 30 % de full tests pour chaque podz.
+  - **Reposts sur un même compte (remarque du chef, page blanche) :** c'est exact. clara.grandit369 en a eu 2 le 6/11 (posts du 19 et du 20/10) et paul.drive237 1 (post du 21/10).
+    - Sur white_bg, aucun repost du 20/10 au 1/11 ; depuis la bascule, 1 à 3 par jour sur 18 posts.
+    - Sur toute la flotte : 3 à 8 par jour avant BLEO, 9 à 17 depuis, soit 2 à 3 % des posts. L'écart médian est de 16 à 21 jours : BLEO ressert un gagnant juste après la limite de 14 jours (`meme_contenu_jours`).
+    - Proposé à Adrien : porter cette limite à 60 jours. Les rappels J+7 ne sont pas concernés.
 - **5/11, après-midi : les labels 100 % podz dans BLEO, lot 1 (0650 à 0652, décisions d'Adrien).**
   - **0650 :** une seule définition d'un label 100 % podz, la vue `labels_100_podz` (un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active). Le choix de label, la page Répartition, la voie BLEO (colonne calculée `voie(labels)`, plus de colonne tenue à la main), `empreintes` et le chef la lisent.
   - **0651 :** mentalmaxxing fermé (UnSwipe arrêté) ; 8 livraisons en attente rejetées.

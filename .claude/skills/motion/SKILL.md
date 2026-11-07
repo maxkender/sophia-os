@@ -100,7 +100,10 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
 5. **Contrôle visuel avant le rendu complet** (obligatoire) : `node scripts/planche.mjs /tmp/planche.jpg <images…> --langue L`
    (15 à 30 images globales, mosaïque à l'échelle 0,3 ; le script existe dans `videos/supervolcan`, copie-le
    si le projet ne l'a pas), **regarde-la**, corrige.
-6. `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
+6. Si la clé AWS est dans l'environnement (`REMOTION_AWS_ACCESS_KEY_ID`), rends sur **Remotion Lambda** :
+   `lambda --projet P` (une fois par projet, et après chaque changement de scènes ou de voix), puis
+   `rendre … --lambda` (quelques minutes au lieu de ~10 min par minute de vidéo). Sinon, rendu local.
+   `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
    seulement si l'admin demande la version sans), puis `livrer --video V --projet P --langue L`.
 7. `journal` à chaque étape importante. À la fin : `finir --tache T`.
 

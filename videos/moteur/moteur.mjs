@@ -21,6 +21,14 @@ import {fileURLToPath} from 'node:url';
 const ICI = dirname(fileURLToPath(import.meta.url));
 const VIDEOS = resolve(ICI, '..');
 const URL_OS = process.env.SUPABASE_URL ?? 'https://mbikecieskoobeizixig.supabase.co';
+// Remotion Lambda : la clé AWS vient de l'environnement (REMOTION_AWS_ACCESS_KEY_ID / _SECRET_ACCESS_KEY / _REGION)
+const siteLambda = (projet) => `motion-${projet}`;
+const regionLambda = () => (process.env.REMOTION_AWS_REGION ? [`--region=${process.env.REMOTION_AWS_REGION}`] : []);
+const verifierCleAws = () => {
+  if (!process.env.REMOTION_AWS_ACCESS_KEY_ID || !process.env.REMOTION_AWS_SECRET_ACCESS_KEY) {
+    throw new Error('clé AWS absente : REMOTION_AWS_ACCESS_KEY_ID et REMOTION_AWS_SECRET_ACCESS_KEY (réglages de l’environnement, puis nouvelle session)');
+  }
+};
 const TAILLE_MAX = 48e6; // octets : au-delà, la vidéo est recompressée avant l'envoi
 const CHROME = '/opt/pw-browsers/chromium_headless_shell-1243/chrome-headless-shell-linux64/chrome-headless-shell';
 
@@ -99,11 +107,14 @@ const commandes = {
     else if (existsSync(sans)) rmSync(sans); // jamais livrer une ancienne version sans sous-titres
     for (const [sousTitres, nom] of versions) {
       const brut = `out/${langue}/${nom}-brut.mp4`;
-      lancer(
-        'npx',
-        ['remotion', 'render', composition, brut, `--props=${JSON.stringify({langue, sousTitres})}`, '--codec=h264', '--crf=22', '--concurrency=4', ...navigateur],
-        dir,
-      );
+      const props = `--props=${JSON.stringify({langue, sousTitres})}`;
+      if (reste.includes('--lambda')) {
+        verifierCleAws();
+        // Rendu découpé sur des dizaines de fonctions AWS, à partir du site envoyé par « lambda --projet P »
+        lancer('npx', ['remotion', 'lambda', 'render', siteLambda(requis('projet')), composition, brut, props, '--codec=h264', '--crf=22', ...regionLambda()], dir);
+      } else {
+        lancer('npx', ['remotion', 'render', composition, brut, props, '--codec=h264', '--crf=22', '--concurrency=4', ...navigateur], dir);
+      }
       lancer(
         'ffmpeg',
         ['-loglevel', 'error', '-y', '-i', brut, '-c:v', 'copy', '-af', 'loudnorm=I=-14:TP=-1.5:LRA=11', '-ar', '48000', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', `out/${langue}/${nom}.mp4`],
@@ -134,6 +145,17 @@ const commandes = {
     const video_brute_chemin = existsSync(sans) ? await envoyer(video, langue, sans, `video-sans-sous-titres-${Date.now()}.mp4`) : null;
     await appel('langue_prete', {video_id: video, langue, script, legende: script.legende ?? null, video_chemin, video_brute_chemin, duree_s: duree(final)});
     console.log(`${langue} livrée : à valider dans la page Motion`);
+  },
+  async lambda() {
+    const projet = requis('projet');
+    const dir = projetDir(projet);
+    verifierCleAws();
+    lancer('node', ['scripts/langues.mjs'], dir);
+    const fonctions = spawnSync('npx', ['remotion', 'lambda', 'functions', 'ls', '-q', ...regionLambda()], {cwd: dir, encoding: 'utf8', env: process.env});
+    if (!fonctions.stdout.trim()) lancer('npx', ['remotion', 'lambda', 'functions', 'deploy', ...regionLambda()], dir);
+    else console.log(`fonction Lambda déjà là : ${fonctions.stdout.trim().split('\n')[0]}`);
+    lancer('npx', ['remotion', 'lambda', 'sites', 'create', 'src/index.ts', `--site-name=${siteLambda(projet)}`, ...regionLambda()], dir);
+    console.log(`site ${siteLambda(projet)} à jour : « rendre --projet ${projet} --langue L --lambda »`);
   },
   async 'en-cours'() {
     await appel('langue_en_cours', {video_id: requis('video'), langue: requis('langue')});

@@ -85,7 +85,8 @@ la clé doit donc être présente dans la machine.
 - `npx remotion lambda functions deploy` : déploie le moteur de rendu (une fois par version de Remotion).
 - `npx remotion lambda sites create src/index.ts --site-name=<projet>` : envoie chaque projet (à refaire après
   chaque changement de scènes ou de voix).
-- Branche la commande `rendre` du moteur Motion sur Lambda, rends le Moyen Âge pour comparer temps et coût.
+- Le moteur est déjà branché : `moteur.mjs lambda --projet P` (fonction + site), puis
+  `moteur.mjs rendre --projet P --langue L --lambda`. Premier essai : le Moyen Âge, pour mesurer temps et coût.
 
 ---
 

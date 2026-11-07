@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o068",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "abf50563-542d-4455-99dd-48c19becd560",
+  "titre": "habits i copied from the top students in my class that showed me how much i was holding back #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "abf50563-542d-4455-99dd-48c19becd560"
+  ],
+  "notes": "Déclinaison G2 de abf50563 (notre cs-o038 en G1 : r 5 en turc, 4,1 k vues), ligne 2 de la boîte. Même promesse (ce que les meilleurs élèves m'ont appris sur mon potentiel inutilisé), autres mots : « habits i copied from the top students in my class that showed me how much i was holding back ». Habitudes neuves, aucune de cs-o038 (devoirs le jour même, commentaires du prof, vieux chapitres, dire non, téléphone, sommeil) : un coup d'œil au cours avant la classe, un cahier par matière, demander de l'aide tôt, se tester au lieu de relire (place micabo, slide 5), planifier la semaine le dimanche, faire les sujets d'entraînement comme le vrai. Admiration, jamais de comparaison méprisante. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne (reprise d'un original de plus d'une semaine : la banque n'en a plus de propres). Slides de personnes : les 13 dernières photos libres, puis des photos les moins utilisées d'originaux de plus d'une semaine (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0a6c56e6",
+      "texte_overlay": "habits i copied from the top students in my class\nthat showed me how much i was holding back",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0bf19a3f",
+      "texte_overlay": "1) they look at the lesson BEFORE class\nso class is the second time they hear it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0cc82b66",
+      "texte_overlay": "2) one notebook per subject, always in order\nthey never waste 10 minutes looking for a page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0d28ab14",
+      "texte_overlay": "3) they ask for help the first week they're lost\nnot the week of the test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "308e1ff1",
+      "texte_overlay": "4) they test themselves instead of rereading\nit feels harder. that's why it works.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0e8b3d73",
+      "texte_overlay": "5) sunday: 10 minutes to plan the week\ntests, homework, free time. all written down.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "11569323",
+      "texte_overlay": "6) practice tests = real tests\nsame time limit, no notes, no phone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

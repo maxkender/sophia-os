@@ -68,6 +68,7 @@ function LigneCorrection({ c }: { c: CorrectionNative }) {
         <Badge variant={VARIANTE_STATUT[c.statut]}>{t(`relectureNative.corrections.statut.${c.statut}`)}</Badge>
         <Badge variant="secondary">{t(`relectureNative.corrections.type.${c.type}`)}</Badge>
         {c.version && <Badge variant="outline">{t(`relectureNative.corrections.version.${c.version}`)}</Badge>}
+        <Badge variant="outline">{t(c.relecture_id ? "relectureNative.corrections.sourceRelecture" : "relectureNative.corrections.sourceDuel")}</Badge>
         {c.slide != null && <span className="text-muted-foreground">{t("relectureNative.corrections.slide", { n: c.slide })}</span>}
         <span className="ml-auto text-muted-foreground">
           {t("relectureNative.corrections.par", { nom: nomRelecteur || "?", date: dateCourte(c.created_at, i18n.language) })}

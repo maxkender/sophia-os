@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { BookOpenText, Languages, Library, Scissors, Swords, Users, type LucideIcon } from "lucide-react";
+import { BookOpenText, FileCheck, Languages, Library, Scissors, Swords, Users, type LucideIcon } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -10,13 +10,15 @@ import { CarteInterrupteurs } from "@/features/relectureNative/CarteInterrupteur
 import { ChiffresRelecture } from "@/features/relectureNative/ChiffresRelecture";
 import { DuelsAdmin } from "@/features/relectureNative/DuelsAdmin";
 import { SectionCorrections } from "@/features/relectureNative/SectionCorrections";
+import { SectionRelectures } from "@/features/relectureNative/SectionRelectures";
 import { SectionExemplesNatifs } from "@/features/relectureNative/SectionExemplesNatifs";
 import { SectionRelecteurs } from "@/features/relectureNative/SectionRelecteurs";
 
-type Onglet = "relecteurs" | "duels" | "corrections" | "exemples";
+type Onglet = "relecteurs" | "relectures" | "duels" | "corrections" | "exemples";
 
 const ONGLETS: ReadonlyArray<{ cle: Onglet; icone: LucideIcon }> = [
   { cle: "relecteurs", icone: Users },
+  { cle: "relectures", icone: FileCheck },
   { cle: "duels", icone: Swords },
   { cle: "corrections", icone: Scissors },
   { cle: "exemples", icone: BookOpenText },
@@ -69,6 +71,7 @@ export function AdminRelectureNativePage() {
       />
 
       {onglet === "relecteurs" && <SectionRelecteurs />}
+      {onglet === "relectures" && <SectionRelectures />}
       {onglet === "duels" && <DuelsAdmin />}
       {onglet === "corrections" && <SectionCorrections />}
       {onglet === "exemples" && <SectionExemplesNatifs />}

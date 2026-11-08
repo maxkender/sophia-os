@@ -18,6 +18,8 @@ export interface CorrectionNative {
   langue: string;
   vote_id: string | null;
   duel_id: string | null;
+  /** La relecture simple dont elle vient (0631), sinon un duel. */
+  relecture_id: string | null;
   relecteur_id: string | null;
   version: VersionCorrection | null;
   slide: number | null;
@@ -33,7 +35,7 @@ export interface CorrectionNative {
   relecteur: { prenom: string | null; nom: string | null } | null;
 }
 
-const COLONNES = "id, langue, vote_id, duel_id, relecteur_id, version, slide, type, fautif, corrige, explication, statut, decide_le, created_at, updated_at";
+const COLONNES = "id, langue, vote_id, duel_id, relecture_id, relecteur_id, version, slide, type, fautif, corrige, explication, statut, decide_le, created_at, updated_at";
 
 /** Les corrections d'une langue, les plus récentes d'abord. */
 export async function listerCorrectionsNatives(langue: string): Promise<CorrectionNative[]> {

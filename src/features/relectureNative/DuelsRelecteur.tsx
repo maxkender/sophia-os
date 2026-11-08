@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Check, Star, Swords } from "lucide-react";
+import { Check, Swords } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -13,7 +13,7 @@ import { cn } from "@/lib/utils";
 
 import { compterMots, type CoteDuel, coteDepuisNotes, type DuelRelecteur, mesDuelsRelecteur, MOTS_MIN_REMARQUE, voterDuelRelecteur } from "./api";
 import { messageErreur } from "./messageErreur";
-import { TuileIcone } from "./Puces";
+import { Etoiles, TuileIcone } from "./Puces";
 
 export const CLE_REQUETE_MES_DUELS = ["mes-duels-relecteur"] as const;
 
@@ -184,29 +184,5 @@ function CarteDuelRelecteur({ duel }: { duel: DuelRelecteur }) {
         )}
       </CardPanel>
     </Card>
-  );
-}
-
-/** Une note de 1 à 5, en étoiles ; recliquer la même étoile retire la note. */
-function Etoiles({ libelle, valeur, onChange }: { libelle: string; valeur: number | null; onChange: (n: number | null) => void }) {
-  return (
-    <div className="space-y-1">
-      <p className="text-xs text-muted-foreground">{libelle}</p>
-      <div role="radiogroup" aria-label={libelle} className="flex gap-1">
-        {[1, 2, 3, 4, 5].map((n) => (
-          <button
-            key={n}
-            type="button"
-            role="radio"
-            aria-checked={valeur === n}
-            aria-label={`${n}/5`}
-            onClick={() => onChange(valeur === n ? null : n)}
-            className="rounded p-0.5 text-muted-foreground hover:text-amber-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
-          >
-            <Star className={cn("size-5", valeur != null && n <= valeur && "fill-amber-400 text-amber-500")} aria-hidden />
-          </button>
-        ))}
-      </div>
-    </div>
   );
 }

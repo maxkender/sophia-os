@@ -39,6 +39,7 @@ const correction = (id: string, statut: "proposee" | "retenue" | "ecartee", faut
   langue: "de",
   vote_id: "v1",
   duel_id: "d1",
+  relecture_id: null,
   relecteur_id: "r1",
   version: "candidat",
   slide: 4,

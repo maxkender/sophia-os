@@ -125,3 +125,103 @@ export function dernieresLignes(journal: unknown, n = 6): Array<{ at: string; me
     .slice(-n)
     .reverse();
 }
+
+// --- Lecture de l'avancement (page) : où en est la vidéo, et qui doit agir ---
+
+interface VideoAvancement {
+  statut: StatutVideoMotion;
+  erreur?: string | null;
+  langues: Array<{ langue: string; statut: StatutLangueMotion }>;
+  langues_visees?: string[];
+}
+
+/** Qui a la main : toi (relire, valider), le moteur (écrire, rendre), personne (fini, archivé). */
+export type GroupeMotion = "a_toi" | "moteur" | "fini" | "archive";
+export const GROUPES_MOTION: GroupeMotion[] = ["a_toi", "moteur", "fini", "archive"];
+
+const FINIES: StatutLangueMotion[] = ["validee", "distribuee"];
+const MOTEUR: StatutLangueMotion[] = ["en_attente", "en_cours", "rejetee"];
+
+function piloteDe(v: VideoAvancement): string {
+  return languePiloteDe(v.langues_visees?.length ? v.langues_visees : v.langues.map((l) => l.langue));
+}
+
+export function groupeVideo(v: VideoAvancement): GroupeMotion {
+  if (v.statut === "archive") return "archive";
+  if (v.erreur || v.statut === "brouillon" || v.statut === "script_pret") return "a_toi";
+  if (v.langues.some((l) => l.statut === "a_valider" || l.statut === "echec")) return "a_toi";
+  if (v.statut === "script_demande" || v.statut === "production") return "moteur";
+  const pilote = piloteDe(v);
+  if (v.langues.some((l) => MOTEUR.includes(l.statut) && !attendLaPilote(l, v.langues, pilote))) return "moteur";
+  return v.statut === "termine" || (v.langues.length > 0 && v.langues.every((l) => FINIES.includes(l.statut))) ? "fini" : "a_toi";
+}
+
+/** Ce qu'il faut faire maintenant, en une phrase (clé i18n `motion.action.*`). */
+export type ActionMotion =
+  | { cle: "archivee" | "echec" | "script_en_cours" | "relire_script" | "terminee" }
+  | { cle: "valider_pilote"; langues: string[] }
+  | { cle: "valider_langues" | "moteur_rend"; langues: string[] };
+
+export function prochaineAction(v: VideoAvancement): ActionMotion {
+  if (v.statut === "archive") return { cle: "archivee" };
+  if (v.erreur || v.langues.some((l) => l.statut === "echec")) return { cle: "echec" };
+  if (v.statut === "brouillon" || v.statut === "script_demande") return { cle: "script_en_cours" };
+  if (v.statut === "script_pret") return { cle: "relire_script" };
+  const pilote = piloteDe(v);
+  const aValider = v.langues.filter((l) => l.statut === "a_valider").map((l) => l.langue);
+  if (aValider.includes(pilote)) return { cle: "valider_pilote", langues: [pilote] };
+  if (aValider.length > 0) return { cle: "valider_langues", langues: aValider };
+  const enCours = v.langues.filter((l) => MOTEUR.includes(l.statut) && !attendLaPilote(l, v.langues, pilote)).map((l) => l.langue);
+  if (enCours.length > 0 || v.statut === "production") return { cle: "moteur_rend", langues: enCours.length ? enCours : [pilote] };
+  if (v.langues.length > 0 && v.langues.every((l) => FINIES.includes(l.statut))) return { cle: "terminee" };
+  return { cle: "moteur_rend", langues: [pilote] };
+}
+
+/** Les étapes d'une vidéo : script, version pilote, autres langues, publication. */
+export type EtatEtape = "faite" | "a_toi" | "moteur" | "a_venir";
+export interface EtapeMotion {
+  cle: "script" | "pilote" | "traductions" | "publication";
+  etat: EtatEtape;
+}
+
+export function etapesVideo(v: VideoAvancement): EtapeMotion[] {
+  const pilote = piloteDe(v);
+  const scriptFait = !["brouillon", "script_demande", "script_pret"].includes(v.statut);
+  const etapes: EtapeMotion[] = [
+    {
+      cle: "script",
+      etat: scriptFait ? "faite" : v.statut === "script_pret" || v.statut === "brouillon" ? "a_toi" : "moteur",
+    },
+  ];
+  const p = v.langues.find((l) => l.langue === pilote);
+  const piloteFaite = !!p && FINIES.includes(p.statut);
+  etapes.push({
+    cle: "pilote",
+    etat: !scriptFait ? "a_venir" : piloteFaite ? "faite" : p?.statut === "a_valider" || p?.statut === "echec" ? "a_toi" : "moteur",
+  });
+  const visees = v.langues_visees?.length ? v.langues_visees : v.langues.map((l) => l.langue);
+  const ligne = (langue: string) => v.langues.find((l) => l.langue === langue);
+  const autres = visees.filter((l) => l !== pilote);
+  if (autres.length > 0) {
+    const rendues = autres.every((l) => ["a_valider", ...FINIES].includes(ligne(l)?.statut ?? "en_attente"));
+    const auTravail = v.langues.some((l) => l.langue !== pilote && MOTEUR.includes(l.statut) && !attendLaPilote(l, v.langues, pilote));
+    etapes.push({ cle: "traductions", etat: rendues ? "faite" : auTravail ? "moteur" : "a_venir" });
+  }
+  const toutes = visees.length > 0 && visees.every((l) => FINIES.includes(ligne(l)?.statut ?? "en_attente"));
+  etapes.push({
+    cle: "publication",
+    etat: toutes ? "faite" : v.langues.some((l) => l.statut === "a_valider") && piloteFaite ? "a_toi" : "a_venir",
+  });
+  return etapes;
+}
+
+/** L'onglet ouvert d'abord : le script tant qu'il n'est pas validé, sinon les vidéos. */
+export function ongletParDefaut(v: VideoAvancement): "script" | "videos" {
+  return ["brouillon", "script_demande", "script_pret"].includes(v.statut) || v.langues.length === 0 ? "script" : "videos";
+}
+
+/** La langue pilote d'abord, puis l'ordre FR, EN, DE, IT. */
+export function languesOrdonnees<T extends { langue: string }>(langues: T[], pilote: string): T[] {
+  const rang = (l: string) => (l === pilote ? -1 : (LANGUES_MOTION as readonly string[]).indexOf(l));
+  return [...langues].sort((a, b) => rang(a.langue) - rang(b.langue));
+}

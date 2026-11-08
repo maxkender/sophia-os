@@ -5,9 +5,9 @@
     "nom": "Brian",
     "modele": "eleven_multilingual_v2",
     "reglages": {
-      "stability": 0.42,
+      "stability": 0.55,
       "similarity_boost": 0.8,
-      "style": 0.35,
+      "style": 0.25,
       "use_speaker_boost": true,
       "speed": 1.06
     }
@@ -228,7 +228,7 @@
     },
     {
       "id": "S4",
-      "texte": "Then the Panama Canal opened. Eighty kilometers that cut the trip by about thirteen thousand.",
+      "texte": "Then the Panama Canal opened. Just eighty kilometers, saving about thirteen thousand kilometers of sailing.",
       "reperes": [],
       "carte": {
         "vue": {
@@ -268,7 +268,7 @@
             ],
             "icone": "bateau",
             "couleur": "vert",
-            "au": "cut"
+            "au": "saving"
           }
         ],
         "etiquettes": [
@@ -279,7 +279,7 @@
               10.3
             ],
             "style": "chiffre",
-            "au": "Eighty"
+            "au": "eighty"
           },
           {
             "texte": "-13,000 km",

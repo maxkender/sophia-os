@@ -9,8 +9,9 @@
  *  - `correctionsPlacementNatives` : celles de type `placement`, en exemples
  *    « au lieu de / écris plutôt » du placement de l'appli ;
  *  - `extraireCorrections` : le découpage des remarques non traitées, vote
- *    par vote, par Gemini (action `corrections_extraire` d'`ab-traduction`,
- *    cron `ab-corrections` ou bouton de Relecture native → Corrections).
+ *    par vote, puis des relectures simples faites (0631), par Gemini (action
+ *    `corrections_extraire` d'`ab-traduction`, cron `ab-corrections` ou
+ *    bouton de Relecture native → Corrections).
  */
 import { callWithFallback, LANGUES, TEXT_MODELS, textOf } from "./gemini.ts";
 import { messageErreur, type serviceClient } from "./supabase.ts";
@@ -159,6 +160,115 @@ export function normaliserCorrections(
   return sortie;
 }
 
+interface RelectureATraiter {
+  id: string;
+  relecteur_id: string;
+  langue: string;
+  note: number | null;
+  remarque: string | null;
+  slides: Slide[];
+  slides_corrigees: Array<{ position: number; texte: string }>;
+}
+
+/** Le prompt du découpage d'une relecture simple (0631) : le deck publié, les slides réécrites, la remarque. */
+export function promptExtractionRelecture(entree: {
+  langue: string;
+  slides: Slide[];
+  reecrites: Array<{ position: number; texte: string }>;
+  note: number | null;
+  remarque: string | null;
+}): string {
+  const nomLangue = LANGUES[entree.langue] ?? entree.langue;
+  const reecrites = entree.reecrites.length
+    ? entree.reecrites.map((r) => `Slide ${r.position} : "${r.texte.trim()}"`).join("\n")
+    : "(aucune slide réécrite)";
+  return `Un relecteur natif (${nomLangue}) a relu un slideshow TikTok publié dans sa langue. Il a réécrit les slides qu'il aurait écrites autrement, noté l'ensemble de 1 (sonne traduit) à 5 (sonne natif) et laissé une remarque.
+
+Ta tâche : en tirer des corrections atomiques, réutilisables pour les prochaines traductions en ${nomLangue}. Une correction = un fragment EXACT du texte publié, court (15 mots au plus, recopié tel quel), ce que le relecteur a écrit à la place, et un type. Pour une slide réécrite, compare le publié et la réécriture et isole chaque changement qui porte un sens (un mot, une tournure, une phrase), pas les retouches de ponctuation seules. La remarque peut en ajouter.
+
+Types : calque (tournure calquée d'une autre langue), registre (trop formel, trop écrit, argot forcé), vocabulaire (mot inventé, faux, rare), placement (la slide d'appli sonne pub, mal placée, mal amenée), longueur (trop long pour une slide), casse (majuscules, ponctuation), sens (le sens a changé), autre.
+
+Règles :
+- Uniquement ce que le relecteur a changé ou dit. N'invente aucune faute. Un relecteur qui ne change rien et dit que tout est bon donne une liste vide.
+- « fautif » est copié mot pour mot depuis le texte publié de la slide visée.
+- « corrige » est en ${nomLangue}, tiré de la réécriture ou de la remarque ; null si le relecteur n'a rien proposé.
+- « explication » : une ligne, en français, dans les mots du relecteur quand il en donne.
+- Pas de doublon : une faute, une correction.
+
+Slideshow publié :
+${deckTexte(entree.slides)}
+
+Slides réécrites par le relecteur :
+${reecrites}
+
+Note du relecteur : ${entree.note ?? "?"}/5.
+Remarque du relecteur :
+"""
+${(entree.remarque ?? "").trim() || "(aucune)"}
+"""
+
+Réponds uniquement en JSON, sans bloc de code :
+{"corrections":[{"slide":3,"type":"calque","fautif":"…","corrige":"…","explication":"…"}]}`;
+}
+
+/** Les relectures simples faites et pas encore découpées (0631), même budget que les votes. */
+async function extraireCorrectionsRelectures(
+  supabase: Supabase,
+  options: { langue?: string | null; max: number; debut: number },
+): Promise<BilanExtraction> {
+  let requete = supabase
+    .from("relectures_posts")
+    .select("id, relecteur_id, langue, note, remarque, slides, slides_corrigees")
+    .eq("statut", "faite")
+    .is("corrections_extraites_le", null)
+    .order("fait_le", { ascending: true })
+    .limit(options.max + 1);
+  if (options.langue) requete = requete.eq("langue", options.langue.toLowerCase());
+  const { data, error } = await requete;
+  if (error) throw error;
+  const relectures = (data ?? []) as unknown as RelectureATraiter[];
+  const bilan: BilanExtraction = { traites: 0, corrections: 0, echecs: [], restants: Math.max(0, relectures.length - options.max) };
+  for (const rp of relectures.slice(0, options.max)) {
+    if (Date.now() - options.debut > BUDGET_MS) {
+      bilan.restants++;
+      continue;
+    }
+    const marquer = async (erreur: string | null) => {
+      await supabase
+        .from("relectures_posts")
+        .update({ corrections_extraites_le: new Date().toISOString(), corrections_extraction_erreur: erreur })
+        .eq("id", rp.id);
+    };
+    try {
+      const reecrites = Array.isArray(rp.slides_corrigees) ? rp.slides_corrigees : [];
+      if (reecrites.length === 0 && !(rp.remarque ?? "").trim()) {
+        await marquer(null);
+        bilan.traites++;
+        continue;
+      }
+      const prompt = promptExtractionRelecture({ langue: rp.langue.toLowerCase(), slides: rp.slides ?? [], reecrites, note: rp.note, remarque: rp.remarque });
+      const parts = await callWithFallback(TEXT_MODELS, [{ text: prompt }]);
+      const sortie = parseJsonModele<{ corrections?: CorrectionModele[] }>(textOf(parts));
+      if (!sortie || !Array.isArray(sortie.corrections)) throw new Error("réponse du modèle illisible");
+      const lignes = normaliserCorrections(sortie.corrections, "actuel").map((l) => ({ ...l, version: null }));
+      if (lignes.length > 0) {
+        const { error: errI } = await supabase.from("corrections_natives").insert(
+          lignes.map((l) => ({ ...l, langue: rp.langue.toLowerCase(), relecture_id: rp.id, relecteur_id: rp.relecteur_id })),
+        );
+        if (errI) throw errI;
+      }
+      await marquer(null);
+      bilan.traites++;
+      bilan.corrections += lignes.length;
+    } catch (e) {
+      const raison = messageErreur(e);
+      await marquer(raison);
+      bilan.echecs.push({ vote_id: rp.id, raison });
+    }
+  }
+  return bilan;
+}
+
 export interface BilanExtraction {
   traites: number;
   corrections: number;
@@ -242,6 +352,22 @@ export async function extraireCorrections(
       await marquer(raison);
       bilan.echecs.push({ vote_id: vote.id, raison });
     }
+  }
+  // Les relectures simples (0631), avec ce qui reste de budget et de quota.
+  const reste = Math.max(0, max - votes.slice(0, max).length);
+  if (reste > 0) {
+    const r = await extraireCorrectionsRelectures(supabase, { langue: options.langue, max: reste, debut });
+    bilan.traites += r.traites;
+    bilan.corrections += r.corrections;
+    bilan.echecs.push(...r.echecs);
+    bilan.restants += r.restants;
+  } else {
+    const { count } = await supabase
+      .from("relectures_posts")
+      .select("id", { count: "exact", head: true })
+      .eq("statut", "faite")
+      .is("corrections_extraites_le", null);
+    bilan.restants += count ?? 0;
   }
   return bilan;
 }

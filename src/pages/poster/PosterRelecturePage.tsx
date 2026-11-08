@@ -6,6 +6,7 @@ import { Card, CardPanel, EmptyState } from "@/components/ui/card";
 import { Segments } from "@/components/ui/segments";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 import { DuelsRelecteur } from "@/features/relectureNative/DuelsRelecteur";
+import { RelecturesRelecteur } from "@/features/relectureNative/RelecturesRelecteur";
 import { messageErreur } from "@/features/relectureNative/messageErreur";
 import { TuileIcone } from "@/features/relectureNative/Puces";
 import { useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteur";
@@ -14,8 +15,9 @@ import { useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteu
  * « Native review » : l'espace du relecteur natif, visible seulement si
  * l'admin l'a désigné ET a ouvert l'espace. Il y reçoit les duels à l'aveugle
  * envoyés par l'admin (0626) : deux versions d'un même slideshow, il choisit la
- * plus native, note chacune et laisse une remarque. Plus tard, il y corrigera
- * aussi les posts publiés dans sa langue.
+ * plus native, note chacune et laisse une remarque, et les posts publiés
+ * dans sa langue (0631), qu'il relit tels qu'ils sont partis : slides
+ * réécrites, note et remarque.
  */
 export function PosterRelecturePage() {
   const { t } = useTranslation();
@@ -62,15 +64,9 @@ export function PosterRelecturePage() {
         </CardPanel>
       </Card>
 
-      <DuelsRelecteur langue={relecteur.langue} />
+      <RelecturesRelecteur langue={relecteur.langue} />
 
-      <p className="text-xs text-muted-foreground" data-testid="relecture-bientot">
-        {t("relectureNative.poster.bientotTitre", {
-          langue: `${drapeauLangue(relecteur.langue)} ${nomLangue(relecteur.langue)}`,
-        })}
-        {" "}
-        {t("relectureNative.poster.bientot")}
-      </p>
+      <DuelsRelecteur langue={relecteur.langue} />
     </div>
   );
 }

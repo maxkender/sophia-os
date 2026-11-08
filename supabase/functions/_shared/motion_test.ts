@@ -42,8 +42,16 @@ Deno.test("demandeCreation : sujet obligatoire, consigne facultative", () => {
     sujet: "Why is Switzerland never at war?",
     consigne: null,
     langues: ["fr", "en", "de", "it"],
+    style: "papier",
   });
-  assertEquals(demandeCreation({ sujet: "Rome", langues: ["it"] }), { sujet: "Rome", consigne: null, langues: ["it"] });
+  assertEquals(demandeCreation({ sujet: "Rome", langues: ["it"] }), { sujet: "Rome", consigne: null, langues: ["it"], style: "papier" });
+  assertEquals(demandeCreation({ sujet: "Rome", langues: ["it"], style: "geographie" }), {
+    sujet: "Rome",
+    consigne: null,
+    langues: ["it"],
+    style: "geographie",
+  });
+  assertEquals(demandeCreation({ sujet: "Rome", style: "aquarelle" }), { erreur: "Style inconnu (papier ou geographie)" });
 });
 
 const SCRIPT = {

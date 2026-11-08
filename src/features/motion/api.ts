@@ -36,9 +36,13 @@ export interface TacheMotion {
   created_at: string;
 }
 
+export type StyleMotion = "papier" | "geographie";
+export const STYLES_MOTION: StyleMotion[] = ["papier", "geographie"];
+
 export interface VideoMotion {
   id: string;
   sujet: string;
+  style: StyleMotion;
   consigne: string | null;
   projet: string | null;
   statut: StatutVideoMotion;
@@ -71,7 +75,7 @@ export async function listerVideosMotion(): Promise<VideoMotion[]> {
   const { data, error } = await supabase
     .from("motion_videos")
     .select(
-      "id, sujet, consigne, projet, statut, script, langues_visees:langues, capture_url, journal, erreur, created_at, updated_at, " +
+      "id, sujet, style, consigne, projet, statut, script, langues_visees:langues, capture_url, journal, erreur, created_at, updated_at, " +
         "langues:motion_langues(id, video_id, langue, statut, legende, video_url, video_brute_url, duree_s, commentaire, compte_id, post_id, " +
         "validee_at, distribuee_at, updated_at), " +
         "taches:motion_taches(id, type, langue, statut, consigne, erreur, tentatives, created_at)",
@@ -101,8 +105,13 @@ export async function listerComptesMotion(): Promise<CompteMotion[]> {
   return r.comptes ?? [];
 }
 
-export function creerVideoMotion(sujet: string, consigne: string, langues: string[]): Promise<{ video: { id: string } }> {
-  return invoke("motion", { action: "creer", sujet, consigne, langues });
+export function creerVideoMotion(
+  sujet: string,
+  consigne: string,
+  langues: string[],
+  style: StyleMotion = "papier",
+): Promise<{ video: { id: string } }> {
+  return invoke("motion", { action: "creer", sujet, consigne, langues, style });
 }
 
 export function majScriptMotion(videoId: string, script: Record<string, unknown>): Promise<{ ok: true }> {

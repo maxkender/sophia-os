@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o169",
+ "type_bleo": "full_test",
+ "titre": "Things that instantly make a man look more mature #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 3abf8911. full test. Accroche jamais faite chez nous : les signes de maturité, concrets. Accroches écrites : « Things that instantly make a man look more mature » (retenue), « Signs of a grown man » (écartée : vague), « How to stop looking like a boy » (écartée : moqueur).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3abf8911",
+   "texte_overlay": "Things that instantly make\na man look more mature",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Answering calls instead of only texting. Picking up the phone for important things, from the doctor to a friend's bad news, shows you can handle real conversations.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Owning a calendar and using it. Birthdays, appointments, bills, all written down. A man who never forgets important dates looks reliable and grown up instantly.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Cooking for others, not just for himself. Inviting friends for a real home-cooked dinner shows care, independence and a life that's really put together.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Apologising without excuses. \"I was wrong, I'm sorry.\" No \"but\", no blaming. Owning mistakes cleanly is one of the clearest marks of real maturity in a man.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Staying curious as he grows up. I do five minutes a day of history, art or science, and having real knowledge to share makes conversations feel much more adult.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Real knowledge to share makes my conversations feel much more adult.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Choosing calm over winning arguments. Letting small things go and saving his energy for what matters shows he's done proving himself to everyone around him.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Taking care of his health without being told. Dentist, check-ups, sleep, real food. Looking after your body before something breaks is a quietly mature habit.",
+   "media_id": "79e0e876"
+  }
+ ]
+}

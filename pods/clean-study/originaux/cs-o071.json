@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o071",
+  "type_bleo": "full_test",
+  "titre": "how i study when my house is way too noisy #studytok #studytips #school #focus",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 8/11 : 1 full test sur 6). Accroche jamais faite chez nous (« noisy » absent du label). Accroches écrites : « how i study when my house is way too noisy » (retenue : une galère très partagée, une promesse concrète), « studying with siblings at home » (écartée : exclut ceux qui n'en ont pas), « focus tips for loud homes » (écartée : plate). Six gestes vrais : des bouchons d'oreilles, une musique sans paroles toujours la même, travailler quand la maison dort (tôt le matin), dire mes heures de travail à la maison, des blocs courts, se tester sur la séance à la fin (place micabo, slide 6). Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1523bf52",
+      "texte_overlay": "how i study when my house\nis way too noisy",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "18acc90c",
+      "texte_overlay": "earplugs. the cheapest study tool i own.\nhalf the noise is gone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1c03d8bc",
+      "texte_overlay": "the same instrumental playlist every time.\nit covers the noise and tells my brain \"focus\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1dbfd2f5",
+      "texte_overlay": "my best hour is before everyone wakes up.\nquiet house, quiet head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2253a3da",
+      "texte_overlay": "i tell my family my study hours.\n\"7 to 8, please knock\" changed everything.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "cb5d0819",
+      "texte_overlay": "at the end, i quiz myself on what i just did.\nif it stuck, the noise didn't win.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "28be86eb",
+      "texte_overlay": "short blocks. 25 minutes is easier to protect\nthan a whole afternoon.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

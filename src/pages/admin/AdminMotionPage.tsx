@@ -28,6 +28,8 @@ import {
   listerVideosMotion,
   majScriptMotion,
   rejeterLangueMotion,
+  STYLES_MOTION,
+  type StyleMotion,
   validerLangueMotion,
   validerScriptMotion,
   type VideoMotion,
@@ -106,9 +108,10 @@ function CarteNouveauSujet({ onCree }: { onCree: (id: string) => void }) {
   const [consigne, setConsigne] = React.useState("");
   const [langues, setLangues] = React.useState<string[]>([...LANGUES_MOTION]);
   const [capture, setCapture] = React.useState<File | null>(null);
+  const [style, setStyle] = React.useState<StyleMotion>("papier");
   const creer = useMutation({
     mutationFn: async () => {
-      const { video } = await creerVideoMotion(sujet.trim(), consigne.trim(), langues);
+      const { video } = await creerVideoMotion(sujet.trim(), consigne.trim(), langues, style);
       if (capture) await deposerCaptureMotion(video.id, capture);
       return video.id;
     },
@@ -136,6 +139,24 @@ function CarteNouveauSujet({ onCree }: { onCree: (id: string) => void }) {
             if (sujet.trim() && langues.length > 0) creer.mutate();
           }}
         >
+          <fieldset className="space-y-1.5">
+            <legend className="text-xs text-muted-foreground">{t("motion.style")}</legend>
+            <div className="grid grid-cols-2 gap-2" role="radiogroup" aria-label={t("motion.style")}>
+              {STYLES_MOTION.map((s) => (
+                <button
+                  key={s}
+                  type="button"
+                  role="radio"
+                  aria-checked={style === s}
+                  onClick={() => setStyle(s)}
+                  className={`rounded-lg border p-2 text-left transition-colors hover:bg-accent/50 ${style === s ? "border-primary bg-accent/40" : "bg-card"}`}
+                >
+                  <span className="block text-sm font-medium">{t(`motion.styles.${s}.nom`)}</span>
+                  <span className="block text-xs text-muted-foreground">{t(`motion.styles.${s}.description`)}</span>
+                </button>
+              ))}
+            </div>
+          </fieldset>
           <Input value={sujet} onChange={(e) => setSujet(e.target.value)} placeholder={t("motion.sujetExemple")} aria-label={t("motion.sujet")} />
           <Textarea
             value={consigne}
@@ -243,6 +264,7 @@ function ListeVideos({ videos, choisie, onChoisir }: { videos: VideoMotion[]; ch
             <p className="line-clamp-2 text-sm font-medium">{v.sujet}</p>
             <div className="mt-1.5 flex flex-wrap items-center gap-1">
               <Badge variant={VARIANTE_VIDEO[v.statut]}>{t(`motion.statutVideo.${v.statut}`)}</Badge>
+              <Badge variant="outline" size="sm">{t(`motion.styles.${v.style ?? "papier"}.nom`)}</Badge>
               {v.langues.map((l) => (
                 <Badge key={l.langue} variant={VARIANTE_LANGUE[l.statut]} size="sm" title={t(`motion.statutLangue.${l.statut}`)}>
                   {l.langue.toUpperCase()}
@@ -274,6 +296,7 @@ function DetailVideo({ video, comptes }: { video: VideoMotion; comptes: CompteMo
               <h2 className="text-base font-semibold">{video.sujet}</h2>
               <div className="flex flex-wrap items-center gap-1.5">
                 <Badge variant={VARIANTE_VIDEO[video.statut]}>{t(`motion.statutVideo.${video.statut}`)}</Badge>
+                <Badge variant="outline">{t(`motion.styles.${video.style ?? "papier"}.nom`)}</Badge>
                 {video.projet && <span className="text-xs text-muted-foreground">videos/{video.projet}</span>}
               </div>
             </div>

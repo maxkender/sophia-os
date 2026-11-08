@@ -6233,6 +6233,11 @@ export const en = {
       pasEncoreDeVideo: "No video yet: the engine is rendering it.",
       duree: "{{s}} s",
       telecharger: "Download the video",
+      style: "Style",
+      styles: {
+        papier: { nom: "Paper cut-out", description: "Paper characters and sets, gags, several shots per sentence" },
+        geographie: { nom: "Geography", description: "Explainer on a real world map: camera flights, highlighted countries, arrows, areas" },
+      },
       sansSousTitres: "Version without subtitles",
       commentaireRejet: "Rejected: {{commentaire}}",
       compteCible: "Will be posted on {{compte}}",

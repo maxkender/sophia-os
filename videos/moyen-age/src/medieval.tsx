@@ -57,9 +57,200 @@ export const M = {
   grave: '#7D7468',
 };
 
-export type Chapeau = 'aucun' | 'capuche' | 'bonnet' | 'casque' | 'couronne' | 'voile' | 'heaume';
+export type Chapeau = 'aucun' | 'capuche' | 'bonnet' | 'casque' | 'couronne' | 'voile' | 'heaume' | 'grandeCouronne' | 'mitre';
+export type Visage = 'neutre' | 'joie' | 'rire' | 'triste' | 'pleure' | 'peur' | 'choc' | 'colere' | 'malade' | 'dort' | 'louche' | 'fier' | 'degout' | 'sonne';
+export type Outil = 'faux' | 'marteau' | 'epee' | 'baton' | 'couteau' | 'coupe' | 'chaussure' | 'brosse' | 'fagot' | 'plateau' | 'seau' | 'sac' | 'bourse';
 
-/** Personnage en papier découpé, origine aux pieds, ~360 px de haut à s = 1 */
+const Outils: React.FC<{o: Outil}> = ({o}) => {
+  switch (o) {
+    case 'faux':
+      return (
+        <g>
+          <rect x={-6} y={-150} width={12} height={300} rx={5} fill={M.timber} />
+          <path d="M 0 -150 Q 90 -170 150 -110 Q 80 -140 0 -128 Z" fill={M.steel} />
+        </g>
+      );
+    case 'marteau':
+      return (
+        <g>
+          <rect x={-6} y={-90} width={12} height={110} rx={5} fill={M.timber} />
+          <rect x={-34} y={-110} width={68} height={34} rx={6} fill={M.steelDark} />
+        </g>
+      );
+    case 'epee':
+      return (
+        <g>
+          <polygon points="-8,0 8,0 5,-230 0,-250 -5,-230" fill={M.steel} />
+          <rect x={-36} y={0} width={72} height={12} rx={4} fill={M.goldDark} />
+          <rect x={-6} y={12} width={12} height={40} fill={M.timber} />
+        </g>
+      );
+    case 'baton':
+      return <rect x={-8} y={-200} width={16} height={230} rx={8} fill={M.timber} />;
+    case 'couteau':
+      return (
+        <g>
+          <rect x={-8} y={-10} width={16} height={50} rx={6} fill={M.timber} />
+          <polygon points="-14,-10 14,-10 6,-190 0,-210 -6,-190" fill={M.steel} />
+        </g>
+      );
+    case 'coupe':
+      return (
+        <g transform="translate(0 -20)">
+          <path d="M -40 -110 L 40 -110 Q 40 -50 0 -44 Q -40 -50 -40 -110 Z" fill={M.gold} />
+          <rect x={-6} y={-46} width={12} height={40} fill={M.goldDark} />
+          <ellipse cx={0} cy={-6} rx={30} ry={8} fill={M.goldDark} />
+        </g>
+      );
+    case 'chaussure':
+      return (
+        <g transform="translate(-40 -10) scale(0.6)">
+          <path d="M -90 0 L -90 -80 Q -60 -100 -20 -70 Q 40 -40 110 -30 Q 130 -10 110 0 Z" fill="#6B4528" />
+          <rect x={-96} y={-6} width={210} height={14} rx={6} fill="#3A2614" />
+        </g>
+      );
+    case 'brosse':
+      return (
+        <g>
+          <rect x={-40} y={-30} width={80} height={30} rx={10} fill={M.plank} />
+          {[-30, -15, 0, 15, 30].map((x) => (
+            <rect key={x} x={x - 3} y={0} width={6} height={18} fill="#D9C08A" />
+          ))}
+        </g>
+      );
+    case 'fagot':
+      return (
+        <g transform="rotate(80)">
+          {[-24, -8, 8, 24].map((y) => (
+            <rect key={y} x={-120} y={y - 7} width={240} height={14} rx={7} fill={y % 16 ? M.timber : M.plankDark} />
+          ))}
+          <rect x={-10} y={-34} width={20} height={68} fill="#B0842F" />
+        </g>
+      );
+    case 'plateau':
+      return (
+        <g transform="translate(0 -10)">
+          <ellipse cx={0} cy={0} rx={110} ry={16} fill={M.steelDark} />
+          <ellipse cx={-20} cy={-26} rx={50} ry={30} fill="#B5713E" />
+          <circle cx={40} cy={-24} r={22} fill={C.red} />
+        </g>
+      );
+    case 'seau':
+      return (
+        <g>
+          <path d="M -40 -70 L 40 -70 L 30 0 L -30 0 Z" fill={M.plankDark} />
+          <path d="M -40 -70 Q 0 -120 40 -70" stroke={M.timber} strokeWidth={6} fill="none" />
+        </g>
+      );
+    case 'sac':
+      return (
+        <g transform="translate(0 20)">
+          <path d="M -50 0 Q -64 -70 -32 -110 L 32 -110 Q 64 -70 50 0 Z" fill="#C9A66B" />
+          <rect x={-24} y={-126} width={48} height={18} rx={6} fill="#C9A66B" />
+        </g>
+      );
+    case 'bourse':
+      return (
+        <g transform="translate(0 30)">
+          <path d="M -40 0 Q -54 -50 -20 -70 L 20 -70 Q 54 -50 40 0 Z" fill="#8A5B2E" />
+          <circle cx={0} cy={-30} r={12} fill={M.gold} />
+        </g>
+      );
+  }
+};
+
+const Face: React.FC<{v: Visage; f: number; x: number}> = ({v, f, x}) => {
+  const cligne = (f + Math.round(x)) % 97 < 4 && !['dort', 'sonne', 'malade'].includes(v);
+  const oeil = (cx: number) => {
+    if (v === 'dort' || v === 'rire') return <path key={cx} d={`M ${cx - 9} -306 Q ${cx} ${v === 'rire' ? -316 : -298} ${cx + 9} -306`} stroke={C.ink} strokeWidth={5} fill="none" strokeLinecap="round" />;
+    if (v === 'sonne')
+      return (
+        <g key={cx} transform={`translate(${cx} -306) rotate(${f * 12})`}>
+          <path d="M -8 0 a 8 8 0 1 1 8 8" stroke={C.ink} strokeWidth={4} fill="none" />
+        </g>
+      );
+    if (v === 'peur' || v === 'choc')
+      return (
+        <g key={cx}>
+          <circle cx={cx} cy={-308} r={13} fill={C.white} stroke={C.ink} strokeWidth={3} />
+          <circle cx={cx} cy={-306} r={5} fill={C.ink} />
+        </g>
+      );
+    if (v === 'louche') return <ellipse key={cx} cx={cx + Math.sin(f / 8) * 4} cy={-306} rx={6} ry={3} fill={C.ink} />;
+    return <ellipse key={cx} cx={cx} cy={-306} rx={5} ry={cligne ? 1 : 5} fill={C.ink} />;
+  };
+  const sourcils: Record<string, string> = {
+    colere: 'M -26 -330 L -6 -320 M 26 -330 L 6 -320',
+    triste: 'M -26 -320 L -6 -328 M 26 -320 L 6 -328',
+    pleure: 'M -26 -320 L -6 -328 M 26 -320 L 6 -328',
+    peur: 'M -26 -330 Q -15 -338 -4 -330 M 26 -330 Q 15 -338 4 -330',
+    choc: 'M -26 -334 Q -15 -342 -4 -334 M 26 -334 Q 15 -342 4 -334',
+    louche: 'M -26 -322 L -6 -318 M 26 -326 L 6 -318',
+    fier: 'M -26 -328 Q -15 -332 -4 -326 M 26 -328 Q 15 -332 4 -326',
+    degout: 'M -26 -324 L -6 -318 M 26 -324 L 6 -318',
+  };
+  const bouche: Record<string, React.ReactNode> = {
+    neutre: <path d="M -10 -284 Q 0 -280 10 -284" stroke={C.ink} strokeWidth={4} fill="none" strokeLinecap="round" />,
+    joie: <path d="M -16 -288 Q 0 -270 16 -288" stroke={C.ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
+    fier: <path d="M -16 -288 Q 0 -274 16 -288" stroke={C.ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
+    rire: (
+      <g>
+        <path d="M -20 -290 Q 0 -262 20 -290 Z" fill="#7A2E2E" />
+        <rect x={-12} y={-290} width={24} height={6} fill={C.white} />
+      </g>
+    ),
+    triste: <path d="M -14 -278 Q 0 -292 14 -278" stroke={C.ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
+    pleure: <path d="M -14 -276 Q 0 -292 14 -276" stroke={C.ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
+    peur: <ellipse cx={0} cy={-282} rx={10} ry={13} fill="#5A2424" />,
+    choc: <ellipse cx={0} cy={-280} rx={13} ry={17} fill="#5A2424" />,
+    colere: <path d="M -16 -278 L 16 -278" stroke={C.ink} strokeWidth={6} strokeLinecap="round" />,
+    malade: <path d="M -16 -282 q 8 -8 16 0 t 16 0" stroke={C.ink} strokeWidth={4} fill="none" transform="translate(-8 0)" />,
+    dort: <ellipse cx={4} cy={-282} rx={6} ry={4} fill="#5A2424" />,
+    louche: <path d="M -14 -284 Q 4 -276 18 -290" stroke={C.ink} strokeWidth={5} fill="none" strokeLinecap="round" />,
+    degout: <path d="M -16 -282 q 8 -8 16 0 t 16 0" stroke={C.ink} strokeWidth={4} fill="none" transform="translate(-8 0)" />,
+    sonne: <ellipse cx={0} cy={-282} rx={8} ry={6} fill="#5A2424" />,
+  };
+  const larme = ((f % 30) / 30) * 50;
+  return (
+    <g>
+      {[-15, 15].map(oeil)}
+      {sourcils[v] && <path d={sourcils[v]} stroke={C.ink} strokeWidth={5} fill="none" strokeLinecap="round" />}
+      {bouche[v]}
+      {(v === 'joie' || v === 'rire' || v === 'fier') && (
+        <>
+          <ellipse cx={-28} cy={-290} rx={9} ry={6} fill="#E89A8A" opacity={0.7} />
+          <ellipse cx={28} cy={-290} rx={9} ry={6} fill="#E89A8A" opacity={0.7} />
+        </>
+      )}
+      {v === 'pleure' && (
+        <>
+          <ellipse cx={-17} cy={-296 + larme} rx={5} ry={8} fill={M.water} />
+          <ellipse cx={17} cy={-296 + ((larme + 25) % 50)} rx={5} ry={8} fill={M.water} />
+        </>
+      )}
+      {(v === 'peur' || v === 'choc' || v === 'malade') && <path d="M 40 -340 q 8 14 0 22 q -8 -8 0 -22 Z" fill={M.water} transform={`translate(0 ${(f % 40) * 0.6})`} />}
+      {v === 'dort' && (
+        <g fill={C.ink} opacity={0.8}>
+          {[0, 1, 2].map((k) => {
+            const t = ((f + k * 15) % 45) / 45;
+            return <path key={k} transform={`translate(${40 + t * 50} ${-350 - t * 80}) scale(${0.6 + t})`} d="M 0 0 L 16 0 L 0 16 L 16 16" stroke={C.ink} strokeWidth={4} fill="none" />;
+          })}
+        </g>
+      )}
+      {v === 'sonne' &&
+        [0, 1, 2].map((k) => {
+          const a = f / 6 + (k * Math.PI * 2) / 3;
+          return <path key={k} transform={`translate(${Math.cos(a) * 50} ${-360 + Math.sin(a) * 14})`} d="M 0 -10 L 3 -3 L 10 -3 L 4 2 L 6 10 L 0 5 L -6 10 L -4 2 L -10 -3 L -3 -3 Z" fill={M.gold} />;
+        })}
+      {v === 'degout' &&
+        [0, 1].map((k) => (
+          <path key={k} d={`M ${-30 + k * 50} -360 q 10 -15 0 -30 q -10 -15 0 -30`} stroke="#7C9A4A" strokeWidth={5} fill="none" opacity={0.7} transform={`translate(0 ${-(f % 30)})`} />
+        ))}
+    </g>
+  );
+};
+
+/** Personnage en papier découpé, origine aux pieds, ~380 px de haut à s = 1 (grosse tête, expressif) */
 export const Person: React.FC<{
   x?: number;
   y?: number;
@@ -69,80 +260,124 @@ export const Person: React.FC<{
   hat?: Chapeau;
   robe?: boolean;
   flip?: boolean;
-  arm?: number; // angle du bras droit (0 = le long du corps, 90 = tendu devant)
+  arm?: number; // angle du bras droit (0 = le long du corps, 90 = tendu devant, 160 = levé)
   armL?: number;
   lie?: boolean;
   opacity?: number;
   cape?: string;
   armor?: boolean;
-}> = ({x = 0, y = 0, s = 1, tunic = M.tunicBrown, hair = M.hair, hat = 'aucun', robe = false, flip = false, arm = 0, armL = 0, lie = false, opacity = 1, cape, armor = false}) => {
+  face?: Visage;
+  walk?: number; // 0 = immobile ; > 0 = vitesse de marche
+  tool?: Outil;
+  toolL?: Outil;
+  sick?: boolean;
+  bounce?: number; // petit saut de joie
+  pop?: boolean;
+  belly?: boolean;
+  beard?: string;
+}> = ({x = 0, y = 0, s = 1, tunic = M.tunicBrown, hair = M.hair, hat = 'aucun', robe = false, flip = false, arm = 0, armL = 0, lie = false, opacity = 1, cape, armor = false, face = 'neutre', walk = 0, tool, toolL, sick = false, bounce = 0, pop: popIn = true, belly = false, beard}) => {
   const body = armor ? M.steel : tunic;
   const legs = armor ? M.steelDark : '#4E3A2A';
   const f = useCurrentFrame();
   const ph = x * 0.013 + y * 0.007;
   const souffle = lie ? 0 : Math.sin(f / 11 + ph) * 4;
-  const cligne = (f + Math.round(x)) % 97 < 4;
-  const balance = Math.sin(f / 17 + ph) * 4;
-  arm = arm + balance;
-  armL = armL - balance;
+  const pas = walk > 0 ? Math.sin(f * 0.35 * walk + ph) : 0;
+  const saut = bounce > 0 ? Math.abs(Math.sin(f * 0.3 + ph)) * 30 * bounce : walk > 0 ? Math.abs(pas) * 8 : 0;
+  const balance = walk > 0 ? pas * 25 : Math.sin(f / 17 + ph) * 4;
+  const bras = arm + balance;
+  const brasL = armL - balance;
   const k = usePopIn(x);
+  const ks = popIn ? k : 1;
+  const peau = sick ? '#C9D7A0' : M.skin;
+  const main = armor ? M.steelDark : peau;
   return (
-    <g transform={`translate(${x} ${y + souffle * s * 0.5}) scale(${(flip ? -s : s) * k} ${s * k * (1 + souffle * 0.002)}) ${lie ? 'rotate(-90)' : ''}`} opacity={opacity}>
+    <g transform={`translate(${x} ${y - saut * s}) scale(${(flip ? -s : s) * ks} ${s * ks * (1 + souffle * 0.002)}) ${lie ? 'rotate(-90)' : ''}`} opacity={opacity}>
       {cape && <path d="M -62 -250 Q -80 -120 -70 -30 L 70 -30 Q 80 -120 62 -250 Z" fill={cape} />}
       {!robe && (
         <>
-          <rect x={-34} y={-100} width={26} height={100} rx={8} fill={legs} />
-          <rect x={8} y={-100} width={26} height={100} rx={8} fill={legs} />
-          <ellipse cx={-22} cy={-4} rx={22} ry={10} fill="#3A2A1C" />
-          <ellipse cx={22} cy={-4} rx={22} ry={10} fill="#3A2A1C" />
+          <g transform={`rotate(${pas * 22} -21 -100)`}>
+            <rect x={-34} y={-100} width={26} height={100} rx={8} fill={legs} />
+            <ellipse cx={-18} cy={-4} rx={22} ry={10} fill="#3A2A1C" />
+          </g>
+          <g transform={`rotate(${-pas * 22} 21 -100)`}>
+            <rect x={8} y={-100} width={26} height={100} rx={8} fill={legs} />
+            <ellipse cx={26} cy={-4} rx={22} ry={10} fill="#3A2A1C" />
+          </g>
         </>
       )}
       <g transform="translate(-48 -230)">
-        <g transform={`rotate(${armL})`}>
+        <g transform={`rotate(${brasL})`}>
           <rect x={-16} y={-4} width={30} height={130} rx={14} fill={body} />
-          <circle cx={-1} cy={130} r={15} fill={armor ? M.steelDark : M.skin} />
+          {toolL && (
+            <g transform="translate(-1 130)">
+              <Outils o={toolL} />
+            </g>
+          )}
+          <circle cx={-1} cy={130} r={15} fill={main} />
         </g>
       </g>
-      <path d={robe ? 'M -56 -250 L 56 -250 L 84 0 L -84 0 Z' : 'M -56 -250 L 56 -250 L 72 -84 L -72 -84 Z'} fill={body} />
+      <path d={robe ? 'M -56 -250 L 56 -250 L 84 0 L -84 0 Z' : belly ? 'M -56 -250 L 56 -250 Q 110 -170 72 -84 L -72 -84 Q -110 -170 -56 -250 Z' : 'M -56 -250 L 56 -250 L 72 -84 L -72 -84 Z'} fill={body} />
       {armor && <path d="M -50 -240 L 50 -240 L 44 -150 L -44 -150 Z" fill={M.steelDark} opacity={0.35} />}
       <rect x={robe ? -66 : -62} y={-150} width={robe ? 132 : 124} height={14} fill={armor ? M.steelDark : '#4A3423'} />
       <g transform="translate(48 -230)">
-        <g transform={`rotate(${-arm})`}>
+        <g transform={`rotate(${-bras})`}>
           <rect x={-14} y={-4} width={30} height={130} rx={14} fill={body} />
-          <circle cx={1} cy={130} r={15} fill={armor ? M.steelDark : M.skin} />
+          {tool && (
+            <g transform="translate(1 130)">
+              <Outils o={tool} />
+            </g>
+          )}
+          <circle cx={1} cy={130} r={15} fill={main} />
         </g>
       </g>
-      <rect x={-14} y={-272} width={28} height={26} fill={M.skinShade} />
-      <circle cx={0} cy={-305} r={44} fill={M.skin} />
-      {hat !== 'heaume' && (
-        <>
-          <ellipse cx={-15} cy={-306} rx={5} ry={cligne ? 1 : 5} fill={C.ink} />
-          <ellipse cx={15} cy={-306} rx={5} ry={cligne ? 1 : 5} fill={C.ink} />
-          <path d="M -10 -284 Q 0 -278 10 -284" stroke={C.ink} strokeWidth={4} fill="none" strokeLinecap="round" />
-        </>
-      )}
-      {hat === 'aucun' && <path d="M -46 -308 Q -44 -356 0 -354 Q 44 -356 46 -308 Q 30 -336 0 -334 Q -30 -336 -46 -308 Z" fill={hair} />}
-      {hat === 'capuche' && <path d="M -58 -296 Q -60 -366 0 -368 Q 60 -366 58 -296 L 70 -246 L 46 -256 Q 44 -334 0 -336 Q -44 -334 -46 -256 L -70 -246 Z" fill={tunic === M.tunicBrown ? '#6F4E30' : tunic} />}
+      <rect x={-14} y={-272} width={28} height={26} fill={sick ? '#B5C48A' : M.skinShade} />
+      <circle cx={0} cy={-308} r={52} fill={peau} />
+      {beard && <path d="M -46 -300 Q -40 -240 0 -236 Q 40 -240 46 -300 Q 30 -270 0 -268 Q -30 -270 -46 -300 Z" fill={beard} />}
+      {hat !== 'heaume' && <Face v={face} f={f} x={x} />}
+      {hat === 'aucun' && <path d="M -54 -312 Q -52 -366 0 -364 Q 52 -366 54 -312 Q 34 -342 0 -340 Q -34 -342 -54 -312 Z" fill={hair} />}
+      {hat === 'capuche' && <path d="M -64 -300 Q -66 -376 0 -378 Q 66 -376 64 -300 L 76 -246 L 52 -256 Q 50 -340 0 -344 Q -50 -340 -52 -256 L -76 -246 Z" fill={tunic === M.tunicBrown ? '#6F4E30' : tunic} />}
       {hat === 'bonnet' && (
         <>
-          <path d="M -46 -308 Q -44 -356 0 -354 Q 44 -356 46 -308 Q 30 -336 0 -334 Q -30 -336 -46 -308 Z" fill={hair} />
-          <path d="M -48 -322 Q -40 -372 10 -370 Q 54 -366 52 -326 Z" fill={M.tunicRed} />
+          <path d="M -54 -312 Q -52 -366 0 -364 Q 52 -366 54 -312 Q 34 -342 0 -340 Q -34 -342 -54 -312 Z" fill={hair} />
+          <path d="M -56 -330 Q -46 -384 10 -382 Q 62 -378 60 -334 Z" fill={M.tunicRed} />
         </>
       )}
-      {hat === 'voile' && <path d="M -56 -290 Q -60 -364 0 -366 Q 60 -364 56 -290 L 62 -240 L 44 -250 Q 46 -330 0 -336 Q -46 -330 -44 -250 L -62 -240 Z" fill={M.plaster} />}
-      {hat === 'casque' && <path d="M -50 -300 Q -50 -366 0 -368 Q 50 -366 50 -300 Z" fill={M.steel} />}
+      {hat === 'voile' && <path d="M -62 -294 Q -66 -374 0 -376 Q 66 -374 62 -294 L 68 -240 L 50 -250 Q 52 -336 0 -344 Q -52 -336 -50 -250 L -68 -240 Z" fill={M.plaster} />}
+      {hat === 'casque' && <path d="M -58 -304 Q -58 -378 0 -380 Q 58 -378 58 -304 Z" fill={M.steel} />}
+      {hat === 'mitre' && (
+        <>
+          <path d="M -44 -340 L -44 -400 L 0 -440 L 44 -400 L 44 -340 Z" fill={M.plaster} />
+          <rect x={-4} y={-430} width={8} height={80} fill={M.gold} />
+        </>
+      )}
       {hat === 'heaume' && (
         <g>
-          <path d="M -50 -262 L -50 -320 Q -50 -368 0 -370 Q 50 -368 50 -320 L 50 -262 Z" fill={M.steel} />
-          <rect x={-40} y={-314} width={80} height={9} fill={C.ink} />
-          <path d="M 0 -370 L 0 -262" stroke={M.steelDark} strokeWidth={6} />
+          <path d="M -58 -262 L -58 -324 Q -58 -380 0 -382 Q 58 -380 58 -324 L 58 -262 Z" fill={M.steel} />
+          <rect x={-46} y={-318} width={92} height={10} fill={C.ink} />
+          {face !== 'neutre' && (
+            <>
+              <circle cx={-15} cy={-313} r={4} fill={C.white} />
+              <circle cx={15} cy={-313} r={4} fill={C.white} />
+            </>
+          )}
+          <path d="M 0 -382 L 0 -262" stroke={M.steelDark} strokeWidth={6} />
         </g>
       )}
-      {hat === 'couronne' && (
+      {(hat === 'couronne' || hat === 'grandeCouronne') && (
         <>
-          <path d="M -46 -308 Q -44 -356 0 -354 Q 44 -356 46 -308 Q 30 -336 0 -334 Q -30 -336 -46 -308 Z" fill={hair} />
-          <polygon points="-40,-336 -40,-380 -20,-356 0,-386 20,-356 40,-380 40,-336" fill={M.gold} />
-          <circle cx={0} cy={-348} r={6} fill={C.red} />
+          <path d="M -54 -312 Q -52 -366 0 -364 Q 52 -366 54 -312 Q 34 -342 0 -340 Q -34 -342 -54 -312 Z" fill={hair} />
+          {hat === 'couronne' ? (
+            <g>
+              <polygon points="-46,-344 -46,-392 -23,-366 0,-398 23,-366 46,-392 46,-344" fill={M.gold} />
+              <circle cx={0} cy={-358} r={7} fill={C.red} />
+            </g>
+          ) : (
+            <g transform="translate(0 30)">
+              <polygon points="-70,-300 -70,-380 -35,-340 0,-390 35,-340 70,-380 70,-300" fill={M.gold} />
+              <rect x={-74} y={-310} width={148} height={30} rx={8} fill={M.goldDark} />
+              <circle cx={0} cy={-330} r={10} fill={C.red} />
+            </g>
+          )}
         </>
       )}
     </g>
@@ -756,3 +991,118 @@ export const Steps: React.FC<{n: number; t: number}> = ({n, t}) => (
     })}
   </g>
 );
+
+// ——— Accessoires des gags ———
+export const Rat: React.FC<{x: number; y: number; s?: number; flip?: boolean}> = ({x, y, s = 1, flip}) => {
+  const f = useCurrentFrame();
+  const b = Math.abs(Math.sin(f * 0.6 + x)) * 8;
+  return (
+    <g transform={`translate(${x} ${y - b}) scale(${flip ? -s : s} ${s})`}>
+      <ellipse cx={0} cy={-26} rx={44} ry={24} fill="#7D7470" />
+      <circle cx={42} cy={-34} r={18} fill="#7D7470" />
+      <circle cx={36} cy={-52} r={10} fill="#E3A9A0" />
+      <circle cx={50} cy={-36} r={3} fill={C.ink} />
+      <circle cx={60} cy={-30} r={4} fill="#E3A9A0" />
+      <path d={`M -44 -22 Q -80 ${-40 + Math.sin(f / 3) * 10} -100 -10`} stroke="#E3A9A0" strokeWidth={5} fill="none" />
+    </g>
+  );
+};
+
+export const Moth: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 1}) => {
+  const f = useCurrentFrame();
+  const w = Math.sin(f * 1.2) * 0.6 + 0.6;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      <ellipse cx={-22} cy={0} rx={24} ry={16 * w + 4} fill="#B9AE98" />
+      <ellipse cx={22} cy={0} rx={24} ry={16 * w + 4} fill="#B9AE98" />
+      <ellipse cx={0} cy={0} rx={8} ry={20} fill="#7D7468" />
+    </g>
+  );
+};
+
+export const Halo: React.FC<{x: number; y: number; s?: number}> = ({x, y, s = 1}) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`}>
+    <ellipse cx={0} cy={0} rx={40} ry={12} fill="none" stroke={M.gold} strokeWidth={8} />
+    <path d="M -40 30 Q -70 10 -50 50 M 40 30 Q 70 10 50 50" stroke={C.white} strokeWidth={10} fill="none" strokeLinecap="round" />
+  </g>
+);
+
+/** Balançoire : à gauche les enfants morts jeunes tirent la moyenne vers le bas */
+export const Seesaw: React.FC<{x: number; y: number; tilt: number}> = ({x, y, tilt}) => (
+  <g transform={`translate(${x} ${y})`}>
+    <polygon points="-50,0 50,0 0,-110" fill={M.stoneDark} filter="url(#pp)" />
+    <g transform={`translate(0 -110) rotate(${tilt})`}>
+      <rect x={-420} y={-14} width={840} height={28} rx={10} fill={M.plank} filter="url(#pp)" />
+    </g>
+  </g>
+);
+
+export const Latrine: React.FC<{x: number; y: number; s?: number; door?: number}> = ({x, y, s = 1, door = 0}) => (
+  <g transform={`translate(${x} ${y}) scale(${s})`} filter="url(#pp)">
+    <rect x={-90} y={-260} width={180} height={260} fill={M.plank} />
+    <polygon points="-110,-260 0,-320 110,-260" fill={M.plankDark} />
+    <path d="M -10 -220 a 18 18 0 1 0 18 18" stroke={C.ink} strokeWidth={6} fill="none" />
+    <g transform={`translate(-70 0) skewY(${-door * 20}) scale(${1 - door * 0.6} 1)`}>
+      <rect x={0} y={-180} width={140} height={180} fill={M.plankDark} />
+    </g>
+  </g>
+);
+
+/** Fenêtre d'étage avec un seau qu'on vide (pot de chambre dans la rue) */
+export const WindowBucket: React.FC<{x: number; y: number; t: number}> = ({x, y, t}) => (
+  <g transform={`translate(${x} ${y})`}>
+    <rect x={-80} y={-100} width={160} height={120} fill={C.ink} opacity={0.75} />
+    <g transform={`translate(30 -10) rotate(${t * 120})`}>
+      <path d="M -40 -70 L 40 -70 L 30 0 L -30 0 Z" fill={M.plankDark} filter="url(#pp)" />
+    </g>
+    {t > 0.4 && <path d={`M 40 0 Q 60 ${200 * t} 50 ${520 * Math.min(1, (t - 0.4) * 2)}`} stroke="#8A7A3A" strokeWidth={46} fill="none" strokeLinecap="round" opacity={0.85} />}
+  </g>
+);
+
+export const Stars2: React.FC<{x: number; y: number}> = ({x, y}) => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      {[0, 1, 2].map((k) => {
+        const a = f / 5 + (k * Math.PI * 2) / 3;
+        return <path key={k} transform={`translate(${x + Math.cos(a) * 70} ${y + Math.sin(a) * 20})`} d="M 0 -14 L 4 -4 L 14 -4 L 6 3 L 9 14 L 0 7 L -9 14 L -6 3 L -14 -4 L -4 -4 Z" fill={M.gold} />;
+      })}
+    </g>
+  );
+};
+
+export const Sparkles: React.FC<{x: number; y: number; r?: number}> = ({x, y, r = 120}) => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      {Array.from({length: 6}, (_, k) => {
+        const a = (k / 6) * Math.PI * 2 + f / 20;
+        const sc = 0.5 + 0.5 * Math.abs(Math.sin(f / 6 + k));
+        return <path key={k} transform={`translate(${x + Math.cos(a) * r} ${y + Math.sin(a) * r}) scale(${sc})`} d="M 0 -24 L 6 -6 L 24 0 L 6 6 L 0 24 L -6 6 L -24 0 L -6 -6 Z" fill="#FFF6C8" />;
+      })}
+    </g>
+  );
+};
+
+export const Flies: React.FC<{x: number; y: number}> = ({x, y}) => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      {[0, 1, 2, 3].map((k) => (
+        <circle key={k} cx={x + Math.sin(f / 4 + k * 2) * 60} cy={y + Math.cos(f / 3 + k) * 30} r={6} fill={C.ink} />
+      ))}
+    </g>
+  );
+};
+
+export const Bubbles: React.FC<{x: number; y: number}> = ({x, y}) => {
+  const f = useCurrentFrame();
+  return (
+    <g>
+      {Array.from({length: 8}, (_, k) => {
+        const t = ((f + k * 11) % 60) / 60;
+        return <circle key={k} cx={x + Math.sin(k * 3 + t * 4) * 90} cy={y - t * 220} r={10 + (k % 3) * 6} fill="none" stroke="#FFFFFF" strokeWidth={4} opacity={1 - t} />;
+      })}
+    </g>
+  );
+};

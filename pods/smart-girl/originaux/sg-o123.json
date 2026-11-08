@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o123",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "59952cba-1c39-440e-adaa-66b5e1faf211",
+ "titre": "hobbies that quietly make you more interesting #hobbies #interesting #smartgirl #selfimprovement #darkacademia",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 6 de la boîte (parent 59952cba, langue source en) : accroche reformulée (« 6 hobbies that make you surprisingly well rounded » → « hobbies that quietly make you more interesting »), même promesse. Le parent est notre sg-o078 ; hobbies neufs (cartes postales de musées, reliure, danse de salon, balades photo, voile). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5feb3e42",
+   "texte_overlay": "hobbies that quietly make\nyou more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ebb0314a",
+   "texte_overlay": "1. collecting postcards\nfrom museums",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a6b97f0b",
+   "texte_overlay": "2. bookbinding\n\nmake your own notebooks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "78841420",
+   "texte_overlay": "3. a story a day\n\na painting, a city,\na moment in history.",
+   "texte_sophia": "3. a story a day\n\n5 minutes on a micro-learning\napp like the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9f437df2",
+   "texte_overlay": "4. ballroom dancing\n\nwaltz, tango, foxtrot.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c80863a7",
+   "texte_overlay": "5. photo walks\n\none street, one hour,\none camera.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ba5590e7",
+   "texte_overlay": "6. learning to sail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8ba278a1",
+   "texte_overlay": "save this and pick one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  }
+ ]
+}

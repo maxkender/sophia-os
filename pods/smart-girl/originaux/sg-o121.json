@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o121",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "caf0fca9-b69d-48e0-80b6-d8b3cf8e2479",
+ "titre": "everyday words with stories you'd never guess #etymology #words #smartgirl #vocabulary #funfacts",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "2747e20a-fdc8-463e-853b-cf96f914ef57"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 4 de la boîte (parent caf0fca9, langue source en) : accroche reformulée (« 6 everyday words with surprising origins » → « everyday words with stories you'd never guess »), troisième et dernière déclinaison du parent, autre que sg-o098 et sg-o108. Mots neufs vérifiés : tragedy < grec tragōidia, « chant du bouc » ; nightmare, la « mare », esprit qui s'asseyait sur les dormeurs ; glamour, variante écossaise de grammar, au sens de sortilège ; lunatic < luna, la lune ; deadline, la ligne qu'on ne franchissait pas dans les prisons de la guerre de Sécession. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fd625fcd",
+   "texte_overlay": "everyday words with stories\nyou'd never guess",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "93336485",
+   "texte_overlay": "tragedy\n\nfrom greek \"tragoidia\":\na goat song.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "54f1d069",
+   "texte_overlay": "nightmare\n\nthe \"mare\" was a spirit\nbelieved to sit on\nsleepers' chests.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4f01309e",
+   "texte_overlay": "glamour\n\na scottish form of \"grammar\":\nonce, a magic spell.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c4f05291",
+   "texte_overlay": "lunatic\n\nfrom latin \"luna\", the moon,\nonce blamed for madness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f9923e0b",
+   "texte_overlay": "deadline\n\nfirst a real line in civil war\nprisons that no one could cross.\n\nlearn one story a day instead\nof scrolling.",
+   "texte_sophia": "deadline\n\nfirst a real line in civil war\nprisons. i learn one story a day\ninstead of scrolling, on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8f570a90",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  }
+ ]
+}

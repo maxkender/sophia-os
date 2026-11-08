@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o112",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3c351c99-c877-4ae3-b61d-938a7128ab9d",
+  "titre": "how to be okay and deal with not having many friends #friendship #thatgirl",
+  "inspirations": [
+    "3c351c99-c877-4ae3-b61d-938a7128ab9d"
+  ],
+  "notes": "G1, déclinaison de 3c351c99 (« how to be okay and deal with not having many friends », génération 0 en anglais ; meilleur passage el 1,7 k vues, r 2,08), en anglais. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni vie remplie, ni ne pas s'isoler, ni lieux réguliers, ni réseaux sociaux, ni autre appli). Ton doux, aucun conseil médical. Routine du 8/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 3 full tests et 5 déclinaisons (lignes 1, 3, 4, 8 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 2 (4d7c5f32, accroche illisible « ge things that make you look while spending lil to no money effortlessly chic », à recopier mot pour mot), 5 (083ac272, 9 hobbies « backed by science », preuves invérifiables), 6 (6211e51e, « other then ») et 7 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "how to be okay and deal with\nnot having many friends",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "057091a3",
+      "texte_overlay": "1. one good friend is a lot\n\nquality over quantity isn't a cliché.\nit's the whole point.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. become good company for yourself\n\ncafés, walks, museums.\nyou'll never be stuck waiting for someone again.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "03d4534a",
+      "texte_overlay": "3. say yes to small invitations\n\na study group, a club, a coffee.\nfriendships start in the boring places.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01be1362",
+      "texte_overlay": "4. reach out first, without keeping score\n\nmost people are just waiting for someone else to text.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. build a life you find interesting\n\nbefore, i felt like i had nothing to talk about.\nnow i learn one new thing every morning. and people come to me.",
+      "texte_sophia": "5. build a life you find interesting\n\nbefore, i felt like i had nothing to talk about.\nnow i open the Sophia app every morning. and people come to me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "you're not behind. save this for a lonely day.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

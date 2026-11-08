@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o165",
+ "type_bleo": "full_test",
+ "titre": "les 6 phrases à ne pas dire à quelqu'un qui cherche un emploi (et quoi dire à la place) #chomage #rechercheemploi #soutien #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (l'entourage d'une personne en recherche). Rien sur les droits. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b923173a",
+   "texte_overlay": "les 6 phrases à ne pas dire\nà quelqu'un qui cherche un emploi\n(et quoi dire à la place)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f9afa8b3",
+   "texte_overlay": "« t'as essayé de postuler ? »\ndis plutôt « tu veux que je relise ton cv ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fa163991",
+   "texte_overlay": "« ça doit être reposant »\ndis plutôt « comment tu tiens le coup ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fa6e39c7",
+   "texte_overlay": "« moi j'ai trouvé en 2 semaines »\ndis plutôt « je peux te présenter quelqu'un ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fa8c9a2a",
+   "texte_overlay": "« baisse tes exigences »\ndis plutôt « qu'est-ce que tu cherches vraiment ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f1cd1ce8",
+   "texte_overlay": "« t'as rien fait de la journée ? »\ndis plutôt « t'as appris quoi aujourd'hui ? »\nmême 5 minutes, ça compte",
+   "texte_sophia": "« t'as rien fait de la journée ? »\ndis plutôt « t'as appris quoi aujourd'hui ? ». 5 minutes sur l'appli Sophia, ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fa912be5",
+   "texte_overlay": "« ça va finir par arriver »\ndis plutôt « je suis là »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fae6a270",
+   "texte_overlay": "envoie ça à quelqu'un qui en a besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

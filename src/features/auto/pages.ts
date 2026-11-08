@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "faq" | "officielles" | "parrainage" | "logs";
+export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "faq" | "officielles" | "parrainage" | "slack" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "overview", to: "/admin/auto" },
@@ -26,6 +26,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // 6/11 : les réponses validées par Max, que le bot FAQ et les 3 bots donnent en priorité.
   { cle: "officielles", to: "/admin/auto/reponses-officielles" },
   { cle: "parrainage", to: "/admin/auto/parrainage" },
+  // 8/11 : les personnes désactivées dans l'OS encore membres actifs de Slack.
+  { cle: "slack", to: "/admin/auto/retirer-slack" },
   { cle: "logs", to: "/admin/auto/logs" },
 ];
 

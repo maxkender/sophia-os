@@ -37,6 +37,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/faq",
   "/admin/auto/reponses-officielles",
   "/admin/auto/parrainage",
+  "/admin/auto/retirer-slack",
   "/admin/auto/logs",
   "/admin/calendrier", // Schedule
   "/admin/posters", // Posters

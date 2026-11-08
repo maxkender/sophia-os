@@ -22,6 +22,7 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/faq",
       "/admin/auto/reponses-officielles",
       "/admin/auto/parrainage",
+      "/admin/auto/retirer-slack",
       "/admin/auto/logs",
     ]);
     // La section passe juste sous « Tracking », avant « Configuration ».

@@ -51,6 +51,7 @@ import {
   UserPlus,
   Wallet,
   Globe2,
+  UserMinus,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
@@ -83,6 +84,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   faq: MessageCircle,
   officielles: BadgeCheck,
   parrainage: Gift,
+  slack: UserMinus,
   logs: ListTodo,
 };
 

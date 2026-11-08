@@ -4720,6 +4720,7 @@ export const en = {
         faq: { titre: "FAQ bot" },
         officielles: { titre: "Official answers" },
         parrainage: { titre: "Referrals" },
+        slack: { titre: "Remove from Slack" },
         logs: { titre: "Logs" },
       },
       // Prompt 22, partie 11 : la phrase en haut de chaque page (et sous son nom dans le menu).
@@ -4765,6 +4766,7 @@ export const en = {
         faq: "What the bot answers on Slack and in the dashboard, and what it doesn't know.",
         officielles: "Answers approved by Max: the FAQ bot and the 3 bots give them first, posters see them under “FAQ”.",
         parrainage: "Friends that posters invite by email: emails, applications, active, bonuses and cost per recruit, by country and week; top referrers; open countries.",
+        slack: "People deactivated in the OS (Kill, STOP, Portugal, contract closed) who are still active Slack members: remove them from channels, deactivate the account.",
         logs: "Everything the automation did. What needs you and what's broken is in Needs you.",
       },
       sante: {

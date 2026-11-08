@@ -210,6 +210,10 @@ fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 
 ## 6. Règles de qualité (retours de l'admin)
 
+- **Chaque nombre dit a son unité** (« treize mille kilomètres », jamais « treize mille » seul), même si elle vient d'être dite.
+- **Voix fluide** : pas plus vite que speed 1,1 en français ; on ne coupe pas les blancs entre les mots d'une phrase
+  (geo-modele/scripts/resserrer.mjs : fins de phrase et virgules seulement, avec fondu).
+
 - Papier découpé : fond kraft, couleurs franches, ombres, bords qui vibrent légèrement. **Aucun texte dans
   les visuels** (seulement les sous-titres et l'interface de l'appli).
 - **Très dynamique** : une action toutes les 1 à 2 s, transitions déchirure / panoramique fouetté entre scènes.

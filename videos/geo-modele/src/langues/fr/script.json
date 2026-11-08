@@ -5,11 +5,11 @@
     "nom": "Guillaume",
     "modele": "eleven_multilingual_v2",
     "reglages": {
-      "stability": 0.42,
+      "stability": 0.55,
       "similarity_boost": 0.8,
-      "style": 0.35,
+      "style": 0.25,
       "use_speaker_boost": true,
-      "speed": 1.18
+      "speed": 1.08
     }
   },
   "scenes": [
@@ -228,7 +228,7 @@
     },
     {
       "id": "S4",
-      "texte": "Puis le canal de Panama a ouvert. Quatre-vingts kilomètres qui raccourcissent le voyage d'environ treize mille.",
+      "texte": "Puis le canal de Panama a ouvert. Quatre-vingts kilomètres seulement, qui font gagner environ treize mille kilomètres de trajet.",
       "reperes": [],
       "carte": {
         "vue": {
@@ -268,7 +268,7 @@
             ],
             "icone": "bateau",
             "couleur": "vert",
-            "au": "raccourcissent"
+            "au": "gagner"
           }
         ],
         "etiquettes": [

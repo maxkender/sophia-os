@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o153",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "036a6e38-4fd5-412f-a724-4cce3e802284",
+ "titre": "4 erreurs de posture qui détruisent ton charisme en public #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "036a6e38-4fd5-412f-a724-4cce3e802284"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 48a04307. déclinaison G1 de la ligne 9 de la boîte (036a6e38, es 22,9 k r 3,06), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. La ligne 8 (« How To Become Rodiculously Social ») est sautée : l'accroche mot pour mot porte une faute de frappe. 4 erreurs neuves (aucune reprise : menton, mains, ancrage, clignements), puis Sophia, puis le pourquoi et la conclusion. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "48a04307",
+   "texte_overlay": "4 erreurs de posture\nqui détruisent ton\ncharisme en public",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679890123126885665/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Erreur 1 : Te tenir de profil quand on te parle. Tourner seulement la tête donne l'impression que tu veux partir. Oriente tes épaules et tes pieds vers la personne, et elle se sent écoutée.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Erreur 2 : Garder le dos rond devant ton téléphone. Des heures penché sur l'écran et tes épaules tombent pour de bon. Lève l'écran à hauteur des yeux et redresse-toi chaque heure.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Erreur 3 : Bouger sans arrêt sur ta chaise. Croiser, décroiser, te pencher, te balancer. Ça trahit la nervosité. Assieds-toi au fond du siège, les deux pieds au sol, et ne bouge plus.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Erreur 4 : Entrer dans une pièce en regardant le sol. Les premières secondes comptent. Relève la tête, regarde la salle, fais une petite pause. On remarque ta présence avant ta voix.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Le calme commence dans la tête. Je fais cinq minutes d'histoire, d'art ou de science par jour, et un esprit apaisé se voit tout de suite dans la façon dont on se tient.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Un esprit apaisé se voit dans la façon dont on se tient.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pourquoi c'est important : les gens jugent ton assurance en quelques secondes, avant même que tu parles. Ta posture raconte ton histoire à ta place, autant qu'elle raconte la bonne.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "La correction : choisis une seule erreur par semaine et corrige-la. En un mois, ta posture change, et les gens commencent à te voir comme quelqu'un de calme et sûr de lui.",
+   "media_id": "97b27cf0"
+  }
+ ]
+}

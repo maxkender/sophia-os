@@ -4,6 +4,10 @@ import { ACTIONS_BOT, botDuJeton, etatSecrets, lireCorps } from "../../../supaba
 import type { OptionDecision, Probleme, Situation } from "./api";
 import {
   autresSujets,
+  carteAncienne,
+  ordreMaintenant,
+  promesseAttente,
+  trierCartes,
   diagnosticSimple,
   lienDecision,
   ongletProblemes,
@@ -299,5 +303,58 @@ describe("0538 : la carte traite d'abord le message en attente", () => {
       .toEqual([{ categorie: "stop", rituel: "samedi" }, { categorie: "login", rituel: null }, { categorie: "paie", rituel: "maintenant" }]);
     expect(lienDecision("x", "jeudi")).toBe("/admin/auto/decisions?onglet=jeudi&carte=x");
     expect(lienDecision("x", "maintenant")).toBe("/admin/auto/decisions?carte=x");
+  });
+});
+
+describe("6/11 : ⚡ Urgent, les messages de plus de 7 jours en bas, « ancien »", () => {
+  const maintenant = Date.parse("2026-11-06T12:00:00Z");
+  const sr = (at: string) => ({ texte: "Help?", canal: "upwork" as const, at, depuis_heures: 1, question: true, attend: true });
+  const vieux = p({ id: "vieux", niveau: "urgent", created_at: "2026-10-20T10:00:00Z", sans_reponse: sr("2026-10-28T10:00:00Z") });
+  const recent = p({ id: "recent", niveau: "urgent", created_at: "2026-10-20T10:00:00Z", sans_reponse: sr("2026-11-05T10:00:00Z") });
+  const sansMessage = p({ id: "sans", niveau: "urgent", created_at: "2026-11-01T10:00:00Z" });
+
+  it("ancien : le message en attente (sinon la carte) a plus de 7 jours", () => {
+    expect(carteAncienne(vieux, maintenant)).toBe(true);
+    expect(carteAncienne(recent, maintenant)).toBe(false);
+    expect(carteAncienne(sansMessage, maintenant)).toBe(false);
+    expect(carteAncienne(p({ created_at: "2026-10-29T11:00:00Z" }), maintenant)).toBe(true);
+  });
+
+  it("dans Urgent les anciens vont en bas ; ailleurs l'ordre ne change pas", () => {
+    expect(trierCartes([vieux, sansMessage, recent], "urgent", maintenant).map((x) => x.id)).toEqual(["recent", "sans", "vieux"]);
+    expect(trierCartes([vieux, sansMessage, recent], "bots", maintenant).map((x) => x.id)).toEqual(["vieux", "recent", "sans"]);
+  });
+});
+
+describe("6/11 : réponse promise par le bot FAQ : en tête d'Urgent, rouge après 6 h", () => {
+  const maintenant = Date.parse("2026-11-06T18:00:00Z");
+  const sr = { texte: "Can I post at night?", canal: "slack" as const, at: "2026-11-06T09:00:00Z", depuis_heures: 9, question: true, attend: true };
+  const promis = (at: string) => p({
+    id: at, niveau: "urgent", sans_reponse: sr,
+    messages: [{ at, canal: "slack", auteur: "os", texte: "Thanks for your message! I'm checking this and will get back to you today." }],
+  });
+
+  it("le temps depuis la promesse ; rouge à partir de 6 h ; rien sans promesse", () => {
+    expect(promesseAttente(promis("2026-11-06T14:00:00Z"), maintenant)).toEqual({ depuisH: 4, rouge: false });
+    expect(promesseAttente(promis("2026-11-06T09:01:00Z"), maintenant)).toEqual({ depuisH: 8, rouge: true });
+    expect(promesseAttente(p({ sans_reponse: sr, messages: [] }), maintenant)).toBeNull();
+  });
+
+  it("en tête d'Urgent, la plus longue attente d'abord", () => {
+    const autre = p({ id: "autre", niveau: "urgent", sans_reponse: sr });
+    const liste = trierCartes([autre, promis("2026-11-06T14:00:00Z"), promis("2026-11-06T09:01:00Z")], "urgent", maintenant);
+    expect(liste.map((x) => x.id)).toEqual(["2026-11-06T09:01:00Z", "2026-11-06T14:00:00Z", "autre"]);
+  });
+});
+
+describe("6/11 : « À décider maintenant », les décisions envoyées depuis Problèmes en tête", () => {
+  it("cartes à boutons de décision, puis offres HM, puis le reste", () => {
+    const opt = [{ libelle: "Killer les 14 maintenant", action: "kill_immediat" }] as Probleme["options"];
+    const liste = [
+      p({ id: "paie", categorie: "paie", created_at: "2026-11-01T10:00:00Z" }),
+      p({ id: "offre", categorie: "offre_hm_incorrecte", created_at: "2026-11-02T10:00:00Z" }),
+      p({ id: "kill", categorie: "kill_contrat", question: "Killer ?", options: opt, poster_id: null, sujet: "hm", created_at: "2026-11-06T10:00:00Z" }),
+    ];
+    expect(ordreMaintenant(liste).map((x) => x.id)).toEqual(["kill", "offre", "paie"]);
   });
 });

@@ -14,6 +14,7 @@ import {
   contratFerme,
   lireFinContrat,
   orgDeLOs,
+  ORG_VIK,
   ORGS_OS,
   REQUETE_FIN_CONTRAT,
   jalonAApprouver,
@@ -112,6 +113,7 @@ import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/paus
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, estCompteDeMax, lireCompte, UPWORK_USER_MAX } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
 import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
+import { planCompleterOffre, semainesDepuis } from "../_shared/offres.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -160,6 +162,15 @@ const COMPTE = "principal";
  *       `accueil_contrats_depuis` → posteur créé et message de bienvenue
  *       (annonce connue), « Contrats à relier », ou doublon signalé.
  *       Interrupteur `accueil_auto` (off / test / on).
+ *   { action: "kill_immediat", id }         admin (trigger de la carte, 0546)
+ *       STOP jamais posté : la réponse gentille à qui attend encore, puis
+ *       désactivation, contrat fermé (compte de Max, VIk Studios) et milestone
+ *       financé récupéré (kill_lot) ; échec → carte Paie pour le Pay Bot.
+ *   { action: "bonus_test", id }            admin (trigger de la carte, 0543)
+ *       Le test du bonus classique : sendCustomPayment, 1 $, note « Test bonus »,
+ *       sur le contrat préparé par bonus_test_preparer, seulement après le clic
+ *       « Envoyer le test 1 $ » de Max. Compte de Max, org VIk Studios. La
+ *       réponse d'Upwork est gardée telle quelle (upwork_bonus_tests.reponse).
  *   { action: "message_posteur", poster_id, texte, type? }  admin, Head of Ops
  *       « Send on Upwork » : le texte dans la conversation du contrat du
  *       posteur, noté dans `nudges` (canal upwork, à la main).
@@ -294,6 +305,13 @@ Deno.serve(async (request) => {
       }
       case "message_posteur":
         return json(await messagePosteur(supabase, par, String(body.poster_id ?? ""), String(body.texte ?? ""), body.type));
+      case "bonus_test":
+        return json(await bonusTest(supabase, par, String(body.id ?? "")));
+      case "bonus_parrainage_payer":
+        // 0553 : le lundi (cron), les bonus de parrainage à payer, par bonus Upwork.
+        return json(await bonusParrainagePayer(supabase, par));
+      case "kill_immediat":
+        return json(await killImmediat(supabase, par, String(body.id ?? "")));
       case "reprise_conversations":
         // 0504 : l'historique complet des conversations jamais lues, quelques-unes par passage, la nuit.
         return json(await repriseConversations(supabase, par));
@@ -338,6 +356,15 @@ Deno.serve(async (request) => {
       }
       case "annonces_amorcer":
         return json(await amorcerAnnonces(supabase, par));
+      case "offres_completer":
+        // 7/11 : une offre HM incomplète (VIk) est corrigée : « Week NN » renommés et semaines manquantes créées, jamais financées.
+        return json(await offresCompleter(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
+      case "doubles_messages":
+        // 0559 : l'offre d'un 2e compte : relance Upwork à 24 h sans ouverture (une fois), confirmation des demandés.
+        return json(await doublesMessages(supabase, par));
+      case "deuxieme_contrat_fermer":
+        // 7/11 : « Fermer le 2e contrat » (carte samedi, après le clic de Max) : ferme ce contrat seulement.
+        return json(await deuxiemeContratFermer(supabase, par, String(body.id ?? "")));
       case "jalon_creer":
         // 31/10 : créer une milestone sans la financer (confirmer explicite, aucun cron ne l'envoie) ; elle va dans « To fund by hand ».
         if (body.confirmer !== true) return json({ ok: false, error: "confirmation manquante" }, 400);
@@ -2540,6 +2567,100 @@ async function ecrire(
 }
 
 /**
+ * 0553 : les bonus de parrainage (10 $, ligne « a_payer » du lundi) payés par
+ * bonus Upwork (sendCustomPayment) sur le contrat du parrain, depuis le compte
+ * de Max, VIk Studios seulement. Jamais avant que Max ait validé le test du
+ * bonus (upwork_bonus_tests.valide_at), jamais si bonus_parrainage_actif est
+ * éteint. Chaque ligne est marquée avant l'envoi (envoi_at) : jamais de second
+ * essai à l'aveugle. Un échec ouvre une carte Paie pour le Pay Bot.
+ */
+async function bonusParrainagePayer(supabase: Supabase, par: string | null) {
+  const { data: actif } = await supabase.from("reglages").select("valeur").eq("cle", "bonus_parrainage_actif").maybeSingle();
+  if (actif?.valeur !== true) return { ok: true, payes: 0, raison: "bonus_parrainage_actif éteint" };
+  const { data: tests } = await supabase.from("upwork_bonus_tests").select("id").eq("statut", "envoye").not("valide_at", "is", null).limit(1);
+  if (!tests?.length) return { ok: true, payes: 0, raison: "test du bonus pas encore validé par Max : rien ne part" };
+  const { data: lignes } = await supabase.from("bonus").select("id, poster_id, recrue_id, referral_id, montant, detail")
+    .eq("type", "parrainage").eq("statut", "a_payer").is("envoi_at", null).gt("montant", 0).limit(30);
+  const resultats: Record<string, unknown>[] = [];
+  for (const b of lignes ?? []) {
+    const montant = Number(b.montant);
+    const echec = async (erreur: string) => {
+      await supabase.from("bonus").update({ erreur }).eq("id", b.id);
+      await supabase.from("problemes").insert({
+        cle_groupe: `bonus_parrainage:${b.id}`, categorie: "paie", niveau: "urgent", niveau_force: true, proprietaire: "pay_bot",
+        sujet: "posteur", destinataire: "posteur", poster_id: b.poster_id,
+        resume: `Bonus de parrainage ${montant} $ pas payé : ${erreur}`.slice(0, 300),
+        diagnostic: `Le bonus de parrainage (${b.detail ?? "filleul"}) n'est pas parti automatiquement : ${erreur}. À payer à la main.`,
+        diagnostic_par: "os",
+      });
+      resultats.push({ bonus: b.id, ok: false, erreur });
+    };
+    if (!(montant > 0 && montant <= 50)) { await echec(`montant ${montant} $ hors limites`); continue; }
+    const { data: pr } = await supabase.from("profiles").select("upwork_contract_id, prenom").eq("id", b.poster_id).maybeSingle();
+    const contrat = String(pr?.upwork_contract_id ?? "");
+    if (!contrat) { await echec("parrain sans contrat Upwork relié"); continue; }
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id, etat").eq("contrat_id", contrat).maybeSingle();
+    if (uc?.organisation_id !== ORG_VIK) { await echec(`contrat ${contrat} hors VIk Studios`); continue; }
+    const expediteur = await verifierExpediteur(supabase);
+    if (expediteur) { await echec(expediteur); continue; }
+    const { data: filleul } = await supabase.from("profiles").select("prenom").eq("id", b.recrue_id).maybeSingle();
+    // Marquée avant l'envoi : une erreur réseau ne renvoie jamais un second bonus.
+    await supabase.from("bonus").update({ envoi_at: new Date().toISOString() }).eq("id", b.id);
+    const comment = `Referral bonus: thank you for bringing ${String(filleul?.prenom ?? "your friend").trim() || "your friend"} to the team!`;
+    const r = await ecrire(supabase, {
+      par, action: "bonus_parrainage", query: MUTATION_BONUS, tenant: ORG_VIK, contrat, montant, compte: COMPTE,
+      variables: { input: { contractId: contrat, amount: montant, comment, notes: `parrainage ${b.referral_id}`, type: "BONUS" } },
+    });
+    if (r.erreur) { await echec(`Upwork : ${r.erreur}`); continue; }
+    const invoice = (r.data as { sendCustomPayment?: { invoiceId?: string } } | null)?.sendCustomPayment?.invoiceId ?? null;
+    await supabase.from("bonus").update({ statut: "paye", paye_at: new Date().toISOString(), upwork_invoice: invoice, erreur: null }).eq("id", b.id);
+    // 0561 : le parrain est prévenu (un message, après le paiement).
+    const prenomFilleul = String((filleul as { prenom?: string } | null)?.prenom ?? "").trim() || "your friend";
+    await messagePosteur(supabase, par, String(b.poster_id), `Your friend ${prenomFilleul} is now active, +$10 bonus this Monday 🎉`, "parrainage");
+    resultats.push({ bonus: b.id, ok: true, invoice });
+  }
+  return { ok: true, payes: resultats.filter((x) => x.ok).length, resultats };
+}
+
+/** 0543 : le bonus classique (« Give bonus ») d'Upwork, sans milestone. */
+const MUTATION_BONUS = `mutation Bonus($input: CustomPaymentInput!) { sendCustomPayment(input: $input) { invoiceId } }`;
+
+/**
+ * 0543 : le test de 1 $ préparé dans une carte décision. Rien ne part sans le
+ * clic de Max (option 0), ni deux fois, ni hors de VIk Studios, ni d'un autre
+ * compte que le sien. La réponse d'Upwork est gardée telle quelle.
+ */
+async function bonusTest(supabase: Supabase, par: string | null, id: string) {
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: "id requis" };
+  const { data: b } = await supabase.from("upwork_bonus_tests").select("*").eq("id", id).maybeSingle();
+  if (!b) return { ok: false, error: "test introuvable" };
+  if (b.statut !== "en_cours") return { ok: false, error: `test ${b.statut} : rien n'est envoyé` };
+  const fin = async (statut: "envoye" | "erreur", reponse: unknown, erreur: string | null) => {
+    await supabase.from("upwork_bonus_tests").update({ statut, reponse, erreur, envoye_at: new Date().toISOString() }).eq("id", id);
+    const { data: p } = await supabase.from("problemes").select("journal").eq("id", b.probleme_id).maybeSingle();
+    if (p) {
+      await supabase.from("problemes").update({
+        ferme_raison: statut === "envoye" ? `Test bonus 1 $ envoyé (réponse Upwork : ${JSON.stringify(reponse).slice(0, 300)})` : `Test bonus : erreur — ${erreur}`,
+        journal: [...((p.journal as unknown[]) ?? []), { at: new Date().toISOString(), par: "upwork", action: "bonus_test_resultat", statut, reponse, erreur }],
+      }).eq("id", b.probleme_id);
+    }
+    return { ok: statut === "envoye", statut, reponse, erreur };
+  };
+  const { data: carte } = await supabase.from("problemes").select("decision_choisie").eq("id", b.probleme_id).maybeSingle();
+  if (carte?.decision_choisie !== 0) return await fin("erreur", null, "la carte n'a pas été validée (« Envoyer le test 1 $ »)");
+  if (Number(b.montant) !== 1) return await fin("erreur", null, "montant différent de 1 $ : refusé");
+  const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", b.contrat_id).maybeSingle();
+  if (uc?.organisation_id !== ORG_VIK) return await fin("erreur", null, `contrat hors VIk Studios (org ${uc?.organisation_id ?? "inconnue"}) : refusé`);
+  const expediteur = await verifierExpediteur(supabase);
+  if (expediteur) return await fin("erreur", null, expediteur);
+  const r = await ecrire(supabase, {
+    par, action: "bonus_test", query: MUTATION_BONUS, tenant: ORG_VIK, contrat: String(b.contrat_id), montant: 1, compte: COMPTE,
+    variables: { input: { contractId: String(b.contrat_id), amount: 1, comment: String(b.note), notes: String(b.note), type: "BONUS" } },
+  });
+  return await fin(r.erreur ? "erreur" : "envoye", r.data, r.erreur);
+}
+
+/**
  * « Send on Upwork » (page Pipeline, Relances) : le texte, dans la conversation
  * du contrat du posteur, une fois, puis noté dans `nudges` (canal upwork, à la
  * main) : il apparaît dans l'historique et compte comme une relance.
@@ -4523,6 +4644,57 @@ async function noterFinKill(supabase: Supabase, posterId: string) {
   }
 }
 
+/**
+ * 0546 : le kill immédiat d'un lot de STOP jamais postés, après le clic de Max
+ * (carte « Killer les N maintenant »). 1. La réponse gentille de sa carte à qui
+ * attend encore une réponse (relu juste avant : jamais deux fois). 2. Compte et
+ * profil désactivés, arrêt sans message, cartes fermées. 3. kill_lot : contrat
+ * fermé, milestone financé récupéré ; échec → carte Paie (Pay Bot).
+ */
+async function killImmediat(supabase: Supabase, par: string | null, id: string) {
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: "id requis" };
+  const { data: k } = await supabase.from("kills_immediats").select("*").eq("id", id).maybeSingle();
+  if (!k) return { ok: false, error: "lot introuvable" };
+  if (k.statut !== "en_cours") return { ok: false, error: `lot ${k.statut} : rien n'est fait` };
+  const { data: carte } = await supabase.from("problemes").select("decision_choisie, journal").eq("id", k.probleme_id).maybeSingle();
+  if (carte?.decision_choisie !== 0) {
+    await supabase.from("kills_immediats").update({ statut: "erreur", resultat: { erreur: "carte pas validée" } }).eq("id", id);
+    return { ok: false, error: "la carte n'a pas été validée" };
+  }
+  const lignes = ((k.contrats ?? []) as { poster_id: string; contrat_id: string; nom?: string }[]).filter((l) => l.poster_id && l.contrat_id);
+  // 1. La réponse gentille, seulement à qui attend encore (relu maintenant).
+  const messages: Record<string, unknown>[] = [];
+  for (const l of lignes) {
+    const { data: attend } = await supabase.rpc("probleme_sans_reponse", { p_poster: l.poster_id });
+    if (!attend) continue;
+    const { data: c } = await supabase.from("problemes").select("proposition_reponse").eq("poster_id", l.poster_id).eq("statut", "ouvert")
+      .not("proposition_reponse", "is", null).order("created_at").limit(1).maybeSingle();
+    const texte = String(c?.proposition_reponse ?? "").trim();
+    if (!texte) {
+      messages.push({ nom: l.nom ?? null, envoye: false, raison: "pas de réponse proposée" });
+      continue;
+    }
+    const envoi = await messagePosteur(supabase, par, l.poster_id, texte, "stop");
+    messages.push({ nom: l.nom ?? null, envoye: envoi.ok, erreur: envoi.ok ? null : (envoi as { error?: string }).error ?? null });
+  }
+  // 2. Désactiver, noter l'arrêt sans message, fermer leurs cartes.
+  const { error: errDesactiver } = await supabase.rpc("kill_immediat_desactiver", { p_id: id });
+  if (errDesactiver) {
+    await supabase.from("kills_immediats").update({ statut: "erreur", resultat: { messages, erreur: errDesactiver.message } }).eq("id", id);
+    return { ok: false, error: `désactivation : ${errDesactiver.message}`, messages };
+  }
+  // 3. Fermer les contrats et récupérer les milestones financés (échec → carte Paie).
+  const r = await killLot(supabase, par, lignes.map((l) => ({ contrat_id: l.contrat_id, poster_id: l.poster_id })), true);
+  const resultat = { messages, lignes: (r as { lignes?: unknown[] }).lignes ?? [], erreur: (r as { error?: string }).error ?? null };
+  await supabase.from("kills_immediats").update({ statut: r.ok ? "fait" : "erreur", resultat, fait_at: new Date().toISOString() }).eq("id", id);
+  const resume = ((resultat.lignes ?? []) as { nom?: string; texte?: string }[]).map((x) => `${x.nom ?? "?"} : ${x.texte ?? "?"}`).join(" | ");
+  await supabase.from("problemes").update({
+    ferme_raison: `Kill immédiat fait. ${resume}`.slice(0, 2000),
+    journal: [...((carte?.journal as unknown[]) ?? []), { at: new Date().toISOString(), par: "upwork", action: "kill_immediat_resultat", resultat }],
+  }).eq("id", k.probleme_id);
+  return { ok: r.ok, ...resultat };
+}
+
 async function killLot(supabase: Supabase, par: string | null, contrats: { contrat_id: string; poster_id: string | null }[], executer: boolean) {
   if (!contrats.length || contrats.length > 30) return { ok: false, error: "1 à 30 contrats" };
   const lignes: Record<string, unknown>[] = [];
@@ -4546,3 +4718,161 @@ async function killLot(supabase: Supabase, par: string | null, contrats: { contr
   }
   return { ok: true, executer, lignes };
 }
+
+const ORG_VIK_OFFRES = "2074065383597823773";
+
+/**
+ * 7/11 : les offres HM incomplètes des cohortes en cours (VIk Studios) sont
+ * corrigées sans rien financer : milestone sans semaine → « Week NN » de la
+ * cohorte, « week 46 - … » → « Week 46 », semaines manquantes créées au tarif
+ * de la zone (4 au total). Un seul passage automatique par contrat
+ * (offres_completions) ; une liste de contrats force un nouveau passage.
+ * Réussi : les alertes et cartes « offre incomplète » du contrat sont fermées.
+ */
+async function offresCompleter(supabase: Supabase, par: string | null, contrats: string[] | null) {
+  const auj = maintenantParis().jour;
+  let q = supabase.from("accueils").select("contrat_id, poster_id, pays, cohorte_lundi, organisation_id, classement, statut")
+    .eq("organisation_id", ORG_VIK_OFFRES).gte("cohorte_lundi", ajouterJours(auj, -7));
+  if (contrats?.length) q = q.in("contrat_id", contrats);
+  const { data: accueils, error } = await q;
+  if (error) return { ok: false, error: error.message };
+  const { data: deja } = await supabase.from("offres_completions").select("contrat_id");
+  const faits = new Set((deja ?? []).map((x) => String(x.contrat_id)));
+  const bilan: Record<string, unknown>[] = [];
+  for (const a of accueils ?? []) {
+    const contrat = String(a.contrat_id ?? "");
+    if (!contrat || ["autre_activite", "hm"].includes(String(a.classement ?? "")) || a.statut === "doublon") continue;
+    if (!contrats?.length && faits.has(contrat)) continue;
+    const { data: zp } = await supabase.from("zones_paie_pays").select("zone").eq("pays", String(a.pays ?? "").toUpperCase()).is("retire_at", null).maybeSingle();
+    const { data: z } = zp ? await supabase.from("zones_paie").select("tarif").eq("zone", zp.zone).maybeSingle() : { data: null };
+    const tarif = z?.tarif !== undefined && z?.tarif !== null ? Number(z.tarif) : null;
+    const relu = await relireJalons(supabase, par, contrat, ORG_VIK_OFFRES, "offre_completer_lecture");
+    if (!relu.jalons) {
+      bilan.push({ contrat, erreur: `milestones illisibles : ${relu.erreur}` });
+      continue;
+    }
+    const plan = planCompleterOffre(relu.jalons, semainesDepuis(String(a.cohorte_lundi)), tarif);
+    if (plan.refus || plan.actions.length === 0) {
+      if (plan.actions.length === 0 && !plan.refus) bilan.push({ contrat, rien: true });
+      else bilan.push({ contrat, refus: plan.refus });
+      if (!contrats?.length && plan.refus) {
+        await supabase.from("offres_completions").upsert({ contrat_id: contrat, statut: "refus", actions: [], erreur: plan.refus, at: new Date().toISOString() }, { onConflict: "contrat_id" });
+      }
+      continue;
+    }
+    const faites: Record<string, unknown>[] = [];
+    let erreur: string | null = null;
+    for (const act of plan.actions) {
+      if (act.type === "compter") {
+        // Financé : Upwork refuse de le renommer ; la paie le compte pour la semaine de la cohorte.
+        const { error: e } = await supabase.from("paie_jalons_semaine").upsert({
+          jalon_id: act.jalon_id, contrat_id: contrat, nom: act.nom, semaine: String(a.cohorte_lundi),
+          raison: `offre HM : « ${act.nom} » compté Week ${act.semaine} (7/11, financé, non renommable)`, annule_at: null,
+        }, { onConflict: "jalon_id" });
+        if (e) { erreur = `compter « ${act.nom} » : ${e.message}`; break; }
+        faites.push(act);
+      } else if (act.type === "renommer") {
+        const r = await ecrire(supabase, {
+          par, action: "offre_renommer_jalon", query: MUTATION_EDITER_JALON, tenant: ORG_VIK_OFFRES, contrat, montant: 0,
+          variables: { input: { id: act.jalon_id, description: act.vers } },
+        });
+        if (r.erreur || !r.data?.editMilestone) { erreur = `renommer « ${act.de} » : ${r.erreur ?? "réponse vide"}`; break; }
+        faites.push(act);
+      } else {
+        const r = await ecrire(supabase, {
+          par, action: "offre_creer_jalon", query: MUTATION_CREER_JALON, tenant: ORG_VIK_OFFRES, contrat, montant: act.montant,
+          variables: { input: { contractId: contrat, description: act.nom, depositAmount: centimes(act.montant), ...(await echeanceJalon(supabase, par, ORG_VIK_OFFRES, act.nom)) } },
+        });
+        const id = r.data?.createMilestoneV2?.id ? String(r.data.createMilestoneV2.id) : null;
+        if (r.erreur || !id) { erreur = `créer ${act.nom} : ${r.erreur ?? "réponse vide"}`; break; }
+        faites.push({ ...act, jalon_id: id, etat: r.data?.createMilestoneV2?.state ?? null });
+      }
+    }
+    // Les milestones relus et gardés (lecture de l'OS à jour).
+    const apres = await relireJalons(supabase, par, contrat, ORG_VIK_OFFRES, "offre_completer_relecture");
+    if (apres.jalons) {
+      await supabase.from("upwork_jalons").upsert({ contrat_id: contrat, organisation_id: ORG_VIK_OFFRES, jalons: apres.jalons, erreur: null, lu_at: new Date().toISOString() }, { onConflict: "contrat_id" });
+    }
+    await supabase.from("offres_completions").upsert({
+      contrat_id: contrat, statut: erreur ? "erreur" : "fait", actions: faites, erreur, at: new Date().toISOString(),
+    }, { onConflict: "contrat_id" });
+    if (!erreur) {
+      const note = `Offre complétée par l'OS (${faites.length} changement(s), rien financé)`;
+      await supabase.from("offres_alertes").update({ ferme_at: new Date().toISOString(), ferme_raison: note })
+        .eq("contrat_id", contrat).is("ferme_at", null).in("motif", ["nb_milestones", "nom_1er"]);
+      await supabase.from("problemes").update({ statut: "ferme_auto", ferme_at: new Date().toISOString(), ferme_raison: note, maj_at: new Date().toISOString() })
+        .eq("contrat_id", contrat).eq("categorie", "offre_hm_incorrecte").eq("statut", "ouvert");
+    }
+    bilan.push({ contrat, faites, erreur });
+  }
+  return { ok: true, contrats: bilan };
+}
+
+/**
+ * 7/11 : « Fermer le 2e contrat » : seulement ce contrat, seulement si la
+ * personne a un autre contrat VIk actif et que ce n'est pas celui de sa fiche.
+ * Le milestone financé éventuel revient (comme un kill) ; échec → carte Paie.
+ */
+async function deuxiemeContratFermer(supabase: Supabase, par: string | null, id: string) {
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: "id requis" };
+  const { data: carte } = await supabase.from("problemes").select("id, categorie, decision_choisie, contrat_id, poster_id, journal").eq("id", id).maybeSingle();
+  if (!carte || carte.categorie !== "deuxieme_contrat" || carte.decision_choisie !== 1 || !carte.contrat_id) return { ok: false, error: "carte non validée pour fermer" };
+  const contrat = String(carte.contrat_id);
+  const { data: uc } = await supabase.from("upwork_contrats").select("freelancer_id").eq("contrat_id", contrat).maybeSingle();
+  const { data: autres } = await supabase.from("upwork_contrats").select("contrat_id").eq("freelancer_id", uc?.freelancer_id ?? "-")
+    .eq("organisation_id", ORG_VIK_OFFRES).eq("actif", true).eq("etat", "Active").neq("contrat_id", contrat);
+  const { data: fiche } = await supabase.from("profiles").select("upwork_contract_id").eq("id", carte.poster_id ?? "").maybeSingle();
+  if (!autres?.length || fiche?.upwork_contract_id === contrat) {
+    return { ok: false, error: "pas d'autre contrat actif, ou c'est le contrat de sa fiche : rien fermé" };
+  }
+  const r = await killLot(supabase, par, [{ contrat_id: contrat, poster_id: null }], true);
+  await supabase.from("problemes").update({
+    ferme_raison: r.ok ? `2e contrat ${contrat} fermé` : `2e contrat ${contrat} : ${(r as { error?: string }).error ?? "à fermer à la main"}`,
+    journal: [...((carte.journal as unknown[]) ?? []), { at: new Date().toISOString(), par: "upwork", action: "deuxieme_contrat_fermer", resultat: r }],
+  }).eq("id", id);
+  return r;
+}
+
+const LIEN_DASHBOARD = "https://sophia-marketing-orga.vercel.app";
+
+/**
+ * 0559 : l'offre d'un 2e compte (posteur_messages type 'double').
+ *  - pas ouverte 24 h après (dashboard jamais ouvert) : le même texte + le lien
+ *    du dashboard, sur Upwork depuis le compte de Max, une seule fois ;
+ *  - acceptée pour un posteur qui l'avait demandé (upwork_statut a_confirmer) :
+ *    la confirmation avec le @ du 2e compte.
+ * Rien d'autre ; une offre retenue (visible en 2099) n'est jamais relancée.
+ */
+async function doublesMessages(supabase: Supabase, par: string | null) {
+  const maintenant = new Date();
+  const il24h = new Date(maintenant.getTime() - 24 * 3600_000).toISOString();
+  const { data: offres, error } = await supabase.from("posteur_messages")
+    .select("id, poster_id, proposition_id, texte, reponse, lu_at, visible_de, expire_at, upwork_statut")
+    .eq("type", "double")
+    .or(`and(reponse.is.null,lu_at.is.null,upwork_statut.is.null,visible_de.lte.${il24h},expire_at.gt.${maintenant.toISOString()}),upwork_statut.eq.a_confirmer`)
+    .limit(30);
+  if (error) return { ok: false, error: error.message };
+  const bilan: Record<string, unknown>[] = [];
+  for (const m of offres ?? []) {
+    let texte: string;
+    if (m.upwork_statut === "a_confirmer") {
+      const { data: p } = await supabase.from("ckd_propositions").select("nouveau_compte_id").eq("id", m.proposition_id).maybeSingle();
+      const { data: c } = p?.nouveau_compte_id
+        ? await supabase.from("comptes").select("handle_tiktok").eq("id", p.nouveau_compte_id).maybeSingle()
+        : { data: null };
+      const handle = (c?.handle_tiktok as string | null) ?? null;
+      texte = `Great! Your second account${handle ? ` @${handle}` : ""} is on your dashboard. Create it on TikTok, do the warm-up, and you'll start posting on it the day after.`;
+    } else {
+      texte = `${String(m.texte ?? "").trim()}\n\nOpen your dashboard to accept: ${LIEN_DASHBOARD}`;
+    }
+    const envoi = await messagePosteur(supabase, par, String(m.poster_id), texte, "double");
+    await supabase.from("posteur_messages").update({
+      upwork_statut: envoi.ok ? "envoye" : "erreur",
+      upwork_at: new Date().toISOString(),
+      upwork_erreur: envoi.ok ? null : String((envoi as { error?: string }).error ?? "envoi impossible").slice(0, 500),
+    }).eq("id", m.id);
+    bilan.push({ id: m.id, ok: envoi.ok, type: m.upwork_statut === "a_confirmer" ? "confirmation" : "relance" });
+  }
+  return { ok: true, messages: bilan };
+}
+

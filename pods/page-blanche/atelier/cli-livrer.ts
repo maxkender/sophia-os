@@ -1,4 +1,5 @@
 // Usage : node atelier/cli-livrer.ts [sources] <post_id|all> [--langues fr,de] [--essai <dossier>]
+//         (sans --langues : fr, puis les langues du label qui ont un compte, 0654)
 //         [--unswipe <dossier>] [--app-seul]
 // --app-seul : complément d'un post déjà validé, ne dépose QUE les variantes
 // d'application (decks Sophia vides, rien n'est re-rendu côté Sophia).
@@ -25,6 +26,7 @@ import { join } from "node:path";
 import { analyserSlide } from "./geometrie.ts";
 import { chargerRessources, rendreSlide, type Transcription } from "./rendu.ts";
 import { metadonneesRestantes, retirerMetadonnees } from "./metadonnees.ts";
+import { languesDuLabel } from "./api.ts";
 
 const POD = "page_blanche";
 const URL_DEFAUT = "https://mbikecieskoobeizixig.supabase.co";
@@ -53,7 +55,15 @@ const opt = (nom: string) => {
   const i = args.indexOf(nom);
   return i >= 0 ? args[i + 1] : undefined;
 };
-const langues = (opt("--langues") ?? "fr").split(",").map((l) => l.trim()).filter(Boolean);
+// 0654 : la première langue est la source et part toujours ; les autres,
+// seulement si le label y a un compte (l'OS les donne). Sans --langues : le
+// français, puis toutes les langues du label qui ont un compte.
+const os = await languesDuLabel();
+const demandees = (opt("--langues") ?? ["fr", ...(os?.a_livrer ?? []).filter((l) => l !== "fr")].join(","))
+  .split(",").map((l) => l.trim()).filter(Boolean);
+const sansCompte = os?.a_livrer ? demandees.slice(1).filter((l) => !os.a_livrer!.includes(l)) : [];
+if (sansCompte.length) console.log(`pas de compte du label en ${sansCompte.join(", ")} : non livré`);
+const langues = demandees.filter((l, i) => i === 0 || !sansCompte.includes(l));
 const essai = opt("--essai");
 const dossierUnswipe = opt("--unswipe");
 const appSeul = args.includes("--app-seul");

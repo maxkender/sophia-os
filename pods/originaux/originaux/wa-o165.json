@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o165",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "763126db-beb1-4da3-93d9-8377df26d4a8",
+ "titre": "green flags you're becoming smarter without noticing #greenflags #intelligence #selfimprovement #growth #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "ecdad1b3-3e7c-44a4-be8a-4f7285ec14a4"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, ecdad1b3). déclinaison G1 de « green flags you're becoming smarter without noticing » (parent 763126db, famille née de wa-o100). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e7777710-211b-4448-b644-2707eb8c3a27",
+   "texte_overlay": "green flags you're becoming\nsmarter without noticing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668710481791634702/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f0833867-d08c-4a00-a6b8-82fd9d203def",
+   "texte_overlay": "you notice patterns\n\nyou start seeing the same patterns in history, people and nature. connecting things across different fields is one of the clearest signs of a growing mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668710481791634702/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3201d81c-a1c4-4eaa-a076-293d0bd4bad3",
+   "texte_overlay": "you enjoy hard questions\n\nquestions without easy answers now excite you more than they annoy you. curiosity about difficult things is exactly how real, deep understanding begins.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668710481791634702/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b76b60d6-577a-4298-b7d8-639d86732bf3",
+   "texte_overlay": "you read the whole thing\n\nyou finish the long article instead of just reading the headline. patience with long, complex ideas is a quiet but very powerful kind of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668710481791634702/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f17fb5f2-16ec-4af0-91a3-066cfdfb364c",
+   "texte_overlay": "you crave new lessons\n\nyou look forward to 5 minutes of learning more than 5 minutes of scrolling: a planet, a painting, a moment in history. that shift says everything about where your mind is going.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668710481791634702/5.jpg",
+   "texte_sophia": "you crave new lessons\n\ni look forward to my 5 minute lesson more than scrolling now: a planet, a painting. the Sophia app turns it into one short lesson a day, and that shift says everything."
+  },
+  {
+   "position": 6,
+   "media_id": "7e44da80-abb0-4c5e-bd7a-02c7265942cd",
+   "texte_overlay": "you change your mind\n\nyou can say i was wrong without feeling small. updating your opinions when you learn something new is the real and lasting mark of a smart, growing mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668710481791634702/6.jpg"
+  }
+ ]
+}

@@ -394,7 +394,7 @@ export interface ClassementChange {
 export interface ClassementRunResultat {
   ok: true;
   dryRun?: boolean;
-  /** Comptes passés en revue (hors CM / UGC AI VIDEO — voir la RPC). */
+  /** Comptes passés en revue (hors CM / UGCV — voir la RPC). */
   examines: number;
   /** Comptes qui changent de case. */
   changes: number;

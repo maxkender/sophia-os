@@ -455,6 +455,22 @@ async function decider(supabase: Supabase, body: any, par: string | null): Promi
   if (decision === "doubler") {
     const { data: offre, error: errOffre } = await supabase.rpc("double_offrir", { p_id: id });
     if (errOffre) return await liberer(messageErreur(errOffre), 500);
+    // 0559 (A7) : le posteur a demandé lui-même un 2e compte : pas de pop-up, accepté
+    // pour lui, compte créé, confirmation envoyée sur Upwork (fonction upwork, doubles_messages).
+    const o = offre as { id?: string; poster_id?: string } | null;
+    if (o?.id && o.poster_id) {
+      const { data: demande } = await supabase.rpc("double_demande", { p_poster: o.poster_id });
+      if (demande === true) {
+        const { error: errRep } = await supabase.rpc("double_repondre", { p_message: o.id, p_reponse: "oui", p_poster: o.poster_id });
+        if (!errRep) {
+          const cree = await creerDeuxieme(supabase, id);
+          await supabase.from("posteur_messages").update(
+            cree.ok ? { upwork_statut: "a_confirmer" } : { erreur: cree.error },
+          ).eq("id", o.id);
+          return json({ ok: true, offre, demande: true, compte: cree.ok ? cree.compteId : null });
+        }
+      }
+    }
     return json({ ok: true, offre });
   }
 
@@ -531,7 +547,12 @@ async function doubleRepondre(supabase: Supabase, body: any, posteurId: string):
   if (!cree.ok) {
     await supabase.from("posteur_messages").update({ erreur: cree.error }).eq("id", messageId);
   }
-  return json({ ok: true, reponse, compte: cree.ok ? cree.compteId : null });
+  let handle: string | null = null;
+  if (cree.ok) {
+    const { data: c } = await supabase.from("comptes").select("handle_tiktok").eq("id", cree.compteId).maybeSingle();
+    handle = (c?.handle_tiktok as string | null) ?? null;
+  }
+  return json({ ok: true, reponse, compte: cree.ok ? cree.compteId : null, handle });
 }
 
 /** Admin : recréer le 2ᵉ compte d'une offre acceptée restée sans compte. */
@@ -743,7 +764,7 @@ async function labelDuDeuxieme(
   if (errLiens) throw errLiens;
   const exclus = new Set((liens ?? []).map((l) => l.label_id as string));
 
-  const { data: labels, error: errLabels } = await supabase.from("labels").select("id, slug, nom, ugc_ai_video");
+  const { data: labels, error: errLabels } = await supabase.from("labels").select("id, slug, nom, manuel");
   if (errLabels) throw errLabels;
   const slideshow = (labels ?? []).filter((l) => estLabelFileSlideshow(l)).map((l) => l.id as string);
   const pool = (await filtrerPoolParApplication(supabase, slideshow, app.id)).filter((l) => !exclus.has(l));

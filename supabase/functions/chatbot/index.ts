@@ -828,13 +828,17 @@ Deno.serve(async (request) => {
     // Le guide Notion recopié (guides_notion) passe en tête : c'est lui qui
     // fait foi, et les documents de l'OS ne sont plus que des liens vers lui.
     // Sans copie (Notion injoignable), on retombe sur les seuls textes de l'OS.
-    const guide = await chargerBase(db, role)
-      .then((c) => c.base.guide)
+    const base = await chargerBase(db, role)
+      .then((c) => c.base)
       .catch((erreur) => {
         console.warn(`[chatbot] guide Notion illisible : ${messageErreur(erreur)}`);
-        return "";
+        return null;
       });
+    const guide = base?.guide ?? "";
+    const officielles = base?.officielles?.trim() ?? "";
     const docsTexte = [
+      // 6/11 : les réponses officielles validées par Max passent avant tout.
+      officielles ? `## RÉPONSES OFFICIELLES (validées par Max, elles priment sur tout le reste)\n${officielles}` : "",
       guide ? `## GUIDE OFFICIEL (Notion, fait foi)\n${guide}` : "",
       assemblerDocs(
         snippets as Snippet[],

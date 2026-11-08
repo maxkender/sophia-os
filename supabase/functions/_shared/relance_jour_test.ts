@@ -100,6 +100,8 @@ Deno.test("1/11 : pas sur Slack, « join our Slack » vient APRÈS l'étape la p
   assertStringIncludes(t, "and join our Slack: https://join.slack/x");
   // Sur Slack : plus d'étape 0.
   assertEquals(planSlack({ ...base, slack_user_id: "U1" }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
+  // 6/11 : déjà sur Slack sans id sur le profil (hub_posteurs, « I've joined ») : pas de relance Slack.
+  assertEquals(planSlack({ ...base, slack_connu: true }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
   // Le 2e compte d'un Double : jamais d'étape 0.
   assertEquals(planSlack({ ...base, deuxieme: true }, "2026-10-27T11:00:00Z").elements.includes("slack"), false);
   // Tout fait sauf Slack : l'étape 0 seule.

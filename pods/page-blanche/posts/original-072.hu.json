@@ -1,0 +1,269 @@
+{
+ "post_id": "original-072",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "6 habitudes pour devenir ultra productive",
+     "texte": "mi van a táskámban, hogy ne doomscrolloljak"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(anti-scroll készletem)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7694778035337235744_3.jpg",
+      "boite": [
+       473,
+       381,
+       548,
+       431
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "egy [[kis zsebkönyv]], ami a feedet váltja"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens font défiler ce genre de slides sans [[jamais lire le texte]]",
+     "texte": "a táskámban lakik, így minden sorban állásból [[pár oldal olvasás]] lesz"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler apprend à ton cerveau à [[lire le titre et passer à autre chose]]",
+     "texte": "van, hogy csak két oldalt olvasok, és őszintén, [[az is számít]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[t'as plus de concentration que la plupart des gens]]",
+     "texte": "miért: egy könyvnek [[vége van]], egy feednek soha, így tényleg abbahagyom"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "[[jegyzetfüzet]] és egy toll"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "mindenre, amit normál esetben [[azonnal rákeresnék]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "rákeresés helyett leírom a kérdést, és sokszor [[később magamtól is rájövök]] a válaszra"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "miért: a papírnak [[nincsenek értesítései]], így végig tudom gondolni"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to music all the time"
+     ],
+     "fr": "écouter de la musique [[H24]]",
+     "texte": "[[fejhallgató]] egy teljes albumhoz"
+    },
+    "T2": {
+     "en": [
+      "on the bus, at the gym,",
+      "while studying, falling",
+      "asleep, there’s always",
+      "something playing"
+     ],
+     "fr": "dans le bus, à la salle, en bossant, pour t'endormir, y'a [[toujours un truc qui tourne]]",
+     "texte": "végtelen keverés helyett választok egy albumot, és [[elejétől végéig]] meghallgatom, ugrálás nélkül"
+    },
+    "T3": {
+     "en": [
+      "your brain never gets a",
+      "quiet moment to think for",
+      "itself"
+     ],
+     "fr": "ton cerveau a [[jamais un moment au calme]] pour penser seul",
+     "texte": "ha az album véget ér, vége. [[nem keresem a következőt]]"
+    },
+    "T4": {
+     "en": [
+      "that’s why silence feels so uncomfortable now, and",
+      "you struggle to remember anything"
+     ],
+     "fr": "du coup le silence te met [[trop mal à l'aise]], et [[t'arrives plus à rien retenir]]",
+     "texte": "miért: egy albumnak eleje és vége van, így [[igazi szünet]] lesz belőle, nem háttérzaj"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "igen, [[a telefonom]], egy szabállyal"
+    },
+    "T2": {
+     "en": [
+      "your attention span has",
+      "been destroyed by",
+      "short-term content"
+     ],
+     "fr": "ta concentration a été [[flinguée par les contenus courts]]",
+     "texte": "úgyis a táskámban van, és úgy tenni, mintha nem, [[sosem működött]]"
+    },
+    "T3": {
+     "en": [
+      "books rebuild your",
+      "attention span and teach",
+      "you delayed gratification"
+     ],
+     "fr": "les livres réparent ta [[concentration]] et t'apprennent [[la patience]]",
+     "texte": "a szabály: ha már rajta vagyok, [[nincs feed]], inkább tanulok valamit"
+    },
+    "T4": {
+     "en": [
+      "i used to scroll all day until",
+      "i found this which blocks",
+      "my apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "[[avant je scrollais H24]]. ce matin j'ai ouvert [[l'appli Sophia]] à la place : en 5 min, pourquoi Camus imagine Sisyphe heureux",
+     "texte": "régen mindenhol görgettem, most ha úgyis telefonozom, 5 percet tanulok [[a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take walks in silence"
+     ],
+     "fr": "fais des balades [[en silence]]",
+     "texte": "[[egy kis nasi és víz]]"
+    },
+    "T2": {
+     "en": [
+      "if you instantly put music on every time you go for a walk,",
+      "you're never giving your brain time to think for itself"
+     ],
+     "fr": "si tu mets de la musique [[dès que tu sors marcher]], tu laisses jamais à ton cerveau [[le temps de penser tout seul]]",
+     "texte": "unalmasan hangzik, de ez [[visz ki a házból]]: nincs okom hazasietni, maradok egy padon vagy sétálok tovább"
+    },
+    "T3": {
+     "en": [
+      "you keep drowning out",
+      "your own thoughts with",
+      "someone else's voice,"
+     ],
+     "fr": "tu couvres [[tes propres pensées]] avec la voix de quelqu'un d'autre,",
+     "texte": "ez váltja ki az ágyból rendelt kaját és [[a görgetést, amíg megjön]]"
+    },
+    "T4": {
+     "en": [
+      "leaving no room to",
+      "process your emotions,",
+      "reflect on your life, or",
+      "come up with new ideas"
+     ],
+     "fr": "plus de place pour digérer [[tes émotions]], penser à [[ta vie]] ou avoir des idées",
+     "texte": "miért: éhesen és szomjasan mindig a kanapén kötök ki, és [[a kanapén mindig görgetni kezdek]]"
+    },
+    "T5": {
+     "en": [
+      "let yourself be bored. your mind needs space to think"
+     ],
+     "fr": "ennuie-toi un peu. [[ton cerveau a besoin d'air]]",
+     "texte": "az egész készlet elfér egy táskában. [[a feed várhat]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

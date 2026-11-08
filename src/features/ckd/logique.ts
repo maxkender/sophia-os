@@ -3,7 +3,9 @@ import type {
   ArretCkd,
   ChiffresCkd,
   DecisionCkd,
+  DonneesCkd,
   HistoriqueCkd,
+  PeriodeCkd,
   PropositionCkd,
   RegleCkd,
   ReglageCkd,
@@ -349,4 +351,40 @@ export function resumerHistorique(lignes: HistoriqueCkd[]): ResumeDecision[] {
   }
   const ordre: DecisionCkd[] = ["garder", "pas_maintenant", "doubler", "recreer", "ne_pas_renouveler", "nudge", "rien"];
   return [...parDecision.values()].sort((a, b) => ordre.indexOf(a.decision) - ordre.indexOf(b.decision));
+}
+
+/**
+ * 6/11 : les données d'une proposition, complétées. Une décision posée à la
+ * main (« ne pas renouveler », 31/10) n'a ni période ni médiane : la ligne
+ * s'affiche quand même (avec des zéros) au lieu de faire planter la page.
+ */
+export function donneesSures(d: Partial<DonneesCkd> | null | undefined): DonneesCkd {
+  const x = (d ?? {}) as Partial<DonneesCkd>;
+  const per = (x.periode ?? {}) as Partial<PeriodeCkd>;
+  return {
+    handle: x.handle ?? null,
+    abonnes: x.abonnes ?? null,
+    j0: x.j0 ?? null,
+    periode: {
+      du: per.du ?? "",
+      au: per.au ?? "",
+      attendus: per.attendus ?? 0,
+      publies: per.publies ?? 0,
+      mesures: per.mesures ?? 0,
+      morts: per.morts ?? 0,
+      bons: per.bons ?? 0,
+      mediane: per.mediane ?? null,
+      moyenne: per.moyenne ?? null,
+      bas: per.bas ?? null,
+      haut: per.haut ?? null,
+      liens_manquants: Array.isArray(per.liens_manquants) ? per.liens_manquants : [],
+      posts: Array.isArray(per.posts) ? per.posts : [],
+    },
+    motifs: Array.isArray(x.motifs) ? x.motifs : [],
+    mediane_ref: { valeur: x.mediane_ref?.valeur ?? null, source: x.mediane_ref?.source ?? "flotte", n_comptes: x.mediane_ref?.n_comptes ?? 0 },
+    seuil_bon_post: { valeur: x.seuil_bon_post?.valeur ?? 0, source: x.seuil_bon_post?.source ?? "repli" },
+    reglages: x.reglages ?? {},
+    recreations: x.recreations ?? 0,
+    autres_comptes: Array.isArray(x.autres_comptes) ? x.autres_comptes : [],
+  };
 }

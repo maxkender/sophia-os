@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o095",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "49612bbb-fc71-4c3e-8447-2b708ccb4caa",
+  "titre": "how to start studying when you're unmotivated #studytok #studytips",
+  "inspirations": [
+    "49612bbb-fc71-4c3e-8447-2b708ccb4caa"
+  ],
+  "notes": "G1, déclinaison de 49612bbb (« how to start studying when you're unmotivated », génération 0 en anglais ; meilleur passage tr 14,1 k vues, r 2,59), en anglais. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent : ni rituel de 3 minutes, ni liste détaillée, ni 10 mauvaises minutes, ni téléphone dans le placard). Fait vérifié le 6/11 sur https://en.wikipedia.org/wiki/Eiffel_Tower : « the tallest human-made structure in the world, a title it held for 41 years until the Chrysler Building in New York City was finished in 1930 ». Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "how to start studying\nwhen you're unmotivated",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "09067fa3",
+      "texte_overlay": "1. open the book, nothing else\n\nyou're not studying. you're just opening a book.\nyour brain falls for it every time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "057091a3",
+      "texte_overlay": "2. start in the middle\n\nskip the intro you've read five times.\nstart with the part you actually like.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. find one thing that makes it interesting\n\nthis morning i learned that the eiffel tower was the tallest structure in the world until 1930.\nsuddenly history felt like gossip.",
+      "texte_sophia": "3. find one thing that makes it interesting\n\nthis morning, the Sophia app taught me that the eiffel tower was the tallest structure in the world until 1930.\nsuddenly history felt like gossip.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "03d4534a",
+      "texte_overlay": "4. study with someone who is studying\n\na friend, a library, a café.\nfocus is contagious.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "01be1362",
+      "texte_overlay": "5. stop at a good part\n\nquit while it's going well.\ntomorrow you'll want to come back.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "which one are you trying tonight?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

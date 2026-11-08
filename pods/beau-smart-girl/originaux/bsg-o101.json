@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o101",
+  "type_bleo": "full_test",
+  "titre": "les questions que je pose à mes grands-parents pour apprendre l'histoire autrement #histoire #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : apprendre l'histoire par sa famille, récit « je ». Accroches écrites : « les questions que je pose à mes grands-parents pour apprendre l'histoire autrement » (retenue : concrète, émouvante, enregistrable), « l'histoire qu'on n'apprend pas à l'école » (écartée : vague), « ce que ma grand-mère m'a appris » (écartée : sans promesse). Fait vérifié le 7/11 sur https://en.wikipedia.org/wiki/Let_them_eat_cake : « there is no evidence that she ever uttered it » ; d'où « sans doute jamais ». Routine du 7/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 5, 7 et 8 de la boîte). Ligne 6 sautée (5c676138, métiers du droit : treize fiches métier à vérifier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "les questions que je pose\nà mes grands-parents\npour apprendre l'histoire autrement",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. c'était comment, ta première année d'école ?\n\nles plumes, l'encre, les blouses.\nun cours d'histoire en direct.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. qu'est-ce qui coûtait le plus cher quand tu avais mon âge ?\n\nla réponse surprend toujours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02d3e38d",
+      "texte_overlay": "3. je leur raconte aussi ce que j'apprends\n\nce matin, j'ai appris que marie-antoinette n'a sans doute jamais dit la phrase sur la brioche.\nmon grand-père ne m'a pas crue.",
+      "texte_sophia": "3. je leur raconte aussi ce que j'apprends\n\nce matin, l'appli Sophia m'a appris que marie-antoinette n'a sans doute jamais dit la phrase sur la brioche.\nmon grand-père ne m'a pas crue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. quelle chanson tu écoutais en boucle ?\n\non l'écoute ensemble.\net les souvenirs arrivent tout seuls.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "5. tu as déjà vu un moment historique ?\n\nune élection, une fête, un premier pas sur la lune à la télé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "pose-leur une question ce week-end.\net raconte-moi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

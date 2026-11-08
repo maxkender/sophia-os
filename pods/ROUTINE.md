@@ -40,6 +40,13 @@ Ce fichier vaut pour tous les podz. Ton `AGENT.md` dit **quoi** livrer et
 
 Le chef des podz tient ce fichier à jour (`pods/chef/AGENT.md`).
 
+**Voie 2 (podz de remakes, depuis le 5/11)** : ton `par_jour` ne vient plus
+de `pods/rythme.json` (il n'y garde que ta pause). L'OS le calcule chaque jour
+sur les comptes de ton label : ce qu'ils postent par jour, et combien de
+jours de posts jamais publiés il reste au compte le plus juste. `npm run
+boite` le donne (ligne « Rythme du jour », avec le pourquoi). Les rattrapages
+du jour s'y ajoutent.
+
 ## 3. Mesurer
 
 - Tous : `npm run etat`, puis `npm run suivi` si ton podz l'a et qu'un passage
@@ -177,9 +184,12 @@ posts neufs de ton compte modèle.
 ### 5.1 Lire la boîte
 
 `npm run boite` donne, dans l'ordre :
+- **les langues à livrer** : celles où ton label a un compte (voir 5.6) ;
+- **le rattrapage** : les posts gagnants de ton label à livrer dans une
+  langue qui en manque, et combien en faire aujourd'hui (5.5) ;
 - **la jauge** : combien de full tests déposer aujourd'hui sur tes
-  `par_jour`, et ce que tu as déjà déposé aujourd'hui (full tests,
-  déclinaisons, remakes du compte modèle) ;
+  `par_jour`, et ce que tu as déjà déposé aujourd'hui (rattrapages, full
+  tests, déclinaisons, remakes du compte modèle) ;
 - **les lignes de la boîte**, dans l'ordre où les décliner. Chaque ligne a sa
   sorte (G1 ou G2), son parent (son id chez toi, `fa-014`, `yp-003`,
   `original-002`…, pour retrouver ses fichiers, et son `parent_contenu_id`),
@@ -190,9 +200,12 @@ posts neufs de ton compte modèle.
 
 1. **Une demande du chef des podz** pas encore faite : d'abord. Elle compte
    dans tes livraisons du jour.
-2. **Les full tests** : autant que la jauge en demande aujourd'hui (« Reste à
+2. **Le rattrapage** : les commandes de `npm run boite`, dans l'ordre,
+   autant que la ligne « Rattrapage » en demande aujourd'hui, **en plus** de
+   ton rythme du jour (5.5).
+3. **Les full tests** : autant que la jauge en demande aujourd'hui (« Reste à
    faire »).
-3. **Le reste de tes `par_jour`**, dans cet ordre :
+4. **Le reste de ton rythme du jour**, dans cet ordre :
    1. **Les posts neufs du compte modèle**, tant qu'il en publie : c'est ce
       qui fait la voie 2. Ta liste : `sources/manifeste.json` (podz 10, 11 et
       13), les posts neufs d'@amayareading (podz 1, `npm run sources`).
@@ -200,10 +213,8 @@ posts neufs de ton compte modèle.
    2. **Les déclinaisons**, dans l'ordre de la boîte, avec les mêmes règles
       qu'en 4.2 : une ligne par thème, un thème décliné une fois par jour,
       les familles « au budget » en dernier.
-   3. Podz 1 : un post existant traduit dans une langue du label qui en
-      manque (`npm run etat`).
-   4. Ni l'un ni l'autre : des full tests en plus.
-4. **Un chantier de ton `AGENT.md`** (les decks à refaire sans UnSwipe du
+   3. Ni l'un ni l'autre : des full tests en plus.
+5. **Un chantier de ton `AGENT.md`** (les decks à refaire sans UnSwipe du
    podz 11, par exemple) se fait comme il le dit, à la place d'une
    déclinaison.
 
@@ -222,7 +233,7 @@ identiques.
   Le parent est une G1 qui a gagné.
 - **Une accroche déjà faite chez nous ne se reprend que depuis la boîte**, en
   déclinaison déclarée. Hors de la boîte, sa famille n'a pas gagné ou a déjà
-  ses déclinaisons. Seule exception : un chantier de ton `AGENT.md` (point 4
+  ses déclinaisons. Seule exception : un chantier de ton `AGENT.md` (point 5
   du 5.2).
 - **Déclarer** : `"type_bleo": "declinaison"` et `"parent_contenu_id": "<l'id
   complet de la boîte>"`, dans `posts/<id>.json` (podz 10, 11 et 13) ou dans
@@ -243,7 +254,38 @@ identiques.
   source : un original, au rang B. `npm run livrer` n'envoie pas `source`
   (podz 10, 11 et 13) ni l'`url` (podz 1).
 
-### 5.5 Le reste
+### 5.5 Le rattrapage
+
+Quand ton label a des comptes dans une langue où manquent ses posts gagnants
+(un compte neuf dans une langue neuve, un post ancien livré avant que la
+langue s'ouvre), l'OS te commande ces posts chaque nuit : les meilleurs
+d'abord, un par famille gagnante, puis les autres. Une commande se ferme
+toute seule quand ses langues sont validées.
+
+- Ne livre que les langues de la commande, pour un post déjà en ligne :
+  - podz 10, 11 et 13 : écris le contenu de ces langues dans `posts/<id>.json`
+    (titre, légende, chaque slide ; vraies vidéos natives aux podz 11 et 13),
+    puis `npm run livrer -- <id> --langues it,es-419 --complement`
+    (`--complement` : sans la langue source, déjà en ligne) ;
+  - podz 1 : traduis `posts/<id>.<langue>.json` comme d'habitude, puis
+    `npm run livrer -- sources <id> --langues hu`.
+- Une commande « déjà déposée, attend la validation » ne se refait pas.
+- Le rattrapage ne déclare pas de `type_bleo` : le post est déjà jugé.
+
+### 5.6 Les langues
+
+- **Tu livres seulement les langues où ton label a un compte** : `npm run
+  boite` les donne (« Langues à livrer ») et `npm run livrer` s'y tient tout
+  seul (il dit ce qu'il laisse de côté). La langue source part toujours avec
+  un post neuf.
+- **Tes langues possibles sont ta déclaration** : la liste `LANGUES` de
+  `atelier/api.ts`, envoyée à l'OS à chaque `npm run boite`. L'attribution
+  des comptes la lit : une langue de la liste peut recevoir des comptes de
+  ton label, même sans post encore. N'y mets que ce que tu sais vraiment
+  faire (polices, captures de l'appli, vraies vidéos natives) ; pour en
+  ajouter une, modifie la liste dans ta PR et dis-le dans ton compte rendu.
+
+### 5.7 Le reste
 
 - **Le remake d'un post neuf du compte modèle** ne déclare rien : c'est un
   remake, le guichet ne le juge pas.
@@ -261,7 +303,8 @@ identiques.
 
 Termine par **3 lignes** dans ta session :
 - ce que tu as déposé : les full tests (accroche) et les déclinaisons
-  (famille, G1 ou G2) ; voie 2, aussi les remakes du compte modèle ;
+  (famille, G1 ou G2) ; voie 2, aussi les remakes du compte modèle et les
+  rattrapages (post et langues) ;
 - ce qui marche chez toi (vues, r) et la jauge (semaines d'avance, part de
   full tests) ;
 - un blocage, s'il y en a un (boîte vide, refus du guichet que tu n'as pas

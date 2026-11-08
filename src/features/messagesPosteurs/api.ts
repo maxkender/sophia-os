@@ -78,8 +78,17 @@ export async function marquerMessageLu(id: string): Promise<void> {
   if (error) throw error;
 }
 
-export async function repondreDouble(messageId: string, reponse: "oui" | "non"): Promise<void> {
-  await invoke<{ ok: boolean }>("ckd", { action: "double_repondre", message_id: messageId, reponse });
+export async function repondreDouble(messageId: string, reponse: "oui" | "non"): Promise<{ handle: string | null }> {
+  const r = await invoke<{ ok: boolean; handle?: string | null; error?: string }>("ckd", { action: "double_repondre", message_id: messageId, reponse });
+  if (r && r.ok === false) throw new Error(r.error ?? "réponse refusée");
+  return { handle: r?.handle ?? null };
+}
+
+/** 0559 : le tarif d'une semaine (un compte) du posteur connecté, pour l'offre Double. */
+export async function monTarifSemaine(): Promise<number | null> {
+  const { data, error } = await supabase.rpc("mon_tarif_semaine");
+  if (error) return null;
+  return data === null || data === undefined ? null : Number(data);
 }
 
 export async function lireMessagesPosteurs(depuis: string): Promise<MessagePosteur[]> {

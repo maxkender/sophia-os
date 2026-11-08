@@ -44,6 +44,7 @@ import {
   phraseProbleme,
   planDecision,
   planFaire,
+  promesseAttente,
   samediDe,
   texteProposition,
   type PlanFaire,
@@ -92,12 +93,15 @@ export function CarteUnique({
   mode,
   surlignee = false,
   vue = "problemes",
+  ancienne = false,
 }: {
   p: Probleme;
   mode: "test" | "on";
   surlignee?: boolean;
   /** 0538 : « problemes » = le quotidien (aucun geste de décision) ; « decisions » = Weekly decisions. */
   vue?: "problemes" | "decisions";
+  /** 6/11 : plus de 7 jours, en bas de ⚡ Urgent avec l'étiquette « ancien ». */
+  ancienne?: boolean;
 }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
@@ -235,6 +239,8 @@ export function CarteUnique({
   });
 
   const nom = p.sujet && p.sujet !== "posteur" && !p.poster_id ? p.hm_nom : p.nom ?? p.contrat_id;
+  // 6/11 : le bot a promis une réponse (« I'm checking this… ») : le temps d'attente, rouge après 6 h.
+  const promesse = promesseAttente(p);
   const phrase = phraseProbleme(p, localeDate());
   const bloque = p.sans_reponse && (attente || !quotidien)
     ? { texte: p.sans_reponse.texte, meta: t(`${C}.sansReponse`, { canal: t(`${P}.messages.canaux.${p.sans_reponse.canal}`), heures: p.sans_reponse.depuis_heures }) }
@@ -259,6 +265,13 @@ export function CarteUnique({
           <Badge variant="outline">{t(`${P}.categories.${p.categorie}`, { defaultValue: p.categorie })}</Badge>
           {sujets.length > 0 && <Badge variant="secondary" data-testid="nb-sujets">{t(`${C}.sujets`, { count: sujets.length })}</Badge>}
           {p.actif === false && <Badge variant="secondary">{t(`${P}.inactif`)}</Badge>}
+          {ancienne && <Badge variant="secondary" data-testid="ancienne">{t(`${P}.ancien`)}</Badge>}
+          {promesse && (
+            <Badge variant="outline" data-testid="promesse"
+              className={promesse.rouge ? "border-red-500 bg-red-600 text-white" : "border-amber-400 text-amber-700"}>
+              {promesse.rouge ? "⏰ " : "⏳ "}{t(`${P}.promesse`, { h: promesse.depuisH })}
+            </Badge>
+          )}
         </div>
 
         <div data-testid="bloque">

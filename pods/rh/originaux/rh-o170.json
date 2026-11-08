@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o170",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "85306b49-7e97-4690-9773-e8b174fb5b2d",
+ "titre": "si je sortais d'école en 2026 sans aucune offre d'emploi, voilà exactement ce que je ferais #jeunediplome #rechercheemploi #emploi #premierjob #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 11 (parent 85306b49), 3e et dernière : accroche mot pour mot, autre plan que rh-o144 et rh-o161. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cc4e9969",
+   "texte_overlay": "si je sortais d'école en 2026\nsans aucune offre d'emploi,\nvoilà exactement ce que je ferais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "07e65dd2",
+   "texte_overlay": "je ferais un tableau\nentreprise, contact, date, réponse. rien ne se perd",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0b99d1f1",
+   "texte_overlay": "je demanderais 3 retours sur mon cv\nà des gens du métier, pas à mes parents",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c323720",
+   "texte_overlay": "je répondrais aux offres dans les 48 h\nles premiers lus ont plus de chances",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f53389cc",
+   "texte_overlay": "je préparerais un sujet à moi pour les entretiens\nperso : 5 minutes par jour à apprendre un truc, et j'ai toujours de quoi parler",
+   "texte_sophia": "je préparerais un sujet à moi pour les entretiens\nperso : 5 minutes par jour sur l'appli Sophia, et j'ai toujours de quoi parler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0d01a77c",
+   "texte_overlay": "je ferais une pause le week-end\nla recherche, c'est un marathon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0d543223",
+   "texte_overlay": "t'es pas en retard.\nt'es en train de commencer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0d9e3856",
+   "texte_overlay": "tu sors d'école dans quel domaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

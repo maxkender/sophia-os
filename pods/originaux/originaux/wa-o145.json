@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o145",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1de032fb-b91d-4072-8de2-71ae87c3bae7",
+ "titre": "habits that help you think more clearly #clarity #focus #selfimprovement #habits #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "1de032fb-b91d-4072-8de2-71ae87c3bae7"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 1de032fb). déclinaison G1 de « habits that help you think more clearly » (parent 1de032fb). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eaa7d63c-9b61-49c6-84d7-486f696f3d39",
+   "texte_overlay": "habits that help you\nthink more clearly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700369164787141921/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6da6ab89-2798-4276-9332-4d5b6c4925cc",
+   "texte_overlay": "morning pages\n\nwrite three pages by hand as soon as you wake up, about anything at all. emptying your head onto paper first thing makes room for clear thoughts all day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700369164787141921/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a41721e0-c837-4b15-9906-a705c1802cbb",
+   "texte_overlay": "one thing at a time\n\nclose every tab and every window except the one you're working in. your brain thinks far more clearly when it isn't quietly tracking ten other things in the background.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700369164787141921/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e435bccf-ad19-4d27-8c3c-7d90670f81ea",
+   "texte_overlay": "walking before deciding\n\nbefore any important decision, go for a fifteen minute walk alone. moving your body loosens tangled thoughts in a way that sitting at a desk never quite does.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700369164787141921/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1b5e167e-924b-47cc-a7f8-1a318a5132d4",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day learning one clear idea: a scientific concept, a moment in history, a principle of art. clear ideas going in make clear thinking come out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700369164787141921/5.jpg",
+   "texte_sophia": "a daily lesson\n\ni used to feel foggy all day. now i spend 5 minutes a day on one lesson in the Sophia app: a scientific idea, a moment in history. clear ideas going in make clear thinking come out."
+  },
+  {
+   "position": 6,
+   "media_id": "891ba526-d1c7-4952-8d97-9317e6b1a85e",
+   "texte_overlay": "sleeping on it\n\nlet any big decision wait at least one night. sleep quietly sorts through information while you rest, and the right answer is often obvious the next morning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700369164787141921/6.jpg"
+  }
+ ]
+}

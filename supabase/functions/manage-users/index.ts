@@ -128,13 +128,11 @@ function resoudrePremierCompte(
  *   { items: [...], par_langue: { fr: [...], de: [...] } }
  * Priorité : file de la langue du poster → file générale (`items`) → choix
  * équilibré (`labelMoinsUtiliseParLangue`).
- * Labels UGC AI VIDEO (ex. `test`) exclus de la file et du fallback — réservés
- * aux créateurs nés d'un HM `hm_ugc_ai_video`.
- * Hook et la marque `ugc-ai-video` ne sont JAMAIS posés sur un créateur.
+ * Les labels manuels (`labels.manuel`, ex. UGCV) sont exclus de la file et du
+ * fallback : jamais tirés, l'admin les pose à la main (page Posters).
+ * Hook n'est JAMAIS posé sur un créateur.
  * UGC slideshow → persona libre, nom + avatar (profil 1:1 si dispo, sinon face)
  * sans métadonnées ; label forcé parmi ceux qui ont des slideshows ugc_compatible.
- * HM `hm_ugc_ai_video` → comptes ugc_ai_video, persona unique (pool partagé),
- * labels = labels HM (`hm_ugc_video_labels`) ; marque = checkmark `comptes.ugc_ai_video`.
  *
  * Application du compte (admin, head_of_ops, DM, HM) à la création d'un compte
  * perso slideshow (create, ensure_compte, ajouter_compte) : on choisit
@@ -394,15 +392,12 @@ async function gererRequete(request: Request): Promise<Response> {
     if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
     const choix = lecture.choix;
 
-    // HM UGC AI VIDEO : ses créateurs naissent sans file labels / sans labels.
-    const hmUgcAiVideo = await estHmUgcAiVideo(supabase, acces);
     // Tout refus tombe AVANT createUser : un choix rejeté ne laisse ni login
     // orphelin ni entrée de File consommée.
     if (
       choix &&
       !choixApplicableAuCompte({
         typeCompte: creerPerso ? "perso" : creerCm ? "cm" : "aucun",
-        ugcAiVideo: hmUgcAiVideo,
       })
     ) {
       return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
@@ -418,14 +413,9 @@ async function gererRequete(request: Request): Promise<Response> {
     let fileItem: FileLabelItem | null = null;
     let fileItemQueue: FileLabelQueued | null = null;
     let personaUgc: PersonaUgcLibre | null = null;
-    let modeUgcAiVideo = false;
     let partsApplications: PartsApplications | null = null;
     if (creerPerso) {
-      if (hmUgcAiVideo) {
-        modeUgcAiVideo = true;
-        personaUgc = await personaUgcLibre(supabase, application.id);
-        if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
-      } else if (choix) {
+      if (choix) {
         // Application choisie : SA File (remise en tête de SA tranche si la
         // création échoue plus bas), puis le choix équilibré parmi ses labels.
         const res = await resoudreChoixCompte(supabase, choix, langue, paysSaisi(body));
@@ -529,10 +519,7 @@ async function gererRequete(request: Request): Promise<Response> {
         const ensemble = [
           ...new Set(languesRecues.length > 0 ? languesRecues : (langue ? [langue] : [])),
         ];
-        const hmVideo =
-          Boolean(body.ugc_ai_video) &&
-          (acces.role === "admin" || acces.role === "directing_manager");
-        const patchHm: Record<string, unknown> = { hm_ugc_ai_video: hmVideo };
+        const patchHm: Record<string, unknown> = {};
         if (ensemble.length > 0) {
           patchHm.nationalite = ensemble[0];
           patchHm.langues = ensemble;
@@ -543,10 +530,8 @@ async function gererRequete(request: Request): Promise<Response> {
           await managerDe(supabase, acces),
         );
         if (rattachement !== undefined) patchHm.manager_id = rattachement;
-        await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
-        if (hmVideo) {
-          const labelIds = normaliserIds(body.ugc_ai_video_label_ids);
-          await remplacerHmUgcVideoLabels(supabase, data.user.id, labelIds);
+        if (Object.keys(patchHm).length > 0) {
+          await supabase.from("profiles").update(patchHm).eq("id", data.user.id);
         }
       } else if (estRoleManager(acces.role) && acces.userId !== "cron") {
         await supabase
@@ -563,7 +548,6 @@ async function gererRequete(request: Request): Promise<Response> {
       persona: boolean;
       labelId: string | null;
       ugc: boolean;
-      ugc_ai_video: boolean;
     } | null = null;
     if (data.user && creerPerso) {
       const postsParJour = normaliserPostsParJour(body.posts_par_jour);
@@ -577,7 +561,7 @@ async function gererRequete(request: Request): Promise<Response> {
           postsParJour,
           personaUgc,
           fileItemQueue,
-          { ugcAiVideo: modeUgcAiVideo, application, partsApplications, pays: paysSaisi(body) },
+          { application, partsApplications, pays: paysSaisi(body) },
         )),
         type_compte: "perso",
       };
@@ -598,7 +582,6 @@ async function gererRequete(request: Request): Promise<Response> {
           persona: false,
           labelId: null,
           ugc: false,
-          ugc_ai_video: false,
         };
       } catch {
         compte = {
@@ -608,7 +591,6 @@ async function gererRequete(request: Request): Promise<Response> {
           persona: false,
           labelId: null,
           ugc: false,
-          ugc_ai_video: false,
         };
       }
     } else if (fileItemQueue) {
@@ -689,7 +671,7 @@ async function gererRequete(request: Request): Promise<Response> {
     if (interdit) return interdit;
     const lecture = lireChoixCompte(body, acces.role);
     if (!lecture.ok) return json({ error: lecture.erreur }, lecture.statut);
-    if (lecture.choix && !choixApplicableAuCompte({ typeCompte, ugcAiVideo: false })) {
+    if (lecture.choix && !choixApplicableAuCompte({ typeCompte })) {
       return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
     }
     await etendreLanguesManager(supabase, acces, langue);
@@ -980,31 +962,6 @@ async function ajouterLangueProfil(
     .eq("id", userId);
 }
 
-async function modeUgcAiVideoPourPoster(
-  supabase: Supabase,
-  acces: { userId: string; role: string },
-  userId: string,
-): Promise<boolean> {
-  if (estRoleManager(acces.role) && acces.userId !== "cron") {
-    return estHmUgcAiVideo(supabase, acces);
-  }
-  if (acces.role === "admin") {
-    const { data: cible } = await supabase
-      .from("profiles")
-      .select("manager_id")
-      .eq("id", userId)
-      .maybeSingle();
-    if (!cible?.manager_id) return false;
-    const { data: hm } = await supabase
-      .from("profiles")
-      .select("hm_ugc_ai_video")
-      .eq("id", cible.manager_id)
-      .maybeSingle();
-    return Boolean(hm?.hm_ugc_ai_video);
-  }
-  return false;
-}
-
 async function creerComptePersoPourPoster(
   supabase: Supabase,
   acces: { userId: string; role: string },
@@ -1018,8 +975,7 @@ async function creerComptePersoPourPoster(
   /** Marché saisi par le HM ; `null` = déduit de la langue par le trigger 0281. */
   pays: string | null = null,
 ): Promise<Response> {
-  const modeUgcAiVideo = await modeUgcAiVideoPourPoster(supabase, acces, userId);
-  if (choix && !choixApplicableAuCompte({ typeCompte: "perso", ugcAiVideo: modeUgcAiVideo })) {
+  if (choix && !choixApplicableAuCompte({ typeCompte: "perso" })) {
     return json({ error: "CHOIX_COMPTE_INCOMPATIBLE" }, 400);
   }
   let fileItem: FileLabelItem | null = null;
@@ -1027,10 +983,7 @@ async function creerComptePersoPourPoster(
   let personaUgc: PersonaUgcLibre | null = null;
   let partsApplications: PartsApplications | null = null;
 
-  if (modeUgcAiVideo) {
-    personaUgc = await personaUgcLibre(supabase, application?.id ?? null);
-    if (!personaUgc) return json({ error: "NO_UGC_PERSONA" }, 409);
-  } else if (choix) {
+  if (choix) {
     // Application choisie : SA File, remise en tête de SA tranche si l'insert échoue.
     const res = await resoudreChoixCompte(supabase, choix, langue, pays);
     if (!res.ok) return res.reponse;
@@ -1068,7 +1021,7 @@ async function creerComptePersoPourPoster(
     postsParJour,
     personaUgc,
     fileItemQueue,
-    { ugcAiVideo: modeUgcAiVideo, application, partsApplications, pays },
+    { application, partsApplications, pays },
   );
   if (!compte.id) return json({ error: "CREATION_COMPTE_ECHOUEE" }, 500);
   if (handleTiktok) {
@@ -1119,7 +1072,6 @@ async function creerCompteCmPourPoster(
       warmup_ends_at: null,
       is_active: true,
       ugc_ai: false,
-      ugc_ai_video: false,
       ugc_persona_id: null,
       ...(pays ? { pays } : {}),
       handle_tiktok: handle || null,
@@ -1241,7 +1193,7 @@ async function ecrireFileLabels(
 }
 
 /**
- * Labels slideshow (ni système ni UGC AI VIDEO), toutes applications. La
+ * Labels slideshow (ni système ni manuel comme UGCV), toutes applications. La
  * colonne historique `labels.application_id` n'est plus lue : elle vaut Sophia
  * pour tout label créé dans l'OS, même « Unswipe seul ». Qui un label sert, c'est
  * `label_applications` (cf. `idsLabelsEligiblesFile`, `labelMoinsUtiliseParLangue`).
@@ -1252,7 +1204,7 @@ async function ecrireFileLabels(
  * créateurs en silence. Lue avant toute écriture de la File : rien n'est perdu.
  */
 async function idsLabelsFileSlideshow(supabase: Supabase): Promise<Set<string>> {
-  const { data, error } = await supabase.from("labels").select("id, slug, nom, ugc_ai_video");
+  const { data, error } = await supabase.from("labels").select("id, slug, nom, manuel");
   if (error) throw new Error(`Labels slideshow : ${error.message}`);
   return new Set(
     (data ?? [])
@@ -1275,24 +1227,23 @@ async function idsLabelsEligiblesFile(
   return new Set(await filtrerPoolParApplication(supabase, [...slideshow], applicationId));
 }
 
-/** Rejette Hook / marque UGC AI VIDEO (et, hors compte vidéo, tout label ugc_ai_video). */
+/** Rejette Hook et les labels manuels (UGCV) : seuls les labels slideshow se posent à la création. */
 async function filtrerLabelsCompte(
   supabase: Supabase,
   labelIds: string[],
-  opts: { ugcAiVideo?: boolean } = {},
 ): Promise<string[]> {
   const ids = [...new Set(labelIds.filter(Boolean))];
   if (ids.length === 0) return [];
   const { data } = await supabase
     .from("labels")
-    .select("id, slug, nom, ugc_ai_video")
+    .select("id, slug, nom, manuel")
     .in("id", ids);
   const byId = new Map((data ?? []).map((l) => [l.id as string, l]));
   const out: string[] = [];
   for (const id of ids) {
     const lab = byId.get(id);
     if (!lab || estLabelInterditCompte(lab)) continue;
-    if (!opts.ugcAiVideo && !estLabelFileSlideshow(lab)) continue;
+    if (!estLabelFileSlideshow(lab)) continue;
     out.push(id);
   }
   return out;
@@ -1305,7 +1256,7 @@ async function filtrerLabelsCompte(
  *   2) sinon file générale
  *   3) sinon choix équilibré parmi les labels qui servent l'application (ne
  *      consomme pas les files ; cf. `labelMoinsUtiliseParLangue`)
- * Une entrée non éligible en tête (système, UGC AI VIDEO, ou label qui ne sert
+ * Une entrée non éligible en tête (système, manuel comme UGCV, ou label qui ne sert
  * pas l'application de la tranche selon `label_applications`) est sautée :
  * retirée, pas assignée. L'ensemble éligible est lu AVANT toute écriture.
  */
@@ -1398,78 +1349,6 @@ async function managerDe(
     .eq("id", acces.userId)
     .maybeSingle();
   return (data?.manager_id as string | null) ?? null;
-}
-
-/** Hiring manager marqué UGC AI VIDEO (ses créateurs = marque vidéo + labels HM). */
-async function estHmUgcAiVideo(
-  supabase: Supabase,
-  acces: { role: string; userId: string },
-): Promise<boolean> {
-  if (!estRoleManager(acces.role) || acces.userId === "cron") return false;
-  const { data } = await supabase
-    .from("profiles")
-    .select("hm_ugc_ai_video")
-    .eq("id", acces.userId)
-    .maybeSingle();
-  return Boolean(data?.hm_ugc_ai_video);
-}
-
-function normaliserIds(raw: unknown): string[] {
-  if (!Array.isArray(raw)) return [];
-  return [
-    ...new Set(
-      raw.map((x) => String(x ?? "").trim()).filter((id) => id.length > 0),
-    ),
-  ];
-}
-
-/** Remplace les labels thématiques UGC AI VIDEO d’un HM. */
-async function remplacerHmUgcVideoLabels(
-  supabase: Supabase,
-  profileId: string,
-  labelIds: string[],
-): Promise<void> {
-  await supabase.from("hm_ugc_video_labels").delete().eq("profile_id", profileId);
-  if (labelIds.length === 0) return;
-  // Ne garder que les labels du pool UGC AI VIDEO, hors Hook / marque système.
-  const { data: ok } = await supabase
-    .from("labels")
-    .select("id, slug, nom, ugc_ai_video")
-    .in("id", labelIds)
-    .eq("ugc_ai_video", true);
-  const valides = (ok ?? [])
-    .filter((r) => !estLabelSysteme(r))
-    .map((r) => r.id as string);
-  if (valides.length === 0) return;
-  await supabase.from("hm_ugc_video_labels").insert(
-    valides.map((label_id) => ({ profile_id: profileId, label_id })),
-  );
-}
-
-/** Labels thématiques du HM (pas la marque système — c’est un checkmark compte). */
-async function labelsPourCreateurUgcVideo(
-  supabase: Supabase,
-  posterId: string,
-): Promise<string[]> {
-  const ids = new Set<string>();
-
-  const { data: profil } = await supabase
-    .from("profiles")
-    .select("manager_id")
-    .eq("id", posterId)
-    .maybeSingle();
-  const managerId = (profil?.manager_id as string | null) ?? null;
-  if (managerId) {
-    const { data: hmLabs } = await supabase
-      .from("hm_ugc_video_labels")
-      .select("label_id")
-      .eq("profile_id", managerId);
-    for (const r of hmLabs ?? []) {
-      if (r.label_id) ids.add(r.label_id as string);
-    }
-  }
-
-  return filtrerLabelsCompte(supabase, [...ids], { ugcAiVideo: true });
 }
 
 /**
@@ -1798,7 +1677,7 @@ async function resoudreChoixCompte(
   if (mode.mode === "label") {
     const { data: label, error } = await supabase
       .from("labels")
-      .select("id, slug, nom, ugc_ai_video")
+      .select("id, slug, nom, manuel")
       .eq("id", mode.labelId)
       .maybeSingle();
     if (error) throw new Error(`Label choisi : ${error.message}`);
@@ -2136,7 +2015,6 @@ async function avatarDepuisFacePersona(
  * Compte créé avec warmup NON démarré (started/ends null).
  * Label posé tout de suite ; identité instantanée.
  * UGC slideshow : ugc_ai + persona + nom persona + avatar face stripée.
- * UGC AI VIDEO : ugc_ai_video + persona + labels HM (thématiques).
  */
 /** Quota d'assignation journalier : 1–3, défaut 2 à la création. */
 function normaliserPostsParJour(n: unknown): number {
@@ -2156,7 +2034,6 @@ async function preparerCompte(
   /** Entrée admin à restaurer si l'insert échoue (pas le fallback label). */
   fileItemQueue: FileLabelQueued | null = null,
   opts: {
-    ugcAiVideo?: boolean;
     application?: ApplicationRow | null;
     /** Répartition choisie par l'admin ; absente = clé omise de l'insert (NULL en base). */
     partsApplications?: PartsApplications | null;
@@ -2174,22 +2051,13 @@ async function preparerCompte(
   persona: boolean;
   labelId: string | null;
   ugc: boolean;
-  ugc_ai_video: boolean;
 }> {
-  const ugcAiVideo = Boolean(opts.ugcAiVideo && personaUgc);
-  // Slideshow UGC et vidéo sont exclusifs.
-  const ugc = !ugcAiVideo && Boolean(fileItem?.ugc && personaUgc);
-  const avecPersona = Boolean((ugc || ugcAiVideo) && personaUgc);
-  const labelIdsVideo = ugcAiVideo
-    ? await labelsPourCreateurUgcVideo(supabase, posterId)
-    : [];
-  const labelIdSlideshow = !ugcAiVideo && fileItem?.label_id
+  const ugc = Boolean(fileItem?.ugc && personaUgc);
+  const avecPersona = Boolean(ugc && personaUgc);
+  const labelId = fileItem?.label_id
     ? (await filtrerLabelsCompte(supabase, [fileItem.label_id]))[0] ?? null
     : null;
-  const labelId = ugcAiVideo
-    ? (labelIdsVideo[0] ?? null)
-    : labelIdSlideshow;
-  const aRestaurer = ugcAiVideo ? null : fileItemQueue;
+  const aRestaurer = fileItemQueue;
 
   const { data: compte, error } = await supabase
     .from("comptes")
@@ -2204,7 +2072,6 @@ async function preparerCompte(
       warmup_ends_at: null,
       is_active: true,
       ugc_ai: ugc,
-      ugc_ai_video: ugcAiVideo,
       ugc_persona_id: avecPersona ? personaUgc!.id : null,
       persona_nom: avecPersona ? personaUgc!.nom.trim() : null,
       ...(opts.partsApplications ? { parts_applications: opts.partsApplications } : {}),
@@ -2220,24 +2087,11 @@ async function preparerCompte(
       persona: false,
       labelId,
       ugc,
-      ugc_ai_video: ugcAiVideo,
     };
   }
 
   let labelNom: string | null = null;
-  if (ugcAiVideo) {
-    if (labelIdsVideo.length > 0) {
-      await supabase.from("compte_labels").insert(
-        labelIdsVideo.map((lid) => ({ compte_id: compte.id, label_id: lid })),
-      );
-      const { data: lab } = await supabase
-        .from("labels")
-        .select("nom, slug")
-        .eq("id", labelIdsVideo[0]!)
-        .maybeSingle();
-      labelNom = (lab?.nom as string | undefined) ?? (lab?.slug as string | undefined) ?? null;
-    }
-  } else if (labelId) {
+  if (labelId) {
     await supabase.from("compte_labels").insert({ compte_id: compte.id, label_id: labelId });
     const { data: lab } = await supabase
       .from("labels")
@@ -2282,7 +2136,6 @@ async function preparerCompte(
       .update({
         persona_nom: personaUgc.nom.trim(),
         ugc_ai: ugc,
-        ugc_ai_video: ugcAiVideo,
         ugc_persona_id: personaUgc.id,
       })
       .eq("id", compte.id);
@@ -2294,7 +2147,6 @@ async function preparerCompte(
     persona: applique,
     labelId,
     ugc,
-    ugc_ai_video: ugcAiVideo,
   };
 }
 

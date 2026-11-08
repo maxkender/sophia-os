@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o065",
+  "type_bleo": "full_test",
+  "titre": "how i take notes when the teacher talks way too fast #studytok #studytips #school #notetaking",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 7/11 : 2 full tests sur 6). Accroche jamais faite chez nous. Accroches écrites : « how i take notes when the teacher talks way too fast » (retenue : une galère précise que tout le monde vit), « note-taking tricks for fast teachers » (écartée : plate), « i used to miss half of every lesson » (écartée : vague). Six gestes vrais : des abréviations à moi, les mots-clés plutôt que des phrases, une ligne vide quand je rate un passage, compléter le soir même, me tester sur ces notes (place micabo, slide 6), demander à la fin du cours ce qui manque. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne (reprise d'un original de plus d'une semaine : la banque n'en a plus de propres). Slides de personnes : les 13 dernières photos libres, puis des photos les moins utilisées d'originaux de plus d'une semaine (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1a55fc54",
+      "texte_overlay": "how i take notes when\nthe teacher talks way too fast",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "aa1803bc",
+      "texte_overlay": "my own abbreviations.\nw/ = with, → = leads to, ≠ = different from.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bf7a74cf",
+      "texte_overlay": "key words, never full sentences.\ni rebuild the sentences later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4db8fcf0",
+      "texte_overlay": "missed something? i leave an empty line\nand keep going. no panicking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "edd6e949",
+      "texte_overlay": "same evening, i fill the empty lines.\nfrom the book or a friend's notes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "61cf576b",
+      "texte_overlay": "then i quiz myself on them.\nif i can answer, the notes are complete.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ee13d9a8",
+      "texte_overlay": "still a gap? i ask the teacher\nat the end of the next class. one precise question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

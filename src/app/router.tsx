@@ -12,6 +12,9 @@ import { Redirection } from "@/features/auto/Redirection";
 import {
   DecisionsPage,
   FaqPage,
+  ReponsesOfficiellesPage,
+  ParrainagePage,
+  RetirerSlackPage,
   LogsPage,
   NeedsYouAncienPage,
   NeedsYouPage,
@@ -39,10 +42,14 @@ import { AdminDocumentsPage } from "@/pages/admin/AdminDocumentsPage";
 import { AdminCommentMastersHubPage } from "@/pages/admin/AdminCommentMastersHubPage";
 import { GUIDE_NOTION_HM, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { RedirectionGuideNotion } from "@/features/documents/RedirectionGuideNotion";
+import { PageFaqPosteur } from "@/features/officielles/PageFaqPosteur";
+import { PageProblemesV2 } from "@/features/problemes/v2/PageProblemesV2";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
+import { AdminUgcIaPage } from "@/pages/admin/AdminUgcIaPage";
+import { AdminMotionPage } from "@/pages/admin/AdminMotionPage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminRepartitionPage } from "@/pages/admin/AdminRepartitionPage";
 import { AdminChainePage } from "@/pages/admin/AdminChainePage";
@@ -126,6 +133,9 @@ export function AppRouter() {
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
+            <Route path="/admin/auto/reponses-officielles" element={<ReponsesOfficiellesPage />} />
+            <Route path="/admin/auto/parrainage" element={<ParrainagePage />} />
+            <Route path="/admin/auto/retirer-slack" element={<RetirerSlackPage />} />
             <Route path="/admin/auto/logs" element={<LogsPage />} />
             {/* Les anciennes adresses redirigent : aucun lien cassé. */}
             {Object.entries(ANCIENNES_ADRESSES).map(([de, vers]) => (
@@ -151,6 +161,7 @@ export function AppRouter() {
                 <Route path="/admin" element={<AdminPilotagePage />} />
               {/* 3/11 : les règles des bots (feedback → règles), admin seulement. */}
               <Route path="/admin/auto/regles-bots" element={<ReglesBotsPage />} />
+              <Route path="/admin/auto/problemes-v2" element={<PageProblemesV2 />} />
               <Route path="/admin/minuit" element={<AdminMinuitPage />} />
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
@@ -166,6 +177,10 @@ export function AppRouter() {
               <Route path="/admin/assignation-sources" element={<Navigate to="/admin/sources" replace />} />
               <Route path="/admin/reproduisibles" element={<Navigate to="/admin/slideshows" replace />} />
               <Route path="/admin/bibliotheque" element={<AdminBibliothequePage />} />
+              {/* 5/11 : UGC IA, une réaction TikTok refaite par un persona (Genjutsu), hors podz. */}
+              <Route path="/admin/ugc-ia" element={<AdminUgcIaPage />} />
+              {/* 6/11 : Motion, vidéos explicatives en papier découpé dans chaque langue (moteur Claude Code), hors podz. */}
+              <Route path="/admin/motion" element={<AdminMotionPage />} />
               <Route path="/admin/tests" element={<AdminTestsPage />} />
               <Route path="/admin/banc-relecture" element={<AdminBancRelecturePage />} />
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
@@ -205,7 +220,7 @@ export function AppRouter() {
             <Route path="/createur/contrat-papier" element={<Navigate to="/calendrier" replace />} />
             {/* Prompt 21, D3 : les anciennes pages Guide et FAQ renvoient vers le guide Notion. */}
             <Route path="/createur/guide" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
-            <Route path="/createur/faq" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
+            <Route path="/createur/faq" element={<PageFaqPosteur />} />
           </Route>
         </Route>
 

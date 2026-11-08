@@ -1,0 +1,220 @@
+{
+ "id": "fa-007-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7684191394503609633",
+  "vues": 261700,
+  "accroche": "5 Ways To Be Unrecognisable In 3 Months"
+ },
+ "titre": {
+  "en": "5 Ways To Be Unrecognisable In 3 Months",
+  "de": "5 Wege, in 3 Monaten nicht wiederzuerkennen"
+ },
+ "legendes": {
+  "en": "5 Ways To Be Unrecognisable In 3 Months #selfimprovement #learnontiktok #selfmastery",
+  "de": "5 Wege, in 3 Monaten nicht wiederzuerkennen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "remplace fa-007 (carte UnSwipe retirée). L'étape 1 « LEARN TO BE BORED » redevient une étape normale avec sa vraie vidéo YouTube native ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 3). Livré dans les langues où le label a un compte (en, de).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WAYS TO BE"
+      }
+     ],
+     [
+      {
+       "t": "UNRECOGNISABLE",
+       "bronze": true
+      }
+     ],
+     "IN 3 MONTHS"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 ",
+       "bronze": true
+      },
+      {
+       "t": "WEGE, IN"
+      }
+     ],
+     "3 MONATEN",
+     [
+      {
+       "t": "NICHT WIEDERZUERKENNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO BE BORED"
+    ],
+    "video": {
+     "id": "LKPwKFigF8U",
+     "titre": "Why Boredom is Good For You",
+     "chaine": "Veritasium",
+     "vues": "7.4M views",
+     "date": "8 years ago",
+     "duree": "7:22",
+     "avatar": "https://yt3.ggpht.com/7vCbvtCqtjQ3YLgsJt7Y952MQV1sBvhllSCSxHP8_sVZdcPCBrITfhkN2RdyCuwPnsByq-1GoA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN, DICH ZU LANGWEILEN"
+    ],
+    "video": {
+     "id": "CDIt3IbVgek",
+     "titre": "Dafür ist Langeweile gut! | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "226.813 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "14:36",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "MASTER YOUR MORNINGS"
+    ],
+    "video": {
+     "id": "LQ8JOsc3-wU",
+     "titre": "Anatomy of a Perfect Morning Routine",
+     "chaine": "Med School Insiders",
+     "vues": "3.9M views",
+     "date": "6 years ago",
+     "duree": "9:40",
+     "avatar": "https://yt3.ggpht.com/u-HzltuKtE_y3KqRS_ea2ThRDENTgFzDuRFQHPBVoZcmnriMBWc5u-1xHLh1QA9peeMs8HIS=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MEISTERE DEINE",
+     "MORGENROUTINE"
+    ],
+    "video": {
+     "id": "Qmn7gEtWXAE",
+     "titre": "Ich habe die perfekte Routine getestet (wissenschaftlich bewiesen)",
+     "chaine": "Robin Fübbeker",
+     "vues": "165.717 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:13",
+     "avatar": "https://yt3.ggpht.com/UM36K7GbLmK5DbcLphrX3ANtu_QNuU35VS-9TPRY9e8auAN791kRu0nyCAb4oxohRHCHgeJ6gQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "FEED YOUR MIND"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "FÜTTERE DEINEN GEIST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TRAIN YOUR VOICE"
+    ],
+    "video": {
+     "id": "HT9_VxN8iSE",
+     "titre": "My Daily Routine For A Deeper, Richer, Stronger Voice (Only 9 Mins/Day!)",
+     "chaine": "Vinh Giang",
+     "vues": "984K views",
+     "date": "1 year ago",
+     "duree": "9:44",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "TRAINIERE DEINE STIMME"
+    ],
+    "video": {
+     "id": "cEB9RdFX-5g",
+     "titre": "Tiefe Stimme bekommen mit dieser starken Übung + Trick",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "356.769 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "5:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "GET STRONG"
+    ],
+    "video": {
+     "id": "UhF7uQWQWXc",
+     "titre": "So You Want Actual Strength.",
+     "chaine": "RandomAdviceDude",
+     "vues": "42K views",
+     "date": "1 year ago",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/WjYTJFTzkvFbDwaqv4FCainKS-Hc38uSt_-mD2fDluiO3DQZlF_wPfad9q9jykbR560eA9vdpw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WERDE STARK"
+    ],
+    "video": {
+     "id": "89F7Gcpi_Rk",
+     "titre": "Trainingsplan für Anfänger im Fitnessstudio (3-4x pro Woche)",
+     "chaine": "Coach Stef",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

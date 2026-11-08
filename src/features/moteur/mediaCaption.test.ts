@@ -14,12 +14,11 @@ import {
 } from "./mediaCaption";
 
 describe("estLabelSysteme / hook", () => {
-  it("reconnaît hook et ugc-ai-video (slug et nom, casse ignorée)", () => {
+  it("reconnaît hook (slug et nom, casse ignorée), et lui seul", () => {
     expect(estLabelSysteme({ slug: SLUG_HOOK })).toBe(true);
-    expect(estLabelSysteme({ slug: "ugc-ai-video" })).toBe(true);
     expect(estLabelSysteme({ slug: "HOOK" })).toBe(true);
     expect(estLabelSysteme({ nom: "Hook" })).toBe(true);
-    expect(estLabelSysteme({ nom: "UGC AI VIDEO" })).toBe(true);
+    expect(estLabelSysteme({ slug: "ugcv" })).toBe(false);
     expect(estLabelSysteme({ slug: "alpha-male" })).toBe(false);
     expect(estLabelHook({ slug: "Hook" })).toBe(true);
     expect(estLabelHook({ slug: "hook" })).toBe(true);

@@ -25,6 +25,26 @@ export interface DeclarationBleo {
   parentContenuId: string | null;
 }
 
+/**
+ * Les langues qu'un podz déclare savoir livrer (0654, `LANGUES` de son atelier).
+ * `null` : rien de déclaré dans ce corps (la déclaration en base reste). Une
+ * liste vide ou un code mal formé est refusé : il fermerait des langues à
+ * l'attribution des comptes.
+ */
+export function lireLanguesDeclarees(brut: unknown): string[] | null | { erreur: string } {
+  if (brut === undefined || brut === null) return null;
+  if (!Array.isArray(brut) || brut.length === 0 || brut.length > 40) {
+    return { erreur: "langues : une liste de 1 à 40 codes de langue (« fr », « pt-BR », « es-419 »)" };
+  }
+  const langues: string[] = [];
+  for (const l of brut) {
+    const code = typeof l === "string" ? l.trim() : "";
+    if (!/^[a-z]{2,3}(-[A-Za-z0-9]{2,4})?$/.test(code)) return { erreur: `langues : code invalide « ${String(l)} »` };
+    if (!langues.some((x) => x.toLowerCase() === code.toLowerCase())) langues.push(code);
+  }
+  return langues;
+}
+
 /** Lit `type_bleo` et `parent_contenu_id` du corps ; seule la forme est vérifiée ici. */
 export function lireDeclarationBleo(body: Record<string, unknown>): DeclarationBleo | { erreur: string } {
   const brut = body.type_bleo;

@@ -8,6 +8,7 @@ const api = vi.hoisted(() => ({
   mesMessages: vi.fn(),
   marquerMessageLu: vi.fn(),
   repondreDouble: vi.fn(),
+  monTarifSemaine: vi.fn(),
   lireMessagesPosteurs: vi.fn(),
   creerCompteDouble: vi.fn(),
   lireReglagesMessages: vi.fn(),
@@ -41,23 +42,41 @@ describe("PopupMessagesPosteur", () => {
     await i18n.changeLanguage("fr");
   });
 
-  it("l'offre Double, en anglais, Yes envoie oui", async () => {
+  it("l'offre Double (0559) : texte de Max avec le tarif, Yes, I'm in envoie oui et confirme le @", async () => {
+    await i18n.changeLanguage("en");
     api.mesMessages.mockResolvedValue([offre]);
-    api.repondreDouble.mockResolvedValue(undefined);
+    api.monTarifSemaine.mockResolvedValue(10);
+    api.marquerMessageLu.mockResolvedValue(undefined);
+    api.repondreDouble.mockResolvedValue({ handle: "lea.new" });
     rendu(<PopupMessagesPosteur />);
-    expect(await screen.findByText(/second TikTok account/)).toBeInTheDocument();
-    expect(screen.getByText(/Answer before Wednesday 4 November/)).toBeInTheDocument();
-    fireEvent.click(screen.getByRole("button", { name: "Yes" }));
+    expect(await screen.findByText(/You've been selected for a second account/)).toBeInTheDocument();
+    expect(screen.getByTestId("popup-double-texte")).toHaveTextContent("your weekly pay goes from $10 to $20.");
+    await waitFor(() => expect(api.marquerMessageLu).toHaveBeenCalledWith("m1"));
+    fireEvent.click(screen.getByRole("button", { name: "Yes, I'm in" }));
     await waitFor(() => expect(api.repondreDouble).toHaveBeenCalledWith("m1", "oui"));
-    expect(await screen.findByText(/second account is being set up/)).toBeInTheDocument();
+    expect(await screen.findByText(/Your second account @lea.new is on your dashboard/)).toBeInTheDocument();
   });
 
-  it("No envoie non", async () => {
+  it("No thanks envoie non ; « I'll decide later » referme sans répondre ; traduit en français", async () => {
+    await i18n.changeLanguage("en");
     api.mesMessages.mockResolvedValue([offre]);
-    api.repondreDouble.mockResolvedValue(undefined);
-    rendu(<PopupMessagesPosteur />);
-    fireEvent.click(await screen.findByRole("button", { name: "No" }));
+    api.monTarifSemaine.mockResolvedValue(7);
+    api.marquerMessageLu.mockResolvedValue(undefined);
+    api.repondreDouble.mockResolvedValue({ handle: null });
+    const { unmount } = rendu(<PopupMessagesPosteur />);
+    fireEvent.click(await screen.findByRole("button", { name: "No thanks, keep one account" }));
     await waitFor(() => expect(api.repondreDouble).toHaveBeenCalledWith("m1", "non"));
+    expect(await screen.findByText(/No problem at all/)).toBeInTheDocument();
+    unmount();
+
+    rendu(<PopupMessagesPosteur />);
+    fireEvent.click(await screen.findByRole("button", { name: "I'll decide later" }));
+    await waitFor(() => expect(screen.queryByTestId("popup-double")).toBeNull());
+
+    await i18n.changeLanguage("fr");
+    rendu(<PopupMessagesPosteur />);
+    expect(await screen.findByText(/Tu as été sélectionné/)).toBeInTheDocument();
+    expect(screen.getByTestId("popup-double-texte")).toHaveTextContent("passe de $7 à $14.");
   });
 
   it("le Kill en bandeau", async () => {
@@ -74,7 +93,7 @@ describe("PopupMessagesPosteur", () => {
     api.marquerMessageLu.mockResolvedValue(undefined);
     rendu(<PopupMessagesPosteur />);
     expect(await screen.findByTestId("popup-recreation")).toHaveTextContent("@ana.new");
-    expect(screen.queryByTestId("offre-double")).toBeNull();
+    expect(screen.queryByTestId("popup-double")).toBeNull();
     expect(screen.queryByRole("button", { name: /close/i })).toBeNull();
     fireEvent.click(screen.getByRole("button", { name: "Got it" }));
     await waitFor(() => expect(api.marquerMessageLu).toHaveBeenCalledWith("r"));

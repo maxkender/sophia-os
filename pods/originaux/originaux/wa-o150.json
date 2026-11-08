@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o150",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bb966480-4b0e-4597-848a-3b355c945df5",
+ "titre": "5 habits that will pull you out of your dopamine addiction #dopaminedetox #habits #focus #selfimprovement #screentime",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "45fe7bca-56ca-4030-919f-e0523a07c153"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 45fe7bca). déclinaison G1 de « 5 habits that will pull you out of your dopamine addiction » (parent bb966480). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "efef002c-6e94-4844-b1ff-3cb59734ff4c",
+   "texte_overlay": "5 habits that will pull you out\nof your dopamine addiction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662402009240177934/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5b67443e-4ec5-4a22-b4a1-91d530dac68a",
+   "texte_overlay": "one screen free morning\n\nkeep one morning a week completely free of screens until noon. it feels strange at first, then it quietly becomes the calmest and clearest part of your week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662402009240177934/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9cf5f9ec-dd42-48a7-9a19-c01e5dbb2203",
+   "texte_overlay": "phone in a drawer\n\nkeep your phone in a drawer while you work, not on the desk. out of sight really does mean out of mind, and your focus lasts so much longer than you'd expect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662402009240177934/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "78ec72f1-8e7d-46c3-a0ca-2a42710ce1d9",
+   "texte_overlay": "boredom on purpose\n\nsit for ten minutes a day with nothing to do and nothing to look at. boredom is uncomfortable at first, then your brain starts creating its own ideas again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662402009240177934/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f521a05a-6f08-4a37-9e2d-6c7436a45dc3",
+   "texte_overlay": "learn instead of scroll\n\nwhen you catch yourself scrolling, swap it for 5 minutes of learning: a planet, a painting, a moment in history. a real reward slowly replaces the empty one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662402009240177934/5.jpg",
+   "texte_sophia": "learn instead of scroll\n\nwhen i catch myself scrolling, i swap it for 5 minutes of learning. the Sophia app turns it into one short lesson a day, and a real reward slowly replaced the empty one."
+  },
+  {
+   "position": 6,
+   "media_id": "9a658dc3-5fef-46fc-b952-a986825d1c94",
+   "texte_overlay": "slow hobbies\n\npick a slow hobby like knitting, drawing or gardening. rewards that take time to arrive teach your brain to enjoy patience again, slowly, one day at a time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662402009240177934/6.jpg"
+  }
+ ]
+}

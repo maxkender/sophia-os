@@ -1,51 +1,55 @@
 import { useQuery } from "@tanstack/react-query";
-import { Outlet } from "react-router-dom";
+import { PageSure } from "@/components/erreurs/PageSure";
 import { useTranslation } from "react-i18next";
 import {
+  Siren,
+  BadgeCheck,
+  CircleAlert,
+  ClipboardCheck,
+  Link2,
+  MessageSquareWarning,
   AtSign,
   BarChart3,
   BookOpen,
-  Boxes,
   CalendarDays,
-  ChartColumn,
-  CircleAlert,
-  ClipboardCheck,
   Columns2,
-  Flag,
   FlaskConical,
-  Gauge,
+  Flag,
   Gavel,
+  Gauge,
+  LineChart,
+  Inbox,
+  LayoutDashboard,
+  ListChecks,
+  ListTodo,
+  type LucideIcon,
   Gift,
   GitBranch,
-  Globe2,
   Images,
-  Inbox,
   Languages,
-  LayoutDashboard,
   Library,
-  LineChart,
-  Link2,
-  ListChecks,
   ListOrdered,
-  ListTodo,
   MessageCircle,
-  MessageSquareWarning,
   MessagesSquare,
+  Workflow,
+  ChartColumn,
+  Clapperboard,
+  Film,
   MoonStar,
   PenLine,
+  Boxes,
   Radar,
   Scale,
   Send,
   Settings,
   Shuffle,
-  Siren,
   SlidersHorizontal,
   Tags,
-  type LucideIcon,
-  UserPlus,
   Users,
+  UserPlus,
   Wallet,
-  Workflow,
+  Globe2,
+  UserMinus,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
@@ -76,6 +80,9 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   disputes: Flag,
   payroll: Wallet,
   faq: MessageCircle,
+  officielles: BadgeCheck,
+  parrainage: Gift,
+  slack: UserMinus,
   logs: ListTodo,
 };
 
@@ -194,6 +201,18 @@ export function AdminLayout() {
               label: t("nav.bibliotheque"),
               icon: Images,
               description: t("navDesc.bibliotheque"),
+            },
+            {
+              to: "/admin/ugc-ia",
+              label: t("nav.ugcIa"),
+              icon: Clapperboard,
+              description: t("navDesc.ugcIa"),
+            },
+            {
+              to: "/admin/motion",
+              label: t("nav.motion"),
+              icon: Film,
+              description: t("navDesc.motion"),
             },
           ],
         },
@@ -378,7 +397,7 @@ export function AdminLayout() {
       ])}
     >
       <BandePause />
-      <Outlet />
+      <PageSure />
     </AppShell>
   );
 }

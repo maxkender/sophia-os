@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o096",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "4cfe5e3e-58dd-4f00-ba54-82d5ba9b15e0",
+  "titre": "les green flags d'une fille vraiment cultivée #culture #pourtoi",
+  "inspirations": [
+    "4cfe5e3e-58dd-4f00-ba54-82d5ba9b15e0"
+  ],
+  "notes": "G1, déclinaison de 4cfe5e3e (« les green flags d'une fille vraiment cultivée », génération 0 en français ; meilleur passage tr 7,2 k vues, r 1,33), en français. cta C (le défi de 7 jours en slide 2). Items neufs (rien de repris du parent : ni « je ne sais pas », ni livre en cours, ni conseils sans juger, ni changer d'avis). Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "les green flags\nd'une fille vraiment cultivée",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0f057bec",
+      "texte_overlay": "1. elle te prête ses livres\n\net elle te demande ce que tu en as pensé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "16a06d13",
+      "texte_overlay": "2. elle est curieuse de ton métier\n\nmême s'il n'a rien à voir avec le sien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41a74286",
+      "texte_overlay": "3. elle cite sans frimer\n\nune phrase, un auteur, au bon moment.\njamais pour avoir raison.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. elle s'émerveille encore\n\nd'un coucher de soleil, d'une église de village, d'une étymologie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "5. elle écrit à la main\n\nune carte, une liste, un mot sur un livre offert.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3615b305",
+      "texte_overlay": "tu en coches combien ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

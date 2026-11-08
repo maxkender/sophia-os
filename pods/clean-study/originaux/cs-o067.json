@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o067",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "d27e21e1-0a9f-40ad-85b6-25b8b3bfe78e",
+  "titre": "tiny daily habits that quietly put you ahead at school #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "d27e21e1-0a9f-40ad-85b6-25b8b3bfe78e"
+  ],
+  "notes": "Déclinaison G2 de d27e21e1 (notre cs-o037 en G1 : r 3,51 en allemand, 4,9 k vues), ligne 1 de la boîte. Même promesse (de petites habitudes qui rendent plus malin et donnent de l'avance à l'école), autres mots : « tiny daily habits that quietly put you ahead at school ». Habitudes neuves, aucune de cs-o037 (une question par cours, expliquer à voix haute, test du dimanche, documentaire, lien au réel, devoirs le jour même) : 10 pages de lecture par jour, un mot nouveau par jour, expliquer à un ami, noter ses questions de la journée, chercher une chose qui intrigue, se tester sur la leçon de la veille avant le cours (place micabo, slide 7). Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne (reprise d'un original de plus d'une semaine : la banque n'en a plus de propres). Slides de personnes : les 13 dernières photos libres, puis des photos les moins utilisées d'originaux de plus d'une semaine (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f7a5a106",
+      "texte_overlay": "tiny daily habits that\nquietly put you ahead at school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "00b9a45b",
+      "texte_overlay": "10 pages a day of anything you like.\nyour vocabulary grows without you noticing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "02f95a37",
+      "texte_overlay": "one new word a day.\nand you use it at least once that day.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02fc0100",
+      "texte_overlay": "explain one thing you learned to a friend.\nteaching it is the fastest way to really get it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "04272416",
+      "texte_overlay": "a note on your phone for every question you have during the day.\nthen you actually look them up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0700beb0",
+      "texte_overlay": "5 minutes on one thing you're curious about.\ncurious people remember more.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9c5eb8e4",
+      "texte_overlay": "before class, quiz yourself on yesterday's lesson.\nyou walk in already one step ahead.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

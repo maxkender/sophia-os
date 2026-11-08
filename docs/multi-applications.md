@@ -26,7 +26,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     l'import, un contenu entre dans le pool d'une application si son score
     atteint le seuil le plus exigeant de ses labels, ou s'il entre en tier A
     ou mieux. Réglable dans Pilotage → Labels. Sophia n'a pas de seuil.
-  - Labels système (`hook`, `ugc-ai-video`) : aucune application.
+  - Label système (`hook`) et labels manuels (`labels.manuel`, ex. UGCV, jamais tirés) : aucune application.
   - Démarrer Unswipe = créer des labels **dédiés** cochés Unswipe seul. Ne pas
     retirer Sophia d'un label existant : tous ses comptes passeraient en 100 %
     Unswipe.

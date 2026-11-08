@@ -81,6 +81,7 @@ import {
   ORDRE_ACTIONS,
   pourcentage,
   REGLAGES,
+  donneesSures,
   reglageDuNiveau,
   valeurEffective,
   valeurEnSaisie,
@@ -530,7 +531,7 @@ function ChiffresControle({ type, controle, liste }: { type: TypeControle; contr
   let repartition: string;
   if (type === "jeudi") {
     const motifs = new Map<string, number>();
-    for (const p of liste) for (const m of p.donnees.motifs) motifs.set(m, (motifs.get(m) ?? 0) + 1);
+    for (const p of liste) for (const m of p.donnees?.motifs ?? []) motifs.set(m, (motifs.get(m) ?? 0) + 1);
     repartition = [...motifs.entries()]
       .sort((a, b) => b[1] - a[1])
       .map(([m, n]) => `${n} ${t(`ckd.motifs.${m}`)}`)
@@ -771,7 +772,8 @@ function LigneProposition({
 }) {
   const { t } = useTranslation();
   const date = useDate();
-  const d = p.donnees;
+  // 6/11 : une décision posée à la main n'a pas de période : données complétées (plus de page blanche).
+  const d = donneesSures(p.donnees);
   const per = d.periode;
   const tiktok = lienTiktok(d.handle);
   const manques = per.attendus - per.publies;

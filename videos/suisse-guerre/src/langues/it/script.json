@@ -1,0 +1,181 @@
+{
+  "langue": "it",
+  "voix": {
+    "id": "32vqZVYOe7sQVGys0soJ",
+    "nom": "Roberto",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.2
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "La Svizzera non combatte una guerra contro un altro paese da oltre 200 anni. Perché?",
+      "reperes": [
+        {
+          "mot": "Perché?",
+          "image": 70
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "Primo, le Alpi. Più di metà del paese è fatta di montagne, e invaderla sarebbe un incubo.",
+      "reperes": []
+    },
+    {
+      "id": "S3",
+      "texte": "Secondo, nel 1815 le grandi potenze europee hanno riconosciuto ufficialmente la sua neutralità.",
+      "reperes": [
+        {
+          "mot": "neutralità.",
+          "image": 80
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "Ma neutrale non vuol dire debole. La maggior parte degli uomini presta servizio nell'esercito e tiene il fucile a casa.",
+      "reperes": [
+        {
+          "mot": "fucile",
+          "image": 106
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "Nella Seconda guerra mondiale hanno minato i loro tunnel alpini con l'esplosivo. Invadi, e non vinci… niente.",
+      "reperes": [
+        {
+          "mot": "l'esplosivo.",
+          "image": 98,
+          "ou": "fin"
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "E sono utili a tutti, con banche, diplomazia e negoziati di pace a Ginevra.",
+      "reperes": [
+        {
+          "mot": "diplomazia",
+          "image": 46
+        },
+        {
+          "mot": "Ginevra.",
+          "image": 82
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Attaccare la Svizzera costa troppo. Lasciarla in pace rende di più.",
+      "reperes": [
+        {
+          "mot": "Lasciarla",
+          "image": 46
+        },
+        {
+          "mot": "più.",
+          "image": 78
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Rispondi a tutte queste domande con l'app Sophia."
+  },
+  "legende": "Perché la Svizzera non è mai in guerra? 🇨🇭 La risposta è più furba di quanto pensi. #svizzera #storia #geografia #culturagenerale #imparacontiktok",
+  "appli": {
+    "categorie": "ATTUALITÀ",
+    "lectures": "100 k letture",
+    "jours": "GIORNI",
+    "commencer": "Inizia",
+    "onglets": [
+      "Home",
+      "Biblioteca",
+      "Percorso",
+      "Ripasso",
+      "Profilo"
+    ],
+    "titre": "Perché la Svizzera non è mai in guerra?",
+    "description": "Neutrale dal 1815 e armata fino ai denti: la Svizzera non fa guerre, ma si prepara ogni giorno.",
+    "lecon": {
+      "sousTitre": "Neutrale dal 1815 e armata fino ai denti.",
+      "paragraphes": [
+        [
+          {
+            "t": "Da oltre 200 anni la Svizzera non combatte guerre contro altri paesi. Non per fortuna, ma per scelta: le sue montagne trasformano ogni invasione in una trappola, la sua neutralità è "
+          },
+          {
+            "m": "riconosciuta ufficialmente dal 1815"
+          },
+          {
+            "t": ", e "
+          },
+          {
+            "m": "la maggior parte degli uomini serve in un esercito di milizia"
+          },
+          {
+            "t": "."
+          }
+        ],
+        [
+          {
+            "t": "Nel 1940 il generale Guisan progettò di ritirare tutto l'esercito nelle Alpi, il famoso “Réduit”, pronto a "
+          },
+          {
+            "m": "far saltare i tunnel alpini"
+          },
+          {
+            "t": " in caso di invasione."
+          }
+        ]
+      ],
+      "continuer": "Continua"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} DI 2",
+      "bravo": "Esatto!",
+      "questions": [
+        {
+          "q": "Da quando la neutralità svizzera è riconosciuta ufficialmente?",
+          "options": [
+            "1648",
+            "1815",
+            "1914",
+            "1945"
+          ],
+          "bonne": 1,
+          "fait": "Congresso di Vienna, 1815."
+        },
+        {
+          "q": "Cosa ha minato la Svizzera durante la Seconda guerra mondiale?",
+          "options": [
+            "Le sue banche",
+            "I suoi tunnel alpini",
+            "I suoi laghi",
+            "Le sue cantine di formaggio"
+          ],
+          "bonne": 1,
+          "fait": "Gottardo e Sempione erano pronti a saltare."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lezione completata!",
+      "score": "2/2 risposte corrette",
+      "serie": "GIORNI DI FILA",
+      "xp": "XP GUADAGNATI",
+      "suivant": "PROSSIMA",
+      "suivantTitre": "Perché Sisifo non si arrese mai?",
+      "bouton": "Prossima lezione"
+    }
+  }
+}

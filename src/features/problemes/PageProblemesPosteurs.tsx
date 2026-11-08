@@ -7,11 +7,14 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 
+import { SectionSure } from "@/components/erreurs/SectionSure";
+import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
+
 import { CarteUnique } from "./CarteUnique";
 import { StatsBots } from "./FeedbackBot";
 import { BlocBots } from "./BlocBots";
 import { lireModeProblemes, lireProblemes, passerMaintenant, type Probleme } from "./api";
-import { aDiagnosticOuAction, messageEnAttente, ongletProblemes } from "./logique";
+import { aDiagnosticOuAction, carteAncienne, ongletProblemes, trierCartes } from "./logique";
 
 const P = "problemes";
 /** 0538 : Problèmes = le quotidien ; les décisions sont dans Weekly decisions. */
@@ -21,14 +24,6 @@ const ICONE: Record<OngletQuotidien, string> = { bots: "🤖", urgent: "⚡" };
 
 const quand = (iso: string | null | undefined) =>
   iso ? new Date(iso).toLocaleString(localeDate(), { dateStyle: "short", timeStyle: "short" }) : "—";
-
-/** L'ordre dans un onglet : ceux qui attendent une réponse d'abord, puis les plus anciens. */
-function trierCartes(liste: readonly Probleme[]): Probleme[] {
-  return [...liste].sort((a, b) =>
-    Number(messageEnAttente(b)) - Number(messageEnAttente(a))
-    || Number(b.niveau === "urgent") - Number(a.niveau === "urgent")
-    || a.created_at.localeCompare(b.created_at));
-}
 
 /**
  * 5/11 : la page Problèmes = le quotidien (messages sans réponse, mot de passe,
@@ -65,7 +60,7 @@ export function PageProblemesPosteurs() {
   const ongletDe = (p: Probleme) => ongletProblemes(p);
   const compte = (o: OngletQuotidien) => tous.filter((p) => ongletDe(p) === o).length;
   const aDecider = (lu.data ?? []).filter((p) => p.rituel).length;
-  const visibles = trierCartes(tous.filter((p) => ongletDe(p) === onglet));
+  const visibles = trierCartes(tous.filter((p) => ongletDe(p) === onglet), onglet);
   const modeActuel = mode.data ?? "test";
 
   // « ?carte=<id> » : le bon onglet, la carte surlignée.
@@ -86,6 +81,10 @@ export function PageProblemesPosteurs() {
           {t(`${P}.modeTest`)}
         </p>
       )}
+      <SectionSure nom="Cohérence"><BandeauCoherence /></SectionSure>
+      <Link to="/admin/auto/problemes-v2" className="block rounded-md border border-primary/40 bg-primary/5 p-2 text-sm font-medium text-primary" data-testid="lien-v2">
+        ✨ Essayer la nouvelle page Problèmes (en français, « Ton point du jour ») →
+      </Link>
       <div className="flex flex-wrap items-center gap-2">
         <StatsBots />
         <div className="ml-auto flex gap-2">
@@ -116,7 +115,11 @@ export function PageProblemesPosteurs() {
           <p className="text-xs text-muted-foreground">{t(`${P}.onglets.aide.${onglet}`)}</p>
           {onglet === "bots" && <BlocBots />}
           {visibles.length === 0 && !lu.isLoading && <p className="text-sm text-muted-foreground">{t(`${P}.rien`)}</p>}
-          {visibles.map((p) => <CarteUnique key={p.id} p={p} mode={modeActuel} surlignee={p.id === carte} />)}
+          {visibles.map((p) => (
+            <SectionSure key={p.id} nom={p.nom ?? p.hm_nom ?? p.resume}>
+              <CarteUnique p={p} mode={modeActuel} surlignee={p.id === carte} ancienne={onglet === "urgent" && carteAncienne(p)} />
+            </SectionSure>
+          ))}
         </div>
       )}
 

@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { PageSure } from "@/components/erreurs/PageSure";
 import { useTranslation } from "react-i18next";
 import { CalendarDays, FilePenLine, Gauge, LayoutDashboard, Link2, Target, UserPlus, Users } from "lucide-react";
 
@@ -100,7 +100,7 @@ export function HiringLayout() {
         <BoutonGuideNotion url={GUIDE_NOTION_HM} titre={t("documents.voirRegles")} sousTitre={t("documents.guideNotionHm")} />
       }
     >
-      <Outlet />
+      <PageSure />
     </AppShell>
   );
 }

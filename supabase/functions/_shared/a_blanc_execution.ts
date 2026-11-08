@@ -97,7 +97,7 @@ export type MotifNuit =
   | "warmup_non_demarre"
   | "warmup_en_cours"
   | "cm"
-  | "ugc_video"
+  | "ugcv"
   | "videos_uniquement";
 
 export interface SlideSimulee {
@@ -479,13 +479,13 @@ export async function executerAssignationABlanc(
     langue: texte(c.langue),
     quota: nombre(c.posts_par_jour),
     actif: Boolean(c.is_active),
-    ugc: Boolean(c.ugc_ai) && !c.ugc_ai_video,
+    ugc: Boolean(c.ugc_ai) && !c.ugcv,
   };
   const motifs: MotifNuit[] = [];
   const laNuit: ResultatABlanc["laNuit"] = { servirait: true, motifs };
   if (!c.is_active) motifs.push("inactif");
   if (c.type_compte === "cm") motifs.push("cm");
-  if (c.ugc_ai_video) motifs.push("ugc_video");
+  if (c.ugcv) motifs.push("ugcv");
   if (c.videos_uniquement) motifs.push("videos_uniquement");
   const warmup = texte(c.warmup_ends_at);
   if (!warmup) motifs.push("warmup_non_demarre");
@@ -499,7 +499,7 @@ export async function executerAssignationABlanc(
   // Pré-filtre du drain : la nuit ne sert que les comptes dont les POSTS du
   // jour (hors test, coquilles comprises) sont sous le quota — AVANT la purge
   // que fait ensuite assignerCompteJour.
-  if (c.is_active && !motifs.some((m) => m === "cm" || m === "ugc_video" || m === "videos_uniquement")) {
+  if (c.is_active && !motifs.some((m) => m === "cm" || m === "ugcv" || m === "videos_uniquement")) {
     try {
       const sousQuota = await listerComptesSousQuota(supabase, args.jour, { ignorerWarmup: true });
       if (!sousQuota.some((x) => x.id === args.compteId)) {

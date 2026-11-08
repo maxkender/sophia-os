@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o116",
+ "type_bleo": "full_test",
+ "titre": "the secret stories behind 5 famous paintings #art #arthistory #smartgirl #museum #darkacademia",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 2/3 : accroche jamais faite chez nous (« famous paintings » absent de donnees/label.json). Accroches écrites : « the secret stories behind 5 famous paintings » (retenue : curiosité, art, faits vérifiables), « paintings everyone should know » (écartée : liste à consommer), « what museum guides never tell you » (écartée : promesse floue). Faits vérifiés : la Joconde volée au Louvre en 1911 par Vincenzo Peruggia ; La Nuit étoilée peinte en 1889 depuis l'asile de Saint-Rémy ; La Jeune Fille à la perle est une « tronie », pas un portrait ; plusieurs versions du Cri de Munch ; La Grande Vague de Hokusai est une estampe sur bois, le mont Fuji au fond. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d3a10c13",
+   "texte_overlay": "the secret stories behind\n5 famous paintings",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ff727ee1",
+   "texte_overlay": "1. mona lisa\n\nstolen from the louvre in 1911.\nthe theft made her\nworld famous.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a2bada56",
+   "texte_overlay": "2. the starry night\n\nvan gogh painted it from his\nroom in an asylum, in 1889.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fada3c53",
+   "texte_overlay": "3. girl with a pearl earring\n\nnot a portrait: a study of\nan imaginary face.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f6ebac3f",
+   "texte_overlay": "4. the scream\n\nmunch made several versions,\nin paint and in pastel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8f1eb7ea",
+   "texte_overlay": "5. the great wave\n\na woodblock print.\nlook closely: mount fuji\nis in the background.",
+   "texte_sophia": "5. the great wave\n\na woodblock print, mount fuji\nin the background. i learn a\nstory like this every day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "db34280a",
+   "texte_overlay": "which one surprised you?\nsave this for your next\nmuseum visit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

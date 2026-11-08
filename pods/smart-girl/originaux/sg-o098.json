@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o098",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "caf0fca9-b69d-48e0-80b6-d8b3cf8e2479",
+ "titre": "the surprising stories behind 6 words you say every day #etymology #words #smartgirl #vocabulary #funfacts",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "2747e20a-fdc8-463e-853b-cf96f914ef57"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 1 de la boîte (parent caf0fca9, langue source en) : accroche reformulée (« 6 everyday words with surprising origins » → « the surprising stories behind 6 words you say every day »), même promesse. Six mots neufs face au parent (nice, muscle, clue, disaster, companion, robot). Étymologies vérifiées : nice < latin nescius ; muscle < musculus, petite souris ; clue < clew, la pelote de Thésée ; disaster < italien disastro, mauvais astre ; companion < com + panis ; robot < tchèque robota, pièce R.U.R. de Čapek (1920). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b4b9cf8f",
+   "texte_overlay": "the surprising stories behind\n6 words you say every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5bab4427",
+   "texte_overlay": "nice\n\nfrom latin \"nescius\": ignorant.\nfor centuries it meant\nfoolish, not kind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "09803867",
+   "texte_overlay": "muscle\n\nfrom latin \"musculus\":\nlittle mouse. a flexing muscle\nlooked like one moving.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2e601876",
+   "texte_overlay": "clue\n\nfrom \"clew\", a ball of thread.\ntheseus followed one out\nof the labyrinth.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0d74c8bd",
+   "texte_overlay": "every word hides a story\nlike this. learn one a day\nand language gets magical.",
+   "texte_sophia": "every word hides a story.\ni learn one a day on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3183f8aa",
+   "texte_overlay": "disaster\n\nfrom italian \"disastro\":\na bad star. bad luck was\nblamed on the planets.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "02482e5c",
+   "texte_overlay": "companion\n\nfrom latin \"com\" + \"panis\":\nsomeone you share bread with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4357dba1",
+   "texte_overlay": "robot\n\nfrom czech \"robota\":\nforced labour. first used\nin a 1920 play by karel čapek.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "a84f4ff5",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  }
+ ]
+}

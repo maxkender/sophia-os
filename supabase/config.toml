@@ -56,9 +56,6 @@ verify_jwt = false
 [functions.assignation-contenu]
 verify_jwt = false
 
-[functions.assignation-ugc-video]
-verify_jwt = false
-
 [functions.backfill-musique]
 verify_jwt = false
 
@@ -109,6 +106,9 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.hub-posteurs]
+verify_jwt = false
+
+[functions.parrainage]
 verify_jwt = false
 
 [functions.hub-slack-cohorte]
@@ -214,6 +214,9 @@ verify_jwt = false
 [functions.slack-relier]
 verify_jwt = false
 
+[functions.slack-retrait]
+verify_jwt = false
+
 [functions.nudges]
 verify_jwt = false
 
@@ -244,10 +247,11 @@ verify_jwt = false
 [functions.traduire-test]
 verify_jwt = false
 
-[functions.ugc-persona]
+[functions.ugc-ia]
 verify_jwt = false
 
-[functions.ugc-reactions]
+[functions.motion]
+# Page Motion (JWT admin revérifié par la fonction) ou moteur Motion (en-tête x-motion-jeton, 0663).
 verify_jwt = false
 
 [functions.upscale-assignes]

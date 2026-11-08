@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o120",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9cfe8a01-99cb-4972-aeda-bdfa1e0e6403",
+ "titre": "things to do alone that feel scary at first (but change you) #confidence #solodate #smartgirl #selfimprovement #growth",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "c464c730-0eff-45bc-a507-c6458343b7a8"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 3 de la boîte (parent 9cfe8a01, langue source en) : accroche reformulée (« 10/10 uncomfortable things to do alone (but it gets easier) » → « things to do alone that feel scary at first (but change you) »), autre que sg-o107. Items neufs (cours d'art seule, week-end seule, comptoir et chef, opéra seule, dix minutes de silence). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f0153e23",
+   "texte_overlay": "things to do alone that feel\nscary at first (but change you)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c14d20f4",
+   "texte_overlay": "1. take an art class where\nyou know no one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f215d998",
+   "texte_overlay": "2. a weekend trip, just you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c205916c",
+   "texte_overlay": "3. eat at the counter and\nchat with the chef",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "86eb6d39",
+   "texte_overlay": "4. learn something new\nevery night\n\na painting, a war, a planet.",
+   "texte_sophia": "4. learn something new\nevery night\n\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f19e20a2",
+   "texte_overlay": "5. go to the opera alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7e857ed9",
+   "texte_overlay": "6. sit in silence for\nten minutes. no phone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3dbbdc7b",
+   "texte_overlay": "save this and try one\nthis month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/8.jpg"
+  }
+ ]
+}

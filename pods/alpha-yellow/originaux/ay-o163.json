@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o163",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0e403712-f50a-4641-83e8-c9a274192311",
+ "titre": "How to become the calmest guy in any room #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "0e403712-f50a-4641-83e8-c9a274192311"
+ ],
+ "notes": "cta B : avant/après, slide 5, sur une image sans visage. Couverture 23a7e2b7. déclinaison G1 de la ligne 5 de la boîte (0e403712, notre full test ay-o091 qui a gagné : es 21,8 k r 3,88) : accroche du parent mot pour mot. Items neufs, aucun repris d'ay-o091. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "23a7e2b7",
+   "texte_overlay": "How to become the calmest\nguy in any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Expect small things to go wrong. The train will be late, the coffee will spill. When you expect bumps, they stop shocking you, and you stay steady while others panic.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Speak last in a heated discussion. Let everyone else get their emotions out first. The calm voice at the end is usually the one people listen to most.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Don't take things personally. A rude driver, a short reply, a bad mood at work. Most of it is about their day, not about you. Letting it go keeps you calm.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Give your mind a quiet place to go. I do five minutes a day of history, art or science, and it's become my reset button whenever things get loud and stressful.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It's become my reset button whenever things get loud and stressful.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Train your body hard a few times a week. A tired body after a good workout leaves little energy for anxiety. Physical calm turns into mental calm.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Cut caffeine after lunch. Too much coffee looks a lot like anxiety: fast heart, quick words, restless hands. Your afternoon self will be noticeably calmer.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Prepare for the hard moments before they happen. A difficult meeting, a tough conversation. Thinking it through the night before means you walk in already calm.",
+   "media_id": "f4bd619d"
+  }
+ ]
+}

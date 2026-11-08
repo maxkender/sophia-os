@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o153",
+ "type_bleo": "full_test",
+ "titre": "weekend habits that make monday feel easy #weekend #habits #selfimprovement #productivity #routine",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "7681e503-398e-45b2-95c7-18419fd82ea0"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 7681e503). full test BLEO : accroche jamais faite (format « weekend habits »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "97a3f230-6043-4f59-a3e1-702d58431afa",
+   "texte_overlay": "weekend habits that make\nmonday feel easy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7588261505632603405/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2fb1ca07-8ca1-4403-9bf9-989e3c3f00e6",
+   "texte_overlay": "a real lie in\n\nsleep in on saturday, but get up at a normal time on sunday. keeping sunday close to your usual rhythm makes monday morning feel much less like a shock.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7588261505632603405/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d73188de-61ff-4763-bf03-ab8597e4de86",
+   "texte_overlay": "an afternoon outside\n\nspend at least one afternoon outdoors, far from screens: a hike, a park, a long walk. fresh air on the weekend recharges you far more than any series on a screen ever will.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7588261505632603405/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c3ffab65-5ea2-42ed-b0b0-a76fd09a4d4f",
+   "texte_overlay": "one small reset\n\nclean your space and wash your clothes before sunday evening. walking into monday with everything ready removes half the stress before the week even begins.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7588261505632603405/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "df79a0dc-98d9-47b2-b395-19d9ec770f27",
+   "texte_overlay": "something new to think about\n\nspend 5 minutes on sunday learning something completely unrelated to work: a myth, a planet, a painter. a curious mind starts the whole week feeling lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7588261505632603405/3.jpg",
+   "texte_sophia": "something new to think about\n\nspend 5 minutes on sunday learning something unrelated to work: a myth, a planet, a painter. the Sophia app turns it into one short lesson a day, and a curious mind starts the week lighter."
+  },
+  {
+   "position": 6,
+   "media_id": "fdcf3a29-55c2-44a0-8d8e-117c5bc0f748",
+   "texte_overlay": "plan just three things\n\nwrite down the three things that matter most this week. a short list feels possible, and finishing it gives you a real, satisfying sense of progress by friday.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7588261505632603405/6.jpg"
+  }
+ ]
+}

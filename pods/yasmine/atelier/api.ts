@@ -5,7 +5,7 @@
 export const POD = "remakes_yasmine";
 /** Le compte refait : « that girl / studytok », gros succès de la rentrée de juillet. */
 export const COMPTE_SOURCE = "yasminespixels";
-/** Les langues livrées : le français, puis l'espagnol, l'allemand et le turc (langues de micabo, 23/10). */
+/** Les langues livrées : le français, puis l'espagnol, l'allemand et le turc (langues de micabo, 23/10). Déclarées à l'OS (0654) : l'attribution des comptes les lit, n'y mets que ce que tu sais vraiment faire. */
 export const LANGUES = ["fr", "en", "es", "de", "it", "pt", "tr"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "fr";
@@ -23,6 +23,24 @@ export async function appelPod<T = Record<string, unknown>>(corps: Record<string
   const json = (await r.json().catch(() => ({ ok: false, error: `HTTP ${r.status}` }))) as T & { ok: boolean; error?: string };
   if (!r.ok && json.ok !== false) return { ...json, ok: false, error: `HTTP ${r.status}` };
   return json;
+}
+
+/**
+ * Les langues du podz vues par l'OS (0654). Il déclare `LANGUES` (l'attribution
+ * des comptes la lit) et l'OS rend celles à livrer : les langues où le label a
+ * un compte actif. `null` sans jeton (essai) ou si l'OS ne répond pas : on
+ * livre alors `LANGUES` comme avant.
+ */
+export async function languesDuLabel(): Promise<{ a_livrer: string[] | null; comptes: Record<string, number> } | null> {
+  if (!process.env.POD_JETON) return null;
+  try {
+    const r = await appelPod<{ a_livrer?: string[] | null; comptes?: Record<string, number> }>({ action: "langues", langues: [...LANGUES] });
+    if (!r.ok) throw new Error(r.error);
+    return { a_livrer: r.a_livrer ?? null, comptes: r.comptes ?? {} };
+  } catch (e) {
+    console.warn(`langues de l'OS indisponibles (${e instanceof Error ? e.message : String(e)}) : toutes les langues de LANGUES`);
+    return null;
+  }
 }
 
 /** Repères de la veille (`npm run veille`) : un post qui vaut preuve dans la niche. */

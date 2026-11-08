@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o118",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "dc5c89ea-290c-4bb4-974a-1a2612f0bc34",
+ "titre": "skills that never go out of style for women #timeless #elegance #smartgirl #skills #etiquette",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "d175b6b6-554a-4ce6-b18e-977101819d58"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent dc5c89ea, langue source en) : accroche reformulée (« timeless skills every woman should learn » → « skills that never go out of style for women »), même promesse. Le parent est notre sg-o073 ; savoir-faire neufs (dresser une table, un mot de remerciement dans la semaine, recoudre un bouton, indiquer un chemin, porter un toast). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "52edcd16",
+   "texte_overlay": "skills that never go out\nof style for women",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aa2997d0",
+   "texte_overlay": "1. setting a table properly\n\nfork left, knife and\nspoon right.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f9f24f28",
+   "texte_overlay": "2. a thank-you note within\na week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1554cc4c",
+   "texte_overlay": "3. sewing a button back on",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7fe9e0a0",
+   "texte_overlay": "4. giving clear directions\n\nleft at the bakery, then\nthe second street.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e5cfe39a",
+   "texte_overlay": "5. a one-minute toast\n\none memory, one wish,\nglasses up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f459e154",
+   "texte_overlay": "6. knowing a little history\n\ntrade one scroll a day for\na story from the past.",
+   "texte_sophia": "6. knowing a little history\n\ni trade one scroll a day for\n5 minutes on an app like\nSophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c68cfbcc",
+   "texte_overlay": "which one do you have?\nsave this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/8.jpg"
+  }
+ ]
+}

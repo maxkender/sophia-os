@@ -15,16 +15,22 @@ identifiants par email. Ce document décrit le contrat entre les deux.
   ajoute un numéro (`anab@`, puis `anab1@`, `anab2@`…) et le site envoie le
   login renvoyé par l'OS ;
 - premier compte perso, labels, persona, référence — comme une création admin ;
-- **langue de publication = langue du pays** (`LANGUE_PAR_PAYS`), pas la langue
-  des emails choisie sur le formulaire ;
+- **langue de publication = langue du pays** (`langueDuPays` :
+  `LANGUE_PAR_PAYS`, es-419 / pt-BR pour l'Amérique latine comme les comptes
+  de l'OS ; Belgique et Luxembourg en `fr`, Suisse en `de` ; sinon la langue la
+  plus fréquente des comptes du pays dans l'OS ; sinon `en`), pas la langue des
+  emails choisie sur le formulaire ;
 - **pays du compte** : envoyé à manage-users seulement quand la langue ne
   désigne pas un seul marché (en, ar, ru…), comme le front
   (`paysAEnvoyer`) ; sinon le trigger `comptes_pays_defaut` le déduit ;
 - applications : Sophia seule = chemin historique ; UnSwipe seule =
   `{ unswipe: 100 }` ; les deux = `{ sophia: 50, unswipe: 50 }` ;
-- **ouverture du pays et langue = le HM** dont `profiles.zone_recrutement`
-  couvre le pays et qui gère la langue (`profiles.langues`) ; sans lui, le pays
-  est fermé ;
+- **ouverture du pays = l'OS, point** (décision du 06/11) : un pays est ouvert
+  au site si et seulement s'il a une zone de paie active dans l'OS
+  (`zones_paie_pays`, `retire_at` nul). Ni la zone d'une HM ni `hm_pays`
+  n'ouvrent ou ne ferment plus rien. Un pays retiré est fermé (Portugal,
+  02/11) ; un pays sans HM est ouvert (Canada). La HM de la zone (zone de
+  recrutement, sinon `hm_pays`) n'est plus qu'une information ;
 - **rattachement = la cohorte Ruul** (décision du 17/10) : les posters du site
   n'ont pas de HM. `profiles.manager_id` pointe vers le profil « RUUL cohort »,
   dont l'id est dans le réglage `hub_posteurs` (`{"cohorte_ruul_id": …}`).
@@ -58,8 +64,8 @@ Refus (le site les affiche sur la fiche, sans réessayer) :
 
 | Code | Sens |
 |---|---|
-| `zone_non_ouverte` (422) | Aucun HM ne couvre le pays : zone pas encore dans l'OS. |
-| `langue_non_geree` (422) | Un HM couvre le pays mais pas sa langue (ex. Danemark → `da`). Ajouter la langue au HM. |
+| `zone_non_ouverte` (422) | Le pays n'a pas de zone de paie active dans l'OS (`zones_paie_pays`). L'ajouter (ou le remettre) là pour l'ouvrir. |
+| `sans_rattachement` (422) | Pas de cohorte Ruul configurée et pas de HM pour le pays. |
 | `pays_inconnu` (422) | Pays illisible. |
 | `creation_refusee : …` (422) | manage-users a refusé (ex. pas de label pour l'application). |
 | `creation_en_cours` (409) | Un appel précédent est en route ; réessayer après 5 min. |
@@ -77,10 +83,16 @@ d'identifiants).
 | Action | Entrée | Sortie |
 |---|---|---|
 | `ping` | — | `{ ok, version }` |
-| `zones` | — | `{ ok, ouverts: [{ pays_code, langue, hm_id }], fermes: [{ pays_code, raison, langue }], inconnus }` |
-| `creer_posteur` | `hub_id, prenom, nom, email_perso, pays_code, pays_nom, applications, start_monday` (le reste est ignoré) | `{ ok, existed, profile_id, compte_id, email_os, password, langue, manager: { id, prenom, nom, email } }` |
+| `zones` | — | `{ ok, ouverts: [{ pays_code, langue, langue_os, zone, hm_id }], fermes: [{ pays_code, raison, langue }], inconnus }` : `ouverts` = tous les pays à zone de paie active ; `langue_os` = la langue du pays est connue (pas l'anglais par défaut) et des comptes actifs publient dans cette langue (bouton « Accept all valid » du site) |
+| `creer_posteur` | `hub_id, prenom, nom, email_perso, pays_code, pays_nom, applications, start_monday`, `ref` facultatif (code de parrainage) (le reste est ignoré) | `{ ok, existed, profile_id, compte_id, email_os, password, langue, manager: { id, prenom, nom, email } }` |
 | `posts_semaine` | `profile_ids` (≤ 500), `lundi` | `{ ok, rows: [{ profile_id, prevus, publies, manques, dernier_post_at, is_active }] }` |
 | `stats_pays` | — | `{ ok, by_langue: [{ langue, actifs }] }` |
+| `candidature` | `email, ref` (code `?ref=` gardé depuis la page creators) | `{ ok, relie, parrain_id?, invitation_id? }` : arrête les relances de parrainage (0561) |
+
+Parrainage par email (0561) : l'OS demande au site d'envoyer les emails au filleul
+(`POST HUB_EMAIL_URL`, en-tête `x-hub-secret`, `{ action: "envoyer_email", to, from_name, subject, html, text, tags, unsubscribe_url }`,
+réponse `{ ok, message_id }`). Le site renvoie ouvert / cliqué / rebond à
+`functions/v1/parrainage` (`{ action: "evenement", message_id, type }`, même en-tête).
 
 `posts_semaine` (RPC `hub_posts_semaine`) : prévus = passages planifiés de la
 semaine hors brouillon et hors rappels ; manqués = planifiés avant aujourd'hui

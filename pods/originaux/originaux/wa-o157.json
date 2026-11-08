@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o157",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cca0db00-ec9a-46ea-8292-5e2db42406dd",
+ "titre": "5 bizarre hobbies that will make you the most intelligent person in any room #intelligence #selfimprovement #learning #hobbies #curiosity",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "c73210ad-80f8-457f-babb-c83834bd7fab"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, c73210ad). déclinaison G1 de « 5 bizarre hobbies that will make you the most intelligent person in any room » (parent cca0db00, famille née de wa-o072). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c35112af-0cd8-42e6-83c4-2756b0254088",
+   "texte_overlay": "5 bizarre hobbies that will\nmake you the most intelligent\nperson in any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483854294781198/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "baaca40d-553a-406b-b6b7-85b251907091",
+   "texte_overlay": "collecting old coins\n\ncollect a few old coins and research where each one came from. every coin is a small window into an empire, a war or a long forgotten trade route across the sea.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483854294781198/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b5791489-8943-4dbc-99e4-9499014773ca",
+   "texte_overlay": "learning bird calls\n\nlearn to recognise ten bird calls near where you live. it trains your ears and your memory, and you'll start noticing a whole world most people never hear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483854294781198/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "300db3ed-9b6f-4f99-904a-09343eb27698",
+   "texte_overlay": "a daily odd lesson\n\nspend 5 minutes a day on one lesson in something unusual: ancient law, volcano science, the history of maps. odd knowledge makes you surprisingly interesting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483854294781198/3.jpg",
+   "texte_sophia": "a daily odd lesson\n\ni spend 5 minutes a day on one lesson in something unusual: ancient law, volcano science, old maps. i do it with the Sophia app, one lesson a day, and odd knowledge makes you interesting."
+  },
+  {
+   "position": 5,
+   "media_id": "9805e9c5-2277-4b88-8fad-e41481e4cc80",
+   "texte_overlay": "solving cryptic crosswords\n\ntry one cryptic crossword every single week. the clues bend language in clever ways, and slowly cracking them teaches your mind to think around corners.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483854294781198/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "94fbb7aa-3235-4bae-b1d0-d6b9d3a4eb58",
+   "texte_overlay": "sketching buildings\n\nsketch one building a week from life. drawing makes you really look at architecture, and you'll slowly start to see history hidden in every street you walk down.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483854294781198/6.jpg"
+  }
+ ]
+}

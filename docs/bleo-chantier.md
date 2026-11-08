@@ -373,6 +373,11 @@ modifié, aucune fonction Edge redéployée) :
 | `0647_bleo_remplacants_hors_plans_a_venir` | D52 : le vivier de `bleo_remplacants` exclut les contenus prévus pour le compte dans un plan suivi (dernier run fini sans erreur) des `meme_contenu_jours` suivants | Appliquée le 5/11 à 9 h 46 |
 | `0648_bleo_plan_ui_generation` | `bleo_plan_ui` ajoute `generation` et `type_bleo`. Page Plan : badge « G1 Déclinaison » ou « Full test » à côté de la catégorie, et filtre « Origine du contenu » (déclinaisons, full tests, autres). Affichage seulement | Appliquée le 5/11 à 10 h 30 |
 | `0649_bleo_contenus_ui_image_sans_scan` | La fiche d'une famille tombait en « statement timeout » pour un admin connecté : `bleo_contenus_ui` joignait `media_library` sur une expression (`CASE … ::uuid`) que la RLS empêche d'utiliser comme condition d'index. Postgres relisait les ~32 000 médias pour chaque contenu en évaluant `media_dans_slides_du_poster`, ce qui faisait plus de 25 s pour une famille, contre 8 s de délai. L'identifiant du média est maintenant calculé à part (sous-requête LIMIT 1) : même résultat (hash identique sur 151 lignes), 0,3 à 1,3 s | Appliquée le 5/11 à 10 h 45 |
+| `0650_bleo_remplacants_themes_a_venir` | Suite de D52 : l'historique du compte vu par `bleo_remplacants` compte aussi les lignes des plans suivis à venir. Un remplaçant évite donc aussi les thèmes et les photos prévus pour le compte les jours suivants, pas seulement les contenus (4 « même thème » non déclarés au rapport du 5/11) | Appliquée le 6/11 à 10 h |
+| `0660_bleo_reglages_declinaisons_imports` | Décision d'Adrien du 6/11, après les mesures à âge égal. (a) `classes.depart.accroche_gagnante` passe de 3,2 à 2,0 : la valeur de départ des déclinaisons, relue chaque nuit, y compris pour celles déjà déposées. (b) `file_juger.age_max_import_jours` = 30 : un import (contenu hors podz) arrivé depuis plus longtemps n'est plus testé et reste en réserve. Le tirage lit ce réglage | Appliquée le 6/11 à 17 h 59 ; nuit relancée, plan du 7/11 retiré |
+| `0661_bleo_perdants_et_declinaisons_livrees` | Décisions d'Adrien du 7/11. (1) `valeur.facteur_non_gagnant` = 0,5 : au tirage et pour les remplaçants, la valeur d'un candidat non gagnant est multipliée par 0,5 avant l'exposant (poids divisé par 8). (2) Les 14 déclinaisons des podz de remakes en classe `livre` (4,0) passent en `accroche_gagnante` (2,0) ; depuis 0652, les nouvelles prennent déjà cette classe | Appliquée le 7/11 à 17 h 19 ; nuit relancée, plan du 8/11 retiré |
+| `0662_bleo_jauge_full_tests_minimum` | Décision d'Adrien du 7/11 : `jauge.parts` passe de 10/20/30/40 % à 30/30/40/50 % de full tests, selon les semaines de stock de la boîte (6, 3, 1). smart_girl 10 % → 30 %, alpha_male et beau_smart_girl 10 % → 30 %, weird_alpha 30 % → 40 %, remakes 40 % → 50 % | Appliquée le 7/11 à 17 h 35 |
+| `0663_bleo_meme_contenu_60_jours` | Décision d'Adrien du 8/11 : `garde_fous.meme_contenu_jours` passe de 14 à 60 jours (tirage, remplaçants, rapport), et la tierlist de secours aussi (`tierlist.ecart_min_meme_contenu`). Les rappels J+7 gardent leur règle | Appliquée le 8/11 à 17 h 12 ; plan du 9/11 retiré |
 
 Les migrations 0618, 0619, 0621, 0622, 0624 à 0627 sont celles de la relecture native et de la réécriture native (exemples natifs, fiches langue, CTA puis retrait des stats CTA, fiches label et appli, votes des relecteurs) : voir `docs/cta.md` et la session de la relecture native. 0619 a été retirée ; deux migrations portent le numéro 0626.
 
@@ -603,6 +608,75 @@ recalculée à la main, rejouabilité, derniers plans).
     - 30 à 60 jours : 0,49 et 0,61 ;
     - 60 à 180 jours : 0,27 et 0,30.
   - **Page Plan (0648) :** une déclinaison se reconnaît et se filtre. Plan du 5/11 : sur 300 créneaux de récolte, 206 sont d'autres contenus, 90 des déclinaisons et 4 des full tests.
+- **6/11, 10 h : contrôle du matin.**
+  - **Passages du 6/11 :** 616 au total. 590 viennent de BLEO, 23 sont des rappels (20 posés à minuit, ce sont les hits de fin octobre), 2 sont sur des comptes UGC et 1 vient de la tierlist. Ce dernier est un remplacement à 1 h 06 sur un compte du label Kaja (podz 13, tout neuf) : aucun contenu Kaja n'est encore jugé, donc il n'y a aucun candidat BLEO.
+  - **Le reste :** aucun doublon, 0 erreur au journal. Les 2 comptes en process sans post ont une demande d'arrêt ; 6 comptes du plan ont été désactivés depuis le tirage (#21). Nuit BLEO sans erreur (109 jugés, 3 245 r recalculés après une remise à jour des vues).
+  - **Rapport du 5/11 :** tierlist 0, non servis 0, 597 posts servis au plan, 29 remplacés par BLEO, 463 publiés sur 627. Répétitions non déclarées : 1 « même contenu » (le cas du 4/11 à 22 h 40, corrigé par 0647) et 4 « même thème », corrigés par 0650.
+- **6/11, 10 h : mesures à âge égal, faites avant tout réglage (Adrien).** Vues à J+3 des posts du 30/10 au 1/11 (avant BLEO) contre ceux du 2 et du 3/11 (BLEO) ; r = vues ÷ médiane du compte.
+  - **Flotte :** 2,04 M → 3,59 M de vues par jour, 403 → 549 posts par jour. Vues moyennes par post 5 065 → 6 529, part à 10 k 8,3 % → 12,4 %. r médian 1,00 dans les deux cas.
+  - **Par groupe :**
+
+    | Groupe | Vues moyennes | Part à 10 k | r médian |
+    |---|---|---|---|
+    | Hors podz | 4 749 → 6 972 | 7 % → 13,8 % | stable |
+    | Originaux des podz | 6 318 → 6 093 | 12,2 % → 9,8 % | 1,15 → 1,02 |
+    | Remakes et page blanche | 2 333 → 3 648 | 2,5 % → 9,2 % | 0,93 → 1,19 |
+
+  - **Par podz :**
+    - en hausse : page blanche r 0,86 → 1,24 (10 k : 2 % → 17 %) ; alpha_male 10 % → 23 % à 10 k ; RH 11 % → 21 % à 10 k (r 0,93 → 0,59, mais de gros hits) ;
+    - en baisse : smart_girl r 2,05 → 1,12 (10 k : 23 % → 8 %) ; weird_alpha r 1,06 → 0,53 (tout le label weird_alpha : 0,99 → 0,53).
+  - **Briques de BLEO** (J+3 sur les posts du 2 et du 3/11, puis r à J+1 sur ceux du 4 et du 5/11) :
+
+    | Brique | Posts | r à J+3 | Part à 10 k | Vues moyennes | r à J+1 |
+    |---|---|---|---|---|---|
+    | Récolte (gagnants, langue neuve) | 457 | 1,79 | 22,5 % | 11 221 | 0,80 |
+    | Gagnants, langue déjà servie | 65 | 1,00 | — | — | — |
+    | Déclinaisons | 52 | 0,97 | 3,8 % | 2 889 | 0,45 |
+    | Full tests neufs | 139 | 0,97 | 5 % | 3 511 | 0,61 |
+    | Tests d'imports de moins de 30 j | 61 | 0,90 | — | — | — |
+    | Tests d'imports de 30 j et plus | 109 | 0,59 | — | — | 0,40 |
+    | Perdants resservis | 146 | 0,66 | 2,1 % | — | — |
+
+  - **Verdicts depuis le 30/10 :** full tests 33 gagnants pour 38 non-gagnants ; déclinaisons 4 et 2, sur 244.
+  - **G0 contre déclinaisons :** dans les 193 familles qui ont un G0 gagnant et une déclinaison, les créneaux de langue neuve vont aux déclinaisons : 76 contre 46 (4/11), 90 contre 50 (5/11), 96 contre 68 (6/11).
+  - **Répétitions du 6/11 :** 10 même thème, 2 même contenu (le compte UGC), 2 même photo. Thèmes de 5 familles et plus : 6,1 % des posts (weird_alpha 5,9 %).
+- **6/11, 10 h 45 : doublon de tamas.ambicio760, verrou de recharge (0659).** Deux recharges du même post, lancées à 33 s d'écart (10 h 06), ont créé chacune un remplaçant avec le même contenu du plan : 3 posts au lieu de 2, dont 2 identiques. Le doublon (passage b7bba159, post 303533d4, pas publié) est supprimé avec l'accord d'Adrien. Le compte garde son rappel et un post, deux contenus alpha_male, son seul label depuis qu'Adrien lui a retiré white_bg. `revoquer-post` prend maintenant un verrou sur le post (`posts.recharge_en_cours_at`, UPDATE conditionnel) : une 2e recharge pendant la 1re reçoit `RECHARGE_EN_COURS` (409), et la page du posteur lui dit d'attendre une minute.
+- **Labels 100 % podz dans BLEO (lots 1 à 4, autre session, 5/11) :** les premiers posts sous ce circuit sont ceux du plan du 7/11. Mesure prévue le 10/11. Numéros de migration en double entre les deux sessions (0647 et 0650) : ce sont des fichiers distincts, sans conflit en base.
+- **6/11, 18 h : réglages 0660 appliqués (Adrien : « oui applique les deux réglages »).** Nuit relancée : une déclinaison jamais postée vaut 2,0 au lieu de 3,2. Le plan du 7/11 est retiré (d1bf8097 remplace 1ca431e9) :
+
+  | | Plan de 14 h | Plan de 18 h |
+  |---|---|---|
+  | Déclinaisons | 129 | 60 |
+  | Tests d'imports de 30 jours et plus | 103 | 0 |
+  | Tests des podz | 49 | 49 |
+  | Tests d'imports récents | 17 | 17 |
+  | Familles avec G0 gagnant + déclinaison, en récolte (G0 / déclinaisons) | 53 / 121 | 77 / 54 |
+  | Récolte | 304 | 335 |
+  | Gagnants, langue déjà servie | 58 | 67 |
+  | Perdants resservis | 81 | **138 (22 %)** |
+  | Créneaux | 620 | 614 (comptes désactivés entre-temps) |
+
+  - **Effet de bord :** une partie des créneaux libérés part aux perdants resservis (r 0,66 à J+3), au-delà de la limite de 15 % de la spec. C'est le 3e levier proposé (réduire leur poids), pas encore décidé.
+  - **Pas touché :** 14 déclinaisons de la voie 2 ont la classe `livre` (4,0), posée par l'autre session ; Adrien doit dire s'il faut les passer en `accroche_gagnante`.
+- **7/11, 17 h : compte rendu de la semaine, puis 0661 (Adrien : « baisse les perdants resservis et passe les 14 à 2,0 »).** Plan du 8/11 retiré (26dcce43 remplace 19825ea0) :
+
+  | | Plan de 14 h | Plan de 17 h 19 |
+  |---|---|---|
+  | Perdants resservis | 130 (21 %) | **19 (3 %)** |
+  | Récolte | 330 | 407 |
+  | Gagnants, langue déjà servie | 73 | 106 |
+  | Déclinaisons | 82 | 112 |
+  | Tests | 74 | 75 |
+  | Créneaux vides | 0 | 0 |
+
+  - Les déclinaisons héritent du verdict « gagnant » de leur famille : le facteur ne les touche pas, et elles reprennent une partie des créneaux libérés.
+  - **Question d'Adrien sur les podz (« c'est pas automatique ? ») :** oui, la jauge (`reglages.bleo.jauge`) fixe la part de full tests de chaque podz d'après les semaines de stock de sa boîte : 10 % à 6 semaines et plus, 20 % de 3 à 6, 30 % de 1 à 3, 40 % en dessous. smart_girl (8 semaines, 167 familles en boîte) est à 10 % ; weird_alpha (1,5 semaine) à 30 %. Plus un label a de gagnants à décliner, moins il fait d'accroches neuves.
+  - **0662 (Adrien : « oui fais-le ») :** au moins 30 % de full tests pour chaque podz.
+  - **Reposts sur un même compte (remarque du chef, page blanche) :** c'est exact. clara.grandit369 en a eu 2 le 6/11 (posts du 19 et du 20/10) et paul.drive237 1 (post du 21/10).
+    - Sur white_bg, aucun repost du 20/10 au 1/11 ; depuis la bascule, 1 à 3 par jour sur 18 posts.
+    - Sur toute la flotte : 3 à 8 par jour avant BLEO, 9 à 17 depuis, soit 2 à 3 % des posts. L'écart médian est de 16 à 21 jours : BLEO ressert un gagnant juste après la limite de 14 jours (`meme_contenu_jours`).
+    - Proposé à Adrien : porter cette limite à 60 jours. Les rappels J+7 ne sont pas concernés.
+- **8/11, 17 h 15 : 0663, limite à 60 jours (Adrien : « oui passe à 60 jours »).** Plan du 9/11 retiré (e08bb95a remplace 1d10a460) : 17 reposts d'un post déjà publié sur le compte depuis moins de 60 jours → 2. Les 2 qui restent sont sur julia.ksiazki2 (smart_girl, polonais, repli `tout` faute de contenu). 682 créneaux, 2 vides.
 - **5/11, après-midi : les labels 100 % podz dans BLEO, lot 1 (0650 à 0652, décisions d'Adrien).**
   - **0650 :** une seule définition d'un label 100 % podz, la vue `labels_100_podz` (un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active). Le choix de label, la page Répartition, la voie BLEO (colonne calculée `voie(labels)`, plus de colonne tenue à la main), `empreintes` et le chef la lisent.
   - **0651 :** mentalmaxxing fermé (UnSwipe arrêté) ; 8 livraisons en attente rejetées.
@@ -613,3 +687,11 @@ recalculée à la main, rejouabilité, derniers plans).
   - **Guichet (`pods/index.ts`) :** un livré peut déclarer `type_bleo` et `parent_contenu_id` ; il est jugé sur son titre normalisé. Une déclinaison livrée rejoint la famille de son parent à la validation. L'action `boite` rend la voie ; en voie 2, une boîte vide ne fait pas une journée de full tests.
   - **Podz :** `npm run boite` dans les ateliers page blanche, fathom, kaja et yasmine ; `npm run livrer` envoie la déclaration, et un full test part sans post source. `pods/ROUTINE.md` §5 réécrit (full tests de la jauge, posts neufs du compte modèle, déclinaisons, langue en manque au podz 1) ; les règles « 3 variantes à 30 k », « essai 1 sur 5 » et « au plus 1 par jour sur une famille livrée 3 fois en 7 jours » disparaissent, remplacées par la boîte et le guichet. Le chef garde ses règles de rythme pour la voie 2 (lot 4) ; ses règles 1, 4 et 7 parlent maintenant de boîte, de full tests et de déclinaisons.
   - **Mentalmaxxing** (fermé) a encore 3 familles gagnantes dans la boîte : aucun podz actif ne la lit, la jauge l'ignore.
+- **5/11, soir : les labels 100 % podz dans BLEO, lot 3 (0654, décisions d'Adrien).**
+  - **Constat :** les podz livraient toutes leurs langues, comptes ou non (that_girl_study : 7 langues livrées, des comptes en es et tr ; Fathomly : 43 decks pt en 7 jours, plus de compte pt), et l'attribution ne croyait servies que les langues déjà livrées (white_bg avait un compte hu sans aucun post).
+  - **0654 :** `pods.langues` (la déclaration du podz) ; l'attribution la lit (`langues_declarees_podz` dans `stats_choix_label` et `simulation_repartition`) ; `pod_langues` donne les langues à livrer ; rattrapage chaque nuit (`bleo_commandes_rattrapage`, cron `bleo-rattrapage` à 5 h 55, `bleo_rattrapage_du_pod`). Essai à blanc : simulation Sophia et micabo (714 lignes) et choix de label identiques hors remakes ; seul change white_bg en hongrois. Premières commandes : 32 page blanche, 12 Fathomly.
+  - **Guichet et podz :** action `langues` ; `boite` rend `langues` et `rattrapage` ; `npm run boite` déclare `LANGUES` et met le rattrapage en tête ; `npm run livrer` ne livre que les langues qui ont un compte (`--complement` pour un rattrapage) ; page blanche : `atelier/api.ts`. `pods/ROUTINE.md` §5.2, 5.5 et 5.6 ; AGENT de fathom, yasmine, kaja, page blanche ; chef (langues, stock).
+- **5/11, soir : les labels 100 % podz dans BLEO, lot 4 (0655, décisions d'Adrien).**
+  - **Constat :** tous les comptes de ces labels postent 2 fois par jour (un seul label chacun, sauf le compte hongrois de white_bg) ; la file à juger teste 0,3 à 2,4 accroches neuves par jour et 40 à 65 contenus attendaient leur test ; la page blanche livrait 12 posts par jour, Fathomly 9, yasmine 6 ; les comptes Kaja n'avaient que 2 jours de posts jamais publiés.
+  - **0655 :** `bleo_rythme_remakes` (consommation des comptes, stock du compte le plus juste, cible 10 jours, file à juger) et `reglages.bleo.rythme_remakes`. Au 5/11 : page blanche 2 + 3 rattrapages, Fathomly 2 + 3, yasmine 3, Kaja 5.
+  - **Guichet et podz :** `boite` rend ce rythme à la voie 2 (et `rythme`, le pourquoi) au lieu de `pods/rythme.json`, qui ne garde que leur pause ; les rattrapages s'y ajoutent. `npm run boite` l'affiche. ROUTINE §2 et §5.2 ; chef (il ne tient plus leur rythme, il le rapporte) ; Kaja.

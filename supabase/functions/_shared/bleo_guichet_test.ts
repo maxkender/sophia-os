@@ -1,6 +1,6 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
-import { accrocheDuDeck, accrocheDuTitre, accrochesEnAttente, debutJourParis, fullTestsDuJour, lireDeclarationBleo } from "./bleo_guichet.ts";
+import { accrocheDuDeck, accrocheDuTitre, accrochesEnAttente, debutJourParis, fullTestsDuJour, lireDeclarationBleo, lireLanguesDeclarees } from "./bleo_guichet.ts";
 
 Deno.test("guichet BLEO : la déclaration se lit, sa forme est vérifiée", () => {
   assertEquals(lireDeclarationBleo({}), { typeBleo: null, parentContenuId: null });
@@ -72,4 +72,15 @@ Deno.test("guichet BLEO : full tests du jour, au taux de la jauge sur la durée"
 Deno.test("guichet BLEO : minuit à Paris, en hiver et en été", () => {
   assertEquals(debutJourParis("2026-11-03"), "2026-11-02T23:00:00.000Z");
   assertEquals(debutJourParis("2026-07-01"), "2026-06-30T22:00:00.000Z");
+});
+
+Deno.test("guichet BLEO : les langues déclarées par un podz (0654)", () => {
+  assertEquals(lireLanguesDeclarees(undefined), null);
+  assertEquals(lireLanguesDeclarees(["en", "pt-BR", "es-419", "EN".toLowerCase()]), ["en", "pt-BR", "es-419"]);
+  assertEquals(lireLanguesDeclarees([" fr ", "de"]), ["fr", "de"]);
+  // Une liste vide fermerait toutes les langues à l'attribution : refusée.
+  assert("erreur" in (lireLanguesDeclarees([]) as object));
+  assert("erreur" in (lireLanguesDeclarees("fr") as object));
+  assert("erreur" in (lireLanguesDeclarees(["fr", "français"]) as object));
+  assert("erreur" in (lireLanguesDeclarees(["fr", 3]) as object));
 });

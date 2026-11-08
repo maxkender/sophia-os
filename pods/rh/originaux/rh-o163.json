@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o163",
+ "type_bleo": "full_test",
+ "titre": "ce que je regarde quand tu me dis « je suis très organisée » (ex-rh) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (décoder une qualité annoncée). Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7f35a621",
+   "texte_overlay": "ce que je regarde quand tu me dis\n« je suis très organisée »\n(ex-rh)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ca605308",
+   "texte_overlay": "si t'es arrivée à l'heure\nça commence là",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f1cef82b",
+   "texte_overlay": "si t'as tes documents prêts\ncv imprimé, questions notées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f22973c1",
+   "texte_overlay": "si tu donnes un exemple\n« je gère 3 projets en même temps avec un tableau simple »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f2fe6c8e",
+   "texte_overlay": "si tes réponses ont un début et une fin\npas 5 minutes sans direction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cf7c600e",
+   "texte_overlay": "si t'as une méthode pour apprendre\nmoi j'ai la mienne : 5 minutes par jour, tous les jours",
+   "texte_sophia": "si t'as une méthode pour apprendre\nmoi j'ai la mienne : 5 minutes par jour sur l'appli Sophia, tous les jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f3988857",
+   "texte_overlay": "dire une qualité, c'est facile.\nla montrer, c'est ce qui compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f3a2875b",
+   "texte_overlay": "ta qualité, tu la prouves comment ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

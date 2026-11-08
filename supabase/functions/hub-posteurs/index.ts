@@ -10,8 +10,10 @@
  *
  *   { action: "ping" }
  *   { action: "zones" }
- *       Pays couverts par un HM : ouverts, ou fermés (langue du pays non gérée
- *       par le HM). Le site grise « Accepter » pour un pays non ouvert.
+ *       Pays ouverts = pays ouverts dans l'OS (zone de paie active dans
+ *       `zones_paie_pays`), avec langue de publication, zone, HM de zone et
+ *       `langue_os` (langue du pays connue et publiée par des comptes actifs).
+ *       Le site grise « Accepter » pour tout autre pays.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
@@ -48,15 +50,19 @@ import {
   MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   paysAEnvoyer,
+  type LanguesComptes,
+  LANGUE_PAR_PAYS,
+  type PaysOuvert,
+  type PaysRecrute,
   type Recruteur,
   reservationPerimee,
-  resoudreAffectation,
+  resoudreAffectationSite,
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { lireParLots } from "../_shared/lots.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-10-22";
+const VERSION = "2026-11-06c";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -92,8 +98,19 @@ Deno.serve(async (request) => {
     switch (body?.action) {
       case "ping":
         return json({ ok: true, version: VERSION });
-      case "zones":
-        return json({ ok: true, ...carteDesZones(await lireRecruteurs(supabase)) });
+      case "zones": {
+        const ouverts = await lirePaysOuverts(supabase);
+        return json({
+          ok: true,
+          ...carteDesZones(
+            ouverts,
+            await lireRecruteurs(supabase),
+            await lirePaysRecrutes(supabase),
+            await lireLanguesComptes(supabase, ouverts.map((o) => o.pays)),
+            await lireLanguesOs(supabase),
+          ),
+        });
+      }
       case "creer_posteur":
         return await creerPosteur(supabase, body);
       case "posts_semaine":
@@ -102,8 +119,16 @@ Deno.serve(async (request) => {
         return await statsPays(supabase);
       case "identites":
         return await identites(supabase, body);
+      case "candidature": {
+        // 0561 : un candidat vient de postuler sur le site (email, code ?ref=) : les relances
+        // de parrainage s'arrêtent et l'ami est noté « a postulé » chez son parrain.
+        const { data, error } = await supabase.rpc("parrainage_rapprocher", {
+          p_email: String(body.email ?? ""), p_ref: body.ref ? String(body.ref) : null, p_recrue: null,
+        });
+        return json(error ? { ok: false, error: error.message } : { ok: true, ...(data ?? {}) });
+      }
       default:
-        return json({ ok: false, error: "action inconnue (ping | zones | creer_posteur | posts_semaine | stats_pays | identites)" }, 400);
+        return json({ ok: false, error: "action inconnue (ping | zones | creer_posteur | posts_semaine | stats_pays | identites | candidature)" }, 400);
     }
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
@@ -152,6 +177,45 @@ async function lireRecruteurs(supabase: Supabase): Promise<Recruteur[]> {
   }));
 }
 
+/** Pays ouverts dans l'OS : zone de paie active (`zones_paie_pays`, `retire_at` nul). */
+async function lirePaysOuverts(supabase: Supabase): Promise<PaysOuvert[]> {
+  const { data, error } = await supabase.from("zones_paie_pays").select("pays, zone").is("retire_at", null);
+  if (error) throw error;
+  return (data ?? []) as PaysOuvert[];
+}
+
+/**
+ * Langues des comptes de l'OS pour les pays sans langue fixée
+ * (`LANGUE_PAR_PAYS`) : la plus fréquente sert de langue de publication.
+ */
+async function lireLanguesComptes(supabase: Supabase, pays: string[]): Promise<LanguesComptes> {
+  const sansLangue = pays.filter((p) => !LANGUE_PAR_PAYS[p]);
+  if (sansLangue.length === 0) return {};
+  const { data, error } = await supabase.from("comptes").select("pays, langue").in("pays", sansLangue);
+  if (error) throw error;
+  const parPays: Record<string, Record<string, number>> = {};
+  for (const c of (data ?? []) as { pays: string | null; langue: string | null }[]) {
+    if (!c.pays || !c.langue) continue;
+    const l = (parPays[c.pays] ??= {});
+    l[c.langue] = (l[c.langue] ?? 0) + 1;
+  }
+  return parPays;
+}
+
+/** Langues dans lesquelles publient les comptes actifs de l'OS. */
+async function lireLanguesOs(supabase: Supabase): Promise<Set<string>> {
+  const { data, error } = await supabase.from("comptes").select("langue").eq("is_active", true);
+  if (error) throw error;
+  return new Set(((data ?? []) as { langue: string | null }[]).map((c) => c.langue).filter((l): l is string => !!l));
+}
+
+/** Pays recrutés (`hm_pays`, 0516), avec leur HM quand elle a un compte OS. */
+async function lirePaysRecrutes(supabase: Supabase): Promise<PaysRecrute[]> {
+  const { data, error } = await supabase.from("hm_pays").select("pays, hm_id");
+  if (error) throw error;
+  return (data ?? []) as PaysRecrute[];
+}
+
 function managerPublic(p: { id: string; prenom: string | null; nom: string | null; email: string | null } | null) {
   return p ? { id: p.id, prenom: p.prenom ?? "", nom: p.nom ?? "", email: p.email ?? "" } : null;
 }
@@ -178,24 +242,25 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     return json({ ok: false, error: "creation_en_cours : réessayer dans quelques minutes" }, 409);
   }
 
-  // 2. Pays → HM → langue de publication. Pas de HM = zone pas encore ouverte.
+  // 2. Pays ouvert dans l'OS (zone de paie active) → langue de publication.
+  //    Tout autre pays : « zone_non_ouverte ».
   const pays = codePays(body.pays_code, body.pays_nom);
   if (!pays) return json({ ok: false, error: "pays_inconnu" }, 422);
-  const affectation = resoudreAffectation(pays, await lireRecruteurs(supabase));
-  if (!affectation.ok) {
-    return json({
-      ok: false,
-      error: affectation.raison,
-      pays_code: pays,
-      ...(affectation.raison === "langue_non_geree"
-        ? { langue: affectation.langue, manager: managerPublic(affectation.hm) }
-        : {}),
-    }, 422);
-  }
-  // Le HM de la zone décide de la langue et de l'ouverture du pays ; le poster,
-  // lui, est rattaché à la cohorte Ruul quand elle est configurée.
+  const affectation = resoudreAffectationSite(
+    pays,
+    await lirePaysOuverts(supabase),
+    await lireRecruteurs(supabase),
+    await lirePaysRecrutes(supabase),
+    await lireLanguesComptes(supabase, [pays]),
+  );
+  if (!affectation.ok) return json({ ok: false, error: affectation.raison, pays_code: pays }, 422);
+  // Le poster est rattaché à la cohorte Ruul ; la HM de la zone n'est qu'une
+  // information (page Posters), et le rattachement de repli sans cohorte.
   const { hm, langue } = affectation;
   const rattachement = (await lireCohorteRuul(supabase)) ?? hm;
+  if (!rattachement) {
+    return json({ ok: false, error: "sans_rattachement : cohorte Ruul non configurée et pas de HM pour ce pays", pays_code: pays }, 422);
+  }
   const parts = partsPourApplications(body.applications);
   const applications = parts ? Object.keys(parts) : ["sophia"];
 
@@ -208,7 +273,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     applications,
     manager_id: rattachement.id,
     // HM de la zone du pays : la page Posters range le poster dans sa zone.
-    hm_zone_id: hm.id,
+    hm_zone_id: hm?.id ?? null,
     // Lundi fixe : le trigger de 0296 repousse la fin du warm-up à ce lundi.
     debut_le: dateIso(body.start_monday),
     reserve_at: new Date().toISOString(),
@@ -277,6 +342,12 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     .update({ manager_id: rattachement.id })
     .eq("id", cree.userId);
   if (errProfil) throw errProfil;
+
+  // 0561 : un ami parrainé (son email, ou le code ?ref= transmis par le site) est relié à son parrain.
+  const { error: errParrain } = await supabase.rpc("parrainage_rapprocher", {
+    p_email: String(body.email_perso ?? ""), p_ref: body.ref ? String(body.ref) : null, p_recrue: cree.userId,
+  });
+  if (errParrain) console.error("parrainage_rapprocher", errParrain.message);
 
   return json({
     ok: true,

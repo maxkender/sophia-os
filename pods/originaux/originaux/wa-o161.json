@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o161",
+ "type_bleo": "full_test",
+ "titre": "why you feel tired all the time (and what actually helps) #energy #tired #selfimprovement #health #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "6a846f46-6055-4b39-b2b8-de24e54b4326"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 6a846f46). full test BLEO : accroche jamais faite (format « why you feel … and what helps »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8fdafa6d-2ef6-4c9c-849c-9db9cc7e782f",
+   "texte_overlay": "why you feel tired all the time\n(and what actually helps)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657203363905375510/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2f7ec96c-5f9e-48d2-b1bf-70d85d7a3e45",
+   "texte_overlay": "you're not drinking water\n\nmild dehydration feels exactly like fatigue. drink a full glass of water as soon as you wake up and another before every meal, and notice the difference by day three.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657203363905375510/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e01be681-aefb-4756-9590-ce7c4786e29e",
+   "texte_overlay": "your mornings are dark\n\nstaying indoors under dim light keeps your body half asleep. step outside for ten minutes before noon, even when it's cloudy, and your energy wakes up with you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657203363905375510/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "185e39e1-91aa-4515-9700-cde4a8abc510",
+   "texte_overlay": "your mind is understimulated\n\na brain fed only on scrolling feels foggy and flat. 5 minutes a day learning something real, like a planet or a painting, wakes it up like nothing else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657203363905375510/4.jpg",
+   "texte_sophia": "your mind is understimulated\n\nmy brain felt foggy and flat from scrolling all day. i do it with the Sophia app now, one lesson a day: a planet, a painting. 5 minutes of something real woke my mind up."
+  },
+  {
+   "position": 5,
+   "media_id": "ad43bd39-98d4-4089-b255-4edd5485e492",
+   "texte_overlay": "your screen time runs late\n\nbright screens at midnight push your sleep later and make it lighter. stopping an hour before bed is the easiest energy boost there is, and it costs nothing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657203363905375510/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "93fe493c-2863-4d2e-893e-2e5d7acb5eb1",
+   "texte_overlay": "you sit all day\n\nsitting for hours slows everything down, including your mood. stand up and walk for five minutes every hour, and the afternoon slump becomes much smaller.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657203363905375510/6.jpg"
+  }
+ ]
+}

@@ -8,8 +8,14 @@ import { CarteSante } from "@/features/frequences/Frequences";
 import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
+import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
+import { SectionDoubles } from "@/features/doubles/SectionDoubles";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
+import { SectionSure } from "@/components/erreurs/SectionSure";
+import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
+import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
+import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
 import { PageCohortesTableau } from "@/features/cohortesTableau/PageCohortesTableau";
@@ -83,8 +89,20 @@ export function DecisionsPage() {
   return (
     <PageAuto cle="decisions">
       <div className="space-y-6">
-        <ADeciderMaintenant />
-        <AdminCheckKillDoublePage />
+        <SectionSure nom="Cohérence">
+          <BandeauCoherence />
+        </SectionSure>
+        {/* 6/11 : une section qui plante n'emporte plus la page. */}
+        <SectionSure nom="À décider maintenant">
+          <ADeciderMaintenant />
+        </SectionSure>
+        <SectionSure nom="Weekly decisions">
+          <AdminCheckKillDoublePage />
+        </SectionSure>
+        {/* 0559 : Doubler = une proposition au posteur ; son suivi. */}
+        <SectionSure nom="2e comptes proposés">
+          <SectionDoubles />
+        </SectionSure>
       </div>
     </PageAuto>
   );
@@ -161,6 +179,33 @@ export function FaqPage() {
   return (
     <PageAuto cle="faq">
       <AdminChatbotPage />
+    </PageAuto>
+  );
+}
+
+/** 6/11 : les réponses officielles (question, réponse en anglais, validée par Max). */
+export function ReponsesOfficiellesPage() {
+  return (
+    <PageAuto cle="officielles">
+      <PageReponsesOfficielles />
+    </PageAuto>
+  );
+}
+
+/** 8/11 : le parrainage par email (par pays et par semaine, top des parrains, pays). */
+export function ParrainagePage() {
+  return (
+    <PageAuto cle="parrainage">
+      <SuiviParrainage />
+    </PageAuto>
+  );
+}
+
+/** 8/11 : les personnes désactivées dans l'OS encore membres actifs de Slack. */
+export function RetirerSlackPage() {
+  return (
+    <PageAuto cle="slack">
+      <PageRetirerSlack />
     </PageAuto>
   );
 }

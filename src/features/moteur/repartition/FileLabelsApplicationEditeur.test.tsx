@@ -27,7 +27,7 @@ const APPS = [
   { id: ID_UNSWIPE, slug: "unswipe", nom: "Unswipe", created_at: "", langues: ["fr", "de"], actif: true },
 ];
 const lab = (id: string, nom: string): Label =>
-  ({ id, nom, slug: nom.toLowerCase().replace(/\s+/g, "-"), ugc_ai_video: false }) as Label;
+  ({ id, nom, slug: nom.toLowerCase().replace(/\s+/g, "-"), manuel: false }) as Label;
 const SMART = lab("l-smart", "Smart Girl");
 const CLASSIC = lab("l-classic", "Classic Study");
 const LIENS = [

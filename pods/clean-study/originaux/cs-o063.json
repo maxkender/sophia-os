@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o063",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f6770628-3417-4e6c-bb7e-ef918e23af14",
+  "titre": "5 ways to get a teacher to notice you positively #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "f6770628-3417-4e6c-bb7e-ef918e23af14"
+  ],
+  "notes": "Déclinaison G1 de f6770628 (r 2,74 en turc), ligne 3 de la boîte. Accroche du parent mot pour mot, en anglais (symboles décoratifs gardés). Façons neuves, aucune du parent (participer, être poli, réviser ses notes, poser des questions, se porter volontaire) : s'asseoir devant, rendre à l'heure, arriver testé sur le cours d'avant (place micabo, slide 4), demander comment progresser après une mauvaise note, montrer qu'on a appliqué ses remarques. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ae6ae089",
+      "texte_overlay": "¡·*·.·:☆:·.·*·° 5 ways to get a teacher\nto notice you positively",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ba0b389d",
+      "texte_overlay": "1. sit near the front\nit's easier to follow, and to be seen following.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bd7ced5e",
+      "texte_overlay": "2. hand everything in on time\nevery time. teachers remember who they never have to chase.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1801f7ea",
+      "texte_overlay": "3. quiz yourself on the last lesson before class\nit shows the second you answer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ece9e778",
+      "texte_overlay": "4. after a bad grade, ask how to improve\n\"what should i have done here?\" not \"why this grade?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c0e53e55",
+      "texte_overlay": "5. show you used their feedback\nfix exactly what they pointed out on the next assignment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

@@ -1,11 +1,10 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { CircleAlert, RefreshCw, Sparkles } from "lucide-react";
+import { CircleAlert, RefreshCw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogPanel,
@@ -13,8 +12,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useAuth } from "@/features/auth/AuthContext";
+import { useTranslation } from "react-i18next";
 
-import { marquerMessageLu, mesMessages, repondreDouble, type MonMessage } from "./api";
+import { PopupDouble } from "@/features/doubles/PopupDouble";
+
+import { marquerMessageLu, mesMessages, monTarifSemaine, repondreDouble, type MonMessage } from "./api";
 
 /**
  * Tous les messages aux posteurs sont en anglais (v3) : les libellés d'ici
@@ -34,17 +36,6 @@ export const EN = {
   recreerTitre: "Your new TikTok account",
   compris: "Got it",
 } as const;
-
-function dateAnglaise(iso: string): string {
-  return new Intl.DateTimeFormat("en-GB", {
-    weekday: "long",
-    day: "numeric",
-    month: "long",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZone: "Europe/Paris",
-  }).format(new Date(iso));
-}
 
 /**
  * Espace du posteur (v3) : la recréation en pop-up bloquante (« Got it »,
@@ -123,57 +114,31 @@ function Recreation({ message }: { message: MonMessage }) {
   );
 }
 
+/**
+ * 0559 : l'offre d'un 2ᵉ compte (texte de Max, tarif × 2), bloquante. Vue à
+ * l'affichage ; « I'll decide later » la referme jusqu'à la prochaine
+ * ouverture du dashboard (72 h au plus).
+ */
 function OffreDouble({ message }: { message: MonMessage }) {
   const queryClient = useQueryClient();
+  const { i18n } = useTranslation();
   const [ferme, setFerme] = React.useState(false);
-  const repondre = useMutation({
-    mutationFn: (reponse: "oui" | "non") => repondreDouble(message.id, reponse),
-  });
-  if (ferme) return null;
-
-  const fini = repondre.isSuccess;
-  const fermer = () => {
-    setFerme(true);
-    if (fini) void queryClient.invalidateQueries({ queryKey: ["mes-messages-posteur"] });
-  };
-
+  const tarif = useQuery({ queryKey: ["mon-tarif-semaine"], queryFn: monTarifSemaine, staleTime: 3_600_000 });
+  React.useEffect(() => {
+    void marquerMessageLu(message.id).catch(() => undefined);
+  }, [message.id]);
+  if (ferme || tarif.isLoading) return null;
   return (
-    <Dialog open onOpenChange={(ouvert) => !ouvert && fermer()}>
-      <DialogPopup className="max-w-md" data-testid="offre-double">
-        <DialogHeader>
-          <div className="flex items-center gap-3">
-            <span className="flex size-10 items-center justify-center rounded-xl bg-success/15 text-success-foreground">
-              <Sparkles className="size-5" />
-            </span>
-            <div>
-              <DialogTitle className="text-base">{EN.doubleTitre}</DialogTitle>
-              {message.expire_at && !fini && (
-                <DialogDescription>{EN.jusqua(dateAnglaise(message.expire_at))}</DialogDescription>
-              )}
-            </div>
-          </div>
-        </DialogHeader>
-        <DialogPanel>
-          <p className="whitespace-pre-wrap rounded-lg bg-muted/50 p-4 text-sm leading-relaxed">
-            {fini ? (repondre.variables === "oui" ? EN.merciOui : EN.merciNon) : message.texte}
-          </p>
-          {repondre.isError && <p className="mt-2 text-sm text-destructive">{EN.erreur}</p>}
-        </DialogPanel>
-        <DialogFooter>
-          {fini ? (
-            <Button onClick={fermer}>{EN.fermer}</Button>
-          ) : (
-            <>
-              <Button variant="outline" disabled={repondre.isPending} onClick={() => repondre.mutate("non")}>
-                {EN.non}
-              </Button>
-              <Button disabled={repondre.isPending} onClick={() => repondre.mutate("oui")}>
-                {EN.oui}
-              </Button>
-            </>
-          )}
-        </DialogFooter>
-      </DialogPopup>
-    </Dialog>
+    <PopupDouble
+      langue={i18n.resolvedLanguage}
+      tarif={tarif.data ?? null}
+      expireAt={message.expire_at}
+      repondre={(r) => repondreDouble(message.id, r)}
+      plusTard={() => setFerme(true)}
+      fini={() => {
+        setFerme(true);
+        void queryClient.invalidateQueries({ queryKey: ["mes-messages-posteur"] });
+      }}
+    />
   );
 }

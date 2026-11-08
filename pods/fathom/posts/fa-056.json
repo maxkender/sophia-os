@@ -1,0 +1,339 @@
+{
+ "id": "fa-056",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Habits That Pay Off For Life",
+  "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen",
+  "it": "3 abitudini che ripagano per tutta la vita",
+  "pt-BR": "3 hábitos que valem a pena para a vida toda",
+  "es-419": "3 hábitos que te sirven toda la vida"
+ },
+ "legendes": {
+  "en": "3 Habits That Pay Off For Life #selfimprovement #learnontiktok #selfmastery",
+  "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen #selbstverbesserung #lernenmittiktok #gewohnheiten",
+  "it": "3 abitudini che ripagano per tutta la vita #crescitapersonale #imparacontiktok #abitudini",
+  "pt-BR": "3 hábitos que valem a pena para a vida toda #desenvolvimentopessoal #aprendanotiktok #hábitos",
+  "es-419": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta B. Full test (jauge BLEO du 06/11) : accroche neuve au format « 3 Ways » de @fathom0g, jamais faite chez nous. Étapes : intérêts composés, Sophia au milieu, mémoire. Langues des comptes du label (en, de, it, pt-BR, es-419), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABITS",
+       "bronze": true
+      }
+     ],
+     "THAT PAY OFF",
+     [
+      {
+       "t": "FOR LIFE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 GEWOHNHEITEN",
+       "bronze": true
+      }
+     ],
+     "DIE SICH EIN LEBEN",
+     [
+      {
+       "t": "LANG AUSZAHLEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABITUDINI",
+       "bronze": true
+      }
+     ],
+     "CHE RIPAGANO",
+     [
+      {
+       "t": "PER TUTTA LA VITA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HÁBITOS",
+       "bronze": true
+      }
+     ],
+     "QUE VALEM A PENA",
+     [
+      {
+       "t": "A VIDA TODA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 HÁBITOS",
+       "bronze": true
+      }
+     ],
+     "QUE TE SIRVEN",
+     [
+      {
+       "t": "TODA LA VIDA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN HOW MONEY",
+     "COMPOUNDS"
+    ],
+    "video": {
+     "id": "wf91rEGw88Q",
+     "titre": "What Is Compound Interest? | Investopedia",
+     "chaine": "Investopedia",
+     "vues": "2.1M views",
+     "date": "13 years ago",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCZDgY285VwOSZiiFRNPUqcFAtA7qXu7QXHvD1YSnzoOU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "VERSTEH DEN",
+     "ZINSESZINS"
+    ],
+    "video": {
+     "id": "kyYguppNaqE",
+     "titre": "Reich durch Zinseszins? Zinseszinseffekt einfach erklärt! | Finanzfluss",
+     "chaine": "Finanzfluss",
+     "vues": "604.186 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "10:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CAPISCI L'INTERESSE",
+     "COMPOSTO"
+    ],
+    "video": {
+     "id": "X8TrEzdVI-M",
+     "titre": "L'interesse composto spiegato facilmente 📊 ft @EliaBombardelli",
+     "chaine": "Investiamo",
+     "vues": "48K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:25",
+     "avatar": "https://yt3.ggpht.com/ym4hdhXJNfwOVakoxSh9EE-6ORy4D_ngKuw7kXRIVKY-dnpDMR5f2LFQcE0jEMjzC-FglYNC2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDA OS JUROS",
+     "COMPOSTOS"
+    ],
+    "video": {
+     "id": "X652ApXFTJA",
+     "titre": "JUROS COMPOSTOS | MATEMÁTICA FINANCEIRA",
+     "chaine": "Gis com Giz",
+     "vues": "1,1 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "32:49",
+     "avatar": "https://yt3.ggpht.com/ggyLxKNYMMEUicDRVFCH4G9HrzvtPkVNiqWi2oMfgkt6J6Yr8yr7ZAW-DBVQYOzcQVmap2GY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ENTIENDE EL INTERÉS",
+     "COMPUESTO"
+    ],
+    "video": {
+     "id": "6YiZ5SIMBdY",
+     "titre": "Qué es el Interés Compuesto | Explicado FÁCIL 🎓",
+     "chaine": "Economipedia",
+     "vues": "51 k vistas",
+     "date": "hace 3 años",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/RvRUK0MqXB-H3X0h4mTGmVEE9vE4uiUHyxQkWg8Lz8T3O0eVdX91opQ4EgehxYzZamnsFi9UMQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A LITTLE",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "EIN BISSCHEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA UN PO'",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA UM POUCO",
+     "TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE UN POCO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TRAIN YOUR",
+     "MEMORY"
+    ],
+    "video": {
+     "id": "p9IOqd1LpkA",
+     "titre": "The Memory Palace : Can You Do It?",
+     "chaine": "Sprouts",
+     "vues": "700K views",
+     "date": "9 years ago",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSAFsiX7DamIFNxlGd-Xwuw7IXUcwMQB_NhdLjd24_sw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "TRAINIER DEIN",
+     "GEDÄCHTNIS"
+    ],
+    "video": {
+     "id": "hfsEV6WOFUY",
+     "titre": "Loci Methode - Erste Schritte zum Gedächtnispalast",
+     "chaine": "Niels Cimpa",
+     "vues": "137.600 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/aIGzzscYq8dFCBxn4UACJwqOcmE25SggKOxONpKEtbZU5htx75hcfOvtyYwtaTFY0-DzATa8lGw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "ALLENA LA",
+     "MEMORIA"
+    ],
+    "video": {
+     "id": "LC0JO1a3DA8",
+     "titre": "IL PALAZZO DELLA MEMORIA🏰 spiegato dal CAMPIONE DEL MONDO",
+     "chaine": "Andrea Muzii",
+     "vues": "501K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "15:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "TREINE SUA",
+     "MEMÓRIA"
+    ],
+    "video": {
+     "id": "3vdzghRCprU",
+     "titre": "Como memorizar ABSOLUTAMENTE TUDO",
+     "chaine": "Ciência Todo Dia",
+     "vues": "5,7 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "17:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ENTRENA TU",
+     "MEMORIA"
+    ],
+    "video": {
+     "id": "X_URHlAJ7aA",
+     "titre": "El Palacio de la Memoria: ¿Puedes hacerlo?",
+     "chaine": "Sprouts Español",
+     "vues": "94 k vistas",
+     "date": "hace 3 años",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

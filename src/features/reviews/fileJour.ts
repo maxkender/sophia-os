@@ -45,10 +45,10 @@ export function isoBornesJourParis(yyyyMmDd: string): { debut: string; fin: stri
 
 export function estCompteSlideshowAssigne(compte: {
   type_compte?: string | null;
-  ugc_ai_video?: boolean | null;
+  ugcv?: boolean | null;
 }): boolean {
   if (compte.type_compte === "cm") return false;
-  if (compte.ugc_ai_video) return false;
+  if (compte.ugcv) return false;
   return true;
 }
 

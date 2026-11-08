@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o056",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "240ce3fb-a8c6-4e7f-87b1-519b9c20c142",
+ "titre": "Rewire your brain: 6 habits that kill laziness #discipline #selfimprovement #men #mindset #habits",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [
+  "240ce3fb-a8c6-4e7f-87b1-519b9c20c142"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 6/11. Déclinaison G1 de la ligne 2 (parent 240ce3fb = notre am-o009, langue source en ; meilleur passage et 3,5 k vues, r 2,83). Accroche du parent mot pour mot. Format du parent : « N. titre » puis trois lignes. Habitudes neuves, aucune du parent (plus petit pas, sac de sport, ne pas se recoucher, 2 minutes, tâche dure avec le café, remplacer un scroll). Ligne 3 (« 5 rules about money ») sautée : conseils d'argent précis, hors garde-fous du pod ; ligne 4 prise. Images de la banque ; slide Sophia : fenêtre au lever du jour, sans personne. reference_url de am-o009 vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1cad70d1",
+   "texte_overlay": "Rewire your brain:\n6 habits that kill laziness",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c579d6a",
+   "texte_overlay": "1. Pick tomorrow's first\ntask tonight\nWake up knowing\nwhat to do. No thinking,\njust starting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "265faeb5",
+   "texte_overlay": "2. Set a 10-minute timer\nand begin\nTell yourself you can stop\nwhen it rings.\nYou usually won't.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1262dd30",
+   "texte_overlay": "3. Phone in another room\nwhile you work\nOut of reach,\nout of your head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0e7fb5ac",
+   "texte_overlay": "4. Get dressed like\nyou're going somewhere\nPajamas tell your brain\nit's still rest time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0e849c5e",
+   "texte_overlay": "5. Count 5-4-3-2-1 and move\nDon't debate the task.\nThe countdown ends\nthe negotiation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2022773e",
+   "texte_overlay": "6. Start with one small win\nFive minutes of learning\nbefore anything else.\nMomentum does the rest.",
+   "texte_sophia": "6. Start with one small win\nI open the Sophia app\nfor 5 minutes before anything else.\nMomentum does the rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7575127504634006806/1.jpg"
+  }
+ ]
+}

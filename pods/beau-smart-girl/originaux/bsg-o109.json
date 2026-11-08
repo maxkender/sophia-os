@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o109",
+  "type_bleo": "full_test",
+  "titre": "les petites habitudes qui m'ont fait aimer l'histoire (alors que je détestais ça au lycée) #histoire #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : se réconcilier avec une matière détestée, récit « je ». Accroches écrites : « les petites habitudes qui m'ont fait aimer l'histoire (alors que je détestais ça au lycée) » (retenue : aveu, retournement, enregistrable), « comment aimer l'histoire » (écartée : sèche), « l'histoire, c'est pas ennuyeux » (écartée : sans promesse). Aucun fait daté. Routine du 8/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 3 full tests et 5 déclinaisons (lignes 1, 3, 4, 8 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 2 (4d7c5f32, accroche illisible « ge things that make you look while spending lil to no money effortlessly chic », à recopier mot pour mot), 5 (083ac272, 9 hobbies « backed by science », preuves invérifiables), 6 (6211e51e, « other then ») et 7 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "les petites habitudes qui m'ont fait aimer l'histoire\n(alors que je détestais ça au lycée)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. je commence par les gens, pas par les dates\n\nqui avait peur, qui était amoureux, qui a menti.\nles dates viennent toutes seules.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. je regarde des films historiques\n\npuis je cherche ce qui est vrai et ce qui est inventé.\nc'est le meilleur des jeux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "01c21b76",
+      "texte_overlay": "3. je visite les lieux près de chez moi\n\nle château, la vieille église, la plaque au coin de la rue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3615b305",
+      "texte_overlay": "4. je lis des lettres écrites à l'époque\n\nquand une reine se plaint de son mari,\nl'histoire devient tout de suite plus humaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. je l'apprends par petits bouts\n\navant, l'histoire, c'était des chapitres à réciter.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'en redemande.",
+      "texte_sophia": "5. je l'apprends par petits bouts\n\navant, l'histoire, c'était des chapitres à réciter.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'en redemande.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "et toi, quelle matière tu as appris à aimer ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

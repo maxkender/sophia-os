@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o162",
+ "type_bleo": "full_test",
+ "titre": "the quiet habits of people who always seem put together #puttogether #habits #selfimprovement #organised #routine",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "65abfa3f-80e4-4763-8ef6-bcc2151e5b93"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 65abfa3f). full test BLEO : accroche jamais faite (format « quiet habits of people who »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b08c2b68-3cc3-41d5-bc2c-f0d5da821c5c",
+   "texte_overlay": "the quiet habits of people\nwho always seem put together",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698131833745067297/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ed2a2e92-f009-4bba-8b51-853cf61b24ff",
+   "texte_overlay": "they reset every evening\n\nthey spend ten minutes each evening putting things back where they belong. a calm home in the morning is the secret behind people who never look rushed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698131833745067297/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bfa2f0f6-15f4-46bd-b275-5ac99ef04bb9",
+   "texte_overlay": "they plan tomorrow tonight\n\nthey write tomorrow's three priorities before bed. waking up already knowing what matters most quietly removes the chaos before the day has even started.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698131833745067297/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dc24eaad-bf2c-474f-a0f6-6ad2416787b6",
+   "texte_overlay": "they keep a simple wardrobe\n\nthey own fewer clothes that all go together. getting dressed takes two minutes, and they always look like they made an effort without ever really trying.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698131833745067297/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c6f584df-8af2-45dc-a08f-9b54b1647992",
+   "texte_overlay": "they keep learning\n\nthey spend 5 minutes a day learning something new: a word, a painting, a moment in history. put together people have put together minds, and curiosity keeps them sharp.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698131833745067297/5.jpg",
+   "texte_sophia": "they keep learning\n\nthey spend 5 minutes a day learning something new: a word, a painting. the Sophia app turns it into one short lesson a day, and put together people have put together minds."
+  },
+  {
+   "position": 6,
+   "media_id": "4a8cd1b5-b533-421e-9097-34df09cd806e",
+   "texte_overlay": "they leave early\n\nthey leave ten minutes before they need to, every single time. arriving calm instead of out of breath is half of what makes someone look put together.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698131833745067297/6.jpg"
+  }
+ ]
+}

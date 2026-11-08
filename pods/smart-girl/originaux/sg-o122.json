@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o122",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "268a17fb-3cc8-45c3-b085-3c4bba06f652",
+ "titre": "2026 trends i'm politely saying no to #trends #slowliving #smartgirl #intentionalliving #2026",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "07dfb7c9-bb71-42ef-bab3-6c26b29b989f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 5 de la boîte (parent 268a17fb, langue source en) : accroche reformulée (« trends i refuse to do in 2026 and the quiet reasons why » → « 2026 trends i'm politely saying no to »), autre que sg-o110. Tendances neuves (recettes virales, une appli pour tout, des livres pour l'étagère, voyager pour les photos, s'optimiser sans cesse, les infos en boucle). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "86be9a3d",
+   "texte_overlay": "2026 trends i'm politely\nsaying no to",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9d73ad39",
+   "texte_overlay": "1. buying books for the shelf\n\ni buy one, i read it,\nthen i buy the next.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bf2be9ba",
+   "texte_overlay": "2. travelling just for photos\n\ni'd rather remember it\nthan post it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cda1e2c7",
+   "texte_overlay": "3. optimising everything\n\nsome evenings are just\nfor resting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9faa5260",
+   "texte_overlay": "4. a new app for every habit\n\none notebook does it all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "91846e39",
+   "texte_overlay": "5. viral recipes\n\ni'd rather master one dish\nthan copy fifty.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "29efdfb0",
+   "texte_overlay": "6. news on loop\n\ni read once a day, then\ni learn something lasting:\nart, history, science.",
+   "texte_sophia": "6. news on loop\n\ni read once a day, then i take\na 5-minute lesson on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d3c3254b",
+   "texte_overlay": "save this if you're\nsaying no too",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o156",
+ "type_bleo": "full_test",
+ "titre": "Things a man should never apologise for #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 5603a5ff. full test. Accroche jamais faite chez nous : ce qu'on n'a pas à excuser, ton sain et respectueux (pas d'arrogance). Accroches écrites : « Things a man should never apologise for » (retenue), « Stop apologising for these things » (écartée : injonctif), « Things you don't owe anyone an explanation for » (écartée : trop long).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5603a5ff",
+   "texte_overlay": "Things a man should never\napologise for",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Taking time for himself. An evening alone, a long run, a quiet Sunday. Recharging isn't selfish. A rested man shows up better for everyone around him.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Saying no to things that drain him. A party he doesn't want to go to, a favour he can't afford. A calm, polite no is a sign of self-respect, not rudeness.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Having feelings. Being sad after a loss, nervous before a big day, moved by a film. Feeling things deeply is human, and hiding it only makes everything heavier.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Asking for help. With work, with money, with his mind. Strong men ask when they need to. Pretending you can handle everything alone is what breaks people.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Wanting to keep learning. I do five minutes a day of history, art or science, and I've stopped apologising for being the curious one in every conversation.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I've stopped apologising for being the curious one in the room.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Leaving situations that disrespect him. A job that belittles him, a friend who mocks him, a date that turns rude. Walking away calmly is a skill, not a failure.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Growing and changing. New habits, new interests, a new way of thinking. People who knew the old you might be surprised. That's fine. Growth is the whole point.",
+   "media_id": "3be6dd87"
+  }
+ ]
+}

@@ -8,12 +8,16 @@
  "titre": {
   "en": "5 Pointless Skills That Make You Instantly Cooler",
   "de": "5 nutzlose Skills, die dich sofort cooler machen",
-  "pt": "5 habilidades inúteis que te tornam logo mais fixe"
+  "pt": "5 habilidades inúteis que te tornam logo mais fixe",
+  "it": "5 abilità inutili che ti rendono subito più figo",
+  "es-419": "5 habilidades inútiles que te hacen más cool al instante"
  },
  "legendes": {
   "en": "5 Pointless Skills That Make You Instantly Cooler #skills #learnontiktok #selfimprovement",
   "de": "5 nutzlose Skills, die dich sofort cooler machen #skills #lernenmittiktok #selbstverbesserung",
-  "pt": "5 habilidades inúteis que te tornam logo mais fixe #habilidades #aprendernotiktok #desenvolvimentopessoal"
+  "pt": "5 habilidades inúteis que te tornam logo mais fixe #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "it": "5 abilità inutili che ti rendono subito più figo #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #desarrollopersonal #habilidades"
  },
  "musique": {
   "titre": "Cinderella (Instrumental)",
@@ -86,6 +90,48 @@
       }
      ]
     ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ INUTILI",
+     "CHE TI RENDONO",
+     [
+      {
+       "t": "SUBITO ",
+       "bronze": true
+      },
+      {
+       "t": "PIÙ FIGO"
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES INÚTILES",
+     "QUE TE HACEN",
+     [
+      {
+       "t": "MÁS COOL ",
+       "bronze": true
+      },
+      {
+       "t": "AL INSTANTE"
+      }
+     ]
+    ]
    }
   },
   {
@@ -133,6 +179,36 @@
      "date": "há 9 anos",
      "duree": "1:00",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mrL4829IFdJvK796drsGOg6c65AZLN8D6cHvgsPpovtg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FISCHIA CON",
+     "LE DITA"
+    ],
+    "video": {
+     "id": "gOWcevNjAmI",
+     "titre": "Ecco come fischiare correttamente!",
+     "chaine": "Sagace",
+     "vues": "952K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k5WRYoZfdlDxbzL0BJO-xjPP_l8G36vFyT-VgbOJGG=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SILBA CON",
+     "LOS DEDOS"
+    ],
+    "video": {
+     "id": "VOSEDsWNYAY",
+     "titre": "Aprende a Silbar con los dedos | Serie de silibidos | Tutorial 51",
+     "chaine": "Orodreth",
+     "vues": "717 k vistas",
+     "date": "hace 4 años",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/_965lGYf0ZAbF26hVlgR9mE64pJ60gEHXJhx4Y5LpUGTOunQNugct2I0ONeHFIaJO0m1HuCcvQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -182,6 +258,36 @@
      "duree": "3:37",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkfQYxBlSfFMcXw-s1vSVJBIsrBH1BvLWTD02V-ipUEQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "FAI ROTOLARE",
+     "UNA MONETA SULLE DITA"
+    ],
+    "video": {
+     "id": "ZKhLk8ZR-jk",
+     "titre": "Coin Roll - Imparare a far rotolare una moneta sulle dita | Trucco con le monete",
+     "chaine": "Leon Faraday",
+     "vues": "8,9K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/2sylD5iR-7M0HegW7GuNS408M3ofzxCtfs0T6SvF5THS-zyYsrN2nI55MBs6YdcyDPicPfa-xQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "PASA UNA MONEDA",
+     "ENTRE LOS DEDOS"
+    ],
+    "video": {
+     "id": "auc5rYzTA0w",
+     "titre": "Pasar o rodar una moneda entre los dedos - CoinRoll - Coindistry",
+     "chaine": "Domina La Magia",
+     "vues": "1 M de vistas",
+     "date": "hace 10 años",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -223,6 +329,32 @@
      "texte": [
       "aprende algo novo todos os dias,",
       "em 5 minutos."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UNA CURIOSITÀ PER",
+     "OGNI SITUAZIONE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UN DATO CURIOSO PARA",
+     "CADA SITUACIÓN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
      ]
     }
    }
@@ -273,6 +405,36 @@
      "duree": "3:17",
      "avatar": "https://yt3.ggpht.com/JcBzbW5nQdCvrxQWWOoWEaGEYJPfo4b1aDPcjU-NQo1x1u5qmFn0kKexL-nT2d1-y2Lii2J2=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "MESCOLA LE CARTE",
+     "COME UN CROUPIER"
+    ],
+    "video": {
+     "id": "MmGjI5D45nQ",
+     "titre": "5 MODI PER MESCOLARE LE CARTE - TUTORIAL",
+     "chaine": "Jack Nobile",
+     "vues": "1,3 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "15:57",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "BARAJA CARTAS",
+     "COMO UN CRUPIER"
+    ],
+    "video": {
+     "id": "vFFMVmBpDiI",
+     "titre": "✅ Como BARAJAR CARTAS para PRINCIPIANTES (MEZCLA CARTAS BÁSICO)",
+     "chaine": "Domina La Magia",
+     "vues": "109 k vistas",
+     "date": "hace 5 años",
+     "duree": "4:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -317,6 +479,34 @@
      "date": "há 6 anos",
      "duree": "1:01",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lAnt7otjj3Au0r0tPKfg6k8dLPTyIa3T5hAAia0EBjWrau=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IL MOONWALK"
+    ],
+    "video": {
+     "id": "1yD5_mPTlq8",
+     "titre": "Come Fare il Moonwalk",
+     "chaine": "wikiHow",
+     "vues": "394K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "1:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lAnt7otjj3Au0r0tPKfg6k8dLPTyIa3T5hAAia0EBjWrau=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL MOONWALK"
+    ],
+    "video": {
+     "id": "du1EH67R17Y",
+     "titre": "COMO HACER EL MOONWALK DE MICHAEL JACKSON DESDE CERO 🦶🚀",
+     "chaine": "Baila Facilito",
+     "vues": "2.3 M de vistas",
+     "date": "hace 5 años",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/1vI3CQHm387wdluYo7uYPbGGHtZ1w4MV7WoW0v41TWV2F3d32TIzOBZlVH7u1eJPwVAPk0aX=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

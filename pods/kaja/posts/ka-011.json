@@ -1,0 +1,247 @@
+{
+ "id": "ka-011",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7671682759894584598",
+  "vues": 139300,
+  "publie_le": "2026-08-08",
+  "accroche": "10/10 SKILLS YOU CAN LEARN NOW"
+ },
+ "titre": {
+  "en": "10/10 skills you can learn now",
+  "de": "10/10 Skills zum sofort Lernen"
+ },
+ "legendes": {
+  "en": "10/10 skills you can learn now #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills zum sofort Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7585395509230062367"
+ },
+ "notes": "Remake de son post à 139 k (08/08), décor falaise (le sien), en en et de. Il n'a pas de slide d'appli : Sophia remplace sa compétence qui colle le moins (« WHISTLE WITH YOUR FINGERS »), en étape 3 au milieu « HOW TO ALWAYS HAVE A FUN FACT », cta B, « 5 min a day ». Ses titres mot pour mot (« PEEN SPIN » compris), ses couleurs (gris, vert, bleu) et son temps « 1-10 min ». D'autres vraies vidéos que les siennes (Oscar Owen Magic, Next Level Spins, Juggleboy) : en 52Kards, Pen Stock, Josh Horton ; de Matthias Berger, Marius Angeschrien, Der Schlaumacher.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "YOU CAN",
+     "LEARN NOW"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS ZUM",
+     "SOFORT",
+     "LERNEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "COIN ROLL",
+       "couleur": "#aaadb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wbokdZh7_Gg",
+     "titre": "Coin Trick: How to Roll a Coin Across Your Knuckles [HD]",
+     "chaine": "52Kards",
+     "vues": "19M views",
+     "date": "14 years ago",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfl-uIm_qPFEB0SA6FhHFzyauPPp3b43uTq-nWsk7eo2k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ROLLST DU",
+     [
+      {
+       "t": "EINE MÜNZE",
+       "couleur": "#aaadb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3_3NqpVR3bA",
+     "titre": "MÜNZE ÜBER FINGER ROLLEN Erklärung Deutsch",
+     "chaine": "Matthias Berger",
+     "vues": "148.466 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "11:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfIVFyDA9WIbV7yGj8_wmldW0ymBEI5Fu9lzIXDrwmXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PEEN SPIN",
+       "couleur": "#10d069"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XddJ_YiNyJI",
+     "titre": "HOW TO CHARGE (and continuous) - BASIC PEN SPINNING TRICK FOR BEGINNERS",
+     "chaine": "Pen Stock",
+     "vues": "1M views",
+     "date": "7 years ago",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k45NuxVazA8lKxYkfDL-ZBEJ3wlsNzUDLSfIesYwStNUY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT",
+     [
+      {
+       "t": "PEN SPINNING",
+       "couleur": "#10d069"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f8i04678ey4",
+     "titre": "PEN SPINNING lernen in 1 WOCHE",
+     "chaine": "Marius Angeschrien",
+     "vues": "567.799 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kr17ke2_PUVDZPq4DvHVirlnKfOO9w0DsefcBbuPqAvos=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO ALWAYS",
+     [
+      {
+       "t": "HAVE A",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FUN FACT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU",
+     [
+      {
+       "t": "IMMER EINEN",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FUN FACT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "JUGGLE",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JZmmOdnljG4",
+     "titre": "HOW TO JUGGLE 3 BALLS - Tutorial",
+     "chaine": "Josh Horton",
+     "vues": "3.8M views",
+     "date": "8 years ago",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lvi38MXthkbHlpjDuCtaj2R5Vj2bNcsKJhgtcGsnK9yUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "JONGLIEREN",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N4y6P6P2T5o",
+     "titre": "Jonglieren lernen mit 3 Bällen in 3 Minuten 💡 Jonglieren Tutorial",
+     "chaine": "Der Schlaumacher | Geniale Fakten, Tipps & Lifehacks",
+     "vues": "856.043 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfTS9KM2CJ-tY3C1k3_sRqukgW7aWFBjRUyuiQdUzLJmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 Min."
+    ]
+   }
+  }
+ ]
+}

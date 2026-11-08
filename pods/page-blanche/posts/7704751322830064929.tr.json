@@ -1,0 +1,254 @@
+{
+ "post_id": "7704751322830064929",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "extremely intelligent"
+     ],
+     "fr": "10/10 hobbies pour te faire un cerveau en béton",
+     "texte": "seni inanılmaz derecede zeki yapacak 10/10 hobi"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(nörobilim onaylı)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop doomscrolling pinterest"
+     ],
+     "fr": "arrête de doomscroller [[les tableaux d'inspi]]",
+     "texte": "[[ilham panolarında]] doomscroll'u bırak"
+    },
+    "T2": {
+     "en": [
+      "it feels better than tiktok because you're saving",
+      "outfits, recipes, and room ideas"
+     ],
+     "fr": "ça a l'air mieux que tiktok, tu sauvegardes [[des tenues, des recettes, des idées déco]]",
+     "texte": "tiktok'tan daha iyi gibi geliyor çünkü [[kıyafet, tarif ve oda fikirleri]] kaydediyorsun"
+    },
+    "T3": {
+     "en": [
+      "but it still has an",
+      "algorithm built to keep",
+      "you hooked, just like",
+      "every other app"
+     ],
+     "fr": "mais y'a quand même [[un algo conçu pour te rendre accro]], comme sur toutes les applis",
+     "texte": "ama onda da [[seni bağlamak için kurulmuş bir algoritma]] var, her uygulama gibi"
+    },
+    "T4": {
+     "en": [
+      "you end up with hundreds of saved pins you never",
+      "actually make, just consuming other people's ideas",
+      "instead of having your own"
+     ],
+     "fr": "au final t'as [[des centaines de posts enregistrés]] que tu fais jamais, tu [[consommes les idées des autres]] au lieu d'avoir les tiennes",
+     "texte": "sonunda hiç yapmadığın [[yüzlerce kayıtlı gönderi]] birikiyor, kendi fikirlerin yerine [[başkalarının fikirlerini tüketiyorsun]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7696836327026724128_1.jpg",
+      "boite": [
+       96,
+       390,
+       775,
+       538
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on long walks without music"
+     ],
+     "fr": "fais [[de longues balades sans musique]]",
+     "texte": "[[müziksiz uzun yürüyüşlere]] çık"
+    },
+    "T2": {
+     "en": [
+      "most people fill every walk with podcasts or music",
+      "and think they're being productive"
+     ],
+     "fr": "tout le monde marche avec [[un podcast ou de la musique]] et se croit [[super productif]]",
+     "texte": "çoğu insan her yürüyüşü [[podcast ya da müzikle]] dolduruyor ve [[verimli olduğunu]] sanıyor"
+    },
+    "T3": {
+     "en": [
+      "but your brain only",
+      "starts thinking for",
+      "itself when nothing is",
+      "feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le nourrit]]",
+     "texte": "ama beynin ancak [[hiçbir şey onu beslemezken]] [[kendi başına düşünmeye]] başlar"
+    },
+    "T4": {
+     "en": [
+      "walk in silence, let your mind wander, and your best",
+      "ideas will come from walks"
+     ],
+     "fr": "marche en silence, laisse-toi rêvasser, [[tes meilleures idées]] viendront [[en marchant]]",
+     "texte": "sessizce yürü, zihnin dolaşsın, [[en iyi fikirlerin]] [[yürürken]] gelecek"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[tous les jours]]",
+     "texte": "[[her gün]] bir kitap oku"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis que [[tu veux lire plus]], puis tu passes [[ta journée à scroller]]",
+     "texte": "[[daha çok okumak istiyorum]] diyorsun, sonra [[bütün gün kaydırıyorsun]]"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower",
+      "to stop, but i use a thing",
+      "that blocks tiktok until i",
+      "read a book for 20 minutes"
+     ],
+     "fr": "au lieu de scroller, je vais au bout d'une idée en 5 min sur [[l'appli Sophia]]. aujourd'hui : [[le Sisyphe heureux de Camus]]",
+     "texte": "kaydırmak yerine [[Sophia uygulamasında]] 5 dakika tek bir fikri sonuna kadar takip ediyorum. bugün: [[rönesans neden italya'da başladı]]"
+    },
+    "T4": {
+     "en": [
+      "books are proven to build",
+      "your vocabulary, memory,",
+      "and the ability to follow",
+      "complex ideas"
+     ],
+     "fr": "c'est [[prouvé]] : lire muscle ton vocabulaire, ta mémoire et ta capacité à [[suivre des idées complexes]]",
+     "texte": "okumanın kelime haznesini, hafızanı ve [[karmaşık fikirleri izleme]] gücünü geliştirdiği [[kanıtlı]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a second language"
+     ],
+     "fr": "apprends [[une deuxième langue]]",
+     "texte": "[[ikinci bir dil]] öğren"
+    },
+    "T2": {
+     "en": [
+      "you have to remember thousands of words, switch",
+      "between two ways of thinking, and keep going",
+      "when you sound stupid"
+     ],
+     "fr": "tu dois [[retenir des milliers de mots]], jongler entre deux façons de penser et continuer même quand [[t'as l'air bête]]",
+     "texte": "[[binlerce kelimeyi hatırlaman]], iki düşünme biçimi arasında geçiş yapman ve [[aptal gibi göründüğünde]] bile devam etmen gerekiyor"
+    },
+    "T3": {
+     "en": [
+      "switching languages",
+      "trains your brain to",
+      "focus and filter",
+      "information"
+     ],
+     "fr": "changer de langue entraîne ton cerveau à [[se concentrer et trier]] l'info",
+     "texte": "dil değiştirmek beynini [[odaklanmaya ve bilgiyi süzmeye]] alıştırır"
+    },
+    "T4": {
+     "en": [
+      "and studies show",
+      "bilingual people get",
+      "dementia years later"
+     ],
+     "fr": "et des études associent le bilinguisme à [[un cerveau qui vieillit mieux]]",
+     "texte": "çalışmalar iki dilliliği [[yavaş yaşlanan beyinle]] bağdaştırıyor"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7698667830635400470_2.jpg",
+      "boite": [
+       518,
+       431,
+       512,
+       444
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself before using AI"
+     ],
+     "fr": "réfléchis [[avant de demander à l'IA]]",
+     "texte": "[[yapay zekâya sormadan]] önce düşün"
+    },
+    "T2": {
+     "en": [
+      "asking AI for every answer feels smart, but your",
+      "brain skips the hard part"
+     ],
+     "fr": "tout demander à l'IA, ça fait intelligent, mais ton cerveau [[zappe la partie dure]]",
+     "texte": "her cevabı yapay zekâya sormak akıllıca geliyor ama beynin [[zor kısmı atlıyor]]"
+    },
+    "T3": {
+     "en": [
+      "try to work it out",
+      "yourself first, then",
+      "use AI to check it or",
+      "find gaps"
+     ],
+     "fr": "[[cherche d'abord par toi-même]], puis vérifie avec l'IA ou repère ce qui manque",
+     "texte": "önce [[kendin çözmeye çalış]], sonra yapay zekâyla kontrol et ya da eksikleri bul"
+    },
+    "T4": {
+     "en": [
+      "the struggle is what makes you smarter, if AI",
+      "always does it for you, you stop practicing thinking"
+     ],
+     "fr": "c'est galérer qui [[fait progresser ton cerveau]], si l'IA fait tout à ta place, tu [[perds l'habitude de réfléchir]]",
+     "texte": "seni [[daha zeki yapan şey]] o zorlanma, yapay zekâ hep senin yerine yaparsa [[düşünme pratiğini kaybedersin]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

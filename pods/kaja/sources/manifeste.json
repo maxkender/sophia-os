@@ -90,7 +90,8 @@
    },
    "decor_chez_lui": "branche",
    "competences": "small talk, rizz, hold a conversation",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-005, livraison fbd59044 du 06/11 en en, fr et de : décor falaise, Sophia en étape 3 « ALWAYS HAVE SOMETHING TO SAY » (cta C), titres d'étape changés pour ne pas répéter ka-001 et ka-004"
   },
   {
    "id": "7696841940729400578",
@@ -107,7 +108,8 @@
    },
    "decor_chez_lui": "branche",
    "competences": "flirt, fight, lie (fin : « Just like Duolingo but for anything »)",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "sauté le 06/11 : reprendrait les compétences et titres d'étape de ka-001/ka-002 (flirt, fight / small talk) ; à faire avec d'autres étapes ou plus tard"
   },
   {
    "id": "7687731339235216662",
@@ -123,7 +125,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-006, livraison f24ff90e du 06/11 en en, fr et de : décor falaise, « RIZZ » devient « BE CHARMING », Sophia en étape 3 « SOUND SMART » (cta B)"
   },
   {
    "id": "7696107863982296342",
@@ -140,7 +143,8 @@
    },
    "decor_chez_lui": "falaise",
    "competences": "small talk, glow up, stop being boring, smell good",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-008, livraison 72d7f8de du 07/11 en en et de : « SMALL TALK » devient « TALK TO GIRLS », Sophia en étape 3 « BE CULTURED » (cta A)"
   },
   {
    "id": "7672387246825295126",
@@ -172,7 +176,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7240852724106005291"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "sauté le 07/11 : NEGOTIATE et RIZZ déjà dans ka-004 et ka-006"
   },
   {
    "id": "7687211191055174934",
@@ -188,7 +193,8 @@
     "url": "https://www.tiktok.com/music/solitude-7355730432355502096"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "essayé le 06/11 et le 07/11 : pas de vraie vidéo au niveau en fr puis en de pour « talk your way out », « disappear » et « being followed » ; attend"
   },
   {
    "id": "7673516970519563542",
@@ -220,7 +226,8 @@
     "url": "https://www.tiktok.com/music/seventh-heaven-7359926862746355729"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-009, livraison 2fcc41fc du 07/11 en en et de : Sophia en étape 3 « GET SMARTER » (cta C)"
   },
   {
    "id": "7671587006027205910",
@@ -236,7 +243,8 @@
     "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-012, livraison 79ff9e8a du 08/11 en en et de : Sophia remplace « MAKE A FISHING SPEAR », en étape 3 « KNOW A BIT OF EVERYTHING » (cta C)"
   },
   {
    "id": "7689169434203671830",
@@ -268,7 +276,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7585395509230062367"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-011, livraison d4e59f8c du 08/11 en en et de : Sophia remplace « WHISTLE WITH YOUR FINGERS », en étape 3 « ALWAYS HAVE A FUN FACT » (cta B)"
   },
   {
    "id": "7688107160043113750",

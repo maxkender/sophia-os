@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o180",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0ea6f80e-afdb-4428-9530-05bdc4667509",
+ "titre": "Fais le tri : 4 règles pour attirer des relations de haute valeur #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "0ea6f80e-afdb-4428-9530-05bdc4667509"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture a5a82eb8. déclinaison G1 de la ligne 9 de la boîte (0ea6f80e, fr), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. La ligne 8 (« How To Become Rodiculously Social ») est sautée : faute de frappe dans l'accroche à reprendre mot pour mot. 4 règles neuves (aucune reprise : vampires, loyal pas naïf, célébrer, ne pas forcer), puis Sophia, puis le pourquoi et la conclusion. Ton bienveillant, sans mépris. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a5a82eb8",
+   "texte_overlay": "Fais le tri :\n4 règles pour attirer\ndes relations\nde haute valeur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Règle 1 : Deviens la personne que tu veux attirer. Fiable, curieux, gentil. Les gens de valeur se reconnaissent entre eux. Commence par incarner ce que tu cherches chez les autres.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Règle 2 : Montre-toi là où vivent les gens qui te ressemblent. Un club de sport, une association, un atelier. Les belles rencontres arrivent rarement sur un canapé.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Règle 3 : Donne avant de demander. Un coup de main, une recommandation, un contact utile. Les relations solides commencent souvent par un geste généreux, sans rien attendre en retour.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Règle 4 : Entretiens ce que tu as. Un message, un appel, un dîner par mois. Les relations de valeur ne meurent pas d'une dispute, elles meurent du silence.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Cultive ta curiosité. Je fais cinq minutes d'histoire, d'art ou de science par jour, et les gens intéressants aiment s'entourer de gens intéressés.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Les gens intéressants aiment les gens intéressés.",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pourquoi ça marche : tu n'as pas besoin de beaucoup de monde autour de toi. Quelques personnes fiables, qui te tirent vers le haut, changent complètement le cours d'une vie.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Fais le tri avec douceur. Pas besoin de couper les ponts avec fracas. Donne simplement plus de temps à ceux qui te font grandir, et le reste se règle tout seul.",
+   "media_id": "bdf15e02"
+  }
+ ]
+}

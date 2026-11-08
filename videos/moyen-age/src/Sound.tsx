@@ -2,51 +2,18 @@ import React from 'react';
 import {Audio} from '@remotion/media';
 import {interpolate, Sequence, staticFile} from 'remotion';
 import {PUSH, TAPS} from './scenes/Outro';
+import {plansAffiches, SONS, TABLEAUX} from './scenes/Tableaux';
 import {NOUVELLE_VIE, OUTRO_VOICE, useTimeline, VOICE_START, type Timeline} from './timeline';
 
-// Son calme : une ambiance douce par page (en boucle, sous la voix) et un seul bruitage léger au moment fort.
-type Page = [ambiance: string | null, moment: string | null];
-const PAGES: Page[] = [
-  ['countryside', 'bell'],
-  ['countryside', 'chime'],
-  ['fireplace', 'hooves'],
-  ['countryside', 'birds'],
-  ['countryside', 'bell'],
-  ['countryside', 'chime'],
-  ['countryside', 'cloth'],
-  ['rain', null],
-  ['fireplace', 'cloth'],
-  ['night', null],
-  ['winter', 'bell'],
-  ['fireplace', 'cloth'],
-  ['fireplace', null],
-  ['town', 'chime'],
-  ['countryside', 'pageSoft'],
-  ['fireplace', 'cloth'],
-  ['town', null],
-  ['town', 'chime'],
-  ['waves', 'bell'],
-  ['night', null],
-  ['winter', null],
-  ['countryside', 'chime'],
-  ['countryside', 'hooves'],
-  ['hall', 'chime'],
-  ['winter', 'cloth'],
-  ['night', null],
-  ['hall', null],
-  ['hall', 'chime'],
-  ['hall', 'cloth'],
-  ['hall', 'cloth'],
-  ['winter', 'hooves'],
-  ['countryside', 'hooves'],
-  ['hall', 'chime'],
-  [null, 'chime'],
-  ['countryside', 'bell'],
-  ['fireplace', 'cloth'],
+// Une ambiance douce par page (en boucle, sous la voix), et les bruitages des plans (scenes/Tableaux.tsx, SONS)
+const AMBIANCES: (string | null)[] = [
+  'countryside', 'countryside', 'fireplace', 'countryside', 'countryside', 'countryside', 'countryside', 'countryside',
+  'fireplace', 'night', 'winter', 'fireplace', 'fireplace', 'town', 'town', 'fireplace', 'town', 'town', 'waves', 'night',
+  'town', 'countryside', 'countryside', 'hall', 'winter', 'night', 'countryside', 'hall', 'hall', 'hall', 'winter',
+  'countryside', null, null, 'countryside', 'fireplace',
 ];
 const MASTER = 0.55;
 const AMBIANCE = 0.16; // ambiance sous la voix
-const MOMENT = 0.32;
 
 type Ev = {f: number; son: string; vol: number};
 
@@ -54,9 +21,15 @@ export const evenements = (tl: Timeline): Ev[] => {
   const {scenes, outroFrom, parle} = tl;
   return [
     ...scenes.flatMap((s, i): Ev[] => {
-      const son = PAGES[i]?.[1];
-      return son ? [{f: s.from + s.moment, son, vol: MOMENT}] : [];
+      const affiches = plansAffiches(TABLEAUX[i]?.nPlans ?? 1, s.plans);
+      return (SONS[i] ?? []).flatMap(([plan, quand, son, vol]): Ev[] => {
+        if (quand === 'm') return affiches.some((p) => p.idx === plan) || plan === 0 ? [{f: s.from + s.moment, son, vol}] : [];
+        const p = affiches.find((x) => x.idx === plan);
+        return p && p.de + quand < s.d ? [{f: s.from + p.de + quand, son, vol}] : [];
+      });
     }),
+    // coupe entre deux plans d'une même page : petit « swish »
+    ...scenes.flatMap((s): Ev[] => s.plans.slice(1).map((p): Ev => ({f: s.from + p, son: 'whoosh', vol: 0.12}))),
     ...scenes.slice(1).map((s, i): Ev => (NOUVELLE_VIE.has(i) ? {f: s.from, son: 'tear', vol: 0.45} : {f: s.from, son: 'whoosh', vol: 0.28})),
     {f: outroFrom, son: 'whoosh', vol: 0.35},
     {f: outroFrom + 2, son: 'phone', vol: 0.5},
@@ -81,7 +54,7 @@ export const Sound: React.FC = () => {
         <Audio src={staticFile(`audio/${code}/outro.mp3`)} />
       </Sequence>
       {tl.scenes.map((s, i) => {
-        const amb = PAGES[i]?.[0];
+        const amb = AMBIANCES[i];
         if (!amb) return null;
         return (
           <Sequence key={`a${i}`} from={s.from} durationInFrames={s.d} layout="none" name={`ambiance ${amb}`}>

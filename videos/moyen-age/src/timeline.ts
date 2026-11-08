@@ -15,7 +15,10 @@ export const OUTRO_VOICE = 8; // la phrase de fin démarre 8 images après le d�
 
 
 export type Mot = {texte: string; debut: number; fin: number; index: number};
-export type SceneTiming = {id: string; from: number; d: number; warp: Warp; moment: number};
+export type SceneTiming = {id: string; from: number; d: number; warp: Warp; moment: number; plans: number[]};
+
+/** Durée visée d'un plan (images) : une phrase est coupée en 1 à 3 plans, sur des débuts de mots */
+export const PLAN_VISE = 62;
 export type MotSousTitre = {texte: string; de: number; a: number};
 export type Page = {mots: MotSousTitre[]; de: number; a: number; zone: 'recit' | 'outro'};
 
@@ -115,7 +118,16 @@ export const construireTimeline = (langue: DonneesLangue): Timeline => {
     ];
     const r = (s.reperes ?? [])[0];
     const moment = r ? Math.max(8, Math.round(vers(motDansScene(i, r.mot)[r.ou === 'fin' ? 'fin' : 'debut']) - from)) : Math.round(d * 0.4);
-    return {id: s.id, from, d, warp, moment};
+    // Plans : coupes sur le début d'un mot, au plus près de d·k/n
+    const n = Math.max(1, Math.min(3, Math.round(d / PLAN_VISE)));
+    const debuts = motsScene(i).map((m) => Math.round(vers(m.debut) - from));
+    const plans = [0];
+    for (let k = 1; k < n; k++) {
+      const cible = (d * k) / n;
+      const best = debuts.reduce((a, b) => (Math.abs(b - cible) < Math.abs(a - cible) ? b : a), debuts[0]);
+      if (best > plans[plans.length - 1] + 30 && best < d - 30) plans.push(best);
+    }
+    return {id: s.id, from, d, warp, moment, plans};
   });
 
   const outroFrom = coupes[coupes.length - 1] - T / 2;

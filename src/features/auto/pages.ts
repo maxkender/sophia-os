@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "faq" | "officielles" | "parrainage" | "slack" | "logs";
+export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "faq" | "officielles" | "parrainage" | "slack" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "overview", to: "/admin/auto" },
@@ -22,6 +22,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // Prompt 21, R : quand un posteur dit que l'OS s'est trompé (entre Messages received et Payroll).
   { cle: "disputes", to: "/admin/auto/disputes" },
   { cle: "payroll", to: "/admin/auto/payroll" },
+  // 8/11 : les bonus (Comment Masters, parrainage, manuels), à valider puis envoyés au clic.
+  { cle: "bonus", to: "/admin/auto/bonus" },
   { cle: "faq", to: "/admin/auto/faq" },
   // 6/11 : les réponses validées par Max, que le bot FAQ et les 3 bots donnent en priorité.
   { cle: "officielles", to: "/admin/auto/reponses-officielles" },

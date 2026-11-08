@@ -137,3 +137,24 @@ export async function envoyerBonus(lundi: string): Promise<{ ok: boolean; payes?
   if (error) throw new Error(error.message);
   return data as { ok: boolean; payes?: number; echecs?: number; error?: string };
 }
+
+/** 0569 : un bonus envoyé (payé ou en échec). */
+export interface BonusEnvoye {
+  id: string;
+  type: "comment_master" | "parrainage" | "manuel";
+  nom: string;
+  detail: string;
+  montant: number;
+  statut: string;
+  lundi: string;
+  envoi_at: string | null;
+  paye_at: string | null;
+  erreur: string | null;
+  facture: string | null;
+}
+
+export async function lireHistoriqueBonus(): Promise<BonusEnvoye[]> {
+  const { data, error } = await supabase.rpc("bonus_historique", { p_limite: 300 });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as BonusEnvoye[];
+}

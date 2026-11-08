@@ -1,0 +1,417 @@
+{
+ "id": "fa-058",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Questions That Will Blow Your Mind",
+  "de": "3 Fragen, die dich umhauen",
+  "it": "3 domande che ti apriranno la mente",
+  "pt-BR": "3 perguntas que vão explodir sua mente",
+  "es-419": "3 preguntas que te volarán la cabeza"
+ },
+ "legendes": {
+  "en": "3 Questions That Will Blow Your Mind #science #learnontiktok #curiosity",
+  "de": "3 Fragen, die dich umhauen #wissenschaft #lernenmittiktok #neugier",
+  "it": "3 domande che ti apriranno la mente #scienza #imparacontiktok #curiosità",
+  "pt-BR": "3 perguntas que vão explodir sua mente #ciência #aprendanotiktok #curiosidades",
+  "es-419": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta A. Full test (jauge BLEO du 08/11) : accroche neuve au format liste de @fathom0g (« 3 Questions That Will Blow Your Mind »), jamais faite chez nous. Étapes : vieillir, rêver, Sophia, trous noirs. Langues des comptes du label (en, de, it, pt-BR, es-419), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 QUESTIONS",
+       "bronze": true
+      }
+     ],
+     "THAT WILL",
+     [
+      {
+       "t": "BLOW YOUR MIND",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 FRAGEN",
+       "bronze": true
+      }
+     ],
+     "DIE DICH",
+     [
+      {
+       "t": "UMHAUEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 DOMANDE",
+       "bronze": true
+      }
+     ],
+     "CHE TI APRIRANNO",
+     [
+      {
+       "t": "LA MENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 PERGUNTAS",
+       "bronze": true
+      }
+     ],
+     "QUE VÃO EXPLODIR",
+     [
+      {
+       "t": "SUA MENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 PREGUNTAS",
+       "bronze": true
+      }
+     ],
+     "QUE TE VOLARÁN",
+     [
+      {
+       "t": "LA CABEZA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY DO",
+     "WE AGE?"
+    ],
+    "video": {
+     "id": "GASaqPv0t0g",
+     "titre": "Why do our bodies age? - Monica Menesini",
+     "chaine": "TED-Ed",
+     "vues": "3.1M views",
+     "date": "10 years ago",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KÖNNEN WIR DAS",
+     "ALTERN STOPPEN?"
+    ],
+    "video": {
+     "id": "YkBX8KyBAcs",
+     "titre": "Können wir das Altern noch zu deinen Lebzeiten stoppen?",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "1,6 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ",
+     "INVECCHIAMO?"
+    ],
+    "video": {
+     "id": "A6858T5Hd4I",
+     "titre": "Perché invecchiamo?",
+     "chaine": "SCIENZIATI subito",
+     "vues": "30K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRD6pSsI73czCTA4ZVwmijHKtWnkzskR_FB-gveMlV2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "POR QUE",
+     "ENVELHECEMOS?"
+    ],
+    "video": {
+     "id": "33g2qcnawMk",
+     "titre": "Por que Ficamos Velhos?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "424 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "9:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿POR QUÉ",
+     "ENVEJECEMOS?"
+    ],
+    "video": {
+     "id": "yLcV9STOzyI",
+     "titre": "¿Por qué envejecemos?",
+     "chaine": "CuriosaMente",
+     "vues": "1.3 M de vistas",
+     "date": "hace 4 años",
+     "duree": "8:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY DO",
+     "WE DREAM?"
+    ],
+    "video": {
+     "id": "2W85Dwxx218",
+     "titre": "Why do we dream? - Amy Adkins",
+     "chaine": "TED-Ed",
+     "vues": "9.2M views",
+     "date": "10 years ago",
+     "duree": "5:38",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WARUM",
+     "TRÄUMEN WIR?"
+    ],
+    "video": {
+     "id": "S_HB5n-dTdE",
+     "titre": "Warum träumen wir? l WOOZLE GOOZLE",
+     "chaine": "Woozle Goozle",
+     "vues": "177.582 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/xdV1imcf8UU95Zi5X-7G85tjk3SYsLp1FW9gEH3JKk1CFwpFx6GKwxaZ5V1q0X3iMrVJe9G8hg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "COSA SUCCEDE",
+     "QUANDO SOGNIAMO?"
+    ],
+    "video": {
+     "id": "ddHHHndH-6c",
+     "titre": "Cosa accade nel nostro cervello quando sogniamo?",
+     "chaine": "Geopop",
+     "vues": "1,5 Mln visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO SABER QUE",
+     "NÃO É UM SONHO?"
+    ],
+    "video": {
+     "id": "WdXQabecaEs",
+     "titre": "Como você SABE que isso NÃO É um SONHO?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "1,5 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "10:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿POR QUÉ",
+     "SOÑAMOS?"
+    ],
+    "video": {
+     "id": "zBNXZVRVJt8",
+     "titre": "¿Por qué soñamos?",
+     "chaine": "CuriosaMente",
+     "vues": "907 k vistas",
+     "date": "hace 9 años",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ONE NEW ANSWER",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG EINE",
+     "NEUE ANTWORT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UNA RISPOSTA NUOVA",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "UMA RESPOSTA NOVA",
+     "TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UNA RESPUESTA NUEVA",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHAT IS A",
+     "BLACK HOLE?"
+    ],
+    "video": {
+     "id": "e-P5IFTqB98",
+     "titre": "Black Holes Explained – From Birth to Death",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "29M views",
+     "date": "10 years ago",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WAS IST EIN",
+     "SCHWARZES LOCH?"
+    ],
+    "video": {
+     "id": "3IpcM5gqRM4",
+     "titre": "Schwarze Löcher Erklärt - Von der Geburt bis zum Tod",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "4,8 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "E SE CADESSIMO IN",
+     "UN BUCO NERO?"
+    ],
+    "video": {
+     "id": "DZJ1sHAvsu8",
+     "titre": "Cosa succederebbe se la terra entrasse in un buco nero?",
+     "chaine": "Geopop",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "11 mesi fa",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O QUE É UM",
+     "BURACO NEGRO?"
+    ],
+    "video": {
+     "id": "GbJJRsS6OR4",
+     "titre": "Buracos Negros Explicados",
+     "chaine": "Ciência Todo Dia",
+     "vues": "1,4 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿Y SI CAEMOS EN",
+     "UN AGUJERO NEGRO?"
+    ],
+    "video": {
+     "id": "TFhRXnE2xck",
+     "titre": "¿Qué pasa si nos caemos en un agujero negro?",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "6.9 M de vistas",
+     "date": "hace 3 años",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -5,6 +5,7 @@ import {
   lireSourceContenu,
   type SourceContenu,
 } from "../_shared/ab_circuits.ts";
+import { extraireCorrections } from "../_shared/corrections_natives.ts";
 import type { SlideDeck } from "../_shared/deck_langue.ts";
 import { assurerDeckPourLangue } from "../_shared/import_contenu.ts";
 import { ID_SOPHIA } from "../_shared/multi_app.ts";
@@ -24,6 +25,7 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *     tiré au sort. Un appel par duel : le candidat fait 2 à 4 appels modèle.
  *
  *   { action: "lot_servir", langue? }
+ *   { action: "corrections_extraire", langue?, max? }
  *       → { ok: true, faits: [{ langue, contenu_id, ok, raison? }], restants, langues }
  *     Le lot commun (0627) : pour chaque langue qui a un relecteur invité ou
  *     actif, et chaque contenu du lot sans duel pour le candidat du lot, prépare
@@ -68,6 +70,14 @@ Deno.serve(async (request) => {
           applications: c.applications,
         })),
       });
+    }
+
+    if (action === "corrections_extraire") {
+      // Boucle de correction (0630) : découper les remarques des relecteurs
+      // non traitées (toutes langues, ou `langue`), `max` votes par appel.
+      const langue = String(body?.langue ?? "").trim().toLowerCase() || null;
+      const max = Number(body?.max);
+      return json({ ok: true, ...(await extraireCorrections(supabase, { langue, max: Number.isFinite(max) ? max : undefined })) });
     }
 
     if (action === "lot_servir") {

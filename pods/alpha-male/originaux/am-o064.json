@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o064",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5712b5ed-b46d-47ea-b8b3-ccbe09f5dece",
+ "titre": "6 ways to be unmistakably manly #men #respect #selfimprovement #discipline #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7607192688017885974",
+ "inspirations": [
+  "5712b5ed-b46d-47ea-b8b3-ccbe09f5dece"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 8/11. Déclinaison G2 de la ligne 2 (parent 5712b5ed = notre am-o036, langue source en ; meilleur passage lt 12,6 k vues). Même promesse reformulée (« 6 ways to be unmistakably manly »). Même format : « N. Titre: » puis trois lignes. Gestes neufs, aucun de am-o036 (poids rangés, jours durs, savoir un peu de tout, prénoms, objet de rechange, grands-parents). Images de la banque ; slide Sophia : route en forêt sans personne. reference_url du parent (slide 1 manquante : 400, comme le parent, slide 2 à la place), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "03c0f804",
+   "texte_overlay": "6 ways to be\nunmistakably manly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "306c86af",
+   "texte_overlay": "1. Hold The Door\nAnd The Elevator:\n\nFor the stranger running late.\nTwo seconds. Every time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "48ec81a4",
+   "texte_overlay": "2. Leave Places Cleaner\nThan You Found Them:\n\nThe campsite. The locker room.\nThe office kitchen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6431c056",
+   "texte_overlay": "3. Know What's Going On\nIn The World:\n\nHistory, science, the news.\nOne thing a day.\nGood talk needs something\nto say.",
+   "texte_sophia": "3. Know What's Going On\nIn The World:\n\nHistory, science, the news.\nOne lesson a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2de2e4cf",
+   "texte_overlay": "4. Stand Up For The Man\nBeing Laughed At:\n\nChange the joke.\nSit next to him.\nThe room will follow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0cbe4469",
+   "texte_overlay": "5. Cook For Other People:\n\nOne dish you do well.\nFeeding people is\nan old kind of strength.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1c2b6328",
+   "texte_overlay": "6. Return The Cart:\n\nNobody's watching.\nThat's exactly the point.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

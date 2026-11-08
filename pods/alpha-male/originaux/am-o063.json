@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o063",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f5b0d90c-831a-4411-b9f1-5c81e8f4cb16",
+ "titre": "Little things that make people trust you from day one #psychology #men #selfimprovement #mindset #trust",
+ "musique_titre": "bipolar (slowed)",
+ "musique_url": "https://www.tiktok.com/music/bipolar-slowed-7391819517150660624",
+ "inspirations": [
+  "f5b0d90c-831a-4411-b9f1-5c81e8f4cb16"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 8/11. Déclinaison G2 de la ligne 1 (parent f5b0d90c = notre am-o042, langue source en ; 2e déclinaison après am-o059). Même promesse, autre reformulation (« Little things that make people trust you from day one »). Même format : « N. habitude » puis une puce. Habitudes neuves, ni de am-o042, am-o017 ou am-o059. Rien de manipulateur. Images de la banque et célébrités (autorisé) ; slide Sophia : rue de nuit sans personne. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5868edb2",
+   "texte_overlay": "Little Things That Make People\nTrust You From Day One",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2fc74eeb",
+   "texte_overlay": "1. Don't check your phone\nwhile they talk\n\n• Not even a glance.\nAttention is respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0c217d2f",
+   "texte_overlay": "2. Be where you said,\nwhen you said\n\n• Every time.\nTrust is built on boring moments.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2d98b7de",
+   "texte_overlay": "3. Give things back\nbefore they ask\n\n• The book, the charger,\nthe money. Without a reminder.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "207ef742",
+   "texte_overlay": "4. Stay calm when\nthings go wrong\n\n• People trust the man\nwho doesn't panic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "13e7d812",
+   "texte_overlay": "5. Tell the truth when\na lie would be easier\n\n• Once they see it,\nthey never forget it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "054e31ce",
+   "texte_overlay": "6. Admit what you\ndon't know\n\n• Then go learn it.\nHonest and curious beats\npretending every time.",
+   "texte_sophia": "6. Admit what you\ndon't know\n\n• Then I go learn it:\n5 minutes a day on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  }
+ ]
+}

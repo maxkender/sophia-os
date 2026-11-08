@@ -18,7 +18,7 @@ const evenementsRealistes = (tl: Timeline): Ev[] => {
     ...mouvements.slice(1).map((m): Ev => ({f: m.de, son: 'swooshDoux', vol: 0.4})),
     ...elements.map((e): Ev => {
       if (e.type === 'pays') return {f: e.debut, son: 'basseDouce', vol: 0.45};
-      if (e.type === 'fleche') return {f: e.debut, son: 'traitDoux', vol: 0.35};
+      if (e.type === 'fleche' || e.type === 'forme') return {f: e.debut, son: 'traitDoux', vol: 0.35};
       return {f: e.debut, son: 'ticDoux', vol: 0.4};
     }),
     {f: outroFrom, son: 'swooshDoux', vol: 0.4},

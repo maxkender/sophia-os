@@ -1,0 +1,1225 @@
+{
+ "langue": "en",
+ "voix": {
+  "id": "nPczCjzI2devNBz1zQrb",
+  "nom": "Brian",
+  "modele": "eleven_multilingual_v2",
+  "reglages": {
+   "stability": 0.55,
+   "similarity_boost": 0.8,
+   "style": 0.25,
+   "use_speaker_boost": true,
+   "speed": 1.06
+  }
+ },
+ "rendu": "realiste",
+ "scenes": [
+  {
+   "id": "S1",
+   "texte": "There's a piece of land in Africa that no country on Earth wants.",
+   "carte": {
+    "vue": {
+     "centre": [
+      15,
+      22
+     ],
+     "zoom": 1.0
+    },
+    "plans": [
+     {
+      "au": "Africa",
+      "centre": [
+       29,
+       20
+      ],
+      "zoom": 3.2
+     },
+     {
+      "au": "country",
+      "centre": [
+       32,
+       21
+      ],
+      "zoom": 9
+     }
+    ],
+    "pays": [
+     {
+      "au": "country",
+      "noms": [
+       "Egypt"
+      ],
+      "couleur": "orange"
+     },
+     {
+      "au": "country",
+      "noms": [
+       "Sudan"
+      ],
+      "couleur": "bleu"
+     }
+    ],
+    "points": [
+     {
+      "au": "wants.",
+      "lieu": [
+       33.63,
+       21.88
+      ],
+      "icone": "question",
+      "couleur": "rouge"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S2",
+   "texte": "It's called Bir Tawil, two thousand square kilometers of desert between Egypt and Sudan.",
+   "carte": {
+    "plans": [
+     {
+      "au": "Bir",
+      "centre": [
+       33.63,
+       21.9
+      ],
+      "zoom": 150
+     },
+     {
+      "au": "desert",
+      "centre": [
+       33.63,
+       21.88
+      ],
+      "zoom": 115,
+      "vol": 40
+     },
+     {
+      "au": "Egypt",
+      "centre": [
+       32.6,
+       22.0
+      ],
+      "zoom": 13
+     }
+    ],
+    "formes": [
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "jaune",
+      "trace": 30,
+      "au": "Tawil,"
+     }
+    ],
+    "etiquettes": [
+     {
+      "au": "Tawil,",
+      "texte": "BIR TAWIL",
+      "lieu": [
+       33.63,
+       22.12
+      ],
+      "style": "titre",
+      "jusqua": "Egypt"
+     },
+     {
+      "au": "thousand",
+      "texte": "2,060 KM²",
+      "lieu": [
+       33.63,
+       21.6
+      ],
+      "style": "chiffre",
+      "compte": true,
+      "jusqua": "Egypt"
+     },
+     {
+      "au": "Egypt",
+      "texte": "EGYPT",
+      "lieu": [
+       31.0,
+       24.0
+      ],
+      "style": "titre"
+     },
+     {
+      "au": "Sudan.",
+      "texte": "SUDAN",
+      "lieu": [
+       31.0,
+       19.9
+      ],
+      "style": "titre"
+     }
+    ],
+    "pays": [
+     {
+      "au": "Egypt",
+      "noms": [
+       "Egypt"
+      ],
+      "couleur": "orange"
+     },
+     {
+      "au": "Sudan.",
+      "noms": [
+       "Sudan"
+      ],
+      "couleur": "bleu"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S3",
+   "texte": "The problem? Two different borders, drawn by the British in 1899 and in 1902.",
+   "carte": {
+    "vue": {
+     "centre": [
+      31,
+      22.2
+     ],
+     "zoom": 19
+    },
+    "plans": [
+     {
+      "au": "British",
+      "centre": [
+       33,
+       22.2
+      ],
+      "zoom": 23,
+      "vol": 50
+     }
+    ],
+    "points": [
+     {
+      "au": "problem?",
+      "lieu": [
+       33.63,
+       21.88
+      ],
+      "icone": "question",
+      "couleur": "rouge",
+      "jusqua": "borders,"
+     },
+     {
+      "au": "British",
+      "lieu": [
+       30.0,
+       26.0
+      ],
+      "icone": "drapeau",
+      "couleur": "rouge"
+     }
+    ],
+    "formes": [
+     {
+      "au": "1899",
+      "points": [
+       [
+        25.0,
+        22.0
+       ],
+       [
+        36.89,
+        22.0
+       ]
+      ],
+      "ferme": false,
+      "couleur": "orange",
+      "trace": 28
+     },
+     {
+      "au": "and",
+      "points": [
+       [
+        25.0,
+        22.0
+       ],
+       [
+        33.18,
+        22.0
+       ],
+       [
+        33.25,
+        21.86
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        35.6,
+        23.2
+       ]
+      ],
+      "ferme": false,
+      "pointille": true,
+      "couleur": "turquoise",
+      "trace": 28
+     }
+    ],
+    "etiquettes": [
+     {
+      "au": "Two",
+      "texte": "2 BORDERS",
+      "lieu": [
+       31.0,
+       24.3
+      ],
+      "style": "chiffre",
+      "jusqua": "1899"
+     },
+     {
+      "au": "1899",
+      "texte": "1899",
+      "lieu": [
+       27.0,
+       22.0
+      ],
+      "style": "pastille",
+      "cote": "haut"
+     },
+     {
+      "au": "and",
+      "texte": "1902",
+      "lieu": [
+       35.0,
+       22.73
+      ],
+      "style": "pastille",
+      "couleur": "turquoise",
+      "cote": "haut"
+     },
+     {
+      "au": "British",
+      "texte": "BRITISH RULE",
+      "lieu": [
+       30.0,
+       26.0
+      ],
+      "style": "pastille",
+      "couleur": "rouge",
+      "cote": "droite"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S4",
+   "texte": "Draw the 1899 line, and Egypt gets the Halaib Triangle, ten times bigger, on the Red Sea. Sudan gets Bir Tawil.",
+   "carte": {
+    "vue": {
+     "centre": [
+      35.0,
+      22.3
+     ],
+     "zoom": 36
+    },
+    "plans": [
+     {
+      "au": "Halaib",
+      "centre": [
+       35.8,
+       22.55
+      ],
+      "zoom": 46
+     },
+     {
+      "au": "Red",
+      "centre": [
+       36.3,
+       22.2
+      ],
+      "zoom": 40,
+      "vol": 40
+     },
+     {
+      "au": "Sudan",
+      "centre": [
+       34.9,
+       22.3
+      ],
+      "zoom": 50
+     }
+    ],
+    "formes": [
+     {
+      "points": [
+       [
+        25.0,
+        22.0
+       ],
+       [
+        36.89,
+        22.0
+       ]
+      ],
+      "ferme": false,
+      "couleur": "orange",
+      "trace": 14
+     },
+     {
+      "au": "Halaib",
+      "points": [
+       [
+        34.08,
+        22.0
+       ],
+       [
+        35.6,
+        23.2
+       ],
+       [
+        36.05,
+        22.85
+       ],
+       [
+        36.43,
+        22.42
+       ],
+       [
+        36.64,
+        22.24
+       ],
+       [
+        36.89,
+        22.0
+       ]
+      ],
+      "couleur": "orange",
+      "trace": 26
+     },
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "bleu",
+      "trace": 20,
+      "au": "Sudan"
+     }
+    ],
+    "etiquettes": [
+     {
+      "au": "Halaib",
+      "texte": "HALAIB",
+      "lieu": [
+       35.75,
+       22.45
+      ],
+      "style": "titre"
+     },
+     {
+      "au": "ten",
+      "texte": "×10",
+      "lieu": [
+       35.4,
+       23.45
+      ],
+      "style": "chiffre"
+     },
+     {
+      "au": "Red",
+      "texte": "RED SEA",
+      "lieu": [
+       37.6,
+       21.5
+      ],
+      "style": "titre"
+     },
+     {
+      "au": "Bir",
+      "texte": "SUDAN",
+      "lieu": [
+       33.63,
+       21.88
+      ],
+      "style": "pastille",
+      "couleur": "bleu",
+      "cote": "bas"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S5",
+   "texte": "Draw the 1902 line, and it's the exact opposite.",
+   "carte": {
+    "vue": {
+     "centre": [
+      35.0,
+      22.3
+     ],
+     "zoom": 36
+    },
+    "plans": [
+     {
+      "au": "exact",
+      "centre": [
+       35.0,
+       22.3
+      ],
+      "zoom": 42,
+      "vol": 20
+     }
+    ],
+    "formes": [
+     {
+      "points": [
+       [
+        25.0,
+        22.0
+       ],
+       [
+        33.18,
+        22.0
+       ],
+       [
+        33.25,
+        21.86
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        35.6,
+        23.2
+       ]
+      ],
+      "ferme": false,
+      "pointille": true,
+      "couleur": "turquoise",
+      "trace": 20
+     },
+     {
+      "au": "exact",
+      "points": [
+       [
+        34.08,
+        22.0
+       ],
+       [
+        35.6,
+        23.2
+       ],
+       [
+        36.05,
+        22.85
+       ],
+       [
+        36.43,
+        22.42
+       ],
+       [
+        36.64,
+        22.24
+       ],
+       [
+        36.89,
+        22.0
+       ]
+      ],
+      "couleur": "bleu",
+      "trace": 12
+     },
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "orange",
+      "trace": 12,
+      "au": "exact"
+     },
+     {
+      "points": [
+       [
+        34.08,
+        22.0
+       ],
+       [
+        35.6,
+        23.2
+       ],
+       [
+        36.05,
+        22.85
+       ],
+       [
+        36.43,
+        22.42
+       ],
+       [
+        36.64,
+        22.24
+       ],
+       [
+        36.89,
+        22.0
+       ]
+      ],
+      "couleur": "orange",
+      "trace": 1,
+      "jusqua": "exact"
+     },
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "bleu",
+      "trace": 1,
+      "jusqua": "exact"
+     }
+    ],
+    "etiquettes": [
+     {
+      "au": "exact",
+      "texte": "SUDAN",
+      "lieu": [
+       35.9,
+       22.6
+      ],
+      "style": "pastille",
+      "couleur": "bleu",
+      "cote": "droite"
+     },
+     {
+      "au": "exact",
+      "texte": "EGYPT",
+      "lieu": [
+       33.63,
+       21.88
+      ],
+      "style": "pastille",
+      "couleur": "orange",
+      "cote": "bas"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S6",
+   "texte": "Both countries want Halaib, so each one picks the line that gives it Halaib, and leaves Bir Tawil to the other.",
+   "carte": {
+    "vue": {
+     "centre": [
+      34.0,
+      22.6
+     ],
+     "zoom": 15
+    },
+    "plans": [
+     {
+      "au": "picks",
+      "centre": [
+       35.5,
+       22.6
+      ],
+      "zoom": 30
+     },
+     {
+      "au": "leaves",
+      "centre": [
+       33.63,
+       21.88
+      ],
+      "zoom": 130
+     }
+    ],
+    "formes": [
+     {
+      "points": [
+       [
+        34.08,
+        22.0
+       ],
+       [
+        35.6,
+        23.2
+       ],
+       [
+        36.05,
+        22.85
+       ],
+       [
+        36.43,
+        22.42
+       ],
+       [
+        36.64,
+        22.24
+       ],
+       [
+        36.89,
+        22.0
+       ]
+      ],
+      "couleur": "violet",
+      "trace": 12,
+      "jusqua": "leaves"
+     },
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "gris",
+      "trace": 16,
+      "au": "leaves"
+     }
+    ],
+    "fleches": [
+     {
+      "au": "Both",
+      "de": [
+       31.0,
+       25.5
+      ],
+      "a": [
+       35.7,
+       22.8
+      ],
+      "couleur": "orange",
+      "courbe": 0.2,
+      "jusqua": "leaves"
+     },
+     {
+      "au": "countries",
+      "de": [
+       31.0,
+       18.5
+      ],
+      "a": [
+       36.1,
+       22.3
+      ],
+      "couleur": "bleu",
+      "courbe": -0.2,
+      "jusqua": "leaves"
+     }
+    ],
+    "etiquettes": [
+     {
+      "au": "want",
+      "texte": "HALAIB",
+      "lieu": [
+       35.9,
+       23.3
+      ],
+      "style": "titre",
+      "jusqua": "leaves"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S7",
+   "texte": "So nobody claims it. No government, no permanent residents, just sand and rocks.",
+   "carte": {
+    "vue": {
+     "centre": [
+      33.63,
+      21.88
+     ],
+     "zoom": 130
+    },
+    "plans": [
+     {
+      "au": "sand",
+      "centre": [
+       33.6,
+       21.84
+      ],
+      "zoom": 150,
+      "vol": 70
+     }
+    ],
+    "formes": [
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "gris",
+      "trace": 1
+     }
+    ],
+    "etiquettes": [
+     {
+      "au": "nobody",
+      "texte": "NO ONE",
+      "lieu": [
+       33.63,
+       22.1
+      ],
+      "style": "titre"
+     },
+     {
+      "au": "government,",
+      "texte": "NO GOVERNMENT",
+      "lieu": [
+       33.3,
+       21.9
+      ],
+      "style": "pastille",
+      "cote": "gauche"
+     },
+     {
+      "au": "residents,",
+      "texte": "NO RESIDENTS",
+      "lieu": [
+       33.95,
+       21.85
+      ],
+      "style": "pastille",
+      "cote": "droite"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S8",
+   "texte": "In 2014, an American planted a flag there so his daughter could be a real princess. No country recognized it.",
+   "carte": {
+    "vue": {
+     "centre": [
+      33.63,
+      21.88
+     ],
+     "zoom": 130
+    },
+    "plans": [
+     {
+      "au": "American",
+      "centre": [
+       22,
+       28
+      ],
+      "zoom": 6,
+      "vol": 22
+     },
+     {
+      "au": "flag",
+      "centre": [
+       33.63,
+       21.92
+      ],
+      "zoom": 130,
+      "vol": 26
+     }
+    ],
+    "formes": [
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "gris",
+      "trace": 1
+     }
+    ],
+    "fleches": [
+     {
+      "au": "American",
+      "de": [
+       2.0,
+       36.5
+      ],
+      "a": [
+       33.63,
+       21.88
+      ],
+      "couleur": "bleu",
+      "courbe": -0.12,
+      "jusqua": "flag"
+     }
+    ],
+    "points": [
+     {
+      "au": "flag",
+      "lieu": [
+       33.63,
+       21.88
+      ],
+      "icone": "drapeau",
+      "couleur": "bleu"
+     },
+     {
+      "au": "princess.",
+      "lieu": [
+       33.75,
+       21.97
+      ],
+      "icone": "couronne",
+      "couleur": "jaune"
+     },
+     {
+      "au": "No",
+      "lieu": [
+       33.63,
+       21.88
+      ],
+      "icone": "interdit",
+      "couleur": "rouge"
+     }
+    ],
+    "etiquettes": [
+     {
+      "texte": "2014",
+      "lieu": [
+       33.63,
+       22.08
+      ],
+      "style": "chiffre",
+      "jusqua": "an"
+     },
+     {
+      "au": "recognized",
+      "texte": "0 COUNTRIES",
+      "lieu": [
+       33.63,
+       21.55
+      ],
+      "style": "chiffre",
+      "couleur": "rouge"
+     },
+     {
+      "au": "American",
+      "texte": "FROM THE USA",
+      "lieu": [
+       2.0,
+       36.5
+      ],
+      "style": "pastille",
+      "couleur": "bleu",
+      "cote": "droite",
+      "jusqua": "flag"
+     }
+    ]
+   },
+   "reperes": []
+  },
+  {
+   "id": "S9",
+   "texte": "It's one of the last places on land that belongs to no one.",
+   "carte": {
+    "vue": {
+     "centre": [
+      33.63,
+      21.88
+     ],
+     "zoom": 110
+    },
+    "plans": [
+     {
+      "au": "last",
+      "centre": [
+       20,
+       18
+      ],
+      "zoom": 1.0,
+      "vol": 75
+     }
+    ],
+    "formes": [
+     {
+      "points": [
+       [
+        33.18,
+        22.0
+       ],
+       [
+        34.08,
+        22.0
+       ],
+       [
+        34.0,
+        21.8
+       ],
+       [
+        33.65,
+        21.73
+       ],
+       [
+        33.25,
+        21.86
+       ]
+      ],
+      "couleur": "jaune",
+      "trace": 1
+     }
+    ],
+    "points": [
+     {
+      "au": "last",
+      "lieu": [
+       33.63,
+       21.88
+      ],
+      "icone": "epingle",
+      "couleur": "jaune"
+     }
+    ],
+    "etiquettes": [
+     {
+      "au": "belongs",
+      "texte": "BIR TAWIL",
+      "lieu": [
+       33.63,
+       27.5
+      ],
+      "style": "titre"
+     }
+    ]
+   },
+   "reperes": []
+  }
+ ],
+ "outro": {
+  "texte": "Get answers to all these questions and many more on the Sophia app, then put your knowledge to the test with quizzes."
+ },
+ "legende": "There's a piece of land that no country on Earth wants 🏜️ #geography #maps #africa #history #learnontiktok",
+ "appli": {
+  "recouvrir": true,
+  "categorie": "GEOGRAPHY",
+  "lectures": "60 k reads",
+  "jours": "DAYS",
+  "commencer": "Start",
+  "onglets": [
+   "Home",
+   "Library",
+   "Path",
+   "Practice",
+   "Profile"
+  ],
+  "titre": "Why does no country want Bir Tawil?",
+  "description": "Two borders, two countries, and a desert nobody claims.",
+  "lecon": {
+   "sousTitre": "The land nobody wants.",
+   "paragraphes": [
+    [
+     {
+      "t": "Bir Tawil is about "
+     },
+     {
+      "m": "2,060 km² of desert"
+     },
+     {
+      "t": " between Egypt and Sudan. The British drew two different borders there, in 1899 and in 1902."
+     }
+    ],
+    [
+     {
+      "t": "Each line gives one country the much larger "
+     },
+     {
+      "m": "Halaib Triangle"
+     },
+     {
+      "t": " and the other Bir Tawil. Both want Halaib, so "
+     },
+     {
+      "m": "neither claims Bir Tawil"
+     },
+     {
+      "t": "."
+     }
+    ]
+   ],
+   "continuer": "Continue"
+  },
+  "quiz": {
+   "etiquette": "QUIZ · {n} OF 2",
+   "bravo": "Correct!",
+   "questions": [
+    {
+     "q": "Why does no country claim Bir Tawil?",
+     "options": [
+      "It's under water",
+      "Claiming it means giving up Halaib",
+      "It's too cold",
+      "The UN forbids it"
+     ],
+     "bonne": 1,
+     "fait": "Both want Halaib instead."
+    },
+    {
+     "q": "About how big is Bir Tawil?",
+     "options": [
+      "20 km²",
+      "2,000 km²",
+      "200,000 km²",
+      "2 million km²"
+     ],
+     "bonne": 1,
+     "fait": "About 2,060 km²."
+    }
+   ]
+  },
+  "fin": {
+   "titre": "Lesson complete!",
+   "score": "2/2 correct answers",
+   "serie": "DAYS STREAK",
+   "xp": "XP EARNED",
+   "suivant": "UP NEXT",
+   "suivantTitre": "Why is Panama so important?",
+   "bouton": "Next lesson"
+  }
+ }
+}

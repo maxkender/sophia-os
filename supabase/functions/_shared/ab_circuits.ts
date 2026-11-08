@@ -44,6 +44,7 @@ import { chargerAnglePlacement } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, type SlideDeck } from "./deck_langue.ts";
 import { callWithFallback, integrateSophia, LANGUES, normaliserHashtags, TEXT_MODELS, textOf } from "./gemini.ts";
+import { correctionsPlacementNatives } from "./corrections_natives.ts";
 import { traduireBaseDeck } from "./import_contenu.ts";
 import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { ID_SOPHIA } from "./multi_app.ts";
@@ -467,12 +468,16 @@ const production: CircuitTraduction = {
         .order("created_at", { ascending: false })
         .limit(40);
       angle = (await chargerAnglePlacement(supabase, contenuId, ID_SOPHIA)) ?? null;
+      const natives = await correctionsPlacementNatives(supabase, langue);
       const placement = await integrateSophia({
         masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
-        corrections: (corrections ?? []).map((c) => ({
-          original_text: c.texte_origine,
-          corrected_text: c.texte_corrige,
-        })),
+        corrections: [
+          ...natives,
+          ...(corrections ?? []).map((c) => ({
+            original_text: c.texte_origine,
+            corrected_text: c.texte_corrige,
+          })),
+        ],
         slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
         caption: contenu?.titre ?? titre ?? "",
         langue,

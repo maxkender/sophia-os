@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { BookOpenText, Languages, Library, Swords, Users, type LucideIcon } from "lucide-react";
+import { BookOpenText, Languages, Library, Scissors, Swords, Users, type LucideIcon } from "lucide-react";
 
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
@@ -9,21 +9,23 @@ import { Segments } from "@/components/ui/segments";
 import { CarteInterrupteurs } from "@/features/relectureNative/CarteInterrupteurs";
 import { ChiffresRelecture } from "@/features/relectureNative/ChiffresRelecture";
 import { DuelsAdmin } from "@/features/relectureNative/DuelsAdmin";
+import { SectionCorrections } from "@/features/relectureNative/SectionCorrections";
 import { SectionExemplesNatifs } from "@/features/relectureNative/SectionExemplesNatifs";
 import { SectionRelecteurs } from "@/features/relectureNative/SectionRelecteurs";
 
-type Onglet = "relecteurs" | "duels" | "exemples";
+type Onglet = "relecteurs" | "duels" | "corrections" | "exemples";
 
 const ONGLETS: ReadonlyArray<{ cle: Onglet; icone: LucideIcon }> = [
   { cle: "relecteurs", icone: Users },
   { cle: "duels", icone: Swords },
+  { cle: "corrections", icone: Scissors },
   { cle: "exemples", icone: BookOpenText },
 ];
 
 /**
  * Relecture native : les relecteurs (qui corrigeront les posts publiés), les
- * duels envoyés aux relecteurs avec leurs votes (0626, 0627) et la banque
- * d'exemples natifs par langue. Les fiches (CTA, applis, langues, labels) ont
+ * duels envoyés aux relecteurs avec leurs votes (0626, 0627), les corrections
+ * tirées de leurs remarques (0630) et la banque d'exemples natifs par langue. Les fiches (CTA, applis, langues, labels) ont
  * leur page, /admin/fiches. La production reste coupée.
  */
 export function AdminRelectureNativePage() {
@@ -68,6 +70,7 @@ export function AdminRelectureNativePage() {
 
       {onglet === "relecteurs" && <SectionRelecteurs />}
       {onglet === "duels" && <DuelsAdmin />}
+      {onglet === "corrections" && <SectionCorrections />}
       {onglet === "exemples" && <SectionExemplesNatifs />}
     </div>
   );

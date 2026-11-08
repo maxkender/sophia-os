@@ -2,7 +2,7 @@ import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
 
 /** Ce que l'OS dit au posteur (0382) : offre Double, Kill, et plus tard Recréer. */
-export type TypeMessage = "kill" | "double" | "recreer" | "nudge";
+export type TypeMessage = "kill" | "double" | "recreer" | "nudge" | "info";
 
 export interface MonMessage {
   id: string;

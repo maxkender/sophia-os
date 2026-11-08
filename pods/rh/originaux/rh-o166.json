@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o166",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai compris en changeant 3 fois de boîte en 5 ans #carriere #travail #emploi #reconversion #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (les changements de boîte). Récit inventé, aucune entreprise. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bb3c0ed7",
+   "texte_overlay": "ce que j'ai compris\nen changeant 3 fois de boîte\nen 5 ans",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fb7646f1",
+   "texte_overlay": "la 1re fois, je suis partie pour le salaire\net j'ai perdu une équipe géniale",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fc34cc5e",
+   "texte_overlay": "la 2e fois, je suis partie pour une manager\net c'était le bon choix",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fd867341",
+   "texte_overlay": "la 3e fois, je suis partie pour apprendre\net j'ai enfin progressé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f2c938a4",
+   "texte_overlay": "à chaque fois, ce qui m'a aidée\nmon réseau, mes notes, et 5 minutes par jour à apprendre un truc nouveau",
+   "texte_sophia": "à chaque fois, ce qui m'a aidée\nmon réseau, mes notes, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ff30ba12",
+   "texte_overlay": "partir n'est pas fuir\nsi tu sais ce que tu cherches",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "00733be1",
+   "texte_overlay": "tu as changé combien de fois, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

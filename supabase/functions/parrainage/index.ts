@@ -105,7 +105,8 @@ async function envoyer(supabase: Supabase) {
         headers: { "content-type": "application/json", "x-hub-secret": secret },
         body: JSON.stringify({
           action: "envoyer_email", to: d.email, from_name: "Sophia", subject: email.objet, html: email.html, text: email.texte,
-          tags: { type: "parrainage", etape: String(etape), pays }, unsubscribe_url: `${URL_FONCTION}?desinscrire=${d.token}`,
+          // Le site attend une liste de chaînes (tags Brevo).
+          tags: ["parrainage", `etape-${etape}`, ...(pays ? [`pays-${pays}`] : [])], unsubscribe_url: `${URL_FONCTION}?desinscrire=${d.token}`,
         }),
       });
       const j = await r.json().catch(() => ({}));

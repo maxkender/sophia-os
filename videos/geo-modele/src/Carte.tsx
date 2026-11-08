@@ -45,9 +45,9 @@ const TERRE = "#F1E4C8";
 const TERRE_BORD = "#FFFFFF";
 const VOL = 34; // durée d'un vol de caméra (images)
 
-type Mouvement = { de: number; cam: Camera };
+type Mouvement = { de: number; cam: Camera; vol: number };
 type Element = {
-  type: "pays" | "point" | "fleche" | "zone" | "etiquette";
+  type: "pays" | "point" | "fleche" | "zone" | "etiquette" | "forme";
   scene: number;
   debut: number;
   fin: number;
@@ -59,7 +59,7 @@ export const chorégraphie = (tl: Timeline) => {
   const scenes = tl.langue.script.scenes;
   const quand = (
     i: number,
-    q: { au?: string; fin?: boolean },
+    q: { au?: string; fin?: boolean; jusqua?: string },
     defaut: number,
   ) => (q.au ? tl.motGlobal(i, q.au, q.fin) : defaut);
   const mouvements: Mouvement[] = [];
@@ -70,18 +70,26 @@ export const chorégraphie = (tl: Timeline) => {
     const sc = tl.scenes[i];
     const debut = sc.from + (i === 0 ? 0 : 4);
     const finScene =
-      i + 1 < scenes.length ? tl.scenes[i + 1].from + 6 : finRecit;
-    if (c.vue) mouvements.push({ de: debut, cam: cameraDe(c.vue) });
+      i + 1 < scenes.length ? tl.scenes[i + 1].from + 18 : finRecit; // fondu enchaîné avec la scène suivante
+    if (c.vue) mouvements.push({ de: debut, cam: cameraDe(c.vue), vol: VOL });
     if (c.vers)
       mouvements.push({
         de: quand(i, c.vers, sc.from + Math.round(sc.d * 0.45)),
         cam: cameraDe(c.vers),
+        vol: VOL,
       });
+    (c.plans ?? []).forEach((p, k) =>
+      mouvements.push({
+        de: quand(i, p, sc.from + Math.round((sc.d * (k + 1)) / ((c.plans?.length ?? 0) + 1))),
+        cam: cameraDe(p),
+        vol: p.vol ?? VOL,
+      }),
+    );
     const fin = c.garde ? finRecit : finScene;
     const ajouter = (
       type: Element["type"],
       liste:
-        | ({ au?: string; fin?: boolean } & Record<string, unknown>)[]
+        | ({ au?: string; fin?: boolean; jusqua?: string } & Record<string, unknown>)[]
         | undefined,
       decal: number,
     ) =>
@@ -90,10 +98,11 @@ export const chorégraphie = (tl: Timeline) => {
           type,
           scene: i,
           debut: quand(i, e, debut + decal + k * 6),
-          fin,
+          fin: e.jusqua ? tl.motGlobal(i, e.jusqua) : fin,
           data: e,
         }),
       );
+    ajouter("forme", c.formes as never, 2);
     ajouter("pays", c.pays as never, 10);
     ajouter("zone", c.zones as never, 14);
     ajouter("fleche", c.fleches as never, 16);
@@ -101,7 +110,7 @@ export const chorégraphie = (tl: Timeline) => {
     ajouter("etiquette", c.etiquettes as never, 14);
   });
   if (mouvements.length === 0)
-    mouvements.push({ de: 0, cam: cameraDe({ centre: [10, 30], zoom: 1 }) });
+    mouvements.push({ de: 0, cam: cameraDe({ centre: [10, 30], zoom: 1 }), vol: VOL });
   mouvements.sort((a, b) => a.de - b.de);
   return { mouvements, elements };
 };
@@ -122,12 +131,24 @@ const borner = (c: Camera): Camera => {
   };
 };
 
+/** Entre deux vols, la caméra ne s'arrête jamais : elle avance très lentement (vie de l'image) */
+const DERIVE = 0.0009;
+const deriver = (m: Mouvement, f: number): Camera => {
+  const t = Math.max(0, f - m.de - m.vol);
+  return { ...m.cam, k: m.cam.k * (1 + Math.min(0.08, t * DERIVE)) };
+};
 const cameraA = (mv: Mouvement[], f: number): Camera => {
+  if (f < mv[0].de) return mv[0].cam;
+  // un vol qui commence avant la fin du précédent part de là où est vraiment la caméra (pas de saut)
+  let depart = mv[0].cam;
+  const position = (i: number, t: number): Camera =>
+    i === 0 || t >= mv[i].de + mv[i].vol ? deriver(mv[i], t) : voler(depart, mv[i].cam, (t - mv[i].de) / mv[i].vol);
   let k = 0;
-  for (let i = 0; i < mv.length; i++) if (mv[i].de <= f) k = i;
-  if (k === 0 || f < mv[0].de) return mv[0].cam;
-  const avant = mv[k - 1].cam;
-  return voler(avant, mv[k].cam, (f - mv[k].de) / VOL);
+  for (let i = 1; i < mv.length && mv[i].de <= f; i++) {
+    depart = position(i - 1, mv[i].de);
+    k = i;
+  }
+  return position(k, f);
 };
 
 const Icon: React.FC<{ i: Icone; c: string }> = ({ i, c }) => {
@@ -249,6 +270,29 @@ const Icon: React.FC<{ i: Icone; c: string }> = ({ i, c }) => {
           ))}
         </g>
       );
+    case "question":
+      return (
+        <g>
+          <circle r={34} fill={c} stroke="#FFFFFF" strokeWidth={5} />
+          <text
+            y={17}
+            textAnchor="middle"
+            fontSize={50}
+            fontWeight={900}
+            fontFamily="MontserratCaps"
+            fill="#FFFFFF"
+          >
+            ?
+          </text>
+        </g>
+      );
+    case "interdit":
+      return (
+        <g>
+          <circle r={40} fill="none" stroke={COULEURS.rouge} strokeWidth={10} />
+          <line x1={-28} y1={-28} x2={28} y2={28} stroke={COULEURS.rouge} strokeWidth={10} />
+        </g>
+      );
     case "ville":
       return (
         <g>
@@ -358,7 +402,7 @@ const Etiquette: React.FC<{ e: Element; cam: Camera; f: number }> = ({
     fps: FPS,
     config: { damping: 12, stiffness: 200, mass: 0.6 },
   });
-  const texte = String(e.data.texte);
+  const texte = e.data.compte ? compter(String(e.data.texte), f - e.debut) : String(e.data.texte);
   const style = (e.data.style as string) ?? "titre";
   const c =
     COULEURS[
@@ -436,6 +480,37 @@ const Etiquette: React.FC<{ e: Element; cam: Camera; f: number }> = ({
       {texte}
     </div>
   );
+};
+
+/** « 2,060 KM² » qui monte de 0 à 2,060 (mêmes séparateurs, même suffixe) */
+const compter = (texte: string, df: number) => {
+  const m = texte.match(/^([^0-9]*)([0-9][0-9,. ]*[0-9]|[0-9])(.*)$/);
+  if (!m) return texte;
+  const sep = m[2].match(/[,. ]/)?.[0] ?? "";
+  const n = Number(m[2].replace(/[,. ]/g, ""));
+  const t = interpolate(df, [0, 26], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  const v = Math.round(n * (1 - Math.pow(1 - t, 3)));
+  const chiffres = sep ? String(v).replace(/\B(?=(\d{3})+(?!\d))/g, sep) : String(v);
+  return m[1] + chiffres + m[3];
+};
+
+/** Un tracé partiel : les points jusqu'à la fraction t de la longueur */
+const partiel = (pts: [number, number][], t: number): [number, number][] => {
+  if (t >= 1 || pts.length < 2) return pts;
+  const seg = pts.slice(1).map((p, i) => Math.hypot(p[0] - pts[i][0], p[1] - pts[i][1]));
+  let reste = seg.reduce((a, b) => a + b, 0) * Math.max(0, t);
+  const out: [number, number][] = [pts[0]];
+  for (let i = 0; i < seg.length; i++) {
+    if (reste >= seg[i]) {
+      out.push(pts[i + 1]);
+      reste -= seg[i];
+    } else {
+      const u = seg[i] ? reste / seg[i] : 0;
+      out.push([pts[i][0] + (pts[i + 1][0] - pts[i][0]) * u, pts[i][1] + (pts[i + 1][1] - pts[i][1]) * u]);
+      break;
+    }
+  }
+  return out;
 };
 
 /** Opacité d'un élément : entrée au début, sortie douce à la fin */
@@ -579,6 +654,59 @@ export const Carte: React.FC = () => {
           })}
         </g>
         {/* éléments en coordonnées d'écran : tailles fixes, nets à tous les zooms */}
+        {actifs
+          .filter((e) => e.type === "forme")
+          .map((e, k) => {
+            const ferme = (e.data.ferme as boolean | undefined) ?? true;
+            const brut = (e.data.points as LonLat[]).map((ll) => versEcran(cam, versMonde(ll)));
+            const pts = ferme ? [...brut, brut[0]] : brut;
+            const duree = (e.data.trace as number | undefined) ?? 24;
+            const t = interpolate(f, [e.debut, e.debut + duree], [0, 1], {
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+            });
+            const remplir = ferme
+              ? interpolate(f, [e.debut + duree * 0.8, e.debut + duree + 10], [0, 1], {
+                  extrapolateLeft: "clamp",
+                  extrapolateRight: "clamp",
+                })
+              : 0;
+            const c = COULEURS[(e.data.couleur as CouleurCarte) ?? "jaune"];
+            const trace = partiel(pts, t);
+            const ligne = trace.map((p) => p.join(",")).join(" ");
+            const tete = trace[trace.length - 1];
+            const pulse = 1 + 0.5 * Math.sin((f - e.debut - duree) / 4) * Math.exp(-Math.max(0, f - e.debut - duree) / 25);
+            return (
+              <g key={`forme${k}`} opacity={presence(f, e)}>
+                {ferme && (
+                  <polygon
+                    points={brut.map((p) => p.join(",")).join(" ")}
+                    fill={c}
+                    fillOpacity={0.55 * remplir}
+                  />
+                )}
+                <polyline
+                  points={ligne}
+                  fill="none"
+                  stroke={c}
+                  strokeWidth={14}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  filter="url(#lueur)"
+                />
+                <polyline
+                  points={ligne}
+                  fill="none"
+                  stroke={e.data.pointille ? c : "#FFFFFF"}
+                  strokeWidth={(e.data.pointille ? 6 : 4) * Math.max(0.7, pulse)}
+                  strokeLinejoin="round"
+                  strokeLinecap="round"
+                  strokeDasharray={e.data.pointille ? "18 12" : undefined}
+                />
+                {t < 1 && <circle cx={tete[0]} cy={tete[1]} r={10} fill="#FFFFFF" stroke={c} strokeWidth={4} />}
+              </g>
+            );
+          })}
         {actifs
           .filter((e) => e.type === "zone")
           .map((e, k) => {

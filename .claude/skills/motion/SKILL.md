@@ -84,6 +84,20 @@ Même script que le papier (voix, `outro`, `appli`, `legende`, pas de « : »), 
   `courbe` = courbure d'un arc simple (0,25 par défaut, négatif = de l'autre côté).
 - `zones` : `[{ "centre": [lon, lat], "rayon_km": 350, "couleur": "bleu", "au": "storms" }]` : un cercle qui s'étend.
 - `garde: true` : garder les éléments de la scène jusqu'à la fin (sinon ils s'effacent à la scène suivante).
+- **Dynamisme (demande d'Adrien) : 2 à 3 plans par phrase.** `plans` : `[{ "au": "Red", "centre": [36.3, 22.2],
+  "zoom": 40, "vol": 40 }, …]` : d'autres cadrages dans la scène, chacun sur son mot (`vol` = durée du vol en images,
+  34 par défaut ; 60 à 75 pour un lent dézoom final). Entre deux vols la caméra avance très lentement d'elle-même.
+  Un vol qui part avant la fin du précédent repart de la vraie position (pas de saut), mais garde au moins ~1 s entre
+  deux vols lointains.
+- `formes` : `[{ "points": [[lon, lat], …], "couleur": "jaune", "au": "Tawil,", "trace": 30 }]` : un territoire absent
+  des données (Bir Tawil, Hala'ib, Transnistrie…) qui se trace trait par trait puis se remplit ; `"ferme": false` pour
+  une ligne (frontière), `"pointille": true` ; `trace: 1` pour le réafficher d'un coup dans la scène suivante. Pour
+  « changer de couleur », remets la même forme dans une autre couleur sur un mot plus loin.
+- `jusqua` (tout élément) : le mot où il s'efface (sinon fin de scène ; les éléments chevauchent la scène suivante
+  d'une demi-seconde, pas d'image vide entre deux scènes).
+- Étiquettes : `"compte": true` sur un chiffre (« 2,060 KM² » monte de 0) ; icônes en plus : `question`, `interdit`.
+- Petit territoire (< 100 km de large) : zoom 110 à 150 pour qu'il prenne un tiers de l'écran (le relief reste
+  acceptable dans le désert ; au-delà de 150 il devient flou).
 - `au` = un mot **exact** du texte de la scène, ponctuation comprise (comme les repères) ; sans `au`, l'élément arrive
   au début de la scène. Plusieurs éléments par scène, oui, mais un seul « moment » à la fois.
 - Noms de pays : les noms anglais Natural Earth (`node scripts/pays.mjs panama` dans `videos/geo-modele`), quelques

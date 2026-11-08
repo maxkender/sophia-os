@@ -8,20 +8,23 @@ export type LonLat = [number, number];
 /** Un cadrage : des pays à faire tenir à l'écran, ou un centre et un zoom (1 = le monde entier en largeur) */
 export type Vue = {pays: string[]; marge?: number} | {centre: LonLat; zoom: number};
 /** Moment d'apparition : un mot exact du texte de la scène (sinon le début de la scène) */
-type Quand = {au?: string; fin?: boolean};
+type Quand = {au?: string; fin?: boolean; jusqua?: string}; // jusqua : le mot où l'élément s'efface (sinon fin de scène)
 export type CouleurCarte = 'rouge' | 'bleu' | 'vert' | 'jaune' | 'orange' | 'violet' | 'gris' | 'noir' | 'turquoise';
-export type Icone = 'ville' | 'explosion' | 'bateau' | 'armee' | 'montagne' | 'or' | 'drapeau' | 'personne' | 'usine' | 'petrole' | 'avion' | 'epingle' | 'couronne' | 'blé';
+export type Icone = 'ville' | 'explosion' | 'bateau' | 'armee' | 'montagne' | 'or' | 'drapeau' | 'personne' | 'usine' | 'petrole' | 'avion' | 'epingle' | 'couronne' | 'blé' | 'question' | 'interdit';
 export type CarteScene = {
   vue?: Vue; // cadrage au début de la scène (vol de caméra depuis le cadrage précédent)
   vers?: Vue & Quand; // second cadrage pendant la scène (au mot donné)
+  plans?: (Vue & Quand & {vol?: number})[]; // d'autres cadrages, chacun à son mot (vol = durée du vol en images)
   pays?: ({noms: string[]; couleur?: CouleurCarte} & Quand)[];
   points?: ({lieu: LonLat; icone?: Icone; couleur?: CouleurCarte} & Quand)[];
   // `par` : points de passage (un bateau qui contourne un continent) ; sinon un arc, plus ou moins courbé
   fleches?: ({de: LonLat; a: LonLat; par?: LonLat[]; couleur?: CouleurCarte; courbe?: number} & Quand)[];
+  // Contour libre (territoire absent des données de pays) ou ligne (frontière) : se trace puis se remplit
+  formes?: ({points: LonLat[]; couleur?: CouleurCarte; ferme?: boolean; pointille?: boolean; trace?: number} & Quand)[];
   zones?: ({centre: LonLat; rayon_km: number; couleur?: CouleurCarte} & Quand)[];
   // Rendu réaliste : textes posés sur la carte (traduits avec le script). titre = nom de lieu en grandes capitales,
   // chiffre = un nombre qui claque, pastille = petite étiquette orange reliée au point
-  etiquettes?: ({texte: string; lieu: LonLat; style?: 'titre' | 'chiffre' | 'pastille'; couleur?: CouleurCarte; cote?: 'droite' | 'gauche' | 'haut' | 'bas'} & Quand)[];
+  etiquettes?: ({texte: string; lieu: LonLat; style?: 'titre' | 'chiffre' | 'pastille'; couleur?: CouleurCarte; compte?: boolean; cote?: 'droite' | 'gauche' | 'haut' | 'bas'} & Quand)[];
   garde?: boolean; // garder ces éléments à l'écran jusqu'à la fin du récit (sinon ils s'effacent à la scène suivante)
 };
 export type Segment = {t?: string; m?: string}; // texte normal, ou passage surligné

@@ -1065,6 +1065,7 @@ export const fr = {
       hiring: "Recrutement",
       embauche: "Créer un poster",
       referral: "Parrainage",
+      parrainerAmi: "Parrainer un ami",
       paiementsRuul: "Paiements",
       retours: "Mes retours",
       faqPosteur: "FAQ",

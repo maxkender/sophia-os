@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o166",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ed6ae170-038e-445f-8126-ecd58dcdd4e8",
+ "titre": "hobbies that will keep you calm in any chaos #calm #anxiety #selfimprovement #hobbies #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "21a34418-1d75-417f-85ef-8751182eb4a9"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 21a34418). déclinaison G1 de « hobbies that will keep you calm in any chaos » (parent ed6ae170, famille née de wa-o078). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e7df2bd8-6114-43fa-8e01-c99f7107472a",
+   "texte_overlay": "hobbies that will keep you\ncalm in any chaos",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657949048682433805/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f598472c-018c-48e8-99a3-a87bf4b4f0de",
+   "texte_overlay": "watercolour painting\n\npaint with watercolours for twenty minutes, without trying to make anything good. water and colour move at their own pace, and your breathing slows down to match.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657949048682433805/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b71742e8-63ac-4d84-923b-079f061df077",
+   "texte_overlay": "tending houseplants\n\nlook after a few houseplants every morning: water, turn, check the leaves. small slow routines with living things are deeply calming for an anxious mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657949048682433805/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4abd26bd-2a9b-4320-8ee7-4f9704ed63cd",
+   "texte_overlay": "a gentle lesson\n\nspend 5 minutes a day learning something peaceful: the stars, an old painting, a myth. a calm mind needs calm things to think about, and curiosity is a gentle anchor.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657949048682433805/3.jpg",
+   "texte_sophia": "a gentle lesson\n\ni spend 5 minutes a day learning something peaceful: the stars, an old painting, a myth. i do it with the Sophia app, one lesson a day, and curiosity became a gentle anchor."
+  },
+  {
+   "position": 5,
+   "media_id": "7a93d8e4-985d-4efd-9a91-2cb3e41cdb20",
+   "texte_overlay": "slow yoga\n\ndo ten minutes of slow stretching before bed. moving gently with your breath tells your nervous system that the day is over and you're finally safe to rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657949048682433805/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c2b95911-a4a6-48e7-912e-baf97288b526",
+   "texte_overlay": "fishing\n\ntry fishing by a quiet lake or river. hours of patient waiting by water is one of the oldest and most effective ways humans have ever found to quiet the mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657949048682433805/6.jpg"
+  }
+ ]
+}

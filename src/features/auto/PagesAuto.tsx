@@ -15,6 +15,7 @@ import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
+import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
 import { PageCohortesTableau } from "@/features/cohortesTableau/PageCohortesTableau";
@@ -196,6 +197,15 @@ export function ParrainagePage() {
   return (
     <PageAuto cle="parrainage">
       <SuiviParrainage />
+    </PageAuto>
+  );
+}
+
+/** 8/11 : les personnes désactivées dans l'OS encore membres actifs de Slack. */
+export function RetirerSlackPage() {
+  return (
+    <PageAuto cle="slack">
+      <PageRetirerSlack />
     </PageAuto>
   );
 }

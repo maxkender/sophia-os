@@ -1042,6 +1042,7 @@ export const en = {
       testNettoyage: "Cleaning test",
       repartition: "Allocation",
       reglages: "Settings",
+      chaine: "Translation & placement",
       prompts: "Prompts",
       angles: "Placement angles",
       relectureNative: "Native review",
@@ -1258,6 +1259,7 @@ export const en = {
       testNettoyage: "Test cleaning without changing anything",
       repartition: "Where the next hire would go, market by market, and the split between applications",
       reglages: "Engine actions — cleaning, ELO, assignment",
+      chaine: "The chain that writes a deck in a language: translation prompt per language, placement prompt and angles per label, other prompts",
       prompts: "Edit the AI prompts (translation, Sophia…)",
       angles: "One placement instruction per label and application, in test or active",
       relectureNative: "Native reviewers, native examples and CTA forms",
@@ -7213,6 +7215,62 @@ export const en = {
       pasDeMatiere:
         "No usable topic for this account yet. Check \"Extract first\", wait 2-3 min for the photos to clean, then rerun — or test an account that already has material.",
       cout: "A full test takes 1 to 3 minutes and consumes Gemini credit.",
+    },
+    chaine: {
+      titre: "Translation & placement",
+      intro:
+        "How a deck gets written in a language: translation reads the language's prompt (plus school localisation and the source account's voice), then placement reads the app's prompt, the latest corrections and the label's active angle. A deck already cooked keeps its text: a change here only applies to the next preparations.",
+      annuler: "Cancel",
+      caracteres: "{{n}} characters",
+      onglets: {
+        libelle: "Section",
+        langues: "Languages",
+        placement: "Placement",
+        autres: "Other prompts",
+      },
+      langues: {
+        aide: "{{total}} target languages: {{dedies}} with a dedicated translation prompt, {{neutres}} translated with the code's neutral rules.",
+        rechercher: "Search a language",
+        aucune: "No language matches.",
+        legende: "Green dot: dedicated prompt · blue: generic prompt · empty: neutral rules. The number: active accounts.",
+        comptes_one: "{{count}} active account",
+        comptes_other: "{{count}} active accounts",
+        relecteurs_one: "{{count}} native reviewer",
+        relecteurs_other: "{{count}} native reviewers",
+        lienRelecture: "Native review",
+        maj: "edited on {{date}} · {{n}} characters",
+        source: {
+          dedie: "Dedicated prompt",
+          generique: "Generic prompt",
+          neutre: "Code's neutral rules",
+        },
+        explication: {
+          dedie: "Translation into {{langue}} reads the prompt “{{cle}}” below, then school localisation and the source account's voice.",
+          generique:
+            "French has no dedicated prompt: it reads the generic “traduction” prompt below (the most worked one, with its examples), then school localisation and the source account's voice.",
+          neutre:
+            "No prompt for {{langue}}: the engine translates with the code's neutral rules (informal address, short sentences, no jargon). Write the prompt “{{cle}}” below to refine this language; it is read as soon as it is saved, for the next decks.",
+        },
+      },
+      placement: {
+        titre: "{{nom}} placement",
+        aide: "Switch application with the sidebar selector. The prompt sets the form of the app slide; the label's angle sets its substance.",
+        regles: "Angle rules",
+        filtre: "Filter labels",
+        filtres: {
+          tous: "All",
+          actif: "With an active angle",
+          sans: "Without active angle",
+          test: "With angles in test",
+        },
+        nActifs_one: "{{count}} active angle",
+        nActifs_other: "{{count}} active angles",
+        nTests_one: "{{count}} in test",
+        nTests_other: "{{count}} in test",
+        nLabels_one: "{{count}} label",
+        nLabels_other: "{{count}} labels",
+        aucunDansFiltre: "No label in this filter.",
+      },
     },
     prompts: {
       sectionApplication: "Specific to {{nom}}",

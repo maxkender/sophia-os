@@ -968,18 +968,20 @@ const P33 = page([
     <Stage bg={M.skyWarm}>
       <Cam z={1.15} cy={1150} dz={0.04}>
         <rect x={-600} y={-600} width={2280} height={3200} fill="#E9DCC3" />
-        <Person x={160} y={1500} s={0.85} tunic={M.tunicBrown} hat="capuche" face="triste" />
-        <Person x={400} y={1500} s={0.85} tunic={M.tunicBlue} hat="bonnet" face="sonne" />
-        <Person x={660} y={1500} s={0.85} armor face="malade" sick />
-        <Person x={910} y={1500} s={0.85} tunic={M.royalBlue} cape={M.royal} hat="couronne" face="choc" />
+        <Person x={160} y={1330} s={0.85} tunic={M.tunicBrown} hat="capuche" face="triste" />
+        <Person x={400} y={1330} s={0.85} tunic={M.tunicBlue} hat="bonnet" face="sonne" />
+        <Person x={660} y={1330} s={0.85} armor face="malade" sick />
+        <Person x={910} y={1330} s={0.85} tunic={M.royalBlue} cape={M.royal} hat="couronne" face="choc" />
       </Cam>
     </Stage>
   ),
-  ({t}) => (
+  ({pf}) => (
     <Stage bg={M.skyWarm}>
       <Cam z={1.1} cy={1100} dz={0.03}>
         <rect x={-600} y={-600} width={2280} height={3200} fill="#E9DCC3" />
-        <g opacity={t(20)} transform={`translate(540 ${lerp(t(20), [0, 1], [900, 840])}) rotate(${-3 + t(20) * 3})`}>
+        <Person x={160} y={1330} s={0.6} tunic={M.tunicBrown} hat="capuche" face="triste" pop={false} />
+        <Person x={920} y={1330} s={0.6} tunic={M.royalBlue} cape={M.royal} hat="couronne" face="choc" flip pop={false} />
+        <g opacity={lerp(pf, [0, 12], [0, 1])} transform={`translate(540 ${lerp(pf, [0, 14], [900, 840], ease.out)}) rotate(${lerp(pf, [0, 14], [-6, 0], ease.out)})`}>
           <rect x={-380} y={-300} width={760} height={600} rx={30} fill={C.white} filter="url(#ppl)" />
           <foreignObject x={-360} y={-280} width={720} height={560}>
             <div style={{width: 720, height: 560, overflow: 'hidden', borderRadius: 22}}>

@@ -34,6 +34,9 @@ vi.mock("@/features/moteur/apiMultiApp", () => ({
     ]),
 }));
 
+const lirePrompt = vi.fn();
+const ecrirePrompt = vi.fn();
+
 vi.mock("@/features/moteur/api", () => ({
   listerLabels: () =>
     Promise.resolve([
@@ -41,6 +44,22 @@ vi.mock("@/features/moteur/api", () => ({
       { id: "b", nom: "beau_smart_girl", slug: "beau-smart-girl" },
       { id: "s", nom: "smart_girl", slug: "smart-girl" },
     ]),
+  lirePrompt: (cle: string) => lirePrompt(cle),
+  ecrirePrompt: (...a: unknown[]) => ecrirePrompt(...a),
+}));
+
+vi.mock("@/features/chaine/api", () => ({
+  listerPromptsMeta: () =>
+    Promise.resolve([
+      { cle: "traduction", updated_at: "2026-10-25T10:00:00Z", longueur: 9125 },
+      { cle: "traduction_de", updated_at: "2026-07-23T10:00:00Z", longueur: 5805 },
+    ]),
+  compterComptesParLangue: () => Promise.resolve({ de: 12, fr: 30, it: 4 }),
+  compterRelecteursParLangue: () => Promise.resolve({ de: 1, fr: 1 }),
+}));
+
+vi.mock("@/features/commentMasters/PromptCommentMasterCard", () => ({
+  PromptCommentMasterCard: () => <div data-testid="comment-master" />,
 }));
 
 vi.mock("@/features/moteur/ApplicationContext", () => ({
@@ -54,7 +73,7 @@ vi.mock("@/features/moteur/ApplicationContext", () => ({
   }),
 }));
 
-import { AdminAnglesPage } from "./AdminAnglesPage";
+import { AdminChainePage } from "./AdminChainePage";
 
 const ligne = (id: string, label_id: string, statut: "actif" | "test", texte: string, minute: number) => ({
   id,
@@ -73,12 +92,12 @@ const ANGLES = [
   ligne("x1", "s", "test", "label qui ne sert plus", 4),
 ];
 
-function rendre() {
+function rendre(url = "/admin/chaine?onglet=placement") {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
   return render(
     <QueryClientProvider client={client}>
-      <MemoryRouter>
-        <AdminAnglesPage />
+      <MemoryRouter initialEntries={[url]}>
+        <AdminChainePage />
       </MemoryRouter>
     </QueryClientProvider>,
   );
@@ -89,11 +108,12 @@ async function carte(nom: string) {
   return document.querySelector(`[data-label="${nom}"]`) as HTMLElement;
 }
 
-describe("AdminAnglesPage", () => {
+describe("AdminChainePage — onglet Placement (les angles)", () => {
   beforeEach(() => {
-    for (const f of [lister, activer, creer, modifier, enTest, supprimer]) f.mockReset();
+    for (const f of [lister, activer, creer, modifier, enTest, supprimer, lirePrompt, ecrirePrompt]) f.mockReset();
     lister.mockResolvedValue(ANGLES);
-    for (const f of [activer, creer, modifier, enTest, supprimer]) f.mockResolvedValue(undefined);
+    lirePrompt.mockResolvedValue("");
+    for (const f of [activer, creer, modifier, enTest, supprimer, ecrirePrompt]) f.mockResolvedValue(undefined);
   });
   afterEach(() => {
     vi.restoreAllMocks();
@@ -212,5 +232,79 @@ describe("AdminAnglesPage", () => {
     rendre();
     expect(await screen.findByRole("alert")).toHaveTextContent("table absente");
     expect(screen.queryAllByTestId("carte-angles")).toHaveLength(0);
+  });
+
+  it("le filtre ne garde que les labels demandés, et les compteurs résument", async () => {
+    rendre();
+    await carte("weird_alpha");
+    expect(screen.getByText(/1 angle actif|1 active angle/)).toBeInTheDocument();
+    expect(screen.getByText(/3 en test|3 in test/)).toBeInTheDocument();
+    fireEvent.click(screen.getByRole("button", { name: /sans angle actif|without active angle/i }));
+    expect(screen.getAllByTestId("carte-angles").map((c) => c.getAttribute("data-label"))).toEqual(["beau_smart_girl", "smart_girl"]);
+    fireEvent.click(screen.getByRole("button", { name: /avec un angle actif|with an active angle/i }));
+    expect(screen.getAllByTestId("carte-angles").map((c) => c.getAttribute("data-label"))).toEqual(["weird_alpha"]);
+  });
+
+  it("le prompt de placement de l'application est éditable dans l'onglet", async () => {
+    lirePrompt.mockImplementation((cle: string) => Promise.resolve(cle === "placement_unswipe" ? "forme actuelle" : ""));
+    rendre();
+    const zone = (await screen.findByTestId("prompt-placement_unswipe")) as HTMLTextAreaElement;
+    await waitFor(() => expect(zone.value).toBe("forme actuelle"));
+    fireEvent.change(zone, { target: { value: "forme nouvelle" } });
+    fireEvent.click(screen.getAllByRole("button", { name: /^(enregistrer|save)$/i })[0]);
+    await waitFor(() => expect(ecrirePrompt).toHaveBeenCalledWith("placement_unswipe", "forme nouvelle"));
+  });
+});
+
+describe("AdminChainePage — onglet Langues", () => {
+  beforeEach(() => {
+    for (const f of [lister, lirePrompt, ecrirePrompt]) f.mockReset();
+    lister.mockResolvedValue(ANGLES);
+    lirePrompt.mockImplementation((cle: string) =>
+      Promise.resolve(cle === "traduction" ? "prompt générique fr" : cle === "traduction_de" ? "prompt allemand" : ""),
+    );
+    ecrirePrompt.mockResolvedValue(undefined);
+  });
+
+  it("les langues avec des comptes d'abord ; la langue de l'URL est ouverte avec la source de son prompt", async () => {
+    rendre("/admin/chaine?langue=de");
+    const liste = await screen.findByTestId("liste-langues");
+    const noms = () => within(liste).getAllByRole("button").map((b) => b.textContent ?? "");
+    // Les comptes arrivent après la liste : l'ordre se refait quand ils sont là.
+    await waitFor(() => expect(noms()[0]).toMatch(/fran|french/i));
+    expect(noms()[1]).toMatch(/allemand|german/i);
+    expect(noms()[2]).toMatch(/italien|italian/i);
+    const panneau = await screen.findByTestId("panneau-langue");
+    expect(panneau.getAttribute("data-langue")).toBe("de");
+    expect(within(panneau).getByTestId("source-prompt")).toHaveTextContent(/prompt dédié|dedicated prompt/i);
+    await waitFor(() => expect(panneau.textContent).toMatch(/12 comptes actifs|12 active accounts/));
+    const zone = (await screen.findByTestId("prompt-traduction_de")) as HTMLTextAreaElement;
+    await waitFor(() => expect(zone.value).toBe("prompt allemand"));
+  });
+
+  it("le français lit le prompt générique, une langue sans prompt lit les règles neutres, et l'enregistrement crée la clé dédiée", async () => {
+    rendre("/admin/chaine?langue=fr");
+    const panneau = await screen.findByTestId("panneau-langue");
+    expect(within(panneau).getByTestId("source-prompt")).toHaveTextContent(/prompt générique|generic prompt/i);
+    const zoneFr = (await screen.findByTestId("prompt-traduction")) as HTMLTextAreaElement;
+    await waitFor(() => expect(zoneFr.value).toBe("prompt générique fr"));
+
+    const liste = screen.getByTestId("liste-langues");
+    fireEvent.click(within(liste).getByRole("button", { name: /italien|italian/i }));
+    await waitFor(() => expect(screen.getByTestId("panneau-langue").getAttribute("data-langue")).toBe("it"));
+    expect(screen.getByTestId("source-prompt")).toHaveTextContent(/règles neutres|neutral rules/i);
+    const zoneIt = (await screen.findByTestId("prompt-traduction_it")) as HTMLTextAreaElement;
+    fireEvent.change(zoneIt, { target: { value: "Scrivi come una creator." } });
+    fireEvent.click(screen.getAllByRole("button", { name: /^(enregistrer|save)$/i })[0]);
+    await waitFor(() => expect(ecrirePrompt).toHaveBeenCalledWith("traduction_it", "Scrivi come una creator."));
+  });
+
+  it("la recherche filtre la liste", async () => {
+    rendre();
+    fireEvent.click(screen.getByRole("button", { name: /^langues$|^languages$/i }));
+    const liste = await screen.findByTestId("liste-langues");
+    fireEvent.change(screen.getByRole("textbox", { name: /chercher une langue|search a language/i }), { target: { value: "tr" } });
+    await waitFor(() => expect(within(liste).getAllByRole("button")).toHaveLength(1));
+    expect(within(liste).getByRole("button").textContent).toMatch(/turc|turkish/i);
   });
 });

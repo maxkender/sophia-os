@@ -228,7 +228,7 @@ describe("ContenusABlancCard", () => {
     const bloc = await screen.findByTestId("angles-a-blanc");
     await waitFor(() => expect(bloc.textContent).toContain("insister sur le temps récupéré"));
     expect(bloc.textContent).toMatch(/2 (angles en test|test angles)/);
-    expect(bloc.querySelector("a")?.getAttribute("href")).toBe("/admin/angles");
+    expect(bloc.querySelector("a")?.getAttribute("href")).toBe("/admin/chaine?onglet=placement");
   });
 
   it("angles annoncés : doublons et copies de l'actif ne comptent pas, comme dans le moteur", async () => {

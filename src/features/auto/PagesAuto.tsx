@@ -15,6 +15,7 @@ import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
+import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -95,6 +96,10 @@ export function DecisionsPage() {
         {/* 6/11 : une section qui plante n'emporte plus la page. */}
         <SectionSure nom="À décider maintenant">
           <ADeciderMaintenant />
+        </SectionSure>
+        {/* 0564 : les bonus du lundi (Comment Masters, parrainages, bonus en une phrase), envoyés au clic. */}
+        <SectionSure nom="Bonus de lundi">
+          <BonusLundi />
         </SectionSure>
         <SectionSure nom="Weekly decisions">
           <AdminCheckKillDoublePage />

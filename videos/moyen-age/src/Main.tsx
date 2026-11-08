@@ -52,7 +52,7 @@ const Film: React.FC = () => {
       {SCENES.flatMap((s, i) => [
         <TransitionSeries.Sequence key={s.id} name={s.id} durationInFrames={scenes[i].d}>
           <WarpContext.Provider value={scenes[i].warp}>
-            <PageContext.Provider value={{d: scenes[i].d, m: scenes[i].moment}}>
+            <PageContext.Provider value={{d: scenes[i].d, m: scenes[i].moment, plans: scenes[i].plans}}>
               <s.C />
             </PageContext.Provider>
           </WarpContext.Provider>

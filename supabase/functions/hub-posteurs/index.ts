@@ -119,8 +119,16 @@ Deno.serve(async (request) => {
         return await statsPays(supabase);
       case "identites":
         return await identites(supabase, body);
+      case "candidature": {
+        // 0561 : un candidat vient de postuler sur le site (email, code ?ref=) : les relances
+        // de parrainage s'arrêtent et l'ami est noté « a postulé » chez son parrain.
+        const { data, error } = await supabase.rpc("parrainage_rapprocher", {
+          p_email: String(body.email ?? ""), p_ref: body.ref ? String(body.ref) : null, p_recrue: null,
+        });
+        return json(error ? { ok: false, error: error.message } : { ok: true, ...(data ?? {}) });
+      }
       default:
-        return json({ ok: false, error: "action inconnue (ping | zones | creer_posteur | posts_semaine | stats_pays | identites)" }, 400);
+        return json({ ok: false, error: "action inconnue (ping | zones | creer_posteur | posts_semaine | stats_pays | identites | candidature)" }, 400);
     }
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
@@ -334,6 +342,12 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     .update({ manager_id: rattachement.id })
     .eq("id", cree.userId);
   if (errProfil) throw errProfil;
+
+  // 0561 : un ami parrainé (son email, ou le code ?ref= transmis par le site) est relié à son parrain.
+  const { error: errParrain } = await supabase.rpc("parrainage_rapprocher", {
+    p_email: String(body.email_perso ?? ""), p_ref: body.ref ? String(body.ref) : null, p_recrue: cree.userId,
+  });
+  if (errParrain) console.error("parrainage_rapprocher", errParrain.message);
 
   return json({
     ok: true,

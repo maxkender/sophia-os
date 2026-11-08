@@ -2614,6 +2614,9 @@ async function bonusParrainagePayer(supabase: Supabase, par: string | null) {
     if (r.erreur) { await echec(`Upwork : ${r.erreur}`); continue; }
     const invoice = (r.data as { sendCustomPayment?: { invoiceId?: string } } | null)?.sendCustomPayment?.invoiceId ?? null;
     await supabase.from("bonus").update({ statut: "paye", paye_at: new Date().toISOString(), upwork_invoice: invoice, erreur: null }).eq("id", b.id);
+    // 0561 : le parrain est prévenu (un message, après le paiement).
+    const prenomFilleul = String((filleul as { prenom?: string } | null)?.prenom ?? "").trim() || "your friend";
+    await messagePosteur(supabase, par, String(b.poster_id), `Your friend ${prenomFilleul} is now active, +$10 bonus this Monday 🎉`, "parrainage");
     resultats.push({ bonus: b.id, ok: true, invoice });
   }
   return { ok: true, payes: resultats.filter((x) => x.ok).length, resultats };

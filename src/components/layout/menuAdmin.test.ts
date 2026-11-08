@@ -21,6 +21,7 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/payroll",
       "/admin/auto/faq",
       "/admin/auto/reponses-officielles",
+      "/admin/auto/parrainage",
       "/admin/auto/logs",
     ]);
     // La section passe juste sous « Tracking », avant « Configuration ».

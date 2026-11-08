@@ -4728,6 +4728,7 @@ export const fr = {
         payroll: { titre: "Paie" },
         faq: { titre: "Bot FAQ" },
         officielles: { titre: "Réponses officielles" },
+        parrainage: { titre: "Parrainage" },
         logs: { titre: "Journal" },
       },
       // Prompt 22, partie 11 : la phrase en haut de chaque page (et sous son nom dans le menu).
@@ -4772,6 +4773,7 @@ export const fr = {
         payroll: "La paie du lundi pour la semaine qui vient de finir.",
         faq: "Ce que le bot répond sur Slack et dans le tableau de bord, et ce qu'il ne sait pas.",
         officielles: "Les réponses validées par Max : le bot FAQ et les 3 bots les donnent en priorité, les posteurs les voient dans « FAQ ».",
+        parrainage: "Les amis que les posteurs invitent par email : emails, candidatures, actifs, bonus et coût par recrue, par pays et par semaine ; le top des parrains ; les pays ouverts.",
         logs: "Tout ce que l'automatisation a fait. Ce qui t'attend et ce qui casse est dans Needs you.",
       },
       sante: {

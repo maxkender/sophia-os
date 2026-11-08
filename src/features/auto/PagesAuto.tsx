@@ -9,6 +9,7 @@ import { PageDisputes } from "@/features/disputes/PageDisputes";
 import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
 import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
+import { SectionDoubles } from "@/features/doubles/SectionDoubles";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
@@ -95,6 +96,10 @@ export function DecisionsPage() {
         </SectionSure>
         <SectionSure nom="Weekly decisions">
           <AdminCheckKillDoublePage />
+        </SectionSure>
+        {/* 0559 : Doubler = une proposition au posteur ; son suivi. */}
+        <SectionSure nom="2e comptes proposés">
+          <SectionDoubles />
         </SectionSure>
       </div>
     </PageAuto>

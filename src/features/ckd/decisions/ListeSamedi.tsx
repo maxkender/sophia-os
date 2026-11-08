@@ -16,6 +16,8 @@ import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { ajouterJours } from "@/features/onboarding/datesRuul";
 import { cn } from "@/lib/utils";
 import { BadgeProblemesPosteur, useResumeProblemes } from "@/features/problemes/BadgeProblemesPosteur";
+import { BilanSamedi } from "@/features/doubles/BilanSamedi";
+import { alerteMemoire, lireMemoireSamedi, texteMemoire } from "@/features/doubles/memoire";
 
 import { CelluleAway, CelluleContexte } from "./ColonnesContexte";
 import { lireContexte, relireConversationsUpwork } from "./contexte";
@@ -252,6 +254,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const brouillons = useQuery({ queryKey: ["samedi-brouillons", lundi], queryFn: () => lireBrouillonsSamedi(lundi) });
   // 0531 : les cartes Problèmes ouvertes de chaque posteur.
   const resumes = useResumeProblemes();
+  // 0559 (C1/C2) : la décision du samedi précédent et ce qui s'est passé depuis.
+  const memoire = useQuery({ queryKey: ["samedi-memoire", aujourdhui], queryFn: () => lireMemoireSamedi(aujourdhui), staleTime: 300_000 });
   // 0494 : les reports (Start Tuesday, Postpone) et la règle « ne démarre jamais ».
   const reports = useQuery({ queryKey: ["samedi-reports", lundi], queryFn: () => lireReportsSamedi(lundi) });
   const reportsDe = (posterId: string): ReportsPosteur | undefined => reports.data?.get(posterId);
@@ -323,6 +327,8 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     if (etats.data?.get(c.compte_id)?.kill_jeudi_at) return "kill";
     // 0464 : reporté 2 fois, No channel (et les autres raisons) : Kill & pay proposé.
     if (forcesDe(c.poster_id).length) return "kill";
+    // 0559 (C2) : gardé le samedi d'avant et toujours 0 post avec lien : Kill pré-sélectionné.
+    if (alerteMemoire(memoire.data?.get(c.poster_id), aujourdhui)?.choix === "kill") return "kill";
     return choixPropose(e(c));
   };
   const filtres_ = filtrerComptes(liste, filtres);
@@ -519,6 +525,14 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
               <BadgeProblemes b={brouillons.data!.get(c.compte_id)!} choix={choixDe(c)} />
             ) : preparee(c) && <BadgePreparee b={brouillons.data!.get(c.compte_id)!} />}
             <BadgeProblemesPosteur r={resumes.data?.get(c.poster_id)} />
+            {memoire.data?.get(c.poster_id) && (
+              <p className="mt-1 max-w-64 text-[11px] text-muted-foreground" data-testid="memoire-samedi">
+                {texteMemoire(memoire.data.get(c.poster_id)!)}
+                {alerteMemoire(memoire.data.get(c.poster_id), aujourdhui) && (
+                  <span className="block font-medium text-warning-foreground">⚠️ {alerteMemoire(memoire.data.get(c.poster_id), aujourdhui)!.texte}</span>
+                )}
+              </p>
+            )}
             {prioritaire(c) && (
               <p className="mt-1 max-w-56 text-[11px] font-medium text-warning-foreground" data-testid="priorite-samedi">
                 {t("autoOnglets.decisions.liste.samedi.priorite")} {priorites.data!.get(c.poster_id)}
@@ -621,6 +635,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
           <CardDescription>{t("autoOnglets.decisions.liste.samedi.aide")}</CardDescription>
         </CardHeader>
         <CardContent className="space-y-3">
+          <BilanSamedi />
           {cover && <CompteurCouverture c={cover} />}
           {(couverture.error || forces.error) && <p className="text-sm text-destructive">{((couverture.error ?? forces.error) as Error).message}</p>}
           {lu.error && <p className="text-sm text-destructive">{(lu.error as Error).message}</p>}

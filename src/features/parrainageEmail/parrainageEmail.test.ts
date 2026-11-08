@@ -20,7 +20,8 @@ describe("8/11 : emails de parrainage", () => {
     expect(langueEmail("pt-BR")).toBe("pt");
     expect(langueEmail("ko")).toBe("en");
     expect(rendreEmail({ ...base, etape: 2, langue: "de" }).objet).toBe("Kurze Erinnerung: Nikos hat dich empfohlen 🙂");
-    expect(lienCreators("es-419", "AB12")).toBe("https://sophia-culture.com/es/creators?ref=AB12");
+    expect(lienCreators("es-419", "AB12")).toBe("https://sophia-culture.com/es/creators/slideshow?ref=AB12");
+    expect(lienCreators("pt-BR", "AB12")).toBe("https://sophia-culture.com/en/creators/slideshow?ref=AB12");
   });
 
   it("3 emails au plus : J0, J+2, J+5", () => {

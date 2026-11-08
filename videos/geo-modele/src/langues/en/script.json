@@ -423,6 +423,7 @@
       "suivant": "UP NEXT",
       "suivantTitre": "What would happen if a supervolcano woke up?",
       "bouton": "Next lesson"
-    }
+    },
+    "recouvrir": true
   }
 }

@@ -25,6 +25,8 @@ export type Segment = {t?: string; m?: string}; // texte normal, ou passage surl
 export type Question = {q: string; options: string[]; bonne: number; fait: string};
 
 export type TextesAppli = {
+  /** Réécrire les textes de la capture même en anglais (capture composée, ou d'un autre cours) */
+  recouvrir?: boolean;
   categorie: string;
   lectures: string;
   jours: string;

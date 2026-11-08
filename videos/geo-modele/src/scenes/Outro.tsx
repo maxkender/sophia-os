@@ -660,7 +660,7 @@ export const Outro: React.FC = () => {
               {f < PUSH.lesson + 12 && (
                 <AbsoluteFill style={{translate: `${pushX(f, -100, PUSH.lesson)}px 0px`}}>
                   <Img src={SHOT} style={{width: 390, height: 844}} />
-                  {code !== 'en' && <AccueilTraduit A={A} />}
+                  {(code !== 'en' || A.recouvrir) && <AccueilTraduit A={A} />}
                   <div style={{position: 'absolute', left: 32, top: 425, width: 325, height: 54, borderRadius: 27, background: `rgba(0,0,0,${startDark})`}} />
                 </AbsoluteFill>
               )}

@@ -23,6 +23,7 @@ import {
   validerAutre,
   type DemandeCm,
 } from "@/features/commentMasters/suivi/api";
+import { CmDelais } from "@/features/commentMasters/suivi/CmDelais";
 import { csvDemandes, delaiLisible, lienSlack, parCommentMaster, totaux, type LigneCm } from "@/features/commentMasters/suivi/logique";
 import { lundiBonus, periodeDe, periodesChoix } from "@/features/commentMasters/suivi/periodes";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
@@ -172,6 +173,7 @@ export function AdminCommentMastersSuiviPage() {
           }
         />
       </div>
+      <CmDelais debut={periode.debut} fin={periode.fin} />
       {total.aValider > 0 && (
         <p className="rounded-md border border-warning/50 bg-warning/8 px-3 py-2 text-sm">
           {t("cmSuivi.aValider")} : <strong>{total.aValider}</strong>

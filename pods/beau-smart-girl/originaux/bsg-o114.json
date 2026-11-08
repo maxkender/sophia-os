@@ -1,0 +1,67 @@
+{
+  "source_id": "bsg-o114",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5c676138-b225-4a9e-826c-13451c7c515c",
+  "titre": "jobs for people who love law & criminology #careers #law #criminology",
+  "inspirations": [
+    "5c676138-b225-4a9e-826c-13451c7c515c"
+  ],
+  "notes": "G1, déclinaison de 5c676138 (« jobs for people who love law & criminology », génération 0 en anglais ; meilleur passage el 11,8 k vues, r 3,13), en anglais. cta C (le défi de 7 jours en slide 2). Descriptions de métiers générales, sans salaires ni chiffres (la raison pour laquelle j'avais sauté cette ligne les 6 et 7/11). Routine du 8/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 3 full tests et 5 déclinaisons (lignes 1, 3, 4, 8 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 2 (4d7c5f32, accroche illisible « ge things that make you look while spending lil to no money effortlessly chic », à recopier mot pour mot), 5 (083ac272, 9 hobbies « backed by science », preuves invérifiables), 6 (6211e51e, « other then ») et 7 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "jobs for people who love\nlaw & criminology",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one thing about the world every morning, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. criminal lawyer\n\ndefend or prosecute people in court,\nbuild cases, argue in front of a judge.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. criminologist\n\nstudy why crimes happen\nand how a society can prevent them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "3. forensic psychologist\n\nwork where psychology meets the law:\nassessments, expert reports, the courtroom.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "09dd6248",
+      "texte_overlay": "4. crime analyst\n\nuse data and maps to find patterns\nand help police decide where to act.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "205ce864",
+      "texte_overlay": "5. paralegal\n\nresearch cases, prepare files,\nthe backbone of every law firm.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "4c866843",
+      "texte_overlay": "6. victim advocate\n\nsupport victims through the legal process,\nfrom the first report to the trial.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 9,
+      "media_id": "3615b305",
+      "texte_overlay": "which one would you pick?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

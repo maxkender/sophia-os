@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o113",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "9468014e-5bb2-48e2-b2cc-20cac5c5891e",
+  "titre": "5 habitudes qui m'ont donné une confiance que personne ne peut ébranler #confiance #pourtoi",
+  "inspirations": [
+    "9468014e-5bb2-48e2-b2cc-20cac5c5891e"
+  ],
+  "notes": "G1, déclinaison de 9468014e (« 5 habitudes qui m'ont donné une confiance que personne ne peut ébranler », génération 0 en français ; meilleur passage tr 4,5 k vues, r 8,07), en français. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent : ni phrase de présentation, ni sujet maîtrisé, ni dossier de compliments, ni renoncer à plaire à tous, ni autre appli). Fait vérifié le 8/11 sur https://en.wikipedia.org/wiki/Symphony_No._1_(Mozart) : « written in August or September 1764 at the age of only eight ». Routine du 8/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 3 full tests et 5 déclinaisons (lignes 1, 3, 4, 8 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 2 (4d7c5f32, accroche illisible « ge things that make you look while spending lil to no money effortlessly chic », à recopier mot pour mot), 5 (083ac272, 9 hobbies « backed by science », preuves invérifiables), 6 (6211e51e, « other then ») et 7 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "5 habitudes qui m'ont donné\nune confiance que personne\nne peut ébranler",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. je me tiens droite, même seule\n\nles épaules en arrière dans la rue, au café, en cours.\nle reste suit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. je dis non sans me justifier\n\nnon merci. point.\npas besoin d'une excuse de trois phrases.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. j'ai toujours quelque chose à raconter\n\nce matin, j'ai appris que mozart a écrit sa première symphonie à 8 ans.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. j'ai toujours quelque chose à raconter\n\nce matin, l'appli Sophia m'a appris que mozart a écrit sa première symphonie à 8 ans.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. je me prépare à fond\n\nun oral, un rendez-vous, un entretien.\nla confiance, c'est souvent juste du travail.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "5. je me félicite pour les petites choses\n\nun chapitre lu, un mail envoyé.\nje me souviens de tout ce que j'ai réussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu commences par laquelle aujourd'hui ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o174",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d131b87a-328e-4096-bbd8-eade6c5f1fe8",
+ "titre": "comment je juge une boîte en une seule visite de ses bureaux #entretien #travail #carriere #emploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G1 de la ligne 15 (parent d131b87a), 2e : accroche mot pour mot, autres indices que rh-o053 et rh-o121. Indices, jamais des certitudes. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cea4abf5",
+   "texte_overlay": "comment je juge une boîte\nen une seule visite\nde ses bureaux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "17ba6fbf",
+   "texte_overlay": "l'heure du rendez-vous\non me reçoit à l'heure, ou on m'oublie 20 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "181198d5",
+   "texte_overlay": "la salle d'entretien\npréparée, ou on cherche une salle libre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "18ac5b25",
+   "texte_overlay": "les affiches de l'accueil\ndes valeurs collées au mur, ou des gens qui sourient vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "18dc89bf",
+   "texte_overlay": "les plantes\noui. une plante morte depuis des mois, ça raconte quelque chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f8112da2",
+   "texte_overlay": "ce qu'on partage entre collègues\nun coin lecture, un tableau d'idées, des gens qui apprennent",
+   "texte_sophia": "ce qu'on partage entre collègues\nun coin lecture, un tableau d'idées, des gens qui apprennent. moi, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1968681a",
+   "texte_overlay": "la fin de l'entretien\non te raccompagne, ou on te montre la sortie du doigt",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1a8d1fdf",
+   "texte_overlay": "ton indice à toi, c'est quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

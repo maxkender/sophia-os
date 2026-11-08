@@ -1043,6 +1043,7 @@ export const fr = {
       testNettoyage: "Test nettoyage",
       repartition: "Répartition",
       reglages: "Réglages",
+      chaine: "Traduction & placement",
       prompts: "Prompts",
       angles: "Angles de placement",
       relectureNative: "Relecture native",
@@ -1259,6 +1260,7 @@ export const fr = {
       testNettoyage: "Tester le nettoyage sans rien modifier",
       repartition: "Où partirait la prochaine recrue, marché par marché, et la cible entre applications",
       reglages: "Actions moteur — cleaning, ELO, assignation",
+      chaine: "La chaîne qui écrit un deck dans une langue : prompt de traduction par langue, prompt de placement et angles par label, autres prompts",
       prompts: "Éditer les prompts de l'IA (traduction, Sophia…)",
       angles: "Une consigne de placement par label et par application, en test ou active",
       relectureNative: "Relecteurs natifs, exemples natifs et formes de CTA",
@@ -7223,6 +7225,62 @@ export const fr = {
       pasDeMatiere:
         "Pas encore de sujet exploitable pour ce compte. Coche « Extraire d'abord », attends 2-3 min que les photos se nettoient, puis relance — ou teste un compte qui a déjà de la matière.",
       cout: "Un test complet prend 1 à 3 minutes et consomme du crédit Gemini.",
+    },
+    chaine: {
+      titre: "Traduction & placement",
+      intro:
+        "Comment un deck est écrit dans une langue : la traduction lit le prompt de la langue (plus la localisation scolaire et la voix de la source), puis le placement lit le prompt de l'application, les dernières corrections et l'angle actif du label. Un deck déjà cuit garde son texte : un changement ici ne vaut que pour les prochaines préparations.",
+      annuler: "Annuler",
+      caracteres: "{{n}} caractères",
+      onglets: {
+        libelle: "Partie",
+        langues: "Langues",
+        placement: "Placement",
+        autres: "Autres prompts",
+      },
+      langues: {
+        aide: "{{total}} langues cibles : {{dedies}} avec un prompt de traduction dédié, {{neutres}} traduites avec les règles neutres du code.",
+        rechercher: "Chercher une langue",
+        aucune: "Aucune langue ne correspond.",
+        legende: "Point vert : prompt dédié · bleu : prompt générique · vide : règles neutres. Le nombre : comptes actifs.",
+        comptes_one: "{{count}} compte actif",
+        comptes_other: "{{count}} comptes actifs",
+        relecteurs_one: "{{count}} relecteur natif",
+        relecteurs_other: "{{count}} relecteurs natifs",
+        lienRelecture: "Relecture native",
+        maj: "modifié le {{date}} · {{n}} caractères",
+        source: {
+          dedie: "Prompt dédié",
+          generique: "Prompt générique",
+          neutre: "Règles neutres du code",
+        },
+        explication: {
+          dedie: "La traduction en {{langue}} lit le prompt « {{cle}} » ci-dessous, puis la localisation scolaire et la voix du compte source.",
+          generique:
+            "Le français n'a pas de prompt dédié : il lit le prompt générique « traduction » ci-dessous (le plus travaillé, avec ses exemples), puis la localisation scolaire et la voix du compte source.",
+          neutre:
+            "Aucun prompt pour {{langue}} : le moteur traduit avec les règles neutres du code (tutoiement, phrases courtes, pas de jargon). Écris le prompt « {{cle}} » ci-dessous pour soigner cette langue ; il est lu dès l'enregistrement, pour les prochains decks.",
+        },
+      },
+      placement: {
+        titre: "Placement de {{nom}}",
+        aide: "Change d'application avec le sélecteur de la barre latérale. Le prompt dit la forme de la slide d'appli ; l'angle du label dit son fond.",
+        regles: "Les règles des angles",
+        filtre: "Filtrer les labels",
+        filtres: {
+          tous: "Tous",
+          actif: "Avec un angle actif",
+          sans: "Sans angle actif",
+          test: "Avec des angles en test",
+        },
+        nActifs_one: "{{count}} angle actif",
+        nActifs_other: "{{count}} angles actifs",
+        nTests_one: "{{count}} en test",
+        nTests_other: "{{count}} en test",
+        nLabels_one: "{{count}} label",
+        nLabels_other: "{{count}} labels",
+        aucunDansFiltre: "Aucun label dans ce filtre.",
+      },
     },
     prompts: {
       sectionApplication: "Propres à {{nom}}",

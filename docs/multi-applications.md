@@ -643,7 +643,7 @@ de placement de l'application pour les slideshows de ce label.
   l'angle (casse, accents et ponctuation ignorés) est écartée comme celles qui
   disent « l'appli » (`variantesSansCopieAngle`) ; s'il n'en reste aucune, le
   modèle est relancé.
-- **Où le régler** : Configuration → Angles de placement (`/admin/angles`),
+- **Où le régler** : Configuration → Traduction & placement, onglet Placement (`/admin/chaine?onglet=placement` ; l'ancienne adresse `/admin/angles` y renvoie),
   pour l'application du sélecteur : une carte par label qui la sert, avec son
   angle actif, ses angles en test, et l'ajout (« en test » ou « actif », en
   une transaction). Chaque angle se modifie, s'active, repasse en test ou se

@@ -52,8 +52,7 @@ import { AdminUgcIaPage } from "@/pages/admin/AdminUgcIaPage";
 import { AdminMotionPage } from "@/pages/admin/AdminMotionPage";
 import { AdminReglagesPage } from "@/pages/admin/AdminReglagesPage";
 import { AdminRepartitionPage } from "@/pages/admin/AdminRepartitionPage";
-import { AdminPromptsPage } from "@/pages/admin/AdminPromptsPage";
-import { AdminAnglesPage } from "@/pages/admin/AdminAnglesPage";
+import { AdminChainePage } from "@/pages/admin/AdminChainePage";
 import { AdminLabelsPage } from "@/pages/admin/AdminLabelsPage";
 import { AdminAnalyticsPage } from "@/pages/admin/AdminAnalyticsPage";
 import { AdminSuiviRcPage } from "@/pages/admin/AdminSuiviRcPage";
@@ -187,8 +186,10 @@ export function AppRouter() {
               <Route path="/admin/test-nettoyage" element={<Navigate to="/admin/tests" replace />} />
               <Route path="/admin/reglages" element={<AdminReglagesPage />} />
               <Route path="/admin/repartition" element={<AdminRepartitionPage />} />
-              <Route path="/admin/prompts" element={<AdminPromptsPage />} />
-              <Route path="/admin/angles" element={<AdminAnglesPage />} />
+              <Route path="/admin/chaine" element={<AdminChainePage />} />
+              {/* Anciennes pages Prompts et Angles de placement : regroupées dans Traduction & placement. */}
+              <Route path="/admin/prompts" element={<Navigate to="/admin/chaine?onglet=autres" replace />} />
+              <Route path="/admin/angles" element={<Navigate to="/admin/chaine?onglet=placement" replace />} />
               <Route path="/admin/relecture-native" element={<AdminRelectureNativePage />} />
               <Route path="/admin/fiches" element={<AdminFichesPage />} />
               <Route path="/admin/labels" element={<AdminLabelsPage />} />

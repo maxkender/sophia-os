@@ -359,6 +359,9 @@ Deno.serve(async (request) => {
       case "offres_completer":
         // 7/11 : une offre HM incomplète (VIk) est corrigée : « Week NN » renommés et semaines manquantes créées, jamais financées.
         return json(await offresCompleter(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String) : null));
+      case "doubles_messages":
+        // 0559 : l'offre d'un 2e compte : relance Upwork à 24 h sans ouverture (une fois), confirmation des demandés.
+        return json(await doublesMessages(supabase, par));
       case "deuxieme_contrat_fermer":
         // 7/11 : « Fermer le 2e contrat » (carte samedi, après le clic de Max) : ferme ce contrat seulement.
         return json(await deuxiemeContratFermer(supabase, par, String(body.id ?? "")));
@@ -4825,5 +4828,48 @@ async function deuxiemeContratFermer(supabase: Supabase, par: string | null, id:
     journal: [...((carte.journal as unknown[]) ?? []), { at: new Date().toISOString(), par: "upwork", action: "deuxieme_contrat_fermer", resultat: r }],
   }).eq("id", id);
   return r;
+}
+
+const LIEN_DASHBOARD = "https://sophia-marketing-orga.vercel.app";
+
+/**
+ * 0559 : l'offre d'un 2e compte (posteur_messages type 'double').
+ *  - pas ouverte 24 h après (dashboard jamais ouvert) : le même texte + le lien
+ *    du dashboard, sur Upwork depuis le compte de Max, une seule fois ;
+ *  - acceptée pour un posteur qui l'avait demandé (upwork_statut a_confirmer) :
+ *    la confirmation avec le @ du 2e compte.
+ * Rien d'autre ; une offre retenue (visible en 2099) n'est jamais relancée.
+ */
+async function doublesMessages(supabase: Supabase, par: string | null) {
+  const maintenant = new Date();
+  const il24h = new Date(maintenant.getTime() - 24 * 3600_000).toISOString();
+  const { data: offres, error } = await supabase.from("posteur_messages")
+    .select("id, poster_id, proposition_id, texte, reponse, lu_at, visible_de, expire_at, upwork_statut")
+    .eq("type", "double")
+    .or(`and(reponse.is.null,lu_at.is.null,upwork_statut.is.null,visible_de.lte.${il24h},expire_at.gt.${maintenant.toISOString()}),upwork_statut.eq.a_confirmer`)
+    .limit(30);
+  if (error) return { ok: false, error: error.message };
+  const bilan: Record<string, unknown>[] = [];
+  for (const m of offres ?? []) {
+    let texte: string;
+    if (m.upwork_statut === "a_confirmer") {
+      const { data: p } = await supabase.from("ckd_propositions").select("nouveau_compte_id").eq("id", m.proposition_id).maybeSingle();
+      const { data: c } = p?.nouveau_compte_id
+        ? await supabase.from("comptes").select("handle_tiktok").eq("id", p.nouveau_compte_id).maybeSingle()
+        : { data: null };
+      const handle = (c?.handle_tiktok as string | null) ?? null;
+      texte = `Great! Your second account${handle ? ` @${handle}` : ""} is on your dashboard. Create it on TikTok, do the warm-up, and you'll start posting on it the day after.`;
+    } else {
+      texte = `${String(m.texte ?? "").trim()}\n\nOpen your dashboard to accept: ${LIEN_DASHBOARD}`;
+    }
+    const envoi = await messagePosteur(supabase, par, String(m.poster_id), texte, "double");
+    await supabase.from("posteur_messages").update({
+      upwork_statut: envoi.ok ? "envoye" : "erreur",
+      upwork_at: new Date().toISOString(),
+      upwork_erreur: envoi.ok ? null : String((envoi as { error?: string }).error ?? "envoi impossible").slice(0, 500),
+    }).eq("id", m.id);
+    bilan.push({ id: m.id, ok: envoi.ok, type: m.upwork_statut === "a_confirmer" ? "confirmation" : "relance" });
+  }
+  return { ok: true, messages: bilan };
 }
 

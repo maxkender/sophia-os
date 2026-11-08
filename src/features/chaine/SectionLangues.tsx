@@ -10,7 +10,9 @@ import { Replie } from "@/components/ui/replie";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { messageErreur } from "@/features/bleo/format";
 
-import { compterComptesParLangue, compterRelecteursParLangue, listerPromptsMeta } from "./api";
+import { blocCorrectionsNatives } from "@/features/relectureNative/apiCorrections";
+
+import { compterComptesParLangue, compterCorrectionsRetenuesParLangue, compterRelecteursParLangue, listerPromptsMeta } from "./api";
 import { EditeurPrompt } from "./EditeurPrompt";
 import { lignesLangues, type LigneLangue, type SourcePrompt } from "./logique";
 
@@ -40,6 +42,7 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
   const prompts = useQuery({ queryKey: CLE_PROMPTS_META, queryFn: () => listerPromptsMeta("traduction") });
   const comptes = useQuery({ queryKey: ["chaine", "comptes-par-langue"], queryFn: compterComptesParLangue });
   const relecteurs = useQuery({ queryKey: ["chaine", "relecteurs-par-langue"], queryFn: compterRelecteursParLangue });
+  const corrections = useQuery({ queryKey: ["corrections-natives", "retenues-par-langue"], queryFn: compterCorrectionsRetenuesParLangue });
 
   const lignes = React.useMemo(
     () => lignesLangues(LANGUES_CIBLES, nomLangue, comptes.data ?? {}, relecteurs.data ?? {}, prompts.data ?? [], recherche),
@@ -50,6 +53,12 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
     [comptes.data, relecteurs.data, prompts.data],
   );
   const choisie: LigneLangue | null = toutes.find((l) => l.code === langue) ?? toutes[0] ?? null;
+  const bloc = useQuery({
+    queryKey: ["corrections-natives", "bloc", choisie?.code],
+    queryFn: () => blocCorrectionsNatives(choisie!.code),
+    enabled: Boolean(choisie),
+  });
+  const nCorrections = choisie ? (corrections.data?.[choisie.code.toLowerCase()] ?? 0) : 0;
   const erreur = prompts.error ?? comptes.error ?? relecteurs.error;
   const nDedies = toutes.filter((l) => l.source === "dedie").length;
   const nNeutres = toutes.filter((l) => l.source === "neutre").length;
@@ -138,11 +147,20 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
                     {t("chaine.langues.lienRelecture")}
                   </Link>
                 </span>
+                <span data-testid="corrections-langue">{t("chaine.langues.corrections", { count: nCorrections })}</span>
               </div>
               <p className="text-xs text-muted-foreground">{t(`chaine.langues.explication.${choisie.source}`, { langue: nomLangue(choisie.code), cle: choisie.cle })}</p>
             </div>
 
             <EditeurPrompt key={choisie.cle} cle={choisie.cle} rows={22} nu />
+
+            <Replie titre={t("chaine.langues.blocTitre")} aide={t("chaine.langues.blocAide")}>
+              {bloc.data ? (
+                <pre className="max-h-96 overflow-auto rounded-md bg-muted/40 p-3 font-mono text-xs whitespace-pre-wrap">{bloc.data}</pre>
+              ) : (
+                <p className="text-xs text-muted-foreground">{t("chaine.langues.blocVide")}</p>
+              )}
+            </Replie>
 
             <Replie titre={t("prompts.localisationScolaireTitle")} aide={t("prompts.localisationScolaireDesc")}>
               <EditeurPrompt cle="localisation_scolaire" rows={12} nu />

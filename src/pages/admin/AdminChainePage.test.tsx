@@ -56,6 +56,11 @@ vi.mock("@/features/chaine/api", () => ({
     ]),
   compterComptesParLangue: () => Promise.resolve({ de: 12, fr: 30, it: 4 }),
   compterRelecteursParLangue: () => Promise.resolve({ de: 1, fr: 1 }),
+  compterCorrectionsRetenuesParLangue: () => Promise.resolve({ de: 2 }),
+}));
+
+vi.mock("@/features/relectureNative/apiCorrections", () => ({
+  blocCorrectionsNatives: (langue: string) => Promise.resolve(langue === "de" ? "=== RETOURS DES RELECTEURS NATIFS (DE) ===\n- [calque] évite « Insouciant »" : ""),
 }));
 
 vi.mock("@/features/commentMasters/PromptCommentMasterCard", () => ({
@@ -278,6 +283,8 @@ describe("AdminChainePage — onglet Langues", () => {
     expect(panneau.getAttribute("data-langue")).toBe("de");
     expect(within(panneau).getByTestId("source-prompt")).toHaveTextContent(/prompt dédié|dedicated prompt/i);
     await waitFor(() => expect(panneau.textContent).toMatch(/12 comptes actifs|12 active accounts/));
+    await waitFor(() => expect(within(panneau).getByTestId("corrections-langue")).toHaveTextContent(/2 corrections natives retenues|2 kept native corrections/));
+    await waitFor(() => expect(panneau.textContent).toContain("évite « Insouciant »"));
     const zone = (await screen.findByTestId("prompt-traduction_de")) as HTMLTextAreaElement;
     await waitFor(() => expect(zone.value).toBe("prompt allemand"));
   });

@@ -50,3 +50,15 @@ export async function compterRelecteursParLangue(): Promise<Record<string, numbe
   }
   return n;
 }
+
+/** Corrections natives retenues par langue (0630), celles que la traduction reçoit. */
+export async function compterCorrectionsRetenuesParLangue(): Promise<Record<string, number>> {
+  const { data, error } = await supabase.from("corrections_natives").select("langue").eq("statut", "retenue");
+  if (error) throw error;
+  const n: Record<string, number> = {};
+  for (const c of (data ?? []) as Array<{ langue: string | null }>) {
+    const l = (c.langue ?? "").toLowerCase();
+    if (l) n[l] = (n[l] ?? 0) + 1;
+  }
+  return n;
+}

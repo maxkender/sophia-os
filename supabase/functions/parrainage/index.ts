@@ -61,6 +61,7 @@ Deno.serve(async (request) => {
     }
 
     if (!(await estSecretCron(request.headers.get("x-cron-secret")))) return json({ ok: false, error: "unauthorized" }, 401);
+    if (body?.action === "test") return json(await envoyerTest(supabase, String(body.to ?? ""), String(body.langue ?? "en")));
     if (body?.action !== "envoyer") return json({ ok: false, error: "action inconnue" }, 400);
     return json(await envoyer(supabase));
   } catch (e) {
@@ -121,4 +122,36 @@ async function envoyer(supabase: Supabase) {
     bilan.push({ id: d.id, etape, ok, erreur });
   }
   return { ok: true, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length, bilan };
+}
+
+/**
+ * Envoi test (cron secret) : l'email J0 rendu avec des prénoms fictifs, à une
+ * adresse admin seulement (profil admin ou Head of Ops). Ne touche ni aux
+ * invitations ni à parrainage_email_actif.
+ */
+async function envoyerTest(supabase: Supabase, to: string, langue: string) {
+  const urlEnvoi = Deno.env.get("HUB_EMAIL_URL") ?? "";
+  const secret = Deno.env.get("OS_HUB_SECRET") ?? "";
+  if (!urlEnvoi || !secret) return { ok: false, error: "HUB_EMAIL_URL ou OS_HUB_SECRET non configuré" };
+  const adresse = to.trim().toLowerCase();
+  const { data: admins } = await supabase.from("user_roles").select("user_id").in("role", ["admin", "head_of_ops"]);
+  const ids = ((admins ?? []) as { user_id: string }[]).map((a) => a.user_id);
+  const { data: profils } = await supabase.from("profiles").select("email, email_perso").in("id", ids.length ? ids : ["00000000-0000-0000-0000-000000000000"]);
+  const permises = new Set(((profils ?? []) as { email: string | null; email_perso: string | null }[])
+    .flatMap((p) => [p.email, p.email_perso]).filter(Boolean).map((e) => String(e).toLowerCase()));
+  if (!permises.has(adresse)) return { ok: false, error: "envoi test : adresse d'un admin seulement" };
+  const email = rendreEmail({
+    etape: 0, langue, prenom: "Max", referrer: "Sarah", tarif: 14,
+    lien: lienCreators(langue, "TEST"), lienDesinscription: `${URL_FONCTION}?desinscrire=00000000-0000-0000-0000-000000000000`,
+  });
+  const r = await fetch(urlEnvoi, {
+    method: "POST",
+    headers: { "content-type": "application/json", "x-hub-secret": secret },
+    body: JSON.stringify({
+      action: "envoyer_email", to: adresse, from_name: "Sophia", subject: `[TEST] ${email.objet}`, html: email.html, text: email.texte,
+      tags: ["parrainage", "test"], unsubscribe_url: `${URL_FONCTION}?desinscrire=00000000-0000-0000-0000-000000000000`,
+    }),
+  });
+  const j = await r.json().catch(() => ({}));
+  return { ok: r.ok && j?.ok !== false, http: r.status, message_id: j?.message_id ?? null, error: j?.error ?? null, langue: email.langue };
 }

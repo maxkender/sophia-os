@@ -80,7 +80,7 @@ import { AdminBleoFamillePage } from "@/pages/admin/AdminBleoFamillePage";
 import { AdminBleoReglagesPage } from "@/pages/admin/AdminBleoReglagesPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterLierSlackPage } from "@/pages/poster/PosterLierSlackPage";
-import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
+import { PosterParrainerPage } from "@/pages/poster/PosterParrainerPage";
 import { PosterPaiementsPage } from "@/pages/poster/PosterPaiementsPage";
 import { PosterRetoursPage } from "@/pages/poster/PosterRetoursPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
@@ -213,7 +213,7 @@ export function AppRouter() {
             <Route path="/calendrier" element={<PosterCalendrierPage />} />
             {/* Prompt 25 MAJ, 7a : le lien du DM Slack et le retour de « Connect my Slack ». */}
             <Route path="/lier-slack" element={<PosterLierSlackPage />} />
-            <Route path="/createur/parrainage" element={<PosterReferralPage />} />
+            <Route path="/createur/parrainage" element={<PosterParrainerPage />} />
             <Route path="/createur/paiements" element={<PosterPaiementsPage />} />
             <Route path="/createur/retours" element={<PosterRetoursPage />} />
             <Route path="/createur/relecture" element={<PosterRelecturePage />} />

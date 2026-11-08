@@ -1064,6 +1064,7 @@ export const en = {
       hiring: "Recruiting",
       embauche: "Create a poster",
       referral: "Referral",
+      parrainerAmi: "Refer a friend",
       paiementsRuul: "Payments",
       retours: "My feedback",
       faqPosteur: "FAQ",

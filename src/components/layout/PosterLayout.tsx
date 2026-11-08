@@ -39,7 +39,7 @@ export function PosterLayout() {
       ? [{ to: "/createur/relecture", label: t("nav.relectureNativePoster"), icon: Languages }]
       : []),
     // Prompt 15, point 2 : caché tant que le bonus de parrainage est en pause.
-    ...(parrainage ? [{ to: "/createur/parrainage", label: t("nav.referral"), icon: Gift }] : []),
+    ...(parrainage ? [{ to: "/createur/parrainage", label: t("nav.parrainerAmi"), icon: Gift }] : []),
   ];
   return (
     <AppShell

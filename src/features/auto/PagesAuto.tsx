@@ -16,6 +16,7 @@ import { SectionSure } from "@/components/erreurs/SectionSure";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
+import { PageBonus } from "@/features/bonus/PageBonus";
 import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -99,7 +100,7 @@ export function DecisionsPage() {
         </SectionSure>
         {/* 0564 : les bonus du lundi (Comment Masters, parrainages, bonus en une phrase), envoyés au clic. */}
         <SectionSure nom="Bonus de lundi">
-          <BonusLundi />
+          <BonusLundi lienPage />
         </SectionSure>
         <SectionSure nom="Weekly decisions">
           <AdminCheckKillDoublePage />
@@ -202,6 +203,15 @@ export function ParrainagePage() {
   return (
     <PageAuto cle="parrainage">
       <SuiviParrainage />
+    </PageAuto>
+  );
+}
+
+/** 8/11 : les bonus (Donner un bonus, bonus de lundi, historique). */
+export function BonusPage() {
+  return (
+    <PageAuto cle="bonus">
+      <PageBonus />
     </PageAuto>
   );
 }

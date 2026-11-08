@@ -3,10 +3,10 @@ import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
-import { lirePhraseBonus } from "../../../supabase/functions/_shared/bonus";
-import { donnerBonus, envoyerBonus, lireCarteBonus, retirerBonus, type LigneBonusLundi } from "./api";
+import { DonnerBonus } from "./DonnerBonus";
+import { envoyerBonus, lireCarteBonus, retirerBonus, type LigneBonusLundi } from "./api";
 import { delaiCm, jourMois, LIBELLE_TYPE, totaux } from "./lundi";
 
 const dollars = (n: number) => `${Number(n).toFixed(2)} $`;
@@ -16,12 +16,11 @@ const dollars = (n: number) => `${Number(n).toFixed(2)} $`;
  * parrainages et bonus donnés en une phrase ; total + 10 % de frais Upwork.
  * Rien ne part sans « Tout envoyer » (bonus Upwork, compte de Max).
  */
-export function BonusLundi() {
+export function BonusLundi({ avecDonner = true, lienPage = false }: { avecDonner?: boolean; lienPage?: boolean }) {
   const qc = useQueryClient();
   const q = useQuery({ queryKey: ["bonus-lundi"], queryFn: lireCarteBonus });
   const [occupe, setOccupe] = React.useState<string | null>(null);
   const [message, setMessage] = React.useState<string | null>(null);
-  const [phrase, setPhrase] = React.useState("");
 
   const agir = async (cle: string, f: () => Promise<string | null>) => {
     setOccupe(cle);
@@ -40,16 +39,6 @@ export function BonusLundi() {
   if (!q.data) return null;
   const c = q.data;
   const t = totaux(c.lignes);
-
-  const donner = () =>
-    agir("donner", async () => {
-      const lu = lirePhraseBonus(phrase, Number(c.lundi.slice(0, 4)));
-      if ("erreur" in lu) return `Pas compris : ${lu.erreur}.`;
-      const r = await donnerBonus(lu);
-      if (!r.ok) return `Pas ajouté : ${r.erreur}.`;
-      setPhrase("");
-      return `Ajouté : ${r.montant} $ à ${r.nom} (lundi ${jourMois(String(r.lundi))}, raison : ${lu.raison}).`;
-    });
 
   const toutEnvoyer = () => {
     if (!window.confirm(`Envoyer ${t.n} bonus sur Upwork : ${dollars(t.total)} + 10 % de frais = ${dollars(t.totalFrais)} ?`)) return;
@@ -76,6 +65,11 @@ export function BonusLundi() {
           <Button size="sm" disabled={occupe !== null || t.n === 0 || !c.test_valide} onClick={toutEnvoyer}>
             {occupe === "envoyer" ? "Envoi…" : `Tout envoyer (${dollars(t.totalFrais)})`}
           </Button>
+          {lienPage ? (
+            <Link to="/admin/auto/bonus" className="self-center text-sm underline" data-testid="lien-page-bonus">
+              Ouvrir la page Bonus (historique) →
+            </Link>
+          ) : null}
         </div>
         {message ? <p className="text-sm" role="status">{message}</p> : null}
         {c.lignes.length === 0 ? (
@@ -104,20 +98,7 @@ export function BonusLundi() {
             {c.parrainages_a_confirmer} parrainage(s) à confirmer dans « À décider maintenant »
           </p>
         ) : null}
-        <div className="space-y-1.5">
-          <p className="text-sm font-medium">Donner un bonus</p>
-          <div className="flex flex-wrap gap-2">
-            <Input
-              className="min-w-0 flex-1"
-              value={phrase}
-              onChange={(e) => setPhrase(e.target.value)}
-              placeholder="donne 2 $ de bonus à Martin Befeld lundi, raison …"
-              aria-label="Donner un bonus"
-            />
-            <Button size="sm" variant="outline" disabled={occupe !== null || !phrase.trim()} onClick={donner}>Ajouter</Button>
-          </div>
-          <p className="text-xs text-muted-foreground">La ligne arrive ici, à valider. Aussi sur Slack : /bonus …</p>
-        </div>
+        {avecDonner ? <DonnerBonus annee={Number(c.lundi.slice(0, 4))} /> : null}
       </CardContent>
     </Card>
   );

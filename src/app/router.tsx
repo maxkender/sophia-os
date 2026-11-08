@@ -15,6 +15,7 @@ import {
   ReponsesOfficiellesPage,
   ParrainagePage,
   RetirerSlackPage,
+  BonusPage,
   LogsPage,
   NeedsYouAncienPage,
   NeedsYouPage,
@@ -132,6 +133,7 @@ export function AppRouter() {
             <Route path="/admin/auto/problems" element={<ProblemsPage />} />
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
+            <Route path="/admin/auto/bonus" element={<BonusPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
             <Route path="/admin/auto/reponses-officielles" element={<ReponsesOfficiellesPage />} />
             <Route path="/admin/auto/parrainage" element={<ParrainagePage />} />

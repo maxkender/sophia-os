@@ -34,6 +34,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/problems",
   "/admin/auto/disputes",
   "/admin/auto/payroll",
+  "/admin/auto/bonus",
   "/admin/auto/faq",
   "/admin/auto/reponses-officielles",
   "/admin/auto/parrainage",

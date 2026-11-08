@@ -79,6 +79,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   problems: Siren,
   disputes: Flag,
   payroll: Wallet,
+  bonus: Gift,
   faq: MessageCircle,
   officielles: BadgeCheck,
   parrainage: Gift,

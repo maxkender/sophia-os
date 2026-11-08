@@ -25,6 +25,7 @@ import {
   type MonCompte,
 } from "@/features/moteur/api";
 import { CinqEtapes } from "@/features/onboarding/CinqEtapes";
+import { ParrainerDashboard } from "@/features/parrainageEmail/Branches";
 import { MonCompteTiktok } from "@/features/onboarding/MonCompteTiktok";
 import { ConnecterSlack } from "@/features/onboarding/ConnecterSlack";
 import { BoutonAbsence } from "@/features/absences/BoutonAbsence";
@@ -460,6 +461,8 @@ export function PosterCalendrierPage() {
           paiePar="ruul"
         />
       )}
+      {/* 8/11 : parrainage par email (seulement quand il est ouvert). */}
+      {!ugc && <ParrainerDashboard />}
       {/* Les autres : les 5 étapes du chantier du 28 oct. (partie G). */}
       {debutUpwork && compte && (
         <CinqEtapes

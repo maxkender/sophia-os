@@ -1,0 +1,123 @@
+/**
+ * parrainage — les emails au filleul d'un posteur (0561).
+ *
+ *   POST { action: "envoyer" }  (cron toutes les 10 min, en-tête x-cron-secret)
+ *       Les emails dus (J0, J+2, J+5), dans la langue du pays du filleul, avec
+ *       le tarif de sa zone et le lien creators ?ref=code. Envoyés par le site
+ *       sophia-culture.com (domaine, SPF/DKIM, expéditeur « Sophia ») : POST
+ *       HUB_EMAIL_URL, en-tête x-hub-secret (OS_HUB_SECRET). Rien ne part tant
+ *       que le réglage parrainage_email_actif est off ou que HUB_EMAIL_URL
+ *       n'est pas configuré.
+ *   POST { action: "evenement", message_id, type: ouvert|clique|rebond }
+ *       (en-tête x-hub-secret) : les retours du service d'envoi.
+ *   GET ?desinscrire=<token>
+ *       Le lien de l'email : plus jamais rien à cette adresse.
+ */
+import { LANGUE_PAR_PAYS } from "../_shared/hub_posteurs.ts";
+import { secretValide } from "../_shared/hub_posteurs.ts";
+import { type EtapeEmail, lienCreators, prochaineEtape, rendreEmail } from "../_shared/parrainage_email.ts";
+import { estSecretCron, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+
+const URL_FONCTION = "https://mbikecieskoobeizixig.supabase.co/functions/v1/parrainage";
+
+const PAGE = (titre: string, texte: string) => new Response(
+  `<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${titre}</title></head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;background:#f4f4f5;margin:0;padding:48px 16px">
+<div style="max-width:440px;margin:0 auto;background:#fff;border-radius:12px;padding:28px 24px;text-align:center">
+<h1 style="font-size:20px;margin:0 0 12px">${titre}</h1><p style="color:#52525b;line-height:1.5;margin:0">${texte}</p></div></body></html>`,
+  { headers: { "content-type": "text/html; charset=utf-8" } },
+);
+
+Deno.serve(async (request) => {
+  const url = new URL(request.url);
+  const supabase = serviceClient();
+
+  // Le lien de désinscription (public, un jeton par invitation).
+  const jeton = url.searchParams.get("desinscrire");
+  if (request.method === "GET" && jeton) {
+    if (!/^[0-9a-f-]{36}$/i.test(jeton)) return PAGE("Link not valid", "This unsubscribe link is not valid.");
+    const { error } = await supabase.rpc("parrainage_desinscrire", { p_token: jeton });
+    if (error) return PAGE("Something went wrong", "Please try again later.");
+    return PAGE("You're unsubscribed", "You won't receive any more emails from Sophia about this invitation.");
+  }
+  if (request.method !== "POST") return json({ ok: false, error: "méthode non autorisée" }, 405);
+
+  // deno-lint-ignore no-explicit-any
+  let body: any = {};
+  try {
+    body = await request.json();
+  } catch {
+    return json({ ok: false, error: "corps JSON requis" }, 400);
+  }
+
+  try {
+    if (body?.action === "evenement") {
+      const attendu = Deno.env.get("OS_HUB_SECRET") ?? "";
+      if (!attendu || !(await secretValide(request.headers.get("x-hub-secret"), attendu))) return json({ ok: false, error: "unauthorized" }, 401);
+      const type = String(body.type ?? "");
+      if (!["ouvert", "clique", "rebond"].includes(type) || !body.message_id) return json({ ok: false, error: "message_id et type requis" }, 400);
+      const { error } = await supabase.rpc("parrainage_evenement", { p_message_id: String(body.message_id), p_type: type });
+      return json(error ? { ok: false, error: error.message } : { ok: true });
+    }
+
+    if (!(await estSecretCron(request.headers.get("x-cron-secret")))) return json({ ok: false, error: "unauthorized" }, 401);
+    if (body?.action !== "envoyer") return json({ ok: false, error: "action inconnue" }, 400);
+    return json(await envoyer(supabase));
+  } catch (e) {
+    return json({ ok: false, error: messageErreur(e) }, 500);
+  }
+});
+
+// deno-lint-ignore no-explicit-any
+type Supabase = any;
+
+async function envoyer(supabase: Supabase) {
+  const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "parrainage_email_actif").maybeSingle();
+  if (reglage?.valeur !== true) return { ok: true, ignore: "parrainage_email_actif off" };
+  const urlEnvoi = Deno.env.get("HUB_EMAIL_URL") ?? "";
+  const secret = Deno.env.get("OS_HUB_SECRET") ?? "";
+  if (!urlEnvoi || !secret) return { ok: true, ignore: "HUB_EMAIL_URL non configuré" };
+
+  const { data: dus, error } = await supabase.rpc("parrainage_a_envoyer", { p_limite: 50 });
+  if (error) return { ok: false, error: error.message };
+  const bilan: Record<string, unknown>[] = [];
+  for (const d of (dus ?? []) as Record<string, unknown>[]) {
+    const etape = prochaineEtape(Number(d.envois ?? 0));
+    if (etape === null) continue;
+    const pays = String(d.pays ?? "");
+    const langue = LANGUE_PAR_PAYS[pays] ?? "en";
+    const email = rendreEmail({
+      etape: etape as EtapeEmail,
+      langue,
+      prenom: String(d.prenom ?? ""),
+      referrer: String(d.referrer ?? "A friend"),
+      tarif: Number(d.tarif ?? 10),
+      lien: lienCreators(langue, String(d.code ?? "")),
+      lienDesinscription: `${URL_FONCTION}?desinscrire=${d.token}`,
+    });
+    let ok = false;
+    let messageId: string | null = null;
+    let erreur: string | null = null;
+    let rebond = false;
+    try {
+      const r = await fetch(urlEnvoi, {
+        method: "POST",
+        headers: { "content-type": "application/json", "x-hub-secret": secret },
+        body: JSON.stringify({
+          action: "envoyer_email", to: d.email, from_name: "Sophia", subject: email.objet, html: email.html, text: email.texte,
+          tags: { type: "parrainage", etape: String(etape), pays }, unsubscribe_url: `${URL_FONCTION}?desinscrire=${d.token}`,
+        }),
+      });
+      const j = await r.json().catch(() => ({}));
+      ok = r.ok && j?.ok !== false;
+      messageId = j?.message_id ? String(j.message_id) : null;
+      erreur = ok ? null : String(j?.error ?? `HTTP ${r.status}`);
+      rebond = !ok && /bounce|invalid|does not exist|rejected/i.test(erreur ?? "");
+    } catch (e) {
+      erreur = messageErreur(e);
+    }
+    await supabase.rpc("parrainage_envoi_noter", { p_id: d.id, p_etape: etape, p_ok: ok, p_message_id: messageId, p_erreur: erreur, p_rebond: rebond });
+    bilan.push({ id: d.id, etape, ok, erreur });
+  }
+  return { ok: true, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length, bilan };
+}

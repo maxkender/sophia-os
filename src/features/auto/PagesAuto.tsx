@@ -14,6 +14,7 @@ import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteur
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
+import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
 import { PageCohortesTableau } from "@/features/cohortesTableau/PageCohortesTableau";
@@ -186,6 +187,15 @@ export function ReponsesOfficiellesPage() {
   return (
     <PageAuto cle="officielles">
       <PageReponsesOfficielles />
+    </PageAuto>
+  );
+}
+
+/** 8/11 : le parrainage par email (par pays et par semaine, top des parrains, pays). */
+export function ParrainagePage() {
+  return (
+    <PageAuto cle="parrainage">
+      <SuiviParrainage />
     </PageAuto>
   );
 }

@@ -5,6 +5,8 @@
  * traduction. Une langue absente → anglais.
  */
 
+import { TRADUCTIONS, type TextesTraduits } from "./parrainage_traductions.ts";
+
 export type EtapeEmail = 0 | 2 | 5;
 
 interface Textes {
@@ -75,7 +77,22 @@ const EL: Textes = {
   desinscrire: "Απεγγραφή",
 };
 
-export const TEXTES_PARRAINAGE: Readonly<Record<string, Textes>> = { en: EN, el: EL };
+function depuisTraduction(t: TextesTraduits): Textes {
+  return {
+    objet: { 0: t.objet[0], 2: t.objet[1], 5: t.objet[2] },
+    corps: { 0: [...t.j0], 2: [...t.j2], 5: [...t.j5] },
+    bouton: t.bouton,
+    signature: [...t.signature],
+    pied: t.pied,
+    desinscrire: t.desinscrire,
+  };
+}
+
+export const TEXTES_PARRAINAGE: Readonly<Record<string, Textes>> = {
+  en: EN,
+  el: EL,
+  ...Object.fromEntries(Object.entries(TRADUCTIONS).map(([l, t]) => [l, depuisTraduction(t)])),
+};
 
 /** La langue de l'email : celle du pays (« es-419 » → « es »), anglais si elle n'est pas traduite. */
 export function langueEmail(langue: string | null | undefined): string {

@@ -82,6 +82,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   payroll: Wallet,
   faq: MessageCircle,
   officielles: BadgeCheck,
+  parrainage: Gift,
   logs: ListTodo,
 };
 

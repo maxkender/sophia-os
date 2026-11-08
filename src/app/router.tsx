@@ -13,6 +13,7 @@ import {
   DecisionsPage,
   FaqPage,
   ReponsesOfficiellesPage,
+  ParrainagePage,
   LogsPage,
   NeedsYouAncienPage,
   NeedsYouPage,
@@ -133,6 +134,7 @@ export function AppRouter() {
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
             <Route path="/admin/auto/reponses-officielles" element={<ReponsesOfficiellesPage />} />
+            <Route path="/admin/auto/parrainage" element={<ParrainagePage />} />
             <Route path="/admin/auto/logs" element={<LogsPage />} />
             {/* Les anciennes adresses redirigent : aucun lien cassé. */}
             {Object.entries(ANCIENNES_ADRESSES).map(([de, vers]) => (

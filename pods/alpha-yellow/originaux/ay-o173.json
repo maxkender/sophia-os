@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o173",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "40a23511-45f5-4471-a0d1-d051334ad383",
+ "titre": "7 low-key habits that make your words carry weight #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "40a23511-45f5-4471-a0d1-d051334ad383"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture e1140173. déclinaison G2 de la ligne 1 de la boîte (40a23511, ay-o103 « 7 subtle behaviors that make people take you seriously »), 2e déclinaison de ce parent après ay-o159. Même promesse (être pris au sérieux), autres mots, sans « respect » pour ne pas toucher la ligne 2. Items neufs, aucun repris du parent ni d'ay-o159. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1140173",
+   "texte_overlay": "7 low-key habits that make\nyour words carry weight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Saying less in meetings. One clear contribution beats ten small comments. When you speak rarely and well, people start leaning in the moment you open your mouth.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Never exaggerating. Not \"the best ever\", not \"literally dying\". Accurate words build a reputation for honesty, and honest people's words weigh more.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keeping your promises small and certain. Promise only what you're sure to deliver, then deliver it early. Reliability is what makes your word worth something.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Using a calm, even voice. No rushing, no rising pitch at the end of every sentence. A steady voice signals that you truly believe what you're saying.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Knowing what you're talking about. I do five minutes a day of history, art or science, and real knowledge gives my opinions a weight they never had before.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Real knowledge gives my opinions a weight they never had before.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Admitting what you don't know. \"Good question, I'm not sure.\" People trust the man who doesn't bluff, and they believe him much more when he is sure.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Backing your point with one example. Not a lecture, just one clear story or number. A single good example makes an idea stick far better than repetition.",
+   "media_id": "bdf15e02"
+  }
+ ]
+}

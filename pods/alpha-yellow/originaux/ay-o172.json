@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o172",
+ "type_bleo": "full_test",
+ "titre": "Signs you're more interesting than you think #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "6ffbc208-4cc1-4373-b7ea-01766cc96e62"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 38229d90. full test. Accroche jamais faite chez nous : rassurer sur sa valeur sociale, ton positif. Accroches écrites : « Signs you're more interesting than you think » (retenue), « You're not boring if… » (écartée : sans liste claire), « Proof you're a great person to talk to » (écartée : long).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "38229d90",
+   "texte_overlay": "Signs you're more interesting\nthan you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "People tell you things they don't tell others. If friends open up to you easily, it means you listen well, and good listeners are some of the most valued people in any group.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You get excited about random topics. Space, old cars, how bread is made. Real enthusiasm is contagious, and it's what makes people enjoy being around you.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You ask follow-up questions. Most people wait for their turn to talk. Asking \"And then what happened?\" makes you genuinely fun and easy to talk to.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You have a few stories people ask you to tell again. If friends say \"tell them about the time...\", you're already the interesting one in the room.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "You keep learning things for fun. I do five minutes a day of history, art or science, and curious people are almost never boring to the people around them.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Curious people are almost never boring to the people around them.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You notice small details. A new haircut, a change in mood, a funny sign on the street. Paying attention to the world gives you endless things to talk about.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "You're comfortable being a little weird. A strange hobby, an odd sense of humour, a niche passion. The things that make you different are what make you memorable.",
+   "media_id": "3fff1b1f"
+  }
+ ]
+}

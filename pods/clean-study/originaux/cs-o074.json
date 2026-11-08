@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o074",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "abf50563-542d-4455-99dd-48c19becd560",
+  "titre": "what the top students in my class do differently and how it woke me up #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "abf50563-542d-4455-99dd-48c19becd560"
+  ],
+  "notes": "Déclinaison G2 de abf50563 (notre cs-o038 en G1 : r 4,97 en turc), ligne 3 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o068 : « what the top students in my class do differently and how it woke me up ». Habitudes neuves, aucune de cs-o038 ni de cs-o068 : ils relisent leurs notes le soir même, ils travaillent en blocs courts, ils se testent sur la semaine le vendredi (place micabo, slide 4), ils savent dire « je ne sais pas » en classe, ils gardent leurs anciens contrôles, ils commencent les gros projets tôt. Admiration, jamais de comparaison méprisante. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "66924248",
+      "texte_overlay": "what the top students in my class do differently\nand how it woke me up",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6993b6c8",
+      "texte_overlay": "1) they look over their notes the same evening\n10 minutes, while it's still fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6badaf21",
+      "texte_overlay": "2) they study in short blocks\nnot 4-hour marathons that end on their phone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c4495051",
+      "texte_overlay": "3) friday: they test themselves on the whole week\nso sunday is free.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6ce94470",
+      "texte_overlay": "4) they say \"i don't get it\" out loud in class\nno ego. just answers.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "70ca7fc0",
+      "texte_overlay": "5) they keep every old test\nit's the best revision sheet there is.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "72675f94",
+      "texte_overlay": "6) big projects start the day they're announced\neven if it's just 15 minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

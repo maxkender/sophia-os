@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o072",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "d27e21e1-0a9f-40ad-85b6-25b8b3bfe78e",
+  "titre": "little habits that make you sharper and give you an edge in class #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "d27e21e1-0a9f-40ad-85b6-25b8b3bfe78e"
+  ],
+  "notes": "Déclinaison G2 de d27e21e1 (notre cs-o037 en G1 : r 3,51 en allemand), ligne 1 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o067 : « little habits that make you sharper and give you an edge in class ». Habitudes neuves, aucune de cs-o037 ni de cs-o067 : lire un article de fond par semaine, résumer chaque cours en une phrase, garder un carnet d'erreurs, se tester avant de dormir (place micabo, slide 5), écouter un podcast éducatif sur le trajet, refaire un exercice déjà réussi une semaine plus tard. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "34115e28",
+      "texte_overlay": "little habits that make you sharper\nand give you an edge in class",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3994d15d",
+      "texte_overlay": "one long article a week on something you study.\nyou'll have examples nobody else has.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "39eb3892",
+      "texte_overlay": "every lesson summed up in ONE sentence.\nif you can't, you know what to ask.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3e84d05c",
+      "texte_overlay": "a mistakes notebook.\nevery error, why, and the right way.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ea4a5e70",
+      "texte_overlay": "5 minutes quizzing yourself before bed.\nwhat you review at night is easier to recall.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "424e8b39",
+      "texte_overlay": "an educational podcast on the way to school.\nthe commute becomes free learning time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "45d053df",
+      "texte_overlay": "redo an exercise you got right a week later.\nif it's still easy, you really learned it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

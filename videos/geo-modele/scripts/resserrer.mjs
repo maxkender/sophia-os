@@ -4,9 +4,11 @@
 import {spawnSync} from 'node:child_process';
 import {readFileSync, renameSync, writeFileSync} from 'node:fs';
 
-// Blanc gardé selon ce qui précède la pause (secondes)
-const GARDE = {phrase: 0.28, virgule: 0.14, mot: 0.06};
-const MARGE = 0.04; // on ne coupe pas pour moins que ça
+// Blanc gardé selon ce qui précède la pause (secondes). On ne coupe jamais entre deux mots d'une même phrase :
+// ça hachait la voix. Chaque coupe a un petit fondu pour ne pas claquer.
+const GARDE = {phrase: 0.34, virgule: 0.22, mot: Infinity};
+const MARGE = 0.06; // on ne coupe pas pour moins que ça
+const FONDU = 0.015;
 
 const garde = (mot) => (/[.?!…]$/.test(mot) ? GARDE.phrase : /[,;:—]$/.test(mot) ? GARDE.virgule : GARDE.mot);
 
@@ -45,7 +47,11 @@ export function resserrer(mp3, json) {
   }
   segs.push([de, null]);
   const filtres = segs
-    .map(([a, b], n) => `[0]atrim=start=${a.toFixed(3)}${b === null ? '' : `:end=${b.toFixed(3)}`},asetpts=PTS-STARTPTS[s${n}]`)
+    .map(([a, b], n) => {
+      const fin = b === null ? '' : `,afade=t=out:st=${Math.max(0, b - a - FONDU).toFixed(3)}:d=${FONDU}`;
+      const debut = n === 0 ? '' : `,afade=t=in:st=0:d=${FONDU}`;
+      return `[0]atrim=start=${a.toFixed(3)}${b === null ? '' : `:end=${b.toFixed(3)}`},asetpts=PTS-STARTPTS${debut}${fin}[s${n}]`;
+    })
     .join(';');
   const concat = `${segs.map((_, n) => `[s${n}]`).join('')}concat=n=${segs.length}:v=0:a=1[out]`;
   const tmp = mp3.replace(/\.mp3$/, '.resserre.mp3');

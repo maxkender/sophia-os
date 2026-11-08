@@ -7,7 +7,9 @@ import {
   moteurAuTravail,
   scriptEditable,
   scriptModifie,
-  scriptsDifferents, attendLaPilote, languePiloteDe } from "./logique";
+  scriptsDifferents, attendLaPilote, languePiloteDe,
+  etapesVideo, groupeVideo, languesOrdonnees, ongletParDefaut, prochaineAction,
+  type StatutLangueMotion, type StatutVideoMotion } from "./logique";
 
 const SCRIPT = {
   langue: "en",
@@ -110,5 +112,58 @@ describe("langue pilote", () => {
       { langue: "fr", statut: "en_attente" },
     ];
     expect(attendLaPilote(apres[1], apres, "en")).toBe(false);
+  });
+});
+
+describe("avancement d'une vidéo", () => {
+  const v = (statut: StatutVideoMotion, langues: Array<[string, StatutLangueMotion]>) => ({
+    statut,
+    erreur: null,
+    langues_visees: ["fr", "en", "de", "it"],
+    langues: langues.map(([langue, s]) => ({ langue, statut: s })),
+  });
+
+  it("script à relire : à toi", () => {
+    const x = v("script_pret", []);
+    expect(groupeVideo(x)).toBe("a_toi");
+    expect(prochaineAction(x)).toEqual({ cle: "relire_script" });
+    expect(etapesVideo(x).map((e) => e.etat)).toEqual(["a_toi", "a_venir", "a_venir", "a_venir"]);
+    expect(ongletParDefaut(x)).toBe("script");
+  });
+
+  it("le moteur rend la pilote, les autres attendent", () => {
+    const x = v("production", [["en", "en_cours"], ["fr", "en_attente"]]);
+    expect(groupeVideo(x)).toBe("moteur");
+    expect(prochaineAction(x)).toEqual({ cle: "moteur_rend", langues: ["en"] });
+    expect(etapesVideo(x).map((e) => e.etat)).toEqual(["faite", "moteur", "a_venir", "a_venir"]);
+  });
+
+  it("pilote à valider, puis les autres langues", () => {
+    expect(prochaineAction(v("a_valider", [["en", "a_valider"]]))).toEqual({ cle: "valider_pilote", langues: ["en"] });
+    const x = v("a_valider", [["en", "validee"], ["fr", "a_valider"], ["de", "en_cours"]]);
+    expect(groupeVideo(x)).toBe("a_toi");
+    expect(prochaineAction(x)).toEqual({ cle: "valider_langues", langues: ["fr"] });
+    expect(etapesVideo(x).map((e) => e.etat)).toEqual(["faite", "faite", "moteur", "a_toi"]);
+    expect(ongletParDefaut(x)).toBe("videos");
+  });
+
+  it("les autres langues ne sont pas faites tant qu'il en manque", () => {
+    const x = v("a_valider", [["en", "validee"], ["fr", "a_valider"]]);
+    expect(etapesVideo(x).find((e) => e.cle === "traductions")?.etat).toBe("a_venir");
+  });
+
+  it("tout validé : terminée", () => {
+    const x = { ...v("termine", [["en", "distribuee"], ["fr", "validee"]]), langues_visees: ["en", "fr"] };
+    expect(groupeVideo(x)).toBe("fini");
+    expect(prochaineAction(x)).toEqual({ cle: "terminee" });
+  });
+
+  it("archive et échec", () => {
+    expect(groupeVideo(v("archive", []))).toBe("archive");
+    expect(prochaineAction(v("a_valider", [["en", "echec"]]))).toEqual({ cle: "echec" });
+  });
+
+  it("la pilote d'abord", () => {
+    expect(languesOrdonnees([{ langue: "it" }, { langue: "fr" }, { langue: "en" }], "en").map((l) => l.langue)).toEqual(["en", "fr", "it"]);
   });
 });

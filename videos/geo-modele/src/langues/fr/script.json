@@ -1,0 +1,542 @@
+{
+  "langue": "fr",
+  "voix": {
+    "id": "3HZyQcLKlT0a3RDeXVsP",
+    "nom": "Guillaume",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.55,
+      "similarity_boost": 0.8,
+      "style": 0.25,
+      "use_speaker_boost": true,
+      "speed": 1.08
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "Pourquoi un pays aussi petit que le Panama est-il si important?",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -80,
+            12
+          ],
+          "zoom": 2.4
+        },
+        "vers": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 3,
+          "au": "Panama"
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "jaune",
+            "au": "Panama"
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "Panama",
+            "lieu": [
+              -80.1,
+              7.2
+            ],
+            "style": "titre",
+            "au": "Panama"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S2",
+      "texte": "Avant 1914, un bateau qui allait de New York à San Francisco devait faire tout le tour de l'Amérique du Sud.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -80,
+            -8
+          ],
+          "zoom": 2.1
+        },
+        "points": [],
+        "fleches": [
+          {
+            "de": [
+              -74.0,
+              40.7
+            ],
+            "a": [
+              -67.3,
+              -56.0
+            ],
+            "couleur": "turquoise",
+            "au": "tour",
+            "par": [
+              [
+                -66,
+                25
+              ],
+              [
+                -50,
+                8
+              ],
+              [
+                -34,
+                -8
+              ],
+              [
+                -45,
+                -30
+              ],
+              [
+                -60,
+                -48
+              ]
+            ]
+          },
+          {
+            "de": [
+              -67.3,
+              -56.0
+            ],
+            "a": [
+              -122.4,
+              37.8
+            ],
+            "couleur": "turquoise",
+            "au": "Sud.",
+            "par": [
+              [
+                -76,
+                -50
+              ],
+              [
+                -78,
+                -25
+              ],
+              [
+                -84,
+                -2
+              ],
+              [
+                -105,
+                15
+              ],
+              [
+                -118,
+                28
+              ]
+            ]
+          }
+        ],
+        "garde": false,
+        "etiquettes": [
+          {
+            "texte": "New York",
+            "lieu": [
+              -74.0,
+              40.7
+            ],
+            "style": "pastille",
+            "au": "York"
+          },
+          {
+            "texte": "San Francisco",
+            "lieu": [
+              -122.4,
+              37.8
+            ],
+            "style": "pastille",
+            "au": "Francisco",
+            "cote": "bas"
+          },
+          {
+            "texte": "Amérique du Sud",
+            "lieu": [
+              -70,
+              -12
+            ],
+            "style": "titre",
+            "au": "Sud."
+          }
+        ]
+      }
+    },
+    {
+      "id": "S3",
+      "texte": "Plus de vingt mille kilomètres, à travers les tempêtes du cap Horn.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -68,
+            -52
+          ],
+          "zoom": 7
+        },
+        "zones": [
+          {
+            "centre": [
+              -67.3,
+              -56.0
+            ],
+            "rayon_km": 350,
+            "couleur": "bleu",
+            "au": "tempêtes"
+          }
+        ],
+        "points": [
+          {
+            "lieu": [
+              -66,
+              -57.5
+            ],
+            "icone": "bateau",
+            "couleur": "rouge",
+            "au": "Horn."
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "20 000+ km",
+            "lieu": [
+              -66,
+              -48
+            ],
+            "style": "chiffre",
+            "au": "vingt"
+          },
+          {
+            "texte": "Cap Horn",
+            "lieu": [
+              -67.3,
+              -53.2
+            ],
+            "style": "titre",
+            "au": "Horn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "S4",
+      "texte": "Puis le canal de Panama a ouvert. Quatre-vingts kilomètres seulement, qui font gagner environ treize mille kilomètres de trajet.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 1.6
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "jaune"
+          }
+        ],
+        "fleches": [
+          {
+            "de": [
+              -79.9,
+              9.35
+            ],
+            "a": [
+              -79.5,
+              8.95
+            ],
+            "couleur": "turquoise",
+            "courbe": 0.35,
+            "au": "canal"
+          }
+        ],
+        "points": [
+          {
+            "lieu": [
+              -79.75,
+              9.2
+            ],
+            "icone": "bateau",
+            "couleur": "vert",
+            "au": "gagner"
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "82 km",
+            "lieu": [
+              -79.0,
+              10.3
+            ],
+            "style": "chiffre",
+            "au": "Quatre-vingts"
+          },
+          {
+            "texte": "-13 000 km",
+            "lieu": [
+              -80.6,
+              6.7
+            ],
+            "style": "chiffre",
+            "couleur": "turquoise",
+            "au": "treize"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "texte": "Aujourd'hui, plus de dix mille navires le traversent chaque année, entre l'Atlantique et le Pacifique.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -82,
+            14
+          ],
+          "zoom": 3
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "jaune"
+          }
+        ],
+        "fleches": [
+          {
+            "de": [
+              -62,
+              24
+            ],
+            "a": [
+              -79.9,
+              9.35
+            ],
+            "couleur": "turquoise",
+            "courbe": 0.2,
+            "au": "navires"
+          },
+          {
+            "de": [
+              -79.5,
+              8.95
+            ],
+            "a": [
+              -108,
+              2
+            ],
+            "couleur": "turquoise",
+            "courbe": 0.2,
+            "au": "l'Atlantique"
+          },
+          {
+            "de": [
+              -60,
+              14
+            ],
+            "a": [
+              -79.9,
+              9.35
+            ],
+            "couleur": "turquoise",
+            "courbe": -0.2,
+            "au": "Pacifique."
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "10 000+ navires / an",
+            "lieu": [
+              -80,
+              27
+            ],
+            "style": "chiffre",
+            "au": "dix"
+          },
+          {
+            "texte": "Atlantique",
+            "lieu": [
+              -60,
+              17
+            ],
+            "style": "titre",
+            "au": "l'Atlantique"
+          },
+          {
+            "texte": "Pacifique",
+            "lieu": [
+              -102,
+              3
+            ],
+            "style": "titre",
+            "au": "Pacifique."
+          }
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "texte": "Qui contrôle cette étroite bande de terre contrôle un carrefour du commerce mondial. Et depuis 1999, c'est le Panama.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 2.2
+        },
+        "vers": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 1.4,
+          "au": "1999,"
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "vert",
+            "au": "contrôle"
+          }
+        ],
+        "points": [
+          {
+            "lieu": [
+              -80.2,
+              8.5
+            ],
+            "icone": "drapeau",
+            "couleur": "rouge",
+            "au": "Panama."
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "Depuis 1999",
+            "lieu": [
+              -79.7,
+              7.3
+            ],
+            "style": "chiffre",
+            "au": "1999,"
+          },
+          {
+            "texte": "Panama",
+            "lieu": [
+              -79.52,
+              8.98
+            ],
+            "style": "pastille",
+            "au": "Panama."
+          }
+        ]
+      }
+    }
+  ],
+  "outro": {
+    "texte": "Trouve les réponses à toutes ces questions et à bien d'autres dans l'appli Sophia, puis teste tes connaissances avec des quiz."
+  },
+  "legende": "Pourquoi un pays aussi petit que le Panama est-il si important ? 🌎 #géographie #panama #histoire #cartes #apprendresurtiktok",
+  "appli": {
+    "categorie": "GÉOGRAPHIE",
+    "lectures": "60 k lectures",
+    "jours": "JOURS",
+    "commencer": "Commencer",
+    "onglets": [
+      "Accueil",
+      "Biblio",
+      "Parcours",
+      "Entraînement",
+      "Profil"
+    ],
+    "titre": "Pourquoi le Panama est-il si important ?",
+    "description": "Quatre-vingts kilomètres d'eau qui ont changé le commerce mondial.",
+    "lecon": {
+      "sousTitre": "Un raccourci entre deux océans.",
+      "paragraphes": [
+        [
+          {
+            "t": "Avant le canal, les bateaux entre New York et San Francisco contournaient le cap Horn, "
+          },
+          {
+            "m": "plus de 20 000 km"
+          },
+          {
+            "t": " de mers agitées."
+          }
+        ],
+        [
+          {
+            "t": "Ouvert en 1914, le canal mesure environ 80 km et "
+          },
+          {
+            "m": "fait gagner environ 13 000 km"
+          },
+          {
+            "t": " sur ce trajet. Le Panama le gère "
+          },
+          {
+            "m": "depuis 1999"
+          },
+          {
+            "t": "."
+          }
+        ]
+      ],
+      "continuer": "Continuer"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} SUR 2",
+      "bravo": "Bonne réponse !",
+      "questions": [
+        {
+          "q": "Quand le canal de Panama a-t-il ouvert ?",
+          "options": [
+            "1869",
+            "1914",
+            "1945",
+            "1999"
+          ],
+          "bonne": 1,
+          "fait": "En 1914."
+        },
+        {
+          "q": "Depuis quand le Panama gère-t-il le canal ?",
+          "options": [
+            "1914",
+            "1999",
+            "1977",
+            "2016"
+          ],
+          "bonne": 1,
+          "fait": "Depuis 1999."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Leçon terminée !",
+      "score": "2/2 bonnes réponses",
+      "serie": "JOURS DE SÉRIE",
+      "xp": "XP GAGNÉS",
+      "suivant": "À SUIVRE",
+      "suivantTitre": "Que se passerait-il si un supervolcan se réveillait ?",
+      "bouton": "Leçon suivante"
+    },
+    "recouvrir": true
+  },
+  "rendu": "realiste"
+}

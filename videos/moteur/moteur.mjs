@@ -165,6 +165,10 @@ const commandes = {
     const langue = requis('langue');
     const {composition} = JSON.parse(readFileSync(join(dir, 'motion.json'), 'utf8'));
     lancer('node', ['scripts/langues.mjs'], dir);
+    // Style géographie réaliste : le fond en relief (tuiles, ~37 Mo, non commité) se génère une fois par machine
+    if (existsSync(join(dir, 'scripts/satellite.py')) && !existsSync(join(dir, 'public/sat/monde.jpg'))) {
+      lancer('python3', ['-I', 'scripts/satellite.py'], dir);
+    }
     const navigateur = existsSync(CHROME) ? [`--browser-executable=${CHROME}`] : [];
     // Par défaut, seulement la version postée (avec sous-titres) ; --sans-sous-titres rend aussi l'autre.
     const versions = [[true, 'final']];
@@ -216,6 +220,9 @@ const commandes = {
     const dir = projetDir(projet);
     verifierCleAws();
     lancer('node', ['scripts/langues.mjs'], dir);
+    if (existsSync(join(dir, 'scripts/satellite.py')) && !existsSync(join(dir, 'public/sat/monde.jpg'))) {
+      lancer('python3', ['-I', 'scripts/satellite.py'], dir);
+    }
     const fonctions = spawnSync('npx', ['remotion', 'lambda', 'functions', 'ls', '-q', ...regionLambda()], {cwd: dir, encoding: 'utf8', env: process.env});
     // Le nom porte la version, la mémoire et le délai : on ne redéploie que si la bonne fonction manque.
     const voulue = fonctions.stdout.split('\n').find((f) => f.includes('mem3008mb') && f.includes('900sec'));

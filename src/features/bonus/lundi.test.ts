@@ -47,3 +47,12 @@ describe("bonus du lundi (0564)", () => {
     expect(jourMois("2026-11-09")).toBe("9/11");
   });
 });
+
+describe("délais des Comment Masters (0566)", () => {
+  it("écrit une durée lisible", async () => {
+    const { dureeLisible } = await import("../commentMasters/suivi/delais");
+    expect(dureeLisible(45)).toBe("45 min");
+    expect(dureeLisible(65)).toBe("1 h 05");
+    expect(dureeLisible(null)).toBe("—");
+  });
+});

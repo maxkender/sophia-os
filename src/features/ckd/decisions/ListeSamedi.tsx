@@ -328,8 +328,12 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     // 0464 : reporté 2 fois, No channel (et les autres raisons) : Kill & pay proposé.
     if (forcesDe(c.poster_id).length) return "kill";
     // 0559 (C2) : gardé le samedi d'avant et toujours 0 post avec lien : Kill pré-sélectionné.
-    if (alerteMemoire(memoire.data?.get(c.poster_id), aujourdhui)?.choix === "kill") return "kill";
-    return choixPropose(e(c));
+    const alerte = alerteMemoire(memoire.data?.get(c.poster_id), aujourdhui);
+    if (alerte?.choix === "kill") return "kill";
+    // « Pas maintenant » toujours régulier : Doubler, seulement si le calcul le propose (≥ 2 semaines, pays ≥ 50 par compte).
+    const propose = choixPropose(e(c));
+    if (alerte?.choix === "double" && propose === "double") return "double";
+    return propose;
   };
   const filtres_ = filtrerComptes(liste, filtres);
   const duOnglet = (o: Onglet) => filtres_.filter((c) => o === "tous" || ongletDe(c, lundi) === o);

@@ -40,7 +40,6 @@ export function BonusLundi() {
   if (!q.data) return null;
   const c = q.data;
   const t = totaux(c.lignes);
-  const aVerifier = c.lignes.filter((l) => (l.a_verifier ?? 0) > 0);
 
   const donner = () =>
     agir("donner", async () => {
@@ -100,14 +99,10 @@ export function BonusLundi() {
             </table>
           </div>
         )}
-        {aVerifier.length > 0 || c.parrainages_a_confirmer > 0 ? (
-          <div className="space-y-1 rounded-lg border px-3 py-2 text-sm" data-testid="bonus-a-verifier">
-            <p className="font-medium">À vérifier (non payé)</p>
-            {aVerifier.map((l) => (
-              <p key={l.id} className="text-muted-foreground">{l.nom} : {l.a_verifier} commentaire{(l.a_verifier ?? 0) > 1 ? "s" : ""} fait{(l.a_verifier ?? 0) > 1 ? "s" : ""} mais pas retrouvé{(l.a_verifier ?? 0) > 1 ? "s" : ""} publié{(l.a_verifier ?? 0) > 1 ? "s" : ""}</p>
-            ))}
-            {c.parrainages_a_confirmer > 0 ? <p className="text-muted-foreground">{c.parrainages_a_confirmer} parrainage(s) à confirmer dans « À décider maintenant »</p> : null}
-          </div>
+        {c.parrainages_a_confirmer > 0 ? (
+          <p className="text-sm text-muted-foreground" data-testid="bonus-a-confirmer">
+            {c.parrainages_a_confirmer} parrainage(s) à confirmer dans « À décider maintenant »
+          </p>
         ) : null}
         <div className="space-y-1.5">
           <p className="text-sm font-medium">Donner un bonus</p>

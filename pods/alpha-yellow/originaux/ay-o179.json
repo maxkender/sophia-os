@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o179",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8c28b69f-ec5a-4ae1-baf6-a861e6c5091d",
+ "titre": "7 social hacks that feel like cheating on a group trip #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "8c28b69f-ec5a-4ae1-baf6-a861e6c5091d"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 5895d55d. déclinaison G1 de la ligne 7 de la boîte (8c28b69f, notre ay-o077 qui a gagné : hu 4,6 k r 3,81) : accroche du parent mot pour mot. Items neufs, aucun repris d'ay-o077. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5895d55d",
+   "texte_overlay": "7 social hacks that feel like\ncheating on a group trip",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Create the group chat with one simple rule: decisions get made by vote within an hour. No endless debates about restaurants, and everyone feels heard.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Bring a small speaker and a shared playlist. Ask everyone to add five songs before the trip. Car rides become a party instead of a long silent drive.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn three words in the local language. Hello, thank you, cheers. You'll become the group's translator, and locals will treat you all a little better.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Pack a few extras for others. Plasters, a phone charger, painkillers, snacks. Being the guy who always has what someone needs makes you everyone's favourite.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bring the stories. I do five minutes a day of history, art or science, and I'm always the one who knows why a castle or a church in town is famous.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always know why the castle or church in town is famous.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Plan one surprise for the group. A sunset spot, a hidden bar, a local festival. One unexpected moment becomes the highlight everyone talks about for years.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Check on the quiet one. Trips can be tiring and loud. A simple \"You good? Want to grab a coffee?\" can make someone's whole trip so much better.",
+   "media_id": "4ee6e05d"
+  }
+ ]
+}

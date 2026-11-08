@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o181",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "133b1540-f248-4c6a-9a0e-55a97b4e2d02",
+ "titre": "habits that make you look ridiculously intelligent in every conversation #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "133b1540-f248-4c6a-9a0e-55a97b4e2d02"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 5, sur une image sans visage. Couverture a3aa3e5b. déclinaison G1 de la ligne 10 de la boîte (133b1540, pl 6 k) : accroche du parent mot pour mot (minuscules du parent gardées). Items neufs, aucun repris du parent (lecture 30 min, questions, parler à voix haute, mot du jour, pause). Aucune appli citée dans le texte de base (le parent en citait une). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a3aa3e5b",
+   "texte_overlay": "habits that make you look\nridiculously intelligent\nin every conversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Summarise the other person's point before answering. \"So your worry is the cost, right?\" It shows you understood, and your reply instantly sounds sharper.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Use concrete examples instead of big words. \"Like when Netflix started by mailing DVDs\" beats any jargon. Clear examples are what truly smart people use.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Admit uncertainty with precision. \"I'm about 70 percent sure on that.\" Measuring your confidence sounds far more intelligent than pretending to know everything.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Know a little about a lot. I do five minutes a day of history, art or science, and being able to connect any topic to something interesting makes me look sharp.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Connecting any topic to something interesting makes me look sharp.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Ask about the reasons behind opinions. \"What made you see it that way?\" Curiosity about how people think is a hallmark of a genuinely intelligent mind.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Stay calm when you disagree. Raised voices sound like weak arguments. A relaxed \"I see it a bit differently\" makes your point look much stronger.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Know when to say \"that's a great point.\" Recognising a good idea that isn't yours shows confidence, fairness and a mind that cares more about truth than ego.",
+   "media_id": "20b1d0c4"
+  }
+ ]
+}

@@ -91,6 +91,25 @@ Même script que le papier (voix, `outro`, `appli`, `legende`, pas de « : »), 
 - Coordonnées vérifiées (longitude d'abord). Le Mercator coupe au 180e méridien : une flèche Asie → Amérique passe
   par l'Europe ; préfère des routes qui ne traversent pas le Pacifique d'un bord à l'autre.
 
+### Rendu `realiste` (style des reels de cartes sur Instagram)
+
+`"rendu": "realiste"` en tête du script (sinon `simple`) : fond en relief aux couleurs naturelles (Natural Earth I,
+domaine public, reprojeté en Mercator par `scripts/satellite.py`, tuiles dans `public/sat/`, non commitées : `rendre`
+et `lambda` les génèrent seuls la première fois, ~20 s), frontières fines, pays surlignés avec un contour lumineux,
+flèches en trait lumineux (couleur `turquoise` conseillée pour les routes), sous-titres **un mot à la fois, blanc dans un
+encadré rouge, en haut**, sons discrets de documentaire (souffle, tic, basse, nappe d'ambiance très basse) et
+**aucun bruitage cartoon**. La caméra ne recule jamais au-delà du bord de la carte (zoom minimal ~2,3).
+
+Et des **étiquettes** (texte sur la carte, à traduire dans chaque langue avec le script) :
+`"etiquettes": [{ "texte": "New York", "lieu": [lon, lat], "style": "pastille", "au": "York", "cote": "bas" }]`
+- `titre` : nom de lieu en capitales blanches (« SOUTH AMERICA », « PACIFIC ») ;
+- `chiffre` : un nombre qui claque, en couleur (« 20,000+ KM », « SINCE 1999 ») ;
+- `pastille` : étiquette orange reliée à un point (villes, escales) ; `cote` : droite (défaut), gauche, haut, bas.
+Évite les chevauchements : une étiquette par zone de l'écran, pas de pastille sous l'encadré rouge du haut.
+
+Avec une capture Sophia composée ou d'un autre cours, mets `"recouvrir": true` dans `appli` : la fin réécrit catégorie,
+titre et description de l'accueil même en anglais.
+
 ### Production `geographie`
 
 Nouveau sujet : copie `videos/geo-modele` dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`,

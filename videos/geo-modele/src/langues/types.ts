@@ -9,7 +9,7 @@ export type LonLat = [number, number];
 export type Vue = {pays: string[]; marge?: number} | {centre: LonLat; zoom: number};
 /** Moment d'apparition : un mot exact du texte de la scène (sinon le début de la scène) */
 type Quand = {au?: string; fin?: boolean};
-export type CouleurCarte = 'rouge' | 'bleu' | 'vert' | 'jaune' | 'orange' | 'violet' | 'gris' | 'noir';
+export type CouleurCarte = 'rouge' | 'bleu' | 'vert' | 'jaune' | 'orange' | 'violet' | 'gris' | 'noir' | 'turquoise';
 export type Icone = 'ville' | 'explosion' | 'bateau' | 'armee' | 'montagne' | 'or' | 'drapeau' | 'personne' | 'usine' | 'petrole' | 'avion' | 'epingle' | 'couronne' | 'blé';
 export type CarteScene = {
   vue?: Vue; // cadrage au début de la scène (vol de caméra depuis le cadrage précédent)
@@ -19,6 +19,9 @@ export type CarteScene = {
   // `par` : points de passage (un bateau qui contourne un continent) ; sinon un arc, plus ou moins courbé
   fleches?: ({de: LonLat; a: LonLat; par?: LonLat[]; couleur?: CouleurCarte; courbe?: number} & Quand)[];
   zones?: ({centre: LonLat; rayon_km: number; couleur?: CouleurCarte} & Quand)[];
+  // Rendu réaliste : textes posés sur la carte (traduits avec le script). titre = nom de lieu en grandes capitales,
+  // chiffre = un nombre qui claque, pastille = petite étiquette orange reliée au point
+  etiquettes?: ({texte: string; lieu: LonLat; style?: 'titre' | 'chiffre' | 'pastille'; couleur?: CouleurCarte; cote?: 'droite' | 'gauche' | 'haut' | 'bas'} & Quand)[];
   garde?: boolean; // garder ces éléments à l'écran jusqu'à la fin du récit (sinon ils s'effacent à la scène suivante)
 };
 export type Segment = {t?: string; m?: string}; // texte normal, ou passage surligné
@@ -42,6 +45,9 @@ export type TextesAppli = {
 export type ScriptLangue = {
   langue: string;
   voix: {id: string; nom: string; modele: string; reglages: Record<string, unknown>};
+  /** Style géographie : « simple » (carte à plat, crème et bleu) ou « realiste » (fond en relief, contours lumineux,
+   *  étiquettes, sous-titres un mot à la fois dans un encadré rouge, bruitages discrets) */
+  rendu?: 'simple' | 'realiste';
   scenes: {id: string; texte: string; reperes?: Repere[]; carte?: CarteScene}[];
   outro: {texte: string};
   legende?: string;

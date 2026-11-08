@@ -217,6 +217,9 @@ verify_jwt = false
 [functions.slack-retrait]
 verify_jwt = false
 
+[functions.bots-banc]
+verify_jwt = false
+
 [functions.nudges]
 verify_jwt = false
 

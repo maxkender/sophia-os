@@ -8,12 +8,16 @@
  "titre": {
   "en": "S Tier YouTube Videos You Need To Watch",
   "de": "S-Tier-YouTube-Videos, die du sehen musst",
-  "pt": "Vídeos do YouTube de nível S que tens de ver"
+  "pt": "Vídeos do YouTube de nível S que tens de ver",
+  "it": "Video di YouTube di livello S da guardare assolutamente",
+  "es-419": "Videos de YouTube nivel S que tienes que ver"
  },
  "legendes": {
   "en": "S Tier YouTube Videos You Need To Watch #youtube #learnontiktok #selfimprovement",
   "de": "S-Tier-YouTube-Videos, die du sehen musst #youtube #lernenmittiktok #selbstverbesserung",
-  "pt": "Vídeos do YouTube de nível S que tens de ver #youtube #aprendernotiktok #desenvolvimentopessoal"
+  "pt": "Vídeos do YouTube de nível S que tens de ver #youtube #aprendernotiktok #desenvolvimentopessoal",
+  "it": "Video di YouTube di livello S da guardare assolutamente #imparacontiktok #curiosità #cultura",
+  "es-419": "Videos de YouTube nivel S que tienes que ver #aprendeentiktok #curiosidades #cultura"
  },
  "musique": {
   "titre": "original sound",
@@ -58,6 +62,40 @@
      ],
      "VÍDEOS DO YOUTUBE",
      "QUE TENS DE VER"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "VIDEO DI YOUTUBE",
+       "bronze": true
+      }
+     ],
+     "DI LIVELLO S",
+     [
+      {
+       "t": "DA GUARDARE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "VIDEOS DE YOUTUBE",
+       "bronze": true
+      }
+     ],
+     "NIVEL S QUE",
+     [
+      {
+       "t": "TIENES QUE VER",
+       "bronze": true
+      }
+     ]
     ]
    }
   },
@@ -104,6 +142,36 @@
      "duree": "6:33",
      "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "CHE COS'È",
+     "LA VITA?"
+    ],
+    "video": {
+     "id": "J2AYKqhVf4U",
+     "titre": "Che cos'è la vita? (e perché non riusciamo a trovare una definizione)",
+     "chaine": "DNA a colazione",
+     "vues": "19K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "19:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQqXgkv1Lc5V2VOuhua9z8Cm0jcVlar_RNnedzVRENIXw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿QUÉ ES",
+     "LA VIDA?"
+    ],
+    "video": {
+     "id": "ktxH-lN_tiQ",
+     "titre": "¿Qué es la vida? ¿Es la muerte real?",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "2 M de vistas",
+     "date": "hace 6 años",
+     "duree": "6:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -144,6 +212,32 @@
      "texte": [
       "o que eu abro",
       "em vez de fazer scroll."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SE HAI SOLO",
+     "5 MINUTI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SI SOLO TIENES",
+     "5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
      ]
     }
    }
@@ -194,6 +288,36 @@
      "duree": "9:14",
      "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "SE IL SOLE",
+     "SCOMPARISSE"
+    ],
+    "video": {
+     "id": "WEyRS1_p2PA",
+     "titre": "Come potremmo sopravvivere se il Sole scomparisse: gli scenari di una Terra senza luce",
+     "chaine": "Geopop",
+     "vues": "994K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:39",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "NIHILISMO",
+     "OPTIMISTA"
+    ],
+    "video": {
+     "id": "Ylcg_lOU6IQ",
+     "titre": "Nihilismo optimista",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "1.3 M de vistas",
+     "date": "hace 6 años",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -241,6 +365,36 @@
      "duree": "6:53",
      "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "ESISTE IL",
+     "LIBERO ARBITRIO?"
+    ],
+    "video": {
+     "id": "buyVuu2ax9w",
+     "titre": "Perché NON credo nel Libero Arbitrio: cosa significa essere Liberi?",
+     "chaine": "Rick DuFer",
+     "vues": "38K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "31:31",
+     "avatar": "https://yt3.ggpht.com/F1VcTEjAOvvvjc0Cv93cdhkixo24vAkYj41Hpd3F9vDxdGUrkS1EiA91MjsdiyxHKlm17V53mRs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿QUÉ",
+     "SOMOS?"
+    ],
+    "video": {
+     "id": "FtPqu6Q6Xl4",
+     "titre": "¿Qué somos?",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "2.8 M de vistas",
+     "date": "hace 5 años",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -287,6 +441,36 @@
      "date": "há 7 meses",
      "duree": "23:07",
      "avatar": "https://yt3.ggpht.com/XYVOuyuIUVBEzjDrMJnK-mEyb0SYnu8nBJt0cvplTpiJkUeaP3BVYjfvZwW3MX-bQIAn2QyyhA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LA TEORIA",
+     "DEI GIOCHI"
+    ],
+    "video": {
+     "id": "YylcTyTLFeA",
+     "titre": "Microeconomia: Teoria dei giochi – Giochi simultanei PARTE 1/2",
+     "chaine": "LGEducation",
+     "vues": "1,2 Mln visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:09",
+     "avatar": "https://yt3.ggpht.com/NgBpM6wNI0GxPuwqOPZ7KrxrVD4JwJHcnPQYCwjf2GadcVuDauoYUiWV1lslMVO5hNRHAyCHeg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "LA TEORÍA",
+     "DE JUEGOS"
+    ],
+    "video": {
+     "id": "vBgrvVY1jGo",
+     "titre": "Este Problema De Teoría De Juegos Cambiará La Forma En Que Ves El Mundo",
+     "chaine": "Veritasium en español",
+     "vues": "3 M de vistas",
+     "date": "hace 2 años",
+     "duree": "27:12",
+     "avatar": "https://yt3.ggpht.com/eEzOCQszM2PCifAaJlJhjRsewotTEIqDdqt9YN4qS2Y-JldCdUMHW19ULcIqd-3WvQi70qvENqU=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

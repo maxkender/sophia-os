@@ -17,6 +17,7 @@ import {
   vueAide,
 } from "../_shared/reponses.ts";
 import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
+import { lirePhraseBonus } from "../_shared/bonus.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -56,7 +57,10 @@ Deno.serve(async (request) => {
   if (!valide) return json({ error: "signature Slack invalide" }, 401);
 
   try {
-    const payload = JSON.parse(new URLSearchParams(corps).get("payload") ?? "{}");
+    // 0564 : la commande /bonus (Max, Adrien) : un bonus en une phrase, à valider sur la carte « Bonus de lundi ».
+    const formulaire = new URLSearchParams(corps);
+    if (formulaire.get("command") === "/bonus") return await commandeBonus(formulaire);
+    const payload = JSON.parse(formulaire.get("payload") ?? "{}");
     const action = payload?.actions?.[0];
     // Prompt 13 : le raccourci de message « Send to OS » (une HM, sur le DM d'un posteur).
     if (payload?.type === "message_action" && payload?.callback_id === RACCOURCI_ENVOYER_OS) {
@@ -380,4 +384,27 @@ async function ckdFait(payload: any, action: any) {
 
   const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (jeton) await majRecap(supabase, jeton, p.controle_id);
+}
+
+/**
+ * 0564 : « /bonus donne 2 $ de bonus à Martin Befeld lundi, raison test ».
+ * Seulement les comptes Slack de `reglages.bonus_slack_autorises` (Max,
+ * Adrien). La ligne est « à valider » sur la carte « Bonus de lundi » : rien ne
+ * part sans « Tout envoyer ». Réponse visible de l'auteur seul.
+ */
+async function commandeBonus(f: URLSearchParams): Promise<Response> {
+  const repondre = (text: string) => json({ response_type: "ephemeral", text });
+  const supabase = serviceClient();
+  const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "bonus_slack_autorises").maybeSingle();
+  const autorises = Array.isArray(reglage?.valeur) ? (reglage.valeur as unknown[]).map(String) : [];
+  if (!autorises.includes(String(f.get("user_id") ?? ""))) return repondre("Sorry, /bonus is reserved to Max and Adrien.");
+  const texte = String(f.get("text") ?? "").trim();
+  if (!texte) return repondre("Exemple : /bonus donne 2 $ de bonus à Martin Befeld lundi, raison test");
+  const lu = lirePhraseBonus(texte, new Date().getUTCFullYear());
+  if ("erreur" in lu) return repondre(`Pas compris : ${lu.erreur}.`);
+  const { data, error } = await supabase.rpc("bonus_donner", { p_nom: lu.nom, p_montant: lu.montant, p_lundi: lu.lundi, p_raison: lu.raison, p_par: null });
+  if (error) return repondre(`Erreur : ${error.message}`);
+  const r = data as { ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string };
+  if (!r.ok) return repondre(`Pas ajouté : ${r.erreur}.`);
+  return repondre(`✅ ${r.montant} $ à ${r.nom} (lundi ${r.lundi}, raison : ${lu.raison}). À valider dans Weekly decisions → Bonus de lundi.`);
 }

@@ -66,8 +66,10 @@ export function ReglagesPaie({ ouvert = false }: { ouvert?: boolean }) {
       <fieldset disabled={!admin} className="grid gap-3 pt-3 sm:grid-cols-2 lg:grid-cols-3">
         {nombre(t("paie.reglagesV3.toleres"), p.manques_toleres, (n) => setP({ ...p, manques_toleres: n }))}
         {nombre(t("paie.reglagesV3.retenue"), p.retenue_par_post, (n) => setP({ ...p, retenue_par_post: n }), "0.01")}
-        {nombre(t("bonus.reglages.comment_master_par_commentaire"), b.comment_master_par_commentaire, (n) =>
-          setB({ ...b, comment_master_par_commentaire: n }), "0.01")}
+        {(["a", "b", "c"] as const).map((z) => {
+          const cle = `comment_master_tarif_${z}` as const;
+          return <React.Fragment key={z}>{nombre(t(`bonus.reglages.${cle}`), b[cle] ?? 0, (n) => setB({ ...b, [cle]: n }), "0.01")}</React.Fragment>;
+        })}
         <label className="space-y-1 text-sm">
           <span className="block text-xs text-muted-foreground">{t("bonus.reglages.premier_lundi")}</span>
           <Input

@@ -57,6 +57,7 @@ import {
   REQUETE_DETAILS_CONTRAT,
 } from "../_shared/accueil.ts";
 import { deduireTarif } from "../_shared/tarifs.ts";
+import { noteBonus } from "../_shared/bonus.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
@@ -310,6 +311,10 @@ Deno.serve(async (request) => {
       case "bonus_parrainage_payer":
         // 0553 : le lundi (cron), les bonus de parrainage à payer, par bonus Upwork.
         return json(await bonusParrainagePayer(supabase, par));
+      case "bonus_envoyer":
+        // 0564 : « Tout envoyer » sur la carte « Bonus de lundi » ; seulement au clic de Max (jamais le cron).
+        if (!par) return json({ ok: false, error: "réservé au clic de l'admin" }, 403);
+        return json(await bonusEnvoyer(supabase, par, String(body.lundi ?? "")));
       case "kill_immediat":
         return json(await killImmediat(supabase, par, String(body.id ?? "")));
       case "reprise_conversations":
@@ -2620,6 +2625,61 @@ async function bonusParrainagePayer(supabase: Supabase, par: string | null) {
     resultats.push({ bonus: b.id, ok: true, invoice });
   }
   return { ok: true, payes: resultats.filter((x) => x.ok).length, resultats };
+}
+
+/**
+ * 0564 : « Tout envoyer » (carte « Bonus de lundi », Weekly decisions). Seulement
+ * au clic de Max : les lignes « à valider » du lundi, par bonus Upwork
+ * (sendCustomPayment) sur le contrat du posteur, depuis le compte de Max, VIk
+ * Studios seulement, jamais avant le test validé. Chaque ligne est marquée avant
+ * l'envoi : jamais de second essai à l'aveugle. Un échec reste sur la ligne.
+ */
+async function bonusEnvoyer(supabase: Supabase, par: string, lundi: string) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lundi)) return { ok: false, error: "lundi requis" };
+  const { data: tests } = await supabase.from("upwork_bonus_tests").select("id").eq("statut", "envoye").not("valide_at", "is", null).limit(1);
+  if (!tests?.length) return { ok: false, error: "test du bonus pas encore validé : rien ne part" };
+  const expediteur = await verifierExpediteur(supabase);
+  if (expediteur) return { ok: false, error: expediteur };
+  const { data: lignes, error } = await supabase.from("bonus")
+    .select("id, poster_id, recrue_id, type, montant, quantite, periode_fin, raison")
+    .eq("lundi_bonus", lundi).eq("statut", "a_valider").is("envoi_at", null).gt("montant", 0).limit(60);
+  if (error) return { ok: false, error: error.message };
+  const resultats: Record<string, unknown>[] = [];
+  for (const b of lignes ?? []) {
+    const montant = Number(b.montant);
+    const echec = async (erreur: string) => {
+      await supabase.from("bonus").update({ erreur }).eq("id", b.id);
+      resultats.push({ bonus: b.id, ok: false, erreur });
+    };
+    if (!(montant > 0 && montant <= 100)) { await echec(`montant ${montant} $ hors limites`); continue; }
+    const { data: pr } = await supabase.from("profiles").select("upwork_contract_id").eq("id", b.poster_id).maybeSingle();
+    const contrat = String(pr?.upwork_contract_id ?? "");
+    if (!contrat) { await echec("pas de contrat Upwork relié"); continue; }
+    const { data: uc } = await supabase.from("upwork_contrats").select("organisation_id").eq("contrat_id", contrat).maybeSingle();
+    if (uc?.organisation_id !== ORG_VIK) { await echec(`contrat ${contrat} hors VIk Studios`); continue; }
+    let prenomFilleul: string | null = null;
+    if (b.type === "parrainage" && b.recrue_id) {
+      const { data: f } = await supabase.from("profiles").select("prenom").eq("id", b.recrue_id).maybeSingle();
+      prenomFilleul = (f?.prenom as string | null) ?? null;
+    }
+    const comment = noteBonus({ type: String(b.type), quantite: b.quantite, periode_fin: b.periode_fin, raison: b.raison, prenom_filleul: prenomFilleul });
+    // Marquée (validée par Max, envoi commencé) avant l'appel : jamais deux fois.
+    const maintenant = new Date().toISOString();
+    await supabase.from("bonus").update({ envoi_at: maintenant, valide_at: maintenant, valide_par: par }).eq("id", b.id);
+    const r = await ecrire(supabase, {
+      par, action: `bonus_${b.type}`, query: MUTATION_BONUS, tenant: ORG_VIK, contrat, montant, compte: COMPTE,
+      variables: { input: { contractId: contrat, amount: montant, comment, notes: `bonus ${b.id}`, type: "BONUS" } },
+    });
+    if (r.erreur) { await echec(`Upwork : ${r.erreur}`); continue; }
+    const invoice = (r.data as { sendCustomPayment?: { invoiceId?: string } } | null)?.sendCustomPayment?.invoiceId ?? null;
+    await supabase.from("bonus").update({ statut: "paye", paye_at: new Date().toISOString(), paye_par: par, upwork_invoice: invoice, erreur: null }).eq("id", b.id);
+    if (b.type === "parrainage") {
+      const prenom = String(prenomFilleul ?? "").trim() || "your friend";
+      await messagePosteur(supabase, par, String(b.poster_id), `Your friend ${prenom} is now active, +$${montant} bonus this Monday 🎉`, "parrainage");
+    }
+    resultats.push({ bonus: b.id, ok: true, invoice });
+  }
+  return { ok: true, payes: resultats.filter((x) => x.ok).length, echecs: resultats.filter((x) => !x.ok).length, resultats };
 }
 
 /** 0543 : le bonus classique (« Give bonus ») d'Upwork, sans milestone. */

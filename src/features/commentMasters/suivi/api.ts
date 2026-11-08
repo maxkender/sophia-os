@@ -72,6 +72,10 @@ export interface ReglagesBonus {
   parrainage_semaines_min: number;
   parrainage_posts_min_semaine: number;
   comment_master_par_commentaire: number;
+  /** 0564 : par commentaire validé, selon la zone du pays du Comment Master. */
+  comment_master_tarif_a?: number;
+  comment_master_tarif_b?: number;
+  comment_master_tarif_c?: number;
   premier_lundi: string;
 }
 
@@ -80,7 +84,10 @@ export const REGLAGES_BONUS_DEFAUT: ReglagesBonus = {
   parrainage_semaines_min: 2,
   parrainage_posts_min_semaine: 12,
   comment_master_par_commentaire: 0,
-  premier_lundi: "2026-11-30",
+  comment_master_tarif_a: 0.5,
+  comment_master_tarif_b: 0.35,
+  comment_master_tarif_c: 0.25,
+  premier_lundi: "2026-11-09",
 };
 
 export async function lireReglagesBonus(): Promise<ReglagesBonus> {
@@ -92,6 +99,9 @@ export async function lireReglagesBonus(): Promise<ReglagesBonus> {
     parrainage_semaines_min: Number(v.parrainage_semaines_min ?? 2),
     parrainage_posts_min_semaine: Number(v.parrainage_posts_min_semaine ?? 12),
     comment_master_par_commentaire: Number(v.comment_master_par_commentaire ?? 0),
+    comment_master_tarif_a: Number(v.comment_master_tarif_a ?? 0.5),
+    comment_master_tarif_b: Number(v.comment_master_tarif_b ?? 0.35),
+    comment_master_tarif_c: Number(v.comment_master_tarif_c ?? 0.25),
     premier_lundi: String(v.premier_lundi ?? REGLAGES_BONUS_DEFAUT.premier_lundi),
   };
 }

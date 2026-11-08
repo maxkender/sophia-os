@@ -58,6 +58,47 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
 Envoie : `moteur.mjs script --tache T --video V --fichier chemin.json --projet slug`. La page le montre à
 l'admin, qui le modifie ou le valide (ce qui crée la tâche `produire`).
 
+## 2 bis. Le style de la vidéo : `papier` ou `geographie`
+
+La vidéo a un `style` (dans `video.style`, choisi par l'admin dans la page) :
+- **`papier`** (par défaut) : papier découpé, personnages, gags (modèles `videos/moyen-age`, `videos/supervolcan`).
+  Tout ce qui suit (§2, §5, §6) vaut pour ce style.
+- **`geographie`** : une explication sur une **vraie carte du monde** (frontières Natural Earth, `world-atlas` 1:50 m,
+  projection de Mercator). Modèle : `videos/geo-modele` (exemple « Why is Panama so important? »). **Aucune scène à
+  dessiner** : une seule carte continue, pilotée par le champ `carte` de chaque scène du script.
+
+### Script `geographie`
+
+Même script que le papier (voix, `outro`, `appli`, `legende`, pas de « : »), 6 à 10 scènes, mais chaque scène a un
+`carte` (types : `videos/geo-modele/src/langues/types.ts`, `CarteScene`) :
+- `vue` : le cadrage au début de la scène, la caméra y **vole** depuis le cadrage précédent (recul au milieu si on va
+  loin). `{"pays": ["France", "Germany"], "marge": 1.4}` (fait tenir ces pays à l'écran) ou
+  `{"centre": [lon, lat], "zoom": 3}` (zoom 1 = le monde entier en largeur, 6 = un pays moyen, 15 = une ville).
+- `vers` : un second cadrage pendant la scène, sur un mot (`"au": "Panama"`), pour un zoom ou un panoramique.
+- `pays` : `[{ "noms": ["Panama"], "couleur": "jaune", "au": "Panama" }]` : les pays s'allument (couleurs : rouge,
+  bleu, vert, jaune, orange, violet, gris, noir).
+- `points` : `[{ "lieu": [lon, lat], "icone": "ville", "couleur": "bleu", "au": "York" }]` (icônes : ville,
+  explosion, bateau, armee, montagne, or, drapeau, personne, usine, petrole, avion, epingle, couronne, blé).
+- `fleches` : `[{ "de": [lon, lat], "a": [lon, lat], "par": [[lon, lat], …], "couleur": "rouge", "au": "sail" }]` :
+  un trait en pointillés qui se dessine ; `par` = points de passage en mer (sinon la flèche coupe les continents),
+  `courbe` = courbure d'un arc simple (0,25 par défaut, négatif = de l'autre côté).
+- `zones` : `[{ "centre": [lon, lat], "rayon_km": 350, "couleur": "bleu", "au": "storms" }]` : un cercle qui s'étend.
+- `garde: true` : garder les éléments de la scène jusqu'à la fin (sinon ils s'effacent à la scène suivante).
+- `au` = un mot **exact** du texte de la scène, ponctuation comprise (comme les repères) ; sans `au`, l'élément arrive
+  au début de la scène. Plusieurs éléments par scène, oui, mais un seul « moment » à la fois.
+- Noms de pays : les noms anglais Natural Earth (`node scripts/pays.mjs panama` dans `videos/geo-modele`), quelques
+  alias (USA, UK, Russie…). Un nom inconnu fait échouer le rendu : vérifie-les.
+- Coordonnées vérifiées (longitude d'abord). Le Mercator coupe au 180e méridien : une flèche Asie → Amérique passe
+  par l'Europe ; préfère des routes qui ne traversent pas le Pacifique d'un bord à l'autre.
+
+### Production `geographie`
+
+Nouveau sujet : copie `videos/geo-modele` dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`,
+`src/langues/*/`), mets à jour `motion.json` (`composition`), `package.json` (`name`) et `src/Root.tsx` (id).
+Puis comme §3 : scripts des langues (le `carte` ne se traduit pas, seuls les `au` changent : un mot de la langue),
+voix, **planche** (le rendu de la carte est rapide), `rendre`, `livrer`. Si un sujet a besoin d'un nouvel élément de carte
+(icône, type de tracé), ajoute-le dans `geo-modele/src/Carte.tsx` puis recopie-le.
+
 ## 3. Tâche `produire` : une langue (`langue`)
 
 Le circuit (demande d'Adrien) : script validé → **vidéo anglaise seule** (tâche `produire` avec `langue: "en"`)

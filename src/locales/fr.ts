@@ -6243,6 +6243,11 @@ export const fr = {
       pasEncoreDeVideo: "Pas encore de vidéo : le moteur la rend.",
       duree: "{{s}} s",
       telecharger: "Télécharger la vidéo",
+      style: "Style",
+      styles: {
+        papier: { nom: "Papier découpé", description: "Personnages et décors en papier, gags, plusieurs plans par phrase" },
+        geographie: { nom: "Géographie", description: "Explication sur une vraie carte du monde : vols de caméra, pays surlignés, flèches, zones" },
+      },
       sansSousTitres: "Version sans sous-titres",
       commentaireRejet: "Rejetée : {{commentaire}}",
       compteCible: "Sera postée sur {{compte}}",

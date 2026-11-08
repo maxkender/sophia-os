@@ -7,7 +7,7 @@
  * Deux appelants :
  *
  * L'admin (jeton Supabase, rôle admin) :
- *   { action: "creer", sujet, consigne?, langues? }   → un sujet, et la tâche « script » du moteur
+ *   { action: "creer", sujet, consigne?, langues?, style? } → un sujet (style papier | geographie), et la tâche « script »
  *   { action: "maj_script", video_id, script }        → reporte les textes modifiés (scènes, outro,
  *                                                       légende) sur le script du moteur
  *   { action: "maj_capture", video_id, capture_chemin } → la capture d'accueil Sophia (anglais),
@@ -153,6 +153,7 @@ async function creer(supabase: Supabase, body: Corps, userId: string): Promise<R
       sujet: d.sujet,
       consigne: d.consigne,
       langues: d.langues,
+      style: d.style,
       statut: "script_demande",
       created_by: estUuid(userId) ? userId : null,
     })
@@ -160,7 +161,8 @@ async function creer(supabase: Supabase, body: Corps, userId: string): Promise<R
     .single();
   if (error || !video) throw new Error(error?.message ?? "vidéo non créée");
   await nouvelleTache(supabase, video.id, "script", null, d.consigne);
-  await journaliser(supabase, video.id, `Sujet créé (${d.langues.join(", ")}) : le moteur écrit le script.`);
+  const style = d.style === "geographie" ? "géographie (carte du monde)" : "papier découpé";
+  await journaliser(supabase, video.id, `Sujet créé (${d.langues.join(", ")}, ${style}) : le moteur écrit le script.`);
   return ok({ video });
 }
 

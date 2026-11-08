@@ -73,10 +73,17 @@ export function languesDemandees(brut: unknown): string[] | { erreur: string } {
   return sortie.length > 0 ? sortie : { erreur: "Choisis au moins une langue" };
 }
 
+/** Styles de vidéo Motion : papier découpé, ou explication sur une carte du monde. */
+export const STYLES_MOTION = ["papier", "geographie"] as const;
+export type StyleMotion = (typeof STYLES_MOTION)[number];
+export const styleValide = (v: unknown): StyleMotion | null =>
+  typeof v === "string" && (STYLES_MOTION as readonly string[]).includes(v) ? (v as StyleMotion) : null;
+
 export interface DemandeCreation {
   sujet: string;
   consigne: string | null;
   langues: string[];
+  style: StyleMotion;
 }
 
 export function demandeCreation(body: Record<string, unknown>): DemandeCreation | { erreur: string } {
@@ -87,7 +94,9 @@ export function demandeCreation(body: Record<string, unknown>): DemandeCreation 
   if (consigne && consigne.length > CONSIGNE_MAX) return { erreur: `Consigne : ${CONSIGNE_MAX} caractères au plus` };
   const langues = languesDemandees(body.langues);
   if ("erreur" in langues) return langues;
-  return { sujet, consigne, langues };
+  const style = body.style == null || body.style === "" ? "papier" : styleValide(body.style);
+  if (!style) return { erreur: "Style inconnu (papier ou geographie)" };
+  return { sujet, consigne, langues, style };
 }
 
 type Objet = Record<string, unknown>;

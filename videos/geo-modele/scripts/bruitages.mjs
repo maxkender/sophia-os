@@ -98,6 +98,12 @@ export const BRUITAGES = {
   pop2: ['Cartoon pop as a character appears, bubbly', 0.5],
   gasp: ['Cartoon gasp of surprise, short', 0.6],
   flies: ['Cartoon flies buzzing around something smelly', 2.0],
+  // Géographie, rendu réaliste : sons discrets de documentaire (rien de cartoon)
+  swooshDoux: ['Very subtle soft air swoosh, smooth cinematic camera move, quiet and clean, no whistle', 1.2],
+  ticDoux: ['Very soft minimal UI tick, clean and subtle, documentary infographic', 0.5],
+  basseDouce: ['Soft deep cinematic low thump, subtle sub bass hit, clean, documentary', 1.0],
+  traitDoux: ['Soft smooth digital line drawing sound, subtle airy sweep, minimal', 1.2],
+  nappe: ['Calm modern documentary background music bed, soft ambient synth pad with a gentle pulse, no drums, no melody peaks, seamless', 30.0],
 };
 
 const generer = async ([nom, [texte, duree]]) => {

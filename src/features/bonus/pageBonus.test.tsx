@@ -8,7 +8,8 @@ import type { CarteBonusLundi, LigneBonusLundi } from "./api";
 const api = vi.hoisted(() => ({
   lireCarteBonus: vi.fn(),
   retirerBonus: vi.fn(),
-  donnerBonus: vi.fn(),
+  donnerBonusA: vi.fn(),
+  personnesProches: vi.fn(),
   envoyerBonus: vi.fn(),
   lireHistoriqueBonus: vi.fn(),
 }));
@@ -45,7 +46,11 @@ beforeEach(() => {
 
 describe("Page Bonus", () => {
   it("donner (récap → Confirmer), lundi avec total + 10 %, Retirer, historique", async () => {
-    api.donnerBonus.mockResolvedValue({ ok: true, nom: "Martin Test", montant: 2, lundi: "2026-11-09" });
+    api.personnesProches.mockResolvedValue([
+      { id: "p1", nom: "Martin Test", actif: true, score: 0.83, exact: false },
+      { id: "p2", nom: "Martina Autre", actif: false, score: 0.7, exact: false },
+    ]);
+    api.donnerBonusA.mockResolvedValue({ ok: true, nom: "Martin Test", montant: 2, lundi: "2026-11-09" });
     api.retirerBonus.mockResolvedValue(undefined);
     rendu(<PageBonus />);
 
@@ -61,20 +66,42 @@ describe("Page Bonus", () => {
     expect(h).toHaveTextContent("2 envoi(s) · 2.00 $ payés");
     expect(within(h).getByText("contrat fermé")).toBeInTheDocument();
 
-    // Donner en une phrase
-    fireEvent.change(screen.getByLabelText("Donner un bonus"), { target: { value: "donne 2 $ de bonus à Martin Test lundi, raison super semaine" } });
+    // Donner en une phrase, nom mal écrit : on propose les plus proches.
+    fireEvent.change(screen.getByLabelText("Donner un bonus"), { target: { value: "2$ à martin tset, super semaine" } });
     fireEvent.click(screen.getByRole("button", { name: "Préparer" }));
+    const choix = await screen.findByTestId("choix-personne");
+    expect(api.personnesProches).toHaveBeenCalledWith("2$ à martin tset, super semaine");
+    expect(within(choix).getByRole("button", { name: "Martina Autre (inactif)" })).toBeInTheDocument();
+    fireEvent.click(within(choix).getByRole("button", { name: "Martin Test" }));
     const recap = await screen.findByTestId("recap-bonus");
     expect(recap).toHaveTextContent("Martin Test");
     expect(recap).toHaveTextContent("2 $");
     fireEvent.click(within(recap).getByRole("button", { name: "Confirmer" }));
-    await waitFor(() => expect(api.donnerBonus).toHaveBeenCalledWith(expect.objectContaining({ nom: "Martin Test", montant: 2 })));
+    await waitFor(() => expect(api.donnerBonusA).toHaveBeenCalledWith({ poster_id: "p1", montant: 2, lundi: null, raison: "bonus" }));
     expect(await screen.findByText(/Ajouté : 2 \$ à Martin Test/)).toBeInTheDocument();
 
     // Retirer une ligne
     fireEvent.click(within(carte).getAllByRole("button", { name: /Retirer/ })[0]);
     await waitFor(() => expect(api.retirerBonus).toHaveBeenCalledWith("l1", true));
     expect(api.envoyerBonus).not.toHaveBeenCalled();
+  });
+
+  it("un seul nom exact : récap direct ; personne de proche : message", async () => {
+    api.personnesProches.mockResolvedValueOnce([
+      { id: "p1", nom: "Martin Befeld", actif: true, score: 1, exact: true },
+      { id: "p2", nom: "Martini Assonga", actif: true, score: 0.68, exact: false },
+    ]);
+    rendu(<PageBonus />);
+    fireEvent.change(await screen.findByLabelText("Donner un bonus"), { target: { value: "donne 5 $ à Martin Befeld pour la vidéo" } });
+    fireEvent.click(screen.getByRole("button", { name: "Préparer" }));
+    const recap = await screen.findByTestId("recap-bonus");
+    expect(recap).toHaveTextContent("raison : la vidéo");
+    expect(screen.queryByTestId("choix-personne")).toBeNull();
+
+    api.personnesProches.mockResolvedValueOnce([]);
+    fireEvent.change(screen.getByLabelText("Donner un bonus"), { target: { value: "5 $ à zzqx" } });
+    fireEvent.click(screen.getByRole("button", { name: "Préparer" }));
+    expect(await screen.findByText(/Personne ne ressemble à « zzqx »/)).toBeInTheDocument();
   });
 
   it("Weekly decisions : la carte a le lien vers la page", async () => {

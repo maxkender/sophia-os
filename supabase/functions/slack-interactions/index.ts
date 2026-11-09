@@ -17,7 +17,7 @@ import {
   vueAide,
 } from "../_shared/reponses.ts";
 import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
-import { lirePhraseBonus } from "../_shared/bonus.ts";
+import { lirePhraseBonus, personneSure, raisonBonus, type PersonneProche } from "../_shared/bonus.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -402,9 +402,19 @@ async function commandeBonus(f: URLSearchParams): Promise<Response> {
   if (!texte) return repondre("Exemple : /bonus donne 2 $ de bonus à Martin Befeld lundi, raison test");
   const lu = lirePhraseBonus(texte, new Date().getUTCFullYear());
   if ("erreur" in lu) return repondre(`Pas compris : ${lu.erreur}.`);
-  const { data, error } = await supabase.rpc("bonus_donner", { p_nom: lu.nom, p_montant: lu.montant, p_lundi: lu.lundi, p_raison: lu.raison, p_par: null });
+  // 0571 : la personne par ressemblance ; un seul nom exact, sinon on propose les plus proches.
+  const { data: proches, error: errProches } = await supabase.rpc("bonus_personnes_proches", { p_texte: lu.texteNom, p_limite: 5 });
+  if (errProches) return repondre(`Erreur : ${errProches.message}`);
+  const liste = (proches ?? []) as PersonneProche[];
+  const personne = personneSure(liste);
+  if (!personne) {
+    if (liste.length === 0) return repondre(`Personne ne ressemble à « ${lu.nom || lu.texteNom} ». Écris le prénom et le nom.`);
+    return repondre(`Pas de nom exact. Tu voulais dire : ${liste.map((x) => x.nom).join(", ")} ? Renvoie /bonus avec le nom exact.`);
+  }
+  const raison = raisonBonus(lu, personne.nom);
+  const { data, error } = await supabase.rpc("bonus_donner_a", { p_poster: personne.id, p_montant: lu.montant, p_lundi: lu.lundi, p_raison: raison, p_par: null });
   if (error) return repondre(`Erreur : ${error.message}`);
   const r = data as { ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string };
   if (!r.ok) return repondre(`Pas ajouté : ${r.erreur}.`);
-  return repondre(`✅ ${r.montant} $ à ${r.nom} (lundi ${r.lundi}, raison : ${lu.raison}). À valider dans Weekly decisions → Bonus de lundi.`);
+  return repondre(`✅ ${r.montant} $ à ${r.nom} (lundi ${r.lundi}, raison : ${raison}). À valider sur la page Bonus.`);
 }

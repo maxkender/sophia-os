@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase/client";
 
 import type { ReglagesBonus } from "../commentMasters/suivi/api";
+import type { PersonneProche } from "../../../supabase/functions/_shared/bonus";
 
 export { lireReglagesBonus, type ReglagesBonus } from "../commentMasters/suivi/api";
 
@@ -127,6 +128,20 @@ export async function retirerBonus(id: string, retirer: boolean): Promise<void> 
 
 export async function donnerBonus(v: { nom: string; montant: number; lundi: string | null; raison: string }): Promise<{ ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string }> {
   const { data, error } = await supabase.rpc("bonus_donner", { p_nom: v.nom, p_montant: v.montant, p_lundi: v.lundi, p_raison: v.raison });
+  if (error) throw new Error(error.message);
+  return data as { ok: boolean; erreur?: string };
+}
+
+/** 0571 : les posteurs dont le nom ressemble le plus au texte (orthographe approchée). */
+export async function personnesProches(texte: string): Promise<PersonneProche[]> {
+  const { data, error } = await supabase.rpc("bonus_personnes_proches", { p_texte: texte, p_limite: 5 });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as PersonneProche[];
+}
+
+/** 0571 : la ligne « manuel » à valider pour la personne choisie. */
+export async function donnerBonusA(v: { poster_id: string; montant: number; lundi: string | null; raison: string }): Promise<{ ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string }> {
+  const { data, error } = await supabase.rpc("bonus_donner_a", { p_poster: v.poster_id, p_montant: v.montant, p_lundi: v.lundi, p_raison: v.raison });
   if (error) throw new Error(error.message);
   return data as { ok: boolean; erreur?: string };
 }

@@ -250,6 +250,11 @@ fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 ## 6. Règles de qualité (retours de l'admin)
 
 - Script : ne donne jamais la réponse dans la première scène ; 2 à 3 scènes de suspense d'abord (§2).
+- **Cohérence du dessin** (retour d'Adrien) : un objet a le même dessin dans toutes les scènes et dans la fin Sophia
+  (décor qui flotte, carte, image de la leçon) ; le sens du mouvement est le même partout (l'avion vole vers la
+  droite, donc ses gros plans et l'air qui le frappe aussi) ; mêmes couleurs pour le même décor (herbe, route).
+  Sans capture du cours, rien de la capture du modèle ne doit se voir dans la fin (carte, image de la leçon,
+  « Up next » assorti à son titre). Avant le rendu, une planche dense (une image par seconde) pour le vérifier.
 
 - **Chaque nombre dit a son unité** (« treize mille kilomètres », jamais « treize mille » seul), même si elle vient d'être dite.
 - **Voix fluide** : pas plus vite que speed 1,1 en français ; on ne coupe pas les blancs entre les mots d'une phrase

@@ -59,6 +59,8 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
   « … », pas de « : ». Des phrases qui s'enchaînent comme quand on raconte (« so », « and no », « plus », « but »),
   des contractions (« it's », « what's », « your hand's »), pas de phrases télégraphiques (« Curved and tilted, it… »).
   Relis chaque scène à voix haute : si tu ne la dirais pas comme ça à un ami, réécris-la.
+  La question qui ouvre la réponse : un point juste avant (« …get this wrong. So what's really…? ») pour que la
+  voix la pose vraiment, puis une réponse qui commence comme à l'oral (« Well, it's the wings. »), jamais sèche.
   « First, … / Second, … » plutôt que « One: … ».
 - `appli` : les textes de l'appli. **Recopie de la capture** la catégorie, le titre, la description,
   « 100 k reads », etc. Écris la leçon (sous-titre + 2 paragraphes, 3 passages surlignés `{m}`) et

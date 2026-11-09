@@ -23,31 +23,35 @@ export const S7Pression: React.FC = () => {
   return (
     <Stage bg={C.sky}>
       <CielProfil id="s7sky" />
-      <Profil
-        id="s7"
-        f={f + 257}
-        y={880 + nudge}
-        tilt={TILT_DEG}
-        down={1}
-        offsetTop={offsetTop + 257 * 14}
-        offsetBottom={(f + 257) * 14}
-        topColor={vite > 0.5 ? '#9ED2F7' : undefined}
-        opacity={lerp(f, [LIFT + 4, 150], [1, 0.35])}
-        aile={fly > -2}
-      >
-        <g transform={`translate(0 ${fly})`}>
-          <LowBubbles frame={f} k={k} seed="s7b" />
-          {arrow > 0 && (
-            <g transform={`translate(-20 ${-140}) rotate(-90) scale(${arrow})`} filter="url(#pp)">
-              <Arrow len={360} w={84} />
-            </g>
-          )}
-        </g>
-      </Profil>
-      {/* l'aile qui s'envole : un second profil par-dessus, qui monte */}
-      {fly < -2 && (
-        <g transform={`translate(0 ${fly})`}>
-          <Profil id="s7v" f={f} y={880 + nudge} tilt={TILT_DEG} down={1} reveal={() => 0} glow={0.6} />
+      {/* en miroir : bord d'attaque à droite, comme le nez de l'avion */}
+      <g transform="translate(1080 0) scale(-1 1)">
+        <Profil
+          id="s7"
+          f={f + 257}
+          y={880 + nudge}
+          tilt={TILT_DEG}
+          down={1}
+          offsetTop={offsetTop + 257 * 14}
+          offsetBottom={(f + 257) * 14}
+          topColor={vite > 0.5 ? '#9ED2F7' : undefined}
+          opacity={lerp(f, [LIFT + 4, 150], [1, 0.35])}
+          aile={fly > -2}
+        >
+          <g transform={`translate(0 ${fly})`}>
+            <LowBubbles frame={f} k={k} seed="s7b" />
+          </g>
+        </Profil>
+        {/* l'aile qui s'envole : un second profil par-dessus, qui monte */}
+        {fly < -2 && (
+          <g transform={`translate(0 ${fly})`}>
+            <Profil id="s7v" f={f} y={880 + nudge} tilt={TILT_DEG} down={1} reveal={() => 0} glow={0.6} />
+          </g>
+        )}
+      </g>
+      {/* la flèche « lift », pleine, qui part avec l'aile */}
+      {arrow > 0 && (
+        <g transform={`translate(540 ${880 + nudge - 140 + fly}) rotate(-90) scale(${arrow})`} filter="url(#pp)">
+          <Arrow len={360} w={84} />
         </g>
       )}
     </Stage>

@@ -47,8 +47,9 @@ export const S4Aile: React.FC = () => {
           <Spot id="s4spot" cx={540 - 30 * 0.72} cy={960 + 100 * 0.72} r={lerp(f, [0, WINGS, WINGS + 8], [430, 430, 220], ease.out)} dark={dark} />
         </g>
       )}
+      {/* en miroir : bord d'attaque à droite, comme le nez de l'avion (l'air vient de la droite) */}
       {foil > 0 && (
-        <g transform={`translate(540 880) scale(${foil}) translate(-540 -880)`}>
+        <g transform={`translate(1080 0) scale(-1 1) translate(540 880) scale(${foil}) translate(-540 -880)`}>
           <Profil
             id="s4"
             f={f}

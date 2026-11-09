@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o190",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "40a23511-45f5-4471-a0d1-d051334ad383",
+ "titre": "7 small signals that make people listen when you speak #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "40a23511-45f5-4471-a0d1-d051334ad383"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture e1140173. déclinaison G2 de la ligne 5 de la boîte (40a23511, ay-o103), 3e et dernière déclinaison de ce parent après ay-o159 et ay-o173. Même promesse (être pris au sérieux), autres mots, sans « respect » pour ne pas toucher la ligne 6. Items neufs. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1140173",
+   "texte_overlay": "7 small signals that make\npeople listen when you speak",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Starting with the conclusion. \"My recommendation is plan B, here's why.\" Leading with the point shows clarity, and people pay attention right away.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Using names in conversation. \"Good question, Tom.\" It pulls people in and shows you're fully present, which makes them listen more closely to you.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Pausing before important words. A half-second pause before the key point makes everyone lean in a little. Timing gives your words weight and makes them stick.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Standing or sitting still while you speak. Calm hands, steady feet. Physical stillness makes your words feel more certain and more worth hearing out.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Having something worth saying. I do five minutes a day of history, art or science, and a fresh fact or story makes people actually want to hear me out.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A fresh fact or story makes people actually want to hear me out.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Listening fully when others talk. People listen to those who listened to them. Give your full attention first, and you'll almost always get it back in return.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Ending with a clear next step. \"So I'll send it tonight.\" Closing with action shows you're someone who gets things done, not just someone who talks.",
+   "media_id": "a75b8832"
+  }
+ ]
+}

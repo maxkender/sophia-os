@@ -71,3 +71,59 @@ export function semaineCourte(lundi: string): string {
   const mois = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   return m && j ? `${j} ${mois[m - 1]}` : lundi;
 }
+
+/** Une candidature du site, telle que la copie de l'OS la garde (0577). */
+export interface CandidatureRuul {
+  adulte: boolean | null;
+  pays: string | null;
+  deux_telephones: boolean | null;
+  a_telephone: boolean | null;
+  nom: string | null;
+  email: string | null;
+  reponses: Record<string, string | null | undefined>;
+  desinscrit_at: string | null;
+}
+
+/**
+ * Ce qui manque pour l'acceptation automatique : majeur, pays ouvert,
+ * 2 téléphones, réponses complètes. Vide : acceptée sans HM.
+ */
+export function manquesCandidature(c: CandidatureRuul, paysOuverts: Set<string>): string[] {
+  const m: string[] = [];
+  if (c.adulte !== true) m.push("majorité non confirmée");
+  if (!c.pays) m.push("pays inconnu");
+  else if (!paysOuverts.has(c.pays)) m.push(`pays fermé (${c.pays})`);
+  if (c.deux_telephones !== true) m.push("pas 2 téléphones");
+  const vides = ["pays_actuel", "heures", "tiktok", "contenu"].filter((k) => !String(c.reponses?.[k] ?? "").trim());
+  if (!c.nom?.trim() || !c.email?.trim() || c.a_telephone !== true || vides.length) m.push("réponses incomplètes");
+  if (c.desinscrit_at) m.push("désinscrit");
+  return m;
+}
+
+/** Le lundi qui suit une date (AAAA-MM-JJ) : la cohorte d'une candidature acceptée ce jour-là. */
+export function lundiSuivant(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  const iso = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + (8 - iso));
+  return d.toISOString().slice(0, 10);
+}
+
+/** Relances de signature : J+1, J+3, J+6 après l'acceptation ; J+7 sans signature : expirée. */
+export function etapeSignature(accepteAt: string, relances: number, maintenant = new Date()): 1 | 3 | 6 | "expirer" | null {
+  const jours = (maintenant.getTime() - new Date(accepteAt).getTime()) / JOUR;
+  if (relances <= 0 && jours >= 1) return jours >= 7 ? "expirer" : 1;
+  if (relances === 1 && jours >= 3) return jours >= 7 ? "expirer" : 3;
+  if (relances === 2 && jours >= 6) return jours >= 7 ? "expirer" : 6;
+  if (relances >= 3 && jours >= 7) return "expirer";
+  return null;
+}
+
+/** Un texte Slack lisible dans un email : <url|libellé> → « libellé: url », *gras* et _italique_ sans marques. */
+export function texteSansSlack(t: string): string {
+  return t
+    .replace(/<(https?:[^|>]+)\|([^>]+)>/g, "$2: $1")
+    .replace(/<(https?:[^>]+)>/g, "$1")
+    .replace(/(^|\s)\*([^*\n]+)\*(?=\s|$|[.,!?])/g, "$1$2")
+    .replace(/(^|\s)_([^_\n]+)_(?=\s|$|[.,!?])/g, "$1$2")
+    .trim();
+}

@@ -20,6 +20,8 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/disputes",
       "/admin/auto/payroll",
       "/admin/auto/bonus",
+      "/admin/auto/candidats-ruul",
+      "/admin/auto/cohortes-ruul",
       "/admin/auto/faq",
       "/admin/auto/reponses-officielles",
       "/admin/auto/parrainage",

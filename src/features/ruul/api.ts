@@ -89,3 +89,44 @@ export const rapprocherLotRuul = (semaine: string, lignes: { email: string; mont
   rpc<Retour & { ecarts?: number }>("ruul_lot_rapprocher", { p_semaine: semaine, p_lignes: lignes });
 export const changerStatutRuul = (poster: string, statut: StatutRuul | null, email?: string | null) =>
   rpc<Retour>("ruul_statut_changer", { p_poster: poster, p_statut: statut, p_email: email ?? null });
+
+/** 0577 : une candidature du site, copiée dans l'OS. */
+export interface CandidatureRuul {
+  site_id: string;
+  nom: string | null;
+  email: string | null;
+  pays: string | null;
+  pays_brut: string | null;
+  referral: boolean;
+  parrain_nom: string | null;
+  statut_site: string | null;
+  cree_at: string | null;
+  accepte_at: string | null;
+  signe_at: string | null;
+  start_monday: string | null;
+  decision: "auto" | "acceptee" | "refusee" | "a_traiter" | null;
+  decision_raison: string | null;
+  manques: string[] | null;
+  hm_nom: string | null;
+  envoi: "a_envoyer" | "envoye" | "erreur" | null;
+  envoi_erreur: string | null;
+  relances_signature: number;
+  desinscrit_at: string | null;
+  reponses: Record<string, string>;
+}
+
+export interface LigneCohorteRuul {
+  site_id: string;
+  nom: string | null;
+  pays: string | null;
+  referral: boolean;
+  cohorte: string | null;
+  poster_id: string | null;
+  stop: boolean;
+  etapes: Record<string, string | null>;
+}
+
+export const lireCandidaturesRuul = () => rpc<CandidatureRuul[]>("ruul_candidatures_liste");
+export const deciderCandidatureRuul = (siteId: string, decision: "acceptee" | "refusee", raison?: string) =>
+  rpc<Retour>("ruul_candidature_decider", { p_site_id: siteId, p_decision: decision, p_raison: raison ?? null });
+export const lireCohortesRuul = () => rpc<LigneCohorteRuul[]>("ruul_cohortes");

@@ -25,3 +25,32 @@ Deno.test("Ruul : textes, email (bouton, Unsubscribe), semaine", () => {
   assertEquals(/\bbots?\b|automat/i.test(r.html + r.texte), false);
   assertEquals(semaineCourte("2026-10-26"), "26 Oct");
 });
+
+Deno.test("Ruul : acceptation automatique, lundi de cohorte, relances de signature", async () => {
+  const { manquesCandidature, lundiSuivant, etapeSignature } = await import("./ruul.ts");
+  const ok = {
+    adulte: true, pays: "IT", deux_telephones: true, a_telephone: true, nom: "Ana", email: "a@b.cc", desinscrit_at: null,
+    reponses: { pays_actuel: "Italy", heures: "1", tiktok: "yes", contenu: "no" },
+  };
+  const ouverts = new Set(["IT", "FR"]);
+  assertEquals(manquesCandidature(ok, ouverts), []);
+  assertEquals(manquesCandidature({ ...ok, adulte: false, pays: "PT", deux_telephones: false }, ouverts),
+    ["majorité non confirmée", "pays fermé (PT)", "pas 2 téléphones"]);
+  assertEquals(manquesCandidature({ ...ok, reponses: { ...ok.reponses, contenu: " " } }, ouverts), ["réponses incomplètes"]);
+  assertEquals(lundiSuivant("2026-11-09"), "2026-11-16");
+  assertEquals(lundiSuivant("2026-11-15"), "2026-11-16");
+  const a = "2026-11-09T10:00:00Z";
+  const j = (n: number) => new Date(new Date(a).getTime() + n * 86_400_000);
+  assertEquals(etapeSignature(a, 0, j(0.5)), null);
+  assertEquals(etapeSignature(a, 0, j(1)), 1);
+  assertEquals(etapeSignature(a, 1, j(3)), 3);
+  assertEquals(etapeSignature(a, 2, j(6)), 6);
+  assertEquals(etapeSignature(a, 3, j(6.5)), null);
+  assertEquals(etapeSignature(a, 3, j(7)), "expirer");
+  assertEquals(etapeSignature(a, 0, j(9)), "expirer");
+});
+
+Deno.test("Ruul : un texte Slack lisible par email", async () => {
+  const { texteSansSlack } = await import("./ruul.ts");
+  assertEquals(texteSansSlack("Hi *Ana*, open <https://x.y/a|your dashboard> or <https://x.y/b>."), "Hi Ana, open your dashboard: https://x.y/a or https://x.y/b.");
+});

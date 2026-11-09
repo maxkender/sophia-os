@@ -1,0 +1,397 @@
+{
+ "post_id": "7705738841709088033",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to increase",
+      "neuroplasticity before it's too late"
+     ],
+     "fr": "10/10 habitudes pour booster ta neuroplasticité tant qu'il est temps",
+     "texte": "10/10 iş işten geçmeden nöroplastisiteni artıracak alışkanlık"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(nörobilim onaylı)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use your non-dominant hand"
+     ],
+     "fr": "utilise ta [[main non dominante]]",
+     "texte": "[[baskın olmayan elini]] kullan"
+    },
+    "T2": {
+     "en": [
+      "brush your teeth, eat, or use your phone with your",
+      "other hand for a few minutes a day"
+     ],
+     "fr": "brosse-toi les dents, mange ou prends ton tel avec [[ton autre main]] quelques minutes par jour",
+     "texte": "dişlerini fırçala, yemek ye ya da telefonunu günde birkaç dakika [[diğer elinle]] kullan"
+    },
+    "T3": {
+     "en": [
+      "your brain is forced",
+      "to build new",
+      "connections instead",
+      "of running on",
+      "autopilot"
+     ],
+     "fr": "ton cerveau doit [[créer de nouvelles connexions]] au lieu de rester en [[pilote auto]]",
+     "texte": "beynin [[otomatik pilotta]] gitmek yerine [[yeni bağlantılar kurmak]] zorunda kalıyor"
+    },
+    "T4": {
+     "en": [
+      "it's the easiest way to train neuroplasticity without",
+      "changing anything else about your day"
+     ],
+     "fr": "le moyen le plus simple d'[[entraîner ta neuroplasticité]] sans rien changer d'autre à ta journée",
+     "texte": "gününde başka hiçbir şeyi değiştirmeden [[nöroplastisiteyi çalıştırmanın]] en kolay yolu"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "dont instantly google every",
+      "thought"
+     ],
+     "fr": "cherche pas [[direct]] chaque question",
+     "texte": "aklına gelen her şeyi [[hemen]] arama"
+    },
+    "T2": {
+     "en": [
+      "looking something up straight away means your",
+      "brain skips the hard part"
+     ],
+     "fr": "si tu cherches tout de suite, ton cerveau [[saute la partie difficile]]",
+     "texte": "bir şeye hemen bakmak, beyninin [[zor kısmı atlaması]] demek"
+    },
+    "T4": {
+     "en": [
+      "struggling to",
+      "remember for even",
+      "10 seconds",
+      "strengthens the",
+      "connection"
+     ],
+     "fr": "galérer à te souvenir, même 10 secondes, [[renforce la connexion]]",
+     "texte": "10 saniye bile hatırlamaya çabalamak [[bağlantıyı güçlendirir]]"
+    },
+    "T8": {
+     "en": [
+      "neuroplasticity is use it or lose it, if your brain never",
+      "has to work, it gets lazy"
+     ],
+     "fr": "neuroplasticité : [[sers-t'en ou perds-la]]. un cerveau qui bosse jamais [[devient flemmard]]",
+     "texte": "nöroplastisite [[kullan ya da kaybet]] işidir, beynin hiç çalışmazsa [[tembelleşir]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705815524244081953_6.jpg",
+      "boite": [
+       470,
+       478,
+       534,
+       496
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 224,
+      "l": 744,
+      "h": 134
+     },
+     "lignes": [
+      {
+       "x": 48,
+       "y": 224,
+       "l": 741,
+       "h": 64,
+       "base": 282
+      },
+      {
+       "x": 45,
+       "y": 300,
+       "l": 216,
+       "h": 58,
+       "base": 354
+      }
+     ],
+     "pas": 72,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 50,
+      "y": 400,
+      "l": 865,
+      "h": 89
+     },
+     "lignes": [
+      {
+       "x": 50,
+       "y": 400,
+       "l": 865,
+       "h": 41,
+       "base": 431
+      },
+      {
+       "x": 51,
+       "y": 449,
+       "l": 441,
+       "h": 40,
+       "base": 486
+      }
+     ],
+     "pas": 55,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 40,
+      "y": 553,
+      "l": 557,
+      "h": 372
+     }
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 629,
+      "y": 593,
+      "l": 343,
+      "h": 232
+     },
+     "lignes": [
+      {
+       "x": 631,
+       "y": 593,
+       "l": 225,
+       "h": 40,
+       "base": 623
+      },
+      {
+       "x": 632,
+       "y": 640,
+       "l": 340,
+       "h": 33,
+       "base": 671
+      },
+      {
+       "x": 630,
+       "y": 688,
+       "l": 205,
+       "h": 34,
+       "base": 720
+      },
+      {
+       "x": 629,
+       "y": 739,
+       "l": 289,
+       "h": 39,
+       "base": 775
+      },
+      {
+       "x": 629,
+       "y": 784,
+       "l": 203,
+       "h": 41,
+       "base": 823
+      }
+     ],
+     "pas": 49,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T8",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 1001,
+      "l": 924,
+      "h": 90
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 1001,
+       "l": 924,
+       "h": 41,
+       "base": 1040
+      },
+      {
+       "x": 36,
+       "y": 1051,
+       "l": 426,
+       "h": 40,
+       "base": 1088
+      }
+     ],
+     "pas": 48,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[chaque jour]]",
+     "texte": "[[her gün]] kitap oku"
+    },
+    "T2": {
+     "en": [
+      "neuroplasticity works both ways, doomscrolling is",
+      "rewiring your brain too, ruining your attention span"
+     ],
+     "fr": "la neuroplasticité va dans les deux sens, le doomscroll [[recâble ton cerveau]] et tue ton attention",
+     "texte": "nöroplastisite iki yönlü çalışır, doomscroll da [[beynini yeniden şekillendirir]] ve dikkatini mahveder"
+    },
+    "T3": {
+     "en": [
+      "books do the opposite,",
+      "they make you focus and",
+      "think for yourself again"
+     ],
+     "fr": "les livres, c'est l'inverse : tu te [[concentres]] et tu [[penses par toi-même]]",
+     "texte": "kitaplar tam tersini yapar, [[odaklanmanı]] ve [[kendi kafanla düşünmeni]] sağlar"
+    },
+    "T4": {
+     "en": [
+      "i used to scroll all day until i",
+      "found this which blocks my",
+      "apps until i read for 20",
+      "minutes"
+     ],
+     "fr": "[[avant je scrollais H24]], maintenant mes pauses tel, c'est [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "[[eskiden bütün gün scroll yapardım]], şimdi telefon molalarım [[Sophia uygulamasında 5 dk'lık dersler]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things by hand"
+     ],
+     "fr": "écris tout [[à la main]]",
+     "texte": "bir şeyleri [[elle]] yaz"
+    },
+    "T2": {
+     "en": [
+      "typing your notes feels faster, but your brain",
+      "barely has to work"
+     ],
+     "fr": "taper tes notes, ça va plus vite, mais [[ton cerveau bosse à peine]]",
+     "texte": "not almak klavyede daha hızlı gelir ama [[beynin neredeyse hiç çalışmaz]]"
+    },
+    "T3": {
+     "en": [
+      "writing by hand makes",
+      "you slow down and",
+      "process every idea",
+      "before it hits the page"
+     ],
+     "fr": "écrire à la main te force à [[ralentir et assimiler]] chaque idée avant de la poser",
+     "texte": "elle yazınca [[yavaşlayıp her fikri sindiriyorsun]], sonra kâğıda döküyorsun"
+    },
+    "T4": {
+     "en": [
+      "it's proven to help you remember more and understand",
+      "things better than typing"
+     ],
+     "fr": "c'est [[prouvé]], tu [[retiens plus]] et tu comprends mieux qu'au clavier",
+     "texte": "[[kanıtlanmış]]: klavyeye göre [[daha çok hatırlıyorsun]] ve daha iyi anlıyorsun"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to juggle"
+     ],
+     "fr": "apprends à [[jongler]]",
+     "texte": "[[jonglörlük]] öğren"
+    },
+    "T2": {
+     "en": [
+      "scientists found that people who learned to juggle",
+      "grew more grey matter in just a few months"
+     ],
+     "fr": "des chercheurs ont montré qu'apprendre à jongler [[augmente la matière grise]] en quelques mois",
+     "texte": "bilim insanları jonglörlük öğrenenlerin birkaç ayda [[gri maddesinin arttığını]] buldu"
+    },
+    "T3": {
+     "en": [
+      "your brain physically",
+      "changes when you",
+      "learn a new skill"
+     ],
+     "fr": "ton cerveau [[change physiquement]] quand t'apprends un truc",
+     "texte": "yeni bir beceri öğrendiğinde beynin [[fiziksel olarak değişir]]"
+    },
+    "T4": {
+     "en": [
+      "and it's a fun one to",
+      "practice with friends!!"
+     ],
+     "fr": "et en plus c'est fun à faire [[entre potes]] !!",
+     "texte": "üstelik [[arkadaşlarla]] yapması çok eğlenceli!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -505,7 +505,8 @@ async function gererRequete(request: Request): Promise<Response> {
           prenom,
           nom: nom || null,
           is_active: true,
-          must_change_password: roleVoulu === "poster",
+          // 9/11 (Max) : 12345678 pour l'instant, pas de changement obligatoire.
+          must_change_password: false,
           ...lectureContact.contact,
           // 31/10 : relié au contrat tout de suite (plus d'attente de contrats_relier).
           ...(contratId ? { upwork_contract_id: contratId } : {}),

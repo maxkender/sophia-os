@@ -17,8 +17,8 @@
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications, ruul_email?, ref? }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
- *       login @sophia.com, mot de passe aléatoire tiré par manage-users (9/11 :
- *       c'est CE mot de passe qui est renvoyé au site, champ `password`), premier
+ *       login @sophia.com, mot de passe mis par manage-users (12345678 pour
+ *       l'instant ; c'est CE mot de passe qui est renvoyé au site), premier
  *       compte perso, labels, persona), dans la langue de son pays, puis le
  *       rattache au profil « RUUL cohort » (réglage `hub_posteurs`), ou à
  *       défaut au HM de sa zone. Le warm-up n'est pas lancé :
@@ -26,8 +26,8 @@
  *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
  *       lundi (trigger de 0296) — premiers posts et paie partent du lundi.
  *       Idempotent sur `hub_id` : un rejeu renvoie `existed: true` et, si le
- *       poster ne s'est jamais connecté, un nouveau mot de passe aléatoire, mis
- *       en place et renvoyé (sinon `password: null`, `deja_connecte: true`).
+ *       poster ne s'est jamais connecté, 12345678 remis et renvoyé (sinon
+ *       `password: null`, `deja_connecte: true`).
  *   { action: "posts_semaine", profile_ids, lundi }
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
@@ -60,10 +60,10 @@ import {
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { lireParLots } from "../_shared/lots.ts";
-import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
+import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-09-mdp";
+const VERSION = "2026-11-09-mdp2";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -335,7 +335,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   // Sans mot de passe dans la réponse (ne devrait pas arriver) : on en met un en place nous-mêmes.
   let password = cree.password;
   if (!password) {
-    password = motDePasseRecrue();
+    password = MOT_DE_PASSE_COMMUN;
     const { error: errMdp } = await supabase.auth.admin.updateUserById(cree.userId, { password });
     if (errMdp) throw errMdp;
   }
@@ -421,18 +421,16 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
     ? await supabase.from("profiles").select("id, prenom, nom, email").eq("id", managerId).maybeSingle()
     : { data: null };
 
-  // Jamais connecté : ses identifiants ont pu se perdre en route, on met en
-  // place un nouveau mot de passe et on renvoie CELUI-LÀ, pour que l'email dise
-  // vrai (à changer à la 1re connexion). Déjà connecté : on ne touche à rien.
+  // Jamais connecté : ses identifiants ont pu se perdre en route, on remet
+  // 12345678 (9/11, Max : pour l'instant partout) et on renvoie CELUI-LÀ, pour
+  // que l'email dise vrai. Déjà connecté : on ne touche à rien.
   const { data: auth } = await supabase.auth.admin.getUserById(profil.id);
   const jamaisConnecte = !auth?.user?.last_sign_in_at;
   let password: string | null = null;
   if (jamaisConnecte) {
-    const nouveau = motDePasseRecrue();
-    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password: nouveau });
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password: MOT_DE_PASSE_COMMUN });
     if (errMdp) throw errMdp;
-    password = nouveau;
-    await supabase.from("profiles").update({ must_change_password: true }).eq("id", profil.id);
+    password = MOT_DE_PASSE_COMMUN;
     await supabase.from("hub_posteurs").update({ mdp_reel: true }).eq("hub_id", lien.hub_id);
   }
 

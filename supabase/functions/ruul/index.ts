@@ -8,6 +8,13 @@
  *          par email, en secours.
  *       2. Après « Payé sur Ruul » : « You received X $ for the week of … ».
  *       Rien ne part en pause (grand interrupteur), ni après un STOP.
+ *   POST { action: "candidatures" }  (cron toutes les 15 min) — 0577
+ *       Copie les candidatures du site (GET /api/public/os-candidatures),
+ *       décide les nouvelles (acceptation automatique si majeur, pays ouvert,
+ *       2 téléphones, réponses complètes ; sinon au HM du pays, referrals
+ *       d'abord), envoie au site les décisions (réglage ruul_candidatures_auto)
+ *       et les relances de signature J+1, J+3, J+6, J+7 expirée, cohorte ratée
+ *       décalée au lundi suivant (réglage ruul_relances_signature).
  *   GET ?pret=<jeton>   le bouton « It's done » : le posteur est prêt à être payé.
  *   GET ?stop=<jeton>   « Unsubscribe » : plus aucune relance ; « A demandé STOP » remonte au samedi.
  *
@@ -17,7 +24,17 @@
  * l'invitation et l'identité seront lus chez Ruul.
  */
 import { bloquer, PAUSE } from "../_shared/pause.ts";
-import { prochaineEtapeRuul, remplirRuul, rendreEmailRuul, semaineCourte } from "../_shared/ruul.ts";
+import { codePays, hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
+import {
+  type CandidatureRuul,
+  etapeSignature,
+  lundiSuivant,
+  manquesCandidature,
+  prochaineEtapeRuul,
+  remplirRuul,
+  rendreEmailRuul,
+  semaineCourte,
+} from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -70,6 +87,7 @@ Deno.serve(async (request) => {
   }
   try {
     if (body?.action === "envoyer") return json(await envoyer(supabase));
+    if (body?.action === "candidatures") return json(await candidatures(supabase));
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
@@ -205,4 +223,154 @@ async function envoyer(supabase: Supabase) {
     bilan.push({ poster: lignes[0].poster_id, etape: "paye", ok, erreur: ok ? null : erreur });
   }
   return { ok: true, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length, bilan };
+}
+
+// ---------------------------------------------------------------------------
+// 0577 : les candidatures du site
+// ---------------------------------------------------------------------------
+
+function urlCandidatures(): string | null {
+  const envoi = Deno.env.get("HUB_EMAIL_URL");
+  if (!envoi) return null;
+  try {
+    return new URL("/api/public/os-candidatures", envoi).toString();
+  } catch {
+    return null;
+  }
+}
+
+// deno-lint-ignore no-explicit-any
+async function appelSite(methode: "GET" | "POST", corps?: Record<string, unknown>): Promise<{ ok: boolean; data: any; erreur: string | null }> {
+  const url = urlCandidatures();
+  const secret = Deno.env.get("OS_HUB_SECRET");
+  if (!url || !secret) return { ok: false, data: null, erreur: "HUB_EMAIL_URL ou OS_HUB_SECRET manquant" };
+  try {
+    const r = await fetch(url, {
+      method: methode,
+      headers: { "content-type": "application/json", "x-hub-secret": secret },
+      ...(corps ? { body: JSON.stringify(corps) } : {}),
+    });
+    const j = await r.json().catch(() => null);
+    const ok = r.ok && j?.ok !== false;
+    return { ok, data: j, erreur: ok ? null : String(j?.error ?? `HTTP ${r.status}`) };
+  } catch (e) {
+    return { ok: false, data: null, erreur: messageErreur(e) };
+  }
+}
+
+async function interrupteur(supabase: Supabase, cle: string): Promise<boolean> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", cle).maybeSingle();
+  return data?.valeur === true;
+}
+
+async function recruteurs(supabase: Supabase): Promise<Recruteur[]> {
+  const { data: roles } = await supabase.from("user_roles").select("user_id").in("role", ["hiring_manager", "head_of_ops"]);
+  const ids = [...new Set((roles ?? []).map((r: { user_id: string }) => r.user_id))];
+  if (!ids.length) return [];
+  const { data: profils } = await supabase.from("profiles").select("id, prenom, nom, email, zone_recrutement, langues")
+    .in("id", ids).eq("is_active", true).not("zone_recrutement", "is", null);
+  return Promise.all((profils ?? []).map(async (p) => {
+    const { count } = await supabase.from("profiles").select("id", { count: "exact", head: true }).eq("manager_id", p.id).eq("is_active", true);
+    return { ...(p as Omit<Recruteur, "posters_actifs">), posters_actifs: count ?? 0 };
+  }));
+}
+
+function aujourdhuiParis(): string {
+  return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
+}
+
+async function candidatures(supabase: Supabase) {
+  if (await bloquer(supabase, { fonction: "ruul", action: "candidatures" })) return { ok: false, error: PAUSE };
+  const bilan = { copiees: 0, auto: 0, a_traiter: 0, envoyees: 0, relances: 0, expirees: 0, decalees: 0, erreurs: [] as string[] };
+
+  // 1. La copie.
+  const lu = await appelSite("GET");
+  if (!lu.ok) return { ok: false, error: `site : ${lu.erreur}` };
+  const lignes = ((lu.data?.candidatures ?? []) as Record<string, unknown>[])
+    .map((c) => ({ ...c, pays: codePays(c.country, c.country) }));
+  const { data: n, error: errCopie } = await supabase.rpc("ruul_candidatures_enregistrer", { p_lignes: lignes });
+  if (errCopie) throw errCopie;
+  bilan.copiees = Number(n ?? 0);
+
+  // 2. Les nouvelles : automatique ou au HM du pays (referrals d'abord).
+  const [{ data: zones }, { data: fermes }] = await Promise.all([
+    supabase.from("zones_paie_pays").select("pays").is("retire_at", null),
+    supabase.from("parrainage_pays").select("pays").eq("recrutement_ouvert", false),
+  ]);
+  const fermesSet = new Set((fermes ?? []).map((f) => String(f.pays).toUpperCase()));
+  const ouverts = new Set((zones ?? []).map((z) => String(z.pays).toUpperCase()).filter((p) => !fermesSet.has(p)));
+  const { data: nouvelles, error: errNouv } = await supabase.from("ruul_candidatures")
+    .select("site_id, adulte, pays, deux_telephones, a_telephone, nom, email, reponses, desinscrit_at, referral, cree_at")
+    .eq("statut_site", "pending").is("decision", null)
+    .order("referral", { ascending: false }).order("cree_at", { ascending: true });
+  if (errNouv) throw errNouv;
+  const rec = (nouvelles ?? []).length ? await recruteurs(supabase) : [];
+  for (const c of nouvelles ?? []) {
+    const manques = manquesCandidature(c as CandidatureRuul, ouverts);
+    if (manques.length === 0) {
+      await supabase.rpc("ruul_candidature_decider", { p_site_id: c.site_id, p_decision: "auto", p_raison: null });
+      bilan.auto++;
+    } else {
+      const hm = c.pays ? hmDuPays(String(c.pays), rec) : null;
+      await supabase.from("ruul_candidatures").update({
+        decision: "a_traiter", manques, hm_id: hm, decide_at: new Date().toISOString(),
+      }).eq("site_id", c.site_id);
+      bilan.a_traiter++;
+    }
+  }
+
+  // 3. Les décisions vers le site (interrupteur : rien ne part sans l'OK de Max).
+  if (await interrupteur(supabase, "ruul_candidatures_auto")) {
+    const { data: aEnvoyer } = await supabase.from("ruul_candidatures").select("site_id, decision, decision_raison")
+      .eq("envoi", "a_envoyer").order("referral", { ascending: false }).limit(60);
+    const lundi = lundiSuivant(aujourdhuiParis());
+    for (const c of aEnvoyer ?? []) {
+      const r = c.decision === "refusee"
+        ? await appelSite("POST", { action: "refuse", id: c.site_id, reason: c.decision_raison ?? "Not selected" })
+        : await appelSite("POST", { action: "accept", id: c.site_id, start_monday: lundi });
+      await supabase.from("ruul_candidatures").update({ envoi: r.ok ? "envoye" : "erreur", envoi_erreur: r.erreur })
+        .eq("site_id", c.site_id);
+      if (r.ok) bilan.envoyees++;
+      else bilan.erreurs.push(`${c.site_id} : ${r.erreur}`);
+    }
+  }
+
+  // 4. Les signatures en attente : relances, expiration, cohorte décalée.
+  if (await interrupteur(supabase, "ruul_relances_signature")) {
+    const { data: attente } = await supabase.from("ruul_candidatures")
+      .select("site_id, nom, pays, hm_id, accepte_at, relance_base_at, relances_signature, start_monday")
+      .eq("statut_site", "accepted").is("signe_at", null).is("desinscrit_at", null).not("accepte_at", "is", null);
+    const auj = aujourdhuiParis();
+    for (const c of attente ?? []) {
+      if (c.start_monday && c.start_monday < auj) {
+        const lundi = lundiSuivant(auj);
+        const r = await appelSite("POST", { action: "move_start", id: c.site_id, start_monday: lundi });
+        if (r.ok) {
+          await supabase.from("ruul_candidatures").update({ start_monday: lundi }).eq("site_id", c.site_id);
+          bilan.decalees++;
+        }
+      }
+      const etape = etapeSignature(String(c.relance_base_at ?? c.accepte_at), Number(c.relances_signature ?? 0));
+      if (!etape) continue;
+      if (etape === "expirer") {
+        const r = await appelSite("POST", { action: "expire", id: c.site_id });
+        if (!r.ok) {
+          bilan.erreurs.push(`${c.site_id} : ${r.erreur}`);
+          continue;
+        }
+        await supabase.from("ruul_candidatures").update({ statut_site: "expired", expire_at: new Date().toISOString(), hm_prevenu_at: new Date().toISOString() })
+          .eq("site_id", c.site_id);
+        if (c.hm_id) await ecrireAuPosteur(supabase, c.hm_id, `Contract not signed after 7 days: ${c.nom ?? "a candidate"} (${c.pays ?? "?"}). The application has expired.`);
+        bilan.expirees++;
+        continue;
+      }
+      const r = await appelSite("POST", { action: "remind_signature", id: c.site_id, step: etape });
+      if (r.ok) {
+        await supabase.from("ruul_candidatures").update({ relances_signature: Number(c.relances_signature ?? 0) + 1, relance_signature_at: new Date().toISOString() })
+          .eq("site_id", c.site_id);
+        bilan.relances++;
+      } else bilan.erreurs.push(`${c.site_id} : ${r.erreur}`);
+    }
+  }
+  return { ok: true, ...bilan };
 }

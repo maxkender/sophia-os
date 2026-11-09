@@ -80,6 +80,8 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   disputes: Flag,
   payroll: Wallet,
   bonus: Gift,
+  candidats_ruul: UserPlus,
+  cohortes_ruul: Users,
   faq: MessageCircle,
   officielles: BadgeCheck,
   parrainage: Gift,

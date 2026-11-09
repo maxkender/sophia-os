@@ -85,3 +85,13 @@ describe("Paie Ruul", () => {
     expect(lireExportRuul("a,b\n1,2")).toEqual({ erreur: "colonnes email et montant introuvables" });
   });
 });
+
+describe("Étapes Ruul", () => {
+  it("bloqué en rouge après 48 h sur la même étape", async () => {
+    const { etapeBloquee } = await import("./logique");
+    const m = new Date("2026-11-09T12:00:00Z");
+    expect(etapeBloquee({ candidature: "2026-11-01T10:00:00Z", acceptee: "2026-11-02T10:00:00Z" }, m)).toBe("signee");
+    expect(etapeBloquee({ candidature: "2026-11-09T10:00:00Z" }, m)).toBeNull();
+    expect(etapeBloquee({}, m)).toBeNull();
+  });
+});

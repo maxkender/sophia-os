@@ -83,7 +83,7 @@ export const LANGUE_PAR_PAYS: Readonly<Record<string, string>> = {
   NL: "nl", PL: "pl", RO: "ro", MD: "ro", HU: "hu", CZ: "cs", SK: "sk", BG: "bg",
   GR: "el", CY: "el", HR: "hr", SI: "sl", RS: "sr",
   SE: "sv", NO: "no", DK: "da", FI: "fi", EE: "et", LV: "lv", LT: "lt",
-  TR: "tr", IL: "he", AE: "ar", SA: "ar", EG: "ar",
+  TR: "tr", IL: "he", AE: "ar", SA: "ar", EG: "ar", LB: "ar",
   RU: "ru", BY: "ru", KZ: "ru", UA: "uk",
   US: "en", GB: "en", IE: "en", AU: "en", NZ: "en", CA: "en",
   JP: "ja",

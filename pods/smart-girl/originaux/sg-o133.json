@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o133",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "268a17fb-3cc8-45c3-b085-3c4bba06f652",
+ "titre": "things everyone's doing in 2026 that i'm not #trends #slowliving #smartgirl #intentionalliving #2026",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "07dfb7c9-bb71-42ef-bab3-6c26b29b989f"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 5 de la boîte (parent 268a17fb, langue source en) : accroche reformulée (« trends i refuse to do in 2026 and the quiet reasons why » → « things everyone's doing in 2026 that i'm not »), troisième et dernière déclinaison du parent, autre que sg-o110 et sg-o122. Tendances neuves (chaque produit viral, le téléphone pendant les films, les agendas faussement pleins, scroller au petit-déjeuner, des week-ends surplanifiés, du bruit en continu). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eada0eeb",
+   "texte_overlay": "things everyone's doing\nin 2026 that i'm not",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3d0d15f7",
+   "texte_overlay": "1. buying every viral product\n\nif i still want it in a month,\nmaybe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fc8d2cdd",
+   "texte_overlay": "2. phones during films\n\none screen at a time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "26bf28c0",
+   "texte_overlay": "3. scrolling at breakfast\n\ni read one short lesson\ninstead: art, history, science.",
+   "texte_sophia": "3. scrolling at breakfast\n\ni take a 5-minute lesson on\nan app like Sophia instead.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "54ce8632",
+   "texte_overlay": "4. fake-busy calendars\n\nempty afternoons are allowed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "77155230",
+   "texte_overlay": "5. planning every minute\nof the weekend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dadaa033",
+   "texte_overlay": "6. noise all day\n\nsome walks are better\nin silence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f025a837",
+   "texte_overlay": "save this if you're\nopting out too",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/8.jpg"
+  }
+ ]
+}

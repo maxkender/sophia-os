@@ -8,12 +8,16 @@
  "titre": {
   "en": "10/10 Skills Rich People Learn Early",
   "de": "10/10 Skills, die Reiche früh lernen",
-  "pt": "10/10 habilidades que os ricos aprendem cedo"
+  "pt": "10/10 habilidades que os ricos aprendem cedo",
+  "it": "10/10 abilità che i ricchi imparano presto",
+  "es-419": "10/10 habilidades que los ricos aprenden pronto"
  },
  "legendes": {
   "en": "10/10 Skills Rich People Learn Early #money #learnontiktok #selfimprovement",
   "de": "10/10 Skills, die Reiche früh lernen #geld #lernenmittiktok #selbstverbesserung",
-  "pt": "10/10 habilidades que os ricos aprendem cedo #dinheiro #aprendernotiktok #desenvolvimentopessoal"
+  "pt": "10/10 habilidades que os ricos aprendem cedo #dinheiro #aprendernotiktok #desenvolvimentopessoal",
+  "it": "10/10 abilità che i ricchi imparano presto #imparacontiktok #finanzapersonale #abilità",
+  "es-419": "10/10 habilidades que los ricos aprenden pronto #aprendeentiktok #finanzaspersonales #habilidades"
  },
  "musique": {
   "titre": "original sound",
@@ -74,6 +78,42 @@
       }
      ]
     ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ CHE",
+     "I RICCHI",
+     [
+      {
+       "t": "IMPARANO PRESTO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE",
+     "LOS RICOS",
+     [
+      {
+       "t": "APRENDEN PRONTO",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -118,6 +158,34 @@
      "date": "há 4 anos",
      "duree": "12:45",
      "avatar": "https://yt3.ggpht.com/0i3ZE5Zvzb8Ay3O2Z3-ADyYJliw01ffjFZUyZSNvz2Z52pRVAaZ77RTcRYa3UZNNvatoIjB28Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "NETWORKING"
+    ],
+    "video": {
+     "id": "32hSJRMdQV8",
+     "titre": "Come fare NETWORKING 😎 per avere più SUCCESSO",
+     "chaine": "Marcello Ascani",
+     "vues": "130K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "25:45",
+     "avatar": "https://yt3.ggpht.com/41u_g0zcCX3U9BDklnd3CcoHQ4W_aNcYKeh1bhkX9fHgSTjw9qRtCS0a550_gBW2g22dssZg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "NETWORKING"
+    ],
+    "video": {
+     "id": "gzPWv7fYsYs",
+     "titre": "¿Cómo Hacer Contactos? | Guía de Networking",
+     "chaine": "Pedro Buerbaum",
+     "vues": "491 k vistas",
+     "date": "hace 3 años",
+     "duree": "21:16",
+     "avatar": "https://yt3.ggpht.com/1HIt4aN0rvl9tckXDTWhSjsHN0CV6ZNQRKm4ZaTc1FVRbthX6GXkY_flfCjbXW-f2jLmHa753A=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -164,6 +232,34 @@
      "duree": "13:42",
      "avatar": "https://yt3.ggpht.com/6H6oVgDpRxsSo84s5qfLWD76wYgj43LOpv5hNfnc2bI-0rR_SXsN9XNzgLHbkT9L4meXC0CHt6w=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "NEGOZIARE"
+    ],
+    "video": {
+     "id": "w_P4Cjw3O-w",
+     "titre": "Come Negoziare: I 4 principi di Harvard | Tecniche di trattativa",
+     "chaine": "Jacopo Tartaglia",
+     "vues": "38K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/mspf8SyB7FhsT15y4kkT_a81YLvHCKOiv3V6IoU4AIkmd3k8r3SgI0HnGgs7P3cFXgxTEVy8U98=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "NEGOCIAR"
+    ],
+    "video": {
+     "id": "Ch7Q-0XQ2I0",
+     "titre": "La gente que usa estos 7 poderes, gana una negociación || Cómo negociar bien",
+     "chaine": "Aprendiz Libros",
+     "vues": "404 k vistas",
+     "date": "hace 4 años",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nGAeloDkqCu3T9Ci74b3fEah_ObpQREbi_cGvXqxr6ew=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -205,6 +301,32 @@
      "texte": [
       "5 minutos por dia",
       "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SAPERE UN PO'",
+     "DI TUTTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
      ]
     }
    }
@@ -254,6 +376,36 @@
      "duree": "7:32",
      "avatar": "https://yt3.ggpht.com/q6bgR6BvYXgq3u9GF_MP_YrVW4myeX_ETDwgM68vUA4XkahJUCoxnFy-MnELZPd5n875FDi5Fw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "INTERESSE",
+     "COMPOSTO"
+    ],
+    "video": {
+     "id": "hSa2fIQ5Vow",
+     "titre": "Interesse Composto: Come Funziona DAVVERO e Come Usarlo",
+     "chaine": "Pietro Michelangeli",
+     "vues": "96K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:18",
+     "avatar": "https://yt3.ggpht.com/-rOrDMmEMFy_rkmzNnNiDA9EkBfBqdC5nuKzwufGV6dvKt5Yh_OxP2gGBTj0XHmpJWOqoFEF300=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "INTERÉS",
+     "COMPUESTO"
+    ],
+    "video": {
+     "id": "7h0USmJk2-A",
+     "titre": "✅ ¿Qué es el INTERÉS COMPUESTO? | La fórmula matemática que te puede hacer RICO",
+     "chaine": "Memorias de Tiburón",
+     "vues": "723 k vistas",
+     "date": "hace 4 años",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtS6T3-Z5FFRIGOq7Ttqx91YpBqeseUqpIUz7jRT2AsA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -300,6 +452,36 @@
      "date": "há 7 anos",
      "duree": "5:11",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SAPER",
+     "VENDERE"
+    ],
+    "video": {
+     "id": "MTCvWtdlIJM",
+     "titre": "Se devi vendere qualcosa, usa questa scaletta",
+     "chaine": "Marco Montemagno",
+     "vues": "239K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "5:11",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SABER",
+     "ESPERAR"
+    ],
+    "video": {
+     "id": "2p9HTJ_I7Z4",
+     "titre": "Cómo Superar la Gratificación Instantánea • 3 Pasos Para Recuperar El Enfoque",
+     "chaine": "Full Perception",
+     "vues": "52 k vistas",
+     "date": "hace 3 años",
+     "duree": "11:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_moTdZ4QCQDh_Bn5cXarTpVMv-IUX602lfFc2TierecCMU=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

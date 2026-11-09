@@ -8,12 +8,16 @@
  "titre": {
   "en": "S Tier YouTube Videos You Need To Watch",
   "de": "S-Tier-YouTube-Videos, die du sehen musst",
-  "pt": "Vídeos do YouTube de nível S que tens de ver"
+  "pt": "Vídeos do YouTube de nível S que tens de ver",
+  "it": "Video di YouTube di livello S da guardare assolutamente",
+  "es-419": "Videos de YouTube nivel S que tienes que ver"
  },
  "legendes": {
   "en": "S Tier YouTube Videos You Need To Watch #youtube #learnontiktok #selfimprovement",
   "de": "S-Tier-YouTube-Videos, die du sehen musst #youtube #lernenmittiktok #selbstverbesserung",
-  "pt": "Vídeos do YouTube de nível S que tens de ver #youtube #aprendernotiktok #desenvolvimentopessoal"
+  "pt": "Vídeos do YouTube de nível S que tens de ver #youtube #aprendernotiktok #desenvolvimentopessoal",
+  "it": "Video di YouTube di livello S da guardare assolutamente #imparacontiktok #curiosità #cultura",
+  "es-419": "Videos de YouTube nivel S que tienes que ver #aprendeentiktok #curiosidades #cultura"
  },
  "musique": {
   "titre": "original sound",
@@ -58,6 +62,40 @@
      ],
      "VÍDEOS DO YOUTUBE",
      "QUE TENS DE VER"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "VIDEO DI YOUTUBE",
+       "bronze": true
+      }
+     ],
+     "DI LIVELLO S",
+     [
+      {
+       "t": "DA GUARDARE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "VIDEOS DE YOUTUBE",
+       "bronze": true
+      }
+     ],
+     "NIVEL S QUE",
+     [
+      {
+       "t": "TIENES QUE VER",
+       "bronze": true
+      }
+     ]
     ]
    }
   },
@@ -106,6 +144,35 @@
      "duree": "6:52",
      "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "QUANTO TEMPO RESTA",
+     "ALLA TERRA?"
+    ],
+    "video": {
+     "id": "ci-tHVhcLGk",
+     "titre": "Quanto tempo resta, al massimo, alla Terra?",
+     "chaine": "Amedeo Balbi",
+     "vues": "934K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "11:16",
+     "avatar": "https://yt3.ggpht.com/Z2v5j5iYpUfFDi46pHS-SG26aWl656TeqHfKdyNMmZlPJHMWintcLOjHpOQqcZyR_wktWRK8pA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL HUEVO"
+    ],
+    "video": {
+     "id": "yuPSXBZYS54",
+     "titre": "El huevo, un relato corto",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "5.9 M de vistas",
+     "date": "hace 5 años",
+     "duree": "7:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -146,6 +213,32 @@
      "texte": [
       "o que eu abro",
       "em vez de fazer scroll."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SE HAI SOLO",
+     "5 MINUTI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SI SOLO TIENES",
+     "5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
      ]
     }
    }
@@ -193,6 +286,36 @@
      "duree": "8:05",
      "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "LA TEORIA PIÙ",
+     "TERRIFICANTE"
+    ],
+    "video": {
+     "id": "Gn_SjqksZjg",
+     "titre": "LA TEORIA PIÙ TERRIFICANTE - dal paradosso di Fermi alla fine dell’umanità",
+     "chaine": "Barbascura eXtra",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "16:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lV8FQGZJxXRKh9D0gDDkrpOzi2IlykF0ZiolRDLZTGz2M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UN ANTÍDOTO CONTRA",
+     "LA INSATISFACCIÓN"
+    ],
+    "video": {
+     "id": "THuE1d4knEw",
+     "titre": "Un antídoto de la insatisfacción",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "3.4 M de vistas",
+     "date": "hace 6 años",
+     "duree": "9:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -238,6 +361,36 @@
      "date": "há 3 anos",
      "duree": "10:15",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "TIKTOK DISTRUGGE",
+     "LA TUA ATTENZIONE"
+    ],
+    "video": {
+     "id": "OAk6imzSDys",
+     "titre": "Come TIKTOK sta DISTRUGGENDO la tua ATTENZIONE",
+     "chaine": "Poldo",
+     "vues": "555K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "13:44",
+     "avatar": "https://yt3.ggpht.com/v2DjdfGGIDLPg94KPBK8T_HGMDJFXZtwddSKYIzCkw-nZ0KKuNFC3RrqEuv9RoqAAsFD6Sj8vQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "NUNCA MÁS",
+     "VIDEOS CORTOS"
+    ],
+    "video": {
+     "id": "k5_E9hLSyzI",
+     "titre": "NUNCA MÁS vas a ver un TikTok después de ver ÉSTE VIDEO...",
+     "chaine": "Franco Pisso",
+     "vues": "1 M de vistas",
+     "date": "hace 1 año",
+     "duree": "13:50",
+     "avatar": "https://yt3.ggpht.com/IIg5eNN7JXHLGdtycbLd5GGCsKzNUJNuiUCQSYQlaDWf0UGGgR2soboM5UgkHDrhrV7WzY9PWg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -285,6 +438,36 @@
      "date": "há 2 anos",
      "duree": "9:40",
      "avatar": "https://yt3.ggpht.com/NiOHk4jbNm1TRha4bV4viASdHTPeGbT3NQMdN0D75kERTZkL15v_DyPdttCR2tzG1viSVta0Cjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "DOOMSCROLLING",
+     "O LETTURA?"
+    ],
+    "video": {
+     "id": "dZW5gfdcdOQ",
+     "titre": "Doomscrolling vs Lettura: cosa succede davvero al tuo cervello?",
+     "chaine": "Andrea Passador - Prolisso",
+     "vues": "53K visualizzazioni",
+     "date": "4 mesi fa",
+     "duree": "14:15",
+     "avatar": "https://yt3.ggpht.com/EFnctI9hkvBGXVR5PAAW5xccm5gt0QFuUO0wqYSudcjaOGqFGHZDghjW2FUua07RZOQxqZmpyWk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "NIHILISMO",
+     "OPTIMISTA"
+    ],
+    "video": {
+     "id": "Ylcg_lOU6IQ",
+     "titre": "Nihilismo optimista",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "1.3 M de vistas",
+     "date": "hace 6 años",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

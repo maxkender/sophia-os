@@ -6,7 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 
 /** Statut d'un filleul, vu par le parrain. */
-export type StatutFilleul = "attente" | "envoye" | "postule" | "actif" | "bonus_paye" | "arrete";
+/** invited → applied → accepted → started → bonus paid (9/11) ; plus « liste d'attente » et « arrêté ». */
+export type StatutFilleul = "attente" | "envoye" | "postule" | "accepte" | "actif" | "bonus_paye" | "arrete";
 
 export interface Filleul {
   id: string;
@@ -25,9 +26,10 @@ export interface PaysParrainable {
 
 export const LIBELLE_FILLEUL: Record<StatutFilleul, string> = {
   attente: "Waiting list",
-  envoye: "Email sent",
+  envoye: "Invited",
   postule: "Applied",
-  actif: "Active",
+  accepte: "Accepted",
+  actif: "Started",
   bonus_paye: "Bonus paid 🎉",
   arrete: "Stopped",
 };
@@ -36,10 +38,21 @@ const COULEUR: Record<StatutFilleul, string> = {
   attente: "bg-amber-100 text-amber-900 dark:bg-amber-950/40 dark:text-amber-200",
   envoye: "bg-sky-100 text-sky-900 dark:bg-sky-950/40 dark:text-sky-200",
   postule: "bg-indigo-100 text-indigo-900 dark:bg-indigo-950/40 dark:text-indigo-200",
+  accepte: "bg-violet-100 text-violet-900 dark:bg-violet-950/40 dark:text-violet-200",
   actif: "bg-emerald-100 text-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-200",
   bonus_paye: "bg-emerald-200 text-emerald-950 dark:bg-emerald-900/50 dark:text-emerald-100",
   arrete: "bg-zinc-200 text-zinc-700 dark:bg-zinc-800 dark:text-zinc-300",
 };
+
+/** 9/11 : « How it works », toujours visible (le texte de Max, mot pour mot). */
+export const COMMENT_CA_MARCHE = [
+  "Your friend doesn't need Upwork or any freelancing account: they apply directly with the link we email them.",
+  "Same job as yours: 2 posts a day, 7 days a week, warm-up first, start on a Monday, ongoing week after week.",
+  "Your friend will see their weekly rate on their dashboard.",
+  "Your $10 bonus is paid on Upwork, as a bonus on your current contract, the Monday after your friend completes their first full week of posts. Nothing to do.",
+  "Tell your friend to watch their inbox (and spam folder): the email comes from Sophia.",
+  "You can follow each referral's status here: invited → applied → accepted → started → bonus paid.",
+];
 
 export const MAX_PAR_MOIS = 10;
 const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -95,9 +108,16 @@ export function BlocParrainer({ pays, filleuls, ceMois, envoyer }: PropsBlocParr
           <div>
             <h2 className="text-base font-semibold">Refer a friend</h2>
             <p className="text-sm text-muted-foreground">
-              Know someone who'd like this job? Add them here. You get a <b>$10 bonus</b> when they've been active for 2 weeks (12 posts with a link each week).
+              Know someone who'd like this job? Add them here. You get a <b>$10 bonus</b> once they complete their first full week of posts.
             </p>
           </div>
+        </div>
+
+        <div className="rounded-lg border bg-muted/40 p-3 text-sm" data-testid="parrainer-comment">
+          <h3 className="mb-1 font-semibold">How it works</h3>
+          <ul className="list-disc space-y-1 pl-5">
+            {COMMENT_CA_MARCHE.map((l) => <li key={l}>{l}</li>)}
+          </ul>
         </div>
 
         {etat.fait && (

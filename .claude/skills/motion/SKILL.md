@@ -44,6 +44,8 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
 - **Rétention : 2 à 3 scènes d'intro avant la réponse** (demande d'Adrien). S1 = un chiffre ou une image choc,
   puis on fait monter la question : fausses pistes (« no balloon… and no, it's not the engines »), « even some
   textbooks get this wrong », la question posée franchement. La réponse ne tombe qu'à la S3 ou S4 (~12 à 15 s).
+  **La question posée, c'est la question du sujet, avec ses mots** (retour d'Adrien) : pour « How do planes fly? »,
+  la voix dit « So how do planes actually fly? », pas une variante (« why doesn't it fall? »).
 - **Une image de tous les jours** pour faire comprendre le point clé, juste après lui (demande d'Adrien ; ex. la
   main qu'on sort par la fenêtre de la voiture pour la portance) : une scène à part, concrète, que chacun a vécue.
 - **Faits vérifiés**, formulations prudentes quand il le faut (ex. « foreign war » et pas « war »).

@@ -36,15 +36,37 @@ import { deplacer, LEGENDE_MAX, manquePostVideo, messageErreur, VIDEOS_MAX_PAR_P
  * et par compte. Le poster les retrouve dans son calendrier comme ses autres
  * posts, et ils comptent pareil (paie, relances, planning, vues).
  */
-export function CartePostsUgcv({ sources, personas }: { sources: SourceUgcIa[]; personas: PersonaUgcIa[] }) {
+export function CartePostsUgcv({
+  sources,
+  personas,
+  completes = [],
+  aEnvoyer = null,
+  finEnvoi,
+}: {
+  sources: SourceUgcIa[];
+  personas: PersonaUgcIa[];
+  /** Les vidéos complètes prêtes (réaction + démo), proposées en premier. */
+  completes?: VideoChoisie[];
+  /** Une vidéo complète à envoyer : ouvre la création de post avec elle. */
+  aEnvoyer?: VideoChoisie | null;
+  finEnvoi?: () => void;
+}) {
   const { t } = useTranslation();
   const posts = useQuery({ queryKey: CLE_POSTS_VIDEO, queryFn: listerPostsVideo });
   const comptes = useQuery({ queryKey: CLE_COMPTES_UGCV, queryFn: listerComptesUgcv });
   const [ouvert, setOuvert] = React.useState(false);
+  const carte = React.useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    if (aEnvoyer) carte.current?.scrollIntoView?.({ behavior: "smooth", block: "start" });
+  }, [aEnvoyer]);
+  const fermer = () => {
+    setOuvert(false);
+    finEnvoi?.();
+  };
   const liste = posts.data ?? [];
 
   return (
-    <Card data-testid="posts-ugcv">
+    <Card data-testid="posts-ugcv" ref={carte}>
       <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2">
         <TitreCarte icone={Film}>{t("ugcIa.posts.titre")}</TitreCarte>
         <Button size="sm" onClick={() => setOuvert(true)} disabled={(comptes.data ?? []).length === 0}>
@@ -63,13 +85,16 @@ export function CartePostsUgcv({ sources, personas }: { sources: SourceUgcIa[]; 
           ))}
         </ul>
       </CardContent>
-      {ouvert && (
+      {(ouvert || aEnvoyer) && (
         <DialogueNouveauPost
+          key={aEnvoyer?.cle ?? "nouveau"}
           sources={sources}
           personas={personas}
           comptes={comptes.data ?? []}
+          completes={completes}
+          initiales={aEnvoyer ? [aEnvoyer] : []}
           postsExistants={liste}
-          fermer={() => setOuvert(false)}
+          fermer={fermer}
         />
       )}
     </Card>
@@ -141,12 +166,16 @@ function DialogueNouveauPost({
   sources,
   personas,
   comptes,
+  completes,
+  initiales,
   postsExistants,
   fermer,
 }: {
   sources: SourceUgcIa[];
   personas: PersonaUgcIa[];
   comptes: CompteUgcv[];
+  completes: VideoChoisie[];
+  initiales: VideoChoisie[];
   postsExistants: PostVideoUgcv[];
   fermer: () => void;
 }) {
@@ -173,18 +202,36 @@ function DialogueNouveauPost({
   const [erreurEnvoi, setErreurEnvoi] = React.useState<string | null>(null);
 
   const personaDuCompte = (id: string) => personas.find((p) => p.compte_id === id);
-  const groupes = videosDisponibles(sources, personas, { montee: t("ugcIa.posts.montee"), telephone: t("ugcIa.posts.telephone") });
+  const groupes = videosDisponibles(
+    sources,
+    personas,
+    { montee: t("ugcIa.posts.montee"), telephone: t("ugcIa.posts.telephone"), completes: t("ugcIa.posts.completes") },
+    completes,
+  );
   const options = new Map(groupes.flatMap((g) => g.options.map((o) => [o.cle, o] as const)));
   const dejaCeJour = postsExistants.some((p) => p.compte_id === compteId && p.date_publication_prevue === date);
 
   /** Une vidéo de la page : la première d'une source remplit le CTA, la capture, la légende et le son. */
   const ajouterDeLaPage = (cle: string) => {
     const o = options.get(cle);
-    if (!o || videos.some((v) => v.cle === cle)) return;
+    if (o) ajouter(o);
+  };
+
+  // Une vidéo complète envoyée depuis sa carte : déjà dans le post à l'ouverture.
+  const initialisee = React.useRef(false);
+  React.useEffect(() => {
+    if (initialisee.current) return;
+    initialisee.current = true;
+    initiales.forEach(ajouter);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  function ajouter(o: VideoChoisie) {
+    if (videos.some((v) => v.cle === o.cle)) return;
     setVideos((avant) => [...avant, o]);
+    if (!ctaTouche && o.ctaIncruste) setCtaIncruste(true);
     const source = sources.find((s) => s.id === o.sourceId);
     if (!source) return;
-    if (!ctaTouche && o.ctaIncruste) setCtaIncruste(true);
     if (!ctaTexte && source.cta_texte) setCtaTexte(source.cta_texte);
     if (!captureUrl && source.cta_image_url) setCaptureUrl(source.cta_image_url);
     if (!legende && source.source_texte) setLegende(source.source_texte);
@@ -192,7 +239,7 @@ function DialogueNouveauPost({
       setMusiqueUrl(source.musique_url);
       setMusiqueTitre(source.musique_titre ?? "");
     }
-  };
+  }
 
   const importer = async (fichiers: FileList | null, quoi: "video" | "capture") => {
     if (!fichiers || fichiers.length === 0) return;
@@ -221,7 +268,13 @@ function DialogueNouveauPost({
       creerPostVideo({
         compteId,
         date,
-        videos: videos.map((v) => ({ url: v.url, chemin: v.chemin ?? null, nom: v.nom, generationId: v.generationId ?? null })),
+        videos: videos.map((v) => ({
+          url: v.url,
+          chemin: v.chemin ?? null,
+          nom: v.nom,
+          generationId: v.generationId ?? null,
+          assemblageId: v.assemblageId ?? null,
+        })),
         ctaTexte: ctaIncruste ? null : ctaTexte,
         ctaIncruste,
         captureUrl: ctaIncruste ? null : captureUrl,

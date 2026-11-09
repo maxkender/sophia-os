@@ -6,8 +6,12 @@ import {
   cheminsMontage,
   cheminsUgcIa,
   coupeUtile,
+  cheminSous,
   demandeAssignation,
   demandeMontage,
+  demandePassages,
+  dureeMontee,
+  vitesseDemo,
   demandePostVideo,
   lienTiktok,
   nettoyerCta,
@@ -200,4 +204,26 @@ Deno.test("demandePostVideo : un compte, un jour à venir, des vidéos dans l'or
   assertEquals(erreur({ ...base, musiqueUrl: "son sans lien" }), true);
   assertEquals(erreur({ ...base, legende: "x".repeat(2201) }), true);
   assertEquals(erreur({ ...base, compteId: "pas-un-id" }), true);
+});
+
+Deno.test("démos : passages gardés dans l'ordre, vitesse, durée montée", () => {
+  const ok = demandePassages([{ debut: 4, fin: 9.04 }, { debut: 0, fin: 2 }], 10);
+  if ("erreur" in ok) throw new Error(ok.erreur);
+  assertEquals(ok, [{ debut: 4, fin: 9 }, { debut: 0, fin: 2 }]);
+  assertEquals(dureeMontee(ok, 2), 3.5);
+  assertEquals("erreur" in (demandePassages([], 10) as object), true);
+  assertEquals("erreur" in (demandePassages([{ debut: 3, fin: 3.1 }], 10) as object), true);
+  assertEquals("erreur" in (demandePassages([{ debut: 3, fin: 12 }], 10) as object), true);
+  assertEquals("erreur" in (demandePassages([{ debut: 3, fin: 12 }], null) as object), false);
+  assertEquals("erreur" in (demandePassages([{ debut: -1, fin: 2 }], 10) as object), true);
+  assertEquals(vitesseDemo(1.5), 1.5);
+  assertEquals(vitesseDemo(undefined), 1);
+  assertEquals(vitesseDemo(3), null);
+});
+
+Deno.test("cheminSous : un fichier de la page, sous son dossier, sans remonter", () => {
+  assertEquals(cheminSous("ugc-ia/demos/abc/rendu.webm", "ugc-ia/demos/abc/"), "ugc-ia/demos/abc/rendu.webm");
+  assertEquals(cheminSous("ugc-ia/demos/abc/../x.webm", "ugc-ia/demos/abc/"), null);
+  assertEquals(cheminSous("ugc-ia/demos/autre/rendu.webm", "ugc-ia/demos/abc/"), null);
+  assertEquals(cheminSous("ugc-ia/demos/abc/", "ugc-ia/demos/abc/"), null);
 });

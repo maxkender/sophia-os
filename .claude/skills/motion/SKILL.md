@@ -39,11 +39,13 @@ La vidéo a un `sujet`, parfois une `consigne`, et une `capture_url` : la captur
 **en anglais** avec la carte du cours du sujet (fournie par l'admin, une par sujet).
 
 Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/langues/types.ts`) :
-- **7 scènes**, ~85 à 130 mots (respecte la durée de la consigne, fin Sophia comprise : ~9 s). S7 = la chute.
+- **7 à 9 scènes**, ~85 à 140 mots (respecte la durée de la consigne, fin Sophia comprise : ~9 s). S7 = la chute.
   Phrases courtes, un fait par phrase, pas de chiffres inutiles.
 - **Rétention : 2 à 3 scènes d'intro avant la réponse** (demande d'Adrien). S1 = un chiffre ou une image choc,
   puis on fait monter la question : fausses pistes (« no balloon… and no, it's not the engines »), « even some
   textbooks get this wrong », la question posée franchement. La réponse ne tombe qu'à la S3 ou S4 (~12 à 15 s).
+- **Une image de tous les jours** pour faire comprendre le point clé, juste après lui (demande d'Adrien ; ex. la
+  main qu'on sort par la fenêtre de la voiture pour la portance) : une scène à part, concrète, que chacun a vécue.
 - **Faits vérifiés**, formulations prudentes quand il le faut (ex. « foreign war » et pas « war »).
 - `reperes` : dans chaque scène, 0 à 2 mots sur lesquels doit tomber un moment fort de l'animation
   (`{mot, image, ou?}` ; `mot` = un mot exact du texte, ponctuation comprise ; `image` = l'image de la

@@ -17,6 +17,7 @@ import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOffi
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageBonus } from "@/features/bonus/PageBonus";
+import { PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
 import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -229,6 +230,24 @@ export function LogsPage() {
   return (
     <PageAuto cle="logs">
       <PageLogs />
+    </PageAuto>
+  );
+}
+
+/** 9/11 (0577) : les candidatures du site (Ruul). */
+export function CandidatsRuulPage() {
+  return (
+    <PageAuto cle="candidats_ruul">
+      <PageCandidatsRuul />
+    </PageAuto>
+  );
+}
+
+/** 9/11 (0577) : les cohortes des posteurs du site, étape par étape. */
+export function CohortesRuulPage() {
+  return (
+    <PageAuto cle="cohortes_ruul">
+      <PageCohortesRuul />
     </PageAuto>
   );
 }

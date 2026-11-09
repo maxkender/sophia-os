@@ -63,3 +63,32 @@ export function lireExportRuul(texte: string): { email: string; montant: string 
     .filter((c) => c[iEmail])
     .map((c) => ({ email: c[iEmail], montant: (c[iMontant] ?? "").replace(/[^0-9.,-]/g, "").replace(",", ".") }));
 }
+
+/** Les étapes d'un posteur Ruul, dans l'ordre (page Cohortes Ruul). */
+export const ETAPES_RUUL: { cle: string; libelle: string }[] = [
+  { cle: "candidature", libelle: "Candidature" },
+  { cle: "acceptee", libelle: "Acceptée" },
+  { cle: "signee", libelle: "Signée" },
+  { cle: "ajoute_ruul", libelle: "Ajouté Ruul" },
+  { cle: "pret", libelle: "Prêt Ruul" },
+  { cle: "slack", libelle: "Slack" },
+  { cle: "os", libelle: "OS connecté" },
+  { cle: "warmup", libelle: "Warm-up" },
+  { cle: "premier_post", libelle: "1er post" },
+  { cle: "premiere_paie", libelle: "1re paie" },
+];
+
+/**
+ * L'étape bloquée : la première étape pas faite, si la précédente est faite
+ * depuis plus de 48 h (en rouge). null : rien de bloqué.
+ */
+export function etapeBloquee(etapes: Record<string, string | null>, maintenant = new Date()): string | null {
+  for (let i = 1; i < ETAPES_RUUL.length; i++) {
+    const cle = ETAPES_RUUL[i].cle;
+    if (etapes[cle]) continue;
+    const avant = etapes[ETAPES_RUUL[i - 1].cle];
+    if (avant && maintenant.getTime() - new Date(avant).getTime() > 48 * 3_600_000) return cle;
+    return null;
+  }
+  return null;
+}

@@ -15,7 +15,7 @@
  *       `langue_os` (langue du pays connue et publiée par des comptes actifs).
  *       Le site grise « Accepter » pour tout autre pays.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
- *     pays_nom, applications }
+ *     pays_nom, applications, ruul_email?, ref? }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
  *       login @sophia.com, mot de passe 12345678 comme tout compte OS, premier
  *       compte perso, labels, persona), dans la langue de son pays, puis le
@@ -337,9 +337,17 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     .update({ statut: "cree", profile_id: cree.userId, compte_id: cree.compteId, email_os: cree.email, cree_at: new Date().toISOString() })
     .eq("hub_id", hubId);
   if (errCree) throw errCree;
+  // 0574 : tous les posteurs du site sont payés par Ruul ; l'email Ruul vient de la page de signature.
+  const emailRuul = String(body.ruul_email ?? "").trim().toLowerCase();
   const { error: errProfil } = await supabase
     .from("profiles")
-    .update({ manager_id: rattachement.id })
+    .update({
+      manager_id: rattachement.id,
+      canal_paie: "ruul",
+      ruul_statut: "a_ajouter",
+      ruul_email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRuul) ? emailRuul : emailPerso,
+      ruul_jeton: crypto.randomUUID(),
+    })
     .eq("id", cree.userId);
   if (errProfil) throw errProfil;
 

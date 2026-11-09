@@ -326,7 +326,8 @@
    },
    "decor_chez_lui": "falaise",
    "competences": "improve life, improve looks, talk to strangers",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "essayé le 09/11 : pas de vraie vidéo allemande au niveau pour « IMPROVE LOOKS » ; attend"
   },
   {
    "id": "7674249078988918038",
@@ -342,7 +343,8 @@
     "url": "https://www.tiktok.com/music/son-original-7642981725571730208"
    },
    "decor_chez_lui": "branche",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "note": "sauté le 09/11 : THROW A BALL HARD (ka-009) et SWITCH A TIRE (ka-010) déjà faits"
   },
   {
    "id": "7699457307947633942",
@@ -358,7 +360,8 @@
     "url": "https://www.tiktok.com/music/duvet-acoustic-7031720036989421570"
    },
    "decor_chez_lui": "falaise",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "ka-014, livraison a8a0ddcf du 09/11 en en et de : titres courts comme lui, Sophia en étape 3 « LEARN EVERY DAY » (cta C)"
   },
   {
    "id": "7677503924269583638",
@@ -391,6 +394,24 @@
    },
    "decor_chez_lui": "falaise",
    "statut": "a_faire"
+  },
+  {
+   "id": "7699157406361652502",
+   "url": "https://www.tiktok.com/@kaja.learn/video/7699157406361652502",
+   "publie_le": "2026-10-21",
+   "accroche": "10/10 SKILLS EVERY MAN SHOULD LEARN",
+   "vues": 74300,
+   "enregistrements": 4666,
+   "partages": 437,
+   "slides": 6,
+   "musique": {
+    "titre": "Cortex Huit octobre 1971",
+    "url": "https://www.tiktok.com/music/cortex-huit-octobre-1971-6943741223941245701"
+   },
+   "decor_chez_lui": "falaise",
+   "competences": "fight, tie a tie, fix a car, start a fire (fin : « Just like Duolingo but for anything »)",
+   "statut": "a_faire",
+   "note": "entré à la veille du 09/11 ; proche du full test ka-010 et de ka-003 (tie, car, fire) : à refaire avec d'autres titres d'étape"
   },
   {
    "id": "7699386282463595778",

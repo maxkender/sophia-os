@@ -325,8 +325,10 @@ async function candidatures(supabase: Supabase) {
   const fermesSet = new Set((fermes ?? []).map((f) => String(f.pays).toUpperCase()));
   const ouverts = new Set((zones ?? []).map((z) => String(z.pays).toUpperCase()).filter((p) => !fermesSet.has(p)));
   const { data: nouvelles, error: errNouv } = await supabase.from("ruul_candidatures")
-    .select("site_id, adulte, pays, deux_telephones, a_telephone, nom, email, reponses, desinscrit_at, referral, cree_at")
-    .eq("statut_site", "pending").is("decision", null)
+    .select("site_id, adulte, pays, deux_telephones, a_telephone, nom, email, reponses, desinscrit_at, referral, cree_at, decision")
+    // Les nouvelles, et celles « à traiter » pas encore décidées par un HM : réévaluées à chaque passage
+    // (un pays ouvert ou une réponse complétée les fait passer en automatique).
+    .eq("statut_site", "pending").or("decision.is.null,decision.eq.a_traiter")
     .order("referral", { ascending: false }).order("cree_at", { ascending: true });
   if (errNouv) throw errNouv;
   const rec = (nouvelles ?? []).length ? await recruteurs(supabase) : [];
@@ -337,10 +339,11 @@ async function candidatures(supabase: Supabase) {
       bilan.auto++;
     } else {
       const hm = c.pays ? hmDuPays(String(c.pays), rec) : null;
+      const deja = c.decision === "a_traiter";
       await supabase.from("ruul_candidatures").update({
-        decision: "a_traiter", manques, hm_id: hm, decide_at: new Date().toISOString(),
+        decision: "a_traiter", manques, hm_id: hm, ...(deja ? {} : { decide_at: new Date().toISOString() }),
       }).eq("site_id", c.site_id);
-      bilan.a_traiter++;
+      if (!deja) bilan.a_traiter++;
     }
   }
 

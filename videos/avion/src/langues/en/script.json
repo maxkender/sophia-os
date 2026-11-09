@@ -1,0 +1,243 @@
+{
+  "langue": "en",
+  "voix": {
+    "id": "nPczCjzI2devNBz1zQrb",
+    "nom": "Brian",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.06
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "The world's biggest airliner weighs over 500 tonnes, like 300 cars floating in the sky.",
+      "reperes": [
+        {
+          "mot": "tonnes,",
+          "image": 71
+        },
+        {
+          "mot": "floating",
+          "image": 109
+        }
+      ],
+      "animation": "Un énorme avion de ligne en papier (double pont, 4 réacteurs) traverse le ciel kraft. Sur « tonnes », une balance géante surgit sous lui et s'écrase. Sur « floating », une tour de petites voitures en papier s'empile à côté de l'avion et flotte avec lui. Panoramique fouetté vers la suite."
+    },
+    {
+      "id": "S2",
+      "texte": "No balloon, no rotor, nothing holding it up, and no, it's not the engines.",
+      "reperes": [
+        {
+          "mot": "nothing",
+          "image": 62
+        },
+        {
+          "mot": "engines.",
+          "image": 144
+        }
+      ],
+      "animation": "L'avion immobile au centre. Fausses pistes, une par une : un ballon apparaît au-dessus et éclate, une hélice d'hélicoptère surgit puis disparaît. Sur « nothing », zoom arrière sur le vide sous l'avion. Sur « engines. », gros plan sur un réacteur barré d'un panneau d'interdiction (NoSign)."
+    },
+    {
+      "id": "S3",
+      "texte": "Even some textbooks get this wrong. So what's really keeping it up there?",
+      "reperes": [
+        {
+          "mot": "wrong.",
+          "image": 57
+        },
+        {
+          "mot": "there?",
+          "image": 122
+        }
+      ],
+      "animation": "Un manuel scolaire en papier s'ouvre sur un schéma d'aile (deux flèches d'air qui se rejoignent derrière). Sur « wrong », un gros tampon croix rouge s'abat dessus et secoue légèrement l'image. Sur « there », le livre se referme, l'avion revient dans un faisceau de projecteur, suspense."
+    },
+    {
+      "id": "S4",
+      "texte": "Well, it's the wings. They're curved and tilted just a little, so they push air down.",
+      "reperes": [
+        {
+          "mot": "wings.",
+          "image": 26
+        },
+        {
+          "mot": "down.",
+          "image": 125
+        }
+      ],
+      "animation": "Réponse à la question : sur « wings », le projecteur se resserre sur les ailes de l'avion, qui s'illuminent. Puis l'avion se réduit à une seule aile vue en coupe (profil courbé), plein cadre, qui s'incline doucement sur « tilted ». Des rubans d'air bleus arrivent de la gauche, glissent dessus et dessous, et sont tous rabattus vers le bas sur « down »."
+    },
+    {
+      "id": "S5",
+      "texte": "And when you push air down, it pushes you back up.",
+      "reperes": [
+        {
+          "mot": "down,",
+          "image": 41
+        },
+        {
+          "mot": "up.",
+          "image": 92
+        }
+      ],
+      "animation": "Même aile en coupe, plein cadre. Sur « down », de grosses flèches d'air bleues partent vers le bas sous l'aile ; sur « back », une grosse flèche jaune répond et pousse l'aile vers le haut. Sur « up », l'aile monte d'un cran avec un petit rebond."
+    },
+    {
+      "id": "S6",
+      "texte": "You've felt this before. Hand out the car window, tilt it up, and it lifts, your hand's a tiny wing.",
+      "reperes": [
+        {
+          "mot": "tilt",
+          "image": 98
+        },
+        {
+          "mot": "wing.",
+          "image": 174
+        }
+      ],
+      "animation": "Glissement de page vers la vie de tous les jours. Une voiture en papier roule (vue de côté, décor qui défile), une main à plat sort par la fenêtre passager, des rubans d'air glissent autour. Sur « tilt », la main s'incline vers le haut et les rubans sont rabattus vers le bas ; sur « lifts », le bras monte d'un coup. Sur « wing », la main se transforme en aile en papier (raccord avec la scène suivante, qui revient sur l'aile)."
+    },
+    {
+      "id": "S7",
+      "texte": "Plus, air rushes faster over the top, so pressure drops up there, and that's lift.",
+      "reperes": [
+        {
+          "mot": "faster",
+          "image": 38
+        },
+        {
+          "mot": "lift.",
+          "image": 136
+        }
+      ],
+      "animation": "Retour à l'aile en coupe. Les rubans d'air du dessus s'étirent et accélèrent, des bulles claires de basse pression pulsent au-dessus. Sur « drops », l'aile est aspirée vers le haut. Sur « lift. », elle s'envole hors du cadre."
+    },
+    {
+      "id": "S8",
+      "texte": "But lift needs speed, the engines just push forward, and at around 280 kilometers an hour the wings take over.",
+      "reperes": [
+        {
+          "mot": "forward,",
+          "image": 83
+        },
+        {
+          "mot": "over.",
+          "image": 205,
+          "ou": "fin"
+        }
+      ],
+      "animation": "Piste de décollage vue de côté. L'avion roule, les réacteurs crachent un souffle horizontal sur « forward ». Un compteur de vitesse à aiguille (sans chiffres) grimpe pendant « 280 kilometers ». Juste après « over. », les roues quittent le sol et l'avion décolle en diagonale vers le haut."
+    },
+    {
+      "id": "S9",
+      "texte": "So if both engines stop, the plane doesn't drop, it glides, and in 2001, one glided 120 kilometers and everyone survived.",
+      "reperes": [
+        {
+          "mot": "glides,",
+          "image": 94
+        },
+        {
+          "mot": "survived.",
+          "image": 222
+        }
+      ],
+      "animation": "Ciel de nuit au-dessus de l'océan. Les deux réacteurs s'éteignent (petits nuages de fumée). L'avion ne tombe pas : sur « glides », il plane en pente douce avec une traîne pointillée. Il se pose sur une petite île ; sur « survived », des passagers en papier sortent en sautant de joie."
+    }
+  ],
+  "outro": {
+    "texte": "Answer all these questions with the Sophia app."
+  },
+  "legende": "A 500-tonne plane, and it's not the engines holding it up ✈️ So what is? #planes #aviation #science #physics #learnontiktok",
+  "appli": {
+    "categorie": "SCIENCE",
+    "lectures": "100 k reads",
+    "jours": "DAYS",
+    "commencer": "Start",
+    "onglets": [
+      "Home",
+      "Library",
+      "Path",
+      "Practice",
+      "Profile"
+    ],
+    "titre": "How do planes fly?",
+    "description": "Hundreds of tonnes in the sky, held up by nothing but wings, speed and air.",
+    "lecon": {
+      "sousTitre": "Wings, speed, and a lot of air pushed down.",
+      "paragraphes": [
+        [
+          {
+            "t": "A wing is curved and tilted slightly upward, so it "
+          },
+          {
+            "m": "deflects huge amounts of air downward"
+          },
+          {
+            "t": ". The air pushes back on the wing. At the same time, air flows faster over the curved top, which lowers the pressure there. Together, these effects create lift. (The old idea that air on top has to “catch up” with air below is a myth.)"
+          }
+        ],
+        [
+          {
+            "t": "Lift only appears with speed. The engines push the plane forward, and an A380 leaves the ground at "
+          },
+          {
+            "m": "around 280 km/h"
+          },
+          {
+            "t": ". Without engines, a plane does not fall, it glides. In 2001, an Air Transat Airbus that ran out of fuel over the Atlantic "
+          },
+          {
+            "m": "glided about 120 km to the Azores"
+          },
+          {
+            "t": ", and all 306 people on board survived."
+          }
+        ]
+      ],
+      "continuer": "Continue"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} OF 2",
+      "bravo": "Correct!",
+      "questions": [
+        {
+          "q": "What do a plane's wings push down to create lift?",
+          "options": [
+            "Fuel",
+            "Air",
+            "Water",
+            "Nothing at all"
+          ],
+          "bonne": 1,
+          "fait": "Push air down, and it pushes you up."
+        },
+        {
+          "q": "What does an airliner do if both engines stop?",
+          "options": [
+            "It falls straight down",
+            "It glides",
+            "It hovers",
+            "It flips over"
+          ],
+          "bonne": 1,
+          "fait": "In 2001, one glided 120 km to safety."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lesson complete!",
+      "score": "2/2 correct answers",
+      "serie": "DAYS STREAK",
+      "xp": "XP EARNED",
+      "suivant": "UP NEXT",
+      "suivantTitre": "What would happen if a supervolcano woke up?",
+      "bouton": "Next lesson"
+    }
+  }
+}

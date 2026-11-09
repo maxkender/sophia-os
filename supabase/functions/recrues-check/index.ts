@@ -536,7 +536,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     });
   }
 
-  // Lundi soir, à minuit heure de Paris (le prochain lundi) : les recrues de la cohorte, si elles n'ont rien publié ce jour-là.
+  // Lundi soir, à 20:00 heure de Paris (le prochain lundi) : les recrues de la cohorte, si elles n'ont rien publié ce jour-là.
   for (const x of recrues) {
     if (x.deuxieme || x.cohorte_lundi !== prochain || !x.contrat_id) continue;
     const dest = { poster_id: x.poster_id, slack_user_id: null, contrat_id: x.contrat_id };
@@ -545,7 +545,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     ajouter("lundi_soir", {
       poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, hm: hmDe.get(x.poster_id) ?? null, canaux: doublon ? [] : ["upwork"], doublon,
       variante: "si_aucun_post_lundi", texte: texteLundiSoir(r.texteLundiSoir, x.prenom),
-      donnees: { cohorte: x.cohorte_lundi, condition: "seulement si aucun post avec lien publié le lundi, check à minuit (heure de Paris)" },
+      donnees: { cohorte: x.cohorte_lundi, condition: "seulement si aucun post avec lien publié le lundi, check à 20:00 (heure de Paris)" },
     });
   }
   return {
@@ -2528,7 +2528,7 @@ async function repondreUpwork(supabase: Supabase, posterId: string, texte: strin
 // ---------------------------------------------------------------------------
 
 /**
- * Chaque lundi, à minuit heure de Paris (prompt 25 MAJ, 15) : la nouvelle cohorte et les 2es comptes
+ * Chaque lundi, à 20:00 heure de Paris (3/11 ; avant : minuit) : la nouvelle cohorte et les 2es comptes
  * qui démarrent, sans aucun post publié avec son lien ce jour-là → un seul
  * message sur Upwork (`lundi_soir_auto`). Décisions finales : plus de Kill
  * automatique ensuite ; le samedi, Max décide (masterlist).

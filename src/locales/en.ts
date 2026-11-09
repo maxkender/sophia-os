@@ -6447,6 +6447,9 @@ export const en = {
         importer: "Upload a demo",
         aide: "The app video glued after the reaction. Edit it (kept parts, order, speed), then join it to a reaction with \"Reaction + demo\".",
         aucune: "No demo yet: upload a video, or cut the phone part of a source.",
+        deposer: "Drop your demo videos here (they will be in {{langue}})",
+        langueImport: "Language of uploaded demos",
+        langueDe: "Language of the demo {{nom}}",
         telephoneDe: "Phone part · {{titre}}",
         pasMontee: "not edited",
         prete: "edited",
@@ -6476,6 +6479,10 @@ export const en = {
           ordre: "In each part, the end must come after the start.",
           auDela: "A part goes past the end of the video.",
         },
+      },
+      nettoyage: {
+        ok: "no AI credentials",
+        detail: "Final cleaning checked: no C2PA, XMP or tags left (removed: {{retires}}).",
       },
       rendu: {
         enCours: "Rendering in this browser… keep the tab open and visible.",
@@ -6524,6 +6531,7 @@ export const en = {
         choisirCompte: "Pick an account…",
         jour: "Posting day",
         dejaCeJour: "This account already has a post that day (1 per day).",
+        langueDifferente: "Careful: the video is in {{video}}, the account in {{compte}}.",
         videos: "Videos, in order",
         videosAide: "Videos from this page (generated reactions, phone part) or uploaded from your computer. The first video of a source fills in the CTA, screenshot, caption and sound.",
         ajouterDeLaPage: "Add a video from the page…",

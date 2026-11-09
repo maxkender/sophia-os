@@ -1,7 +1,23 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ArrowDown, ArrowUp, Download, Gauge, GripVertical, MonitorSmartphone, Plus, Scissors, Smartphone, Timer, Trash2, Upload, X } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowUp,
+  Download,
+  Gauge,
+  GripVertical,
+  Languages,
+  MonitorSmartphone,
+  Plus,
+  Scissors,
+  ShieldCheck,
+  Smartphone,
+  Timer,
+  Trash2,
+  Upload,
+  X,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -11,9 +27,20 @@ import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Segments } from "@/components/ui/segments";
 import { TitreCarte } from "@/features/bleo/ui";
+import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
-import { ajouterDemoDeSource, CLE_DEMOS, finaliserDemo, importerDemo, listerDemos, supprimerDemo, type DemoUgcIa, type SourceUgcIa } from "./api";
+import {
+  ajouterDemoDeSource,
+  CLE_DEMOS,
+  finaliserDemo,
+  importerDemo,
+  listerDemos,
+  majDemo,
+  supprimerDemo,
+  type DemoUgcIa,
+  type SourceUgcIa,
+} from "./api";
 import { arrondiDixieme, lireSecondes, messageErreur } from "./logique";
 import {
   deplacerVers,
@@ -23,11 +50,40 @@ import {
   nouveauPassage,
   PASSAGES_MAX,
   rendreVideo,
+  videosDeposees,
   VITESSES_DEMO,
   type Passage,
 } from "./rendu";
 
 const VITESSES = VITESSES_DEMO.map((v) => ({ cle: String(v), contenu: `×${String(v).replace(".", ",")}` }));
+
+/** La langue des prochaines démos importées, retenue dans ce navigateur. */
+const CLE_LANGUE = "ugc-ia:langue-demos";
+function langueRetenue(): string {
+  try {
+    const l = window.localStorage.getItem(CLE_LANGUE);
+    return l && (LANGUES_CIBLES as readonly string[]).includes(l) ? l : "en";
+  } catch {
+    return "en";
+  }
+}
+
+function ChoixLangue({ valeur, onChange, label, taille = "sm" }: { valeur: string; onChange: (l: string) => void; label: string; taille?: "sm" | "xs" }) {
+  return (
+    <select
+      className={cn("rounded-md border bg-background px-1.5", taille === "sm" ? "h-8 text-sm" : "h-7 text-xs")}
+      value={valeur}
+      onChange={(e) => onChange(e.target.value)}
+      aria-label={label}
+    >
+      {LANGUES_CIBLES.map((l) => (
+        <option key={l} value={l}>
+          {drapeauLangue(l)} {nomLangue(l)}
+        </option>
+      ))}
+    </select>
+  );
+}
 
 /**
  * Bibliothèque des démos (0665) : la vidéo de l'appli qu'on colle après une
@@ -44,15 +100,28 @@ export function CarteDemos({ sources }: { sources: SourceUgcIa[] }) {
     refetchInterval: (q) => ((q.state.data ?? []).some((d) => d.montage_statut === "en_cours") ? 5000 : false),
   });
   const [aMonter, setAMonter] = React.useState<DemoUgcIa | null>(null);
+  const [langue, setLangueEtat] = React.useState(langueRetenue);
+  const [survol, setSurvol] = React.useState(false);
+  const setLangue = (l: string) => {
+    setLangueEtat(l);
+    try {
+      window.localStorage.setItem(CLE_LANGUE, l);
+    } catch {
+      // Stockage indisponible : la langue vaut pour cette visite.
+    }
+  };
   const rafraichir = () => qc.invalidateQueries({ queryKey: CLE_DEMOS });
   const importer = useMutation({
     mutationFn: async (fichiers: File[]) => {
-      for (const f of fichiers) await importerDemo(f, await dureeFichier(f));
+      for (const f of fichiers) await importerDemo(f, await dureeFichier(f), langue);
     },
     onSettled: rafraichir,
   });
+  const deposer = (fichiers: File[]) => {
+    if (fichiers.length > 0 && !importer.isPending) importer.mutate(fichiers);
+  };
   const reprendre = useMutation({
-    mutationFn: (sourceId: string) => ajouterDemoDeSource(sourceId),
+    mutationFn: (sourceId: string) => ajouterDemoDeSource(sourceId, langue),
     onSuccess: async (r) => {
       await rafraichir();
       setAMonter(r.demo);
@@ -67,6 +136,9 @@ export function CarteDemos({ sources }: { sources: SourceUgcIa[] }) {
     <Card data-testid="demos">
       <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2">
         <TitreCarte icone={MonitorSmartphone}>{t("ugcIa.demos.titre", { count: liste.length })}</TitreCarte>
+        <span className="flex flex-wrap items-center gap-2">
+        <Languages className="size-4 text-muted-foreground" aria-hidden />
+        <ChoixLangue valeur={langue} onChange={setLangue} label={t("ugcIa.demos.langueImport")} />
         <Button variant="outline" size="sm" asChild disabled={importer.isPending}>
           <label className="cursor-pointer">
             <Upload aria-hidden />
@@ -86,9 +158,35 @@ export function CarteDemos({ sources }: { sources: SourceUgcIa[] }) {
             />
           </label>
         </Button>
+        </span>
       </CardHeader>
       <CardContent className="space-y-2">
         <p className="text-xs text-muted-foreground">{t("ugcIa.demos.aide")}</p>
+        {/* Glisser-déposer : les vidéos lâchées ici entrent dans la bibliothèque, dans la langue choisie. */}
+        <div
+          data-testid="depot-demos"
+          onDragEnter={(e) => {
+            e.preventDefault();
+            setSurvol(true);
+          }}
+          onDragOver={(e) => {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "copy";
+          }}
+          onDragLeave={() => setSurvol(false)}
+          onDrop={(e) => {
+            e.preventDefault();
+            setSurvol(false);
+            deposer(videosDeposees(e.dataTransfer.files));
+          }}
+          className={cn(
+            "flex flex-col items-center justify-center gap-1 rounded-lg border-2 border-dashed px-4 py-5 text-center text-sm text-muted-foreground transition-colors",
+            survol && "border-primary bg-primary/5 text-foreground",
+          )}
+        >
+          <Upload className="size-5" aria-hidden />
+          <span>{importer.isPending ? t("ugcIa.posts.envoi") : t("ugcIa.demos.deposer", { langue: `${drapeauLangue(langue)} ${nomLangue(langue)}` })}</span>
+        </div>
         {(importer.error || reprendre.error || demos.error) && (
           <p role="alert" className="text-sm text-destructive">
             {messageErreur(importer.error ?? reprendre.error ?? demos.error)}
@@ -123,12 +221,25 @@ function LigneDemo({ demo: d, monter }: { demo: DemoUgcIa; monter: () => void })
   const { t } = useTranslation();
   const qc = useQueryClient();
   const supprimer = useMutation({ mutationFn: () => supprimerDemo(d.id), onSuccess: () => qc.invalidateQueries({ queryKey: CLE_DEMOS }) });
+  const changerLangue = useMutation({ mutationFn: (langue: string) => majDemo(d.id, { langue }), onSettled: () => qc.invalidateQueries({ queryKey: CLE_DEMOS }) });
   const enCours = d.montage_statut === "en_cours";
   return (
     <li className="space-y-1 py-2 text-sm" data-testid={`demo-${d.id}`}>
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
         {d.source_id ? <Smartphone className="size-4 text-muted-foreground" aria-hidden /> : <MonitorSmartphone className="size-4 text-muted-foreground" aria-hidden />}
         <span className="min-w-0 flex-1 truncate font-medium">{d.nom}</span>
+        <ChoixLangue
+          valeur={d.langue}
+          taille="xs"
+          onChange={(l) => changerLangue.mutate(l)}
+          label={t("ugcIa.demos.langueDe", { nom: d.nom })}
+        />
+        {d.nettoyage?.verifie && (
+          <span className="inline-flex items-center gap-1 text-xs text-success" title={t("ugcIa.nettoyage.detail", { retires: d.nettoyage.retires.join(", ") || "—" })}>
+            <ShieldCheck className="size-3.5" aria-hidden />
+            {t("ugcIa.nettoyage.ok")}
+          </span>
+        )}
         {d.video_url ? (
           <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
             <Timer className="size-3.5" aria-hidden />
@@ -166,7 +277,7 @@ function LigneDemo({ demo: d, monter }: { demo: DemoUgcIa; monter: () => void })
         </span>
       </div>
       {d.montage_statut === "echec" && d.montage_erreur && <p className="text-xs text-destructive">{d.montage_erreur}</p>}
-      {supprimer.error && <p className="text-xs text-destructive">{messageErreur(supprimer.error)}</p>}
+      {(supprimer.error || changerLangue.error) && <p className="text-xs text-destructive">{messageErreur(supprimer.error ?? changerLangue.error)}</p>}
     </li>
   );
 }

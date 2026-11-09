@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0665) : les règles pures, partagées
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0666) : les règles pures, partagées
  * par la fonction `ugc-ia` et ses tests. Le front a les mêmes bornes dans
  * `src/features/ugcIa/logique.ts`.
  */
@@ -399,4 +399,10 @@ export function cheminsDemo(id: string): { dossier: string; montee: (version: nu
 
 export function cheminAssemblage(id: string): string {
   return `ugc-ia/assemblages/${id}.mp4`;
+}
+
+/** Une langue de l'OS (« en », « es-419 », « pt-BR »…), en minuscules sauf la région. */
+export function langueDemo(brut: unknown): string | null {
+  const l = String(brut ?? "").trim();
+  return /^[a-z]{2}(-[A-Za-z0-9]{2,3})?$/.test(l) ? l : null;
 }

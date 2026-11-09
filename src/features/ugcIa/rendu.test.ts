@@ -11,7 +11,9 @@ import {
   placerContain,
   segmentReaction,
   segmentsDemo,
+  videosDeposees,
 } from "./rendu";
+import { comptesParLangue } from "./logique";
 import type { DemoUgcIa, GenerationUgcIa } from "./api";
 
 describe("rendu dans le navigateur", () => {
@@ -59,5 +61,21 @@ describe("rendu dans le navigateur", () => {
     expect(segmentsDemo(d)).toEqual([{ url: "https://x/d.mp4", debut: 2, fin: 5, vitesse: 1.5 }]);
     expect(segmentsDemo({ ...d, video_url: "https://x/d-monte.mp4" })).toEqual([{ url: "https://x/d-monte.mp4", debut: 0, fin: null, vitesse: 1 }]);
     expect(segmentsDemo({ ...d, passages: [] })).toEqual([{ url: "https://x/d.mp4", debut: 0, fin: null, vitesse: 1 }]);
+  });
+
+  it("ne garde que les vidéos d'un glisser-déposer", () => {
+    const fichiers = [
+      new File(["a"], "demo.mp4", { type: "video/mp4" }),
+      new File(["b"], "ecran.MOV", { type: "" }),
+      new File(["c"], "photo.png", { type: "image/png" }),
+    ];
+    expect(videosDeposees(fichiers).map((f) => f.name)).toEqual(["demo.mp4", "ecran.MOV"]);
+    expect(videosDeposees(null)).toEqual([]);
+  });
+
+  it("met les comptes de la langue de la vidéo en premier", () => {
+    const comptes = [{ id: "a", langue: "en" }, { id: "b", langue: "de" }, { id: "c", langue: "de" }];
+    expect(comptesParLangue(comptes, "de").map((c) => c.id)).toEqual(["b", "c", "a"]);
+    expect(comptesParLangue(comptes, null).map((c) => c.id)).toEqual(["a", "b", "c"]);
   });
 });

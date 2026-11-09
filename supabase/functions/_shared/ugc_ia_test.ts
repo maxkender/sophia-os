@@ -11,6 +11,7 @@ import {
   demandeMontage,
   demandePassages,
   dureeMontee,
+  langueDemo,
   vitesseDemo,
   demandePostVideo,
   lienTiktok,
@@ -226,4 +227,13 @@ Deno.test("cheminSous : un fichier de la page, sous son dossier, sans remonter",
   assertEquals(cheminSous("ugc-ia/demos/abc/../x.webm", "ugc-ia/demos/abc/"), null);
   assertEquals(cheminSous("ugc-ia/demos/autre/rendu.webm", "ugc-ia/demos/abc/"), null);
   assertEquals(cheminSous("ugc-ia/demos/abc/", "ugc-ia/demos/abc/"), null);
+});
+
+Deno.test("langueDemo : un code de langue de l'OS", () => {
+  assertEquals(langueDemo("de"), "de");
+  assertEquals(langueDemo("es-419"), "es-419");
+  assertEquals(langueDemo("pt-BR"), "pt-BR");
+  assertEquals(langueDemo("DE"), null);
+  assertEquals(langueDemo(""), null);
+  assertEquals(langueDemo("allemand"), null);
 });

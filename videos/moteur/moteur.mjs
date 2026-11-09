@@ -136,6 +136,38 @@ function rendreSurLambda(dir, projet, composition, props, langue, nom, brut) {
   console.log(`Lambda : ${((Date.now() - t0) / 60000).toFixed(1)} min, coût estimé ~$${cout.toFixed(3)}`);
 }
 
+// Nettoyage avant livraison (demande d'Adrien) : aucune trace des outils dans le fichier livré.
+// Enlève les métadonnées du conteneur (« Made with Remotion », encoder Lavf…), les SEI de la vidéo (signature x264
+// et ses réglages, copiée telle quelle) et réencode le son en AAC sans signature (« Lavc »).
+const TRACES = /remotion|x264|lavf|lavc|elevenlabs|videolan|c2pa|jumbf/i;
+function traces(fichier) {
+  const brut = readFileSync(fichier).toString('latin1');
+  const out = new Set();
+  for (const m of brut.matchAll(/[\x20-\x7e]{6,}/g)) if (TRACES.test(m[0])) out.add(m[0].slice(0, 80));
+  return [...out];
+}
+function nettoyer(fichier) {
+  const tmp = fichier.replace(/\.mp4$/, '-propre.mp4');
+  lancer(
+    'ffmpeg',
+    [
+      '-loglevel', 'error', '-y', '-i', fichier,
+      '-map', '0:v:0', '-map', '0:a:0?',
+      '-map_metadata', '-1', '-map_chapters', '-1',
+      '-c:v', 'copy', '-bsf:v', 'filter_units=remove_types=6',
+      '-c:a', 'aac', '-b:a', '192k', '-ar', '48000',
+      '-fflags', '+bitexact', '-flags:v', '+bitexact', '-flags:a', '+bitexact',
+      '-metadata:s:v', 'handler_name=', '-metadata:s:a', 'handler_name=',
+      '-movflags', '+faststart', tmp,
+    ],
+    dirname(fichier),
+  );
+  renameSync(tmp, fichier);
+  const reste = traces(fichier);
+  if (reste.length) throw new Error(`nettoyage incomplet de ${fichier} : ${reste.join(' | ')}`);
+  console.log(`nettoyé : ${fichier.split('/').slice(-2).join('/')} (aucune trace d'outil)`);
+}
+
 async function envoyer(video, langue, fichier, nom) {
   const u = await appel('upload_url', {video_id: video, langue, nom});
   const url = u.url_upload ?? u.upload_url;
@@ -199,6 +231,7 @@ const commandes = {
         console.log(`${nom}.mp4 recompressé : ${(statSync(fichier).size / 1e6).toFixed(1)} Mo`);
       }
     }
+    for (const [, nom] of versions) nettoyer(join(dir, `out/${langue}/${nom}.mp4`));
     console.log(`rendu : videos/${requis('projet')}/out/${langue}/final.mp4${versions.length > 1 ? ' (+ final-sans-sous-titres.mp4)' : ''}`);
   },
   async livrer() {
@@ -208,6 +241,8 @@ const commandes = {
     const final = join(dir, `out/${langue}/final.mp4`);
     const sans = join(dir, `out/${langue}/final-sans-sous-titres.mp4`);
     if (!existsSync(final)) throw new Error('rendre la langue avant de la livrer');
+    nettoyer(final);
+    if (existsSync(sans)) nettoyer(sans);
     const script = JSON.parse(readFileSync(join(dir, `src/langues/${langue}/script.json`), 'utf8'));
     const video_chemin = await envoyer(video, langue, final, `video-${Date.now()}.mp4`);
     // la version sans sous-titres n'est livrée que si elle a été rendue (rendre --sans-sous-titres)

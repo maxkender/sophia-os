@@ -9,13 +9,13 @@
       "similarity_boost": 0.8,
       "style": 0.35,
       "use_speaker_boost": true,
-      "speed": 1.2
+      "speed": 1.18
     }
   },
   "scenes": [
     {
       "id": "S1",
-      "texte": "Le plus gros avion de ligne du monde pèse plus de 500 tonnes, comme 300 voitures qui flottent dans le ciel.",
+      "texte": "Le plus gros avion de ligne du monde pèse plus de cinq cents tonnes, comme trois cents voitures qui flottent dans le ciel.",
       "reperes": [
         {
           "mot": "tonnes,",
@@ -60,7 +60,7 @@
     },
     {
       "id": "S4",
-      "texte": "Eh bien, ce sont les ailes. Elles sont bombées et un peu inclinées, alors elles poussent l'air vers le bas.",
+      "texte": "Eh bien, ce sont les ailes. Bombées et un peu inclinées, elles poussent l'air vers le bas.",
       "reperes": [
         {
           "mot": "ailes.",
@@ -90,7 +90,7 @@
     },
     {
       "id": "S6",
-      "texte": "Tu l'as déjà senti. La main par la fenêtre de la voiture, tu l'inclines, et elle monte, ta main devient une petite aile.",
+      "texte": "Tu l'as déjà senti. La main par la fenêtre de la voiture, tu l'inclines, et elle monte, elle devient une petite aile.",
       "reperes": [
         {
           "mot": "l'inclines,",
@@ -120,7 +120,7 @@
     },
     {
       "id": "S8",
-      "texte": "Mais il faut de la vitesse, les moteurs poussent juste vers l'avant, et vers 280 kilomètres-heure, les ailes prennent le relais.",
+      "texte": "Mais il faut de la vitesse, les moteurs poussent juste vers l'avant, et vers deux cent quatre-vingts à l'heure, les ailes prennent le relais.",
       "reperes": [
         {
           "mot": "l'avant,",
@@ -136,10 +136,10 @@
     },
     {
       "id": "S9",
-      "texte": "Alors si les deux moteurs s'arrêtent, l'avion ne tombe pas, il plane, et en 2001, l'un d'eux a plané 120 kilomètres, et tout le monde a survécu.",
+      "texte": "Alors si les deux moteurs s'arrêtent, l'avion ne tombe pas, il plane. En deux mille un, l'un d'eux a plané cent vingt kilomètres, et tout le monde a survécu.",
       "reperes": [
         {
-          "mot": "plane,",
+          "mot": "plane.",
           "image": 94
         },
         {

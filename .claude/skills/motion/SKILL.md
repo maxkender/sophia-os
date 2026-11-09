@@ -180,6 +180,11 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
      (Guillaume, 1.18) ; de `NlRO8ABjJNJNYaRaLiPJ` (Konrad, 1.2, style 0.45) ; it `32vqZVYOe7sQVGys0soJ`
      (Roberto, 1.2). Modèle `eleven_multilingual_v2`. Pas d'espace avant « ? » / « : » en français dans le
      texte dit (les sous-titres coupent sur les espaces).
+   - **Prononciation** (retour d'Adrien) : dans le texte dit, les nombres s'écrivent **en lettres** dans la langue
+     (« deux mille un », « cinq cents ») : en chiffres, la voix multilingue les lit parfois à l'anglaise. Pas de mots
+     composés rares avec trait d'union (« kilomètres-heure » → « à l'heure »). Garde la vitesse habituelle de la voix ;
+     si le texte est trop long, raccourcis-le plutôt qu'accélérer. Après `voix`, transcris le récit (ElevenLabs
+     speech-to-text, `scribe_v1`) et compare : un mot absent, changé ou anormalement court/long = à corriger.
 3. La capture : télécharge `capture_url` et convertis-la en `public/sophia-home.webp`
    (`ffmpeg -i capture.png public/sophia-home.webp`). Elle doit être une capture d'iPhone portrait de
    l'accueil, carte du cours en haut. Si sa carte n'est pas au même endroit que celle de la Suisse
@@ -196,6 +201,9 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
    `rendre … --lambda` (tant que le quota AWS est à 10 : ~28 min pour 3 min 30, rendu en tranches ; après relèvement du quota et `REMOTION_LAMBDA_CONCURRENCE=100`, quelques minutes ; voir `videos/moteur/LAMBDA.md` §8). Après un échec Lambda, attendre ~15 min avant de relancer. Sinon, rendu local.
    `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
    seulement si l'admin demande la version sans), puis `livrer --video V --projet P --langue L`.
+   **Nettoyage avant livraison** (demande d'Adrien) : `rendre` et `livrer` nettoient le MP4 d'eux-mêmes (aucune
+   métadonnée, aucune signature Remotion / x264 / Lavf / Lavc / ElevenLabs) et `livrer` refuse un fichier qui en garde.
+   Ne livre jamais un fichier par un autre chemin que `livrer`.
 7. `journal` à chaque étape importante. À la fin : `finir --tache T`.
 
 ## 4. Tâche `corriger`

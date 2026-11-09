@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o126",
+ "type_bleo": "full_test",
+ "titre": "how to read a painting in 60 seconds #art #arthistory #smartgirl #museum #learning",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 2/4 : accroche jamais faite chez nous (« painting » n'apparaît dans aucune accroche de donnees/label.json). Accroches écrites : « how to read a painting in 60 seconds » (retenue : méthode concrète, à refaire au musée), « what to look at in a museum » (écartée : plus faible), « art history for beginners » (écartée : cours, pas promesse). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b4cfdb1a",
+   "texte_overlay": "how to read a painting\nin 60 seconds",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ddcf5a0b",
+   "texte_overlay": "1. step back\n\nlook at the whole thing first.\nwhat feeling hits you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4bdb29cb",
+   "texte_overlay": "2. find the light\n\nwhere does it come from?\nit shows you what matters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6564ac21",
+   "texte_overlay": "3. follow the eyes\n\nwhere are the people looking?\nyour eyes will follow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e94f4eb4",
+   "texte_overlay": "4. look for symbols\n\na skull, a lily, a dog:\nthey often mean something.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e37ae88a",
+   "texte_overlay": "5. read the label last\n\nwho, when, why.\nnow it makes sense.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e5e6aaf2",
+   "texte_overlay": "6. learn one story a day\n\nthe more you know, the more\nyou see.",
+   "texte_sophia": "6. learn one story a day\n\ni learn about one painting a day\non a micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f6ebac3f",
+   "texte_overlay": "save this for your next\nmuseum visit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

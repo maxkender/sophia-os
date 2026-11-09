@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o130",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "dc5c89ea-290c-4bb4-974a-1a2612f0bc34",
+ "titre": "classic skills every woman is proud to have #skills #elegance #smartgirl #timeless #thatgirl",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "d175b6b6-554a-4ce6-b18e-977101819d58"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 2 de la boîte (parent dc5c89ea, langue source en) : accroche reformulée (« timeless skills every woman should learn » → « classic skills every woman is proud to have »), autre que sg-o118. Savoir-faire neufs (une bonne tasse de thé, nager vraiment bien, faire sa valise en dix minutes, nouer un foulard, se souvenir des anniversaires). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dce6fa05",
+   "texte_overlay": "classic skills every woman\nis proud to have",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a1193217",
+   "texte_overlay": "1. making a perfect\ncup of tea",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b8879039",
+   "texte_overlay": "2. swimming properly,\nnot just floating",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5a963980",
+   "texte_overlay": "3. talking about art without\nsounding pretentious\n\none painting, one story.",
+   "texte_sophia": "3. talking about art without\nsounding pretentious\n\ni learn one story a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9963bf87",
+   "texte_overlay": "4. packing a suitcase\nin ten minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f14499e9",
+   "texte_overlay": "5. tying a scarf\nthree different ways",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "924efd06",
+   "texte_overlay": "6. remembering birthdays\nwithout a reminder",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "afb2d55e",
+   "texte_overlay": "which one do you have?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/8.jpg"
+  }
+ ]
+}

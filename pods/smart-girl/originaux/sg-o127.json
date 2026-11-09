@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o127",
+ "type_bleo": "full_test",
+ "titre": "how to travel like a cultured woman #travel #culture #smartgirl #solotravel #elegance",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta B. Full test 3/4 : accroche jamais faite chez nous (« travel » n'apparaît dans aucune accroche de donnees/label.json). Accroches écrites : « how to travel like a cultured woman » (retenue : élégance et curiosité, sans argent), « travel habits of intellectual women » (écartée : plus lourde), « what to do in a new city alone » (écartée : déjà proche des « things to do alone »). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8c79591f",
+   "texte_overlay": "how to travel like\na cultured woman",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5a8b139a",
+   "texte_overlay": "1. learn ten words of\nthe language before you go",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6f3d6b85",
+   "texte_overlay": "2. read one novel set\nin that city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e4f18724",
+   "texte_overlay": "3. know the story before\nyou land\n\nwho built it, and why.",
+   "texte_sophia": "3. know the story before\nyou land\n\ni learn it in 5 minutes on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d5cc2418",
+   "texte_overlay": "4. eat where the locals eat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0a1306ce",
+   "texte_overlay": "5. visit one small museum,\nnot just the famous one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "73cda17d",
+   "texte_overlay": "6. send a postcard\nto someone you love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1bac128d",
+   "texte_overlay": "save this for your\nnext trip",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

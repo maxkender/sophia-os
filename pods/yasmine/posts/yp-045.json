@@ -1,0 +1,534 @@
+{
+ "id": "yp-045",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7668360450555333910",
+  "vues": 77400,
+  "enregistrements": 3462,
+  "publie_le": "2026-07-30",
+  "titre": "OLDER SISTER ADVICE from a 20-year-old"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3bfa28e0-1dd5-4d3c-9b26-6aaec4c86ffb",
+ "titre": {
+  "fr": "le bac, vu par ta grande sœur",
+  "es": "selectividad según tu hermana mayor",
+  "tr": "ablandan sınav tavsiyeleri"
+ },
+ "legendes": {
+  "fr": "tout ce que j’aurais voulu qu’on me dise 🤍 #bac #terminale #studytok #thatgirl #conseils",
+  "es": "todo lo que me habría gustado que me dijeran 🤍 #selectividad #bachillerato #studytok #thatgirl #consejos",
+  "tr": "keşke bana da söyleselerdi dediğim her şey 🤍 #yks #sınav #studytok #thatgirl #tavsiye"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7640939101746727711"
+ },
+ "fond": {
+  "media_id": "2ce3c5b8-5aa1-4e7e-9200-12d8824cadc4",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/7.jpg?v=1790606894713",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-018 (« conseils de grande sœur pour ton année de bac », gagnante : 10,5 k en es, r 8,59), 2e sur 3 : même promesse reformulée, autres conseils et autres photos. cta C : la mise en scène iPhone micabo en moitié basse d’un collage, conseil « révise en te posant des questions » + micabo dans la sous-légende",
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": {
+    "media_id": "2ce3c5b8-5aa1-4e7e-9200-12d8824cadc4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/7.jpg?v=1790606894713",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "106877b4-a800-414e-bfac-193fc47f0e3a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/eea9bb9f-5001-4994-872e-9c2055582dde/3.jpg?v=1791725590785",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LE BAC,",
+      "VU PAR TA",
+      "GRANDE SŒUR"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "ce que j’ai appris l’an dernier",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "SELECTIVIDAD",
+      "SEGÚN TU",
+      "HERMANA MAYOR"
+     ],
+     "taille": 108,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "lo que aprendí el año pasado",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ABLANDAN",
+      "SINAV",
+      "TAVSİYELERİ"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "geçen yıl öğrendiklerim",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c169736c-0068-430a-8d21-9cdfea656a69",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b7cf2471-5d0c-4563-9856-b1fe99ba804a/7.jpg?v=1791725571103",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "0363af98-a33e-4b09-8a57-c5eeb1e1ff6f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1f2a12ee-4cd1-4732-a680-873b79c3a657/6.jpg?v=1791725576364",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "une fiche par chapitre,",
+      "pas plus."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "une page. si ça déborde, c’est que tu n’as pas trié."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "un resumen por tema,",
+      "no más."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "una página. si no cabe, es que no has filtrado."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "her ünite için",
+      "tek bir özet."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "tek sayfa. sığmıyorsa ayıklamamışsın demektir."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "04b6c542-df00-44ed-9456-a7ea9dbd4e06",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fa81a15f-51a4-4e1c-9a8d-a0866f7b0302/4.jpg?v=1790606927155",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0
+    }
+   },
+   "photo_bas": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "révise en te posant",
+      "des questions."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "je mets mes cours dans micabo : il me fait des quiz,",
+      "je vois tout de suite ce qui manque."
+     ],
+     "taille_sous": 26
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "estudia haciéndote",
+      "preguntas."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "meto mis clases en micabo: me hace quiz,",
+      "veo enseguida lo que me falta."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kendine soru sorarak",
+      "çalış."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "derslerimi micabo’ya koyuyorum: bana test hazırlıyor,",
+      "eksiğimi hemen görüyorum."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3752af39-e9b8-43c7-adaf-b7bec9c56b13",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/36988353-2c94-4c04-99fb-4e8d3435bb36/5.jpg?v=1790677674028",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "2a775c2f-69a4-48f5-ba31-d8977c7de8e0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/67928145-d056-4797-8b41-855840be1819/1.jpg?v=1791725458389",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "entraîne-toi à l’oral",
+      "à voix haute."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "devant un miroir ou une amie, pas dans ta tête."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "practica el oral",
+      "en voz alta."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "frente a un espejo o una amiga, no en tu cabeza."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "sözlüye",
+      "sesli çalış."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "aynanın ya da bir arkadaşının karşısında."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "47ae84d9-18a1-4a95-997b-b00941a77e3c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/607fe062-d6d2-43b2-a715-de2fd425f0f0/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "c4c9dc5d-0484-4f60-a831-e58d3b2fd990",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d26ffef8-70f6-46ef-bc56-8567fb5f7558/4-upscale.jpg?v=1785989253793",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ne révise pas",
+      "dans ton lit."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "ton cerveau finit par confondre travail et sommeil."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "no estudies",
+      "en la cama."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "tu cerebro acaba confundiendo estudio y sueño."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "yatağında",
+      "ders çalışma."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "beynin çalışmayla uykuyu karıştırmaya başlar."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "abd7ae87-c92f-4882-9a72-186c6ccbd9e8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9ae86482-eb1c-4d7c-ba92-df143108d2c0/6.jpg?v=1787159422491",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "605b8545-48ee-4818-ae69-1b8bdd7a6793",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b193c51a-1924-4fef-a918-e62b096a73d6/6.jpg?v=1792591625425",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "mange avant",
+      "chaque épreuve."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "même si tu stresses. le ventre vide, tout s’envole."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "come antes",
+      "de cada examen."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "aunque estés nerviosa. con el estómago vacío, se te olvida todo."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "her sınavdan önce",
+      "bir şeyler ye."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "stresli olsan bile. aç karnına her şeyi unutursun."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2b10e71d-e198-4584-be00-098822d23277",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0b1fb13a-c891-4b67-97b3-dc97d80dfef3/7.jpg?v=1790608994388",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "0fb9f742-0958-431e-8698-761e6f658ad3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/31ed426f-6c4b-4302-ae33-b0b7ea6cba98/5.jpg?v=1791726341868",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "une mauvaise note",
+      "n’est pas la fin."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "il y a toujours un plan b, et souvent il est mieux."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "una mala nota",
+      "no es el final."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "siempre hay un plan b, y a menudo es mejor."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kötü bir not",
+      "son değil."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "her zaman bir b planı var, çoğu zaman daha iyisi."
+     ],
+     "taille_sous": 28
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

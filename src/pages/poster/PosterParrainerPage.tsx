@@ -15,7 +15,7 @@ export function PosterParrainerPage() {
       <div>
         <h1 className="text-lg font-semibold tracking-tight">Refer a friend</h1>
         <p className="text-sm text-muted-foreground">
-          $10 per friend once they start posting and reach 14 posts, up to $100 if their account becomes one of our top performers. Any country works.
+          $10 per friend, the Monday after they complete their first full week of posts.
         </p>
       </div>
       {q.data && !q.data.actif ? <p className="text-sm text-muted-foreground">Referrals are not open right now.</p> : <ParrainerDashboard />}

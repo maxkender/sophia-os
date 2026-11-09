@@ -17,7 +17,8 @@
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
  *     pays_nom, applications, ruul_email?, ref? }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
- *       login @sophia.com, mot de passe 12345678 comme tout compte OS, premier
+ *       login @sophia.com, mot de passe aléatoire tiré par manage-users (9/11 :
+ *       c'est CE mot de passe qui est renvoyé au site, champ `password`), premier
  *       compte perso, labels, persona), dans la langue de son pays, puis le
  *       rattache au profil « RUUL cohort » (réglage `hub_posteurs`), ou à
  *       défaut au HM de sa zone. Le warm-up n'est pas lancé :
@@ -25,8 +26,8 @@
  *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
  *       lundi (trigger de 0296) — premiers posts et paie partent du lundi.
  *       Idempotent sur `hub_id` : un rejeu renvoie `existed: true` et, si le
- *       poster ne s'est jamais connecté, son mot de passe remis à 12345678
- *       (sinon `password: null`, `deja_connecte: true`).
+ *       poster ne s'est jamais connecté, un nouveau mot de passe aléatoire, mis
+ *       en place et renvoyé (sinon `password: null`, `deja_connecte: true`).
  *   { action: "posts_semaine", profile_ids, lundi }
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
@@ -47,7 +48,6 @@ import {
   dateIso,
   estUuid,
   idCohorteRuul,
-  MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   paysAEnvoyer,
   type LanguesComptes,
@@ -60,9 +60,10 @@ import {
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { lireParLots } from "../_shared/lots.ts";
+import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-06c";
+const VERSION = "2026-11-09-mdp";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -297,13 +298,13 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   }
 
   // 4. Création par le chemin de l'admin (manage-users), jamais un second chemin.
-  const password = MOT_DE_PASSE_INITIAL;
   const paysCompte = paysAEnvoyer(langue, pays);
   const cree = await appelerManageUsers({
     action: "create",
     prenom,
     nom,
-    password,
+    // 9/11 : manage-users tire le mot de passe ; on renvoie au site celui qu'il a mis en place.
+    password: "auto",
     langue,
     type_compte: "perso",
     posts_par_jour: POSTS_PAR_JOUR,
@@ -331,10 +332,19 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     return json({ ok: false, error: `creation_refusee : ${cree.error}` }, 422);
   }
 
+  // Sans mot de passe dans la réponse (ne devrait pas arriver) : on en met un en place nous-mêmes.
+  let password = cree.password;
+  if (!password) {
+    password = motDePasseRecrue();
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(cree.userId, { password });
+    if (errMdp) throw errMdp;
+  }
+
   // 5. Le lien d'abord (un rejeu retrouvera le poster), puis le profil.
   const { error: errCree } = await supabase
     .from("hub_posteurs")
-    .update({ statut: "cree", profile_id: cree.userId, compte_id: cree.compteId, email_os: cree.email, cree_at: new Date().toISOString() })
+    // 0583 : mdp_reel = le mot de passe renvoyé au site est bien celui en place (le rattrapage n'y touche pas).
+    .update({ statut: "cree", profile_id: cree.userId, compte_id: cree.compteId, email_os: cree.email, cree_at: new Date().toISOString(), mdp_reel: true })
     .eq("hub_id", hubId);
   if (errCree) throw errCree;
   // 0574 : tous les posteurs du site sont payés par Ruul ; l'email Ruul vient de la page de signature.
@@ -411,16 +421,19 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
     ? await supabase.from("profiles").select("id, prenom, nom, email").eq("id", managerId).maybeSingle()
     : { data: null };
 
-  // Jamais connecté : ses identifiants ont pu se perdre en route, on remet le
-  // mot de passe de départ pour que l'email renvoyé dise vrai. Déjà connecté :
-  // on ne touche à rien.
+  // Jamais connecté : ses identifiants ont pu se perdre en route, on met en
+  // place un nouveau mot de passe et on renvoie CELUI-LÀ, pour que l'email dise
+  // vrai (à changer à la 1re connexion). Déjà connecté : on ne touche à rien.
   const { data: auth } = await supabase.auth.admin.getUserById(profil.id);
   const jamaisConnecte = !auth?.user?.last_sign_in_at;
   let password: string | null = null;
   if (jamaisConnecte) {
-    password = MOT_DE_PASSE_INITIAL;
-    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password });
+    const nouveau = motDePasseRecrue();
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password: nouveau });
     if (errMdp) throw errMdp;
+    password = nouveau;
+    await supabase.from("profiles").update({ must_change_password: true }).eq("id", profil.id);
+    await supabase.from("hub_posteurs").update({ mdp_reel: true }).eq("hub_id", lien.hub_id);
   }
 
   return json({
@@ -437,7 +450,7 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
 }
 
 type ResultatCreation =
-  | { ok: true; userId: string; email: string; compteId: string | null }
+  | { ok: true; userId: string; email: string; compteId: string | null; password: string | null }
   | { ok: false; incertain: boolean; error: string };
 
 async function appelerManageUsers(corps: Record<string, unknown>): Promise<ResultatCreation> {
@@ -459,7 +472,9 @@ async function appelerManageUsers(corps: Record<string, unknown>): Promise<Resul
   // deno-lint-ignore no-explicit-any
   const charge: any = await reponse.json().catch(() => null);
   if (reponse.ok && charge?.ok && charge.userId) {
-    return { ok: true, userId: String(charge.userId), email: String(charge.email ?? ""), compteId: charge.compte?.id || null };
+    // 9/11 : le mot de passe réellement mis en place par manage-users (aléatoire depuis le 31/10).
+    const password = typeof charge.password === "string" && charge.password.length >= 8 ? charge.password : null;
+    return { ok: true, userId: String(charge.userId), email: String(charge.email ?? ""), compteId: charge.compte?.id || null, password };
   }
   const erreur = String(charge?.error ?? `HTTP ${reponse.status}`).slice(0, 300);
   // Un 5xx (ou une réponse illisible) peut arriver APRÈS createUser : issue inconnue.

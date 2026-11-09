@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o081",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5d4e896d-4d9a-4478-a712-26e73c1aa8b3",
+  "titre": "quotes that get me off my phone and into my notes #studytok #studymotivation #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "5d4e896d-4d9a-4478-a712-26e73c1aa8b3"
+  ],
+  "notes": "Déclinaison G2 de 5d4e896d (notre cs-o039 en G1 : r 13,51 en allemand), ligne 2 de la boîte, 2e déclinaison de la famille. Même promesse (des citations qui font enfin étudier), autres mots que la famille et que cs-o073 : « quotes that get me off my phone and into my notes ». Citations neuves, sans auteur, aucune de cs-o039 ni de cs-o073. Place micabo : slide 5 (se tester). Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "977c9abc",
+      "texte_overlay": "quotes that get me off my phone\nand into my notes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9954922e",
+      "texte_overlay": "\"the feed will still be there in an hour. the test won't wait.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9bc34354",
+      "texte_overlay": "\"motivation follows action. not the other way around.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9d49a933",
+      "texte_overlay": "\"one chapter now or one panic later\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3712c895",
+      "texte_overlay": "\"if you can't answer it without notes, you're not ready yet\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9d627dcd",
+      "texte_overlay": "\"you'll never regret the hour you studied\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9ea256b7",
+      "texte_overlay": "\"be the reason future you can relax\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

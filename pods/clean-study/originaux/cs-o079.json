@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o079",
+  "type_bleo": "full_test",
+  "titre": "how i make group projects actually work without doing everything myself #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous. Accroches écrites : « how i make group projects actually work without doing everything myself » (retenue : la galère que tout le monde connaît, une solution), « group project survival guide » (écartée : vague), « why i'm always the one doing the whole group project » (écartée : se plaindre des autres, contraire au ton). Gestes vrais, sans mépris des autres : découper le projet dès le premier jour, un nom par tâche, une date intermédiaire, un document partagé, chacun présente ce qu'il a fait au groupe et se teste dessus (place micabo, slide 6), on relit tout ensemble avant de rendre. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "606886a5",
+      "texte_overlay": "how i make group projects actually work\nwithout doing everything myself",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6930e0a5",
+      "texte_overlay": "day 1: we cut the project into small tasks.\nbefore anyone says \"let's see later\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7b9893ef",
+      "texte_overlay": "one name next to each task.\nno name = nobody does it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "7bde9ca1",
+      "texte_overlay": "a check-in date halfway through.\nnot just the final deadline.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7ebc20ac",
+      "texte_overlay": "one shared document for everything.\nno more \"who has the latest version?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3347a655",
+      "texte_overlay": "everyone explains their part to the group.\nthen we quiz each other, so anyone can present it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "7f1088a8",
+      "texte_overlay": "we reread the whole thing together before handing it in.\none voice, not four pieces.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

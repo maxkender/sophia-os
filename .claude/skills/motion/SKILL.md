@@ -54,7 +54,12 @@ Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/l
   (décor, personnages, 2 à 4 actions et le mot sur lequel tombe chacune, transition). L'admin la relit et la
   corrige dans la page avant de valider : écris-la pour qu'il voie la vidéo en lisant.
 - `outro.texte` : « Answer all these questions with the Sophia app. »
-- Écris pour l'oral : pas de « : » (pause forcée de la voix), « First, … / Second, … » plutôt que « One: … ».
+- **Écris pour l'oreille, pas pour l'œil** (demande d'Adrien) : la ponctuation, c'est le souffle de la voix.
+  Une virgule où on respire, un point seulement là où on marquerait vraiment une pause en parlant, jamais de
+  « … », pas de « : ». Des phrases qui s'enchaînent comme quand on raconte (« so », « and no », « plus », « but »),
+  des contractions (« it's », « what's », « your hand's »), pas de phrases télégraphiques (« Curved and tilted, it… »).
+  Relis chaque scène à voix haute : si tu ne la dirais pas comme ça à un ami, réécris-la.
+  « First, … / Second, … » plutôt que « One: … ».
 - `appli` : les textes de l'appli. **Recopie de la capture** la catégorie, le titre, la description,
   « 100 k reads », etc. Écris la leçon (sous-titre + 2 paragraphes, 3 passages surlignés `{m}`) et
   **2 questions de quiz** dont la réponse est dans le script (`bonne` = index de la bonne réponse, B de

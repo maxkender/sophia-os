@@ -4478,7 +4478,12 @@ async function finsDeContrat(supabase: Supabase, par: string | null, reel: boole
     }
     const nouvelles: EtapeArret[] = [];
     let termine = false;
-    if (!f.contrat_id) {
+    // 0574 : un posteur payé par Ruul n'a pas de contrat Upwork à fermer.
+    const { data: canal } = f.contrat_id ? { data: null } : await supabase.from("profiles").select("canal_paie").eq("id", f.poster_id).maybeSingle();
+    if (!f.contrat_id && canal?.canal_paie === "ruul") {
+      nouvelles.push(etape("fermeture", "sans_objet", "posteur Ruul : pas de contrat Upwork (retiré de Ruul à la main si besoin)"));
+      termine = true;
+    } else if (!f.contrat_id) {
       nouvelles.push(etape("fermeture", "erreur", "contrat Upwork non relié"));
     } else if (await contratPartage(supabase, f.contrat_id, f.poster_id)) {
       nouvelles.push(etape("fermeture", "sans_objet", "contrat partagé avec un autre compte actif du posteur"));

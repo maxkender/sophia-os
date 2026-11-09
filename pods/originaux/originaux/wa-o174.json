@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o174",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "36aef349-b10a-4ceb-8a81-c92f0977a1a1",
+ "titre": "hobbies that will make you fearless around anyone #confidence #selfimprovement #hobbies #socialskills #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "061f7259-222d-41c8-b997-8e3c179d41d1"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 061f7259). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 36aef349). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "132ec643-07c1-45f8-a38f-ac2129adbc80",
+   "texte_overlay": "hobbies that will make you\nfearless around anyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669539672686693645/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2764faa6-5192-4947-b550-db2b159223df",
+   "texte_overlay": "joining a sports team\n\njoin a local team in a sport you're not good at. learning in front of others, and laughing at your own mistakes, slowly kills the fear of looking foolish.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669539672686693645/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "066689d9-143a-42e0-be7e-10589381f53a",
+   "texte_overlay": "hosting game nights\n\ninvite people over for a board game night once a month. being the host puts you at the centre of the room in the gentlest, most relaxed and natural way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669539672686693645/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a2ffb300-8084-4546-877a-8ca71ed88964",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day learning something interesting: a lost city, a strange animal, a famous painter. having things to share makes talking to anyone feel easy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669539672686693645/3.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day learning something interesting: a lost city, a strange animal. i do it with the Sophia app, one lesson a day, and talking to anyone feels easy now."
+  },
+  {
+   "position": 5,
+   "media_id": "97893408-8d8b-4bf6-8686-caaf69f0b3c4",
+   "texte_overlay": "travelling alone\n\ntake a short trip on your own, even just for a weekend. finding your way in a new place alone builds a quiet confidence that nothing at home can ever give you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669539672686693645/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7199760e-f0b6-43e4-b011-56e78747cce3",
+   "texte_overlay": "taking an acting class\n\nsign up for a beginner acting or improv class. performing in front of strangers on purpose makes ordinary everyday conversations feel wonderfully easy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669539672686693645/6.jpg"
+  }
+ ]
+}

@@ -2993,6 +2993,32 @@
    },
    "statut": "rendu_fr",
    "notes": "cta A; logos google et IA (slide 3) remplacés"
+  },
+  {
+   "post_id": "original-074",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#singletasking #focus #productivity",
+   "musique": {
+    "titre": "Audio 002",
+    "auteur": "Next To Blue",
+    "original": false,
+    "id": "7220646554179209218",
+    "url_tiktok": "https://www.tiktok.com/music/x-7220646554179209218"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7691336990419209505_1",
+    "2": "7681048823824649494_3",
+    "3": "7683630825610513686_2",
+    "4": "7699523873712164128_5",
+    "5": "7699523873712164128_4",
+    "6": "7696527080426655009_5"
+   },
+   "notes": "full test BLEO (une chose à la fois, 40 onglets); cta B",
+   "type_bleo": "full_test"
   }
  ]
 }

@@ -11,6 +11,9 @@
 -- (dessin image par image : rien des métadonnées des vidéos d'origine ne
 -- passe), réencodée par `ugc-ia`, puis envoyée à un compte UGCV en post vidéo
 -- (CTA déjà incrusté).
+--
+-- ✅ Appliquée le 2026-11-09 (MCP) : ugc_ia_demos et ugc_ia_assemblages (RLS
+-- admin), post_videos.assemblage_id.
 
 create table if not exists public.ugc_ia_demos (
   id uuid primary key default gen_random_uuid(),

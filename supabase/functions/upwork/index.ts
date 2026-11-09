@@ -1125,11 +1125,13 @@ async function chargerLignes(
   const posteurs = brutes.map((l) => l.poster_id);
   const [{ data: profils }, { data: paysComptes }] = posteurs.length
     ? await Promise.all([
-      supabase.from("profiles").select("id, upwork_contract_id").in("id", posteurs),
+      supabase.from("profiles").select("id, upwork_contract_id, canal_paie").in("id", posteurs),
       supabase.from("comptes").select("poster_id, pays").in("poster_id", posteurs),
     ])
     : [{ data: [] }, { data: [] }];
   const contratDe = new Map((profils ?? []).map((p) => [p.id as string, (p.upwork_contract_id as string | null) ?? null]));
+  // 0574 : les posteurs Ruul sont payés par le lot Ruul, jamais par l'API Upwork.
+  const ruul = new Set((profils ?? []).filter((p) => p.canal_paie === "ruul").map((p) => p.id as string));
   const paysDe = new Map<string, (string | null)[]>();
   for (const c of paysComptes ?? []) paysDe.set(String(c.poster_id), [...(paysDe.get(String(c.poster_id)) ?? []), (c.pays as string | null) ?? null]);
   const contrats = [...new Set([...contratDe.values()].filter(Boolean))] as string[];
@@ -1147,7 +1149,7 @@ async function chargerLignes(
     suivante_comptes: brute.suivante_comptes === null ? null : Number(brute.suivante_comptes),
     suivante_montant: brute.suivante_montant === null ? null : Number(brute.suivante_montant),
     contrat_id: contratDe.get(brute.poster_id) ?? null,
-    hors_upwork: estHorsUpwork(contratDe.get(brute.poster_id) ?? null, paysDe.get(brute.poster_id) ?? []),
+    hors_upwork: ruul.has(brute.poster_id) || estHorsUpwork(contratDe.get(brute.poster_id) ?? null, paysDe.get(brute.poster_id) ?? []),
     nb_comptes: Number(brute.nb_comptes ?? 1),
     // deno-lint-ignore no-explicit-any
     moins6: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).filter((d: any) => d?.moins6 === true).length,

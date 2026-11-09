@@ -194,6 +194,9 @@ verify_jwt = false
 [functions.revoquer-post]
 verify_jwt = false
 
+[functions.ruul]
+verify_jwt = false
+
 [functions.scan-visage-ugc]
 verify_jwt = false
 

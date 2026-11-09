@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { lirePhraseBonus, noteBonus } from "../../../supabase/functions/_shared/bonus";
+import { lirePhraseBonus, noteBonus, personneSure, raisonBonus } from "../../../supabase/functions/_shared/bonus";
 import type { LigneBonusLundi } from "./api";
 import { delaiCm, jourMois, totaux } from "./lundi";
 
@@ -11,14 +11,27 @@ const ligne = (p: Partial<LigneBonusLundi>): LigneBonusLundi => ({
 });
 
 describe("bonus du lundi (0564)", () => {
-  it("lit une phrase en français et en anglais", () => {
-    expect(lirePhraseBonus("donne 2 $ de bonus à Martin Befeld lundi, raison test", 2026))
-      .toEqual({ montant: 2, nom: "Martin Befeld", lundi: null, raison: "test" });
-    expect(lirePhraseBonus("give a bonus of $5 to Jane Doe monday 16/11 reason great week", 2026))
-      .toEqual({ montant: 5, nom: "Jane Doe", lundi: "2026-11-16", raison: "great week" });
-    expect(lirePhraseBonus("donne 2,5 $ à Jean, pour la vidéo", 2026)).toEqual({ montant: 2.5, nom: "Jean", lundi: null, raison: "la vidéo" });
-    expect("erreur" in lirePhraseBonus("donne du bonus à Martin", 2026)).toBe(true);
-    expect("erreur" in lirePhraseBonus("donne 2 $", 2026)).toBe(true);
+  it("lit n'importe quelle phrase (0571)", () => {
+    const lu = (t: string) => lirePhraseBonus(t, 2026);
+    expect(lu("donne 2 $ de bonus à Martin Befeld lundi, raison test")).toMatchObject({ montant: 2, nom: "Martin Befeld", lundi: null, raison: "test" });
+    expect(lu("give a bonus of $5 to Jane Doe monday 16/11 reason great week")).toMatchObject({ montant: 5, nom: "Jane Doe", lundi: "2026-11-16", raison: "great week" });
+    expect(lu("15$ à bogdan kugcas")).toMatchObject({ montant: 15, nom: "bogdan kugcas", texteNom: "15$ à bogdan kugcas", raison: "", apresPour: null });
+    expect(lu("Bogdan a bien bossé, mets lui 15 balles")).toMatchObject({ montant: 15, texteNom: "Bogdan a bien bossé, mets lui 15 balles" });
+    expect(lu("bonus de 10 pour Jenivia")).toMatchObject({ montant: 10, apresPour: "Jenivia" });
+    expect(lu("donne 2,5 $ à Jean pour la vidéo")).toMatchObject({ montant: 2.5, nom: "Jean", apresPour: "la vidéo" });
+    expect(lu("20 € to Ana on 23/11 because she helped")).toMatchObject({ montant: 20, lundi: "2026-11-23", raison: "she helped" });
+    expect("erreur" in lu("donne du bonus à Martin")).toBe(true);
+    expect("erreur" in lu("donne 2 $")).toBe(true);
+  });
+
+  it("la raison et la personne sûre", () => {
+    expect(raisonBonus({ raison: "", apresPour: "Jenivia" }, "Jenivia Selvarajah")).toBe("bonus");
+    expect(raisonBonus({ raison: "", apresPour: "la vidéo" }, "Jean Dupont")).toBe("la vidéo");
+    expect(raisonBonus({ raison: "test", apresPour: "x" }, "Jean Dupont")).toBe("test");
+    const p = (nom: string, exact: boolean) => ({ id: nom, nom, actif: true, score: exact ? 1 : 0.8, exact });
+    expect(personneSure([p("Martin Befeld", true), p("Martini Assonga", false)])?.nom).toBe("Martin Befeld");
+    expect(personneSure([p("Bogdan Kocsis", false)])).toBeNull();
+    expect(personneSure([p("Ana Silva", true), p("Ana Silva", true)])).toBeNull();
   });
 
   it("écrit la note Upwork de chaque type", () => {

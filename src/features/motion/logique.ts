@@ -60,22 +60,39 @@ export function moteurAuTravail(
   );
 }
 
-/** Ce que l'admin peut modifier dans un script : le texte des scènes, l'outro et la légende. */
+/**
+ * Ce que l'admin peut modifier dans un script : les scènes (texte lu et animation voulue,
+ * en ajouter, en supprimer), l'outro et la légende. `origine` = la position de la scène
+ * dans le script du moteur (null pour une scène ajoutée) : c'est elle qui permet à la
+ * fonction de garder les repères du moteur.
+ */
+export interface SceneEditable {
+  id: string | null;
+  origine: number | null;
+  texte: string;
+  animation: string;
+}
 export interface ScriptEditable {
-  scenes: Array<{ id: string | null; texte: string }>;
+  scenes: SceneEditable[];
   outro: string;
   legende: string;
 }
 
+/** Comme la fonction `motion` (20 scènes, 1000 caractères d'animation). */
+export const SCENES_MAX = 20;
+export const ANIMATION_MAX = 1000;
+
 type Objet = Record<string, unknown>;
 const estObjet = (v: unknown): v is Objet => typeof v === "object" && v !== null && !Array.isArray(v);
 
-/** Le script du moteur ramené à ses textes, ou null s'il n'y en a pas encore. */
+/** Le script du moteur ramené à ce qui se modifie, ou null s'il n'y en a pas encore. */
 export function scriptEditable(script: unknown): ScriptEditable | null {
   if (!estObjet(script) || !Array.isArray(script.scenes) || script.scenes.length === 0) return null;
-  const scenes = script.scenes.map((s) => ({
+  const scenes = script.scenes.map((s, i) => ({
     id: estObjet(s) && s.id != null ? String(s.id) : null,
+    origine: i,
     texte: estObjet(s) && typeof s.texte === "string" ? s.texte : "",
+    animation: estObjet(s) && typeof s.animation === "string" ? s.animation : "",
   }));
   return {
     scenes,
@@ -84,13 +101,35 @@ export function scriptEditable(script: unknown): ScriptEditable | null {
   };
 }
 
-/** Ce que la page envoie à `maj_script` : seulement les textes (la fonction garde le reste). */
+/** Ce que la page envoie à `maj_script` : la liste des scènes voulue (la fonction garde le reste). */
 export function scriptModifie(e: ScriptEditable): Objet {
   return {
-    scenes: e.scenes.map((s) => (s.id != null ? { id: s.id, texte: s.texte } : { texte: s.texte })),
+    scenes: e.scenes.map((s) => ({ origine: s.origine, id: s.id, texte: s.texte, animation: s.animation })),
     outro: { texte: e.outro },
     legende: e.legende,
   };
+}
+
+/** Une scène vide ajoutée juste après la scène `apres` (-1 : en tête). */
+export function ajouterScene(e: ScriptEditable, apres: number): ScriptEditable {
+  if (e.scenes.length >= SCENES_MAX) return e;
+  const scenes = [...e.scenes];
+  scenes.splice(apres + 1, 0, { id: null, origine: null, texte: "", animation: "" });
+  return { ...e, scenes };
+}
+
+/** Retire la scène `i` (il en reste toujours au moins une). */
+export function supprimerScene(e: ScriptEditable, i: number): ScriptEditable {
+  if (e.scenes.length <= 1) return e;
+  return { ...e, scenes: e.scenes.filter((_, j) => j !== i) };
+}
+
+/** Ce qui empêche d'enregistrer : une scène sans texte, ou une animation trop longue. */
+export function problemeScript(e: ScriptEditable | null): "texte_vide" | "animation_longue" | null {
+  if (!e) return null;
+  if (e.scenes.some((s) => !s.texte.trim())) return "texte_vide";
+  if (e.scenes.some((s) => s.animation.trim().length > ANIMATION_MAX)) return "animation_longue";
+  return null;
 }
 
 /** Le texte a-t-il changé ? (bouton « Enregistrer » actif) */

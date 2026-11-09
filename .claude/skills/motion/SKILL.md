@@ -39,12 +39,18 @@ La vidéo a un `sujet`, parfois une `consigne`, et une `capture_url` : la captur
 **en anglais** avec la carte du cours du sujet (fournie par l'admin, une par sujet).
 
 Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/langues/types.ts`) :
-- **7 scènes**, ~85 mots, ~35 s à l'oral. S1 = accroche avec une question (« Why…? »). S7 = la chute.
+- **7 scènes**, ~85 à 130 mots (respecte la durée de la consigne, fin Sophia comprise : ~9 s). S7 = la chute.
   Phrases courtes, un fait par phrase, pas de chiffres inutiles.
+- **Rétention : 2 à 3 scènes d'intro avant la réponse** (demande d'Adrien). S1 = un chiffre ou une image choc,
+  puis on fait monter la question : fausses pistes (« no balloon… and no, it's not the engines »), « even some
+  textbooks get this wrong », la question posée franchement. La réponse ne tombe qu'à la S3 ou S4 (~12 à 15 s).
 - **Faits vérifiés**, formulations prudentes quand il le faut (ex. « foreign war » et pas « war »).
 - `reperes` : dans chaque scène, 0 à 2 mots sur lesquels doit tomber un moment fort de l'animation
   (`{mot, image, ou?}` ; `mot` = un mot exact du texte, ponctuation comprise ; `image` = l'image de la
   scène où tombe l'événement ; `ou: "fin"` pour caler sur la fin du mot, ex. une explosion après le mot).
+- `animation` (dans chaque scène, en français) : ce que l'animation montre, en 1 à 3 phrases concrètes
+  (décor, personnages, 2 à 4 actions et le mot sur lequel tombe chacune, transition). L'admin la relit et la
+  corrige dans la page avant de valider : écris-la pour qu'il voie la vidéo en lisant.
 - `outro.texte` : « Answer all these questions with the Sophia app. »
 - Écris pour l'oral : pas de « : » (pause forcée de la voix), « First, … / Second, … » plutôt que « One: … ».
 - `appli` : les textes de l'appli. **Recopie de la capture** la catégorie, le titre, la description,
@@ -188,6 +194,13 @@ La `consigne` est le commentaire de rejet de l'admin pour une `langue`. Applique
 visuel, `rendre`, `livrer`, `finir`. Si la consigne vaut pour toutes les langues, refais-les toutes.
 Ce que l'admin redemande souvent devient une règle : ajoute-le au §6.
 
+**L'admin peut changer les scènes dans la page** (ajouter, supprimer, réordonner, changer l'`animation`). Le journal
+le dit : « Script modifié par l'admin (scènes ajoutées : S8 ; scènes supprimées : S3 ; animation modifiée : S2) ».
+Les ids restent stables (une scène ajoutée prend le numéro libre suivant, sans repères ; l'ordre est celui de la
+liste). Avant de rendre, compare le script à `motion.json` du projet : écris les scènes ajoutées (§5), retire les
+supprimées de `motion.json`, `timeline.ts` (`BASE`) et `Sound.tsx`, refais celles dont l'animation a changé, puis
+régénère la voix (le texte a bougé) et recale les repères.
+
 ## 5. Nouveau sujet : écrire les scènes
 
 Copie `videos/supervolcan` (le modèle le plus récent) dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`,
@@ -195,6 +208,9 @@ Copie `videos/supervolcan` (le modèle le plus récent) dans `videos/<slug>` (sa
 (id de composition). Puis écris les scènes du sujet dans `src/scenes/` (autant que le script en a ; une scène = un
 fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 
+0. Pour chaque scène, l'`animation` du script validé est la commande de l'admin : respecte-la (décor, actions, mots
+   où elles tombent) et complète ce qu'elle ne dit pas avec les règles du §6. Si elle est impossible ou contredit
+   le §6, fais au plus proche et écris pourquoi dans le journal.
 1. Génère d'abord la voix anglaise, puis calcule pour chaque scène son début, sa durée et l'image locale de chaque mot
    (même calcul que `construireTimeline`) : la scène se conçoit **à la vitesse de la voix anglaise** (`STRETCH = 1`,
    `BASE` = ces durées), chaque action tombe sur l'image de son mot.
@@ -223,6 +239,8 @@ fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
   ils couvrent la voix.
 
 ## 6. Règles de qualité (retours de l'admin)
+
+- Script : ne donne jamais la réponse dans la première scène ; 2 à 3 scènes de suspense d'abord (§2).
 
 - **Chaque nombre dit a son unité** (« treize mille kilomètres », jamais « treize mille » seul), même si elle vient d'être dite.
 - **Voix fluide** : pas plus vite que speed 1,1 en français ; on ne coupe pas les blancs entre les mots d'une phrase

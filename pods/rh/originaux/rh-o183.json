@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o183",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "55e6694b-ff9f-453b-8b8b-d5ab1fdee0e0",
+ "titre": "les 5 mails que j'envoie la première semaine d'un nouveau job #nouveaujob #travail #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G1 de la ligne 11 (parent 55e6694b), 2e : accroche mot pour mot, cinq autres mails que rh-o102 et rh-o168. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d7266563",
+   "texte_overlay": "les 5 mails que j'envoie\nla première semaine\nd'un nouveau job",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "392219e8",
+   "texte_overlay": "1. à l'informatique, le lundi matin\nmes accès, avant d'en avoir besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "39752103",
+   "texte_overlay": "2. à mon manager, le mardi\n« voilà ce que je compte faire cette semaine »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "399627fb",
+   "texte_overlay": "3. à une collègue qui m'a aidée\n« merci pour hier, ça m'a fait gagner une heure »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3997b3dd",
+   "texte_overlay": "4. à mon ancienne équipe\n« bien arrivée, merci pour tout »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d9ab0b7",
+   "texte_overlay": "5. à moi-même, le vendredi\nce que j'ai appris au boulot. et ce que j'ai appris en dehors, en 5 minutes par jour",
+   "texte_sophia": "5. à moi-même, le vendredi\nce que j'ai appris au boulot. et ce que j'ai appris en dehors, en 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "39b363a2",
+   "texte_overlay": "5 mails. et ta semaine est cadrée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3bd975f6",
+   "texte_overlay": "c'est quand ton premier jour ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o119",
+  "type_bleo": "full_test",
+  "titre": "comment je prépare une visite de musée pour ne jamais m'ennuyer #musee #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : préparer un musée, méthode en récit « je ». Accroches écrites : « comment je prépare une visite de musée pour ne jamais m'ennuyer » (retenue : avoue l'ennui, promet le contraire), « les musées, c'est ennuyeux ? » (écartée : question molle), « mes astuces musée » (écartée : sans promesse). Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa : « The tower began to lean during construction in the 12th century ». Routine du 9/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 4 full tests et 4 déclinaisons (lignes 1 en G2, 2, 3 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 4 (4d7c5f32, accroche illisible), 5 (083ac272, hobbies « backed by science »), 6 (837491f7, « enterimarnt »), 7 (6211e51e, « other then »), 8 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "comment je prépare une visite de musée\npour ne jamais m'ennuyer",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. je choisis trois œuvres, pas trente\n\nje les cherche sur le plan.\nle reste, c'est du bonus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. je lis leur histoire la veille\n\nqui l'a peinte, pour qui, pourquoi.\ndevant l'œuvre, tout prend vie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. je collectionne les anecdotes\n\nce matin, j'ai appris que la tour de pise a commencé à pencher pendant sa construction.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. je collectionne les anecdotes\n\nce matin, l'appli Sophia m'a appris que la tour de pise a commencé à pencher pendant sa construction.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. j'y vais tôt, en semaine\n\nmoins de monde, plus de silence.\non regarde vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "5. je finis par le café du musée\n\nje note ce que j'ai préféré.\nc'est ce que je retiens le mieux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0f057bec",
+      "texte_overlay": "tu vas à quel musée ce mois-ci ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

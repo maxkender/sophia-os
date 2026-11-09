@@ -115,9 +115,12 @@ export async function ecrireAuPosteur(
       if (envoi.ok) return { statut: "envoye", userId: profil.slack_user_id };
       return { statut: "erreur", erreur: `postMessage: ${envoi.error}` };
     }
+    // 0574 : les posteurs du site (Ruul) ont leur email Slack dans hub_posteurs.
+    const hub = await supabase.from("hub_posteurs").select("email_perso").eq("profile_id", posterId).maybeSingle()
+      .then((r: { data: { email_perso: string | null } | null }) => r.data, () => null);
     return await prevenirPosteur(
       { ecriture, lecture: Deno.env.get("SLACK_BOT_TOKEN2") },
-      [profil?.email_perso, profil?.email],
+      [profil?.email_perso, hub?.email_perso, profil?.email],
       texte,
       fetchFn,
       blocs,

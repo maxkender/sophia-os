@@ -67,7 +67,15 @@ Deno.test("échec d'envoi : erreur rendue, jamais levée", async () => {
 
 function fauxSupabase(profil: Record<string, unknown>) {
   return {
-    from: () => ({ select: () => ({ eq: () => ({ single: () => Promise.resolve({ data: profil, error: null }) }) }) }),
+    from: (table: string) => ({
+      select: () => ({
+        eq: () => ({
+          single: () => Promise.resolve({ data: profil, error: null }),
+          // 0574 : l'email Slack des posteurs du site (hub_posteurs) ; aucun ici.
+          maybeSingle: () => Promise.resolve({ data: table === "hub_posteurs" ? null : profil, error: null }),
+        }),
+      }),
+    }),
     // Le grand interrupteur (0412) est lu avant tout envoi : ici, pas de pause.
     rpc: () => Promise.resolve({ data: false, error: null }),
   };

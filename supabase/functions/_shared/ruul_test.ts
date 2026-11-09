@@ -49,3 +49,8 @@ Deno.test("Ruul : acceptation automatique, lundi de cohorte, relances de signatu
   assertEquals(etapeSignature(a, 3, j(7)), "expirer");
   assertEquals(etapeSignature(a, 0, j(9)), "expirer");
 });
+
+Deno.test("Ruul : un texte Slack lisible par email", async () => {
+  const { texteSansSlack } = await import("./ruul.ts");
+  assertEquals(texteSansSlack("Hi *Ana*, open <https://x.y/a|your dashboard> or <https://x.y/b>."), "Hi Ana, open your dashboard: https://x.y/a or https://x.y/b.");
+});

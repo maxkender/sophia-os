@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o175",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "76885886-310a-484b-b1ee-30200138bb89",
+ "titre": "hobbies that will make you brilliantly well informed #intelligence #knowledge #selfimprovement #hobbies #learning",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "271021ab-691d-4e13-8c15-2a155901b802"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 271021ab). déclinaison G2 de « hobbies to be disgustingly intelligent » (parent 76885886). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "14bde756-332e-4b62-a9c3-aabfb7ed9aee",
+   "texte_overlay": "hobbies that will make you\nbrilliantly well informed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664344556258839822/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "42af03fc-4b4c-4f58-a50c-5a4a26a756ca",
+   "texte_overlay": "reading long reads\n\nread one long article a week from start to finish, slowly and carefully. deep reading slowly builds the patience and understanding that headlines never will.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664344556258839822/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "79f6fd7a-35db-4c75-89aa-1d4fa6093600",
+   "texte_overlay": "watching lectures\n\nwatch one free university lecture a week on something completely new. an hour with a real expert teaches you more than a whole month of short videos ever could.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664344556258839822/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "338985cb-4828-4bbf-8d45-e64a5527552d",
+   "texte_overlay": "keeping a commonplace book\n\ncopy your favourite quotes and ideas into one notebook. reading it back years later shows you exactly how your thinking has grown and changed over time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664344556258839822/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8c592835-085c-47ca-a818-8f7308a7f53b",
+   "texte_overlay": "one lesson a day\n\nspend 5 minutes a day on one lesson in a subject you've never studied: economics, geology, art history. small daily doses build a genuinely brilliant mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664344556258839822/5.jpg",
+   "texte_sophia": "one lesson a day\n\nspend 5 minutes a day on one lesson in a subject you never studied: economics, geology, art history. the Sophia app turns it into one short lesson a day, and it builds a brilliant mind."
+  },
+  {
+   "position": 6,
+   "media_id": "6eb41086-8467-4c92-aa04-d9d7aa8c5ee0",
+   "texte_overlay": "debating with friends\n\npick one big question over dinner and debate it kindly with friends. defending your view out loud sharpens your thinking faster than reading ever could alone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664344556258839822/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o171",
+ "type_bleo": "full_test",
+ "titre": "weird habits that made me a morning person #morningroutine #habits #selfimprovement #productivity #wellness",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "229bf2b9-2e82-4beb-91a1-96ea109c36f7"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 229bf2b9). full test BLEO : accroche jamais faite (format « weird habits that made me », à la 1re personne). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "044d1e1c-51aa-48aa-93db-fdf7a0a8fc79",
+   "texte_overlay": "weird habits that made me\na morning person",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658407149390892301/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7228886a-43ca-4870-87a2-a79d5bb3cd40",
+   "texte_overlay": "the alarm across the room\n\ni put my alarm on the other side of the room, so i'm standing before my brain can argue. it felt cruel for a week, then it became completely normal for me.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658407149390892301/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "70802189-f4e4-4455-924d-02c5d9bcddf5",
+   "texte_overlay": "breakfast i look forward to\n\ni plan a breakfast i'm genuinely excited about the night before. giving myself something to look forward to makes getting out of a warm bed so much easier, even in winter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658407149390892301/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c53b2781-defc-4cfc-a833-19183ef9d05d",
+   "texte_overlay": "opening the window\n\ni open the window as soon as i get up, whatever the weather. the fresh air wakes me up faster than coffee, and it makes the whole room feel brand new.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658407149390892301/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "98f63485-4448-487f-8a7c-3c9c5fca45d2",
+   "texte_overlay": "one lesson with coffee\n\ni spend 5 minutes over coffee learning one new thing: a myth, a planet, a painting. starting the day curious made mornings feel like something to enjoy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658407149390892301/5.jpg",
+   "texte_sophia": "one lesson with coffee\n\ni spend 5 minutes over coffee on one lesson: a myth, a planet, a painting. the Sophia app turns it into one short lesson a day, and starting curious made mornings enjoyable."
+  },
+  {
+   "position": 6,
+   "media_id": "5fbba303-b060-420f-9f8b-76905174f9ae",
+   "texte_overlay": "the same bedtime\n\ni go to bed at the same time every night, weekends included. the real secret of mornings was always the night before, and nobody ever bothered to tell me that.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658407149390892301/6.jpg"
+  }
+ ]
+}

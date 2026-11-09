@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o173",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "09fb001b-2df4-4ce1-baf7-4d9cca24152a",
+ "titre": "5 tiny habits that quietly protect your mental health #mentalhealth #habits #selfcare #wellness #selfimprovement",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "ccd3cffe-8039-4b28-b150-3c361f06be29"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, ccd3cffe). déclinaison G2 de « 5 small habits that can improve your mental health » (parent 09fb001b). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e62edcc-2dfd-4201-9550-9cf4e1fcbf63",
+   "texte_overlay": "5 tiny habits that quietly\nprotect your mental health",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611853514851028237/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7c0629ae-78ee-438f-bb3e-d6f0f85d726d",
+   "texte_overlay": "one honest check in\n\nask yourself once a day how you really feel, and answer honestly. naming your emotions takes away much of their power, and it helps you notice patterns early.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611853514851028237/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3419ab12-5858-480b-a53d-50c3f82553bc",
+   "texte_overlay": "a walk in daylight\n\ntake a short walk outside before noon. daylight and movement are two of the most reliable mood lifters there are, and they work faster than you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611853514851028237/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1f300e4b-64ad-4021-a66e-11ced674b948",
+   "texte_overlay": "less news before bed\n\nstop reading the news an hour before sleep. your mind can't fix the world at midnight, and it deserves a calm, quiet last hour to rest and recover properly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611853514851028237/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5cbe0221-0d07-42cb-89c9-8a0563b2d4d9",
+   "texte_overlay": "something new to think about\n\nspend 5 minutes a day learning something gentle and new: a constellation, a painting, a myth. curiosity gives your mind a peaceful place to go when worries come.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611853514851028237/5.jpg",
+   "texte_sophia": "something new to think about\n\ni spend 5 minutes a day on one lesson in the Sophia app: a constellation, a painting, a myth. curiosity gave my mind a peaceful place to go whenever worries came."
+  },
+  {
+   "position": 6,
+   "media_id": "fc0d686a-f5ba-42f4-9d32-9c6969aa97a8",
+   "texte_overlay": "a kind word to yourself\n\nsay one kind thing to yourself each evening, out loud or in writing. the voice you use with yourself shapes your mental health more than almost anything else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7611853514851028237/6.jpg"
+  }
+ ]
+}

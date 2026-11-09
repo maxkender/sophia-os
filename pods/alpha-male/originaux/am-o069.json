@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o069",
+ "type_bleo": "full_test",
+ "titre": "Green flags in a man that people notice instantly #men #greenflags #respect #selfimprovement #mindset",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 9/11. Full test du jour (2 sur 2, jauge : 2 sur 6). Accroche jamais faite chez nous : aucun « green flag » dans donnees/label.json. Mécanique des signes (la plus forte du label, am-o002 rang S), promesse neuve. Rien sur la séduction : ce que tout le monde remarque. Format : numéro, signe, deux lignes. Images : célébrités (autorisé) et la banque ; slide Sophia : maison vitrée et piscine, sans personne. reference_url : le post source de am-o034 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "394f5cb3",
+   "texte_overlay": "Green flags in a man\nthat people notice instantly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "442e0411",
+   "texte_overlay": "1. He can laugh at himself\n\nNo ego to protect.\nThat's real confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3e36ddcc",
+   "texte_overlay": "2. He still talks to his family\n\nCalls his mother.\nVisits without a reason.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0cbe4469",
+   "texte_overlay": "3. He can cook a real meal\n\nNot just pasta.\nSomething he's proud of.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2c3e4db5",
+   "texte_overlay": "4. His best friends\nare old friends\n\nPeople don't stay\nfor years by accident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c579d6a",
+   "texte_overlay": "5. He's the same online\nand offline\n\nNo character. No act.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d6e5f11",
+   "texte_overlay": "6. He's always learning\nsomething\n\nAsk him what he read lately.\nHe has an answer.",
+   "texte_sophia": "6. He's always learning\nsomething\n\nMy habit: 5 minutes a day\non the Sophia app.\nAsk me what I learned.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

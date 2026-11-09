@@ -273,6 +273,10 @@ fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 - Papier découpé : fond kraft, couleurs franches, ombres, bords qui vibrent légèrement. **Aucun texte dans
   les visuels** (seulement les sous-titres et l'interface de l'appli).
 - **Très dynamique** : une action toutes les 1 à 2 s, transitions déchirure / panoramique fouetté entre scènes.
+  **Mais jamais entre deux plans identiques** (retour d'Adrien) : quand la scène suivante reprend le même décor au
+  même cadrage (même projecteur, même profil d'aile…), c'est une coupe franche, `none()` de `@remotion/transitions/none`,
+  sans son de transition (`''` dans `TRANSITIONS` de `Sound.tsx`), et la fin de l'une = le début de l'autre au pixel près
+  (caméra, décor, éclairage). Vérifie les jointures sur une planche des 2 images avant / après.
 - **Peu de tremblements** : `SHAKE_K = 0.35`, pas de secousse forte hors des gros impacts.
 - Rythme : le récit dure ~36 s en anglais (un poil plus que 30 s). Pentes de scène ≥ 0,5.
 - Voix fluide : aucun « : » dans le texte dit, blancs resserrés (0,28 s max entre deux phrases).

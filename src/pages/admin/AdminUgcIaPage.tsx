@@ -9,6 +9,8 @@ import { Card, CardContent, CardHeader, EmptyState } from "@/components/ui/card"
 import { Input } from "@/components/ui/input";
 import { EtatRequete, TitreCarte } from "@/features/bleo/ui";
 import {
+  CLE_ASSEMBLAGES,
+  listerAssemblages,
   assignerPersonaUgcIa,
   CLE_COMPTES_UGCV,
   CLE_PERSONAS_UGC_IA,
@@ -24,6 +26,9 @@ import {
 } from "@/features/ugcIa/api";
 import { CarteSource } from "@/features/ugcIa/CarteSource";
 import { CartePostsUgcv } from "@/features/ugcIa/PostsUgcv";
+import { CarteAssemblages } from "@/features/ugcIa/Assemblage";
+import { CarteDemos } from "@/features/ugcIa/Demos";
+import { videoDAssemblage, type VideoChoisie } from "@/features/ugcIa/logique";
 import { useSourcesFermees } from "@/features/ugcIa/accordeon";
 import { messageErreur } from "@/features/ugcIa/logique";
 
@@ -93,6 +98,13 @@ export function AdminUgcIaPage() {
 
   const liste = personas.data ?? [];
   const accordeon = useSourcesFermees(sources.data?.map((s) => s.id));
+  // Une vidéo complète à envoyer en post (bouton « Envoyer » de sa carte).
+  const [aEnvoyer, setAEnvoyer] = React.useState<VideoChoisie | null>(null);
+  const assemblages = useQuery({ queryKey: CLE_ASSEMBLAGES, queryFn: listerAssemblages });
+  const nomPersona = new Map(liste.map((p) => [p.id, p.nom]));
+  const completes = (assemblages.data ?? [])
+    .map((a) => videoDAssemblage(a, `${(a.persona_id && nomPersona.get(a.persona_id)) || "?"} + ${a.demo_nom ?? "?"}`))
+    .filter((v): v is VideoChoisie => v != null);
   const nbSources = sources.data?.length ?? 0;
   const nbFermees = (sources.data ?? []).filter((s) => accordeon.fermees.has(s.id)).length;
   return (
@@ -114,7 +126,11 @@ export function AdminUgcIaPage() {
         <CarteImport />
       </div>
 
-      <CartePostsUgcv sources={sources.data ?? []} personas={liste} />
+      <CarteAssemblages personas={liste} envoyer={setAEnvoyer} />
+
+      <CartePostsUgcv sources={sources.data ?? []} personas={liste} completes={completes} aEnvoyer={aEnvoyer} finEnvoi={() => setAEnvoyer(null)} />
+
+      <CarteDemos sources={sources.data ?? []} />
 
       <section className="space-y-3" aria-labelledby="ugc-ia-sources">
         <div className="flex flex-wrap items-center justify-between gap-2">

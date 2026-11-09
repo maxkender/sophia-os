@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0662) : les règles pures, partagées
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0665) : les règles pures, partagées
  * par la fonction `ugc-ia` et ses tests. Le front a les mêmes bornes dans
  * `src/features/ugcIa/logique.ts`.
  */
@@ -248,6 +248,8 @@ export interface VideoDuPost {
   chemin: string | null;
   nom: string | null;
   generationId: string | null;
+  /** Vidéo complète (réaction + démo, 0665) d'où vient la vidéo. */
+  assemblageId: string | null;
 }
 
 export interface DemandePostVideo {
@@ -302,7 +304,9 @@ export function demandePostVideo(body: Record<string, unknown>, aujourdhui: stri
     }
     const generationId = texteOuNull(v.generationId)?.toLowerCase() ?? null;
     if (generationId && !UUID.test(generationId)) return { erreur: `Vidéo ${i + 1} : génération invalide` };
-    videos.push({ url, chemin, nom: texteOuNull(v.nom), generationId });
+    const assemblageId = texteOuNull(v.assemblageId)?.toLowerCase() ?? null;
+    if (assemblageId && !UUID.test(assemblageId)) return { erreur: `Vidéo ${i + 1} : vidéo complète invalide` };
+    videos.push({ url, chemin, nom: texteOuNull(v.nom), generationId, assemblageId });
   }
 
   const ctaIncruste = body.ctaIncruste === true;
@@ -331,4 +335,68 @@ export function demandePostVideo(body: Record<string, unknown>, aujourdhui: stri
     musiqueTitre: musiqueUrl ? texteOuNull(body.musiqueTitre) : null,
     applicationId,
   };
+}
+
+// --- Démos et vidéos complètes (0665) ----------------------------------------
+
+/** Vitesses proposées pour une démo (la page n'en envoie pas d'autres). */
+export const VITESSES_DEMO = [1, 1.25, 1.5, 2] as const;
+/** Passages gardés d'une démo, au plus. */
+export const PASSAGES_MAX = 20;
+/** Taille des vidéos rendues par la page, réencodées telles quelles (9:16). */
+export const RENDU_LARGEUR = 720;
+export const RENDU_HAUTEUR = 1280;
+
+export const PREFIXE_DEMOS = "ugc-ia/demos/";
+export const PREFIXE_RENDUS_ASSEMBLAGE = "ugc-ia/assemblages/rendus/";
+
+export interface Passage {
+  debut: number;
+  fin: number;
+}
+
+/**
+ * Les passages gardés d'une démo, dans l'ordre : chacun dans la vidéo (si sa
+ * durée est connue), au moins 0,2 s ; les moments hors passages sont enlevés.
+ */
+export function demandePassages(brut: unknown, duree: number | null): Passage[] | { erreur: string } {
+  const liste = Array.isArray(brut) ? brut : [];
+  if (liste.length === 0) return { erreur: "Garde au moins un passage" };
+  if (liste.length > PASSAGES_MAX) return { erreur: `${PASSAGES_MAX} passages au plus` };
+  const passages: Passage[] = [];
+  for (const [i, p] of liste.entries()) {
+    const o = (p ?? {}) as Record<string, unknown>;
+    const debut = Number(o.debut);
+    const fin = Number(o.fin);
+    if (!Number.isFinite(debut) || !Number.isFinite(fin) || debut < 0) return { erreur: `Passage ${i + 1} : temps invalide` };
+    if (fin - debut < 0.2) return { erreur: `Passage ${i + 1} : la fin doit venir après le début` };
+    if (duree != null && fin > duree + 0.05) return { erreur: `Passage ${i + 1} : au-delà de la fin de la vidéo` };
+    passages.push({ debut: Math.round(debut * 10) / 10, fin: Math.round(fin * 10) / 10 });
+  }
+  return passages;
+}
+
+export function vitesseDemo(brut: unknown): number | null {
+  const v = Number(brut ?? 1);
+  return (VITESSES_DEMO as readonly number[]).includes(v) ? v : null;
+}
+
+/** Durée de la démo montée : somme des passages, divisée par la vitesse. */
+export function dureeMontee(passages: readonly Passage[], vitesse: number): number {
+  return Math.round((passages.reduce((s, p) => s + (p.fin - p.debut), 0) / vitesse) * 10) / 10;
+}
+
+/** Un fichier déposé par la page sous ce préfixe (jamais ailleurs, jamais « .. »). */
+export function cheminSous(chemin: unknown, prefixe: string): string | null {
+  const c = String(chemin ?? "").trim();
+  return c.startsWith(prefixe) && !c.includes("..") && c.length > prefixe.length ? c : null;
+}
+
+export function cheminsDemo(id: string): { dossier: string; montee: (version: number) => string } {
+  const dossier = `${PREFIXE_DEMOS}${id}/`;
+  return { dossier, montee: (version) => `${dossier}demo-${version}.mp4` };
+}
+
+export function cheminAssemblage(id: string): string {
+  return `ugc-ia/assemblages/${id}.mp4`;
 }

@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0662) : une réaction TikTok
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0665) : une réaction TikTok
  * (la source) refaite par un ou plusieurs personas synthétiques avec
  * Higgsfield Genjutsu (transfert de mouvement). Admin seulement. La page lit
  * les tables directement ; tout changement passe ici.
@@ -33,6 +33,17 @@
  *                                                    (1 par jour), compté comme un post
  *                                                    normal (posts + passage sans contenu, 0662)
  *   { action: "supprimer_post_video", id }         → retire un post vidéo pas encore publié
+ *   { action: "ajouter_demo", nom, brutUrl, brutPath, dureeS? } | { action: "ajouter_demo", sourceId }
+ *                                                  → une démo dans la bibliothèque (vidéo importée,
+ *                                                    ou partie téléphone d'une source, 0665)
+ *   { action: "finaliser_demo", id, renduPath, passages, vitesse }
+ *                                                  → la démo montée par la page (passages, vitesse),
+ *                                                    réencodée en MP4 H.264, en arrière-plan
+ *   { action: "supprimer_demo", id }               → la démo et ses fichiers
+ *   { action: "finaliser_assemblage", generationId, demoId, renduPath, bandeau }
+ *                                                  → la vidéo complète rendue par la page (réaction +
+ *                                                    démo, bandeau), réencodée en MP4, en arrière-plan
+ *   { action: "supprimer_assemblage", id }         → une vidéo complète pas envoyée en post
  *
  * Secrets : APIFY_TOKEN, FAL_KEY, HIGGSFIELD_API_KEY (« KEY_ID:KEY_SECRET »).
  */
@@ -40,7 +51,7 @@
 import { downloadMedia, scrapeVideoPost } from "../_shared/apify.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { falDownloadBytes, falQueueAwaitJson, falQueueSubmit } from "../_shared/fal_queue.ts";
-import { sonderVideoMeta } from "../_shared/fal_normaliser_video.ts";
+import { normaliserVideoMp4PourKling, sonderVideoMeta } from "../_shared/fal_normaliser_video.ts";
 import { trimmerVideoFal } from "../_shared/fal_trim_video.ts";
 import { ocrFrame } from "../_shared/gemini.ts";
 import { poserPostVideo } from "../_shared/posts_video.ts";
@@ -64,6 +75,16 @@ import {
   demandeMontage,
   type DemandeMontage,
   demandePostVideo,
+  cheminAssemblage,
+  cheminsDemo,
+  cheminSous,
+  demandePassages,
+  dureeMontee,
+  PREFIXE_DEMOS,
+  PREFIXE_RENDUS_ASSEMBLAGE,
+  RENDU_HAUTEUR,
+  RENDU_LARGEUR,
+  vitesseDemo,
   lienTiktok,
   nettoyerCta,
   partieSource,
@@ -606,6 +627,186 @@ async function supprimerPostVideo(supabase: Supabase, body: Record<string, unkno
   return json({ ok: true });
 }
 
+// --- Démos et vidéos complètes (0665) ----------------------------------------
+
+/**
+ * Réencode en MP4 H.264 9:16 une vidéo rendue par la page (WebM ou MP4 de
+ * MediaRecorder) : lisible partout (iPhone compris), sans les métadonnées du
+ * navigateur. Rend les octets et la durée mesurée.
+ */
+async function reencoder(supabase: Supabase, renduPath: string): Promise<{ bytes: Uint8Array; duree: number | null }> {
+  const url = supabase.storage.from(BUCKET).getPublicUrl(renduPath).data.publicUrl as string;
+  const mp4 = await normaliserVideoMp4PourKling(url, undefined, { width: RENDU_LARGEUR, height: RENDU_HAUTEUR });
+  const duree = (await sonderVideoMeta(mp4.url).catch(() => ({ durationSec: null }))).durationSec;
+  return { bytes: mp4.bytes, duree };
+}
+
+/** Une démo dans la bibliothèque : une vidéo importée par la page, ou la partie téléphone d'une source. */
+async function ajouterDemo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const sourceId = String(body.sourceId ?? "").trim();
+  if (sourceId) {
+    const { data: deja } = await supabase.from("ugc_ia_demos").select("*").eq("source_id", sourceId).maybeSingle();
+    if (deja) return json({ ok: true, demo: deja });
+    const source = await lireSource(supabase, sourceId);
+    if (!source) return json({ error: "Source introuvable" }, 404);
+    if (!source.telephone_url) return json({ error: "Cette source n'a pas de partie téléphone coupée" }, 400);
+    const titre = String(source.source_texte ?? "").replace(/\s+/g, " ").trim().slice(0, 40);
+    const duree =
+      source.telephone_debut_s != null && source.telephone_fin_s != null
+        ? Number(source.telephone_fin_s) - Number(source.telephone_debut_s)
+        : null;
+    const { data, error } = await supabase
+      .from("ugc_ia_demos")
+      .insert({ nom: titre ? `Téléphone · ${titre}` : "Partie téléphone", source_id: sourceId, brut_url: source.telephone_url, brut_duree_s: duree })
+      .select("*")
+      .single();
+    if (error) throw new Error(error.message);
+    return json({ ok: true, demo: data });
+  }
+  const nom = String(body.nom ?? "").trim().slice(0, 80);
+  const brutPath = cheminSous(body.brutPath, PREFIXE_DEMOS);
+  const brutUrl = String(body.brutUrl ?? "").trim();
+  if (!nom) return json({ error: "Nom de la démo requis" }, 400);
+  if (!brutPath || !/^https:\/\//.test(brutUrl)) return json({ error: "Vidéo importée invalide" }, 400);
+  const dureeS = Number(body.dureeS);
+  const { data, error } = await supabase
+    .from("ugc_ia_demos")
+    .insert({ nom, brut_url: brutUrl, brut_path: brutPath, brut_duree_s: Number.isFinite(dureeS) && dureeS > 0 ? dureeS : null })
+    .select("*")
+    .single();
+  if (error) throw new Error(error.message);
+  return json({ ok: true, demo: data });
+}
+
+/** La démo montée par la page : réencodée en arrière-plan, elle remplace l'ancien montage. */
+async function finaliserDemo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const id = String(body.id ?? "").trim();
+  const { data: demo, error } = await supabase.from("ugc_ia_demos").select("*").eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!demo) return json({ error: "Démo introuvable" }, 404);
+  if (demo.montage_statut === "en_cours") return json({ error: "Un montage de cette démo est déjà en cours" }, 409);
+  const passages = demandePassages(body.passages, demo.brut_duree_s != null ? Number(demo.brut_duree_s) : null);
+  if ("erreur" in passages) return json({ error: passages.erreur }, 400);
+  const vitesse = vitesseDemo(body.vitesse);
+  if (vitesse == null) return json({ error: "Vitesse invalide" }, 400);
+  const renduPath = cheminSous(body.renduPath, cheminsDemo(id).dossier);
+  if (!renduPath) return json({ error: "Rendu invalide" }, 400);
+
+  await supabase
+    .from("ugc_ia_demos")
+    .update({ passages, vitesse, montage_statut: "en_cours", montage_erreur: null, updated_at: maintenant() })
+    .eq("id", id);
+  await enArrierePlan(
+    (async () => {
+      try {
+        const { bytes, duree } = await reencoder(supabase, renduPath);
+        const chemin = cheminsDemo(id).montee(Date.now());
+        const url = await deposer(supabase, chemin, bytes, "video/mp4");
+        await supabase
+          .from("ugc_ia_demos")
+          .update({
+            video_url: url,
+            video_path: chemin,
+            duree_s: duree ?? dureeMontee(passages, vitesse),
+            montage_statut: null,
+            montage_erreur: null,
+            updated_at: maintenant(),
+          })
+          .eq("id", id);
+        await retirer(supabase, [renduPath, demo.video_path as string | null]);
+      } catch (e) {
+        console.error("ugc-ia demo", id, e);
+        await supabase
+          .from("ugc_ia_demos")
+          .update({ montage_statut: "echec", montage_erreur: messageErreur(e), updated_at: maintenant() })
+          .eq("id", id);
+        await retirer(supabase, [renduPath]);
+      }
+    })(),
+  );
+  return json({ ok: true, statut: "en_cours" });
+}
+
+async function supprimerDemo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const id = String(body.id ?? "").trim();
+  const { data: demo, error } = await supabase.from("ugc_ia_demos").select("id, brut_path, video_path").eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!demo) return json({ error: "Démo introuvable" }, 404);
+  const { error: errD } = await supabase.from("ugc_ia_demos").delete().eq("id", id);
+  if (errD) throw new Error(errD.message);
+  // Le fichier brut d'une partie téléphone reste à sa source (pas de brut_path).
+  await retirer(supabase, [demo.brut_path as string | null, demo.video_path as string | null]);
+  return json({ ok: true });
+}
+
+/** La vidéo complète rendue par la page (réaction + démo, bandeau) : réencodée en arrière-plan. */
+async function finaliserAssemblage(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const generationId = String(body.generationId ?? "").trim();
+  const demoId = String(body.demoId ?? "").trim();
+  const renduPath = cheminSous(body.renduPath, PREFIXE_RENDUS_ASSEMBLAGE);
+  if (!renduPath) return json({ error: "Rendu invalide" }, 400);
+  const { data: gen } = await supabase.from("ugc_ia_generations").select("id, statut").eq("id", generationId).maybeSingle();
+  if (!gen || gen.statut !== "prete") return json({ error: "Vidéo générée introuvable ou pas prête" }, 404);
+  const { data: demo } = await supabase.from("ugc_ia_demos").select("id").eq("id", demoId).maybeSingle();
+  if (!demo) return json({ error: "Démo introuvable" }, 404);
+  const b = (body.bandeau ?? {}) as Record<string, unknown>;
+  const bandeauActif = b.actif !== false;
+  const texte = String(b.texte ?? "").trim();
+  if (bandeauActif && !texte) return json({ error: "Texte du bandeau vide" }, 400);
+  const position = Number(b.position);
+
+  const { data: ligne, error } = await supabase
+    .from("ugc_ia_assemblages")
+    .insert({
+      generation_id: generationId,
+      demo_id: demoId,
+      bandeau_actif: bandeauActif,
+      bandeau_texte: bandeauActif ? texte : null,
+      bandeau_position: bandeauActif && Number.isFinite(position) ? position : null,
+      statut: "en_cours",
+    })
+    .select("id")
+    .single();
+  if (error || !ligne) throw new Error(error?.message ?? "vidéo complète non créée");
+  const id = ligne.id as string;
+  await enArrierePlan(
+    (async () => {
+      try {
+        const { bytes, duree } = await reencoder(supabase, renduPath);
+        const chemin = cheminAssemblage(id);
+        const url = await deposer(supabase, chemin, bytes, "video/mp4");
+        await supabase
+          .from("ugc_ia_assemblages")
+          .update({ video_url: url, video_path: chemin, duree_s: duree, statut: "prete", erreur: null, updated_at: maintenant() })
+          .eq("id", id);
+      } catch (e) {
+        console.error("ugc-ia assemblage", id, e);
+        await supabase
+          .from("ugc_ia_assemblages")
+          .update({ statut: "echec", erreur: messageErreur(e), updated_at: maintenant() })
+          .eq("id", id);
+      } finally {
+        await retirer(supabase, [renduPath]);
+      }
+    })(),
+  );
+  return json({ ok: true, id, statut: "en_cours" });
+}
+
+/** Une vidéo complète, sauf si un post l'envoie déjà (le poster la télécharge depuis son post). */
+async function supprimerAssemblage(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const id = String(body.id ?? "").trim();
+  const { data: a, error } = await supabase.from("ugc_ia_assemblages").select("id, video_path").eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!a) return json({ error: "Vidéo complète introuvable" }, 404);
+  const { count } = await supabase.from("post_videos").select("id", { count: "exact", head: true }).eq("assemblage_id", id);
+  if ((count ?? 0) > 0) return json({ error: "Cette vidéo est dans un post : retire d'abord le post" }, 409);
+  const { error: errD } = await supabase.from("ugc_ia_assemblages").delete().eq("id", id);
+  if (errD) throw new Error(errD.message);
+  await retirer(supabase, [a.video_path as string | null]);
+  return json({ ok: true });
+}
+
 Deno.serve(async (request) => {
   const refus = await assertAuthorised(request);
   if (refus) return refus;
@@ -647,11 +848,21 @@ Deno.serve(async (request) => {
         return await creerPostVideo(supabase, body);
       case "supprimer_post_video":
         return await supprimerPostVideo(supabase, body);
+      case "ajouter_demo":
+        return await ajouterDemo(supabase, body);
+      case "finaliser_demo":
+        return await finaliserDemo(supabase, body);
+      case "supprimer_demo":
+        return await supprimerDemo(supabase, body);
+      case "finaliser_assemblage":
+        return await finaliserAssemblage(supabase, body);
+      case "supprimer_assemblage":
+        return await supprimerAssemblage(supabase, body);
       default:
         return json(
           {
             error:
-              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas | assigner_persona | creer_post_video | supprimer_post_video)",
+              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas | assigner_persona | creer_post_video | supprimer_post_video | ajouter_demo | finaliser_demo | supprimer_demo | finaliser_assemblage | supprimer_assemblage)",
           },
           400,
         );

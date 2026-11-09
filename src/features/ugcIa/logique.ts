@@ -125,6 +125,8 @@ export interface VideoChoisie {
   generationId?: string | null;
   /** Vidéo complète (réaction + démo, 0665). */
   assemblageId?: string | null;
+  /** Langue de la vidéo (celle de la démo d'une vidéo complète, 0666). */
+  langue?: string | null;
   sourceId?: string | null;
   /** Vidéo montée avec le bandeau : le CTA y est déjà. */
   ctaIncruste?: boolean;
@@ -221,7 +223,14 @@ export function videoDAssemblage(a: AssemblageUgcIa, nom: string): VideoChoisie 
     nom,
     generationId: a.generation_id,
     assemblageId: a.id,
+    langue: a.langue,
     sourceId: a.source_id,
     ctaIncruste: a.bandeau_actif,
   };
+}
+
+/** Les comptes de la langue de la vidéo d'abord (sans langue connue : l'ordre ne bouge pas). */
+export function comptesParLangue<T extends { langue: string | null }>(comptes: readonly T[], langue: string | null | undefined): T[] {
+  if (!langue) return [...comptes];
+  return [...comptes].sort((a, b) => Number(b.langue === langue) - Number(a.langue === langue));
 }

@@ -1,5 +1,5 @@
 /**
- * UGC IA (page /admin/ugc-ia, migrations 0656 à 0665) : une réaction TikTok
+ * UGC IA (page /admin/ugc-ia, migrations 0656 à 0666) : une réaction TikTok
  * (la source) refaite par un ou plusieurs personas synthétiques avec
  * Higgsfield Genjutsu (transfert de mouvement). Admin seulement. La page lit
  * les tables directement ; tout changement passe ici.
@@ -33,12 +33,13 @@
  *                                                    (1 par jour), compté comme un post
  *                                                    normal (posts + passage sans contenu, 0662)
  *   { action: "supprimer_post_video", id }         → retire un post vidéo pas encore publié
- *   { action: "ajouter_demo", nom, brutUrl, brutPath, dureeS? } | { action: "ajouter_demo", sourceId }
+ *   { action: "ajouter_demo", langue, nom, brutUrl, brutPath, dureeS? } | { action: "ajouter_demo", langue, sourceId }
  *                                                  → une démo dans la bibliothèque (vidéo importée,
  *                                                    ou partie téléphone d'une source, 0665)
  *   { action: "finaliser_demo", id, renduPath, passages, vitesse }
  *                                                  → la démo montée par la page (passages, vitesse),
  *                                                    réencodée en MP4 H.264, en arrière-plan
+ *   { action: "maj_demo", id, nom?, langue? }      → renomme une démo ou change sa langue
  *   { action: "supprimer_demo", id }               → la démo et ses fichiers
  *   { action: "finaliser_assemblage", generationId, demoId, renduPath, bandeau }
  *                                                  → la vidéo complète rendue par la page (réaction +
@@ -55,6 +56,7 @@ import { normaliserVideoMp4PourKling, sonderVideoMeta } from "../_shared/fal_nor
 import { trimmerVideoFal } from "../_shared/fal_trim_video.ts";
 import { ocrFrame } from "../_shared/gemini.ts";
 import { poserPostVideo } from "../_shared/posts_video.ts";
+import { nettoyerMp4, type RapportNettoyage } from "../_shared/mp4_nettoyage.ts";
 import {
   cleHiggsfield,
   corpsGenjutsu,
@@ -85,6 +87,7 @@ import {
   RENDU_HAUTEUR,
   RENDU_LARGEUR,
   vitesseDemo,
+  langueDemo,
   lienTiktok,
   nettoyerCta,
   partieSource,
@@ -631,18 +634,26 @@ async function supprimerPostVideo(supabase: Supabase, body: Record<string, unkno
 
 /**
  * Réencode en MP4 H.264 9:16 une vidéo rendue par la page (WebM ou MP4 de
- * MediaRecorder) : lisible partout (iPhone compris), sans les métadonnées du
- * navigateur. Rend les octets et la durée mesurée.
+ * MediaRecorder) : lisible partout (iPhone compris). Puis nettoyage final :
+ * balises, XMP et Content Credentials (C2PA) retirés du conteneur, et
+ * vérification qu'il n'en reste rien (sinon échec). Rend les octets propres,
+ * la durée mesurée et le rapport du nettoyage.
  */
-async function reencoder(supabase: Supabase, renduPath: string): Promise<{ bytes: Uint8Array; duree: number | null }> {
+async function reencoder(
+  supabase: Supabase,
+  renduPath: string,
+): Promise<{ bytes: Uint8Array; duree: number | null; nettoyage: RapportNettoyage }> {
   const url = supabase.storage.from(BUCKET).getPublicUrl(renduPath).data.publicUrl as string;
   const mp4 = await normaliserVideoMp4PourKling(url, undefined, { width: RENDU_LARGEUR, height: RENDU_HAUTEUR });
   const duree = (await sonderVideoMeta(mp4.url).catch(() => ({ durationSec: null }))).durationSec;
-  return { bytes: mp4.bytes, duree };
+  const { bytes, rapport } = nettoyerMp4(mp4.bytes);
+  return { bytes, duree, nettoyage: rapport };
 }
 
 /** Une démo dans la bibliothèque : une vidéo importée par la page, ou la partie téléphone d'une source. */
 async function ajouterDemo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const langue = langueDemo(body.langue);
+  if (!langue) return json({ error: "Choisis la langue de la démo" }, 400);
   const sourceId = String(body.sourceId ?? "").trim();
   if (sourceId) {
     const { data: deja } = await supabase.from("ugc_ia_demos").select("*").eq("source_id", sourceId).maybeSingle();
@@ -657,7 +668,7 @@ async function ajouterDemo(supabase: Supabase, body: Record<string, unknown>): P
         : null;
     const { data, error } = await supabase
       .from("ugc_ia_demos")
-      .insert({ nom: titre ? `Téléphone · ${titre}` : "Partie téléphone", source_id: sourceId, brut_url: source.telephone_url, brut_duree_s: duree })
+      .insert({ nom: titre ? `Téléphone · ${titre}` : "Partie téléphone", langue, source_id: sourceId, brut_url: source.telephone_url, brut_duree_s: duree })
       .select("*")
       .single();
     if (error) throw new Error(error.message);
@@ -671,7 +682,7 @@ async function ajouterDemo(supabase: Supabase, body: Record<string, unknown>): P
   const dureeS = Number(body.dureeS);
   const { data, error } = await supabase
     .from("ugc_ia_demos")
-    .insert({ nom, brut_url: brutUrl, brut_path: brutPath, brut_duree_s: Number.isFinite(dureeS) && dureeS > 0 ? dureeS : null })
+    .insert({ nom, langue, brut_url: brutUrl, brut_path: brutPath, brut_duree_s: Number.isFinite(dureeS) && dureeS > 0 ? dureeS : null })
     .select("*")
     .single();
   if (error) throw new Error(error.message);
@@ -699,7 +710,7 @@ async function finaliserDemo(supabase: Supabase, body: Record<string, unknown>):
   await enArrierePlan(
     (async () => {
       try {
-        const { bytes, duree } = await reencoder(supabase, renduPath);
+        const { bytes, duree, nettoyage } = await reencoder(supabase, renduPath);
         const chemin = cheminsDemo(id).montee(Date.now());
         const url = await deposer(supabase, chemin, bytes, "video/mp4");
         await supabase
@@ -708,6 +719,7 @@ async function finaliserDemo(supabase: Supabase, body: Record<string, unknown>):
             video_url: url,
             video_path: chemin,
             duree_s: duree ?? dureeMontee(passages, vitesse),
+            nettoyage,
             montage_statut: null,
             montage_erreur: null,
             updated_at: maintenant(),
@@ -725,6 +737,32 @@ async function finaliserDemo(supabase: Supabase, body: Record<string, unknown>):
     })(),
   );
   return json({ ok: true, statut: "en_cours" });
+}
+
+/** Renommer une démo ou changer sa langue. */
+async function majDemo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
+  const id = String(body.id ?? "").trim();
+  const patch: Record<string, unknown> = {};
+  if (body.langue !== undefined) {
+    const langue = langueDemo(body.langue);
+    if (!langue) return json({ error: "Langue invalide" }, 400);
+    patch.langue = langue;
+  }
+  if (body.nom !== undefined) {
+    const nom = String(body.nom ?? "").trim().slice(0, 80);
+    if (!nom) return json({ error: "Nom de la démo requis" }, 400);
+    patch.nom = nom;
+  }
+  if (Object.keys(patch).length === 0) return json({ error: "Rien à changer" }, 400);
+  const { data, error } = await supabase
+    .from("ugc_ia_demos")
+    .update({ ...patch, updated_at: maintenant() })
+    .eq("id", id)
+    .select("*")
+    .maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!data) return json({ error: "Démo introuvable" }, 404);
+  return json({ ok: true, demo: data });
 }
 
 async function supprimerDemo(supabase: Supabase, body: Record<string, unknown>): Promise<Response> {
@@ -747,7 +785,7 @@ async function finaliserAssemblage(supabase: Supabase, body: Record<string, unkn
   if (!renduPath) return json({ error: "Rendu invalide" }, 400);
   const { data: gen } = await supabase.from("ugc_ia_generations").select("id, statut").eq("id", generationId).maybeSingle();
   if (!gen || gen.statut !== "prete") return json({ error: "Vidéo générée introuvable ou pas prête" }, 404);
-  const { data: demo } = await supabase.from("ugc_ia_demos").select("id").eq("id", demoId).maybeSingle();
+  const { data: demo } = await supabase.from("ugc_ia_demos").select("id, langue").eq("id", demoId).maybeSingle();
   if (!demo) return json({ error: "Démo introuvable" }, 404);
   const b = (body.bandeau ?? {}) as Record<string, unknown>;
   const bandeauActif = b.actif !== false;
@@ -760,6 +798,7 @@ async function finaliserAssemblage(supabase: Supabase, body: Record<string, unkn
     .insert({
       generation_id: generationId,
       demo_id: demoId,
+      langue: demo.langue,
       bandeau_actif: bandeauActif,
       bandeau_texte: bandeauActif ? texte : null,
       bandeau_position: bandeauActif && Number.isFinite(position) ? position : null,
@@ -772,12 +811,12 @@ async function finaliserAssemblage(supabase: Supabase, body: Record<string, unkn
   await enArrierePlan(
     (async () => {
       try {
-        const { bytes, duree } = await reencoder(supabase, renduPath);
+        const { bytes, duree, nettoyage } = await reencoder(supabase, renduPath);
         const chemin = cheminAssemblage(id);
         const url = await deposer(supabase, chemin, bytes, "video/mp4");
         await supabase
           .from("ugc_ia_assemblages")
-          .update({ video_url: url, video_path: chemin, duree_s: duree, statut: "prete", erreur: null, updated_at: maintenant() })
+          .update({ video_url: url, video_path: chemin, duree_s: duree, nettoyage, statut: "prete", erreur: null, updated_at: maintenant() })
           .eq("id", id);
       } catch (e) {
         console.error("ugc-ia assemblage", id, e);
@@ -852,6 +891,8 @@ Deno.serve(async (request) => {
         return await ajouterDemo(supabase, body);
       case "finaliser_demo":
         return await finaliserDemo(supabase, body);
+      case "maj_demo":
+        return await majDemo(supabase, body);
       case "supprimer_demo":
         return await supprimerDemo(supabase, body);
       case "finaliser_assemblage":
@@ -862,7 +903,7 @@ Deno.serve(async (request) => {
         return json(
           {
             error:
-              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas | assigner_persona | creer_post_video | supprimer_post_video | ajouter_demo | finaliser_demo | supprimer_demo | finaliser_assemblage | supprimer_assemblage)",
+              "action inconnue (importer | lire_cta | enregistrer_cta | couper | generer | suivre | monter | annuler_montage | supprimer_source | supprimer_generation | rapatrier_personas | assigner_persona | creer_post_video | supprimer_post_video | ajouter_demo | finaliser_demo | maj_demo | supprimer_demo | finaliser_assemblage | supprimer_assemblage)",
           },
           400,
         );

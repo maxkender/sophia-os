@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Clapperboard, Download, Layers, Send, Trash2 } from "lucide-react";
+import { Clapperboard, Download, Layers, Send, ShieldCheck, Trash2 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,6 +10,7 @@ import { Dialog, DialogDescription, DialogHeader, DialogPanel, DialogPopup, Dial
 import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
 import { TitreCarte } from "@/features/bleo/ui";
+import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 
 import {
   CLE_ASSEMBLAGES,
@@ -44,7 +45,10 @@ export function DialogueAssemblage({
   const { t } = useTranslation();
   const qc = useQueryClient();
   const demos = useQuery({ queryKey: CLE_DEMOS, queryFn: listerDemos });
-  const utilisables = (demos.data ?? []).filter((d) => d.montage_statut !== "en_cours");
+  // Rangées par langue, pour trouver vite la démo de la bonne langue.
+  const utilisables = (demos.data ?? [])
+    .filter((d) => d.montage_statut !== "en_cours")
+    .sort((a, b) => nomLangue(a.langue).localeCompare(nomLangue(b.langue)) || a.nom.localeCompare(b.nom));
   const [demoId, setDemoId] = React.useState("");
   const demo = utilisables.find((d) => d.id === demoId) ?? null;
   const [avecBandeau, setAvecBandeau] = React.useState(true);
@@ -130,7 +134,7 @@ export function DialogueAssemblage({
                   {utilisables.length === 0 && <option value="">{t("ugcIa.assemblage.aucuneDemo")}</option>}
                   {utilisables.map((d) => (
                     <option key={d.id} value={d.id}>
-                      {d.nom}
+                      {drapeauLangue(d.langue)} {nomLangue(d.langue)} · {d.nom}
                       {d.video_url ? ` · ${d.duree_s ?? "?"} s` : ` (${t("ugcIa.demos.pasMontee")})`}
                     </option>
                   ))}
@@ -246,7 +250,14 @@ function LigneAssemblage({ assemblage: a, nom, envoyer }: { assemblage: Assembla
         </div>
       )}
       <div className="flex flex-wrap items-center gap-1">
+        {a.langue && <span title={nomLangue(a.langue)}>{drapeauLangue(a.langue)}</span>}
         <Badge variant={a.statut === "prete" ? "success" : a.statut === "echec" ? "error" : "warning"}>{t(`ugcIa.statut.${a.statut}`)}</Badge>
+        {a.nettoyage?.verifie && (
+          <span className="inline-flex items-center gap-0.5 text-success" title={t("ugcIa.nettoyage.detail", { retires: a.nettoyage.retires.join(", ") || "—" })}>
+            <ShieldCheck className="size-3.5" aria-hidden />
+            {t("ugcIa.nettoyage.ok")}
+          </span>
+        )}
         {a.duree_s != null && <span className="text-muted-foreground">{Math.round(a.duree_s)} s</span>}
         {a.bandeau_actif && <span className="text-muted-foreground">· {t("ugcIa.posts.ctaIncruste")}</span>}
       </div>

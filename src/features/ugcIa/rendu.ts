@@ -271,3 +271,8 @@ export function segmentsDemo(d: DemoUgcIa): SegmentRendu[] {
 export function segmentReaction(g: GenerationUgcIa): SegmentRendu {
   return { url: g.video_brute_url ?? g.video_url ?? "", debut: g.montage_debut_s ?? 0, fin: g.montage_fin_s ?? null, vitesse: 1 };
 }
+
+/** Les fichiers vidéo d'un glisser-déposer (les autres sont ignorés). */
+export function videosDeposees(fichiers: FileList | File[] | null | undefined): File[] {
+  return Array.from(fichiers ?? []).filter((f) => f.type.startsWith("video/") || /\.(mp4|mov|webm|m4v)$/i.test(f.name));
+}

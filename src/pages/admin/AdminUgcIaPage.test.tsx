@@ -30,6 +30,7 @@ const ajouterDemoDeSource = vi.fn();
 const finaliserDemo = vi.fn();
 const finaliserAssemblage = vi.fn();
 const rendreVideo = vi.fn();
+const majDemo = vi.fn();
 const creerPostVideo = vi.fn();
 const supprimerPostVideo = vi.fn();
 const televerser = vi.fn();
@@ -52,6 +53,7 @@ vi.mock("@/features/ugcIa/api", () => ({
   ajouterDemoDeSource: (...a: unknown[]) => ajouterDemoDeSource(...a),
   finaliserDemo: (...a: unknown[]) => finaliserDemo(...a),
   supprimerDemo: () => Promise.resolve({ ok: true }),
+  majDemo: (...a: unknown[]) => majDemo(...a),
   finaliserAssemblage: (...a: unknown[]) => finaliserAssemblage(...a),
   supprimerAssemblage: () => Promise.resolve({ ok: true }),
   listerComptesUgcv: () => listerComptes(),
@@ -551,6 +553,8 @@ describe("AdminUgcIaPage", () => {
     const DEMO: DemoUgcIa = {
       id: "d1",
       nom: "demo appli",
+      langue: "de",
+      nettoyage: null,
       source_id: null,
       brut_url: "https://x/demo-brut.mp4",
       brut_duree_s: 20,
@@ -571,11 +575,20 @@ describe("AdminUgcIaPage", () => {
       rendre();
       const carte = await screen.findByTestId("demos");
       expect(await within(carte).findByText("Partie téléphone · ma source")).toBeInTheDocument();
+      // Langue des démos importées : allemand.
+      fireEvent.change(within(carte).getByLabelText("Langue des démos importées"), { target: { value: "de" } });
       const fichier = new File(["x"], "demo.mp4", { type: "video/mp4" });
       fireEvent.change(within(carte).getByLabelText("Importer une démo"), { target: { files: [fichier] } });
-      await waitFor(() => expect(importerDemo).toHaveBeenCalledWith(fichier, 12.5));
+      await waitFor(() => expect(importerDemo).toHaveBeenCalledWith(fichier, 12.5, "de"));
+      // Glisser-déposer : seules les vidéos entrent.
+      const depot = within(carte).getByTestId("depot-demos");
+      expect(depot).toHaveTextContent("Glisse tes vidéos démo ici (elles seront en 🇩🇪 Allemand)");
+      const video2 = new File(["y"], "demo2.mov", { type: "video/quicktime" });
+      fireEvent.drop(depot, { dataTransfer: { files: [video2, new File(["z"], "notes.txt", { type: "text/plain" })] } });
+      await waitFor(() => expect(importerDemo).toHaveBeenCalledWith(video2, 12.5, "de"));
+      expect(importerDemo).toHaveBeenCalledTimes(2);
       fireEvent.click(within(screen.getByTestId("demo-telephone-s1")).getByRole("button", { name: "Monter" }));
-      await waitFor(() => expect(ajouterDemoDeSource).toHaveBeenCalledWith("s1"));
+      await waitFor(() => expect(ajouterDemoDeSource).toHaveBeenCalledWith("s1", "de"));
       expect(await screen.findByText("Monter la démo « demo appli »")).toBeInTheDocument();
     });
 
@@ -644,6 +657,8 @@ describe("AdminUgcIaPage", () => {
         id: "a1",
         generation_id: "g1",
         demo_id: "d1",
+        langue: "en",
+        nettoyage: null,
         bandeau_actif: true,
         bandeau_texte: "lien en bio",
         bandeau_position: 36,
@@ -672,6 +687,53 @@ describe("AdminUgcIaPage", () => {
         ctaIncruste: true,
         videos: [{ url: "https://x/complete.mp4", assemblageId: "a1", generationId: "g1" }],
       });
+    });
+
+    it("change la langue d'une démo, et la montre nettoyée de ses identifiants IA", async () => {
+      listerSources.mockResolvedValue([]);
+      listerDemos.mockResolvedValue([{ ...DEMO, video_url: "https://x/d.mp4", duree_s: 6, nettoyage: { retires: ["moov/udta"], verifie: true, taille: 10 } }]);
+      majDemo.mockResolvedValue({ demo: DEMO });
+      rendre();
+      const ligne = await screen.findByTestId("demo-d1");
+      expect(within(ligne).getByText("sans identifiants IA")).toBeInTheDocument();
+      expect(within(ligne).getByLabelText("Langue de la démo demo appli")).toHaveValue("de");
+      fireEvent.change(within(ligne).getByLabelText("Langue de la démo demo appli"), { target: { value: "fr" } });
+      await waitFor(() => expect(majDemo).toHaveBeenCalledWith("d1", { langue: "fr" }));
+    });
+
+    it("à l'envoi, les comptes de la langue de la vidéo d'abord, et une alerte si la langue diffère", async () => {
+      const compteDe = { ...COMPTE_LEA, id: "c2", handle_tiktok: "anna.ugc", poster_prenom: "Anna", langue: "de" };
+      listerSources.mockResolvedValue([source({})]);
+      listerComptes.mockResolvedValue([COMPTE_LEA, compteDe]);
+      listerAssemblages.mockResolvedValue([
+        {
+          id: "a1",
+          generation_id: "g1",
+          demo_id: "d1",
+          langue: "de",
+          nettoyage: { retires: [], verifie: true, taille: 1 },
+          bandeau_actif: true,
+          bandeau_texte: "x",
+          bandeau_position: 36,
+          video_url: "https://x/complete.mp4",
+          duree_s: 9,
+          statut: "prete",
+          erreur: null,
+          created_at: "2026-11-09T10:00:00Z",
+          persona_id: "p1",
+          source_id: "s1",
+          demo_nom: "demo appli",
+        } satisfies AssemblageUgcIa,
+      ]);
+      rendre();
+      fireEvent.click(within(await screen.findByTestId("assemblage-a1")).getByRole("button", { name: "Envoyer à un créateur" }));
+      const choix = await screen.findByLabelText("Compte UGCV");
+      const options = within(choix).getAllByRole("option").map((o) => o.textContent);
+      expect(options[1]).toContain("@anna.ugc");
+      fireEvent.change(choix, { target: { value: "c1" } });
+      expect(screen.getByText("Attention : la vidéo est en Allemand, le compte en Anglais.")).toBeInTheDocument();
+      fireEvent.change(choix, { target: { value: "c2" } });
+      expect(screen.queryByText(/Attention : la vidéo est en/)).not.toBeInTheDocument();
     });
   });
 });

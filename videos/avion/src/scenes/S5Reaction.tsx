@@ -19,7 +19,8 @@ export const S5Reaction: React.FC = () => {
   return (
     <Stage bg={C.sky}>
       <CielProfil id="s5sky" />
-      <g transform={`translate(${sh.x} ${sh.y + lift}) rotate(${sh.r} 540 880)`}>
+      {/* en miroir : bord d'attaque à droite, comme le nez de l'avion */}
+      <g transform={`translate(${sh.x} ${sh.y + lift}) rotate(${sh.r} 540 880) translate(1080 0) scale(-1 1)`}>
         <Profil id="s5" f={f + 147} tilt={TILT_DEG} down={1}>
           {/* l'aile pousse l'air vers le bas : trois grosses flèches bleues */}
           {[0, 1, 2].map((k) => {

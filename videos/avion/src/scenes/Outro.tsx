@@ -3,7 +3,7 @@ import {AbsoluteFill, Img, staticFile, useCurrentFrame} from 'remotion';
 import {loadFont} from '@remotion/fonts';
 import {C, ease, lerp, pop} from '../lib';
 import {Cloud, Debris, PaperDefs, Rays} from '../shapes';
-import {Plane} from '../volcan';
+import {Airliner} from '../avion';
 import {SOPHIA_MARK} from '../sophia';
 import {useTimeline} from '../timeline';
 import type {TextesAppli} from '../langues/types';
@@ -177,7 +177,11 @@ const Lesson: React.FC<{f: number}> = ({f}) => {
     <AbsoluteFill style={{background: BG}}>
       <div style={{position: 'absolute', left: 16, top: 106 + scroll, width: 358, fontFamily: F}}>
         <div style={{width: 358, height: 220, borderRadius: 16, overflow: 'hidden', position: 'relative'}}>
-          <Img src={SHOT} style={{position: 'absolute', width: 648, height: 1403, left: -143, top: -228, maxWidth: 'none'}} />
+          {CAPTURE_DU_SUJET ? (
+            <Img src={SHOT} style={{position: 'absolute', width: 648, height: 1403, left: -143, top: -228, maxWidth: 'none'}} />
+          ) : (
+            <DessinAvion f={f} w={358} h={220} id="leconCiel" />
+          )}
         </div>
         <div style={{marginTop: 18, fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>{A.categorie}</div>
         <div style={{marginTop: 8, fontSize: 30, fontWeight: 500, lineHeight: 1.18, color: INK, letterSpacing: -0.3}}>{A.titre}</div>
@@ -426,7 +430,11 @@ const Done: React.FC<{f: number; enter: number}> = ({f, enter}) => {
         <div style={{fontSize: 12.5, fontWeight: 700, letterSpacing: 1.3, color: BLUE}}>{A.fin.suivant}</div>
         <div style={{marginTop: 8, display: 'flex', alignItems: 'center', gap: 12, background: '#fff', border: `1.5px solid ${LINE}`, borderRadius: 18, padding: 12}}>
           <div style={{width: 58, height: 58, borderRadius: 12, overflow: 'hidden', position: 'relative', flexShrink: 0}}>
-            <Img src={SHOT} style={{position: 'absolute', width: 362, height: 784, left: -60, top: -640, maxWidth: 'none'}} />
+            {CAPTURE_DU_SUJET ? (
+              <Img src={SHOT} style={{position: 'absolute', width: 362, height: 784, left: -60, top: -640, maxWidth: 'none'}} />
+            ) : (
+              <Img src={SHOT} style={{position: 'absolute', width: 164, height: 355, left: -53, top: -56, maxWidth: 'none'}} />
+            )}
           </div>
           <div style={{fontSize: 16, fontWeight: 600, color: INK, lineHeight: 1.3}}>{A.fin.suivantTitre}</div>
         </div>
@@ -582,11 +590,11 @@ const Hand: React.FC<{scale: number}> = ({scale}) => (
 );
 
 // 0:36–0:45 — « réponds à toutes ces questions avec Sophia » : le cours s'ouvre, puis les quiz
-/** Bouts de papier qui flottent derrière le téléphone : propres au sujet (ici, les avions) */
+/** Bouts de papier qui flottent derrière le téléphone : propres au sujet (le même avion que dans les scènes) */
 const Decor: React.FC<{i: number}> = ({i}) =>
   i % 2 ? (
-    <g transform="scale(0.32)">
-      <Plane />
+    <g transform="scale(0.17)">
+      <Airliner />
     </g>
   ) : (
     <g transform="scale(0.55)">
@@ -594,34 +602,43 @@ const Decor: React.FC<{i: number}> = ({i}) =>
     </g>
   );
 
-/** Illustration de la carte du cours, tant qu'il n'y a pas de capture : un avion en papier dans le ciel (en pt). */
+/** Le dessin du cours tant qu'il n'y a pas de capture : l'avion des scènes dans le ciel (viewBox 650 × 277). */
+const DessinAvion: React.FC<{f: number; w: number; h: number; id: string; boutons?: boolean}> = ({f, w, h, id, boutons = false}) => (
+  <svg viewBox="0 0 650 277" width={w} height={h} preserveAspectRatio="xMidYMid slice" style={{position: 'absolute', inset: 0}}>
+    <defs>
+      <linearGradient id={id} x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#5FA4E0" />
+        <stop offset="1" stopColor="#CFE8F8" />
+      </linearGradient>
+    </defs>
+    <rect width={650} height={277} fill={`url(#${id})`} />
+    <g transform="translate(70 200) scale(0.9)">
+      <Cloud />
+    </g>
+    <g transform="translate(470 235) scale(1.1)">
+      <Cloud />
+    </g>
+    <g transform="translate(520 55) scale(0.6)">
+      <Cloud />
+    </g>
+    <g transform={`translate(325 ${140 + Math.sin(f * 0.12) * 4}) rotate(-6) scale(0.42)`} filter="url(#pp)">
+      <Airliner />
+    </g>
+    {boutons && (
+      <g>
+        <circle cx={57} cy={57} r={34} fill="rgba(120,120,130,0.55)" stroke="rgba(255,255,255,0.6)" strokeWidth={2} />
+        <circle cx={593} cy={57} r={34} fill="rgba(120,120,130,0.55)" stroke="rgba(255,255,255,0.6)" strokeWidth={2} />
+        <path d="M 44 66 L 44 58 Q 44 42 57 42 Q 70 42 70 58 L 70 66" fill="none" stroke="#fff" strokeWidth={4} strokeLinecap="round" />
+        <path d="M 583 44 L 603 44 L 603 72 L 593 64 L 583 72 Z" fill="none" stroke="#fff" strokeWidth={4} strokeLinejoin="round" />
+      </g>
+    )}
+  </svg>
+);
+
+/** Illustration de la carte du cours sur l'accueil (en pt) */
 const IllustrationCarte: React.FC<{f: number}> = ({f}) => (
   <div style={{position: 'absolute', left: 32.7, top: 131.9, width: 324.6, height: 138.3, borderRadius: 11, overflow: 'hidden'}}>
-    <svg viewBox="0 0 650 277" width={324.6} height={138.3} style={{position: 'absolute', inset: 0}}>
-      <defs>
-        <linearGradient id="carteCiel" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#5FA4E0" />
-          <stop offset="1" stopColor="#CFE8F8" />
-        </linearGradient>
-      </defs>
-      <rect width={650} height={277} fill="url(#carteCiel)" />
-      <g transform="translate(80 190) scale(0.9)">
-        <Cloud />
-      </g>
-      <g transform="translate(470 230) scale(1.1)">
-        <Cloud />
-      </g>
-      <g transform="translate(500 60) scale(0.6)">
-        <Cloud />
-      </g>
-      <g transform={`translate(330 ${128 + Math.sin(f * 0.12) * 4}) rotate(-8) scale(0.95)`} filter="url(#pp)">
-        <Plane />
-      </g>
-      <circle cx={57} cy={57} r={34} fill="rgba(120,120,130,0.55)" stroke="rgba(255,255,255,0.6)" strokeWidth={2} />
-      <circle cx={593} cy={57} r={34} fill="rgba(120,120,130,0.55)" stroke="rgba(255,255,255,0.6)" strokeWidth={2} />
-      <path d="M 44 66 L 44 58 Q 44 42 57 42 Q 70 42 70 58 L 70 66" fill="none" stroke="#fff" strokeWidth={4} strokeLinecap="round" />
-      <path d="M 583 44 L 603 44 L 603 72 L 593 64 L 583 72 Z" fill="none" stroke="#fff" strokeWidth={4} strokeLinejoin="round" />
-    </svg>
+    <DessinAvion f={f} w={324.6} h={138.3} id="carteCiel" boutons />
   </div>
 );
 

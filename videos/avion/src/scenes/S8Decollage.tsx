@@ -51,7 +51,7 @@ export const S8Decollage: React.FC = () => {
           </g>
         ))}
         {/* herbe et piste */}
-        <rect x={0} y={GROUND - 40} width={1080} height={900} fill={C.grass} filter="url(#pp)" />
+        <rect x={0} y={GROUND - 40} width={1080} height={900} fill={C.grassDark} filter="url(#pp)" />
         <rect x={0} y={GROUND - 12} width={1080} height={120} fill={A.runway} />
         <line x1={-200} y1={GROUND + 50} x2={1300} y2={GROUND + 50} stroke={C.cream} strokeWidth={14} strokeDasharray="120 90" strokeDashoffset={dist} />
         {Array.from({length: 6}, (_, i) => {

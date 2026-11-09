@@ -13,6 +13,7 @@ import {S7Pression} from './scenes/S7Pression';
 import {S8Decollage} from './scenes/S8Decollage';
 import {S9Plane} from './scenes/S9Plane';
 import {Outro} from './scenes/Outro';
+import {none} from '@remotion/transitions/none';
 import {tear, whip} from './transitions';
 import {OUTRO_D, T, TimelineContext, timelineDe, useTimeline} from './timeline';
 import {Sound} from './Sound';
@@ -35,8 +36,8 @@ export const SCENES = [
 const PRESENTATIONS: TransitionPresentation<any>[] = [
   whip({dir: 'left'}),
   tear({seed: 'a', tilt: 6}),
-  tear({seed: 'b', tilt: -6}),
-  tear({seed: 'c', tilt: 4}),
+  none(), // S3 → S4 : même plan (l'avion sous le projecteur), coupe franche
+  none(), // S4 → S5 : même plan (le profil et ses filets), coupe franche
   whip({dir: 'left'}),
   tear({seed: 'd', tilt: -5}),
   whip({dir: 'right'}),

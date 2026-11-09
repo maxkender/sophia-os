@@ -34,6 +34,8 @@ export const S4Aile: React.FC = () => {
       {morph < 1 && (
         <g transform={cam} opacity={1 - morph}>
           <rect x={-2000} y={-2000} width={5000} height={6000} fill={C.kraft} />
+          {/* le bureau de S3, sous le noir : même plan que la fin de S3 */}
+          <rect x={-600} y={1320} width={2300} height={1100} fill={C.wood} filter="url(#pp)" />
           <g transform="translate(540 960) scale(0.72)" filter="url(#ppl)">
             <Airliner wingGlow={glow} />
           </g>
@@ -44,7 +46,14 @@ export const S4Aile: React.FC = () => {
               [520, 1100],
               [420, 1080],
             ].map(([x, y], i) => <Sparkle key={i} x={x} y={y} frame={f + i * 4} size={26 * glow} color={C.goldLight} />)}
-          <Spot id="s4spot" cx={540 - 30 * 0.72} cy={960 + 100 * 0.72} r={lerp(f, [0, WINGS, WINGS + 8], [430, 430, 220], ease.out)} dark={dark} />
+          {/* le projecteur part d'où S3 l'a laissé (centré sur l'avion), puis se resserre sur l'aile */}
+          <Spot
+            id="s4spot"
+            cx={lerp(f, [WINGS - 6, WINGS + 8], [540, 540 - 30 * 0.72], ease.inOut)}
+            cy={lerp(f, [WINGS - 6, WINGS + 8], [960, 960 + 100 * 0.72], ease.inOut)}
+            r={lerp(f, [WINGS - 6, WINGS + 8], [430, 220], ease.out)}
+            dark={dark}
+          />
         </g>
       )}
       {/* en miroir : bord d'attaque à droite, comme le nez de l'avion (l'air vient de la droite) */}

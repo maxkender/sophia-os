@@ -109,13 +109,13 @@ const IMPACTS = new Set(['boom', 'stamp', 'clang', 'cannon', 'tankCrash', 'tear'
 const MASTER = 0.55;
 const SOUS_VOIX = (son: string) => (IMPACTS.has(son) ? 0.65 : AMBIANCES.has(son) ? 0.3 : 0.45);
 const HORS_VOIX = (son: string) => (AMBIANCES.has(son) ? 0.6 : 1);
-const TRANSITIONS = ['whoosh', 'tear', 'tear', 'tear', 'whoosh', 'tear', 'whoosh', 'whoosh', 'tear'];
+const TRANSITIONS = ['whoosh', 'tear', '', '', 'whoosh', 'tear', 'whoosh', 'whoosh', 'tear']; // '' : coupe franche, pas de son
 
 export const evenements = (tl: Timeline): Ev[] => {
   const {globalDe, scenes, outroFrom, parle} = tl;
   return [
     ...PAR_SCENE.flatMap((evs, i) => evs.map(([s, son, vol]): Ev => ({f: globalDe(i, s), son, vol}))),
-    ...TRANSITIONS.map((son, i): Ev => ({f: i + 1 < scenes.length ? scenes[i + 1].from : outroFrom, son, vol: son === 'tear' ? 0.6 : 0.45})),
+    ...TRANSITIONS.flatMap((son, i): Ev[] => (son ? [{f: i + 1 < scenes.length ? scenes[i + 1].from : outroFrom, son, vol: son === 'tear' ? 0.6 : 0.45}] : [])),
     {f: outroFrom + 2, son: 'phone', vol: 0.6},
     ...TAPS.map((t): Ev => ({f: outroFrom + t.f - 1, son: 'click', vol: 0.8})),
     {f: outroFrom + TAPS[2].f + 1, son: 'correct', vol: 0.7},

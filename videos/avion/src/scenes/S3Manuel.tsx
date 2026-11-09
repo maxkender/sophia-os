@@ -45,7 +45,7 @@ export const S3Manuel: React.FC = () => {
     [
       {f: 0, x: 540, y: 960, z: 1.05},
       {f: 70, x: 540, y: 960, z: 1},
-      {f: 143, x: 540, y: 930, z: 1.08},
+      {f: 143, x: 540, y: 960, z: 1.08}, // = début de S4 : coupe franche sans saut
     ],
     [[WRONG + 2, 18]],
   );

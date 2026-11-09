@@ -5,6 +5,9 @@
 -- langue. Après le réencodage, la fonction `ugc-ia` nettoie le MP4 (balises,
 -- XMP, Content Credentials C2PA) et vérifie qu'il n'en reste rien : le
 -- rapport est gardé dans `nettoyage`.
+--
+-- ✅ Appliquée le 2026-11-09 (MCP) : langue (défaut en) et nettoyage sur les
+-- démos, langue et nettoyage sur les vidéos complètes.
 
 alter table public.ugc_ia_demos
   add column if not exists langue text not null default 'en',

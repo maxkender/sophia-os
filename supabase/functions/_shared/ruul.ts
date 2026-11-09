@@ -117,3 +117,13 @@ export function etapeSignature(accepteAt: string, relances: number, maintenant =
   if (relances >= 3 && jours >= 7) return "expirer";
   return null;
 }
+
+/** Un texte Slack lisible dans un email : <url|libellé> → « libellé: url », *gras* et _italique_ sans marques. */
+export function texteSansSlack(t: string): string {
+  return t
+    .replace(/<(https?:[^|>]+)\|([^>]+)>/g, "$2: $1")
+    .replace(/<(https?:[^>]+)>/g, "$1")
+    .replace(/(^|\s)\*([^*\n]+)\*(?=\s|$|[.,!?])/g, "$1$2")
+    .replace(/(^|\s)_([^_\n]+)_(?=\s|$|[.,!?])/g, "$1$2")
+    .trim();
+}

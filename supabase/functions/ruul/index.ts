@@ -27,6 +27,7 @@ import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { codePays, hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import {
   type CandidatureRuul,
+  texteSansSlack,
   etapeSignature,
   lundiSuivant,
   manquesCandidature,
@@ -221,6 +222,30 @@ async function envoyer(supabase: Supabase) {
     }
     await supabase.from("ruul_paiements").update({ message_statut: ok ? "envoye" : "erreur", message_at: new Date().toISOString() }).in("id", ids);
     bilan.push({ poster: lignes[0].poster_id, etape: "paye", ok, erreur: ok ? null : erreur });
+  }
+  // 3. 0579 : les messages de l'OS par email (bloqués faute de canal, ou Slack sans réaction en 48 h).
+  if (await interrupteur(supabase, "ruul_relais_email")) {
+    const { error: errPrep } = await supabase.rpc("ruul_relais_preparer");
+    if (errPrep) throw errPrep;
+    const { data: relais } = await supabase.from("ruul_relais")
+      .select("id, poster_id, source, texte, profiles!inner(prenom, ruul_email, relances_stop_at, ruul_jeton)")
+      .eq("statut", "a_envoyer").order("created_at").limit(50);
+    for (const r of relais ?? []) {
+      const p = r.profiles as unknown as { prenom: string | null; ruul_email: string | null; relances_stop_at: string | null; ruul_jeton: string | null };
+      if (p.relances_stop_at || !p.ruul_email || !p.ruul_jeton) {
+        await supabase.from("ruul_relais").update({ statut: "stop" }).eq("id", r.id);
+        continue;
+      }
+      const corps = texteSansSlack(String(r.texte ?? ""));
+      const objet = "A message from the Sophia team";
+      const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
+      const e = rendreEmailRuul({ objet, corps, bouton: null, lienStop });
+      const envoi = await envoyerEmail(p.ruul_email, objet, e.html, e.texte, lienStop, ["ruul", `relais-${r.source}`]);
+      await supabase.from("ruul_relais").update({
+        statut: envoi.ok ? "envoye" : "erreur", erreur: envoi.erreur, envoye_at: envoi.ok ? new Date().toISOString() : null,
+      }).eq("id", r.id);
+      bilan.push({ poster: r.poster_id, etape: `relais_${r.source}`, ok: envoi.ok, erreur: envoi.erreur });
+    }
   }
   return { ok: true, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length, bilan };
 }

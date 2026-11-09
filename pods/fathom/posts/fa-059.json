@@ -1,0 +1,416 @@
+{
+ "id": "fa-059",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Skills That Make You Look Smarter",
+  "de": "3 Fähigkeiten, mit denen du klüger wirkst",
+  "it": "3 abilità che ti fanno sembrare più intelligente",
+  "pt-BR": "3 habilidades que fazem você parecer mais inteligente",
+  "es-419": "3 habilidades que te hacen ver más inteligente"
+ },
+ "legendes": {
+  "en": "3 Skills That Make You Look Smarter #selfimprovement #learnontiktok #skills",
+  "de": "3 Fähigkeiten, mit denen du klüger wirkst #selbstverbesserung #lernenmittiktok #skills",
+  "it": "3 abilità che ti fanno sembrare più intelligente #crescitapersonale #imparacontiktok #abilità",
+  "pt-BR": "3 habilidades que fazem você parecer mais inteligente #desenvolvimentopessoal #aprendanotiktok #habilidades",
+  "es-419": "3 habilidades que te hacen ver más inteligente #desarrollopersonal #aprendeentiktok #habilidades"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta B. Full test (jauge BLEO du 09/11) : accroche neuve au format liste de @fathom0g (« 3 Skills That Make You Look Smarter »), jamais faite chez nous. Étapes : calcul mental, lecture rapide, Sophia, frappe rapide. Langues des comptes du label (en, de, it, pt-BR, es-419), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "THAT MAKE YOU",
+     [
+      {
+       "t": "LOOK SMARTER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "MIT DENEN DU",
+     [
+      {
+       "t": "KLÜGER WIRKST",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABILITÀ",
+       "bronze": true
+      }
+     ],
+     "CHE TI FANNO",
+     [
+      {
+       "t": "SEMBRARE GENIALE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE TE FAZEM",
+     [
+      {
+       "t": "PARECER GÊNIO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE TE HACEN VER",
+     [
+      {
+       "t": "MÁS INTELIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DO MENTAL",
+     "MATH"
+    ],
+    "video": {
+     "id": "1wAr2Kbe-GM",
+     "titre": "How to Calculate Faster than a Calculator - Mental Math #1",
+     "chaine": "Brain Station",
+     "vues": "7.6M views",
+     "date": "1 year ago",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/_Q8DnNm6nXHjLtNGWuhMlvqt1G9BilcflliJv28jFQcsjtUtfUWvRo6FNTWkhRXno84QkJOPQw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KOPFRECHNEN"
+    ],
+    "video": {
+     "id": "PCcK92FAzwo",
+     "titre": "Kopfrechnen - superschnell - genialer Rechentrick | Lehrerschmidt",
+     "chaine": "Lehrerschmidt",
+     "vues": "5,9 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:53",
+     "avatar": "https://yt3.ggpht.com/UyZNd_1wpswHfD461v_saXO6_nuxm4-C5TRz3PClMyBblASW2nOnMPXpUapKZJvXg47V198f6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CALCOLO",
+     "MENTALE"
+    ],
+    "video": {
+     "id": "K52AtgQhdDo",
+     "titre": "Calcolo Mentale Rapido - Addizioni e Sottrazioni",
+     "chaine": "Luigi Manca",
+     "vues": "243K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/NkJAVDX0NxKjaWBQLlwbnBVS7FR3iTCWPmPGFlwxEi_vthjAVJ-uptIz9Jssd-eTNlZbt8Y-Iw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "CÁLCULO",
+     "MENTAL"
+    ],
+    "video": {
+     "id": "6O5zYJ7N-6g",
+     "titre": "DICAS e MACETES de CÁLCULO MENTAL",
+     "chaine": "Maike Anthony",
+     "vues": "49 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "22:10",
+     "avatar": "https://yt3.ggpht.com/-0nhfCAj9OBaqeBLYhlIxAWX_Vqtg_PBU1GY1aPYRlA-THQJrD5IYmglfKCSSTF8Yj1PcMgHFPo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CÁLCULO",
+     "MENTAL"
+    ],
+    "video": {
+     "id": "L7iRlOnEdZc",
+     "titre": "Calcula Más Rápido que una Calculadora 🧮",
+     "chaine": "Matemáticas con Juan",
+     "vues": "1.6 M de vistas",
+     "date": "hace 1 año",
+     "duree": "12:14",
+     "avatar": "https://yt3.ggpht.com/Fyjo8CIATVw9DU0cWweSMWObo47mpxvOlrc_jw9fWM8DiSDTyG8glEOvsAwHwkV85HXIOHZP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SPEED",
+     "READING"
+    ],
+    "video": {
+     "id": "xiTK523Ot5U",
+     "titre": "Learn How To Speed Read - Best Speed Reading Techniques",
+     "chaine": "Ron White Memory Expert - Memory Training & Brain Training",
+     "vues": "1.3M views",
+     "date": "10 years ago",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nw8c0VMj8E_xfwYPZdw9reBaHZpBbS0D-bfnjVNKnfnQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHNELL",
+     "LESEN"
+    ],
+    "video": {
+     "id": "wJTdgimaRLE",
+     "titre": "Kann man Schnelllesen trainieren? | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "492.003 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "12:02",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LETTURA",
+     "VELOCE"
+    ],
+    "video": {
+     "id": "QOhb1bZZ4jQ",
+     "titre": "[LETTURA VELOCE] - 4 Tecniche per leggere un Libro al giorno",
+     "chaine": "Metodo Universitario",
+     "vues": "137K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "2:33",
+     "avatar": "https://yt3.ggpht.com/Pqc4t5zE0OLJ9LNlxB-m9_PDSogTXTaWsiAhyDsxxp6D7IAIvcBQ-e8iS40ld460Y-JwKy5gXvE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "LEITURA",
+     "DINÂMICA"
+    ],
+    "video": {
+     "id": "eTLlzBIHOQU",
+     "titre": "Leitura Dinâmica e Memorização ( Técnica para aprender mais )",
+     "chaine": "Renato Alves Memorização",
+     "vues": "1,6 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "LECTURA",
+     "RÁPIDA"
+    ],
+    "video": {
+     "id": "NxHyGzFCpKQ",
+     "titre": "La Mejor Técnica de Lectura Rápida 📖 [Apréndela en 10 minutos]🤩",
+     "chaine": "Fernando Fernández Fernández",
+     "vues": "666 k vistas",
+     "date": "hace 7 años",
+     "duree": "6:47",
+     "avatar": "https://yt3.ggpht.com/CuhDZCLull2nwLiynAaQNX3g3tbb8On9caFcjkhv_vfbVyJgkX7BB1gbO44wNNTwHUYX-8uxcg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A BIT",
+     "OF EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "VON ALLEM",
+     "ETWAS WISSEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SAPERE UN PO'",
+     "DI TUTTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "SABER UM POUCO",
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TYPE",
+     "FASTER"
+    ],
+    "video": {
+     "id": "QAb3ATOpBpE",
+     "titre": "How To Type Faster (Tips for every stage 0  - 50 - 100 - 150 WPM)",
+     "chaine": "Mr Chops",
+     "vues": "3.8M views",
+     "date": "3 years ago",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/KUH-ABz1GGHM2AE4B4z5fwmBtP3I1zpx0dZAWoh8eWHuOv8GX9S0w66mbK2qg-B5-mS6LfKr7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHNELLER",
+     "TIPPEN"
+    ],
+    "video": {
+     "id": "6pKYundAnPs",
+     "titre": "10 Finger System für Anfänger: So startest DU durch!",
+     "chaine": "TechnikTapes",
+     "vues": "95.430 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "5:27",
+     "avatar": "https://yt3.ggpht.com/m2B31Ev7DsPbwkTVibKEElQKxWiFY4WjhU_Y8g9OgDbwKPunLty8PvBcRw5P1inZm8jVFGVUqw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SCRIVI PIÙ VELOCE",
+     "SULLA TASTIERA"
+    ],
+    "video": {
+     "id": "l14AKiMg7As",
+     "titre": "Corso di dattilografia. Lezione 1. Impariamo a scrivere con 10 dita sulla tastiera e velocemente!",
+     "chaine": "Stefania Scotto",
+     "vues": "163K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMESA02bYzIcrMG2ODgt66LviNgeUZTF-kZSiYIu2E=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "DIGITE MAIS",
+     "RÁPIDO"
+    ],
+    "video": {
+     "id": "fkthK6lViCQ",
+     "titre": "3 dicas para DIGITAR mais RÁPIDO | 130 palavras por minuto",
+     "chaine": "Wesley Folly 3.0",
+     "vues": "271 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "9:33",
+     "avatar": "https://yt3.ggpht.com/ESKXuw88XoOjXwswJvGQtYurvgpW0vpfPtflhWv6QEJefCuj_cVBDUlR0_TRYXvgbErJ6oM0Sg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ESCRIBE MÁS RÁPIDO",
+     "EN EL TECLADO"
+    ],
+    "video": {
+     "id": "CnI-f_8jrqg",
+     "titre": "Cómo Escribir Rápido en el Teclado de la Computadora y Aprender a Tipear | Curso de Mecanografía 1",
+     "chaine": "James Van der Lust",
+     "vues": "1.6 M de vistas",
+     "date": "hace 6 años",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nyy23hwLMlY42xyjm-C5sdkWxIhBzvnnI-gMz3tiBS0mY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

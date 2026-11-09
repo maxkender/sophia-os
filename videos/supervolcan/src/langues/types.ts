@@ -20,7 +20,7 @@ export type TextesAppli = {
 export type ScriptLangue = {
   langue: string;
   voix: {id: string; nom: string; modele: string; reglages: Record<string, unknown>};
-  scenes: {id: string; texte: string; reperes?: Repere[]}[];
+  scenes: {id: string; texte: string; reperes?: Repere[]; animation?: string}[]; // animation : la commande de l'admin
   outro: {texte: string};
   legende?: string;
   appli: TextesAppli;

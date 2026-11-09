@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o177",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "763126db-beb1-4da3-93d9-8377df26d4a8",
+ "titre": "green flags you're becoming smarter without noticing #greenflags #intelligence #selfimprovement #growth #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "ae561c12-1b98-4cab-b908-782ece5b9a00"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, ae561c12). déclinaison G1 de « green flags you're becoming smarter without noticing » (parent 763126db, famille née de wa-o100). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2e23c71a-5a42-4dae-a89b-cf4b42e5ea55",
+   "texte_overlay": "green flags you're becoming\nsmarter without noticing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665741693320285453/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8b18d841-3238-415f-a09f-15200790519b",
+   "texte_overlay": "you ask follow up questions\n\nyou no longer accept the first answer you hear. asking one more question to really understand is one of the clearest signs of a quietly sharpening mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665741693320285453/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d595488-9f00-4bb7-9b48-b5c6560bcc75",
+   "texte_overlay": "you enjoy documentaries\n\nyou'd rather watch a good documentary than another random show. choosing to learn in your free time says a lot about where your mind is quietly heading.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665741693320285453/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "298cc2c3-ee66-4ff4-9d55-e0cc99923a58",
+   "texte_overlay": "you crave learning\n\nyou look forward to 5 minutes of learning more than to 5 minutes of scrolling: a painting, a planet, a moment in history. that shift says everything about you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665741693320285453/3.jpg",
+   "texte_sophia": "you crave learning\n\ni look forward to my 5 minute lesson more than scrolling now: a painting, a planet. i do it with the Sophia app, one lesson a day, and that shift says everything about me."
+  },
+  {
+   "position": 5,
+   "media_id": "e9ed7dfa-910c-4ace-8038-9549be6c8b41",
+   "texte_overlay": "you notice your biases\n\nyou catch yourself jumping to conclusions and stop to check. noticing your own blind spots is a level of honest thinking that most people never reach.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665741693320285453/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8a8ac3c8-558a-4fc9-a824-5eba20f6f322",
+   "texte_overlay": "you explain things simply\n\nyou can explain complicated ideas in simple words to friends. making the complex sound easy is one of the truest and rarest signs of real understanding.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665741693320285453/6.jpg"
+  }
+ ]
+}

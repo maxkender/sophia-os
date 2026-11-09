@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o123",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7306ac61-3b4e-4775-8d59-2dc1b153be51",
+  "titre": "how to write faster (APs + timed tests) #studytok #exams",
+  "inspirations": [
+    "7306ac61-3b4e-4775-8d59-2dc1b153be51"
+  ],
+  "notes": "G1, déclinaison de 7306ac61 (« how to write faster (APs + timed tests) », génération 0 en anglais ; meilleur passage es 1,7 k vues, r 2,13), en anglais. cta C (le défi de 7 jours en slide 2). L'accroche de la famille est normalisée en « how to write faster aps timed tests » ; je la recopie avec sa ponctuation probable. Conseils neufs (rien de repris du parent : ni échauffement, ni stylo, ni petites lettres, ni posture, ni autre appli). Aucun conseil médical. Routine du 9/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 4 full tests et 4 déclinaisons (lignes 1 en G2, 2, 3 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 4 (4d7c5f32, accroche illisible), 5 (083ac272, hobbies « backed by science »), 6 (837491f7, « enterimarnt »), 7 (6211e51e, « other then »), 8 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "how to write faster\n(APs + timed tests)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one thing about the world every morning, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "1. learn a few abbreviations\n\nbecause, with, leads to:\nmake them symbols.\nin a timed essay, every second counts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "01c21b76",
+      "texte_overlay": "2. write your thesis first\n\none sentence at the top.\nthen every paragraph just has to prove it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3615b305",
+      "texte_overlay": "3. use a paragraph formula\n\npoint, example, why it matters.\nno blank-page panic.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "4. practice past prompts with a timer\n\nspeed comes from doing it,\nnot from reading about it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0f057bec",
+      "texte_overlay": "5. leave five minutes at the end\n\nreread, fix the obvious mistakes.\nit's worth more than one extra paragraph.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "4c866843",
+      "texte_overlay": "save this for exam season.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

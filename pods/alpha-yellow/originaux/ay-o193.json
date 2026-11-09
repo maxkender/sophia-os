@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o193",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "44a3f133-691a-4791-91b5-9c62431f3bb6",
+ "titre": "Comment devenir totalement irremplaçable en 90 jours #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "44a3f133-691a-4791-91b5-9c62431f3bb6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 026f2ce9. déclinaison G1 de la ligne 8 de la boîte (44a3f133, es-419 5,9 k r 12,5), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. Ton plus bienveillant que le parent (pas de coupure de la vie sociale). Items neufs, aucun repris du parent. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "026f2ce9",
+   "texte_overlay": "Comment devenir\ntotalement irremplaçable\nen 90 jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Jours 1 à 30 : choisis une compétence rare et utile. Montage vidéo, analyse de données, négociation, une langue. Une demi-heure par jour, tous les jours, sans exception.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Deviens celui qui résout les problèmes. Au travail comme entre amis, propose une solution chaque fois que tu signales un souci. On ne remplace pas facilement ces gens-là.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Jours 31 à 60 : mets ta compétence au service des autres. Aide un collègue, un ami, un petit projet. Ce que tu sais faire n'a de valeur que si les autres le voient.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Sois d'une fiabilité totale. Chaque délai tenu, chaque message rendu, chaque promesse respectée. La fiabilité est la qualité la plus rare et la plus recherchée.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Nourris ta tête tous les jours. Je fais cinq minutes d'histoire, d'art ou de science par jour, et une culture large rend chaque idée plus riche et plus utile.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Une culture large rend chaque idée plus riche et plus utile.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Jours 61 à 90 : documente tes résultats. Note ce que tu as amélioré, appris, accompli. Le jour où tu demandes plus, tu as des preuves au lieu de promesses.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Irremplaçable ne veut pas dire indispensable à tout. Ça veut dire unique sur une chose, fiable sur toutes les autres. Quatre-vingt-dix jours suffisent pour commencer.",
+   "media_id": "20b1d0c4"
+  }
+ ]
+}

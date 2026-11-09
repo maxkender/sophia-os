@@ -111,24 +111,70 @@ export function scriptValide(brut: unknown): Objet | null {
   return brut;
 }
 
+export const SCENES_MAX = 20;
+export const ANIMATION_MAX = 1000;
+
+/** Le numéro d'une scène « S7 » (0 sinon) : une scène ajoutée prend le suivant. */
+const numeroScene = (id: unknown) => {
+  const m = /^S(\d+)$/.exec(String(id ?? ""));
+  return m ? Number(m[1]) : 0;
+};
+
 /**
- * Ce que l'admin a modifié dans le script, reporté sur le script stocké : le
- * texte des scènes (par `id`, ou par position si la scène n'a pas d'id), le
- * texte de l'outro et la légende. Tout le reste (repères, voix, appli…) est
- * celui du moteur et ne bouge pas.
+ * Ce que l'admin a modifié dans le script, reporté sur le script stocké.
+ *
+ * Page actuelle : la liste des scènes telle que l'admin la veut. Chaque scène
+ * porte `origine` (sa position dans le script stocké, ou null si l'admin l'a
+ * ajoutée), son `texte` et l'`animation` voulue. Une scène gardée garde tout ce
+ * que le moteur y a mis (id, repères…) ; une scène ajoutée reçoit l'id libre
+ * suivant (S8…) et pas de repères ; une scène absente de la liste est supprimée.
+ *
+ * Ancienne page (scènes sans `origine`) : seuls les textes, par `id` ou par position.
+ *
+ * Dans les deux cas : l'outro et la légende ; le reste (voix, appli…) ne bouge pas.
  */
 export function fusionnerScriptEdite(stocke: unknown, edite: unknown): Objet | { erreur: string } {
   const base = scriptValide(stocke);
   if (!base) return { erreur: "Pas encore de script à modifier" };
   if (!estObjet(edite)) return { erreur: "Script modifié invalide" };
   const copie = structuredClone(base) as Objet;
-  const scenes = copie.scenes as Objet[];
+  const anciennes = copie.scenes as Objet[];
   const editees = Array.isArray(edite.scenes) ? (edite.scenes as unknown[]) : [];
-  editees.forEach((e, i) => {
-    if (!estObjet(e) || typeof e.texte !== "string") return;
-    const cible = e.id != null ? scenes.find((s) => s.id === e.id) : scenes[i];
-    if (cible) cible.texte = e.texte.trim();
-  });
+  if (editees.some((e) => estObjet(e) && "origine" in e)) {
+    if (editees.length === 0) return { erreur: "Il faut au moins une scène" };
+    if (editees.length > SCENES_MAX) return { erreur: `${SCENES_MAX} scènes au plus` };
+    let prochain = Math.max(anciennes.length, ...anciennes.map((s) => numeroScene(s.id))) + 1;
+    const prises = new Set<number>();
+    const scenes: Objet[] = [];
+    for (const e of editees) {
+      if (!estObjet(e) || typeof e.texte !== "string") return { erreur: "Scène modifiée invalide" };
+      const o = e.origine;
+      let scene: Objet;
+      if (o == null) {
+        scene = { id: `S${prochain++}`, texte: "", reperes: [] };
+      } else if (typeof o === "number" && Number.isInteger(o) && o >= 0 && o < anciennes.length && !prises.has(o)) {
+        prises.add(o);
+        scene = anciennes[o];
+      } else {
+        return { erreur: "Scène modifiée invalide" };
+      }
+      scene.texte = e.texte.trim();
+      if (typeof e.animation === "string") {
+        const animation = e.animation.trim();
+        if (animation.length > ANIMATION_MAX) return { erreur: `Animation : ${ANIMATION_MAX} caractères au plus par scène` };
+        if (animation) scene.animation = animation;
+        else delete scene.animation;
+      }
+      scenes.push(scene);
+    }
+    copie.scenes = scenes;
+  } else {
+    editees.forEach((e, i) => {
+      if (!estObjet(e) || typeof e.texte !== "string") return;
+      const cible = e.id != null ? anciennes.find((s) => s.id === e.id) : anciennes[i];
+      if (cible) cible.texte = e.texte.trim();
+    });
+  }
   if (estObjet(edite.outro) && typeof edite.outro.texte === "string") {
     copie.outro = { ...(estObjet(copie.outro) ? copie.outro : {}), texte: edite.outro.texte.trim() };
   }
@@ -137,8 +183,24 @@ export function fusionnerScriptEdite(stocke: unknown, edite: unknown): Objet | {
     if (legende.length > LEGENDE_MAX) return { erreur: `Légende : ${LEGENDE_MAX} caractères au plus` };
     copie.legende = legende;
   }
-  if (scenes.some((s) => !String(s.texte ?? "").trim())) return { erreur: "Chaque scène a besoin d'un texte" };
+  if ((copie.scenes as Objet[]).some((s) => !String(s.texte ?? "").trim())) return { erreur: "Chaque scène a besoin d'un texte" };
   return copie;
+}
+
+/** Pour le journal (et le moteur) : les scènes ajoutées, supprimées, et celles dont l'animation a changé. */
+export function changementsScenes(avant: unknown, apres: unknown): { ajoutees: string[]; supprimees: string[]; animations: string[] } {
+  const ids = (sc: unknown) => (estObjet(sc) && Array.isArray(sc.scenes) ? (sc.scenes as unknown[]).filter(estObjet) : []);
+  const a = ids(avant);
+  const b = ids(apres);
+  const idsA = a.map((s) => String(s.id));
+  const idsB = b.map((s) => String(s.id));
+  return {
+    ajoutees: idsB.filter((id) => !idsA.includes(id)),
+    supprimees: idsA.filter((id) => !idsB.includes(id)),
+    animations: b
+      .filter((s) => idsA.includes(String(s.id)) && (a.find((x) => String(x.id) === String(s.id))?.animation ?? "") !== (s.animation ?? ""))
+      .map((s) => String(s.id)),
+  };
 }
 
 /** Le chemin d'un fichier du moteur : medias/motion/<video>/<langue>/<nom>. */

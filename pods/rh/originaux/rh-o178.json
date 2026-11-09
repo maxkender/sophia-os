@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o178",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai survécu à mon premier mois avec une manager difficile #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le premier mois avec une manager difficile). Récit inventé, rien de juridique. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d2427888",
+   "texte_overlay": "comment j'ai survécu à mon premier mois\navec une manager difficile",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2909a863",
+   "texte_overlay": "j'ai compris ce qu'elle voulait vraiment\nles résultats, pas les explications",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "29194e70",
+   "texte_overlay": "j'ai écrit chaque consigne\net je l'ai renvoyée par mail : « si je comprends bien… »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2945e309",
+   "texte_overlay": "j'ai arrêté de le prendre pour moi\nelle parlait comme ça à tout le monde",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2983297b",
+   "texte_overlay": "j'ai trouvé une alliée dans l'équipe\nquelqu'un qui la connaissait depuis 3 ans",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1b319c70",
+   "texte_overlay": "j'ai gardé un truc à moi chaque soir\n5 minutes à apprendre autre chose. ma tête se vidait",
+   "texte_sophia": "j'ai gardé un truc à moi chaque soir\n5 minutes sur l'appli Sophia, à apprendre autre chose. ma tête se vidait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2ac68b47",
+   "texte_overlay": "au bout d'un mois, on se comprenait mieux\npas parfaite. mais vivable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2b10e71d",
+   "texte_overlay": "et toi, ta manager, elle est comment ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

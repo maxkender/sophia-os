@@ -1,6 +1,7 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
 import {
+  changementsScenes,
   cheminCaptureValide,
   cheminDeLaLangue,
   cheminMotion,
@@ -96,6 +97,42 @@ Deno.test("fusionnerScriptEdite : refuse un script vide ou une scène sans texte
   assertEquals(fusionnerScriptEdite(SCRIPT, { scenes: [{ id: "S1", texte: "  " }] }), {
     erreur: "Chaque scène a besoin d'un texte",
   });
+});
+
+Deno.test("fusionnerScriptEdite : ajoute, supprime, réordonne les scènes et garde ce qu'y a mis le moteur", () => {
+  const fusion = fusionnerScriptEdite(SCRIPT, {
+    scenes: [
+      { origine: 1, id: "S2", texte: " Two ", animation: "  Les Alpes surgissent  " },
+      { origine: null, id: null, texte: "New scene.", animation: "Un train traverse un tunnel." },
+    ],
+    outro: { texte: "Fin." },
+    legende: "#x",
+  });
+  assert(!("erreur" in fusion));
+  const f = fusion as { scenes: Array<Record<string, unknown>> };
+  assertEquals(f.scenes.map((s) => s.id), ["S2", "S3"]);
+  assertEquals(f.scenes[0].texte, "Two");
+  assertEquals(f.scenes[0].reperes, SCRIPT.scenes[1].reperes);
+  assertEquals(f.scenes[0].animation, "Les Alpes surgissent");
+  assertEquals(f.scenes[1], { id: "S3", texte: "New scene.", reperes: [], animation: "Un train traverse un tunnel." });
+  assertEquals(changementsScenes(SCRIPT, fusion), { ajoutees: ["S3"], supprimees: ["S1"], animations: ["S2"] });
+  // une animation vidée disparaît
+  const vide = fusionnerScriptEdite(fusion, { scenes: [{ origine: 0, texte: "Two", animation: " " }, { origine: 1, texte: "New scene." }] });
+  assertEquals((vide as typeof f).scenes[0].animation, undefined);
+  assertEquals((vide as typeof f).scenes[1].animation, "Un train traverse un tunnel.", "animation absente = inchangée");
+});
+
+Deno.test("fusionnerScriptEdite : refuse une liste de scènes impossible", () => {
+  assertEquals(fusionnerScriptEdite(SCRIPT, { scenes: [{ origine: 0, texte: "a" }, { origine: 0, texte: "b" }] }), {
+    erreur: "Scène modifiée invalide",
+  });
+  assertEquals(fusionnerScriptEdite(SCRIPT, { scenes: [{ origine: 9, texte: "a" }] }), { erreur: "Scène modifiée invalide" });
+  assertEquals(fusionnerScriptEdite(SCRIPT, { scenes: [{ origine: null, texte: "" }] }), { erreur: "Chaque scène a besoin d'un texte" });
+  assertEquals(fusionnerScriptEdite(SCRIPT, { scenes: [{ origine: 0, texte: "a", animation: "x".repeat(1001) }] }), {
+    erreur: "Animation : 1000 caractères au plus par scène",
+  });
+  const trop = Array.from({ length: 21 }, () => ({ origine: null, texte: "a" }));
+  assertEquals(fusionnerScriptEdite(SCRIPT, { scenes: trop }), { erreur: "20 scènes au plus" });
 });
 
 Deno.test("cheminMotion et cheminDeLaLangue", () => {

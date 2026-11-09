@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o185",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man great to work with #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 50a4e1a0. full test. Accroche jamais faite chez nous : être un collègue apprécié, angle travail concret. Accroches écrites : « Things that make a man great to work with » (retenue), « How to be the colleague everyone wants » (écartée : plus long), « Work habits people love » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50a4e1a0",
+   "texte_overlay": "Things that make a man\ngreat to work with",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "He answers clearly and quickly. Even \"I'll get back to you Friday\" is better than silence. People love working with someone who never leaves them waiting.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "He owns his mistakes. \"That's on me, here's the fix.\" No blaming, no hiding. Colleagues trust the man who makes problems smaller, never bigger, under pressure.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "He shares credit generously. \"Sara did the hard part on this.\" Lifting others up costs nothing and makes everyone want to be on his team next time.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "He brings solutions, not just problems. \"This won't work, but what if we tried this?\" Being constructive is what makes people truly value your opinion.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "He brings fresh ideas. I do five minutes a day of history, art or science, and examples from other fields keep my ideas original and useful at work.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Examples from other fields keep my ideas original at work.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "He respects people's time. Meetings start on time, end early, and have a clear point. Everyone notices the man who never wastes their whole afternoon.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "He stays calm under pressure. Deadlines, angry clients, last-minute changes. A steady colleague makes the whole team feel calmer and more capable.",
+   "media_id": "215bd88e"
+  }
+ ]
+}

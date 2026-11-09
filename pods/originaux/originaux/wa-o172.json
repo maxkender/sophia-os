@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o172",
+ "type_bleo": "full_test",
+ "titre": "how to sound smart without trying too hard #intelligence #communication #selfimprovement #conversation #howto",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "55dbf8d9-7c7a-4983-8072-ebb7970f697c"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 55dbf8d9). full test BLEO : accroche jamais faite (format « how to sound smart »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0dbcb4b7-cf17-4517-9ed3-4cf523dcb4fd",
+   "texte_overlay": "how to sound smart\nwithout trying too hard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652469806347717902/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1f6934a9-8972-4173-b912-4f6977463165",
+   "texte_overlay": "ask good questions\n\nask how and why more than you share your own opinion. curious, specific questions make you sound more thoughtful than any clever statement ever could.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652469806347717902/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3058c634-3dfd-4309-ad27-6ddbc9206842",
+   "texte_overlay": "use simple words\n\nexplain things in the simplest words you can. people who truly understand something can always make it sound simple, and everyone else can quietly tell.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652469806347717902/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "66faf08e-2eb1-4655-9994-e180962a4a66",
+   "texte_overlay": "know a little of everything\n\nspend 5 minutes a day learning about something new: art, history, the stars. knowing a little about many things lets you join any conversation with ease.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652469806347717902/3.jpg",
+   "texte_sophia": "know a little of everything\n\ni spend 5 minutes a day learning something new: art, history, the stars. i do it with the Sophia app, one lesson a day, and knowing a little about many things helps everywhere."
+  },
+  {
+   "position": 5,
+   "media_id": "8ca3264c-56f1-4df1-9aaa-1c6aafbdec96",
+   "texte_overlay": "admit what you don't know\n\nsay i'm not sure, but i think, instead of pretending. honest uncertainty sounds far more intelligent than confident guesses that later turn out wrong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652469806347717902/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "af8c26f3-5775-49b8-9eed-be6a88eaf598",
+   "texte_overlay": "listen fully\n\nlet people finish before you answer, and refer back to what they said. listening carefully is the quietest and most underrated way to sound genuinely smart.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652469806347717902/6.jpg"
+  }
+ ]
+}

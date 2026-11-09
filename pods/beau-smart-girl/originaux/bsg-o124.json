@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o124",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f94338f5-29d8-466b-97db-93e3bb09ba17",
+  "titre": "je note tous les trucs insolites que j'ai fait pour devenir cultivée en 6 mois (le 3, c'est illégal je crois) #culture #pourtoi",
+  "inspirations": [
+    "f94338f5-29d8-466b-97db-93e3bb09ba17"
+  ],
+  "notes": "G1, déclinaison de f94338f5 (« je note tous les trucs insolites que j'ai fait pour devenir cultivée en 6 mois (le 3, c'est illégal je crois) », génération 0 en français ; meilleur passage hu 14,7 k vues, r 6,53), en français. cta A (avant / après sur le dernier item). Accroche recopiée mot pour mot (« fait » sans accord, comme le parent). Le 3 « illégal » est une blague sans rien de répréhensible (lire assise par terre en librairie sans acheter). Essais neufs (rien de repris du parent : ni TikTok supprimé, ni cours à la fac, ni semaine en anglais, ni autre appli). Routine du 9/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 4 full tests et 4 déclinaisons (lignes 1 en G2, 2, 3 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 4 (4d7c5f32, accroche illisible), 5 (083ac272, hobbies « backed by science »), 6 (837491f7, « enterimarnt »), 7 (6211e51e, « other then »), 8 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "je note tous les trucs insolites\nque j'ai fait pour devenir cultivée en 6 mois\n(le 3, c'est illégal je crois)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. un podcast d'histoire à chaque trajet\n\n8/10\n6 mois de bus, c'est un vrai cours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. un musée par mois, seule\n\n9/10\nsans personne pour me presser.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "41a74286",
+      "texte_overlay": "3. lire des livres entiers en librairie, assise par terre\n\n7/10\nje n'ai rien acheté pendant un mois.\nle libraire a fini par me dire bonjour.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "4. traduire une chanson par semaine\n\n8/10\nles paroles sont souvent bien plus tristes que la musique.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "114ca47c",
+      "texte_overlay": "5. apprendre un truc chaque matin\n\n10/10\navant, je me sentais nulle dès qu'on parlait d'histoire.\nmaintenant, j'apprends un truc sur le monde chaque matin. et c'est moi qui raconte.",
+      "texte_sophia": "5. apprendre un truc chaque matin\n\n10/10\navant, je me sentais nulle dès qu'on parlait d'histoire.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "enregistre-le et vole-moi un truc.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

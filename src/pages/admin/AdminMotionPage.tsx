@@ -14,6 +14,7 @@ import {
   Plus,
   Scissors,
   Settings2,
+  Trash2,
   UserRound,
 } from "lucide-react";
 
@@ -68,8 +69,13 @@ import {
   ongletParDefaut,
   prochaineAction,
   type ScriptEditable,
+  ajouterScene,
+  ANIMATION_MAX,
+  problemeScript,
+  SCENES_MAX,
   scriptEditable,
   scriptModifie,
+  supprimerScene,
   scriptsDifferents,
   VARIANTE_LANGUE,
   VARIANTE_VIDEO,
@@ -626,6 +632,9 @@ function EditeurScript({ video }: { video: VideoMotion }) {
   React.useEffect(() => setTexte(original), [signature]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const modifie = scriptsDifferents(texte, original);
+  const probleme = problemeScript(texte);
+  const changerScene = (i: number, champ: "texte" | "animation", valeur: string) =>
+    setTexte((e) => (e ? { ...e, scenes: e.scenes.map((x, j) => (j === i ? { ...x, [champ]: valeur } : x)) } : e));
   const enregistrer = useMutation({ mutationFn: () => majScriptMotion(video.id, scriptModifie(texte!)), onSettled: relire });
   const valider = useMutation({
     mutationFn: async () => {
@@ -654,22 +663,71 @@ function EditeurScript({ video }: { video: VideoMotion }) {
               <p className="text-xs text-muted-foreground">{t("motion.scriptAide")}</p>
               <ol className="divide-y rounded-lg border">
                 {texte.scenes.map((s, i) => (
-                  <li key={s.id ?? i} className="flex gap-3 p-2.5">
-                    <span className="w-8 shrink-0 pt-2 text-right font-mono text-xs text-muted-foreground">{s.id ?? i + 1}</span>
-                    <Textarea
-                      rows={1}
-                      value={s.texte}
-                      disabled={verrouille}
-                      className="border-transparent bg-transparent shadow-none before:hidden hover:border-input has-focus-visible:border-ring"
-                      style={{ minHeight: "2.25rem", resize: "none" }}
-                      aria-label={t("motion.texteScene", { id: s.id ?? i + 1 })}
-                      onChange={(e) =>
-                        setTexte({ ...texte, scenes: texte.scenes.map((x, j) => (j === i ? { ...x, texte: e.target.value } : x)) })
-                      }
-                    />
+                  <li key={s.origine != null ? `o${s.origine}` : `n${i}`} className="group flex gap-3 p-2.5">
+                    <div className="w-8 shrink-0 pt-2 text-right">
+                      <span className="block font-mono text-xs text-muted-foreground">{i + 1}</span>
+                      {s.origine == null && <span className="block text-[10px] text-primary">{t("motion.sceneNouvelle")}</span>}
+                    </div>
+                    <div className="min-w-0 flex-1 space-y-1">
+                      <Textarea
+                        rows={1}
+                        value={s.texte}
+                        disabled={verrouille}
+                        placeholder={t("motion.texteSceneExemple")}
+                        className="border-transparent bg-transparent shadow-none before:hidden hover:border-input has-focus-visible:border-ring"
+                        style={{ minHeight: "2.25rem", resize: "none" }}
+                        aria-label={t("motion.texteScene", { id: i + 1 })}
+                        onChange={(e) => changerScene(i, "texte", e.target.value)}
+                      />
+                      <Textarea
+                        rows={1}
+                        value={s.animation}
+                        disabled={verrouille}
+                        maxLength={ANIMATION_MAX}
+                        placeholder={t("motion.animationExemple")}
+                        className="border-transparent bg-muted/40 text-xs text-muted-foreground shadow-none before:hidden hover:border-input has-focus-visible:border-ring"
+                        style={{ minHeight: "2rem", resize: "none" }}
+                        aria-label={t("motion.animationScene", { id: i + 1 })}
+                        onChange={(e) => changerScene(i, "animation", e.target.value)}
+                      />
+                    </div>
+                    <div className="flex shrink-0 flex-col gap-1 pt-1">
+                      <Button
+                        variant="ghost"
+                        size="icon-xs"
+                        disabled={verrouille || texte.scenes.length >= SCENES_MAX}
+                        title={t("motion.ajouterSceneApres", { n: i + 1 })}
+                        aria-label={t("motion.ajouterSceneApres", { n: i + 1 })}
+                        onClick={() => setTexte((e) => (e ? ajouterScene(e, i) : e))}
+                      >
+                        <Plus aria-hidden />
+                      </Button>
+                      <Button
+                        variant="ghost"
+                        size="icon-xs"
+                        disabled={verrouille || texte.scenes.length <= 1}
+                        title={t("motion.supprimerScene", { n: i + 1 })}
+                        aria-label={t("motion.supprimerScene", { n: i + 1 })}
+                        onClick={() => {
+                          if (!s.texte.trim() && !s.animation.trim()) setTexte((e) => (e ? supprimerScene(e, i) : e));
+                          else if (window.confirm(t("motion.confirmSupprimerScene", { n: i + 1 }))) setTexte((e) => (e ? supprimerScene(e, i) : e));
+                        }}
+                      >
+                        <Trash2 aria-hidden />
+                      </Button>
+                    </div>
                   </li>
                 ))}
               </ol>
+              <Button
+                variant="outline"
+                size="sm"
+                disabled={verrouille || texte.scenes.length >= SCENES_MAX}
+                onClick={() => setTexte((e) => (e ? ajouterScene(e, e.scenes.length - 1) : e))}
+              >
+                <Plus aria-hidden />
+                {t("motion.ajouterScene")}
+              </Button>
               <div className="grid gap-3 md:grid-cols-2">
                 <label className="block space-y-1">
                   <span className="text-xs font-medium text-muted-foreground">{t("motion.outro")}</span>
@@ -686,12 +744,13 @@ function EditeurScript({ video }: { video: VideoMotion }) {
         {texte && (
           <div className="sticky bottom-0 flex flex-wrap items-center gap-2 rounded-b-xl border-t bg-card/95 px-4 py-3 backdrop-blur">
             {modifie && <span className="text-xs text-warning-foreground">{t("motion.scriptModifie")}</span>}
+            {modifie && probleme && <span className="text-xs text-destructive">{t(`motion.probleme.${probleme}`)}</span>}
             <div className="ml-auto flex flex-wrap gap-2">
-              <Button variant="outline" disabled={!modifie || verrouille} loading={enregistrer.isPending} onClick={() => enregistrer.mutate()}>
+              <Button variant="outline" disabled={!modifie || verrouille || !!probleme} loading={enregistrer.isPending} onClick={() => enregistrer.mutate()}>
                 {t("motion.enregistrer")}
               </Button>
               <Button
-                disabled={!validable}
+                disabled={!validable || (modifie && !!probleme)}
                 loading={valider.isPending}
                 onClick={() => {
                   if (window.confirm(t("motion.confirmValiderScript"))) valider.mutate();

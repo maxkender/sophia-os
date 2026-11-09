@@ -75,7 +75,6 @@ import {
 } from "../_shared/arret.ts";
 import {
   ACTIONS_PAYEES,
-  aReessayer,
   choisirCanari,
   classerErreur,
   ecartsCanari,
@@ -84,7 +83,10 @@ import {
   type LigneAuto,
   montantConforme,
   numeroSemaine,
+  jourDePaie,
   peutPayer,
+  prochainEssai,
+  reessaiPossible,
   reessaisFinis,
   remplirTexte,
   semaineAPayer,
@@ -1615,6 +1617,7 @@ interface PaiementApi {
   tentatives: number | null;
   reessai: boolean | null;
   prochain_essai: string | null;
+  type_erreur?: string | null;
   soumission_message_at: string | null;
   etapes: Record<string, unknown>[] | null;
   montant_approuve: number | null;
@@ -1681,7 +1684,7 @@ async function relireAFinancer(supabase: Supabase, par: string | null) {
 }
 
 const COLONNES_PAIEMENT =
-  "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, soumission_message_at, etapes, montant_approuve, updated_at";
+  "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, type_erreur, soumission_message_at, etapes, montant_approuve, updated_at";
 
 async function relireJalons(supabase: Supabase, par: string | null, contrat: string, tenant: string | null, action: string) {
   const lu = await lire(supabase, { par, action, query: REQUETE_JALONS, variables: { id: contrat }, tenant });
@@ -1789,11 +1792,12 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
   /** Un échec : réessai dans 1 h (problème technique, lundi et mardi) ou To do. */
   const echec = async (raison: string, brute: string | null, typeForce?: TypeErreur): Promise<Issue> => {
     const type = typeForce ?? classerErreur(brute ?? raison);
-    const reessai = aReessayer(type) && !reessaisFinis(new Date(), semaine);
+    // 9/11 : un plafond n'est jamais abandonné (lendemain 0 h 05) ; le reste : 1 h, jusqu'au mardi 20 h.
+    const reessai = reessaiPossible(type, new Date(), semaine);
     tentatives++;
     await maj({
       statut: "a_verifier", erreur: raison, type_erreur: type, reessai, tentatives,
-      prochain_essai: reessai ? new Date(Date.now() + 3_600_000).toISOString() : null,
+      prochain_essai: reessai ? prochainEssai(type) : null,
       jalon_approuve: jalonApprouve, jalon_complement: jalonComplement, jalon_finance: jalonFinance,
     });
     const nom = ligne.poster_nom ?? ligne.poster_id;
@@ -2004,7 +2008,16 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     const v = await reglagesValeurs(supabase, ["paie_auto_heure"]);
     const heure = Number.isFinite(Number(v.paie_auto_heure)) ? Number(v.paie_auto_heure) : 9;
     const quand = peutPayer(new Date(), heure, etat.lance_at);
-    if (!quand.ok) return { ok: true, ignore: quand.raison };
+    // 9/11 : hors lundi et mardi, seuls les paiements bloqués par le plafond du jour sont repris.
+    let plafondSeul = false;
+    if (!quand.ok) {
+      if (jourDePaie()) return { ok: true, ignore: quand.raison };
+      const { count } = await supabase.from("paie_paiements_api").select("id", { count: "exact", head: true })
+        .eq("semaine", semaine).eq("statut", "a_verifier").eq("type_erreur", "plafond").eq("reessai", true)
+        .lte("prochain_essai", new Date().toISOString());
+      if (!count) return { ok: true, ignore: quand.raison };
+      plafondSeul = true;
+    }
     if (etat.statut === "arrete") return { ok: true, ignore: `arrêtée après le canari : ${etat.arret_raison ?? "voir Payroll"}` };
     const { lignes, tenantDe } = await chargerLignes(supabase, semaine);
     const tenant = (l: LigneAuto) => (l.contrat_id ? (tenantDe.get(l.contrat_id) ?? null) : null);
@@ -2016,7 +2029,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     const verrouDe = new Map(((verrous ?? []) as PaiementApi[]).map((x) => [x.paie_semaine_id, x]));
 
     // 1. Le canari (B4) : un seul contrat, relu en entier avant d'aller plus loin.
-    if (!etat.canari_ok) {
+    if (!etat.canari_ok && !plafondSeul) {
       const libres = lignes.filter((l) => !verrouDe.has(l.ids[0]) && !horsPaieAuto(l) && l.contrat_id);
       // Le canari : une ligne simple ; à défaut, la 1re ligne « Payer » d'un seul profil.
       const c = choisirCanari(libres) ?? libres.find((l) => l.action === "payer" && l.ids.length === 1) ?? null;
@@ -2060,9 +2073,10 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
       if (x) {
         const enCoursMort = x.statut === "en_cours" && Date.now() - new Date(x.updated_at).getTime() > 5 * 60_000;
         const reessaiDu = x.statut === "a_verifier" && x.reessai && (!x.prochain_essai || new Date(x.prochain_essai) <= maintenant);
-        if (enCoursMort || reessaiDu) reprises.push({ l, v: x });
+        if (plafondSeul ? reessaiDu && x.type_erreur === "plafond" : enCoursMort || reessaiDu) reprises.push({ l, v: x });
         continue;
       }
+      if (plafondSeul) continue;
       if ((l.action === "legacy" || l.action === "a_verifier") && l.ids[0] && !l.exclu && !l.paye_at) {
         // Prompt 21, S : hors paie automatique, visibles dans To do.
         await aFaire(supabase, {
@@ -2092,7 +2106,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     };
     for (const { l, v } of reprises) {
       if (Date.now() - debut > BUDGET_MS) { encore = true; break; }
-      if (finis && v.statut === "a_verifier") {
+      if (finis && v.statut === "a_verifier" && v.type_erreur !== "plafond") {
         // Mardi 20 h passé : plus de réessai, la ligne va dans To do.
         await supabase.from("paie_paiements_api").update({ reessai: false, prochain_essai: null, updated_at: new Date().toISOString() }).eq("id", v.id);
         await aFaire(supabase, { cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : à vérifier`, detail: "réessais finis (mardi 20 h)", poster_id: l.poster_id, contrat_id: l.contrat_id, semaine });
@@ -2137,10 +2151,10 @@ async function noterRefus(supabase: Supabase, par: string | null, semaine: strin
   });
   if (!id) return;
   const type = classerErreur(raison);
-  const reessai = aReessayer(type) && !reessaisFinis(new Date(), semaine);
+  const reessai = reessaiPossible(type, new Date(), semaine);
   await supabase.from("paie_paiements_api").update({
     statut: "a_verifier", erreur: raison ?? "refusée", type_erreur: type, reessai, lignes: l.ids,
-    prochain_essai: reessai ? new Date(Date.now() + 3_600_000).toISOString() : null, updated_at: new Date().toISOString(),
+    prochain_essai: reessai ? prochainEssai(type) : null, updated_at: new Date().toISOString(),
   }).eq("id", id);
   if (!reessai) {
     await aFaire(supabase, {

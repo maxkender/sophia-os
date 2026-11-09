@@ -1,0 +1,359 @@
+{
+ "id": "yp-044",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670179482493308182",
+  "vues": 72700,
+  "enregistrements": 3531,
+  "publie_le": "2026-08-04",
+  "titre": "a guide to a DIGITAL DECLUTTER"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8d8a2ff2-9c56-4e5f-8d35-7aa32ea39568",
+ "titre": {
+  "fr": "mes règles pour bien bosser à la bibli",
+  "es": "mis reglas para estudiar bien en la biblio",
+  "tr": "kütüphanede verimli çalışma kurallarım"
+ },
+ "legendes": {
+  "fr": "enregistre-le pour ta prochaine session à la bibli 📚 #bibliotheque #revisions #studytok #thatgirl #etudiante",
+  "es": "guárdalo para tu próxima sesión en la biblio 📚 #biblioteca #estudiar #studytok #thatgirl #universidad",
+  "tr": "bir sonraki kütüphane günün için kaydet 📚 #kütüphane #ders #studytok #thatgirl #üniversite"
+ },
+ "musique": {
+  "titre": "domestic wolves",
+  "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
+ },
+ "fond": {
+  "media_id": "b8dd95af-4ba9-4225-ba04-bb360ee9d721",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/05fe26be-0c88-44d4-819b-9b72707a690f/2.jpg?v=1790608235255",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-019 (« petit guide pour réviser à la bibliothèque », gagnante : 2,3 k en tr, r 2,68) : même promesse reformulée, même format guide en notes iOS, autres règles et autres photos. cta B : la mise en scène iPhone micabo en photo pleine de la règle « teste-toi avant le chapitre suivant »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mes règles pour",
+     "lignes": [
+      "BIEN BOSSER",
+      "À LA BIBLI"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 940
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mis reglas para",
+     "lignes": [
+      "ESTUDIAR BIEN",
+      "EN LA BIBLIO"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 940
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "KÜTÜPHANEDE",
+      "VERİMLİ ÇALIŞMA",
+      "KURALLARIM"
+     ],
+     "taille": 104,
+     "interligne": 1,
+     "y": 880
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1670b510-9da9-4c0a-8431-9f96f44c9080",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9620f8f0-e4c3-49d7-a045-d40efce7aee8/4.jpg?v=1790607910251",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "viens tôt le matin.",
+     "texte": "les meilleures places sont libres et le calme dure jusqu’à midi.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "llega temprano por la mañana.",
+     "texte": "los mejores sitios están libres y la calma dura hasta mediodía.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "sabah erken git.",
+     "texte": "en iyi yerler boş olur ve sessizlik öğlene kadar sürer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a290bd67-7e91-4453-b6cd-7f7a4144ea45",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55692dc5-f02c-4a63-bc50-773e8a88bd99/5.jpg?v=1791727092749",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "travaille par blocs de 50 min.",
+     "texte": "puis 10 min de pause, debout, loin de ta table.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "trabaja en bloques de 50 min.",
+     "texte": "luego 10 min de descanso, de pie, lejos de tu mesa.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "50 dakikalık bloklarla çalış.",
+     "texte": "sonra 10 dakika mola: ayağa kalk, masandan uzaklaş.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "teste-toi avant le chapitre suivant.",
+     "texte": "je mets mon cours dans micabo et je fais le quiz. si je rate, je relis juste ce passage.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "ponte a prueba antes del siguiente tema.",
+     "texte": "meto mi clase en micabo y hago el quiz. si fallo, releo solo esa parte.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "sonraki üniteden önce kendini test et.",
+     "texte": "dersimi micabo’ya koyup testi çözüyorum. yanlış yaparsam sadece o kısmı tekrar okuyorum.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "057a2a14-f14b-41ee-884f-eb6706e1d789",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a6464591-1e49-465a-bef1-2047471a7c50/4.jpg?v=1790606976020",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prépare ton sac la veille.",
+     "texte": "trousse, surligneurs, marque-pages : une fois assise, rien ne manque.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prepara la mochila la noche antes.",
+     "texte": "estuche, subrayadores, marcapáginas: una vez sentada, no te falta nada.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "çantanı bir gece önceden hazırla.",
+     "texte": "kalem kutusu, fosforlu kalemler, ayraçlar: oturunca hiçbir şey eksik olmaz.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0576788d-047e-4edc-b723-8f7d39ac4165",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0bb2340c-8638-4ea8-9d17-78ba8198482c/2-upscale.jpg?v=1786003705030",
+    "cadrage": {
+     "x": 0.4,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "range tout avant de partir.",
+     "texte": "et écris la première tâche de demain. tu reprendras sans réfléchir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "recógelo todo antes de irte.",
+     "texte": "y apunta la primera tarea de mañana. empezarás sin pensar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "çıkmadan her şeyi topla.",
+     "texte": "yarının ilk işini yaz. ertesi gün düşünmeden başlarsın.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

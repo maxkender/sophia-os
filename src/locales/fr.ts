@@ -6457,6 +6457,9 @@ export const fr = {
         importer: "Importer une démo",
         aide: "La vidéo de l’appli qu’on colle après la réaction. Monte-la (passages gardés, ordre, vitesse) puis assemble-la à une réaction avec « Réaction + démo ».",
         aucune: "Aucune démo pour l’instant : importe une vidéo, ou coupe la partie téléphone d’une source.",
+        deposer: "Glisse tes vidéos démo ici (elles seront en {{langue}})",
+        langueImport: "Langue des démos importées",
+        langueDe: "Langue de la démo {{nom}}",
         telephoneDe: "Partie téléphone · {{titre}}",
         pasMontee: "pas montée",
         prete: "montée",
@@ -6486,6 +6489,10 @@ export const fr = {
           ordre: "Dans chaque passage, la fin doit venir après le début.",
           auDela: "Un passage dépasse la fin de la vidéo.",
         },
+      },
+      nettoyage: {
+        ok: "sans identifiants IA",
+        detail: "Nettoyage final vérifié : plus de C2PA, XMP ni balises (retiré : {{retires}}).",
       },
       rendu: {
         enCours: "Rendu en cours dans ce navigateur… garde l’onglet ouvert et visible.",
@@ -6534,6 +6541,7 @@ export const fr = {
         choisirCompte: "Choisis un compte…",
         jour: "Jour de publication",
         dejaCeJour: "Ce compte a déjà un post ce jour-là (1 par jour).",
+        langueDifferente: "Attention : la vidéo est en {{video}}, le compte en {{compte}}.",
         videos: "Vidéos, dans l’ordre",
         videosAide: "Des vidéos de cette page (réactions générées, partie téléphone) ou importées de ton ordinateur. La première vidéo d’une source remplit le CTA, la capture, la légende et le son.",
         ajouterDeLaPage: "Ajouter une vidéo de la page…",

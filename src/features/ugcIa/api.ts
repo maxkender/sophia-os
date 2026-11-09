@@ -336,9 +336,19 @@ export async function supprimerFichiersPost(chemins: string[]): Promise<void> {
 
 // --- Démos et vidéos complètes (0665) ----------------------------------------
 
+/** Le rapport du nettoyage final d'un MP4 (0666) : boîtes retirées, plus aucune trace de C2PA / XMP. */
+export interface RapportNettoyage {
+  retires: string[];
+  verifie: boolean;
+  taille: number;
+}
+
 export interface DemoUgcIa {
   id: string;
   nom: string;
+  /** Langue de la démo (celle de l'appli à l'écran). */
+  langue: string;
+  nettoyage: RapportNettoyage | null;
   /** Partie téléphone d'une source reprise comme démo (sinon vidéo importée). */
   source_id: string | null;
   brut_url: string;
@@ -357,6 +367,9 @@ export interface AssemblageUgcIa {
   id: string;
   generation_id: string;
   demo_id: string | null;
+  /** Langue de la vidéo complète, celle de sa démo. */
+  langue: string | null;
+  nettoyage: RapportNettoyage | null;
   bandeau_actif: boolean;
   bandeau_texte: string | null;
   bandeau_position: number | null;
@@ -374,7 +387,9 @@ export interface AssemblageUgcIa {
 export async function listerDemos(): Promise<DemoUgcIa[]> {
   const { data, error } = await supabase
     .from("ugc_ia_demos")
-    .select("id, nom, source_id, brut_url, brut_duree_s, passages, vitesse, video_url, duree_s, montage_statut, montage_erreur, created_at")
+    .select(
+      "id, nom, langue, nettoyage, source_id, brut_url, brut_duree_s, passages, vitesse, video_url, duree_s, montage_statut, montage_erreur, created_at",
+    )
     .order("created_at", { ascending: false });
   if (error) throw error;
   return ((data ?? []) as unknown as DemoUgcIa[]).map((d) => ({
@@ -390,7 +405,7 @@ export async function listerAssemblages(): Promise<AssemblageUgcIa[]> {
   const { data, error } = await supabase
     .from("ugc_ia_assemblages")
     .select(
-      "id, generation_id, demo_id, bandeau_actif, bandeau_texte, bandeau_position, video_url, duree_s, statut, erreur, created_at, " +
+      "id, generation_id, demo_id, langue, nettoyage, bandeau_actif, bandeau_texte, bandeau_position, video_url, duree_s, statut, erreur, created_at, " +
         "generation:ugc_ia_generations(persona_id, source_id), demo:ugc_ia_demos(nom)",
     )
     .order("created_at", { ascending: false })
@@ -417,17 +432,22 @@ export async function deposerFichier(fichier: Blob, chemin: string, contentType:
   return supabase.storage.from("medias").getPublicUrl(chemin).data.publicUrl;
 }
 
-/** Importe une démo de l'ordinateur dans la bibliothèque. */
-export async function importerDemo(fichier: File, dureeS: number | null): Promise<{ demo: DemoUgcIa }> {
+/** Importe une démo de l'ordinateur dans la bibliothèque, dans sa langue. */
+export async function importerDemo(fichier: File, dureeS: number | null, langue: string): Promise<{ demo: DemoUgcIa }> {
   const chemin = `ugc-ia/demos/${crypto.randomUUID()}/brut-${nomFichierSur(fichier.name)}`;
   const brutUrl = await deposerFichier(fichier, chemin, fichier.type || "video/mp4");
   const nom = fichier.name.replace(/\.[^.]+$/, "").slice(0, 80) || "Démo";
-  return invoke("ugc-ia", { action: "ajouter_demo", nom, brutUrl, brutPath: chemin, dureeS });
+  return invoke("ugc-ia", { action: "ajouter_demo", langue, nom, brutUrl, brutPath: chemin, dureeS });
 }
 
-/** La partie téléphone d'une source, reprise dans la bibliothèque (une fois). */
-export function ajouterDemoDeSource(sourceId: string): Promise<{ demo: DemoUgcIa }> {
-  return invoke("ugc-ia", { action: "ajouter_demo", sourceId });
+/** La partie téléphone d'une source, reprise dans la bibliothèque (une fois), dans sa langue. */
+export function ajouterDemoDeSource(sourceId: string, langue: string): Promise<{ demo: DemoUgcIa }> {
+  return invoke("ugc-ia", { action: "ajouter_demo", sourceId, langue });
+}
+
+/** Renommer une démo ou changer sa langue. */
+export function majDemo(id: string, patch: { nom?: string; langue?: string }): Promise<{ demo: DemoUgcIa }> {
+  return invoke("ugc-ia", { action: "maj_demo", id, ...patch });
 }
 
 /** Dépose le rendu de la démo montée et le fait réencoder (en arrière-plan). */

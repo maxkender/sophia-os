@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { TitreCarte } from "@/features/bleo/ui";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { aujourdhui } from "@/features/moteur/api";
+import { nomLangue } from "@/features/moteur/langues";
 import { ID_SOPHIA } from "@/features/moteur/multiApp";
 
 import {
@@ -29,7 +30,16 @@ import {
   type PostVideoUgcv,
   type SourceUgcIa,
 } from "./api";
-import { deplacer, LEGENDE_MAX, manquePostVideo, messageErreur, VIDEOS_MAX_PAR_POST, videosDisponibles, type VideoChoisie } from "./logique";
+import {
+  comptesParLangue,
+  deplacer,
+  LEGENDE_MAX,
+  manquePostVideo,
+  messageErreur,
+  VIDEOS_MAX_PAR_POST,
+  videosDisponibles,
+  type VideoChoisie,
+} from "./logique";
 
 /**
  * Posts vidéo des comptes UGCV (0662) : c'est l'admin qui les pose, un par jour
@@ -210,6 +220,11 @@ function DialogueNouveauPost({
   );
   const options = new Map(groupes.flatMap((g) => g.options.map((o) => [o.cle, o] as const)));
   const dejaCeJour = postsExistants.some((p) => p.compte_id === compteId && p.date_publication_prevue === date);
+  // Langue des vidéos complètes du post : les comptes de cette langue d'abord, alerte si le compte n'y est pas.
+  const langueVideos = videos.find((v) => v.langue)?.langue ?? null;
+  const comptesTries = comptesParLangue(comptes, langueVideos);
+  const langueCompte = comptes.find((c) => c.id === compteId)?.langue ?? null;
+  const langueDifferente = Boolean(langueVideos && langueCompte && langueVideos !== langueCompte);
 
   /** Une vidéo de la page : la première d'une source remplit le CTA, la capture, la légende et le son. */
   const ajouterDeLaPage = (cle: string) => {
@@ -315,7 +330,7 @@ function DialogueNouveauPost({
                 aria-label={t("ugcIa.posts.compte")}
               >
                 <option value="">{t("ugcIa.posts.choisirCompte")}</option>
-                {comptes.map((c) => (
+                {comptesTries.map((c) => (
                   <option key={c.id} value={c.id}>
                     {libelleCompte(c, personaDuCompte(c.id))}
                   </option>
@@ -327,6 +342,11 @@ function DialogueNouveauPost({
               <Input type="date" value={date} min={aujourdhui()} onChange={(e) => setDate(e.target.value)} aria-label={t("ugcIa.posts.jour")} />
             </label>
             {dejaCeJour && <p className="text-xs text-destructive sm:col-span-2">{t("ugcIa.posts.dejaCeJour")}</p>}
+            {langueDifferente && (
+              <p className="text-xs text-warning sm:col-span-2" role="alert">
+                {t("ugcIa.posts.langueDifferente", { video: nomLangue(langueVideos!), compte: nomLangue(langueCompte!) })}
+              </p>
+            )}
           </section>
 
           <section className="space-y-2" aria-label={t("ugcIa.posts.videos")}>

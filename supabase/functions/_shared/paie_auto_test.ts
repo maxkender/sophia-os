@@ -11,8 +11,11 @@ import {
   ecartsCanari,
   ecartsReconciliation,
   fusionnerParContrat,
+  jourDePaie,
   montantConforme,
   peutPayer,
+  prochainEssai,
+  reessaiPossible,
   reessaisFinis,
   remplirTexte,
   semaineAPayer,
@@ -92,6 +95,7 @@ Deno.test("P1, B10 : nature des erreurs Upwork", () => {
   assertEquals(classerErreur("HTTP 503"), "technique");
   assertEquals(classerErreur("réseau"), "technique");
   assertEquals(classerErreur("Validation failed: amount"), "autre");
+  assertEquals(classerErreur("plafond du jour : 4998 $ déjà engagés, 28 $ de plus dépasseraient 5000 $"), "plafond");
 });
 
 Deno.test("B3 : lundi à partir de 9 h (ou Pay now), mardi toute la journée, jamais un autre jour", () => {
@@ -147,4 +151,18 @@ Deno.test("B11 : Retry-After respecté sur un 429 (borné à 60 s)", async () =>
     dormir: (ms) => { attentes.push(ms); return Promise.resolve(); },
   });
   assertEquals([r.statut, attentes], [200, [7000]]);
+});
+
+Deno.test("9/11 : un plafond est reprogrammé au lendemain, jamais abandonné", () => {
+  // Lundi 9/11 12 h Paris.
+  const lundi = new Date("2026-11-09T11:00:00Z");
+  assertEquals(prochainEssai("plafond", lundi), "2026-11-09T23:05:00.000Z");
+  assertEquals(prochainEssai("technique", lundi), "2026-11-09T12:00:00.000Z");
+  // Mercredi 11/11 : les réessais de la semaine du 2/11 sont finis, sauf le plafond.
+  const mercredi = new Date("2026-11-11T10:00:00Z");
+  assertEquals(reessaiPossible("plafond", mercredi, "2026-11-02"), true);
+  assertEquals(reessaiPossible("technique", mercredi, "2026-11-02"), false);
+  assertEquals(reessaiPossible("autre", lundi, "2026-11-02"), false);
+  assertEquals(jourDePaie(lundi), true);
+  assertEquals(jourDePaie(mercredi), false);
 });

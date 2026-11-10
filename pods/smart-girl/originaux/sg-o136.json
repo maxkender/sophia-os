@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o136",
+ "type_bleo": "full_test",
+ "titre": "classical music pieces everyone should hear once #classicalmusic #music #smartgirl #darkacademia #culture",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 1/3 (la jauge en demande 3 sur 12) : accroche jamais faite chez nous (« classical music » absent des accroches de donnees/label.json). Accroches écrites : « classical music pieces everyone should hear once » (retenue : culture, écoute facile, faits vérifiables), « songs for a dark academia evening » (écartée : liste à consommer), « composers every cultured woman knows » (écartée : plus lourde). Faits vérifiés : Beethoven compose la 9e presque entièrement sourd ; Clair de lune de Debussy paraît en 1905 dans la Suite bergamasque ; les Quatre Saisons de Vivaldi sont accompagnées de sonnets ; la Gymnopédie n° 1 de Satie date de 1888. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8819f35c",
+   "texte_overlay": "classical music pieces everyone\nshould hear once",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7055ddbf",
+   "texte_overlay": "1. beethoven, symphony no. 9\n\nhe wrote it while almost\ncompletely deaf.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b484bf4e",
+   "texte_overlay": "2. debussy, clair de lune\n\npublished in 1905. pure\nmoonlight in four minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "71a5c71a",
+   "texte_overlay": "3. vivaldi, the four seasons\n\neach concerto comes with\na poem describing the season.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "32572d4b",
+   "texte_overlay": "4. satie, gymnopédie no. 1\n\nwritten in 1888. perfect for\na slow evening.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "77ca1002",
+   "texte_overlay": "learn the story behind one piece\ninstead of one scroll.\nyou'll hear it differently.",
+   "texte_sophia": "learn the story behind one piece\ninstead of one scroll, on an\napp like Sophia. you'll hear\nit differently.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "53867f5a",
+   "texte_overlay": "which one will you play\ntonight?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

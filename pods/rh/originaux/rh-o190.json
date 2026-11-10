@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o190",
+ "type_bleo": "full_test",
+ "titre": "comment répondre quand on te demande « vous êtes en couple ? » en entretien #entretien #rechercheemploi #emploi #droit #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 4. Full test : accroche jamais faite chez nous (les questions personnelles). Reste général : on ne cite aucun article de loi, on renvoie à se renseigner si besoin. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e0fc3c91",
+   "texte_overlay": "comment répondre quand on te demande\n« vous êtes en couple ? »\nen entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5bdfdd29",
+   "texte_overlay": "d'abord : tu n'as pas à répondre\nta vie privée n'est pas un critère",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5c452c26",
+   "texte_overlay": "réponse calme\n« ma vie personnelle est organisée, je suis disponible pour ce poste »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4914044f",
+   "texte_overlay": "réponse qui ramène au sujet\n« qu'est-ce qui vous inquiète pour le poste ? je peux vous rassurer »",
+   "texte_sophia": "réponse qui ramène au sujet\n« qu'est-ce qui vous inquiète pour le poste ? ». et garde un sujet à toi, appris sur l'appli Sophia, pour relancer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5cf59444",
+   "texte_overlay": "réponse avec humour léger\n« ça ne changera rien à mes tableaux de suivi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5eb1d171",
+   "texte_overlay": "et après ?\nnote la question. elle en dit long sur la boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5ee35d0e",
+   "texte_overlay": "si ça se répète ou te met mal à l'aise\nrenseigne-toi sur tes droits auprès des bons interlocuteurs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5faceae9",
+   "texte_overlay": "on te l'a déjà demandé ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

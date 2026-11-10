@@ -3086,12 +3086,14 @@ async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boo
     const lien = await avecLienMotDePasse(supabase, p.id as string, texte, OS_URL, "recrues-check:relance_maintenant");
     if (lien.erreur) { ligne.erreur = lien.erreur; continue; }
     const donnees = { ...donneesRelance(x, un), canal_relance: canal, manuel: "relance_maintenant" };
+    // La colonne nudges.canal n'accepte que slack / os / upwork : un email (par le site) est noté « os » ; canaux = ["email"].
+    const canalNudge = canal === "email" ? "os" : canal;
     let id = deja?.id as string | undefined;
     if (id) {
-      await supabase.from("nudges").update({ canal, texte: lien.texte, donnees, envoye_at: new Date().toISOString() }).eq("id", id);
+      await supabase.from("nudges").update({ canal: canalNudge, texte: lien.texte, donnees, envoye_at: new Date().toISOString() }).eq("id", id);
     } else {
       const { data: n, error } = await supabase.from("nudges").insert({
-        poster_id: p.id, type: "relance", periode: jour, compte_id: null, cible: "recrues-check", canal, texte: lien.texte,
+        poster_id: p.id, type: "relance", periode: jour, compte_id: null, cible: "recrues-check", canal: canalNudge, texte: lien.texte,
         raison: raisonLisible("relance", donnees), donnees,
       }).select("id").single();
       if (error) { ligne.erreur = error.code === "23505" ? "déjà une relance aujourd'hui" : error.message; continue; }

@@ -196,19 +196,13 @@ $$;
  * c'est l'aperçu. Exclus : refusés, déjà recrutés, déjà invités par ce parrain
  * sous le même prénom, déjà demandés, parrain inactif ou injoignable.
  */
-create or replace function public.parrainage_demandes_preparer(p_noter boolean default false)
-returns jsonb
-language plpgsql
+create or replace function public.parrainage_demandes_candidats()
+returns table (referral_id uuid, parrain_id uuid, filleul text)
+language sql
+stable
 security definer
 set search_path = public, extensions
 as $$
-declare
-  v jsonb;
-begin
-  if coalesce(auth.role(), '') <> 'service_role' and not public.is_admin() then raise exception 'forbidden' using errcode = '42501'; end if;
-  create temp table if not exists t_dem (referral_id uuid, parrain_id uuid, filleul text) on commit drop;
-  truncate t_dem;
-  insert into t_dem
   select cr.id, cr.referrer_id, btrim(cr.prenom || coalesce(' ' || nullif(btrim(cr.nom), ''), ''))
     from public.creator_referrals cr
     join public.profiles p on p.id = cr.referrer_id and p.is_active
@@ -220,10 +214,21 @@ begin
      and not exists (select 1 from public.parrainage_invitations i
                       where i.parrain_id = cr.referrer_id
                         and lower(unaccent(split_part(btrim(i.prenom), ' ', 1))) = lower(unaccent(split_part(btrim(cr.prenom), ' ', 1))));
-  if p_noter then
-    insert into public.parrainage_demandes_email (referral_id, parrain_id) select referral_id, parrain_id from t_dem
-    on conflict (referral_id) do nothing;
-  end if;
+$$;
+
+revoke execute on function public.parrainage_demandes_candidats() from public, anon, authenticated;
+grant execute on function public.parrainage_demandes_candidats() to service_role;
+
+create or replace function public.parrainage_demandes_preparer(p_noter boolean default false)
+returns jsonb
+language plpgsql
+security definer
+set search_path = public, extensions
+as $$
+declare
+  v jsonb;
+begin
+  if coalesce(auth.role(), '') <> 'service_role' and not public.is_admin() then raise exception 'forbidden' using errcode = '42501'; end if;
   select coalesce(jsonb_agg(jsonb_build_object(
            'parrain_id', g.parrain_id, 'parrain', g.parrain, 'canal', g.canal, 'filleuls', g.noms,
            'texte', case when array_length(g.noms, 1) = 1
@@ -234,8 +239,13 @@ begin
     from (select t.parrain_id, btrim(p.prenom || ' ' || coalesce(p.nom, '')) parrain, coalesce(nullif(btrim(p.prenom), ''), 'there') prenom,
                  case when p.slack_user_id is not null then 'slack' else 'upwork' end canal,
                  array_agg(t.filleul order by t.filleul) noms
-            from t_dem t join public.profiles p on p.id = t.parrain_id
+            from public.parrainage_demandes_candidats() t join public.profiles p on p.id = t.parrain_id
            group by t.parrain_id, p.prenom, p.nom, p.slack_user_id) g;
+  if p_noter then
+    insert into public.parrainage_demandes_email (referral_id, parrain_id)
+    select c.referral_id, c.parrain_id from public.parrainage_demandes_candidats() c
+    on conflict (referral_id) do nothing;
+  end if;
   return v;
 end;
 $$;

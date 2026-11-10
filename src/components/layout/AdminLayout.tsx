@@ -82,6 +82,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   bonus: Gift,
   candidats_ruul: UserPlus,
   cohortes_ruul: Users,
+  ruul_suivi: Wallet,
   faq: MessageCircle,
   officielles: BadgeCheck,
   parrainage: Gift,

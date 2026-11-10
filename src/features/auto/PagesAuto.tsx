@@ -17,7 +17,7 @@ import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOffi
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageBonus } from "@/features/bonus/PageBonus";
-import { PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
+import { PageAjoutRuul, PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
 import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -248,6 +248,15 @@ export function CohortesRuulPage() {
   return (
     <PageAuto cle="cohortes_ruul">
       <PageCohortesRuul />
+    </PageAuto>
+  );
+}
+
+/** 10/11 : Ruul, les posteurs à ajouter dans Ruul (« Marquer ajouté », un par un ou tous). */
+export function RuulSuiviPage() {
+  return (
+    <PageAuto cle="ruul_suivi">
+      <PageAjoutRuul />
     </PageAuto>
   );
 }

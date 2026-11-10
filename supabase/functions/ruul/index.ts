@@ -19,6 +19,10 @@
  *       d'abord), envoie au site les décisions (réglage ruul_candidatures_auto)
  *       et les relances de signature J+1, J+3, J+6, J+7 expirée, cohorte ratée
  *       décalée au lundi suivant (réglage ruul_relances_signature).
+ *   POST { action: "dimanche", forcer? }  (cron le dimanche, 18 h à Paris) — 0591
+ *       Un email à Max : les posteurs Ruul à ajouter dans Ruul (nom, email
+ *       Ruul, pays, zone, tarif). Un seul par dimanche, rien si la liste est
+ *       vide (réglage ruul_liste_dimanche ; « forcer » : envoi de test).
  *   GET ?pret=<jeton>   le bouton « It's done » : le posteur est prêt à être payé.
  *   GET ?stop=<jeton>   « Unsubscribe » : plus aucune relance ; « A demandé STOP » remonte au samedi.
  *
@@ -31,6 +35,8 @@ import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { codePays, hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import {
   type CandidatureRuul,
+  emailListeDimanche,
+  type LigneAAjouter,
   texteSansSlack,
   etapeSignature,
   lundiSuivant,
@@ -93,6 +99,7 @@ Deno.serve(async (request) => {
   try {
     if (body?.action === "envoyer") return json(await envoyer(supabase));
     if (body?.action === "candidatures") return json(await candidatures(supabase));
+    if (body?.action === "dimanche") return json(await listeDimanche(supabase, body?.forcer === true));
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
@@ -140,13 +147,14 @@ async function envoyer(supabase: Supabase) {
   const t = await textes(supabase);
   const bilan: Record<string, unknown>[] = [];
 
-  // 1. L'invitation Ruul et ses relances.
+  // 1. L'invitation Ruul et ses relances (0591 : interrupteur ruul_invitation_email).
+  const inviter = await interrupteur(supabase, "ruul_invitation_email");
   const { data: invites, error } = await supabase
     .from("profiles")
     .select("id, prenom, ruul_email, ruul_statut, ruul_ajoute_at, ruul_relances, relances_stop_at, ruul_jeton, slack_user_id")
     .eq("canal_paie", "ruul").eq("ruul_statut", "invite").eq("is_active", true).is("relances_stop_at", null);
   if (error) throw error;
-  for (const p of (invites ?? []) as Profil[]) {
+  for (const p of (inviter ? invites ?? [] : []) as Profil[]) {
     const etape = prochaineEtapeRuul({ statut: p.ruul_statut, ajoute_at: p.ruul_ajoute_at, relances: p.ruul_relances ?? 0, stop_at: p.relances_stop_at });
     if (!etape || !p.ruul_jeton) continue;
     const prochain = { relances: (p.ruul_relances ?? 0) + 1, ruul_relance_at: new Date().toISOString() };
@@ -459,4 +467,37 @@ async function candidatures(supabase: Supabase) {
     }
   }
   return { ok: true, ...bilan };
+}
+
+// ---------------------------------------------------------------------------
+// 0591 : le dimanche, à Max, les posteurs Ruul à ajouter dans Ruul
+// ---------------------------------------------------------------------------
+
+/** L'admin qui ajoute et paie sur Ruul. */
+const MAX_ID = "dde5916a-89b8-4fc3-897b-dc7f0d88e20e";
+
+function heureParis(d = new Date()): number {
+  return Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(d));
+}
+
+async function listeDimanche(supabase: Supabase, forcer: boolean) {
+  if (!forcer) {
+    if (heureParis() !== 18) return { ok: true, ignore: "pas 18 h à Paris" };
+    if (!(await interrupteur(supabase, "ruul_liste_dimanche"))) return { ok: true, ignore: "ruul_liste_dimanche éteint" };
+    const { data: deja } = await supabase.from("ruul_dimanche_envois").select("dimanche").eq("dimanche", aujourdhuiParis()).maybeSingle();
+    if (deja) return { ok: true, ignore: "déjà envoyé aujourd'hui" };
+  }
+  const { data, error } = await supabase.rpc("ruul_a_ajouter_liste");
+  if (error) return { ok: false, error: error.message };
+  const lignes = (data ?? []) as LigneAAjouter[];
+  if (!lignes.length) {
+    if (!forcer) await supabase.from("ruul_dimanche_envois").upsert({ dimanche: aujourdhuiParis(), nb: 0, ok: true });
+    return { ok: true, n: 0 };
+  }
+  const { data: max } = await supabase.from("profiles").select("email").eq("id", MAX_ID).maybeSingle();
+  if (!max?.email) return { ok: false, error: "email de Max introuvable" };
+  const m = emailListeDimanche(lignes);
+  const r = await envoyerEmail(max.email, m.objet, m.html, m.texte, `${URL_DASHBOARD}/admin/auto/ruul`, ["ruul", "liste_dimanche"]);
+  if (!forcer) await supabase.from("ruul_dimanche_envois").upsert({ dimanche: aujourdhuiParis(), nb: lignes.length, ok: r.ok, erreur: r.erreur });
+  return { ok: r.ok, n: lignes.length, erreur: r.erreur };
 }

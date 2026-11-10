@@ -4,7 +4,14 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { deciderCandidatureRuul, lireCandidaturesRuul, lireCohortesRuul, type CandidatureRuul } from "./api";
+import {
+  deciderCandidatureRuul,
+  lireAjoutsRuul,
+  lireCandidaturesRuul,
+  lireCohortesRuul,
+  marquerAjoutesRuul,
+  type CandidatureRuul,
+} from "./api";
 import { ETAPES_RUUL, etapeBloquee, jourMois } from "./logique";
 
 const LIBELLE_DECISION: Record<string, string> = {
@@ -155,5 +162,117 @@ export function PageCohortesRuul() {
         </Card>
       ))}
     </div>
+  );
+}
+
+/**
+ * Ruul (0591) : les posteurs qui ont donné leur email Ruul et ne sont pas
+ * encore ajoutés dans Ruul. Max les ajoute dans Ruul, puis les marque ici,
+ * un par un ou tous ensemble (la même liste lui arrive par email le dimanche).
+ */
+export function PageAjoutRuul() {
+  const q = useQuery({ queryKey: ["ruul-a-ajouter"], queryFn: lireAjoutsRuul });
+  const qc = useQueryClient();
+  const [coches, setCoches] = React.useState<Set<string>>(new Set());
+  const [message, setMessage] = React.useState<string | null>(null);
+  const [occupe, setOccupe] = React.useState(false);
+  if (q.error) return <p className="text-sm text-destructive">{(q.error as Error).message}</p>;
+  if (!q.data) return null;
+
+  const lignes = q.data;
+  const choisis = lignes.filter((l) => coches.has(l.poster_id)).map((l) => l.poster_id);
+  const toutCoche = lignes.length > 0 && choisis.length === lignes.length;
+  const cocher = (id: string, oui: boolean) =>
+    setCoches((c) => {
+      const n = new Set(c);
+      if (oui) n.add(id);
+      else n.delete(id);
+      return n;
+    });
+
+  const marquer = async (ids: string[]) => {
+    if (ids.length === 0) return;
+    setOccupe(true);
+    setMessage(null);
+    try {
+      const n = await marquerAjoutesRuul(ids);
+      setMessage(`${n} posteur${n > 1 ? "s" : ""} marqué${n > 1 ? "s" : ""} ajouté${n > 1 ? "s" : ""} dans Ruul.`);
+      setCoches((c) => new Set([...c].filter((id) => !ids.includes(id))));
+      await qc.invalidateQueries({ queryKey: ["ruul-a-ajouter"] });
+    } catch (e) {
+      setMessage((e as Error).message);
+    } finally {
+      setOccupe(false);
+    }
+  };
+
+  return (
+    <Card data-testid="ajout-ruul">
+      <CardHeader>
+        <CardTitle>À ajouter dans Ruul</CardTitle>
+        <CardDescription>
+          {lignes.length} posteur{lignes.length > 1 ? "s" : ""} avec un email Ruul, pas encore ajouté{lignes.length > 1 ? "s" : ""} dans Ruul.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        {lignes.length === 0 ? <p className="text-sm text-muted-foreground">Personne à ajouter.</p> : (
+          <>
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+              <label className="flex items-center gap-2">
+                <input
+                  type="checkbox"
+                  checked={toutCoche}
+                  onChange={(e) => setCoches(e.target.checked ? new Set(lignes.map((l) => l.poster_id)) : new Set())}
+                />
+                Tout cocher
+              </label>
+              <Button size="sm" disabled={occupe || choisis.length === 0} onClick={() => void marquer(choisis)}>
+                Marquer ajouté dans Ruul ({choisis.length})
+              </Button>
+            </div>
+            <div className="overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b text-left text-xs text-muted-foreground">
+                    <th className="py-2 pr-2" aria-label="Cocher" />
+                    <th className="py-2 pr-3">Nom</th>
+                    <th className="py-2 pr-3">Email Ruul</th>
+                    <th className="py-2 pr-3">Pays</th>
+                    <th className="py-2 pr-3">Zone</th>
+                    <th className="py-2 pr-3">Tarif / semaine</th>
+                    <th className="py-2 pr-3" />
+                  </tr>
+                </thead>
+                <tbody>
+                  {lignes.map((l) => (
+                    <tr key={l.poster_id} className="border-b border-border/40" data-testid={`ajout-ruul-${l.poster_id}`}>
+                      <td className="py-1.5 pr-2">
+                        <input
+                          type="checkbox"
+                          aria-label={`Cocher ${l.nom}`}
+                          checked={coches.has(l.poster_id)}
+                          onChange={(e) => cocher(l.poster_id, e.target.checked)}
+                        />
+                      </td>
+                      <td className="py-1.5 pr-3 font-medium">{l.nom}</td>
+                      <td className="py-1.5 pr-3">{l.ruul_email}</td>
+                      <td className="py-1.5 pr-3">{l.pays ?? "?"}</td>
+                      <td className="py-1.5 pr-3">{l.zone ?? "?"}</td>
+                      <td className="py-1.5 pr-3">{l.tarif != null ? `${l.tarif} $` : "?"}</td>
+                      <td className="py-1.5 pr-3">
+                        <Button size="sm" variant="outline" disabled={occupe} onClick={() => void marquer([l.poster_id])}>
+                          Marquer ajouté
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </>
+        )}
+        {message ? <p className="text-sm" role="status">{message}</p> : null}
+      </CardContent>
+    </Card>
   );
 }

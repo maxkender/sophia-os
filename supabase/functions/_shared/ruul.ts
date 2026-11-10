@@ -127,3 +127,38 @@ export function texteSansSlack(t: string): string {
     .replace(/(^|\s)_([^_\n]+)_(?=\s|$|[.,!?])/g, "$1$2")
     .trim();
 }
+
+/** 0591 : un posteur Ruul à ajouter dans Ruul (liste du dimanche à Max). */
+export interface LigneAAjouter {
+  poster_id: string;
+  nom: string;
+  ruul_email: string;
+  pays: string | null;
+  zone: string | null;
+  tarif: number | null;
+}
+
+/** 0591 : l'email du dimanche à Max (en français, interne) : un tableau, un lien vers la page Ruul. */
+export function emailListeDimanche(
+  lignes: LigneAAjouter[],
+  lienPage = "https://sophia-marketing-orga.vercel.app/admin/auto/ruul",
+): { objet: string; html: string; texte: string } {
+  const objet = `Ruul : ${lignes.length} posteur${lignes.length > 1 ? "s" : ""} à ajouter`;
+  const cellule = (v: string) => `<td style="padding:6px 10px;border-bottom:1px solid #e4e4e7">${echapper(v)}</td>`;
+  const tarif = (l: LigneAAjouter) => (l.tarif != null ? `${l.tarif} $` : "?");
+  const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>${echapper(objet)}</title></head>
+<body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b;font-size:14px">
+<p>Posteurs Ruul à ajouter dans Ruul (${lignes.length}) :</p>
+<table cellpadding="0" cellspacing="0" style="border-collapse:collapse">
+<tr style="text-align:left;color:#71717a">${["Nom", "Email Ruul", "Pays", "Zone", "Tarif / semaine"].map((t) => `<th style="padding:6px 10px">${t}</th>`).join("")}</tr>
+${lignes.map((l) => `<tr>${[l.nom, l.ruul_email, l.pays ?? "?", l.zone ?? "?", tarif(l)].map(cellule).join("")}</tr>`).join("\n")}
+</table>
+<p>Puis dans l'OS : <a href="${echapper(lienPage)}">Recruitment automation → Ruul</a> → « Marquer ajouté dans Ruul ».</p>
+</body></html>`;
+  const texte = [
+    `Posteurs Ruul à ajouter dans Ruul (${lignes.length}) :`,
+    ...lignes.map((l) => `- ${l.nom} — ${l.ruul_email} — ${l.pays ?? "?"} — zone ${l.zone ?? "?"} — ${tarif(l)} / semaine`),
+    `Puis dans l'OS : ${lienPage} → « Marquer ajouté dans Ruul ».`,
+  ].join("\n");
+  return { objet, html, texte };
+}

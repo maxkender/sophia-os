@@ -37,6 +37,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/bonus",
   "/admin/auto/candidats-ruul",
   "/admin/auto/cohortes-ruul",
+  "/admin/auto/ruul",
   "/admin/auto/faq",
   "/admin/auto/reponses-officielles",
   "/admin/auto/parrainage",

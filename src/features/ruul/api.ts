@@ -139,3 +139,16 @@ export interface MonEmailRuul {
 
 export const lireMonEmailRuul = () => rpc<MonEmailRuul>("ruul_mon_email");
 export const enregistrerMonEmailRuul = (email: string) => rpc<Retour>("ruul_mon_email_enregistrer", { p_email: email });
+
+/** 0591 : un posteur Ruul à ajouter dans Ruul (email Ruul donné, pas encore ajouté). */
+export interface LigneAjoutRuul {
+  poster_id: string;
+  nom: string;
+  ruul_email: string;
+  pays: string | null;
+  zone: string | null;
+  tarif: number | null;
+}
+
+export const lireAjoutsRuul = () => rpc<LigneAjoutRuul[]>("ruul_a_ajouter_liste");
+export const marquerAjoutesRuul = (ids: string[]) => rpc<number>("ruul_marquer_ajoutes", { p_ids: ids });

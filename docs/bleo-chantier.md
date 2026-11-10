@@ -697,3 +697,37 @@ recalculée à la main, rejouabilité, derniers plans).
   - **Constat :** tous les comptes de ces labels postent 2 fois par jour (un seul label chacun, sauf le compte hongrois de white_bg) ; la file à juger teste 0,3 à 2,4 accroches neuves par jour et 40 à 65 contenus attendaient leur test ; la page blanche livrait 12 posts par jour, Fathomly 9, yasmine 6 ; les comptes Kaja n'avaient que 2 jours de posts jamais publiés.
   - **0655 :** `bleo_rythme_remakes` (consommation des comptes, stock du compte le plus juste, cible 10 jours, file à juger) et `reglages.bleo.rythme_remakes`. Au 5/11 : page blanche 2 + 3 rattrapages, Fathomly 2 + 3, yasmine 3, Kaja 5.
   - **Guichet et podz :** `boite` rend ce rythme à la voie 2 (et `rythme`, le pourquoi) au lieu de `pods/rythme.json`, qui ne garde que leur pause ; les rattrapages s'y ajoutent. `npm run boite` l'affiche. ROUTINE §2 et §5.2 ; chef (il ne tient plus leur rythme, il le rapporte) ; Kaja.
+- **8/11, soir : 14 % de tests dans le plan (question d'Adrien).** Plan du 9/11 : 89 tests sur 682 créneaux, sous la cible de 25 à 35 %. Deux causes :
+  - **Labels pleins**, la limite de 30 % bloque des tests qui attendent : white_bg 6 tests par jour pour 92 en attente, Fathomly 3 pour 46, that_girl_study 1 pour 25, Kaja 1 pour 11, beau_smart_girl 22 pour 149, clean_study 9 pour 70, RH 19 pour 51.
+  - **Gros labels avec de la place mais rien de neuf à tester depuis 0660** : alpha_male 4 tests sur 31 places, weird_alpha 7 sur 32, smart_girl 6 sur 34, alpha_male_yellow 10 sur 24, classic_study 1 sur 15.
+  - **Taux de gagnants des tests BLEO** (plans du 25/10 au 4/11, jugés depuis) : contenus des podz 40 % (136 jugés), imports de moins de 30 jours 29 % (49), de 30 à 60 jours 24 % (58), de plus de 60 jours 23 % (26). L'âge pèse sur les vues du test plus que sur la chance de gagner.
+  - **Proposé à Adrien, pas encore décidé :** limite à 50 % sur les 4 labels 100 % podz ; rouvrir les tests aux imports de 30 à 60 jours.
+- **9/11 : les full tests des podz qui ont percé.**
+  - 74 gagnants sur 382 full tests livrés ; 53 ont déjà une déclinaison (55 en G1, 1 en G2).
+  - Meilleur cas : « 5 Languages That Are Easier to Learn Than You Think » (smart_girl) : l'original a fait 4 300 vues sur un post, sa déclinaison 599 000 vues en 26 posts (meilleur 195 000).
+  - 31 déclinaisons créées du 4 au 8/11 ne sont pas encore postées.
+- **9/11 : labels de la cohorte du 9/11 (question d'Adrien).** Rien changé.
+  - **Comptes actifs :** 61, dont alpha_male 12, RH 10, beau_smart_girl 10, alpha_male_yellow 9, weird_alpha 8, smart_girl 6. Les contenus suivent le label du compte (vérifié sur les passages du 9 et du 10/11).
+  - **Posts :** le déséquilibre vient du warmup. Les 12 comptes alpha_male postent, contre 2 comptes smart_girl sur 6.
+  - **Choix du label (performance au cube × stock) :** parmi les gros labels, il donne ~43 % des comptes neufs à alpha_male (perf 1,24, 12,8 jours de stock) et ~19 % à smart_girl (perf 1,08, 8,4 jours). Le stock se lit encore sur la tierlist (`contenu_tier_etat`).
+  - **beau_smart_girl :** fermé par la nuit du 9/11 (0,744 sur 363 posts), mais gardé ouvert à la main pour Sophia (`labels_ouverts_app`).
+- **10/11, 10 h : mesure des labels 100 % podz sous le nouveau circuit (lots 1 à 4 du 5/11).** Posts du 7/11 à J+3, du 8 et du 9/11 à J+1, contre les mêmes labels du 30/10 au 3/11 (`passage_vues_jalons`, r = vues / médiane du compte). Chaque case : r médian · part à 10 k · vues moyennes (posts).
+
+  | | Avant, J+3 | 7/11, J+3 | Avant, J+1 | 8 et 9/11, J+1 |
+  |---|---|---|---|---|
+  | white_bg | 0,98 · 9,1 % · 3 481 (77) | 0,72 · 5,6 % · 2 334 (18) | 0,91 · 6,1 % · 2 663 (49) | 0,76 · 2,9 % · 1 737 (35) |
+  | Fathomly | 1,04 · 4,2 % · 3 924 (24) | 2,80 · 0 % · 4 669 (4) | 0,88 · 0 % · 1 390 (14) | 1,11 · 0 % · 1 801 (11) |
+  | that_girl_study | 0,92 · 0 % · 1 225 (14) | 1,10 · 0 % · 1 210 (4) | 0,45 · 0 % · 561 (10) | 0,66 · 0 % · 660 (7) |
+  | Kaja | pas de posts | 0,29 · 0 % · 243 (2) | pas de posts | 0,75 · 0 % · 467 (6) |
+  | Les quatre | 0,98 · 7,0 % · 3 298 (115) | 0,90 · 3,6 % · 2 358 (28) | 0,86 · 4,1 % · 2 131 (73) | 0,77 · 1,7 % · 1 492 (59) |
+  | Autres labels | 1,01 · 10,6 % · 5 954 (2 160) | 1,02 · 12,8 % · 7 862 (470) | 0,73 · 4,9 % · 2 833 (1 401) | 0,72 · 6,7 % · 3 171 (1 007) |
+
+  - **Vues :** white_bg recule alors que le reste de la flotte tient. Ce sont ses contenus jugés resservis (file `valeur`) qui font moins bien : r à J+1 de 1,10 (26 posts) à 0,74 (38). Ses tests passent de 0,94 à 0,72. Fathomly et that_girl_study montent, sur très peu de posts.
+  - **Livraisons (contenus par jour) :** page blanche ~10 du 1 au 5/11, puis 2 depuis le 6/11 ; Fathomly ~9 → 2 ; yasmine ~6 → 3 ; Kaja 2 à 3, alors que son rythme en demande 5 (ses comptes n'ont que 2 à 5 jours de posts neufs). C'est le rythme de 0655, tenu par les trois premiers.
+    - Par type depuis le 5/11 : 26 full tests (white_bg 13, yasmine 6, Fathomly 4, Kaja 3), 6 déclinaisons (yasmine), 24 remakes sans déclaration.
+    - Rattrapages : page blanche 12 livrés, 36 ouverts ; Fathomly 10 livrés, 21 ouverts (60 langues). Soit ~2 par jour chacun, pour 3 à 4 demandés.
+  - **Répétitions** (posts de ces labels, publiés ou assignés) :
+    - même contenu à moins de 14 jours : 1 à 4 par jour du 30/10 au 3/11, 0 chaque jour depuis le 4/11 ;
+    - même thème à moins de 10 jours : 17 % des posts du 30/10 au 3/11, 12 % du 7 au 10/11. Fathomly et Kaja ont un écart de famille de 6 jours.
+  - **Stock et verdicts :** white_bg 64 jugés (40 gagnants), 58 à juger ; Fathomly 37 jugés (13 gagnants), 27 à juger ; that_girl_study 29 jugés (3 gagnants), 16 à juger ; Kaja 3 jugés, aucun gagnant, 11 à juger. Aucun des 26 full tests du nouveau circuit n'est encore jugé : la file à juger de ces labels est pleine (voir le 8/11).
+  - **Lecture :** plus de reposts, et des livraisons calées sur les comptes. Mais pas de gain de vues à ce stade, et white_bg recule. Les échantillons sont petits (28 posts à J+3) : à refaire avec les J+3 du 8 au 11/11.

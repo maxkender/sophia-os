@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o207",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ea4bd577-16ed-4a5f-bc6d-aa883b09c5d2",
+ "titre": "Small luxuries every man should learn to enjoy #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "ea4bd577-16ed-4a5f-bc6d-aa883b09c5d2"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 4ce88dcf. déclinaison G1 de la ligne 10 de la boîte (ea4bd577, notre full test ay-o130 qui a gagné : hu 5,2 k r 3,15) : accroche du parent mot pour mot. Items neufs, aucun repris d'ay-o130. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ce88dcf",
+   "texte_overlay": "Small luxuries every man\nshould learn to enjoy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A long hot shower after a cold day. No rushing, no phone, just warm water and quiet. Ten minutes of warmth after a long day is a simple pleasure worth slowing down for.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "A good book on a rainy afternoon. Blanket, tea, the sound of rain on the window. Few things feel as rich as losing yourself in a story with nowhere to be.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Fresh bread from a real bakery. Warm, crusty, still smelling of the oven. It costs almost nothing and turns an ordinary breakfast into a small celebration.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learning something beautiful every day. I do five minutes a day of history, art or science, and discovering a painting or a story with my coffee is my favourite luxury.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Discovering a painting or a story with my coffee is my favourite luxury.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "A Sunday morning swim. An almost empty pool, cool water, slow laps. You come out feeling light, clear-headed and ready for whatever the week brings you.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Watching the sunset without filming it. Sit somewhere with a view and just look. Enjoying a moment fully, without a screen, has become a real luxury.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "A handwritten letter in your mailbox. Write one to a friend, and soon one will come back. Opening a real letter feels better than a hundred messages.",
+   "media_id": "e1140173"
+  }
+ ]
+}

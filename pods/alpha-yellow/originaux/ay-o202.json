@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o202",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f06de6ec-8809-4cf0-b8f3-3ed547190346",
+ "titre": "Habits that make you a much better boyfriend #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "f06de6ec-8809-4cf0-b8f3-3ed547190346"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 2979667b. déclinaison G2 de la ligne 5 de la boîte (f06de6ec, notre ay-o114 qui a gagné : hu 4,5 k r 2,73), 2e déclinaison après ay-o189. Même promesse retournée en positif, sans « stop doing » pour ne pas toucher la ligne 3. Items neufs, aucun repris d'ay-o030, o114 ni o189. Respectueux. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2979667b",
+   "texte_overlay": "Habits that make you\na much better boyfriend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Asking about her day and remembering the answer. Not just \"How was work?\" but \"Did your presentation go well?\" Details show you were really listening.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Planning dates without being asked. Once a month, book something new. It doesn't need to be expensive, it just needs to show you thought about her.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Supporting her goals out loud. Her exam, her new job, her marathon. Tell her you're proud and show up for the big moments. It means more than any gift.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Handling your share at home without being reminded. Dishes, laundry, groceries. Doing it naturally says you're a real partner at home, not a guest.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: our evenings felt the same. After: five minutes a day of history, art or science, and something new to share with her at dinner every day.",
+   "texte_sophia": "Before: our evenings felt the same. After: five minutes a day on a micro-learning app like the Sophia app. Now I have something new to share with her every day.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Getting along with her friends and family. Ask about them, remember names, help out. Being kind to the people she loves is a quiet gift to her too.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Saying sorry quickly and meaning it. No long excuses. \"You're right, I messed up, I'll do better.\" Easy apologies keep small issues from growing into big ones.",
+   "media_id": "20b1d0c4"
+  }
+ ]
+}

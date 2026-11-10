@@ -52,6 +52,7 @@ import {
   idPostTiktok,
   maxIdTiktok,
   normaliserCreateTime,
+  separerTropRecents,
   urlsManquantes,
 } from "./import_nouveaux.ts";
 import {
@@ -1063,6 +1064,8 @@ export interface ListingCompte {
   source: "page" | "apify" | "mixte" | "aucune";
   /** Pourquoi la découverte a donné ça — remonté tel quel dans les logs UI. */
   diagnostic: string[];
+  /** Manquants laissés pour la mise à jour suivante : publiés depuis moins de `ageMinJours`. */
+  tropRecents?: number;
 }
 
 /**
@@ -1077,7 +1080,16 @@ export interface ListingCompte {
 export async function listerUrlsCompteReference(
   supabase: Supabase,
   compteReferenceId: string,
-  opts: { nouveauxSeulement?: boolean; marquerScrape?: boolean } = {},
+  opts: {
+    nouveauxSeulement?: boolean;
+    marquerScrape?: boolean;
+    /**
+     * Avec `nouveauxSeulement` : un slideshow publié depuis moins de ce nombre
+     * de jours n'est pas enfilé (ses vues ne sont pas faites, le score d'import
+     * le refuserait pour toujours) ; il reste manquant pour la fois suivante.
+     */
+    ageMinJours?: number;
+  } = {},
 ): Promise<ListingCompte> {
   const { data: ref } = await supabase
     .from("comptes_reference")
@@ -1164,7 +1176,15 @@ export async function listerUrlsCompteReference(
       maxIdConnu,
     }),
   ).length;
-  const urls = opts.nouveauxSeulement ? manquantes : toutes;
+  const { murs, tropRecents } = opts.nouveauxSeulement && (opts.ageMinJours ?? 0) > 0
+    ? separerTropRecents(manquantes, createTimeParId, Math.floor(Date.now() / 1000), opts.ageMinJours ?? 0)
+    : { murs: manquantes, tropRecents: [] as string[] };
+  if (tropRecents.length > 0) {
+    diagnostic.push(
+      `trop récents (moins de ${opts.ageMinJours} j) : ${tropRecents.length}, repris à la mise à jour suivante`,
+    );
+  }
+  const urls = opts.nouveauxSeulement ? murs : toutes;
 
   // Ne dater le scrape que s'il a réellement vu le profil : sinon un listing
   // en échec marquait le compte « à jour » et gelait les updates suivants.
@@ -1184,6 +1204,7 @@ export async function listerUrlsCompteReference(
     nouveaux,
     source,
     diagnostic,
+    tropRecents: tropRecents.length,
   };
 }
 

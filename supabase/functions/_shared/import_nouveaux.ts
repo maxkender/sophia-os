@@ -54,3 +54,41 @@ export function estNouveauDepuisImport(opts: {
 
   return false;
 }
+
+/**
+ * Instant de publication d'un post TikTok, en secondes : son `createTime`, sinon
+ * les 32 bits hauts de son identifiant (TikTok y range l'heure de création).
+ * `null` : inconnu.
+ */
+export function instantPostTiktok(url: string, createTime?: number | null): number | null {
+  const ct = normaliserCreateTime(createTime ?? null);
+  if (ct !== null) return ct;
+  const id = idPostTiktok(url);
+  if (!/^\d{10,}$/.test(id)) return null;
+  const sec = Number(BigInt(id) >> 32n);
+  return sec > 1_400_000_000 ? sec : null;
+}
+
+/**
+ * La mise à jour des sources (0667, 10/11) n'enfile pas un slideshow publié il
+ * y a moins de `ageMinJours` : ses vues ne sont pas encore faites, le score
+ * d'import le refuserait, et une URL connue n'est jamais reprise (même
+ * rejetée). Il reste « manquant » et part à la mise à jour suivante. Âge
+ * inconnu : enfilé, comme avant.
+ */
+export function separerTropRecents(
+  urls: readonly string[],
+  createTimes: ReadonlyMap<string, number>,
+  maintenantSec: number,
+  ageMinJours: number,
+): { murs: string[]; tropRecents: string[] } {
+  const murs: string[] = [];
+  const tropRecents: string[] = [];
+  const limite = maintenantSec - ageMinJours * 86_400;
+  for (const url of urls) {
+    const instant = instantPostTiktok(url, createTimes.get(idPostTiktok(url)) ?? null);
+    if (ageMinJours > 0 && instant !== null && instant > limite) tropRecents.push(url);
+    else murs.push(url);
+  }
+  return { murs, tropRecents };
+}

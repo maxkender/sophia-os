@@ -1,3 +1,5 @@
+import { urlEmailSite } from "./site.ts";
+
 /**
  * Ruul (0574) : le calendrier des messages d'invitation et le rendu des
  * emails aux posteurs payés par Ruul. Sans réseau ni base (testé).
@@ -163,11 +165,11 @@ ${lignes.map((l) => `<tr>${[l.nom, l.ruul_email, l.pays ?? "?", l.zone ?? "?", t
   return { objet, html, texte };
 }
 
-/** 10/11 : un email envoyé par le site sophia-culture.com (POST HUB_EMAIL_URL, en-tête x-hub-secret). */
+/** 10/11 : un email envoyé par le site vik-studios-creators.com (os-email, en-tête x-hub-secret). */
 export async function envoyerEmailSite(
   to: string, objet: string, html: string, texte: string, stop: string, tags: string[], fetchFn: typeof fetch = fetch,
 ): Promise<{ ok: boolean; erreur: string | null }> {
-  const urlEnvoi = Deno.env.get("HUB_EMAIL_URL");
+  const urlEnvoi = urlEmailSite();
   const secret = Deno.env.get("OS_HUB_SECRET");
   if (!urlEnvoi || !secret) return { ok: false, erreur: "HUB_EMAIL_URL ou OS_HUB_SECRET manquant" };
   try {

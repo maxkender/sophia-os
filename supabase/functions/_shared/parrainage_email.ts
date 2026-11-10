@@ -1,11 +1,12 @@
 /**
  * 8/11 : parrainage par email. Les 3 emails au filleul (J0, J+2, J+5), dans
- * la langue de son pays, depuis sophia-culture.com (expéditeur « Sophia »).
+ * la langue de son pays, par le site vik-studios-creators.com (expéditeur « Sophia », noreply@sophia-culture.com).
  * Texte J0 validé par Max (anglais) ; les autres langues en sont la
  * traduction. Une langue absente → anglais.
  */
 
 import { TRADUCTIONS, type TextesTraduits } from "./parrainage_traductions.ts";
+import { URL_SITE } from "./site.ts";
 
 export type EtapeEmail = 0 | 2 | 5;
 
@@ -108,11 +109,11 @@ export function langueSite(langue: string | null | undefined): string {
 }
 
 /**
- * Le lien de l'email (J0, J+2, J+5, toutes les langues) : 10/11 (Max), toujours
- * la page anglaise /en/creators/slideshow, avec ?ref= (le code du parrain).
+ * Le lien de l'email (J0, J+2, J+5, toutes les langues) : 10/11 (Max), le site
+ * vik-studios-creators.com, page /{lang}/creators/slideshow, avec ?ref= (le code du parrain).
  */
-export function lienCreators(_langue: string | null | undefined, code: string): string {
-  return `https://sophia-culture.com/en/creators/slideshow?ref=${encodeURIComponent(code)}`;
+export function lienCreators(langue: string | null | undefined, code: string): string {
+  return `${URL_SITE}/${langueSite(langue)}/creators/slideshow?ref=${encodeURIComponent(code)}`;
 }
 
 export interface DonneesEmail {

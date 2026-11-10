@@ -67,7 +67,7 @@ export interface PropsBlocParrainer {
 
 /**
  * 8/11 : « Refer a friend » sur le dashboard du posteur. L'email part de
- * Sophia (sophia-culture.com) dans la langue du pays de l'ami ; 10 amis par
+ * Sophia (site vik-studios-creators.com, expéditeur noreply@sophia-culture.com) dans la langue du pays de l'ami ; 10 amis par
  * mois au plus ; l'accord de l'ami est obligatoire.
  */
 export function BlocParrainer({ pays, filleuls, ceMois, envoyer }: PropsBlocParrainer) {

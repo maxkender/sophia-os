@@ -26,7 +26,7 @@
  *   GET ?pret=<jeton>   le bouton « It's done » : le posteur est prêt à être payé.
  *   GET ?stop=<jeton>   « Unsubscribe » : plus aucune relance ; « A demandé STOP » remonte au samedi.
  *
- * Emails envoyés par le site sophia-culture.com (POST HUB_EMAIL_URL, en-tête
+ * Emails envoyés par le site vik-studios-creators.com (POST os-email, en-tête
  * x-hub-secret OS_HUB_SECRET), comme le parrainage. Mode « manuel » : l'ajout
  * sur Ruul est fait par Max ; en mode « api » (plus tard), l'ajout,
  * l'invitation et l'identité seront lus chez Ruul.
@@ -47,6 +47,7 @@ import {
   semaineCourte,
 } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { urlEmailSite } from "../_shared/site.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 const URL_FONCTION = "https://mbikecieskoobeizixig.supabase.co/functions/v1/ruul";
@@ -123,9 +124,9 @@ async function textes(supabase: Supabase): Promise<Record<string, string>> {
   return (data?.valeur ?? {}) as Record<string, string>;
 }
 
-/** Un email par le site (domaine sophia-culture.com). */
+/** Un email par le site (vik-studios-creators.com ; expéditeur noreply@sophia-culture.com). */
 async function envoyerEmail(to: string, objet: string, html: string, texte: string, stop: string, tags: string[]): Promise<{ ok: boolean; erreur: string | null }> {
-  const urlEnvoi = Deno.env.get("HUB_EMAIL_URL");
+  const urlEnvoi = urlEmailSite();
   const secret = Deno.env.get("OS_HUB_SECRET");
   if (!urlEnvoi || !secret) return { ok: false, erreur: "HUB_EMAIL_URL ou OS_HUB_SECRET manquant" };
   try {
@@ -321,8 +322,7 @@ interface RelanceEmailRuul {
 // ---------------------------------------------------------------------------
 
 function urlCandidatures(): string | null {
-  const envoi = Deno.env.get("HUB_EMAIL_URL");
-  if (!envoi) return null;
+  const envoi = urlEmailSite();
   try {
     return new URL("/api/public/os-candidatures", envoi).toString();
   } catch {

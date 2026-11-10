@@ -3020,6 +3020,32 @@
    },
    "notes": "full test BLEO (une chose à la fois, 40 onglets); cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-075",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#sundayreset #slowliving #mondaymotivation",
+   "musique": {
+    "titre": "som original",
+    "auteur": "thegoodvibesplaylist",
+    "original": true,
+    "id": "7352555204486449925",
+    "url_tiktok": "https://www.tiktok.com/music/x-7352555204486449925"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683630825610513686_1",
+    "2": "7683630825610513686_4",
+    "3": "7684726544442346774_2",
+    "4": "7698667830635400470_6",
+    "5": "7689918962905124129_4",
+    "6": "7683630825610513686_6"
+   },
+   "notes": "full test BLEO (dimanche pour que lundi pique moins); cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

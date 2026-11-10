@@ -4,8 +4,16 @@ import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-import { deciderCandidatureRuul, lireCandidaturesRuul, lireCohortesRuul, type CandidatureRuul } from "./api";
-import { ETAPES_RUUL, etapeBloquee, jourMois } from "./logique";
+import {
+  deciderCandidatureRuul,
+  lireCandidaturesRuul,
+  lireCohortesRuul,
+  lireSuiviRuul,
+  marquerAjoutesRuul,
+  type CandidatureRuul,
+  type LigneSuiviRuul,
+} from "./api";
+import { colonneBloquee, COLONNES_SUIVI_RUUL, ETAPES_RUUL, etapeBloquee, jourMois, joursDepuis } from "./logique";
 
 const LIBELLE_DECISION: Record<string, string> = {
   auto: "Acceptée automatiquement",
@@ -155,5 +163,145 @@ export function PageCohortesRuul() {
         </Card>
       ))}
     </div>
+  );
+}
+
+const peutMarquer = (l: LigneSuiviRuul) => Boolean(l.ruul_email) && !l.ruul_ajoute_at;
+
+/**
+ * Ruul (10/11) : une ligne par posteur Ruul, de la signature à la dernière
+ * paie. En rouge, l'étape bloquée (« bloqué : … depuis X j »). Les posteurs
+ * qui ont donné leur email Ruul mais pas encore ajoutés dans Ruul se cochent
+ * et se marquent « ajouté » d'un clic, un par un ou tous ensemble.
+ */
+export function PageSuiviRuul() {
+  const q = useQuery({ queryKey: ["ruul-suivi"], queryFn: lireSuiviRuul });
+  const qc = useQueryClient();
+  const [bloquesSeuls, setBloquesSeuls] = React.useState(false);
+  const [actifsSeuls, setActifsSeuls] = React.useState(true);
+  const [coches, setCoches] = React.useState<Set<string>>(new Set());
+  const [message, setMessage] = React.useState<string | null>(null);
+  const [occupe, setOccupe] = React.useState(false);
+  if (q.error) return <p className="text-sm text-destructive">{(q.error as Error).message}</p>;
+  if (!q.data) return null;
+
+  const lignes = q.data.filter((l) => (!actifsSeuls || l.actif) && (!bloquesSeuls || l.bloque));
+  const marquables = lignes.filter(peutMarquer);
+  const choisis = marquables.filter((l) => coches.has(l.poster_id)).map((l) => l.poster_id);
+  const toutCoche = marquables.length > 0 && choisis.length === marquables.length;
+
+  const cocher = (id: string, oui: boolean) =>
+    setCoches((c) => {
+      const n = new Set(c);
+      if (oui) n.add(id);
+      else n.delete(id);
+      return n;
+    });
+
+  const marquer = async (ids: string[]) => {
+    if (ids.length === 0) return;
+    setOccupe(true);
+    setMessage(null);
+    try {
+      const n = await marquerAjoutesRuul(ids);
+      setMessage(`${n} posteur(s) marqué(s) ajouté(s) dans Ruul.`);
+      setCoches((c) => new Set([...c].filter((id) => !ids.includes(id))));
+      await qc.invalidateQueries({ queryKey: ["ruul-suivi"] });
+    } catch (e) {
+      setMessage((e as Error).message);
+    } finally {
+      setOccupe(false);
+    }
+  };
+
+  const nbBloques = q.data.filter((l) => (!actifsSeuls || l.actif) && l.bloque).length;
+  return (
+    <Card data-testid="suivi-ruul">
+      <CardHeader>
+        <CardTitle>Posteurs Ruul</CardTitle>
+        <CardDescription>
+          {lignes.length} posteur(s) affiché(s) · {nbBloques} bloqué(s) · {marquables.length} à ajouter dans Ruul.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="flex flex-wrap items-center gap-4 text-sm">
+          <label className="flex items-center gap-2">
+            <input type="checkbox" checked={bloquesSeuls} onChange={(e) => setBloquesSeuls(e.target.checked)} />
+            Bloqué &gt; 2 jours
+          </label>
+          <label className="flex items-center gap-2">
+            <input type="checkbox" checked={actifsSeuls} onChange={(e) => setActifsSeuls(e.target.checked)} />
+            Actifs seulement
+          </label>
+          <label className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              checked={toutCoche}
+              disabled={marquables.length === 0}
+              onChange={(e) => setCoches(e.target.checked ? new Set(marquables.map((l) => l.poster_id)) : new Set())}
+            />
+            Tout cocher
+          </label>
+          <Button size="sm" disabled={occupe || choisis.length === 0} onClick={() => void marquer(choisis)}>
+            Marquer ajouté dans Ruul ({choisis.length})
+          </Button>
+        </div>
+        {message ? <p className="text-sm" role="status">{message}</p> : null}
+        {lignes.length === 0 ? <p className="text-sm text-muted-foreground">Personne ici.</p> : (
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b text-left text-xs text-muted-foreground">
+                  <th className="py-2 pr-2" aria-label="Cocher" />
+                  <th className="py-2 pr-3">Posteur</th>
+                  {COLONNES_SUIVI_RUUL.map((c) => <th key={c.cle} className="py-2 pr-3">{c.libelle}</th>)}
+                  <th className="py-2 pr-3" />
+                </tr>
+              </thead>
+              <tbody>
+                {lignes.map((l) => {
+                  const rouge = l.bloque ? colonneBloquee(l) : null;
+                  return (
+                    <tr key={l.poster_id} className="border-b border-border/40 align-top" data-testid={`suivi-ruul-${l.poster_id}`}>
+                      <td className="py-1.5 pr-2">
+                        {peutMarquer(l) ? (
+                          <input
+                            type="checkbox"
+                            aria-label={`Cocher ${l.nom}`}
+                            checked={coches.has(l.poster_id)}
+                            onChange={(e) => cocher(l.poster_id, e.target.checked)}
+                          />
+                        ) : null}
+                      </td>
+                      <td className="py-1.5 pr-3">
+                        <div className="font-medium">{l.nom}{l.actif ? "" : <span className="ml-1 text-xs text-muted-foreground">(inactif)</span>}</div>
+                        <div className="text-xs text-muted-foreground">
+                          {[l.pays, l.zone, l.tarif != null ? `${l.tarif} $` : null].filter(Boolean).join(" · ") || "—"}
+                        </div>
+                      </td>
+                      {COLONNES_SUIVI_RUUL.map((c) => (
+                        <td key={c.cle} className={`py-1.5 pr-3 text-xs ${rouge === c.cle ? "font-semibold text-destructive" : ""}`}>
+                          {c.valeur(l)}
+                          {rouge === c.cle ? (
+                            <div>bloqué : {l.bloque_etape ?? c.libelle}{l.bloque_depuis ? ` depuis ${joursDepuis(l.bloque_depuis)} j` : ""}</div>
+                          ) : null}
+                        </td>
+                      ))}
+                      <td className="py-1.5 pr-3">
+                        {peutMarquer(l) ? (
+                          <Button size="sm" variant="outline" disabled={occupe} onClick={() => void marquer([l.poster_id])}>
+                            Marquer ajouté
+                          </Button>
+                        ) : null}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+      </CardContent>
+    </Card>
   );
 }

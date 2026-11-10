@@ -43,6 +43,8 @@ export interface LigneLot {
   semaines: SemaineLot[];
   total: number;
   alertes: string[];
+  /** 10/11 : les bonus de parrainage payés par Ruul (compris dans `total`). */
+  bonus?: number;
 }
 
 export interface Reporte {
@@ -130,3 +132,36 @@ export const lireCandidaturesRuul = () => rpc<CandidatureRuul[]>("ruul_candidatu
 export const deciderCandidatureRuul = (siteId: string, decision: "acceptee" | "refusee", raison?: string) =>
   rpc<Retour>("ruul_candidature_decider", { p_site_id: siteId, p_decision: decision, p_raison: raison ?? null });
 export const lireCohortesRuul = () => rpc<LigneCohorteRuul[]>("ruul_cohortes");
+
+/** 10/11 : l'email Ruul du posteur connecté (bandeau de l'espace posteur). */
+export interface MonEmailRuul {
+  ruul: boolean;
+  email: string | null;
+}
+
+export const lireMonEmailRuul = () => rpc<MonEmailRuul>("ruul_mon_email");
+export const enregistrerMonEmailRuul = (email: string) => rpc<Retour>("ruul_mon_email_enregistrer", { p_email: email });
+
+/** 10/11 : une ligne de la page « Ruul » (admin) : un posteur Ruul et ses étapes. */
+export interface LigneSuiviRuul {
+  poster_id: string;
+  nom: string;
+  pays: string | null;
+  zone: string | null;
+  tarif: number | null;
+  actif: boolean;
+  signe_at: string | null;
+  compte_os_at: string | null;
+  premiere_connexion_at: string | null;
+  ruul_email: string | null;
+  ruul_ajoute_at: string | null;
+  premier_post_at: string | null;
+  derniere_paie_semaine: string | null;
+  derniere_paie_at: string | null;
+  bloque: boolean;
+  bloque_etape: string | null;
+  bloque_depuis: string | null;
+}
+
+export const lireSuiviRuul = () => rpc<LigneSuiviRuul[]>("ruul_suivi");
+export const marquerAjoutesRuul = (ids: string[]) => rpc<number>("ruul_marquer_ajoutes", { p_ids: ids });

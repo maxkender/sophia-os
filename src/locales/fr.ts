@@ -4827,6 +4827,7 @@ export const fr = {
         bonus: { titre: "Bonus" },
         candidats_ruul: { titre: "Candidats Ruul" },
         cohortes_ruul: { titre: "Cohortes Ruul" },
+        ruul_suivi: { titre: "Ruul" },
         faq: { titre: "Bot FAQ" },
         officielles: { titre: "Réponses officielles" },
         parrainage: { titre: "Parrainage" },
@@ -4876,6 +4877,7 @@ export const fr = {
         bonus: "Les bonus de lundi (Comment Masters, parrainage, donnés à la main) : à valider, envoyés seulement au clic, et leur historique.",
         candidats_ruul: "Les candidatures du site : acceptées automatiquement si tout est complet, sinon au HM du pays. Referrals d'abord.",
         cohortes_ruul: "Les posteurs du site, cohorte par cohorte : chaque étape jusqu'à la 1re paie Ruul ; en rouge, bloqué depuis plus de 48 h.",
+        ruul_suivi: "Une ligne par posteur Ruul : signé, compte OS, 1re connexion, email Ruul, ajouté dans Ruul, 1er post, dernière paie ; en rouge, l'étape bloquée depuis plus de 2 jours.",
         faq: "Ce que le bot répond sur Slack et dans le tableau de bord, et ce qu'il ne sait pas.",
         officielles: "Les réponses validées par Max : le bot FAQ et les 3 bots les donnent en priorité, les posteurs les voient dans « FAQ ».",
         parrainage: "Les amis que les posteurs invitent par email : emails, candidatures, actifs, bonus et coût par recrue, par pays et par semaine ; le top des parrains ; les pays ouverts.",
@@ -9020,6 +9022,15 @@ export const fr = {
       questionsTitre: "Une question d'argent ?",
       questions: "Envoie un message privé sur Slack à l'équipe de {{salon}}, jamais dans le salon.",
       rejoindreSlack: "Rejoindre Slack",
+    },
+    // 10/11 : le bandeau du posteur Ruul sans email Ruul.
+    emailRuul: {
+      titre: "Ajoute ton email Ruul pour qu'on puisse te payer",
+      intro: "Indique l'adresse email de ton compte Ruul (ou celle avec laquelle tu vas le créer). Nous te payons via Ruul avec cette adresse.",
+      libelle: "Ton email Ruul",
+      enregistrer: "Enregistrer",
+      enregistre: "Enregistré. Merci !",
+      erreur: "Impossible d'enregistrer ton email. Réessaie.",
     },
     calendrier: {
       title: "Mon calendrier",

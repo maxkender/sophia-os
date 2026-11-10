@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "faq" | "officielles" | "parrainage" | "slack" | "logs";
+export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "faq" | "officielles" | "parrainage" | "slack" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "overview", to: "/admin/auto" },
@@ -27,6 +27,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // 9/11 (0577) : les posteurs du site payés par Ruul, de la candidature à la 1re paie.
   { cle: "candidats_ruul", to: "/admin/auto/candidats-ruul" },
   { cle: "cohortes_ruul", to: "/admin/auto/cohortes-ruul" },
+  // 10/11 : le suivi des posteurs Ruul, une ligne par posteur (email Ruul, ajouté dans Ruul, 1re paie).
+  { cle: "ruul_suivi", to: "/admin/auto/ruul" },
   { cle: "faq", to: "/admin/auto/faq" },
   // 6/11 : les réponses validées par Max, que le bot FAQ et les 3 bots donnent en priorité.
   { cle: "officielles", to: "/admin/auto/reponses-officielles" },

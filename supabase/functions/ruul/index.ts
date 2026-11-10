@@ -8,6 +8,10 @@
  *          par email, en secours.
  *       2. Après « Payé sur Ruul » : « You received X $ for the week of … ».
  *       Rien ne part en pause (grand interrupteur), ni après un STOP.
+ *       3. 0590 : les emails Ruul saisis sur le dashboard sont envoyés au site
+ *          (POST os-candidatures, action « ruul_email ») ; l'email Ruul manquant
+ *          est relancé J+1, J+3, puis le vendredi avant la 1re paie, par email
+ *          et message privé Slack (réglage ruul_email_relances).
  *   POST { action: "candidatures" }  (cron toutes les 15 min) — 0577
  *       Copie les candidatures du site (GET /api/public/os-candidatures),
  *       décide les nouvelles (acceptation automatique si majeur, pays ouvert,
@@ -247,7 +251,61 @@ async function envoyer(supabase: Supabase) {
       bilan.push({ poster: r.poster_id, etape: `relais_${r.source}`, ok: envoi.ok, erreur: envoi.erreur });
     }
   }
+  // 4. 0590 : le site est prévenu des emails Ruul saisis sur le dashboard (5 essais au plus).
+  const { data: syncs } = await supabase.from("ruul_site_sync")
+    .select("id, poster_id, action, payload, tentatives").eq("statut", "a_envoyer").order("cree_at").limit(50);
+  for (const s of syncs ?? []) {
+    const r = await appelSite("POST", { action: s.action, ...(s.payload as Record<string, unknown>) });
+    const tentatives = (s.tentatives ?? 0) + 1;
+    await supabase.from("ruul_site_sync").update({
+      statut: r.ok ? "envoye" : tentatives >= SYNC_ESSAIS ? "erreur" : "a_envoyer",
+      tentatives, erreur: r.erreur, envoye_at: r.ok ? new Date().toISOString() : null,
+    }).eq("id", s.id);
+    bilan.push({ poster: s.poster_id, etape: `site_${s.action}`, ok: r.ok, erreur: r.erreur });
+  }
+  // 5. 0590 : l'email Ruul manquant, J+1, J+3, vendredi avant la 1re paie (interrupteur ruul_email_relances).
+  if (await interrupteur(supabase, "ruul_email_relances")) {
+    const { data: dues, error: errDues } = await supabase.rpc("ruul_email_relances_dues");
+    if (errDues) throw errDues;
+    for (const d of (dues ?? []) as RelanceEmailRuul[]) {
+      const prenom = (d.prenom ?? "").trim() || "there";
+      const canaux: string[] = [];
+      let erreur: string | null = null;
+      const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", d.poster_id).maybeSingle();
+      if (d.email && pr?.ruul_jeton) {
+        const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
+        const objet = t.email_ruul_objet ?? EMAIL_RUUL_OBJET;
+        const corps = remplirRuul(t.email_ruul_texte ?? EMAIL_RUUL_TEXTE, { prenom });
+        const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open my dashboard", lien: URL_DASHBOARD }, lienStop });
+        const r = await envoyerEmail(d.email, objet, e.html, e.texte, lienStop, ["ruul", `email_ruul_${d.etape}`]);
+        if (r.ok) canaux.push("email");
+        else erreur = r.erreur;
+      }
+      if (d.slack_user_id) {
+        const s = await ecrireAuPosteur(supabase, d.poster_id, remplirRuul(t.email_ruul_slack ?? EMAIL_RUUL_SLACK, { prenom }));
+        if (s.statut === "envoye") canaux.push("slack");
+        else erreur = erreur ?? ("erreur" in s ? String(s.erreur) : s.statut);
+      }
+      // Une ligne par étape, même en échec : jamais deux fois la même relance.
+      await supabase.from("ruul_email_relances").upsert({ poster_id: d.poster_id, etape: d.etape, canaux, erreur: canaux.length ? null : erreur ?? "aucun canal" });
+      bilan.push({ poster: d.poster_id, etape: `email_ruul_${d.etape}`, ok: canaux.length > 0, erreur: canaux.length ? null : erreur });
+    }
+  }
   return { ok: true, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length, bilan };
+}
+
+const SYNC_ESSAIS = 5;
+const URL_DASHBOARD = "https://sophia-marketing-orga.vercel.app";
+const EMAIL_RUUL_OBJET = "Add your Ruul email so we can pay you";
+const EMAIL_RUUL_TEXTE = "Hi {prenom},\n\nWe still need your Ruul email to pay you every Monday. Log in to your Sophia dashboard and add it at the top of the page.\n\nNo Ruul account yet? Create a free one on ruul.io, then add the same email on your dashboard.";
+const EMAIL_RUUL_SLACK = "Hi {prenom}! We still need your Ruul email to pay you every Monday. Please add it at the top of your Sophia dashboard: https://sophia-marketing-orga.vercel.app 🙏";
+
+interface RelanceEmailRuul {
+  poster_id: string;
+  prenom: string | null;
+  email: string | null;
+  slack_user_id: string | null;
+  etape: string;
 }
 
 // ---------------------------------------------------------------------------

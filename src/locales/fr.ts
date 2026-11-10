@@ -1,5 +1,14 @@
 export const fr = {
   translation: {
+    // 10/11 : le bandeau du posteur Ruul sans email Ruul.
+    emailRuul: {
+      titre: "Ajoute ton email Ruul pour qu'on puisse te payer",
+      intro: "Indique l'adresse email de ton compte Ruul (ou celle avec laquelle tu vas le créer). Nous te payons via Ruul avec cette adresse.",
+      libelle: "Ton email Ruul",
+      enregistrer: "Enregistrer",
+      enregistre: "Enregistré. Merci !",
+      erreur: "Impossible d'enregistrer ton email. Réessaie.",
+    },
     // 0469 : le lien de la conversation Upwork (libellés demandés en anglais).
     conversation: {
       ouvrir: "Open Upwork conversation",

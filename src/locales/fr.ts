@@ -3824,6 +3824,38 @@ export const fr = {
       updateAide:
         "Rattrape tout ce qui manque sur ce compte : les nouveaux TikToks, mais aussi ceux qu'un import précédent avait laissés de côté. Ce qui est déjà en stock n'est pas ré-importé.",
       updateLance: "Mise à jour lancée — rattrapage des slideshows manquants (voir logs).",
+      lundi: {
+        titre: "Lundi : mise à jour des sources",
+        description:
+          "Chaque lundi à 6 h, l'OS retient les sources dont les posts font mieux que la médiane de nos comptes (r au-dessus de 1, ou au-dessus de leur label), celles qui ont eu un post à 100 000 vues ou plus dans le mois, et les sources neuves (moins de 5 posts mesurés). Elles sont mises à jour par lots de 6 par jour, une à la fois, pour ne pas charger la base. Les autres attendent le lundi suivant. Seuls les posts publiés depuis le dernier relevé sont importés.",
+        jamais: "Pas encore de mise à jour du lundi.",
+        resume:
+          "Lundi {{date}} : {{maj}} source(s) mise(s) à jour, {{pasMaj}} pas cette semaine. {{importes}} slideshow(s) importé(s), {{valides}} validé(s).",
+        colSource: "Source",
+        colLabel: "Label",
+        colR: "r",
+        colRLabel: "Face au label",
+        colDecision: "Décision",
+        colImportes: "Importés",
+        importes: "{{importes}} ({{valides}} validés)",
+        lotAVenir: "lot à venir",
+        lotsAVenir_one: "{{count}} source attend son lot (6 par jour).",
+        lotsAVenir_other: "{{count}} sources attendent leur lot (6 par jour).",
+        raison: {
+          toujours: "toujours",
+          neuve: "source neuve",
+          r: "r au-dessus de 1",
+          label: "au-dessus de son label",
+          "100k": "un post à {{vues}} vues",
+        },
+        postsBulle_one: "r médian de {{count}} post mesuré chez nous (3 à 30 jours)",
+        postsBulle_other: "r médian de {{count}} posts mesurés chez nous (3 à 30 jours)",
+        decision: {
+          maj: "Mise à jour",
+          peu_de_mesures: "Source neuve",
+          pas_maj: "Pas cette semaine",
+        },
+      },
       majTitre: "Mettre à jour les sources",
       majAide:
         "Coche les sources à mettre à jour : chacune récupère les slideshows de son profil qui manquent au stock. Elles passent une par une, la suivante démarre quand la file d'import est vide. Tu peux quitter la page, ça continue sur le serveur.",

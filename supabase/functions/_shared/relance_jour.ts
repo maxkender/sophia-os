@@ -107,6 +107,10 @@ export const TEXTES_RELANCE_DEFAUT: TextesRelance = {
   follows: "follow {follows} with @{handle} (Start warmup is done)",
 };
 
+/** 0592 : la relance d'un posteur Ruul : la date limite est le samedi 20 h (Paris), la date de début son lundi. */
+export const CADRE_RELANCE_RUUL =
+  "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}. Please finish before Saturday 8 pm (Paris time). If something is blocking you, just reply to this message.";
+
 /** Les variables connues ; une variable inconnue reste telle quelle (comme ailleurs). */
 function remplir(modele: string, vars: Record<string, string>): string {
   return modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout));
@@ -232,7 +236,8 @@ export function historiqueRelances(
     for (const e of els) {
       const d = h.get(e) ?? {};
       if ((n.canaux ?? []).includes("slack")) d.slack_at ??= n.envoye_at;
-      if ((n.canaux ?? []).includes("upwork")) d.upwork_at ??= n.envoye_at;
+      // 0592 : l'email (posteur Ruul, par le site) tient la place d'Upwork (le canal hors Slack).
+      if ((n.canaux ?? []).includes("upwork") || (n.canaux ?? []).includes("email")) d.upwork_at ??= n.envoye_at;
       h.set(e, d);
     }
   }

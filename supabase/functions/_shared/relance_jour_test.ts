@@ -12,6 +12,7 @@ import {
   planRelance,
   TEXTES_RELANCE_DEFAUT,
   texteRelance,
+  CADRE_RELANCE_RUUL,
 } from "./relance_jour.ts";
 
 const base: RecrueAccueil = {
@@ -175,4 +176,15 @@ Deno.test("10/11 : la date est toujours le lundi de la cohorte (jamais mardi, ja
   // Passé le lundi 12:00 (Paris), la relance ne part plus (debutReel ≠ cohorte : recrues-check l'écarte).
   assertEquals(debutReel("2026-11-02", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
   assertEquals(debutReel("2026-11-09", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
+});
+
+Deno.test("0592 : relance d'un posteur Ruul (samedi 20 h, lundi de cohorte) ; l'email compte comme le canal hors Slack", () => {
+  const plan = { element: "connexion" as const, elements: ["connexion" as const], needsYou: false, follows: 0 };
+  const t = texteRelance({ ...TEXTES_RELANCE_DEFAUT, cadre: CADRE_RELANCE_RUUL }, plan, {
+    prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-16", email: "ana@sophia.com",
+  });
+  assertStringIncludes(t, "to start posting on Monday 16 November, you still need to log in to your dashboard: https://os");
+  assertStringIncludes(t, "Please finish before Saturday 8 pm (Paris time).");
+  const h = historiqueRelances([{ donnees: { element: "connexion" }, canaux: ["email"], envoye_at: "2026-11-10T10:00:00Z" }]);
+  assertEquals(choisirRelance(plan, false, h, new Date("2026-11-11T10:00:00Z")).element, null);
 });

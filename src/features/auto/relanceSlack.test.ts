@@ -12,9 +12,9 @@ const base = {
 const plan = (x: RecrueAccueil) =>
   planRelance(x, etatsAccueil(x, DELAIS_ACCUEIL_DEFAUT), new Date("2026-10-27T11:00:00Z"), DELAIS_ACCUEIL_DEFAUT, { slack: true }).elements;
 
-describe("6/11 : Slack relié mais vu comme non relié → plus de fausse relance", () => {
-  it("pas de « join our Slack » quand Slack est connu sans id sur le profil", () => {
-    expect(plan(base)).toEqual(["connexion", "slack"]);
+describe("10/11 : Slack ne bloque plus : plus jamais de relance « join our Slack »", () => {
+  it("pas de « join our Slack », Slack relié ou pas", () => {
+    expect(plan(base)).toEqual(["connexion"]);
     expect(plan({ ...base, slack_connu: true })).toEqual(["connexion"]);
   });
 });

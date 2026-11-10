@@ -19,10 +19,11 @@
  *       d'abord), envoie au site les décisions (réglage ruul_candidatures_auto)
  *       et les relances de signature J+1, J+3, J+6, J+7 expirée, cohorte ratée
  *       décalée au lundi suivant (réglage ruul_relances_signature).
- *   POST { action: "dimanche", forcer? }  (cron le dimanche, 18 h à Paris) — 0591
- *       Un email à Max : les posteurs Ruul à ajouter dans Ruul (nom, email
- *       Ruul, pays, zone, tarif). Un seul par dimanche, rien si la liste est
- *       vide (réglage ruul_liste_dimanche ; « forcer » : envoi de test).
+ *   POST { action: "soir" | "dimanche", forcer? }  (cron tous les jours, 18 h à Paris) — 0591, 0592
+ *       Un email à support@vikstudios.com : les nouveaux signés depuis la veille
+ *       à ajouter dans Ruul (nom, email Ruul, pays, tarif) et le reste des jours
+ *       précédents. Un seul par soir, rien si aucun nouveau (réglage
+ *       ruul_liste_dimanche ; « forcer » : envoi de test).
  *   GET ?pret=<jeton>   le bouton « It's done » : le posteur est prêt à être payé.
  *   GET ?stop=<jeton>   « Unsubscribe » : plus aucune relance ; « A demandé STOP » remonte au samedi.
  *
@@ -35,7 +36,7 @@ import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { codePays, hmDuPays, type Recruteur } from "../_shared/hub_posteurs.ts";
 import {
   type CandidatureRuul,
-  emailListeDimanche,
+  emailListeSoir,
   type LigneAAjouter,
   texteSansSlack,
   etapeSignature,
@@ -100,7 +101,8 @@ Deno.serve(async (request) => {
   try {
     if (body?.action === "envoyer") return json(await envoyer(supabase));
     if (body?.action === "candidatures") return json(await candidatures(supabase));
-    if (body?.action === "dimanche") return json(await listeDimanche(supabase, body?.forcer === true));
+    // 0592 : « dimanche » (ancien nom de la tâche) et « soir » : la liste de tous les soirs.
+    if (body?.action === "dimanche" || body?.action === "soir") return json(await listeSoir(supabase, body?.forcer === true));
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
@@ -470,17 +472,22 @@ async function candidatures(supabase: Supabase) {
 }
 
 // ---------------------------------------------------------------------------
-// 0591 : le dimanche, à Max, les posteurs Ruul à ajouter dans Ruul
+// 0591 / 0592 : tous les soirs (18 h Paris), à support@, les posteurs Ruul à ajouter dans Ruul
 // ---------------------------------------------------------------------------
 
-/** L'admin qui ajoute et paie sur Ruul. */
-const MAX_ID = "dde5916a-89b8-4fc3-897b-dc7f0d88e20e";
+/** 0592 : le destinataire de la liste du soir (réglage ruul_liste_destinataire). */
+const DESTINATAIRE_LISTE = "support@vikstudios.com";
 
 function heureParis(d = new Date()): number {
   return Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(d));
 }
 
-async function listeDimanche(supabase: Supabase, forcer: boolean) {
+/**
+ * Les nouveaux signés depuis le dernier envoi réussi (ou 24 h), à ajouter dans
+ * Ruul ; en bas, combien restent des jours précédents. Un seul email par soir,
+ * rien si aucun nouveau.
+ */
+async function listeSoir(supabase: Supabase, forcer: boolean) {
   if (!forcer) {
     if (heureParis() !== 18) return { ok: true, ignore: "pas 18 h à Paris" };
     if (!(await interrupteur(supabase, "ruul_liste_dimanche"))) return { ok: true, ignore: "ruul_liste_dimanche éteint" };
@@ -490,14 +497,19 @@ async function listeDimanche(supabase: Supabase, forcer: boolean) {
   const { data, error } = await supabase.rpc("ruul_a_ajouter_liste");
   if (error) return { ok: false, error: error.message };
   const lignes = (data ?? []) as LigneAAjouter[];
-  if (!lignes.length) {
+  const { data: dernier } = await supabase.from("ruul_dimanche_envois").select("envoye_at").eq("ok", true)
+    .order("envoye_at", { ascending: false }).limit(1).maybeSingle();
+  const depuis = Math.max(dernier?.envoye_at ? new Date(dernier.envoye_at).getTime() : 0, Date.now() - 24 * 3_600_000);
+  const nouveaux = lignes.filter((l) => !l.signe_at || new Date(l.signe_at).getTime() > depuis);
+  const anciens = lignes.length - nouveaux.length;
+  if (!nouveaux.length) {
     if (!forcer) await supabase.from("ruul_dimanche_envois").upsert({ dimanche: aujourdhuiParis(), nb: 0, ok: true });
-    return { ok: true, n: 0 };
+    return { ok: true, n: 0, anciens };
   }
-  const { data: max } = await supabase.from("profiles").select("email").eq("id", MAX_ID).maybeSingle();
-  if (!max?.email) return { ok: false, error: "email de Max introuvable" };
-  const m = emailListeDimanche(lignes);
-  const r = await envoyerEmail(max.email, m.objet, m.html, m.texte, `${URL_DASHBOARD}/admin/auto/ruul`, ["ruul", "liste_dimanche"]);
-  if (!forcer) await supabase.from("ruul_dimanche_envois").upsert({ dimanche: aujourdhuiParis(), nb: lignes.length, ok: r.ok, erreur: r.erreur });
-  return { ok: r.ok, n: lignes.length, erreur: r.erreur };
+  const { data: regl } = await supabase.from("reglages").select("valeur").eq("cle", "ruul_liste_destinataire").maybeSingle();
+  const a = typeof regl?.valeur === "string" && regl.valeur.includes("@") ? regl.valeur : DESTINATAIRE_LISTE;
+  const m = emailListeSoir(nouveaux, anciens);
+  const r = await envoyerEmail(a, m.objet, m.html, m.texte, `${URL_DASHBOARD}/admin/auto/ruul`, ["ruul", "liste_soir"]);
+  if (!forcer) await supabase.from("ruul_dimanche_envois").upsert({ dimanche: aujourdhuiParis(), nb: nouveaux.length, ok: r.ok, erreur: r.erreur });
+  return { ok: r.ok, n: nouveaux.length, anciens, erreur: r.erreur };
 }

@@ -152,3 +152,25 @@ export interface LigneAjoutRuul {
 
 export const lireAjoutsRuul = () => rpc<LigneAjoutRuul[]>("ruul_a_ajouter_liste");
 export const marquerAjoutesRuul = (ids: string[]) => rpc<number>("ruul_marquer_ajoutes", { p_ids: ids });
+
+/** 0592 : la checklist du dashboard d'un posteur Ruul. */
+export interface MonOnboardingRuul {
+  ruul: boolean;
+  cohorte_lundi: string | null;
+  prenom_legal: string | null;
+  nom_legal: string | null;
+  ruul_email: string | null;
+  email_candidature: string | null;
+  handle: string | null;
+  tiktok: boolean;
+  warmup_lance: boolean;
+  abonnements: number;
+  pret_warmup: boolean;
+  slack: boolean;
+  ruul_statut: string | null;
+  ruul_invite: boolean;
+  ruul_pret: boolean;
+}
+
+export const lireMonOnboardingRuul = () => rpc<MonOnboardingRuul | null>("ruul_mon_onboarding");
+export const jeSuisPretRuul = () => rpc<Retour>("ruul_je_suis_pret");

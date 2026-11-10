@@ -55,15 +55,18 @@ Deno.test("Ruul : un texte Slack lisible par email", async () => {
   assertEquals(texteSansSlack("Hi *Ana*, open <https://x.y/a|your dashboard> or <https://x.y/b>."), "Hi Ana, open your dashboard: https://x.y/a or https://x.y/b.");
 });
 
-Deno.test("Ruul (0591) : l'email du dimanche à Max", async () => {
-  const { emailListeDimanche } = await import("./ruul.ts");
-  const m = emailListeDimanche([
+Deno.test("Ruul (0592) : l'email du soir (nouveaux depuis hier + reste)", async () => {
+  const { emailListeSoir } = await import("./ruul.ts");
+  const m = emailListeSoir([
     { poster_id: "1", nom: "Ana Test", ruul_email: "ana@test.cc", pays: "ES", zone: "B", tarif: 10 },
     { poster_id: "2", nom: "Bo <Test>", ruul_email: "bo@test.cc", pays: null, zone: null, tarif: null },
-  ]);
-  assertEquals(m.objet, "Ruul : 2 posteurs à ajouter");
-  assertEquals(m.texte.split("\n")[1], "- Ana Test — ana@test.cc — ES — zone B — 10 $ / semaine");
-  assertEquals(m.texte.split("\n")[2], "- Bo <Test> — bo@test.cc — ? — zone ? — ? / semaine");
+  ], 3);
+  assertEquals(m.objet, "Ruul : 2 nouveaux posteurs à ajouter");
+  assertEquals(m.texte.split("\n")[1], "- Ana Test — ana@test.cc — ES — 10 $ / semaine");
+  assertEquals(m.texte.split("\n")[2], "- Bo <Test> — bo@test.cc — ? — ?");
+  assertEquals(m.texte.split("\n")[3], "Encore à ajouter : 3 des jours précédents.");
   assertEquals(m.html.includes("Bo &lt;Test&gt;"), true);
-  assertEquals(emailListeDimanche([{ poster_id: "1", nom: "A", ruul_email: "a@b.cc", pays: "IT", zone: "A", tarif: 12 }]).objet, "Ruul : 1 posteur à ajouter");
+  const un = emailListeSoir([{ poster_id: "1", nom: "A", ruul_email: "a@b.cc", pays: "IT", zone: "A", tarif: 12 }], 0);
+  assertEquals(un.objet, "Ruul : 1 nouveau posteur à ajouter");
+  assertEquals(un.texte.includes("Encore"), false);
 });

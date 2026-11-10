@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o132",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c28121c9-598b-4077-81d7-a7cb8142f418",
+  "titre": "j'ai essayé de me cultiver 7 jours d'affilée : je note tout, jour par jour #culture #defi #pourtoi",
+  "inspirations": [
+    "c28121c9-598b-4077-81d7-a7cb8142f418"
+  ],
+  "notes": "G1, déclinaison de c28121c9 (« j'ai essayé de me cultiver 7 jours d'affilée : je note tout, jour par jour », génération 0 en français ; meilleur passage el 2,2 k vues, r 2,71), en français. cta A (avant / après sur le dernier jour). Jours neufs (rien de repris du parent : ni pharaons, ni sœur, ni dîner sur l'art). Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "j'ai essayé de me cultiver 7 jours d'affilée :\nje note tout, jour par jour",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "jour 1\n\n4/10\nun documentaire de deux heures. je me suis endormie à la moitié.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "jour 2\n\n6/10\nune expo gratuite près de chez moi. j'ai lu chaque cartel.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "41a74286",
+      "texte_overlay": "jour 4\n\n7/10\nun poème par jour. le quatrième, je l'ai appris par cœur sans faire exprès.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "jour 6\n\n8/10\nj'ai demandé à ma voisine de me raconter son pays. deux heures de thé et d'histoires.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "114ca47c",
+      "texte_overlay": "jour 7\n\n10/10\navant, je pensais que se cultiver demandait des heures.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je continue.",
+      "texte_sophia": "jour 7\n\n10/10\navant, je pensais que se cultiver demandait des heures.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je continue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu fais le défi avec moi ?\ndis-moi ton jour 1.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

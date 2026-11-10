@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o126",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en lisant un classique par mois pendant un an #classiques #lecture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : un an de classiques, récit « je ». Accroches écrites : « ce que j'ai appris en lisant un classique par mois pendant un an » (retenue : défi concret, chiffre), « les classiques, c'est ennuyeux ? » (écartée : question molle), « 12 classiques à lire » (écartée : liste de titres sans récit). Aucun fait daté. Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "ce que j'ai appris en lisant\nun classique par mois\npendant un an",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. les classiques sont souvent drôles\n\npersonne ne m'avait prévenue.\nj'ai ri toute seule dans le métro.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. les gens n'ont pas changé\n\nla jalousie, l'amour, l'ambition.\nil y a 200 ans, c'était déjà pareil.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "41a74286",
+      "texte_overlay": "3. abandonner, c'est permis\n\nj'en ai lâché deux.\net j'en ai adoré dix.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "4. les références sont partout\n\nfilms, chansons, séries.\nje les vois enfin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. la curiosité appelle la curiosité\n\navant, je ne savais jamais quoi lire ensuite.\nmaintenant, j'apprends un truc sur le monde chaque matin. et ma liste de livres ne finit plus.",
+      "texte_sophia": "5. la curiosité appelle la curiosité\n\navant, je ne savais jamais quoi lire ensuite.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et ma liste de livres ne finit plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu tenterais le défi ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

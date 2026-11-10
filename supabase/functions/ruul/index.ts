@@ -15,12 +15,6 @@
  *       d'abord), envoie au site les décisions (réglage ruul_candidatures_auto)
  *       et les relances de signature J+1, J+3, J+6, J+7 expirée, cohorte ratée
  *       décalée au lundi suivant (réglage ruul_relances_signature).
- *   0586 (dans « envoyer ») : relances de l'email Ruul manquant (J+1, J+3,
- *       vendredi avant la 1re paie ; email + #ruul-posters ; interrupteur
- *       ruul_email_relances) ; le lot du lundi prêt → message à Max ; lot
- *       payé → « Payment sent for the week of JJ/MM ✅ » dans #ruul-posters.
- *   POST { action: "dimanche", forcer? }  (cron le dimanche, 18 h à Paris) — 0586
- *       À Max : les posteurs Ruul avec email Ruul pas encore ajoutés dans Ruul.
  *   GET ?pret=<jeton>   le bouton « It's done » : le posteur est prêt à être payé.
  *   GET ?stop=<jeton>   « Unsubscribe » : plus aucune relance ; « A demandé STOP » remonte au samedi.
  *
@@ -93,11 +87,7 @@ Deno.serve(async (request) => {
     return json({ ok: false, error: "corps JSON requis" }, 400);
   }
   try {
-    if (body?.action === "envoyer") {
-      const a = await envoyer(supabase);
-      return json({ ...a, suivi: await suiviRuul(supabase) });
-    }
-    if (body?.action === "dimanche") return json(await listeDimanche(supabase, body?.forcer === true));
+    if (body?.action === "envoyer") return json(await envoyer(supabase));
     if (body?.action === "candidatures") return json(await candidatures(supabase));
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (e) {
@@ -411,123 +401,4 @@ async function candidatures(supabase: Supabase) {
     }
   }
   return { ok: true, ...bilan };
-}
-
-// ---------------------------------------------------------------------------
-// 0586 : Ruul centralisé dans l'OS
-// ---------------------------------------------------------------------------
-
-/** L'admin qui paie sur Ruul (Max) : la liste du dimanche et le lot prêt lui arrivent sur Slack. */
-const MAX_ID = "dde5916a-89b8-4fc3-897b-dc7f0d88e20e";
-const URL_OS = "https://sophia-marketing-orga.vercel.app";
-
-function heureParis(d = new Date()): number {
-  return Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(d));
-}
-
-async function canalRuul(supabase: Supabase): Promise<string> {
-  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "ruul_slack_canal").maybeSingle();
-  return typeof data?.valeur === "string" && data.valeur ? data.valeur : "C0CA5SH59N0";
-}
-
-/** Un message dans #ruul-posters (le bot de la cohorte y est déjà). */
-async function posterDansCanal(supabase: Supabase, texte: string): Promise<{ ok: boolean; erreur: string | null }> {
-  const token = Deno.env.get("SLACK_BOT_TOKEN2");
-  if (!token) return { ok: false, erreur: "SLACK_BOT_TOKEN2 manquant" };
-  try {
-    const r = await fetch("https://slack.com/api/chat.postMessage", {
-      method: "POST",
-      headers: { "content-type": "application/json; charset=utf-8", authorization: `Bearer ${token}` },
-      body: JSON.stringify({ channel: await canalRuul(supabase), text: texte }),
-    });
-    const j = await r.json().catch(() => ({}));
-    return { ok: Boolean(j?.ok), erreur: j?.ok ? null : String(j?.error ?? `HTTP ${r.status}`) };
-  } catch (e) {
-    return { ok: false, erreur: messageErreur(e) };
-  }
-}
-
-const jourMoisCourt = (iso: string) => {
-  const [, m, j] = iso.split("-");
-  return `${j}/${m}`;
-};
-
-async function suiviRuul(supabase: Supabase) {
-  const bilan: Record<string, unknown> = {};
-  if (await bloquer(supabase, { fonction: "ruul", action: "suivi" })) return { ok: false, error: PAUSE };
-
-  // 1. L'email Ruul manquant : J+1, J+3, vendredi avant la 1re paie (interrupteur ruul_email_relances).
-  if (await interrupteur(supabase, "ruul_email_relances")) {
-    const t = await textes(supabase);
-    const { data: dues } = await supabase.rpc("ruul_email_relances_dues");
-    let n = 0;
-    for (const d of (dues ?? []) as { poster_id: string; prenom: string | null; email: string | null; slack_user_id: string | null; etape: string }[]) {
-      const prenom = (d.prenom ?? "").trim() || "there";
-      const canaux: string[] = [];
-      let erreur: string | null = null;
-      if (d.email) {
-        const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", d.poster_id).maybeSingle();
-        const lienStop = `${URL_FONCTION}?stop=${pr?.ruul_jeton ?? ""}`;
-        const objet = t.email_ruul_objet ?? "Add your Ruul email so we can pay you";
-        const corps = remplirRuul(t.email_ruul_texte ??
-          "Hi {prenom},\n\nWe still need your Ruul email to pay you every Monday. Log in to your Sophia dashboard and add it at the top of the page.\n\nNo Ruul account yet? Create a free one on ruul.io, verify your identity and add your bank account, then add the same email on your dashboard.",
-          { prenom });
-        const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open my dashboard", lien: URL_OS }, lienStop });
-        const r = await envoyerEmail(d.email, objet, e.html, e.texte, lienStop, ["ruul", `email_ruul_${d.etape}`]);
-        if (r.ok) canaux.push("email");
-        else erreur = r.erreur;
-      }
-      const qui = d.slack_user_id ? `<@${d.slack_user_id}>` : prenom;
-      const slack = await posterDansCanal(supabase, remplirRuul(t.email_ruul_slack ??
-        "{qui} please add your Ruul email on your Sophia dashboard so we can pay you on Monday 🙏", { qui }));
-      if (slack.ok) canaux.push("slack");
-      else erreur = erreur ?? slack.erreur;
-      await supabase.from("ruul_email_relances").upsert({ poster_id: d.poster_id, etape: d.etape, canaux, erreur });
-      if (canaux.length) n++;
-    }
-    bilan.email_ruul = n;
-  }
-
-  // 2. Le lot du lundi prêt : un message à Max (une fois par lot).
-  const { data: lotsPrets } = await supabase.from("ruul_lots").select("id, semaine, total, nb")
-    .eq("statut", "prepare").not("prepare_at", "is", null).is("notifie_at", null);
-  for (const l of lotsPrets ?? []) {
-    const { data: zero } = await supabase.from("ruul_paiements").select("poster_id, profiles!inner(prenom, nom)")
-      .eq("semaine", l.semaine).eq("statut", "annule").like("raison_report", "0 post%");
-    type Zero = { profiles: { prenom: string | null; nom: string | null } | { prenom: string | null; nom: string | null }[] };
-    const noms = ((zero ?? []) as unknown as Zero[]).map((z) => {
-      const p = Array.isArray(z.profiles) ? z.profiles[0] : z.profiles;
-      return `${p?.prenom ?? ""} ${p?.nom ?? ""}`.trim();
-    });
-    const texte = `Paie Ruul, semaine du ${jourMoisCourt(l.semaine)} : ${l.nb} posteur(s), ${Number(l.total).toFixed(2)} $ à payer sur Ruul ` +
-      `(OS → Payroll → Ruul : « Exporter fichier Ruul », puis « Marquer payé »).` +
-      (noms.length ? `\n0 post cette semaine (0 $) : ${noms.join(", ")}.` : "");
-    const issue = await ecrireAuPosteur(supabase, MAX_ID, texte);
-    if (issue.statut === "envoye") await supabase.from("ruul_lots").update({ notifie_at: new Date().toISOString() }).eq("id", l.id);
-    bilan.lot_notifie = issue.statut;
-  }
-
-  // 3. Le lot payé : l'annonce dans #ruul-posters (une fois par lot).
-  const { data: lotsPayes } = await supabase.from("ruul_lots").select("id, semaine").eq("statut", "paye").is("annonce_at", null)
-    .gte("paye_at", new Date(Date.now() - 7 * 86_400_000).toISOString());
-  for (const l of lotsPayes ?? []) {
-    const r = await posterDansCanal(supabase, `Payment sent for the week of ${jourMoisCourt(l.semaine)} ✅`);
-    if (r.ok) await supabase.from("ruul_lots").update({ annonce_at: new Date().toISOString() }).eq("id", l.id);
-    bilan.annonce = r.ok ? "ok" : r.erreur;
-  }
-  return { ok: true, ...bilan };
-}
-
-/** Le dimanche 18 h (Paris) : à Max, les posteurs Ruul à ajouter dans Ruul. */
-async function listeDimanche(supabase: Supabase, forcer: boolean) {
-  if (!forcer && heureParis() !== 18) return { ok: true, ignore: "pas 18 h à Paris" };
-  const { data, error } = await supabase.rpc("ruul_a_ajouter_liste");
-  if (error) return { ok: false, error: error.message };
-  const lignes = (data ?? []) as { nom: string; ruul_email: string; pays: string | null; zone: string | null; tarif: number | null }[];
-  if (!lignes.length) return { ok: true, n: 0 };
-  const texte = `Posteurs Ruul à ajouter dans Ruul (${lignes.length}) :\n` +
-    lignes.map((l) => `• ${l.nom} — ${l.ruul_email} — ${l.pays ?? "?"} — zone ${l.zone ?? "?"} — ${l.tarif ?? "?"} $/semaine`).join("\n") +
-    `\n\nPuis dans l'OS : Recruitment automation → Ruul → « Marquer ajouté dans Ruul ».`;
-  const issue = await ecrireAuPosteur(supabase, MAX_ID, texte);
-  return { ok: issue.statut === "envoye", n: lignes.length, statut: issue.statut };
 }

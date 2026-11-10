@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o130",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f6f1eae3-5517-47bd-9db0-a65de92c212a",
+  "titre": "les techniques étranges mais efficaces pour vraiment bosser tes cours #etudes #pourtoi",
+  "inspirations": [
+    "f6f1eae3-5517-47bd-9db0-a65de92c212a"
+  ],
+  "notes": "G2, déclinaison de f6f1eae3 (« unhinged ways to lock tf in for school », G1 gagnante, génération 1 en français ; meilleur passage tr 4,1 k vues, r 2,46), en français. Accroche reformulée : « les techniques étranges mais efficaces pour vraiment bosser tes cours » (autres mots que bsg-o121). cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent ni de bsg-o121). Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "les techniques étranges mais efficaces\npour vraiment bosser tes cours",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "414511dc",
+      "texte_overlay": "1. donne un nom à chaque chapitre\n\nle chapitre méchant, le chapitre facile.\nbizarre, mais tu t'en souviens.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "01c21b76",
+      "texte_overlay": "2. révise debout\n\nau comptoir de la cuisine.\nimpossible de s'endormir sur son cours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3615b305",
+      "texte_overlay": "3. invente l'examen\n\nécris les questions que tu poserais si tu étais le prof.\nensuite, réponds-y.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0f057bec",
+      "texte_overlay": "4. change de stylo à chaque partie\n\nune couleur par idée.\nta mémoire range tout toute seule.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. rends tes pauses utiles\n\navant, mes pauses finissaient sur mon téléphone.\nmaintenant, j'apprends un petit truc sur le monde. et je reprends sans traîner.",
+      "texte_sophia": "5. rends tes pauses utiles\n\navant, mes pauses finissaient sur mon téléphone.\nmaintenant, j'ouvre l'appli Sophia cinq minutes. et je reprends sans traîner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu testes laquelle ce soir ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

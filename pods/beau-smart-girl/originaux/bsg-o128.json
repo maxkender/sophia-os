@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o128",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3dd7a9f7-7e0f-4400-a1b8-07b42178c393",
+  "titre": "comment gérer ton couple et tes études sans rien sacrifier #etudes #couple #pourtoi",
+  "inspirations": [
+    "3dd7a9f7-7e0f-4400-a1b8-07b42178c393"
+  ],
+  "notes": "G2, déclinaison de 3dd7a9f7 (« how to balance love & school », G1 gagnante, génération 1 en français selon la boîte ; meilleur passage tr 4,1 k vues, r 2,45), en français. Accroche reformulée : « comment gérer ton couple et tes études sans rien sacrifier » (même promesse, d'autres mots). cta C (le défi de 7 jours en slide 2). Items neufs (rien de repris du parent bsg-o091 : ni study dates, ni dates d'examen, ni soirée seule, ni sécher les cours). Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "comment gérer ton couple et tes études\nsans rien sacrifier",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "057091a3",
+      "texte_overlay": "1. un planning commun\n\nles partiels, les soirées, les week-ends.\nplus de surprise, plus de dispute.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. des messages courts pendant les révisions\n\nun cœur à midi suffit.\nles longs appels, c'est pour le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "03d4534a",
+      "texte_overlay": "3. gardez des projets à vous deux\n\nun film à voir après les partiels.\nça donne du courage à tous les deux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "01be1362",
+      "texte_overlay": "4. garde tes amis\n\nun couple ne remplace pas ta bande.\net ta bande ne remplace pas tes révisions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "5. dis-le quand c'est trop\n\nla bonne personne comprend\nque ta réussite compte aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "enregistre-le pour tes partiels.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

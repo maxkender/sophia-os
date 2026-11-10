@@ -4,7 +4,7 @@
  *   POST { action: "envoyer" }  (cron toutes les 10 min, en-tête x-cron-secret)
  *       Les emails dus (J0, J+2, J+5), dans la langue du pays du filleul, avec
  *       le tarif de sa zone et le lien creators ?ref=code. Envoyés par le site
- *       sophia-culture.com (domaine, SPF/DKIM, expéditeur « Sophia ») : POST
+ *       vik-studios-creators.com (expéditeur « Sophia », noreply@sophia-culture.com) : POST
  *       HUB_EMAIL_URL, en-tête x-hub-secret (OS_HUB_SECRET). Rien ne part tant
  *       que le réglage parrainage_email_actif est off ou que HUB_EMAIL_URL
  *       n'est pas configuré.
@@ -22,6 +22,7 @@ import { secretValide } from "../_shared/hub_posteurs.ts";
 import { type EtapeEmail, lienCreators, prochaineEtape, rendreEmail } from "../_shared/parrainage_email.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { estSecretCron, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
+import { urlEmailSite } from "../_shared/site.ts";
 
 const URL_FONCTION = "https://mbikecieskoobeizixig.supabase.co/functions/v1/parrainage";
 
@@ -81,7 +82,7 @@ type Supabase = any;
 async function envoyer(supabase: Supabase) {
   const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "parrainage_email_actif").maybeSingle();
   if (reglage?.valeur !== true) return { ok: true, ignore: "parrainage_email_actif off" };
-  const urlEnvoi = Deno.env.get("HUB_EMAIL_URL") ?? "";
+  const urlEnvoi = urlEmailSite();
   const secret = Deno.env.get("OS_HUB_SECRET") ?? "";
   if (!urlEnvoi || !secret) return { ok: true, ignore: "HUB_EMAIL_URL non configuré" };
 
@@ -136,7 +137,7 @@ async function envoyer(supabase: Supabase) {
  * invitations ni à parrainage_email_actif.
  */
 async function envoyerTest(supabase: Supabase, to: string, langue: string) {
-  const urlEnvoi = Deno.env.get("HUB_EMAIL_URL") ?? "";
+  const urlEnvoi = urlEmailSite();
   const secret = Deno.env.get("OS_HUB_SECRET") ?? "";
   if (!urlEnvoi || !secret) return { ok: false, error: "HUB_EMAIL_URL ou OS_HUB_SECRET non configuré" };
   const adresse = to.trim().toLowerCase();

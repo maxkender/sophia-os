@@ -170,9 +170,10 @@ Deno.serve(async (request) => {
     }
     // 10/11 : une relance ponctuelle, maintenant, à des recrues choisies (aperçu, puis envoi sur « envoyer »).
     if (body.action === "relance_maintenant") {
-      const b = body as { poster_ids?: unknown; envoyer?: unknown };
+      const b = body as { poster_ids?: unknown; envoyer?: unknown; element?: unknown };
       const ids = Array.isArray(b.poster_ids) ? b.poster_ids.map(String) : [];
-      return json(await relanceMaintenant(serviceClient(), ids, b.envoyer === true, new Date()));
+      const element = typeof b.element === "string" && b.element ? b.element as ElementRelance : null;
+      return json(await relanceMaintenant(serviceClient(), ids, b.envoyer === true, new Date(), element));
     }
     if (body.action === "lien_mot_de_passe_envoyer") {
       return json(await envoyerLienMotDePasse(serviceClient(), String((body as { poster_id?: string }).poster_id ?? ""), acces.userId));
@@ -3041,8 +3042,9 @@ const URL_RUUL = "https://mbikecieskoobeizixig.supabase.co/functions/v1/ruul";
  * Canal : Slack s'il est relié, sinon Upwork (contrat), sinon email (posteur
  * Ruul, par le site). Sans « envoyer » : l'aperçu seulement, rien n'est écrit.
  * Une ligne du jour restée sans canal (un échec, ex. HTTP 429) est renvoyée.
+ * `force` (ex. « connexion ») : cette étape, si elle n'est pas faite, même avant son délai habituel.
  */
-async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boolean, maintenant: Date) {
+async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boolean, maintenant: Date, force: ElementRelance | null = null) {
   if (!ids.length) return { ok: false, error: "poster_ids requis" };
   const r = await reglages(supabase);
   const recrues = new Map((await lireRecrues(supabase)).filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
@@ -3062,8 +3064,13 @@ async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boo
     if (p.relances_stop_at) { ligne.ecarte = "STOP demandé"; continue; }
     if (pauses.has(p.id as string)) { ligne.ecarte = "en pause ou demande d'arrêt en attente"; continue; }
     if (debutReel(x.cohorte_lundi, maintenant) !== x.cohorte_lundi) { ligne.ecarte = "lundi de cohorte passé"; continue; }
-    const plan = planRelance(x, etatsAccueil(x, r.etapes), maintenant, r.etapes);
-    if (!plan.element) { ligne.ecarte = plan.needsYou ? "Needs you" : "rien ne manque"; continue; }
+    const etats = etatsAccueil(x, r.etapes);
+    const calcule = planRelance(x, etats, maintenant, r.etapes);
+    const faitForce = force === "connexion" ? Boolean(x.premiere_connexion_at) : etats.find((e) => e.etape === force)?.fait ?? true;
+    const plan: PlanRelance = force
+      ? (faitForce ? { ...calcule, element: null, elements: [] } : { ...calcule, needsYou: false, element: force, elements: [force] })
+      : calcule;
+    if (!plan.element) { ligne.ecarte = force ? `${force} : déjà fait` : plan.needsYou ? "Needs you" : "rien ne manque"; continue; }
     const un: PlanRelance = { ...plan, elements: [plan.element] };
     const jour = partiesLocales(maintenant, x.fuseau).date;
     const { data: deja } = await supabase.from("nudges").select("id, canaux").eq("poster_id", p.id).eq("type", "relance").eq("periode", jour).maybeSingle();

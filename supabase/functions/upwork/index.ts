@@ -2601,7 +2601,8 @@ async function bonusParrainagePayer(supabase: Supabase, par: string | null) {
   const { data: tests } = await supabase.from("upwork_bonus_tests").select("id").eq("statut", "envoye").not("valide_at", "is", null).limit(1);
   if (!tests?.length) return { ok: true, payes: 0, raison: "test du bonus pas encore validé par Max : rien ne part" };
   const { data: lignes } = await supabase.from("bonus").select("id, poster_id, recrue_id, referral_id, montant, detail")
-    .eq("type", "parrainage").eq("statut", "a_payer").is("envoi_at", null).gt("montant", 0).limit(30);
+    // 0585 : un bonus « à payer via Ruul » ne part jamais sur Upwork.
+    .eq("type", "parrainage").eq("statut", "a_payer").eq("canal_paie", "upwork").is("envoi_at", null).gt("montant", 0).limit(30);
   const resultats: Record<string, unknown>[] = [];
   for (const b of lignes ?? []) {
     const montant = Number(b.montant);
@@ -2658,7 +2659,8 @@ async function bonusEnvoyer(supabase: Supabase, par: string, lundi: string) {
   if (expediteur) return { ok: false, error: expediteur };
   const { data: lignes, error } = await supabase.from("bonus")
     .select("id, poster_id, recrue_id, type, montant, quantite, periode_fin, raison")
-    .eq("lundi_bonus", lundi).eq("statut", "a_valider").is("envoi_at", null).gt("montant", 0).limit(60);
+    // 0585 : les lignes « à payer via Ruul » restent pour le paiement Ruul de Max.
+    .eq("lundi_bonus", lundi).eq("statut", "a_valider").eq("canal_paie", "upwork").is("envoi_at", null).gt("montant", 0).limit(60);
   if (error) return { ok: false, error: error.message };
   const resultats: Record<string, unknown>[] = [];
   for (const b of lignes ?? []) {

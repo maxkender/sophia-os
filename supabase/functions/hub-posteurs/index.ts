@@ -32,6 +32,11 @@
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
  *       Posters actifs par langue de publication.
+ *   { action: "parrainages" }
+ *       0585 : tous les referrals : parrain (nom, canal upwork|ruul), ami
+ *       (prénom, nom, email, pays), created_at, invitation (statut, emails
+ *       J0/J+2/J+5 et dates, ouvert, cliqué, désinscrit, rebond, postulé),
+ *       recrue_id, bonus du parrain (en_attente / paye, date).
  *   { action: "identites", hub_ids }
  *       Prénom et nom légaux (pièce d'identité) saisis par le poster dans
  *       l'accueil de l'OS, pour l'ajouter dans Ruul. Seuls ceux qui les ont
@@ -63,7 +68,7 @@ import { lireParLots } from "../_shared/lots.ts";
 import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-09-mdp2";
+const VERSION = "2026-11-10-parrainages";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -120,6 +125,11 @@ Deno.serve(async (request) => {
         return await statsPays(supabase);
       case "identites":
         return await identites(supabase, body);
+      case "parrainages": {
+        const { data, error } = await supabase.rpc("hub_parrainages");
+        if (error) throw error;
+        return json({ ok: true, rows: data ?? [] });
+      }
       case "candidature": {
         // 0561 : un candidat vient de postuler sur le site (email, code ?ref=) : les relances
         // de parrainage s'arrêtent et l'ami est noté « a postulé » chez son parrain.

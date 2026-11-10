@@ -50,7 +50,15 @@ describe("bonus du lundi (0564)", () => {
       ligne({ id: "d", montant: 0 }),
       ligne({ id: "e", montant: 2, statut: "paye" }),
     ]);
-    expect(t).toEqual({ n: 2, total: 34.5, frais: 3.45, totalFrais: 37.95 });
+    expect(t).toEqual({ n: 2, total: 34.5, frais: 3.45, totalFrais: 37.95, nRuul: 0, totalRuul: 0 });
+  });
+
+  it("0585 : un bonus « à payer via Ruul » ne part jamais sur Upwork", () => {
+    const t = totaux([
+      ligne({ montant: 10, type: "parrainage" }),
+      ligne({ id: "r", montant: 10, type: "parrainage", canal_paie: "ruul" }),
+    ]);
+    expect(t).toEqual({ n: 1, total: 10, frais: 1, totalFrais: 11, nRuul: 1, totalRuul: 10 });
   });
 
   it("montre le délai des Comment Masters seulement après le 9/11", () => {

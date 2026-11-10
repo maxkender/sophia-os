@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Link } from "react-router-dom";
 
 import { DonnerBonus } from "./DonnerBonus";
-import { envoyerBonus, lireCarteBonus, retirerBonus, type LigneBonusLundi } from "./api";
+import { envoyerBonus, lireCarteBonus, payerBonusRuul, retirerBonus, type LigneBonusLundi } from "./api";
 import { delaiCm, jourMois, LIBELLE_TYPE, totaux } from "./lundi";
 
 const dollars = (n: number) => `${Number(n).toFixed(2)} $`;
@@ -57,6 +57,7 @@ export function BonusLundi({ avecDonner = true, lienPage = false }: { avecDonner
           {t.n} ligne{t.n > 1 ? "s" : ""} à envoyer · {dollars(t.total)} + 10 % de frais Upwork ({dollars(t.frais)}) ={" "}
           <b>{dollars(t.totalFrais)}</b>
           {c.paye > 0 ? ` · déjà payé ${dollars(c.paye)}` : ""}. Rien ne part sans « Tout envoyer ».
+          {t.nRuul > 0 ? <span className="block" data-testid="bonus-ruul-total">+ {t.nRuul} à payer via Ruul : {dollars(t.totalRuul)} (à ajouter au paiement Ruul du lundi)</span> : null}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -87,6 +88,9 @@ export function BonusLundi({ avecDonner = true, lienPage = false }: { avecDonner
                   <Ligne key={l.id} l={l} occupe={occupe} retirer={(r) => agir(`r:${l.id}`, async () => {
                     await retirerBonus(l.id, r);
                     return r ? `${l.nom} : ligne retirée.` : `${l.nom} : ligne remise.`;
+                  })} payerRuul={() => agir(`p:${l.id}`, async () => {
+                    await payerBonusRuul(l.id);
+                    return `${l.nom} : payé via Ruul.`;
                   })} />
                 ))}
               </tbody>
@@ -104,14 +108,21 @@ export function BonusLundi({ avecDonner = true, lienPage = false }: { avecDonner
   );
 }
 
-function Ligne({ l, occupe, retirer }: { l: LigneBonusLundi; occupe: string | null; retirer: (r: boolean) => void }) {
+function Ligne({ l, occupe, retirer, payerRuul }: {
+  l: LigneBonusLundi; occupe: string | null; retirer: (r: boolean) => void; payerRuul: () => void;
+}) {
   const delai = delaiCm(l);
   const retiree = l.statut === "retire";
   const envoyee = Boolean(l.envoi_at) || l.statut === "paye";
+  const ruul = l.canal_paie === "ruul";
   return (
     <tr className={`border-b border-border/40 align-top ${retiree ? "opacity-50" : ""}`} data-testid="bonus-ligne">
       <td className="py-1.5 pr-3 text-xs">{LIBELLE_TYPE[l.type]}</td>
-      <td className="py-1.5 pr-3 font-medium">{l.nom}{!l.contrat_ok ? <span className="block text-xs text-destructive">pas de contrat VIk relié</span> : null}</td>
+      <td className="py-1.5 pr-3 font-medium">
+        {l.nom}
+        {ruul ? <span className="ml-1 rounded bg-violet-100 px-1.5 py-0.5 text-xs text-violet-900 dark:bg-violet-950/40 dark:text-violet-200" data-testid="badge-ruul">à payer via Ruul</span> : null}
+        {!l.contrat_ok ? <span className="block text-xs text-destructive">pas de contrat VIk relié</span> : null}
+      </td>
       <td className="py-1.5 pr-3 text-xs">
         {l.detail}
         {delai ? <span className="block text-muted-foreground">{delai}</span> : null}
@@ -119,8 +130,11 @@ function Ligne({ l, occupe, retirer }: { l: LigneBonusLundi; occupe: string | nu
       </td>
       <td className="py-1.5 pr-3 text-xs">{l.tarif !== null ? `${l.tarif} $${l.zone ? ` (zone ${l.zone})` : ""}` : "—"}</td>
       <td className="py-1.5 pr-3">{dollars(l.montant)}</td>
-      <td className="py-1.5 pr-3 text-xs">{l.statut === "paye" ? "Payé" : retiree ? "Retirée" : envoyee ? "Envoi en cours / échec" : "À valider"}</td>
+      <td className="py-1.5 pr-3 text-xs">{l.statut === "paye" ? (ruul ? "Payé via Ruul" : "Payé") : retiree ? "Retirée" : envoyee ? "Envoi en cours / échec" : ruul ? "À payer via Ruul" : "À valider"}</td>
       <td className="py-1.5 pr-0 text-right">
+        {ruul && !envoyee && !retiree ? (
+          <Button size="xs" variant="outline" disabled={occupe !== null} onClick={payerRuul}>Payé via Ruul</Button>
+        ) : null}
         {!envoyee ? (
           <Button size="xs" variant="ghost" disabled={occupe !== null} onClick={() => retirer(!retiree)}>{retiree ? "Remettre" : "Retirer"}</Button>
         ) : null}

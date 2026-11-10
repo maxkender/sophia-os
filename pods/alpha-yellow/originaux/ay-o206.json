@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o206",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "76b77ecb-387e-4cb6-a812-7240d377ab26",
+ "titre": "Mode ermite : 4 règles pour accomplir en 6 mois ce qui prend 5 ans #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "76b77ecb-387e-4cb6-a812-7240d377ab26"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture df277118. déclinaison G1 de la ligne 9 de la boîte (76b77ecb, fr, hu 5,9 k r 3,58), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. 4 règles neuves (aucune reprise : téléphone au réveil, time-blocking, disparaître, victoires), plus équilibrées que le parent (on garde ses proches). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "df277118",
+   "texte_overlay": "Mode ermite : 4 règles\npour accomplir en 6 mois\nce qui prend 5 ans",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Règle 1 : Choisis un seul grand objectif. Un projet, un examen, une compétence, un corps. Six mois de concentration totale sur une chose battent cinq ans à en poursuivre dix.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Règle 2 : Protège tes meilleures heures. Repère le moment où ton cerveau est le plus vif, souvent le matin, et réserve-le chaque jour à ton objectif. Rien d'autre ne passe avant.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Règle 3 : Simplifie tout le reste. Mêmes repas, mêmes vêtements, même routine. Chaque petite décision en moins libère de l'énergie pour ce qui compte vraiment.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Règle 4 : Garde un cercle très proche. Mode ermite ne veut pas dire seul. Un ou deux proches qui t'encouragent t'aident à tenir quand la motivation baisse.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Repose ton cerveau intelligemment. Je fais cinq minutes d'histoire, d'art ou de science par jour, une vraie pause curieuse qui recharge sans détruire la concentration.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Une pause curieuse qui recharge sans casser la concentration.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pourquoi ça marche : la plupart des gens avancent lentement parce que leur énergie est éparpillée. Rassemble-la sur un seul point, et les progrès deviennent spectaculaires.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Fixe une date de fin. Six mois, pas une vie entière. Le mode ermite est un sprint : après, tu reviens au monde avec une nouvelle version de toi et l'envie de la partager.",
+   "media_id": "9e66209e"
+  }
+ ]
+}

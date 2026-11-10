@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o198",
+ "type_bleo": "full_test",
+ "titre": "How to stay calm in a job interview #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 39a6fb6a. full test. Accroche jamais faite chez nous : l'entretien d'embauche, angle calme et concret. Accroches écrites : « How to stay calm in a job interview » (retenue), « Job interview tips nobody tells you » (écartée : promesse floue), « How to nail any interview » (écartée : trop forte).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "39a6fb6a",
+   "texte_overlay": "How to stay calm\nin a job interview",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Prepare three stories, not thirty answers. One success, one failure you learned from, one time you helped a team. Almost every question can be answered with one of them.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Arrive fifteen minutes early, then walk around the block. You're never late, and you walk in calm instead of sitting in reception getting more nervous.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Pause before you answer. \"Good question, let me think.\" A two-second pause sounds thoughtful and confident, not unsure. Rushed answers sound nervous.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Remember they want you to succeed. The interviewer needs to fill the role. They're hoping you're the right person, not trying to catch you out on anything.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A calm, curious mind makes you sound sharper and more relaxed in any interview.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A calm, curious mind makes you sharper in any interview.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Ask them good questions. \"What does success look like in this role after six months?\" It shows interest and turns the interview into a real conversation.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Treat it as practice, not a verdict. Every interview makes you better at the next one. Thinking this way takes the pressure off and lets your real self show.",
+   "media_id": "5792bc29"
+  }
+ ]
+}

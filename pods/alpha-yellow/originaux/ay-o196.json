@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o196",
+ "type_bleo": "full_test",
+ "titre": "Habits that help you sleep like a rock #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 5bd9baa8. full test. Accroche jamais faite chez nous : le sommeil, conseils simples et sûrs. Accroches écrites : « Habits that help you sleep like a rock » (retenue), « How to fix your sleep in a week » (écartée : promesse trop forte), « Why you wake up tired » (écartée : négatif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5bd9baa8",
+   "texte_overlay": "Habits that help you\nsleep like a rock",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Go to bed at the same time every night. Weekends included. Your body loves rhythm, and a steady bedtime makes falling asleep much easier within a couple of weeks.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keep your bedroom cool and dark. A slightly cold room and blackout curtains tell your body it's time to rest. A warm, bright room keeps your brain half awake.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Put your phone outside the bedroom. Use a cheap alarm clock instead. No late scrolling, no notifications at 2am, and no checking the news the second you wake up.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stop caffeine after lunch. Coffee stays in your system for hours. A 4pm espresso can still be keeping your mind busy when you're trying to sleep at midnight.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: my head raced every night. After: five minutes a day of history, art or science, and a calmer mind that lets go when the lights go out.",
+   "texte_sophia": "Before: my head raced every night. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now my mind lets go at night.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Get daylight in the morning. Ten minutes outside after waking sets your body clock, which makes you naturally sleepy at the right time in the evening.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Write tomorrow's to-do list before bed. Getting tasks out of your head and onto paper stops your mind from running through them while you're trying to rest.",
+   "media_id": "c7b88a0b"
+  }
+ ]
+}

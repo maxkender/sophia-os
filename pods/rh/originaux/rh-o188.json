@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o188",
+ "type_bleo": "full_test",
+ "titre": "les 5 phrases qui m'ont aidée à me faire respecter en réunion (sans hausser le ton) #travail #reunion #confiance #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (se faire respecter en réunion). Différente de rh-o115 (phrases à arrêter) : ici les phrases à dire. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dedde7be",
+   "texte_overlay": "les 5 phrases qui m'ont aidée\nà me faire respecter en réunion\n(sans hausser le ton)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5138cc15",
+   "texte_overlay": "« je n'avais pas fini »\ncalme, et je reprends",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "516b176e",
+   "texte_overlay": "« comme je le disais tout à l'heure »\nquand quelqu'un répète mon idée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "52b43067",
+   "texte_overlay": "« on peut revenir à la question ? »\nquand ça part dans tous les sens",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5324786c",
+   "texte_overlay": "« voilà ce que je propose »\nune proposition fait plus avancer qu'un avis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "008c05fe",
+   "texte_overlay": "« ça me fait penser à un exemple »\nun truc appris ailleurs, en 30 secondes. on écoute toujours une histoire",
+   "texte_sophia": "« ça me fait penser à un exemple »\nun truc appris en 5 minutes sur l'appli Sophia, raconté en 30 secondes. on écoute toujours une histoire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "53dd5953",
+   "texte_overlay": "pas besoin de parler fort.\nil faut parler clair",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "53e10c81",
+   "texte_overlay": "laquelle tu testes à ta prochaine réunion ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

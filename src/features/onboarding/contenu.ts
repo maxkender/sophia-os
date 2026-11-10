@@ -50,7 +50,7 @@ export const CONTACTS_PAIEMENT = "Lucia De Mojà or Maximilien Kender";
 export const QUESTIONS_PAIE = `Questions? Ask in ${SALON_QUESTIONS} on Slack, or reply to our message on Upwork.`;
 
 /** Le salon des posters venus du site, qui n'ont pas de HM. */
-export const SALON_COHORTE_RUUL = "#ruul-questions";
+export const SALON_COHORTE_RUUL = "#ruul-posters";
 
 /** Le salon d'accueil, que les posters venus du site rejoignent aussi. */
 export const SALON_BIENVENUE = "#welcome";

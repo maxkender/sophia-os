@@ -15,7 +15,8 @@
  *       `langue_os` (langue du pays connue et publiée par des comptes actifs).
  *       Le site grise « Accepter » pour tout autre pays.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
- *     pays_nom, applications, ruul_email?, ref? }
+ *     pays_nom, applications, ruul_email?, ref?, plateforme_paie?, zone?,
+ *     tarif_semaine?, start_monday?, application_id? }
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
  *       login @sophia.com, mot de passe mis par manage-users (12345678 pour
  *       l'instant ; c'est CE mot de passe qui est renvoyé au site), premier
@@ -32,6 +33,8 @@
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
  *       Posters actifs par langue de publication.
+ *   { action: "maj_ruul", hub_id? | profile_id?, ruul_email }
+ *       0586 : le site signale un nouvel email Ruul (vide : effacé).
  *   { action: "parrainages" }
  *       0585 : tous les referrals : parrain (nom, canal upwork|ruul), ami
  *       (prénom, nom, email, pays), created_at, invitation (statut, emails
@@ -68,7 +71,7 @@ import { lireParLots } from "../_shared/lots.ts";
 import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-10-parrainages";
+const VERSION = "2026-11-10-ruul";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -125,6 +128,16 @@ Deno.serve(async (request) => {
         return await statsPays(supabase);
       case "identites":
         return await identites(supabase, body);
+      case "maj_ruul": {
+        const { data, error } = await supabase.rpc("ruul_maj_email", {
+          p_profile: estUuid(body.profile_id) ? body.profile_id : null,
+          p_hub: estUuid(body.hub_id) ? body.hub_id : null,
+          p_email: String(body.ruul_email ?? ""),
+        });
+        if (error) throw error;
+        const r = data as { ok: boolean; error?: string };
+        return json(r, r.ok ? 200 : 422);
+      }
       case "parrainages": {
         const { data, error } = await supabase.rpc("hub_parrainages");
         if (error) throw error;
@@ -358,14 +371,20 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     .eq("hub_id", hubId);
   if (errCree) throw errCree;
   // 0574 : tous les posteurs du site sont payés par Ruul ; l'email Ruul vient de la page de signature.
+  // 0586 : il peut être vide (le posteur l'ajoute sur son dashboard, ou le site l'envoie par maj_ruul) ;
+  // zone, tarif de la semaine (USD) et application du site sont gardés sur le profil.
   const emailRuul = String(body.ruul_email ?? "").trim().toLowerCase();
+  const tarifSemaine = Number(body.tarif_semaine);
   const { error: errProfil } = await supabase
     .from("profiles")
     .update({
       manager_id: rattachement.id,
       canal_paie: "ruul",
       ruul_statut: "a_ajouter",
-      ruul_email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRuul) ? emailRuul : emailPerso,
+      ruul_email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRuul) ? emailRuul : null,
+      ruul_zone: typeof body.zone === "string" && body.zone.trim() ? body.zone.trim().toUpperCase().slice(0, 4) : null,
+      ruul_tarif_semaine: Number.isFinite(tarifSemaine) && tarifSemaine > 0 ? tarifSemaine : null,
+      site_application_id: body.application_id ? String(body.application_id).slice(0, 120) : null,
       ruul_jeton: crypto.randomUUID(),
     })
     .eq("id", cree.userId);

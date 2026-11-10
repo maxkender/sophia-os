@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o148",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e7ec9321-de53-48f8-9ad7-334f89c883e5",
+ "titre": "7 signs you're an old soul (and why it's a compliment) #oldsoul #smartgirl #darkacademia #selfimprovement #thatgirl",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "3de75259-9d95-4432-bf3f-ea6b021da44b"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 10 de la boîte (parent e7ec9321, langue source en) : accroche du parent mot pour mot (le parent est notre sg-o061). Remplace la ligne 3, refusée (accroche_voisine avec la ligne 1). Sept signes neufs face au parent (lettres plutôt que notes vocales, bibliothèques plutôt que centres commerciaux, thé et pluie, vieilles cartes postales, noms des compositeurs, jeunesse des grands-parents, carnet de citations). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6976268e",
+   "texte_overlay": "7 signs you're an old soul\n(and why it's a compliment)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dbf2ed07",
+   "texte_overlay": "1. you'd rather send a letter\nthan a voice note",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f3464913",
+   "texte_overlay": "2. a library feels better\nthan a mall",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d621bc4b",
+   "texte_overlay": "3. tea and rain are your idea\nof a perfect afternoon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6a01f867",
+   "texte_overlay": "4. you trade the evening scroll\nfor a story: a painting,\na poet, a war.",
+   "texte_sophia": "4. you trade the evening scroll\nfor 5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "012614df",
+   "texte_overlay": "5. you keep old postcards\nand photographs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9cac710d",
+   "texte_overlay": "6. you know the names of\nthe composers you love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a1ce1be4",
+   "texte_overlay": "7. you ask your grandparents\nabout their youth",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "c2332e28",
+   "texte_overlay": "save this if you felt seen",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653925583021214998/6.jpg"
+  }
+ ]
+}

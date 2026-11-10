@@ -10,14 +10,18 @@
   "de": "5 Rabbit Holes, die sich lohnen",
   "pt": "5 temas para explorar a fundo",
   "it": "5 argomenti da approfondire",
-  "es-419": "5 temas que vale la pena explorar"
+  "es-419": "5 temas que vale la pena explorar",
+  "fr": "5 sujets dans lesquels se perdre",
+  "es": "5 temas en los que vale la pena perderse"
  },
  "legendes": {
   "en": "5 Rabbit Holes Worth Going Down #rabbithole #learnontiktok #curiosity",
   "de": "5 Rabbit Holes, die sich lohnen #rabbithole #lernenmittiktok #wissen",
   "pt": "5 temas para explorar a fundo #curiosidades #aprendernotiktok #conhecimento",
   "it": "5 argomenti da approfondire #imparacontiktok #crescitapersonale #abilità",
-  "es-419": "5 temas que vale la pena explorar #aprendeentiktok #desarrollopersonal #habilidades"
+  "es-419": "5 temas que vale la pena explorar #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "5 sujets dans lesquels se perdre #apprendresurtiktok #développementpersonnel #culture",
+  "es": "5 temas en los que vale la pena perderse #aprendeentiktok #desarrollopersonal #cultura"
  },
  "musique": {
   "titre": "audio originale",
@@ -93,6 +97,41 @@
      [
       {
        "t": "EXPLORAR",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 SUJETS",
+       "bronze": true
+      }
+     ],
+     "DANS LESQUELS",
+     [
+      {
+       "t": "SE PERDRE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "EN LOS QUE",
+     "VALE LA PENA",
+     [
+      {
+       "t": "PERDERSE",
        "bronze": true
       }
      ]
@@ -175,6 +214,36 @@
      "duree": "3:15",
      "avatar": "https://yt3.ggpht.com/nehTFfi2o1UAld9fmPEbhuut8yTBNFsFUENdRm_eGGRA0kbnodhcBb5PwjfaCKaZdtU8W3OxjU0=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "POURQUOI",
+     "ON DORT"
+    ],
+    "video": {
+     "id": "iM8cya6RcuU",
+     "titre": "Pourquoi dort-on ? Le mystère scientifique du sommeil",
+     "chaine": "ScienceEtonnante",
+     "vues": "853 k vues",
+     "date": "il y a 5 ans",
+     "duree": "22:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kzU96H3Lq6fihVVFNWXUEFaidERMvSqyMwn0f455Gi4w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "QUÉ PASA",
+     "CUANDO DORMIMOS"
+    ],
+    "video": {
+     "id": "P6h2SPomDA0",
+     "titre": "¿QUÉ HACE NUESTRO CUERPO MIENTRAS DORMIMOS? | Draw My Life",
+     "chaine": "TikTak Draw",
+     "vues": "435 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/nehTFfi2o1UAld9fmPEbhuut8yTBNFsFUENdRm_eGGRA0kbnodhcBb5PwjfaCKaZdtU8W3OxjU0=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -253,6 +322,36 @@
      "duree": "11:16",
      "avatar": "https://yt3.ggpht.com/BgN5-NAi7VNVZHjf_ZAJQtvSg4FVsCaxUUa4aFIRFnAze4mIYws8yzkT8GKCB0puVfNECHDc2g=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NAÎT",
+     "UNE PUCE"
+    ],
+    "video": {
+     "id": "kyU3yMJI-Rc",
+     "titre": "Les puces électroniques, comment ça fonctionne et comment les fabrique-t-on ?",
+     "chaine": "ESIEE Paris",
+     "vues": "25 k vues",
+     "date": "il y a 4 ans",
+     "duree": "15:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFIFp8SCpeDvgWV-xotZdT9NwymZIsvyKq_AmGD46-VII=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÓMO SE FABRICA",
+     "UN MICROCHIP"
+    ],
+    "video": {
+     "id": "91QYLvQTd8Y",
+     "titre": "CÓMO se FABRICA un MICROCHIP desde CERO | El Proceso Más PRECISO del MUNDO ⚙️",
+     "chaine": "ProductoX",
+     "vues": "523 K visualizaciones",
+     "date": "hace 1 año",
+     "duree": "11:16",
+     "avatar": "https://yt3.ggpht.com/BgN5-NAi7VNVZHjf_ZAJQtvSg4FVsCaxUUa4aFIRFnAze4mIYws8yzkT8GKCB0puVfNECHDc2g=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -311,6 +410,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "UN TEMA NUEVO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UN NOUVEAU SUJET",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "UN TEMA NUEVO",
      "CADA DÍA"
@@ -400,6 +525,36 @@
      "duree": "8:17",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_l89oG9s6YKY6P_THqW4Z6MXqCnf87sfRnDWrvOqPOyCA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT L'ARGENT",
+     "EST CRÉÉ"
+    ],
+    "video": {
+     "id": "6aCz80MV1Qs",
+     "titre": "Le système monétaire | Pourquoi l’économie repose sur du vide",
+     "chaine": "Moconomy - Economie et Finance",
+     "vues": "310 k vues",
+     "date": "il y a 1 an",
+     "duree": "1:42:54",
+     "avatar": "https://yt3.ggpht.com/jTjXDjtJZlWYT8wtJFPizgvFTGniYbdy6u3WpO-yJ9s6immt65l_jNExuaGuw3TbYWNRvQjYRQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÓMO SE CREA",
+     "EL DINERO"
+    ],
+    "video": {
+     "id": "faV2vVVDpvQ",
+     "titre": "Cómo se crea el dinero. Ep1: Las dos clases de dinero.",
+     "chaine": "Economic Pills",
+     "vues": "563 K visualizaciones",
+     "date": "hace 8 años",
+     "duree": "8:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l89oG9s6YKY6P_THqW4Z6MXqCnf87sfRnDWrvOqPOyCA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -474,6 +629,36 @@
      "titre": "Cómo funciona DE VERDAD el sistema inmunitario",
      "chaine": "En Pocas Palabras – Kurzgesagt",
      "vues": "2.2 M de vistas",
+     "date": "hace 2 años",
+     "duree": "9:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT MARCHE",
+     "TON IMMUNITÉ"
+    ],
+    "video": {
+     "id": "I1KVzY0AeXI",
+     "titre": "Immunologie | Tu mourras moins bête | SAISON 1 | ARTE",
+     "chaine": "Tu mourras moins bête - ARTE",
+     "vues": "304 k vues",
+     "date": "il y a 5 ans",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/XoPSuGDxwgLvhCATWsvXHbVJ3oN6KvK00k9Pc0IJm8vQcSbE1KVAQMGk8_d3Pfu6QOJHHoBSMn0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÓMO FUNCIONA",
+     "TU SISTEMA INMUNE"
+    ],
+    "video": {
+     "id": "8t84ETH_tk8",
+     "titre": "Cómo funciona DE VERDAD el sistema inmunitario",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "2,2 M de visualizaciones",
      "date": "hace 2 años",
      "duree": "9:53",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"

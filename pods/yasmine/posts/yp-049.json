@@ -1,0 +1,452 @@
+{
+ "id": "yp-049",
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "ce que je fais quand j’ai une mauvaise note"
+ },
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "ce que je fais quand j’ai une mauvaise note",
+  "es": "lo que hago cuando saco una mala nota",
+  "tr": "kötü not aldığımda ne yapıyorum"
+ },
+ "legendes": {
+  "fr": "une note, pas une fin 🤍 #notes #lycee #studytok #thatgirl #motivation",
+  "es": "una nota, no un final 🤍 #notas #instituto #studytok #thatgirl #motivacion",
+  "tr": "sadece bir not, son değil 🤍 #notlar #lise #studytok #thatgirl #motivasyon"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "1e941665-338e-4b8d-a0ac-8babaf30eaa6",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3fe7d4f6-0ab7-406b-8c14-3d6b529de2a2/8.jpg?v=1790679212241",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format photos à petites légendes (yp-002). cta B : la mise en scène iPhone micabo en photo pleine de l’étape « je refais un quiz sur ce que j’ai raté »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "ce que je fais quand",
+     "lignes": [
+      "J’AI UNE",
+      "MAUVAISE",
+      "NOTE"
+     ],
+     "taille": 160
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "lo que hago cuando",
+     "lignes": [
+      "SACO UNA",
+      "MALA",
+      "NOTA"
+     ],
+     "taille": 160
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "lignes": [
+      "KÖTÜ NOT",
+      "ALDIĞIMDA",
+      "NE YAPIYORUM"
+     ],
+     "taille": 124
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "373b2fd3-2d75-47d7-b1d5-d27e9ed1d1e3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a3e03fec-3206-4fcb-8eb5-14ca44570c80/5.jpg?v=1789048213862",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je laisse passer la soirée🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "on relit à froid, pas en pleurant"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "dejo pasar la noche🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "se relee en frío, no llorando"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "o akşamı geçiriyorum🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "ağlarken değil, sakinken okunur"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1ad91bf4-03e7-4459-b552-48318d9c1c6c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/22856761-631a-4661-90f7-db5e581b2e41/6.jpg?v=1792527501369",
+    "cadrage": {
+     "x": 0.65,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je reprends ma copie le lendemain📄"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "faute par faute"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "retomo el examen al día siguiente📄"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "error por error"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "ertesi gün kâğıdıma dönüyorum📄"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "hata hata"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4a60cc68-2e32-4757-8927-062db436b4c0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c338e6f5-96c7-4cd7-9e7f-9c535644e36f/1.jpg?v=1791725344918",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je trie mes erreurs📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "cours pas su, ou étourderie ?"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "clasifico mis errores📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "¿no lo sabía o fue un despiste?"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hatalarımı ayırıyorum📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "bilmediğim mi, dikkatsizlik mi?"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je refais un quiz sur ce que j’ai raté📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "jusqu’à tout avoir juste⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "repito un quiz de lo que fallé📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "hasta acertarlo todo⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "yanlışlarımı tekrar test ediyorum📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "hepsi doğru olana kadar⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5565b606-42a6-4920-944a-1c37d5063777",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/26b19584-46cc-4229-a08e-f08683abe1c4/6.jpg?v=1791725544824",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je vais voir le prof✋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "5 min pour comprendre ce qu’il attend"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "voy a hablar con el profe✋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "5 min para entender lo que espera"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hocayla konuşuyorum✋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "ne beklediğini anlamak için 5 dakika"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "44755545-581a-4e97-9972-6e7be54d14e2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/78964bf1-a48d-4862-999c-4aeb5b649117/5.jpg?v=1787141261316",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je me rappelle que c’est juste une note🌸"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "la prochaine compte aussi"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "recuerdo que solo es una nota🌸"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "la próxima también cuenta"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bu sadece bir not🌸"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "bir sonraki de önemli"
+     ]
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

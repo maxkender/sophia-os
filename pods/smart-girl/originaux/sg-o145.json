@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o145",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "48cb2118-89c2-4510-b04e-8f80e77403aa",
+ "titre": "non sexual things i find attractive #attractive #greenflags #smartgirl #kindness #presence",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "8a36734a-febd-401f-b9e4-da9b3acae040"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 7 de la boîte (parent 48cb2118, langue source en) : accroche du parent mot pour mot. Présence et gentillesse, jamais corps : détails neufs face au parent (un livre recommandé, la commande de café retenue, une question de relance, la gentillesse avec les serveurs, « je ne sais pas, raconte », s'enthousiasmer pour un musée). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4dcd4a95",
+   "texte_overlay": "non sexual things\ni find attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "34e3e1fc",
+   "texte_overlay": "when they recommend a book\nthey loved",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e19d9c6e",
+   "texte_overlay": "when they remember\nyour coffee order",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9d672f1f",
+   "texte_overlay": "when they ask a second question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8a9c3421",
+   "texte_overlay": "when they're kind to waiters",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "440726f2",
+   "texte_overlay": "when they say \"i don't know,\ntell me\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "afcdeade",
+   "texte_overlay": "when they know a little about\neverything, because they swap\nthe scroll for real stories",
+   "texte_sophia": "when they know a little about\neverything because they swap\nthe scroll for an app\nlike Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5d2af8ec",
+   "texte_overlay": "when a museum makes them\nexcited",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  }
+ ]
+}

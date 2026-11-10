@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o077",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "09d92b19-3fce-4ca7-ac8a-95a687e8e1a4",
+ "titre": "Advice I'd scream at my 22 year old self #20s #youngadult #lifeadvice #men #selfimprovement",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [
+  "09d92b19-3fce-4ca7-ac8a-95a687e8e1a4"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 10/11. Déclinaison G1 de la ligne 4 (parent 09d92b19, @millyjhino, langue source en ; meilleur passage sv 4,9 k vues, r 3,2). Accroche du parent mot pour mot. Format du parent : « N. » puis une phrase forte et deux ou trois lignes. Conseils neufs, aucun du parent (nuits, promesses à soi, se faire comprendre, confort, douleur, fenêtre, solitude, plus jeune). Ligne 5 (« advice for men under 25 ») sautée : même promesse le même jour ; ligne 6 prise. Rien de médical. Images de la banque et célébrités (autorisé) ; slide Sophia : terrasse sur le lac, sans personne. reference_url : slides présentes du parent (2 et 6 manquantes : 400, remplacées), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c03cd3e",
+   "texte_overlay": "Advice I'd scream at my\n22 year old self",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0cbe4469",
+   "texte_overlay": "1.\nLearn to cook five real meals.\nTakeout every night costs\nmore than money. It costs\nyou the skill of taking care\nof yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3e36ddcc",
+   "texte_overlay": "2.\nCall your parents more.\nThey're getting older\nwhile you're getting busy.\nYou won't get those calls back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "22228ad9",
+   "texte_overlay": "3.\nTrain your body now.\nThe habits you build at 22\nare the body you live in at 40.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "18a7046b",
+   "texte_overlay": "4.\nRead more than you scroll.\nTen minutes of learning a day\nwill put you years ahead\nof everyone who didn't.",
+   "texte_sophia": "4.\nRead more than you scroll.\nTen minutes of learning a day,\non the Sophia app or in a book,\nputs you years ahead.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2c3e4db5",
+   "texte_overlay": "5.\nStop comparing timelines.\nSomeone's 22 is someone\nelse's 30. Run your own race.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/8.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0c7603e9",
+   "texte_overlay": "6.\nPick friends who push you.\nThe ones who ask \"what are you\nbuilding?\" not \"where are we\ndrinking?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/9.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1d11b6d9",
+   "texte_overlay": "7.\nLearn to sit with boredom.\nThe men who can't be bored\nnever build anything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7549969629196619064/1.jpg"
+  }
+ ]
+}

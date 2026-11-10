@@ -104,6 +104,8 @@ export interface LigneBonusLundi {
   contrat_ok: boolean;
   envoi_at: string | null;
   paye_at: string | null;
+  /** 0585 : le canal du parrain ; « ruul » = à payer via Ruul (jamais sur Upwork). */
+  canal_paie?: "upwork" | "ruul";
 }
 
 export interface CarteBonusLundi {
@@ -119,6 +121,12 @@ export async function lireCarteBonus(): Promise<CarteBonusLundi> {
   const { data, error } = await supabase.rpc("bonus_carte");
   if (error) throw new Error(error.message);
   return data as CarteBonusLundi;
+}
+
+/** 0585 : une ligne « à payer via Ruul » ajoutée au paiement Ruul du lundi. */
+export async function payerBonusRuul(id: string, paye = true): Promise<void> {
+  const { error } = await supabase.rpc("bonus_ruul_payer", { p_id: id, p_paye: paye });
+  if (error) throw new Error(error.message);
 }
 
 export async function retirerBonus(id: string, retirer: boolean): Promise<void> {

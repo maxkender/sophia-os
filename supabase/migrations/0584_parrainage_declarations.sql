@@ -94,9 +94,13 @@ begin
 end;
 $$;
 
-drop trigger if exists parrainage_declaration_inviter on public.creator_referrals;
-create trigger parrainage_declaration_inviter after insert or update of contact_email on public.creator_referrals
-  for each row execute function public.parrainage_declaration_tg();
+do $$
+begin
+  if not exists (select 1 from pg_trigger where tgname = 'parrainage_declaration_inviter' and tgrelid = 'public.creator_referrals'::regclass) then
+    create trigger parrainage_declaration_inviter after insert or update of contact_email on public.creator_referrals
+      for each row execute function public.parrainage_declaration_tg();
+  end if;
+end $$;
 
 /* L'email de l'ami est obligatoire pour un posteur (l'admin et les tâches gardent la main). */
 create or replace function public.creator_referrals_email_obligatoire()
@@ -114,9 +118,13 @@ begin
 end;
 $$;
 
-drop trigger if exists creator_referrals_email_obligatoire on public.creator_referrals;
-create trigger creator_referrals_email_obligatoire before insert on public.creator_referrals
-  for each row execute function public.creator_referrals_email_obligatoire();
+do $$
+begin
+  if not exists (select 1 from pg_trigger where tgname = 'creator_referrals_email_obligatoire' and tgrelid = 'public.creator_referrals'::regclass) then
+    create trigger creator_referrals_email_obligatoire before insert on public.creator_referrals
+      for each row execute function public.creator_referrals_email_obligatoire();
+  end if;
+end $$;
 
 /* Les emails à envoyer : comme 0561, plus le pays inconnu « ?? » (anglais, tarif de la zone C). */
 create or replace function public.parrainage_a_envoyer(p_limite integer default 50)
@@ -301,9 +309,13 @@ begin
 end;
 $$;
 
-drop trigger if exists parrainage_email_recu on public.posteur_reponses;
-create trigger parrainage_email_recu after insert on public.posteur_reponses
-  for each row execute function public.parrainage_email_recu_tg();
+do $$
+begin
+  if not exists (select 1 from pg_trigger where tgname = 'parrainage_email_recu' and tgrelid = 'public.posteur_reponses'::regclass) then
+    create trigger parrainage_email_recu after insert on public.posteur_reponses
+      for each row execute function public.parrainage_email_recu_tg();
+  end if;
+end $$;
 
 -- La tâche : toutes les 10 min (en plus du déclencheur).
 do $c$

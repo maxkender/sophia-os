@@ -130,3 +130,12 @@ export const lireCandidaturesRuul = () => rpc<CandidatureRuul[]>("ruul_candidatu
 export const deciderCandidatureRuul = (siteId: string, decision: "acceptee" | "refusee", raison?: string) =>
   rpc<Retour>("ruul_candidature_decider", { p_site_id: siteId, p_decision: decision, p_raison: raison ?? null });
 export const lireCohortesRuul = () => rpc<LigneCohorteRuul[]>("ruul_cohortes");
+
+/** 10/11 : l'email Ruul du posteur connecté (bandeau de l'espace posteur). */
+export interface MonEmailRuul {
+  ruul: boolean;
+  email: string | null;
+}
+
+export const lireMonEmailRuul = () => rpc<MonEmailRuul>("ruul_mon_email");
+export const enregistrerMonEmailRuul = (email: string) => rpc<Retour>("ruul_mon_email_enregistrer", { p_email: email });

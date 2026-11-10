@@ -48,6 +48,7 @@ import {
 import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
 import { ImportHistoriquePanel } from "@/features/moteur/ImportHistoriquePanel";
 import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
+import { LundiSourcesPanel } from "@/features/moteur/LundiSourcesPanel";
 import { MajSourcesPanel } from "@/features/moteur/MajSourcesPanel";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
@@ -960,6 +961,8 @@ export function AdminSourcesPage() {
       {majVisible && <MajSourcesPanel sources={toutes} />}
 
       <ImportJobsPanel />
+
+      <LundiSourcesPanel />
 
       {bilanOubli && (
         <div className="space-y-2 rounded-lg border bg-card p-4">

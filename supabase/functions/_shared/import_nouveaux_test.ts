@@ -1,0 +1,38 @@
+import { assertEquals } from "jsr:@std/assert@1";
+
+import { instantPostTiktok, separerTropRecents } from "./import_nouveaux.ts";
+
+// Un identifiant TikTok porte son heure de création dans ses 32 bits hauts.
+const idA = (sec: number) => (BigInt(sec) << 32n).toString();
+const url = (sec: number) => `https://www.tiktok.com/@source/photo/${idA(sec)}`;
+const JOUR = 86_400;
+const MAINTENANT = 1_794_000_000;
+
+Deno.test("instantPostTiktok : createTime d'abord, sinon l'identifiant, sinon inconnu", () => {
+  assertEquals(instantPostTiktok(url(MAINTENANT - JOUR), MAINTENANT - 3 * JOUR), MAINTENANT - 3 * JOUR);
+  assertEquals(instantPostTiktok(url(MAINTENANT - JOUR), (MAINTENANT - 2 * JOUR) * 1000), MAINTENANT - 2 * JOUR);
+  assertEquals(instantPostTiktok(url(MAINTENANT - JOUR)), MAINTENANT - JOUR);
+  assertEquals(instantPostTiktok("https://www.tiktok.com/@source/photo/abc"), null);
+});
+
+Deno.test("separerTropRecents : un post de moins de 7 jours attend le passage suivant", () => {
+  const vieux = url(MAINTENANT - 10 * JOUR);
+  const recent = url(MAINTENANT - 1 * JOUR);
+  const limite = url(MAINTENANT - 7 * JOUR);
+  const inconnu = "https://www.tiktok.com/@source/photo/abc";
+  const r = separerTropRecents([vieux, recent, limite, inconnu], new Map(), MAINTENANT, 7);
+  assertEquals(r.murs, [vieux, limite, inconnu]);
+  assertEquals(r.tropRecents, [recent]);
+});
+
+Deno.test("separerTropRecents : le createTime du listing l'emporte sur l'identifiant", () => {
+  const u = url(MAINTENANT - 1 * JOUR);
+  const id = u.split("/").pop()!;
+  const r = separerTropRecents([u], new Map([[id, MAINTENANT - 9 * JOUR]]), MAINTENANT, 7);
+  assertEquals(r.murs, [u]);
+});
+
+Deno.test("separerTropRecents : âge minimal à 0, tout passe", () => {
+  const recent = url(MAINTENANT - 60);
+  assertEquals(separerTropRecents([recent], new Map(), MAINTENANT, 0), { murs: [recent], tropRecents: [] });
+});

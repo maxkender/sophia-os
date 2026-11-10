@@ -3818,6 +3818,38 @@ export const en = {
       updateAide:
         "Catches up on everything missing for this account: new TikToks, but also those an earlier import left behind. Anything already in stock is not re-imported.",
       updateLance: "Update started — catching up on missing slideshows (see logs).",
+      lundi: {
+        titre: "Monday: sources update",
+        description:
+          "Every Monday at 6 am, the OS keeps the sources whose posts beat our accounts' median (r above 1, or above their label), those with a post at 100,000 views or more this month, and new sources (fewer than 5 measured posts). They are updated in batches of 6 a day, one at a time, to keep the database load low. The others wait for the next Monday. Only posts published since the last scrape are imported.",
+        jamais: "No Monday update yet.",
+        resume:
+          "Monday {{date}}: {{maj}} source(s) updated, {{pasMaj}} skipped this week. {{importes}} slideshow(s) imported, {{valides}} validated.",
+        colSource: "Source",
+        colLabel: "Label",
+        colR: "r",
+        colRLabel: "Vs label",
+        colDecision: "Decision",
+        colImportes: "Imported",
+        importes: "{{importes}} ({{valides}} validated)",
+        lotAVenir: "batch to come",
+        lotsAVenir_one: "{{count}} source waits for its batch (6 a day).",
+        lotsAVenir_other: "{{count}} sources wait for their batch (6 a day).",
+        raison: {
+          toujours: "always",
+          neuve: "new source",
+          r: "r above 1",
+          label: "above its label",
+          "100k": "a post at {{vues}} views",
+        },
+        postsBulle_one: "Median r of {{count}} post measured on our accounts (3 to 30 days)",
+        postsBulle_other: "Median r of {{count}} posts measured on our accounts (3 to 30 days)",
+        decision: {
+          maj: "Updated",
+          peu_de_mesures: "New source",
+          pas_maj: "Not this week",
+        },
+      },
       majTitre: "Update sources",
       majAide:
         "Tick the sources to update: each one fetches the slideshows from its profile that are missing from stock. They run one at a time; the next one starts once the import queue is empty. You can leave the page, it keeps going on the server.",

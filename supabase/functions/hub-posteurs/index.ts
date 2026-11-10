@@ -15,7 +15,11 @@
  *       `langue_os` (langue du pays connue et publiée par des comptes actifs).
  *       Le site grise « Accepter » pour tout autre pays.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
- *     pays_nom, applications, ruul_email?, ref? }
+ *     pays_nom, applications, ruul_email?, ref?, plateforme_paie?, zone?,
+ *     tarif_semaine?, start_monday?, application_id? }
+ *       0589 : plateforme_paie (« ruul »), zone (A/B/C), tarif de la semaine
+ *       (USD), email Ruul (peut être vide) et application du site sont gardés
+ *       sur le profil. Un posteur Ruul n'a jamais de contrat Upwork.
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
  *       login @sophia.com, mot de passe mis par manage-users (12345678 pour
  *       l'instant ; c'est CE mot de passe qui est renvoyé au site), premier
@@ -32,6 +36,9 @@
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
  *       Posters actifs par langue de publication.
+ *   { action: "maj_ruul", application_id, ruul_email }
+ *       0589 : le site signale un nouvel email Ruul (vide : effacé). Le
+ *       posteur est retrouvé par application_id (repli : hub_id, profile_id).
  *   { action: "parrainages", offset?, limit?, page? }
  *       0588 (lecture seule) : une ligne plate par filleul — id, ref,
  *       referrer_name, referrer_channel (upwork|ruul), friend_first_name,
@@ -72,7 +79,7 @@ import { lireParLots } from "../_shared/lots.ts";
 import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-10-parrainages-v2";
+const VERSION = "2026-11-10-ruul-p1";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -129,6 +136,17 @@ Deno.serve(async (request) => {
         return await statsPays(supabase);
       case "identites":
         return await identites(supabase, body);
+      case "maj_ruul": {
+        const { data, error } = await supabase.rpc("ruul_maj_email_app", {
+          p_application_id: body.application_id ? String(body.application_id) : null,
+          p_hub: body.hub_id ? String(body.hub_id) : null,
+          p_profile: estUuid(body.profile_id) ? body.profile_id : null,
+          p_email: String(body.ruul_email ?? ""),
+        });
+        if (error) throw error;
+        const r = data as { ok: boolean; error?: string };
+        return json(r, r.ok ? 200 : r.error === "posteur introuvable" ? 404 : 422);
+      }
       case "parrainages": {
         // 0588 : lecture seule, paginée par 500.
         const limite = Math.min(Math.max(Number(body.limit) || 500, 1), 500);
@@ -366,14 +384,21 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     .eq("hub_id", hubId);
   if (errCree) throw errCree;
   // 0574 : tous les posteurs du site sont payés par Ruul ; l'email Ruul vient de la page de signature.
+  // 0589 : il peut être vide (le site l'enverra par maj_ruul, ou le posteur l'ajoute sur son dashboard) ;
+  // zone, tarif de la semaine (USD) et application du site sont gardés sur le profil.
   const emailRuul = String(body.ruul_email ?? "").trim().toLowerCase();
+  const tarifSemaine = Number(body.tarif_semaine);
+  const zone = String(body.zone ?? "").trim().toUpperCase();
   const { error: errProfil } = await supabase
     .from("profiles")
     .update({
       manager_id: rattachement.id,
       canal_paie: "ruul",
       ruul_statut: "a_ajouter",
-      ruul_email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRuul) ? emailRuul : emailPerso,
+      ruul_email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRuul) ? emailRuul : null,
+      ruul_zone: ["A", "B", "C"].includes(zone) ? zone : null,
+      ruul_tarif_semaine: Number.isFinite(tarifSemaine) && tarifSemaine > 0 ? tarifSemaine : null,
+      site_application_id: body.application_id ? String(body.application_id).slice(0, 120) : null,
       ruul_jeton: crypto.randomUUID(),
     })
     .eq("id", cree.userId);

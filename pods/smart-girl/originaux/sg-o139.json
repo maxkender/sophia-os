@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o139",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e9614f13-fbac-45f1-84fb-9d9d88edfc5f",
+ "titre": "the most underrated languages to learn this year #languages #languagelearning #smartgirl #polyglot #culture",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "9b8afb1c-e7bf-4ee2-8c5c-5b68e9fe96ad"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent e9614f13, langue source en) : accroche reformulée (« 6 languages that open doors most people overlook » → « the most underrated languages to learn this year »), troisième et dernière déclinaison du parent, autre que sg-o129. Langues neuves (finnois, hébreu, géorgien, gallois, hongrois). Faits vérifiés : le finnois n'a pas de genre grammatical ; l'hébreu a été ravivé comme langue parlée au XIXe-XXe siècle ; le géorgien a son propre alphabet ; le gallois est parlé par des centaines de milliers de personnes ; le hongrois n'est pas indo-européen. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "497e1174",
+   "texte_overlay": "the most underrated languages\nto learn this year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e6e7ce7a",
+   "texte_overlay": "1. finnish\n\nno grammatical gender at all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c9714f15",
+   "texte_overlay": "2. hebrew\n\nrevived as a spoken language\nless than 150 years ago.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "dc5186ff",
+   "texte_overlay": "3. georgian\n\nit has its own beautiful\nalphabet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "708d7e2c",
+   "texte_overlay": "4. welsh\n\nstill spoken every day by\nhundreds of thousands.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "884b35ab",
+   "texte_overlay": "5. hungarian\n\nnot even related to its\nneighbours' languages.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2b48add7",
+   "texte_overlay": "the trick? trade one scroll a day\nfor the history behind a language.",
+   "texte_sophia": "the trick? trade one scroll\na day for 5 minutes on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5b5ea866",
+   "texte_overlay": "which one would you start?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/8.jpg"
+  }
+ ]
+}

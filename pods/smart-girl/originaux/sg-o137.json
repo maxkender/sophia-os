@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o137",
+ "type_bleo": "full_test",
+ "titre": "how to have a slow winter morning #slowliving #wintermorning #smartgirl #morningroutine #cozy",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta A. Full test 2/3 : accroche jamais faite chez nous (« winter » absent des accroches de donnees/label.json). Accroches écrites : « how to have a slow winter morning » (retenue : saison, rituel, très enregistrable), « winter habits of cultured women » (écartée : plus abstraite), « a cozy winter checklist » (écartée : proche de « the autumn cozy checklist »). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2d72557c",
+   "texte_overlay": "how to have a slow\nwinter morning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e4ff9994",
+   "texte_overlay": "1. open the curtains before\nyou open your phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "eaac71ab",
+   "texte_overlay": "2. a warm drink by the window",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d078d50d",
+   "texte_overlay": "3. ten pages of a novel\nunder a blanket",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5a904959",
+   "texte_overlay": "4. classical music, low",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3c119309",
+   "texte_overlay": "5. a short walk in the cold air",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "506ec175",
+   "texte_overlay": "6. one small lesson\n\na painting, a war, a planet.",
+   "texte_sophia": "6. one small lesson\n\ni take a 5-minute lesson on\na micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "10abf1de",
+   "texte_overlay": "save this for tomorrow\nmorning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

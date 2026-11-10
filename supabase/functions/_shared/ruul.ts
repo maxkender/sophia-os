@@ -162,3 +162,24 @@ ${lignes.map((l) => `<tr>${[l.nom, l.ruul_email, l.pays ?? "?", l.zone ?? "?", t
   ].join("\n");
   return { objet, html, texte };
 }
+
+/** 10/11 : un email envoyé par le site sophia-culture.com (POST HUB_EMAIL_URL, en-tête x-hub-secret). */
+export async function envoyerEmailSite(
+  to: string, objet: string, html: string, texte: string, stop: string, tags: string[], fetchFn: typeof fetch = fetch,
+): Promise<{ ok: boolean; erreur: string | null }> {
+  const urlEnvoi = Deno.env.get("HUB_EMAIL_URL");
+  const secret = Deno.env.get("OS_HUB_SECRET");
+  if (!urlEnvoi || !secret) return { ok: false, erreur: "HUB_EMAIL_URL ou OS_HUB_SECRET manquant" };
+  try {
+    const r = await fetchFn(urlEnvoi, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-hub-secret": secret },
+      body: JSON.stringify({ action: "envoyer_email", to, from_name: "Sophia", subject: objet, html, text: texte, tags, unsubscribe_url: stop }),
+    });
+    const j = await r.json().catch(() => ({}));
+    const ok = r.ok && j?.ok !== false;
+    return { ok, erreur: ok ? null : String(j?.error ?? `HTTP ${r.status}`) };
+  } catch (e) {
+    return { ok: false, erreur: e instanceof Error ? e.message : String(e) };
+  }
+}

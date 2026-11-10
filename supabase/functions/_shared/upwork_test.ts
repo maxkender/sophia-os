@@ -157,3 +157,15 @@ Deno.test("2/11 : VIk Studios seulement (Micabo et Calyra ignorées) ; fin de co
   assertEquals(lireFinContrat({ endDate: "2026-10-29T10:00:00Z", freelancer: { id: "F1" }, endedBy: { id: "F1" } }), { fin: "2026-10-29", par: "freelance" });
   assertEquals(lireFinContrat({ endDate: null, freelancer: { id: "F1" }, endedBy: { id: "C9" } }), { fin: null, par: "nous" });
 });
+
+Deno.test("10/11 : un 429 est réessayé 3 fois, avec un délai qui augmente", async () => {
+  const attentes: number[] = [];
+  let n = 0;
+  const dormir = (ms: number) => { attentes.push(ms); return Promise.resolve(); };
+  const r = await avecRetry(() => Promise.resolve({ statut: ++n < 4 ? 429 : 200, valeur: n }), { dormir });
+  assertEquals([r.statut, r.essais, attentes], [200, 4, [5_000, 10_000, 20_000]]);
+  attentes.length = 0;
+  let m = 0;
+  const echec = await avecRetry(() => Promise.resolve({ statut: 429, valeur: ++m, retryAfter: "30" }), { dormir });
+  assertEquals([echec.statut, echec.essais, attentes], [429, 4, [30_000, 30_000, 30_000]]);
+});

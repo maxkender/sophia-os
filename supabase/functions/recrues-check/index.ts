@@ -38,6 +38,7 @@ import {
   SIGNATURE_RELANCE_DEFAUT,
   signerRelance,
   choisirRelance,
+  debutReel,
   type DejaRelance,
   type ElementRelance,
   historiqueRelances,
@@ -91,6 +92,7 @@ import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { construirePromptContestation, lireContestation, texteAccuse } from "../_shared/contestations.ts";
 import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
+import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -165,6 +167,12 @@ Deno.serve(async (request) => {
       if (!b.profil_id || !texte) return json({ ok: false, error: "profil_id et texte requis" });
       const issue = await ecrireAuPosteur(serviceClient(), String(b.profil_id), texte);
       return json(issue.statut === "envoye" ? { ok: true } : { ok: false, error: "erreur" in issue ? issue.erreur : issue.statut });
+    }
+    // 10/11 : une relance ponctuelle, maintenant, à des recrues choisies (aperçu, puis envoi sur « envoyer »).
+    if (body.action === "relance_maintenant") {
+      const b = body as { poster_ids?: unknown; envoyer?: unknown };
+      const ids = Array.isArray(b.poster_ids) ? b.poster_ids.map(String) : [];
+      return json(await relanceMaintenant(serviceClient(), ids, b.envoyer === true, new Date()));
     }
     if (body.action === "lien_mot_de_passe_envoyer") {
       return json(await envoyerLienMotDePasse(serviceClient(), String((body as { poster_id?: string }).poster_id ?? ""), acces.userId));
@@ -910,6 +918,9 @@ async function lireHistoriqueRelances(supabase: Supabase, maintenant: Date): Pro
  * étape et le texte (sur Upwork, la ligne STOP à la fin).
  */
 function relanceChoisie(r: Reglages, x: RecrueAccueil, plan: PlanRelance, bilan: Bilan, maintenant: Date) {
+  // 10/11 : la date du texte est toujours profiles.cohorte_lundi ; passé ce lundi 12:00 (Paris), la recrue
+  // pas prête est reportée (lundi 23:59) : plus de relance avec une date dépassée.
+  if (debutReel(x.cohorte_lundi, maintenant) !== x.cohorte_lundi) return { choix: { element: null, canal: null, upwork_prevu_at: null }, plan: null, texte: "" };
   const choix = choisirRelance(plan, Boolean(x.slack_user_id), bilan.historique?.get(x.poster_id), maintenant);
   if (!choix.element || !choix.canal) return { choix, plan: null, texte: "" };
   const un: PlanRelance = { ...plan, element: choix.element, elements: [choix.element] };
@@ -3015,4 +3026,88 @@ async function liensIntrouvables(supabase: Supabase, r: Reglages, maintenant: Da
     // Un seul message par lien : sur On, les liens sont notés dès qu'il est dans la file.
     if (!test) await supabase.from("passages").update({ lien_message_at: new Date().toISOString() }).in("id", p.passages);
   }
+}
+
+// ---------------------------------------------------------------------------
+// 10/11 : une relance ponctuelle, maintenant (cohorte du 16/11 jamais connectée)
+// ---------------------------------------------------------------------------
+
+const URL_RUUL = "https://mbikecieskoobeizixig.supabase.co/functions/v1/ruul";
+
+/**
+ * 10/11 : la relance de ce qui manque maintenant à chaque recrue choisie, une
+ * seule par personne et par jour (la même ligne « relance » du jour que le
+ * passage automatique : il n'en enverra pas une 2e). Date : profiles.cohorte_lundi.
+ * Canal : Slack s'il est relié, sinon Upwork (contrat), sinon email (posteur
+ * Ruul, par le site). Sans « envoyer » : l'aperçu seulement, rien n'est écrit.
+ * Une ligne du jour restée sans canal (un échec, ex. HTTP 429) est renvoyée.
+ */
+async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boolean, maintenant: Date) {
+  if (!ids.length) return { ok: false, error: "poster_ids requis" };
+  const r = await reglages(supabase);
+  const recrues = new Map((await lireRecrues(supabase)).filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
+  const { data: profils } = await supabase.from("profiles")
+    .select("id, prenom, nom, email, email_perso, ruul_email, ruul_jeton, canal_paie, slack_user_id, upwork_contract_id, relances_stop_at, is_active")
+    .in("id", ids);
+  const { data: hubs } = await supabase.from("hub_posteurs").select("profile_id, email_perso").in("profile_id", ids);
+  const emailHub = new Map((hubs ?? []).map((h) => [h.profile_id as string, (h.email_perso as string | null) ?? null]));
+  const pauses = await lirePauses(supabase, maintenant);
+  const lignes: Record<string, unknown>[] = [];
+  for (const p of profils ?? []) {
+    const x = recrues.get(p.id as string);
+    const nom = `${p.prenom ?? ""} ${p.nom ?? ""}`.trim();
+    const ligne: Record<string, unknown> = { poster_id: p.id, nom, cohorte: x?.cohorte_lundi ?? null };
+    lignes.push(ligne);
+    if (!p.is_active || !x) { ligne.ecarte = "plus une recrue à relancer"; continue; }
+    if (p.relances_stop_at) { ligne.ecarte = "STOP demandé"; continue; }
+    if (pauses.has(p.id as string)) { ligne.ecarte = "en pause ou demande d'arrêt en attente"; continue; }
+    if (debutReel(x.cohorte_lundi, maintenant) !== x.cohorte_lundi) { ligne.ecarte = "lundi de cohorte passé"; continue; }
+    const plan = planRelance(x, etatsAccueil(x, r.etapes), maintenant, r.etapes);
+    if (!plan.element) { ligne.ecarte = plan.needsYou ? "Needs you" : "rien ne manque"; continue; }
+    const un: PlanRelance = { ...plan, elements: [plan.element] };
+    const jour = partiesLocales(maintenant, x.fuseau).date;
+    const { data: deja } = await supabase.from("nudges").select("id, canaux").eq("poster_id", p.id).eq("type", "relance").eq("periode", jour).maybeSingle();
+    if (deja && (deja.canaux as string[] | null)?.length) { ligne.ecarte = "déjà une relance aujourd'hui"; continue; }
+    const contact = emailHub.get(p.id as string) || (p.email_perso as string | null) || (p.ruul_email as string | null);
+    const canal = p.slack_user_id ? "slack" : p.upwork_contract_id ? "upwork" : contact ? "email" : null;
+    if (!canal) { ligne.ecarte = "ni Slack, ni contrat, ni email"; continue; }
+    let texte = signerRelance(texteRelancePour(r, x, un), r.signature);
+    if (canal === "upwork") texte = avecLigneStop(texte);
+    Object.assign(ligne, { element: plan.element, canal, vers: canal === "email" ? contact : canal === "upwork" ? p.upwork_contract_id : "DM Slack", texte, renvoi: Boolean(deja) });
+    if (!envoyer) continue;
+    // Le lien « Set my password » personnel, créé maintenant.
+    const lien = await avecLienMotDePasse(supabase, p.id as string, texte, OS_URL, "recrues-check:relance_maintenant");
+    if (lien.erreur) { ligne.erreur = lien.erreur; continue; }
+    const donnees = { ...donneesRelance(x, un), canal_relance: canal, manuel: "relance_maintenant" };
+    let id = deja?.id as string | undefined;
+    if (id) {
+      await supabase.from("nudges").update({ canal, texte: lien.texte, donnees, envoye_at: new Date().toISOString() }).eq("id", id);
+    } else {
+      const { data: n, error } = await supabase.from("nudges").insert({
+        poster_id: p.id, type: "relance", periode: jour, compte_id: null, cible: "recrues-check", canal, texte: lien.texte,
+        raison: raisonLisible("relance", donnees), donnees,
+      }).select("id").single();
+      if (error) { ligne.erreur = error.code === "23505" ? "déjà une relance aujourd'hui" : error.message; continue; }
+      id = n.id as string;
+    }
+    let erreur: string | null = null;
+    if (canal === "slack") erreur = await envoyerSlack(supabase, p.id as string, lien.texte);
+    else if (canal === "upwork") erreur = (await envoyerUpwork(String(p.upwork_contract_id), lien.texte, { prioritaire: true })).erreur;
+    else {
+      const lienStop = p.ruul_jeton ? `${URL_RUUL}?stop=${p.ruul_jeton}` : OS_URL;
+      const sansSignature = lien.texte.replace(/\n+[^\n]*team\s*$/i, "").trim();
+      const e = rendreEmailRuul({ objet: "Please log in to your Sophia dashboard", corps: sansSignature, bouton: { texte: "Open my dashboard", lien: OS_URL }, lienStop });
+      erreur = (await envoyerEmailSite(String(contact), "Please log in to your Sophia dashboard", e.html, e.texte, lienStop, ["relance", String(plan.element)])).erreur;
+    }
+    const bilanLocal = { erreurs: [] as string[], envoyes: 0 } as unknown as Bilan;
+    await noterEnvoi(supabase, id, { partis: erreur ? [] : [canal], erreurs: erreur ? [erreur] : [] }, `relance ${p.id}`, bilanLocal);
+    ligne.statut = erreur ? "erreur" : "envoye";
+    if (erreur) ligne.erreur = erreur;
+  }
+  const prets = lignes.filter((l) => l.texte);
+  return {
+    ok: true, envoyer, total: lignes.length, a_envoyer: prets.length,
+    envoyes: lignes.filter((l) => l.statut === "envoye").length, erreurs: lignes.filter((l) => l.statut === "erreur").length,
+    lignes,
+  };
 }

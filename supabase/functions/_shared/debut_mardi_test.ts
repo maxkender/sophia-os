@@ -12,14 +12,16 @@ const base: RecrueAccueil = {
 } as RecrueAccueil;
 const o = { url: "https://os.example", lien_etapes: "https://guide.example" };
 
-Deno.test("Start Tuesday : ce qui manque, le message et la date de mardi", () => {
+Deno.test("Start Tuesday : ce qui manque, le message et la date du lundi", () => {
   const x = { ...base, email: "ana@sophia.com" } as RecrueAccueil;
   const etats = etatsAccueil(x, DELAIS_ACCUEIL_DEFAUT);
   assertEquals(elementsManquants(x, etats), ["connexion", "tiktok"]);
   const t = texteDebutMardi(TEXTES_RELANCE_DEFAUT, x, etats, o);
   assertEquals(t.startsWith("Hi Ana, your setup isn't finished yet: log in to your dashboard: https://os.example"), true);
   assertEquals(t.includes("create your TikTok account @ana.books1"), true);
-  assertEquals(t.endsWith("Finish it by Monday noon and you'll start posting on Tuesday 3 November. If it's not done by Monday night, you'll start the following Monday."), true);
+  // 10/11 : jamais de mardi : le lundi de la cohorte.
+  assertEquals(t.endsWith("Finish it by Monday 2 November at noon to start posting this week. If it's not done by Monday night, you'll start the following Monday."), true);
+  assertEquals(t.includes("Tuesday"), false);
   // Connectée, compte trouvé, Start warmup cliqué, 2 abonnements : il manque 3 abonnements.
   const y = { ...base, premiere_connexion_at: "2026-10-30T10:00:00Z", tiktok_existe: true, warmup_started_at: "2026-10-31T10:00:00Z", abonnements: 2 } as RecrueAccueil;
   const ey = etatsAccueil(y, DELAIS_ACCUEIL_DEFAUT);

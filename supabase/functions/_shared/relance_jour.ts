@@ -46,12 +46,10 @@ export function planRelance(
 ): PlanRelance {
   const etape = planEtape(x, etats, maintenant, d);
   if (etape.needsYou) return { element: null, elements: [], needsYou: true, follows: 0 };
-  // L'étape 0 : pas sur Slack (lien d'invitation connu), le même délai que la connexion.
-  // 6/11 : « déjà sur Slack » = l'id du profil, ou un id connu ailleurs / une déclaration (slack_connu).
-  const slack = o.slack === true && !x.deuxieme && !x.slack_user_id && !x.slack_connu && Boolean(x.bienvenue_at) &&
-    maintenant.getTime() >= new Date(x.bienvenue_at!).getTime() + (d.connexion_message_h ?? 24) * H;
-  // 1/11 : l'étape la plus importante d'abord (dashboard > TikTok > Start warmup > follows), Slack en dernier.
-  const elements: ElementRelance[] = [...(etape.element ? [etape.element] : []), ...(slack ? ["slack" as const] : [])];
+  // 10/11 : Slack ne bloque plus (décision du 28/10) : plus jamais de relance « pas sur Slack ».
+  // Slack reste une recommandation de l'onboarding seulement (`o.slack` est ignoré).
+  void o;
+  const elements: ElementRelance[] = etape.element ? [etape.element] : [];
   return { element: elements[0] ?? null, elements, needsYou: false, follows: etape.follows };
 }
 
@@ -131,26 +129,22 @@ export function texteRelance(
     email: string | null | undefined;
     /** Le lien d'invitation Slack (étape 0). */
     slack?: string;
-    /** 1/11 : « Start Tuesday » : le début est le mardi (« Tuesday {date} »), pas le lundi. */
+    /** 10/11 : ignoré : la date est toujours un lundi, celui de la cohorte (jamais « Tuesday »). */
     mardi?: boolean;
-    /**
-     * 2/11 : l'heure de l'envoi. Après le lundi de la cohorte 12:00 (Paris),
-     * une recrue pas prête ne commence plus cette semaine : le texte donne la
-     * vraie date de début, le lundi suivant (jamais « Tuesday »).
-     */
+    /** 10/11 : ignoré : la date vient de profiles.cohorte_lundi, lu au moment de l'envoi. */
     maintenant?: Date;
   },
 ): string {
   if (!t.cadre.trim()) return "";
-  const lundi = debutReel(o.cohorte_lundi, o.maintenant);
-  const mardi = Boolean(o.mardi) && lundi === o.cohorte_lundi;
-  const cadre = mardi ? t.cadre.replace(/\bMonday(\s+\{date\})/g, "Tuesday$1") : t.cadre;
+  // 10/11 : la date est le lundi de la cohorte (profiles.cohorte_lundi, lu à l'envoi), jamais
+  // une date calculée ou mémorisée, jamais un mardi.
+  const cadre = t.cadre.replace(/\bTuesday(\s+\{date\})/g, "Monday$1");
   const vars: Record<string, string> = {
     prenom: (o.prenom ?? "").trim() || "there",
     handle: (o.handle ?? "").replace(/^@/, ""),
     url: o.url,
     lien_etapes: o.lien_etapes,
-    date: dateAnglaise(mardi ? lendemain(lundi) : lundi),
+    date: dateAnglaise(o.cohorte_lundi),
     follows: `${plan.follows} more account${plan.follows > 1 ? "s" : ""}`,
     ...(o.email ? { email: o.email } : {}),
     slack: (o.slack ?? "").trim(),
@@ -171,12 +165,6 @@ export function debutReel(cohorteLundi: string, maintenant?: Date): string {
   if (maintenant.getTime() < midi.getTime()) return cohorteLundi;
   const d = new Date(`${cohorteLundi}T12:00:00Z`);
   d.setUTCDate(d.getUTCDate() + 7);
-  return d.toISOString().slice(0, 10);
-}
-
-function lendemain(jour: string): string {
-  const d = new Date(`${jour}T12:00:00Z`);
-  d.setUTCDate(d.getUTCDate() + 1);
   return d.toISOString().slice(0, 10);
 }
 

@@ -91,23 +91,14 @@ const texteSlack = (x: RecrueAccueil, iso: string, slack = "https://join.slack/x
     email: x.email, slack,
   });
 
-Deno.test("1/11 : pas sur Slack, « join our Slack » vient APRÈS l'étape la plus importante (dashboard > TikTok > Start warmup > Slack)", () => {
+Deno.test("10/11 : Slack ne bloque plus : plus jamais de relance « join our Slack »", () => {
   assertEquals(planSlack(base, "2026-10-27T09:00:00Z").elements, []);
-  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").elements, ["connexion", "slack"]);
-  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").element, "connexion");
-  const t = texteSlack(base, "2026-10-27T11:00:00Z");
-  assertStringIncludes(t, "you still need to log in to your dashboard: https://os");
-  assertStringIncludes(t, "and join our Slack: https://join.slack/x");
-  // Sur Slack : plus d'étape 0.
-  assertEquals(planSlack({ ...base, slack_user_id: "U1" }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
-  // 6/11 : déjà sur Slack sans id sur le profil (hub_posteurs, « I've joined ») : pas de relance Slack.
-  assertEquals(planSlack({ ...base, slack_connu: true }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
-  // Le 2e compte d'un Double : jamais d'étape 0.
-  assertEquals(planSlack({ ...base, deuxieme: true }, "2026-10-27T11:00:00Z").elements.includes("slack"), false);
-  // Tout fait sauf Slack : l'étape 0 seule.
+  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").elements, ["connexion"]);
+  assertEquals(texteSlack(base, "2026-10-27T11:00:00Z").includes("Slack"), false);
+  // Tout fait sauf Slack : rien.
   const pret = { ...base, premiere_connexion_at: "x", tiktok_existe: true, tiktok_vu_at: "2026-10-27T08:00:00Z", warmup_started_at: "2026-10-27T09:00:00Z", abonnements: 6 };
-  assertEquals(planSlack(pret, "2026-10-28T11:00:00Z").elements, ["slack"]);
-  assertStringIncludes(texteSlack(pret, "2026-10-28T11:00:00Z"), "you still need to join our Slack: https://join.slack/x.");
+  assertEquals(planSlack(pret, "2026-10-28T11:00:00Z").elements, []);
+  assertEquals(messageDeRetrait(null), false);
 });
 
 Deno.test("v4 : sans lien Slack, l'étape 0 est laissée de côté ; Start warmup cliqué et compte introuvable : rien", () => {
@@ -170,25 +161,18 @@ Deno.test("1/11 : un STOP (même dans une phrase) ou un retrait arrête les rela
   assertEquals(messageDeRetrait(null), false);
 });
 
-Deno.test("1/11 : Start Tuesday : la relance annonce mardi 3 November, pas lundi", () => {
-  const plan = { element: "tiktok" as const, elements: ["tiktok" as const], needsYou: false, follows: 0 };
-  const t = texteRelance({ ...TEXTES_RELANCE_DEFAUT, cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}." }, plan, {
-    prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-02", email: "a@x", mardi: true,
-  });
-  assertStringIncludes(t, "to start posting on Tuesday 3 November");
-});
-
-
-Deno.test("2/11 : après lundi 12:00 (Paris), la relance donne la vraie date de début (le lundi suivant)", () => {
+Deno.test("10/11 : la date est toujours le lundi de la cohorte (jamais mardi, jamais recalculée)", () => {
   const plan = { element: "tiktok" as const, elements: ["tiktok" as const], needsYou: false, follows: 0 };
   const cadre = { ...TEXTES_RELANCE_DEFAUT, cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}." };
-  const o = { prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-02", email: "a@x", mardi: true };
-  // Lundi 11:59 (Paris) : encore « Tuesday 3 November ».
-  assertStringIncludes(texteRelance(cadre, plan, { ...o, maintenant: new Date("2026-11-02T10:59:00Z") }), "on Tuesday 3 November");
-  // Lundi 12:00 (Paris) et après : « Monday 9 November », plus jamais « Tuesday ».
-  const apres = texteRelance(cadre, plan, { ...o, maintenant: new Date("2026-11-02T11:00:00Z") });
-  assertStringIncludes(apres, "to start posting on Monday 9 November");
-  assertEquals(apres.includes("Tuesday"), false);
+  const o = { prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-16", email: "a@x", mardi: true };
+  for (const maintenant of [new Date("2026-11-10T10:00:00Z"), new Date("2026-11-16T10:59:00Z"), new Date("2026-11-16T11:00:00Z")]) {
+    const t = texteRelance(cadre, plan, { ...o, maintenant });
+    assertStringIncludes(t, "to start posting on Monday 16 November");
+    assertEquals(t.includes("Tuesday"), false);
+  }
+  // Un ancien cadre qui disait « Tuesday {date} » : toujours « Monday ».
+  assertStringIncludes(texteRelance({ ...cadre, cadre: "Start on Tuesday {date}: {ce_qui_manque}" }, plan, o), "Start on Monday 16 November");
+  // Passé le lundi 12:00 (Paris), la relance ne part plus (debutReel ≠ cohorte : recrues-check l'écarte).
   assertEquals(debutReel("2026-11-02", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
   assertEquals(debutReel("2026-11-09", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
 });

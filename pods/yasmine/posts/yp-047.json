@@ -1,0 +1,361 @@
+{
+ "id": "yp-047",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670179482493308182",
+  "vues": 72700,
+  "enregistrements": 3531,
+  "publie_le": "2026-08-04",
+  "titre": "a guide to a DIGITAL DECLUTTER"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8d8a2ff2-9c56-4e5f-8d35-7aa32ea39568",
+ "titre": {
+  "fr": "comment je passe une journée entière à la bibli",
+  "es": "cómo paso un día entero en la biblio",
+  "tr": "kütüphanede bütün bir günüm"
+ },
+ "legendes": {
+  "fr": "ta prochaine journée bibli sera la meilleure 📚 #bibliotheque #revisions #studytok #thatgirl #etudiante",
+  "es": "tu próximo día de biblio será el mejor 📚 #biblioteca #estudiar #studytok #thatgirl #universidad",
+  "tr": "bir sonraki kütüphane günün en iyisi olacak 📚 #kütüphane #ders #studytok #thatgirl #üniversite"
+ },
+ "musique": {
+  "titre": "domestic wolves",
+  "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
+ },
+ "fond": {
+  "media_id": "47f6432c-c32e-4d0d-b463-05a3100d99ad",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0bcc52c4-cb02-4c0d-ae56-98bb40ba1972/2.jpg",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-019 (« petit guide pour réviser à la bibliothèque », gagnante : 2,3 k en tr, r 2,72), 2e sur 3 : même promesse reformulée, même format guide en notes iOS, autres règles et autres photos. cta B : la mise en scène iPhone micabo en photo pleine de la règle sur le téléphone",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "comment je passe",
+     "lignes": [
+      "UNE JOURNÉE",
+      "ENTIÈRE",
+      "À LA BIBLI"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 700
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cómo paso",
+     "lignes": [
+      "UN DÍA",
+      "ENTERO EN",
+      "LA BIBLIO"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 700
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "KÜTÜPHANEDE",
+      "BÜTÜN BİR",
+      "GÜNÜM"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "y": 700
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c796f976-804d-43d8-b231-469a70f01395",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/da5cc540-ac82-4d07-8ba0-13df8e4002d6/3.jpg?v=1791726976231",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "choisis une bibli loin de chez toi.",
+     "texte": "le trajet fait une coupure : en arrivant, ton cerveau sait que c’est l’heure de bosser.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "elige una biblio lejos de casa.",
+     "texte": "el trayecto hace de corte: al llegar, tu cerebro sabe que toca estudiar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "evden uzak bir kütüphane seç.",
+     "texte": "yol bir ara gibi: oraya vardığında beynin çalışma zamanı olduğunu bilir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0de27d37-d8af-4aa8-b061-c9ecbdfa6165",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1c11992d-ee43-4a57-8bce-51b73b96fa29/2.jpg?v=1791726193184",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "assieds-toi près d’une fenêtre.",
+     "texte": "la lumière du jour te garde éveillée bien plus longtemps qu’une lampe.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "siéntate cerca de una ventana.",
+     "texte": "la luz del día te mantiene despierta mucho más que una lámpara.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pencereye yakın otur.",
+     "texte": "gün ışığı seni bir lambadan çok daha uzun süre uyanık tutar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "ton téléphone ne sert qu’à réviser.",
+     "texte": "mode concentration et une seule appli ouverte : micabo, pour un quiz entre deux chapitres.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "tu móvil solo sirve para estudiar.",
+     "texte": "modo concentración y una sola app abierta: micabo, para un quiz entre dos temas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "telefonun sadece ders için.",
+     "texte": "odak modu ve tek bir açık uygulama: iki ünite arasında test için micabo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "ba8a425d-4d2e-4433-964a-256317621b5b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7c908149-ee3c-4dbc-8670-48bf99f82958/2.jpg?v=1790608131962",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "déjeune dehors.",
+     "texte": "30 min loin des livres, et l’après-midi passe beaucoup mieux.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "come fuera.",
+     "texte": "30 min lejos de los libros y la tarde se pasa mucho mejor.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "öğle yemeğini dışarıda ye.",
+     "texte": "kitaplardan 30 dakika uzak kal, öğleden sonra çok daha iyi geçer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "c41210bc-b63d-46b4-b24d-c5a91ab9a3ae",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7dea918f-741c-47fc-8f2c-d862b6020e71/2.jpg?v=1791726260384",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "note ce que tu as fait avant de partir.",
+     "texte": "3 lignes dans ton agenda. voir le travail fait donne envie de revenir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "apunta lo que hiciste antes de irte.",
+     "texte": "3 líneas en tu agenda. ver lo que hiciste te da ganas de volver.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "çıkmadan ne yaptığını not et.",
+     "texte": "ajandana 3 satır. yaptıklarını görmek seni geri getirir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

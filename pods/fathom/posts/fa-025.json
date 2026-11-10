@@ -8,12 +8,20 @@
  "titre": {
   "en": "10/10 Hobbies To Build Intelligence!",
   "de": "10/10 Hobbys für mehr Intelligenz!",
-  "pt": "10/10 passatempos para ficar mais inteligente!"
+  "pt": "10/10 passatempos para ficar mais inteligente!",
+  "fr": "10/10 loisirs qui rendent plus intelligent",
+  "es": "10/10 aficiones para ser más inteligente",
+  "es-419": "10/10 pasatiempos para ser más inteligente",
+  "it": "10/10 hobby per diventare più intelligente"
  },
  "legendes": {
   "en": "10/10 Hobbies To Build Intelligence! #skills #learnontiktok #selfimprovement",
   "de": "10/10 Hobbys für mehr Intelligenz! #skills #lernenmittiktok #selbstverbesserung",
-  "pt": "10/10 passatempos para ficar mais inteligente! #habilidades #aprendernotiktok #desenvolvimentopessoal"
+  "pt": "10/10 passatempos para ficar mais inteligente! #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "fr": "10/10 loisirs qui rendent plus intelligent #apprendresurtiktok #développementpersonnel #culture",
+  "es": "10/10 aficiones para ser más inteligente #aprendeentiktok #desarrollopersonal #cultura",
+  "es-419": "10/10 pasatiempos para ser más inteligente #aprendeentiktok #desarrollopersonal #pasatiempos",
+  "it": "10/10 hobby per diventare più intelligente #imparacontiktok #crescitapersonale #hobby"
  },
  "musique": {
   "titre": "original sound",
@@ -74,6 +82,78 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "LOISIRS",
+     "QUI RENDENT",
+     [
+      {
+       "t": "PLUS INTELLIGENT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "AFICIONES",
+     "PARA SER",
+     [
+      {
+       "t": "MÁS INTELIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "PASATIEMPOS",
+     "PARA SER",
+     [
+      {
+       "t": "MÁS INTELIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBY",
+     "PER DIVENTARE",
+     [
+      {
+       "t": "PIÙ INTELLIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -118,6 +198,66 @@
      "date": "há 5 anos",
      "duree": "6:18",
      "avatar": "https://yt3.ggpht.com/ODlsXL3Se_c3MwckYNG0EpmkHLwYjrp3z3MUhnkecJ6_grs_yuQ7WIF_8jgz-nGdRSaquNw0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "JOUE AUX",
+     "ÉCHECS"
+    ],
+    "video": {
+     "id": "sxJmefXA46M",
+     "titre": "Les 4 ERREURS que les DEBUTANTS font le plus aux échecs",
+     "chaine": "Julien Song",
+     "vues": "254 k vues",
+     "date": "il y a 3 ans",
+     "duree": "11:51",
+     "avatar": "https://yt3.ggpht.com/Bd9iqICF-q6k5wYIvodr_KSRU_o_i-1IkAR3_D_yBOwHDkAydJfzfWohHdIRsi0yVYGhte7QCw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "JUEGA",
+     "AL AJEDREZ"
+    ],
+    "video": {
+     "id": "X7F_vPjkMqM",
+     "titre": "21 CONSEJOS de AJEDREZ para PRINCIPIANTES (FUNCIONAN!)",
+     "chaine": "Rey Enigma",
+     "vues": "224 K visualizaciones",
+     "date": "hace 6 meses",
+     "duree": "19:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTu7ZL5ZR2EeI1H5CZzLpaQ3GTjqbIva8Ry323qw1CLw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "JUEGA",
+     "AJEDREZ"
+    ],
+    "video": {
+     "id": "2UeYpl46ggc",
+     "titre": "Las 30 CLAVES para MEJORAR TU AJEDREZ",
+     "chaine": "Resourchess en Español",
+     "vues": "430 k vistas",
+     "date": "hace 4 años",
+     "duree": "13:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lxTG5Rpl-2D2Co7WmmyCo_DVa1ZJsQZRjsLrj95qrrHw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "GIOCA",
+     "A SCACCHI"
+    ],
+    "video": {
+     "id": "SOQ534Wi1EQ",
+     "titre": "Impara a Giocare a Scacchi Meglio del 97% | Tutorial DEFINITIVO | Apertura, Strategia e Basi",
+     "chaine": "superspeed-club scacchi",
+     "vues": "238K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "33:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lG6A1IwIvxIT4uMF9oZckw_e2ddl8eF3PEMXccq_rR-R4=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -167,6 +307,66 @@
      "duree": "5:21",
      "avatar": "https://yt3.ggpht.com/w-PplslLaCFe1cZ_3U7B022m5MC1fPgUCl7rYYVcokc7w3AlK8Crkm3DxXX00H69evOiWmMDw0U=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS À LIRE",
+     "LE CIEL"
+    ],
+    "video": {
+     "id": "L2eS7gUdzSw",
+     "titre": "Comment se repérer dans le ciel - Partie 1",
+     "chaine": "12 Parsecs",
+     "vues": "283 k vues",
+     "date": "il y a 8 ans",
+     "duree": "13:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPfvJWKWfInQn9lg6yoocKH3w1EY7jSxa1QvbEhbS33A0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE A LEER",
+     "EL CIELO"
+    ],
+    "video": {
+     "id": "JS17vIpeFiU",
+     "titre": "Guía Definitiva para Disfrutar del Cielo Nocturno",
+     "chaine": "QuantumFracture",
+     "vues": "850 K visualizaciones",
+     "date": "hace 4 años",
+     "duree": "21:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJpHTSZBbl8uWZMuctVo5UG_Xj7H_haXqIZL2yDsmFkUY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "RECONOCE LAS",
+     "CONSTELACIONES"
+    ],
+    "video": {
+     "id": "SO4PFN_ON8w",
+     "titre": "Astronomía para principiantes: Reconocer Constelaciones",
+     "chaine": "Astronomiaweb",
+     "vues": "1.8 M de vistas",
+     "date": "hace 9 años",
+     "duree": "14:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRziZ7jDHUaVsl7qvkr0OZn7_j8ycJfRoAwFQpzgSV0Lw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA A LEGGERE",
+     "IL CIELO"
+    ],
+    "video": {
+     "id": "YjSUH2S4I94",
+     "titre": "Come iniziare a osservare il cielo",
+     "chaine": "Oneira",
+     "vues": "125K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "17:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lf1USTPK8PhcPTHny6Qy0HVOBkKdEmHdblLZInN33DOQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -212,6 +412,66 @@
      "duree": "7:38",
      "avatar": "https://yt3.ggpht.com/G8GSR8YWKvXG5P9iYVyIyKyaiwR-cvnVjUaBS_y_gm2yjIp65JAmdiqqRzR12_cmgMIsD7p4KA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "RÉSOUS",
+     "DES SUDOKUS"
+    ],
+    "video": {
+     "id": "V5KPwFRVl3U",
+     "titre": "Comment jouer au sudoku ? (meilleur explication)",
+     "chaine": "SudokuClub",
+     "vues": "46 k vues",
+     "date": "il y a 2 ans",
+     "duree": "5:11",
+     "avatar": "https://yt3.ggpht.com/LiTit2nfhq2K6q4Rdi1uJAEpjrC8BbYNe9beOSgklx24IGtwL2VVVsKuzYQLe1q7jHYMg7S7788=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "RESUELVE",
+     "SUDOKUS"
+    ],
+    "video": {
+     "id": "LET73Mnm0wY",
+     "titre": "Cómo resolver un SUDOKU en menos de 8 minutos! 😱 NIVEL FÁCIL | TUTORIAL | ¡LA POSICIÓN ÚNICA! | #1",
+     "chaine": "Dave T",
+     "vues": "1,7 M de visualizaciones",
+     "date": "hace 7 años",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mL4hPpzK_QlCGUZvh7R1mSqVbOq2feKiAsPExCIO0vVlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "RESUELVE",
+     "SUDOKUS"
+    ],
+    "video": {
+     "id": "9_llNoAIaEY",
+     "titre": "(1) Cómo resolver un SUDOKU. NIVEL MUY FÁCIL",
+     "chaine": "PROFE RODOLFO YOUTUBER",
+     "vues": "1.3 M de vistas",
+     "date": "hace 8 años",
+     "duree": "37:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgScHX3XxDMx-zJDDnoRgqSXWuR9zLjwEDSyJStHGg6zI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RISOLVI",
+     "I SUDOKU"
+    ],
+    "video": {
+     "id": "D86fIjPPA8s",
+     "titre": "Lez. 1: come imparare da zero il sudoku",
+     "chaine": "micdeva",
+     "vues": "79K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "13:00",
+     "avatar": "https://yt3.ggpht.com/qCGkM1RX-O0GjJPzXL_mLvF7KF_E7fDfyhil_yhEYjpvQHqP4o6ydQIdEGewqPYzuFUdiP9LYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -253,6 +513,58 @@
      "texte": [
       "aprende algo novo todos os dias,",
       "em 5 minutos."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UNE ANECDOTE",
+     "PAR JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "UN DATO CURIOSO",
+     "AL DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UN DATO CURIOSO",
+     "AL DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UNA CURIOSITÀ",
+     "AL GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
      ]
     }
    }
@@ -302,6 +614,66 @@
      "date": "há 2 anos",
      "duree": "13:55",
      "avatar": "https://yt3.ggpht.com/uN-ar75YFL1PNYV3V-DoL7eL9DHdlU7gixsIbvBS-XZSSzI74czQvcuC1VAqLvT5BxUYwMRqdx0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS",
+     "UNE LANGUE"
+    ],
+    "video": {
+     "id": "vivTgPHa8oA",
+     "titre": "Comment apprendre une langue plus rapidement (mes 5 conseils)",
+     "chaine": "Emilio",
+     "vues": "392 k vues",
+     "date": "il y a 6 ans",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/NKv2f_MdR9cZPEeTwmr9M7kCB-w6SN4Zq9ENKN0yPk-AisjMvMkuhBG2kr7ZQ3Vng5Oil3A-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "UN IDIOMA"
+    ],
+    "video": {
+     "id": "aqXURHJuUK8",
+     "titre": "TÉCNICA POLÍGLOTA JANULUS - comienza a hablar un nuevo idioma en 3 días",
+     "chaine": "Dani Chavero",
+     "vues": "1,3 M de visualizaciones",
+     "date": "hace 4 años",
+     "duree": "17:57",
+     "avatar": "https://yt3.ggpht.com/LOqGlIciZMZQjowCANBPjXC5Bj9QTsWEoCvjsE_b_27WU8G1EsvMz2i5JJTtsWdO-AHZed5Uiaw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     "UN IDIOMA"
+    ],
+    "video": {
+     "id": "g5RWtknrp_M",
+     "titre": "La MEJOR forma de aprender un IDIOMA (según la ciencia)",
+     "chaine": "La Hiperactina",
+     "vues": "866 k vistas",
+     "date": "hace 1 mes",
+     "duree": "17:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nL3FDG1AgWzNM4OIAzIzF4mFUTP_qp2KyAGaP37yNm3KU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "UNA LINGUA"
+    ],
+    "video": {
+     "id": "HfyGwiepb1s",
+     "titre": "Come IMPARARE una LINGUA STRANIERA (per davvero)",
+     "chaine": "Alessandro de Concini - ADC",
+     "vues": "209K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "16:01",
+     "avatar": "https://yt3.ggpht.com/O7Guse7uMO170W2Dakwlc-rgyB5XEcYgeBUVDxVLdM494piW1YVfHSKsAX3IRx9xtG_648z1=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

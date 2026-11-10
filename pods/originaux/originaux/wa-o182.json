@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o182",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "26caaa5d-cf59-4637-9a58-a6ff0819fa7f",
+ "titre": "strange habits that make you the most captivating person in the room #magnetic #charisma #socialskills #selfimprovement #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "198f26d3-ba89-4203-a012-701f57474485"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 198f26d3). déclinaison G2 de « 5 bizarre habits to make you the most magnetic person in the room » (parent 26caaa5d). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a04801c8-3677-419f-a5ee-7875310c7402",
+   "texte_overlay": "strange habits that make you\nthe most captivating person\nin the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669168610761248014/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ba66a6b9-d971-49aa-9e85-cd105dd031fb",
+   "texte_overlay": "the warm welcome\n\ngreet people as if you're genuinely happy they came, even if you only met once. making people feel wanted is the fastest way to make them want to be near you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669168610761248014/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c0938271-37ce-4313-8864-97d2312b96ba",
+   "texte_overlay": "the quiet compliment\n\ncompliment someone on a choice they made, not on their looks: a book, an idea, a jacket. it shows you really notice who they are, not just how they look.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669168610761248014/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5f9f6325-d0e6-425f-a52d-69ef111b0fde",
+   "texte_overlay": "the calm voice\n\nlower your voice slightly and speak a little slower in groups. people naturally lean in to hear calm voices, and that slowly draws the whole room towards you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669168610761248014/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "acec323c-8014-4323-b4f9-c83847b8d8a0",
+   "texte_overlay": "the fascinating fact\n\nspend 5 minutes a day learning one fascinating thing: how octopuses think, why the sky is blue. people gather around whoever always has something amazing to share.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669168610761248014/5.jpg",
+   "texte_sophia": "the fascinating fact\n\ni used to have nothing to add in groups. now i spend 5 minutes a day on one lesson in the Sophia app, like how octopuses think. people gather around whoever has amazing things to share."
+  },
+  {
+   "position": 6,
+   "media_id": "e0790e31-018b-42d8-85fd-3d051e5b79f6",
+   "texte_overlay": "the full attention\n\nwhen someone talks, turn your whole body towards them and put your phone away. full attention is so rare now that it feels almost magical to receive from someone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669168610761248014/6.jpg"
+  }
+ ]
+}

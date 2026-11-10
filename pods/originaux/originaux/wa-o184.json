@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o184",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "221074fa-a000-4295-b200-f39a7c614f6f",
+ "titre": "psychology facts that will change how you see people #psychology #facts #humanbehavior #selfimprovement #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "c3be9c99-5d87-4d69-a570-f4aa2a0cf84d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, c3be9c99). déclinaison G1 de « psychology facts that will change how you see people » (parent 221074fa, famille née de wa-o087). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "38285a95-a4fe-4264-a346-46d9b24d8ae3",
+   "texte_overlay": "psychology facts that will\nchange how you see people",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670565933626248462/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "41b55e2f-88d5-4ae7-a6cf-6036092fc997",
+   "texte_overlay": "the halo effect\n\npeople assume someone good at one thing is good at everything. knowing this helps you judge people more fairly, and see past quick, shallow first impressions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670565933626248462/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4614b29d-c3d4-46f9-9f36-242340888cf5",
+   "texte_overlay": "the reciprocity rule\n\nwhen someone does something kind for us, we feel a strong urge to return it. small generous acts create far more lasting goodwill than you would ever expect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670565933626248462/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9421fe56-74e3-4fdc-8846-9adb4da36b59",
+   "texte_overlay": "the mere exposure effect\n\npeople tend to like things simply because they've seen them often. it's why familiar faces feel friendlier, and why showing up consistently matters so very much.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670565933626248462/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "411435b6-1023-4bf7-9c40-24780e96023a",
+   "texte_overlay": "the curiosity effect\n\ncurious people are seen as warmer and more likeable. 5 minutes a day learning something new, like a planet or a painting, makes curiosity a natural habit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670565933626248462/5.jpg",
+   "texte_sophia": "the curiosity effect\n\ncurious people are seen as warmer. the Sophia app turns it into one short lesson a day, a planet or a painting, and curiosity slowly becomes a natural, likeable habit."
+  },
+  {
+   "position": 6,
+   "media_id": "652d19c1-cdd2-4a43-aa7e-120665232243",
+   "texte_overlay": "the spotlight effect\n\npeople notice your mistakes far less than you think. everyone is busy worrying about their own spotlight, so please give yourself a whole lot more grace.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670565933626248462/6.jpg"
+  }
+ ]
+}

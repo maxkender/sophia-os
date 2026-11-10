@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o079",
+ "type_bleo": "full_test",
+ "titre": "Lessons men only learn after 30 #men #lifelessons #mindset #selfimprovement #advice",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 10/11. Full test du jour (1 sur 2, jauge : 2 sur 7). Accroche jamais faite chez nous : aucun « after 30 » dans donnees/label.json. Leçons de vie par l'âge (comme « 7 things I wish I knew at a young age », am-o028, 12,7 k), promesse neuve. Rien de médical ni sur l'argent. Format : numéro, leçon, deux lignes. Images de la banque et une célébrité (autorisé) ; slide Sophia : fenêtre au lever du jour, sans personne. reference_url : le post source de am-o034 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5868edb2",
+   "texte_overlay": "Lessons men only\nlearn after 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "12812cb9",
+   "texte_overlay": "1. Your body keeps the receipts\n\nEvery skipped workout,\nevery late night. It all adds up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c9e27cd",
+   "texte_overlay": "2. Friendships take effort\n\nNo one calls by accident anymore.\nYou have to make the plan.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3871d5dc",
+   "texte_overlay": "3. Quiet beats loud\n\nThe men you respect most\nrarely talk about themselves.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1070f73d",
+   "texte_overlay": "4. You can't outwork\nbad rest\n\nTired men make bad calls.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1c2b6328",
+   "texte_overlay": "5. Your parents\nare just people\n\nThey were guessing too.\nForgive them earlier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2022773e",
+   "texte_overlay": "6. Your mind needs\ntraining too\n\nThe gym for your body,\nsomething daily for your head.",
+   "texte_sophia": "6. Your mind needs\ntraining too\n\nUse a micro-learning app like\nthe Sophia app. 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

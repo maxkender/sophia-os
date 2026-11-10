@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o075",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5712b5ed-b46d-47ea-b8b3-ccbe09f5dece",
+ "titre": "6 ways to be manly in the ways that matter #men #respect #selfimprovement #discipline #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7607192688017885974",
+ "inspirations": [
+  "5712b5ed-b46d-47ea-b8b3-ccbe09f5dece"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 10/11. Déclinaison G2 de la ligne 2 (parent 5712b5ed = notre am-o036, langue source en ; 3e et dernière déclinaison après am-o064 et am-o071). Même promesse, troisième reformulation (« 6 ways to be manly in the ways that matter »). Même format. Gestes neufs, ni de am-o036, am-o064 ou am-o071. Images de la banque et célébrités (autorisé) ; slide Sophia : chambre vide au soleil, sans personne. reference_url du parent (slide 1 manquante : 400, slide 2 à la place), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1232db26",
+   "texte_overlay": "6 ways to be manly\nin the ways that matter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "46fda56c",
+   "texte_overlay": "1. Apologize First:\n\nEven when it's half your fault.\nEspecially then.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "394f5cb3",
+   "texte_overlay": "2. Keep Your Word\nTo Kids:\n\nThey remember every\n\"next time\" you forgot.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2de2e4cf",
+   "texte_overlay": "3. Defend People\nWho Aren't There:\n\n\"He's not here to explain.\nLet's drop it.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0e894bee",
+   "texte_overlay": "4. Stay To Clean Up:\n\nAfter the party.\nThe last man helping\nis the one they remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0b34258f",
+   "texte_overlay": "5. Be Patient With\nOlder People:\n\nThe slow story. The phone settings.\nOne day, that's you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0a60706f",
+   "texte_overlay": "6. Keep Your Mind Sharp:\n\nA little history, science, art.\nFive minutes a day.",
+   "texte_sophia": "6. Keep Your Mind Sharp:\n\nI give 5 minutes a day\nto the Sophia app.\nHistory, science, art.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

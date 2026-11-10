@@ -17,7 +17,7 @@ import {
   saisirLotRuul,
   type PosteurRuul,
 } from "./api";
-import { dollars, ENTETE_CSV_RUUL, jourMois, LIBELLE_STATUT, lignesCsvLot, lireExportRuul } from "./logique";
+import { dollars, jourMois, LIBELLE_STATUT, lignesCsvLot, lireExportRuul } from "./logique";
 
 const CLES = [["ruul-tableau"], ["ruul-posteurs"], ["ruul-lot"]];
 
@@ -216,13 +216,8 @@ function LotRuulCarte() {
             </Button>
           ) : null}
           {d.lignes.length > 0 ? (
-            // 10/11 : le fichier d'import en masse de Ruul (email, montant, description), sans BOM.
-            <Button
-              size="sm"
-              variant="outline"
-              onClick={() => telechargerCsv(`ruul-${d.semaine}.csv`, versCsv(ENTETE_CSV_RUUL, lignesCsvLot(d.lignes)).replace(/^\uFEFF/, ""))}
-            >
-              Exporter fichier Ruul
+            <Button size="sm" variant="outline" onClick={() => telechargerCsv(`ruul-${d.semaine}.csv`, versCsv(["Nom", "Email Ruul", "Semaine(s)", "Montant ($)"], lignesCsvLot(d.lignes)))}>
+              Export CSV
             </Button>
           ) : null}
           {statut === "prepare" && d.lignes.length > 0 ? (
@@ -271,7 +266,6 @@ function LotRuulCarte() {
                           {s.ecart ? <span className="text-destructive"> · {s.ecart}</span> : null}
                         </div>
                       ))}
-                      {Number(l.bonus ?? 0) > 0 ? <div>Bonus de parrainage : {dollars(Number(l.bonus))}</div> : null}
                     </td>
                     <td className="py-1.5 pr-3">{dollars(l.total)}</td>
                     <td className="py-1.5 pr-3 text-xs">{l.alertes.join(" · ")}</td>

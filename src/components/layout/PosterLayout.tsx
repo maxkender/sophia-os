@@ -16,7 +16,6 @@ import { useEspaceRelecteur } from "@/features/relectureNative/useEspaceRelecteu
 import { AppShell } from "./AppShell";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
 import { useAuth } from "@/features/auth/AuthContext";
-import { BandeauEmailRuul } from "@/features/ruul/BandeauEmailRuul";
 
 export function PosterLayout() {
   const { t, i18n } = useTranslation();
@@ -50,8 +49,6 @@ export function PosterLayout() {
         <BoutonGuideNotion url={GUIDE_NOTION_POSTER} titre={t("documents.voirRegles")} sousTitre={t("documents.guideNotionPoster")} />
       }
     >
-      {/* 10/11 : posteur Ruul sans email Ruul, en haut de l'espace. */}
-      <BandeauEmailRuul />
       <OnboardingPopup />
       <ReviewPopup />
       <NudgePopup />

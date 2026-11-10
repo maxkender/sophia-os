@@ -4818,7 +4818,6 @@ export const en = {
         bonus: { titre: "Bonus" },
         candidats_ruul: { titre: "Ruul candidates" },
         cohortes_ruul: { titre: "Ruul cohorts" },
-        ruul_suivi: { titre: "Ruul" },
         faq: { titre: "FAQ bot" },
         officielles: { titre: "Official answers" },
         parrainage: { titre: "Referrals" },
@@ -4868,7 +4867,6 @@ export const en = {
         bonus: "Monday bonuses (Comment Masters, referrals, given by hand): to approve, sent only on click, and their history.",
         candidats_ruul: "Applications from the website: accepted automatically when complete, otherwise sent to the country's HM. Referrals first.",
         cohortes_ruul: "Website posters, cohort by cohort: every step up to the first Ruul payment; in red, stuck for more than 48 h.",
-        ruul_suivi: "One row per Ruul poster: signed, OS account, first login, Ruul email, added in Ruul, first post, last pay; in red, the step stuck for more than 2 days.",
         faq: "What the bot answers on Slack and in the dashboard, and what it doesn't know.",
         officielles: "Answers approved by Max: the FAQ bot and the 3 bots give them first, posters see them under “FAQ”.",
         parrainage: "Friends that posters invite by email: emails, applications, active, bonuses and cost per recruit, by country and week; top referrers; open countries.",
@@ -9014,15 +9012,6 @@ export const en = {
       questionsTitre: "A question about money?",
       questions: "Send a direct message on Slack to the team running {{salon}}, never in the channel.",
       rejoindreSlack: "Join Slack",
-    },
-    // 10/11 : le bandeau du posteur Ruul sans email Ruul.
-    emailRuul: {
-      titre: "Add your Ruul email so we can pay you",
-      intro: "Enter the email address of your Ruul account (or the one you will use to create it). We pay you through Ruul with this address.",
-      libelle: "Your Ruul email",
-      enregistrer: "Save",
-      enregistre: "Saved. Thank you!",
-      erreur: "Could not save your email. Try again.",
     },
     calendrier: {
       title: "My calendar",

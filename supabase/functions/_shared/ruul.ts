@@ -130,7 +130,7 @@ export function texteSansSlack(t: string): string {
     .trim();
 }
 
-/** 0591 : un posteur Ruul à ajouter dans Ruul (liste du dimanche à Max). */
+/** 0591 : un posteur Ruul à ajouter dans Ruul (la liste du soir). */
 export interface LigneAAjouter {
   poster_id: string;
   nom: string;
@@ -138,28 +138,38 @@ export interface LigneAAjouter {
   pays: string | null;
   zone: string | null;
   tarif: number | null;
+  /** 0592 : signé (compte OS créé par le site) le… */
+  signe_at?: string | null;
 }
 
-/** 0591 : l'email du dimanche à Max (en français, interne) : un tableau, un lien vers la page Ruul. */
-export function emailListeDimanche(
-  lignes: LigneAAjouter[],
+/**
+ * 0592 : l'email du soir (18 h Paris, en français, interne) : les nouveaux
+ * signés depuis la veille (nom, email Ruul, pays, tarif), et en bas combien
+ * restent à ajouter des jours précédents.
+ */
+export function emailListeSoir(
+  nouveaux: LigneAAjouter[],
+  anciens: number,
   lienPage = "https://sophia-marketing-orga.vercel.app/admin/auto/ruul",
 ): { objet: string; html: string; texte: string } {
-  const objet = `Ruul : ${lignes.length} posteur${lignes.length > 1 ? "s" : ""} à ajouter`;
+  const n = nouveaux.length;
+  const objet = `Ruul : ${n} nouveau${n > 1 ? "x" : ""} posteur${n > 1 ? "s" : ""} à ajouter`;
   const cellule = (v: string) => `<td style="padding:6px 10px;border-bottom:1px solid #e4e4e7">${echapper(v)}</td>`;
-  const tarif = (l: LigneAAjouter) => (l.tarif != null ? `${l.tarif} $` : "?");
+  const tarif = (l: LigneAAjouter) => (l.tarif != null ? `${l.tarif} $ / semaine` : "?");
+  const reste = anciens > 0 ? `Encore à ajouter : ${anciens} des jours précédents.` : "";
   const html = `<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>${echapper(objet)}</title></head>
 <body style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b;font-size:14px">
-<p>Posteurs Ruul à ajouter dans Ruul (${lignes.length}) :</p>
+<p>Nouveaux posteurs Ruul signés depuis hier, à ajouter dans Ruul (${n}) :</p>
 <table cellpadding="0" cellspacing="0" style="border-collapse:collapse">
-<tr style="text-align:left;color:#71717a">${["Nom", "Email Ruul", "Pays", "Zone", "Tarif / semaine"].map((t) => `<th style="padding:6px 10px">${t}</th>`).join("")}</tr>
-${lignes.map((l) => `<tr>${[l.nom, l.ruul_email, l.pays ?? "?", l.zone ?? "?", tarif(l)].map(cellule).join("")}</tr>`).join("\n")}
+<tr style="text-align:left;color:#71717a">${["Nom", "Email Ruul", "Pays", "Tarif"].map((t) => `<th style="padding:6px 10px">${t}</th>`).join("")}</tr>
+${nouveaux.map((l) => `<tr>${[l.nom, l.ruul_email, l.pays ?? "?", tarif(l)].map(cellule).join("")}</tr>`).join("\n")}
 </table>
-<p>Puis dans l'OS : <a href="${echapper(lienPage)}">Recruitment automation → Ruul</a> → « Marquer ajouté dans Ruul ».</p>
+${reste ? `<p>${echapper(reste)}</p>\n` : ""}<p>Puis dans l'OS : <a href="${echapper(lienPage)}">Recruitment automation → Ruul</a> → « Marquer ajouté dans Ruul ».</p>
 </body></html>`;
   const texte = [
-    `Posteurs Ruul à ajouter dans Ruul (${lignes.length}) :`,
-    ...lignes.map((l) => `- ${l.nom} — ${l.ruul_email} — ${l.pays ?? "?"} — zone ${l.zone ?? "?"} — ${tarif(l)} / semaine`),
+    `Nouveaux posteurs Ruul signés depuis hier, à ajouter dans Ruul (${n}) :`,
+    ...nouveaux.map((l) => `- ${l.nom} — ${l.ruul_email} — ${l.pays ?? "?"} — ${tarif(l)}`),
+    ...(reste ? [reste] : []),
     `Puis dans l'OS : ${lienPage} → « Marquer ajouté dans Ruul ».`,
   ].join("\n");
   return { objet, html, texte };

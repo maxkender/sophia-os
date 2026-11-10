@@ -1,5 +1,27 @@
 export const en = {
   translation: {
+    // 0592 : la checklist du dashboard d'un posteur Ruul.
+    ruulOnboarding: {
+      titre: "Before you start",
+      avant: "Finish before Saturday 8 pm (Paris time) to start on Monday {{date}}.",
+      identite: "Your first and last name, exactly as on your ID",
+      prenom: "First name",
+      nom: "Last name",
+      email: "Your email for Ruul (we pay you there)",
+      emailLibelle: "Your email for Ruul",
+      tiktok: "Create your TikTok account with this exact name: {{handle}}",
+      tiktokSansHandle: "Create your TikTok account with the exact name shown on your dashboard",
+      warmup: "Click « Start warmup », then follow 5 accounts",
+      warmupDetail: "Accounts followed so far: {{n}} of 5. « Start warmup » is below.",
+      slack: "Join Slack with your full name",
+      rejoindreSlack: "Join Slack",
+      recommande: "(recommended)",
+      ruul: "Your Ruul account is ready",
+      ruulAttente: "You'll receive an invitation from Ruul by email. Create your account from it, verify your identity and add your bank account.",
+      fait: "It's done",
+      enregistrer: "Save",
+      erreur: "Something went wrong. Try again.",
+    },
     // 10/11 : le bandeau du posteur Ruul sans email Ruul.
     emailRuul: {
       titre: "Add your Ruul email so we can pay you",

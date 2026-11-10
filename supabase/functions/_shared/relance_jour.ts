@@ -107,6 +107,10 @@ export const TEXTES_RELANCE_DEFAUT: TextesRelance = {
   follows: "follow {follows} with @{handle} (Start warmup is done)",
 };
 
+/** 0592 : la relance d'un posteur Ruul : la date limite est le samedi 20 h (Paris), la date de début son lundi. */
+export const CADRE_RELANCE_RUUL =
+  "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}. Please finish before Saturday 8 pm (Paris time). If something is blocking you, just reply to this message.";
+
 /** Les variables connues ; une variable inconnue reste telle quelle (comme ailleurs). */
 function remplir(modele: string, vars: Record<string, string>): string {
   return modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout));
@@ -203,22 +207,18 @@ export function choisirRelance(
   plan: Pick<PlanRelance, "elements">,
   surSlack: boolean,
   deja: ReadonlyMap<string, DejaRelance> | undefined,
-  maintenant: Date,
+  _maintenant: Date,
 ): ChoixRelance {
-  let attente: string | null = null;
   for (const e of plan.elements) {
     const d = deja?.get(e) ?? {};
     if (surSlack && e !== "slack") {
+      // 10/11 (Upwork saturé) : relié à Slack : la relance part sur Slack seulement (plus de relance Upwork 24 h après).
       if (!d.slack_at) return { element: e, canal: "slack", upwork_prevu_at: null };
-      if (d.upwork_at) continue;
-      const due = new Date(new Date(d.slack_at).getTime() + 24 * H);
-      if (maintenant >= due) return { element: e, canal: "upwork", upwork_prevu_at: null };
-      attente ??= due.toISOString();
       continue;
     }
     if (!d.upwork_at) return { element: e, canal: "upwork", upwork_prevu_at: null };
   }
-  return { element: null, canal: null, upwork_prevu_at: attente };
+  return { element: null, canal: null, upwork_prevu_at: null };
 }
 
 /** L'historique des relances parties (nudges) : par étape, l'heure de la 1re sur Slack et sur Upwork. */
@@ -232,7 +232,8 @@ export function historiqueRelances(
     for (const e of els) {
       const d = h.get(e) ?? {};
       if ((n.canaux ?? []).includes("slack")) d.slack_at ??= n.envoye_at;
-      if ((n.canaux ?? []).includes("upwork")) d.upwork_at ??= n.envoye_at;
+      // 0592 : l'email (posteur Ruul, par le site) tient la place d'Upwork (le canal hors Slack).
+      if ((n.canaux ?? []).includes("upwork") || (n.canaux ?? []).includes("email")) d.upwork_at ??= n.envoye_at;
       h.set(e, d);
     }
   }

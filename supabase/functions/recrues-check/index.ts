@@ -47,6 +47,7 @@ import {
   type TextesRelance,
   TEXTES_RELANCE_DEFAUT,
   texteRelance,
+  CADRE_RELANCE_RUUL,
 } from "../_shared/relance_jour.ts";
 import {
   ceQuiManqueRecrue,
@@ -421,10 +422,15 @@ async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
   const bienvenues = new Set<string>();
   // 6/11 : déjà sur Slack sans id sur le profil (hub_posteurs, « I've joined » déclaré) : pas de relance Slack.
   const slackConnus = new Set<string>();
+  // 0592 : les posteurs Ruul (payés par Ruul, pas de contrat Upwork).
+  const ruuls = new Set<string>();
   for (let i = 0; i < ids.length; i += 200) {
     const lot = ids.slice(i, i + 200);
-    const { data: pr } = await supabase.from("profiles").select("id, email").in("id", lot);
-    for (const x of pr ?? []) emails.set(x.id as string, (x.email as string | null) ?? null);
+    const { data: pr } = await supabase.from("profiles").select("id, email, canal_paie").in("id", lot);
+    for (const x of pr ?? []) {
+      emails.set(x.id as string, (x.email as string | null) ?? null);
+      if (x.canal_paie === "ruul") ruuls.add(x.id as string);
+    }
     const { data: ac } = await supabase.from("accueils").select("poster_id").in("poster_id", lot).eq("statut", "envoye").not("message_at", "is", null);
     for (const x of ac ?? []) bienvenues.add(x.poster_id as string);
     const { data: hub } = await supabase.from("hub_posteurs").select("profile_id").in("profile_id", lot).not("slack_user_id", "is", null);
@@ -437,6 +443,7 @@ async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
     email: emails.get(x.poster_id) ?? null,
     bienvenue_os: bienvenues.has(x.poster_id),
     slack_connu: slackConnus.has(x.poster_id),
+    ruul: ruuls.has(x.poster_id),
   }));
 }
 
@@ -1050,7 +1057,9 @@ async function suivreEtape(
 
 /** Le texte de la relance du jour (vide : rien ne part). */
 function texteRelancePour(r: Reglages, x: RecrueAccueil, plan: ReturnType<typeof planRelance>, mardi = false): string {
-  return texteRelance(r.textesRelance, plan, {
+  // 0592 : un posteur Ruul : « … before Saturday 8 pm (Paris time) ».
+  const textes = x.ruul ? { ...r.textesRelance, cadre: CADRE_RELANCE_RUUL } : r.textesRelance;
+  return texteRelance(textes, plan, {
     mardi,
     // 2/11 : après lundi 12:00 (Paris), la vraie date de début (le lundi suivant).
     maintenant: new Date(),
@@ -1119,6 +1128,12 @@ async function relanceDuJour(
   if (bilan.relanceEnFile?.has(x.poster_id)) return;
   if (bilan.automationPause) {
     await noterBloquee(supabase, { fonction: "recrues-check", action: "relance", poster_id: x.poster_id });
+    return;
+  }
+  // 10/11 (Upwork saturé) : pas relié à Slack : l'email d'abord (via le site) ; Upwork seulement en dernier recours.
+  if (choisie.choix.canal === "upwork" && choisie.texte && await relanceEmailRuul(supabase, r, x, plan, jour, choisie.texte, bilan)) {
+    bilan.relancesFaites?.add(`${x.poster_id}|${jour}`);
+    noterPrepare(bilan, x, "relance", jour);
     return;
   }
   // 1/11 : un seul canal : Slack, ou Upwork (une fois par étape, sous le plafond par recrue).
@@ -3103,10 +3118,7 @@ async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boo
     if (canal === "slack") erreur = await envoyerSlack(supabase, p.id as string, lien.texte);
     else if (canal === "upwork") erreur = (await envoyerUpwork(String(p.upwork_contract_id), lien.texte, { prioritaire: true })).erreur;
     else {
-      const lienStop = p.ruul_jeton ? `${URL_RUUL}?stop=${p.ruul_jeton}` : OS_URL;
-      const sansSignature = lien.texte.replace(/\n+[^\n]*team\s*$/i, "").trim();
-      const e = rendreEmailRuul({ objet: "Please log in to your Sophia dashboard", corps: sansSignature, bouton: { texte: "Open my dashboard", lien: OS_URL }, lienStop });
-      erreur = (await envoyerEmailSite(String(contact), "Please log in to your Sophia dashboard", e.html, e.texte, lienStop, ["relance", String(plan.element)])).erreur;
+      erreur = await emailRelanceRuul(String(contact), (p.ruul_jeton as string | null) ?? null, lien.texte, String(plan.element));
     }
     const bilanLocal = { erreurs: [] as string[], envoyes: 0 } as unknown as Bilan;
     await noterEnvoi(supabase, id, { partis: erreur ? [] : [canal], erreurs: erreur ? [erreur] : [] }, `relance ${p.id}`, bilanLocal);
@@ -3119,4 +3131,58 @@ async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boo
     envoyes: lignes.filter((l) => l.statut === "envoye").length, erreurs: lignes.filter((l) => l.statut === "erreur").length,
     lignes,
   };
+}
+
+/** 0592 : l'objet de la relance par email d'un posteur Ruul, selon l'étape. */
+function objetRelanceRuul(element: string): string {
+  return element === "connexion" ? "Please log in to your Sophia dashboard" : "Your next step to start posting";
+}
+
+/** 0592 : une relance par email (posteur Ruul, par le site), sans la signature (« The Sophia team » du gabarit). */
+async function emailRelanceRuul(to: string, jeton: string | null, texte: string, element: string): Promise<string | null> {
+  const lienStop = jeton ? `${URL_RUUL}?stop=${jeton}` : OS_URL;
+  const corps = texte.replace(/\n+[^\n]*team\s*$/i, "").trim();
+  const objet = objetRelanceRuul(element);
+  const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open my dashboard", lien: OS_URL }, lienStop });
+  return (await envoyerEmailSite(to, objet, e.html, e.texte, lienStop, ["relance", element])).erreur;
+}
+
+/**
+ * 0592 / 10/11 : la relance du jour d'un posteur pas relié à Slack, Ruul ou Upwork,
+ * qui a un email (candidature) : par email, via le site, tout de suite. Une par
+ * étape (l'email compte comme le canal « hors Slack » dans l'historique). Pas
+ * d'email : false (Upwork en dernier recours).
+ */
+async function relanceEmailRuul(
+  supabase: Supabase, r: Reglages, x: RecrueAccueil, plan: PlanRelance, jour: string, texte: string, bilan: Bilan,
+): Promise<boolean> {
+  const [{ data: p }, { data: h }] = await Promise.all([
+    supabase.from("profiles").select("email_perso, ruul_email, ruul_jeton, relances_stop_at").eq("id", x.poster_id).maybeSingle(),
+    supabase.from("hub_posteurs").select("email_perso").eq("profile_id", x.poster_id).maybeSingle(),
+  ]);
+  if (!p || p.relances_stop_at) return false;
+  const contact = (h?.email_perso as string | null) || (p.email_perso as string | null) || (p.ruul_email as string | null);
+  if (!contact) return false;
+  const cle = { poster_id: x.poster_id, type: "relance", periode: jour };
+  const donnees = { ...donneesRelance(x, plan, bilan), canal_relance: "email" };
+  if (r.mode !== "on") {
+    await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal: "email", texte, donnees, raison: "simulation", maj_at: new Date().toISOString() });
+    bilan.prevus++;
+    return true;
+  }
+  const lien = await avecLienMotDePasse(supabase, x.poster_id, texte, OS_URL, "recrues-check:relance_email");
+  if (lien.erreur) {
+    bilan.erreurs.push(`relance email ${x.poster_id} : ${lien.erreur}`);
+    return true;
+  }
+  const { data: n, error } = await supabase.from("nudges").insert({
+    ...cle, compte_id: null, cible: "recrues-check", canal: "os", texte: lien.texte, raison: raisonLisible("relance", donnees), donnees,
+  }).select("id").single();
+  if (error) {
+    if (error.code !== "23505") bilan.erreurs.push(`relance email ${x.poster_id} : ${error.message}`);
+    return true;
+  }
+  const erreur = await emailRelanceRuul(contact, (p.ruul_jeton as string | null) ?? null, lien.texte, String(plan.element));
+  await noterEnvoi(supabase, n.id as string, { partis: erreur ? [] : ["email"], erreurs: erreur ? [erreur] : [] }, `relance email ${x.poster_id}`, bilan);
+  return true;
 }

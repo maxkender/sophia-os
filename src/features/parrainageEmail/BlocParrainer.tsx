@@ -54,6 +54,19 @@ export const COMMENT_CA_MARCHE = [
   "You can follow each referral's status here: invited → applied → accepted → started → bonus paid.",
 ];
 
+/** 0592 : pour un posteur payé par Ruul, le bonus part avec sa paie Ruul (jamais Upwork). */
+export const BONUS_RUUL = "Your $10 bonus is paid with your weekly Ruul payment, the Monday after your friend completes their first full week of posts. Nothing to do.";
+
+export const AMI_RUUL = "Your friend doesn't need any freelancing account: they apply directly with the link we email them.";
+
+export function commentCaMarche(ruul: boolean): string[] {
+  if (!ruul) return COMMENT_CA_MARCHE;
+  return COMMENT_CA_MARCHE.map((l) =>
+    l.startsWith("Your $10 bonus is paid on Upwork") ? BONUS_RUUL
+    : l.startsWith("Your friend doesn't need Upwork") ? AMI_RUUL
+    : l);
+}
+
 export const MAX_PAR_MOIS = 10;
 const EMAIL_OK = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -63,6 +76,8 @@ export interface PropsBlocParrainer {
   /** Filleuls ajoutés ce mois-ci (10 au plus). */
   ceMois: number;
   envoyer: (f: { email: string; prenom: string; pays: string }) => Promise<{ attente: boolean }>;
+  /** 0592 : le parrain est payé par Ruul (aucun texte Upwork). */
+  ruul?: boolean;
 }
 
 /**
@@ -70,7 +85,7 @@ export interface PropsBlocParrainer {
  * Sophia (site vik-studios-creators.com, expéditeur noreply@sophia-culture.com) dans la langue du pays de l'ami ; 10 amis par
  * mois au plus ; l'accord de l'ami est obligatoire.
  */
-export function BlocParrainer({ pays, filleuls, ceMois, envoyer }: PropsBlocParrainer) {
+export function BlocParrainer({ pays, filleuls, ceMois, envoyer, ruul = false }: PropsBlocParrainer) {
   const [email, setEmail] = React.useState("");
   const [prenom, setPrenom] = React.useState("");
   const [code, setCode] = React.useState("");
@@ -116,7 +131,7 @@ export function BlocParrainer({ pays, filleuls, ceMois, envoyer }: PropsBlocParr
         <div className="rounded-lg border bg-muted/40 p-3 text-sm" data-testid="parrainer-comment">
           <h3 className="mb-1 font-semibold">How it works</h3>
           <ul className="list-disc space-y-1 pl-5">
-            {COMMENT_CA_MARCHE.map((l) => <li key={l}>{l}</li>)}
+            {commentCaMarche(ruul).map((l) => <li key={l}>{l}</li>)}
           </ul>
         </div>
 

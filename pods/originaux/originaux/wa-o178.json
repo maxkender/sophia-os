@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o178",
+ "type_bleo": "full_test",
+ "titre": "what people notice about you in the first 7 seconds #firstimpressions #psychology #confidence #selfimprovement #socialskills",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "afe9f9fa-94d2-4207-8363-c41431d2cb5a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, afe9f9fa). full test BLEO : accroche jamais faite (format « what people notice in the first 7 seconds »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "60df6900-365a-4552-8b0e-0f99b099a328",
+   "texte_overlay": "what people notice about\nyou in the first 7 seconds",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673534629625728269/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dedb3d63-b58d-4a5b-91ec-9c26fca8b46e",
+   "texte_overlay": "your posture\n\nbefore you say a word, people read how you stand. shoulders back and chin level tell everyone you're comfortable, and that quiet calm is wonderfully contagious.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673534629625728269/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b56fc837-0d08-4fba-9888-e66e86bd2b74",
+   "texte_overlay": "your eyes\n\npeople notice whether you look at them or away. a relaxed, warm look for a second longer than usual feels like interest, and it makes people trust you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673534629625728269/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "85325431-a123-4099-9267-5db13b4ae6d1",
+   "texte_overlay": "your pace\n\npeople pick up on whether you rush or move calmly. walking and speaking a little slower than everyone else reads as quiet confidence almost instantly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673534629625728269/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7146276d-71bd-4e6b-9f55-3e44618382b5",
+   "texte_overlay": "your curiosity\n\npeople notice when someone seems genuinely interested in the world. 5 minutes a day learning something new, a planet or a painting, shows up in how you talk and listen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673534629625728269/5.jpg",
+   "texte_sophia": "your curiosity\n\npeople notice genuine curiosity. i spend 5 minutes a day on one lesson in the Sophia app: a planet, a painting, a moment in history. it shows up in how i talk and listen."
+  },
+  {
+   "position": 6,
+   "media_id": "eae64984-56cc-4609-919b-693d000acb32",
+   "texte_overlay": "your hands\n\npeople notice what your hands are doing. open, relaxed hands look honest and calm, while hidden or fidgeting hands make people feel a little more guarded.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7673534629625728269/6.jpg"
+  }
+ ]
+}

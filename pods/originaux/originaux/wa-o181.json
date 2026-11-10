@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o181",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "09fb001b-2df4-4ce1-baf7-4d9cca24152a",
+ "titre": "5 easy habits that make your mind feel lighter #mentalhealth #habits #selfcare #wellness #calm",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "fab6c9b9-01de-4c11-a01d-5234cea9e890"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, fab6c9b9). déclinaison G2 de « 5 small habits that can improve your mental health » (parent 09fb001b). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3fce7446-3066-401d-b756-a9903026e9ba",
+   "texte_overlay": "5 easy habits that make\nyour mind feel lighter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650370299090783502/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e105e106-1514-40f5-acff-d2f71e6ec501",
+   "texte_overlay": "a slow morning drink\n\ndrink your first coffee or tea slowly, sitting down, with no phone. starting the day calmly instead of in a rush changes how heavy the rest of it feels.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650370299090783502/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f5d11ca5-4461-4347-a684-86d8f3cc5e1f",
+   "texte_overlay": "a short worry list\n\nwrite your worries on paper once a day and close the notebook. putting them somewhere outside your head makes them feel smaller and much easier to carry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650370299090783502/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9422a4f7-e064-4a8b-b52f-693851c0472d",
+   "texte_overlay": "a gentle lesson\n\nspend 5 minutes a day learning something beautiful and new: a constellation, a painting, a myth. gentle curiosity gives a busy mind somewhere peaceful to rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650370299090783502/3.jpg",
+   "texte_sophia": "a gentle lesson\n\ni spend 5 minutes a day learning something beautiful: a constellation, a painting, a myth. i do it with the Sophia app, one lesson a day, and my busy mind has somewhere peaceful to rest."
+  },
+  {
+   "position": 5,
+   "media_id": "fa8ea00a-5271-42c2-8282-ba7d423b89ef",
+   "texte_overlay": "fresh air\n\nopen a window or step outside for a moment every few hours. fresh air and natural light are some of the simplest and most reliable ways to quickly lift your mood.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650370299090783502/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "73e7270c-8c2e-46d1-aad7-4314916e8d3c",
+   "texte_overlay": "an early night\n\ngo to bed thirty minutes earlier once or twice a week. a rested mind handles stress far better, and most problems look so much smaller in the morning light.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650370299090783502/6.jpg"
+  }
+ ]
+}

@@ -22,6 +22,18 @@ import {
 export const CLE_MAJ_SOURCES = "maj_sources_run";
 const JOURNAL_MAX = 80;
 const LEASE_SEC = 8 * 60;
+/** Âge minimal d'un slideshow source pour être enfilé, par défaut (`reglages.bleo.sources.age_min_jours`, 0667). */
+export const AGE_MIN_JOURS_DEFAUT = 7;
+
+/**
+ * L'âge minimal d'un post source à la mise à jour (0667) : ses vues doivent
+ * être faites avant que le score d'import le juge. 0 : désactivé.
+ */
+async function lireAgeMinJours(supabase: Supabase): Promise<number> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle();
+  const v = Number((data?.valeur as { sources?: { age_min_jours?: unknown } } | null)?.sources?.age_min_jours);
+  return Number.isFinite(v) && v >= 0 ? v : AGE_MIN_JOURS_DEFAUT;
+}
 
 function pousserJournal(
   run: MajSourcesRun,
@@ -234,6 +246,7 @@ export async function tickMajSources(
       const listed = await listerUrlsCompteReference(supabase, compte.id, {
         nouveauxSeulement: true,
         marquerScrape: true,
+        ageMinJours: await lireAgeMinJours(supabase),
       });
       const r = await enqueueImportUrls(supabase, {
         urls: listed.urls,

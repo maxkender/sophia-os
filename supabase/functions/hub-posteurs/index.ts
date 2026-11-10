@@ -32,11 +32,15 @@
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
  *       Posters actifs par langue de publication.
- *   { action: "parrainages" }
- *       0585 : tous les referrals : parrain (nom, canal upwork|ruul), ami
- *       (prénom, nom, email, pays), created_at, invitation (statut, emails
- *       J0/J+2/J+5 et dates, ouvert, cliqué, désinscrit, rebond, postulé),
- *       recrue_id, bonus du parrain (en_attente / paye, date).
+ *   { action: "parrainages", offset?, limit?, page? }
+ *       0588 (lecture seule) : une ligne plate par filleul — id, ref,
+ *       referrer_name, referrer_channel (upwork|ruul), friend_first_name,
+ *       friend_last_name, friend_email, country, created_at, invitation_status,
+ *       j0_sent_at, j2_sent_at, j5_sent_at, opened_at, clicked_at,
+ *       unsubscribed_at, bounced_at, applied_at, recrue_id, first_login_at,
+ *       first_post_at, bonus_status (none|pending|paid), bonus_paid_at.
+ *       500 lignes au plus par appel : { rows, total, offset, next_offset }
+ *       (next_offset null = dernière page). « page » (1, 2…) = offset (page-1)×500.
  *   { action: "identites", hub_ids }
  *       Prénom et nom légaux (pièce d'identité) saisis par le poster dans
  *       l'accueil de l'OS, pour l'ajouter dans Ruul. Seuls ceux qui les ont
@@ -68,7 +72,7 @@ import { lireParLots } from "../_shared/lots.ts";
 import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-10-parrainages";
+const VERSION = "2026-11-10-parrainages-v2";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -126,9 +130,13 @@ Deno.serve(async (request) => {
       case "identites":
         return await identites(supabase, body);
       case "parrainages": {
-        const { data, error } = await supabase.rpc("hub_parrainages");
+        // 0588 : lecture seule, paginée par 500.
+        const limite = Math.min(Math.max(Number(body.limit) || 500, 1), 500);
+        const page = Number(body.page);
+        const offset = Number.isFinite(page) && page >= 1 ? (Math.floor(page) - 1) * limite : Math.max(Number(body.offset) || 0, 0);
+        const { data, error } = await supabase.rpc("hub_parrainages_page", { p_offset: offset, p_limite: limite });
         if (error) throw error;
-        return json({ ok: true, rows: data ?? [] });
+        return json({ ok: true, ...(data as Record<string, unknown>) });
       }
       case "candidature": {
         // 0561 : un candidat vient de postuler sur le site (email, code ?ref=) : les relances

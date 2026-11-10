@@ -251,9 +251,14 @@ Deno.serve(async (request) => {
         return json(await lireContrats(supabase, par));
       case "jalons":
         return json(await lireJalons(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String).slice(0, 300) : null));
+      case "rapport_soir":
+        // 10/11 : le bilan Upwork du jour, à Max sur Slack, à 21 h (Paris) ; « forcer » : tout de suite (test).
+        return json(await rapportSoir(supabase, body.forcer === true));
       case "jalons_problemes":
         // 3/11 : les milestones des contrats des cartes ouvertes de la page Problèmes (lecture seule).
-        return json(await lireJalons(supabase, par, await contratsProblemes(supabase)));
+        // 10/11 : un contrat lu depuis moins de `upwork_jalons_cache_h` heures (6) n'est pas relu ; « forcer » (admin) relit tout.
+        return json(await lireJalons(supabase, par, await contratsProblemes(supabase),
+          body.forcer === true && acces.userId !== "cron" ? null : await reglageNombre(supabase, "upwork_jalons_cache_h", 6, 1, 48)));
       case "offres":
         // Prompt 27 (Needs you « No channel ») : toutes les offres, tous états, lecture seule.
         return json(await lireOffres(supabase, par));
@@ -641,10 +646,57 @@ async function jetonValide(supabase: Supabase, par: string | null, compte: strin
 }
 
 /**
+ * 10/11 (Upwork saturé) : les lectures d'un contrat précis (milestones, statut,
+ * fin) passent par le compte secours (réglage upwork_compte_lectures), le compte
+ * principal gardant les envois. Le secours n'a pas accès, ou n'est pas connecté :
+ * on relit avec le principal (et on ne réessaie plus le secours pendant ce passage).
+ * Les listes (contrats, offres) et les conversations restent sur le principal :
+ * une liste vue par un autre compte pourrait être incomplète sans erreur.
+ */
+const LECTURES_SECOURS = new Set([
+  "jalons", "offre_completer_lecture", "sans_posteur_jalons", "arret_verif_jalons", "arret_verif_statut", "contrat_fin",
+]);
+let secoursLectures: { actif: boolean; lu_at: number } | null = null;
+let secoursEchecs = 0;
+
+async function compteDeLecture(supabase: Supabase): Promise<string | null> {
+  if (secoursEchecs >= 3) return null;
+  if (!secoursLectures || Date.now() - secoursLectures.lu_at > 60_000) {
+    const [{ data: r }, { data: c }] = await Promise.all([
+      supabase.from("reglages").select("valeur").eq("cle", "upwork_compte_lectures").maybeSingle(),
+      supabase.from("upwork_connexion").select("statut").eq("compte", COMPTE_SECOURS).maybeSingle(),
+    ]);
+    secoursLectures = { actif: r?.valeur === COMPTE_SECOURS && c?.statut === "connecte", lu_at: Date.now() };
+  }
+  return secoursLectures.actif ? COMPTE_SECOURS : null;
+}
+
+async function lire(
+  supabase: Supabase,
+  o: { par: string | null; action: string; query: string; variables?: Record<string, unknown>; tenant?: string | null; compte?: string },
+  // deno-lint-ignore no-explicit-any
+): Promise<{ data: any; erreur: string | null; statut: number | null }> {
+  if (!o.compte && LECTURES_SECOURS.has(o.action)) {
+    const secours = await compteDeLecture(supabase);
+    if (secours) {
+      try {
+        const r = await lireAvec(supabase, { ...o, compte: secours });
+        // Une réponse lisible, ou un 429 (le passage s'arrête comme avant) : on garde. Sinon : le principal.
+        if (!r.erreur || r.statut === 429) return r;
+      } catch (e) {
+        console.error("[upwork] lecture secours", o.action, messageErreur(e));
+      }
+      secoursEchecs++;
+    }
+  }
+  return await lireAvec(supabase, o);
+}
+
+/**
  * Une LECTURE GraphQL (retry 1 s, 2 s, 4 s sur réseau, 429 et 5xx). Les
  * écritures (points 3 à 5) auront leur propre fonction, sans aucun retry.
  */
-async function lire(
+async function lireAvec(
   supabase: Supabase,
   o: { par: string | null; action: string; query: string; variables?: Record<string, unknown>; tenant?: string | null; compte?: string },
   // deno-lint-ignore no-explicit-any
@@ -941,7 +993,7 @@ async function terminesDepuisOffres(supabase: Supabase, par: string | null): Pro
 // F1 (28 oct.) : la milestone à approuver de chaque contrat relié
 // ---------------------------------------------------------------------------
 
-async function lireJalons(supabase: Supabase, par: string | null, seulement: string[] | null = null) {
+async function lireJalons(supabase: Supabase, par: string | null, seulement: string[] | null = null, cacheH: number | null = null) {
   // Les contrats actifs lus (action « contrats ») et reliés à un posteur actif.
   const [{ data: contrats, error: e1 }, { data: posteurs, error: e2 }] = await Promise.all([
     supabase.from("upwork_contrats").select("contrat_id, organisation_id").eq("actif", true).not("contrat_id", "is", null),
@@ -965,7 +1017,15 @@ async function lireJalons(supabase: Supabase, par: string | null, seulement: str
   }
   // 3/11 : la page Problèmes relit seulement les contrats de ses cartes (à l'ouverture et toutes les 30 min).
   const voulus = seulement ? new Set(seulement.map(String)) : null;
-  const aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)) && (!voulus || voulus.has(String(c.contrat_id))));
+  let aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)) && (!voulus || voulus.has(String(c.contrat_id))));
+  // 10/11 (Upwork saturé) : un contrat lu il y a moins de `cacheH` heures n'est pas relu (sauf action d'un admin).
+  let enCache = 0;
+  if (cacheH && aLire.length) {
+    const recents = await contratsLusDepuis(supabase, aLire.map((c) => String(c.contrat_id)), cacheH);
+    enCache = aLire.filter((c) => recents.has(String(c.contrat_id))).length;
+    aLire = aLire.filter((c) => !recents.has(String(c.contrat_id)));
+    if (aLire.length === 0) return { ok: true, contrats: 0, lus: 0, erreurs: 0, en_cache: enCache };
+  }
   if (aLire.length === 0) {
     return voulus ? { ok: true, contrats: 0, lus: 0, erreurs: 0 } : { ok: false, error: "aucun contrat actif relié : lancer d'abord l'action contrats" };
   }
@@ -1016,7 +1076,38 @@ async function lireJalons(supabase: Supabase, par: string | null, seulement: str
   }
   // Prompt 21, S2 : le contrat gagne. tarif_hebdo corrigé, noté dans le Pipeline (Logs).
   const corriges = await corrigerTarifsHebdo(supabase).catch((e) => ({ erreur: messageErreur(e), corriges: 0 }));
-  return { ok: true, contrats: aLire.length, lus, erreurs, tarifs: bilanTarifs, ...("erreur" in corriges ? { erreur_tarifs: corriges.erreur } : { corriges: corriges.corriges }) };
+  return { ok: true, contrats: aLire.length, en_cache: enCache, lus, erreurs, tarifs: bilanTarifs, ...("erreur" in corriges ? { erreur_tarifs: corriges.erreur } : { corriges: corriges.corriges }) };
+}
+
+/** 10/11 : les contrats dont les milestones ont été lues (sans erreur) il y a moins de `heures` heures. */
+async function contratsLusDepuis(supabase: Supabase, contrats: string[], heures: number): Promise<Set<string>> {
+  const depuis = new Date(Date.now() - heures * 3_600_000).toISOString();
+  const recents = new Set<string>();
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_jalons").select("contrat_id").in("contrat_id", contrats.slice(i, i + 200))
+      .gte("lu_at", depuis).is("erreur", null);
+    for (const x of data ?? []) recents.add(String(x.contrat_id));
+  }
+  return recents;
+}
+
+/** 10/11 : les cibles d'un type (« offre », « reponses »…) lues il y a moins de `heures` heures (table upwork_lectures). */
+async function lecturesRecentes(supabase: Supabase, type: string, heures: number): Promise<Set<string>> {
+  const depuis = new Date(Date.now() - heures * 3_600_000).toISOString();
+  const { data } = await supabase.from("upwork_lectures").select("cle").like("cle", `${type}:%`).gte("lu_at", depuis).limit(5000);
+  return new Set((data ?? []).map((x) => String(x.cle).slice(type.length + 1)));
+}
+
+/** 10/11 : note qu'une cible vient d'être lue chez Upwork. */
+async function noterLecture(supabase: Supabase, type: string, cible: string, activite: string | null = null) {
+  await supabase.from("upwork_lectures").upsert({ cle: `${type}:${cible}`, lu_at: new Date().toISOString(), ...(activite ? { activite_at: activite } : {}) });
+}
+
+/** 10/11 : un réglage numérique (heures de cache…), borné. */
+async function reglageNombre(supabase: Supabase, cle: string, defaut: number, min: number, max: number): Promise<number> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", cle).maybeSingle();
+  const n = Number(data?.valeur);
+  return Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : defaut;
 }
 
 /** 3/11 : les contrats des posteurs qui ont une carte ouverte sur la page Problèmes. */
@@ -3595,14 +3686,8 @@ async function creerEtAccueillir(
   const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
-    // Prompt 25 v4 (0442) : Upwork plein (Max et Adrien) : la HM envoie la bienvenue à la main aujourd'hui.
-    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
-    await supabase.from("relances_prevues").upsert({
-      poster_id: cree.userId, type: "accueil", periode: jour, statut: "main", canal: "upwork", texte, raison: "upwork_plein",
-      main_at: new Date().toISOString(), main_hm_id: a.hm_id, main_slack_at: null, maj_at: new Date().toISOString(),
-      donnees: { contrat: a.contrat_id, cohorte: a.cohorte_lundi || null, email: cree.email ?? null },
-    });
-    await fin({ statut: "cree", raison: "Upwork plein : bienvenue à envoyer à la main par la HM (To send by hand)", message_texte: texte });
+    // 10/11 : Upwork plein : la bienvenue part en premier demain à 8 h (Paris) ; la HM est prévenue sur Slack.
+    await fin({ statut: "cree", ...(await bienvenueDemain(supabase, a.hm_id, a.prenom, a.contrat_id)), message_texte: texte });
     return { erreur: null };
   }
   if (!envoi.ok) {
@@ -3797,8 +3882,11 @@ async function apercuBienvenues(supabase: Supabase, par: string | null) {
 
 /** 1/11 : sur On, le welcome des recrues créées sans welcome (au plus 20 par passage). */
 async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null, modele: string, slack: string) {
+  // 10/11 : une bienvenue repoussée (Upwork plein) attend son heure (le lendemain 8 h Paris) ; les plus anciennes d'abord.
   const { data } = await supabase.from("accueils").select("contrat_id, organisation_id, prenom, nom, hm_id, poster_id")
-    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null).limit(20);
+    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null)
+    .or(`bienvenue_apres.is.null,bienvenue_apres.lte.${new Date().toISOString()}`)
+    .order("updated_at").limit(20);
   const bilan = { envoyes: 0, erreurs: [] as string[] };
   for (const a of data ?? []) {
     const r = await accueillirExistant(
@@ -3815,6 +3903,33 @@ async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null
   }
   return bilan;
 }
+
+/** 10/11 : demain 8 h à Paris (l'heure où partent les bienvenues repoussées). */
+export function demainHuitHeuresParis(maintenant = new Date()): string {
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(maintenant.getTime() + 86_400_000));
+  // 8 h Paris = 7 h UTC en hiver, 6 h UTC en été : l'heure exacte vient du décalage de Paris ce jour-là.
+  const midi = new Date(`${jour}T12:00:00Z`);
+  const heureParis = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(midi));
+  return new Date(Date.UTC(midi.getUTCFullYear(), midi.getUTCMonth(), midi.getUTCDate(), 8 - (heureParis - 12))).toISOString();
+}
+
+/**
+ * 10/11 : Upwork plein (réserve des 15 bienvenues comprise) : la bienvenue passe
+ * en file d'attente et part en premier le lendemain à 8 h (Paris). La HM du
+ * contrat est prévenue sur Slack (rien à faire de sa part).
+ */
+async function bienvenueDemain(supabase: Supabase, hmId: string | null, prenom: string | null, contrat: string) {
+  const apres = demainHuitHeuresParis();
+  if (hmId) {
+    const nom = (prenom ?? "").trim() || "the new recruit";
+    await ecrireAuPosteur(supabase, hmId,
+      `Upwork daily limit reached: the welcome message for ${nom} (contract ${contrat}) will be sent automatically tomorrow at 8:00 (Paris time). Nothing to do.`)
+      .catch((e) => console.error("[upwork] alerte HM bienvenue", messageErreur(e)));
+  }
+  return { raison: RAISON_BIENVENUE_DEMAIN, bienvenue_attente: true, bienvenue_apres: apres };
+}
+
+const RAISON_BIENVENUE_DEMAIN = "Upwork plein : la bienvenue part demain à 8 h (Paris)";
 
 /** Le posteur s'est-il déjà connecté à l'OS (auth.users.last_sign_in_at, ou une connexion notée) ? */
 async function dejaConnecte(supabase: Supabase, posterId: string): Promise<boolean> {
@@ -3903,13 +4018,8 @@ async function accueillirExistant(
   const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, base.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
-    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
-    await supabase.from("relances_prevues").upsert({
-      poster_id: posterId, type: "accueil", periode: jour, statut: "main", canal: "upwork", texte, raison: "upwork_plein",
-      main_at: new Date().toISOString(), main_hm_id: base.hm_id, main_slack_at: null, maj_at: new Date().toISOString(),
-      donnees: { contrat: base.contrat_id, cohorte: cohorte || null, email: p.email ?? null, existant: true },
-    });
-    await fin({ statut: "cree", raison: "Upwork plein : bienvenue à envoyer à la main par la HM", message_texte: texte });
+    // 10/11 : Upwork plein : la bienvenue part en premier demain à 8 h (Paris) ; la HM est prévenue sur Slack.
+    await fin({ statut: "cree", ...(await bienvenueDemain(supabase, base.hm_id, (p?.prenom as string | null) ?? (base.prenom as string | null) ?? null, base.contrat_id)), message_texte: texte });
     return { erreur: null };
   }
   if (!envoi.ok) {
@@ -4089,6 +4199,72 @@ async function repriseConversations(supabase: Supabase, par: string | null) {
   return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
 }
 
+/** 10/11 : la liste des salons du compte (le plus récent d'abord) et la date de leur dernier message. */
+const REQUETE_LISTE_SALONS = `query ListeSalons($after: String) {
+  roomList(pagination: { first: 100, after: $after }, sortOrder: DESC) {
+    edges { node { id contractId latestStory { createdDateTime } } }
+    pageInfo { endCursor hasNextPage }
+  }
+}`;
+
+/** 10/11 : au plus 10 pages (1 000 salons) par passage. */
+const LISTE_SALONS_PAGES_MAX = 10;
+
+/**
+ * 10/11 (Upwork saturé) : quels contrats relire. Un appel par page de la liste
+ * des salons : un contrat est relu si son salon a un message plus récent que
+ * notre dernière lecture (upwork_lectures), ou s'il n'est pas dans la liste et
+ * n'a pas été lu depuis 6 h. Liste illisible : null (on relit tout, comme avant).
+ */
+async function triParActivite(supabase: Supabase, par: string | null, type: string, contrats: string[]) {
+  if (contrats.length === 0) return { aLire: new Set<string>(), salons: new Map<string, string>(), activites: new Map<string, string>(), source: "vide" };
+  const voulus = new Set(contrats);
+  const salons = new Map<string, string>();
+  const activites = new Map<string, string>();
+  let apres: string | null = null;
+  for (let page = 0; page < LISTE_SALONS_PAGES_MAX; page++) {
+    const r = await lire(supabase, { par, action: `${type}_liste_salons`, query: REQUETE_LISTE_SALONS, variables: { after: apres } });
+    const liste = r.data?.roomList;
+    if (!liste) return page === 0 ? null : finTri();
+    // deno-lint-ignore no-explicit-any
+    for (const e of (liste.edges ?? []) as any[]) {
+      const id = e?.node?.contractId ? String(e.node.contractId) : null;
+      if (!id || !voulus.has(id)) continue;
+      salons.set(id, String(e.node.id));
+      if (e.node.latestStory?.createdDateTime) activites.set(id, new Date(e.node.latestStory.createdDateTime).toISOString());
+    }
+    if (salons.size >= voulus.size || !liste.pageInfo?.hasNextPage) break;
+    apres = liste.pageInfo.endCursor ?? null;
+  }
+  return await finTri();
+
+  async function finTri() {
+    const { data: lus } = await supabase.from("upwork_lectures").select("cle, lu_at, activite_at")
+      .in("cle", contrats.map((c) => `${type}:${c}`));
+    const dernier = new Map((lus ?? []).map((x) => [String(x.cle).slice(type.length + 1), x as { lu_at: string; activite_at: string | null }]));
+    const aLire = new Set<string>();
+    const sixHeures = Date.now() - 6 * 3_600_000;
+    for (const c of contrats) {
+      const act = activites.get(c);
+      const lu = dernier.get(c);
+      if (act) {
+        if (!lu?.activite_at || new Date(act).getTime() > new Date(lu.activite_at).getTime()) aLire.add(c);
+      } else if (!lu || new Date(lu.lu_at).getTime() < sixHeures) aLire.add(c);
+    }
+    return { aLire, salons, activites, source: "liste_salons" };
+  }
+}
+
+/** 10/11 : le salon et le freelance déjà connus de chaque contrat (upwork_salons). */
+async function salonsDeContrats(supabase: Supabase, contrats: string[]): Promise<Map<string, { room_id: string | null; freelance_id: string | null }>> {
+  const m = new Map<string, { room_id: string | null; freelance_id: string | null }>();
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_salons").select("contrat_id, room_id, freelance_id").in("contrat_id", contrats.slice(i, i + 200));
+    for (const x of data ?? []) m.set(String(x.contrat_id), { room_id: x.room_id ?? null, freelance_id: x.freelance_id ?? null });
+  }
+  return m;
+}
+
 /** Prompt 21, A2 : 5 conversations à la fois au plus (Upwork : 10 requêtes par seconde). */
 const REPONSES_EN_PARALLELE = 5;
 
@@ -4096,16 +4272,27 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
   // Toutes les conversations où l'OS a écrit depuis 14 jours (0413) ; `posteurs` : juste avant un Kill.
   const { data: cibles, error } = await supabase.rpc("reponses_cibles_upwork_v2", { p_posteurs: posteurs });
   if (error) throw error;
-  const liste = (cibles ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; depuis: string }[];
-  const bilan = { cibles: liste.length, nouveaux: 0, erreurs: [] as string[], posteurs_nouveaux: [] as string[] };
+  const toutes = (cibles ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; depuis: string }[];
+  // 10/11 (Upwork saturé) : un seul appel (la liste des salons et leur dernier message), puis seulement
+  // les salons qui ont un message plus récent que notre dernière lecture. `posteurs` (avant un Kill) : tout.
+  const tri = posteurs ? null : await triParActivite(supabase, par, "reponses", toutes.map((c) => c.contrat_id));
+  const liste = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)) : toutes;
+  const bilan = { cibles: toutes.length, a_lire: liste.length, sans_nouveau: toutes.length - liste.length, liste_salons: tri?.source ?? "toutes", nouveaux: 0, erreurs: [] as string[], posteurs_nouveaux: [] as string[] };
+  const salonsConnus = await salonsDeContrats(supabase, liste.map((c) => c.contrat_id));
   const lireUne = async (c: (typeof liste)[number]) => {
     try {
-      const salon = await lire(supabase, { par, action: "reponses_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
-      const roomId = salon.data?.contractRoom?.id as string | undefined;
-      const freelancer = salon.data?.contractDetails?.freelancer?.id as string | undefined;
+      // 10/11 : le salon et le freelance déjà connus (upwork_salons, liste des salons) : pas d'appel « salon ».
+      const connu = salonsConnus.get(c.contrat_id);
+      let roomId = tri?.salons.get(c.contrat_id) ?? connu?.room_id ?? undefined;
+      let freelancer = connu?.freelance_id ?? undefined;
       if (!roomId || !freelancer) {
-        bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
-        return;
+        const salon = await lire(supabase, { par, action: "reponses_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+        roomId = salon.data?.contractRoom?.id as string | undefined;
+        freelancer = salon.data?.contractDetails?.freelancer?.id as string | undefined;
+        if (!roomId || !freelancer) {
+          bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
+          return;
+        }
       }
       const msgs = await lire(supabase, { par, action: "reponses_messages", query: REQUETE_MESSAGES_SALON, variables: { r: roomId }, tenant: c.organisation_id });
       if (msgs.erreur) {
@@ -4113,6 +4300,7 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
         return;
       }
       const depuis = new Date(c.depuis).getTime();
+      await noterLecture(supabase, "reponses", c.contrat_id, tri?.activites.get(c.contrat_id) ?? null);
       // deno-lint-ignore no-explicit-any
       await garderConversation(supabase, c, roomId, freelancer, ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), "reponses");
       // deno-lint-ignore no-explicit-any
@@ -4254,12 +4442,18 @@ async function lireContexteUpwork(supabase: Supabase, par: string | null, posteu
   const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
   if (error) throw error;
   // 0469 : une room demandée par une page peut venir d'un contrat sans posteur (poster_id null).
-  const liste = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
-  const bilan = { cibles: liste.length, lus: 0, erreurs: [] as string[] };
+  const toutes = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
+  // 10/11 (Upwork saturé) : le passage du cron relit seulement les salons qui ont un nouveau message.
+  const tri = posteurs ? null : await triParActivite(supabase, par, "contexte", toutes.map((c) => c.contrat_id));
+  const liste = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)).map((c) => ({ ...c, room_id: c.room_id ?? tri.salons.get(c.contrat_id) ?? null })) : toutes;
+  const bilan = { cibles: toutes.length, a_lire: liste.length, sans_nouveau: toutes.length - liste.length, lus: 0, erreurs: [] as string[] };
   const lireUn = async (c: (typeof liste)[number]) => {
     const erreur = await lireSalon(supabase, par, c);
     if (erreur) bilan.erreurs.push(`${c.contrat_id} : ${erreur}`);
-    else bilan.lus++;
+    else {
+      bilan.lus++;
+      await noterLecture(supabase, "contexte", c.contrat_id, tri?.activites.get(c.contrat_id) ?? null);
+    }
   };
   for (let i = 0; i < liste.length; i += REPONSES_EN_PARALLELE) {
     await Promise.all(liste.slice(i, i + REPONSES_EN_PARALLELE).map(lireUn));
@@ -4824,15 +5018,19 @@ async function offresCompleter(supabase: Supabase, par: string | null, contrats:
   if (error) return { ok: false, error: error.message };
   const { data: deja } = await supabase.from("offres_completions").select("contrat_id");
   const faits = new Set((deja ?? []).map((x) => String(x.contrat_id)));
+  // 10/11 (Upwork saturé) : un contrat déjà vérifié depuis moins de 6 h (rien à faire) n'est pas relu à chaque passage.
+  const cacheH = await reglageNombre(supabase, "upwork_jalons_cache_h", 6, 1, 48);
+  const recents = contrats?.length ? new Set<string>() : await lecturesRecentes(supabase, "offre", cacheH);
   const bilan: Record<string, unknown>[] = [];
   for (const a of accueils ?? []) {
     const contrat = String(a.contrat_id ?? "");
     if (!contrat || ["autre_activite", "hm"].includes(String(a.classement ?? "")) || a.statut === "doublon") continue;
-    if (!contrats?.length && faits.has(contrat)) continue;
+    if (!contrats?.length && (faits.has(contrat) || recents.has(contrat))) continue;
     const { data: zp } = await supabase.from("zones_paie_pays").select("zone").eq("pays", String(a.pays ?? "").toUpperCase()).is("retire_at", null).maybeSingle();
     const { data: z } = zp ? await supabase.from("zones_paie").select("tarif").eq("zone", zp.zone).maybeSingle() : { data: null };
     const tarif = z?.tarif !== undefined && z?.tarif !== null ? Number(z.tarif) : null;
     const relu = await relireJalons(supabase, par, contrat, ORG_VIK_OFFRES, "offre_completer_lecture");
+    await noterLecture(supabase, "offre", contrat);
     if (!relu.jalons) {
       bilan.push({ contrat, erreur: `milestones illisibles : ${relu.erreur}` });
       continue;
@@ -4962,3 +5160,53 @@ async function doublesMessages(supabase: Supabase, par: string | null) {
   return { ok: true, messages: bilan };
 }
 
+
+// ---------------------------------------------------------------------------
+// 10/11 (Upwork saturé) : le bilan du soir à Max sur Slack
+// ---------------------------------------------------------------------------
+
+const MAX_PROFIL = "dde5916a-89b8-4fc3-897b-dc7f0d88e20e";
+
+/**
+ * Chaque soir à 21 h (Paris), une fois : les appels Upwork du jour par compte,
+ * les 429 et les bienvenues en attente, en message privé Slack à Max (réglages
+ * upwork_rapport_soir « on » / « off », upwork_rapport_destinataire : un profil).
+ */
+async function rapportSoir(supabase: Supabase, forcer: boolean) {
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["upwork_rapport_soir", "upwork_rapport_destinataire"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const paris = maintenantParis();
+  const heure = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(new Date()));
+  if (!forcer) {
+    if (v.upwork_rapport_soir !== "on") return { ok: true, ignore: "upwork_rapport_soir n'est pas sur on" };
+    if (heure !== 21) return { ok: true, ignore: "pas 21 h à Paris" };
+    const { data: deja } = await supabase.from("upwork_lectures").select("cle").eq("cle", `rapport:${paris.jour}`).maybeSingle();
+    if (deja) return { ok: true, ignore: "déjà envoyé ce soir" };
+  }
+  // Le début de la journée à Paris (minuit), en UTC.
+  const debut = new Date(`${paris.jour}T00:00:00Z`);
+  const decalage = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(debut));
+  const depuis = new Date(debut.getTime() - decalage * 3_600_000).toISOString();
+  const compter = async (compte: string, seuls429: boolean) => {
+    let q = supabase.from("upwork_appels").select("id", { count: "exact", head: true }).gte("at", depuis).eq("compte", compte);
+    if (seuls429) q = q.eq("statut_http", 429);
+    const { count } = await q;
+    return count ?? 0;
+  };
+  const [p, p429, s, s429] = await Promise.all([compter(COMPTE, false), compter(COMPTE, true), compter(COMPTE_SECOURS, false), compter(COMPTE_SECOURS, true)]);
+  const { data: attente } = await supabase.from("accueils").select("prenom, nom, bienvenue_apres")
+    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null);
+  const noms = (attente ?? []).map((a) => [a.prenom, a.nom].filter(Boolean).join(" ").trim() || "?");
+  const jourCourt = paris.jour.split("-").reverse().slice(0, 2).join("/");
+  const texte = [
+    `Upwork : bilan du ${jourCourt}`,
+    `• Compte principal : ${p} appels, dont ${p429} erreurs 429`,
+    `• Compte secours : ${s} appels, dont ${s429} erreurs 429`,
+    `• Bienvenues en attente : ${noms.length}${noms.length ? ` (${noms.join(", ")})` : ""}`,
+  ].join("\n");
+  const destinataire = typeof v.upwork_rapport_destinataire === "string" && v.upwork_rapport_destinataire ? v.upwork_rapport_destinataire : MAX_PROFIL;
+  const issue = await ecrireAuPosteur(supabase, destinataire, texte);
+  const ok = issue.statut === "envoye";
+  if (ok && !forcer) await supabase.from("upwork_lectures").upsert({ cle: `rapport:${paris.jour}`, lu_at: new Date().toISOString() });
+  return { ok, texte, ...(ok ? {} : { erreur: "erreur" in issue ? issue.erreur : issue.statut }) };
+}

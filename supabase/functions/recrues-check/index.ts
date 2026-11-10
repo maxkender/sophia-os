@@ -1130,6 +1130,12 @@ async function relanceDuJour(
     await noterBloquee(supabase, { fonction: "recrues-check", action: "relance", poster_id: x.poster_id });
     return;
   }
+  // 10/11 (Upwork saturé) : pas relié à Slack : l'email d'abord (via le site) ; Upwork seulement en dernier recours.
+  if (choisie.choix.canal === "upwork" && choisie.texte && await relanceEmailRuul(supabase, r, x, plan, jour, choisie.texte, bilan)) {
+    bilan.relancesFaites?.add(`${x.poster_id}|${jour}`);
+    noterPrepare(bilan, x, "relance", jour);
+    return;
+  }
   // 1/11 : un seul canal : Slack, ou Upwork (une fois par étape, sous le plafond par recrue).
   const upwork = choisie.choix.canal === "upwork" && (bilan.relancesUpwork?.get(x.poster_id) ?? 0) < r.relancesUpworkMax;
   const { canaux, doublon } = canauxPour(bilan, x, "relance", jour, { slack: choisie.choix.canal === "slack", upwork });
@@ -1138,14 +1144,6 @@ async function relanceDuJour(
     return;
   }
   if (canaux.length === 0) {
-    // 0592 : un posteur Ruul (pas de contrat Upwork) : la relance part par email, via le site.
-    if (x.ruul && !x.contrat_id && choisie.choix.canal === "upwork" && choisie.texte) {
-      if (await relanceEmailRuul(supabase, r, x, plan, jour, choisie.texte, bilan)) {
-        bilan.relancesFaites?.add(`${x.poster_id}|${jour}`);
-        noterPrepare(bilan, x, "relance", jour);
-        return;
-      }
-    }
     // Pas sur Slack : sans contrat, ou le plafond de relances Upwork atteint.
     const raison = x.contrat_id && !upwork ? "upwork_max" : "contrat_non_relie";
     await supabase.from("relances_prevues").upsert({ ...cle, statut: "bloque", canal: null, texte: null, raison, maj_at: new Date().toISOString() });
@@ -3150,9 +3148,10 @@ async function emailRelanceRuul(to: string, jeton: string | null, texte: string,
 }
 
 /**
- * 0592 : la relance du jour d'un posteur Ruul sans contrat Upwork (pas sur Slack,
- * ou Slack sans réaction 24 h) : par email, via le site, tout de suite. Une par
- * étape (l'email compte comme le canal « hors Slack » dans l'historique).
+ * 0592 / 10/11 : la relance du jour d'un posteur pas relié à Slack, Ruul ou Upwork,
+ * qui a un email (candidature) : par email, via le site, tout de suite. Une par
+ * étape (l'email compte comme le canal « hors Slack » dans l'historique). Pas
+ * d'email : false (Upwork en dernier recours).
  */
 async function relanceEmailRuul(
   supabase: Supabase, r: Reglages, x: RecrueAccueil, plan: PlanRelance, jour: string, texte: string, bilan: Bilan,

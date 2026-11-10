@@ -109,16 +109,15 @@ Deno.test("v4 : sans lien Slack, l'étape 0 est laissée de côté ; Start warmu
   assertEquals(planSlack(clique, "2026-10-29T09:00:00Z"), { element: null, elements: [], needsYou: true, follows: 0 });
 });
 
-Deno.test("1/11 : canal des relances : Slack d'abord, Upwork une fois 24 h après ; pas sur Slack : Upwork une fois", () => {
+Deno.test("10/11 : canal des relances : Slack seulement si relié ; pas sur Slack : le canal hors Slack (email, sinon Upwork) une fois", () => {
   const t0 = new Date("2026-11-01T10:00:00Z");
   const plus = (h: number) => new Date(t0.getTime() + h * 3_600_000);
   // Sur Slack, rien encore : Slack.
   assertEquals(choisirRelance({ elements: ["connexion"] }, true, new Map(), t0), { element: "connexion", canal: "slack", upwork_prevu_at: null });
-  // Slack parti il y a 10 h : on attend, Upwork prévu à +24 h.
+  // Slack parti : plus rien sur Upwork, même 24 h après.
   const slack = new Map([["connexion", { slack_at: t0.toISOString() }]]);
-  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(10)), { element: null, canal: null, upwork_prevu_at: plus(24).toISOString() });
-  // 24 h après : Upwork, une fois.
-  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(24)).canal, "upwork");
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(10)), { element: null, canal: null, upwork_prevu_at: null });
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(24)).canal, null);
   const lesDeux = new Map([["connexion", { slack_at: t0.toISOString(), upwork_at: plus(25).toISOString() }]]);
   assertEquals(choisirRelance({ elements: ["connexion"] }, true, lesDeux, plus(72)).canal, null);
   // Pas sur Slack : Upwork directement, une fois ; puis l'étape suivante.

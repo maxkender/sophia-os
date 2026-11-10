@@ -207,22 +207,18 @@ export function choisirRelance(
   plan: Pick<PlanRelance, "elements">,
   surSlack: boolean,
   deja: ReadonlyMap<string, DejaRelance> | undefined,
-  maintenant: Date,
+  _maintenant: Date,
 ): ChoixRelance {
-  let attente: string | null = null;
   for (const e of plan.elements) {
     const d = deja?.get(e) ?? {};
     if (surSlack && e !== "slack") {
+      // 10/11 (Upwork saturé) : relié à Slack : la relance part sur Slack seulement (plus de relance Upwork 24 h après).
       if (!d.slack_at) return { element: e, canal: "slack", upwork_prevu_at: null };
-      if (d.upwork_at) continue;
-      const due = new Date(new Date(d.slack_at).getTime() + 24 * H);
-      if (maintenant >= due) return { element: e, canal: "upwork", upwork_prevu_at: null };
-      attente ??= due.toISOString();
       continue;
     }
     if (!d.upwork_at) return { element: e, canal: "upwork", upwork_prevu_at: null };
   }
-  return { element: null, canal: null, upwork_prevu_at: attente };
+  return { element: null, canal: null, upwork_prevu_at: null };
 }
 
 /** L'historique des relances parties (nudges) : par étape, l'heure de la 1re sur Slack et sur Upwork. */

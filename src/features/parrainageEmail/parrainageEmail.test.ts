@@ -20,7 +20,9 @@ describe("8/11 : emails de parrainage", () => {
     expect(langueEmail("pt-BR")).toBe("pt");
     expect(langueEmail("ko")).toBe("en");
     expect(rendreEmail({ ...base, etape: 2, langue: "de" }).objet).toBe("Kurze Erinnerung: Nikos hat dich empfohlen 🙂");
-    expect(lienCreators("es-419", "AB12")).toBe("https://sophia-culture.com/es/creators/slideshow?ref=AB12");
+    // 10/11 : toujours /en/, quelle que soit la langue.
+    expect(lienCreators("es-419", "AB12")).toBe("https://sophia-culture.com/en/creators/slideshow?ref=AB12");
+    expect(lienCreators("el", "AB12")).toBe("https://sophia-culture.com/en/creators/slideshow?ref=AB12");
     expect(lienCreators("pt-BR", "AB12")).toBe("https://sophia-culture.com/en/creators/slideshow?ref=AB12");
   });
 

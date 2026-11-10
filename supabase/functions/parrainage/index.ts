@@ -10,13 +10,18 @@
  *       n'est pas configuré.
  *   POST { action: "evenement", message_id, type: ouvert|clique|rebond }
  *       (en-tête x-hub-secret) : les retours du service d'envoi.
+ *   POST { action: "demander_emails", envoyer?: boolean }  (x-cron-secret)
+ *       0584 : aux parrains dont des amis sont déclarés sans email, un message
+ *       (Slack, sinon Upwork) qui demande l'email. Sans « envoyer » : l'aperçu.
+ *       L'email trouvé dans la réponse est enregistré (parrainage_email_recu_tg).
  *   GET ?desinscrire=<token>
  *       Le lien de l'email : plus jamais rien à cette adresse.
  */
 import { LANGUE_PAR_PAYS } from "../_shared/hub_posteurs.ts";
 import { secretValide } from "../_shared/hub_posteurs.ts";
 import { type EtapeEmail, lienCreators, prochaineEtape, rendreEmail } from "../_shared/parrainage_email.ts";
-import { estSecretCron, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { estSecretCron, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
 const URL_FONCTION = "https://mbikecieskoobeizixig.supabase.co/functions/v1/parrainage";
 
@@ -62,6 +67,7 @@ Deno.serve(async (request) => {
 
     if (!(await estSecretCron(request.headers.get("x-cron-secret")))) return json({ ok: false, error: "unauthorized" }, 401);
     if (body?.action === "test") return json(await envoyerTest(supabase, String(body.to ?? ""), String(body.langue ?? "en")));
+    if (body?.action === "demander_emails") return json(await demanderEmails(supabase, body?.envoyer === true));
     if (body?.action !== "envoyer") return json({ ok: false, error: "action inconnue" }, 400);
     return json(await envoyer(supabase));
   } catch (e) {
@@ -154,4 +160,50 @@ async function envoyerTest(supabase: Supabase, to: string, langue: string) {
   });
   const j = await r.json().catch(() => ({}));
   return { ok: r.ok && j?.ok !== false, http: r.status, message_id: j?.message_id ?? null, error: j?.error ?? null, langue: email.langue };
+}
+
+interface DemandeParrain {
+  parrain_id: string;
+  parrain: string;
+  canal: "slack" | "upwork";
+  filleuls: string[];
+  texte: string;
+}
+
+/** 0584 : un message par parrain, Slack d'abord, sinon Upwork (dans son contrat). */
+async function demanderEmails(supabase: Supabase, envoyer: boolean) {
+  const { data, error } = await supabase.rpc("parrainage_demandes_preparer", { p_noter: envoyer });
+  if (error) return { ok: false, error: error.message };
+  const demandes = (data ?? []) as DemandeParrain[];
+  if (!envoyer) return { ok: true, apercu: demandes };
+  const bilan: Record<string, unknown>[] = [];
+  for (const d of demandes) {
+    let ok = false;
+    let erreur: string | null = null;
+    let canal: string = d.canal;
+    if (d.canal === "slack") {
+      const issue = await ecrireAuPosteur(supabase, d.parrain_id, d.texte);
+      ok = issue.statut === "envoye";
+      if (!ok) erreur = "erreur" in issue ? issue.erreur : issue.statut;
+    }
+    if (!ok) {
+      // Pas de Slack (ou échec) : dans le contrat Upwork.
+      canal = "upwork";
+      const secret = await secretCron();
+      const r = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/upwork`, {
+        method: "POST",
+        headers: { "content-type": "application/json", ...(secret ? { "x-cron-secret": secret } : {}) },
+        body: JSON.stringify({ action: "message_posteur", poster_id: d.parrain_id, texte: d.texte, type: "parrainage_email" }),
+      }).catch((e) => e as Error);
+      if (r instanceof Error) erreur = r.message;
+      else {
+        const j = await r.json().catch(() => ({}));
+        ok = r.ok && j?.ok !== false;
+        erreur = ok ? null : String(j?.error ?? `HTTP ${r.status}`);
+      }
+    }
+    await supabase.rpc("parrainage_demandes_noter", { p_parrain: d.parrain_id, p_canal: canal, p_ok: ok, p_erreur: erreur });
+    bilan.push({ parrain: d.parrain, canal, ok, erreur, filleuls: d.filleuls.length });
+  }
+  return { ok: true, envoyes: bilan.filter((b) => b.ok).length, bilan };
 }

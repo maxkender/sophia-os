@@ -107,13 +107,12 @@ export function langueSite(langue: string | null | undefined): string {
   return String(langue ?? "en").toLowerCase().split("-")[0] || "en";
 }
 
-/** Les langues qui ont la page /creators/slideshow sur le site (vérifié le 08/11 ; pas « pt »). */
-const LANGUES_PAGE_SLIDESHOW = new Set(["en", "el", "fr", "de", "it", "es", "pl", "cs", "nl", "ro", "ja", "sr", "lv", "lt", "et", "da", "sk"]);
-
-/** Le lien de l'email : la page de candidature slideshow, dans la langue du pays (anglais sinon). */
-export function lienCreators(langue: string | null | undefined, code: string): string {
-  const l = langueSite(langue);
-  return `https://sophia-culture.com/${LANGUES_PAGE_SLIDESHOW.has(l) ? l : "en"}/creators/slideshow?ref=${encodeURIComponent(code)}`;
+/**
+ * Le lien de l'email (J0, J+2, J+5, toutes les langues) : 10/11 (Max), toujours
+ * la page anglaise /en/creators/slideshow, avec ?ref= (le code du parrain).
+ */
+export function lienCreators(_langue: string | null | undefined, code: string): string {
+  return `https://sophia-culture.com/en/creators/slideshow?ref=${encodeURIComponent(code)}`;
 }
 
 export interface DonneesEmail {

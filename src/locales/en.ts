@@ -3818,6 +3818,28 @@ export const en = {
       updateAide:
         "Catches up on everything missing for this account: new TikToks, but also those an earlier import left behind. Anything already in stock is not re-imported.",
       updateLance: "Update started — catching up on missing slideshows (see logs).",
+      lundi: {
+        titre: "Monday: sources update",
+        description:
+          "Every Monday at 6 am, the OS updates the sources whose posts beat our accounts' median (r above 1, or above their label), and new sources with fewer than 5 measured posts. The others wait for the next Monday. Only posts published since the last scrape are imported.",
+        jamais: "No Monday update yet.",
+        resume:
+          "Monday {{date}}: {{maj}} source(s) updated, {{pasMaj}} skipped this week. {{importes}} slideshow(s) imported, {{valides}} validated.",
+        colSource: "Source",
+        colLabel: "Label",
+        colR: "r",
+        colRLabel: "Vs label",
+        colDecision: "Decision",
+        colImportes: "Imported",
+        importes: "{{importes}} ({{valides}} validated)",
+        postsBulle_one: "Median r of {{count}} post measured on our accounts (3 to 30 days)",
+        postsBulle_other: "Median r of {{count}} posts measured on our accounts (3 to 30 days)",
+        decision: {
+          maj: "Updated",
+          peu_de_mesures: "New source",
+          pas_maj: "Not this week",
+        },
+      },
       majTitre: "Update sources",
       majAide:
         "Tick the sources to update: each one fetches the slideshows from its profile that are missing from stock. They run one at a time; the next one starts once the import queue is empty. You can leave the page, it keeps going on the server.",

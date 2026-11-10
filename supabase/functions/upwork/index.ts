@@ -1,10 +1,12 @@
 import {
   abregerPourJournal,
   aRenouveler,
-  attenteRetryAfter,
+  attente429,
+  ATTENTES_429_MS,
   avecRetry,
   corpsJeton,
   erreurGraphql,
+  ESPACEMENT_MESSAGES_MS,
   INTROSPECTION,
   lireContrat,
   lireJetons,
@@ -2544,9 +2546,9 @@ async function ecrire(
   let statut: number | null = null;
   // deno-lint-ignore no-explicit-any
   let valeur: any = null;
-  // Un 429 n'a rien fait chez Upwork : on attend ce qu'il demande (Retry-After,
-  // prompt 21 B11) et on renvoie une seule fois. Toute autre erreur : jamais.
-  for (let essai = 1; essai <= 2; essai++) {
+  // Un 429 n'a rien fait chez Upwork : 10/11 : 3 nouveaux essais, avec un délai qui
+  // augmente (5 s, 10 s, 20 s, ou Retry-After s'il est plus long). Toute autre erreur : jamais.
+  for (let essai = 1; essai <= ATTENTES_429_MS.length + 1; essai++) {
     let retryAfter: string | null = null;
     try {
       const reponse = await fetch(UPWORK_GRAPHQL, {
@@ -2566,8 +2568,8 @@ async function ecrire(
       valeur = { errors: [{ message: messageErreur(e) }] };
     }
     if (statut === 429) await noter429(supabase, null);
-    if (statut !== 429 || essai === 2) break;
-    await new Promise((r) => setTimeout(r, attenteRetryAfter(retryAfter) ?? 5_000));
+    if (statut !== 429 || essai > ATTENTES_429_MS.length) break;
+    await new Promise((r) => setTimeout(r, attente429(essai - 1, retryAfter)));
   }
   const erreur = statut !== null && statut >= 400
     ? `HTTP ${statut}${erreurGraphql(valeur) ? ` : ${erreurGraphql(valeur)}` : ""}`
@@ -2768,7 +2770,7 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
  * s'arrêtent `upwork_reserve_prioritaire` (5) avant, pour la bienvenue, le Kill
  * et l'arrêt. Écrire à une conversation déjà écrite aujourd'hui ne compte pas.
  * Après l'erreur de limite d'Upwork : plus rien sur ce compte jusqu'au
- * lendemain. 1 message par seconde au plus.
+ * lendemain. 10/11 : un message toutes les 2 secondes au plus.
  * 3/11 : le compte de Max seulement (_shared/upwork_comptes.ts ; Adrien ne sert
  * plus qu'à « Run now » sur un contrat de test). Rend le compte, ou l'erreur si
  * rien ne peut partir aujourd'hui.
@@ -2784,7 +2786,8 @@ async function compteDuMessage(
   const b = data as { max: number; reserve: number; dernier_ms: number | null; comptes?: CompteDuJour[] };
   const choix = choisirCompte(b.comptes ?? [], { max: b.max, reserve: b.reserve, prioritaire, exclure });
   if (choix.compte === null) return { compte: null, erreur: choix.raison };
-  if (b.dernier_ms !== null && b.dernier_ms < 1_000) await new Promise((r) => setTimeout(r, 1_000 - b.dernier_ms!));
+  // 10/11 : au moins 2 secondes entre deux messages Upwork (les 429 du 10/11).
+  if (b.dernier_ms !== null && b.dernier_ms < ESPACEMENT_MESSAGES_MS) await new Promise((r) => setTimeout(r, ESPACEMENT_MESSAGES_MS - b.dernier_ms!));
   return { compte: choix.compte, erreur: null };
 }
 

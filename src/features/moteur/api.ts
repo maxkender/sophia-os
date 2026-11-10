@@ -350,6 +350,12 @@ export interface SourceLundi {
   r: number | null;
   rVsLabel: number | null;
   decision: DecisionSourceLundi;
+  /** Pourquoi elle est retenue : toujours, neuve, r, label, 100k ; null si pas cette semaine. */
+  raison: string | null;
+  /** Son meilleur post chez nous (3 à 30 jours). */
+  meilleurVues: number | null;
+  /** Quand son lot l'a lancée ; null : lot à venir (ou pas retenue). */
+  lanceeLe: string | null;
   importes: number;
   valides: number;
 }
@@ -377,7 +383,9 @@ export async function sourcesDeLaSemaine(): Promise<SemaineSources | null> {
   const semaine = derniere.semaine as string;
   const { data, error } = await supabase
     .from("bleo_sources_semaine_ui")
-    .select("compte_reference_id, handle, langue, label, posts, r_mediane, r_vs_label, decision, importes, valides")
+    .select(
+      "compte_reference_id, handle, langue, label, posts, r_mediane, r_vs_label, decision, raison, meilleur_vues, lancee_le, importes, valides",
+    )
     .eq("semaine", semaine);
   if (error) throw error;
   const nombre = (v: unknown) => (v === null || v === undefined ? null : Number(v));
@@ -392,6 +400,9 @@ export async function sourcesDeLaSemaine(): Promise<SemaineSources | null> {
       r: nombre(l.r_mediane),
       rVsLabel: nombre(l.r_vs_label),
       decision: l.decision as DecisionSourceLundi,
+      raison: (l.raison as string | null) ?? null,
+      meilleurVues: nombre(l.meilleur_vues),
+      lanceeLe: (l.lancee_le as string | null) ?? null,
       importes: Number(l.importes ?? 0),
       valides: Number(l.valides ?? 0),
     })),

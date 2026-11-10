@@ -9,8 +9,9 @@ import { trierSourcesLundi, VARIANTE_DECISION } from "@/features/moteur/lundiSou
 /**
  * Le compte rendu de la mise à jour des sources du lundi (règle A11, 0667) :
  * chaque lundi à 6 h 07, les sources dont les posts font mieux que la médiane
- * de nos comptes (ou que leur label) sont mises à jour, les autres attendent
- * la semaine suivante.
+ * de nos comptes (ou que leur label), qui ont eu un post à 100 000 vues, ou
+ * neuves, sont retenues ; elles sont mises à jour par lots de 6 par jour. Les
+ * autres attendent la semaine suivante.
  */
 export function LundiSourcesPanel() {
   const { t, i18n } = useTranslation();
@@ -22,6 +23,8 @@ export function LundiSourcesPanel() {
   const donnees = semaine.data;
   const sources = donnees ? trierSourcesLundi(donnees.sources) : [];
   const compte = (d: DecisionSourceLundi) => sources.filter((s) => s.decision === d).length;
+  const retenues = sources.filter((s) => s.decision !== "pas_maj");
+  const enAttente = retenues.filter((s) => !s.lanceeLe).length;
   const importes = sources.reduce((n, s) => n + s.importes, 0);
   const valides = sources.reduce((n, s) => n + s.valides, 0);
   const lundi = donnees
@@ -47,6 +50,7 @@ export function LundiSourcesPanel() {
                 importes,
                 valides,
               })}
+              {enAttente > 0 && ` ${t("sources.lundi.lotsAVenir", { count: enAttente })}`}
             </p>
             <table className="w-full border-collapse text-sm">
               <thead>
@@ -70,9 +74,21 @@ export function LundiSourcesPanel() {
                     <td className="py-1.5 text-right tabular-nums">{s.rVsLabel === null ? "—" : `×${fmt(s.rVsLabel)}`}</td>
                     <td className="py-1.5 pl-3">
                       <Badge variant={VARIANTE_DECISION[s.decision]}>{t(`sources.lundi.decision.${s.decision}`)}</Badge>
+                      {s.decision === "maj" && s.raison && (
+                        <span className="ml-2 text-xs text-muted-foreground">
+                          {t(`sources.lundi.raison.${s.raison}`, {
+                            vues: (s.meilleurVues ?? 0).toLocaleString(i18n.language),
+                            defaultValue: s.raison,
+                          })}
+                        </span>
+                      )}
                     </td>
                     <td className="py-1.5 text-right tabular-nums">
-                      {s.decision === "pas_maj" ? "—" : t("sources.lundi.importes", { importes: s.importes, valides: s.valides })}
+                      {s.decision === "pas_maj"
+                        ? "—"
+                        : s.lanceeLe
+                          ? t("sources.lundi.importes", { importes: s.importes, valides: s.valides })
+                          : t("sources.lundi.lotAVenir")}
                     </td>
                   </tr>
                 ))}

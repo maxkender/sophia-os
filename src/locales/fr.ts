@@ -3827,7 +3827,7 @@ export const fr = {
       lundi: {
         titre: "Lundi : mise à jour des sources",
         description:
-          "Chaque lundi à 6 h, l'OS met à jour les sources dont les posts font mieux que la médiane de nos comptes (r au-dessus de 1, ou au-dessus de leur label), et les sources neuves qui ont moins de 5 posts mesurés. Les autres attendent le lundi suivant. Seuls les posts publiés depuis le dernier relevé sont importés.",
+          "Chaque lundi à 6 h, l'OS retient les sources dont les posts font mieux que la médiane de nos comptes (r au-dessus de 1, ou au-dessus de leur label), celles qui ont eu un post à 100 000 vues ou plus dans le mois, et les sources neuves (moins de 5 posts mesurés). Elles sont mises à jour par lots de 6 par jour, une à la fois, pour ne pas charger la base. Les autres attendent le lundi suivant. Seuls les posts publiés depuis le dernier relevé sont importés.",
         jamais: "Pas encore de mise à jour du lundi.",
         resume:
           "Lundi {{date}} : {{maj}} source(s) mise(s) à jour, {{pasMaj}} pas cette semaine. {{importes}} slideshow(s) importé(s), {{valides}} validé(s).",
@@ -3838,6 +3838,16 @@ export const fr = {
         colDecision: "Décision",
         colImportes: "Importés",
         importes: "{{importes}} ({{valides}} validés)",
+        lotAVenir: "lot à venir",
+        lotsAVenir_one: "{{count}} source attend son lot (6 par jour).",
+        lotsAVenir_other: "{{count}} sources attendent leur lot (6 par jour).",
+        raison: {
+          toujours: "toujours",
+          neuve: "source neuve",
+          r: "r au-dessus de 1",
+          label: "au-dessus de son label",
+          "100k": "un post à {{vues}} vues",
+        },
         postsBulle_one: "r médian de {{count}} post mesuré chez nous (3 à 30 jours)",
         postsBulle_other: "r médian de {{count}} posts mesurés chez nous (3 à 30 jours)",
         decision: {

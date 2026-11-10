@@ -1,0 +1,257 @@
+{
+ "post_id": "original-075",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "The anti-rot routine that",
+      "brought my life back >>>"
+     ],
+     "fr": "La routine anti-cerveau grillé qui m'a rendu ma vie >>>",
+     "texte": "amit vasárnap csinálok, hogy a hétfő ne szakadék legyen"
+    },
+    "T2": {
+     "en": [
+      "as someone",
+      "who had a 12",
+      "hour screen",
+      "time"
+     ],
+     "fr": "moi qui faisais 12 h d'écran par jour",
+     "texte": "(nincs hajnali 5-ös ébresztő, se jeges fürdő)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "[[egy lassú séta]] sötétedés előtt"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "egy egész vasárnap bent nehezebbé teszi a hétfőt"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "nincs lépéscél, nincs podcast, csak [[20 perc]], amíg világos van"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "ha kint nézem, ahogy véget ér a nap, a hétvége [[szándékosan zárul le]], és nem éjfélkor egy képernyő fényében"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[a kanapé úgysem szalad el!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. take real breaks"
+     ],
+     "fr": "1. fais de [[vraies pauses]]",
+     "texte": "[[arcmaszk]] és könyv"
+    },
+    "T2": {
+     "en": [
+      "doomscrolling between work",
+      "blocks is not rest, that's why",
+      "you always feel tired"
+     ],
+     "fr": "[[scroller]] entre deux sessions, [[c'est pas une pause]], d'où ta fatigue constante",
+     "texte": "20 perc, amikor az arcomon maszk van, a kezemben [[egy papírkönyv]], nem a telefon"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for another"
+     ],
+     "fr": "tu remplaces juste une dose de stimulation par une autre",
+     "texte": "maszkban görgetni elég macerás, [[és pont ez a lényeg]]"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends 10 minutes sans écran",
+     "texte": "tíz oldal is [[bőven elég]], tényleg"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, stare outside, then come",
+      "back with an actually quieter brain"
+     ],
+     "fr": "marche, étire-toi, regarde dehors, puis reviens avec un cerveau enfin au calme",
+     "texte": "a hétfő nem lesz könnyebb, de nyugodtabb fejjel és [[elégedett bőrrel]] indul"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "test yourself instead of",
+      "rereading"
+     ],
+     "fr": "teste-toi [[au lieu de relire]]",
+     "texte": "a holnapi [[három dolog]], papíron"
+    },
+    "T2": {
+     "en": [
+      "rereading notes feels",
+      "productive, but mostly it just",
+      "makes things look familiar"
+     ],
+     "fr": "relire tes fiches donne l'impression de bosser, mais ça les rend juste familières",
+     "texte": "nem 20 pontos teendőlista. csak az a három dolog, amire a hétfőnek tényleg szüksége van"
+    },
+    "T3": {
+     "en": [
+      "close the book, write down",
+      "everything you remember,",
+      "then check what you missed"
+     ],
+     "fr": "ferme le livre, écris tout ce dont tu te souviens, puis vérifie ce que t'as oublié",
+     "texte": "papíron, hogy becsukhassam a füzetet, és a lista [[ne pörögjön a fejemben]]"
+    },
+    "T4": {
+     "en": [
+      "recall is the workout"
+     ],
+     "fr": "réciter, c'est la muscu",
+     "texte": "[[és csukódik a füzet]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "[[vasárnap esti görgetés]] helyett"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold",
+      "attention, remember",
+      "details, and build the",
+      "picture in your own head"
+     ],
+     "fr": "lire t'oblige à [[rester concentrée]], à retenir des détails et à [[te faire le film]] dans ta tête",
+     "texte": "vasárnap este 10 volt a veszélyzóna: egy gyors pillantás a feedre, és hirtelen [[éjfél]] lett"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace un peu de [[scroll par des livres]]",
+     "texte": "ilyenkor úgyis a kezemben a telefon, úgyhogy csak azt [[változtattam meg, mire használom]]"
+    },
+    "T4": {
+     "en": [
+      "i use readup to lock my",
+      "apps until i’ve read for 20",
+      "minutes, or just put your",
+      "phone in another room"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], sinon laisse ton tel dans une autre pièce",
+     "texte": "régen egy órát görgettem, most ha úgyis telefonozom, megcsinálok egy 5 perces leckét [[a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "a telefonom [[a konyhában alszik]]"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[töltő száműzve]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "ha a párnám mellett töltődik, vasárnap utoljára egy feedet látok, hétfőn elsőként [[munkahelyi e-maileket]]"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "egy régi ébresztőóra unalmasabb, de [[az ágy újra alvásra való]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

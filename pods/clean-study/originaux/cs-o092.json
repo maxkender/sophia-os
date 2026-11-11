@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o092",
+  "type_bleo": "full_test",
+  "titre": "how i turn my notes into my own practice test #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« practice test » n'est pas une accroche du label). Accroches écrites : « how i turn my notes into my own practice test » (retenue : un geste concret, très enregistrable), « make your own exam questions » (écartée : injonction), « the study trick teachers don't tell you » (écartée : promesse creuse). Méthode vraie : une question par titre de la leçon, des questions « pourquoi » et « comment », la réponse au dos, le test fait sans notes (place micabo, slide 5), les erreurs refaites le lendemain, mélanger les questions avant le contrôle. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d1eae4c8",
+      "texte_overlay": "how i turn my notes\ninto my own practice test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d4019843",
+      "texte_overlay": "every heading becomes a question.\n\"the water cycle\" → \"explain the water cycle\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d7d6a967",
+      "texte_overlay": "i add \"why\" and \"how\" questions.\nthat's what teachers actually ask.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "dc1bcd3a",
+      "texte_overlay": "answers go on the back of the page.\nso i can't peek.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "308e1ff1",
+      "texte_overlay": "then i take my test. no notes, timer on.\nlike the real thing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "dc5df4f7",
+      "texte_overlay": "every miss gets a mark and comes back tomorrow.\nuntil it's right.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "dcd5fbe3",
+      "texte_overlay": "the week before the test, i shuffle all the questions.\nthe real one won't follow my notes' order.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

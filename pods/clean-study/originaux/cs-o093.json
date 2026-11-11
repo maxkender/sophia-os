@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o093",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e76a5a8f-60c9-4f6e-ac57-86cc094e0e40",
+  "titre": "toxic reminders for the days you really don't feel like studying #studytok #studymotivation #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "e76a5a8f-60c9-4f6e-ac57-86cc094e0e40"
+  ],
+  "notes": "Déclinaison G2 de e76a5a8f (notre cs-o061 en G1 : r 8,02 en italien, 8,5 k vues), ligne 1 de la boîte. Même promesse (des rappels toxiques pour quand on veut sauter l'étude), autres mots : « toxic reminders for the days you really don't feel like studying ». « Toxic » = rivalité avec soi-même. Rappels neufs, aucun de cs-o061 ni du parent 3c5e67e9 : « demain » c'est aujourd'hui, la fatigue et la date, le temps passé à éviter, se tester sur ce qui tombe en premier (place micabo, slide 5), pas de case « pas envie » sur le bulletin, commencer mal mais commencer. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ddfab895",
+      "texte_overlay": "toxic reminders for the days\nyou really don't feel like studying",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "de689465",
+      "texte_overlay": "yesterday you said \"tomorrow\".\nthis IS tomorrow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "decdd6ed",
+      "texte_overlay": "tired is a feeling.\nthe deadline is a date.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e1e736ea",
+      "texte_overlay": "you've already spent more time avoiding it\nthan doing it would take.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "37ca0afe",
+      "texte_overlay": "quiz yourself on what's due first.\nthe panic shrinks once you know where you stand.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e2e431c7",
+      "texte_overlay": "your report card has no box for\n\"i didn't feel like it\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e40f5f41",
+      "texte_overlay": "start badly. start anyway.\nfixing beats waiting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

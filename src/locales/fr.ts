@@ -3767,6 +3767,10 @@ export const fr = {
       compteAjoute: "Compte @{handle} ajouté.",
       compteAjouteJob:
         "Compte @{handle} ajouté — scrape + scores + nettoyage lancés en arrière-plan (voir logs ci-dessous).",
+      compteAjouteFile:
+        "@{{handle}} ajoutée : son profil part tout de suite dans la file des mises à jour, une source à la fois (suivi dans « Mettre à jour les sources »).",
+      compteAjouteAttente:
+        "@{{handle}} ajoutée : une mise à jour tourne déjà, son profil partira en tête du prochain lot (le lendemain à 6 h 37).",
       importJobLance:
         "Import lancé côté serveur — tu peux changer de page ou quitter le site, ça continue.",
       jobsTitre: "Imports en cours",
@@ -3834,7 +3838,7 @@ export const fr = {
         "Rattrape tout ce qui manque sur ce compte : les nouveaux TikToks, mais aussi ceux qu'un import précédent avait laissés de côté. Ce qui est déjà en stock n'est pas ré-importé.",
       updateLance: "Mise à jour lancée — rattrapage des slideshows manquants (voir logs).",
       lundi: {
-        titre: "Lundi : mise à jour des sources",
+        titre: "Mise à jour hebdomadaire des sources",
         description:
           "Chaque lundi à 6 h, l'OS retient les sources dont les posts font mieux que la médiane de nos comptes (r au-dessus de 1, ou au-dessus de leur label), celles qui ont eu un post à 100 000 vues ou plus dans le mois, et les sources neuves (moins de 5 posts mesurés). Elles sont mises à jour par lots de 6 par jour, une à la fois, pour ne pas charger la base. Les autres attendent le lundi suivant. Seuls les posts publiés depuis le dernier relevé sont importés.",
         jamais: "Pas encore de mise à jour du lundi.",

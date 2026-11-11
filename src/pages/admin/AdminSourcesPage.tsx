@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/card";
 import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
+  ajouterSourceALaFile,
   apercuOubliSource,
   creerSource,
   labelsDeLaSource,
@@ -1093,13 +1094,10 @@ function FormAjoutSource({ niches, onFermer }: { niches: NicheLabel[]; onFermer:
           langue,
         });
         await setLabelsSource(cree.id, [nicheId]);
-        // Scrape + pipeline en arrière-plan — la page reste utilisable.
-        demarrerImportCompte({
-          compteReferenceId: cree.id,
-          handle: cree.handle_tiktok,
-          langue,
-        });
-        return { kind: "compte" as const, handle: cree.handle_tiktok };
+        // 0669 : l'extraction passe par la file des mises à jour (une source à
+        // la fois), pas en parallèle du reste.
+        const file = await ajouterSourceALaFile(cree.id);
+        return { kind: "compte" as const, handle: cree.handle_tiktok, file };
       }
 
       const lien = url.trim();
@@ -1115,7 +1113,9 @@ function FormAjoutSource({ niches, onFermer }: { niches: NicheLabel[]; onFermer:
     },
     onSuccess: (r) => {
       if (r.kind === "compte") {
-        setMessage(t("sources.compteAjouteJob", { handle: r.handle }));
+        setMessage(
+          t(r.file === "lancee" ? "sources.compteAjouteFile" : "sources.compteAjouteAttente", { handle: r.handle }),
+        );
         setHandle("");
       } else {
         setMessage(t("sources.importJobLance"));

@@ -3761,6 +3761,10 @@ export const en = {
       compteAjoute: "Account @{handle} added.",
       compteAjouteJob:
         "Account @{handle} added — scrape + scores + cleaning started in the background (see logs below).",
+      compteAjouteFile:
+        "@{{handle}} added: its profile goes straight into the update queue, one source at a time (follow it in “Update sources”).",
+      compteAjouteAttente:
+        "@{{handle}} added: an update is already running, its profile will lead the next batch (next morning at 6:37).",
       importJobLance:
         "Import started in the background — the page stays usable. Follow the logs below.",
       jobsTitre: "Imports in progress",
@@ -3828,7 +3832,7 @@ export const en = {
         "Catches up on everything missing for this account: new TikToks, but also those an earlier import left behind. Anything already in stock is not re-imported.",
       updateLance: "Update started — catching up on missing slideshows (see logs).",
       lundi: {
-        titre: "Monday: sources update",
+        titre: "Weekly sources update",
         description:
           "Every Monday at 6 am, the OS keeps the sources whose posts beat our accounts' median (r above 1, or above their label), those with a post at 100,000 views or more this month, and new sources (fewer than 5 measured posts). They are updated in batches of 6 a day, one at a time, to keep the database load low. The others wait for the next Monday. Only posts published since the last scrape are imported.",
         jamais: "No Monday update yet.",

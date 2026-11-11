@@ -409,6 +409,16 @@ export async function sourcesDeLaSemaine(): Promise<SemaineSources | null> {
   };
 }
 
+/**
+ * Une source ajoutée passe par la file des mises à jour (0669) : lancée tout de
+ * suite si rien ne tourne, sinon en tête du lot suivant (6 h 37).
+ */
+export async function ajouterSourceALaFile(compteReferenceId: string): Promise<"lancee" | "attente"> {
+  const { data, error } = await supabase.rpc("maj_sources_ajouter", { p_compte: compteReferenceId });
+  if (error) throw error;
+  return (data as { file?: string } | null)?.file === "lancee" ? "lancee" : "attente";
+}
+
 export async function majSource(id: string, patch: Partial<CompteReference>): Promise<void> {
   const { error } = await supabase.from("comptes_reference").update(patch).eq("id", id);
   if (error) throw error;

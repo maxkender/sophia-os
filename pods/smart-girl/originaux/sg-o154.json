@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o154",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e9614f13-fbac-45f1-84fb-9d9d88edfc5f",
+ "titre": "the languages i'd learn if i could start over #languages #languagelearning #smartgirl #polyglot #culture",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "9b8afb1c-e7bf-4ee2-8c5c-5b68e9fe96ad"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 2 de la boîte (parent e9614f13, langue source en) : accroche reformulée (« 6 languages that open doors most people overlook » → « the languages i'd learn if i could start over »), troisième et dernière déclinaison du parent, autre que sg-o129 et sg-o139. Langues (japonais, coréen, russe, hindi). Faits vérifiés : trois écritures en japonais ; alphabet hangul créé au XVe siècle ; l'alphabet cyrillique russe a 33 lettres ; le hindi s'écrit en devanagari. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "468a255d",
+   "texte_overlay": "the languages i'd learn if i\ncould start over",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7dabaacf",
+   "texte_overlay": "1. japanese\n\nthree writing systems\nin one sentence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e1382ac7",
+   "texte_overlay": "2. korean\n\nits alphabet was invented\nin the 15th century.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f9ec957e",
+   "texte_overlay": "the secret? the culture first.\na little history makes\nevery word stick.",
+   "texte_sophia": "the secret? the culture first.\ni learn it in 5 minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fd937008",
+   "texte_overlay": "3. russian\n\n33 letters, and the novels\nof tolstoy in the original.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f2c6401c",
+   "texte_overlay": "4. hindi\n\nwritten in the beautiful\ndevanagari script.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "73e02266",
+   "texte_overlay": "which one would you choose?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/7.jpg"
+  }
+ ]
+}

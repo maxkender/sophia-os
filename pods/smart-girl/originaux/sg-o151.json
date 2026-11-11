@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o151",
+ "type_bleo": "full_test",
+ "titre": "compliments people remember for years #compliments #kindness #smartgirl #socialskills #conversation",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta B. Full test 3/4 (la jauge en demande 4 sur 13) : accroche jamais faite chez nous (« compliment » absent des accroches de donnees/label.json). Accroches écrites : « compliments people remember for years » (retenue : gentillesse, concret, partageable), « how to give a real compliment » (écartée : cours), « things to say instead of you look nice » (écartée : format liste de mots déjà fait). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f1732532",
+   "texte_overlay": "compliments people remember\nfor years",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4be35a2a",
+   "texte_overlay": "\"you always make people\nfeel welcome\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "52bd3a4d",
+   "texte_overlay": "\"i love how you explain things\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a73ac782",
+   "texte_overlay": "\"you always have the best stories\"\n\nthe secret? a little culture\nevery day.",
+   "texte_sophia": "\"you always have the best stories\"\n\nmy secret: 5 minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bf36c2b6",
+   "texte_overlay": "\"you have great taste in books\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a4b3cc93",
+   "texte_overlay": "\"i trust your opinion\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "62c1adbb",
+   "texte_overlay": "\"you make hard things\nlook easy\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9d8381f5",
+   "texte_overlay": "send one of these today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

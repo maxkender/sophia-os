@@ -1,0 +1,251 @@
+{
+ "post_id": "original-076",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour réveiller ton cerveau",
+     "texte": "how to fall back in love with learning"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(approuvé par la science)",
+     "texte": "(after school ruined it)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things by hand"
+     ],
+     "fr": "écris tout [[à la main]]",
+     "texte": "learn with [[no grades]]"
+    },
+    "T2": {
+     "en": [
+      "typing your notes feels faster, but your brain",
+      "barely has to work"
+     ],
+     "fr": "taper tes notes, ça va plus vite, mais [[ton cerveau bosse à peine]]",
+     "texte": "at school, learning always ended with a test, a score and [[a red pen]]"
+    },
+    "T3": {
+     "en": [
+      "writing by hand makes",
+      "you slow down and",
+      "process every idea",
+      "before it hits the page"
+     ],
+     "fr": "écrire à la main te force à [[ralentir et assimiler]] chaque idée avant de la poser",
+     "texte": "now pick something just because you're curious and fill a notebook [[nobody will ever grade]]"
+    },
+    "T4": {
+     "en": [
+      "it's proven to help you remember more and understand",
+      "things better than typing"
+     ],
+     "fr": "c'est [[prouvé]], tu [[retiens plus]] et tu comprends mieux qu'au clavier",
+     "texte": "no deadline, no exam, no wrong answer, so [[the fun part comes back]] on its own"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "ask why all the time"
+     ],
+     "fr": "demande [[pourquoi]] H24",
+     "texte": "go down [[a rabbit hole]]"
+    },
+    "T2": {
+     "en": [
+      "most people accept the",
+      "first answer they hear"
+     ],
+     "fr": "la plupart gobent la première réponse venue",
+     "texte": "start with one tiny question: why is the sea salty?"
+    },
+    "T3": {
+     "en": [
+      "kids ask why all day, then",
+      "we just stop"
+     ],
+     "fr": "les gosses font que ça, puis on [[arrête]]",
+     "texte": "as a kid you did this [[all day long]]"
+    },
+    "T4": {
+     "en": [
+      "curiosity is proven to help",
+      "your brain remember",
+      "what you learn"
+     ],
+     "fr": "c'est [[prouvé]] : la curiosité aide ton cerveau à [[retenir ce que t'apprends]]",
+     "texte": "one answer opens a new question, and an hour later [[you're hooked]]"
+    },
+    "T5": {
+     "en": [
+      "next time you don't understand something, keep",
+      "asking until you do"
+     ],
+     "fr": "la prochaine fois que tu piges pas un truc, [[redemande jusqu'à piger]]",
+     "texte": "no syllabus, no plan, just [[your own curiosity]] leading the way"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "a lesson that [[feels like a story]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "homework felt like a chore because [[you had no choice]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "a good story makes you want the next chapter, so you remember what came before without trying"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "i still reach for my phone [[way too often]]"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "today's 5 min lesson: why the renaissance began in italy, on [[the Sophia app]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "see your friends in real life"
+     ],
+     "fr": "vois tes potes [[en vrai]]",
+     "texte": "learn something [[with a friend]]"
+    },
+    "T2": {
+     "en": [
+      "most nights you scroll because you're",
+      "bored or lonely, not because it's fun"
+     ],
+     "fr": "la plupart des soirs, tu scrolles par [[ennui ou solitude]], pas parce que c'est fun",
+     "texte": "remember the best classes? it was never the subject, it was [[who sat next to you]]"
+    },
+    "T3": {
+     "en": [
+      "watching their stories and",
+      "sending memes isn't the",
+      "same"
+     ],
+     "fr": "liker leurs stories et s'envoyer des memes, [[c'est pas pareil]]",
+     "texte": "pick a topic together and [[swap what you found]] each week"
+    },
+    "T4": {
+     "en": [
+      "make plans, go for food,",
+      "do anything offline",
+      "together"
+     ],
+     "fr": "prévois un truc, un resto, n'importe quoi [[ensemble, sans écran]]",
+     "texte": "a museum, a documentary, [[a long talk over coffee]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to juggle"
+     ],
+     "fr": "apprends à [[jongler]]",
+     "texte": "[[useless]] is fine"
+    },
+    "T2": {
+     "en": [
+      "scientists found that people who learned to juggle",
+      "grew more grey matter in just a few months"
+     ],
+     "fr": "des chercheurs ont montré qu'apprendre à jongler [[augmente la matière grise]] en quelques mois",
+     "texte": "how octopuses think, why cats purr, how to juggle: none of it will ever be on a test"
+    },
+    "T3": {
+     "en": [
+      "your brain physically",
+      "changes when you",
+      "learn a new skill"
+     ],
+     "fr": "ton cerveau [[change physiquement]] quand t'apprends un truc",
+     "texte": "that's exactly why it's fun: [[nothing is at stake]]"
+    },
+    "T4": {
+     "en": [
+      "and it's a fun one to",
+      "practice with friends!!"
+     ],
+     "fr": "et en plus c'est fun à faire [[entre potes]] !!",
+     "texte": "and the joy of learning [[sneaks back in]]!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

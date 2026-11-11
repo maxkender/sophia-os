@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o218",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "10a7aedf-94ad-470f-b5a0-604049ed40b7",
+ "titre": "7 Social Hacks That Feel Like Cheating #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "10a7aedf-94ad-470f-b5a0-604049ed40b7"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 660368c5. déclinaison G1 de la ligne 9 de la boîte (10a7aedf, @stonemag.co, en 11,4 k) : accroche du parent mot pour mot (casse du parent gardée). La ligne 8 (« Rodiculously Social ») est sautée : faute de frappe dans l'accroche. Situations neuves, aucune reprise du parent ni de nos decks social hacks. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "660368c5",
+   "texte_overlay": "7 Social Hacks That Feel\nLike Cheating",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "When you walk into a party where you know nobody, offer to help the host. Carrying drinks or handing out plates gives you a reason to talk to everyone.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "When someone gives you a compliment, don't deflect it. Just smile and say \"Thank you, that's kind.\" Accepting it gracefully makes you look confident.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "When a group chat goes quiet after you suggest a plan, pick a date yourself. \"Saturday at 7, I'll book.\" Clear decisions get people to show up.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "When you meet someone's partner for the first time, ask how they met. Couples love telling that story, and it instantly makes you feel like an old friend.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "When the conversation stalls, share a surprising fact. I do five minutes a day of history, art or science, so I always have something that gets people talking.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a surprising fact that gets people talking.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "When you need a favour from a busy person, make it tiny and specific. \"Could you look at one slide for two minutes?\" Small asks get fast yeses.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "When you're late, don't over-explain. \"Sorry I'm late, thanks for waiting.\" A short, sincere apology is better than five minutes of excuses.",
+   "media_id": "9e66209e"
+  }
+ ]
+}

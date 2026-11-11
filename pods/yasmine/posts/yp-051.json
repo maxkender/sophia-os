@@ -1,0 +1,534 @@
+{
+ "id": "yp-051",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7668360450555333910",
+  "vues": 77400,
+  "enregistrements": 3462,
+  "publie_le": "2026-07-30",
+  "titre": "OLDER SISTER ADVICE from a 20-year-old"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3bfa28e0-1dd5-4d3c-9b26-6aaec4c86ffb",
+ "titre": {
+  "fr": "ce que ma grande sœur m’a dit avant mon bac",
+  "es": "lo que me dijo mi hermana mayor antes de selectividad",
+  "tr": "ablamın sınavdan önce söyledikleri"
+ },
+ "legendes": {
+  "fr": "elle avait raison sur tout 🤍 #bac #terminale #studytok #thatgirl #conseils",
+  "es": "tenía razón en todo 🤍 #selectividad #bachillerato #studytok #thatgirl #consejos",
+  "tr": "her konuda haklıymış 🤍 #yks #sınav #studytok #thatgirl #tavsiye"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7640939101746727711"
+ },
+ "fond": {
+  "media_id": "12fc9cd0-9557-40e5-ace4-ba259dc38c25",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/cc6eefa4-31a3-47aa-96a4-c0607b05dffe/3.jpg?v=1790606728785",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-018 (« conseils de grande sœur pour ton année de bac », gagnante : 10,8 k en es, r 8,77), 3e sur 3 : même promesse reformulée, autres conseils et autres photos. cta C : la mise en scène iPhone micabo en moitié basse d’un collage, conseil « pause quiz entre deux matières » + micabo dans la sous-légende",
+ "slides": [
+  {
+   "type": "couverture",
+   "photo": {
+    "media_id": "12fc9cd0-9557-40e5-ace4-ba259dc38c25",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/cc6eefa4-31a3-47aa-96a4-c0607b05dffe/3.jpg?v=1790606728785",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "c767275f-59f2-4013-962a-ca2f3beae17c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/82048053-2cd3-46ee-a81c-9b8f9c429e6b/3.jpg?v=1791725367747",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CE QUE MA",
+      "GRANDE SŒUR",
+      "M’A DIT"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "avant mon bac (et elle avait raison)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LO QUE ME",
+      "DIJO MI",
+      "HERMANA MAYOR"
+     ],
+     "taille": 108,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "antes de selectividad (y tenía razón)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ABLAMIN",
+      "SINAVDAN ÖNCE",
+      "SÖYLEDİKLERİ"
+     ],
+     "taille": 108,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "(ve haklıymış)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a93ac413-3a08-43c2-b691-2eface73b0f7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55376335-ad2b-47dc-8aa1-03b3d6241fce/2.jpg?v=1791725327896",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "1fbd312c-6418-4b51-8def-c7c5b4421e43",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/89eda4c1-e4a2-465e-a7b8-f1caf204194f/5.jpg?v=1792601239414",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "fais-toi un planning,",
+      "même imparfait."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un plan suivi à moitié vaut mieux que pas de plan."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "hazte un planning,",
+      "aunque no sea perfecto."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un plan seguido a medias es mejor que ningún plan."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "kendine bir plan yap,",
+      "mükemmel olmasa da."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "yarım uygulanan plan, hiç plan olmamasından iyidir."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "aa747013-5684-41f3-a84c-fdc96cd3798f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1037f86d-f0c1-49c6-9636-3b8edd403563/2.jpg?v=1790612526639",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.85
+    }
+   },
+   "photo_bas": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.45
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "fais une pause quiz",
+      "entre deux matières."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "je mets mes cours dans micabo : 5 questions,",
+      "et je sais si je peux passer à la suite."
+     ],
+     "taille_sous": 26
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "haz una pausa de quiz",
+      "entre dos asignaturas."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "meto mis clases en micabo: 5 preguntas,",
+      "y sé si puedo pasar a lo siguiente."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "iki ders arasında",
+      "test molası ver."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "derslerimi micabo’ya koyuyorum: 5 soru,",
+      "ve sonrakine geçebilir miyim, anlıyorum."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "03374b2e-ed56-48b3-9593-a2a107eafbc9",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8cdf6dcc-9f7a-4ee3-87c2-e31a0c55276d/4.jpg?v=1791726237990",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "2a775c2f-69a4-48f5-ba31-d8977c7de8e0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/67928145-d056-4797-8b41-855840be1819/1.jpg?v=1791725458389",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ne laisse tomber",
+      "aucune matière."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "même celle que tu détestes : chaque point compte."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "no abandones",
+      "ninguna asignatura."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "ni la que odias: cada punto cuenta."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hiçbir dersi",
+      "bırakma."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "sevmediğin dersi bile: her puan önemli."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "d4f07cbb-9f18-4def-9980-af21306d5211",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/100f7526-0160-4485-ab0a-eaa1512c7d8a/6.jpg?v=1792601524075",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "4ee44fde-123a-4b7e-a800-2ed6762ebc78",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3839cbaa-0cf4-4dd4-b75f-627c620d62f5/5.jpg?v=1790680109014",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "garde des soirées",
+      "sans révisions."
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un vendredi off par semaine, sans culpabiliser."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "guarda noches",
+      "sin estudiar."
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un viernes libre a la semana, sin culpa."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "ders çalışmadığın",
+      "akşamlar bırak."
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "haftada bir cuma izin, suçluluk duymadan."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "da10f285-210d-4f6f-8e5e-20148e0b36fb",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/82048053-2cd3-46ee-a81c-9b8f9c429e6b/6.jpg?v=1791725481692",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "2c1b0fe4-e35f-4b87-b426-53a7d7dad070",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f0b9f2be-82e6-479b-9ce3-f1fa98bc746e/5.jpg?v=1792602062454",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "prépare tes affaires",
+      "la veille."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "convocation, stylos, eau : zéro stress le matin."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "prepara tus cosas",
+      "la noche antes."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "documentos, bolis, agua: cero estrés por la mañana."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "eşyalarını",
+      "bir gece önceden hazırla."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "sınav belgesi, kalemler, su: sabah sıfır stres."
+     ],
+     "taille_sous": 28
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3389a136-ff4b-46db-b7ee-98c749f72ca3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/10e11aef-bea5-424e-b491-e551dad686ea/3.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "photo_bas": {
+    "media_id": "8d86cc9d-c512-4e1a-88e2-897929c62ad1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d0c63b00-37af-4e67-9205-49615aa515f4/3.jpg?v=1790679400736",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "crois en toi",
+      "plus qu’en tes notes."
+     ],
+     "x": 540,
+     "y": 1300,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "le jour J, tout peut encore changer."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "confía en ti",
+      "más que en tus notas."
+     ],
+     "x": 540,
+     "y": 1300,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "el día del examen, todo puede cambiar."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "notlarına değil,",
+      "kendine güven."
+     ],
+     "x": 540,
+     "y": 1300,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "sınav günü her şey değişebilir."
+     ],
+     "taille_sous": 28
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

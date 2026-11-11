@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o140",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5a3b1b6b-a274-4898-865e-c445db110291",
+  "titre": "i'm already so behind, what's even the point of starting now? (i was behind too) #studytok #motivation",
+  "inspirations": [
+    "5a3b1b6b-a274-4898-865e-c445db110291"
+  ],
+  "notes": "G1, déclinaison de 5a3b1b6b (« i'm already so behind, what's even the point of starting now? (i was behind too) », génération 0 en anglais ; meilleur passage de 4,2 k vues, r 3,76), en anglais. cta A (avant / après sur le dernier item). Accroche recopiée telle que la boîte la normalise (« i m already so behind what s even the point of starting now i was behind too »), seule la ponctuation est ajoutée. Items neufs, ton rassurant, aucune autre appli. Routine du 11/11 sur BLEO : jauge 2 full tests et 6 déclinaisons (lignes 1 à 6 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "i'm already so behind,\nwhat's even the point of starting now?\n(i was behind too)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "\"i don't even know where to start.\"\n\nstart with the next class.\nnot the first one you missed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "\"it's too late to get a good grade.\"\n\nmaybe. but it's never too late\nto get a better one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "62e25601",
+      "texte_overlay": "\"everyone else understands it.\"\n\nhalf of them are just as lost.\nask the question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "\"i don't have enough time.\"\n\nthirty minutes a day, every day.\nit adds up faster than you think.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "114ca47c",
+      "texte_overlay": "\"i'm just not a school person.\"\n\nbefore, i thought i wasn't curious.\nnow i learn one new thing every morning. and school feels lighter.",
+      "texte_sophia": "\"i'm just not a school person.\"\n\nbefore, i thought i wasn't curious.\nnow i open the Sophia app every morning. and school feels lighter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "save this for the next time you feel behind.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

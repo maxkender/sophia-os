@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o188",
+ "type_bleo": "full_test",
+ "titre": "things emotionally intelligent people never say out loud #emotionalintelligence #psychology #socialskills #selfimprovement #communication",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "2270832d-a014-4226-8bd2-d93b7d026920"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 2270832d). full test BLEO : accroche jamais faite (format « things X people never say »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "781eabff-6477-420b-a2f6-f24c61a78f95",
+   "texte_overlay": "things emotionally intelligent\npeople never say out loud",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6f8214f1-093a-46ec-8419-e089fda217a4",
+   "texte_overlay": "calm down\n\nthey never tell an upset person to calm down. they ask what happened and listen instead, because feeling heard is what actually helps someone settle again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8fc70692-d01c-4fe9-9ebe-0054a88ea83b",
+   "texte_overlay": "i told you so\n\nthey never rub it in when they were right. they help fix the problem instead, because being kind matters far more to them than winning a small argument.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e239827b-0e33-4f01-9b5e-62a9d7da6420",
+   "texte_overlay": "that's boring\n\nthey never call someone's passion boring. they ask one curious question about it, and learning a little about everything makes that so much easier to do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/4.jpg",
+   "texte_sophia": "that's boring\n\ni spend 5 minutes a day learning a little about everything: a planet, a painting, a myth. i do it with the Sophia app, and i always have one curious question ready for anyone."
+  },
+  {
+   "position": 5,
+   "media_id": "8172a31f-83ae-42b9-87a7-419b0cdea9ff",
+   "texte_overlay": "you always do this\n\nthey never use always or never in an argument. they talk about the one moment that hurt, which keeps the conversation fair and makes it much easier to fix things.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "71463f55-89b0-4b3a-9e35-f25123761bee",
+   "texte_overlay": "it's not a big deal\n\nthey never decide for others what should hurt. they accept that people feel things differently and simply say they understand, even when they don't feel the same.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657876880472804630/6.jpg"
+  }
+ ]
+}

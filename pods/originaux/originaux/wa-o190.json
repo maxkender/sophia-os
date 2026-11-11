@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o190",
+ "type_bleo": "full_test",
+ "titre": "what your daily habits say about your personality #personality #psychology #habits #selfimprovement #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "b3df0deb-11c0-49cb-a3d1-4d6b7629b3d1"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, b3df0deb). full test BLEO : accroche jamais faite (format « what your X says about you »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "363cbfc4-34b6-4d39-a40c-1853bb968570",
+   "texte_overlay": "what your daily habits\nsay about your personality",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "291bc28a-8413-4b80-a306-42ff87c0e7e8",
+   "texte_overlay": "you make lists\n\npeople who write lists like to feel in control of their days. it often means you're organised, a little anxious and very good at keeping promises to other people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "402fcf7e-f63a-4726-90d9-e5e29e38fd93",
+   "texte_overlay": "you learn for fun\n\npeople who learn for fun are usually open, curious and hard to bore. they keep growing long after school ends, and it shows in how they talk about the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/3.jpg",
+   "texte_sophia": "you learn for fun\n\ni used to stop learning the day exams ended. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and people say i'm so easy to talk to."
+  },
+  {
+   "position": 4,
+   "media_id": "b20c8344-77dd-4d67-9a59-ca93a2c6430e",
+   "texte_overlay": "you walk alone\n\npeople who enjoy solo walks are often reflective and self aware. they're comfortable with their own thoughts, which is a quiet kind of confidence many people lack.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "59ad5904-ed34-4294-8fda-c7f7265e2f93",
+   "texte_overlay": "you're always early\n\npeople who arrive early tend to be considerate and a little cautious. they respect other people's time and they hate the feeling of rushing into a room late.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2bfdae1e-7867-48f4-8d5e-4ab51fb5358a",
+   "texte_overlay": "you rewatch old shows\n\npeople who rewatch the same shows often value comfort and emotional safety. knowing exactly how things end gives a busy, tired mind a little bit of welcome rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664974915556101398/6.jpg"
+  }
+ ]
+}

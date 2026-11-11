@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o155",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ccd0e58e-159b-42f4-8bd3-fd6724769cf4",
+ "titre": "languages with the friendliest grammar for beginners #languages #grammar #smartgirl #languagelearning #learning",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "9b8afb1c-e7bf-4ee2-8c5c-5b68e9fe96ad"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 3 de la boîte (parent ccd0e58e, langue source en) : accroche reformulée (« 5 languages that are easier to learn than you think » → « languages with the friendliest grammar for beginners »), troisième et dernière déclinaison du parent (sg-o141, refusée hier, ne compte pas). Langues (swahili, mandarin, persan, turc). Faits vérifiés : le swahili s'écrit comme il se prononce ; pas de conjugaison ni de pluriel en mandarin ; pas de genre grammatical en persan ; le turc est très régulier. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "922a7610",
+   "texte_overlay": "languages with the friendliest\ngrammar for beginners",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ff032af6",
+   "texte_overlay": "1. swahili\n\nwritten exactly the way\nit sounds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "59b49932",
+   "texte_overlay": "2. mandarin\n\nno verb conjugations,\nno plurals.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e735b4b5",
+   "texte_overlay": "3. persian\n\nno grammatical gender.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "313f71fa",
+   "texte_overlay": "4. turkish\n\nvery regular, very few\nexceptions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3dffb8be",
+   "texte_overlay": "swap one scroll a day for\nten words and a little history.",
+   "texte_sophia": "swap one scroll a day for\n5 minutes of culture on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c14df14e",
+   "texte_overlay": "which one would you start?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/7.jpg"
+  }
+ ]
+}

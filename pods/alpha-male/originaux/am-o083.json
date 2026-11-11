@@ -8,7 +8,7 @@
  "inspirations": [
   "3127c35c-4f0c-4da1-bff5-75c0c1c3a1c6"
  ],
- "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 11/11. Déclinaison G1 de la ligne 3 (parent 3127c35c, @millyjhino, langue source en ; meilleurs passages nl 1,2 k, pl 734 r 1,23). Accroche du parent mot pour mot. Format du parent : « N. » puis une phrase longue et douce. Dix phrases neuves, aucune du parent. Ligne 6 (« 9 beautiful quotes ») sautée le même jour : promesse voisine. Images de la banque ; slide Sophia : terrasse sur le lac, sans personne. reference_url du parent (11 slides) vérifiées en 200.",
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 11/11. Déclinaison G1 de la ligne 3 (parent 3127c35c, @millyjhino, langue source en ; meilleurs passages nl 1,2 k, pl 734 r 1,23). Accroche du parent mot pour mot. Format du parent : « N. » puis une phrase longue et douce. Dix phrases neuves, aucune du parent. Ligne 6 (« 9 beautiful quotes ») sautée le même jour : promesse voisine. Images de la banque ; slide Sophia : terrasse sur le lac, sans personne. reference_url du parent (11 slides) vérifiées en 200. Première version refusée (11 slides, 10 au plus) : phrases 9 et 10 réunies sur la dernière slide.",
  "slides": [
   {
    "position": 1,
@@ -67,14 +67,8 @@
   },
   {
    "position": 10,
-   "media_id": "1d6e5f11",
-   "texte_overlay": "9. The place you dream\nabout living already exists,\nand it's waiting.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/10.jpg"
-  },
-  {
-   "position": 11,
    "media_id": "20fdd9cd",
-   "texte_overlay": "10. The man you'll be at 40\nis watching you right now,\nhoping you don't quit.",
+   "texte_overlay": "9. The place you dream\nabout living already exists.\n\n10. The man you'll be at 40\nis watching you right now,\nhoping you don't quit.",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/11.jpg"
   }
  ]

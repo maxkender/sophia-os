@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o220",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "182aa0aa-589c-4470-98c6-0f25522267a8",
+ "titre": "5 tips to become extremely intelligent #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "182aa0aa-589c-4470-98c6-0f25522267a8"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 1e74acf0. déclinaison G1 de la ligne 12 de la boîte (182aa0aa, de 20,4 k) : accroche du parent mot pour mot. Le parent a 5 conseils, le deck en a 7 (5 conseils, Sophia, conclusion). Items neufs, aucun repris du parent (communication, écriture, esprit critique, progrès, solitude). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e74acf0",
+   "texte_overlay": "5 tips to become\nextremely intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Tip 1: learn how things work, not just what they are. Engines, economies, the human body. Understanding systems makes you sharper in every area of life.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Tip 2: argue against your own opinions. Once a week, find the best argument for the side you disagree with. Real intelligence is seeing the whole picture.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Tip 3: spend time with people smarter than you. Ask them questions, listen, take notes. Being the least knowledgeable person in the room is how you grow fastest.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Tip 4: explain things out loud. Teach a friend what you learned this week. If you can explain it clearly and simply, you truly understand it.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Tip 5: learn a little every single day. I do five minutes a day of history, art or science, and small daily lessons add up to a seriously sharper mind.",
+   "texte_sophia": "Tip 5: learn a little every day. I do five minutes a day on a micro-learning app like the Sophia app. Small daily lessons add up to a seriously sharper mind.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Bonus: protect your sleep. Your brain sorts and stores everything you learned while you sleep. Seven or eight hours is the easiest intelligence upgrade there is.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Intelligence isn't a gift you have or don't. It's a habit you build. Pick one tip today, and keep it going for a month. You'll notice the difference.",
+   "media_id": "d0802c6e"
+  }
+ ]
+}

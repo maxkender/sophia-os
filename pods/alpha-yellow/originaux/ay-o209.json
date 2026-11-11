@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o209",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man's week feel twice as productive #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 39a6fb6a. full test. Accroche jamais faite chez nous : productivité hebdomadaire, concret. Accroches écrites : « Things that make a man's week feel twice as productive » (retenue), « Productivity habits of busy men » (écartée : cliché), « How to get more done in less time » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "39a6fb6a",
+   "texte_overlay": "Things that make a man's\nweek feel twice as productive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Plan the week on Sunday in ten minutes. Three main goals, the key appointments, the training days. A week with a plan feels calm instead of chaotic.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Batch the boring tasks. Emails twice a day, errands on one afternoon, calls back to back. Grouping small jobs saves hours of switching between them.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Do the hardest thing before lunch. Your focus is strongest in the morning. Use it for the one task you'd otherwise keep pushing to tomorrow.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Say no to one meeting a week. Ask \"Do you need me there, or can I read the notes?\" Protected time is where your real work actually gets done.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: busy all week, little to show for it. After: five minutes a day of history, art or science, and a clearer mind that knows what really matters.",
+   "texte_sophia": "Before: busy all week, little to show for it. After: five minutes a day on a micro-learning app like the Sophia app. Now my mind knows what really matters.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Move your body daily. A run, a walk, a short workout. Movement clears your head and gives you fresh energy for the second half of the day.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Review on Friday. Five minutes: what got done, what didn't, what to change. Small weekly reviews make every week a little better than the last.",
+   "media_id": "26e760de"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o211",
+ "type_bleo": "full_test",
+ "titre": "How to make friends as an adult man #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "6ffbc208-4cc1-4373-b7ea-01766cc96e62"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 3c7793bd. full test. Accroche jamais faite chez nous : l'amitié adulte, concret (différent de « friendship lessons » et « ridiculously social »). Accroches écrites : « How to make friends as an adult man » (retenue), « Why men lose friends after 30 » (écartée : alarmiste), « Making friends after college » (écartée : étroit).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c7793bd",
+   "texte_overlay": "How to make friends\nas an adult man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Turn acquaintances into friends with one invitation. The guy from the gym, the neighbour, the colleague you like. \"Want to grab a beer Friday?\" is all it takes.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Join something that repeats. A sports team, a climbing gym, a weekly class. Friendship needs repeated contact, and regular activities give you that for free.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Be the one who organises. Most men wait to be invited. Plan the poker night, the hike, the barbecue. People love the friend who makes things happen.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Share something real after a few meetings. A worry, a goal, a story about your family. A little openness turns a casual friend into a real one.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. You'll always bring something interesting to the table, and people will want you around.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. You'll always bring something interesting to the table.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Follow up between meetings. A funny meme, \"How did the interview go?\", a birthday message. Small, regular contact keeps the friendship warm between meetings.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be patient. Adult friendships take time, often months. Keep showing up, and slowly the guy you met at the gym becomes the friend you call first.",
+   "media_id": "a75b8832"
+  }
+ ]
+}

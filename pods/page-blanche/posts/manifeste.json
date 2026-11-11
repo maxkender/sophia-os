@@ -3072,6 +3072,33 @@
    },
    "notes": "full test BLEO (retrouver le goût d'apprendre); cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-hobbies-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7704751322830064929?variante=var-hobbies-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#hobbies #getsmarter #brainhealth",
+   "musique": {
+    "titre": "hold the line",
+    "auteur": "drifting.",
+    "original": false,
+    "id": "7694570671943534599",
+    "url_tiktok": "https://www.tiktok.com/music/x-7694570671943534599"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7704751322830064929_1",
+    "2": "7691007701127564576_6",
+    "3": "7691007701127564576_5",
+    "4": "7697728269335924001_2",
+    "5": "7698667830635400470_4",
+    "6": "7697728269335924001_6"
+   },
+   "notes": "déclinaison G1 de 7704751322830064929 (variante de 7704751322830064929); cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "c6662ec7-4334-4276-93dd-b8816916ed2c"
   }
  ]
 }

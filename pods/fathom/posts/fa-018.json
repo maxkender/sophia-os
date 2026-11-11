@@ -11,14 +11,18 @@
   "de": "10/10 Skills, die du vor 30 lernen solltest",
   "pt": "10/10 habilidades para aprender antes dos 30",
   "it": "10/10 abilità da imparare prima dei 30 anni",
-  "es-419": "10/10 habilidades para aprender antes de los 30"
+  "es-419": "10/10 habilidades para aprender antes de los 30",
+  "fr": "10/10 compétences à apprendre avant 30 ans",
+  "es": "10/10 habilidades que aprender antes de los 30"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #skills #learnontiktok #selfimprovement",
   "de": "10/10 Skills, die du vor 30 lernen solltest #skills #lernenmittiktok #selbstverbesserung",
   "pt": "10/10 habilidades para aprender antes dos 30 #habilidades #aprendernotiktok #desenvolvimentopessoal",
   "it": "10/10 abilità da imparare prima dei 30 anni #imparacontiktok #crescitapersonale #abilità",
-  "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades"
+  "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "10/10 compétences à apprendre avant 30 ans #apprendresurtiktok #développementpersonnel #compétences",
+  "es": "10/10 habilidades que aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades"
  },
  "musique": {
   "titre": "original sound",
@@ -113,6 +117,42 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES",
+     "À APPRENDRE",
+     [
+      {
+       "t": "AVANT 30 ANS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     "PARA APRENDER",
+     [
+      {
+       "t": "ANTES DE LOS 30",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -187,6 +227,36 @@
      "titre": "¿Cómo CREAR un PRESUPUESTO PERSONAL? | Guía Completa",
      "chaine": "Andres Garza",
      "vues": "137 k vistas",
+     "date": "hace 4 años",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/cIr0soR9lJgvp54ZznA6CwRpN9Nd09_OiIMjaAI_F_--5qraoZp-W0aOPEKSdu_noRZD4cUgEA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "GÈRE",
+     "TON BUDGET"
+    ],
+    "video": {
+     "id": "ACsP1ulY8zs",
+     "titre": "COMMENT GÉRER SON BUDGET FACILEMENT ? (règle du 50/30/20)",
+     "chaine": "Rachel Finance",
+     "vues": "358 k vues",
+     "date": "il y a 4 ans",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/7xH1wAfJ_cfpOivjA1LYIQ-gU_mEFImNNW93_mwsKk1lNBPwLKWEP4VreOaTe8KLrYvJsafxJg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ UN",
+     "PRESUPUESTO"
+    ],
+    "video": {
+     "id": "f2O4Q-T12FI",
+     "titre": "¿Cómo CREAR un PRESUPUESTO PERSONAL? | Guía Completa",
+     "chaine": "Andres Garza",
+     "vues": "137 K visualizaciones",
      "date": "hace 4 años",
      "duree": "13:46",
      "avatar": "https://yt3.ggpht.com/cIr0soR9lJgvp54ZznA6CwRpN9Nd09_OiIMjaAI_F_--5qraoZp-W0aOPEKSdu_noRZD4cUgEA=s176-c-k-c0x00ffffff-no-rj"
@@ -269,6 +339,36 @@
      "duree": "9:02",
      "avatar": "https://yt3.ggpht.com/SpCnWtGCgzS65JJTetZqeVuZJ8u3s2e9JyUh_rMT5XR4ncLwIONo8sZn84U_6a4SENq1dG4z9ok=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "PARLE",
+     "EN PUBLIC"
+    ],
+    "video": {
+     "id": "IiDybHUTeMo",
+     "titre": "La Prise de Parole en Public pour les Débutants",
+     "chaine": "La Brève du Manager - Clément Bergon",
+     "vues": "600 k vues",
+     "date": "il y a 6 ans",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mMbXLEDMgsE8Zwt7uc6L6r1kWNEfegZukvNibCOs5QdKI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HABLA EN",
+     "PÚBLICO"
+    ],
+    "video": {
+     "id": "dhQHPjmk0-k",
+     "titre": "10 CONSEJOS para MEJORAR tu oratoria al HABLAR EN PÚBLICO",
+     "chaine": "Fernando Miralles",
+     "vues": "1,1 M de visualizaciones",
+     "date": "hace 4 años",
+     "duree": "13:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKRxIBJIfdJogx8ZfaWord-96w2CQvJiv1Z_At6ZN3iS4=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -336,6 +436,32 @@
      "texte": [
       "lo que abro",
       "en lugar de scrollear."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UN TRUC NOUVEAU",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "ALGO NUEVO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
      ]
     }
    }
@@ -412,6 +538,35 @@
      "date": "hace 4 años",
      "duree": "4:41",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMET0LOuZpFPAx3VVYnhvwFeMr5xJ-Lmn_quEV4LYBhFE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "FAIS UN MASSAGE",
+     "CARDIAQUE"
+    ],
+    "video": {
+     "id": "lKta6hI3lx8",
+     "titre": "Savez-vous faire un massage cardiaque ?",
+     "chaine": "Doctissimo",
+     "vues": "1,4 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/kwtE8Vn8ftjY9h_X-MOFnAfn_Y9_LJh3Z4XgDfZNYi0olO-T97DGnj4zHgiyd-myRauzOQQwXpY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE RCP"
+    ],
+    "video": {
+     "id": "FEayzgNGGBQ",
+     "titre": "2. Primeros Auxilios: RCP (Reanimación cardiopulmonar) en adultos",
+     "chaine": "Cruz Roja en Euskadi - Gurutze Gorria Euskadin",
+     "vues": "1,4 M de visualizaciones",
+     "date": "hace 10 años",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/c8gFOAAPHqPvkYaUVYDGo5NtqYEmdvigbyj-7ZAlVXRGSwU_M_7WaieLULGL1zgRzUcnIUIPAQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -490,6 +645,36 @@
      "date": "hace 3 años",
      "duree": "13:20",
      "avatar": "https://yt3.ggpht.com/TRRbX9TWNo10L8LjxgV-1IRERisth6uwgC1h49O6BnqTJnH2Nm8PIi86ti-obOtSzmsfwpC1EUc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "GÈRE",
+     "TON TEMPS"
+    ],
+    "video": {
+     "id": "fSn2ibGxWwQ",
+     "titre": "Cette Méthode de Travail va EXPLOSER ta Productivité - Time Blocking",
+     "chaine": "Kaizen Lane",
+     "vues": "499 k vues",
+     "date": "il y a 4 ans",
+     "duree": "18:01",
+     "avatar": "https://yt3.ggpht.com/jGRdfMtabenZX9drlx9kReuDIk4IbGx7WAy3WF--AKv8MtOX31HyKyslri-wWHbV3hpgXk5FaYg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "GESTIONA",
+     "TU TIEMPO"
+    ],
+    "video": {
+     "id": "2vXB24qZeIs",
+     "titre": "5 Técnicas para la Gestión del Tiempo en Menos de 5 Minutos",
+     "chaine": "Día Productivo",
+     "vues": "168 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/gp1WyTl_BqychSyQv3WsX5vC1o9kNzSLe3RHKwtrMnP6liqdYS03ECFOHJtElsJa_CPQDAiQ-A=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

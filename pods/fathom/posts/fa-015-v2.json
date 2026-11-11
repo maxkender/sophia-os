@@ -1,0 +1,224 @@
+{
+ "id": "fa-015-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683154739575475478",
+  "vues": 29400,
+  "accroche": "10/10 Skills You Can Learn Based On Your ScreenTime"
+ },
+ "titre": {
+  "en": "10/10 Skills You Can Learn Based On Your ScreenTime",
+  "de": "10/10 Skills, die du mit deiner Bildschirmzeit lernen kannst"
+ },
+ "legendes": {
+  "en": "10/10 Skills You Can Learn Based On Your ScreenTime #screentime #skills #learnontiktok",
+  "de": "10/10 Skills, die du mit deiner Bildschirmzeit lernen kannst #bildschirmzeit #skills #lernenmittiktok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
+ },
+ "notes": "remplace fa-015 (carte UnSwipe retirée). L'étape 1 « FIRST, CUT THE REELS » redevient une étape normale avec sa vraie vidéo YouTube native (xiya chang en anglais, EINFACH LEICHTER en allemand) ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 3). Livré en en et de, comme les autres reprises du chantier.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS YOU CAN LEARN",
+     "BASED ON YOUR",
+     [
+      {
+       "t": "SCREENTIME",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS FÜR DEINE",
+     [
+      {
+       "t": "BILDSCHIRMZEIT",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FIRST,",
+     "CUT THE REELS"
+    ],
+    "video": {
+     "id": "10cEML9ial0",
+     "titre": "so you deleted social media... now what?",
+     "chaine": "xiya chang",
+     "vues": "1.5M views",
+     "date": "8 months ago",
+     "duree": "8:08",
+     "avatar": "https://yt3.ggpht.com/HIt5PegFvEl-1UKGyxdKHIou9H_hjfFnK73rO0HJe_gKxSkB_g_WwX1VcJvVP9R13WskgVsCvp0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ZUERST:",
+     "WEG MIT DEN REELS"
+    ],
+    "video": {
+     "id": "9K3_szOjXUw",
+     "titre": "30 Tage Social Media Detox | & plötzlich hast Du mehr Zeit? | slow living",
+     "chaine": "EINFACH LEICHTER",
+     "vues": "114.279 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "11:57",
+     "avatar": "https://yt3.ggpht.com/ZRVGNPTa4aSYdpBDOcIiWn5J1GF9YCuxiHuZEyFKkDB-sOjbmYqks7q0a9g8CALIMGziRBIZ_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "30 MIN A DAY:",
+     "TOUCH TYPING"
+    ],
+    "video": {
+     "id": "QAb3ATOpBpE",
+     "titre": "How To Type Faster (Tips for every stage 0  - 50 - 100 - 150 WPM)",
+     "chaine": "Mr Chops",
+     "vues": "3.8M views",
+     "date": "3 years ago",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/KUH-ABz1GGHM2AE4B4z5fwmBtP3I1zpx0dZAWoh8eWHuOv8GX9S0w66mbK2qg-B5-mS6LfKr7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "30 MIN AM TAG:",
+     "10-FINGER-SYSTEM"
+    ],
+    "video": {
+     "id": "PaUcSv5DJi8",
+     "titre": "10 Fingersystem Tutorial (Deutsch) – Schnell tippen lernen",
+     "chaine": "simplexstudy",
+     "vues": "227.810 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "7:18",
+     "avatar": "https://yt3.ggpht.com/AzjRjSU5rqcGZmMibIzuytzLVXsYzChugntqegJZTjNneYwIIe_Avs7DM6RSS_8EaPhnfxGNKmM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "5 MIN A DAY:",
+     "A NEW TOPIC"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "5 MIN AM TAG:",
+     "EIN NEUES THEMA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "1 HOUR A DAY:",
+     "A NEW LANGUAGE"
+    ],
+    "video": {
+     "id": "E6588DlZW-c",
+     "titre": "learning a new language is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "4.1M views",
+     "date": "2 years ago",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "1 STUNDE AM TAG:",
+     "EINE NEUE SPRACHE"
+    ],
+    "video": {
+     "id": "lSz8I2JFSCg",
+     "titre": "Wie du schnell jede Sprache lernst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "220.520 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:10",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "2 HOURS A DAY:",
+     "CODING"
+    ],
+    "video": {
+     "id": "I-k-iTUMQAY",
+     "titre": "basics of CODING in 10 minutes",
+     "chaine": "The StudyTube Project",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "15:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUFc-266KgB0hZRVR8FIP7kpGfbdKj2uhLPggNqs8CeQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "2 STUNDEN AM TAG:",
+     "PROGRAMMIEREN"
+    ],
+    "video": {
+     "id": "JG-gofSMWGw",
+     "titre": "PROGRAMMIEREN LERNEN - So startest du!",
+     "chaine": "Programmieren lernen",
+     "vues": "414.889 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "10:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh1hKt9hjsPwNfCgE_3EPrrXuBOJwvL_Kftar4JqIiFw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o208",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9f7c1b20-d6a9-4721-86e6-710112f5f32a",
+ "titre": "les phrases de manager qui m'ont fait comprendre qu'il fallait partir (et comment je m'y suis préparée) #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G1 de la ligne 12 (parent 9f7c1b20), 2e : accroche mot pour mot, cinq autres phrases que le parent et rh-o193. Rien de juridique précis. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01da1eaf",
+   "texte_overlay": "les phrases de manager\nqui m'ont fait comprendre qu'il fallait partir\n(et comment je m'y suis préparée)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a165ff0b",
+   "texte_overlay": "1. « t'as pas le profil pour évoluer »\nsans jamais dire ce qui manquait.\nj'ai demandé par écrit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a20e56e6",
+   "texte_overlay": "2. « on n'a pas besoin de ton avis »\nen réunion, devant tous.\nj'ai noté la date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a67e34bf",
+   "texte_overlay": "3. « tu prendras tes congés plus tard »\npour la 3e fois.\nj'ai posé mes dates par mail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a701908b",
+   "texte_overlay": "4. « t'as qu'à faire des heures sup »\nquand je demandais de l'aide.\nj'ai commencé à chercher ailleurs, le soir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "828c0a8d",
+   "texte_overlay": "5. « personne ne te retient »\nça, je l'ai pris au mot.\nj'ai gardé un truc à moi chaque jour pour tenir : 5 minutes à apprendre",
+   "texte_sophia": "5. « personne ne te retient »\nça, je l'ai pris au mot. et pour tenir, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a7610f4e",
+   "texte_overlay": "une phrase seule n'est rien.\nla répétition, c'est le message",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a80de8a5",
+   "texte_overlay": "si t'en es là, tu n'es pas seule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

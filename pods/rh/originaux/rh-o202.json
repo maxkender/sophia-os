@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o202",
+ "type_bleo": "full_test",
+ "titre": "les 5 petites victoires à fêter quand tu cherches un emploi #rechercheemploi #chomage #motivation #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (les petites victoires de la recherche). Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f2eedb64",
+   "texte_overlay": "les 5 petites victoires à fêter\nquand tu cherches un emploi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8c60db5a",
+   "texte_overlay": "une réponse, même négative\nquelqu'un t'a lue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8c725d70",
+   "texte_overlay": "un premier appel\nt'as passé le tri",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8cc8974d",
+   "texte_overlay": "un entretien où t'as été toi\nmême sans suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7c0c6677",
+   "texte_overlay": "une compétence apprise pendant la recherche\nmême petite. 5 minutes par jour, ça s'accumule",
+   "texte_sophia": "une compétence apprise pendant la recherche\nmême petite. 5 minutes par jour sur l'appli Sophia, ça s'accumule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8d307d82",
+   "texte_overlay": "un message à quelqu'un de ton réseau\nt'as osé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8d9ebb06",
+   "texte_overlay": "chercher un emploi, c'est un travail.\nfête tes progrès",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8e5c3c0d",
+   "texte_overlay": "c'est quoi ta victoire de la semaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o205",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "922dc6af-cdbe-4817-ac61-478055a4fa6d",
+ "titre": "ce qu'il faut répondre quand on te demande ton salaire actuel #salaire #negociation #entretien #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G1 de la ligne 2 (parent 922dc6af, notre rh-o141) : accroche mot pour mot, autre angle (3 réponses selon la situation). Jamais un faux chiffre. Rien de juridique précis. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fb2ee127",
+   "texte_overlay": "ce qu'il faut répondre\nquand on te demande\nton salaire actuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "95a429ad",
+   "texte_overlay": "si tu es bien payée\ndonne le chiffre vrai, et ta fourchette pour la suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "96f2b3f7",
+   "texte_overlay": "si tu es sous-payée\n« je cherche justement un poste mieux aligné. pour celui-ci, je vise X à Y »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "986d5496",
+   "texte_overlay": "si tu sors d'études\n« pour un premier poste, je vise X à Y, selon les missions »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "98d6c670",
+   "texte_overlay": "dans tous les cas\njamais un faux chiffre. ça se vérifie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "814ab817",
+   "texte_overlay": "ce qui t'aide à tenir ta position\nte préparer. mes 3 sources : les offres du secteur, mon réseau, et ce que j'apprends chaque jour",
+   "texte_sophia": "ce qui t'aide à tenir ta position\nte préparer. mes 3 sources : les offres du secteur, mon réseau, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9951a58b",
+   "texte_overlay": "une fourchette dite calmement\nvaut mieux qu'un chiffre bafouillé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9a23041a",
+   "texte_overlay": "on te l'a déjà demandé ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

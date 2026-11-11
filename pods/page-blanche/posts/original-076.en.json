@@ -21,7 +21,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702412215902571809_1.jpg",
+      "boite": [
+       96,
+       413,
+       739,
+       543
+      ]
+     }
+    }
    }
   },
   "2": {
@@ -61,50 +71,55 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703619977630190881_5.jpg",
+      "boite": [
+       57,
+       506,
+       574,
+       383
+      ]
+     }
+    }
    }
   },
   "3": {
    "textes": {
     "T1": {
      "en": [
-      "ask why all the time"
+      "comparing yourself to others"
      ],
-     "fr": "demande [[pourquoi]] H24",
-     "texte": "go down [[a rabbit hole]]"
+     "fr": "te comparer aux autres",
+     "texte": "fall down [[a rabbit hole]] again"
     },
     "T2": {
      "en": [
-      "most people accept the",
-      "first answer they hear"
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
      ],
-     "fr": "la plupart gobent la première réponse venue",
-     "texte": "start with one tiny question: why is the sea salty?"
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "start with one tiny question, like why the sea is salty, and keep going from one answer to the next, the way [[you did as a kid]]"
     },
     "T3": {
      "en": [
-      "kids ask why all day, then",
-      "we just stop"
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
      ],
-     "fr": "les gosses font que ça, puis on [[arrête]]",
-     "texte": "as a kid you did this [[all day long]]"
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "an hour later [[you're still reading]], and it doesn't feel like work"
     },
     "T4": {
      "en": [
-      "curiosity is proven to help",
-      "your brain remember",
-      "what you learn"
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
      ],
-     "fr": "c'est [[prouvé]] : la curiosité aide ton cerveau à [[retenir ce que t'apprends]]",
-     "texte": "one answer opens a new question, and an hour later [[you're hooked]]"
-    },
-    "T5": {
-     "en": [
-      "next time you don't understand something, keep",
-      "asking until you do"
-     ],
-     "fr": "la prochaine fois que tu piges pas un truc, [[redemande jusqu'à piger]]",
-     "texte": "no syllabus, no plan, just [[your own curiosity]] leading the way"
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "no syllabus, no plan, no test at the end, just [[your own curiosity]] leading the way"
     }
    },
    "images": {
@@ -205,7 +220,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699118764788321558_1.jpg",
+      "boite": [
+       92,
+       417,
+       793,
+       579
+      ]
+     }
+    }
    }
   },
   "6": {
@@ -223,7 +248,7 @@
       "grew more grey matter in just a few months"
      ],
      "fr": "des chercheurs ont montré qu'apprendre à jongler [[augmente la matière grise]] en quelques mois",
-     "texte": "how octopuses think, why cats purr, how to juggle: none of it will ever be on a test"
+     "texte": "how octopuses think, why cats purr, where words come from: none of it will ever be on a test"
     },
     "T3": {
      "en": [
@@ -244,7 +269,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_1.jpg",
+      "boite": [
+       92,
+       387,
+       752,
+       531
+      ]
+     }
+    }
    }
   }
  }

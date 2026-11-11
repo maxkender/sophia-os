@@ -21,7 +21,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702412215902571809_1.jpg",
+      "boite": [
+       96,
+       413,
+       739,
+       543
+      ]
+     }
+    }
    }
   },
   "2": {
@@ -61,50 +71,55 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703619977630190881_5.jpg",
+      "boite": [
+       57,
+       506,
+       574,
+       383
+      ]
+     }
+    }
    }
   },
   "3": {
    "textes": {
     "T1": {
      "en": [
-      "ask why all the time"
+      "comparing yourself to others"
      ],
-     "fr": "demande [[pourquoi]] H24",
-     "texte": "segui [[una domanda]]"
+     "fr": "te comparer aux autres",
+     "texte": "segui [[una domanda]] fino in fondo"
     },
     "T2": {
      "en": [
-      "most people accept the",
-      "first answer they hear"
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
      ],
-     "fr": "la plupart gobent la première réponse venue",
-     "texte": "parti da una cosa piccola: perché il mare è salato?"
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "parti da una domanda piccola, tipo perché il mare è salato, e salta da una risposta all'altra, come facevamo [[da bambini]]"
     },
     "T3": {
      "en": [
-      "kids ask why all day, then",
-      "we just stop"
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
      ],
-     "fr": "les gosses font que ça, puis on [[arrête]]",
-     "texte": "da piccoli lo facevamo [[tutto il giorno]]"
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "un'ora dopo [[sei ancora lì]], e non sembra per niente un dovere"
     },
     "T4": {
      "en": [
-      "curiosity is proven to help",
-      "your brain remember",
-      "what you learn"
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
      ],
-     "fr": "c'est [[prouvé]] : la curiosité aide ton cerveau à [[retenir ce que t'apprends]]",
-     "texte": "una risposta apre un'altra domanda, e un'ora dopo [[sei ancora lì]]"
-    },
-    "T5": {
-     "en": [
-      "next time you don't understand something, keep",
-      "asking until you do"
-     ],
-     "fr": "la prochaine fois que tu piges pas un truc, [[redemande jusqu'à piger]]",
-     "texte": "niente programma, niente piano, solo [[la tua curiosità]] a guidarti"
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "niente programma, niente verifica alla fine, solo [[la tua curiosità]] a guidarti"
     }
    },
    "images": {
@@ -205,7 +220,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699118764788321558_1.jpg",
+      "boite": [
+       92,
+       417,
+       793,
+       579
+      ]
+     }
+    }
    }
   },
   "6": {
@@ -223,7 +248,7 @@
       "grew more grey matter in just a few months"
      ],
      "fr": "des chercheurs ont montré qu'apprendre à jongler [[augmente la matière grise]] en quelques mois",
-     "texte": "come pensano i polpi, perché i gatti fanno le fusa, come fare giocoleria: mai in nessuna verifica"
+     "texte": "come pensano i polpi, perché i gatti fanno le fusa, da dove vengono le parole: mai in nessuna verifica"
     },
     "T3": {
      "en": [
@@ -244,7 +269,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_1.jpg",
+      "boite": [
+       92,
+       387,
+       752,
+       531
+      ]
+     }
+    }
    }
   }
  }

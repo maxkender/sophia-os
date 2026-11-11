@@ -4221,21 +4221,34 @@ async function triParActivite(supabase: Supabase, par: string | null, type: stri
   const voulus = new Set(contrats);
   const salons = new Map<string, string>();
   const activites = new Map<string, string>();
-  let apres: string | null = null;
-  for (let page = 0; page < LISTE_SALONS_PAGES_MAX; page++) {
-    const r = await lire(supabase, { par, action: `${type}_liste_salons`, query: REQUETE_LISTE_SALONS, variables: { after: apres } });
-    const liste = r.data?.roomList;
-    if (!liste) return page === 0 ? null : finTri();
-    // deno-lint-ignore no-explicit-any
-    for (const e of (liste.edges ?? []) as any[]) {
-      const id = e?.node?.contractId ? String(e.node.contractId) : null;
-      if (!id || !voulus.has(id)) continue;
-      salons.set(id, String(e.node.id));
-      if (e.node.latestStory?.createdDateTime) activites.set(id, new Date(e.node.latestStory.createdDateTime).toISOString());
-    }
-    if (salons.size >= voulus.size || !liste.pageInfo?.hasNextPage) break;
-    apres = liste.pageInfo.endCursor ?? null;
+  // 11/11 : la liste des salons est lue dans l'organisation de chaque contrat (en-tête tenant) ;
+  // sans elle, Upwork renvoie les salons de l'organisation par défaut (aucun contrat actuel).
+  const orgs = new Map<string, number>();
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", contrats.slice(i, i + 200));
+    for (const x of data ?? []) if (x.organisation_id) orgs.set(String(x.organisation_id), (orgs.get(String(x.organisation_id)) ?? 0) + 1);
   }
+  let lue = false;
+  for (const tenant of [...orgs.entries()].sort((a, b) => b[1] - a[1]).map(([o]) => o)) {
+    let apres: string | null = null;
+    for (let page = 0; page < LISTE_SALONS_PAGES_MAX; page++) {
+      const r = await lire(supabase, { par, action: `${type}_liste_salons`, query: REQUETE_LISTE_SALONS, variables: { after: apres }, tenant });
+      const liste = r.data?.roomList;
+      if (!liste) break;
+      lue = true;
+      // deno-lint-ignore no-explicit-any
+      for (const e of (liste.edges ?? []) as any[]) {
+        const id = e?.node?.contractId ? String(e.node.contractId) : null;
+        if (!id || !voulus.has(id)) continue;
+        salons.set(id, String(e.node.id));
+        if (e.node.latestStory?.createdDateTime) activites.set(id, new Date(e.node.latestStory.createdDateTime).toISOString());
+      }
+      if (salons.size >= voulus.size || !liste.pageInfo?.hasNextPage) break;
+      apres = liste.pageInfo.endCursor ?? null;
+    }
+    if (salons.size >= voulus.size) break;
+  }
+  if (!lue) return null;
   return await finTri();
 
   async function finTri() {

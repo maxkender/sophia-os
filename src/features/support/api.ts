@@ -1,0 +1,230 @@
+import { supabase } from "@/lib/supabase/client";
+
+/**
+ * 0671 : l'espace support. « Help » côté posteur (questions au bot, problèmes
+ * signalés, le fil des réponses) ; « Support » côté admin (onglets Problems et
+ * Questions, panneau de réponse). La base filtre : un posteur ne lit que ses
+ * demandes, sans le brouillon de l'équipe.
+ */
+
+export type Plateforme = "ruul" | "upwork";
+export type TypeDemande = "question" | "probleme";
+export type StatutDemande = "bot" | "ouvert" | "attente_posteur" | "resolu";
+export type Urgence = "rouge" | "orange" | "gris";
+
+export const CATEGORIES_PROBLEME = ["paiement", "connexion", "compte", "tiktok", "arret", "autre"] as const;
+export const CATEGORIES = ["paiement", "connexion", "compte", "tiktok", "posting", "parrainage", "arret", "autre"] as const;
+export type Categorie = (typeof CATEGORIES)[number];
+
+export interface MessageFil {
+  auteur: "posteur" | "equipe" | "bot";
+  texte: string;
+  cree_at: string;
+}
+
+export interface MaDemande {
+  id: string;
+  type: TypeDemande;
+  categorie: string | null;
+  texte: string;
+  statut: StatutDemande;
+  equipe_a_repondu: boolean;
+  cree_at: string;
+  resolu_at: string | null;
+  messages: MessageFil[];
+}
+
+export interface LigneSupport {
+  id: string;
+  type: TypeDemande;
+  categorie: string | null;
+  plateforme: Plateforme;
+  source: "help" | "slack_salon" | "slack_aide";
+  statut: StatutDemande;
+  extrait: string;
+  escalade_at: string;
+  cree_at: string;
+  posteur_at: string | null;
+  equipe_at: string | null;
+  resolu_at: string | null;
+  urgence: Urgence;
+  en_retard: boolean;
+  poster_id: string | null;
+  nom: string;
+  messages: number;
+}
+
+export interface Fiche {
+  poster_id: string;
+  nom: string;
+  plateforme: Plateforme;
+  debut: string | null;
+  premiere_connexion: string | null;
+  slack_relie: boolean;
+  tiktok: string | null;
+  ruul: { statut: string | null; email_ruul: boolean; pret_at: string | null; premier_paiement_at: string | null } | null;
+  contrat_upwork: string | null;
+  parrainages: { declares: number; invites: number; recrues: number } | null;
+  derniere_paie: { semaine: string | null; statut: string | null; montant: number | null } | null;
+  manque: string[];
+}
+
+export interface DetailSupport {
+  id: string;
+  type: TypeDemande;
+  categorie: string | null;
+  plateforme: Plateforme;
+  source: LigneSupport["source"];
+  statut: StatutDemande;
+  texte: string;
+  capture: string | null;
+  brouillon: string | null;
+  bot_reponse: string | null;
+  auto_action: string | null;
+  auto_resultat: string | null;
+  slack_user: string | null;
+  escalade_at: string | null;
+  urgence: Urgence;
+  en_retard: boolean;
+  poster_id: string | null;
+  messages: MessageFil[];
+  fiche: Fiche | null;
+}
+
+/** Ce que la plateforme du posteur permet de dire : « compte » = Ruul account ou Upwork contract. */
+export function cleCategorie(c: string | null | undefined, plateforme: Plateforme): string {
+  if (c === "compte") return plateforme === "ruul" ? "compte_ruul" : "compte_upwork";
+  return c && (CATEGORIES as readonly string[]).includes(c) ? c : "autre";
+}
+
+/** Le statut vu par le posteur : Received / In progress / Solved. */
+export function statutPosteur(d: Pick<MaDemande, "statut" | "equipe_a_repondu">): "recu" | "en_cours" | "resolu" {
+  if (d.statut === "resolu") return "resolu";
+  if (d.statut === "attente_posteur" || d.equipe_a_repondu) return "en_cours";
+  return "recu";
+}
+
+/** La page Support : un onglet, des filtres, l'urgence puis l'ancienneté. */
+export interface FiltresSupport {
+  plateforme: "" | Plateforme;
+  categorie: string;
+  statut: "" | "ouvert" | "attente_posteur" | "resolu";
+  retard: boolean;
+}
+
+export function filtrer(lignes: readonly LigneSupport[], type: TypeDemande, f: FiltresSupport): LigneSupport[] {
+  const rang = { rouge: 0, orange: 1, gris: 2 } as const;
+  return lignes
+    .filter((l) => l.type === type)
+    .filter((l) => (f.statut ? l.statut === f.statut : l.statut !== "resolu"))
+    .filter((l) => !f.plateforme || l.plateforme === f.plateforme)
+    .filter((l) => !f.categorie || (l.categorie ?? "autre") === f.categorie)
+    .filter((l) => !f.retard || l.en_retard)
+    .sort((a, b) => rang[a.urgence] - rang[b.urgence] || a.escalade_at.localeCompare(b.escalade_at));
+}
+
+export function compter(lignes: readonly LigneSupport[], type: TypeDemande): number {
+  return lignes.filter((l) => l.type === type && l.statut === "ouvert").length;
+}
+
+/** L'âge d'une demande, court (« 3 h », « 2 d »). */
+export function age(depuis: string, maintenant = Date.now()): string {
+  const minutes = Math.max(0, Math.round((maintenant - new Date(depuis).getTime()) / 60_000));
+  if (minutes < 60) return `${minutes} min`;
+  const heures = Math.round(minutes / 60);
+  if (heures < 48) return `${heures} h`;
+  return `${Math.round(heures / 24)} d`;
+}
+
+async function appeler<T>(body: Record<string, unknown>): Promise<T> {
+  const { data, error } = await supabase.functions.invoke("support", { body });
+  if (error) {
+    let message = error.message;
+    try {
+      const ctx = (error as { context?: Response }).context;
+      const corps = ctx && typeof ctx.json === "function" ? ((await ctx.json()) as { error?: string }) : null;
+      if (corps?.error) message = corps.error;
+    } catch {
+      /* message générique */
+    }
+    throw new Error(message);
+  }
+  const r = data as T & { ok?: boolean; error?: string };
+  if (r && r.ok === false) throw new Error(r.error ?? "error");
+  return r;
+}
+
+// --- Posteur ---------------------------------------------------------------
+
+export async function lireMesDemandes(): Promise<MaDemande[]> {
+  const { data, error } = await supabase.rpc("support_mes_demandes");
+  if (error) throw new Error(error.message);
+  return (data ?? []) as MaDemande[];
+}
+
+export function poserQuestion(texte: string): Promise<{ id: string | null; reponse: string; envoye_equipe: boolean }> {
+  return appeler({ action: "question", texte });
+}
+
+export function signalerProbleme(p: { categorie: string; texte: string; capture: string | null }): Promise<{ id: string | null; reponse: string }> {
+  return appeler({ action: "probleme", ...p });
+}
+
+export async function actionPosteur(id: string, action: "resolu" | "aide" | "repondre", texte?: string): Promise<void> {
+  const { error } = await supabase.rpc("support_posteur_action", { p_id: id, p_action: action, p_texte: texte ?? null });
+  if (error) throw new Error(error.message);
+}
+
+/** La capture va dans le seau privé « support », dans le dossier du posteur. */
+export async function deposerCapture(fichier: File, userId: string): Promise<string> {
+  const ext = (fichier.name.split(".").pop() ?? "png").toLowerCase().replace(/[^a-z0-9]/g, "") || "png";
+  const chemin = `${userId}/${Date.now()}.${ext}`;
+  const { error } = await supabase.storage.from("support").upload(chemin, fichier, { contentType: fichier.type || undefined });
+  if (error) throw new Error(error.message);
+  return chemin;
+}
+
+// --- Admin -----------------------------------------------------------------
+
+export async function lireSupport(): Promise<LigneSupport[]> {
+  const { data, error } = await supabase.rpc("support_liste");
+  if (error) throw new Error(error.message);
+  return (data ?? []) as LigneSupport[];
+}
+
+export async function lireDetail(id: string): Promise<DetailSupport | null> {
+  const { data, error } = await supabase.rpc("support_detail", { p_id: id });
+  if (error) throw new Error(error.message);
+  return (data ?? null) as DetailSupport | null;
+}
+
+export function envoyerReponse(id: string, texte: string): Promise<{ envois: Record<string, string> }> {
+  return appeler({ action: "repondre", id, texte });
+}
+
+export async function changer(id: string, p: { statut?: "ouvert" | "resolu"; type?: TypeDemande }): Promise<void> {
+  const { error } = await supabase.rpc("support_changer", { p_id: id, p_statut: p.statut ?? null, p_type: p.type ?? null });
+  if (error) throw new Error(error.message);
+}
+
+export async function versOfficielles(p: { question: string; reponse: string; portee: "tous" | Plateforme; categorie: string }): Promise<void> {
+  const { error } = await supabase.rpc("support_vers_officielles", {
+    p_question: p.question, p_reponse: p.reponse, p_portee: p.portee, p_categorie: p.categorie,
+  });
+  if (error) throw new Error(error.message);
+}
+
+/** Un lien de lecture (1 h) pour la capture d'une demande (seau privé ; une adresse Slack reste telle quelle). */
+export async function lienCapture(capture: string): Promise<string> {
+  if (/^https?:\/\//.test(capture)) return capture.split(" ")[0]!;
+  const { data, error } = await supabase.storage.from("support").createSignedUrl(capture, 3600);
+  if (error) throw new Error(error.message);
+  return data.signedUrl;
+}
+
+/** La plateforme du posteur connecté (sa fiche) : Ruul ou Upwork. */
+export async function lireMaPlateforme(userId: string): Promise<Plateforme> {
+  const { data, error } = await supabase.rpc("support_fiche", { p_poster: userId });
+  if (error) throw new Error(error.message);
+  return (data as { plateforme?: string } | null)?.plateforme === "ruul" ? "ruul" : "upwork";
+}

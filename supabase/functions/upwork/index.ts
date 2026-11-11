@@ -5214,11 +5214,15 @@ async function rapportSoir(supabase: Supabase, forcer: boolean) {
     .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null);
   const noms = (attente ?? []).map((a) => [a.prenom, a.nom].filter(Boolean).join(" ").trim() || "?");
   const jourCourt = paris.jour.split("-").reverse().slice(0, 2).join("/");
+  // 11/11 (0671) : le support dans le même point du soir (ouverts, en retard).
+  const { data: sup } = await supabase.rpc("support_compteurs");
+  const c = (sup ?? {}) as { problemes?: number; questions?: number; en_retard?: number };
   const texte = [
     `Upwork : bilan du ${jourCourt}`,
     `• Compte principal : ${p} appels, dont ${p429} erreurs 429`,
     `• Compte secours : ${s} appels, dont ${s429} erreurs 429`,
     `• Bienvenues en attente : ${noms.length}${noms.length ? ` (${noms.join(", ")})` : ""}`,
+    `Support : ${c.problemes ?? 0} problèmes et ${c.questions ?? 0} questions ouverts, dont ${c.en_retard ?? 0} en retard`,
   ].join("\n");
   const destinataire = typeof v.upwork_rapport_destinataire === "string" && v.upwork_rapport_destinataire ? v.upwork_rapport_destinataire : MAX_PROFIL;
   const issue = await ecrireAuPosteur(supabase, destinataire, texte);

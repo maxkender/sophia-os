@@ -40,6 +40,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/ruul",
   "/admin/auto/faq",
   "/admin/auto/reponses-officielles",
+  "/admin/auto/support",
   "/admin/auto/parrainage",
   "/admin/auto/retirer-slack",
   "/admin/auto/logs",

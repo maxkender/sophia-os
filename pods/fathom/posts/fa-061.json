@@ -1,0 +1,571 @@
+{
+ "id": "fa-061",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Old-School Skills Everyone Should Know",
+  "fr": "3 savoir-faire à l'ancienne à connaître",
+  "es": "3 habilidades de toda la vida que todos deberían saber",
+  "de": "3 Skills von früher, die jeder kennen sollte",
+  "it": "3 abilità d'altri tempi che tutti dovrebbero sapere",
+  "pt-BR": "3 habilidades das antigas que todo mundo deveria saber",
+  "es-419": "3 habilidades de antes que todos deberían saber"
+ },
+ "legendes": {
+  "en": "3 Old-School Skills Everyone Should Know #skills #learnontiktok #selfimprovement",
+  "fr": "3 savoir-faire à l'ancienne à connaître #compétences #apprendresurtiktok #développementpersonnel",
+  "es": "3 habilidades de toda la vida que todos deberían saber #habilidades #aprendeentiktok #desarrollopersonal",
+  "de": "3 Skills von früher, die jeder kennen sollte #skills #lernenmittiktok #selbstverbesserung",
+  "it": "3 abilità d'altri tempi che tutti dovrebbero sapere #abilità #imparacontiktok #crescitapersonale",
+  "pt-BR": "3 habilidades das antigas que todo mundo deveria saber #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "es-419": "3 habilidades de antes que todos deberían saber #habilidades #aprendeentiktok #desarrollopersonal"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta B. Full test (jauge BLEO du 11/11) : accroche neuve au format liste de @fathom0g (« 3 Old-School Skills Everyone Should Know »), jamais faite chez nous. Étapes : boussole, grue en papier, Sophia, mélange de cartes. Langues des comptes du label (en, fr, es, de, it, pt-BR, es-419), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 OLD-SCHOOL",
+       "bronze": true
+      }
+     ],
+     "SKILLS EVERYONE",
+     [
+      {
+       "t": "SHOULD KNOW",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 SAVOIR-FAIRE",
+       "bronze": true
+      }
+     ],
+     "À L'ANCIENNE",
+     [
+      {
+       "t": "À CONNAÎTRE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "DE TODA LA VIDA",
+     [
+      {
+       "t": "QUE DEBES SABER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "VON FRÜHER",
+     [
+      {
+       "t": "FÜR JEDEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABILITÀ",
+       "bronze": true
+      }
+     ],
+     "D'ALTRI TEMPI",
+     [
+      {
+       "t": "DA SAPERE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "DAS ANTIGAS",
+     [
+      {
+       "t": "PARA SABER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "DE ANTES",
+     [
+      {
+       "t": "QUE DEBES SABER",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "USE A",
+     "COMPASS"
+    ],
+    "video": {
+     "id": "eaqynPX3sPo",
+     "titre": "THIS is how to use a compass - very simple",
+     "chaine": "The Map Reading Company",
+     "vues": "2M views",
+     "date": "3 years ago",
+     "duree": "18:31",
+     "avatar": "https://yt3.ggpht.com/sH_gBi1FTAQMLU-llHDVLc_pQlEa5Vuw520HWX-qisSmfahgKpPl5g_nsIYqzC9EvLP78_U0_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "UTILISE UNE",
+     "BOUSSOLE"
+    ],
+    "video": {
+     "id": "L_Elnz6eORw",
+     "titre": "Comment utiliser une boussole pour s'orienter | Randonnée",
+     "chaine": "SIKANA Français",
+     "vues": "270 k vues",
+     "date": "il y a 10 ans",
+     "duree": "1:39",
+     "avatar": "https://yt3.ggpht.com/DQX2cY4K-0dl13gQ73G59f47sEafsdFI486pzU_WvghKWvX-rYDs_LfG9j6vP-wDvLBDP5nyOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "USA UNA",
+     "BRÚJULA"
+    ],
+    "video": {
+     "id": "FCkgs7YxHXs",
+     "titre": "Aprende a orientarte: cómo usar una brújula | Senderismo",
+     "chaine": "SIKANA Español",
+     "vues": "542 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/2UY78EdDjKStlcJhTNi0M3JPHtoL7bwfUGKS94_38imwBkuE1YkDB1o74Isee9y0tEPqMMkwRdw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "NUTZE EINEN",
+     "KOMPASS"
+    ],
+    "video": {
+     "id": "fi6vCQIsXvU",
+     "titre": "SILVA 1-2-3-System – kinderleicht navigieren mit Karte und Kompass",
+     "chaine": "SILVA Global",
+     "vues": "140.107 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mUxa4z3EvTR3Dh6ss8sMfO19sKXO32DWqw9pgL5tXyYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "USA UNA",
+     "BUSSOLA"
+    ],
+    "video": {
+     "id": "NVACke-ZH28",
+     "titre": "La Bussola E' Più Semplice Di Quanto Pensi",
+     "chaine": "Orientamento in Montagna",
+     "vues": "266K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "14:53",
+     "avatar": "https://yt3.ggpht.com/g4OIEVQXV5xAVD1zThZa368NSKW5DCR8zVta1qRzw3b8nEFhBZGR-Avz351zTBVt85siEI871A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "USE UMA",
+     "BÚSSOLA"
+    ],
+    "video": {
+     "id": "cA6EmPBsLfQ",
+     "titre": "Aprender o básico da bússola | Trilha",
+     "chaine": "SIKANA Brasil / Português",
+     "vues": "136 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/oqZFmzqld8wW78m05lcwT-CYINr-DSau83nJ3OPbY36q52qDiwQ8s2eMKCS1A6kheUKZJf0L2g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "USA UNA",
+     "BRÚJULA"
+    ],
+    "video": {
+     "id": "x0J9TC8eEGs",
+     "titre": "Uso de la Brújula",
+     "chaine": "Eliana Cruz Moncada",
+     "vues": "151 k vistas",
+     "date": "hace 6 años",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-Uxh3ZHRJuV9pNUCsJMsqzzK1NCp4Km2Vf4k-Y-hijA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FOLD A",
+     "PAPER CRANE"
+    ],
+    "video": {
+     "id": "KfnyopxdJXQ",
+     "titre": "How To Make a Paper Crane - Origami Crane Step by Step - Easy",
+     "chaine": "Origami Tsunami",
+     "vues": "13M views",
+     "date": "12 years ago",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0NLs7H4Z94DZ6238uVavckWOfsvFolDv-G8QJpXImvA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "PLIE UNE",
+     "GRUE EN PAPIER"
+    ],
+    "video": {
+     "id": "bZcl8eKG3HU",
+     "titre": "Origami ! La Grue traditionnelle [HD]",
+     "chaine": "L'Atelier de Thomas",
+     "vues": "783 k vues",
+     "date": "il y a 10 ans",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/7rqyaoG0qMafPaa37JOyZuskBzwZwWDID-RyfsEDqJbxEY2gmT_3MVh4iWynPbYT7QbO3UXI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ UNA",
+     "GRULLA DE PAPEL"
+    ],
+    "video": {
+     "id": "LLbWxDWqtQg",
+     "titre": "Cómo hacer grulla de papel (origami - papiroflexia)",
+     "chaine": "Papelisimo",
+     "vues": "5,9 M de visualizaciones",
+     "date": "hace 11 años",
+     "duree": "7:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZ8-6Z5EhWGTY_Wo5z5mopp6vN5c1ATWWX3Dx4RZdLtA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FALTE EINEN",
+     "PAPIERKRANICH"
+    ],
+    "video": {
+     "id": "NyrQDdHCXMs",
+     "titre": "Origami-Anleitung: Kranich",
+     "chaine": "Tavins Origami-Anleitungen",
+     "vues": "2 Mio. Aufrufe",
+     "date": "vor 16 Jahren",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkCf0gfFaEzevZxd82GOYZ2-a5UhsYrIZNi3hitLvLwA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PIEGA UNA",
+     "GRU DI CARTA"
+    ],
+    "video": {
+     "id": "J12yYZAq5j4",
+     "titre": "Gru / Tsuru - Origami Giapponesi Tutorial",
+     "chaine": "The Japanese Dreams",
+     "vues": "56K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkrTlhEwGc9d-AzhsN9rarhaDacIy8JbEd52pMJa2IfgI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "FAÇA UM",
+     "TSURU DE PAPEL"
+    ],
+    "video": {
+     "id": "pzS0ToWZ9DA",
+     "titre": "Origami: Tsuru - Instruções em Português BR",
+     "chaine": "Easy Origami",
+     "vues": "10 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/XWJAkif4NMjuBV1RnyUbjdn-KDC4outbCycA1rlgLTR7r3U5AyyPaS4ZZpB8AIh93UjFdVX2bOQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ UNA",
+     "GRULLA DE PAPEL"
+    ],
+    "video": {
+     "id": "UkA-v1g5hu4",
+     "titre": "Cómo hacer una grulla de papel con origami ¡Fácil! Tutorial paso a paso",
+     "chaine": "Manualidades Play",
+     "vues": "3 M de vistas",
+     "date": "hace 4 años",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/ebUZcUT-pZZm1MHvMXoLMMKkNS143JeRCivKEcCnJIzz7264KyODt1crMNwTOmMNrA7CxLJ45Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A BIT",
+     "OF EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SAVOIR UN PEU",
+     "DE TOUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "VON ALLEM",
+     "ETWAS WISSEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SAPERE UN PO'",
+     "DI TUTTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "SABER UM POUCO",
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SHUFFLE CARDS",
+     "LIKE A PRO"
+    ],
+    "video": {
+     "id": "NdCia_d1u5c",
+     "titre": "How to shuffle cards for beginners // Riffle Shuffle with Bridge in the hands tutorial",
+     "chaine": "Jason Parker",
+     "vues": "4M views",
+     "date": "7 years ago",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/cHunnVr-52XnDIdM3izDltpnOvykNKpbTeXQ880tofpzjPtfOBu1aX2aHIOkNwi8Z5_1ofZ-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "MÉLANGE LES CARTES",
+     "COMME UN PRO"
+    ],
+    "video": {
+     "id": "PcERKclj9YM",
+     "titre": "Mélanger des Cartes Comme un Croupier ! (manipulations)",
+     "chaine": "MagieGratuit",
+     "vues": "287 k vues",
+     "date": "il y a 12 ans",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXU3F3x8Sbq-OHN1zcTlFC9lyNevYebQpU43-d3Fl1v60=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "BARAJA CARTAS",
+     "COMO UN PRO"
+    ],
+    "video": {
+     "id": "zgubZRupf94",
+     "titre": "😱MEZCLA COMO UN PRO! Como BARAJAR CARTAS con ESTILO para PRINCIPIANTES",
+     "chaine": "Domina La Magia",
+     "vues": "648 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "5:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MISCH KARTEN",
+     "WIE EIN PROFI"
+    ],
+    "video": {
+     "id": "m4ikyWk_CEk",
+     "titre": "Karten mischen einfach erklärt",
+     "chaine": "SpieleQuadrat",
+     "vues": "156.852 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/qhbfa-W4zXdkhv6oddBTFeUHeg8d1nXW5qb3dBykV7CEhWLFxdp10D0BSybdFdZquT3lR6C59w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "MESCOLA LE CARTE",
+     "COME UN PRO"
+    ],
+    "video": {
+     "id": "MmGjI5D45nQ",
+     "titre": "5 MODI PER MESCOLARE LE CARTE - TUTORIAL",
+     "chaine": "Jack Nobile",
+     "vues": "1,3 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "15:57",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "EMBARALHE CARTAS",
+     "COMO UM PRO"
+    ],
+    "video": {
+     "id": "zhVZgARkMbA",
+     "titre": "Como embaralhar as cartas: 3 maneiras para iniciantes",
+     "chaine": "El King Cards",
+     "vues": "211 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/JcBzbW5nQdCvrxQWWOoWEaGEYJPfo4b1aDPcjU-NQo1x1u5qmFn0kKexL-nT2d1-y2Lii2J2=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "BARAJA CARTAS",
+     "COMO UN PRO"
+    ],
+    "video": {
+     "id": "vFFMVmBpDiI",
+     "titre": "✅ Como BARAJAR CARTAS para PRINCIPIANTES (MEZCLA CARTAS BÁSICO)",
+     "chaine": "Domina La Magia",
+     "vues": "109 k vistas",
+     "date": "hace 5 años",
+     "duree": "4:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -10,14 +10,18 @@
   "de": "10/10 Skills, die du in einer Woche lernen kannst.",
   "pt": "10/10 habilidades que podes aprender numa semana.",
   "it": "10/10 abilità da imparare in una settimana.",
-  "es-419": "10/10 habilidades para aprender en una semana."
+  "es-419": "10/10 habilidades para aprender en una semana.",
+  "fr": "10/10 compétences à apprendre en une semaine.",
+  "es": "10/10 habilidades que puedes aprender en una semana."
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Week. #skills #learnontiktok #selfimprovement",
   "de": "10/10 Skills, die du in einer Woche lernen kannst. #skills #lernenmittiktok #selbstverbesserung",
   "pt": "10/10 habilidades que podes aprender numa semana. #habilidades #aprendernotiktok #desenvolvimentopessoal",
   "it": "10/10 abilità da imparare in una settimana. #imparacontiktok #crescitapersonale #abilità",
-  "es-419": "10/10 habilidades para aprender en una semana. #aprendeentiktok #desarrollopersonal #habilidades"
+  "es-419": "10/10 habilidades para aprender en una semana. #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "10/10 compétences à apprendre en une semaine. #apprendresurtiktok #développementpersonnel #compétences",
+  "es": "10/10 habilidades que puedes aprender en una semana. #aprendeentiktok #desarrollopersonal #habilidades"
  },
  "musique": {
   "titre": "original sound",
@@ -86,6 +90,42 @@
      ],
      "HABILIDADES PARA",
      "APRENDER EN UNA SEMANA."
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES",
+     "À APPRENDRE",
+     [
+      {
+       "t": "EN UNE SEMAINE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE",
+     "PUEDES APRENDER",
+     [
+      {
+       "t": "EN UNA SEMANA",
+       "bronze": true
+      }
+     ]
     ]
    }
   },
@@ -160,6 +200,36 @@
      "duree": "1:51",
      "avatar": "https://yt3.ggpht.com/2UY78EdDjKStlcJhTNi0M3JPHtoL7bwfUGKS94_38imwBkuE1YkDB1o74Isee9y0tEPqMMkwRdw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS À UTILISER",
+     "UNE BOUSSOLE"
+    ],
+    "video": {
+     "id": "L_Elnz6eORw",
+     "titre": "Comment utiliser une boussole pour s'orienter | Randonnée",
+     "chaine": "SIKANA Français",
+     "vues": "270 k vues",
+     "date": "il y a 10 ans",
+     "duree": "1:39",
+     "avatar": "https://yt3.ggpht.com/DQX2cY4K-0dl13gQ73G59f47sEafsdFI486pzU_WvghKWvX-rYDs_LfG9j6vP-wDvLBDP5nyOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE A USAR",
+     "UNA BRÚJULA"
+    ],
+    "video": {
+     "id": "FCkgs7YxHXs",
+     "titre": "Aprende a orientarte: cómo usar una brújula | Senderismo",
+     "chaine": "SIKANA Español",
+     "vues": "542 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/2UY78EdDjKStlcJhTNi0M3JPHtoL7bwfUGKS94_38imwBkuE1YkDB1o74Isee9y0tEPqMMkwRdw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -222,6 +292,32 @@
      "texte": [
       "lo que abro",
       "en lugar de scrollear."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS DES",
+     "ANECDOTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE DATOS",
+     "CURIOSOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
      ]
     }
    }
@@ -297,6 +393,36 @@
      "duree": "4:33",
      "avatar": "https://yt3.ggpht.com/ebUZcUT-pZZm1MHvMXoLMMKkNS143JeRCivKEcCnJIzz7264KyODt1crMNwTOmMNrA7CxLJ45Q=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS",
+     "L'ORIGAMI"
+    ],
+    "video": {
+     "id": "bZcl8eKG3HU",
+     "titre": "Origami ! La Grue traditionnelle [HD]",
+     "chaine": "L'Atelier de Thomas",
+     "vues": "783 k vues",
+     "date": "il y a 10 ans",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/7rqyaoG0qMafPaa37JOyZuskBzwZwWDID-RyfsEDqJbxEY2gmT_3MVh4iWynPbYT7QbO3UXI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "ORIGAMI"
+    ],
+    "video": {
+     "id": "LLbWxDWqtQg",
+     "titre": "Cómo hacer grulla de papel (origami - papiroflexia)",
+     "chaine": "Papelisimo",
+     "vues": "5,9 M de visualizaciones",
+     "date": "hace 11 años",
+     "duree": "7:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZ8-6Z5EhWGTY_Wo5z5mopp6vN5c1ATWWX3Dx4RZdLtA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -370,6 +496,36 @@
      "duree": "7:39",
      "avatar": "https://yt3.ggpht.com/knA-fjkPlS0_ChgTalTm-fImHApk7NjCrRIRaVi5JpvxAbvX2FPUoMocCXVRdca4vli50cVo9g=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS LES BASES",
+     "DE L'ÉLECTRONIQUE"
+    ],
+    "video": {
+     "id": "O7QsrLDFyKQ",
+     "titre": "Débuter en électronique : ce qu’il faut comprendre en premier",
+     "chaine": "Abrège Academy",
+     "vues": "443 k vues",
+     "date": "il y a 5 mois",
+     "duree": "7:58",
+     "avatar": "https://yt3.ggpht.com/MMk24Y3w6IRW07qwqxSVhygv7jAP5FO0I9KiEV-Ej774VBUxPcjoqGuGQDuB2q2jYEMM4VknSg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "ELECTRÓNICA BÁSICA"
+    ],
+    "video": {
+     "id": "RH9eLKXq2qk",
+     "titre": "Curso de Electrónica Básica desde CERO ⚡ Aprende Fácil y Rápido | Capítulo 1",
+     "chaine": "AUTOMATIZACION INDUSTRIAL",
+     "vues": "310 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/knA-fjkPlS0_ChgTalTm-fImHApk7NjCrRIRaVi5JpvxAbvX2FPUoMocCXVRdca4vli50cVo9g=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -439,6 +595,36 @@
      "titre": "APRENDE  a DIBUJAR DESDE CERO a PROFESIONAL #1",
      "chaine": "Sir Pino",
      "vues": "2.5 M de vistas",
+     "date": "hace 3 años",
+     "duree": "26:02",
+     "avatar": "https://yt3.ggpht.com/266tAyMbCkh7oNrrwYNWtkjWNsNsTvYxMAwMpdUAH7hESLpBFqWdJtYfcMP61TMZ0s_O_Wu-7g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS",
+     "À DESSINER"
+    ],
+    "video": {
+     "id": "sCdLEruNklI",
+     "titre": "APPRENDRE À DESSINER: LA SEULE MÉTHODE QUI FONCTIONNE",
+     "chaine": "Apprendre à Dessiner",
+     "vues": "636 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:39",
+     "avatar": "https://yt3.ggpht.com/fPLVxfprU2jffNQlDjWe0---wAqtcXfhVq9zN8h6cMTy3buTDiLH0qacd8lAK454EPEUIH9V7Xo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "A DIBUJAR"
+    ],
+    "video": {
+     "id": "hH_QrR6opTw",
+     "titre": "APRENDE  a DIBUJAR DESDE CERO a PROFESIONAL #1",
+     "chaine": "Sir Pino",
+     "vues": "2,5 M de visualizaciones",
      "date": "hace 3 años",
      "duree": "26:02",
      "avatar": "https://yt3.ggpht.com/266tAyMbCkh7oNrrwYNWtkjWNsNsTvYxMAwMpdUAH7hESLpBFqWdJtYfcMP61TMZ0s_O_Wu-7g=s176-c-k-c0x00ffffff-no-rj"

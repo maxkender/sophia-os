@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o189",
+ "type_bleo": "full_test",
+ "titre": "small rules for a calm and peaceful life #peace #calm #slowliving #selfimprovement #rules",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "be8abcd5-6a13-49c3-8184-b8c7e8ba6081"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, be8abcd5). full test BLEO : accroche jamais faite (format « small rules for a X life »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "403370d8-0d48-4110-b2bb-bc0bd3173eb0",
+   "texte_overlay": "small rules for a calm\nand peaceful life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "55e7b0e1-93c6-4826-8e10-df041b691af9",
+   "texte_overlay": "reply later\n\nyou don't owe anyone an instant answer. replying when you're calm and ready, instead of the second a message arrives, keeps your whole day feeling slower and softer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "86a9b06a-25c7-443a-a213-8995c94c8a99",
+   "texte_overlay": "leave early\n\nleave ten minutes before you need to, everywhere you go. rushing turns ordinary days into stressful ones, and arriving early gives you a few quiet minutes to breathe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "50156e36-a1a3-43ea-beb0-51d049effd4a",
+   "texte_overlay": "keep mornings quiet\n\nno news and no messages for the first half hour of the day. a quiet start, with just your coffee and your own thoughts, sets a much calmer tone for everything after.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3e32984f-0c4a-4953-96de-676de7faf868",
+   "texte_overlay": "feed your mind gently\n\nspend 5 minutes a day learning something calm and beautiful: a constellation, a painting, a myth. a mind with gentle things to think about worries a lot less.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/5.jpg",
+   "texte_sophia": "feed your mind gently\n\nspend 5 minutes a day learning something beautiful, like a constellation or a myth. the Sophia app turns it into one short lesson a day, and a gently fed mind worries less."
+  },
+  {
+   "position": 6,
+   "media_id": "1fbe5f69-3edb-4a8b-9aa0-8d28776cf429",
+   "texte_overlay": "let small things go\n\nbefore you get upset, ask if it will matter in a week. most things won't, and letting them pass quickly saves your energy for the things that truly deserve it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660259125640613142/6.jpg"
+  }
+ ]
+}

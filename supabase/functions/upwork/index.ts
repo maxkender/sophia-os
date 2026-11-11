@@ -4452,14 +4452,17 @@ async function fermerContratSansPosteur(supabase: Supabase, par: string | null, 
 }
 
 async function lireContexteUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null, max: number) {
-  const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
+  // 11/11 : le passage du cron prend tous les contrats (400 au plus), trie par activité, puis lit `max` au plus ;
+  // sinon les contrats sautés (sans nouveau message) gardent leur vieille date et reprennent les 120 places.
+  const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: posteurs ? max : 400 });
   if (error) throw error;
   // 0469 : une room demandée par une page peut venir d'un contrat sans posteur (poster_id null).
   const toutes = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
   // 10/11 (Upwork saturé) : le passage du cron relit seulement les salons qui ont un nouveau message.
   const tri = posteurs ? null : await triParActivite(supabase, par, "contexte", toutes.map((c) => c.contrat_id));
-  const liste = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)).map((c) => ({ ...c, room_id: c.room_id ?? tri.salons.get(c.contrat_id) ?? null })) : toutes;
-  const bilan = { cibles: toutes.length, a_lire: liste.length, sans_nouveau: toutes.length - liste.length, lus: 0, erreurs: [] as string[] };
+  const aLire = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)).map((c) => ({ ...c, room_id: c.room_id ?? tri.salons.get(c.contrat_id) ?? null })) : toutes;
+  const liste = aLire.slice(0, max);
+  const bilan = { cibles: toutes.length, a_lire: aLire.length, sans_nouveau: toutes.length - aLire.length, lus: 0, erreurs: [] as string[] };
   const lireUn = async (c: (typeof liste)[number]) => {
     const erreur = await lireSalon(supabase, par, c);
     if (erreur) bilan.erreurs.push(`${c.contrat_id} : ${erreur}`);

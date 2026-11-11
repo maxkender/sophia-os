@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o088",
+ "type_bleo": "full_test",
+ "titre": "The Sunday routine of men who win the week #men #routine #discipline #selfimprovement #sunday",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7607192688017885974",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 11/11. Full test du jour (2 sur 2, jauge : 2 sur 8). Accroche jamais faite chez nous : aucun « Sunday routine » ni « win the week » dans donnees/label.json (« Sunday » n'y est que dans des items). Routine concrète, promesse neuve : préparer la semaine. Rien de médical. Images de la banque ; slide Sophia : chambre de nuit sur la ville, sans personne. reference_url : le post source de am-o036 (slides 2 à 7 ; 1 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1cad70d1",
+   "texte_overlay": "The Sunday routine of\nmen who win the week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "080e99c7",
+   "texte_overlay": "1. Plan the week\nin 15 minutes\n\nThree priorities. Not ten.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0cbe4469",
+   "texte_overlay": "2. Cook for three days\n\nMonday you will thank\nSunday you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0370f8ba",
+   "texte_overlay": "3. Reset your room\n\nClean sheets. Clear desk.\nCalm space, calm head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3e36ddcc",
+   "texte_overlay": "4. Call your family\n\nTen minutes. No reason needed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d8aeca2",
+   "texte_overlay": "5. Long walk, no phone\n\nLet the week settle\nbefore the next one starts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "253b4287",
+   "texte_overlay": "6. Learn one new thing\n\nStart Monday with a\nsharper head than Friday.",
+   "texte_sophia": "6. Learn one new thing\n\nUse a micro-learning app like\nthe Sophia app. Start Monday\nsharper than Friday.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

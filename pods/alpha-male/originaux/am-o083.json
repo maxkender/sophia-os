@@ -1,0 +1,81 @@
+{
+ "source_id": "am-o083",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3127c35c-4f0c-4da1-bff5-75c0c1c3a1c6",
+ "titre": "10 sentences that will make you sit and rethink it all #deepthoughts #quotes #mindset #men #life",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [
+  "3127c35c-4f0c-4da1-bff5-75c0c1c3a1c6"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 11/11. Déclinaison G1 de la ligne 3 (parent 3127c35c, @millyjhino, langue source en ; meilleurs passages nl 1,2 k, pl 734 r 1,23). Accroche du parent mot pour mot. Format du parent : « N. » puis une phrase longue et douce. Dix phrases neuves, aucune du parent. Ligne 6 (« 9 beautiful quotes ») sautée le même jour : promesse voisine. Images de la banque ; slide Sophia : terrasse sur le lac, sans personne. reference_url du parent (11 slides) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1ff3853e",
+   "texte_overlay": "10 sentences that will make\nyou sit and rethink it all",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "162e4a6b",
+   "texte_overlay": "1. Somewhere, an old friend\nstill tells a story about you\nthat makes people laugh.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0b34258f",
+   "texte_overlay": "2. Your father was once\nyour age, just as lost,\npretending he had a plan.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0e849c5e",
+   "texte_overlay": "3. The night you think\nwill never end has an\nending you'll barely remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2c9e27cd",
+   "texte_overlay": "4. There's a song you\nhaven't heard yet that will\nbecome the soundtrack of\nyour best year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "18a7046b",
+   "texte_overlay": "5. There's an idea you'll\nlearn this year that will\nchange how you see\neverything after it.",
+   "texte_sophia": "5. There's an idea you'll\nlearn this year, maybe in\n5 minutes on the Sophia app,\nthat will change how you see\neverything after it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "13e7d812",
+   "texte_overlay": "6. Someone is grateful\nfor something you said\nand forgot the next day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1070f73d",
+   "texte_overlay": "7. The bed you'll wake up in\nten years from now\nis being decided by\nwhat you do this week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "107fad3a",
+   "texte_overlay": "8. Every mile you ran\nwhen nobody watched\nis still in your legs.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/9.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "1d6e5f11",
+   "texte_overlay": "9. The place you dream\nabout living already exists,\nand it's waiting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/10.jpg"
+  },
+  {
+   "position": 11,
+   "media_id": "20fdd9cd",
+   "texte_overlay": "10. The man you'll be at 40\nis watching you right now,\nhoping you don't quit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609374921117928711/11.jpg"
+  }
+ ]
+}

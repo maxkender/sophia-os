@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o136",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8ea7821b-5e6c-47bc-91b8-050800104b9b",
+  "titre": "comment je tiens mes bonnes habitudes même quand je n'ai aucune envie #discipline #pourtoi",
+  "inspirations": [
+    "8ea7821b-5e6c-47bc-91b8-050800104b9b"
+  ],
+  "notes": "G2, déclinaison de 8ea7821b (« les habitudes pour devenir dangereusement disciplinée (même sans aucune motivation) », G1 gagnante, génération 1 en français ; meilleur passage ru 3,9 k vues, r 6,67), en français. Accroche reformulée : « comment je tiens mes bonnes habitudes même quand je n'ai aucune envie » (autres mots que bsg-o129). cta C (le défi de 7 jours en slide 2). Items neufs (rien de repris de bsg-o088 ni de bsg-o129). Routine du 11/11 sur BLEO : jauge 2 full tests et 6 déclinaisons (lignes 1 à 6 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "comment je tiens mes bonnes habitudes\nmême quand je n'ai aucune envie",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. je fais la version minuscule\n\npas envie de courir ? je marche dix minutes.\nla chaîne ne casse pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. j'attache l'habitude à une autre\n\naprès le café, je lis.\nle café me rappelle le livre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "3. je rends ça joli\n\nun beau carnet, une jolie tasse, une lampe douce.\nj'ai envie d'y retourner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. je le fais avec quelqu'un\n\nune amie qui révise en appel vidéo.\ndifficile d'abandonner devant elle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "5. je pense à la fille de dans un an\n\nelle me remerciera.\nça suffit souvent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3615b305",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

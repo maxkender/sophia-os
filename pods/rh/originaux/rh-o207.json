@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o207",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1472b67d-38af-498c-9285-99b0886cb4d1",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien (enfin… presque) #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 4 (parent 1472b67d) : accroche mot pour mot, six autres questions que le parent. Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "011d5f64",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien\n(enfin… presque)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9d9d0a3d",
+   "texte_overlay": "1\n« vous connaissez notre secteur ? »\ntu réponds « j'ai regardé vos 3 derniers projets »\net tu les as vraiment regardés",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9dec9a18",
+   "texte_overlay": "2\n« vous êtes une personne patiente ? »\ntu réponds « avec les gens, oui. avec les process lents, j'y travaille »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9e58e767",
+   "texte_overlay": "3\n« qu'est-ce qui vous motive ? »\ntu réponds une chose précise\npas « les défis »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "828a0516",
+   "texte_overlay": "4\n« vous lisez quoi ? »\ntu réponds ce que t'apprends en ce moment\nmême 5 minutes par jour, c'est vrai",
+   "texte_sophia": "4\n« vous lisez quoi ? »\ntu réponds ce que t'apprends en ce moment. perso, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9e7171aa",
+   "texte_overlay": "5\n« vous aimez le travail en équipe ? »\ntu réponds « oui, quand les rôles sont clairs »\net tu donnes un exemple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9ec88e8e",
+   "texte_overlay": "6\n« vous avez des questions ? »\ntu réponds « oui, deux »\net tu les sors de ta poche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9ff76564",
+   "texte_overlay": "c'est pas mentir,\nc'est bien dire la vérité",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

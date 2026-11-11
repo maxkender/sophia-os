@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o209",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b28bd0de-25d7-4c48-8311-267c37c08288",
+ "titre": "6 fois où j'ai « MENTI » à ma manager… et elle m'a remerciée #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 13 (parent b28bd0de), 2e : accroche mot pour mot, six autres situations que rh-o057 et rh-o194. On choisit ses mots, rien n'est caché. Ligne 14 (accroche voisine « 6 fois où j'ai menti à mon entretien de stage ») écartée ce jour-là. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0203c879",
+   "texte_overlay": "6 fois où j'ai « MENTI » à ma manager…\net elle m'a remerciée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a99be253",
+   "texte_overlay": "« t'as fini le rapport ? »\nj'ai dit « la version 1 est prête, je peaufine demain »\nla vérité : elle était brouillonne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "aa085c0c",
+   "texte_overlay": "« tu peux gérer ce client difficile ? »\nj'ai dit « oui, avec ton soutien si ça coince »\nla vérité : j'avais peur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "aa68c3b0",
+   "texte_overlay": "« t'as compris la nouvelle procédure ? »\nj'ai dit « en gros, je te pose 2 questions demain »\nla vérité : pas vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "83514421",
+   "texte_overlay": "« tu lis quoi en ce moment ? »\nj'ai dit « un peu d'histoire chaque jour »\nla vérité : 5 minutes. mais vrai",
+   "texte_sophia": "« tu lis quoi en ce moment ? »\nj'ai dit « un peu d'histoire chaque jour »\nla vérité : 5 minutes sur l'appli Sophia. mais vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "aaf8adcb",
+   "texte_overlay": "« ça te dérange de changer de bureau ? »\nj'ai dit « non, si je garde la fenêtre »\nla vérité : un peu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "abb99871",
+   "texte_overlay": "« tu veux un retour sur ta présentation ? »\nj'ai dit « oui, surtout ce qui n'a pas marché »\nla vérité : j'appréhendais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "adf0d129",
+   "texte_overlay": "la phrase que tu dis à ta manager\npour ne pas tout dire ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

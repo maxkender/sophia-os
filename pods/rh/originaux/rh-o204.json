@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o204",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8d9f48b2-4ab2-42ce-90ed-8c0d982984f4",
+ "titre": "un mail envoyé 4 jours après l'entretien. et le recruteur m'a dit que tout s'était joué là #entretien #relance #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne 1 (parent 8d9f48b2), 3e et dernière : même promesse, autres mots que rh-o180 et rh-o192. Angle : les erreurs de relance à éviter. Inspirations : sans les slides 4 et 5 de d9f07ab9 (une vraie entreprise citée, une appli concurrente) ni la 6 de e33deadc (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f87c6169",
+   "texte_overlay": "un mail envoyé 4 jours après l'entretien.\net le recruteur m'a dit\nque tout s'était joué là",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9343df80",
+   "texte_overlay": "je n'ai pas relancé le lendemain\nça fait pression",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "94cb615d",
+   "texte_overlay": "je n'ai pas copié-collé une formule\nil les reçoit 50 fois par semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "952260cf",
+   "texte_overlay": "j'ai rappelé un détail de notre échange\nil a vu que j'avais écouté",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "95534d48",
+   "texte_overlay": "j'ai ajouté une idée\nsimple. une seule",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "806a8a28",
+   "texte_overlay": "j'avais un sujet à moi pour la suite\nappris la semaine même, en 5 minutes par jour",
+   "texte_sophia": "j'avais un sujet à moi pour la suite\nappris la semaine même, en 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "956e5938",
+   "texte_overlay": "et j'ai attendu. sans relancer une 2e fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "957b65f9",
+   "texte_overlay": "tu relances comment, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

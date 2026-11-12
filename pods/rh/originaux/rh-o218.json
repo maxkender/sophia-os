@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o218",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "922dc6af-cdbe-4817-ac61-478055a4fa6d",
+ "titre": "ce qu'il faut répondre quand on te demande ton salaire actuel #salaire #negociation #entretien #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G1 de la ligne 10 (parent 922dc6af), 2e : accroche mot pour mot, autre angle (les phrases exactes à dire). Jamais un faux chiffre. Rien de juridique précis. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "14c334e7",
+   "texte_overlay": "ce qu'il faut répondre\nquand on te demande\nton salaire actuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cb17a47b",
+   "texte_overlay": "phrase 1\n« aujourd'hui je suis à X, et pour ce poste je vise entre Y et Z »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cc2535f4",
+   "texte_overlay": "phrase 2, si t'es sous-payée\n« c'est justement une des raisons de mon changement »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cc818cbf",
+   "texte_overlay": "phrase 3, si on insiste\n« ce qui compte, c'est la valeur du poste. parlons-en »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "057a2a14",
+   "texte_overlay": "phrase 4, pour justifier\n« le marché pour ce poste se situe autour de Y »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b2987e2a",
+   "texte_overlay": "ce qui t'aide à le dire calmement\nla préparation. et un peu de confiance en toi, que tu nourris chaque jour",
+   "texte_sophia": "ce qui t'aide à le dire calmement\nla préparation. et la confiance, que je nourris 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cf0adb46",
+   "texte_overlay": "jamais de faux chiffre.\njamais de « je ne sais pas »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "cf1b4cf4",
+   "texte_overlay": "tu dis laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

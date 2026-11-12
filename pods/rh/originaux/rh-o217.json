@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o217",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "496f8d72-9914-4320-89d8-1b580c74f5c9",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 5 (parent 496f8d72) : accroche mot pour mot. Contrairement au parent, aucune réponse inventée (pas de faux process en cours, pas de fausse compétence) : recadrage vrai uniquement. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "12a8a19c",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c92b00d5",
+   "texte_overlay": "1\n« vous avez été licenciée ? »\njamais un mensonge\nune phrase de faits, puis ce que t'en as tiré",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c954e3c1",
+   "texte_overlay": "2\n« vous savez tout faire sur ce logiciel ? »\njamais un faux « oui »\n« les bases, et je l'apprends cette semaine »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ca605308",
+   "texte_overlay": "3\n« vous êtes passionnée par notre secteur ? »\njamais un faux « depuis toujours »\n« depuis X, et voilà pourquoi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2428e1b",
+   "texte_overlay": "4\n« qu'est-ce que vous lisez ? »\njamais « rien »\nce que t'apprends en ce moment, même 5 minutes par jour",
+   "texte_sophia": "4\n« qu'est-ce que vous lisez ? »\njamais « rien »\nperso : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ca73c784",
+   "texte_overlay": "5\n« vous aimez travailler tard ? »\njamais un faux « oui »\n« je m'organise pour ne pas en avoir besoin »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ca762cf5",
+   "texte_overlay": "6\n« pourquoi vous ? »\njamais « je sais pas »\ntes 3 forces, avec une preuve chacune",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ca9b2b14",
+   "texte_overlay": "le vrai secret : ne rien inventer.\njuste bien le dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

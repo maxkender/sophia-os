@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o219",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "db514542-a8bb-4517-80d6-cfadac3d6517",
+ "titre": "je suis devenue manager et j'ai ARRÊTÉ 5 habitudes de la pire manager que j'ai eue #manager #travail #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 11 (parent db514542), 2e : accroche mot pour mot, cinq autres habitudes que rh-o069 et rh-o206. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1500f47c",
+   "texte_overlay": "je suis devenue manager\net j'ai ARRÊTÉ 5 habitudes\nde la pire manager que j'ai eue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cf7c600e",
+   "texte_overlay": "regarder son téléphone pendant les points\nmoi je le retourne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d00d89e2",
+   "texte_overlay": "changer d'avis sans prévenir\nmoi j'explique pourquoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d01b3b2b",
+   "texte_overlay": "comparer les gens entre eux\nmoi je compare chacun à lui-même, il y a 6 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2ca8ec1",
+   "texte_overlay": "garder les infos pour elle\nmoi je partage tout ce que je sais. même ce que j'apprends le matin",
+   "texte_sophia": "garder les infos pour elle\nmoi je partage tout. même ce que j'apprends le matin en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d01cff6f",
+   "texte_overlay": "refuser les congés au dernier moment\nmoi je réponds en 48 h",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d1178fe4",
+   "texte_overlay": "l'habitude que tu détestais chez une manager ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

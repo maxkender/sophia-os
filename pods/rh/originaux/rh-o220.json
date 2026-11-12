@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o220",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9f7c1b20-d6a9-4721-86e6-710112f5f32a",
+ "titre": "les phrases de manager qui m'ont fait comprendre qu'il fallait partir (et comment je m'y suis préparée) #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 12 (parent 9f7c1b20), 3e et dernière : accroche mot pour mot, cinq autres phrases que le parent, rh-o193 et rh-o208. Rien de juridique précis. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15a5dc8b",
+   "texte_overlay": "les phrases de manager\nqui m'ont fait comprendre qu'il fallait partir\n(et comment je m'y suis préparée)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d1c96831",
+   "texte_overlay": "1. « je t'ai pas demandé ton avis »\nj'ai arrêté de donner des idées. puis j'ai compris",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d3495aab",
+   "texte_overlay": "2. « t'as qu'à t'organiser »\npour une charge impossible.\nj'ai noté mes heures, tout simplement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d360c2a7",
+   "texte_overlay": "3. « on fera ton point annuel l'an prochain »\npour la 2e fois.\nj'ai mis mon cv à jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b39d7e3d",
+   "texte_overlay": "4. « t'es pas indispensable, tu sais »\nj'ai repris un truc à moi : 5 minutes par jour à apprendre",
+   "texte_sophia": "4. « t'es pas indispensable, tu sais »\nj'ai repris un truc à moi : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d47efc60",
+   "texte_overlay": "5. « c'est pas le moment de partir en congés »\nj'ai demandé conseil à quelqu'un qui connaît le droit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d4ff7cf4",
+   "texte_overlay": "partir, c'est pas fuir.\nc'est choisir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d514188b",
+   "texte_overlay": "t'as déjà entendu laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

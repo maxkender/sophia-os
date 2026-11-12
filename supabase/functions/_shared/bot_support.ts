@@ -93,6 +93,8 @@ VÉRIFIER AVANT D'AFFIRMER (obligatoire)
   · Semaine due (terminée, posts faits, lundi passé) et non payée → niveau "max", risque "paiement".
   · Pas encore due → donne la date exacte (le lundi qui suit la semaine postée) et le montant d'après son tarif.
   · Bloquée par Ruul (compte pas prêt, « reporte ») → dis exactement ce qui manque d'après sa fiche Ruul. Ne promets jamais que « ça sera débloqué » sans dire quoi faire.
+- Une réponse type (catalogue, FAQ par situation) ne règle JAMAIS une plainte « pas payé / milestone pas financé » : seules ses semaines de paie le peuvent. Paie ou milestones absents de ses données → niveau "max".
+- Posteur Ruul qui parle d'Upwork (milestone, contrat Upwork) : réponds qu'il est payé chaque lundi par Ruul, sans JAMAIS écrire le mot « Upwork ».
 - Un compte Ruul « Active » n'est PAS à créer : ne lui dis jamais de finir ou créer son compte Ruul.
 - DÉJÀ RÉPONDU : lis « demandes_help » (ce qu'il a demandé et ce qu'on lui a répondu). Ne te contredis jamais. S'il revient avec le même problème, ne répète pas la même réponse : cherche plus loin dans ses données ; à la 3e fois, niveau "adrien".
 - En salon Slack : rien de personnel (ni paie, ni montant, ni compte) : renvoie vers Help.
@@ -177,6 +179,17 @@ const MONTANT = /(\$\s?\d|\d\s?\$|€\s?\d|\d\s?€|\b\d+(?:[.,]\d+)?\s?(?:usd|e
  * Les garde-fous du code, après la décision du modèle. `nbMemeSujet` : ses demandes
  * passées de la même catégorie (2 avant celle-ci = la 3e fois).
  */
+/** 0683 : « je n'ai pas été payé », « milestone pas financé »… (plusieurs langues courantes). */
+export const PLAINTE_PAIE = /(not|n't|never|no)\s+(been\s+)?(paid|received|funded)|(haven't|have not|didn't|did not)\s+(get|got|receive)|where\s+is\s+my\s+(pay|payment|money|milestone)|pas\s+(été\s+)?pay|pas\s+reçu|no\s+(he\s+)?recibido|no\s+me\s+(han\s+)?pagado|non\s+(sono\s+stato\s+)?pagat|nicht\s+bezahlt|nie\s+otrzyma/i;
+
+/**
+ * 0683 : une plainte de paie d'un posteur Upwork dont l'OS n'a AUCUNE paie enregistrée (ni semaine
+ * payée, ni milestone lisible) ne peut pas être réglée par une réponse type : elle va à Max.
+ */
+export function plainteSansDonnees(message: string, plateforme: "ruul" | "upwork" | null, aucunePaie: boolean): boolean {
+  return plateforme === "upwork" && aucunePaie && PLAINTE_PAIE.test(message);
+}
+
 export function appliquerGardeFous(
   d: DecisionBot,
   o: { source: SourceBot; plateforme: "ruul" | "upwork" | null; lienHelp: string; nbMemeSujet: number },

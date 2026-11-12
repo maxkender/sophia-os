@@ -51,3 +51,12 @@ Deno.test("0682 : le prompt oblige à vérifier avant d'affirmer et à lire ce q
   assert(p.includes("Un compte Ruul « Active » n'est PAS à créer"));
   assert(p.includes("→ on a répondu : Finish your Ruul account."));
 });
+
+Deno.test("0683 : plainte de paie Upwork sans aucune paie connue → Max ; pas pour Ruul ni pour une simple question", async () => {
+  const { plainteSansDonnees } = await import("./bot_support.ts");
+  assert(plainteSansDonnees("My weekly milestone is not funded on Upwork. When will I be paid?", "upwork", true));
+  assert(plainteSansDonnees("I haven't received my payment", "upwork", true));
+  assert(!plainteSansDonnees("I haven't received my payment", "upwork", false));
+  assert(!plainteSansDonnees("I haven't received my payment", "ruul", true));
+  assert(!plainteSansDonnees("When do I get paid?", "upwork", true));
+});

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o223",
+ "type_bleo": "full_test",
+ "titre": "How to stick to a routine when motivation is gone #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 6703d7b4. full test. Accroche jamais faite chez nous : tenir une routine sans motivation, concret. Accroches écrites : « How to stick to a routine when motivation is gone » (retenue), « Why motivation is a lie » (écartée : provocateur sans méthode), « How to be consistent » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6703d7b4",
+   "texte_overlay": "How to stick to a routine\nwhen motivation is gone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Make it so small you can't fail. Two push-ups, one page, five minutes. On bad days, the tiny version keeps the habit alive until motivation comes back.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Attach it to something you already do. After coffee, read. After brushing your teeth, stretch. Habits stick better when they ride on old ones.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Never miss twice. Missing one day is human. Missing two days starts a new habit of quitting. Get back on track the very next day, even with the tiny version.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Prepare the night before. Gym bag by the door, book on the pillow, running shoes out. Removing friction makes starting almost automatic, even on lazy days.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A small, enjoyable habit teaches your brain that routines can feel good.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. A small, enjoyable habit teaches your brain routines can feel good.",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Track it where you can see it. A calendar on the wall, crosses for every day done. Not wanting to break the chain is a surprisingly strong force.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Focus on identity, not results. Not \"I want to run a marathon\" but \"I'm a runner.\" When it's who you are, showing up feels natural and easy.",
+   "media_id": "20b1d0c4"
+  }
+ ]
+}

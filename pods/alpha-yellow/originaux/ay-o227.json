@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o227",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8254bc13-52e2-4114-932c-dcf796612583",
+ "titre": "Everyday habits that earn you instant respect #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "8254bc13-52e2-4114-932c-dcf796612583"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 178b575b. déclinaison G2 de la ligne 2 de la boîte (8254bc13, notre ay-o125 « Small habits that make people respect you instantly » qui a gagné : tr 5,2 k r 4,15). Même promesse, autres mots. Items neufs, aucun repris d'ay-o125 ni du parent original. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "178b575b",
+   "texte_overlay": "Everyday habits that earn\nyou instant respect",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Holding the door and making eye contact. Small courtesy, done naturally, every time. People notice manners long before they notice anything else.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Admitting when you don't know. \"Good question, I'll find out.\" Honest uncertainty earns more respect than a confident guess that turns out wrong.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keeping your cool in traffic, queues and delays. Calm in small frustrations shows people exactly how you'll behave when real pressure arrives.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Remembering what people told you last time. \"How did your sister's wedding go?\" Paying attention is a form of respect people return immediately.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Always learning something. I do five minutes a day of history, art or science, and people respect a man who keeps his mind sharp and curious.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. People respect a man who keeps his mind sharp and curious.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Dressing clean on ordinary days. Not fancy, just tidy. Looking put together on a normal Tuesday shows you respect yourself and the people around you.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Never talking down to anyone. The cashier, the intern, the security guard. Treating everyone as equals is the fastest way to be respected by all.",
+   "media_id": "9e66209e"
+  }
+ ]
+}

@@ -72,10 +72,8 @@ Deno.serve(async (request) => {
         const [f, ctx] = await Promise.all([fiche(db, poster), contexte(db, poster)]);
         const probleme = body.type === "probleme";
         const categorie = String(body.categorie ?? "autre");
-        const [b, v] = await Promise.all([
-          cerveau(db, f, probleme ? `PROBLÈME signalé (${categorie}) : ${texte}` : texte, ctx),
-          probleme ? verifier(categorie, texte, f, ctx) : Promise.resolve(null),
-        ]);
+        const v = probleme ? await verifier(categorie, texte, f, ctx) : null;
+        const b = await cerveau(db, f, probleme ? questionProbleme(categorie, texte, v) : texte, ctx);
         return json({
           ok: true, plateforme: f?.plateforme ?? null, contexte_caracteres: ctx.length,
           reponse_posteur: probleme ? null : (b.sur ? b.reponse : TEXTE_ENVOYE_EQUIPE),
@@ -166,10 +164,9 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     if (!error) auto = "arret";
   }
 
-  const [b, v] = await Promise.all([
-    cerveau(db, f, `PROBLÈME signalé (${categorie}) : ${texte}`, ctx),
-    verifier(categorie, texte, f, ctx),
-  ]);
+  // Le verdict d'abord : le brouillon de l'équipe répond avec ses faits (dates, montants), pas avec une réponse générale.
+  const v = await verifier(categorie, texte, f, ctx);
+  const b = await cerveau(db, f, questionProbleme(categorie, texte, v), ctx);
   const recu = texteProblemeRecu(categorie, auto);
   const { data, error } = await db.rpc("support_ajouter", {
     p: {
@@ -191,6 +188,13 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     await alerterMax(db, res.id, { nom: f?.nom ?? "?", plateforme, categorie, texte, raison: "paiement" });
   }
   return { ok: true, id: res?.id ?? null, reponse: recu };
+}
+
+/** Ce que le bot reçoit pour un problème : le message du posteur et, s'il existe, le verdict (les faits à donner). */
+function questionProbleme(categorie: string, texte: string, v: { phrase: string } | null): string {
+  return v
+    ? `PROBLÈME signalé (${categorie}) : ${texte}\nFAITS VÉRIFIÉS DANS LES DONNÉES : ${v.phrase}\nRéponds au posteur avec ces faits (dates, montants), simplement.`
+    : `PROBLÈME signalé (${categorie}) : ${texte}`;
 }
 
 /** 0673 : le verdict du bot (problème confirmé, pas de problème, incertain) et sa phrase pour l'équipe. Ne lève pas. */

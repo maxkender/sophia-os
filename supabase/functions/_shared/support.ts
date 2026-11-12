@@ -166,9 +166,12 @@ export function texteEmailReponse(prenom: string | null, reponse: string, osUrl:
 }
 
 /** 0673 : tout ce que l'OS sait du posteur (messages, paie, milestones, posts), pour le bot. Coupé à `plafond`. */
-export function contexteTexte(c: Record<string, unknown> | null, plafond = 7_000): string {
+export function contexteTexte(c: Record<string, unknown> | null, plafond = 14_000): string {
   if (!c) return "";
-  const t = `DONNÉES DE L'OS SUR CE POSTEUR (les plus récentes en dernier ; « de » : posteur, hm, max, os, nous) :\n${JSON.stringify(c)}`;
+  // Les faits d'abord (paie, milestones, posts), puis les messages : une coupe ne perd que les plus vieux messages.
+  const ordre = ["paie_semaines", "paie_ruul", "paie_upwork", "milestones", "posts", "envoye_par_os", "messages_au_bot", "messages_slack", "messages_upwork"];
+  const range = Object.fromEntries([...ordre.filter((k) => k in c).map((k) => [k, c[k]]), ...Object.entries(c).filter(([k]) => !ordre.includes(k))]);
+  const t = `DONNÉES DE L'OS SUR CE POSTEUR (montants en dollars ; « de » : posteur, hm, max, os, nous) :\n${JSON.stringify(range)}`;
   return t.length > plafond ? `${t.slice(0, plafond)}…` : t;
 }
 
@@ -189,7 +192,7 @@ Règles :
 - "probleme_confirme" : les données montrent le problème (ex. semaine terminée, posts faits, paie pas partie ; milestone pas financée ; compte bloqué).
 - "pas_de_probleme" : les données le contredisent clairement (ex. payé le 10/11, 25 $).
 - "incertain" : les données ne suffisent pas.
-- Une phrase courte en français pour l'équipe, avec les faits (dates, montants, semaines). Jamais d'invention : seulement ce qui est dans les données.
+- Une phrase courte en français pour l'équipe, avec les faits (dates, montants en dollars, semaines). Jamais d'invention : seulement ce qui est dans les données.
 
 Réponds uniquement en JSON : {"verdict": "probleme_confirme" | "pas_de_probleme" | "incertain", "phrase": "..."}`;
 }

@@ -84,6 +84,24 @@ export async function prevenirPosteur(
   }
 }
 
+/** L'erreur rendue quand les DM Slack aux posteurs sont en pause (réglage `slack_dm_posteurs`). */
+export const DM_SLACK_PAUSE = "DM Slack en pause (slack_dm_posteurs)";
+
+/**
+ * 0692 : interrupteur des DM Slack aux posteurs (`slack_dm_posteurs` = "off" | "on").
+ * Lecture impossible : prudence, rien ne part. Sur "off" : rien ne part.
+ */
+// deno-lint-ignore no-explicit-any
+export async function dmSlackEnPause(db: any): Promise<boolean> {
+  try {
+    const { data, error } = await db.from("reglages").select("valeur").eq("cle", "slack_dm_posteurs").maybeSingle();
+    if (error) return true;
+    return data?.valeur === "off";
+  } catch {
+    return true;
+  }
+}
+
 /**
  * Écrire au posteur par son ID Slack connu (`profiles.slack_user_id`, 0381),
  * sinon en le retrouvant par ses emails. Bot « Sophia OS » (SLACK_HM_BOT_TOKEN).
@@ -104,6 +122,8 @@ export async function ecrireAuPosteur(
   if (await bloquer(supabase, { fonction: "slack", action: "message_posteur", poster_id: posterId })) {
     return { statut: "erreur", erreur: PAUSE };
   }
+  // 0692 : DM Slack aux posteurs en pause (liaisons Slack à vérifier) : rien ne part, aucune exception.
+  if (await dmSlackEnPause(supabase)) return { statut: "erreur", erreur: DM_SLACK_PAUSE };
   // 0684 : un posteur qui a dit STOP ne reçoit plus rien, sauf les exceptions nommées.
   if (!opts.malgreStop && await stopDemande(supabase, posterId)) return { statut: "erreur", erreur: STOP_POSTEUR };
   const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");

@@ -113,3 +113,14 @@ Deno.test("0684 : un posteur qui a dit STOP ne reçoit plus de DM ; la confirmat
     assertEquals(ok, { statut: "envoye", userId: "U0STOP" });
   }
 });
+
+Deno.test("0692 : DM Slack aux posteurs en pause → rien ne part, aucune exception", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const a = faux({ "chat.postMessage": [{ ok: true }] });
+  const pause = { slack_user_id: "U0P", email: "p@sophia.com", valeur: "off" };
+  for (const motif of [undefined, "paie", "reponse", "manuel"] as const) {
+    const r = await ecrireAuPosteur(fauxSupabase(pause), "p", "Hi", a.fetchFn, undefined, motif ? { malgreStop: motif } : {});
+    assertEquals(r.statut, "erreur");
+  }
+  assertEquals(a.appels.length, 0);
+});

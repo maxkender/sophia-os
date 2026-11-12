@@ -21,6 +21,9 @@ export interface EntreeAujourdhui {
   contratsARelier?: number;
   /** 0681 : heures depuis le dernier import des statuts Ruul (null : jamais, undefined : inconnu). */
   ruulImportHeures?: number | null;
+  /** 0690 : signés sans compte (création refusée), erreurs d'envoi du parcours Ruul. */
+  creationsEchouees?: number;
+  parcoursErreurs?: number;
   /** 0 = dimanche … 6 = samedi, heure de Paris. */
   jourSemaine: number;
 }
@@ -31,6 +34,12 @@ export function lignesAujourdhui(e: EntreeAujourdhui): LigneAujourdhui[] {
   const l: LigneAujourdhui[] = [];
   if (e.pourMax > 0) {
     l.push({ cle: "pour_max", icone: "💰", rang: 1, texte: `${s(e.pourMax, "demande", "demandes")} paiement / urgent pour toi`, bouton: "Ouvrir", to: "/admin/auto/support?onglet=boite" });
+  }
+  if ((e.creationsEchouees ?? 0) > 0) {
+    l.push({ cle: "creations", icone: "⛔", rang: 1, texte: `${s(e.creationsEchouees!, "signé", "signés")} sans compte : création refusée`, bouton: "Voir", to: "/admin/auto/ruul" });
+  }
+  if ((e.parcoursErreurs ?? 0) > 0) {
+    l.push({ cle: "parcours", icone: "✉️", rang: 2, texte: `${s(e.parcoursErreurs!, "email Ruul", "emails Ruul")} en erreur (24 h)`, bouton: "Voir", to: "/admin/auto/ruul" });
   }
   if (e.maintenant > 0) {
     l.push({ cle: "maintenant", icone: "✋", rang: 2, texte: `${s(e.maintenant, "décision", "décisions")} à prendre maintenant`, bouton: "Décider", to: "/admin/auto/decisions" });

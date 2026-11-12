@@ -29,6 +29,13 @@ describe("Aujourd'hui (OS clair)", () => {
     expect(lignesAujourdhui({ ...base, contratsARelier: 2 })[0]).toMatchObject({ texte: "2 contrats : pays introuvable ou fermé", bouton: "Répondre" });
   });
 
+  it("0690 : un signé sans compte passe en tête ; les emails Ruul en erreur aussi", () => {
+    const l = lignesAujourdhui({ ...base, creationsEchouees: 4, parcoursErreurs: 2 });
+    expect(l[0]).toMatchObject({ cle: "creations", texte: "4 signés sans compte : création refusée" });
+    expect(l.some((x) => x.cle === "parcours" && x.texte === "2 emails Ruul en erreur (24 h)")).toBe(true);
+    expect(lignesAujourdhui(base).some((x) => x.cle === "creations" || x.cle === "parcours")).toBe(false);
+  });
+
   it("le jour de la semaine à Paris", () => {
     expect(jourParis(new Date("2026-11-12T12:00:00Z"))).toBe(4);
     expect(jourParis(new Date("2026-11-15T23:30:00Z"))).toBe(1);

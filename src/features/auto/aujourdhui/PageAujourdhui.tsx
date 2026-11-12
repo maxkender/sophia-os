@@ -28,6 +28,8 @@ export function PageAujourdhui() {
     ruulAInviter: chiffres.data?.ruul_a_inviter ?? 0,
     contratsARelier: chiffres.data?.contrats_a_relier ?? 0,
     ruulImportHeures: chiffres.data ? chiffres.data.ruul_import_heures : undefined,
+    creationsEchouees: chiffres.data?.creations_echouees ?? 0,
+    parcoursErreurs: chiffres.data?.parcours_erreurs ?? 0,
     jourSemaine: jourParis(),
   });
   const date = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long" }).format(new Date());

@@ -67,9 +67,16 @@ Deno.test("0671 : textes au posteur (anglais) et alerte à Max (français)", () 
   assertStringIncludes(texteProblemeRecu("connexion", "lien_envoye"), "emailed you a link");
   assertStringIncludes(texteProblemeRecu("paiement", null), "Payment issues are checked first");
   const a = texteAlerteMax({ nom: "Ana", plateforme: "ruul", categorie: "paiement", texte: "Not paid", raison: "paiement" }, "https://os.example");
-  assertStringIncludes(a, "problème de paiement");
+  assertStringIncludes(a, "paiement / urgent");
   assertStringIncludes(a, "Ruul");
   assertStringIncludes(a, "/admin/auto/support");
+  // 12/11 (Support propre) : qui / quoi / ce que dit l'OS / ce que dit le posteur / action proposée.
+  const b = texteAlerteMax({ nom: "Ana", plateforme: "upwork", categorie: "autre", texte: "I will report you", raison: "urgent", os: "Menace de plainte.", action: "Answer calmly." }, "https://os.example/");
+  assertStringIncludes(b, "🔴 Support : urgent — Ana (Upwork");
+  assertStringIncludes(b, "Le posteur : « I will report you »");
+  assertStringIncludes(b, "L'OS : Menace de plainte.");
+  assertStringIncludes(b, "Action proposée : Answer calmly.");
+  assertStringIncludes(b, "https://os.example/admin/auto/support");
 });
 
 Deno.test("0673 : contexte coupé, verdict lu (et refusé s'il est invalide)", async () => {

@@ -5188,6 +5188,15 @@ const MAX_PROFIL = "dde5916a-89b8-4fc3-897b-dc7f0d88e20e";
  * les 429 et les bienvenues en attente, en message privé Slack à Max (réglages
  * upwork_rapport_soir « on » / « off », upwork_rapport_destinataire : un profil).
  */
+/** 0675 : les cartes que l'OS ferme dès leur création (un compteur par type dans le point du soir). */
+const LIBELLES_RETIREES: Record<string, string> = {
+  autre: "autre",
+  pas_poste_aujourdhui: "pas posté aujourd'hui",
+  login_sans_contrat: "login sans contrat ni Slack",
+  payroll_api: "Payroll API à vérifier",
+  slack_non_relie: "Slack non relié",
+};
+
 async function rapportSoir(supabase: Supabase, forcer: boolean) {
   const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["upwork_rapport_soir", "upwork_rapport_destinataire"]);
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -5215,14 +5224,22 @@ async function rapportSoir(supabase: Supabase, forcer: boolean) {
   const noms = (attente ?? []).map((a) => [a.prenom, a.nom].filter(Boolean).join(" ").trim() || "?");
   const jourCourt = paris.jour.split("-").reverse().slice(0, 2).join("/");
   // 11/11 (0671) : le support dans le même point du soir (ouverts, en retard).
-  const { data: sup } = await supabase.rpc("support_compteurs");
+  const [{ data: sup }, { data: jour }] = await Promise.all([supabase.rpc("support_compteurs"), supabase.rpc("support_compteurs_jour")]);
   const c = (sup ?? {}) as { problemes?: number; questions?: number; en_retard?: number };
+  // 12/11 (Support propre, 0675) : les cartes que l'OS ne montre plus, comptées par type, et les 3 niveaux.
+  const j = (jour ?? {}) as { cartes_retirees?: Record<string, number>; regles_par_bot?: number; adrien_ouverts?: number; max_ouverts?: number };
+  const r = j.cartes_retirees ?? {};
+  const retirees = Object.entries(LIBELLES_RETIREES).map(([cle, lib]) => `${lib} ${r[cle] ?? 0}`).join(" · ");
   const texte = [
     `Upwork : bilan du ${jourCourt}`,
     `• Compte principal : ${p} appels, dont ${p429} erreurs 429`,
     `• Compte secours : ${s} appels, dont ${s429} erreurs 429`,
     `• Bienvenues en attente : ${noms.length}${noms.length ? ` (${noms.join(", ")})` : ""}`,
     `Support : ${c.problemes ?? 0} problèmes et ${c.questions ?? 0} questions ouverts, dont ${c.en_retard ?? 0} en retard`,
+    ...(jour ? [
+      `• Réglé par le bot aujourd'hui : ${j.regles_par_bot ?? 0} · ouverts pour Adrien : ${j.adrien_ouverts ?? 0} · pour Max : ${j.max_ouverts ?? 0}`,
+      `• Cartes retirées aujourd'hui : ${retirees}`,
+    ] : []),
   ].join("\n");
   const destinataire = typeof v.upwork_rapport_destinataire === "string" && v.upwork_rapport_destinataire ? v.upwork_rapport_destinataire : MAX_PROFIL;
   const issue = await ecrireAuPosteur(supabase, destinataire, texte);

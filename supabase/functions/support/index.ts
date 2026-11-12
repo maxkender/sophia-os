@@ -4,6 +4,7 @@ import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import {
   CATEGORIES_PROBLEME,
+  contexteTexte,
   estCategorie,
   type Fiche,
   ficheTexte,
@@ -12,8 +13,11 @@ import {
   TEXTE_ENVOYE_EQUIPE,
   texteAlerteMax,
   texteEmailReponse,
+  lireVerdict,
+  promptVerdict,
   texteProblemeRecu,
 } from "../_shared/support.ts";
+import { generateTextFast } from "../_shared/gemini.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -75,12 +79,23 @@ async function fiche(db: Db, poster: string): Promise<Fiche | null> {
   return (data ?? null) as Fiche | null;
 }
 
+/** 0673 : tout ce que l'OS sait du posteur (messages Upwork et Slack, envois de l'OS, paie, milestones, posts). Ne lève pas. */
+async function contexte(db: Db, poster: string): Promise<string> {
+  const { data, error } = await db.rpc("support_contexte", { p_poster: poster });
+  if (error) {
+    console.warn(`[support] contexte : ${error.message}`);
+    return "";
+  }
+  return contexteTexte((data ?? null) as Record<string, unknown> | null);
+}
+
 /** Le bot sur une question (ou un problème, pour le brouillon de l'équipe). Ne lève pas. */
-async function cerveau(db: Db, f: Fiche | null, texte: string) {
+async function cerveau(db: Db, f: Fiche | null, texte: string, ctx = "") {
   const plateforme: Plateforme = f?.plateforme === "ruul" ? "ruul" : "upwork";
   try {
     const charge = await chargerBase(db, "poster", plateforme);
-    const r = await demanderAuCerveau({ canal: "os", role: "poster", question: texte, base: charge.base, live: ficheTexte(f), langueRepli: "English" });
+    const live = ctx ? `${ficheTexte(f)}\n\n${ctx}` : ficheTexte(f);
+    const r = await demanderAuCerveau({ canal: "os", role: "poster", question: texte, base: charge.base, live, langueRepli: "English" });
     const reponse = r.decision === "repondu" && r.section ? `${r.reponse}\n\n📖 ${r.section}` : r.reponse;
     // Une réponse qui parle de l'autre plateforme ne part jamais : elle va à l'équipe, en brouillon.
     const sur = r.decision === "repondu" && !!reponse && !parleDeLAutrePlateforme(reponse, plateforme);
@@ -94,8 +109,8 @@ async function cerveau(db: Db, f: Fiche | null, texte: string) {
 async function poserQuestion(db: Db, poster: string, texte: string, categorie: string | null) {
   texte = texte.trim();
   if (texte.length < 3) return { ok: false, error: "Please write your question." };
-  const f = await fiche(db, poster);
-  const b = await cerveau(db, f, texte);
+  const [f, ctx] = await Promise.all([fiche(db, poster), contexte(db, poster)]);
+  const b = await cerveau(db, f, texte, ctx);
   const visible = b.sur ? b.reponse : TEXTE_ENVOYE_EQUIPE;
   const { data, error } = await db.rpc("support_ajouter", {
     p: {
@@ -111,7 +126,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
   texte = texte.trim();
   if (!(CATEGORIES_PROBLEME as readonly string[]).includes(categorie)) return { ok: false, error: "Please choose a category." };
   if (texte.length < 3) return { ok: false, error: "Please tell us what happens." };
-  const f = await fiche(db, poster);
+  const [f, ctx] = await Promise.all([fiche(db, poster), contexte(db, poster)]);
   const plateforme: Plateforme = f?.plateforme === "ruul" ? "ruul" : "upwork";
 
   // L'OS tente d'abord seul.
@@ -130,7 +145,10 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     if (!error) auto = "arret";
   }
 
-  const b = await cerveau(db, f, `PROBLÈME signalé (${categorie}) : ${texte}`);
+  const [b, v] = await Promise.all([
+    cerveau(db, f, `PROBLÈME signalé (${categorie}) : ${texte}`, ctx),
+    verifier(categorie, texte, f, ctx),
+  ]);
   const recu = texteProblemeRecu(categorie, auto);
   const { data, error } = await db.rpc("support_ajouter", {
     p: {
@@ -142,6 +160,9 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
   const res = data as { id: string; fusion: boolean };
   // Le message de l'OS dans le fil (le posteur le voit sous son problème).
   if (res?.id && !res.fusion) await db.from("support_messages").insert({ demande_id: res.id, auteur: "bot", texte: recu });
+  if (res?.id && v) {
+    await db.from("support_demandes").update({ verdict: v.verdict, verdict_texte: v.phrase }).eq("id", res.id);
+  }
   if (res?.id && auto === "lien_envoye") {
     await db.from("support_demandes").update({ statut: "attente_posteur", maj_at: new Date().toISOString() }).eq("id", res.id);
   }
@@ -149,6 +170,20 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     await alerterMax(db, res.id, { nom: f?.nom ?? "?", plateforme, categorie, texte, raison: "paiement" });
   }
   return { ok: true, id: res?.id ?? null, reponse: recu };
+}
+
+/** 0673 : le verdict du bot (problème confirmé, pas de problème, incertain) et sa phrase pour l'équipe. Ne lève pas. */
+async function verifier(categorie: string, texte: string, f: Fiche | null, ctx: string) {
+  try {
+    const prompt = promptVerdict({ categorie, texte, fiche: ficheTexte(f), contexte: ctx });
+    for (let essai = 0; essai < 2; essai++) {
+      const v = lireVerdict(await generateTextFast(prompt));
+      if (v) return v;
+    }
+  } catch (erreur) {
+    console.warn(`[support] verdict : ${messageErreur(erreur)}`);
+  }
+  return null;
 }
 
 async function contactPosteur(db: Db, poster: string) {

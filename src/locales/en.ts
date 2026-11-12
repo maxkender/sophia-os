@@ -8347,6 +8347,7 @@ export const en = {
         onglets: { probleme: "Problems", question: "Questions" },
         filtres: { plateforme: "Platform", toutes: "All", categorie: "Category", statut: "Status", statutOuverts: "Open + waiting", retard: "Late only" },
         statuts: { bot: "Bot", ouvert: "Open", attente_posteur: "Waiting for poster", resolu: "Solved" },
+        verdict: { probleme_confirme: "Bot check: problem confirmed", pas_de_probleme: "Bot check: no problem in the data", incertain: "Bot check: not enough data" },
         late: "Late",
         auteurs: { posteur: "Poster", equipe: "Team", bot: "Bot" },
         vide: "Nothing to handle.",

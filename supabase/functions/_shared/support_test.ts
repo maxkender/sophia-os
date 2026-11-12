@@ -71,3 +71,13 @@ Deno.test("0671 : textes au posteur (anglais) et alerte à Max (français)", () 
   assertStringIncludes(a, "Ruul");
   assertStringIncludes(a, "/admin/auto/support");
 });
+
+Deno.test("0673 : contexte coupé, verdict lu (et refusé s'il est invalide)", async () => {
+  const { contexteTexte, lireVerdict, promptVerdict } = await import("./support.ts");
+  assertEquals(contexteTexte(null), "");
+  assert(contexteTexte({ x: "a".repeat(10_000) }, 500).length <= 501);
+  assertEquals(lireVerdict('ok {"verdict":"pas_de_probleme","phrase":"Payé le 10/11, 25 $."}'), { verdict: "pas_de_probleme", phrase: "Payé le 10/11, 25 $." });
+  assertEquals(lireVerdict('{"verdict":"peut-etre","phrase":"x"}'), null);
+  assertEquals(lireVerdict('{"verdict":"incertain","phrase":""}'), null);
+  assertStringIncludes(promptVerdict({ categorie: "paiement", texte: "not paid", fiche: "F", contexte: "C" }), "Jamais d'invention");
+});

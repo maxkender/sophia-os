@@ -243,12 +243,13 @@ async function envoyerAide(payload: any): Promise<Response> {
       capture: demande.captures.join(" ") || null,
     },
   });
-  if (!error && categorie === "paiement" && (ajout as { fusion?: boolean } | null)?.fusion === false) {
-    // Paiement : alerte à Max tout de suite (la tâche support-alertes rattrape un échec).
+  const idAide = (ajout as { id?: string; fusion?: boolean } | null);
+  if (!error && idAide?.id && idAide.fusion === false) {
+    // 12/11 (Support propre) : le support trie la demande (Adrien, ou Max pour paiement / urgent, avec son alerte).
     const alerte = fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/support`, {
       method: "POST",
       headers: { "content-type": "application/json", "x-cron-secret": (await secretCron()) ?? "" },
-      body: JSON.stringify({ action: "alertes" }),
+      body: JSON.stringify({ action: "trier", id: idAide.id }),
     }).catch(() => undefined);
     // deno-lint-ignore no-explicit-any
     const edgeA = (globalThis as any).EdgeRuntime;

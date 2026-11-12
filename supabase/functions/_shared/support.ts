@@ -151,8 +151,20 @@ export function depuisAideSlack(choix: string): { type: TypeDemande; categorie: 
 }
 
 /** L'alerte Slack à Max (en français), avec le lien de la page Support. */
-export function texteAlerteMax(d: { nom: string; plateforme: Plateforme; categorie: string | null; texte: string; raison: "paiement" | "compte_24h" }, osUrl: string): string {
-  const tete = d.raison === "paiement" ? "🔴 Support : problème de paiement" : "🟠 Support : compte bloqué depuis plus de 24 h";
+export function texteAlerteMax(
+  d: { nom: string; plateforme: Plateforme; categorie: string | null; texte: string; raison: "paiement" | "compte_24h" | "urgent"; os?: string | null; action?: string | null },
+  osUrl: string,
+): string {
+  const tete = d.raison === "paiement" ? "🔴 Support : paiement / urgent" : d.raison === "urgent" ? "🔴 Support : urgent" : "🟠 Support : compte bloqué depuis plus de 24 h";
+  if (d.os || d.action) {
+    return [
+      `${tete} — ${d.nom} (${d.plateforme === "ruul" ? "Ruul" : "Upwork"}, ${libelleCategorie(d.categorie, d.plateforme)})`,
+      `Le posteur : « ${d.texte.slice(0, 300)} »`,
+      ...(d.os ? [`L'OS : ${d.os}`] : []),
+      ...(d.action ? [`Action proposée : ${d.action}`] : []),
+      `${osUrl.replace(/\/+$/, "")}/admin/auto/support`,
+    ].join("\n");
+  }
   return `${tete} — ${d.nom} (${d.plateforme === "ruul" ? "Ruul" : "Upwork"}, ${libelleCategorie(d.categorie, d.plateforme)})\n« ${d.texte.slice(0, 300)} »\n${osUrl.replace(/\/+$/, "")}/admin/auto/support`;
 }
 

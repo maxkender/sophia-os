@@ -20,8 +20,8 @@ export const CATEGORIES_BOT = [
 ] as const;
 export const RISQUES = ["repetition", "enerve", "menace", "scam", "argent_tiers", "multi_comptes", "hors_plateforme"] as const;
 export type Risque = (typeof RISQUES)[number];
-/** Le risque d'argent ou de fraude : Max. Le reste : Adrien. */
-const RISQUES_MAX: readonly Risque[] = ["argent_tiers", "multi_comptes", "hors_plateforme", "scam"];
+/** Le risque d'argent ou de fraude : Max. Le reste (dont le mot « scam » d'un posteur méfiant) : Adrien. */
+const RISQUES_MAX: readonly Risque[] = ["argent_tiers", "multi_comptes", "hors_plateforme"];
 
 export const TEXTE_ON_VERIFIE = "We're checking, you'll get an answer today.";
 export const SIGNATURE = "— the Vik Studios team";
@@ -72,7 +72,8 @@ PROCÉDURE
 4. Si une action de la liste règle le cas, choisis-la et dis-le dans la réponse. Actions possibles :
    lien_mot_de_passe (renvoyer le lien « Set my password »), renvoi_parrainage (renvoyer l'email d'un parrainage),
    pseudo_tiktok (noter un nouveau pseudo TikTok ; action_valeur = le pseudo sans @), email_ruul (corriger l'email Ruul de la fiche ; action_valeur = l'email),
-   arret (il veut arrêter : STOP, fin de contrat, dans n'importe quelle langue), lien_slack (donner le lien d'invitation Slack).
+   arret (SEULEMENT s'il demande clairement d'arrêter : STOP, fin du contrat, supprimer son compte, dans n'importe quelle langue ; une question, un voyage ou un doute ne suffisent pas),
+   lien_slack (donner le lien d'invitation Slack).
 5. Si AUCUNE règle (catalogue ou infos) ne couvre le cas : reponse = "${TEXTE_ON_VERIFIE}" et niveau = "adrien". N'invente JAMAIS une règle, une date ou un montant.
 
 NIVEAUX (un seul)
@@ -193,4 +194,87 @@ export function testOk(d: Pick<DecisionBot, "niveau" | "reponse" | "action">, t:
   if (t.attendu_action && d.action !== t.attendu_action) return false;
   const rep = d.reponse.toLowerCase();
   return t.attendu_contient.every((m) => rep.includes(m.toLowerCase()));
+}
+
+// ---------------------------------------------------------------------------
+// 0675 : mise en ligne (messages repris, liste d'Adrien, top 10 du lundi).
+// ---------------------------------------------------------------------------
+
+/** Un simple accusé de réception (« ok », « thanks », un emoji) : rien à répondre. */
+export function accuseReception(texte: string): boolean {
+  const t = texte.trim().toLowerCase().replace(/[!.\s]+$/gu, "");
+  if (t.length < 2) return true;
+  if (/^(:[a-z0-9_+-]+:\s*)+$/.test(t)) return true;
+  if (/^[\p{Extended_Pictographic}\s\u200d\ufe0f]+$/u.test(t)) return true;
+  return /^(ok(ay)?|k|thanks?|thank you|thank u|thx|ty|merci|danke|grazie|gracias|obrigad[oa]|dzięki|perfect|great|cool|nice|got it|noted|alright|sure|yes|yep|done)( (thanks?|thank you|you|a lot|so much))*$/u.test(t);
+}
+
+/** Une ligne de la liste du soir d'Adrien. */
+export interface LigneAdrien {
+  nom: string;
+  plateforme: string;
+  categorie: string | null;
+  texte: string;
+  attente: boolean;
+  heures: number;
+}
+
+export function texteListeAdrien(lignes: LigneAdrien[], osUrl: string): string {
+  const lien = `${osUrl.replace(/\/+$/, "")}/admin/auto/support`;
+  if (!lignes.length) return `Support : rien d'ouvert pour toi ce soir 👌\n${lien}`;
+  const age = (h: number) => (h < 24 ? `${h} h` : `${Math.round(h / 24)} j`);
+  return [
+    `Support : ta liste du soir (${lignes.length})`,
+    ...lignes.slice(0, 40).map((l, i) =>
+      `${i + 1}. ${l.nom} (${l.plateforme === "ruul" ? "Ruul" : "Upwork"}${l.categorie ? `, ${l.categorie}` : ""}, ${age(l.heures)})${l.attente ? " · attend le posteur" : ""} : « ${l.texte.replace(/\s+/g, " ").slice(0, 140)} »`
+    ),
+    ...(lignes.length > 40 ? [`… et ${lignes.length - 40} de plus`] : []),
+    lien,
+  ].join("\n");
+}
+
+export interface Top10 {
+  question: string;
+  fois: number;
+  reponse: string;
+}
+
+export function promptTop10(questions: string[], infos: { titre: string; valeur: string }[]): string {
+  return `Voici les questions de posteurs TikTok de la semaine que le bot du support n'a pas su régler seul.
+Regroupe celles qui demandent la même chose et donne les 10 plus fréquentes (moins s'il y en a moins).
+Pour chacune : la question type en anglais (courte), combien de fois elle revient, et une réponse proposée en anglais
+(3 phrases au plus, simple, signée par personne), qui s'appuie UNIQUEMENT sur les infos ci-dessous ; si les infos ne suffisent pas,
+écris « À compléter : » puis ce que l'équipe doit décider. Jamais de montant ni de date inventés.
+
+INFOS À CONNAÎTRE :
+${infos.map((i) => `- ${i.titre} : ${i.valeur}`).join("\n")}
+
+QUESTIONS :
+${questions.map((q, i) => `${i + 1}. ${q}`).join("\n")}
+
+Réponds en JSON seul : {"top": [{"question": "...", "fois": 3, "reponse": "..."}]}`;
+}
+
+export function lireTop10(brut: string): Top10[] {
+  const m = brut.match(/\{[\s\S]*\}/);
+  if (!m) return [];
+  try {
+    const o = JSON.parse(m[0]) as { top?: unknown };
+    if (!Array.isArray(o.top)) return [];
+    return o.top.slice(0, 10).map((x) => x as Record<string, unknown>)
+      .filter((x) => typeof x.question === "string" && typeof x.reponse === "string")
+      .map((x) => ({ question: String(x.question).slice(0, 300), fois: Math.max(1, Number(x.fois) || 1), reponse: String(x.reponse).slice(0, 800) }));
+  } catch {
+    return [];
+  }
+}
+
+export function texteTop10(top: Top10[], osUrl: string): string {
+  const lien = `${osUrl.replace(/\/+$/, "")}/admin/bot`;
+  if (!top.length) return `Support : aucune question sans réponse cette semaine.\n${lien}`;
+  return [
+    "Support : les questions de la semaine sans réponse du bot (à ajouter au catalogue)",
+    ...top.map((t, i) => `${i + 1}. ${t.question} (${t.fois}×)\n   → ${t.reponse}`),
+    `Catalogue : ${lien}`,
+  ].join("\n");
 }

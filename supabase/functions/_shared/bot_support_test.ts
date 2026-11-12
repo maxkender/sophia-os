@@ -1,6 +1,9 @@
 import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 
-import { appliquerGardeFous, type DecisionBot, lireDecision, promptBot, signer, testOk, TEXTE_ON_VERIFIE, troisPhrases } from "./bot_support.ts";
+import {
+  accuseReception, appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, promptBot, signer, testOk, TEXTE_ON_VERIFIE, texteListeAdrien, texteTop10,
+  troisPhrases,
+} from "./bot_support.ts";
 
 const base: DecisionBot = {
   langue: "en", categorie: "paie", personnel: false, reponse: "You are paid every Monday.", action: null, action_valeur: null,
@@ -18,6 +21,7 @@ Deno.test("bot v2 : la décision du modèle est lue, une action hors liste est i
 Deno.test("bot v2 : risque d'argent ou de fraude → Max ; autre risque → Adrien ; 3e fois → Adrien", () => {
   assertEquals(appliquerGardeFous({ ...base, risque: ["argent_tiers"] }, o).niveau, "max");
   assertEquals(appliquerGardeFous({ ...base, risque: ["enerve"] }, o).niveau, "adrien");
+  assertEquals(appliquerGardeFous({ ...base, risque: ["scam"] }, o).niveau, "adrien");
   const r = appliquerGardeFous(base, { ...o, nbMemeSujet: 2 });
   assertEquals(r.niveau, "adrien");
   assert(r.risque.includes("repetition"));
@@ -46,4 +50,24 @@ Deno.test("bot v2 : signature, prompt, test vert / rouge", () => {
   assertStringIncludes(p, "Plateforme de paie du posteur : Upwork");
   assert(testOk({ niveau: "bot", reponse: "Paid on Monday", action: null }, { attendu_niveau: "bot", attendu_contient: ["monday"], attendu_action: null }));
   assert(!testOk({ niveau: "adrien", reponse: "x", action: null }, { attendu_niveau: "bot", attendu_contient: [], attendu_action: null }));
+});
+
+Deno.test("accuseReception : les simples merci / ok ne reçoivent rien", () => {
+  for (const t of ["ok", "Thanks!", "thank you so much", "👍", ":pray:", "merci", "Got it."]) assertEquals(accuseReception(t), true, t);
+  for (const t of ["ok but when do I get paid?", "Thanks, I can't log in", "Is the warm-up paid?"]) assertEquals(accuseReception(t), false, t);
+});
+
+Deno.test("top 10 : lecture du JSON et texte du lundi", () => {
+  const top = lireTop10('voici {"top": [{"question": "Can I post twice a day?", "fois": 4, "reponse": "Yes."}, {"bad": 1}]}');
+  assertEquals(top, [{ question: "Can I post twice a day?", fois: 4, reponse: "Yes." }]);
+  assertEquals(lireTop10("rien"), []);
+  const t = texteTop10(top, "https://os.test/");
+  assertEquals(t.includes("1. Can I post twice a day? (4×)"), true);
+  assertEquals(t.endsWith("https://os.test/admin/bot"), true);
+});
+
+Deno.test("liste d'Adrien : vide et remplie", () => {
+  assertEquals(texteListeAdrien([], "https://os.test").startsWith("Support : rien d'ouvert"), true);
+  const t = texteListeAdrien([{ nom: "Alex T", plateforme: "ruul", categorie: "compte", texte: "My  account\nis blocked", attente: true, heures: 30 }], "https://os.test");
+  assertEquals(t.includes("1. Alex T (Ruul, compte, 1 j) · attend le posteur : « My account is blocked »"), true);
 });

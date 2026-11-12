@@ -333,7 +333,7 @@ async function repondre(
   }
   // 0671 : un salon du support où le bot ne sait pas (ou personne de l'équipe n'a répondu) → Support › Questions.
   if (support !== undefined && !test && (!r || ["inconnu", "incertain", "bug"].includes(r.decision)) && patch.etat !== "traite_slack") {
-    const { error: e } = await db.rpc("support_ajouter", {
+    const { data: aj, error: e } = await db.rpc("support_ajouter", {
       p: {
         poster_id: userId, type: "question", categorie: null, texte: q.texte, source: "slack_salon", escalader: true,
         plateforme: support, brouillon: r ? (r.proposition || r.reponse || null) : null, bot_decision: r?.decision ?? "erreur",
@@ -341,6 +341,12 @@ async function repondre(
       },
     });
     if (e) erreurs.push(`support : ${e.message}`);
+    // 12/11 (Support propre) : une question de salon que le bot ne sait pas régler va à Adrien.
+    const idSupport = (aj as { id?: string } | null)?.id;
+    if (idSupport) {
+      await db.from("support_demandes").update({ niveau: "adrien", raison: `Salon Slack : le bot ne sait pas (${r?.decision ?? "erreur"}).` })
+        .eq("id", idSupport).is("niveau", null);
+    }
   }
   if (erreurs.length) patch.erreur = erreurs.join(" · ");
 

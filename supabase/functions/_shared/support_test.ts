@@ -63,6 +63,14 @@ Deno.test("12/11 : « my account » (TikTok) n'est plus une question perso ; la 
   assert(questionPersonnelle("I can't access my Upwork account"));
   assert(questionPersonnelle("The milestone on Upwork is blocked, I still haven't received my payment"));
   assertEquals(niveauQuestionPersonnelle("I haven't been paid for last week"), { categorie: "paiement", niveau: "max" });
+  // 12/11 (Max) : TikTok, les posts ou l'app → réponse directe, jamais « use Help ».
+  assert(!questionPersonnelle("My TikTok account got banned, what do I do?"));
+  assert(!questionPersonnelle("I can't log in to my TikTok account"));
+  assert(!questionPersonnelle("My post got 0 views, is my account shadowbanned?"));
+  assert(!questionPersonnelle("I can't find the link section on my profile"));
+  assert(!questionPersonnelle("How do I save the photos from the app on my phone?"));
+  assert(questionPersonnelle("I posted all week but I haven't been paid"));
+  assert(questionPersonnelle("I can't log in to my dashboard"));
   assertEquals(niveauQuestionPersonnelle("I can't log in to my dashboard"), { categorie: "compte", niveau: "adrien" });
 });
 

@@ -45,6 +45,17 @@ export interface ResultatBot {
   regle_utilisee: string | null;
   plateforme: "ruul" | "upwork" | null;
   action_prevue: { action: string; valeur: string | null; executee: boolean } | null;
+  /** 0683 : ce que le bot a lu avant de répondre. */
+  lu?: {
+    fiche: string;
+    donnees: string;
+    consignes: string[];
+    regles: string[];
+    documents: string[];
+    catalogue: number;
+    demandes_passees: number;
+    meme_sujet: number;
+  };
 }
 
 export interface ProfilFictif {

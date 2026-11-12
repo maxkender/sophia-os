@@ -33,7 +33,7 @@ import { proposerLienSlack } from "../_shared/slack_connect.ts";
 import { messageAGarder } from "../_shared/slack_messages.ts";
 import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
-import { parleDeLAutrePlateforme, questionPersonnelle, texteRenvoiHelp } from "../_shared/support.ts";
+import { niveauQuestionPersonnelle, parleDeLAutrePlateforme, questionPersonnelle, texteRenvoiHelp } from "../_shared/support.ts";
 
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
@@ -198,6 +198,25 @@ async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<vo
     if (reglages.mode_slack === "actif" && token && !(await bloquer(db, { fonction: "faq", action: "reponse_slack", cible: tri.ts }))) {
       const envoi = await posterSlack(token, tri.canal, texteRenvoiHelp(OS_URL), tri.ts);
       if (!envoi.ok) console.error("[slack-faq] renvoi Help", envoi.error);
+    }
+    // 12/11 : la question ne se perd plus — elle est notée dans Support (paie → Max, le reste → Adrien).
+    if (reglages.mode_slack === "actif") {
+      const n = niveauQuestionPersonnelle(tri.texte);
+      const posterId = await profilDuPoster(db, tri.auteur);
+      const nom = token ? await nomSlack(token, tri.auteur) : null;
+      const { data: aj, error: e } = await db.rpc("support_ajouter", {
+        p: {
+          poster_id: posterId, type: n.categorie === "paiement" ? "probleme" : "question", categorie: n.categorie, texte: tri.texte,
+          source: "slack_salon", escalader: true, plateforme: plateformeDuSalon(tri.canal), bot_reponse: texteRenvoiHelp(OS_URL),
+          bot_decision: "renvoi_help", slack_canal: tri.canal, slack_ts: tri.ts, slack_user: nom ?? tri.auteur,
+        },
+      });
+      if (e) console.error("[slack-faq] support (question perso)", e.message);
+      const idSupport = (aj as { id?: string } | null)?.id;
+      if (idSupport) {
+        await db.from("support_demandes").update({ niveau: n.niveau, raison: `Salon Slack : question perso (${n.categorie}).` })
+          .eq("id", idSupport).is("niveau", null);
+      }
     }
     return;
   }

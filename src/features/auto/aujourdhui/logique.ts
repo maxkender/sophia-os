@@ -19,6 +19,8 @@ export interface EntreeAujourdhui {
   ruulAInviter: number;
   /** 0678 : contrats dont le pays est introuvable ou fermé (sinon la règle relie tout). */
   contratsARelier?: number;
+  /** 0681 : heures depuis le dernier import des statuts Ruul (null : jamais, undefined : inconnu). */
+  ruulImportHeures?: number | null;
   /** 0 = dimanche … 6 = samedi, heure de Paris. */
   jourSemaine: number;
 }
@@ -46,6 +48,10 @@ export function lignesAujourdhui(e: EntreeAujourdhui): LigneAujourdhui[] {
   if ((e.contratsARelier ?? 0) > 0) {
     const n = e.contratsARelier!;
     l.push({ cle: "contrats", icone: "🌍", rang: 2, texte: `${s(n, "contrat", "contrats")} : pays introuvable ou fermé`, bouton: "Répondre", to: "/admin/auto/recruits" });
+  }
+  if (e.ruulImportHeures === null || (e.ruulImportHeures !== undefined && e.ruulImportHeures > 48)) {
+    const quand = e.ruulImportHeures === null ? "jamais importés" : `pas importés depuis ${Math.floor(e.ruulImportHeures / 24)} jours`;
+    l.push({ cle: "ruul_import", icone: "🔄", rang: 4, texte: `Statuts Ruul ${quand}`, bouton: "Importer", to: "/admin/auto/ruul" });
   }
   if (e.ruulAInviter > 0) {
     l.push({ cle: "ruul", icone: "📧", rang: 5, texte: `${s(e.ruulAInviter, "posteur Ruul", "posteurs Ruul")} à inviter dans Ruul`, bouton: "Voir", to: "/admin/auto/ruul" });

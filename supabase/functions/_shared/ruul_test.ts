@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { prochaineEtapeRuul, remplirRuul, rendreEmailRuul, semaineCourte } from "./ruul.ts";
+import { emailAB, prochaineEtapeRuul, remplirRuul, rendreEmailRuul, semaineCourte } from "./ruul.ts";
 
 Deno.test("Ruul : invitation, relances J+1 et J+3, Problems à J+5, rien après STOP ou prêt", () => {
   const ajoute = "2026-11-09T10:00:00Z";
@@ -15,6 +15,19 @@ Deno.test("Ruul : invitation, relances J+1 et J+3, Problems à J+5, rien après 
   assertEquals(prochaineEtapeRuul(e(4), a(500)), null);
   assertEquals(prochaineEtapeRuul(e(0, { stop_at: ajoute }), a(1)), null);
   assertEquals(prochaineEtapeRuul(e(0, { statut: "pret" }), a(1)), null);
+});
+
+Deno.test("0681 : email A une fois (Invited), B une fois (Active), jamais A après B, rien si prêt ou STOP", () => {
+  const base = { compte: null as string | null, a_at: null as string | null, b_at: null as string | null, statut: "invite", stop_at: null as string | null };
+  assertEquals(emailAB(base), null);
+  assertEquals(emailAB({ ...base, compte: "invited" }), "A");
+  assertEquals(emailAB({ ...base, compte: "invited", a_at: "2026-11-12" }), null);
+  assertEquals(emailAB({ ...base, compte: "active" }), "B");
+  assertEquals(emailAB({ ...base, compte: "active", a_at: "2026-11-12" }), "B");
+  assertEquals(emailAB({ ...base, compte: "active", b_at: "2026-11-12" }), null);
+  assertEquals(emailAB({ ...base, compte: "invited", b_at: "2026-11-12" }), null);
+  assertEquals(emailAB({ ...base, compte: "active", statut: "pret" }), null);
+  assertEquals(emailAB({ ...base, compte: "invited", stop_at: "2026-11-12" }), null);
 });
 
 Deno.test("Ruul : textes, email (bouton, Unsubscribe), semaine", () => {

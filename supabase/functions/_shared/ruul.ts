@@ -31,6 +31,23 @@ export function prochaineEtapeRuul(e: EtatRuul, maintenant = new Date()): EtapeR
   return null;
 }
 
+/**
+ * 0681 (Agent Ruul) : l'email à envoyer d'après le dernier statut lu dans Ruul. B (« Active »)
+ * une seule fois ; A (« Invited ») une seule fois, et jamais après B. Rien une fois prêt.
+ */
+export function emailAB(p: {
+  compte: string | null;
+  a_at: string | null;
+  b_at: string | null;
+  statut: string | null;
+  stop_at: string | null;
+}): "A" | "B" | null {
+  if (p.stop_at || p.statut === "pret" || p.statut === "paye_1x") return null;
+  if (p.compte === "active" && !p.b_at) return "B";
+  if (p.compte === "invited" && !p.a_at && !p.b_at) return "A";
+  return null;
+}
+
 /** Les {variables} d'un texte modifiable ; une variable inconnue reste telle quelle. */
 export function remplirRuul(texte: string, v: Record<string, string | number | null | undefined>): string {
   return texte.replace(/\{(\w+)\}/g, (tout, cle) => {

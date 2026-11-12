@@ -13,6 +13,7 @@ import {
   CATEGORIES,
   changer,
   cleCategorie,
+  cleLibelle,
   compter,
   type DetailSupport,
   envoyerReponse,
@@ -107,7 +108,7 @@ function Ligne({ l, actif, onClick }: { l: LigneSupport; actif: boolean; onClick
       <span className={`mt-1.5 size-2.5 shrink-0 rounded-full ${PASTILLE[l.urgence]}`} data-testid={`pastille-${l.urgence}`} />
       <span className="min-w-0 flex-1 space-y-0.5">
         <span className="flex flex-wrap items-center gap-1.5">
-          <span className="font-medium">{t(`${H}.categories.${cleCategorie(l.categorie, l.plateforme)}`)}</span>
+          <span className="font-medium">{t(`${H}.categories.${cleLibelle(l.type, l.categorie, l.plateforme)}`)}</span>
           <span className="text-muted-foreground">· {l.nom} · {l.plateforme === "ruul" ? "Ruul" : "Upwork"}</span>
           {l.en_retard && <Badge variant="error">{t(`${A}.late`)}</Badge>}
           {l.statut !== "ouvert" && <Badge variant="outline">{t(`${A}.statuts.${l.statut}`)}</Badge>}
@@ -156,7 +157,7 @@ function PanneauDetail({ d, rafraichir, onFini }: { d: DetailSupport; rafraichir
       <CardContent className="space-y-3 p-4 text-sm">
         <div className="flex flex-wrap items-center gap-2">
           <span className={`size-2.5 rounded-full ${PASTILLE[d.urgence]}`} />
-          <span className="font-semibold">{t(`${H}.categories.${cleCategorie(d.categorie, d.plateforme)}`)}</span>
+          <span className="font-semibold">{t(`${H}.categories.${cleLibelle(d.type, d.categorie, d.plateforme)}`)}</span>
           <Badge variant="outline">{d.plateforme === "ruul" ? "Ruul" : "Upwork"}</Badge>
           <Badge variant="secondary">{t(`${A}.source.${d.source}`)}</Badge>
           <Badge variant="outline">{t(`${A}.statuts.${d.statut}`)}</Badge>
@@ -177,7 +178,7 @@ function PanneauDetail({ d, rafraichir, onFini }: { d: DetailSupport; rafraichir
           {d.auto_action && <p className="text-xs text-muted-foreground">{t(`${A}.auto`)} {d.auto_action} → {d.auto_resultat}</p>}
           {d.messages.map((m, i) => (
             <div key={i} className={m.auteur === "posteur" ? "rounded-md bg-muted/50 p-2" : "rounded-md border p-2"}>
-              <p className="text-xs text-muted-foreground">{t(`${H}.auteurs.${m.auteur}`)} · {new Date(m.cree_at).toLocaleString("fr-FR")}</p>
+              <p className="text-xs text-muted-foreground">{t(`${A}.auteurs.${m.auteur}`)} · {new Date(m.cree_at).toLocaleString("fr-FR")}</p>
               <p className="whitespace-pre-wrap">{m.texte}</p>
             </div>
           ))}

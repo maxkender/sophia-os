@@ -164,7 +164,7 @@ function Demande({ d, plateforme, onChange }: { d: MaDemande; plateforme: Platef
   const statut = statutPosteur(d);
   const repondre = useMutation({ mutationFn: () => actionPosteur(d.id, "repondre", texte.trim()), onSuccess: () => { setTexte(""); onChange(); } });
   const suite = useMutation({ mutationFn: (a: "resolu" | "aide") => actionPosteur(d.id, a), onSuccess: onChange });
-  const variante = statut === "resolu" ? "success" : statut === "en_cours" ? "info" : "secondary";
+  const variante = statut === "resolu" ? "success" : statut === "en_cours" || statut === "repondu" ? "info" : "secondary";
   return (
     <Card data-testid="demande">
       <CardContent className="space-y-2 p-4 text-sm">

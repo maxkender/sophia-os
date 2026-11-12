@@ -8348,11 +8348,11 @@ export const fr = {
         aucune: "Nothing yet.",
         repondre: "Reply",
         repondrePlaceholder: "Write a reply…",
-        statuts: { recu: "Received", en_cours: "In progress", resolu: "Solved" },
+        statuts: { recu: "Received", repondu: "Answered", en_cours: "In progress", resolu: "Solved" },
         auteurs: { posteur: "You", equipe: "Team", bot: "Sophia bot" },
         categories: {
           paiement: "Payment", connexion: "Login & account", compte_ruul: "Ruul account", compte_upwork: "Upwork contract",
-          tiktok: "TikTok account blocked", posting: "Posting", parrainage: "Referral", arret: "Stop or pause", autre: "Other",
+          tiktok: "TikTok account blocked", posting: "Posting", parrainage: "Referral", arret: "Stop or pause", autre: "Other", question: "Question",
         },
       },
       admin: {
@@ -8360,6 +8360,7 @@ export const fr = {
         filtres: { plateforme: "Plateforme", toutes: "Toutes", categorie: "Catégorie", statut: "Statut", statutOuverts: "Ouverts + en attente", retard: "En retard seulement" },
         statuts: { bot: "Bot", ouvert: "Open", attente_posteur: "Waiting for poster", resolu: "Solved" },
         late: "Late",
+        auteurs: { posteur: "Posteur", equipe: "Équipe", bot: "Bot" },
         vide: "Rien à traiter.",
         choisir: "Choisis une ligne pour voir le fil.",
         fil: "Fil",

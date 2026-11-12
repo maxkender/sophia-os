@@ -91,6 +91,11 @@ export interface DetailSupport {
   fiche: Fiche | null;
 }
 
+/** Le libellé d'une ligne : la catégorie d'un problème ; « Question » pour une question sans catégorie. */
+export function cleLibelle(type: TypeDemande, c: string | null | undefined, plateforme: Plateforme): string {
+  return type === "question" && !c ? "question" : cleCategorie(c, plateforme);
+}
+
 /** Ce que la plateforme du posteur permet de dire : « compte » = Ruul account ou Upwork contract. */
 export function cleCategorie(c: string | null | undefined, plateforme: Plateforme): string {
   if (c === "compte") return plateforme === "ruul" ? "compte_ruul" : "compte_upwork";
@@ -98,8 +103,10 @@ export function cleCategorie(c: string | null | undefined, plateforme: Plateform
 }
 
 /** Le statut vu par le posteur : Received / In progress / Solved. */
-export function statutPosteur(d: Pick<MaDemande, "statut" | "equipe_a_repondu">): "recu" | "en_cours" | "resolu" {
+export function statutPosteur(d: Pick<MaDemande, "statut" | "equipe_a_repondu">): "recu" | "repondu" | "en_cours" | "resolu" {
   if (d.statut === "resolu") return "resolu";
+  // Le bot a répondu ; le posteur n'a pas encore dit « This solved it » ou « I still need help ».
+  if (d.statut === "bot") return "repondu";
   if (d.statut === "attente_posteur" || d.equipe_a_repondu) return "en_cours";
   return "recu";
 }

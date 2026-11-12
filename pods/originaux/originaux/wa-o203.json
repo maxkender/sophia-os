@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o203",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "26caaa5d-cf59-4637-9a58-a6ff0819fa7f",
+ "titre": "unusual habits that quietly pull people towards you #magnetic #charisma #socialskills #selfimprovement #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "f490daf5-f20d-4891-a1ce-4219bcb84d2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f490daf5). déclinaison G2 de « 5 bizarre habits to make you the most magnetic person in the room » (parent 26caaa5d). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ae68c043-9f3c-48d2-b5d8-f262583f9cfc",
+   "texte_overlay": "unusual habits that quietly\npull people towards you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "26af208e-bf7c-4045-94be-a48f9530f27c",
+   "texte_overlay": "the proper goodbye\n\nwhen you leave, say goodbye to everyone you talked to, not just your friends. people never forget the person who made a point of noticing them on the way out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c8b14574-7a9a-4cc5-94ee-e9c7abfdf756",
+   "texte_overlay": "the slow nod\n\nnod slowly while someone is talking to you. a gentle, unhurried nod says i'm really listening, and people keep talking to whoever makes them feel heard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6ccaec61-8452-4963-8cb1-d616d7414ad4",
+   "texte_overlay": "the unexpected story\n\nalways have one unexpected story ready to share at a table. a strange invention or an odd myth turns you into the person everyone wants to sit next to at dinner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/4.jpg",
+   "texte_sophia": "the unexpected story\n\ni never had anything to say in group chats. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a strange invention, and i always have a story people love."
+  },
+  {
+   "position": 5,
+   "media_id": "fe92b3cd-b294-4352-b314-eb0554b00fee",
+   "texte_overlay": "the follow up\n\nbring up a small thing someone mentioned last time: a trip, an exam, a new job. remembering a detail is so rare that people feel instantly drawn to you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d11ca021-b998-4113-9a1e-dacc1f91acbb",
+   "texte_overlay": "the phone face down\n\nput your phone face down and out of reach when you're with someone. real, undivided attention has become so rare that people notice it and feel it straight away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654988338746674454/6.jpg"
+  }
+ ]
+}

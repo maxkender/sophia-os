@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o202",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "20bc146e-0a53-46b7-b228-16037ff19b34",
+ "titre": "hobbies that make your mind frighteningly sharp #intelligence #hobbies #learning #selfimprovement #brain",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "d7817c43-6e83-46af-934e-1ff6995fa3b5"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d7817c43). déclinaison G2 de « hobbies that will make you intellectually lethal » (parent 20bc146e). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fc41d8ea-fa00-49f4-8786-87c9f3f898b7",
+   "texte_overlay": "hobbies that make your mind\nfrighteningly sharp",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9186053a-a924-4306-b179-a2202c1d1684",
+   "texte_overlay": "arguing the other side\n\nonce a week, write the strongest version of an opinion you disagree with. understanding the other side properly makes your own arguments far harder to beat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3922a8c3-3537-48ec-8d46-5551cd17411c",
+   "texte_overlay": "one idea a day\n\ni used to read only headlines and pretend i understood. learning one real idea a day, a theory or an experiment, changed how i think more than any book ever did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/3.jpg",
+   "texte_sophia": "one idea a day\n\ni used to read only headlines. now i spend 5 minutes a day on one lesson in the Sophia app: a theory, an experiment, a turning point. my thinking has never been sharper."
+  },
+  {
+   "position": 4,
+   "media_id": "d27a875c-eb21-45eb-89ac-fbf9cef79efd",
+   "texte_overlay": "reading the original\n\nread the actual speech, letter or study instead of an article about it. going straight to the source is slower, but you'll notice what everyone else missed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a55d76be-dd2a-4f88-8db2-3db6af728d30",
+   "texte_overlay": "chess puzzles\n\nsolve one chess puzzle a day with your morning coffee. thinking a few moves ahead trains the same calm and careful logic you'll use in every big decision.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2479abaa-e4b5-4b35-a871-d87b2ebbb347",
+   "texte_overlay": "teaching a child\n\nexplain one hard idea a week as if to a ten year old. if you can't make it simple, you've found exactly the part you don't really understand properly yet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/6.jpg"
+  }
+ ]
+}

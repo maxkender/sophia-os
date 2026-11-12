@@ -120,7 +120,7 @@ Deno.serve(async (request) => {
     if (body?.action === "envoyer") return json(await envoyer(supabase));
     if (body?.action === "candidatures") return json(await candidatures(supabase));
     // 0688 : le parcours Ruul (toutes les heures) ; l'aperçu de ses emails pour un posteur (rien n'est envoyé).
-    if (body?.action === "parcours") return json(await parcours(supabase, body?.forcer === true));
+    if (body?.action === "parcours") return json(await parcours(supabase, body?.forcer === true, body?.simuler === true));
     if (body?.action === "parcours_apercu") return json(await parcoursApercu(supabase, String(body?.poster_id ?? "")));
     // 0592 : « dimanche » (ancien nom de la tâche) et « soir » : la liste de tous les soirs.
     if (body?.action === "dimanche" || body?.action === "soir") return json(await listeSoir(supabase, body?.forcer === true));
@@ -608,9 +608,9 @@ function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">,
 }
 
 /** Toutes les heures : pour chaque posteur Ruul actif, l'email dû maintenant (au plus un par jour). */
-async function parcours(supabase: Supabase, forcer: boolean) {
+async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const mode = await reglageTexte(supabase, "ruul_parcours");
-  if (mode !== "on" && !forcer) return { ok: true, ignore: "parcours Ruul éteint (réglage ruul_parcours)" };
+  if (mode !== "on" && !forcer && !simuler) return { ok: true, ignore: "parcours Ruul éteint (réglage ruul_parcours)" };
   const bienvenue = (await reglageTexte(supabase, "ruul_parcours_bienvenue")) === true;
   const { data, error } = await supabase.rpc("ruul_parcours_etat");
   if (error) throw error;
@@ -620,6 +620,8 @@ async function parcours(supabase: Supabase, forcer: boolean) {
   for (const e of (data ?? []) as EtatParcours[]) {
     const d = prochainEnvoi(e, maintenant, { bienvenue });
     if (!d) continue;
+    // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.
+    if (simuler) { bilan.push({ poster: e.poster_id, type: d.type, cle: d.cle, ok: true, simulation: true }); continue; }
     bilan.push(await executer(supabase, e, d, slack));
   }
   return {

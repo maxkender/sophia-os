@@ -45,7 +45,9 @@ import {
   codePays,
   type DetailsContrat,
   hmDeNomUpwork,
+  type HmRegle,
   type InfosApi,
+  LANGUE_DU_PAYS,
   langueDePays,
   REQUETES_LOCALISATION,
   lireDetailsContrat,
@@ -3030,6 +3032,42 @@ async function hmsDeLOs(supabase: Supabase): Promise<{ id: string; prenom: strin
   return (data ?? []).filter((p) => normaliserNom(p.prenom) !== "ruul").map((p) => ({ id: String(p.id), prenom: p.prenom, nom: p.nom }));
 }
 
+/**
+ * 12/11 (Max) : ce qu'il faut à la règle « HM inconnue » : les HM (rôle hiring_manager,
+ * actives, hors RUUL) avec leurs pays (hm_pays), leurs langues et leurs posteurs actifs ;
+ * les pays fermés au recrutement (parrainage_pays) ; la langue d'un pays.
+ */
+async function contexteRegle(
+  supabase: Supabase,
+  languesPays: { pays: string | null; langue: string | null }[],
+): Promise<Pick<InfosApi, "hms_regle" | "pays_fermes" | "langue_de">> {
+  const [{ data: roles }, { data: zones }, { data: fermes }, { data: actifs }] = await Promise.all([
+    supabase.from("user_roles").select("user_id").eq("role", "hiring_manager"),
+    supabase.from("hm_pays").select("pays, hm_id").not("hm_id", "is", null),
+    supabase.from("parrainage_pays").select("pays").eq("recrutement_ouvert", false),
+    supabase.from("profiles").select("manager_id").eq("is_active", true).not("manager_id", "is", null),
+  ]);
+  const ids = (roles ?? []).map((r) => String(r.user_id));
+  const { data: profils } = ids.length
+    ? await supabase.from("profiles").select("id, prenom, langues").in("id", ids).eq("is_active", true)
+    : { data: [] };
+  const charge = new Map<string, number>();
+  for (const a of actifs ?? []) charge.set(String(a.manager_id), (charge.get(String(a.manager_id)) ?? 0) + 1);
+  const hms_regle: HmRegle[] = (profils ?? [])
+    .filter((p) => normaliserNom(p.prenom) !== "ruul")
+    .map((p) => ({
+      id: String(p.id),
+      langues: ((p.langues ?? []) as string[]).map(String),
+      pays: (zones ?? []).filter((z) => String(z.hm_id) === String(p.id)).map((z) => String(z.pays)),
+      actifs: charge.get(String(p.id)) ?? 0,
+    }));
+  return {
+    hms_regle,
+    pays_fermes: (fermes ?? []).map((f) => String(f.pays)),
+    langue_de: (pays: string) => langueDePays(pays, languesPays) ?? LANGUE_DU_PAYS[pays] ?? null,
+  };
+}
+
 /** 0470 : la HM de l'OS du contrat : hiringManager, sinon supervisor ; une correspondance notée à la main (hm_upwork) d'abord. */
 function hmDuContrat(
   d: { hm_upwork_id: string | null; hm_upwork_nom?: string | null; superviseur_upwork_id?: string | null; superviseur_upwork_nom?: string | null },
@@ -3133,7 +3171,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
     : { data: [] };
   const connuDe = new Map((connus ?? []).map((a) => [String(a.contrat_id), a]));
   const [{ data: profils }, { data: comptesPays }, hms, { data: hmNotees }] = await Promise.all([
-    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie"),
     supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
     hmsDeLOs(supabase),
     supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
@@ -3145,8 +3183,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const paysDe = new Map((comptesPays ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id,
-    pays: paysDe.get(p.id) ?? null,
+    pays: paysDe.get(p.id) ?? null, canal_paie: p.canal_paie ?? null,
   }));
+  // 12/11 (Max) : plus rien à relier à la main quand la HM du contrat n'est pas une HM de l'OS.
+  const regle = await contexteRegle(supabase, languesPays);
 
   // Prompt 25 v4 (0440) : sur un contrat de test, la bienvenue part pour de vrai même sur Test ou Approve.
   const { data: tests } = await supabase.from("contrats_test").select("contrat_id, poster_id").is("retire_at", null);
@@ -3189,9 +3229,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
     const hmContrat = hmDuContrat(details, hms, notees);
     const api: InfosApi = {
       freelance_pays: freelancePays,
-      freelance_langue: langueDePays(freelancePays, languesPays),
+      freelance_langue: langueDePays(freelancePays, languesPays) ?? (freelancePays ? LANGUE_DU_PAYS[freelancePays] ?? null : null),
       hm_id: hmContrat.hm_id,
       hm_nom: hmContrat.hm_nom,
+      ...regle,
     };
     // L'annonce : vue pour la 1re fois → notée, pays à dire.
     let annonce: Annonce | null = null;
@@ -3216,6 +3257,11 @@ async function accueillir(supabase: Supabase, par: string | null) {
       api,
     );
     if (errAnnonce && plan.raison) plan.raison = `${plan.raison} (annonce non notée : ${errAnnonce})`;
+    // La HM choisie par la règle a une recrue de plus pour le contrat suivant de ce passage.
+    if (plan.statut === "a_creer" && plan.hm_id && !hmContrat.hm_id) {
+      const h = regle.hms_regle?.find((x) => x.id === plan.hm_id);
+      if (h) h.actifs++;
+    }
     const base = {
       contrat_id: contratId, organisation_id: c.organisation_id, offre_id: details.offre_id ?? c.offre_id, job_id: details.job_id,
       job_titre: details.job_titre, prenom: details.prenom, nom: details.nom, debut_at: details.debut_at ?? c.debut_at,
@@ -3336,7 +3382,7 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
     hmsDeLOs(supabase),
     supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
     supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
-    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie"),
     supabase.from("upwork_contrats").select("contrat_id, organisation_id, organisation_nom").in("contrat_id", (lignes ?? []).map((l) => l.contrat_id)),
   ]);
   const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
@@ -3344,7 +3390,9 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
   const paysDe = new Map((comptes ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id, pays: paysDe.get(p.id) ?? null,
+    canal_paie: p.canal_paie ?? null,
   }));
+  const regle = await contexteRegle(supabase, languesPays);
   const orgDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), o]));
   const nomHm = new Map(hms.map((h) => [h.id, [h.prenom, h.nom].filter(Boolean).join(" ")]));
   await jetonValide(supabase, par);
@@ -3369,7 +3417,7 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
       annonce,
       { statut: a.statut, pays: a.pays, langue: a.langue, hm_id: a.hm_id, relie_at: a.relie_at },
       posteurs,
-      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom },
+      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom, ...regle },
     );
     await supabase.from("accueils").update({
       ...champs, pays_source: plan.source ?? null, ecart_pays: ecartPays(plan.ecart), updated_at: new Date().toISOString(),

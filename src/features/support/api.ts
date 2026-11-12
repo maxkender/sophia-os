@@ -117,15 +117,18 @@ export function statutPosteur(d: Pick<MaDemande, "statut" | "equipe_a_repondu">)
 /** La page Support : un onglet, des filtres, l'urgence puis l'ancienneté. */
 export interface FiltresSupport {
   plateforme: "" | Plateforme;
+  /** 12/11 (Support propre) : le niveau (Adrien, ou Max pour « Paiement / urgent »). */
+  niveau?: "" | "adrien" | "max";
   categorie: string;
   statut: "" | "ouvert" | "attente_posteur" | "resolu";
   retard: boolean;
 }
 
-export function filtrer(lignes: readonly LigneSupport[], type: TypeDemande, f: FiltresSupport): LigneSupport[] {
+export function filtrer(lignes: readonly LigneSupport[], type: TypeDemande, f: FiltresSupport, niveaux?: ReadonlyMap<string, string | null>): LigneSupport[] {
   const rang = { rouge: 0, orange: 1, gris: 2 } as const;
   return lignes
     .filter((l) => l.type === type)
+    .filter((l) => !f.niveau || (niveaux?.get(l.id) ?? "adrien") === f.niveau)
     .filter((l) => (f.statut ? l.statut === f.statut : l.statut !== "resolu"))
     .filter((l) => !f.plateforme || l.plateforme === f.plateforme)
     .filter((l) => !f.categorie || (l.categorie ?? "autre") === f.categorie)
@@ -200,6 +203,13 @@ export async function lireSupport(): Promise<LigneSupport[]> {
   const { data, error } = await supabase.rpc("support_liste");
   if (error) throw new Error(error.message);
   return (data ?? []) as LigneSupport[];
+}
+
+/** 12/11 : le niveau de chaque demande (bot / adrien / max), lu à part (support_liste ne le donne pas). */
+export async function lireNiveaux(): Promise<Map<string, string | null>> {
+  const { data, error } = await supabase.from("support_demandes").select("id, niveau").neq("statut", "resolu").limit(1000);
+  if (error) throw new Error(error.message);
+  return new Map((data ?? []).map((d) => [d.id as string, (d.niveau as string | null) ?? null]));
 }
 
 export async function lireDetail(id: string): Promise<DetailSupport | null> {

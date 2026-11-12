@@ -8357,7 +8357,7 @@ export const fr = {
       },
       admin: {
         onglets: { probleme: "Problems", question: "Questions" },
-        filtres: { plateforme: "Plateforme", toutes: "Toutes", categorie: "Catégorie", statut: "Statut", statutOuverts: "Ouverts + en attente", retard: "En retard seulement" },
+        filtres: { niveau: "Niveau", niveaux: { tous: "Tous les niveaux", adrien: "Adrien", max: "Max · Paiement / urgent", bot: "Bot" }, plateforme: "Plateforme", toutes: "Toutes", categorie: "Catégorie", statut: "Statut", statutOuverts: "Ouverts + en attente", retard: "En retard seulement" },
         statuts: { bot: "Bot", ouvert: "Open", attente_posteur: "Waiting for poster", resolu: "Solved" },
         verdict: { probleme_confirme: "Vérifié par le bot : problème confirmé", pas_de_probleme: "Vérifié par le bot : pas de problème dans les données", incertain: "Vérifié par le bot : données insuffisantes" },
         late: "Late",

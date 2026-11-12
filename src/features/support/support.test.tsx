@@ -11,6 +11,7 @@ const api = vi.hoisted(() => ({
   actionPosteur: vi.fn(),
   deposerCapture: vi.fn(),
   lireSupport: vi.fn(),
+  lireNiveaux: vi.fn(),
   lireDetail: vi.fn(),
   envoyerReponse: vi.fn(),
   changer: vi.fn(),
@@ -58,6 +59,10 @@ describe("Support, logique (0671)", () => {
     ];
     const vide = { plateforme: "" as const, categorie: "", statut: "" as const, retard: false };
     expect(filtrer(l, "probleme", vide).map((x) => x.id)).toEqual(["r", "o", "g"]);
+    // 12/11 (Support propre) : le niveau ; sans niveau, la demande est pour Adrien.
+    const niveaux = new Map<string, string | null>([["r", "max"], ["o", "adrien"]]);
+    expect(filtrer(l, "probleme", { ...vide, niveau: "max" }, niveaux).map((x) => x.id)).toEqual(["r"]);
+    expect(filtrer(l, "probleme", { ...vide, niveau: "adrien" }, niveaux).map((x) => x.id)).toEqual(["o", "g"]);
     expect(filtrer(l, "probleme", { ...vide, plateforme: "ruul" }).map((x) => x.id)).toEqual(["r"]);
     expect(filtrer(l, "probleme", { ...vide, retard: true }).map((x) => x.id)).toEqual(["o"]);
     expect(filtrer(l, "probleme", { ...vide, statut: "resolu" }).map((x) => x.id)).toEqual(["s"]);
@@ -114,6 +119,7 @@ describe("PageHelp (posteur)", () => {
 
 describe("PageSupport (admin)", () => {
   it("onglets avec compteur, pastille, Late, panneau : fiche, brouillon modifiable, Send reply + Add to official answers", async () => {
+    api.lireNiveaux.mockResolvedValue(new Map([["a", "max"], ["b", null]]));
     api.lireSupport.mockResolvedValue([
       ligne({ id: "a", urgence: "rouge", categorie: "paiement", en_retard: true, nom: "Ana", plateforme: "ruul" }),
       ligne({ id: "b", type: "question", nom: "Bo" }),

@@ -108,17 +108,19 @@ describe("CandidatsSourcesPanel", () => {
 
   it("valide avec le label proposé et annonce la file", async () => {
     listerCandidatsSources.mockResolvedValue(TOUS);
-    validerCandidatSource.mockResolvedValue({ handle: "fort", file: "attente" });
+    validerCandidatSource.mockResolvedValue({ handle: "fort", file: "attente", essaiMax: 30, prevuLe: "2026-11-13" });
     rendre();
     const cartes = await screen.findAllByTestId("candidat-source");
     fireEvent.click(within(cartes[0]).getByRole("button", { name: "Valider" }));
     await waitFor(() => expect(validerCandidatSource).toHaveBeenCalledWith("fort", "l-smart", "de"));
-    expect(await screen.findByText("@fort est une source. Son import partira au prochain lot (6 h 37).")).toBeTruthy();
+    expect(
+      await screen.findByText("@fort est une source. L'import de ses 30 meilleurs posts partira au plus tôt vendredi 13 novembre."),
+    ).toBeTruthy();
   });
 
   it("demande un label avant de valider un concept nouveau", async () => {
     listerCandidatsSources.mockResolvedValue(TOUS);
-    validerCandidatSource.mockResolvedValue({ handle: "concept", file: "lancee" });
+    validerCandidatSource.mockResolvedValue({ handle: "concept", file: "lancee", essaiMax: 30, prevuLe: null });
     rendre();
     const carte = (await screen.findAllByTestId("candidat-source"))[1];
     const valider = within(carte).getByRole("button", { name: "Valider" }) as HTMLButtonElement;

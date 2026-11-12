@@ -274,5 +274,13 @@ ce que tu ferais demain. Si une piste ne rend rien depuis une semaine, dis-le.
 - **L'essai d'import** : passer 5 à 10 posts d'un candidat au score d'import de
   l'OS avant de le proposer. Rien n'existe encore pour le faire sans écrire en
   base. D'ici là, écris ce que tu vois (texte lisible, images réutilisables).
-- **La période d'essai** d'une source validée (30 posts d'abord) : pas décidée.
-  Une validation importe tout le profil.
+
+## Ce qui se passe après une validation (0686)
+
+Une source validée entre dans la file d'import, visible sur la page Sources :
+deux sources neuves par jour au plus, derrière les mises à jour de la semaine.
+Elle n'importe d'abord que ses 30 meilleurs posts (l'essai). Le lundi, avec 10
+posts mesurés chez nous, elle « tient » (r au-dessus de 1, ou au-dessus de son
+label) et la suite arrive par tranches de 100, ou elle « ne tient pas » et
+l'import s'arrête. Un petit catalogue n'est donc plus un défaut, et un gros
+catalogue n'est plus un risque : classe sur la qualité.

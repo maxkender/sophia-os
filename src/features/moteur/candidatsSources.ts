@@ -164,15 +164,21 @@ export async function validerCandidatSource(
   id: string,
   labelId: string,
   langue: string,
-): Promise<{ handle: string; file: "lancee" | "attente" }> {
+): Promise<{ handle: string; file: "lancee" | "attente"; essaiMax: number | null; prevuLe: string | null }> {
   const { data, error } = await supabase.rpc("sources_candidats_valider", {
     p_id: id,
     p_label: labelId,
     p_langue: langue,
   });
   if (error) throw error;
-  const r = (data ?? {}) as { handle?: string; file?: string };
-  return { handle: r.handle ?? "", file: r.file === "lancee" ? "lancee" : "attente" };
+  const r = (data ?? {}) as { handle?: string; file?: string; essai_max?: number | null; prevu_le?: string | null };
+  return {
+    handle: r.handle ?? "",
+    file: r.file === "lancee" ? "lancee" : "attente",
+    // 0686 : une source neuve n'importe d'abord que ses meilleurs posts.
+    essaiMax: typeof r.essai_max === "number" ? r.essai_max : null,
+    prevuLe: r.prevu_le ?? null,
+  };
 }
 
 export async function deciderCandidatSource(

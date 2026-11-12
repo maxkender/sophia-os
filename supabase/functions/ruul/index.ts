@@ -615,9 +615,13 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const { data, error } = await supabase.rpc("ruul_parcours_etat");
   if (error) throw error;
   const slack = await lienSlackInvitation(supabase);
+  // Les posteurs que Max a mis de côté (« ne pas inviter ») ne reçoivent rien.
+  const { data: exclus } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").eq("ruul_ne_pas_inviter", true);
+  const deCote = new Set(((exclus ?? []) as { id: string }[]).map((x) => x.id));
   const maintenant = new Date();
   const bilan: Record<string, unknown>[] = [];
   for (const e of (data ?? []) as EtatParcours[]) {
+    if (deCote.has(e.poster_id)) continue;
     const d = prochainEnvoi(e, maintenant, { bienvenue });
     if (!d) continue;
     // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.

@@ -52,6 +52,12 @@ Deno.test("parcours : dimanche 20 h « you start tomorrow » si prêt ; lundi, p
   assertEquals(r?.lundi, "2026-11-23");
 });
 
+Deno.test("parcours : sans lundi de début, pas de relance d'étape (mais la désactivation et Ruul restent)", () => {
+  const ancien = base({ cohorte_lundi: null, cree_at: "2026-11-05T08:00:00Z", premiere_connexion_at: "2026-11-05T09:00:00Z" });
+  assertEquals(prochainEnvoi(ancien, jeudi, { bienvenue: false }), null);
+  assertEquals(prochainEnvoi(base({ cohorte_lundi: null, cree_at: "2026-10-18T08:00:00Z" }), jeudi, { bienvenue: false })?.type, "desactivation");
+});
+
 Deno.test("parcours : 14 jours sans aucune activité → désactivation", () => {
   assertEquals(prochainEnvoi(base({ cree_at: "2026-10-28T08:00:00Z", cohorte_lundi: "2026-11-23" }), jeudi, { bienvenue: false })?.type, "desactivation");
   assertEquals(prochainEnvoi(base({ cree_at: "2026-10-28T08:00:00Z", cohorte_lundi: "2026-11-23", premiere_connexion_at: "2026-10-29T08:00:00Z" }), jeudi, { bienvenue: false })?.type, "tiktok");

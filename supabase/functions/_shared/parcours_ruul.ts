@@ -114,6 +114,9 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
   }
   if (inactif14(e, maintenant)) return { type: "desactivation", cle: "desactivation" };
 
+  // Les relances d'étape ne concernent qu'un posteur qui a un lundi de début (pas les anciens sans cohorte).
+  if (!e.cohorte_lundi) return ruulEnCours && ruul.n < RUUL_MAX && ruul.depuis && t - new Date(ruul.depuis).getTime() >= 2 * JOUR
+    ? { type: "ruul", cle: `ruul_${ruul.n + 1}` } : null;
   const cree = new Date(e.cree_at).getTime();
   if (!e.premiere_connexion_at) {
     if (t - cree >= JOUR && !envoye(e, "jamais_connecte")) return { type: "jamais_connecte", cle: "jamais_connecte" };

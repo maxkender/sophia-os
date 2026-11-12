@@ -18,6 +18,7 @@ Deno.test("bot v2 : la décision du modèle est lue, une action hors liste est i
 Deno.test("bot v2 : risque d'argent ou de fraude → Max ; autre risque → Adrien ; 3e fois → Adrien", () => {
   assertEquals(appliquerGardeFous({ ...base, risque: ["argent_tiers"] }, o).niveau, "max");
   assertEquals(appliquerGardeFous({ ...base, risque: ["enerve"] }, o).niveau, "adrien");
+  assertEquals(appliquerGardeFous({ ...base, risque: ["scam"] }, o).niveau, "adrien");
   const r = appliquerGardeFous(base, { ...o, nbMemeSujet: 2 });
   assertEquals(r.niveau, "adrien");
   assert(r.risque.includes("repetition"));

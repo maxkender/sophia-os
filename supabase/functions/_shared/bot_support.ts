@@ -20,8 +20,8 @@ export const CATEGORIES_BOT = [
 ] as const;
 export const RISQUES = ["repetition", "enerve", "menace", "scam", "argent_tiers", "multi_comptes", "hors_plateforme"] as const;
 export type Risque = (typeof RISQUES)[number];
-/** Le risque d'argent ou de fraude : Max. Le reste : Adrien. */
-const RISQUES_MAX: readonly Risque[] = ["argent_tiers", "multi_comptes", "hors_plateforme", "scam"];
+/** Le risque d'argent ou de fraude : Max. Le reste (dont le mot « scam » d'un posteur méfiant) : Adrien. */
+const RISQUES_MAX: readonly Risque[] = ["argent_tiers", "multi_comptes", "hors_plateforme"];
 
 export const TEXTE_ON_VERIFIE = "We're checking, you'll get an answer today.";
 export const SIGNATURE = "— the Vik Studios team";
@@ -72,7 +72,8 @@ PROCÉDURE
 4. Si une action de la liste règle le cas, choisis-la et dis-le dans la réponse. Actions possibles :
    lien_mot_de_passe (renvoyer le lien « Set my password »), renvoi_parrainage (renvoyer l'email d'un parrainage),
    pseudo_tiktok (noter un nouveau pseudo TikTok ; action_valeur = le pseudo sans @), email_ruul (corriger l'email Ruul de la fiche ; action_valeur = l'email),
-   arret (il veut arrêter : STOP, fin de contrat, dans n'importe quelle langue), lien_slack (donner le lien d'invitation Slack).
+   arret (SEULEMENT s'il demande clairement d'arrêter : STOP, fin du contrat, supprimer son compte, dans n'importe quelle langue ; une question, un voyage ou un doute ne suffisent pas),
+   lien_slack (donner le lien d'invitation Slack).
 5. Si AUCUNE règle (catalogue ou infos) ne couvre le cas : reponse = "${TEXTE_ON_VERIFIE}" et niveau = "adrien". N'invente JAMAIS une règle, une date ou un montant.
 
 NIVEAUX (un seul)

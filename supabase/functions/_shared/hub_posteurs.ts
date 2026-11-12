@@ -86,7 +86,7 @@ export const LANGUE_PAR_PAYS: Readonly<Record<string, string>> = {
   TR: "tr", IL: "he", AE: "ar", SA: "ar", EG: "ar", LB: "ar",
   RU: "ru", BY: "ru", KZ: "ru", UA: "uk",
   US: "en", GB: "en", IE: "en", AU: "en", NZ: "en", CA: "en",
-  JP: "ja",
+  JP: "ja", KR: "ko",
 };
 
 /** Minuscules, sans accents ni ponctuation : « Russian-speaking » → « russian speaking ». */
@@ -355,7 +355,7 @@ export function idCohorteRuul(valeur: unknown): string | null {
 const LANGUES_UN_SEUL_MARCHE = new Set([
   "fr", "de", "it", "es", "pt", "pt-BR", "cs", "nl", "el", "hu", "pl", "ro",
   "sv", "tr", "da", "no", "hr", "sl", "sk", "sr", "he", "fi", "et", "bg",
-  "lt", "lv", "ja",
+  "lt", "lv", "ja", "ko",
 ]);
 
 /**

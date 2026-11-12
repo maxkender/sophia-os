@@ -415,6 +415,7 @@ export const LANGUES: Record<string, string> = {
   lt: "lituanien",
   lv: "letton",
   ja: "japonais",
+  ko: "coréen",
 };
 
 export type TraductionSlideshow = {

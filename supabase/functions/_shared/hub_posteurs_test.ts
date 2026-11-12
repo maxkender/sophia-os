@@ -173,7 +173,8 @@ Deno.test("site : langue de publication, toujours une réponse", () => {
   assertEquals(langueDuPays("BE"), "fr");
   assertEquals(langueDuPays("CH", { CH: { fr: 1 } }), "de");
   assertEquals(langueDuPays("MA", { MA: { ar: 1, fr: 3 } }), "fr");
-  assertEquals(langueDuPays("KR"), "en");
+  assertEquals(langueDuPays("KR"), "ko");
+  assertEquals(langueDuPays("VN"), "en");
   // es-419 désigne plusieurs marchés : le pays du poster part avec le compte.
   assertEquals(paysAEnvoyer(langueDuPays("MX"), "MX"), "MX");
   assertEquals(paysAEnvoyer(langueDuPays("BR"), "BR"), undefined);
@@ -198,13 +199,14 @@ Deno.test("carte des zones : langue_os = langue du pays connue et publiée par d
   const os = (code: string) => carte.ouverts.find((o) => o.pays_code === code)?.langue_os;
   // Langue du pays connue et publiée dans l'OS : valide.
   for (const code of ["CA", "TR", "MX", "BR", "BE", "CH", "DK"]) assertEquals(os(code), true, code);
-  // Corée : anglais par défaut, la langue du pays n'est pas connue.
+  // Corée : langue connue (ko, 12/11) mais aucun compte actif ne publie en coréen.
   assertEquals(os("KR"), false);
   // Ukraine : langue connue (uk) mais aucun compte actif ne publie en ukrainien.
   assertEquals(os("UA"), false);
   // Italie : it absent des langues actives de cet exemple.
   assertEquals(os("IT"), false);
-  assertEquals(langueDuPaysDetail("KR"), { langue: "en", devinee: true });
+  assertEquals(langueDuPaysDetail("KR"), { langue: "ko", devinee: false });
+  assertEquals(langueDuPaysDetail("VN"), { langue: "en", devinee: true });
   assertEquals(langueDuPaysDetail("MA", { MA: { fr: 2 } }), { langue: "fr", devinee: false });
 });
 

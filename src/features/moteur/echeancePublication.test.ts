@@ -65,9 +65,9 @@ describe("échéance de publication", () => {
     expect(estManque({ date_publication_prevue: "2026-10-18", publie_at: null }, "FR", new Date("2026-10-25T00:00:00Z"))).toBe(false);
   });
 
-  it("même table que la fonction SQL fuseau_pays (dernière version : 0359, + Japon)", () => {
+  it("même table que la fonction SQL fuseau_pays (dernière version : 0679, + Corée)", () => {
     const migration = (nom: string) => readFileSync(resolve(__dirname, `../../../supabase/migrations/${nom}`), "utf8");
-    const sql = migration("0359_langues_lt_lv_ja.sql");
+    const sql = migration("0679_langue_ko_coree.sql");
     const dansSql = Object.fromEntries([...sql.matchAll(/when '([A-Z]{2})' then '([^']+)'/g)].map((m) => [m[1], m[2]]));
     expect(dansSql).toEqual({ ...FUSEAU_PAYS });
     expect(sql).toContain("else 'Pacific/Honolulu'");

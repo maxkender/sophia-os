@@ -59,7 +59,24 @@ export interface Fiche {
   tiktok?: string | null;
   warmup_debut?: string | null;
   warmup_fin?: string | null;
-  ruul?: { statut?: string | null; email_ruul?: boolean; ajoute_at?: string | null; pret_at?: string | null; premier_paiement_at?: string | null } | null;
+  ruul?: {
+    statut?: string | null;
+    email_ruul?: boolean;
+    ajoute_at?: string | null;
+    pret_at?: string | null;
+    premier_paiement_at?: string | null;
+    /** 0681 : le statut lu dans Ruul (import) et sa date. */
+    compte_ruul?: string | null;
+    compte_ruul_vu_at?: string | null;
+    email_a_at?: string | null;
+    email_b_at?: string | null;
+  } | null;
+  /** 0682 */
+  statut?: string | null;
+  zone?: string | null;
+  tarif?: number | null;
+  hm?: string | null;
+  prochain_lundi?: string | null;
   contrat_upwork?: string | null;
   parrainages?: { declares?: number; invites?: number; recrues?: number } | null;
   derniere_paie?: { semaine?: string | null; statut?: string | null; montant?: number | null; paye_at?: string | null } | null;
@@ -85,11 +102,8 @@ export function ficheTexte(f: Fiche | null): string {
       f.warmup_debut ? (f.warmup_fin && new Date(f.warmup_fin).getTime() < Date.now() ? "terminé" : "en cours") : "pas commencé"
     }.`,
   ];
-  if (ruul && f.ruul) {
-    l.push(`Ruul : statut ${f.ruul.statut ?? "?"} ; email Ruul ${f.ruul.email_ruul ? "donné" : "pas encore donné"} ; ${
-      f.ruul.pret_at ? "compte Ruul prêt" : "compte Ruul pas encore prêt"
-    }${f.ruul.premier_paiement_at ? " ; déjà payé une fois" : ""}.`);
-  }
+  l.push(`Statut : ${f.statut ?? "?"}. Zone ${f.zone ?? "?"}, tarif ${f.tarif != null ? `${f.tarif} $ par semaine` : "?"}. HM : ${f.hm ?? "?"}. Prochain lundi : ${f.prochain_lundi ?? "?"}.`);
+  if (ruul && f.ruul) l.push(ligneRuul(f.ruul));
   if (!ruul && f.contrat_upwork) l.push(`Contrat Upwork : ${f.contrat_upwork}.`);
   const p = f.parrainages;
   if (p) l.push(`Parrainages : ${p.declares ?? 0} déclarés, ${p.invites ?? 0} invités, ${p.recrues ?? 0} recrutés.`);
@@ -97,6 +111,25 @@ export function ficheTexte(f: Fiche | null): string {
   l.push(d ? `Dernière paie : semaine ${d.semaine ?? "?"}, statut ${d.statut ?? "?"}${d.montant != null ? `, ${d.montant} $` : ""}.` : "Dernière paie : aucune pour l'instant.");
   l.push(f.manque?.length ? `Étapes manquantes : ${f.manque.join(" ; ")}.` : "Étapes manquantes : aucune.");
   return l.join("\n");
+}
+
+/** 0682 : où en est la personne dans Ruul, d'après le dernier statut lu dans Ruul (avec sa date). */
+export function ligneRuul(r: NonNullable<Fiche["ruul"]>, maintenant = new Date()): string {
+  const jours = (iso: string | null | undefined) => (iso ? Math.floor((maintenant.getTime() - Date.parse(iso)) / 86_400_000) : null);
+  const vu = jours(r.compte_ruul_vu_at);
+  const lu = r.compte_ruul
+    ? `statut lu dans Ruul : ${r.compte_ruul === "active" ? "Active (compte relié à Vik Studios)" : "Invited (invité, compte pas encore créé)"}, lu il y a ${vu} jour(s)${
+      vu !== null && vu > 7 ? " — DONNÉE DE PLUS DE 7 JOURS : ne l'affirme pas, dis qu'on vérifie" : ""
+    }`
+    : r.ajoute_at ? "ajouté dans Ruul, statut Ruul pas encore lu" : "pas encore ajouté dans Ruul (Max l'ajoute)";
+  return [
+    `Ruul : ${lu}`,
+    `email Ruul ${r.email_ruul ? "donné" : "pas encore donné"}`,
+    r.pret_at ? "a cliqué « It's done » (prêt à être payé)" : "n'a pas encore cliqué « It's done »",
+    r.premier_paiement_at ? "déjà payé une fois sur Ruul" : "jamais payé sur Ruul",
+    r.email_a_at ? `email d'invitation envoyé le ${r.email_a_at.slice(0, 10)}` : "",
+    r.email_b_at ? `email « compte relié » envoyé le ${r.email_b_at.slice(0, 10)}` : "",
+  ].filter(Boolean).join(" ; ") + ".";
 }
 
 /** Garde-fou : une réponse qui parle de l'autre plateforme ne part pas (elle va à l'équipe). */
@@ -178,10 +211,11 @@ export function texteEmailReponse(prenom: string | null, reponse: string, osUrl:
 }
 
 /** 0673 : tout ce que l'OS sait du posteur (messages, paie, milestones, posts), pour le bot. Coupé à `plafond`. */
-export function contexteTexte(c: Record<string, unknown> | null, plafond = 14_000): string {
+export function contexteTexte(c: Record<string, unknown> | null, plafond = 20_000): string {
   if (!c) return "";
   // Les faits d'abord (paie, milestones, posts), puis les messages : une coupe ne perd que les plus vieux messages.
-  const ordre = ["paie_semaines", "paie_ruul", "paie_upwork", "milestones", "posts", "envoye_par_os", "messages_au_bot", "messages_slack", "messages_upwork"];
+  const ordre = ["paie_semaines", "paie_ruul", "paie_upwork", "milestones", "posts", "demandes_help", "decisions", "posts_recents", "ruul_dernier_import",
+    "envoye_par_os", "messages_au_bot", "messages_slack", "messages_upwork"];
   const range = Object.fromEntries([...ordre.filter((k) => k in c).map((k) => [k, c[k]]), ...Object.entries(c).filter(([k]) => !ordre.includes(k))]);
   const t = `DONNÉES DE L'OS SUR CE POSTEUR (montants en dollars ; « de » : posteur, hm, max, os, nous) :\n${JSON.stringify(range)}`;
   return t.length > plafond ? `${t.slice(0, plafond)}…` : t;

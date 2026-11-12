@@ -47,7 +47,7 @@ export interface EntreeBot {
   contexte: string;
   infos: { titre: string; valeur: string }[];
   catalogue: { id: string; question: string; formulations: string[]; reponse: string; action: string | null; niveau: string; categorie: string | null }[];
-  historique: { cree_at: string; categorie: string | null; texte: string }[];
+  historique: { cree_at: string; categorie: string | null; texte: string; bot_reponse?: string | null }[];
   /** Personne introuvable dans l'OS (Slack). */
   inconnu?: boolean;
   /** 0677 : les consignes de Max (page Support › Consignes), à respecter avant tout le reste. */
@@ -63,7 +63,7 @@ export function promptBot(e: EntreeBot): string {
     `### [${c.id}] ${c.question}${c.formulations.length ? ` (aussi : ${c.formulations.join(" / ")})` : ""}\nRéponse : ${c.reponse}\nAction : ${c.action ?? "aucune"} · Niveau : ${c.niveau}`
   ).join("\n\n");
   const historique = e.historique.length
-    ? e.historique.map((h) => `- ${h.cree_at.slice(0, 10)} [${h.categorie ?? "?"}] ${h.texte.slice(0, 160)}`).join("\n")
+    ? e.historique.map((h) => `- ${h.cree_at.slice(0, 10)} [${h.categorie ?? "?"}] ${h.texte.slice(0, 160)}${h.bot_reponse ? `\n  → on a répondu : ${h.bot_reponse.slice(0, 200)}` : ""}`).join("\n")
     : "(aucune)";
   return `Tu réponds aux posteurs (créateurs TikTok payés chaque semaine) au nom de « the Vik Studios team ».
 Canal : ${e.source === "slack_salon" ? "un salon Slack public (tout le monde lit)" : "la page Help du dashboard (privée)"}.
@@ -85,6 +85,17 @@ NIVEAUX (un seul)
 - "bot" : tu as répondu et c'est réglé (questions du guide, étapes, TikTok, warm-up, login, Slack, quand/combien je suis payé avec les chiffres de l'OS, parrainage, arrêt, malade/absent, posts manqués selon la règle, statut, messages vides).
 - "adrien" : pas de règle, bug du dashboard que le catalogue ne couvre pas, personne introuvable après l'email, offre de HM mal faite, recrue à relier, demande de 2e compte TikTok, même problème pour la 3e fois.
 - "max" : SEULEMENT paiement non reçu alors que les données montrent la semaine payée ou due ; risque de double paie ; montant contesté après explication du calcul ; menace, litige, plainte publique, fraude (compte d'un ami, cash, plusieurs comptes, paiement hors plateforme).
+
+VÉRIFIER AVANT D'AFFIRMER (obligatoire)
+- N'affirme JAMAIS un fait sur la personne (payé ou pas, montant, compte Ruul prêt, nombre de posts, date) sans l'avoir lu dans SA FICHE ou ses DONNÉES ci-dessous. Une réponse type ne remplace jamais ses données.
+- Si la donnée manque ou date de plus de 7 jours : dis honnêtement « We're checking this, you'll get an answer today. » et niveau "adrien" (ou "max" si c'est l'argent). N'invente rien.
+- « Je n'ai pas été payé » : regarde ses semaines (paie_ruul / paie_upwork / paie_semaines, milestones).
+  · Semaine due (terminée, posts faits, lundi passé) et non payée → niveau "max", risque "paiement".
+  · Pas encore due → donne la date exacte (le lundi qui suit la semaine postée) et le montant d'après son tarif.
+  · Bloquée par Ruul (compte pas prêt, « reporte ») → dis exactement ce qui manque d'après sa fiche Ruul. Ne promets jamais que « ça sera débloqué » sans dire quoi faire.
+- Un compte Ruul « Active » n'est PAS à créer : ne lui dis jamais de finir ou créer son compte Ruul.
+- DÉJÀ RÉPONDU : lis « demandes_help » (ce qu'il a demandé et ce qu'on lui a répondu). Ne te contredis jamais. S'il revient avec le même problème, ne répète pas la même réponse : cherche plus loin dans ses données ; à la 3e fois, niveau "adrien".
+- En salon Slack : rien de personnel (ni paie, ni montant, ni compte) : renvoie vers Help.
 
 RÈGLES
 - Ruul : jamais d'Upwork. Upwork : jamais de Ruul, ne propose jamais Ruul.

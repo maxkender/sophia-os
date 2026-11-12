@@ -1036,7 +1036,7 @@ export const fr = {
         loginAide: "Garde-le : c'est le login de ton dashboard.",
         valider: "Enregistrer et me connecter",
         aide:
-          "Première fois ? Ouvre le lien personnel « Set my password » de ton message de bienvenue sur Upwork : il sert une fois, pendant 14 jours. Perdu ou expiré ? Demande un nouveau lien à ta hiring manager sur Upwork, ou sur Slack dans #questions.",
+          "Première fois ? Ouvre le lien personnel « Set my password » de ton message de bienvenue sur Upwork : il sert une fois, pendant 14 jours. Perdu ou expiré ? Demande un nouveau lien à ta hiring manager sur Upwork.",
         connexionAPart: "Ton mot de passe est enregistré. Connecte-toi avec ton login et ce mot de passe.",
         versConnexion: "Aller à la connexion",
         etat: {
@@ -8109,13 +8109,13 @@ export const fr = {
         "Texte de travers, mal placé, illisible, ou photos bizarres ? Appuie ci-dessous — on jette ce slideshow et on t’en donne un autre pour le même jour. Pas pour « j’aime pas le sujet ». 2 essais max.",
       rechargerRestants_one: "Il te reste {{count}} essai.",
       rechargerRestants_other: "Il te reste {{count}} essais.",
-      rechargerEpuise: "Tu as déjà rechargé ce post 2 fois. Si le problème continue, demande dans #questions sur Slack.",
+      rechargerEpuise: "Tu as déjà rechargé ce post 2 fois. Si le problème continue, clique sur Help dans ton dashboard.",
       rechargerConfirm:
         "Remplacer ce post par un NOUVEAU entièrement ? Seulement si le slideshow est vraiment buggé. Il te restera {{restantes}} essai(s) après.",
       rechargerEnCours: "Recherche d’un nouveau post…",
       rechargerOk: "Nouveau post prêt.",
       rechargerAucun:
-        "Aucun autre slideshow disponible pour l’instant — réessaie plus tard, ou demande dans #questions sur Slack.",
+        "Aucun autre slideshow disponible pour l’instant — réessaie plus tard, ou clique sur Help dans ton dashboard.",
       rechargerEnCoursAilleurs: "Une recharge de ce post est déjà en cours. Attends une minute, puis rafraîchis la page.",
       rechargerLimite: "Limite atteinte : 2 recharges maximum pour ce post.",
       rechargerPublie: "Ce post est déjà publié — impossible de le recharger.",

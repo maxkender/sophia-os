@@ -1116,6 +1116,8 @@ async function relanceDuJour(
 ) {
   if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
   if (horsPerimetre(x, bilan, maintenant)) return;
+  // 0688 (Max, 12/11) : un posteur Ruul n'a qu'un seul moteur de relances, le parcours Ruul (fonction ruul).
+  if (x.ruul && await parcoursRuulActif(supabase)) return;
   const planComplet = planRelance(x, etats, maintenant, r.etapes, { slack: Boolean(r.slackLien) });
   if (planComplet.needsYou) bilan.needsYou++;
   if (!planComplet.element || !dansFenetre(maintenant, x.fuseau, r.etapes as unknown as Delais)) return;
@@ -3139,6 +3141,19 @@ async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boo
     envoyes: lignes.filter((l) => l.statut === "envoye").length, erreurs: lignes.filter((l) => l.statut === "erreur").length,
     lignes,
   };
+}
+
+/** 0688 : le parcours Ruul est-il sur on (réglage ruul_parcours) ? Lu une fois par exécution. */
+let parcoursRuulLu: { at: number; on: Promise<boolean> } | null = null;
+function parcoursRuulActif(supabase: Supabase): Promise<boolean> {
+  if (!parcoursRuulLu || Date.now() - parcoursRuulLu.at > 60_000) {
+    parcoursRuulLu = {
+      at: Date.now(),
+      on: Promise.resolve(supabase.from("reglages").select("valeur").eq("cle", "ruul_parcours").maybeSingle())
+        .then(({ data }) => data?.valeur === "on").catch(() => false),
+    };
+  }
+  return parcoursRuulLu.on;
 }
 
 /** 0592 : l'objet de la relance par email d'un posteur Ruul, selon l'étape. */

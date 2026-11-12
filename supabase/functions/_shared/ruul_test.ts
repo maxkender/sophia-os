@@ -30,11 +30,15 @@ Deno.test("0681 : email A une fois (Invited), B une fois (Active), jamais A apr�
   assertEquals(emailAB({ ...base, compte: "invited", stop_at: "2026-11-12" }), null);
 });
 
-Deno.test("Ruul : textes, email (bouton, Unsubscribe), semaine", () => {
+Deno.test("Ruul : textes, email (bouton, phrase Help, « I do not wish to continue »), semaine", () => {
   assertEquals(remplirRuul("Hi {prenom}, ${montant} for {semaine} {x}", { prenom: "Ana", montant: 14, semaine: "26 Oct" }), "Hi Ana, $14 for 26 Oct {x}");
   const r = rendreEmailRuul({ objet: "O", corps: "A\n\nB", bouton: { texte: "It's done", lien: "https://x/?pret=1" }, lienStop: "https://x/?stop=1" });
   assertEquals(r.texte.includes("It's done: https://x/?pret=1"), true);
-  assertEquals(r.html.includes("Unsubscribe"), true);
+  // 12/11 : plus de « reply STOP » ni « Unsubscribe » ; la phrase Help puis « I do not wish to continue ».
+  assertEquals(r.html.includes("I do not wish to continue"), true);
+  assertEquals(r.texte.includes("I do not wish to continue: https://x/?arreter=1"), true);
+  assertEquals(r.texte.includes("Don't reply to this email: click Help on your dashboard"), true);
+  assertEquals(/reply STOP|Unsubscribe/i.test(r.html + r.texte), false);
   assertEquals(/\bbots?\b|automat/i.test(r.html + r.texte), false);
   assertEquals(semaineCourte("2026-10-26"), "26 Oct");
 });

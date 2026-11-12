@@ -159,7 +159,16 @@ export function texteRelance(
     .map((e) => remplir(((t[e] ?? "").includes("{mot_de_passe}") ? TEXTES_RELANCE_DEFAUT[e] : t[e] ?? "").trim(), vars))
     .filter(Boolean);
   if (morceaux.length === 0) return "";
-  return remplir(cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
+  return avecPiedHelp(remplir(cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim());
+}
+
+/** 12/11 (Support propre) : chaque relance de l'OS se termine par ce renvoi vers Help. */
+export const PIED_HELP = "Stuck? Click Help on your dashboard.";
+
+export function avecPiedHelp(texte: string): string {
+  const t = texte.trimEnd();
+  if (!t || t.includes(PIED_HELP)) return t;
+  return `${t}\n\n${PIED_HELP}`;
 }
 
 /** 2/11 : le lundi où la recrue commence vraiment : celui de sa cohorte, ou le suivant après le lundi 12:00 (Paris). */

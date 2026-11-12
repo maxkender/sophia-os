@@ -2,7 +2,7 @@ import { chargerBase, demanderAuCerveau, jetonSlackFaq, posterSlack } from "../_
 import { chargerSourcesSupport } from "../_shared/support_sources.ts";
 import { CANAL_TICKETS, erreurTicket, promptContexte, texteTicket } from "../_shared/support_ticket.ts";
 import { jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_shared/email_entrant.ts";
-import { avecLienMotDePasse, VAR_LIEN_MOT_DE_PASSE } from "../_shared/lien_mot_de_passe.ts";
+import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import {
@@ -381,16 +381,23 @@ async function contactPosteur(db: Db, poster: string) {
   };
 }
 
+/**
+ * 12/11 (Max) : plus de lien « Set my password » — le mot de passe est toujours 12345678.
+ * « Je n'arrive pas à me connecter » : le mot de passe est remis à 12345678 et l'email redonne le
+ * login, le mot de passe et le lien du dashboard.
+ */
 async function envoyerLienMotDePasse(db: Db, poster: string, nom: string | null): Promise<string> {
   const c = await contactPosteur(db, poster);
   if (!c.email) return "pas d'email connu";
-  const lien = await avecLienMotDePasse(db, poster, VAR_LIEN_MOT_DE_PASSE, OS_URL, "support:connexion");
-  if (lien.erreur) return lien.erreur;
-  const objet = "Set a new password for your Sophia dashboard";
+  const { data: p } = await db.from("profiles").select("email").eq("id", poster).maybeSingle();
+  const login = (p?.email as string | null) ?? null;
+  const { error: errMdp } = await db.auth.admin.updateUserById(poster, { password: MOT_DE_PASSE_COMMUN });
+  if (errMdp) return `mot de passe : ${errMdp.message}`;
+  const objet = "Your Sophia dashboard access";
   const e = rendreEmailRuul({
     objet,
-    corps: `Hi ${c.prenom || nom || "there"},\n\nYou told us you can't log in. Use this button to set a new password (the link works once, for 14 days).`,
-    bouton: { texte: "Set my password", lien: lien.texte },
+    corps: `Hi ${c.prenom || nom || "there"},\n\nYou told us you can't log in. Here are your access details:\n- Dashboard: ${OS_URL}\n- Login: ${login ?? "your @sophia.com login"}\n- Password: ${MOT_DE_PASSE_COMMUN}`,
+    bouton: { texte: "Open my dashboard", lien: OS_URL },
     lienStop: OS_URL,
   });
   const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, ["support", "mot_de_passe"]);

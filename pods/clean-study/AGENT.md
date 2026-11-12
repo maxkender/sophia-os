@@ -123,7 +123,7 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	- **Jamais de personne réelle sur les slides où l'OS place micabo ou UnSwipe** : on ne prête pas une appli à une personne réelle (voir ci-dessous : une image sans personne).
 	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
-- **Musique** : celle du schéma.
+- **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label
 

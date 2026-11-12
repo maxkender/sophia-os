@@ -113,7 +113,7 @@ Le pilote `originaux/am-o001.json` est l'exemple complet. Les champs :
 	- **Les photos de célébrités sont acceptées** (sportif, acteur, chanteur), en illustration (décision d'Adrien, 28/10). Jamais sur la slide Sophia.
 	- La slide Sophia : une image **sans personne** (salon, bureau, bibliothèque, paysage).
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
-- **Musique** : celle du schéma.
+- **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label
 

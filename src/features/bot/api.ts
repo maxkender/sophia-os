@@ -196,12 +196,16 @@ export async function lireCatalogue(): Promise<EntreeCatalogue[]> {
 
 export type ChampsCatalogue = Pick<EntreeCatalogue, "question" | "formulations" | "reponse" | "action" | "niveau" | "portee" | "categorie" | "actif"> & { valide: boolean };
 
-/** Ajoute ou modifie une entrée ; la base garde l'historique (qui, quoi, quand). */
-export async function enregistrerEntree(id: string | null, c: ChampsCatalogue, valideAt: string | null): Promise<string> {
+/**
+ * Ajoute ou modifie une entrée ; la base garde l'historique (qui, quoi, quand).
+ * « Validée » cochée : l'heure de validation est renouvelée à chaque enregistrement (sans elle,
+ * la base remet l'entrée « à valider » dès que la question ou la réponse change).
+ */
+export async function enregistrerEntree(id: string | null, c: ChampsCatalogue): Promise<string> {
   const ligne = {
     question: c.question.trim(), reponse: c.reponse.trim(), action: c.action || null, niveau: c.niveau, portee: c.portee,
     categorie: c.categorie || null, actif: c.actif, formulations: c.formulations.map((f) => f.trim()).filter(Boolean),
-    valide_at: c.valide ? (valideAt ?? new Date().toISOString()) : null, maj_at: new Date().toISOString(),
+    valide_at: c.valide ? new Date().toISOString() : null, maj_at: new Date().toISOString(),
   };
   if (id) {
     const { error } = await supabase.from("reponses_officielles").update(ligne).eq("id", id);

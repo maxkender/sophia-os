@@ -279,7 +279,7 @@ function Edition({ e, onFini }: { e: EntreeCatalogue | null; onFini: () => void 
   const sauver = useMutation({
     mutationFn: async () => {
       const avant = tests.data ?? (await lireTests());
-      const id = await enregistrerEntree(e?.id ?? null, c, e?.valide_at ?? null);
+      const id = await enregistrerEntree(e?.id ?? null, c);
       const apres = await lancerTests(null);
       return { id, rouges: regressions(avant.filter((t) => t.actif), apres) };
     },

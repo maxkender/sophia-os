@@ -71,6 +71,22 @@ describe("Bot du support, logique", () => {
 });
 
 describe("PageBot", () => {
+  it("Catalogue : modifier une réponse validée la garde validée (nouvelle heure de validation)", async () => {
+    api.lireInfos.mockResolvedValue([]);
+    api.lireTests.mockResolvedValue([]);
+    api.lireHistorique.mockResolvedValue([]);
+    api.lireCatalogue.mockResolvedValue([entree({ id: "a" })]);
+    api.enregistrerEntree.mockResolvedValue("a");
+    api.lancerTests.mockResolvedValue({ total: 0, verts: 0, resultats: [] });
+    rendu(<PageBot />);
+    fireEvent.click(screen.getByRole("button", { name: "Catalogue" }));
+    fireEvent.click(await screen.findByTestId("catalogue-ligne"));
+    const ed = screen.getByTestId("catalogue-edition");
+    fireEvent.change(within(ed).getByLabelText(/Réponse/), { target: { value: "No, the warm-up is not paid." } });
+    fireEvent.click(within(ed).getByRole("button", { name: "Enregistrer" }));
+    await waitFor(() => expect(api.enregistrerEntree).toHaveBeenCalledWith("a", expect.objectContaining({ reponse: "No, the warm-up is not paid.", valide: true })));
+  });
+
   it("Tester : simulation sur un faux posteur, détails sous la réponse, « Bonne réponse » ajoute un test", async () => {
     api.simuler.mockResolvedValue({
       decision: { langue: "en", categorie: "paie", personnel: false, reponse: "You are paid on Monday.", action: null, action_valeur: null, niveau: "bot", regle: "x", risque: [], raison: "Règle de paie." },

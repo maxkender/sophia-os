@@ -14,6 +14,7 @@ import {
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { normaliserHandle } from "../_shared/handle_tiktok.ts";
+import { baseLogin } from "../_shared/login_email.ts";
 import { lireProfilTiktokFiable } from "../_shared/profil_tiktok.ts";
 import { lireContactPoster } from "../_shared/contact_poster.ts";
 import { separerNomComplet } from "../_shared/nom_complet.ts";
@@ -1134,20 +1135,13 @@ async function refuserSiHorsEquipe(
   return json({ error: "forbidden" }, 403);
 }
 
-function normaliser(valeur: string): string {
-  return valeur
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "");
-}
-
 async function emailDisponible(
   supabase: ReturnType<typeof serviceClient>,
   prenom: string,
   nom: string,
 ): Promise<string> {
-  const base = normaliser(prenom) + normaliser(nom).slice(0, 1);
+  // 12/11 : grec et cyrillique translittérés ; rien de lisible → « poster » (jamais « @sophia.com »).
+  const base = baseLogin(prenom, nom);
 
   for (let suffixe = 0; suffixe < 50; suffixe += 1) {
     const email = `${base}${suffixe || ""}@${DOMAINE}`;

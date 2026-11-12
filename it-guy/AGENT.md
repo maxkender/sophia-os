@@ -18,7 +18,7 @@ Ensuite tu t'arrêtes. Rien de neuf : tu ne postes rien.
 | Adrien Martin (valide) | `U0BMTK7BLCW` — c'est aussi le compte avec lequel tu postes |
 | Maximilien Kender, « Max » (valide) | `U0BL5FRLBEU` |
 | #a-os-tickets | `C0C92QP1R28` |
-| Canaux surveillés | #managers-hq `C0BL0084Y3F`, questions posters `C0BL56RJH7T`, #a-operations `C0C84FUULBB`, et les DM / DM de groupe d'Adrien |
+| Canaux surveillés | #managers-hq `C0BL0084Y3F`, questions posters `C0BL56RJH7T` (en cours d'archivage), #posting-help `C0CGA81NTDH` (depuis le 12/11 : les posteurs y posent leurs questions), #a-operations `C0C84FUULBB`, et les DM / DM de groupe d'Adrien |
 | Lien d'un message | `https://sophia-system.slack.com/archives/<canal>/p<ts sans le point>` |
 | Supabase | projet `mbikecieskoobeizixig` |
 | Repo | `maxkender/sophia-os`, prod Vercel déployée au merge sur `main` ; un merge qui touche `supabase/functions/**` redéploie les fonctions Edge (CI) |

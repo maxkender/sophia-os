@@ -131,6 +131,13 @@ import {
   lireLanguesDeclarees,
 } from "../_shared/bleo_guichet.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
+import {
+  cleMusique,
+  compterMemeMusique,
+  imagesDesDecks,
+  lireReglesRepetition,
+  type ReglesRepetition,
+} from "../_shared/pods_repetition.ts";
 import { assertRole, aujourdhuiParis, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
 
@@ -963,6 +970,76 @@ async function verifierImagesDuLabel(supabase: Supabase, labelId: string, ids: s
   return erreurs;
 }
 
+/** Les règles de répétition des podz (`reglages.bleo.podz.repetition`, 0671). */
+async function reglesRepetition(supabase: Supabase): Promise<ReglesRepetition> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle();
+  return lireReglesRepetition(data?.valeur?.podz?.repetition);
+}
+
+/** Images livrées par ce podz depuis `jours` jours (livraisons non rejetées), hors `sauf`. */
+async function imagesRecentesDuPod(supabase: Supabase, slug: string, jours: number, sauf?: string): Promise<Set<string>> {
+  if (jours <= 0) return new Set();
+  const depuis = new Date(Date.now() - jours * 86_400_000).toISOString();
+  const { data, error } = await supabase
+    .from("pod_livraisons")
+    .select("source_id, decks")
+    .eq("pod", slug)
+    .neq("statut", "rejetee")
+    .gte("depose_le", depuis)
+    .limit(2000);
+  if (error) throw new Error(`images récentes : ${messageErreur(error)}`);
+  const ids = new Set<string>();
+  for (const l of (data ?? []) as Array<{ source_id: string; decks: unknown }>) {
+    if (sauf && l.source_id === sauf) continue;
+    for (const id of imagesDesDecks(l.decks)) ids.add(id);
+  }
+  return ids;
+}
+
+/**
+ * 0671 (12/11) : refuse un original qui reprend une image livrée par le podz
+ * depuis `imagesJours` jours, ou un son déjà sur `musiqueMax` de ses
+ * `musiqueFenetre` dernières livraisons. `null` : rien à redire.
+ */
+async function refusRepetition(
+  supabase: Supabase,
+  slug: string,
+  sourceId: string,
+  mediaIds: string[],
+  musique: { url: unknown; titre: unknown },
+): Promise<{ code: string; message: string } | null> {
+  const regles = await reglesRepetition(supabase);
+  const recentes = await imagesRecentesDuPod(supabase, slug, regles.imagesJours, sourceId);
+  const reprises = [...new Set(mediaIds)].filter((id) => recentes.has(id));
+  if (reprises.length) {
+    return {
+      code: "images_recentes",
+      message: `${reprises.length} image(s) déjà livrée(s) depuis ${regles.imagesJours} jours (${reprises.map((id) => id.slice(0, 8)).join(", ")}) : prends-en d'autres dans la banque (npm run images)`,
+    };
+  }
+  const cle = cleMusique(musique.url, musique.titre);
+  if (cle) {
+    const { data, error } = await supabase
+      .from("pod_livraisons")
+      .select("source_id, musique_url, musique_titre")
+      .eq("pod", slug)
+      .neq("statut", "rejetee")
+      .order("depose_le", { ascending: false })
+      .limit(regles.musiqueFenetre + 1);
+    if (error) throw new Error(`sons récents : ${messageErreur(error)}`);
+    const lignes = (data ?? []) as Array<{ source_id: string; musique_url: string | null; musique_titre: string | null }>;
+    const fenetre = lignes.filter((l) => l.source_id !== sourceId).slice(0, regles.musiqueFenetre);
+    const n = compterMemeMusique(cle, fenetre);
+    if (n >= regles.musiqueMax) {
+      return {
+        code: "musique_repetee",
+        message: `ce son est déjà sur ${n} de tes ${fenetre.length} dernières livraisons (au plus ${regles.musiqueMax - 1}) : prends un autre son qui marche en ce moment`,
+      };
+    }
+  }
+  return null;
+}
+
 async function deposerOriginal(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
@@ -978,6 +1055,14 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   const erreurs = verifierOriginal(slides, { sophia });
   if (!erreurs.length) erreurs.push(...(await verifierImagesDuLabel(supabase, pod.label_id, slides.map((s) => s.media_id))));
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+  const repetition = await refusRepetition(
+    supabase,
+    pod.slug,
+    sourceId,
+    slides.map((s) => s.media_id),
+    { url: body.musique_url, titre: body.musique_titre },
+  );
+  if (repetition) return json({ ok: false, code: repetition.code, error: `${repetition.code} : ${repetition.message}` }, 409);
 
   const { data: existante } = await supabase
     .from("pod_livraisons")
@@ -1713,10 +1798,19 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
       .in("id", lot)
       .limit(lot.length)
   );
+  // 0671 : les images que le podz a livrées depuis `images_jours` jours ne lui
+  // sont plus proposées (elles reviendraient sur les mêmes comptes).
+  const regles = await reglesRepetition(supabase);
+  const recentes = await imagesRecentesDuPod(supabase, pod.slug, regles.imagesJours);
   const images = [];
+  let exclues = 0;
   // deno-lint-ignore no-explicit-any
   for (const m of medias as any[]) {
     if (!String(m.storage_path).startsWith("propre/") || m.texte_restant) continue;
+    if (recentes.has(m.id)) {
+      exclues += 1;
+      continue;
+    }
     // `legende` : la description de l'image (en anglais, D38), pour `images --cherche`.
     images.push({
       id: m.id,
@@ -1727,7 +1821,7 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
       legende: m.caption ?? null,
     });
   }
-  return json({ ok: true, total: images.length, images });
+  return json({ ok: true, total: images.length, exclues_recentes: exclues, images });
 }
 
 /**

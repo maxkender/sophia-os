@@ -1,4 +1,5 @@
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { postersEnStop } from "../_shared/stop.ts";
 import { assertRole, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -82,9 +83,15 @@ async function envoyer(supabase: Supabase, body: any, par: string | null) {
   if (error) throw error;
   // Seulement ce que l'aperçu montre encore : un compte débloqué entre-temps n'est pas relancé.
   const lignes = ((data ?? []) as Cible[]).filter((l) => comptes.has(l.compte_id) && l.texte.trim());
+  // 0684 : un posteur qui a dit STOP ne reçoit plus de nudge (ni DM, ni pop-up du dashboard).
+  const enStop = await postersEnStop(supabase, lignes.map((l) => l.poster_id));
 
-  const bilan = { envoyes: 0, slack: 0, os: 0, erreurs: [] as string[] };
+  const bilan = { envoyes: 0, slack: 0, os: 0, stop: 0, erreurs: [] as string[] };
   for (const l of lignes) {
+    if (enStop.has(l.poster_id)) {
+      bilan.stop++;
+      continue;
+    }
     const issue = await ecrireAuPosteur(supabase, l.poster_id, l.texte);
     let canal: "slack" | "os" = "slack";
     if (issue.statut !== "envoye") {

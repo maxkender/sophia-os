@@ -34,6 +34,7 @@ import {
   urlAutorisation,
   urlRetour,
 } from "../_shared/upwork.ts";
+import { type MalgreStop, STOP_POSTEUR, stopDuContrat, typeUpworkPermisMalgreStop } from "../_shared/stop.ts";
 import {
   type Annonce,
   bienvenueARattraper,
@@ -123,6 +124,9 @@ import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
 import { planCompleterOffre, semainesDepuis } from "../_shared/offres.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
+
+/** 0684 : les raisons acceptées pour un message Upwork malgré un STOP. */
+const MOTIFS_MALGRE_STOP: unknown[] = ["confirmation_arret", "paie", "reponse", "manuel"];
 
 /** L'OS, où l'admin revient après avoir autorisé Upwork (src/features/recrutements/constantes.ts). */
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
@@ -312,6 +316,8 @@ Deno.serve(async (request) => {
           await envoyerMessage(supabase, par, contratId, String(body.texte ?? ""), {
             prioritaire: body.priorite !== false,
             ...(body.compte === COMPTE_SECOURS ? { forcer: COMPTE_SECOURS } : {}),
+            // 0684 : l'appelant dit pourquoi le message part malgré un STOP (sinon il ne part pas).
+            ...(MOTIFS_MALGRE_STOP.includes(body.malgre_stop) ? { malgreStop: body.malgre_stop as MalgreStop } : {}),
           }),
         );
       }
@@ -1947,7 +1953,8 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
           const texte = remplirTexte(texteReglage(v.paie_soumettre_texte, SOUMETTRE_DEFAUT), {
             prenom: await prenomPosteur(supabase, ligne.poster_id), NN: numeroSemaine(semaine),
           });
-          const m = await envoyerMessage(supabase, par, contrat, texte);
+          // 0684 : la paie de sa dernière semaine passe malgré un STOP.
+          const m = await envoyerMessage(supabase, par, contrat, texte, { malgreStop: "paie" });
           etapes.push({ etape: "message_soumettre", ok: m.ok, erreur: m.ok ? null : m.error ?? null });
           if (m.ok) await maj({ soumission_message_at: new Date().toISOString() });
         }
@@ -2843,7 +2850,10 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
   const { data: p } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   const contrat = p?.upwork_contract_id as string | undefined;
   if (!contrat) return { ok: false, error: "contrat Upwork non relié à ce posteur" };
-  const envoi = await envoyerMessage(supabase, par, contrat, texte.trim());
+  // 0684 : confirmation d'arrêt, paie ou message tapé à la main : permis malgré un STOP ; le reste non.
+  const manuel = !!par && par !== "cron";
+  const envoi = await envoyerMessage(supabase, par, contrat, texte.trim(),
+    typeUpworkPermisMalgreStop(type, manuel) ? { malgreStop: String(type ?? "").includes("stop") ? "confirmation_arret" : type === "paie" ? "paie" : "manuel" } : {});
   if (!envoi.ok) return envoi;
   await supabase.from("nudges").insert({
     poster_id: posterId,
@@ -2889,9 +2899,11 @@ async function envoyerMessage(
   par: string | null,
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean; exclure?: string[]; forcer?: string } = {},
-): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
+  o: { prioritaire?: boolean; exclure?: string[]; forcer?: string; malgreStop?: MalgreStop } = {},
+): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string; stop?: boolean }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
+  // 0684 : un posteur qui a dit STOP ne reçoit plus rien sur Upwork, sauf les exceptions nommées.
+  if (!o.malgreStop && await stopDuContrat(supabase, contratId)) return { ok: false, error: STOP_POSTEUR, stop: true };
   // 1/11 : jamais de mot de passe sur Upwork, quel que soit le message.
   const refus = refusMotDePasseUpwork(texte);
   if (refus) return { ok: false, error: refus };

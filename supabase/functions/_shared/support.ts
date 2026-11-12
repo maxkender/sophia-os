@@ -143,8 +143,30 @@ export function parleDeLAutrePlateforme(texte: string, plateforme: Plateforme): 
  */
 export function questionPersonnelle(texte: string): boolean {
   const t = texte.toLowerCase();
-  return /\b(my|i)\b[^.?!]{0,40}\b(pay|paid|payment|money|salary|milestone|contract|account|password|login|log in|ruul|invoice|bonus)\b/.test(t) ||
+  // 12/11 (Max) : une question sur TikTok, les posts ou l'app n'est PAS perso, même avec « my account » /
+  // « I can't log in » : le bot y répond directement. Seule la paie reste perso dans ce cas.
+  if (parleDeTikTokPostsOuApp(t) && !PAIE.test(t)) return false;
+  // 12/11 : « my account » seul ne compte plus — dans les salons, c'est presque toujours le compte
+  // TikTok (cas de Noemi : le champ « Links » à 1 000 abonnés). Seul un compte Upwork / Ruul / dashboard est personnel.
+  return /\b(my|i)\b[^.?!]{0,40}\b(pay|paid|payment|money|salary|milestone|contract|password|login|log in|ruul|invoice|bonus)\b/.test(t) ||
+    /\b(upwork|ruul|sophia|dashboard)\s+account\b/.test(t) ||
     /\b(not|never|haven'?t|didn'?t|wasn'?t)\b[^.?!]{0,20}\b(paid|received|got)\b/.test(t);
+}
+
+/** La paie : toujours une question perso. */
+const PAIE = /\b(pay|paid|payment|money|salary|milestone|invoice|bonus|fund(ed|s)?|ruul|upwork|contract)\b/;
+
+/** TikTok, les posts, les photos, l'app, le dashboard des posts : des questions générales. */
+export function parleDeTikTokPostsOuApp(texte: string): boolean {
+  return /\b(tiktok|tik tok|post|posts|posted|posting|slide|slides|slideshow|photo|photos|picture|video|caption|hashtags?|sound|music|followers?|views?|likes?|bio|links?|profile|warm ?up|handle|username|app|sophia app)\b/
+    .test(texte.toLowerCase());
+}
+
+/** 12/11 : une question perso venue d'un salon Slack, notée dans Support — la paie va à Max, le reste à Adrien. */
+export function niveauQuestionPersonnelle(texte: string): { categorie: "paiement" | "compte"; niveau: "max" | "adrien" } {
+  const t = texte.toLowerCase();
+  const paie = /\b(pay|paid|payment|money|salary|milestone|invoice|bonus|fund(ed|s)?)\b/.test(t);
+  return paie ? { categorie: "paiement", niveau: "max" } : { categorie: "compte", niveau: "adrien" };
 }
 
 export const LIEN_HELP = "/createur/help";

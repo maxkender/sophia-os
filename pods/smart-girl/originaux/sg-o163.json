@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o163",
+ "type_bleo": "full_test",
+ "titre": "french phrases english speakers use without realising #french #words #smartgirl #vocabulary #language",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "2747e20a-fdc8-463e-853b-cf96f914ef57"
+ ],
+ "notes": "cta B. Full test 2/5 (la jauge en demande 5 sur 14) : accroche jamais faite chez nous (« french » absent des accroches de donnees/label.json). Accroches écrites : « french phrases english speakers use without realising » (retenue : vocabulaire, facile à vérifier, partageable), « french words that make you sound chic » (écartée : superficiel), « french expressions every woman should know » (écartée : plus lourde). Sens vérifiés : joie de vivre, je ne sais quoi, savoir-faire, raison d'être, déjà vu, bon vivant. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f8069463",
+   "texte_overlay": "french phrases english speakers\nuse without realising",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "609dafdb",
+   "texte_overlay": "joie de vivre\n\nthe joy of living.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4a87b5dc",
+   "texte_overlay": "je ne sais quoi\n\nliterally \"i don't know what\":\na charm you can't explain.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b3bf4eac",
+   "texte_overlay": "savoir-faire\n\nliterally \"knowing how to do\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "842f8a46",
+   "texte_overlay": "every phrase has a story.\nlearn one a day and you'll\nhear them everywhere.",
+   "texte_sophia": "every phrase has a story.\ni learn one a day on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3040ad09",
+   "texte_overlay": "raison d'être\n\nyour reason for being.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "737448cb",
+   "texte_overlay": "déjà vu\n\nliterally \"already seen\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6c132e5a",
+   "texte_overlay": "bon vivant\n\nsomeone who loves good food,\ngood company, good life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "25aeaeea",
+   "texte_overlay": "which one do you use most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o170",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3a445fd3-6a19-4a16-867d-acd5d4bde48a",
+ "titre": "graceful habits that instantly make you more magnetic #elegance #attractive #smartgirl #presence #habits",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "34f68d36-92c7-487d-b087-3fc52239dc32"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 4 de la boîte (parent 3a445fd3, langue source en) : accroche reformulée (« elegant habits that make you look 10x more attractive » → « graceful habits that instantly make you more magnetic »), même promesse. Présence, jamais corps : habitudes neuves (poser son téléphone, parler bien des absents, rire facilement, être en avance, une question de plus, se souvenir des détails). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a7515fb9",
+   "texte_overlay": "graceful habits that instantly\nmake you more magnetic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "846a3885",
+   "texte_overlay": "1. putting your phone away\nwhen someone talks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7a176f67",
+   "texte_overlay": "2. speaking well of people\nwho aren't there",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4fa9cb16",
+   "texte_overlay": "3. laughing easily",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2c6f1b8",
+   "texte_overlay": "4. arriving five minutes early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6ae8c4f0",
+   "texte_overlay": "5. asking one more question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d28ff775",
+   "texte_overlay": "6. always having a story to tell\n\ntrade the scroll for art,\nhistory or science.",
+   "texte_sophia": "6. always having a story to tell\n\ntrade the scroll for 5 minutes\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1856eb97",
+   "texte_overlay": "which one starts today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  }
+ ]
+}

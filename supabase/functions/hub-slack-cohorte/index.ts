@@ -16,8 +16,10 @@ const FENETRE_JOURS = 30;
 // 0676 : au plus 40 invitations par passage, une toutes les 1,2 s (limite de Slack).
 const MAX_INVITATIONS = 40;
 const PAUSE_MS = 1200;
+const SALON_RUUL = "C0CA5SH59N0";
+const SALON_UPWORK = "C0CG13NM2HM";
 // #ruul-posters, #upwork-posters, #posting-help.
-const SALONS_A_COMPTER = ["C0CA5SH59N0", "C0CG13NM2HM", "C0CGA81NTDH"];
+const SALONS_A_COMPTER = [SALON_RUUL, SALON_UPWORK, "C0CGA81NTDH"];
 // Le bot n'est pas membre du salon ou n'a pas le droit : on essaie l'autre bot, sinon on saute le salon.
 const ACCES_REFUSE =
   /channel_not_found|not_in_channel|missing_scope|not_authed|invalid_auth|restricted_action/;
@@ -41,6 +43,8 @@ const ACCES_REFUSE =
  *   {}                → le passage
  *   { apercu: true }  → qui serait cherché, sans appeler Slack ni rien écrire
  *   { compter: true } → le nombre de membres des salons des posteurs (lecture seule)
+ *   { croises: true } → posteurs dans le salon de l'autre plateforme (lecture seule)
+ *   { croises: true, retirer: ["U…"] } → et retire ces IDs Slack du salon croisé
  *   { max: 60 }       → au plus 60 invitations dans ce passage
  */
 Deno.serve(async (request) => {
@@ -49,11 +53,15 @@ Deno.serve(async (request) => {
 
   let apercu = false;
   let compter = false;
+  let croises = false;
+  let retirer: string[] = [];
   let max = MAX_INVITATIONS;
   try {
     const corps = await request.json();
     apercu = Boolean(corps?.apercu);
     compter = Boolean(corps?.compter);
+    croises = Boolean(corps?.croises);
+    retirer = Array.isArray(corps?.retirer) ? corps.retirer.filter((x: unknown) => typeof x === "string" && /^U[A-Z0-9]+$/.test(x)) : [];
     if (Number.isFinite(Number(corps?.max)) && Number(corps.max) > 0) {
       max = Math.min(200, Number(corps.max));
     }
@@ -105,6 +113,9 @@ Deno.serve(async (request) => {
     );
     if (compter) {
       return json({ ok: true, salons: await compterSalons(supabase, jetons) });
+    }
+    if (croises) {
+      return json({ ok: true, ...(await salonsCroises(supabase, jetons, retirer)) });
     }
     const salonsRuul = await ajouterSalonsRuul(
       supabase,
@@ -240,35 +251,7 @@ async function compterSalons(supabase: any, jetons: string[]) {
   );
   const res: Record<string, unknown> = {};
   for (const salon of SALONS_A_COMPTER) {
-    let membres: string[] = [];
-    let erreur: string | null = null;
-    for (const token of jetons) {
-      membres = [];
-      erreur = null;
-      let curseur = "";
-      for (let page = 0; page < 20; page++) {
-        const r = await fetch(
-          `https://slack.com/api/conversations.members?channel=${salon}&limit=1000${
-            curseur ? `&cursor=${encodeURIComponent(curseur)}` : ""
-          }`,
-          {
-            headers: { authorization: `Bearer ${token}` },
-          },
-        );
-        const j = await r.json().catch(() => ({
-          ok: false,
-          error: `http_${r.status}`,
-        }));
-        if (!j.ok) {
-          erreur = String(j.error);
-          break;
-        }
-        membres.push(...(j.members ?? []));
-        curseur = j.response_metadata?.next_cursor ?? "";
-        if (!curseur) break;
-      }
-      if (!erreur) break;
-    }
+    const { membres, erreur } = await membresSalon(salon, jetons);
     const posteurs = membres.filter((m) => parId.has(m));
     res[salon] = erreur ? { erreur } : {
       membres: membres.length,
@@ -278,4 +261,74 @@ async function compterSalons(supabase: any, jetons: string[]) {
     };
   }
   return res;
+}
+
+/** Les membres d'un salon (le premier bot qui y a accès). */
+async function membresSalon(salon: string, jetons: string[]): Promise<{ membres: string[]; erreur: string | null; jeton: string | null }> {
+  let membres: string[] = [];
+  let erreur: string | null = null;
+  for (const token of jetons) {
+    membres = [];
+    erreur = null;
+    let curseur = "";
+    for (let page = 0; page < 20; page++) {
+      const r = await fetch(
+        `https://slack.com/api/conversations.members?channel=${salon}&limit=1000${curseur ? `&cursor=${encodeURIComponent(curseur)}` : ""}`,
+        { headers: { authorization: `Bearer ${token}` } },
+      );
+      const j = await r.json().catch(() => ({ ok: false, error: `http_${r.status}` }));
+      if (!j.ok) {
+        erreur = String(j.error);
+        break;
+      }
+      membres.push(...(j.members ?? []));
+      curseur = j.response_metadata?.next_cursor ?? "";
+      if (!curseur) break;
+    }
+    if (!erreur) return { membres, erreur: null, jeton: token };
+  }
+  return { membres, erreur, jeton: null };
+}
+
+/**
+ * URGENT 12/11 : posteurs actifs reliés qui sont dans le salon de l'autre plateforme
+ * (Upwork dans #ruul-posters, Ruul dans #upwork-posters). Lecture seule, sauf les
+ * IDs Slack passés dans `retirer` (retirés du salon croisé, par conversations.kick).
+ */
+// deno-lint-ignore no-explicit-any
+export async function salonsCroises(supabase: any, jetons: string[], retirer: string[]) {
+  const { data: profils } = await supabase.from("profiles")
+    .select("id, prenom, nom, slack_user_id, canal_paie")
+    .eq("is_active", true).not("slack_user_id", "is", null);
+  const parId = new Map<string, { id: string; nom: string; canal: string }>(
+    (profils ?? []).map((p: { id: string; prenom: string | null; nom: string | null; slack_user_id: string; canal_paie: string }) => [
+      p.slack_user_id,
+      { id: p.id, nom: [p.prenom, p.nom].filter(Boolean).join(" "), canal: p.canal_paie },
+    ]),
+  );
+  const croises: { salon: string; slack_user_id: string; poster_id: string; nom: string; canal_paie: string; retire?: string }[] = [];
+  const erreurs: string[] = [];
+  for (const [salon, interdit] of [[SALON_RUUL, "upwork"], [SALON_UPWORK, "ruul"]] as const) {
+    const { membres, erreur, jeton } = await membresSalon(salon, jetons);
+    if (erreur || !jeton) {
+      erreurs.push(`${salon} : ${erreur}`);
+      continue;
+    }
+    for (const m of membres) {
+      const p = parId.get(m);
+      if (!p || p.canal !== interdit) continue;
+      const ligne: (typeof croises)[number] = { salon, slack_user_id: m, poster_id: p.id, nom: p.nom, canal_paie: p.canal };
+      if (retirer.includes(m)) {
+        const r = await fetch("https://slack.com/api/conversations.kick", {
+          method: "POST",
+          headers: { authorization: `Bearer ${jeton}`, "content-type": "application/json; charset=utf-8" },
+          body: JSON.stringify({ channel: salon, user: m }),
+        });
+        const j = await r.json().catch(() => ({ ok: false, error: `http_${r.status}` }));
+        ligne.retire = j.ok ? "ok" : String(j.error);
+      }
+      croises.push(ligne);
+    }
+  }
+  return { croises, erreurs };
 }

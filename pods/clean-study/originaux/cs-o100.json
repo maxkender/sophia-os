@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o100",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8413648d-c211-4766-9cf1-7d28c8d8d7b4",
+  "titre": "saying i'll study after one video and looking up an hour later #studytok #studytips #focus",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "8413648d-c211-4766-9cf1-7d28c8d8d7b4"
+  ],
+  "notes": "Déclinaison G2 de 8413648d (notre cs-o057 en G1), ligne 2 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o094 : « saying i'll study after one video and looking up an hour later ». Gestes neufs, aucun de cs-o009, cs-o057 ni cs-o094 : pas de vidéo avant de commencer, la séance commence par écrire, le téléphone chargé dans une autre pièce, le minuteur visible, se tester toutes les deux pages (place micabo, slide 6), une récompense après la séance et pas avant. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2253a3da",
+      "texte_overlay": "saying i'll study after one video\nand looking up an hour later",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "27937c1c",
+      "texte_overlay": "what changed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "28be86eb",
+      "texte_overlay": "no video BEFORE studying. ever.\n\"one\" is never one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "29b26086",
+      "texte_overlay": "my session starts with writing.\nthe title, the date, the first question. hands busy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2ed97ff1",
+      "texte_overlay": "my phone charges in another room.\nit needs it, i don't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c448cc40",
+      "texte_overlay": "every 2 pages i quiz myself on them.\nno time to drift.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "30819263",
+      "texte_overlay": "the video is the reward AFTER.\nit tastes way better.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

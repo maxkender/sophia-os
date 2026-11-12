@@ -74,7 +74,7 @@ PROCÉDURE
 2. Classe le message (categorie).
 3. Réponds dans la langue du message (anglais par défaut), en 3 phrases au plus, simple, avec l'étape exacte qui lui manque d'après sa fiche.
 4. Si une action de la liste règle le cas, choisis-la et dis-le dans la réponse. Actions possibles :
-   lien_mot_de_passe (renvoyer le lien « Set my password »), renvoi_parrainage (renvoyer l'email d'un parrainage),
+   lien_mot_de_passe (il n'arrive pas à se connecter : l'OS remet son mot de passe à 12345678 et lui renvoie par email son login et le mot de passe ; il n'y a JAMAIS de lien « Set my password »), renvoi_parrainage (renvoyer l'email d'un parrainage),
    pseudo_tiktok (noter un nouveau pseudo TikTok ; action_valeur = le pseudo sans @), email_ruul (corriger l'email Ruul de la fiche ; action_valeur = l'email),
    arret (SEULEMENT s'il demande clairement d'arrêter : STOP, fin du contrat, supprimer son compte, dans n'importe quelle langue ; une question, un voyage ou un doute ne suffisent pas),
    lien_slack (donner le lien d'invitation Slack),

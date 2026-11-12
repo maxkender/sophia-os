@@ -181,7 +181,7 @@ export const TEXTE_ENVOYE_EQUIPE = "I'm not sure about this one, so I've sent yo
 /** Ce que voit le posteur après « Report a problem », selon ce que l'OS a pu faire seul. */
 export function texteProblemeRecu(categorie: string, auto: "lien_envoye" | "arret" | null): string {
   if (auto === "lien_envoye") {
-    return "We've just emailed you a link to set a new password. Open it and choose your password. If it still doesn't work, reply here.";
+    return "We've just emailed you your login and password (12345678). If it still doesn't work, reply here.";
   }
   if (auto === "arret") return "We've received your request. The team will confirm the next steps here.";
   if (categorie === "paiement") return "Thanks, we've received it. Payment issues are checked first: the team will answer you here.";

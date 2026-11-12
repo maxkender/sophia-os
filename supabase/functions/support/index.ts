@@ -1,6 +1,7 @@
 import { chargerBase, demanderAuCerveau, jetonSlackFaq, posterSlack } from "../_shared/faq_moteur.ts";
 import { chargerSourcesSupport } from "../_shared/support_sources.ts";
 import { CANAL_TICKETS, erreurTicket, promptContexte, texteTicket } from "../_shared/support_ticket.ts";
+import { jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_shared/email_entrant.ts";
 import { avecLienMotDePasse, VAR_LIEN_MOT_DE_PASSE } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
@@ -53,6 +54,17 @@ const MAX_SLACK = "U0BL5FRLBEU";
 type Db = ReturnType<typeof serviceClient>;
 
 Deno.serve(async (request) => {
+  // 12/11 (Max, point 10) : Brevo (inbound parsing) transmet les réponses des posteurs à nos emails.
+  // Pas de JWT : un jeton dédié (EMAIL_ENTRANT_TOKEN, en-tête Authorization: Bearer).
+  if (new URL(request.url).searchParams.get("entrant") === "brevo") {
+    if (!jetonValide(request.headers.get("authorization"), Deno.env.get("EMAIL_ENTRANT_TOKEN"))) return json({ ok: false, error: "unauthorized" }, 401);
+    try {
+      return json(await emailsEntrants(serviceClient(), lireEmailsBrevo(await request.json().catch(() => null))));
+    } catch (erreur) {
+      console.error("[support] emails entrants", messageErreur(erreur));
+      return json({ ok: false, error: messageErreur(erreur) }, 500);
+    }
+  }
   const acces = await assertRole(request, ["admin", "head_of_ops", "poster"]);
   if (acces instanceof Response) return acces;
   try {
@@ -806,4 +818,52 @@ async function analyserContexte(db: Db, id: string) {
   const { error: e } = await db.from("support_demandes").update({ contexte_analyse: analyse, contexte_at: maintenant }).eq("id", id);
   if (e) throw new Error(e.message);
   return { ok: true, analyse, contexte_at: maintenant, sources: { upwork: upwork.length, slack: slack.length, messages: reponses.length } };
+}
+
+/**
+ * 12/11 (Max, point 10) : la réponse d'un posteur à un de nos emails = une demande Help (même bot,
+ * même circuit : réponse, Adrien, Max, ticket) ; l'OS lui répond par email avec la réponse et le lien
+ * Help. Un expéditeur inconnu : la demande arrive dans la Boîte, sans réponse. Un email déjà reçu
+ * (même Message-ID) n'est jamais traité deux fois.
+ */
+async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>) {
+  const bilan: Record<string, unknown>[] = [];
+  for (const e of emails) {
+    const { data: deja } = await db.from("support_demandes").select("id").eq("email_message_id", e.messageId).limit(1);
+    if ((deja ?? []).length) { bilan.push({ de: e.de, ignore: "déjà reçu" }); continue; }
+    const poster = await posteurParEmail(db, e.de);
+    const texte = e.sujet && !/^re:/i.test(e.sujet) ? `${e.sujet}\n\n${e.texte}` : e.texte;
+    if (!poster) {
+      const { data, error } = await db.rpc("support_ajouter", { p: { poster_id: null, type: "question", texte, source: "help", escalader: true, slack_user: e.nom ?? e.de } });
+      if (error) { bilan.push({ de: e.de, erreur: error.message }); continue; }
+      const id = (data as { id?: string } | null)?.id;
+      if (id) await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de, niveau: "adrien", raison: "Email d'un expéditeur inconnu." }).eq("id", id);
+      bilan.push({ de: e.de, poster: null, id });
+      continue;
+    }
+    const r = await poserQuestion(db, poster, texte, null);
+    if (r.id) await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de }).eq("id", r.id);
+    let envoi = "pas de réponse";
+    if (r.ok && r.reponse) {
+      const { data: p } = await db.from("profiles").select("prenom, ruul_jeton").eq("id", poster).maybeSingle();
+      const objet = e.sujet ? (/^re:/i.test(e.sujet) ? e.sujet : `Re: ${e.sujet}`) : "Your question";
+      const corps = texteReponseEmail(p?.prenom ?? null, r.reponse);
+      const lienStop = p?.ruul_jeton ? `https://mbikecieskoobeizixig.supabase.co/functions/v1/ruul?stop=${p.ruul_jeton}` : OS_URL;
+      const m = rendreEmailRuul({ objet, corps, bouton: { texte: "Open Help", lien: `${OS_URL}/createur/help` }, lienStop });
+      const s = await envoyerEmailSite(e.de, objet, m.html, m.texte, lienStop, ["support", "reponse_email"]);
+      envoi = s.ok ? "envoyée" : `erreur : ${s.erreur}`;
+    }
+    bilan.push({ de: e.de, poster, id: r.id ?? null, envoye_equipe: r.envoye_equipe ?? null, reponse: envoi });
+  }
+  return { ok: true, recus: emails.length, bilan };
+}
+
+/** Le posteur d'une adresse email : login, email Ruul, ou email perso donné au site. */
+async function posteurParEmail(db: Db, email: string): Promise<string | null> {
+  for (const col of ["email", "ruul_email"]) {
+    const { data: p } = await db.from("profiles").select("id").ilike(col, email).limit(1);
+    if (p?.[0]?.id) return p[0].id as string;
+  }
+  const { data: h } = await db.from("hub_posteurs").select("profile_id").ilike("email_perso", email).not("profile_id", "is", null).limit(1);
+  return (h?.[0]?.profile_id as string | undefined) ?? null;
 }

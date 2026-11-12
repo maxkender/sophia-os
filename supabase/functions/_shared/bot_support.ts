@@ -50,6 +50,8 @@ export interface EntreeBot {
   historique: { cree_at: string; categorie: string | null; texte: string }[];
   /** Personne introuvable dans l'OS (Slack). */
   inconnu?: boolean;
+  /** 0677 : les consignes de Max (page Support › Consignes), à respecter avant tout le reste. */
+  consignes?: string[];
 }
 
 export function promptBot(e: EntreeBot): string {
@@ -90,6 +92,9 @@ RÈGLES
 - personnel = true si le message parle de SON compte, SA paie, SON contrat.
 - risque : liste parmi ${RISQUES.join(", ")} (vide si rien).
 - Ne dis jamais que tu es un bot, une IA ou un assistant automatique.
+
+CONSIGNES DE MAX (elles passent avant tout le reste, y compris le catalogue)
+${(e.consignes ?? []).length ? e.consignes!.map((c) => `- ${c}`).join("\n") : "(aucune)"}
 
 INFOS À CONNAÎTRE (prioritaires, à jour)
 ${infos || "(aucune)"}

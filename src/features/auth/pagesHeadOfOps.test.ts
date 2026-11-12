@@ -23,6 +23,9 @@ import { ACCUEIL_HO, ROUTES_HO, hoVoitLien } from "./pagesHeadOfOps";
 
 const PAGES_DEMANDEES = [
   // Prompt 22 : Recruitment Automation (les 8 pages).
+  // 12/11 (OS clair) : Aujourd'hui et Réglages.
+  "/admin/auto/aujourdhui",
+  "/admin/auto/reglages",
   "/admin/auto",
   "/admin/auto/recruits",
   "/admin/auto/cohorts",
@@ -156,8 +159,8 @@ describe("prompt 22 : les anciennes adresses", () => {
     }
   });
 
-  it("l'admin arrive sur Overview", () => {
-    expect(ACCUEIL_ADMIN).toBe("/admin/auto");
+  it("l'admin arrive sur Aujourd'hui (OS clair, 12/11)", () => {
+    expect(ACCUEIL_ADMIN).toBe("/admin/auto/aujourdhui");
     expect(routeur).toContain("<Navigate to={ACCUEIL_ADMIN} replace />");
   });
 });

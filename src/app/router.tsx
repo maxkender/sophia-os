@@ -14,6 +14,8 @@ import {
   FaqPage,
   ReponsesOfficiellesPage,
   SupportPage,
+  AujourdhuiPage,
+  ReglagesAutoPage,
   ParrainagePage,
   RetirerSlackPage,
   BonusPage,
@@ -129,6 +131,8 @@ export function AppRouter() {
                 sent en lecture pour le Head of Ops (interrupteurs et textes :
                 admin seulement, vérifiés en base). */}
             <Route path="/admin/auto" element={<OverviewPage />} />
+            <Route path="/admin/auto/aujourdhui" element={<AujourdhuiPage />} />
+            <Route path="/admin/auto/reglages" element={<ReglagesAutoPage />} />
             <Route path="/admin/auto/recruits" element={<RecruitsPage />} />
             <Route path="/admin/auto/cohorts" element={<CohortsPage />} />
             <Route path="/admin/auto/decisions" element={<DecisionsPage />} />

@@ -40,11 +40,12 @@ const FILTRES_VIDES: FiltresSupport = { plateforme: "", niveau: "", categorie: "
  * droite : le fil, la réponse proposée par le bot (modifiable), la fiche, et
  * Send reply / Mark solved / Move / Add to official answers.
  */
-export function PageSupport() {
+export function PageSupport({ niveau }: { niveau?: "max" | "adrien" } = {}) {
   const { t } = useTranslation();
   const lignes = useQuery({ queryKey: ["support", "liste"], queryFn: lireSupport, refetchInterval: 60_000 });
   const [onglet, setOnglet] = React.useState<TypeDemande>("probleme");
-  const [f, setF] = React.useState<FiltresSupport>(FILTRES_VIDES);
+  // 12/11 (OS clair) : la Boîte de Support passe le niveau (Pour Max / Pour Adrien).
+  const [f, setF] = React.useState<FiltresSupport>({ ...FILTRES_VIDES, niveau: niveau ?? "" });
   const [choisi, setChoisi] = React.useState<string | null>(null);
   const toutes = lignes.data ?? [];
   const niveaux = useQuery({ queryKey: ["support", "niveaux"], queryFn: lireNiveaux, refetchInterval: 60_000 });
@@ -58,9 +59,8 @@ export function PageSupport() {
             {t(`${A}.onglets.${o}`)} <Badge variant="secondary" className="ml-1 bg-background text-foreground">{compter(toutes, o)}</Badge>
           </Button>
         ))}
-        <Link to="/admin/bot" className="ml-auto text-sm text-muted-foreground underline" data-testid="lien-bot">Bot →</Link>
       </div>
-      <Filtres f={f} setF={setF} />
+      <Filtres f={f} setF={setF} niveauFixe={!!niveau} />
       {lignes.error && <p className="text-sm text-destructive">{(lignes.error as Error).message}</p>}
       <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <div className="space-y-2" data-testid="support-liste">
@@ -75,7 +75,7 @@ export function PageSupport() {
   );
 }
 
-function Filtres({ f, setF }: { f: FiltresSupport; setF: (f: FiltresSupport) => void }) {
+function Filtres({ f, setF, niveauFixe }: { f: FiltresSupport; setF: (f: FiltresSupport) => void; niveauFixe?: boolean }) {
   const { t } = useTranslation();
   const sel = "h-8 rounded-md border bg-background px-2 text-sm";
   return (
@@ -85,11 +85,13 @@ function Filtres({ f, setF }: { f: FiltresSupport; setF: (f: FiltresSupport) => 
         <option value="ruul">Ruul</option>
         <option value="upwork">Upwork</option>
       </select>
-      <select aria-label={t(`${A}.filtres.niveau`)} className={sel} value={f.niveau ?? ""} onChange={(e) => setF({ ...f, niveau: e.target.value as FiltresSupport["niveau"] })} data-testid="filtre-niveau">
+{!niveauFixe && (
+              <select aria-label={t(`${A}.filtres.niveau`)} className={sel} value={f.niveau ?? ""} onChange={(e) => setF({ ...f, niveau: e.target.value as FiltresSupport["niveau"] })} data-testid="filtre-niveau">
         <option value="">{t(`${A}.filtres.niveaux.tous`)}</option>
         <option value="adrien">{t(`${A}.filtres.niveaux.adrien`)}</option>
         <option value="max">{t(`${A}.filtres.niveaux.max`)}</option>
       </select>
+      )}
       <select aria-label={t(`${A}.filtres.categorie`)} className={sel} value={f.categorie} onChange={(e) => setF({ ...f, categorie: e.target.value })}>
         <option value="">{t(`${A}.filtres.categorie`)} : {t(`${A}.filtres.toutes`)}</option>
         {CATEGORIES.map((c) => <option key={c} value={c}>{c === "compte" ? "Ruul / Upwork" : t(`${H}.categories.${c}`)}</option>)}

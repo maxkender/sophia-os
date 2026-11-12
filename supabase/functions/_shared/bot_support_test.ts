@@ -81,3 +81,14 @@ Deno.test("prevenir_max : action reconnue et DM à Max pour un bug", () => {
   assertStringIncludes(t, "« the tap to copy button doesnt work »");
   assertStringIncludes(t, "https://os.test/admin/bot");
 });
+
+Deno.test("0677 : les consignes de Max passent dans le prompt, avant le catalogue", () => {
+  const entree = {
+    message: "When am I paid?", source: "help" as const, plateforme: "ruul" as const, fiche: "f", contexte: "", infos: [],
+    catalogue: [], historique: [], consignes: ["Never promise a pay date other than Monday"],
+  };
+  const p = promptBot(entree);
+  assertStringIncludes(p, "- Never promise a pay date other than Monday");
+  assert(p.indexOf("CONSIGNES DE MAX") < p.indexOf("CATALOGUE"));
+  assertStringIncludes(promptBot({ ...entree, consignes: [] }), "CONSIGNES DE MAX (elles passent avant tout le reste, y compris le catalogue)\n(aucune)");
+});

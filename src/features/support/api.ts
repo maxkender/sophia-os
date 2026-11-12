@@ -175,6 +175,13 @@ export async function lireMesDemandes(): Promise<MaDemande[]> {
   return (data ?? []) as MaDemande[];
 }
 
+/** 12/11 (OS clair, 0677) : l'espace Help d'un posteur, pour l'aperçu admin. */
+export async function lireDemandesDe(posterId: string): Promise<MaDemande[]> {
+  const { data, error } = await supabase.rpc("support_demandes_de", { p_poster: posterId });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as MaDemande[];
+}
+
 export function poserQuestion(texte: string): Promise<{ id: string | null; reponse: string; envoye_equipe: boolean }> {
   return appeler({ action: "question", texte });
 }

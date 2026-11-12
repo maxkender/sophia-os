@@ -1838,6 +1838,8 @@ async function upworkPossible(supabase: Supabase, contratId: string): Promise<bo
  * lundi. Tout fait : le rouge pas encore décidé de cette cohorte s'efface.
  */
 async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, maintenant: Date, bilan: Bilan) {
+  // Parcours Ruul (points 5 et 8) : pas de « Start Tuesday » pour un posteur Ruul ; pas prêt, il passe au lundi suivant (moteur ruul).
+  if (x.ruul && await parcoursRuulActif(supabase)) return;
   const etape = etapeRouge(x, r.etapes);
   // 1/11 : pas prête dimanche 22:45 (Paris), aucun choix : « Start Tuesday » (avant l'assignation de lundi, 23:00).
   if (etape !== null && momentChoixAuto(maintenant, x.cohorte_lundi)) {

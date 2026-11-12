@@ -38,6 +38,7 @@ import {
 } from "./dimancheContexte";
 import { marquerRituelFait } from "./rituelsFaits";
 import { TD, TH } from "./TableauComptes";
+import { plateformeDe, useIdsRuul, usePlateformeDecisions } from "@/features/ruul/canal";
 
 const P = "autoOnglets.decisions.dimanche";
 
@@ -49,6 +50,9 @@ const jour = (iso: string | null | undefined) =>
   iso ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "short", timeZone: "Europe/Paris" }).format(new Date(iso)) : "—";
 
 const CHOIX: readonly ChoixDimanche[] = ["keep", "mardi", "reporter", "kill"];
+// Parcours Ruul (point 8) : « Start Tuesday » et « Postpone » sont pour Upwork seulement ; un posteur Ruul
+// pas prêt passe tout seul au lundi suivant (moteur du parcours Ruul).
+const CHOIX_RUUL: readonly ChoixDimanche[] = ["keep", "kill"];
 const CODES: readonly CodeKill[] = ["stop", "retrait", "rien_fait", "autre"];
 type Filtre = "tous" | "risque" | "a_verifier" | "decides";
 const FILTRES: readonly Filtre[] = ["tous", "risque", "a_verifier", "decides"];
@@ -200,8 +204,10 @@ function Lectures({ l, x, lundi }: { l: LigneWarmup; x: ContexteRecrue | undefin
 }
 
 function Ligne({
-  l, x, statut, lundi, conv, c, b, onChoix, r,
+  l, x, statut, lundi, conv, c, b, onChoix, r, ruul = false,
 }: {
+  /** Posteur payé par Ruul : ni Start Tuesday ni Postpone. */
+  ruul?: boolean;
   /** 0531 : les cartes Problèmes ouvertes du posteur ; un Kill samedi prévu grise les choix. */
   r?: ResumeProblemes;
   l: LigneWarmup;
@@ -246,7 +252,7 @@ function Ligne({
       </td>
       <td className={TD}>
         <div className="flex flex-wrap gap-1" data-choix={b.choix}>
-          {CHOIX.map((k) => (
+          {(ruul ? CHOIX_RUUL : CHOIX).map((k) => (
             <Button
               key={k}
               size="sm"
@@ -304,7 +310,12 @@ export function CheckWarmup() {
   const [filtre, setFiltre] = React.useState<Filtre>("tous");
   const [brouillons, setBrouillons] = React.useState<Record<string, Brouillon>>({});
   const [bilan, setBilan] = React.useState<string | null>(null);
-  const liste = React.useMemo(() => lu.data ?? [], [lu.data]);
+  const idsRuul = useIdsRuul();
+  const plateforme = usePlateformeDecisions();
+  const liste = React.useMemo(
+    () => (lu.data ?? []).filter((l) => !plateforme || plateformeDe(idsRuul, l.poster_id) === plateforme),
+    [lu.data, plateforme, idsRuul],
+  );
   const conv = useConversations(liste.map((l) => l.poster_id), liste.map((l) => l.contrat_id));
   const ctx = (id: string) => contexte.data?.get(id);
   const resumes = useResumeProblemes();
@@ -416,6 +427,7 @@ export function CheckWarmup() {
                   b={brouillonDe(l)}
                   onChoix={(b) => setBrouillons((v) => ({ ...v, [l.poster_id]: b }))}
                   r={resumes.data?.get(l.poster_id)}
+                  ruul={idsRuul.has(l.poster_id)}
                 />
               ))}
             </tbody>

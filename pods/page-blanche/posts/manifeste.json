@@ -3119,6 +3119,32 @@
    },
    "statut": "rendu_fr",
    "notes": "cta A"
+  },
+  {
+   "post_id": "original-077",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#booktok #readinghabits #readers",
+   "musique": {
+    "titre": "original sound - Sean | Bangkok Photographer",
+    "auteur": "Sean | Bangkok Photographer",
+    "original": true,
+    "id": "7670141900171217672",
+    "url_tiktok": "https://www.tiktok.com/music/x-7670141900171217672"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683541501007252758_1",
+    "2": "7685340052989398275_4",
+    "3": "7691336990419209505_2",
+    "4": "7680975889932225814_3",
+    "5": "7695416366886604064_4",
+    "6": "7696527080426655009_6"
+   },
+   "notes": "full test BLEO (ce que les lecteurs font autrement); cta C",
+   "type_bleo": "full_test"
   }
  ]
 }

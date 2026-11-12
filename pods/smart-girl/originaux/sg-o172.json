@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o172",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f15d1a31-4339-4677-81db-b4a21ba00ae5",
+ "titre": "10 habits that instantly make you low status in powerful rooms #status #confidence #smartgirl #presence #socialskills",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "a52aa737-b0a2-4a7d-bdfb-3665aeccea46"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 11 de la boîte (parent f15d1a31, langue source en) : accroche du parent mot pour mot. Lignes 6 à 10 écartées (faute « habeits », régime, argent, argent, accroche manipulatrice). Dix habitudes, deux par slide, en partie neuves face au parent (téléphone posé sur la table, couper la parole, sur-expliquer, s'asseoir au bord de la chaise, rien à dire hors du travail…). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6b18090f",
+   "texte_overlay": "10 habits that instantly make\nyou low status in powerful rooms",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ced89778",
+   "texte_overlay": "1. your phone face up\non the table\n\n2. interrupting to agree",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "87f2d895",
+   "texte_overlay": "3. over-explaining a simple no\n\n4. sitting on the edge\nof your chair",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3d042c1b",
+   "texte_overlay": "5. having nothing to say\noutside of work\n\nread a little every day:\nart, history, science.",
+   "texte_sophia": "5. having nothing to say\noutside of work\n\nfix it with 5 minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4ab7f83a",
+   "texte_overlay": "6. laughing at every joke\n\n7. talking too fast",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e0c204a9",
+   "texte_overlay": "8. arriving late, then\napologising for ten minutes\n\n9. checking the time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2779e881",
+   "texte_overlay": "10. forgetting names\nyou were just told",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c57b7ff8",
+   "texte_overlay": "which one do you need\nto drop?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639435884802149652/8.jpg"
+  }
+ ]
+}

@@ -141,12 +141,15 @@ async function fiche(db: Db, poster: string): Promise<Fiche | null> {
 
 /** 0673 : tout ce que l'OS sait du posteur (messages Upwork et Slack, envois de l'OS, paie, milestones, posts). Ne lève pas. */
 async function contexte(db: Db, poster: string): Promise<string> {
-  const { data, error } = await db.rpc("support_contexte", { p_poster: poster });
-  if (error) {
-    console.warn(`[support] contexte : ${error.message}`);
-    return "";
-  }
-  return contexteTexte((data ?? null) as Record<string, unknown> | null);
+  // 0682 : + ses demandes Help et nos réponses, les décisions, ses posts récents, le dernier import Ruul.
+  const [base, plus] = await Promise.all([
+    db.rpc("support_contexte", { p_poster: poster }),
+    db.rpc("support_contexte_plus", { p_poster: poster }),
+  ]);
+  if (base.error) console.warn(`[support] contexte : ${base.error.message}`);
+  if (plus.error) console.warn(`[support] contexte_plus : ${plus.error.message}`);
+  if (base.error && plus.error) return "";
+  return contexteTexte({ ...((plus.data ?? {}) as Record<string, unknown>), ...((base.data ?? {}) as Record<string, unknown>) });
 }
 
 /** Le bot sur une question (ou un problème, pour le brouillon de l'équipe). Ne lève pas. */
@@ -483,8 +486,8 @@ async function deciderBot(
     o.poster ? contexte(db, o.poster) : Promise.resolve(""),
     db.from("support_infos").select("titre, valeur").order("ordre").limit(100),
     o.poster
-      ? db.from("support_demandes").select("cree_at, categorie, texte").eq("poster_id", o.poster).order("cree_at", { ascending: false }).limit(10)
-      : Promise.resolve({ data: [] as { cree_at: string; categorie: string | null; texte: string }[] }),
+      ? db.from("support_demandes").select("cree_at, categorie, texte, bot_reponse").eq("poster_id", o.poster).order("cree_at", { ascending: false }).limit(10)
+      : Promise.resolve({ data: [] as { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[] }),
   ]);
   const plateforme: "ruul" | "upwork" | null = f?.plateforme ?? (fictif ? (o.profil!.plateforme === "ruul" ? "ruul" : "upwork") : null);
   // 0680 : consignes, catalogue et documents lus exactement là où Support les montre.
@@ -497,7 +500,7 @@ async function deciderBot(
     contexte: ctx,
     infos: (infos.data ?? []) as { titre: string; valeur: string }[],
     catalogue: sources.catalogue,
-    historique: ((histo.data ?? []) as { cree_at: string; categorie: string | null; texte: string }[]),
+    historique: ((histo.data ?? []) as { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[]),
     inconnu: !f && !fictif,
     consignes: sources.consignes,
     documents: sources.documents,

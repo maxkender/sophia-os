@@ -32,3 +32,22 @@ Deno.test("0680 : les consignes et documents de Support entrent dans la base des
   assert(notes[0].contenu.includes("- Ne promets jamais de date.\n- Ne parle jamais de bot."));
   assertEquals(notesSupport(null, null, null), []);
 });
+
+Deno.test("0682 : la ligne Ruul vient du statut lu dans Ruul, avec sa date ; vieux de 7 jours = on vérifie", async () => {
+  const { ligneRuul } = await import("./support.ts");
+  const maintenant = new Date("2026-11-12T16:00:00Z");
+  const active = ligneRuul({ compte_ruul: "active", compte_ruul_vu_at: "2026-11-12T15:48:00Z", ajoute_at: "2026-11-12T15:48:00Z", email_ruul: true }, maintenant);
+  assert(active.includes("Active (compte relié à Vik Studios)") && active.includes("il y a 0 jour"));
+  assert(!active.includes("PLUS DE 7 JOURS"));
+  assert(ligneRuul({ compte_ruul: "invited", compte_ruul_vu_at: "2026-11-01T10:00:00Z" }, maintenant).includes("PLUS DE 7 JOURS"));
+  assert(ligneRuul({ ajoute_at: null }, maintenant).includes("pas encore ajouté dans Ruul"));
+});
+
+Deno.test("0682 : le prompt oblige à vérifier avant d'affirmer et à lire ce qu'on a déjà répondu", async () => {
+  const { promptBot } = await import("./bot_support.ts");
+  const p = promptBot({ message: "I wasn't paid", source: "help", plateforme: "ruul", fiche: "f", contexte: "c", infos: [], catalogue: [],
+    historique: [{ cree_at: "2026-11-10T10:00:00Z", categorie: "paie", texte: "Where is my pay?", bot_reponse: "Finish your Ruul account." }] });
+  assert(p.includes("VÉRIFIER AVANT D'AFFIRMER"));
+  assert(p.includes("Un compte Ruul « Active » n'est PAS à créer"));
+  assert(p.includes("→ on a répondu : Finish your Ruul account."));
+});

@@ -3,7 +3,7 @@ import { PageSure } from "@/components/erreurs/PageSure";
 import { SectionSure } from "@/components/erreurs/SectionSure";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { CalendarDays, CircleHelp, Gift, Languages, MessageSquareQuote, Wallet } from "lucide-react";
+import { CalendarDays, CircleHelp, Gift, Languages, LifeBuoy, MessageSquareQuote, Wallet } from "lucide-react";
 
 import { BoutonGuideNotion, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { lireCohorteAccueil } from "@/features/moteur/api";
@@ -18,6 +18,7 @@ import { AppShell } from "./AppShell";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
 import { useAuth } from "@/features/auth/AuthContext";
 import { BandeauEmailRuul } from "@/features/ruul/BandeauEmailRuul";
+import { BoutonHelp } from "@/features/support/BoutonHelp";
 
 export function PosterLayout() {
   const { t, i18n } = useTranslation();
@@ -37,6 +38,8 @@ export function PosterLayout() {
     { to: "/createur/retours", label: t("nav.retours"), icon: MessageSquareQuote },
     // 6/11 : les réponses officielles validées par Max.
     { to: "/createur/faq", label: t("nav.faqPosteur"), icon: CircleHelp },
+    // 11/11 (0671) : Help, poser une question ou signaler un problème.
+    { to: "/createur/help", label: t("nav.help"), icon: LifeBuoy },
     ...(espaceRelecteur.relecteurs.length > 0
       ? [{ to: "/createur/relecture", label: t("nav.relectureNativePoster"), icon: Languages }]
       : []),
@@ -79,6 +82,7 @@ export function PosterLayout() {
         <DebutPopup />
       </SectionSure>
       <PageSure />
+      <BoutonHelp />
     </AppShell>
   );
 }

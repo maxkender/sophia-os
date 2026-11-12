@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o222",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7bae360e-4a71-475b-976d-1f4b0833915c",
+ "titre": "quand j'étais rh, voilà ce que je notais pendant ton premier appel de 15 minutes #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 15 (parent 7bae360e), 3e et dernière : accroche mot pour mot, six autres points que le parent, rh-o097 et rh-o210. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17bb00d4",
+   "texte_overlay": "quand j'étais rh, voilà ce que je notais\npendant ton premier appel\nde 15 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d76a6f2c",
+   "texte_overlay": "1. si tu savais où en était ta recherche\n« deux autres process, à un stade précoce »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d79aa296",
+   "texte_overlay": "2. si tu posais une question sur l'équipe\npas seulement sur le salaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d7b1b00c",
+   "texte_overlay": "3. si tu parlais de ton dernier poste sans amertume",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b57278c0",
+   "texte_overlay": "4. si tu avais un centre d'intérêt vivant\nun truc que t'apprends en ce moment, raconté avec envie",
+   "texte_sophia": "4. si tu avais un centre d'intérêt vivant\nun truc que t'apprends en ce moment, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d7c7a52b",
+   "texte_overlay": "5. si tu notais la suite du process\n« donc la prochaine étape, c'est X ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d7f3f4b8",
+   "texte_overlay": "6. si tu raccrochais en remerciant\n10 secondes. ça comptait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d8473324",
+   "texte_overlay": "envoie ça à quelqu'un qui attend un appel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

@@ -44,14 +44,16 @@ export interface BaseChargee {
  * petites tables (une ligne par page Notion, une par réponse validée) : un
  * plafond de 500 lignes est très au-dessus de ce qu'elles contiendront.
  */
-export async function chargerBase(db: Db, role: string): Promise<BaseChargee> {
+export async function chargerBase(db: Db, role: string, plateforme: "ruul" | "upwork" | null = null): Promise<BaseChargee> {
+  // 0671 : une plateforme connue ne lit que les réponses officielles de sa portée (et celles pour tous).
+  let requeteOfficielles = db.from("reponses_officielles").select("question, reponse").eq("actif", true).not("valide_at", "is", null);
+  if (plateforme) requeteOfficielles = requeteOfficielles.in("portee", ["tous", plateforme]);
   const [pages, notes, officielles] = await Promise.all([
     db.from("guides_notion").select("guide, chemin, texte, ordre").order("ordre", { ascending: true }).limit(500),
     db.from("chatbot_contexte").select("titre, contenu, audience, updated_at").order("updated_at", { ascending: false })
       .limit(500),
     // 6/11 : les réponses officielles validées par Max (page « Réponses officielles »).
-    db.from("reponses_officielles").select("question, reponse").eq("actif", true).not("valide_at", "is", null)
-      .order("ordre", { ascending: true }).limit(200),
+    requeteOfficielles.order("ordre", { ascending: true }).limit(200),
   ]);
   if (pages.error) throw new Error(`guides_notion : ${messageErreur(pages.error)}`);
   if (notes.error) throw new Error(`chatbot_contexte : ${messageErreur(notes.error)}`);

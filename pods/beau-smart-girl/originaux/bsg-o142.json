@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o142",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en allant au théâtre seule #theatre #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : le théâtre seule, récit « je ». Accroches écrites : « ce que j'ai appris en allant au théâtre seule » (retenue : expérience précise, un peu audacieuse), « pourquoi aller au théâtre » (écartée : scolaire), « le théâtre, c'est pas ringard » (écartée : défensif). Aucun fait daté. Routine du 12/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1 à 5 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "ce que j'ai appris\nen allant au théâtre seule",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. personne ne te regarde\n\ntout le monde regarde la scène.\nc'est le meilleur endroit pour être seule.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. les places pas chères sont très bien\n\nau balcon, on voit toute la mise en scène.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41a74286",
+      "texte_overlay": "3. lire la pièce avant, ça change tout\n\ntu comprends chaque réplique.\net tu remarques ce qu'ils ont changé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. l'entracte est fait pour parler\n\nj'ai discuté avec une dame de 80 ans.\nelle avait vu la pièce trois fois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "5. on ressort différente\n\ndeux heures sans téléphone,\nà vivre une autre vie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu tenterais, toi ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

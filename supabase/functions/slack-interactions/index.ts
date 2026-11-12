@@ -13,12 +13,12 @@ import {
   libelleBouton,
   lireDemandeAide,
   lireLibellesBoutons,
-  texteDemandeAide,
   vueAide,
 } from "../_shared/reponses.ts";
+import { depuisAideSlack } from "../_shared/support.ts";
 import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
 import { lirePhraseBonus, personneSure, raisonBonus, type PersonneProche } from "../_shared/bonus.ts";
-import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Point d'entrée « Interactivity » des deux applis Slack de l'OS :
@@ -213,9 +213,9 @@ async function ouvrirAide(payload: any): Promise<boolean> {
 }
 
 /**
- * La fenêtre envoyée : un message du posteur (posteur_reponses, canal slack)
- * avec le sujet, sa question et le lien de la capture. Il suit le chemin des
- * messages reçus (classé par l'IA, réponse du guide ou carte Problèmes).
+ * La fenêtre envoyée : une demande dans Support (0671, page admin « Support »),
+ * question ou problème selon le sujet, avec sa question et le lien de la capture.
+ * La réponse de l'équipe lui revient en message privé et sur Help.
  */
 // deno-lint-ignore no-explicit-any
 async function envoyerAide(payload: any): Promise<Response> {
@@ -235,13 +235,26 @@ async function envoyerAide(payload: any): Promise<Response> {
   if (!profil?.id) {
     return json({ response_action: "errors", errors: { texte: "We couldn't find your account. Please write in #questions." } });
   }
-  const { error } = await supabase.from("posteur_reponses").insert({
-    poster_id: profil.id,
-    canal: "slack",
-    source_id: `aide:${String(payload?.view?.id ?? meta.ts ?? Date.now())}`,
-    texte: texteDemandeAide(demande),
+  // 11/11 (0671) : la demande arrive dans Support (page admin), plus dans Problèmes.
+  const { type, categorie } = depuisAideSlack(demande.categorie);
+  const { data: ajout, error } = await supabase.rpc("support_ajouter", {
+    p: {
+      poster_id: profil.id, type, categorie, texte: demande.texte, source: "slack_aide", escalader: true,
+      capture: demande.captures.join(" ") || null,
+    },
   });
-  if (error && error.code !== "23505") {
+  if (!error && categorie === "paiement" && (ajout as { fusion?: boolean } | null)?.fusion === false) {
+    // Paiement : alerte à Max tout de suite (la tâche support-alertes rattrape un échec).
+    const alerte = fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/support`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": (await secretCron()) ?? "" },
+      body: JSON.stringify({ action: "alertes" }),
+    }).catch(() => undefined);
+    // deno-lint-ignore no-explicit-any
+    const edgeA = (globalThis as any).EdgeRuntime;
+    if (edgeA?.waitUntil) edgeA.waitUntil(alerte);
+  }
+  if (error) {
     console.error("slack-interactions aide", messageErreur(error));
     return json({ response_action: "errors", errors: { texte: "Not sent, please try again." } });
   }
@@ -252,7 +265,7 @@ async function envoyerAide(payload: any): Promise<Response> {
       body: JSON.stringify({
         replace_original: false,
         response_type: "ephemeral",
-        text: "✅ Thanks, your question was sent to the team. You'll get an answer here.",
+        text: "✅ Thanks, your request was sent to the team. You'll get an answer here and on Help in your dashboard.",
       }),
     }).catch(() => undefined);
     // deno-lint-ignore no-explicit-any

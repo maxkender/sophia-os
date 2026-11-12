@@ -14,6 +14,7 @@ import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteur
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
+import { PageSupport } from "@/features/support/PageSupport";
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageBonus } from "@/features/bonus/PageBonus";
@@ -195,6 +196,15 @@ export function ReponsesOfficiellesPage() {
   return (
     <PageAuto cle="officielles">
       <PageReponsesOfficielles />
+    </PageAuto>
+  );
+}
+
+/** 11/11 (0671) : Support, les questions et problèmes des posteurs. */
+export function SupportPage() {
+  return (
+    <PageAuto cle="support">
+      <PageSupport />
     </PageAuto>
   );
 }

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o221",
+ "type_bleo": "full_test",
+ "titre": "How to stop being so hard on yourself #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 5ca058a8. full test. Accroche jamais faite chez nous : l'auto-critique, ton bienveillant. Accroches écrites : « How to stop being so hard on yourself » (retenue), « Why you're your own worst critic » (écartée : sans méthode), « How to be kinder to yourself » (écartée : moins masculin pour la cible).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ca058a8",
+   "texte_overlay": "How to stop being so\nhard on yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Talk to yourself like you'd talk to your best friend. You'd never tell him he's useless after one mistake. Give yourself the same fair, calm voice.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Separate the mistake from who you are. \"I made a bad call\" is very different from \"I'm a failure.\" One is a moment to learn from, the other is a lie.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Write down three things you did well every night. Small things count. Your brain notices failures automatically, so you have to train it to notice wins.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Compare yourself only to last year's you. Not to friends, not to people online. If you're a little better than a year ago, you're on the right track.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Give your mind something kind to do. I do five minutes a day of history, art or science, and a curious mind spends less time attacking itself.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A curious mind spends far less time attacking itself.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Accept that progress is messy. Two steps forward, one step back is still moving forward. Expecting perfection is the fastest way to feel like a failure.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Talk to someone when the voice gets loud. A friend, a brother, a professional. Saying your thoughts out loud often shows how unfair they really are.",
+   "media_id": "4ee6e05d"
+  }
+ ]
+}

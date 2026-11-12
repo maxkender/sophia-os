@@ -4452,14 +4452,17 @@ async function fermerContratSansPosteur(supabase: Supabase, par: string | null, 
 }
 
 async function lireContexteUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null, max: number) {
-  const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
+  // 11/11 : le passage du cron prend tous les contrats (400 au plus), trie par activité, puis lit `max` au plus ;
+  // sinon les contrats sautés (sans nouveau message) gardent leur vieille date et reprennent les 120 places.
+  const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: posteurs ? max : 400 });
   if (error) throw error;
   // 0469 : une room demandée par une page peut venir d'un contrat sans posteur (poster_id null).
   const toutes = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
   // 10/11 (Upwork saturé) : le passage du cron relit seulement les salons qui ont un nouveau message.
   const tri = posteurs ? null : await triParActivite(supabase, par, "contexte", toutes.map((c) => c.contrat_id));
-  const liste = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)).map((c) => ({ ...c, room_id: c.room_id ?? tri.salons.get(c.contrat_id) ?? null })) : toutes;
-  const bilan = { cibles: toutes.length, a_lire: liste.length, sans_nouveau: toutes.length - liste.length, lus: 0, erreurs: [] as string[] };
+  const aLire = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)).map((c) => ({ ...c, room_id: c.room_id ?? tri.salons.get(c.contrat_id) ?? null })) : toutes;
+  const liste = aLire.slice(0, max);
+  const bilan = { cibles: toutes.length, a_lire: aLire.length, sans_nouveau: toutes.length - aLire.length, lus: 0, erreurs: [] as string[] };
   const lireUn = async (c: (typeof liste)[number]) => {
     const erreur = await lireSalon(supabase, par, c);
     if (erreur) bilan.erreurs.push(`${c.contrat_id} : ${erreur}`);
@@ -5211,11 +5214,15 @@ async function rapportSoir(supabase: Supabase, forcer: boolean) {
     .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null);
   const noms = (attente ?? []).map((a) => [a.prenom, a.nom].filter(Boolean).join(" ").trim() || "?");
   const jourCourt = paris.jour.split("-").reverse().slice(0, 2).join("/");
+  // 11/11 (0671) : le support dans le même point du soir (ouverts, en retard).
+  const { data: sup } = await supabase.rpc("support_compteurs");
+  const c = (sup ?? {}) as { problemes?: number; questions?: number; en_retard?: number };
   const texte = [
     `Upwork : bilan du ${jourCourt}`,
     `• Compte principal : ${p} appels, dont ${p429} erreurs 429`,
     `• Compte secours : ${s} appels, dont ${s429} erreurs 429`,
     `• Bienvenues en attente : ${noms.length}${noms.length ? ` (${noms.join(", ")})` : ""}`,
+    `Support : ${c.problemes ?? 0} problèmes et ${c.questions ?? 0} questions ouverts, dont ${c.en_retard ?? 0} en retard`,
   ].join("\n");
   const destinataire = typeof v.upwork_rapport_destinataire === "string" && v.upwork_rapport_destinataire ? v.upwork_rapport_destinataire : MAX_PROFIL;
   const issue = await ecrireAuPosteur(supabase, destinataire, texte);

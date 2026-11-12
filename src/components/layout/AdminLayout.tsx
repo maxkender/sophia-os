@@ -50,6 +50,7 @@ import {
   Wallet,
   Globe2,
   UserMinus,
+  LifeBuoy,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
@@ -85,6 +86,7 @@ const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
   ruul_suivi: Wallet,
   faq: MessageCircle,
   officielles: BadgeCheck,
+  support: LifeBuoy,
   parrainage: Gift,
   slack: UserMinus,
   logs: ListTodo,

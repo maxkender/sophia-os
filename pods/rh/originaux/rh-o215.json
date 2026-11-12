@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o215",
+ "type_bleo": "full_test",
+ "titre": "les 5 questions que je me pose avant de rester dans une boîte #carriere #travail #emploi #santementale #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Full test : accroche jamais faite chez nous (rester ou partir). Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e53bde4",
+   "texte_overlay": "les 5 questions\nque je me pose\navant de rester dans une boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "be90e0ea",
+   "texte_overlay": "est-ce que j'ai appris quelque chose cette année ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bfb50258",
+   "texte_overlay": "est-ce qu'on me dit merci ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c038c28f",
+   "texte_overlay": "est-ce que mon salaire suit le marché ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b1db3a02",
+   "texte_overlay": "est-ce que j'ai encore de l'énergie le soir ?\npour moi, pour apprendre autre chose",
+   "texte_sophia": "est-ce que j'ai encore de l'énergie le soir ?\npour moi, pour apprendre autre chose. même 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c06a094b",
+   "texte_overlay": "est-ce que je me vois ici dans 2 ans ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c29be24f",
+   "texte_overlay": "3 non ou plus ?\nc'est peut-être le moment de regarder ailleurs",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c2bb68d3",
+   "texte_overlay": "combien de oui pour toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

@@ -229,6 +229,10 @@ verify_jwt = false
 [functions.upwork]
 verify_jwt = false
 
+# 0671 : l'espace support (Help / Support) ; la tâche support-alertes appelle avec x-cron-secret.
+[functions.support]
+verify_jwt = false
+
 [functions.recrues-check]
 verify_jwt = false
 

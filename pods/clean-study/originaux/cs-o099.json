@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o099",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e76a5a8f-60c9-4f6e-ac57-86cc094e0e40",
+  "titre": "toxic reminders for when you're about to skip studying again #studytok #studymotivation #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "e76a5a8f-60c9-4f6e-ac57-86cc094e0e40"
+  ],
+  "notes": "Déclinaison G2 de e76a5a8f (notre cs-o061 en G1 : r 8,02 en italien), ligne 1 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o093 : « toxic reminders for when you're about to skip studying again ». « Toxic » = rivalité avec soi-même. Rappels neufs, aucun de cs-o061, cs-o093 ni du parent 3c5e67e9 : l'excuse d'hier, les autres heures de la journée, ce qu'on regrettera, se tester sur 3 questions pour commencer (place micabo, slide 5), la différence entre se reposer et éviter, la fierté du soir. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1543209f",
+      "texte_overlay": "toxic reminders for when you're about\nto skip studying again",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1693f654",
+      "texte_overlay": "you used that excuse yesterday too.\nit's not an excuse anymore. it's a pattern.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "18acc90c",
+      "texte_overlay": "you found 3 hours for your phone today.\nyou can find 30 minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1c03d8bc",
+      "texte_overlay": "nobody regrets studying.\neveryone regrets the test they didn't prepare.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cb419a6c",
+      "texte_overlay": "just answer 3 questions on today's lesson.\nthat's it. the rest follows.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1dbfd2f5",
+      "texte_overlay": "resting is fine.\navoiding is not resting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1f8ab374",
+      "texte_overlay": "tonight you'll either be proud or relieved it's over.\nchoose proud.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -47,6 +47,7 @@ import {
   rendreEmailRuul,
   semaineCourte,
 } from "../_shared/ruul.ts";
+import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { urlEmailSite } from "../_shared/site.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -286,14 +287,14 @@ async function envoyer(supabase: Supabase) {
       if (d.email && pr?.ruul_jeton) {
         const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
         const objet = t.email_ruul_objet ?? EMAIL_RUUL_OBJET;
-        const corps = remplirRuul(t.email_ruul_texte ?? EMAIL_RUUL_TEXTE, { prenom });
+        const corps = avecPiedHelp(remplirRuul(t.email_ruul_texte ?? EMAIL_RUUL_TEXTE, { prenom }));
         const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open my dashboard", lien: URL_DASHBOARD }, lienStop });
         const r = await envoyerEmail(d.email, objet, e.html, e.texte, lienStop, ["ruul", `email_ruul_${d.etape}`]);
         if (r.ok) canaux.push("email");
         else erreur = r.erreur;
       }
       if (d.slack_user_id) {
-        const s = await ecrireAuPosteur(supabase, d.poster_id, remplirRuul(t.email_ruul_slack ?? EMAIL_RUUL_SLACK, { prenom }));
+        const s = await ecrireAuPosteur(supabase, d.poster_id, avecPiedHelp(remplirRuul(t.email_ruul_slack ?? EMAIL_RUUL_SLACK, { prenom })));
         if (s.statut === "envoye") canaux.push("slack");
         else erreur = erreur ?? ("erreur" in s ? String(s.erreur) : s.statut);
       }

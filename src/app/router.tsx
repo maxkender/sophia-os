@@ -13,6 +13,7 @@ import {
   DecisionsPage,
   FaqPage,
   ReponsesOfficiellesPage,
+  SupportPage,
   ParrainagePage,
   RetirerSlackPage,
   BonusPage,
@@ -47,6 +48,7 @@ import { AdminCommentMastersHubPage } from "@/pages/admin/AdminCommentMastersHub
 import { GUIDE_NOTION_HM, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { RedirectionGuideNotion } from "@/features/documents/RedirectionGuideNotion";
 import { PageFaqPosteur } from "@/features/officielles/PageFaqPosteur";
+import { PageHelp } from "@/features/support/PageHelp";
 import { PageProblemesV2 } from "@/features/problemes/v2/PageProblemesV2";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
@@ -142,6 +144,7 @@ export function AppRouter() {
             <Route path="/admin/auto/ruul" element={<RuulSuiviPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
             <Route path="/admin/auto/reponses-officielles" element={<ReponsesOfficiellesPage />} />
+            <Route path="/admin/auto/support" element={<SupportPage />} />
             <Route path="/admin/auto/parrainage" element={<ParrainagePage />} />
             <Route path="/admin/auto/retirer-slack" element={<RetirerSlackPage />} />
             <Route path="/admin/auto/logs" element={<LogsPage />} />
@@ -229,6 +232,8 @@ export function AppRouter() {
             {/* Prompt 21, D3 : les anciennes pages Guide et FAQ renvoient vers le guide Notion. */}
             <Route path="/createur/guide" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
             <Route path="/createur/faq" element={<PageFaqPosteur />} />
+            {/* 11/11 (0671) : Help, poser une question ou signaler un problème. */}
+            <Route path="/createur/help" element={<PageHelp />} />
           </Route>
         </Route>
 

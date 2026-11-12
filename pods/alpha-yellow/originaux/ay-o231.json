@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o231",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "29322b78-1c81-43ef-96cf-c6b9e3422a84",
+ "titre": "how you are truly happy again #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "29322b78-1c81-43ef-96cf-c6b9e3422a84"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 5a171e9b. déclinaison G1 de la ligne 10 de la boîte (29322b78, de 8,1 k r 4,35) : accroche du parent mot pour mot (minuscules et tournure du parent gardées). Items neufs, aucun repris du parent (joie planifiée, énergie, sport en groupe, merci, ne plus reporter, vie hors travail). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a171e9b",
+   "texte_overlay": "how you are truly happy\nagain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Get outside every single day. Even twenty minutes of daylight and fresh air lifts your mood more than most people expect. Start there, before anything else.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Lower the noise. Fewer notifications, less news, fewer accounts that make you feel behind. Peace is often what's left when you remove the clutter.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Do one thing with your hands. Cooking, building, gardening, drawing. Making something real gives your mind a calm, deeply satisfying focus.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Spend time with people who make you laugh. Laughter is the fastest reset there is. See the friends who bring lightness into your life more often.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your curiosity. I do five minutes a day of history, art or science, and a little wonder every morning has made my days feel brighter again.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A little wonder every morning has made my days brighter.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Help someone without being asked. Carry a bag, fix a bike, listen to a friend. Doing good for others is one of the surest ways to feel good yourself.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be patient with yourself. Happiness rarely comes back in one big moment. It returns slowly, one good day at a time, when you keep showing up.",
+   "media_id": "f4bd619d"
+  }
+ ]
+}

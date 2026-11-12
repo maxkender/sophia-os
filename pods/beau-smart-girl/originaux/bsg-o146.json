@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o146",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7e70f93d-a3f4-46d7-b120-1fb036390230",
+  "titre": "les petites manies d'étudiante qui m'ont fait réussir mes années #etudiante #pourtoi",
+  "inspirations": [
+    "7e70f93d-a3f4-46d7-b120-1fb036390230"
+  ],
+  "notes": "G2, déclinaison de 7e70f93d (« les habitudes étranges que j'ai intégré dans ma vie en tant qu'étudiante à l'ens », G1 gagnante, génération 1 en français ; meilleur passage ru 3,8 k vues, r 6,34), en français. Accroche reformulée : « les petites manies d'étudiante qui m'ont fait réussir mes années ». cta B (l'anecdote du jour en item 3). Items neufs (rien de repris de bsg-o090 : ni expliquer à voix haute, ni même heure, ni carnet de questions, ni promenade). Fait vérifié le 12/11 sur https://en.wikipedia.org/wiki/Statue_of_Liberty : « a gift to the United States from the people of France », « dedicated on October 28, 1886 ». Routine du 12/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1 à 5 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "les petites manies d'étudiante\nqui m'ont fait réussir mes années",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "414511dc",
+      "texte_overlay": "1. je m'assieds toujours au premier rang\n\nimpossible de décrocher\nquand le prof te regarde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "01c21b76",
+      "texte_overlay": "2. je recopie le plan du cours, rien d'autre\n\nle plan, c'est le squelette.\nle reste revient tout seul.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. je relie chaque cours à une histoire\n\nce matin, j'ai appris que la statue de la liberté est un cadeau du peuple français aux états-unis, inaugurée en 1886.\nje m'en souviendrai le jour de l'examen.",
+      "texte_sophia": "3. je relie chaque cours à une histoire\n\nce matin, l'appli Sophia m'a appris que la statue de la liberté est un cadeau du peuple français aux états-unis, inaugurée en 1886.\nje m'en souviendrai le jour de l'examen.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3615b305",
+      "texte_overlay": "4. je travaille une heure de plus le vendredi\n\nle week-end est plus léger.\net la semaine suivante aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0f057bec",
+      "texte_overlay": "5. j'ai un carnet de mots savants\n\nun par jour, avec une phrase pour l'utiliser.\nmes dissertations ont changé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "laquelle est la plus étrange ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

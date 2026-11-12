@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o222",
+ "type_bleo": "full_test",
+ "titre": "Small habits that make you a better son #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 1e30f722. full test. Accroche jamais faite chez nous : la relation aux parents, angle chaleureux. Accroches écrites : « Small habits that make you a better son » (retenue), « Things your parents will never ask for » (écartée : culpabilisant), « How to treat your parents as an adult » (écartée : long).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e30f722",
+   "texte_overlay": "Small habits that make you\na better son",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Call them without a reason. Not only when you need something. A ten-minute call on a random Tuesday means more to them than you'll ever know.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ask about their lives, not just their health. Their old friends, their first jobs, how they met. Your parents have stories you've never heard.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Show up for the small things. A birthday lunch, a doctor's appointment, help with moving furniture. Being present beats any expensive gift you could buy.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Teach them things patiently. Their new phone, an online form, the TV remote. Patience with them is a quiet way of saying thank you for years of patience with you.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Share what you learn. I do five minutes a day of history, art or science, and telling my dad a fun story at dinner has become our favourite little ritual.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Telling my dad a fun story at dinner is now our favourite ritual.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Say thank you for specific things. \"Thanks for driving me to every football match.\" Naming what they did shows you noticed, even years later.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Forgive the past where you can. Every parent made mistakes. Letting go of old resentment makes the time you still have together lighter and warmer.",
+   "media_id": "bdf15e02"
+  }
+ ]
+}

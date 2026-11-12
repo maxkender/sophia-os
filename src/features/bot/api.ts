@@ -10,7 +10,7 @@ export type Niveau = "bot" | "adrien" | "max";
 export type Portee = "tous" | "ruul" | "upwork";
 
 export const NIVEAUX: readonly Niveau[] = ["bot", "adrien", "max"];
-export const ACTIONS = ["lien_mot_de_passe", "renvoi_parrainage", "pseudo_tiktok", "email_ruul", "arret", "lien_slack"] as const;
+export const ACTIONS = ["lien_mot_de_passe", "renvoi_parrainage", "pseudo_tiktok", "email_ruul", "arret", "lien_slack", "prevenir_max"] as const;
 export const CATEGORIES_BOT = [
   "posting", "tiktok", "warmup", "login", "slack", "paie", "parrainage", "arret", "ruul", "upwork", "bug", "statut", "salutation", "autre",
 ] as const;
@@ -23,6 +23,7 @@ export const LIBELLE_ACTION: Record<string, string> = {
   email_ruul: "Email Ruul",
   arret: "Arrêt",
   lien_slack: "Lien Slack",
+  prevenir_max: "Prévenir Max (bug)",
 };
 
 export interface DecisionBot {

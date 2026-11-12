@@ -24,7 +24,7 @@ const api = vi.hoisted(() => ({
 vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...api }));
 
 import { compteurs, type DemandeSuivi, type EntreeCatalogue, filtrerCatalogue, regressions, repetees } from "./api";
-import { PageBot } from "./PageBot";
+import { Catalogue, Suivi, Tester } from "./PageBot";
 
 function rendu(el: React.ReactElement) {
   const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -78,8 +78,7 @@ describe("PageBot", () => {
     api.lireCatalogue.mockResolvedValue([entree({ id: "a" })]);
     api.enregistrerEntree.mockResolvedValue("a");
     api.lancerTests.mockResolvedValue({ total: 0, verts: 0, resultats: [] });
-    rendu(<PageBot />);
-    fireEvent.click(screen.getByRole("button", { name: "Catalogue" }));
+    rendu(<Catalogue />);
     fireEvent.click(await screen.findByTestId("catalogue-ligne"));
     const ed = screen.getByTestId("catalogue-edition");
     fireEvent.change(within(ed).getByLabelText(/Réponse/), { target: { value: "No, the warm-up is not paid." } });
@@ -93,7 +92,7 @@ describe("PageBot", () => {
       texte: "You are paid on Monday.\n— the Vik Studios team", regle_utilisee: "When am I paid?", plateforme: "upwork", action_prevue: null,
     });
     api.garderCommeTest.mockResolvedValue(undefined);
-    rendu(<PageBot />);
+    rendu(<Tester />);
     fireEvent.change(screen.getByLabelText("Message du posteur"), { target: { value: "When do I get paid?" } });
     fireEvent.click(screen.getByTestId("bot-simuler"));
     const r = screen.getByTestId("bot-resultat");
@@ -107,8 +106,7 @@ describe("PageBot", () => {
 
   it("Suivi : compteurs de la semaine et objectif de Max", async () => {
     api.lireSuivi.mockResolvedValue([demande({ id: "1" }), demande({ id: "2", niveau: "max", poster_id: "z" })]);
-    rendu(<PageBot />);
-    fireEvent.click(screen.getByRole("button", { name: "Suivi" }));
+    rendu(<Suivi />);
     const c = await screen.findByTestId("suivi-compteurs");
     await waitFor(() => expect(c).toHaveTextContent("Max · 7 jours1"));
     expect(c).toHaveTextContent("objectif : moins de 10");

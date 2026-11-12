@@ -4881,7 +4881,28 @@ export const fr = {
     auto: {
       section: "Automatisation du recrutement",
       switchesDeplaces: "Les interrupteurs (off / test / on), la paie par l'API et le bot FAQ sont maintenant dans Vue d'ensemble → Switches :",
+      // 12/11 (OS clair) : le menu de la section, 7 entrées.
+      menu: {
+        aujourdhui: "Aujourd'hui",
+        posteurs: "Posteurs",
+        ruul: "Ruul",
+        decisions: "Décisions",
+        paie: "Paie",
+        support: "Support",
+        reglages: "Réglages",
+      },
+      menuDesc: {
+        aujourdhui: "Ce que tu dois faire maintenant.",
+        posteurs: "Chaque posteur, ses étapes et ses relances.",
+        ruul: "Les posteurs payés par Ruul, de la candidature à la paie.",
+        decisions: "Les décisions de la semaine (jeudi, samedi).",
+        paie: "La paie du lundi, Upwork et Ruul.",
+        support: "Demandes des posteurs, bot, consignes, règles.",
+        reglages: "Interrupteurs, textes et anciennes pages.",
+      },
       pages: {
+        aujourdhui: { titre: "Aujourd'hui" },
+        reglages: { titre: "Réglages" },
         overview: { titre: "Vue d'ensemble" },
         recruits: { titre: "Onboarding posters" },
         cohorts: { titre: "Cohortes" },
@@ -4933,6 +4954,8 @@ export const fr = {
         },
       },
       phrases: {
+        aujourdhui: "Ce que tu dois faire maintenant : 5 lignes au plus, chacune avec son bouton.",
+        reglages: "Les interrupteurs, les textes et toutes les anciennes pages, rangées ici : rien n'est supprimé.",
         overview: "Tout ce que fait l'automatisation, sur une page. Le bouton rouge arrête toutes les actions automatiques.",
         recruits: "Chaque recrue jusqu'à son 1er post : étapes, messages envoyés, prochaine relance.",
         cohorts: "Chaque cohorte d'un coup d'œil : la prochaine sera-t-elle prête dimanche minuit, et comment ont fait les précédentes. Lecture seule.",
@@ -4949,7 +4972,7 @@ export const fr = {
         ruul_suivi: "Les posteurs Ruul à ajouter dans Ruul (nom, email Ruul, pays, zone, tarif) : ajoute-les dans Ruul, puis marque-les ajoutés, un par un ou tous ensemble.",
         faq: "Ce que le bot répond sur Slack et dans le tableau de bord, et ce qu'il ne sait pas.",
         officielles: "Les réponses validées par Max : le bot FAQ et les 3 bots les donnent en priorité, les posteurs les voient dans « FAQ ».",
-        support: "Tout ce que demandent les posteurs : Problems (quelque chose est cassé pour eux) et les Questions que le bot n'a pas su traiter. Répondre, régler, ajouter aux réponses officielles.",
+        support: "Les demandes des posteurs et le bot, au même endroit : la Boîte (Pour Max, Pour Adrien), l'aperçu de la page Help, le bac à sable, tes consignes, les règles du moment, le catalogue et les tests.",
         parrainage: "Les amis que les posteurs invitent par email : emails, candidatures, actifs, bonus et coût par recrue, par pays et par semaine ; le top des parrains ; les pays ouverts.",
         slack: "Les personnes désactivées dans l'OS (Kill, STOP, Portugal, contrat fermé) encore membres actifs de Slack : les retirer des canaux, désactiver le compte.",
         logs: "Tout ce que l'automatisation a fait. Ce qui t'attend et ce qui casse est dans Needs you.",

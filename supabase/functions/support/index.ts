@@ -477,13 +477,15 @@ async function deciderBot(
   o: { message: string; source: SourceBot; poster: string | null; profil: ProfilFictif | null },
 ) {
   const fictif = !o.poster && o.profil;
-  const [f, ctx, infos, histo] = await Promise.all([
+  const [f, ctx, infos, histo, consignes] = await Promise.all([
     o.poster ? fiche(db, o.poster) : Promise.resolve(null),
     o.poster ? contexte(db, o.poster) : Promise.resolve(""),
     db.from("support_infos").select("titre, valeur").order("ordre").limit(100),
     o.poster
       ? db.from("support_demandes").select("cree_at, categorie, texte").eq("poster_id", o.poster).order("cree_at", { ascending: false }).limit(10)
       : Promise.resolve({ data: [] as { cree_at: string; categorie: string | null; texte: string }[] }),
+    // 0677 : les consignes de Max, appliquées tout de suite.
+    db.from("support_consignes").select("texte").eq("actif", true).order("cree_at").limit(100),
   ]);
   const plateforme: "ruul" | "upwork" | null = f?.plateforme ?? (fictif ? (o.profil!.plateforme === "ruul" ? "ruul" : "upwork") : null);
   let requete = db.from("reponses_officielles").select("id, question, formulations, reponse, action, niveau, categorie")
@@ -500,6 +502,7 @@ async function deciderBot(
     catalogue: ((catalogue ?? []) as DecisionCatalogue[]).map((c) => ({ ...c, formulations: c.formulations ?? [] })),
     historique: ((histo.data ?? []) as { cree_at: string; categorie: string | null; texte: string }[]),
     inconnu: !f && !fictif,
+    consignes: ((consignes.data ?? []) as { texte: string }[]).map((c) => c.texte),
   };
   let decision: DecisionBot | null = null;
   try {
@@ -558,8 +561,6 @@ async function lancerTests(db: Db, ids: string[] | null) {
 // 0675 : mise en ligne (messages repris, liste d'Adrien, top 10 du lundi).
 // ---------------------------------------------------------------------------
 
-/** L'ID Slack d'Adrien (ADMINS_SLACK). */
-const ADRIEN_SLACK = "U0BMTK7BLCW";
 
 function heureParis(d = new Date()): number {
   return Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hourCycle: "h23" }).format(d));
@@ -654,10 +655,8 @@ async function listeAdrien(db: Db) {
     nom: l.poster_id ? noms.get(l.poster_id) ?? "?" : "?", plateforme: l.plateforme, categorie: l.categorie, texte: l.texte,
     attente: l.statut === "attente_posteur", heures: Math.round((Date.now() - Date.parse(l.cree_at)) / 3_600_000),
   })), OS_URL);
-  const jeton = jetonSlackFaq();
-  if (!jeton) return { ok: false, error: "jeton Slack absent", texte };
-  const r = await posterSlack(jeton, ADRIEN_SLACK, texte);
-  return { ok: r.ok, total: lignes.length, ...(r.ok ? {} : { error: r.error }) };
+  // 12/11 (OS clair) : pas de DM Slack à Adrien ; sa liste est dans Support › Boîte › Pour Adrien.
+  return { ok: true, total: lignes.length, texte };
 }
 
 /** Lundi : les 10 questions de la semaine que le bot n'a pas réglées, groupées, avec une réponse proposée. */
@@ -683,8 +682,9 @@ async function top10Lundi(db: Db, envoyer: boolean) {
   if (!envoyer) return { ok: true, top, texte };
   const jeton = jetonSlackFaq();
   if (!jeton) return { ok: false, error: "jeton Slack absent", top };
-  const envois = await Promise.all([MAX_SLACK, ADRIEN_SLACK].map((u) => posterSlack(jeton, u, texte)));
-  return { ok: envois.every((e) => e.ok), top };
+  // 12/11 (OS clair) : à Max seulement, pas de DM à Adrien.
+  const envoi = await posterSlack(jeton, MAX_SLACK, texte);
+  return { ok: envoi.ok, top };
 }
 
 /**

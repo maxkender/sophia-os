@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -26,10 +26,8 @@ import {
   LIBELLE_NIVEAU,
   lireCatalogue,
   lireHistorique,
-  lireInfos,
   lireSuivi,
   lireTests,
-  modifierInfo,
   type Niveau,
   NIVEAUX,
   OBJECTIF_MAX,
@@ -45,13 +43,6 @@ import {
   simuler,
 } from "./api";
 
-type Onglet = "tester" | "catalogue" | "tests" | "suivi";
-const ONGLETS: { cle: Onglet; contenu: string }[] = [
-  { cle: "tester", contenu: "Tester" },
-  { cle: "catalogue", contenu: "Catalogue" },
-  { cle: "tests", contenu: "Tests automatiques" },
-  { cle: "suivi", contenu: "Suivi" },
-];
 const SEL = "h-8 rounded-md border bg-background px-2 text-sm";
 const COULEUR_NIVEAU: Record<Niveau, string> = {
   bot: "bg-emerald-100 text-emerald-900 dark:bg-emerald-900/40 dark:text-emerald-100",
@@ -59,34 +50,17 @@ const COULEUR_NIVEAU: Record<Niveau, string> = {
   max: "bg-red-100 text-red-900 dark:bg-red-900/40 dark:text-red-100",
 };
 
-/**
- * 12/11 (Support propre, F) : /admin/bot, réservée aux admins. Tester (simulation : rien n'est
- * envoyé, rien n'est écrit sur une fiche), Catalogue (+ infos à connaître, historique, retour
- * arrière), Tests automatiques, Suivi (7 jours, compteurs de la semaine).
- */
+/** 12/11 (OS clair) : /admin/bot est devenue la section Support (onglet Tester). */
 export function PageBot() {
-  const [onglet, setOnglet] = React.useState<Onglet>("tester");
-  return (
-    <div className="space-y-4" data-testid="page-bot">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <h1 className="text-lg font-semibold">Bot du support</h1>
-        <Link to="/admin/auto/support" className="text-sm text-muted-foreground underline">Support →</Link>
-      </div>
-      <Segments libelle="Onglets" options={ONGLETS} actif={onglet} onChange={setOnglet} />
-      {onglet === "tester" && <Tester />}
-      {onglet === "catalogue" && <Catalogue />}
-      {onglet === "tests" && <Tests />}
-      {onglet === "suivi" && <Suivi />}
-    </div>
-  );
+  return <Navigate to="/admin/auto/support?onglet=tester" replace />;
 }
 
-function BadgeNiveau({ n }: { n: Niveau | null }) {
+export function BadgeNiveau({ n }: { n: Niveau | null }) {
   const v = n ?? "adrien";
   return <span className={`rounded px-1.5 py-0.5 text-xs font-medium ${COULEUR_NIVEAU[v]}`} data-testid={`niveau-${v}`}>{LIBELLE_NIVEAU[v]}</span>;
 }
 
-function Erreur({ e }: { e: unknown }) {
+export function Erreur({ e }: { e: unknown }) {
   if (!e) return null;
   return <p className="text-sm text-destructive">{e instanceof Error ? e.message : String(e)}</p>;
 }
@@ -95,7 +69,7 @@ function Erreur({ e }: { e: unknown }) {
 
 const PROFIL_DEFAUT: ProfilFictif = { plateforme: "upwork", zone: "A", etape: "posting", statut: "actif", prenom: "Alex" };
 
-function Tester() {
+export function Tester() {
   const qc = useQueryClient();
   const [message, setMessage] = React.useState("");
   const [source, setSource] = React.useState<"help" | "slack_salon">("help");
@@ -208,7 +182,7 @@ function Tester() {
 
 // --- Catalogue ------------------------------------------------------------------
 
-function Catalogue() {
+export function Catalogue() {
   const catalogue = useQuery({ queryKey: ["bot", "catalogue"], queryFn: lireCatalogue });
   const [f, setF] = React.useState<{ q: string; portee: "" | Portee; categorie: string; inactifs: boolean }>({ q: "", portee: "", categorie: "", inactifs: false });
   const [edition, setEdition] = React.useState<EntreeCatalogue | "nouvelle" | null>(null);
@@ -220,7 +194,6 @@ function Catalogue() {
 
   return (
     <div className="space-y-4">
-      <Infos />
       <div className="flex flex-wrap items-center gap-2 text-sm">
         <Input aria-label="Chercher" placeholder="Chercher…" className="h-8 w-56" value={f.q} onChange={(e) => setF({ ...f, q: e.target.value })} />
         <select aria-label="Plateforme" className={SEL} value={f.portee} onChange={(e) => setF({ ...f, portee: e.target.value as "" | Portee })}>
@@ -372,46 +345,9 @@ function Edition({ e, onFini }: { e: EntreeCatalogue | null; onFini: () => void 
   );
 }
 
-function Infos() {
-  const qc = useQueryClient();
-  const infos = useQuery({ queryKey: ["bot", "infos"], queryFn: lireInfos });
-  const [ouvert, setOuvert] = React.useState<string | null>(null);
-  const [valeur, setValeur] = React.useState("");
-  const sauver = useMutation({
-    mutationFn: (i: { cle: string; titre: string }) => modifierInfo(i.cle, i.titre, valeur),
-    onSuccess: () => { setOuvert(null); void qc.invalidateQueries({ queryKey: ["bot", "infos"] }); },
-  });
-  return (
-    <Card>
-      <CardContent className="space-y-2 p-4" data-testid="bot-infos">
-        <h3 className="text-sm font-semibold">Infos à connaître <span className="font-normal text-muted-foreground">(dates, montants, liens, règles : le bot s'y tient)</span></h3>
-        <Erreur e={infos.error ?? sauver.error} />
-        {(infos.data ?? []).map((i) => (
-          <div key={i.cle} className="text-sm">
-            {ouvert === i.cle ? (
-              <div className="space-y-1">
-                <p className="font-medium">{i.titre}</p>
-                <Textarea rows={2} value={valeur} onChange={(e) => setValeur(e.target.value)} />
-                <div className="flex gap-2">
-                  <Button size="sm" disabled={valeur.trim().length < 1 || sauver.isPending} onClick={() => sauver.mutate(i)}>Enregistrer</Button>
-                  <Button size="sm" variant="ghost" onClick={() => setOuvert(null)}>Annuler</Button>
-                </div>
-              </div>
-            ) : (
-              <button type="button" className="w-full text-left hover:underline" onClick={() => { setOuvert(i.cle); setValeur(i.valeur); }}>
-                <span className="font-medium">{i.titre} :</span> <span className="text-muted-foreground">{i.valeur}</span>
-              </button>
-            )}
-          </div>
-        ))}
-      </CardContent>
-    </Card>
-  );
-}
-
 // --- Tests automatiques ---------------------------------------------------------
 
-function Tests() {
+export function Tests() {
   const qc = useQueryClient();
   const tests = useQuery({ queryKey: ["bot", "tests"], queryFn: lireTests });
   const [dernier, setDernier] = React.useState<ResultatTests | null>(null);
@@ -510,7 +446,7 @@ function NouveauTest({ onFini }: { onFini: () => void }) {
 
 // --- Suivi ------------------------------------------------------------------------
 
-function Suivi() {
+export function Suivi() {
   const suivi = useQuery({ queryKey: ["bot", "suivi"], queryFn: lireSuivi, refetchInterval: 120_000 });
   const [filtre, setFiltre] = React.useState<"" | Niveau | "repetees">("");
   const liste = suivi.data ?? [];

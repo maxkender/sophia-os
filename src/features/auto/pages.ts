@@ -4,9 +4,12 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs";
+export type PageAuto = "aujourdhui" | "reglages" | "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
+  // 12/11 (OS clair) : ce que Max doit faire maintenant, et toutes les anciennes pages rangées.
+  { cle: "aujourdhui", to: "/admin/auto/aujourdhui" },
+  { cle: "reglages", to: "/admin/auto/reglages" },
   { cle: "overview", to: "/admin/auto" },
   { cle: "recruits", to: "/admin/auto/recruits" },
   // Les tableaux de bord des cohortes (lecture seule) : la prochaine sera-t-elle prête, comment ont fait les passées.
@@ -49,8 +52,29 @@ export const cheminAuto = (cle: PageAuto): string => PAGES_AUTO.find((p) => p.cl
  */
 export const HORS_MENU: readonly PageAuto[] = ["problems", "disputes"];
 
-/** L'arrivée de l'admin : Overview. */
-export const ACCUEIL_ADMIN = "/admin/auto";
+/**
+ * 12/11 (OS clair) : le menu de la section, 7 entrées. Les autres pages restent
+ * ouvertes (même adresse) et rangées dans Réglages › Anciennes pages : rien n'est supprimé.
+ * Posteurs, Ruul, Décisions et Paie pointent vers les pages actuelles jusqu'à leur refonte.
+ */
+export type EntreeMenuAuto = "aujourdhui" | "posteurs" | "ruul" | "decisions" | "paie" | "support" | "reglages";
+export const MENU_AUTO: readonly { cle: EntreeMenuAuto; to: string; page: PageAuto }[] = [
+  { cle: "aujourdhui", to: "/admin/auto/aujourdhui", page: "aujourdhui" },
+  { cle: "posteurs", to: "/admin/auto/recruits", page: "recruits" },
+  { cle: "ruul", to: "/admin/auto/ruul", page: "ruul_suivi" },
+  { cle: "decisions", to: "/admin/auto/decisions", page: "decisions" },
+  { cle: "paie", to: "/admin/auto/payroll", page: "payroll" },
+  { cle: "support", to: "/admin/auto/support", page: "support" },
+  { cle: "reglages", to: "/admin/auto/reglages", page: "reglages" },
+];
+
+/** Les pages hors du menu, rangées dans Réglages (dans cet ordre). */
+export const ANCIENNES_PAGES: readonly PageAuto[] = PAGES_AUTO
+  .map((p) => p.cle)
+  .filter((c) => !MENU_AUTO.some((m) => m.page === c));
+
+/** 12/11 (OS clair) : l'arrivée de l'admin, « Aujourd'hui ». */
+export const ACCUEIL_ADMIN = "/admin/auto/aujourdhui";
 
 /**
  * Les anciennes adresses → les nouvelles (les pages retirées du menu et du

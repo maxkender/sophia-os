@@ -4872,7 +4872,28 @@ export const en = {
     auto: {
       section: "Recruitment Automation",
       switchesDeplaces: "The switches (off / test / on), pay through the API and the FAQ bot are now in Overview → Switches:",
+      // 12/11 (OS clair): the section menu, 7 entries.
+      menu: {
+        aujourdhui: "Today",
+        posteurs: "Posters",
+        ruul: "Ruul",
+        decisions: "Decisions",
+        paie: "Pay",
+        support: "Support",
+        reglages: "Settings",
+      },
+      menuDesc: {
+        aujourdhui: "What you need to do now.",
+        posteurs: "Every poster, their steps and reminders.",
+        ruul: "Posters paid through Ruul, from application to pay.",
+        decisions: "This week's decisions (Thursday, Saturday).",
+        paie: "Monday pay, Upwork and Ruul.",
+        support: "Poster requests, bot, instructions, rules.",
+        reglages: "Switches, texts and older pages.",
+      },
       pages: {
+        aujourdhui: { titre: "Today" },
+        reglages: { titre: "Settings" },
         overview: { titre: "Overview" },
         recruits: { titre: "Onboarding posters" },
         cohorts: { titre: "Cohorts" },
@@ -4924,6 +4945,8 @@ export const en = {
         },
       },
       phrases: {
+        aujourdhui: "What you need to do now: 5 lines at most, each with its button.",
+        reglages: "Switches, texts and every older page, kept here: nothing is deleted.",
         overview: "Everything the automation does, on one page. The red button stops every automatic action.",
         recruits: "Every recruit until their first post: steps, messages sent, next reminder.",
         cohorts: "Each cohort at a glance: will the next one be ready by Sunday midnight, and how did the past ones do. Read only.",
@@ -4940,7 +4963,7 @@ export const en = {
         ruul_suivi: "Ruul posters to add in Ruul (name, Ruul email, country, zone, rate): add them in Ruul, then mark them added, one by one or all at once.",
         faq: "What the bot answers on Slack and in the dashboard, and what it doesn't know.",
         officielles: "Answers approved by Max: the FAQ bot and the 3 bots give them first, posters see them under “FAQ”.",
-        support: "Everything posters ask: Problems (something is broken for them) and Questions the bot couldn't answer. Reply, solve, add to official answers.",
+        support: "Poster requests and the bot in one place: the inbox (for Max, for Adrien), the Help page preview, the sandbox, your instructions, current rules, the catalogue and tests.",
         parrainage: "Friends that posters invite by email: emails, applications, active, bonuses and cost per recruit, by country and week; top referrers; open countries.",
         slack: "People deactivated in the OS (Kill, STOP, Portugal, contract closed) who are still active Slack members: remove them from channels, deactivate the account.",
         logs: "Everything the automation did. What needs you and what's broken is in Needs you.",

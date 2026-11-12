@@ -316,3 +316,70 @@ export function compteurs(liste: readonly DemandeSuivi[]): Record<Niveau, number
 }
 
 export const OBJECTIF_MAX = 10;
+
+// --- Règles qui changent (support_infos) ----------------------------------------
+
+export interface HistoriqueInfo {
+  id: string;
+  cle: string;
+  avant: string | null;
+  apres: string | null;
+  at: string;
+}
+
+export async function lireHistoriqueInfos(): Promise<HistoriqueInfo[]> {
+  const { data, error } = await supabase.from("support_infos_historique").select("id, cle, avant, apres, at")
+    .order("at", { ascending: false }).limit(300);
+  if (error) throw new Error(error.message);
+  return (data ?? []) as HistoriqueInfo[];
+}
+
+/** La clé d'une nouvelle règle, depuis son titre (« Posts par jour » → posts_par_jour). */
+export function cleRegle(titre: string): string {
+  return titre.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "").slice(0, 40) || "regle";
+}
+
+/** Règles qu'il reste souvent à écrire (proposées, jamais inventées : Max met la valeur). */
+export const REGLES_SUGGEREES = ["Prochaine cohorte", "Date limite de signature", "Posts par jour", "Pays ouverts"] as const;
+
+// --- Consignes (0677) ------------------------------------------------------------
+
+export interface Consigne {
+  id: string;
+  texte: string;
+  actif: boolean;
+  cree_at: string;
+  maj_at: string;
+}
+
+export interface HistoriqueConsigne {
+  id: string;
+  consigne_id: string;
+  avant: Partial<Consigne> | null;
+  apres: Partial<Consigne> | null;
+  at: string;
+}
+
+export async function lireConsignes(): Promise<Consigne[]> {
+  const { data, error } = await supabase.from("support_consignes").select("id, texte, actif, cree_at, maj_at").order("cree_at", { ascending: false });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as Consigne[];
+}
+
+export async function enregistrerConsigne(id: string | null, texte: string, actif: boolean): Promise<string> {
+  const { data, error } = await supabase.rpc("support_consigne_enregistrer", { p_id: id, p_texte: texte, p_actif: actif });
+  if (error) throw new Error(error.message);
+  return data as string;
+}
+
+export async function lireHistoriqueConsigne(id: string): Promise<HistoriqueConsigne[]> {
+  const { data, error } = await supabase.from("support_consignes_historique").select("id, consigne_id, avant, apres, at")
+    .eq("consigne_id", id).order("at", { ascending: false }).limit(30);
+  if (error) throw new Error(error.message);
+  return (data ?? []) as HistoriqueConsigne[];
+}
+
+export async function restaurerConsigne(historiqueId: string): Promise<void> {
+  const { error } = await supabase.rpc("support_consigne_restaurer", { p_historique: historiqueId });
+  if (error) throw new Error(error.message);
+}

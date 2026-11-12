@@ -350,6 +350,9 @@ export interface Consigne {
   actif: boolean;
   cree_at: string;
   maj_at: string;
+  /** 0680 : « max » (support_consignes) ou « regles_bots » (règles des bots, reprises de l'ancien bot FAQ). */
+  source?: "max" | "regles_bots";
+  exemple?: string | null;
 }
 
 export interface HistoriqueConsigne {
@@ -361,7 +364,7 @@ export interface HistoriqueConsigne {
 }
 
 export async function lireConsignes(): Promise<Consigne[]> {
-  const { data, error } = await supabase.from("support_consignes").select("id, texte, actif, cree_at, maj_at").order("cree_at", { ascending: false });
+  const { data, error } = await supabase.rpc("support_consignes_liste");
   if (error) throw new Error(error.message);
   return (data ?? []) as Consigne[];
 }
@@ -382,4 +385,113 @@ export async function lireHistoriqueConsigne(id: string): Promise<HistoriqueCons
 export async function restaurerConsigne(historiqueId: string): Promise<void> {
   const { error } = await supabase.rpc("support_consigne_restaurer", { p_historique: historiqueId });
   if (error) throw new Error(error.message);
+}
+
+// --- 0680 : tout le contenu de l'ancien bot FAQ ----------------------------------------
+
+/** Une réponse du catalogue qui n'est pas une réponse officielle : bot FAQ (ctx) ou FAQ par situation (faq). */
+export interface EntreeAutre {
+  source: "ctx" | "faq";
+  id: string;
+  question: string;
+  reponse: string;
+  categorie: string | null;
+  portee: Portee;
+  actif: boolean;
+  audience: string | null;
+  situation: string | null;
+  maj_at: string | null;
+}
+
+export async function lireCatalogueAutres(): Promise<EntreeAutre[]> {
+  const { data, error } = await supabase.rpc("support_catalogue_autres");
+  if (error) throw new Error(error.message);
+  return (data ?? []) as EntreeAutre[];
+}
+
+export async function enregistrerAutre(e: Pick<EntreeAutre, "source" | "id" | "question" | "reponse" | "categorie" | "portee" | "actif">): Promise<void> {
+  const { error } = await supabase.rpc("support_catalogue_enregistrer", {
+    p_source: e.source, p_id: e.id, p_question: e.question, p_reponse: e.reponse, p_categorie: e.categorie, p_portee: e.portee, p_actif: e.actif,
+  });
+  if (error) throw new Error(error.message);
+}
+
+/** chatbot_contexte garde « Question : …\n\nRéponse : … » : la réponse seule, pour l'affichage. */
+export function reponseSeule(contenu: string): string {
+  const i = contenu.search(/R[ée]ponse\s*:/i);
+  return (i >= 0 ? contenu.slice(i).replace(/^R[ée]ponse\s*:\s*/i, "") : contenu).trim();
+}
+
+/** La question complète d'une ligne du bot FAQ (le titre stocké est coupé à 120 signes). */
+export function questionSeule(titre: string, contenu: string): string {
+  const m = contenu.match(/^\s*Question\s*:\s*([\s\S]*?)\n\s*\n\s*R[ée]ponse\s*:/i);
+  return (m?.[1] ?? titre).trim();
+}
+
+export interface ElementATrier {
+  source: "ro" | "ctx" | "faq";
+  id: string;
+}
+
+export interface ATrier {
+  id: string;
+  sujet: string;
+  type: "doublon" | "contradiction";
+  raison: string;
+  elements: ElementATrier[];
+  statut: "a_trier" | "tranche";
+  garder: string[] | null;
+  tranche_at: string | null;
+}
+
+export async function lireATrier(): Promise<ATrier[]> {
+  const { data, error } = await supabase.from("support_a_trier").select("id, sujet, type, raison, elements, statut, garder, tranche_at").order("cree_at");
+  if (error) throw new Error(error.message);
+  return (data ?? []) as ATrier[];
+}
+
+/** Max garde les éléments cochés ; les autres sont éteints (jamais effacés). */
+export async function trancher(id: string, garder: string[]): Promise<void> {
+  const { error } = await supabase.rpc("support_a_trier_trancher", { p_id: id, p_garder: garder });
+  if (error) throw new Error(error.message);
+}
+
+export type SourceDocument = "support" | "notion" | "documents";
+
+export interface DocumentSupport {
+  source: SourceDocument;
+  id: string;
+  titre: string;
+  contenu: string;
+  audience: "poster" | "hm" | "tous";
+  actif: boolean;
+  maj_at: string | null;
+  url?: string | null;
+}
+
+export async function lireDocuments(): Promise<DocumentSupport[]> {
+  const { data, error } = await supabase.rpc("support_documents_liste");
+  if (error) throw new Error(error.message);
+  return (data ?? []) as DocumentSupport[];
+}
+
+export async function enregistrerDocument(d: { source: SourceDocument; id: string | null; titre: string; contenu: string; audience: string; actif: boolean }): Promise<string> {
+  const { data, error } = await supabase.rpc("support_document_enregistrer", {
+    p_source: d.source, p_id: d.id, p_titre: d.titre, p_contenu: d.contenu, p_audience: d.audience, p_actif: d.actif,
+  });
+  if (error) throw new Error(error.message);
+  return data as string;
+}
+
+export interface Exemples {
+  exemples: { id: string; bot: string | null; categorie: string | null; situation: string | null; message: string | null; decision: string | null;
+    reponse: string | null; pourquoi: string | null; source: string | null; actif: boolean; at: string }[];
+  apprentissage: { bot: string | null; type: string | null; at: string; regle: string | null; exemple: string | null; verdict: string | null;
+    raison: string | null; diagnostic: string | null; action: string | null; categorie: string | null }[];
+}
+
+export async function lireExemples(): Promise<Exemples> {
+  const { data, error } = await supabase.rpc("support_exemples");
+  if (error) throw new Error(error.message);
+  return (data ?? { exemples: [], apprentissage: [] }) as Exemples;
 }

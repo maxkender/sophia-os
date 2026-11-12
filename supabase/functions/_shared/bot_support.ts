@@ -52,6 +52,8 @@ export interface EntreeBot {
   inconnu?: boolean;
   /** 0677 : les consignes de Max (page Support › Consignes), à respecter avant tout le reste. */
   consignes?: string[];
+  /** 0680 : les documents de Support › Documents (Comment fonctionne Vik Studios, Poster Guide…). */
+  documents?: { titre: string; texte: string }[];
 }
 
 export function promptBot(e: EntreeBot): string {
@@ -99,7 +101,12 @@ ${(e.consignes ?? []).length ? e.consignes!.map((c) => `- ${c}`).join("\n") : "(
 INFOS À CONNAÎTRE (prioritaires, à jour)
 ${infos || "(aucune)"}
 
-CATALOGUE (réponses officielles)
+ORDRE QUAND DEUX SOURCES SE CONTREDISENT : consignes > infos > documents > catalogue. Un fait sur la personne (paie, Ruul, posts) se lit dans SA FICHE et ses données, jamais dans une réponse type.
+
+DOCUMENTS (fonctionnement et guides ; à lire pour comprendre, pas à recopier)
+${(e.documents ?? []).length ? e.documents!.map((d) => `### ${d.titre}\n${d.texte}`).join("\n\n") : "(aucun)"}
+
+CATALOGUE (réponses types : officielles, du bot FAQ, et la FAQ pour sa situation)
 ${catalogue || "(vide)"}
 
 SA FICHE

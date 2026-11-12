@@ -8,14 +8,17 @@ import { Input } from "@/components/ui/input";
 import { Segments } from "@/components/ui/segments";
 import { lireAujourdhui } from "@/features/auto/aujourdhui/api";
 import { chercherPosteurs, type PosteurTrouve, simuler } from "@/features/bot/api";
+import { CatalogueComplet } from "@/features/bot/CatalogueComplet";
 import { Consignes } from "@/features/bot/Consignes";
-import { Catalogue, Suivi, Tester, Tests } from "@/features/bot/PageBot";
+import { Documents } from "@/features/bot/Documents";
+import { Exemples } from "@/features/bot/Exemples";
+import { Suivi, Tester, Tests } from "@/features/bot/PageBot";
 import { Regles } from "@/features/bot/Regles";
 
 import { PageHelp } from "./PageHelp";
 import { PageSupport } from "./PageSupport";
 
-type OngletSupport = "boite" | "apercu" | "tester" | "consignes" | "regles" | "catalogue" | "tests" | "suivi";
+type OngletSupport = "boite" | "apercu" | "tester" | "consignes" | "regles" | "catalogue" | "documents" | "exemples" | "tests" | "suivi";
 const ONGLETS_SUPPORT: readonly { cle: OngletSupport; contenu: string }[] = [
   { cle: "boite", contenu: "Boîte" },
   { cle: "apercu", contenu: "Aperçu" },
@@ -23,6 +26,8 @@ const ONGLETS_SUPPORT: readonly { cle: OngletSupport; contenu: string }[] = [
   { cle: "consignes", contenu: "Consignes" },
   { cle: "regles", contenu: "Règles" },
   { cle: "catalogue", contenu: "Catalogue" },
+  { cle: "documents", contenu: "Documents" },
+  { cle: "exemples", contenu: "Exemples" },
   { cle: "tests", contenu: "Tests" },
   { cle: "suivi", contenu: "Suivi" },
 ];
@@ -50,7 +55,9 @@ export function SectionSupport() {
       {onglet === "tester" && <Tester />}
       {onglet === "consignes" && <Consignes />}
       {onglet === "regles" && <Regles />}
-      {onglet === "catalogue" && <Catalogue />}
+      {onglet === "catalogue" && <CatalogueComplet />}
+      {onglet === "documents" && <Documents />}
+      {onglet === "exemples" && <Exemples />}
       {onglet === "tests" && <Tests />}
       {onglet === "suivi" && <Suivi />}
     </div>

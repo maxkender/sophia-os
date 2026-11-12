@@ -1,4 +1,5 @@
 import { chargerBase, demanderAuCerveau, jetonSlackFaq, posterSlack } from "../_shared/faq_moteur.ts";
+import { chargerSourcesSupport } from "../_shared/support_sources.ts";
 import { avecLienMotDePasse, VAR_LIEN_MOT_DE_PASSE } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
@@ -477,21 +478,17 @@ async function deciderBot(
   o: { message: string; source: SourceBot; poster: string | null; profil: ProfilFictif | null },
 ) {
   const fictif = !o.poster && o.profil;
-  const [f, ctx, infos, histo, consignes] = await Promise.all([
+  const [f, ctx, infos, histo] = await Promise.all([
     o.poster ? fiche(db, o.poster) : Promise.resolve(null),
     o.poster ? contexte(db, o.poster) : Promise.resolve(""),
     db.from("support_infos").select("titre, valeur").order("ordre").limit(100),
     o.poster
       ? db.from("support_demandes").select("cree_at, categorie, texte").eq("poster_id", o.poster).order("cree_at", { ascending: false }).limit(10)
       : Promise.resolve({ data: [] as { cree_at: string; categorie: string | null; texte: string }[] }),
-    // 0677 : les consignes de Max, appliquées tout de suite.
-    db.from("support_consignes").select("texte").eq("actif", true).order("cree_at").limit(100),
   ]);
   const plateforme: "ruul" | "upwork" | null = f?.plateforme ?? (fictif ? (o.profil!.plateforme === "ruul" ? "ruul" : "upwork") : null);
-  let requete = db.from("reponses_officielles").select("id, question, formulations, reponse, action, niveau, categorie")
-    .eq("actif", true).not("valide_at", "is", null);
-  if (plateforme) requete = requete.in("portee", ["tous", plateforme]);
-  const { data: catalogue } = await requete.order("ordre").limit(300);
+  // 0680 : consignes, catalogue et documents lus exactement là où Support les montre.
+  const sources = await chargerSourcesSupport(db, { plateforme, poster: o.poster });
   const entree = {
     message: o.message,
     source: o.source,
@@ -499,10 +496,11 @@ async function deciderBot(
     fiche: f ? ficheTexte(f) : fictif ? ficheFictive(o.profil!) : "Fiche : personne introuvable dans l'OS.",
     contexte: ctx,
     infos: (infos.data ?? []) as { titre: string; valeur: string }[],
-    catalogue: ((catalogue ?? []) as DecisionCatalogue[]).map((c) => ({ ...c, formulations: c.formulations ?? [] })),
+    catalogue: sources.catalogue,
     historique: ((histo.data ?? []) as { cree_at: string; categorie: string | null; texte: string }[]),
     inconnu: !f && !fictif,
-    consignes: ((consignes.data ?? []) as { texte: string }[]).map((c) => c.texte),
+    consignes: sources.consignes,
+    documents: sources.documents,
   };
   let decision: DecisionBot | null = null;
   try {
@@ -525,16 +523,6 @@ async function deciderBot(
     plateforme,
     action_prevue: finale.action ? { action: finale.action, valeur: finale.action_valeur, executee: false } : null,
   };
-}
-
-interface DecisionCatalogue {
-  id: string;
-  question: string;
-  formulations: string[] | null;
-  reponse: string;
-  action: string | null;
-  niveau: string;
-  categorie: string | null;
 }
 
 async function lancerTests(db: Db, ids: string[] | null) {

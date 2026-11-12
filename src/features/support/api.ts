@@ -83,6 +83,9 @@ export interface DetailSupport {
   auto_action: string | null;
   auto_resultat: string | null;
   slack_user: string | null;
+  /** 0673 : le verdict du bot (problème confirmé, pas de problème, incertain) et sa phrase. */
+  verdict?: "probleme_confirme" | "pas_de_probleme" | "incertain" | null;
+  verdict_texte?: string | null;
   escalade_at: string | null;
   urgence: Urgence;
   en_retard: boolean;

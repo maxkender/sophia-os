@@ -164,6 +164,12 @@ function PanneauDetail({ d, rafraichir, onFini }: { d: DetailSupport; rafraichir
           {d.en_retard && <Badge variant="error">{t(`${A}.late`)}</Badge>}
         </div>
 
+        {d.verdict && d.verdict_texte && (
+          <div data-testid="support-verdict" className={`rounded-md border p-2 ${d.verdict === "probleme_confirme" ? "border-red-300 bg-red-50 dark:bg-red-950/30" : d.verdict === "pas_de_probleme" ? "border-emerald-300 bg-emerald-50 dark:bg-emerald-950/30" : "bg-muted/50"}`}>
+            <p className="text-xs font-medium">{t(`${A}.verdict.${d.verdict}`)}</p>
+            <p>{d.verdict_texte}</p>
+          </div>
+        )}
         {d.fiche ? <Fiche d={d} /> : <p className="text-muted-foreground">{t(`${A}.sansPosteur`)}{d.slack_user ? ` : ${d.slack_user}` : ""}</p>}
 
         <div className="space-y-1">

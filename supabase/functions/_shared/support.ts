@@ -164,3 +164,47 @@ export function texteEmailReponse(prenom: string | null, reponse: string, osUrl:
     lien: `${osUrl.replace(/\/+$/, "")}${LIEN_HELP}`,
   };
 }
+
+/** 0673 : tout ce que l'OS sait du posteur (messages, paie, milestones, posts), pour le bot. Coupé à `plafond`. */
+export function contexteTexte(c: Record<string, unknown> | null, plafond = 7_000): string {
+  if (!c) return "";
+  const t = `DONNÉES DE L'OS SUR CE POSTEUR (les plus récentes en dernier ; « de » : posteur, hm, max, os, nous) :\n${JSON.stringify(c)}`;
+  return t.length > plafond ? `${t.slice(0, plafond)}…` : t;
+}
+
+export type Verdict = "probleme_confirme" | "pas_de_probleme" | "incertain";
+
+/** Le prompt du verdict : le problème signalé, comparé aux données de l'OS. Réponse en JSON, phrase en français. */
+export function promptVerdict(o: { categorie: string; texte: string; fiche: string; contexte: string }): string {
+  return `Tu vérifies un problème signalé par un posteur (créateur TikTok payé chaque semaine). Tu ne fais rien : tu compares ce qu'il dit aux données de l'OS.
+
+Catégorie : ${o.categorie}
+Ce qu'il dit : « ${o.texte} »
+
+${o.fiche}
+
+${o.contexte}
+
+Règles :
+- "probleme_confirme" : les données montrent le problème (ex. semaine terminée, posts faits, paie pas partie ; milestone pas financée ; compte bloqué).
+- "pas_de_probleme" : les données le contredisent clairement (ex. payé le 10/11, 25 $).
+- "incertain" : les données ne suffisent pas.
+- Une phrase courte en français pour l'équipe, avec les faits (dates, montants, semaines). Jamais d'invention : seulement ce qui est dans les données.
+
+Réponds uniquement en JSON : {"verdict": "probleme_confirme" | "pas_de_probleme" | "incertain", "phrase": "..."}`;
+}
+
+export function lireVerdict(brut: string): { verdict: Verdict; phrase: string } | null {
+  const debut = brut.indexOf("{");
+  const fin = brut.lastIndexOf("}");
+  if (debut < 0 || fin <= debut) return null;
+  try {
+    const o = JSON.parse(brut.slice(debut, fin + 1)) as { verdict?: unknown; phrase?: unknown };
+    const v = String(o.verdict ?? "");
+    if (v !== "probleme_confirme" && v !== "pas_de_probleme" && v !== "incertain") return null;
+    const phrase = String(o.phrase ?? "").trim().slice(0, 400);
+    return phrase ? { verdict: v, phrase } : null;
+  } catch {
+    return null;
+  }
+}

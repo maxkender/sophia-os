@@ -64,6 +64,7 @@ import {
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { noteBonus } from "../_shared/bonus.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { type EtatParcours, lignesPointSoirRuul } from "../_shared/parcours_ruul.ts";
 import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { decoderHtml, derniersMessagesSalon } from "../_shared/contexte.ts";
@@ -5257,6 +5258,22 @@ const LIBELLES_RETIREES: Record<string, string> = {
   slack_non_relie: "Slack non relié",
 };
 
+/** Point 12 (parcours Ruul) : prêts / pas prêts, emails par type, désactivés, erreurs, à faire. */
+async function lignesRuulDuSoir(supabase: Supabase, depuis: string): Promise<string[]> {
+  const [{ data: etats, error: e1 }, { data: envois, error: e2 }, { data: arrets, error: e3 }] = await Promise.all([
+    supabase.rpc("ruul_parcours_etat"),
+    supabase.from("ruul_parcours_envois").select("type, ok").gte("envoye_at", depuis),
+    supabase.from("arrets").select("source, profiles!inner(canal_paie)").gte("created_at", depuis).eq("profiles.canal_paie", "ruul"),
+  ]);
+  const err = e1 ?? e2 ?? e3;
+  if (err) throw new Error(err.message);
+  return lignesPointSoirRuul({
+    etats: (etats ?? []) as EtatParcours[],
+    envois: (envois ?? []) as { type: string; ok: boolean }[],
+    arrets: (arrets ?? []) as { source: string }[],
+  });
+}
+
 async function rapportSoir(supabase: Supabase, forcer: boolean) {
   const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["upwork_rapport_soir", "upwork_rapport_destinataire"]);
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -5290,6 +5307,8 @@ async function rapportSoir(supabase: Supabase, forcer: boolean) {
   const j = (jour ?? {}) as { cartes_retirees?: Record<string, number>; regles_par_bot?: number; adrien_ouverts?: number; max_ouverts?: number };
   const r = j.cartes_retirees ?? {};
   const retirees = Object.entries(LIBELLES_RETIREES).map(([cle, lib]) => `${lib} ${r[cle] ?? 0}`).join(" · ");
+  // 12/11 (parcours Ruul, point 12) : le point du soir Ruul en 5 lignes.
+  const ruul = await lignesRuulDuSoir(supabase, depuis).catch((e) => [`Ruul : point du soir illisible (${e instanceof Error ? e.message : String(e)})`]);
   const texte = [
     `Upwork : bilan du ${jourCourt}`,
     `• Compte principal : ${p} appels, dont ${p429} erreurs 429`,
@@ -5300,6 +5319,7 @@ async function rapportSoir(supabase: Supabase, forcer: boolean) {
       `• Réglé par le bot aujourd'hui : ${j.regles_par_bot ?? 0} · ouverts pour Adrien : ${j.adrien_ouverts ?? 0} · pour Max : ${j.max_ouverts ?? 0}`,
       `• Cartes retirées aujourd'hui : ${retirees}`,
     ] : []),
+    ...ruul,
   ].join("\n");
   const destinataire = typeof v.upwork_rapport_destinataire === "string" && v.upwork_rapport_destinataire ? v.upwork_rapport_destinataire : MAX_PROFIL;
   const issue = await ecrireAuPosteur(supabase, destinataire, texte);

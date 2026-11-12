@@ -17,6 +17,8 @@ export interface EntreeAujourdhui {
   jeudi: number;
   samedi: number;
   ruulAInviter: number;
+  /** 0678 : contrats dont le pays est introuvable ou fermé (sinon la règle relie tout). */
+  contratsARelier?: number;
   /** 0 = dimanche … 6 = samedi, heure de Paris. */
   jourSemaine: number;
 }
@@ -40,6 +42,10 @@ export function lignesAujourdhui(e: EntreeAujourdhui): LigneAujourdhui[] {
   }
   if (e.jourSemaine === 1) {
     l.push({ cle: "paie", icone: "💳", rang: 4, texte: "Paie du lundi : Upwork et Ruul", bouton: "Payer", to: "/admin/auto/payroll" });
+  }
+  if ((e.contratsARelier ?? 0) > 0) {
+    const n = e.contratsARelier!;
+    l.push({ cle: "contrats", icone: "🌍", rang: 2, texte: `${s(n, "contrat", "contrats")} : pays introuvable ou fermé`, bouton: "Répondre", to: "/admin/auto/recruits" });
   }
   if (e.ruulAInviter > 0) {
     l.push({ cle: "ruul", icone: "📧", rang: 5, texte: `${s(e.ruulAInviter, "posteur Ruul", "posteurs Ruul")} à inviter dans Ruul`, bouton: "Voir", to: "/admin/auto/ruul" });

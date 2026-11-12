@@ -24,6 +24,11 @@ describe("Aujourd'hui (OS clair)", () => {
     expect(lignesAujourdhui({ ...base, jourSemaine: 1 })[0].cle).toBe("paie");
   });
 
+  it("contrats à relier : seulement s'il y en a (pays introuvable ou fermé)", () => {
+    expect(lignesAujourdhui(base).some((l) => l.cle === "contrats")).toBe(false);
+    expect(lignesAujourdhui({ ...base, contratsARelier: 2 })[0]).toMatchObject({ texte: "2 contrats : pays introuvable ou fermé", bouton: "Répondre" });
+  });
+
   it("le jour de la semaine à Paris", () => {
     expect(jourParis(new Date("2026-11-12T12:00:00Z"))).toBe(4);
     expect(jourParis(new Date("2026-11-15T23:30:00Z"))).toBe(1);

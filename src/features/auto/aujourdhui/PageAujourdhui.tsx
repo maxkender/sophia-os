@@ -26,6 +26,7 @@ export function PageAujourdhui() {
     jeudi: liste.filter((p) => p.rituel === "jeudi").length,
     samedi: liste.filter((p) => p.rituel === "samedi").length,
     ruulAInviter: chiffres.data?.ruul_a_inviter ?? 0,
+    contratsARelier: chiffres.data?.contrats_a_relier ?? 0,
     jourSemaine: jourParis(),
   });
   const date = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long" }).format(new Date());

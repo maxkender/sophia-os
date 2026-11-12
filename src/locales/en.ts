@@ -5503,6 +5503,16 @@ export const en = {
         test: "Test: the OS reads new contracts and shows what it would do (“simulated”), without creating any poster or sending any message.",
         on: "On: each new contract from a known job post creates its poster and gets the welcome message, once.",
       },
+      // 12/11 (Max): one question per contract (country not found or closed).
+      question: {
+        pays: "Which country does {{nom}} live in?",
+        choisirPays: "Country",
+        valider: "Confirm",
+        ferme: "{{nom}} lives in {{pays}}, a closed country. Create anyway?",
+        creer: "Create anyway",
+        ecarter: "Don't create",
+        aideRegle: "Language and HM come from the rule: an HM covering this country, the least loaded one.",
+      },
       aRelier: "Contracts to link ({{n}})",
       rienARelier: "No contract to link.",
       classes: { titre: "Not recruits ({{n}}): HM contracts and other activities, ignored", hm: "HM contract", autre_activite: "Other activity (ignored)" },

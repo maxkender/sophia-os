@@ -5512,6 +5512,16 @@ export const fr = {
         test: "Test : l'OS lit les nouveaux contrats et montre ce qu'il ferait (« simulé »), sans créer de posteur ni envoyer de message.",
         on: "On : chaque nouveau contrat d'une annonce connue crée son posteur et reçoit le message de bienvenue, une seule fois.",
       },
+      // 12/11 (Max) : une seule question par contrat (pays introuvable ou pays fermé).
+      question: {
+        pays: "Dans quel pays vit {{nom}} ?",
+        choisirPays: "Pays",
+        valider: "Valider",
+        ferme: "{{nom}} vit en {{pays}}, un pays fermé. Créer quand même ?",
+        creer: "Créer quand même",
+        ecarter: "Ne pas créer",
+        aideRegle: "La langue et la HM viennent de la règle : HM qui couvre ce pays, la moins chargée.",
+      },
       aRelier: "Contrats à relier ({{n}})",
       rienARelier: "Aucun contrat à relier.",
       classes: { titre: "Pas des recrues ({{n}}) : contrats de HM et autres activités, ignorés", hm: "Contrat de HM", autre_activite: "Autre activité (ignoré)" },

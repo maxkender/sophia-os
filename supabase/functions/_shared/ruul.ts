@@ -77,10 +77,10 @@ export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
 <tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">Sophia</td></tr>
 ${paragraphes.map((p) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p).replace(/\n/g, "<br>")}</td></tr>`).join("\n")}
 ${e.bouton ? `<tr><td style="padding:8px 0 20px"><a href="${echapper(e.bouton.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(e.bouton.texte)}</a></td></tr>` : ""}
-<tr><td style="font-size:15px;line-height:1.4">The Sophia team</td></tr>
+<tr><td style="font-size:15px;line-height:1.4">The Vik Studios team</td></tr>
 <tr><td style="font-size:12px;line-height:1.5;color:#71717a;padding-top:24px;border-top:1px solid #e4e4e7">You can also reply STOP. <a href="${echapper(e.lienStop)}" style="color:#71717a">Unsubscribe</a></td></tr>
 </table></td></tr></table></body></html>`;
-  const texte = [...paragraphes, ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), "The Sophia team", `Unsubscribe: ${e.lienStop}`].join("\n\n");
+  const texte = [...paragraphes, ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), "The Vik Studios team", `Unsubscribe: ${e.lienStop}`].join("\n\n");
   return { html, texte };
 }
 

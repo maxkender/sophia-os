@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o147",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8ea7821b-5e6c-47bc-91b8-050800104b9b",
+  "titre": "comment devenir très disciplinée quand on n'a jamais de motivation #discipline #pourtoi",
+  "inspirations": [
+    "8ea7821b-5e6c-47bc-91b8-050800104b9b"
+  ],
+  "notes": "G2, déclinaison de 8ea7821b (« les habitudes pour devenir dangereusement disciplinée (même sans aucune motivation) », G1 gagnante, génération 1 en français ; meilleur passage ru 4 k vues, r 6,68), en français. Accroche reformulée : « comment devenir très disciplinée quand on n'a jamais de motivation ». Troisième et dernière déclinaison de ce parent. cta A (avant / après sur le dernier item). Items neufs (rien de repris de bsg-o088, o129, o136). Routine du 12/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1 à 5 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "comment devenir très disciplinée\nquand on n'a jamais de motivation",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "057091a3",
+      "texte_overlay": "1. décide une fois, pas tous les jours\n\nle sport, c'est le lundi.\nle lundi, tu ne te poses plus la question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. rends le mauvais choix difficile\n\nle téléphone dans une autre pièce,\nle livre sur l'oreiller.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "01be1362",
+      "texte_overlay": "3. compte les jours, pas les heures\n\nvingt minutes chaque jour\nbattent trois heures une fois par mois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d0719620",
+      "texte_overlay": "4. pardonne-toi vite\n\nun jour raté n'efface pas le reste.\nrecommence le lendemain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. donne-toi une raison d'avoir envie\n\navant, j'attendais d'être motivée.\nmaintenant, j'apprends un truc sur le monde chaque matin. et l'envie arrive en faisant.",
+      "texte_sophia": "5. donne-toi une raison d'avoir envie\n\navant, j'attendais d'être motivée.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et l'envie arrive en faisant.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "000d7460",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o145",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3dd7a9f7-7e0f-4400-a1b8-07b42178c393",
+  "titre": "aimer quelqu'un et réussir ses études, c'est possible (voici comment) #etudes #couple #pourtoi",
+  "inspirations": [
+    "3dd7a9f7-7e0f-4400-a1b8-07b42178c393"
+  ],
+  "notes": "G2, déclinaison de 3dd7a9f7 (« how to balance love & school », G1 gagnante, génération 1 en français ; meilleur passage tr 4,1 k vues, r 2,45), en français. Accroche reformulée : « aimer quelqu'un et réussir ses études, c'est possible (voici comment) ». Troisième et dernière déclinaison de ce parent. cta C (le défi de 7 jours en slide 2). Items neufs (rien de repris de bsg-o091, o128, o135). Routine du 12/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1 à 5 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "aimer quelqu'un et réussir ses études,\nc'est possible\n(voici comment)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "057091a3",
+      "texte_overlay": "1. parlez de vos objectifs\n\nses rêves, les tiens.\nvous vous poussez au lieu de vous freiner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. un appel de dix minutes, pas de deux heures\n\nle soir, avant de dormir.\nle reste du temps, on bosse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01be1362",
+      "texte_overlay": "3. faites des choses qui vous cultivent tous les deux\n\nune expo, un film en version originale, un musée gratuit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d0719620",
+      "texte_overlay": "4. respectez les semaines rouges\n\npartiels, dossiers, oraux.\non se voit moins, mais on se soutient plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "5. gardez ta vie à toi\n\ntes amis, tes passions.\nune relation, ça s'ajoute, ça ne remplace pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3615b305",
+      "texte_overlay": "enregistre-le pour ton semestre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

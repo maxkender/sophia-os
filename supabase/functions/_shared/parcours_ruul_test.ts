@@ -10,10 +10,13 @@ const base = (x: Partial<EtatParcours> = {}): EtatParcours => ({
 const jeudi = new Date("2026-11-12T10:00:00Z");
 
 Deno.test("parcours : bienvenue d'abord (si l'interrupteur est allumé), une seule fois", () => {
-  assertEquals(prochainEnvoi(base(), jeudi, { bienvenue: true })?.type, "bienvenue");
+  assertEquals(prochainEnvoi(base(), jeudi, { bienvenue: true, bienvenueDepuis: "2026-11-10T00:00:00Z" })?.type, "bienvenue");
+  // Jamais aux posteurs déjà en place quand la bienvenue est allumée.
+  assertEquals(prochainEnvoi(base(), jeudi, { bienvenue: true, bienvenueDepuis: "2026-11-12T00:00:00Z" })?.type, "jamais_connecte");
+  assertEquals(prochainEnvoi(base(), jeudi, { bienvenue: true })?.type, "jamais_connecte");
   assertEquals(prochainEnvoi(base(), jeudi, { bienvenue: false })?.type, "jamais_connecte");
   const deja = base({ envois: [{ cle: "bienvenue", type: "bienvenue", at: "2026-11-10T10:00:00Z", ok: true }] });
-  assertEquals(prochainEnvoi(deja, jeudi, { bienvenue: true })?.type, "jamais_connecte");
+  assertEquals(prochainEnvoi(deja, jeudi, { bienvenue: true, bienvenueDepuis: "2026-11-10T00:00:00Z" })?.type, "jamais_connecte");
 });
 
 Deno.test("parcours : jamais 2 emails le même jour, STOP respecté", () => {

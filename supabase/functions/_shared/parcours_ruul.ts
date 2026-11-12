@@ -86,8 +86,12 @@ export function etatRuul(e: EtatParcours): { n: number; depuis: string | null } 
   return { n: r.length, depuis: r.at(-1)?.at ?? ab.at(-1) ?? null };
 }
 
-/** L'email à envoyer maintenant à ce posteur (ou rien). `bienvenue` : l'interrupteur de l'email de bienvenue. */
-export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue: boolean }): Decision | null {
+/**
+ * L'email à envoyer maintenant à ce posteur (ou rien). `bienvenue` : l'interrupteur de l'email de
+ * bienvenue ; `bienvenueDepuis` : seuls les comptes créés après l'allumage la reçoivent (jamais les
+ * posteurs déjà en place).
+ */
+export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue: boolean; bienvenueDepuis?: string | null }): Decision | null {
   if (e.relances_stop_at || !e.email) return null;
   const t = maintenant.getTime();
   const p = partiesLocales(maintenant, PARIS);
@@ -100,7 +104,9 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
   }
   if (emailAujourdhui(e, maintenant)) return null;
 
-  if (o.bienvenue && !envoye(e, "bienvenue")) return { type: "bienvenue", cle: "bienvenue" };
+  if (o.bienvenue && o.bienvenueDepuis && e.cree_at >= o.bienvenueDepuis && !envoye(e, "bienvenue")) {
+    return { type: "bienvenue", cle: "bienvenue" };
+  }
 
   // Dimanche 20 h → minuit : « you start tomorrow » à qui est prêt pour le lendemain.
   if (e.cohorte_lundi && p.isoJour === 7 && p.heure >= 20 && e.cohorte_lundi === ajouterJours(p.date, 1) && estPret(e)) {

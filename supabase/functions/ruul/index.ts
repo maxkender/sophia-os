@@ -603,7 +603,7 @@ function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">,
     prenom: e.prenom, login: e.login, motDePasse: MOT_DE_PASSE_COMMUN, dashboard: URL_DASHBOARD_OS, handle: e.handle, slack,
     cohorte_lundi: e.cohorte_lundi, ruul_email: e.email, abonnements: e.abonnements, lundi, numero,
   }, lienPret);
-  const r = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop });
+  const r = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied: type === "desactivation" });
   return { objet: m.objet, html: r.html, texte: r.texte, lienStop };
 }
 

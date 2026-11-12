@@ -34,6 +34,8 @@ import { assertRole, json, messageErreur, serviceClient } from "../_shared/supab
  *   { action: "repondre", id, texte }                     admin, Head of Ops
  *       La réponse part au posteur : dashboard + email (+ Slack s'il est relié) ;
  *       une question venue d'un salon Slack reçoit la réponse dans son fil.
+ *   { action: "essai", poster_id, texte, type?, categorie? }   admin, cron
+ *       Le bot sur un vrai posteur, sans rien écrire ni envoyer (réponse, brouillon, verdict).
  *   { action: "alertes" }                                 cron support-alertes (toutes les heures)
  *       Paiement pas encore signalé, compte Ruul / Upwork bloqué depuis 24 h : alerte à Max.
  */
@@ -61,6 +63,25 @@ Deno.serve(async (request) => {
       case "repondre":
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
         return json(await repondre(db, acces.userId === "cron" ? null : acces.userId, String(body.id ?? ""), String(body.texte ?? "")));
+      case "essai": {
+        // 12/11 : le bot sur un vrai posteur, sans rien écrire ni envoyer (admin, cron) : sa réponse, son brouillon, son verdict.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        const poster = String(body.poster_id ?? "");
+        const texte = String(body.texte ?? "").trim();
+        if (!poster || texte.length < 3) return json({ ok: false, error: "poster_id et texte requis" }, 400);
+        const [f, ctx] = await Promise.all([fiche(db, poster), contexte(db, poster)]);
+        const probleme = body.type === "probleme";
+        const categorie = String(body.categorie ?? "autre");
+        const [b, v] = await Promise.all([
+          cerveau(db, f, probleme ? `PROBLÈME signalé (${categorie}) : ${texte}` : texte, ctx),
+          probleme ? verifier(categorie, texte, f, ctx) : Promise.resolve(null),
+        ]);
+        return json({
+          ok: true, plateforme: f?.plateforme ?? null, contexte_caracteres: ctx.length,
+          reponse_posteur: probleme ? null : (b.sur ? b.reponse : TEXTE_ENVOYE_EQUIPE),
+          envoye_equipe: probleme || !b.sur, decision: b.decision, brouillon: b.brouillon, verdict: v,
+        });
+      }
       case "alertes":
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
         return json(await alertes(db));

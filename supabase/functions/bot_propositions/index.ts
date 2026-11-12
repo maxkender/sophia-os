@@ -107,7 +107,8 @@ async function faire(supabase: ReturnType<typeof serviceClient>, bot: Bot, args:
         const issue = await ecrireAuPosteur(supabase, plan.hm_id, message);
         if (issue.statut !== "envoye") throw new Error("erreur" in issue ? issue.erreur : issue.statut);
       } else if (plan.poster_id && plan.canal === "slack") {
-        const issue = await ecrireAuPosteur(supabase, plan.poster_id, message);
+        // 0684 : après un STOP, seule la confirmation d'arrêt part.
+        const issue = await ecrireAuPosteur(supabase, plan.poster_id, message, fetch, undefined, plan.action === "stop" ? { malgreStop: "confirmation_arret" } : {});
         if (issue.statut !== "envoye") throw new Error("erreur" in issue ? issue.erreur : issue.statut);
       } else if (plan.poster_id) {
         const texte = plan.action === "stop" ? message : `${message}\n\n${LIGNE_STOP}`;

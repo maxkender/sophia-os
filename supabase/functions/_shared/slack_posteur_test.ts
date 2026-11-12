@@ -99,3 +99,17 @@ Deno.test("ecrireAuPosteur : sans ID Slack, par les emails", async () => {
   assertEquals(r, { statut: "envoye", userId: "U7" });
   assertEquals(appels.map((a) => a.methode), ["users.lookupByEmail", "chat.postMessage"]);
 });
+
+Deno.test("0684 : un posteur qui a dit STOP ne reçoit plus de DM ; la confirmation d'arrêt et la paie passent", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const stop = { slack_user_id: "U0STOP", email: "s@sophia.com", relances_stop_at: "2026-11-12T16:00:00Z" };
+  const a = faux({ "chat.postMessage": [{ ok: true }] });
+  const r = await ecrireAuPosteur(fauxSupabase(stop), "p", "Reminder: start your warm-up", a.fetchFn);
+  assertEquals(r.statut, "erreur");
+  assertEquals(a.appels.length, 0);
+  for (const motif of ["confirmation_arret", "paie"] as const) {
+    const b = faux({ "chat.postMessage": [{ ok: true }] });
+    const ok = await ecrireAuPosteur(fauxSupabase(stop), "p", "We've received your request.", b.fetchFn, undefined, { malgreStop: motif });
+    assertEquals(ok, { statut: "envoye", userId: "U0STOP" });
+  }
+});

@@ -1,5 +1,5 @@
 import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
-import { echeance, emailParcours, type EtatParcours, jourLundi, prochainEnvoi } from "./parcours_ruul.ts";
+import { echeance, emailParcours, type EtatParcours, jourLundi, lignesPointSoirRuul, prochainEnvoi } from "./parcours_ruul.ts";
 
 const base = (x: Partial<EtatParcours> = {}): EtatParcours => ({
   poster_id: "p", prenom: "Eduarda", login: "eduardas@sophia.com", email: "e@gmail.com", cohorte_lundi: "2026-11-16",
@@ -79,4 +79,21 @@ Deno.test("emails : anglais, sans « bot », mot de passe 12345678, dates de Par
     assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
   }
   assertEquals(emailParcours("ruul", d, "https://pret").bouton?.texte, "It's done");
+});
+
+Deno.test("point du soir Ruul : 5 lignes (prêts, emails par type, désactivés, erreurs, à faire)", () => {
+  const pret = base({ premiere_connexion_at: "2026-11-10T10:00:00Z", tiktok_existe: true, warmup_started_at: "2026-11-10T11:00:00Z", abonnements: 6, slack_user_id: "U", ruul_statut: "pret" });
+  const l = lignesPointSoirRuul({
+    etats: [pret, base()],
+    envois: [{ type: "tiktok", ok: true }, { type: "tiktok", ok: true }, { type: "desactivation", ok: true }, { type: "ruul", ok: false }, { type: "carte_ruul", ok: true }],
+    arrets: [{ source: "manuel" }, { source: "je_ne_veux_plus" }],
+  });
+  assertEquals(l.length, 5);
+  assertEquals(l[0], "Ruul : 1 prêts · 1 pas prêts (dont 1 sans Ruul fini)");
+  assertEquals(l[1], "• Emails envoyés : TikTok 2 · désactivation 1");
+  assertEquals(l[2], "• Désactivés : 1 14 jours inactifs · 1 arrêtés par le posteur");
+  assertEquals(l[3], "• Erreurs : 1");
+  assertStringIncludes(l[4], "1 carte « Ruul jamais fini »");
+  assertStringIncludes(l[4], "1 envoi en erreur");
+  assertEquals(lignesPointSoirRuul({ etats: [], envois: [], arrets: [] })[4], "• À faire : rien");
 });

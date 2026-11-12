@@ -124,3 +124,18 @@ Deno.test("0692 : DM Slack aux posteurs en pause → rien ne part, aucune except
   }
   assertEquals(a.appels.length, 0);
 });
+
+Deno.test("0692 : la pause ne vise que les posteurs ; l'équipe (Max) reçoit son point du soir", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const a = faux({ "chat.postMessage": [{ ok: true }] });
+  const profil = { slack_user_id: "U0MAX", email: "max@os.com", valeur: "off" };
+  const base = fauxSupabase(profil);
+  const db = {
+    ...base,
+    from: (table: string) =>
+      table === "user_roles"
+        ? { select: () => ({ eq: () => Promise.resolve({ data: [{ role: "admin" }], error: null }) }) }
+        : base.from(table),
+  };
+  assertEquals(await ecrireAuPosteur(db, "max", "Bilan du soir", a.fetchFn), { statut: "envoye", userId: "U0MAX" });
+});

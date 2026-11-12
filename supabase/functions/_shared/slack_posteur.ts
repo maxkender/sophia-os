@@ -92,11 +92,17 @@ export const DM_SLACK_PAUSE = "DM Slack en pause (slack_dm_posteurs)";
  * Lecture impossible : prudence, rien ne part. Sur "off" : rien ne part.
  */
 // deno-lint-ignore no-explicit-any
-export async function dmSlackEnPause(db: any): Promise<boolean> {
+export async function dmSlackEnPause(db: any, destinataire?: string): Promise<boolean> {
   try {
     const { data, error } = await db.from("reglages").select("valeur").eq("cle", "slack_dm_posteurs").maybeSingle();
     if (error) return true;
-    return data?.valeur === "off";
+    if (data?.valeur !== "off") return false;
+    // La pause vise les posteurs : l'équipe (Max, les HM…) reçoit toujours ses messages (point du soir…).
+    if (destinataire) {
+      const { data: roles } = await db.from("user_roles").select("role").eq("user_id", destinataire);
+      if (Array.isArray(roles) && roles.some((r: { role?: string }) => r?.role && r.role !== "poster")) return false;
+    }
+    return true;
   } catch {
     return true;
   }
@@ -123,7 +129,7 @@ export async function ecrireAuPosteur(
     return { statut: "erreur", erreur: PAUSE };
   }
   // 0692 : DM Slack aux posteurs en pause (liaisons Slack à vérifier) : rien ne part, aucune exception.
-  if (await dmSlackEnPause(supabase)) return { statut: "erreur", erreur: DM_SLACK_PAUSE };
+  if (await dmSlackEnPause(supabase, posterId)) return { statut: "erreur", erreur: DM_SLACK_PAUSE };
   // 0684 : un posteur qui a dit STOP ne reçoit plus rien, sauf les exceptions nommées.
   if (!opts.malgreStop && await stopDemande(supabase, posterId)) return { statut: "erreur", erreur: STOP_POSTEUR };
   const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");

@@ -268,3 +268,57 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
       };
   }
 }
+
+// ---------------------------------------------------------------------------
+// Point 12 : le point du soir de Max (21 h, 5 lignes), dans le bilan du soir
+// ---------------------------------------------------------------------------
+
+const LIBELLES_ENVOIS: Record<string, string> = {
+  bienvenue: "bienvenue",
+  jamais_connecte: "jamais connecté",
+  tiktok: "TikTok",
+  warmup: "warm-up",
+  slack: "Slack",
+  ruul: "Ruul pas prêt",
+  report: "report d'une semaine",
+  demain: "you start tomorrow",
+  desactivation: "désactivation",
+  carte_ruul: "carte Ruul jamais fini",
+};
+
+export interface PointSoirRuul {
+  /** Les posteurs Ruul actifs (ruul_parcours_etat). */
+  etats: EtatParcours[];
+  /** Les envois du parcours d'aujourd'hui (Paris). */
+  envois: { type: string; ok: boolean }[];
+  /** Les arrêts Ruul d'aujourd'hui, par source. */
+  arrets: { source: string }[];
+}
+
+/** Les 5 lignes : prêts / pas prêts, emails par type, désactivés, erreurs, ce que Max doit faire. */
+export function lignesPointSoirRuul(d: PointSoirRuul): string[] {
+  const prets = d.etats.filter((e) => estPret(e) && !!e.slack_user_id && ruulPret(e)).length;
+  const pasPrets = d.etats.length - prets;
+  const sansRuul = d.etats.filter((e) => !ruulPret(e)).length;
+  const ok = d.envois.filter((x) => x.ok && x.type !== "carte_ruul");
+  const parType = new Map<string, number>();
+  for (const x of ok) parType.set(x.type, (parType.get(x.type) ?? 0) + 1);
+  const emails = [...parType.entries()].sort((a, b) => b[1] - a[1]).map(([t, n]) => `${LIBELLES_ENVOIS[t] ?? t} ${n}`).join(" · ");
+  const sources: Record<string, string> = { je_ne_veux_plus: "arrêtés par le posteur", manuel: "14 jours inactifs", kill_samedi: "Kill du samedi" };
+  const parSource = new Map<string, number>();
+  for (const a of d.arrets) parSource.set(a.source, (parSource.get(a.source) ?? 0) + 1);
+  const desactives = [...parSource.entries()].map(([s, n]) => `${n} ${sources[s] ?? s}`).join(" · ");
+  const erreurs = d.envois.filter((x) => !x.ok).length;
+  const cartes = d.envois.filter((x) => x.ok && x.type === "carte_ruul").length;
+  const aFaire = [
+    ...(cartes ? [`${cartes} carte${cartes > 1 ? "s" : ""} « Ruul jamais fini » (Problèmes)`] : []),
+    ...(erreurs ? [`${erreurs} envoi${erreurs > 1 ? "s" : ""} en erreur à regarder`] : []),
+  ];
+  return [
+    `Ruul : ${prets} prêts · ${pasPrets} pas prêts (dont ${sansRuul} sans Ruul fini)`,
+    `• Emails envoyés : ${emails || "aucun"}`,
+    `• Désactivés : ${desactives || "aucun"}`,
+    `• Erreurs : ${erreurs}`,
+    `• À faire : ${aFaire.length ? aFaire.join(" ; ") : "rien"}`,
+  ];
+}

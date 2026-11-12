@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o232",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "29f29af7-788c-45e7-b84e-77aef748ee3d",
+ "titre": "How To Master The Art Of Being Able To Talk To Anyone #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "29f29af7-788c-45e7-b84e-77aef748ee3d"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 647d22f0. déclinaison G1 de la ligne 11 de la boîte (29f29af7, notre ay-o080 qui a gagné : tr 21,3 k r 5,06) : accroche du parent mot pour mot (casse du parent gardée). Items neufs, aucun repris d'ay-o080 ni d'ay-o089. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "647d22f0",
+   "texte_overlay": "How To Master The Art Of Being\nAble To Talk To Anyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Start with something you both see. A long queue, loud music, a funny sign. Shared surroundings give you an easy, natural first sentence with anyone.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Be genuinely interested in their world. A mechanic, a nurse, a student. Everyone knows things you don't, and curiosity makes people open up quickly.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Adjust your pace to theirs. Slow and calm with a shy person, lively with an energetic one. Matching their rhythm makes them feel comfortable fast.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Use humour gently. A small joke about yourself or the situation breaks the ice. Avoid teasing people you've just met, it can easily go wrong.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. With more topics in your head, you'll find common ground with almost anyone.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. With more topics in your head, you'll find common ground with anyone.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Be okay with people who don't want to talk. Not everyone will. A friendly smile and moving on is part of the art, never a failure.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Practise in low-pressure places. Shops, cafés, waiting rooms. Small daily conversations build the skill until talking to anyone feels natural.",
+   "media_id": "6ef6edb6"
+  }
+ ]
+}

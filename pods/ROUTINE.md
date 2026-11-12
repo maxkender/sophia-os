@@ -74,6 +74,19 @@ images les moins utilisées sortent d'abord). Les planches restent utiles pour
 juger l'image elle-même : la légende dit ce qu'il y a dessus, pas si elle est
 belle.
 
+**Jamais les mêmes images ni le même son (12/11).** Les posteurs l'ont vu :
+toujours les mêmes photos et la même musique sur leur compte, et leurs vues
+baissent. Désormais :
+- **Images** : pioche dans **toute** la banque du label, pas dans quelques
+  contenus d'inspiration. Une image que tu as livrée depuis **14 jours** ne
+  t'est plus proposée par `npm run images`, et le guichet refuse un dépôt qui
+  en reprend une (`images_recentes`, il te donne leurs ids). Les contenus
+  d'inspiration ne servent qu'aux slides d'inspiration (où poser le texte).
+- **Son** : alterne au moins 5 sons qui marchent en ce moment (veille). Le
+  guichet refuse un son déjà présent sur 6 de tes 20 dernières livraisons
+  (`musique_repetee`).
+Les seuils sont dans `reglages.bleo.podz.repetition`.
+
 ### 4.1 Lire la boîte
 
 `npm run boite` donne, dans l'ordre :
@@ -124,9 +137,10 @@ angle, autres images, autre CTA. Deux posts ne sont jamais identiques.
 - Dans `originaux/<id>.json` : `"type_bleo": "declinaison"` et
   `"parent_contenu_id": "<l'id complet de la boîte>"`. Ni `schema_id` ni
   preuve.
-- Images : `npm run images -- --depuis <8 premiers caractères du parent>`
-  pour voir celles du parent ; pioche aussi dans le reste de la banque avec
-  `--cherche` (voir plus haut).
+- Images : `npm run images -- --cherche "…"` dans toute la banque (voir plus
+  haut). Les images du parent (`--depuis <8 premiers caractères du parent>`)
+  ne reviennent que s'il a plus de 14 jours : le guichet refuse une image
+  livrée depuis moins longtemps.
 
 ### 4.4 Écrire un full test
 

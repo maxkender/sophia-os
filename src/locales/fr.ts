@@ -949,6 +949,7 @@ export const fr = {
       lt: "Lituanien",
       lv: "Letton",
       ja: "Japonais",
+      ko: "Coréen",
     },
     pays: {
       fr: "France",
@@ -982,6 +983,7 @@ export const fr = {
       lt: "Lituanie",
       lv: "Lettonie",
       ja: "Japon",
+      ko: "Corée du Sud",
     },
     applications: {
       switcher: "Application",
@@ -9572,6 +9574,7 @@ export const fr = {
         lt: "Lituanie",
         lv: "Lettonie",
         ja: "Japon",
+        ko: "Corée du Sud",
       },
       err: {
         prenom: "Le prénom est obligatoire.",

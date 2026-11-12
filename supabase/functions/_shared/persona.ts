@@ -186,6 +186,12 @@ const NOMS_PAR_LANGUE: Record<string, JeuDeNoms> = {
     prenomsF: ["yui", "hina", "sakura", "mei", "rin", "aoi", "yuna", "mio", "koharu", "akari", "nanami", "miyu", "saki", "ema"],
     noms: ["sato", "suzuki", "takahashi", "tanaka", "watanabe", "ito", "yamamoto", "nakamura", "kobayashi", "kato"],
   },
+  // Coréen : @ romanisé, TikTok n'accepte pas le hangeul.
+  ko: {
+    prenomsH: ["minjun", "seojun", "doyun", "jiho", "eunwoo", "siwoo", "hajun", "junwoo", "jihun", "taeyang", "minho", "jaehyun", "seungmin", "hyunwoo"],
+    prenomsF: ["seoyeon", "jiwoo", "haeun", "seoa", "jiyoo", "chaewon", "minseo", "yuna", "sohee", "jimin", "dahyun", "yeji", "soyeon", "hayoon"],
+    noms: ["kim", "lee", "park", "choi", "jung", "kang", "cho", "yoon", "jang", "lim"],
+  },
 };
 
 /** Mots du @ par thème × langue (sans accents, minuscules). */
@@ -222,6 +228,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     lt: ["disciplina", "fokusas", "ambicija", "jega", "valia", "lygis", "augimas", "lyderis", "siekis", "pazanga"],
     lv: ["disciplina", "fokuss", "ambicijas", "speks", "griba", "limenis", "izaugsme", "lideris", "merkis", "progress"],
     ja: ["kiritsu", "shuchu", "yashin", "chikara", "ishi", "level", "seicho", "leader", "doryoku", "shinpo"],
+    ko: ["gyuyul", "jipjung", "yamang", "him", "uiji", "level", "seongjang", "leader", "noryeok", "baljeon"],
   },
   smart_girl: {
     fr: ["cultive", "savoir", "lit", "apprend", "inspire", "curiosite", "eclaire", "pense", "ideas", "livres"],
@@ -255,6 +262,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     lt: ["smalsi", "skaito", "mokosi", "protinga", "knygos", "ideos", "ismintis", "galvoja", "zinios", "studijos"],
     lv: ["zinkariga", "lasa", "macas", "gudra", "gramatas", "idejas", "gudriba", "doma", "zinasanas", "studijas"],
     ja: ["kouki", "dokusho", "manabi", "kashikoi", "hon", "idea", "chie", "kangaeru", "chishiki", "benkyo"],
+    ko: ["hogisim", "dokseo", "baeum", "ttokttok", "chaek", "idea", "jihye", "saenggak", "jisik", "gongbu"],
   },
   clean_girl: {
     fr: ["douce", "naturel", "glow", "simple", "calme", "soft", "pure", "zen", "fresh", "light"],
@@ -288,6 +296,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     lt: ["svelni", "naturali", "glow", "paprasta", "rami", "gaivi", "tyra", "lengva", "soft", "clean"],
     lv: ["maiga", "dabiska", "glow", "vienkarsa", "mieriga", "svaiga", "tira", "viegla", "soft", "clean"],
     ja: ["yawaraka", "shizen", "glow", "simple", "odayaka", "sawayaka", "junsui", "karui", "soft", "clean"],
+    ko: ["budeureo", "jayeon", "glow", "simple", "pyeonan", "sangkwae", "sunsu", "gabyeoun", "soft", "clean"],
   },
   cinema: {
     fr: ["cinema", "scene", "film", "plan", "ecran", "cadre", "story", "take", "reel", "cut"],
@@ -321,6 +330,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     lt: ["kinas", "scena", "filmas", "kadras", "ekranas", "istorija", "take", "montazas", "shot", "reel"],
     lv: ["kino", "aina", "filma", "kadrs", "ekrans", "stasts", "take", "montaza", "shot", "reel"],
     ja: ["eiga", "scene", "film", "koma", "screen", "monogatari", "take", "henshu", "shot", "reel"],
+    ko: ["yeonghwa", "scene", "film", "jangmyeon", "screen", "iyagi", "take", "pyeonjip", "shot", "reel"],
   },
   anciens: {
     fr: ["histoire", "antique", "mythe", "legende", "savoir", "epoque", "relique", "ancien", "memoire", "heritage"],
@@ -354,6 +364,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     lt: ["istorija", "antika", "mitas", "legenda", "relikvija", "epocha", "paveldas", "atmintis", "klasika", "praeitis"],
     lv: ["vesture", "antika", "mits", "legenda", "relikvija", "laikmets", "mantojums", "atmina", "klasika", "pagatne"],
     ja: ["rekishi", "kodai", "shinwa", "densetsu", "ibutsu", "jidai", "isan", "kioku", "koten", "mukashi"],
+    ko: ["yeoksa", "godae", "sinhwa", "jeonseol", "yumul", "sidae", "yusan", "gieok", "gojeon", "yennal"],
   },
   default: {
     fr: ["cultive", "savoir", "culture", "evolue", "grandit", "apprend", "progresse", "developpe", "inspire", "eclaire"],
@@ -387,6 +398,7 @@ const CULTURE_PAR_THEME: Record<ThemeLabel, Record<string, string[]>> = {
     lt: ["kultura", "augimas", "zinios", "tobulina", "mokosi", "mastymas", "raida", "ikvepia", "gerina", "ismintis"],
     lv: ["kultura", "izaugsme", "zinasanas", "attistas", "macas", "domasana", "attistiba", "iedvesmo", "uzlabo", "gudriba"],
     ja: ["kyoyo", "seicho", "chishiki", "shinka", "manabu", "shiko", "hatten", "inspire", "kaizen", "chie"],
+    ko: ["gyoyang", "seongjang", "jisik", "jinhwa", "baeuda", "sago", "baljeon", "inspire", "gaeseon", "jihye"],
   },
 };
 

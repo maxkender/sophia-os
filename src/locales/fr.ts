@@ -3793,9 +3793,9 @@ export const fr = {
       compteAjouteJob:
         "Compte @{handle} ajouté — scrape + scores + nettoyage lancés en arrière-plan (voir logs ci-dessous).",
       compteAjouteFile:
-        "@{{handle}} ajoutée : son profil part tout de suite dans la file des mises à jour, une source à la fois (suivi dans « Mettre à jour les sources »).",
+        "@{{handle}} ajoutée : l'import de ses meilleurs posts démarre. La suite viendra si elle tient sur nos comptes (voir « File d'import des sources »).",
       compteAjouteAttente:
-        "@{{handle}} ajoutée : une mise à jour tourne déjà, son profil partira en tête du prochain lot (le lendemain à 6 h 37).",
+        "@{{handle}} ajoutée : elle attend son tour dans la file d'import, derrière les mises à jour (voir « File d'import des sources »).",
       importJobLance:
         "Import lancé côté serveur — tu peux changer de page ou quitter le site, ça continue.",
       jobsTitre: "Imports en cours",
@@ -3862,10 +3862,41 @@ export const fr = {
       updateAide:
         "Rattrape tout ce qui manque sur ce compte : les nouveaux TikToks, mais aussi ceux qu'un import précédent avait laissés de côté. Ce qui est déjà en stock n'est pas ré-importé.",
       updateLance: "Mise à jour lancée — rattrapage des slideshows manquants (voir logs).",
+      file: {
+        titre: "File d'import des sources",
+        description:
+          "Les imports s'étalent dans les jours. Chaque matin à 6 h 37 : jusqu'à {{lot}} mises à jour de la semaine, puis {{neuves}} sources neuves au plus, une source à la fois. Une source neuve n'importe d'abord que ses {{essai}} meilleurs posts ; si elle tient sur nos comptes, la suite arrive par tranches de {{tranche}}, un lundi après l'autre.",
+        enCours: "En cours",
+        enCoursSource_one: "@{{handle}}, {{count}} slideshow encore dans la file.",
+        enCoursSource_other: "@{{handle}}, {{count}} slideshows encore dans la file.",
+        enCoursDemarre: "Un lot démarre.",
+        aSuivre: "À suivre : {{sources}}.",
+        attente_one: "{{count}} source attend",
+        attente_other: "{{count}} sources attendent",
+        sansDate: "Sans date",
+        neuve: "source neuve",
+        neuveEssai: "source neuve, {{n}} posts",
+        auPlusTot: "Jour au plus tôt : un lot ne part que si celui de la veille est fini.",
+        essais: "Sources à l'essai",
+        colSource: "Source",
+        colLabel: "Label",
+        colImportes: "Importés",
+        colR: "r",
+        colRLabel: "Face au label",
+        colEtat: "Essai",
+        importes: "{{importes}} ({{valides}} validés)",
+        etat: {
+          en_cours: "En cours : {{posts}} posts mesurés sur {{min}}",
+          tient: "Tient : la suite arrive par {{n}}",
+          ne_tient_pas: "Ne tient pas : import arrêté",
+        },
+        lever: "Importer la suite",
+        leverConfirme: "Importer la suite de @{{handle}} sans attendre le verdict ? Elle arrivera par tranches de {{n}} posts.",
+      },
       candidats: {
         titre: "Propositions de sources",
         description:
-          "Des comptes TikTok trouvés par l'agent éclaireur, dans toutes les langues. Valider crée la source et la met dans la file des mises à jour, une source à la fois. Refuser avec la raison aide l'agent à mieux chercher.",
+          "Des comptes TikTok trouvés par l'agent éclaireur, dans toutes les langues. Valider crée la source et la met dans la file d'import : ses meilleurs posts d'abord, la suite seulement si elle tient sur nos comptes. Refuser avec la raison aide l'agent à mieux chercher.",
         onglet: { a_decider: "À décider", plus_tard: "Plus tard", decides: "Décidées" },
         sorteLibelle: "Sorte de proposition",
         sorte: { tout: "Tout", label: "Pour un label", concept: "Concepts nouveaux" },
@@ -3900,8 +3931,9 @@ export const fr = {
         raisonLibelle: "Raison du refus de @{{handle}}",
         raisonAide: "Pourquoi ? (l'agent le relit)",
         confirmerRefus: "Confirmer le refus",
-        valideLancee: "@{{handle}} est une source. Son import démarre.",
-        valideAttente: "@{{handle}} est une source. Son import partira au prochain lot (6 h 37).",
+        valideLancee: "@{{handle}} est une source. L'import de ses {{n}} meilleurs posts démarre.",
+        valideAttente: "@{{handle}} est une source. L'import de ses {{n}} meilleurs posts partira au plus tôt {{date}}.",
+        valideSansDate: "@{{handle}} est une source. Elle est dans la file d'import.",
       },
       lundi: {
         titre: "Mise à jour hebdomadaire des sources",

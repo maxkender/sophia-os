@@ -52,6 +52,7 @@ import {
   idPostTiktok,
   maxIdTiktok,
   normaliserCreateTime,
+  plafondEnfilage,
   separerTropRecents,
   urlsManquantes,
 } from "./import_nouveaux.ts";
@@ -1066,6 +1067,8 @@ export interface ListingCompte {
   diagnostic: string[];
   /** Manquants laissés pour la mise à jour suivante : publiés depuis moins de `ageMinJours`. */
   tropRecents?: number;
+  /** Manquants laissés pour la suite par le plafond (essai de la source, tranche par mise à jour ; 0686). */
+  reportes?: number;
 }
 
 /**
@@ -1089,11 +1092,17 @@ export async function listerUrlsCompteReference(
      * le refuserait pour toujours) ; il reste manquant pour la fois suivante.
      */
     ageMinJours?: number;
+    /**
+     * Avec `nouveauxSeulement` (0686) : au plus ce nombre de slideshows par
+     * mise à jour, les plus vus d'abord. L'essai de la source
+     * (`comptes_reference.essai_max`) s'applique en plus, lu ici.
+     */
+    maxParMaj?: number | null;
   } = {},
 ): Promise<ListingCompte> {
   const { data: ref } = await supabase
     .from("comptes_reference")
-    .select("id, handle_tiktok, dernier_scrape_at")
+    .select("id, handle_tiktok, dernier_scrape_at, essai_max")
     .eq("id", compteReferenceId)
     .single();
   if (!ref) throw new Error("Compte de référence introuvable");
@@ -1184,7 +1193,22 @@ export async function listerUrlsCompteReference(
       `trop récents (moins de ${opts.ageMinJours} j) : ${tropRecents.length}, repris à la mise à jour suivante`,
     );
   }
-  const urls = opts.nouveauxSeulement ? murs : toutes;
+  // 0686 : l'essai de la source et la tranche par mise à jour. `murs` est trié
+  // par vues, on garde donc les meilleurs ; le reste attend la fois suivante.
+  const essaiMax = (ref as { essai_max?: number | null }).essai_max ?? null;
+  const plafond = opts.nouveauxSeulement
+    ? plafondEnfilage({ essaiMax, dejaDeLaSource: deCetteSource.length, maxParMaj: opts.maxParMaj ?? null })
+    : null;
+  const retenus = plafond === null ? murs : murs.slice(0, plafond);
+  const reportes = murs.length - retenus.length;
+  if (reportes > 0) {
+    diagnostic.push(
+      essaiMax !== null
+        ? `essai de la source (${essaiMax} posts, ${deCetteSource.length} déjà en stock) : ${reportes} laissé(s) pour après l'essai`
+        : `plafond de ${plafond} par mise à jour : ${reportes} laissé(s) pour la mise à jour suivante`,
+    );
+  }
+  const urls = opts.nouveauxSeulement ? retenus : toutes;
 
   // Ne dater le scrape que s'il a réellement vu le profil : sinon un listing
   // en échec marquait le compte « à jour » et gelait les updates suivants.
@@ -1205,6 +1229,7 @@ export async function listerUrlsCompteReference(
     source,
     diagnostic,
     tropRecents: tropRecents.length,
+    reportes,
   };
 }
 

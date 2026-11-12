@@ -48,6 +48,7 @@ import {
   type GroupeSource,
 } from "@/features/moteur/groupesSources";
 import { demarrerImportCompte, demarrerImportLien } from "@/features/moteur/importJobs";
+import { FileSourcesPanel } from "@/features/moteur/FileSourcesPanel";
 import { ImportHistoriquePanel } from "@/features/moteur/ImportHistoriquePanel";
 import { ImportJobsPanel } from "@/features/moteur/ImportJobsPanel";
 import { LundiSourcesPanel } from "@/features/moteur/LundiSourcesPanel";
@@ -963,6 +964,8 @@ export function AdminSourcesPage() {
       {majVisible && <MajSourcesPanel sources={toutes} />}
 
       <CandidatsSourcesPanel niches={niches.data ?? []} />
+
+      <FileSourcesPanel />
 
       <ImportJobsPanel />
 

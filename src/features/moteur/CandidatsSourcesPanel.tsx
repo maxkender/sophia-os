@@ -133,11 +133,23 @@ function CarteCandidat({
   const rafraichir = () => {
     queryClient.invalidateQueries({ queryKey: ["sources-candidats"] });
     queryClient.invalidateQueries({ queryKey: ["sources"] });
+    queryClient.invalidateQueries({ queryKey: ["sources-file"] });
   };
   const valider = useMutation({
     mutationFn: () => validerCandidatSource(c.id, labelId, langue),
     onSuccess: (r) => {
-      onMessage(t(r.file === "lancee" ? "sources.candidats.valideLancee" : "sources.candidats.valideAttente", { handle: r.handle }));
+      const date = r.prevuLe
+        ? new Date(`${r.prevuLe}T12:00:00`).toLocaleDateString(i18n.language, { weekday: "long", day: "numeric", month: "long" })
+        : null;
+      onMessage(
+        r.essaiMax === null || (r.file === "attente" && !date)
+          ? t("sources.candidats.valideSansDate", { handle: r.handle })
+          : t(r.file === "lancee" ? "sources.candidats.valideLancee" : "sources.candidats.valideAttente", {
+              handle: r.handle,
+              n: r.essaiMax,
+              date,
+            }),
+      );
       rafraichir();
     },
   });

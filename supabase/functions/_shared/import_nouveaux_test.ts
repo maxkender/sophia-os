@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { instantPostTiktok, separerTropRecents } from "./import_nouveaux.ts";
+import { instantPostTiktok, plafondEnfilage, separerTropRecents } from "./import_nouveaux.ts";
 
 // Un identifiant TikTok porte son heure de création dans ses 32 bits hauts.
 const idA = (sec: number) => (BigInt(sec) << 32n).toString();
@@ -35,4 +35,20 @@ Deno.test("separerTropRecents : le createTime du listing l'emporte sur l'identif
 Deno.test("separerTropRecents : âge minimal à 0, tout passe", () => {
   const recent = url(MAINTENANT - 60);
   assertEquals(separerTropRecents([recent], new Map(), MAINTENANT, 0), { murs: [recent], tropRecents: [] });
+});
+
+Deno.test("plafondEnfilage : une source en essai n'importe que ce qui reste de son essai", () => {
+  assertEquals(plafondEnfilage({ essaiMax: 30, dejaDeLaSource: 0, maxParMaj: 100 }), 30);
+  assertEquals(plafondEnfilage({ essaiMax: 30, dejaDeLaSource: 12, maxParMaj: 100 }), 18);
+  assertEquals(plafondEnfilage({ essaiMax: 30, dejaDeLaSource: 45, maxParMaj: 100 }), 0);
+});
+
+Deno.test("plafondEnfilage : hors essai, une mise à jour s'arrête à la tranche", () => {
+  assertEquals(plafondEnfilage({ essaiMax: null, dejaDeLaSource: 400, maxParMaj: 100 }), 100);
+  assertEquals(plafondEnfilage({ essaiMax: 300, dejaDeLaSource: 0, maxParMaj: 100 }), 100);
+});
+
+Deno.test("plafondEnfilage : sans réglage, pas de plafond", () => {
+  assertEquals(plafondEnfilage({ essaiMax: null, dejaDeLaSource: 400, maxParMaj: null }), null);
+  assertEquals(plafondEnfilage({ essaiMax: null, dejaDeLaSource: 0, maxParMaj: 0 }), null);
 });

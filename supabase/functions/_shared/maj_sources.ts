@@ -29,10 +29,16 @@ export const AGE_MIN_JOURS_DEFAUT = 7;
  * L'âge minimal d'un post source à la mise à jour (0667) : ses vues doivent
  * être faites avant que le score d'import le juge. 0 : désactivé.
  */
-async function lireAgeMinJours(supabase: Supabase): Promise<number> {
+async function lireReglagesMaj(supabase: Supabase): Promise<{ ageMinJours: number; maxParMaj: number | null }> {
   const { data } = await supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle();
-  const v = Number((data?.valeur as { sources?: { age_min_jours?: unknown } } | null)?.sources?.age_min_jours);
-  return Number.isFinite(v) && v >= 0 ? v : AGE_MIN_JOURS_DEFAUT;
+  const sources = (data?.valeur as { sources?: { age_min_jours?: unknown; posts_max_par_maj?: unknown } } | null)?.sources;
+  const age = Number(sources?.age_min_jours);
+  // 0686 : au plus tant de slideshows par source et par mise à jour. Absent ou 0 : pas de plafond.
+  const max = Number(sources?.posts_max_par_maj);
+  return {
+    ageMinJours: Number.isFinite(age) && age >= 0 ? age : AGE_MIN_JOURS_DEFAUT,
+    maxParMaj: Number.isFinite(max) && max > 0 ? Math.floor(max) : null,
+  };
 }
 
 function pousserJournal(
@@ -246,7 +252,7 @@ export async function tickMajSources(
       const listed = await listerUrlsCompteReference(supabase, compte.id, {
         nouveauxSeulement: true,
         marquerScrape: true,
-        ageMinJours: await lireAgeMinJours(supabase),
+        ...(await lireReglagesMaj(supabase)),
       });
       const r = await enqueueImportUrls(supabase, {
         urls: listed.urls,

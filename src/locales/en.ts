@@ -3787,9 +3787,9 @@ export const en = {
       compteAjouteJob:
         "Account @{handle} added — scrape + scores + cleaning started in the background (see logs below).",
       compteAjouteFile:
-        "@{{handle}} added: its profile goes straight into the update queue, one source at a time (follow it in “Update sources”).",
+        "@{{handle}} added: the import of its best posts is starting. The rest will come if it holds on our accounts (see “Sources import queue”).",
       compteAjouteAttente:
-        "@{{handle}} added: an update is already running, its profile will lead the next batch (next morning at 6:37).",
+        "@{{handle}} added: it is waiting for its turn in the import queue, behind the updates (see “Sources import queue”).",
       importJobLance:
         "Import started in the background — the page stays usable. Follow the logs below.",
       jobsTitre: "Imports in progress",
@@ -3856,10 +3856,41 @@ export const en = {
       updateAide:
         "Catches up on everything missing for this account: new TikToks, but also those an earlier import left behind. Anything already in stock is not re-imported.",
       updateLance: "Update started — catching up on missing slideshows (see logs).",
+      file: {
+        titre: "Sources import queue",
+        description:
+          "Imports are spread over days. Every morning at 6:37: up to {{lot}} weekly updates, then at most {{neuves}} new sources, one source at a time. A new source first imports only its {{essai}} best posts; if it holds on our accounts, the rest comes in batches of {{tranche}}, one Monday after another.",
+        enCours: "Running",
+        enCoursSource_one: "@{{handle}}, {{count}} slideshow still in the queue.",
+        enCoursSource_other: "@{{handle}}, {{count}} slideshows still in the queue.",
+        enCoursDemarre: "A batch is starting.",
+        aSuivre: "Next: {{sources}}.",
+        attente_one: "{{count}} source waiting",
+        attente_other: "{{count}} sources waiting",
+        sansDate: "No date",
+        neuve: "new source",
+        neuveEssai: "new source, {{n}} posts",
+        auPlusTot: "Earliest day: a batch only starts once the previous one is done.",
+        essais: "Sources on trial",
+        colSource: "Source",
+        colLabel: "Label",
+        colImportes: "Imported",
+        colR: "r",
+        colRLabel: "Vs label",
+        colEtat: "Trial",
+        importes: "{{importes}} ({{valides}} approved)",
+        etat: {
+          en_cours: "Running: {{posts}} of {{min}} posts measured",
+          tient: "Holds: the rest comes {{n}} at a time",
+          ne_tient_pas: "Does not hold: import stopped",
+        },
+        lever: "Import the rest",
+        leverConfirme: "Import the rest of @{{handle}} without waiting for the verdict? It will come in batches of {{n}} posts.",
+      },
       candidats: {
         titre: "Source proposals",
         description:
-          "TikTok accounts found by the scout agent, in every language. Approving creates the source and puts it in the update queue, one source at a time. Rejecting with a reason helps the agent search better.",
+          "TikTok accounts found by the scout agent, in every language. Approving creates the source and puts it in the import queue: its best posts first, the rest only if it holds on our accounts. Rejecting with a reason helps the agent search better.",
         onglet: { a_decider: "To decide", plus_tard: "Later", decides: "Decided" },
         sorteLibelle: "Kind of proposal",
         sorte: { tout: "All", label: "For a label", concept: "New concepts" },
@@ -3894,8 +3925,9 @@ export const en = {
         raisonLibelle: "Reason for rejecting @{{handle}}",
         raisonAide: "Why? (the agent reads it)",
         confirmerRefus: "Confirm rejection",
-        valideLancee: "@{{handle}} is now a source. Its import is starting.",
-        valideAttente: "@{{handle}} is now a source. Its import will start with the next batch (6:37 am).",
+        valideLancee: "@{{handle}} is now a source. The import of its {{n}} best posts is starting.",
+        valideAttente: "@{{handle}} is now a source. The import of its {{n}} best posts will start on {{date}} at the earliest.",
+        valideSansDate: "@{{handle}} is now a source. It is in the import queue.",
       },
       lundi: {
         titre: "Weekly sources update",

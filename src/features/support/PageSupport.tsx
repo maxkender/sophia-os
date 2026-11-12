@@ -21,6 +21,7 @@ import {
   type FiltresSupport,
   lienCapture,
   lireDetail,
+  lireNiveaux,
   lireSupport,
   type LigneSupport,
   type TypeDemande,
@@ -30,7 +31,7 @@ import {
 const A = "support.admin";
 const H = "support.help";
 const PASTILLE: Record<LigneSupport["urgence"], string> = { rouge: "bg-red-500", orange: "bg-orange-400", gris: "bg-zinc-400" };
-const FILTRES_VIDES: FiltresSupport = { plateforme: "", categorie: "", statut: "", retard: false };
+const FILTRES_VIDES: FiltresSupport = { plateforme: "", niveau: "", categorie: "", statut: "", retard: false };
 
 /**
  * 0671 : « Support » (Recruitment automation). Deux onglets avec compteur,
@@ -46,16 +47,18 @@ export function PageSupport() {
   const [f, setF] = React.useState<FiltresSupport>(FILTRES_VIDES);
   const [choisi, setChoisi] = React.useState<string | null>(null);
   const toutes = lignes.data ?? [];
-  const visibles = filtrer(toutes, onglet, f);
+  const niveaux = useQuery({ queryKey: ["support", "niveaux"], queryFn: lireNiveaux, refetchInterval: 60_000 });
+  const visibles = filtrer(toutes, onglet, f, niveaux.data);
 
   return (
     <div className="space-y-3" data-testid="page-support">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {(["probleme", "question"] as const).map((o) => (
           <Button key={o} variant={onglet === o ? "default" : "outline"} onClick={() => { setOnglet(o); setChoisi(null); }} data-testid={`onglet-${o}`}>
             {t(`${A}.onglets.${o}`)} <Badge variant="secondary" className="ml-1 bg-background text-foreground">{compter(toutes, o)}</Badge>
           </Button>
         ))}
+        <Link to="/admin/bot" className="ml-auto text-sm text-muted-foreground underline" data-testid="lien-bot">Bot →</Link>
       </div>
       <Filtres f={f} setF={setF} />
       {lignes.error && <p className="text-sm text-destructive">{(lignes.error as Error).message}</p>}
@@ -81,6 +84,11 @@ function Filtres({ f, setF }: { f: FiltresSupport; setF: (f: FiltresSupport) => 
         <option value="">{t(`${A}.filtres.plateforme`)} : {t(`${A}.filtres.toutes`)}</option>
         <option value="ruul">Ruul</option>
         <option value="upwork">Upwork</option>
+      </select>
+      <select aria-label={t(`${A}.filtres.niveau`)} className={sel} value={f.niveau ?? ""} onChange={(e) => setF({ ...f, niveau: e.target.value as FiltresSupport["niveau"] })} data-testid="filtre-niveau">
+        <option value="">{t(`${A}.filtres.niveaux.tous`)}</option>
+        <option value="adrien">{t(`${A}.filtres.niveaux.adrien`)}</option>
+        <option value="max">{t(`${A}.filtres.niveaux.max`)}</option>
       </select>
       <select aria-label={t(`${A}.filtres.categorie`)} className={sel} value={f.categorie} onChange={(e) => setF({ ...f, categorie: e.target.value })}>
         <option value="">{t(`${A}.filtres.categorie`)} : {t(`${A}.filtres.toutes`)}</option>

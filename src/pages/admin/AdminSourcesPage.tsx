@@ -38,6 +38,7 @@ import {
   performanceSources,
 } from "@/features/moteur/api";
 import type { PerfSource } from "@/features/moteur/perfSource";
+import { CandidatsSourcesPanel } from "@/features/moteur/CandidatsSourcesPanel";
 import { RSource, RVsLabel } from "@/features/moteur/RSource";
 import { Aide } from "@/features/moteur/repartition/graphes";
 import {
@@ -960,6 +961,8 @@ export function AdminSourcesPage() {
       {ajout && <FormAjoutSource niches={niches.data ?? []} onFermer={() => setAjout(false)} />}
 
       {majVisible && <MajSourcesPanel sources={toutes} />}
+
+      <CandidatsSourcesPanel niches={niches.data ?? []} />
 
       <ImportJobsPanel />
 

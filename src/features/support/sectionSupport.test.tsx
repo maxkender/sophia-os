@@ -46,16 +46,13 @@ beforeEach(async () => {
 });
 
 describe("Support (OS clair)", () => {
-  it("Boîte : deux piles avec leur nombre, Pour Max d'abord", async () => {
+  it("Boîte : une seule liste (12/11), le total et la paie en rouge, sans filtre « niveau »", async () => {
     rendu(<SectionSupport />);
-    expect(await screen.findByText("2")).toBeInTheDocument();
-    expect(screen.getByTestId("pile-max")).toHaveTextContent("Pour Max · paiement, fraude, litige");
-    expect(screen.getByTestId("pile-adrien")).toHaveTextContent("14");
-    // Le niveau vient de la pile : pas de second filtre « niveau » dans la Boîte.
+    const total = await screen.findByTestId("boite-total");
+    await waitFor(() => expect(total).toHaveTextContent("16"));
+    expect(total).toHaveTextContent("dont 2 paie");
+    expect(screen.queryByTestId("pile-max")).toBeNull();
     expect(screen.queryByTestId("filtre-niveau")).toBeNull();
-    expect(screen.getByTestId("pile-max").className).toContain("border-primary");
-    fireEvent.click(screen.getByTestId("pile-adrien"));
-    await waitFor(() => expect(screen.getByTestId("pile-adrien").className).toContain("border-primary"));
   });
 
   it("l'onglet vient de l'adresse (?onglet=regles) : une règle se modifie en 2 clics et garde son historique", async () => {

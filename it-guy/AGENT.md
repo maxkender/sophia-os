@@ -109,6 +109,10 @@ la main. `date` donne l'heure.
   `channel_types: "im,mpim"`, `after` = début de fenêtre, `sort: timestamp` ;
 - #a-os-tickets : une racine postée directement par quelqu'un (Aram…) ou
   transférée à la main par Adrien est déjà un ticket, ne la retransfère pas.
+  Une racine `🎫 Ticket (Support OS)` postée par l'appli Sophia OS est aussi
+  un ticket (Max l'a envoyée depuis la Boîte de Support, bouton « Envoyer en
+  ticket à l'OS ») : analyse-la et propose comme les autres. Ses liens
+  donnent le message d'origine et la demande dans Support.
 
 **Ce qui est un problème technique** : la définition fait foi dans
 `supabase/functions/_shared/frontiere_it.ts` (`DEFINITION_PROBLEME_TECHNIQUE`),

@@ -17,6 +17,8 @@ const api = vi.hoisted(() => ({
   changer: vi.fn(),
   versOfficielles: vi.fn(),
   lienCapture: vi.fn(),
+  envoyerTicket: vi.fn(),
+  analyserContexte: vi.fn(),
 }));
 vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...api }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ user: { id: "p1" } }) }));
@@ -149,5 +151,29 @@ describe("PageSupport (admin)", () => {
     fireEvent.click(within(p).getByTestId("support-envoyer"));
     await waitFor(() => expect(api.envoyerReponse).toHaveBeenCalledWith("a", "We are checking your payment."));
     await waitFor(() => expect(api.versOfficielles).toHaveBeenCalledWith({ question: "Not paid", reponse: "We are checking your payment.", portee: "ruul", categorie: "paiement" }));
+    // 12/11 : la paie a son badge rouge et passe en premier.
+    expect(within(l).getByTestId("badge-paie")).toHaveTextContent("Paie");
+  });
+
+  it("12/11 : « Envoyer en ticket à l'OS » (avec une note) et « Avoir le contexte »", async () => {
+    api.lireNiveaux.mockResolvedValue(new Map([["a", null]]));
+    api.lireSupport.mockResolvedValue([ligne({ id: "a", categorie: "bug", nom: "Leidy" })]);
+    api.lireDetail.mockResolvedValue({
+      id: "a", type: "probleme", categorie: "bug", plateforme: "upwork", source: "slack_salon", statut: "ouvert", texte: "Blank screen again",
+      capture: null, brouillon: null, bot_reponse: null, auto_action: null, auto_resultat: null, slack_user: "Leidy",
+      escalade_at: "2026-11-11T08:00:00Z", urgence: "orange", en_retard: false, poster_id: "p", messages: [], fiche: null,
+      ticket_at: null, contexte_analyse: null, contexte_at: null,
+    });
+    api.envoyerTicket.mockResolvedValue({ ticket_at: "2026-11-12T18:00:00Z" });
+    api.analyserContexte.mockResolvedValue({ analyse: "- Upwork, actif depuis le 26/10\n- Écran blanc signalé 2 fois", contexte_at: "2026-11-12T18:00:00Z" });
+    rendu(<PageSupport />);
+    fireEvent.click(await screen.findByTestId("support-ligne"));
+    const p = await screen.findByTestId("support-panneau");
+    fireEvent.change(within(p).getByLabelText("Note pour le ticket"), { target: { value: "2e fois" } });
+    fireEvent.click(within(p).getByTestId("support-ticket"));
+    await waitFor(() => expect(api.envoyerTicket).toHaveBeenCalledWith("a", "2e fois"));
+    fireEvent.click(within(p).getByTestId("support-contexte"));
+    await waitFor(() => expect(api.analyserContexte).toHaveBeenCalledWith("a"));
+    expect(await within(p).findByTestId("support-analyse")).toHaveTextContent("Écran blanc signalé 2 fois");
   });
 });

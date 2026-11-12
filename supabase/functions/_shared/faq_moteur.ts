@@ -48,12 +48,18 @@ export async function chargerBase(db: Db, role: string, plateforme: "ruul" | "up
   // 0671 : une plateforme connue ne lit que les réponses officielles de sa portée (et celles pour tous).
   let requeteOfficielles = db.from("reponses_officielles").select("question, reponse").eq("actif", true).not("valide_at", "is", null);
   if (plateforme) requeteOfficielles = requeteOfficielles.in("portee", ["tous", plateforme]);
-  const [pages, notes, officielles] = await Promise.all([
-    db.from("guides_notion").select("guide, chemin, texte, ordre").order("ordre", { ascending: true }).limit(500),
-    db.from("chatbot_contexte").select("titre, contenu, audience, updated_at").order("updated_at", { ascending: false })
-      .limit(500),
+  // 0680 : les interrupteurs de Support (on/off, plateforme) valent pour tous les bots, et les
+  // documents et consignes de Support entrent dans la base.
+  let requeteNotes = db.from("chatbot_contexte").select("titre, contenu, audience, updated_at").eq("actif", true);
+  if (plateforme) requeteNotes = requeteNotes.in("portee", ["tous", plateforme]);
+  const [pages, notes, officielles, docs, consMax, consRegles] = await Promise.all([
+    db.from("guides_notion").select("guide, chemin, texte, ordre").eq("bot_actif", true).order("ordre", { ascending: true }).limit(500),
+    requeteNotes.order("updated_at", { ascending: false }).limit(500),
     // 6/11 : les réponses officielles validées par Max (page « Réponses officielles »).
     requeteOfficielles.order("ordre", { ascending: true }).limit(200),
+    db.from("support_documents").select("titre, contenu, audience, maj_at").eq("actif", true).order("ordre").limit(200),
+    db.from("support_consignes").select("texte").eq("actif", true).order("cree_at").limit(200),
+    db.from("regles_bots").select("regle").eq("active", true).order("created_at").limit(200),
   ]);
   if (pages.error) throw new Error(`guides_notion : ${messageErreur(pages.error)}`);
   if (notes.error) throw new Error(`chatbot_contexte : ${messageErreur(notes.error)}`);
@@ -61,9 +67,24 @@ export async function chargerBase(db: Db, role: string, plateforme: "ruul" | "up
   const lignes = ((pages.data ?? []) as PageGuide[]).map((p) => (p.guide === "poster" && p.texte ? { ...p, texte: liensPublics(p.texte) } : p));
   return {
     // Une table illisible (migration pas encore passée) ne fait pas tomber la FAQ.
-    base: assemblerBase(lignes, (notes.data ?? []) as NoteBase[], role, {}, officielles.error ? [] : (officielles.data ?? []) as ReponseOfficielle[]),
+    base: assemblerBase(lignes, [...notesSupport(docs.data, consMax.data, consRegles.data), ...((notes.data ?? []) as NoteBase[])], role, {},
+      officielles.error ? [] : (officielles.data ?? []) as ReponseOfficielle[]),
     pages: lignes.length,
   };
+}
+
+/** 0680 : les documents et consignes de Support, au format des notes de la base. Une table illisible donne []. */
+export function notesSupport(
+  docs: { titre: string; contenu: string; audience: string; maj_at?: string }[] | null,
+  consMax: { texte: string }[] | null,
+  consRegles: { regle: string }[] | null,
+): NoteBase[] {
+  const audience = (a: string) => (a === "hm" ? "hiring_manager" : a === "tous" ? "all" : "poster");
+  const consignes = [...(consMax ?? []).map((c) => c.texte), ...(consRegles ?? []).map((c) => c.regle)];
+  return [
+    ...(consignes.length ? [{ titre: "Consignes de Max (à respecter avant tout)", contenu: consignes.map((c) => `- ${c}`).join("\n"), audience: "all" }] : []),
+    ...(docs ?? []).map((d) => ({ titre: d.titre, contenu: d.contenu, audience: audience(d.audience) })),
+  ] as NoteBase[];
 }
 
 /**

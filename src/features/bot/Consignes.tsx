@@ -64,6 +64,11 @@ export function Consignes() {
       </Card>
       {consignes.error && <p className="text-sm text-destructive">{(consignes.error as Error).message}</p>}
       {(consignes.data ?? []).length === 0 && !consignes.isLoading && <p className="text-sm text-muted-foreground">Aucune consigne pour l'instant.</p>}
+      {(consignes.data ?? []).length > 0 && (
+        <p className="text-xs text-muted-foreground">
+          {(consignes.data ?? []).filter((c) => c.actif).length} actives sur {(consignes.data ?? []).length}. Le bot les lit toutes à chaque réponse, avant le reste.
+        </p>
+      )}
       <div className="space-y-2">
         {(consignes.data ?? []).map((c) => (
           <LigneConsigne key={c.id} c={c} occupe={occupe} onChanger={(x) => changer.mutate(x)} onRestaure={apresChangement} />
@@ -100,7 +105,9 @@ function LigneConsigne({ c, occupe, onChanger, onRestaure }: {
               </div>
             </div>
           )}
+          {c.exemple && edition === null && <p className="mt-1 text-xs text-muted-foreground">Exemple : {c.exemple}</p>}
           <p className="mt-1 text-xs text-muted-foreground">
+            {c.source === "regles_bots" && <span className="mr-1 rounded bg-muted px-1.5 py-0.5" data-testid="consigne-regle-bots">Règle des bots (ancien bot FAQ)</span>}
             {c.actif ? "🟢 active" : "⚪ éteinte"} · {new Date(c.maj_at).toLocaleString("fr-FR")}
             {" · "}<button type="button" className="underline" onClick={() => setOuvert(!ouvert)}>historique</button>
           </p>

@@ -3862,6 +3862,42 @@ export const fr = {
       updateAide:
         "Rattrape tout ce qui manque sur ce compte : les nouveaux TikToks, mais aussi ceux qu'un import précédent avait laissés de côté. Ce qui est déjà en stock n'est pas ré-importé.",
       updateLance: "Mise à jour lancée — rattrapage des slideshows manquants (voir logs).",
+      candidats: {
+        titre: "Propositions de sources",
+        description:
+          "Des comptes TikTok trouvés par l'agent éclaireur, dans toutes les langues. Valider crée la source et la met dans la file des mises à jour, une source à la fois. Refuser avec la raison aide l'agent à mieux chercher.",
+        onglet: { a_decider: "À décider", plus_tard: "Plus tard", decides: "Décidées" },
+        sorteLibelle: "Sorte de proposition",
+        sorte: { tout: "Tout", label: "Pour un label", concept: "Concepts nouveaux" },
+        langueFiltre: "Langue des propositions",
+        toutesLangues: "Toutes les langues",
+        vide: {
+          a_decider: "Rien à décider pour le moment.",
+          plus_tard: "Rien de côté.",
+          decides: "Aucune décision pour le moment.",
+        },
+        conceptNouveau: "Concept nouveau",
+        statut: { valide: "Validée", refuse: "Refusée" },
+        chiffres_one:
+          "{{count}} slideshow relevé · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
+        chiffres_other:
+          "{{count}} slideshows relevés · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
+        releve: "relevé le {{date}}",
+        risques: "À savoir :",
+        raisonRefus: "Refusée : {{raison}}",
+        labelChoix: "Label de @{{handle}}",
+        langueChoix: "Langue de @{{handle}}",
+        labelRequis: "Choisis un label pour valider.",
+        valider: "Valider",
+        plusTard: "Plus tard",
+        remettre: "Remettre à décider",
+        refuser: "Refuser",
+        raisonLibelle: "Raison du refus de @{{handle}}",
+        raisonAide: "Pourquoi ? (l'agent le relit)",
+        confirmerRefus: "Confirmer le refus",
+        valideLancee: "@{{handle}} est une source. Son import démarre.",
+        valideAttente: "@{{handle}} est une source. Son import partira au prochain lot (6 h 37).",
+      },
       lundi: {
         titre: "Mise à jour hebdomadaire des sources",
         description:

@@ -3856,6 +3856,42 @@ export const en = {
       updateAide:
         "Catches up on everything missing for this account: new TikToks, but also those an earlier import left behind. Anything already in stock is not re-imported.",
       updateLance: "Update started — catching up on missing slideshows (see logs).",
+      candidats: {
+        titre: "Source proposals",
+        description:
+          "TikTok accounts found by the scout agent, in every language. Approving creates the source and puts it in the update queue, one source at a time. Rejecting with a reason helps the agent search better.",
+        onglet: { a_decider: "To decide", plus_tard: "Later", decides: "Decided" },
+        sorteLibelle: "Kind of proposal",
+        sorte: { tout: "All", label: "For a label", concept: "New concepts" },
+        langueFiltre: "Language of the proposals",
+        toutesLangues: "All languages",
+        vide: {
+          a_decider: "Nothing to decide right now.",
+          plus_tard: "Nothing set aside.",
+          decides: "No decision yet.",
+        },
+        conceptNouveau: "New concept",
+        statut: { valide: "Approved", refuse: "Rejected" },
+        chiffres_one:
+          "{{count}} slideshow sampled · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
+        chiffres_other:
+          "{{count}} slideshows sampled · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
+        releve: "sampled on {{date}}",
+        risques: "Note:",
+        raisonRefus: "Rejected: {{raison}}",
+        labelChoix: "Label for @{{handle}}",
+        langueChoix: "Language of @{{handle}}",
+        labelRequis: "Pick a label to approve.",
+        valider: "Approve",
+        plusTard: "Later",
+        remettre: "Back to decide",
+        refuser: "Reject",
+        raisonLibelle: "Reason for rejecting @{{handle}}",
+        raisonAide: "Why? (the agent reads it)",
+        confirmerRefus: "Confirm rejection",
+        valideLancee: "@{{handle}} is now a source. Its import is starting.",
+        valideAttente: "@{{handle}} is now a source. Its import will start with the next batch (6:37 am).",
+      },
       lundi: {
         titre: "Weekly sources update",
         description:

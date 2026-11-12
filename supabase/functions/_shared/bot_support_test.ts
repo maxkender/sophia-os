@@ -1,7 +1,7 @@
 import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
 
 import {
-  accuseReception, appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, promptBot, signer, testOk, TEXTE_ON_VERIFIE, texteListeAdrien, texteTop10,
+  accuseReception, ACTIONS, appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, promptBot, signer, testOk, TEXTE_ON_VERIFIE, texteBugMax, texteListeAdrien, texteTop10,
   troisPhrases,
 } from "./bot_support.ts";
 
@@ -70,4 +70,14 @@ Deno.test("liste d'Adrien : vide et remplie", () => {
   assertEquals(texteListeAdrien([], "https://os.test").startsWith("Support : rien d'ouvert"), true);
   const t = texteListeAdrien([{ nom: "Alex T", plateforme: "ruul", categorie: "compte", texte: "My  account\nis blocked", attente: true, heures: 30 }], "https://os.test");
   assertEquals(t.includes("1. Alex T (Ruul, compte, 1 j) · attend le posteur : « My account is blocked »"), true);
+});
+
+Deno.test("prevenir_max : action reconnue et DM à Max pour un bug", () => {
+  assertEquals(ACTIONS.includes("prevenir_max"), true);
+  const d = lireDecision('{"langue":"en","categorie":"bug","personnel":false,"reponse":"Press and hold the text to copy it.","action":"prevenir_max","niveau":"bot","risque":[],"raison":"r"}');
+  assertEquals(d?.action, "prevenir_max");
+  const t = texteBugMax({ nom: "Alex T", plateforme: "upwork", message: "the tap  to copy\nbutton doesnt work", reponse: "Press and hold.", raison: "Bouton copier." }, "https://os.test/");
+  assertStringIncludes(t, "🛠️ Bug du dashboard — Alex T (Upwork)");
+  assertStringIncludes(t, "« the tap to copy button doesnt work »");
+  assertStringIncludes(t, "https://os.test/admin/bot");
 });

@@ -12,9 +12,9 @@
 
 export type Niveau = "bot" | "adrien" | "max";
 export type SourceBot = "help" | "slack_salon";
-export type ActionBot = "lien_mot_de_passe" | "renvoi_parrainage" | "pseudo_tiktok" | "email_ruul" | "arret" | "lien_slack";
+export type ActionBot = "lien_mot_de_passe" | "renvoi_parrainage" | "pseudo_tiktok" | "email_ruul" | "arret" | "lien_slack" | "prevenir_max";
 
-export const ACTIONS: readonly ActionBot[] = ["lien_mot_de_passe", "renvoi_parrainage", "pseudo_tiktok", "email_ruul", "arret", "lien_slack"];
+export const ACTIONS: readonly ActionBot[] = ["lien_mot_de_passe", "renvoi_parrainage", "pseudo_tiktok", "email_ruul", "arret", "lien_slack", "prevenir_max"];
 export const CATEGORIES_BOT = [
   "posting", "tiktok", "warmup", "login", "slack", "paie", "parrainage", "arret", "ruul", "upwork", "bug", "statut", "salutation", "autre",
 ] as const;
@@ -73,12 +73,13 @@ PROCÉDURE
    lien_mot_de_passe (renvoyer le lien « Set my password »), renvoi_parrainage (renvoyer l'email d'un parrainage),
    pseudo_tiktok (noter un nouveau pseudo TikTok ; action_valeur = le pseudo sans @), email_ruul (corriger l'email Ruul de la fiche ; action_valeur = l'email),
    arret (SEULEMENT s'il demande clairement d'arrêter : STOP, fin du contrat, supprimer son compte, dans n'importe quelle langue ; une question, un voyage ou un doute ne suffisent pas),
-   lien_slack (donner le lien d'invitation Slack).
+   lien_slack (donner le lien d'invitation Slack),
+   prevenir_max (un bug du dashboard que le catalogue couvre : tu donnes le contournement du catalogue, niveau "bot", et Max est prévenu).
 5. Si AUCUNE règle (catalogue ou infos) ne couvre le cas : reponse = "${TEXTE_ON_VERIFIE}" et niveau = "adrien". N'invente JAMAIS une règle, une date ou un montant.
 
 NIVEAUX (un seul)
 - "bot" : tu as répondu et c'est réglé (questions du guide, étapes, TikTok, warm-up, login, Slack, quand/combien je suis payé avec les chiffres de l'OS, parrainage, arrêt, malade/absent, posts manqués selon la règle, statut, messages vides).
-- "adrien" : pas de règle, bug du dashboard qui persiste, personne introuvable après l'email, offre de HM mal faite, recrue à relier, demande de 2e compte TikTok, même problème pour la 3e fois.
+- "adrien" : pas de règle, bug du dashboard que le catalogue ne couvre pas, personne introuvable après l'email, offre de HM mal faite, recrue à relier, demande de 2e compte TikTok, même problème pour la 3e fois.
 - "max" : SEULEMENT paiement non reçu alors que les données montrent la semaine payée ou due ; risque de double paie ; montant contesté après explication du calcul ; menace, litige, plainte publique, fraude (compte d'un ami, cash, plusieurs comptes, paiement hors plateforme).
 
 RÈGLES
@@ -276,5 +277,16 @@ export function texteTop10(top: Top10[], osUrl: string): string {
     "Support : les questions de la semaine sans réponse du bot (à ajouter au catalogue)",
     ...top.map((t, i) => `${i + 1}. ${t.question} (${t.fois}×)\n   → ${t.reponse}`),
     `Catalogue : ${lien}`,
+  ].join("\n");
+}
+
+/** 12/11 : le DM à Max pour un bug du dashboard (le posteur a déjà reçu le contournement). */
+export function texteBugMax(b: { nom: string; plateforme: "ruul" | "upwork"; message: string; reponse: string; raison: string }, osUrl: string): string {
+  return [
+    `🛠️ Bug du dashboard — ${b.nom} (${b.plateforme === "ruul" ? "Ruul" : "Upwork"})`,
+    `Le posteur : « ${b.message.replace(/\s+/g, " ").slice(0, 300)} »`,
+    `Réponse envoyée : ${b.reponse}`,
+    ...(b.raison ? [`L'OS : ${b.raison}`] : []),
+    `${osUrl.replace(/\/+$/, "")}/admin/bot`,
   ].join("\n");
 }

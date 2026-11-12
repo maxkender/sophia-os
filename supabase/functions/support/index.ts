@@ -20,7 +20,7 @@ import {
 import { generateTextFast } from "../_shared/gemini.ts";
 import {
   appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
-  accuseReception, texteListeAdrien, texteTop10,
+  accuseReception, texteBugMax, texteListeAdrien, texteTop10,
 } from "../_shared/bot_support.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -172,7 +172,7 @@ async function poserQuestion(db: Db, poster: string, texte: string, categorie: s
   const r = await deciderBot(db, { message: texte, source: "help", poster, profil: null });
   const d = r.decision;
   const regle = d.niveau === "bot";
-  const action = regle && d.action ? await executerAction(db, poster, d) : null;
+  const action = regle && d.action ? await executerAction(db, poster, d, texte) : null;
   const { data, error } = await db.rpc("support_ajouter", {
     p: {
       poster_id: poster, type: "question", categorie: categorie ?? d.categorie, texte, bot_reponse: r.texte, bot_decision: d.niveau,
@@ -198,7 +198,7 @@ async function noterDecision(db: Db, id: string, d: DecisionBot, action: string 
  * permises par Max : pseudo TikTok, email Ruul ; plus le lien de mot de passe, le renvoi d'un
  * parrainage et la procédure d'arrêt existante. Rend ce qui a été fait (ou pourquoi rien).
  */
-async function executerAction(db: Db, poster: string, d: DecisionBot): Promise<string> {
+async function executerAction(db: Db, poster: string, d: DecisionBot, message = ""): Promise<string> {
   try {
     switch (d.action) {
       case "lien_mot_de_passe":
@@ -229,6 +229,16 @@ async function executerAction(db: Db, poster: string, d: DecisionBot): Promise<s
       }
       case "lien_slack":
         return "lien Slack donné";
+      case "prevenir_max": {
+        // 12/11 : un bug du dashboard couvert par le catalogue : le posteur a le contournement, Max un DM.
+        const jeton = jetonSlackFaq();
+        if (!jeton) return "Max pas prévenu : jeton Slack absent";
+        const f = await fiche(db, poster);
+        const r = await posterSlack(jeton, MAX_SLACK, texteBugMax({
+          nom: f?.nom ?? "?", plateforme: f?.plateforme === "ruul" ? "ruul" : "upwork", message, reponse: d.reponse, raison: d.raison,
+        }, OS_URL));
+        return r.ok ? "Max prévenu (bug)" : `Max pas prévenu : ${r.error}`;
+      }
       default:
         return "aucune action";
     }
@@ -298,7 +308,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     await db.from("support_demandes").update({ statut: "attente_posteur", maj_at: new Date().toISOString() }).eq("id", res.id);
   }
   if (res?.id) {
-    const action = niveau === "bot" && d?.action && !auto ? await executerAction(db, poster, d) : autoResultat;
+    const action = niveau === "bot" && d?.action && !auto ? await executerAction(db, poster, d, texte) : autoResultat;
     await db.from("support_demandes").update({
       niveau, risque: d?.risque ?? [], action_faite: action, raison: d?.raison ?? v?.phrase ?? null, langue: d?.langue ?? null,
       ...(niveau === "bot" ? { statut: "bot" } : {}),
@@ -584,7 +594,7 @@ async function messagesTraiter(db: Db) {
     let envoi = "rien";
     let action: string | null = null;
     if (parBot) {
-      action = d.action ? await executerAction(db, c.poster_id, d) : null;
+      action = d.action ? await executerAction(db, c.poster_id, d, texte) : null;
       envoi = await envoyerAuPosteur(db, c.poster_id, r.texte);
     }
     const { data: aj, error: e } = await db.rpc("support_ajouter", {

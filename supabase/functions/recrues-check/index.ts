@@ -1,4 +1,5 @@
 import { dansFenetre, type Delais, instantLocal, lireMode, lundiParis, partiesLocales, rappelsEnPause } from "../_shared/relances.ts";
+import type { MalgreStop } from "../_shared/stop.ts";
 import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { passageDu } from "../_shared/frequences.ts";
 import {
@@ -166,7 +167,8 @@ Deno.serve(async (request) => {
       const b = body as { profil_id?: string; texte?: string };
       const texte = String(b.texte ?? "").trim();
       if (!b.profil_id || !texte) return json({ ok: false, error: "profil_id et texte requis" });
-      const issue = await ecrireAuPosteur(serviceClient(), String(b.profil_id), texte);
+      // 0684 : tapé à la main (carte Problèmes) : part malgré un STOP.
+      const issue = await ecrireAuPosteur(serviceClient(), String(b.profil_id), texte, fetch, undefined, { malgreStop: "manuel" });
       return json(issue.statut === "envoye" ? { ok: true } : { ok: false, error: "erreur" in issue ? issue.erreur : issue.statut });
     }
     // 10/11 : une relance ponctuelle, maintenant, à des recrues choisies (aperçu, puis envoi sur « envoyer »).
@@ -2052,11 +2054,11 @@ async function envoyerLienMotDePasse(supabase: Supabase, posterId: string, par: 
   let erreur: string | null = null;
   if (p.slack_user_id) {
     canal = "slack";
-    erreur = await envoyerSlack(supabase, posterId, lien.texte);
+    erreur = await envoyerSlack(supabase, posterId, lien.texte, undefined, "manuel");
   }
   if ((!canal || erreur) && p.upwork_contract_id) {
     canal = "upwork";
-    erreur = (await envoyerUpwork(String(p.upwork_contract_id), avecLigneStop(lien.texte), { prioritaire: true })).erreur;
+    erreur = (await envoyerUpwork(String(p.upwork_contract_id), avecLigneStop(lien.texte), { prioritaire: true, malgreStop: "manuel" })).erreur;
   }
   if (!canal) erreur = "ni Slack ni contrat Upwork";
   await supabase.from("nudges").insert({
@@ -2085,8 +2087,9 @@ async function reportsDuLundi(supabase: Supabase, maintenant: Date, bilan: Bilan
   }
 }
 
-async function envoyerSlack(supabase: Supabase, posterId: string, texte: string, blocs?: unknown[]): Promise<string | null> {
-  const issue = await ecrireAuPosteur(supabase, posterId, texte, fetch, blocs);
+async function envoyerSlack(supabase: Supabase, posterId: string, texte: string, blocs?: unknown[], malgreStop?: MalgreStop): Promise<string | null> {
+  // 0684 : une relance ne part jamais après un STOP ; une réponse ou un envoi à la main, si.
+  const issue = await ecrireAuPosteur(supabase, posterId, texte, fetch, blocs, malgreStop ? { malgreStop } : {});
   if (issue.statut === "envoye") return null;
   return issue.statut === "erreur" ? issue.erreur : "introuvable sur Slack";
 }
@@ -2111,7 +2114,7 @@ async function noterEnvoi(supabase: Supabase, id: string, r: { partis: string[];
 async function envoyerUpwork(
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean; compte?: string } = {},
+  o: { prioritaire?: boolean; compte?: string; malgreStop?: MalgreStop } = {},
 ): Promise<{ erreur: string | null; budget: boolean; reporter?: boolean; compte?: string | null }> {
   const base = Deno.env.get("SUPABASE_URL");
   const secret = secretCronConnu();
@@ -2120,7 +2123,11 @@ async function envoyerUpwork(
     const r = await fetch(`${base}/functions/v1/upwork`, {
       method: "POST",
       headers: { "content-type": "application/json", "x-cron-secret": secret },
-      body: JSON.stringify({ action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false, ...(o.compte ? { compte: o.compte } : {}) }),
+      body: JSON.stringify({
+        action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false, ...(o.compte ? { compte: o.compte } : {}),
+        // 0684 : sans motif, la fonction upwork refuse d'écrire à un posteur qui a dit STOP.
+        ...(o.malgreStop ? { malgre_stop: o.malgreStop } : {}),
+      }),
     });
     const corps = await r.json().catch(() => null);
     // Prompt 25 v4 : « reporter » : le compte de secours n'a pas pu écrire ici ; le message repart demain (Max d'abord).
@@ -2402,7 +2409,7 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
           });
           maj.reponse_statut = "a_la_main";
         } else {
-          const envoi = l.canal === "upwork" ? u!.erreur : await envoyerSlack(supabase, l.poster_id, plan.repondre);
+          const envoi = l.canal === "upwork" ? u!.erreur : await envoyerSlack(supabase, l.poster_id, plan.repondre, undefined, plan.arret ? "confirmation_arret" : "reponse");
           maj.reponse_statut = envoi ? "erreur" : "envoye";
           maj.reponse_at = new Date().toISOString();
           if (envoi) maj.erreur = envoi;
@@ -2487,7 +2494,7 @@ async function traiterContestations(supabase: Supabase) {
     let statut = "simule";
     let erreur: string | null = null;
     if (reel) {
-      erreur = c.canal === "upwork" ? await repondreUpwork(supabase, c.poster_id, texte) : await envoyerSlack(supabase, c.poster_id, texte);
+      erreur = c.canal === "upwork" ? await repondreUpwork(supabase, c.poster_id, texte) : await envoyerSlack(supabase, c.poster_id, texte, undefined, "reponse");
       statut = erreur ? "erreur" : "envoye";
     }
     await supabase.from("contestations")
@@ -2509,7 +2516,7 @@ async function repondreContestation(supabase: Supabase, id: string, texte: strin
   if (!c) return { ok: false, error: "contestation introuvable" };
   const erreur = c.canal === "upwork"
     ? await repondreUpwork(supabase, c.poster_id as string, texte.trim())
-    : await envoyerSlack(supabase, c.poster_id as string, texte.trim());
+    : await envoyerSlack(supabase, c.poster_id as string, texte.trim(), undefined, "reponse");
   await supabase.from("contestations")
     .update({ reponse_texte: texte.trim(), reponse_statut: erreur ? "erreur" : "envoye", reponse_at: new Date().toISOString(), maj_at: new Date().toISOString() })
     .eq("id", id);
@@ -2540,14 +2547,15 @@ async function questionPaie(posterId: string, simuler: boolean): Promise<{ cas: 
 async function repondreUpworkBudget(supabase: Supabase, posterId: string, texte: string): Promise<{ erreur: string | null; budget: boolean }> {
   const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   if (!data?.upwork_contract_id) return { erreur: "contrat Upwork non relié", budget: false };
-  const u = await envoyerUpwork(data.upwork_contract_id as string, texte);
+  // 0684 : une réponse au message que le posteur vient d'écrire (sa confirmation d'arrêt comprise) part malgré un STOP.
+  const u = await envoyerUpwork(data.upwork_contract_id as string, texte, { malgreStop: "reponse" });
   return { erreur: u.erreur, budget: u.budget };
 }
 
 async function repondreUpwork(supabase: Supabase, posterId: string, texte: string): Promise<string | null> {
   const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   if (!data?.upwork_contract_id) return "contrat Upwork non relié";
-  return (await envoyerUpwork(data.upwork_contract_id as string, texte)).erreur;
+  return (await envoyerUpwork(data.upwork_contract_id as string, texte, { malgreStop: "reponse" })).erreur;
 }
 
 // ---------------------------------------------------------------------------

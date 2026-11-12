@@ -9,6 +9,7 @@
  * le même pour tous les bots du workspace.
  */
 
+import { type MalgreStop, STOP_POSTEUR, stopDemande } from "./stop.ts";
 import { bloquer, PAUSE } from "./pause.ts";
 
 type Fetch = typeof fetch;
@@ -96,11 +97,15 @@ export async function ecrireAuPosteur(
   fetchFn: Fetch = fetch,
   /** Des blocs Slack (boutons « Done »…, partie E) ; le texte reste la notification. */
   blocs?: unknown[],
+  /** 0684 : ce message part-il malgré un STOP (confirmation d'arrêt, paie, réponse, message à la main) ? */
+  opts: { malgreStop?: MalgreStop } = {},
 ): Promise<IssueMessagePosteur> {
   // Prompt 22 : le grand interrupteur passe avant tout (aucun message Slack au posteur).
   if (await bloquer(supabase, { fonction: "slack", action: "message_posteur", poster_id: posterId })) {
     return { statut: "erreur", erreur: PAUSE };
   }
+  // 0684 : un posteur qui a dit STOP ne reçoit plus rien, sauf les exceptions nommées.
+  if (!opts.malgreStop && await stopDemande(supabase, posterId)) return { statut: "erreur", erreur: STOP_POSTEUR };
   const ecriture = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (!ecriture) return { statut: "erreur", erreur: "SLACK_HM_BOT_TOKEN manquant" };
   try {

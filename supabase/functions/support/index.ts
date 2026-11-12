@@ -401,7 +401,8 @@ async function repondre(db: Db, auteur: string | null, id: string, texte: string
       envois.email = "pas d'email";
     }
     if (c.slack && d.source !== "slack_salon") {
-      const r = await ecrireAuPosteur(db, d.poster_id, `The team answered your request:\n\n${texte}\n\nReply from Help on your dashboard: ${OS_URL}/createur/help`);
+      // 0684 : une réponse à sa demande (pas une relance) : part malgré un STOP.
+      const r = await ecrireAuPosteur(db, d.poster_id, `The team answered your request:\n\n${texte}\n\nReply from Help on your dashboard: ${OS_URL}/createur/help`, fetch, undefined, { malgreStop: "reponse" });
       envois.slack = r.statut === "envoye" ? "ok" : `erreur : ${"erreur" in r ? r.erreur : r.statut}`;
     }
   }
@@ -649,7 +650,7 @@ async function messagesTraiter(db: Db) {
 async function envoyerAuPosteur(db: Db, poster: string, texte: string): Promise<string> {
   const c = await contactPosteur(db, poster);
   if (c.slack) {
-    const r = await ecrireAuPosteur(db, poster, texte);
+    const r = await ecrireAuPosteur(db, poster, texte, fetch, undefined, { malgreStop: "reponse" });
     if (r.statut === "envoye") return "slack";
   }
   if (!c.email) return "aucun canal";

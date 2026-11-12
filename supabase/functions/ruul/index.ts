@@ -258,10 +258,7 @@ async function envoyer(supabase: Supabase) {
   for (const lignes of parPosteur.values()) {
     const p = lignes[0].profiles as { prenom: string | null; ruul_email: string | null; relances_stop_at: string | null; ruul_jeton: string | null; slack_user_id: string | null };
     const ids = lignes.map((l) => l.id);
-    if (p.relances_stop_at) {
-      await supabase.from("ruul_paiements").update({ message_statut: "stop", message_at: new Date().toISOString() }).in("id", ids);
-      continue;
-    }
+    // 0684 (Max) : l'email de paie de sa dernière semaine part même après un STOP.
     const montant = lignes.reduce((s, l) => s + Number(l.montant), 0);
     const semaines = lignes.map((l) => semaineCourte(String(l.semaine))).join(" and ");
     const v = { prenom: (p.prenom ?? "").trim() || "there", montant: Number.isInteger(montant) ? montant : montant.toFixed(2), semaine: semaines };
@@ -269,7 +266,7 @@ async function envoyer(supabase: Supabase) {
     let ok = false;
     let erreur: string | null = null;
     if (p.slack_user_id) {
-      const s = await ecrireAuPosteur(supabase, lignes[0].poster_id, texte);
+      const s = await ecrireAuPosteur(supabase, lignes[0].poster_id, texte, fetch, undefined, { malgreStop: "paie" });
       ok = s.statut === "envoye";
       if (!ok) erreur = "erreur" in s ? String(s.erreur) : s.statut;
     }

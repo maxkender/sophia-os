@@ -92,6 +92,11 @@ export interface DetailSupport {
   poster_id: string | null;
   messages: MessageFil[];
   fiche: Fiche | null;
+  /** 0685 : envoyée en ticket dans #a-os-tickets (bouton de la Boîte). */
+  ticket_at?: string | null;
+  /** 0685 : la dernière analyse « Avoir le contexte ». */
+  contexte_analyse?: string | null;
+  contexte_at?: string | null;
 }
 
 /** Le libellé d'une ligne : la catégorie d'un problème ; « Question » pour une question sans catégorie. */
@@ -133,7 +138,11 @@ export function filtrer(lignes: readonly LigneSupport[], type: TypeDemande, f: F
     .filter((l) => !f.plateforme || l.plateforme === f.plateforme)
     .filter((l) => !f.categorie || (l.categorie ?? "autre") === f.categorie)
     .filter((l) => !f.retard || l.en_retard)
-    .sort((a, b) => rang[a.urgence] - rang[b.urgence] || a.escalade_at.localeCompare(b.escalade_at));
+    // 12/11 (Max) : une seule liste dans la Boîte ; la paie (niveau Max) passe en premier.
+    .sort((a, b) => paie(a) - paie(b) || rang[a.urgence] - rang[b.urgence] || a.escalade_at.localeCompare(b.escalade_at));
+  function paie(l: LigneSupport): number {
+    return niveaux?.get(l.id) === "max" ? 0 : 1;
+  }
 }
 
 export function compter(lignes: readonly LigneSupport[], type: TypeDemande): number {
@@ -227,6 +236,16 @@ export async function lireDetail(id: string): Promise<DetailSupport | null> {
 
 export function envoyerReponse(id: string, texte: string): Promise<{ envois: Record<string, string> }> {
   return appeler({ action: "repondre", id, texte });
+}
+
+/** 12/11 (Max) : la demande part en ticket dans #a-os-tickets ; l'IT guy la traite. */
+export function envoyerTicket(id: string, note?: string): Promise<{ ticket_at?: string; deja?: boolean }> {
+  return appeler({ action: "ticket", id, note: note ?? null });
+}
+
+/** 12/11 (Max) : l'analyse de tout ce que l'OS sait sur le posteur (fiche, Upwork, Slack, Help, Ruul, posts). */
+export function analyserContexte(id: string): Promise<{ analyse: string; contexte_at: string }> {
+  return appeler({ action: "contexte", id });
 }
 
 export async function changer(id: string, p: { statut?: "ouvert" | "resolu"; type?: TypeDemande }): Promise<void> {

@@ -1,5 +1,6 @@
 import { chargerBase, demanderAuCerveau, jetonSlackFaq, posterSlack } from "../_shared/faq_moteur.ts";
 import { chargerSourcesSupport } from "../_shared/support_sources.ts";
+import { CANAL_TICKETS, erreurTicket, promptContexte, texteTicket } from "../_shared/support_ticket.ts";
 import { avecLienMotDePasse, VAR_LIEN_MOT_DE_PASSE } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
@@ -124,6 +125,14 @@ Deno.serve(async (request) => {
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
         if (!body.forcer && heureParis() !== 8) return json({ ok: true, ignore: "pas 8 h à Paris" });
         return json(await top10Lundi(db, body.envoyer !== false));
+      case "ticket":
+        // 12/11 (Max) : « Envoyer en ticket à l'OS » depuis la Boîte → #a-os-tickets (l'IT guy le traite).
+        if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
+        return json(await envoyerTicket(db, acces.userId === "cron" ? null : acces.userId, String(body.id ?? ""), typeof body.note === "string" ? body.note : null));
+      case "contexte":
+        // 12/11 (Max) : « Avoir le contexte » : l'analyse de tout ce que l'OS sait sur le posteur. Ne fait que lire.
+        if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
+        return json(await analyserContexte(db, String(body.id ?? "")));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }
@@ -744,4 +753,57 @@ async function trierDemande(db: Db, id: string) {
     });
   }
   return { ok: true, niveau };
+}
+
+/** 12/11 (Max) : la demande part en ticket dans #a-os-tickets ; elle reste ouverte dans la Boîte. */
+async function envoyerTicket(db: Db, par: string | null, id: string, note: string | null) {
+  const { data: d, error } = await db.from("support_demandes")
+    .select("id, poster_id, plateforme, categorie, texte, slack_canal, slack_ts, slack_user, ticket_at, ticket_slack_ts").eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!d) return { ok: false, error: "demande introuvable" };
+  if (d.ticket_at) return { ok: true, deja: true, ticket_at: d.ticket_at };
+  const jeton = jetonSlackFaq();
+  if (!jeton) return { ok: false, error: "jeton Slack absent" };
+  const f = d.poster_id ? await fiche(db, d.poster_id) : null;
+  const texte = texteTicket({ ...d, nom: (f as { nom?: string } | null)?.nom ?? d.slack_user ?? null, note }, OS_URL);
+  const r = await posterSlack(jeton, CANAL_TICKETS, texte);
+  if (!r.ok) return { ok: false, error: erreurTicket(r.error ?? "inconnue") };
+  const maintenant = new Date().toISOString();
+  const { error: e } = await db.from("support_demandes")
+    .update({ ticket_at: maintenant, ticket_slack_ts: r.ts ?? null, ticket_par: par, maj_at: maintenant }).eq("id", id);
+  if (e) throw new Error(e.message);
+  return { ok: true, ticket_at: maintenant };
+}
+
+/** 12/11 (Max) : fiche + historique OS + Upwork + Slack + messages reçus → une note en français (Gemini). */
+async function analyserContexte(db: Db, id: string) {
+  const { data: d, error } = await db.from("support_demandes").select("id, poster_id, texte, categorie, source").eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!d) return { ok: false, error: "demande introuvable" };
+  if (!d.poster_id) return { ok: false, error: "posteur inconnu : pas de contexte à lire" };
+  const poster = d.poster_id as string;
+  const { data: profil } = await db.from("profiles").select("slack_user_id").eq("id", poster).maybeSingle();
+  const [f, plus, upwork, slack, reponses] = await Promise.all([
+    fiche(db, poster),
+    db.rpc("support_contexte_plus", { p_poster: poster }).then((r) => r.data ?? null),
+    db.from("upwork_messages").select("at, role, texte").eq("poster_id", poster).order("at", { ascending: false }).limit(40)
+      .then((r) => (r.data ?? []).map((m) => ({ at: String(m.at), role: (m.role as string | null) ?? null, texte: String(m.texte ?? "").slice(0, 400) }))),
+    profil?.slack_user_id
+      ? db.from("slack_messages").select("at, canal, texte").eq("slack_user", profil.slack_user_id).order("at", { ascending: false }).limit(20)
+        .then((r) => (r.data ?? []).map((m) => ({ at: String(m.at), canal: String(m.canal), texte: String(m.texte ?? "").slice(0, 400) })))
+      : Promise.resolve([]),
+    db.from("posteur_reponses").select("recu_at, canal, texte, reponse_texte").eq("poster_id", poster).order("recu_at", { ascending: false }).limit(20)
+      .then((r) => (r.data ?? []).map((m) => ({
+        at: String(m.recu_at), canal: (m.canal as string | null) ?? null, texte: String(m.texte ?? "").slice(0, 400),
+        notre_reponse: m.reponse_texte ? String(m.reponse_texte).slice(0, 300) : null,
+      }))),
+  ]);
+  const analyse = (await generateTextFast(promptContexte({
+    fiche: f, plus, demande: { texte: String(d.texte), categorie: (d.categorie as string | null) ?? null, source: (d.source as string | null) ?? null },
+    upwork, slack, reponses,
+  }))).trim();
+  const maintenant = new Date().toISOString();
+  const { error: e } = await db.from("support_demandes").update({ contexte_analyse: analyse, contexte_at: maintenant }).eq("id", id);
+  if (e) throw new Error(e.message);
+  return { ok: true, analyse, contexte_at: maintenant, sources: { upwork: upwork.length, slack: slack.length, messages: reponses.length } };
 }

@@ -64,23 +64,22 @@ export function SectionSupport() {
   );
 }
 
-/** La Boîte : les demandes escaladées, en deux piles (Pour Max : paiement / urgent ; Pour Adrien : le reste). */
+/**
+ * La Boîte : les demandes que l'OS n'a pas su régler, en une seule liste (12/11, Max : lui seul la
+ * traite). La paie passe en premier, en rouge. Un vrai problème technique part en ticket à l'OS.
+ */
 function Boite() {
   const chiffres = useQuery({ queryKey: ["os", "aujourdhui"], queryFn: lireAujourdhui, refetchInterval: 60_000 });
-  const [pile, setPile] = React.useState<"max" | "adrien">("max");
-  const n = { max: chiffres.data?.pour_max ?? 0, adrien: chiffres.data?.pour_adrien ?? 0 };
+  const paie = chiffres.data?.pour_max ?? 0;
+  const total = paie + (chiffres.data?.pour_adrien ?? 0);
   return (
     <div className="space-y-3">
-      <div className="grid grid-cols-2 gap-2">
-        {(["max", "adrien"] as const).map((p) => (
-          <button key={p} type="button" onClick={() => setPile(p)} data-testid={`pile-${p}`}
-            className={`rounded-lg border p-3 text-left transition-colors ${pile === p ? "border-primary bg-muted/60" : "hover:bg-muted/40"}`}>
-            <span className="block text-xs text-muted-foreground">{p === "max" ? "Pour Max · paiement, fraude, litige" : "Pour Adrien · le reste"}</span>
-            <span className={`text-3xl font-semibold ${p === "max" && n.max > 0 ? "text-destructive" : ""}`}>{n[p]}</span>
-          </button>
-        ))}
+      <div className="rounded-lg border p-3" data-testid="boite-total">
+        <span className="block text-xs text-muted-foreground">À traiter</span>
+        <span className="text-3xl font-semibold">{total}</span>
+        {paie > 0 && <span className="ml-2 text-sm font-medium text-destructive">dont {paie} paie</span>}
       </div>
-      <PageSupport key={pile} niveau={pile} />
+      <PageSupport />
     </div>
   );
 }

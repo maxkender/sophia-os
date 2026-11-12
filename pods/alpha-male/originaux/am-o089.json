@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o089",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3bcab90e-7a9f-401d-945c-ee595bd0d041",
+ "titre": "Man to man, how to rebuild yourself after a year that broke you #men #selfimprovement #discipline #mindset #reset",
+ "musique_titre": "why i do em like that (feat. billie essco)",
+ "musique_url": "https://www.tiktok.com/music/why-i-do-em-like-that-feat-billie-essco-7010274430282631169",
+ "inspirations": [
+  "3bcab90e-7a9f-401d-945c-ee595bd0d041"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 12/11. Déclinaison G2 de la ligne 1 (parent 3bcab90e = notre am-o048, langue source en ; 3e et dernière déclinaison après am-o074 et am-o081). Même promesse, troisième reformulation (« Man to man, how to rebuild yourself after a year that broke you »). Même format. Étapes neuves, ni de am-o048, am-o074 ou am-o081. Rien de médical. Images de la banque et une célébrité (autorisé) ; slide Sophia : terrasse sur le lac, sans personne. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01eb8da0",
+   "texte_overlay": "Man to man, how to rebuild\nyourself after a year\nthat broke you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c217d2f",
+   "texte_overlay": "1. Unfollow what keeps you stuck\nThe accounts, the group chats,\nthe old photos. Clean the feed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c9e27cd",
+   "texte_overlay": "2. Build a morning anchor\nSame first ten minutes every day.\nCoffee, window, no phone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "12812cb9",
+   "texte_overlay": "3. Finish one physical project\nFix the bike. Paint the wall.\nYour hands remind your head\nyou can still build.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "162e4a6b",
+   "texte_overlay": "4. Say yes to one invitation\nEven when you'd rather stay in.\nPeople pull you forward.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3e36ddcc",
+   "texte_overlay": "5. Spend a weekend outside the city\nNew air, new view.\nPerspective is a place.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0a60706f",
+   "texte_overlay": "6. Learn a skill you've\nalways put off\nFive minutes a day is enough\nto start feeling new.",
+   "texte_sophia": "6. Learn a skill you've\nalways put off\nUse a micro-learning app\nlike the Sophia app.\nFive minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7632072970629877014/2.jpg"
+  }
+ ]
+}

@@ -8,12 +8,20 @@
  "titre": {
   "en": "10/10 Skills You Can Learn In A Day!",
   "de": "10/10 Skills, die du an einem Tag lernst!",
-  "pt": "10/10 habilidades para aprender num dia!"
+  "pt": "10/10 habilidades para aprender num dia!",
+  "fr": "10/10 compétences à apprendre en une journée !",
+  "es": "¡10/10 habilidades que puedes aprender en un día!",
+  "es-419": "¡10/10 habilidades que puedes aprender en un día!",
+  "it": "10/10 abilità che puoi imparare in un giorno!"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Day! #skills #learnontiktok #selfimprovement",
   "de": "10/10 Skills, die du an einem Tag lernst! #skills #lernenmittiktok #selbstverbesserung",
-  "pt": "10/10 habilidades para aprender num dia! #habilidades #aprendernotiktok #desenvolvimentopessoal"
+  "pt": "10/10 habilidades para aprender num dia! #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "fr": "10/10 compétences à apprendre en une journée ! #apprendresurtiktok #développementpersonnel #compétences",
+  "es": "¡10/10 habilidades que puedes aprender en un día! #aprendeentiktok #desarrollopersonal #habilidades",
+  "es-419": "¡10/10 habilidades que puedes aprender en un día! #aprendeentiktok #desarrollopersonal #habilidades",
+  "it": "10/10 abilità che puoi imparare in un giorno! #imparacontiktok #crescitapersonale #abilità"
  },
  "musique": {
   "titre": "sonido original",
@@ -58,6 +66,78 @@
      ],
      "HABILIDADES PARA",
      "APRENDER NUM DIA!"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES",
+     "À APPRENDRE",
+     [
+      {
+       "t": "EN UN JOUR !",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     "PARA APRENDER",
+     [
+      {
+       "t": "EN UN DÍA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     "PARA APRENDER",
+     [
+      {
+       "t": "EN UN DÍA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ",
+     "DA IMPARARE",
+     [
+      {
+       "t": "IN UN GIORNO",
+       "bronze": true
+      }
+     ]
     ]
    }
   },
@@ -149,6 +229,110 @@
     "sous": [
      "30 minutos para aprender."
     ]
+   },
+   "fr": {
+    "titre": [
+     "FAIS UN NŒUD DE",
+     [
+      {
+       "t": "CRAVATE",
+       "couleur": "#0231c5"
+      }
+     ],
+     "EN UNE MINUTE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "mrwNKOEKdU4",
+     "titre": "Comment faire un nœud de cravate en 2 minutes (facile) 👔",
+     "chaine": "Bonnegueule",
+     "vues": "507 k vues",
+     "date": "il y a 4 ans",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/UdECfkFA8IQqNo8kBQDywZ21Rw0HmhL5Rn5C2Vw7oMvTswbAE5JOi0g2SmG1UDlvTcXIUSeVaw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ EL NUDO DE",
+     [
+      {
+       "t": "CORBATA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "EN UN MINUTO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "V_e2KGAywLM",
+     "titre": "Cómo hacer el nudo de la corbata FÁCIL y RÁPIDO | Humberto Gutiérrez",
+     "chaine": "Consejos Imagen",
+     "vues": "20 M de visualizaciones",
+     "date": "hace 8 años",
+     "duree": "4:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcXHJmLuU9CHJdVBWhjeoKC9v9Ne4C0XEhMltM1r4v4A8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ EL NUDO DE",
+     [
+      {
+       "t": "CORBATA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "EN UN MINUTO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "CqC25xIOYkM",
+     "titre": "Cómo hacer nudo de corbata para principiantes, fácil y rápido",
+     "chaine": "Viendo y Aprendiendo",
+     "vues": "670 k vistas",
+     "date": "hace 2 años",
+     "duree": "1:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kbfxg3pcZtOlOrk9iwcbZvnkmoGQ2-zNriMDfj6fBIpD0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FAI IL NODO ALLA",
+     [
+      {
+       "t": "CRAVATTA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "IN UN MINUTO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "HtOHVFo6L1c",
+     "titre": "Nodo Cravatta Semplice - Tiro a Quattro (Four in Hand)",
+     "chaine": "Valentino Spinato",
+     "vues": "491K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "1:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtCiiR3zvUrZjzlHYmCTsp9fYiuArqZ_NC94yWpyDeEa4=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -239,6 +423,110 @@
     "sous": [
      "20 minutos para aprender."
     ]
+   },
+   "fr": {
+    "titre": [
+     "COUDS UN",
+     [
+      {
+       "t": "BOUTON",
+       "couleur": "#e3161d"
+      }
+     ],
+     "QUI NE TOMBE PLUS"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "Zw3sKaFLjtY",
+     "titre": "Apprendre à recoudre un bouton",
+     "chaine": "Minute Facile",
+     "vues": "723 k vues",
+     "date": "il y a 13 ans",
+     "duree": "4:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkXlV44SGe8MiiimoT5mKvZRj4ucbjBMXYxc30JFkmDYM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "COSE UN",
+     [
+      {
+       "t": "BOTÓN",
+       "couleur": "#e3161d"
+      }
+     ],
+     "QUE NUNCA SE CAE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "EErvXGGAOt0",
+     "titre": "Cómo COSER UN BOTÓN de 4 AGUJEROS a mano 📍",
+     "chaine": "Macrostura",
+     "vues": "597 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "2:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns92rG38S7dzYeUFgqB0L4skYPQ4b8ZfpXvmQrAgNn_XA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "COSE UN",
+     [
+      {
+       "t": "BOTÓN",
+       "couleur": "#e3161d"
+      }
+     ],
+     "QUE NUNCA SE CAE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "A-k3jWuNSYQ",
+     "titre": "Como COSER UN BOTÓN de 2 agujeros a mano (Paso a paso) 📍",
+     "chaine": "Macrostura",
+     "vues": "182 k vistas",
+     "date": "hace 6 años",
+     "duree": "3:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns92rG38S7dzYeUFgqB0L4skYPQ4b8ZfpXvmQrAgNn_XA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "ATTACCA UN",
+     [
+      {
+       "t": "BOTTONE",
+       "couleur": "#e3161d"
+      }
+     ],
+     "CHE NON CADE PIÙ"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "gfUVuG2nkO4",
+     "titre": "COME CUCIRE UN BOTTONE | Tutorial cucito base",
+     "chaine": "Feeling Felt",
+     "vues": "148K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5TPXhDU7L5sX5QRIpRNUI0gVkOji-QxANUDizIY-AWg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -308,6 +596,102 @@
      "texte": [
       "5 minutos por dia",
       "para saber um pouco de tudo."
+     ]
+    },
+    "tailles": [
+     180,
+     206,
+     160
+    ]
+   },
+   "fr": {
+    "titre": [
+     "SAVOIR",
+     [
+      {
+       "t": "UN PEU",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DE TOUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    },
+    "tailles": [
+     180,
+     206,
+     160
+    ]
+   },
+   "es": {
+    "titre": [
+     "SABER",
+     [
+      {
+       "t": "UN POCO",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    },
+    "tailles": [
+     180,
+     206,
+     160
+    ]
+   },
+   "es-419": {
+    "titre": [
+     "SABER",
+     [
+      {
+       "t": "UN POCO",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    },
+    "tailles": [
+     180,
+     206,
+     160
+    ]
+   },
+   "it": {
+    "titre": [
+     "SAPERE",
+     [
+      {
+       "t": "UN PO'",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "DI TUTTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
      ]
     },
     "tailles": [
@@ -405,6 +789,110 @@
     "sous": [
      "1 hora para aprender."
     ]
+   },
+   "fr": {
+    "titre": [
+     "CHANGE UNE",
+     [
+      {
+       "t": "ROUE",
+       "couleur": "#4913cd"
+      }
+     ],
+     "SANS APPELER PERSONNE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "BtoUrJdUgb0",
+     "titre": "Comment changer une roue de voiture ?",
+     "chaine": "Antoine Waag",
+     "vues": "677 k vues",
+     "date": "il y a 11 ans",
+     "duree": "4:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_Nap43OrA87w5VZxp40Hi4-e6WGt1rASNLszbaN1hINg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CAMBIA UNA",
+     [
+      {
+       "t": "RUEDA",
+       "couleur": "#4913cd"
+      }
+     ],
+     "SIN LLAMAR A NADIE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "bTs7RaLQS8c",
+     "titre": "🔴 CAMBIAR RUEDAS DEL COCHE EN 5 MIN!! ⏱️ (Fácil y paso a paso)",
+     "chaine": "Actualidad Motor - Pruebas de coches",
+     "vues": "267 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/vvcGXvi5uzQy8Q7cYmm8EenpLxE63tWcJgREgHTZd_aPytW7xTT2j510u33O5TmiFbbiY-827A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CAMBIA UNA",
+     [
+      {
+       "t": "LLANTA",
+       "couleur": "#4913cd"
+      }
+     ],
+     "SIN LLAMAR A NADIE"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "fbDyQJNLs4k",
+     "titre": "¿Cómo cambiar una llanta? Tutorial - Cooper Consejos en AutoDinámico",
+     "chaine": "AutoDinámico",
+     "vues": "1 M de vistas",
+     "date": "hace 10 años",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/qcOyOVikXQfVnf8OJ0TD6oIGYa6-igJYxq6JKPtuFHqjAmTUctHoMFE5PZZePUlknsTRoxNtcA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CAMBIA UNA",
+     [
+      {
+       "t": "GOMMA",
+       "couleur": "#4913cd"
+      }
+     ],
+     "SENZA CHIAMARE NESSUNO"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "H6y3N5lm0hI",
+     "titre": "COME CAMBIARE LA GOMMA DELL'AUTO",
+     "chaine": "Dada e Marcolino",
+     "vues": "186K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:12",
+     "avatar": "https://yt3.ggpht.com/Kz_NGDxEsmCsKXgaDKwY6VB6vBUu52OU6z4DVI5dqZSun0kikR6Whp_ZuGKI1s9pguTE7RvD=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -495,6 +983,110 @@
     "sous": [
      "15 minutos para aprender."
     ]
+   },
+   "fr": {
+    "titre": [
+     "FAIS LE",
+     [
+      {
+       "t": "NŒUD DE CHAISE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "LE ROI DES NŒUDS"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "uzBeK6bRD1g",
+     "titre": "Noeud de Chaise",
+     "chaine": "66Dauphin",
+     "vues": "1,1 M de vues",
+     "date": "il y a 14 ans",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mI_e2qKpOCiQZoGJkbzmk1Y4WkViTvmTkgHDkns40=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ EL",
+     [
+      {
+       "t": "AS DE GUÍA",
+       "couleur": "#3256a0"
+      }
+     ],
+     "EL REY DE LOS NUDOS"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "yLxisOKD2ho",
+     "titre": "NUDO AS DE GUÍA; NUDOS MARINEROS",
+     "chaine": "SailandTrip",
+     "vues": "2,2 M de visualizaciones",
+     "date": "hace 12 años",
+     "duree": "1:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_muTn4n27nr5tjgbssqjBeVWnO5ihfqmYehmYo8N05giSA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ EL",
+     [
+      {
+       "t": "AS DE GUÍA",
+       "couleur": "#3256a0"
+      }
+     ],
+     "EL REY DE LOS NUDOS"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "rn4NDq7VW8E",
+     "titre": "Nudo As DE GUíA fácil",
+     "chaine": "Fernando Fabersane",
+     "vues": "550 k vistas",
+     "date": "hace 10 años",
+     "duree": "0:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nT2OTpLl1dodX6MWw0nKGqhEt1JGnNnfB1HDofIU6OXgw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FAI LA",
+     [
+      {
+       "t": "GASSA D'AMANTE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "IL RE DEI NODI"
+    ],
+    "tailles": [
+     180,
+     190,
+     150
+    ],
+    "video": {
+     "id": "UqQYJ63Cafk",
+     "titre": "Come si fa il nodo Gassa d'amante",
+     "chaine": "Nautica Online",
+     "vues": "1 Mln visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/RH7T6s-LeMF61tYqb8bpDbvRlDETtjWZkDBsqybxcgJF-VnfSxSmDhD2tUoIc2PiwuGkRW9_nQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   }
  ]

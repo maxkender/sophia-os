@@ -1,0 +1,218 @@
+{
+ "id": "fa-016-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7683573765434838294",
+  "vues": 13300,
+  "accroche": "5 Skills You Can Learn Instead Of Scrolling"
+ },
+ "titre": {
+  "en": "5 Skills You Can Learn Instead Of Scrolling",
+  "de": "5 Skills, die du statt Scrollen lernen kannst"
+ },
+ "legendes": {
+  "en": "5 Skills You Can Learn Instead Of Scrolling #skills #learnontiktok #selfimprovement",
+  "de": "5 Skills, die du statt Scrollen lernen kannst #skills #lernenmittiktok #selbstverbesserung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "remplace fa-016 (carte UnSwipe retirée). L'étape 2 « STOP THE SCROLL » redevient une étape normale avec sa vraie vidéo YouTube native (Lavendaire en anglais, Jani Jäckel en allemand) ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 4). Livré en en et de, comme les autres reprises du chantier.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "YOU CAN LEARN",
+     [
+      {
+       "t": "INSTEAD OF SCROLLING",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE DU LERNEN KANNST",
+     [
+      {
+       "t": "STATT ZU SCROLLEN",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN CHESS"
+    ],
+    "video": {
+     "id": "IU6k-4rKf-g",
+     "titre": "Learn How to Play Chess for Beginners in Less Than 8 Minutes",
+     "chaine": "Mr.Animate",
+     "vues": "2.9M views",
+     "date": "6 years ago",
+     "duree": "7:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_keErs7KSaKWnjurcbpK6B2b7EN2kIeVMZYJe4SKDw1=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN SCHACH"
+    ],
+    "video": {
+     "id": "y6vQRcp0w40",
+     "titre": "SCHACH LERNEN: Das einzige Video, das du brauchst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "761.139 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "21:55",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "STOP THE SCROLL"
+    ],
+    "video": {
+     "id": "98Uhowi8O8k",
+     "titre": "How to Stop Doom Scrolling | tips to break your social media addiction 📲",
+     "chaine": "Lavendaire",
+     "vues": "2M views",
+     "date": "3 years ago",
+     "duree": "15:58",
+     "avatar": "https://yt3.ggpht.com/BV93psvV7-sWxPKcFRb7FlDEg2UEv9kDwDIOBppCE7Ri74uzAcn6O5lv3vidRTvfWOoklTR_h8M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "STOPP DAS SCROLLEN"
+    ],
+    "video": {
+     "id": "I2hbB2qdm34",
+     "titre": "Wie du deine Handysucht loswirst und lernst klar zu denken",
+     "chaine": "Jani Jäckel",
+     "vues": "449.065 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "15:38",
+     "avatar": "https://yt3.ggpht.com/B8dyKIX0GoE94yR-XaYMkL937H6lmuDQyZi0qo5kAhy6c-puJUn85YY5pLI9vB9sjyuWYeWRtA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE A",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "101M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LÖSE DEN",
+     "ZAUBERWÜRFEL"
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN A",
+     "NEW TOPIC"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE EIN",
+     "NEUES THEMA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START DRAWING"
+    ],
+    "video": {
+     "id": "VtgB2pCC73M",
+     "titre": "How to ACTUALLY Start Drawing? (for beginners)",
+     "chaine": "KeshArt",
+     "vues": "2M views",
+     "date": "2 years ago",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/I03q427bkVV7QWuyaozTRx4g-6CfGXJmQSnMPDhcXLqj2I1qHTy-FD455ETklJfzxWNhcd54yg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FANG AN",
+     "ZU ZEICHNEN"
+    ],
+    "video": {
+     "id": "_P0miJyVt4E",
+     "titre": "Zeichnen lernen für Anfänger - Zeichnen Grundlagen",
+     "chaine": "Simon Gillmeister",
+     "vues": "49.392 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "16:10",
+     "avatar": "https://yt3.ggpht.com/0UolUpHHEcHhJ5LDjctd_3nyDsovUzFDsN38b4lVSgPWBPWltP-64czV9X6VviMdQHlQbERsIg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

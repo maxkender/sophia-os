@@ -10,14 +10,18 @@
   "de": "5 Rabbit Holes, die sich lohnen",
   "pt": "5 temas para explorar a fundo",
   "it": "5 argomenti da approfondire",
-  "es-419": "5 temas que vale la pena explorar"
+  "es-419": "5 temas que vale la pena explorar",
+  "fr": "5 sujets qui valent le détour",
+  "es": "5 temas que vale la pena explorar"
  },
  "legendes": {
   "en": "5 Rabbit Holes Worth Going Down #learnontiktok #selfmastery #curiosity",
   "de": "5 Rabbit Holes, die sich lohnen #lernenmittiktok #selbstverbesserung #neugier",
   "pt": "5 temas para explorar a fundo #aprendernotiktok #desenvolvimentopessoal #curiosidade",
   "it": "5 argomenti da approfondire #imparacontiktok #crescitapersonale #abilità",
-  "es-419": "5 temas que vale la pena explorar #aprendeentiktok #desarrollopersonal #habilidades"
+  "es-419": "5 temas que vale la pena explorar #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "5 sujets qui valent le détour #apprendresurtiktok #curiosité #culture",
+  "es": "5 temas que vale la pena explorar #aprendeentiktok #curiosidades #cultura"
  },
  "musique": {
   "titre": "audio originale",
@@ -82,6 +86,40 @@
     ]
    },
    "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "QUE VALE LA PENA",
+     [
+      {
+       "t": "EXPLORAR",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 SUJETS",
+       "bronze": true
+      }
+     ],
+     "QUI VALENT",
+     [
+      {
+       "t": "LE DÉTOUR",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
     "lignes": [
      [
       {
@@ -175,6 +213,36 @@
      "duree": "18:16",
      "avatar": "https://yt3.ggpht.com/mqqJqcxHDXVE7ll-4Ky3IpVkxxVnWSFoIroX8woeFXdcFgUc4b_iqgYlYcfD7p1LGlPfYp6G8Ws=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "LE MANUSCRIT",
+     "DE VOYNICH"
+    ],
+    "video": {
+     "id": "IHJofAM65Wg",
+     "titre": "Le mystère du manuscrit de Voynich [2011]",
+     "chaine": "l'Horizon des Événements",
+     "vues": "489 k vues",
+     "date": "il y a 13 ans",
+     "duree": "50:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lL8K-e_ZhwfKGkFNoApDOFNpTWBN_EyhdzYzLUWY5Tjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EL MANUSCRITO",
+     "VOYNICH"
+    ],
+    "video": {
+     "id": "PJyK_qmwGGY",
+     "titre": "El Libro Imposible de Leer",
+     "chaine": "Eze Martínez",
+     "vues": "1,2 M de visualizaciones",
+     "date": "hace 1 año",
+     "duree": "21:58",
+     "avatar": "https://yt3.ggpht.com/jKmPIINdkcWaWSNuqW5WAyAmbZZq6tqUO3ii3NRwcCkaGddFITvXcvlj56dZZynRemqwiV6ObaU=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -253,6 +321,36 @@
      "duree": "44:25",
      "avatar": "https://yt3.ggpht.com/KN4pLsXQGXi6I45Y1DEUGEiiU17Mb-LS0RE5-zjYFqcW6z4g1ANpdBtN_rpWOus7YXJDkTMeOQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ON A BÂTI",
+     "LES PYRAMIDES"
+    ],
+    "video": {
+     "id": "pOznETH5nGY",
+     "titre": "Égyptologie - Construction des pyramides",
+     "chaine": "Naked Science",
+     "vues": "25 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/SkzZfKzI1Rs2DOcRKHEkn0EHM9_VAWuDpG5TmCFJTMY388MtZrcEHENHTuxHdD1RKk1hbxt83x8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÓMO SE HICIERON",
+     "LAS PIRÁMIDES"
+    ],
+    "video": {
+     "id": "jFaKmN2Mkko",
+     "titre": "✅¿Cómo se CONSTRUYERON las PIRÁMIDES de EGIPTO? | La respuesta a la gran incógnita",
+     "chaine": "Memorias de Pez",
+     "vues": "482 K visualizaciones",
+     "date": "hace 1 año",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nM6wSYYyXw-uwi_URvB6vZr6rUr1uvtTghcmCnHyBa2kQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -320,6 +418,32 @@
      "texte": [
       "lo que abro",
       "en lugar de scrollear."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SUIS TA",
+     "CURIOSITÉ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "SIGUE TU",
+     "CURIOSIDAD"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
      ]
     }
    }
@@ -396,6 +520,36 @@
      "titre": "¿Por qué el cielo es azul?",
      "chaine": "CuriosaMente",
      "vues": "661 k vistas",
+     "date": "hace 9 años",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "POURQUOI LE CIEL",
+     "EST BLEU"
+    ],
+    "video": {
+     "id": "RAYavfn0pJg",
+     "titre": "Pourquoi le ciel est-il bleu ?",
+     "chaine": "Jamy - Epicurieux",
+     "vues": "448 k vues",
+     "date": "il y a 4 mois",
+     "duree": "9:49",
+     "avatar": "https://yt3.ggpht.com/PmI8M3fQcLUOPc9oU6PO86lVIdlqwQPQ5K4T_s5YWOei67zPRJ1Knq6pzKawZNWh2Ls7H4w2Dg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "POR QUÉ EL CIELO",
+     "ES AZUL"
+    ],
+    "video": {
+     "id": "0t31zWMX8KI",
+     "titre": "¿Por qué el cielo es azul?",
+     "chaine": "CuriosaMente",
+     "vues": "661 K visualizaciones",
      "date": "hace 9 años",
      "duree": "1:51",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"

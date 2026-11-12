@@ -9,8 +9,8 @@
 type Fetch = typeof fetch;
 
 /** #questions (lu le 29/10) ; le réglage `slack_questions_canal` le remplace. */
-export const CANAL_QUESTIONS_DEFAUT = "C0BL56RJH7T";
-export const TEXTE_QUESTIONS_DEFAUT = "Questions: post them in #questions. Please don't DM the team.";
+export const CANAL_QUESTIONS_DEFAUT = "C0CGA81NTDH";
+export const TEXTE_QUESTIONS_DEFAUT = "Questions about posting → #posting-help. Anything personal → Help on your dashboard.";
 /** Le callback_id du raccourci de message, à déclarer dans l'appli Slack « Sophia OS ». */
 export const RACCOURCI_ENVOYER_OS = "send_to_os";
 

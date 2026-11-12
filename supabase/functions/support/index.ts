@@ -18,6 +18,7 @@ import {
   texteProblemeRecu,
 } from "../_shared/support.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
+import { appliquerGardeFous, type DecisionBot, lireDecision, promptBot, signer, type SourceBot, testOk } from "../_shared/bot_support.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 /**
@@ -63,6 +64,24 @@ Deno.serve(async (request) => {
       case "repondre":
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
         return json(await repondre(db, acces.userId === "cron" ? null : acces.userId, String(body.id ?? ""), String(body.texte ?? "")));
+      case "bot": {
+        // 12/11 (Support propre) : le bot v2 en SIMULATION (page /admin/bot) : rien n'est envoyé, rien n'est écrit.
+        if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
+        const message = String(body.message ?? "").trim();
+        if (message.length < 1) return json({ ok: false, error: "message vide" }, 400);
+        return json({
+          ok: true, simulation: true,
+          ...(await deciderBot(db, {
+            message, source: body.source === "slack_salon" ? "slack_salon" : "help",
+            poster: typeof body.poster_id === "string" && body.poster_id ? body.poster_id : null,
+            profil: body.profil && typeof body.profil === "object" ? body.profil as ProfilFictif : null,
+          })),
+        });
+      }
+      case "tests_lancer":
+        // 12/11 : les tests du bot (bot_tests), en simulation ; seul le résultat du test est écrit.
+        if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
+        return json(await lancerTests(db, Array.isArray(body.ids) ? body.ids.map(String) : null));
       case "essai": {
         // 12/11 : le bot sur un vrai posteur, sans rien écrire ni envoyer (admin, cron) : sa réponse, son brouillon, son verdict.
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -310,4 +329,111 @@ async function alertes(db: Db) {
     })) envoyees++;
   }
   return { ok: true, alertes: envoyees };
+}
+
+// ---------------------------------------------------------------------------
+// Bot v2 « Support propre » (12/11) : la décision (catégorie, réponse, action, niveau, risque).
+// ---------------------------------------------------------------------------
+
+/** Un faux posteur pour le bac à sable (/admin/bot). */
+interface ProfilFictif {
+  plateforme?: "ruul" | "upwork";
+  zone?: string;
+  etape?: string;
+  statut?: string;
+  prenom?: string;
+}
+
+const LIEN_HELP = `${OS_URL}/createur/help`;
+
+function ficheFictive(p: ProfilFictif): string {
+  return [
+    `Posteur FICTIF (test) : ${p.prenom ?? "Alex"}. Plateforme de paie : ${p.plateforme === "ruul" ? "Ruul" : "Upwork"}.`,
+    p.plateforme === "ruul"
+      ? "RÈGLE : ce posteur est payé par Ruul. Ne parle JAMAIS d'Upwork (ni contrat, ni milestone, ni message Upwork)."
+      : "RÈGLE : ce posteur est payé par Upwork. Ne parle JAMAIS de Ruul.",
+    `Zone : ${p.zone ?? "?"}. Étape : ${p.etape ?? "?"}. Statut : ${p.statut ?? "actif"}.`,
+  ].join("\n");
+}
+
+async function deciderBot(
+  db: Db,
+  o: { message: string; source: SourceBot; poster: string | null; profil: ProfilFictif | null },
+) {
+  const fictif = !o.poster && o.profil;
+  const [f, ctx, infos, histo] = await Promise.all([
+    o.poster ? fiche(db, o.poster) : Promise.resolve(null),
+    o.poster ? contexte(db, o.poster) : Promise.resolve(""),
+    db.from("support_infos").select("titre, valeur").order("ordre").limit(100),
+    o.poster
+      ? db.from("support_demandes").select("cree_at, categorie, texte").eq("poster_id", o.poster).order("cree_at", { ascending: false }).limit(10)
+      : Promise.resolve({ data: [] as { cree_at: string; categorie: string | null; texte: string }[] }),
+  ]);
+  const plateforme: "ruul" | "upwork" | null = f?.plateforme ?? (fictif ? (o.profil!.plateforme === "ruul" ? "ruul" : "upwork") : null);
+  let requete = db.from("reponses_officielles").select("id, question, formulations, reponse, action, niveau, categorie")
+    .eq("actif", true).not("valide_at", "is", null);
+  if (plateforme) requete = requete.in("portee", ["tous", plateforme]);
+  const { data: catalogue } = await requete.order("ordre").limit(300);
+  const entree = {
+    message: o.message,
+    source: o.source,
+    plateforme,
+    fiche: f ? ficheTexte(f) : fictif ? ficheFictive(o.profil!) : "Fiche : personne introuvable dans l'OS.",
+    contexte: ctx,
+    infos: (infos.data ?? []) as { titre: string; valeur: string }[],
+    catalogue: ((catalogue ?? []) as DecisionCatalogue[]).map((c) => ({ ...c, formulations: c.formulations ?? [] })),
+    historique: ((histo.data ?? []) as { cree_at: string; categorie: string | null; texte: string }[]),
+    inconnu: !f && !fictif,
+  };
+  let decision: DecisionBot | null = null;
+  try {
+    const prompt = promptBot(entree);
+    for (let essai = 0; essai < 2 && !decision; essai++) decision = lireDecision(await generateTextFast(prompt));
+  } catch (erreur) {
+    console.warn(`[support] bot v2 : ${messageErreur(erreur)}`);
+  }
+  if (!decision) {
+    decision = { langue: "en", categorie: "autre", personnel: false, reponse: TEXTE_ENVOYE_EQUIPE, action: null, action_valeur: null,
+      niveau: "adrien", regle: null, risque: [], raison: "Le modèle n'a pas répondu : la demande va à Adrien." };
+  }
+  const nbMemeSujet = entree.historique.filter((h) => h.categorie && h.categorie === decision!.categorie).length;
+  const finale = appliquerGardeFous(decision, { source: o.source, plateforme, lienHelp: LIEN_HELP, nbMemeSujet });
+  const regle = finale.regle ? (entree.catalogue.find((c) => c.id === finale.regle)?.question ?? finale.regle) : null;
+  return {
+    decision: finale,
+    texte: signer(finale.reponse),
+    regle_utilisee: regle,
+    plateforme,
+    action_prevue: finale.action ? { action: finale.action, valeur: finale.action_valeur, executee: false } : null,
+  };
+}
+
+interface DecisionCatalogue {
+  id: string;
+  question: string;
+  formulations: string[] | null;
+  reponse: string;
+  action: string | null;
+  niveau: string;
+  categorie: string | null;
+}
+
+async function lancerTests(db: Db, ids: string[] | null) {
+  let q = db.from("bot_tests").select("id, message, poster_id, profil, source, attendu_niveau, attendu_contient, attendu_action").eq("actif", true);
+  if (ids?.length) q = q.in("id", ids);
+  const { data, error } = await q.order("cree_at").limit(60);
+  if (error) throw new Error(error.message);
+  const resultats: { id: string; ok: boolean; niveau: string; reponse: string; action: string | null }[] = [];
+  // 4 à la fois : le modèle répond en quelques secondes.
+  const liste = (data ?? []) as { id: string; message: string; poster_id: string | null; profil: ProfilFictif | null; source: SourceBot;
+    attendu_niveau: string | null; attendu_contient: string[]; attendu_action: string | null }[];
+  for (let i = 0; i < liste.length; i += 4) {
+    await Promise.all(liste.slice(i, i + 4).map(async (t) => {
+      const r = await deciderBot(db, { message: t.message, source: t.source, poster: t.poster_id, profil: t.profil });
+      const ok = testOk(r.decision, t);
+      resultats.push({ id: t.id, ok, niveau: r.decision.niveau, reponse: r.texte, action: r.decision.action });
+      await db.from("bot_tests").update({ dernier: r, dernier_ok: ok, dernier_at: new Date().toISOString() }).eq("id", t.id);
+    }));
+  }
+  return { ok: true, total: resultats.length, verts: resultats.filter((r) => r.ok).length, resultats };
 }

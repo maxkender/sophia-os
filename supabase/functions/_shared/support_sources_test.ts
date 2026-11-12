@@ -60,3 +60,11 @@ Deno.test("0683 : plainte de paie Upwork sans aucune paie connue → Max ; pas p
   assert(!plainteSansDonnees("I haven't received my payment", "ruul", true));
   assert(!plainteSansDonnees("When do I get paid?", "upwork", true));
 });
+
+Deno.test("0683 : jamais « automatic » ni « automated » dans une réponse au posteur", async () => {
+  const { appliquerGardeFous } = await import("./bot_support.ts");
+  const d = appliquerGardeFous({ langue: "en", categorie: "posting", personnel: true, reponse: "We automatically check account views. You got a new account, keep posting.",
+    action: null, action_valeur: null, niveau: "bot", regle: null, risque: [], raison: "x" }, { source: "help", plateforme: "upwork", lienHelp: "l", nbMemeSujet: 0 });
+  assert(!/automat/i.test(d.reponse));
+  assert(d.reponse.includes("keep posting"));
+});

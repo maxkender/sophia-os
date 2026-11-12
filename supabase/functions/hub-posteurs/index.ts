@@ -365,6 +365,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
       return json({ ok: false, error: `manage-users : ${cree.error}` }, 502);
     }
     await supabase.from("hub_posteurs").delete().eq("hub_id", hubId).eq("statut", "en_cours");
+    await noterEchec(supabase, hubId, emailPerso, `${prenom} ${nom}`.trim(), `creation_refusee : ${cree.error}`);
     return json({ ok: false, error: `creation_refusee : ${cree.error}` }, 422);
   }
 
@@ -383,6 +384,8 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     .update({ statut: "cree", profile_id: cree.userId, compte_id: cree.compteId, email_os: cree.email, cree_at: new Date().toISOString(), mdp_reel: true })
     .eq("hub_id", hubId);
   if (errCree) throw errCree;
+  // 0690 : un échec passé pour ce signé est réglé.
+  await supabase.from("hub_echecs").update({ resolu_at: new Date().toISOString() }).eq("hub_id", hubId).is("resolu_at", null);
   // 0574 : tous les posteurs du site sont payés par Ruul ; l'email Ruul vient de la page de signature.
   // 0589 : il peut être vide (le site l'enverra par maj_ruul, ou le posteur l'ajoute sur son dashboard) ;
   // zone, tarif de la semaine (USD) et application du site sont gardés sur le profil.
@@ -446,6 +449,16 @@ async function lireCohorteRuul(
 
 /** Rejeu sur un poster déjà créé : rien n'est recréé, le rattachement au HM est revérifié. */
 // deno-lint-ignore no-explicit-any
+/** 0690 : une création refusée laisse une trace (une ligne par signé), pour « Aujourd'hui ». */
+async function noterEchec(supabase: Supabase, hubId: string, email: string | null, nom: string, erreur: string): Promise<void> {
+  const { data } = await supabase.from("hub_echecs").select("essais").eq("hub_id", hubId).maybeSingle();
+  const maintenant = new Date().toISOString();
+  const { error } = data
+    ? await supabase.from("hub_echecs").update({ erreur: erreur.slice(0, 500), essais: (data.essais as number) + 1, dernier_at: maintenant, resolu_at: null }).eq("hub_id", hubId)
+    : await supabase.from("hub_echecs").insert({ hub_id: hubId, email, nom: nom.slice(0, 200), erreur: erreur.slice(0, 500) });
+  if (error) console.error("[hub-posteurs] hub_echecs", error.message);
+}
+
 async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
   const { data: profil, error } = await supabase
     .from("profiles")

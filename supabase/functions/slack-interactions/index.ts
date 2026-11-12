@@ -233,7 +233,7 @@ async function envoyerAide(payload: any): Promise<Response> {
     meta = {};
   }
   if (!profil?.id) {
-    return json({ response_action: "errors", errors: { texte: "We couldn't find your account. Please write in #questions." } });
+    return json({ response_action: "errors", errors: { texte: "We couldn't find your account. Please click Help on your dashboard." } });
   }
   // 11/11 (0671) : la demande arrive dans Support (page admin), plus dans Problèmes.
   const { type, categorie } = depuisAideSlack(demande.categorie);

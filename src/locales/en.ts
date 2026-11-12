@@ -1035,7 +1035,7 @@ export const en = {
         loginAide: "Keep it: it's the login of your dashboard.",
         valider: "Save my password and log in",
         aide:
-          "First time? Open the personal « Set my password » link in your welcome message on Upwork: it works once, for 14 days. Lost it or expired? Ask your hiring manager on Upwork, or on Slack in #questions, for a new link.",
+          "First time? Open the personal « Set my password » link in your welcome message on Upwork: it works once, for 14 days. Lost it or expired? Ask your hiring manager on Upwork for a new link.",
         connexionAPart: "Your password is saved. Log in with your login and this password.",
         versConnexion: "Go to the login page",
         etat: {
@@ -8097,13 +8097,13 @@ export const en = {
         "Text crooked, wrong place, unreadable, or weird photos? Tap below — we throw this slideshow away and give you another one for the same day. Not for “I don’t like the topic”. 2 tries max.",
       rechargerRestants_one: "You have {{count}} attempt left.",
       rechargerRestants_other: "You have {{count}} attempts left.",
-      rechargerEpuise: "You’ve already reloaded this post twice. If the issue continues, ask in #questions on Slack.",
+      rechargerEpuise: "You’ve already reloaded this post twice. If the issue continues, click Help on your dashboard.",
       rechargerConfirm:
         "Replace this post with a completely NEW one? Only if the slideshow is truly broken. You’ll have {{restantes}} attempt(s) left after.",
       rechargerEnCours: "Finding a new post…",
       rechargerOk: "New post ready.",
       rechargerAucun:
-        "No other slideshow available right now — try again later, or ask in #questions on Slack.",
+        "No other slideshow available right now — try again later, or click Help on your dashboard.",
       rechargerEnCoursAilleurs: "This post is already being reloaded. Wait a minute, then refresh the page.",
       rechargerLimite: "Limit reached: 2 reloads maximum for this post.",
       rechargerPublie: "This post is already published — it can’t be reloaded.",

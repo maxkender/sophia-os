@@ -21,6 +21,7 @@ import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageBonus } from "@/features/bonus/PageBonus";
 import { AgentRuul, DernierImportRuul } from "@/features/ruul/AgentRuul";
+import { VueParcoursRuul } from "@/features/ruul/VueParcoursRuul";
 import { PageAjoutRuul, PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
 import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
@@ -288,6 +289,7 @@ export function RuulSuiviPage() {
   return (
     <PageAuto cle="ruul_suivi">
       <div className="space-y-4">
+        <VueParcoursRuul />
         <DernierImportRuul />
         <AgentRuul />
         <PageAjoutRuul />

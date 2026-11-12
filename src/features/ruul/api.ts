@@ -20,6 +20,14 @@ export interface PosteurRuul {
   relance_at: string | null;
   stop_at: string | null;
   du: number;
+  /** 0694 : le dernier arrêt (Kill du samedi, « I do not wish to continue », 14 jours inactif). */
+  arret?: { source: string; motif: string | null; at: string } | null;
+}
+
+/** « Killé le 14/11 » (Kill du samedi) ou « Arrêté le 14/11 » (le posteur, 14 jours inactif, à la main). */
+export function libelleArret(a: { source: string; at: string }): string {
+  const le = new Date(a.at).toLocaleDateString("fr-FR", { day: "numeric", month: "numeric", timeZone: "Europe/Paris" });
+  return a.source === "kill_samedi" ? `Killé le ${le}` : `Arrêté le ${le}`;
 }
 
 export interface SemaineLot {

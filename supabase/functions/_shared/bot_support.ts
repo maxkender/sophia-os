@@ -172,7 +172,7 @@ export function troisPhrases(texte: string, n = 3): string {
   return phrases.slice(0, n).join(" ").trim();
 }
 
-const PARLE_DE_BOT = /\b(bot|chatbot|a\.?i\.?|artificial intelligence|intelligence artificielle|assistant automatique|automated assistant|language model)\b/i;
+const PARLE_DE_BOT = /\b(bot|chatbot|a\.?i\.?|artificial intelligence|intelligence artificielle|assistant automatique|automated assistant|language model|automatic(ally)?|automated|automation|automatique(ment)?|automatisation|automatisé)\b/i;
 const MONTANT = /(\$\s?\d|\d\s?\$|€\s?\d|\d\s?€|\b\d+(?:[.,]\d+)?\s?(?:usd|eur|dollars?|euros?)\b)/i;
 
 /**

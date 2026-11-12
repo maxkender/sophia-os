@@ -42,6 +42,7 @@ import {
   etapeSignature,
   lundiSuivant,
   manquesCandidature,
+  emailAB,
   prochaineEtapeRuul,
   remplirRuul,
   rendreEmailRuul,
@@ -120,11 +121,27 @@ interface Profil {
   relances_stop_at: string | null;
   ruul_jeton: string | null;
   slack_user_id: string | null;
+  ruul_compte: string | null;
+  ruul_email_a_at: string | null;
+  ruul_email_b_at: string | null;
 }
 
 async function textes(supabase: Supabase): Promise<Record<string, string>> {
   const { data } = await supabase.from("reglages").select("valeur").eq("cle", "ruul_textes").maybeSingle();
   return (data?.valeur ?? {}) as Record<string, string>;
+}
+
+/** 0681 : les textes des emails A et B (réglage ruul_textes_ab, modifiable). */
+async function textesAB(supabase: Supabase): Promise<{ a_objet: string; a_texte: string; b_objet: string; b_texte: string; bouton: string }> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "ruul_textes_ab").maybeSingle();
+  const v = (data?.valeur ?? {}) as Record<string, string>;
+  return {
+    a_objet: v.a_objet ?? "Action needed: set up Ruul so we can pay you every Monday",
+    a_texte: v.a_texte ?? "",
+    b_objet: v.b_objet ?? "You're connected on Ruul: one last check to get paid",
+    b_texte: v.b_texte ?? "",
+    bouton: v.bouton ?? "It's done",
+  };
 }
 
 /** Un email par le site (vik-studios-creators.com ; expéditeur noreply@sophia-culture.com). */
@@ -155,12 +172,40 @@ async function envoyer(supabase: Supabase) {
   const inviter = await interrupteur(supabase, "ruul_invitation_email");
   const { data: invites, error } = await supabase
     .from("profiles")
-    .select("id, prenom, ruul_email, ruul_statut, ruul_ajoute_at, ruul_relances, relances_stop_at, ruul_jeton, slack_user_id")
+    .select("id, prenom, ruul_email, ruul_statut, ruul_ajoute_at, ruul_relances, relances_stop_at, ruul_jeton, slack_user_id, ruul_compte, ruul_email_a_at, ruul_email_b_at")
     .eq("canal_paie", "ruul").eq("ruul_statut", "invite").eq("is_active", true).is("relances_stop_at", null);
   if (error) throw error;
+  // 0681 (Agent Ruul) : l'email A (« Invited » dans Ruul) ou B (« Active »), une seule fois chacun,
+  // seulement quand Max a mis ruul_emails_ab sur on. L'email A remplace l'ancienne invitation.
+  const emailsAB = await interrupteur(supabase, "ruul_emails_ab");
+  const ab = await textesAB(supabase);
+  for (const p of (invites ?? []) as Profil[]) {
+    const quel = emailAB({ compte: p.ruul_compte, a_at: p.ruul_email_a_at, b_at: p.ruul_email_b_at, statut: p.ruul_statut, stop_at: p.relances_stop_at });
+    if (!quel) continue;
+    if (!emailsAB || !p.ruul_email || !p.ruul_jeton) continue;
+    const v = { prenom: (p.prenom ?? "").trim() || "there", email: p.ruul_email };
+    const objet = remplirRuul(quel === "A" ? ab.a_objet : ab.b_objet, v);
+    const corps = remplirRuul(quel === "A" ? ab.a_texte : ab.b_texte, v);
+    if (!corps.trim()) continue;
+    const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
+    const e = rendreEmailRuul({ objet, corps, bouton: { texte: ab.bouton, lien: `${URL_FONCTION}?pret=${p.ruul_jeton}` }, lienStop });
+    const r = await envoyerEmail(p.ruul_email, objet, e.html, e.texte, lienStop, ["ruul", quel === "A" ? "email_a" : "email_b"]);
+    if (r.ok) {
+      const maintenant = new Date().toISOString();
+      // Après A : les relances J+1, J+3 comptent depuis l'email A. Après B : pas de relance d'invitation.
+      await supabase.from("profiles").update(quel === "A"
+        ? { ruul_email_a_at: maintenant, ruul_relances: 1, ruul_relance_at: maintenant }
+        : { ruul_email_b_at: maintenant, ruul_relances: Math.max(3, p.ruul_relances ?? 0), ruul_relance_at: maintenant }).eq("id", p.id);
+    }
+    bilan.push({ poster: p.id, etape: quel === "A" ? "email_a" : "email_b", ok: r.ok, canaux: r.ok ? ["email"] : [], erreur: r.erreur });
+  }
   for (const p of (inviter ? invites ?? [] : []) as Profil[]) {
-    const etape = prochaineEtapeRuul({ statut: p.ruul_statut, ajoute_at: p.ruul_ajoute_at, relances: p.ruul_relances ?? 0, stop_at: p.relances_stop_at });
-    if (!etape || !p.ruul_jeton) continue;
+    // 0681 : pas de statut lu dans Ruul → rien ; l'invitation est l'email A ci-dessus.
+    if (!p.ruul_compte) continue;
+    const depuis = p.ruul_email_b_at ?? p.ruul_email_a_at;
+    if (!depuis) continue;
+    const etape = prochaineEtapeRuul({ statut: p.ruul_statut, ajoute_at: depuis, relances: p.ruul_relances ?? 0, stop_at: p.relances_stop_at });
+    if (!etape || etape === "invite" || !p.ruul_jeton) continue;
     const prochain = { relances: (p.ruul_relances ?? 0) + 1, ruul_relance_at: new Date().toISOString() };
     if (etape === "problems") {
       await supabase.rpc("probleme_ajouter", {
@@ -174,8 +219,8 @@ async function envoyer(supabase: Supabase) {
       continue;
     }
     const v = { prenom: (p.prenom ?? "").trim() || "there", email: p.ruul_email ?? "" };
-    const objet = remplirRuul(etape === "invite" ? (t.invite_objet ?? "Your Ruul invitation") : (t.relance_objet ?? "Reminder: your Ruul account"), v);
-    const corps = remplirRuul(etape === "invite" ? (t.invite_texte ?? "") : (t.relance_texte ?? ""), v);
+    const objet = remplirRuul(t.relance_objet ?? "Reminder: your Ruul account", v);
+    const corps = remplirRuul(t.relance_texte ?? "", v);
     const lienPret = `${URL_FONCTION}?pret=${p.ruul_jeton}`;
     const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
     const bouton = { texte: t.invite_bouton ?? "It's done", lien: lienPret };

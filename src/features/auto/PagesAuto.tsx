@@ -20,6 +20,7 @@ import { PageReglagesAuto } from "@/features/auto/PageReglagesAuto";
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageBonus } from "@/features/bonus/PageBonus";
+import { AgentRuul, DernierImportRuul } from "@/features/ruul/AgentRuul";
 import { PageAjoutRuul, PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
 import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
@@ -286,7 +287,11 @@ export function CohortesRuulPage() {
 export function RuulSuiviPage() {
   return (
     <PageAuto cle="ruul_suivi">
-      <PageAjoutRuul />
+      <div className="space-y-4">
+        <DernierImportRuul />
+        <AgentRuul />
+        <PageAjoutRuul />
+      </div>
     </PageAuto>
   );
 }

@@ -611,7 +611,10 @@ function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">,
 async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const mode = await reglageTexte(supabase, "ruul_parcours");
   if (mode !== "on" && !forcer && !simuler) return { ok: true, ignore: "parcours Ruul éteint (réglage ruul_parcours)" };
-  const bienvenue = (await reglageTexte(supabase, "ruul_parcours_bienvenue")) === true;
+  // ruul_parcours_bienvenue : false, ou { "depuis": "<instant de l'allumage>" } (seuls les comptes créés après).
+  const reglageBienvenue = await reglageTexte(supabase, "ruul_parcours_bienvenue") as { depuis?: string } | boolean | null;
+  const bienvenueDepuis = reglageBienvenue && typeof reglageBienvenue === "object" ? reglageBienvenue.depuis ?? null : null;
+  const bienvenue = !!bienvenueDepuis;
   const { data, error } = await supabase.rpc("ruul_parcours_etat");
   if (error) throw error;
   const slack = await lienSlackInvitation(supabase);
@@ -622,7 +625,7 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const bilan: Record<string, unknown>[] = [];
   for (const e of (data ?? []) as EtatParcours[]) {
     if (deCote.has(e.poster_id)) continue;
-    const d = prochainEnvoi(e, maintenant, { bienvenue });
+    const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis });
     if (!d) continue;
     // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.
     if (simuler) { bilan.push({ poster: e.poster_id, type: d.type, cle: d.cle, ok: true, simulation: true }); continue; }
@@ -672,7 +675,7 @@ async function parcoursApercu(supabase: Supabase, posterId: string) {
   const lundiSuivant = e.cohorte_lundi ? new Date(new Date(`${e.cohorte_lundi}T12:00:00Z`).getTime() + 7 * 86_400_000).toISOString().slice(0, 10) : undefined;
   const types: Exclude<TypeParcours, "carte_ruul">[] = ["bienvenue", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "report", "demain", "desactivation"];
   return {
-    ok: true, poster: e.poster_id, prochain: prochainEnvoi(e, new Date(), { bienvenue: (await reglageTexte(supabase, "ruul_parcours_bienvenue")) === true }),
+    ok: true, poster: e.poster_id, prochain: prochainEnvoi(e, new Date(), { bienvenue: false }),
     emails: types.map((t) => ({ type: t, ...rendreEtape(e, t, slack, t === "report" ? lundiSuivant : undefined, t === "ruul" ? 1 : undefined) })),
   };
 }

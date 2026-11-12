@@ -38,7 +38,18 @@ function candidat(handle: string, extra: Partial<CandidatSource> = {}): Candidat
     pourquoi: `Pourquoi ${handle}`,
     risques: null,
     score: 50,
-    chiffres: { posts: 10, vuesMediane: 84_800, vuesMax: 1_900_000, posts100k: 5, releveLe: "2026-10-30" },
+    chiffres: {
+      posts: 40,
+      slideshows: 37,
+      vuesMediane: 84_800,
+      vuesMax: 1_900_000,
+      posts10k: 26,
+      posts100k: 5,
+      abonnes: 17_900,
+      postsTotal: 624,
+      dernierSlideshow: "2026-11-11",
+      releveLe: "2026-11-12",
+    },
     exemples: [{ url: `https://www.tiktok.com/@${handle}/photo/1`, vues: 1_900_000, accroche: "ZUFÄLLIGE FAKTEN" }],
     piste: "ancien_agent",
     statut: "propose",
@@ -84,9 +95,11 @@ describe("CandidatsSourcesPanel", () => {
     rendre();
     const cartes = await screen.findAllByTestId("candidat-source");
     expect(handles(cartes)).toEqual(["@fort", "@concept", "@moyen"]);
-    expect(within(cartes[0]).getByTestId("candidat-chiffres").textContent).toContain(
-      "10 slideshows relevés · médiane 85 k vues · meilleur 1,9 M · 5 à 100 000 vues ou plus · relevé le 30 octobre",
+    const chiffres = within(cartes[0]).getByTestId("candidat-chiffres").textContent ?? "";
+    expect(chiffres).toContain(
+      "37 slideshows sur ses 40 derniers posts · médiane 85 k vues · meilleur 1,9 M · 5 à 100 000 vues ou plus · 26 à 10 000 ou plus",
     );
+    expect(chiffres).toMatch(/17\s900 abonnés · 624 posts en tout · dernier slideshow le 11 novembre · relevé le 12 novembre/);
     expect(within(cartes[1]).getByText("Concept nouveau")).toBeTruthy();
     expect(screen.getByRole("button", { name: "À décider · 3" })).toBeTruthy();
     expect(screen.getByRole("button", { name: "Plus tard · 1" })).toBeTruthy();
@@ -159,7 +172,18 @@ describe("candidatsSources", () => {
       pourquoi: "Régulier",
       risques: "",
       score: 72,
-      chiffres: { posts: 10, vues_mediane: 84800, vues_max: 1900000, posts_100k: 5, releve_le: "2026-10-30" },
+      chiffres: {
+        posts: 40,
+        slideshows: 37,
+        vues_mediane: 84800,
+        vues_max: 1900000,
+        posts_10k: 26,
+        posts_100k: 5,
+        abonnes: 17900,
+        posts_total: 624,
+        dernier_slideshow: "2026-11-11",
+        releve_le: "2026-11-12",
+      },
       exemples: [{ url: "https://x", vues: 1900000, accroche: "ZUFÄLLIGE FAKTEN" }, { vues: 3 }],
       piste: "ancien_agent",
       statut: "propose",
@@ -167,7 +191,18 @@ describe("candidatsSources", () => {
     });
     expect(c.sorte).toBe("concept");
     expect(c.risques).toBeNull();
-    expect(c.chiffres).toEqual({ posts: 10, vuesMediane: 84800, vuesMax: 1900000, posts100k: 5, releveLe: "2026-10-30" });
+    expect(c.chiffres).toEqual({
+      posts: 40,
+      slideshows: 37,
+      vuesMediane: 84800,
+      vuesMax: 1900000,
+      posts10k: 26,
+      posts100k: 5,
+      abonnes: 17900,
+      postsTotal: 624,
+      dernierSlideshow: "2026-11-11",
+      releveLe: "2026-11-12",
+    });
     expect(c.exemples).toEqual([{ url: "https://x", vues: 1900000, accroche: "ZUFÄLLIGE FAKTEN" }]);
   });
 

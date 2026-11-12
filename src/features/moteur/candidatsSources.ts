@@ -6,6 +6,7 @@ import { supabase } from "@/lib/supabase/client";
  * source et la met dans la file des mises à jour, une source à la fois.
  */
 
+/** `ecarte` (0685) existe en base : un compte que l'agent a relevé puis laissé de côté. La page ne le lit pas. */
 export type StatutCandidat = "propose" | "plus_tard" | "valide" | "refuse";
 /** `label` : nourrit un label existant. `concept` : un format qu'on n'a pas. */
 export type SorteCandidat = "label" | "concept";
@@ -17,11 +18,19 @@ export interface ExempleCandidat {
 }
 
 export interface ChiffresCandidat {
-  /** Slideshows relevés, sur lesquels portent les chiffres. */
+  /** Derniers posts relevés, slideshows ou non. */
   posts: number | null;
+  /** Slideshows parmi eux : les vues ne portent que sur eux. */
+  slideshows: number | null;
   vuesMediane: number | null;
   vuesMax: number | null;
+  posts10k: number | null;
   posts100k: number | null;
+  abonnes: number | null;
+  /** Posts du compte en tout, d'après son profil. */
+  postsTotal: number | null;
+  /** Jour du dernier slideshow (AAAA-MM-JJ). */
+  dernierSlideshow: string | null;
   /** Jour du relevé (AAAA-MM-JJ). */
   releveLe: string | null;
 }
@@ -62,9 +71,15 @@ export function versCandidat(l: Record<string, unknown>): CandidatSource {
     score: nombre(l.score) ?? 0,
     chiffres: {
       posts: nombre(c.posts),
+      // Un relevé sans détail ne compte que des slideshows.
+      slideshows: nombre(c.slideshows) ?? nombre(c.posts),
       vuesMediane: nombre(c.vues_mediane),
       vuesMax: nombre(c.vues_max),
+      posts10k: nombre(c.posts_10k),
       posts100k: nombre(c.posts_100k),
+      abonnes: nombre(c.abonnes),
+      postsTotal: nombre(c.posts_total),
+      dernierSlideshow: texte(c.dernier_slideshow),
       releveLe: texte(c.releve_le),
     },
     exemples: exemples
@@ -137,6 +152,8 @@ export async function listerCandidatsSources(): Promise<CandidatSource[]> {
     .select(
       "id, handle_tiktok, langue, sorte, label_id, concept, pourquoi, risques, score, chiffres, exemples, piste, statut, raison_refus",
     )
+    // Les comptes écartés par l'agent restent en base pour sa mémoire, pas pour la page.
+    .neq("statut", "ecarte")
     .order("score", { ascending: false });
   if (error) throw error;
   return (data ?? []).map((l) => versCandidat(l as Record<string, unknown>));

@@ -3879,9 +3879,14 @@ export const fr = {
         conceptNouveau: "Concept nouveau",
         statut: { valide: "Validée", refuse: "Refusée" },
         chiffres_one:
-          "{{count}} slideshow relevé · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
+          "{{count}} slideshow sur ses {{posts}} derniers posts · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
         chiffres_other:
-          "{{count}} slideshows relevés · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
+          "{{count}} slideshows sur ses {{posts}} derniers posts · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
+        posts10k: "{{n}} à 10 000 ou plus",
+        abonnes: "{{n}} abonnés",
+        postsTotal_one: "{{count}} post en tout",
+        postsTotal_other: "{{count}} posts en tout",
+        dernierSlideshow: "dernier slideshow le {{date}}",
         releve: "relevé le {{date}}",
         risques: "À savoir :",
         raisonRefus: "Refusée : {{raison}}",

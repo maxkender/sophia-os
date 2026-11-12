@@ -153,9 +153,16 @@ function CarteCandidat({
   const erreur = (valider.error ?? decider.error) as Error | null;
   const label = niches.find((n) => n.id === c.labelId)?.nom ?? null;
   const ch = c.chiffres;
-  const releve = ch.releveLe
-    ? new Date(`${ch.releveLe}T12:00:00`).toLocaleDateString(i18n.language, { day: "numeric", month: "long" })
-    : null;
+  const jour = (d: string | null) =>
+    d ? new Date(`${d}T12:00:00`).toLocaleDateString(i18n.language, { day: "numeric", month: "long" }) : null;
+  const entier = (n: number) => n.toLocaleString(i18n.language);
+  // Le compte en une ligne : seulement ce que le relevé a donné.
+  const compte = [
+    ch.abonnes !== null && t("sources.candidats.abonnes", { n: entier(ch.abonnes) }),
+    ch.postsTotal !== null && t("sources.candidats.postsTotal", { count: ch.postsTotal }),
+    ch.dernierSlideshow && t("sources.candidats.dernierSlideshow", { date: jour(ch.dernierSlideshow) }),
+    ch.releveLe && t("sources.candidats.releve", { date: jour(ch.releveLe) }),
+  ].filter(Boolean);
   const decide = c.statut === "valide" || c.statut === "refuse";
 
   return (
@@ -183,16 +190,20 @@ function CarteCandidat({
         {c.statut === "refuse" && <Badge variant="error">{t("sources.candidats.statut.refuse")}</Badge>}
       </div>
 
-      {ch.posts !== null && (
-        <p className="text-xs tabular-nums text-muted-foreground" data-testid="candidat-chiffres">
-          {t("sources.candidats.chiffres", {
-            count: ch.posts,
-            mediane: vuesCourtes(ch.vuesMediane),
-            max: vuesCourtes(ch.vuesMax),
-            n100k: ch.posts100k ?? 0,
-          })}
-          {releve && ` · ${t("sources.candidats.releve", { date: releve })}`}
-        </p>
+      {ch.slideshows !== null && (
+        <div className="space-y-0.5 text-xs tabular-nums text-muted-foreground" data-testid="candidat-chiffres">
+          <p>
+            {t("sources.candidats.chiffres", {
+              count: ch.slideshows,
+              posts: ch.posts ?? ch.slideshows,
+              mediane: vuesCourtes(ch.vuesMediane),
+              max: vuesCourtes(ch.vuesMax),
+              n100k: ch.posts100k ?? 0,
+            })}
+            {ch.posts10k !== null && ` · ${t("sources.candidats.posts10k", { n: ch.posts10k })}`}
+          </p>
+          {compte.length > 0 && <p>{compte.join(" · ")}</p>}
+        </div>
       )}
 
       <p className="text-sm">{c.pourquoi}</p>

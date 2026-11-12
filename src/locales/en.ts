@@ -3873,9 +3873,14 @@ export const en = {
         conceptNouveau: "New concept",
         statut: { valide: "Approved", refuse: "Rejected" },
         chiffres_one:
-          "{{count}} slideshow sampled · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
+          "{{count}} slideshow in the last {{posts}} posts · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
         chiffres_other:
-          "{{count}} slideshows sampled · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
+          "{{count}} slideshows in the last {{posts}} posts · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
+        posts10k: "{{n}} at 10,000 or more",
+        abonnes: "{{n}} followers",
+        postsTotal_one: "{{count}} post in total",
+        postsTotal_other: "{{count}} posts in total",
+        dernierSlideshow: "last slideshow on {{date}}",
         releve: "sampled on {{date}}",
         risques: "Note:",
         raisonRefus: "Rejected: {{raison}}",

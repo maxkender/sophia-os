@@ -20,7 +20,7 @@ import {
 } from "../_shared/support.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
 import {
-  appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
+  appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, plainteSansDonnees, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
   accuseReception, texteBugMax, texteListeAdrien, texteTop10,
 } from "../_shared/bot_support.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -527,6 +527,12 @@ async function deciderBot(
   }
   const nbMemeSujet = entree.historique.filter((h) => h.categorie && h.categorie === decision!.categorie).length;
   const finale = appliquerGardeFous(decision, { source: o.source, plateforme, lienHelp: LIEN_HELP, nbMemeSujet });
+  // 0683 : pas payé + aucune paie connue (contrat pas relié, milestones illisibles) → on vérifie, Max tranche.
+  if (o.source === "help" && f && plainteSansDonnees(o.message, plateforme, !f.derniere_paie) && finale.niveau !== "max") {
+    finale.niveau = "max";
+    finale.reponse = TEXTE_ON_VERIFIE;
+    finale.raison = `${finale.raison} (plainte de paie sans paie connue dans l'OS : à Max)`.trim();
+  }
   const regle = finale.regle ? (entree.catalogue.find((c) => c.id === finale.regle)?.question ?? finale.regle) : null;
   return {
     decision: finale,

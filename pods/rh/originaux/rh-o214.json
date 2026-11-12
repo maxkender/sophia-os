@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o214",
+ "type_bleo": "full_test",
+ "titre": "« vous avez une question pour nous ? » : les 4 que j'évite et celles que je pose #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (questions à éviter vs à poser). Rien de juridique. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "094883cb",
+   "texte_overlay": "« vous avez une question pour nous ? » :\nles 4 que j'évite\net celles que je pose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bb7fef7f",
+   "texte_overlay": "j'évite « c'est combien de congés ? »\nau 1er entretien. ça viendra",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bc60f138",
+   "texte_overlay": "j'évite « c'est quoi votre activité ? »\nça se lit sur leur site",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bd4213df",
+   "texte_overlay": "j'évite « je peux télétravailler tout le temps ? »\nje demande « comment l'équipe s'organise ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bd53f772",
+   "texte_overlay": "j'évite « non, rien »\njamais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "84268b92",
+   "texte_overlay": "je pose « qu'est-ce qu'on apprend ici ? »\nmoi j'apprends déjà un peu chaque jour",
+   "texte_sophia": "je pose « qu'est-ce qu'on apprend ici ? »\nmoi j'apprends déjà 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bd74c4ea",
+   "texte_overlay": "je pose « qu'est-ce qui ferait de moi une bonne recrue dans 6 mois ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "bd9613f9",
+   "texte_overlay": "laquelle tu poses, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

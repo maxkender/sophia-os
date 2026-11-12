@@ -478,14 +478,23 @@ function ficheFictive(p: ProfilFictif): string {
 
 async function deciderBot(
   db: Db,
-  o: { message: string; source: SourceBot; poster: string | null; profil: ProfilFictif | null },
+  o: {
+    message: string;
+    source: SourceBot;
+    poster: string | null;
+    profil: ProfilFictif | null;
+    /** 0683 : un test peut simuler des demandes passées (cas « même question pour la 3e fois »). */
+    historique?: { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[] | null;
+  },
 ) {
   const fictif = !o.poster && o.profil;
   const [f, ctx, infos, histo] = await Promise.all([
     o.poster ? fiche(db, o.poster) : Promise.resolve(null),
     o.poster ? contexte(db, o.poster) : Promise.resolve(""),
     db.from("support_infos").select("titre, valeur").order("ordre").limit(100),
-    o.poster
+    o.historique?.length
+      ? Promise.resolve({ data: o.historique })
+      : o.poster
       ? db.from("support_demandes").select("cree_at, categorie, texte, bot_reponse").eq("poster_id", o.poster).order("cree_at", { ascending: false }).limit(10)
       : Promise.resolve({ data: [] as { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[] }),
   ]);
@@ -525,21 +534,33 @@ async function deciderBot(
     regle_utilisee: regle,
     plateforme,
     action_prevue: finale.action ? { action: finale.action, valeur: finale.action_valeur, executee: false } : null,
+    // 0683 (Tester) : ce que le bot a lu avant de répondre, pour voir tout de suite ce qui lui manquait.
+    lu: {
+      fiche: entree.fiche,
+      donnees: entree.contexte ? entree.contexte.slice(0, 6000) : "",
+      consignes: entree.consignes,
+      regles: entree.infos.map((i) => i.titre),
+      documents: (entree.documents ?? []).map((d) => d.titre),
+      catalogue: entree.catalogue.length,
+      demandes_passees: entree.historique.length,
+      meme_sujet: nbMemeSujet,
+    },
   };
 }
 
 async function lancerTests(db: Db, ids: string[] | null) {
-  let q = db.from("bot_tests").select("id, message, poster_id, profil, source, attendu_niveau, attendu_contient, attendu_action").eq("actif", true);
+  let q = db.from("bot_tests").select("id, message, poster_id, profil, source, attendu_niveau, attendu_contient, attendu_action, historique").eq("actif", true);
   if (ids?.length) q = q.in("id", ids);
   const { data, error } = await q.order("cree_at").limit(60);
   if (error) throw new Error(error.message);
   const resultats: { id: string; ok: boolean; niveau: string; reponse: string; action: string | null }[] = [];
   // 4 à la fois : le modèle répond en quelques secondes.
   const liste = (data ?? []) as { id: string; message: string; poster_id: string | null; profil: ProfilFictif | null; source: SourceBot;
-    attendu_niveau: string | null; attendu_contient: string[]; attendu_action: string | null }[];
+    attendu_niveau: string | null; attendu_contient: string[]; attendu_action: string | null;
+    historique: { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[] | null }[];
   for (let i = 0; i < liste.length; i += 4) {
     await Promise.all(liste.slice(i, i + 4).map(async (t) => {
-      const r = await deciderBot(db, { message: t.message, source: t.source, poster: t.poster_id, profil: t.profil });
+      const r = await deciderBot(db, { message: t.message, source: t.source, poster: t.poster_id, profil: t.profil, historique: t.historique });
       const ok = testOk(r.decision, t);
       resultats.push({ id: t.id, ok, niveau: r.decision.niveau, reponse: r.texte, action: r.decision.action });
       await db.from("bot_tests").update({ dernier: r, dernier_ok: ok, dernier_at: new Date().toISOString() }).eq("id", t.id);

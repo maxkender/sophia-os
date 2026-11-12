@@ -69,6 +69,35 @@ export function Erreur({ e }: { e: unknown }) {
 
 const PROFIL_DEFAUT: ProfilFictif = { plateforme: "upwork", zone: "A", etape: "posting", statut: "actif", prenom: "Alex" };
 
+/** 0683 : sous chaque réponse, ce que le bot a lu (fiche, données, consignes, règles, documents). */
+function CeQuIlALu({ lu }: { lu: NonNullable<ResultatBot["lu"]> }) {
+  return (
+    <div className="space-y-2 rounded-md border p-3 text-sm" data-testid="bot-lu">
+      <p className="font-medium">Ce que le bot a lu</p>
+      <p className="text-xs text-muted-foreground">
+        {lu.consignes.length} consignes · {lu.regles.length} règles · {lu.documents.length} documents · {lu.catalogue} réponses du catalogue ·
+        {" "}{lu.demandes_passees} demandes passées{lu.meme_sujet ? ` (dont ${lu.meme_sujet} sur ce sujet)` : ""}
+      </p>
+      <details open>
+        <summary className="cursor-pointer text-xs font-medium">Sa fiche</summary>
+        <pre className="mt-1 whitespace-pre-wrap text-xs">{lu.fiche}</pre>
+      </details>
+      <details>
+        <summary className="cursor-pointer text-xs font-medium">Ses données (paie, Ruul, posts, messages, décisions)</summary>
+        <pre className="mt-1 max-h-72 overflow-y-auto whitespace-pre-wrap break-all text-xs">{lu.donnees || "(aucune)"}</pre>
+      </details>
+      <details>
+        <summary className="cursor-pointer text-xs font-medium">Consignes et règles utilisées</summary>
+        <ul className="mt-1 list-disc pl-4 text-xs">{[...lu.consignes, ...lu.regles.map((t) => `Règle : ${t}`)].map((c) => <li key={c}>{c}</li>)}</ul>
+      </details>
+      <details>
+        <summary className="cursor-pointer text-xs font-medium">Documents</summary>
+        <p className="mt-1 text-xs">{lu.documents.join(" · ") || "(aucun)"}</p>
+      </details>
+    </div>
+  );
+}
+
 export function Tester() {
   const qc = useQueryClient();
   const [message, setMessage] = React.useState("");
@@ -158,8 +187,9 @@ export function Tester() {
                 <dd>{r.decision.action ? `${LIBELLE_ACTION[r.decision.action] ?? r.decision.action}${r.decision.action_valeur ? ` : ${r.decision.action_valeur}` : ""}` : "aucune"}</dd>
                 <dt className="text-muted-foreground">Catalogue</dt><dd>{r.regle_utilisee ?? "aucune entrée"}</dd>
                 <dt className="text-muted-foreground">Risque</dt><dd>{r.decision.risque.length ? r.decision.risque.join(", ") : "aucun"}</dd>
-                <dt className="text-muted-foreground">Raison</dt><dd>{r.decision.raison}</dd>
+                <dt className="text-muted-foreground">Pourquoi</dt><dd>{r.decision.raison}</dd>
               </dl>
+              {r.lu && <CeQuIlALu lu={r.lu} />}
               <div className="flex flex-wrap gap-2">
                 <Button size="sm" variant="outline" disabled={bonne.isPending} onClick={() => bonne.mutate(r)}>👍 Bonne réponse</Button>
                 <Button size="sm" variant="outline" onClick={() => setCorrection(correction === null ? r.decision.reponse : null)}>✏️ Corriger</Button>

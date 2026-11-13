@@ -50,6 +50,8 @@ export interface CandidatSource {
   piste: string;
   statut: StatutCandidat;
   raisonRefus: string | null;
+  /** Note libre de l'admin (0697), posée en mettant la carte de côté ou après. */
+  note: string | null;
 }
 
 const nombre = (v: unknown): number | null => (typeof v === "number" && Number.isFinite(v) ? v : null);
@@ -90,6 +92,7 @@ export function versCandidat(l: Record<string, unknown>): CandidatSource {
       ? (l.statut as StatutCandidat)
       : "propose",
     raisonRefus: texte(l.raison_refus),
+    note: texte(l.note),
   };
 }
 
@@ -150,7 +153,7 @@ export async function listerCandidatsSources(): Promise<CandidatSource[]> {
   const { data, error } = await supabase
     .from("sources_candidats")
     .select(
-      "id, handle_tiktok, langue, sorte, label_id, concept, pourquoi, risques, score, chiffres, exemples, piste, statut, raison_refus",
+      "id, handle_tiktok, langue, sorte, label_id, concept, pourquoi, risques, score, chiffres, exemples, piste, statut, raison_refus, note",
     )
     // Les comptes écartés par l'agent restent en base pour sa mémoire, pas pour la page.
     .neq("statut", "ecarte")
@@ -191,5 +194,11 @@ export async function deciderCandidatSource(
     p_statut: statut,
     p_raison: raison ?? null,
   });
+  if (error) throw error;
+}
+
+/** Écrit la note d'une proposition ; vide, elle est effacée. */
+export async function noterCandidatSource(id: string, note: string): Promise<void> {
+  const { error } = await supabase.rpc("sources_candidats_noter", { p_id: id, p_note: note });
   if (error) throw error;
 }

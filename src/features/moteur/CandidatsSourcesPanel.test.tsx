@@ -10,6 +10,7 @@ import type { Label } from "./types";
 const listerCandidatsSources = vi.fn();
 const validerCandidatSource = vi.fn();
 const deciderCandidatSource = vi.fn();
+const noterCandidatSource = vi.fn();
 
 vi.mock("@/lib/supabase/client", () => ({ supabase: {} }));
 vi.mock("@/features/moteur/candidatsSources", async (importer) => ({
@@ -17,6 +18,7 @@ vi.mock("@/features/moteur/candidatsSources", async (importer) => ({
   listerCandidatsSources: () => listerCandidatsSources(),
   validerCandidatSource: (...a: unknown[]) => validerCandidatSource(...a),
   deciderCandidatSource: (...a: unknown[]) => deciderCandidatSource(...a),
+  noterCandidatSource: (...a: unknown[]) => noterCandidatSource(...a),
 }));
 
 import { CandidatsSourcesPanel } from "./CandidatsSourcesPanel";
@@ -54,6 +56,7 @@ function candidat(handle: string, extra: Partial<CandidatSource> = {}): Candidat
     piste: "ancien_agent",
     statut: "propose",
     raisonRefus: null,
+    note: null,
     ...extra,
   };
 }
@@ -62,7 +65,7 @@ const TOUS = [
   candidat("moyen", { score: 60 }),
   candidat("fort", { score: 90 }),
   candidat("concept", { score: 80, sorte: "concept", labelId: null, concept: "fautes d'orthographe", langue: "hu" }),
-  candidat("attend", { statut: "plus_tard" }),
+  candidat("attend", { statut: "plus_tard", note: "à revoir après le test turc" }),
   candidat("refuse", { statut: "refuse", raisonRefus: "trop de citations" }),
 ];
 
@@ -140,6 +143,45 @@ describe("CandidatsSourcesPanel", () => {
     fireEvent.change(within(carte).getByLabelText("Raison du refus de @moyen"), { target: { value: "déjà vu" } });
     fireEvent.click(within(carte).getByRole("button", { name: "Confirmer le refus" }));
     await waitFor(() => expect(deciderCandidatSource).toHaveBeenCalledWith("moyen", "refuse", "déjà vu"));
+  });
+
+  it("met de côté avec une note", async () => {
+    listerCandidatsSources.mockResolvedValue(TOUS);
+    noterCandidatSource.mockResolvedValue(undefined);
+    deciderCandidatSource.mockResolvedValue(undefined);
+    rendre();
+    const carte = (await screen.findAllByTestId("candidat-source"))[0];
+    fireEvent.click(within(carte).getByRole("button", { name: "Plus tard" }));
+    fireEvent.change(within(carte).getByLabelText("Note sur @fort"), { target: { value: "attendre son r" } });
+    fireEvent.click(within(carte).getByRole("button", { name: "Mettre de côté" }));
+    await waitFor(() => expect(deciderCandidatSource).toHaveBeenCalledWith("fort", "plus_tard"));
+    expect(noterCandidatSource).toHaveBeenCalledWith("fort", "attendre son r");
+  });
+
+  it("met de côté sans note, sans rien écrire d'autre", async () => {
+    listerCandidatsSources.mockResolvedValue(TOUS);
+    deciderCandidatSource.mockResolvedValue(undefined);
+    rendre();
+    const carte = (await screen.findAllByTestId("candidat-source"))[0];
+    fireEvent.click(within(carte).getByRole("button", { name: "Plus tard" }));
+    fireEvent.click(within(carte).getByRole("button", { name: "Mettre de côté" }));
+    await waitFor(() => expect(deciderCandidatSource).toHaveBeenCalledWith("fort", "plus_tard"));
+    expect(noterCandidatSource).not.toHaveBeenCalled();
+  });
+
+  it("montre la note d'une carte mise de côté et la laisse corriger", async () => {
+    listerCandidatsSources.mockResolvedValue(TOUS);
+    noterCandidatSource.mockResolvedValue(undefined);
+    rendre();
+    await screen.findAllByTestId("candidat-source");
+    fireEvent.click(screen.getByRole("button", { name: "Plus tard · 1" }));
+    const carte = screen.getByTestId("candidat-source");
+    expect(within(carte).getByTestId("candidat-note").textContent).toBe("Note : à revoir après le test turc");
+    fireEvent.click(within(carte).getByRole("button", { name: "Modifier la note" }));
+    fireEvent.change(within(carte).getByLabelText("Note sur @attend"), { target: { value: "test turc fait" } });
+    fireEvent.click(within(carte).getByRole("button", { name: "Enregistrer la note" }));
+    await waitFor(() => expect(noterCandidatSource).toHaveBeenCalledWith("attend", "test turc fait"));
+    expect(deciderCandidatSource).not.toHaveBeenCalled();
   });
 
   it("garde les décidées dans leur onglet, avec la raison du refus", async () => {

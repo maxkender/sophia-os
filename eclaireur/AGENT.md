@@ -45,11 +45,13 @@ Puis relis ce qui a déjà été essayé, et ce que les humains ont décidé :
 
 ```sql
 select * from public.sources_eclaireur_memoire order by dernier_jour desc nulls last limit 200;
-select handle_tiktok, langue, sorte, statut, raison_refus, concept
-  from public.sources_candidats where statut in ('valide', 'refuse') order by decide_le desc limit 100;
+select handle_tiktok, langue, sorte, statut, raison_refus, note, concept
+  from public.sources_candidats where statut in ('valide', 'refuse', 'plus_tard') order by decide_le desc limit 100;
 ```
 
 - Une requête déjà lancée ne se relance pas avant 30 jours.
+- Une note (`note`) sur une carte mise de côté dit ce que l'humain attend
+  avant de trancher : tiens-en compte comme d'une raison de refus.
 - Une raison de refus est une règle : si « trop de citations » revient, ne
   propose plus de comptes de citations.
 - `r_moyen` est le vrai résultat d'une source validée chez nous (il arrive

@@ -53,6 +53,8 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
+import { ChecklistRuul } from "@/features/ruul/ChecklistRuul";
+import { lireMonEmailRuul } from "@/features/ruul/api";
 
 interface PostCalendrier {
   id: string;
@@ -309,6 +311,10 @@ export function PosterCalendrierPage() {
     staleTime: Infinity,
   });
   const debutRuul = cohorte.data?.cohorteRuul ? (cohorte.data.debutLe ?? null) : null;
+  // 0592 : payé par Ruul (canal_paie), même sans date de début : jamais de texte Upwork.
+  const monRuul = useQuery({ queryKey: ["ruul-mon-email"], queryFn: lireMonEmailRuul, enabled: Boolean(user?.id), staleTime: 5 * 60_000 });
+  const estRuul = Boolean(cohorte.data?.cohorteRuul || monRuul.data?.ruul);
+  const ruulConnu = monRuul.isSuccess || monRuul.isError;
 
   React.useEffect(() => {
     if (!user?.id || !comptes?.length) return;
@@ -400,7 +406,7 @@ export function PosterCalendrierPage() {
   // réponse de la cohorte, sinon un poster Ruul verrait d'abord la version
   // Upwork. Une fois le premier paiement passé, la frise disparaît seule.
   const debutUpwork =
-    cohorte.isSuccess && !debutRuul && compte && !estCm && !ugc
+    cohorte.isSuccess && ruulConnu && !estRuul && compte && !estCm && !ugc
       ? compte.warmup_started_at && compte.warmup_ends_at
         ? premierJourPosts(compte.warmup_ends_at)
         : lundiApresAujourdhui
@@ -421,6 +427,9 @@ export function PosterCalendrierPage() {
     <div className="space-y-8">
       {/* Compte recréé (0368) : quoi faire, en haut de son espace. */}
       <BandeauRecreation actif={Boolean(user?.id)} />
+
+      {/* 0592 : posteur Ruul : la checklist avant de commencer, tout en haut. */}
+      {estRuul && <ChecklistRuul />}
 
       {/* Prompt 15, point 6a : « Today » tout en haut. */}
       {!ugc && (
@@ -555,7 +564,7 @@ export function PosterCalendrierPage() {
         ))}
 
       {/* Chantier du 28 oct. : comment il est payé et la règle du lien (pas la cohorte Ruul). */}
-      {cohorte.isSuccess && !debutRuul && !estCm && <CarteCommentPaye />}
+      {cohorte.isSuccess && ruulConnu && !estRuul && !estCm && <CarteCommentPaye />}
 
       {compte && (
         <VideosAPoster

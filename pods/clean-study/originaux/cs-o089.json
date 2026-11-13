@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o089",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "d62c5231-a781-4758-8f8b-4e03a8159554",
+  "titre": "habits that made me the person everyone asks for notes #studytok #studytips #notetaking",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "d62c5231-a781-4758-8f8b-4e03a8159554"
+  ],
+  "notes": "Déclinaison G1 de d62c5231 (notre cs-o054 : r 3,71 en français, 5,8 k vues), ligne 4 de la boîte. Accroche du parent mot pour mot. Habitudes neuves, aucune de cs-o054 (date et titre, souligner ce qui se répète, marge pour les questions, résumé de 3 lignes, se tester le soir, combler les trous le jour même) : un code couleur pour toutes les matières, une page par leçon, les exemples encadrés, une écriture lisible, un lexique à la fin de chaque chapitre, vérifier ses notes en se testant dessus (place micabo, slide 6). Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "bf5cf3fd",
+      "texte_overlay": "habits that made me the person\neveryone asks for notes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "bf92000f",
+      "texte_overlay": "one color code for every subject.\nblue = definitions, red = dates, green = examples.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c0e53e55",
+      "texte_overlay": "one page per lesson. never two lessons on one page.\neasy to find, easy to share.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c2fdf02a",
+      "texte_overlay": "every example goes in a little box.\nthat's what people look for first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c360ea2c",
+      "texte_overlay": "i write slower so it's readable.\nnotes nobody can read are useless. even to me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d0e567ec",
+      "texte_overlay": "before i call them done, i quiz myself from them.\nif i can answer, anyone can.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c4b6dd89",
+      "texte_overlay": "a mini glossary at the end of every chapter.\nall the new words in one place.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

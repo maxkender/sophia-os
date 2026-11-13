@@ -79,6 +79,7 @@ import {
 } from "./statutCompte";
 import { BarreFiltres, CelluleCompte, CellulesJours, CelluleVues, Choix, EnTetesJours, TD, TH } from "./TableauComptes";
 import { useFicheSamedi } from "./useFicheSamedi";
+import { plateformeDe, useIdsRuul, usePlateformeDecisions } from "@/features/ruul/canal";
 
 const CHOIX: readonly ChoixSamedi[] = ["kill", "kill_np", "double", "keep", "repondre"];
 // Lundi 2/11 : le samedi ne reporte plus personne (les reports se décident le dimanche soir).
@@ -299,17 +300,28 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const [tous, setTous] = React.useState(true);
   const [bilan, setBilan] = React.useState<string | null>(null);
 
-  const liste = React.useMemo(() => lu.data ?? [], [lu.data]);
+  // Parcours Ruul, point 8 : Décisions séparées Upwork | Ruul (onglet en haut de la page).
+  const idsRuul = useIdsRuul();
+  const plateforme = usePlateformeDecisions();
+  const liste = React.useMemo(
+    () => (lu.data ?? []).filter((c) => !plateforme || plateformeDe(idsRuul, c.poster_id) === plateforme),
+    [lu.data, plateforme, idsRuul],
+  );
   // La cohorte qui arrive : visible, en Keep, sans autre choix ; Validate ne la touche pas
   // (ses reports se décident le dimanche soir, onglet « Sunday: warm-up »).
   // 0494 : sauf un posteur qui ne démarre jamais (reporté 2 fois ou plus) : il se décide samedi.
   // 0530 : un Kill samedi décidé dans Problèmes se traite ce samedi, même pour la cohorte qui arrive.
   const aVenir = (c: CompteSemaine) =>
     !semaineCommencee(c.cohorte_lundi, lundi) && !jamais(c) && !decideDansProblemes(brouillons.data?.get(c.compte_id));
-  const x = (c: CompteSemaine) => extras.data?.get(c.compte_id);
-  const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extras.data?.get(c.compte_id), {
+  // Un posteur Ruul n'a pas de contrat Upwork : ce n'est pas « sans contrat » (son Kill passe par ruul_desactiver, 0694).
+  const extraDe = React.useCallback((c: CompteSemaine) => {
+    const ex = extras.data?.get(c.compte_id);
+    return ex && idsRuul.has(c.poster_id) ? { ...ex, sans_contrat: false } : ex;
+  }, [extras.data, idsRuul]);
+  const x = extraDe;
+  const evals = React.useMemo(() => new Map(liste.map((c) => [c.compte_id, evaluerCompte(c, extraDe(c), {
     lundi, aujourdhui, maintenant, page: "samedi", seuils: seuils.data,
-  })])), [liste, extras.data, seuils.data, lundi, aujourdhui, maintenant]);
+  })])), [liste, extraDe, seuils.data, lundi, aujourdhui, maintenant]);
   const e = (c: CompteSemaine) => evals.get(c.compte_id)!;
   const demandeDe = new Map((demandes.data ?? []).map((d) => [d.poster_id, d]));
   // 0464 : quelle que soit la cohorte.
@@ -328,8 +340,12 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
     // 0464 : reporté 2 fois, No channel (et les autres raisons) : Kill & pay proposé.
     if (forcesDe(c.poster_id).length) return "kill";
     // 0559 (C2) : gardé le samedi d'avant et toujours 0 post avec lien : Kill pré-sélectionné.
-    if (alerteMemoire(memoire.data?.get(c.poster_id), aujourdhui)?.choix === "kill") return "kill";
-    return choixPropose(e(c));
+    const alerte = alerteMemoire(memoire.data?.get(c.poster_id), aujourdhui);
+    if (alerte?.choix === "kill") return "kill";
+    // « Pas maintenant » toujours régulier : Doubler, seulement si le calcul le propose (≥ 2 semaines, pays ≥ 50 par compte).
+    const propose = choixPropose(e(c));
+    if (alerte?.choix === "double" && propose === "double") return "double";
+    return propose;
   };
   const filtres_ = filtrerComptes(liste, filtres);
   const duOnglet = (o: Onglet) => filtres_.filter((c) => o === "tous" || ongletDe(c, lundi) === o);
@@ -368,7 +384,7 @@ export function ListeSamedi({ maintenant = new Date() }: { maintenant?: Date }) 
   const libelleRaison = (r: RaisonSansPaie) => t(`autoOnglets.decisions.liste.samedi.sansPaie.raisons.${r}`);
   // 0464 : un posteur toujours montré sans compte dans la liste : sa carte, Kill proposé.
   const forcesSansCompte = [...(forces.data?.entries() ?? [])]
-    .filter(([p]) => !posteursMontres.has(p))
+    .filter(([p]) => !posteursMontres.has(p) && (!plateforme || plateformeDe(idsRuul, p) === plateforme))
     .map(([p, f]) => ({ poster_id: p, forces: f, nom: couverture.data?.find((l) => l.poster_id === p)?.nom ?? null }));
   const [choixForces, setChoixForces] = React.useState<Record<string, "kill" | "rien">>({});
   const choixForceDe = (p: string) => choixForces[p] ?? "kill";

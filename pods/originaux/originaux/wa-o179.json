@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o179",
+ "type_bleo": "full_test",
+ "titre": "things that instantly make you more interesting #interesting #socialskills #selfimprovement #conversation #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "7a67bc1d-2d66-43e5-94be-77f5d40a2ecb"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 7a67bc1d). full test BLEO : accroche jamais faite (format « things that instantly make you »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "611a8454-d0c4-46d2-bd5d-fab7415a5dec",
+   "texte_overlay": "things that instantly make\nyou more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670653042366221581/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "03184599-9990-453a-b55a-eaad0e7f2e3c",
+   "texte_overlay": "having a strange hobby\n\npick up one unusual hobby: fencing, beekeeping, calligraphy. people are always curious about the person with a hobby they've never even heard of before.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670653042366221581/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8da5b945-f214-4a88-b431-296eeeb3db8a",
+   "texte_overlay": "having opinions about books\n\nread a few books that genuinely move you and have real thoughts about them. people love talking to someone who reads widely and actually thinks about it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670653042366221581/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c8644abd-023e-44ea-8b8c-b75cc837a3da",
+   "texte_overlay": "knowing odd facts\n\nspend 5 minutes a day learning one odd fact: why cats purr, how old the moon is, who invented the sandwich. odd facts are the easiest way to become interesting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670653042366221581/3.jpg",
+   "texte_sophia": "knowing odd facts\n\ni spend 5 minutes a day learning one odd fact, like why cats purr. i do it with the Sophia app, one lesson a day, and odd facts are the easiest way to become interesting."
+  },
+  {
+   "position": 5,
+   "media_id": "4b0a234a-de92-477e-989e-5472a11dd8ad",
+   "texte_overlay": "telling stories well\n\npractise telling short stories with a beginning, a twist and an end. a good storyteller is magnetic at every table, and it's a skill anyone can learn.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670653042366221581/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d118bdb8-98f0-4071-b57b-b2527fb4ee8c",
+   "texte_overlay": "being curious about others\n\nask people questions about their lives and actually listen. the most interesting people are almost always the ones most genuinely interested in everyone else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670653042366221581/6.jpg"
+  }
+ ]
+}

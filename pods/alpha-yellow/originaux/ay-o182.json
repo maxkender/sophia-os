@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o182",
+ "type_bleo": "full_test",
+ "titre": "How to text like a confident man #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "6ffbc208-4cc1-4373-b7ea-01766cc96e62"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 5ca058a8. full test. Accroche jamais faite chez nous : les messages, angle confiance et respect (pas de jeux ni de manipulation). Accroches écrites : « How to text like a confident man » (retenue), « Texting mistakes that make you look needy » (écartée : négatif), « How to text a girl you like » (écartée : trop étroit).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ca058a8",
+   "texte_overlay": "How to text like\na confident man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687926438485511431/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Reply when you see it, not on a timer. Waiting three hours on purpose is a game, and games look insecure. Answer naturally when you're free, and get on with your day.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Make plans, don't just chat. \"Want to grab a drink Thursday?\" beats fifty messages of small talk. Confident men use texts to meet people, not to replace meeting them.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keep messages short and clear. One idea per message, no walls of text, no five question marks. Simple, clean writing reads as calm and sure of yourself.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Don't double text after no reply. Send one message, then let it be. If they're interested, they'll answer. Respecting silence is a quiet sign of confidence.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Have something real to share. I do five minutes a day of history, art or science, and a funny fact or story makes a text far more interesting than \"wyd\".",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A funny fact makes a text far more interesting than \"wyd\".",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Use voice notes for warmth, texts for plans. A short voice message on a birthday or after a great evening feels personal, warm and far more memorable than any text.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Never argue by text. Tone gets lost and things escalate. \"Let's talk about this tonight\" is the most mature message you can send in a tense moment.",
+   "media_id": "38041cfe"
+  }
+ ]
+}

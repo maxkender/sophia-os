@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o179",
+ "type_bleo": "full_test",
+ "titre": "how to start a commonplace book #journal #commonplacebook #smartgirl #darkacademia #reading",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/4 (la jauge en demande 4 sur 15) : accroche jamais faite chez nous (« commonplace » absent des accroches de donnees/label.json). Accroches écrites : « how to start a commonplace book » (retenue : pratique ancienne, concrète, enregistrable), « the notebook every intellectual keeps » (écartée : vague), « journaling for smart girls » (écartée : journaling générique). Fait vérifié : les carnets de lieux communs sont répandus depuis la Renaissance ; Thomas Jefferson en tenait un (« Literary Commonplace Book »). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a83b6054",
+   "texte_overlay": "how to start a\ncommonplace book",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d54fde27",
+   "texte_overlay": "what it is\n\none notebook for everything\nworth remembering.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "602e712a",
+   "texte_overlay": "an old habit\n\nused since the renaissance.\nthomas jefferson kept one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bab6f7b3",
+   "texte_overlay": "1. copy quotes you love,\nby hand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c4c6384e",
+   "texte_overlay": "2. add facts that surprised you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3a109284",
+   "texte_overlay": "3. write one line about why\nit matters to you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e921fe84",
+   "texte_overlay": "4. feed it daily\n\ntrade one scroll for a painting,\na poem, a moment in history.",
+   "texte_sophia": "4. feed it daily\n\ntrade one scroll for 5 minutes\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "90f5ad5f",
+   "texte_overlay": "save this and start tonight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

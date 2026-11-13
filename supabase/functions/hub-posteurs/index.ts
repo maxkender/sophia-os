@@ -15,9 +15,14 @@
  *       `langue_os` (langue du pays connue et publiée par des comptes actifs).
  *       Le site grise « Accepter » pour tout autre pays.
  *   { action: "creer_posteur", hub_id, prenom, nom, email_perso, pays_code,
- *     pays_nom, applications }
+ *     pays_nom, applications, ruul_email?, ref?, plateforme_paie?, zone?,
+ *     tarif_semaine?, start_monday?, application_id? }
+ *       0589 : plateforme_paie (« ruul »), zone (A/B/C), tarif de la semaine
+ *       (USD), email Ruul (peut être vide) et application du site sont gardés
+ *       sur le profil. Un posteur Ruul n'a jamais de contrat Upwork.
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
- *       login @sophia.com, mot de passe 12345678 comme tout compte OS, premier
+ *       login @sophia.com, mot de passe unique et aléatoire (13/11 ; avant : 12345678 pour
+ *       l'instant ; c'est CE mot de passe qui est renvoyé au site), premier
  *       compte perso, labels, persona), dans la langue de son pays, puis le
  *       rattache au profil « RUUL cohort » (réglage `hub_posteurs`), ou à
  *       défaut au HM de sa zone. Le warm-up n'est pas lancé :
@@ -25,12 +30,24 @@
  *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
  *       lundi (trigger de 0296) — premiers posts et paie partent du lundi.
  *       Idempotent sur `hub_id` : un rejeu renvoie `existed: true` et, si le
- *       poster ne s'est jamais connecté, son mot de passe remis à 12345678
- *       (sinon `password: null`, `deja_connecte: true`).
+ *       poster ne s'est jamais connecté, un mot de passe neuf remis et renvoyé (sinon
+ *       `password: null`, `deja_connecte: true`).
  *   { action: "posts_semaine", profile_ids, lundi }
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
  *   { action: "stats_pays" }
  *       Posters actifs par langue de publication.
+ *   { action: "maj_ruul", application_id, ruul_email }
+ *       0589 : le site signale un nouvel email Ruul (vide : effacé). Le
+ *       posteur est retrouvé par application_id (repli : hub_id, profile_id).
+ *   { action: "parrainages", offset?, limit?, page? }
+ *       0588 (lecture seule) : une ligne plate par filleul — id, ref,
+ *       referrer_name, referrer_channel (upwork|ruul), friend_first_name,
+ *       friend_last_name, friend_email, country, created_at, invitation_status,
+ *       j0_sent_at, j2_sent_at, j5_sent_at, opened_at, clicked_at,
+ *       unsubscribed_at, bounced_at, applied_at, recrue_id, first_login_at,
+ *       first_post_at, bonus_status (none|pending|paid), bonus_paid_at.
+ *       500 lignes au plus par appel : { rows, total, offset, next_offset }
+ *       (next_offset null = dernière page). « page » (1, 2…) = offset (page-1)×500.
  *   { action: "identites", hub_ids }
  *       Prénom et nom légaux (pièce d'identité) saisis par le poster dans
  *       l'accueil de l'OS, pour l'ajouter dans Ruul. Seuls ceux qui les ont
@@ -47,7 +64,6 @@ import {
   dateIso,
   estUuid,
   idCohorteRuul,
-  MOT_DE_PASSE_INITIAL,
   partsPourApplications,
   paysAEnvoyer,
   type LanguesComptes,
@@ -60,9 +76,10 @@ import {
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { lireParLots } from "../_shared/lots.ts";
+import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
-const VERSION = "2026-11-06c";
+const VERSION = "2026-11-10-ruul-p1";
 const POSTS_PAR_JOUR = 2;
 const PROFILS_MAX = 500;
 
@@ -119,6 +136,26 @@ Deno.serve(async (request) => {
         return await statsPays(supabase);
       case "identites":
         return await identites(supabase, body);
+      case "maj_ruul": {
+        const { data, error } = await supabase.rpc("ruul_maj_email_app", {
+          p_application_id: body.application_id ? String(body.application_id) : null,
+          p_hub: body.hub_id ? String(body.hub_id) : null,
+          p_profile: estUuid(body.profile_id) ? body.profile_id : null,
+          p_email: String(body.ruul_email ?? ""),
+        });
+        if (error) throw error;
+        const r = data as { ok: boolean; error?: string };
+        return json(r, r.ok ? 200 : r.error === "posteur introuvable" ? 404 : 422);
+      }
+      case "parrainages": {
+        // 0588 : lecture seule, paginée par 500.
+        const limite = Math.min(Math.max(Number(body.limit) || 500, 1), 500);
+        const page = Number(body.page);
+        const offset = Number.isFinite(page) && page >= 1 ? (Math.floor(page) - 1) * limite : Math.max(Number(body.offset) || 0, 0);
+        const { data, error } = await supabase.rpc("hub_parrainages_page", { p_offset: offset, p_limite: limite });
+        if (error) throw error;
+        return json({ ok: true, ...(data as Record<string, unknown>) });
+      }
       case "candidature": {
         // 0561 : un candidat vient de postuler sur le site (email, code ?ref=) : les relances
         // de parrainage s'arrêtent et l'ami est noté « a postulé » chez son parrain.
@@ -297,13 +334,14 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   }
 
   // 4. Création par le chemin de l'admin (manage-users), jamais un second chemin.
-  const password = MOT_DE_PASSE_INITIAL;
   const paysCompte = paysAEnvoyer(langue, pays);
   const cree = await appelerManageUsers({
     action: "create",
     prenom,
     nom,
-    password,
+    // 13/11 (Réparer Ruul, point 5) : plus jamais de mot de passe par défaut : un mot de passe unique et
+    // aléatoire par compte. Le site le reçoit dans la réponse (son email de bienvenue dit le bon).
+    password: motDePasseRecrue(),
     langue,
     type_compte: "perso",
     posts_par_jour: POSTS_PAR_JOUR,
@@ -328,18 +366,45 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
       return json({ ok: false, error: `manage-users : ${cree.error}` }, 502);
     }
     await supabase.from("hub_posteurs").delete().eq("hub_id", hubId).eq("statut", "en_cours");
+    await noterEchec(supabase, hubId, emailPerso, `${prenom} ${nom}`.trim(), `creation_refusee : ${cree.error}`);
     return json({ ok: false, error: `creation_refusee : ${cree.error}` }, 422);
+  }
+
+  // Sans mot de passe dans la réponse (ne devrait pas arriver) : on en met un en place nous-mêmes.
+  let password = cree.password;
+  if (!password) {
+    password = motDePasseRecrue();
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(cree.userId, { password });
+    if (errMdp) throw errMdp;
   }
 
   // 5. Le lien d'abord (un rejeu retrouvera le poster), puis le profil.
   const { error: errCree } = await supabase
     .from("hub_posteurs")
-    .update({ statut: "cree", profile_id: cree.userId, compte_id: cree.compteId, email_os: cree.email, cree_at: new Date().toISOString() })
+    // 0583 : mdp_reel = le mot de passe renvoyé au site est bien celui en place (le rattrapage n'y touche pas).
+    .update({ statut: "cree", profile_id: cree.userId, compte_id: cree.compteId, email_os: cree.email, cree_at: new Date().toISOString(), mdp_reel: true })
     .eq("hub_id", hubId);
   if (errCree) throw errCree;
+  // 0690 : un échec passé pour ce signé est réglé.
+  await supabase.from("hub_echecs").update({ resolu_at: new Date().toISOString() }).eq("hub_id", hubId).is("resolu_at", null);
+  // 0574 : tous les posteurs du site sont payés par Ruul ; l'email Ruul vient de la page de signature.
+  // 0589 : il peut être vide (le site l'enverra par maj_ruul, ou le posteur l'ajoute sur son dashboard) ;
+  // zone, tarif de la semaine (USD) et application du site sont gardés sur le profil.
+  const emailRuul = String(body.ruul_email ?? "").trim().toLowerCase();
+  const tarifSemaine = Number(body.tarif_semaine);
+  const zone = String(body.zone ?? "").trim().toUpperCase();
   const { error: errProfil } = await supabase
     .from("profiles")
-    .update({ manager_id: rattachement.id })
+    .update({
+      manager_id: rattachement.id,
+      canal_paie: "ruul",
+      ruul_statut: "a_ajouter",
+      ruul_email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(emailRuul) ? emailRuul : null,
+      ruul_zone: ["A", "B", "C"].includes(zone) ? zone : null,
+      ruul_tarif_semaine: Number.isFinite(tarifSemaine) && tarifSemaine > 0 ? tarifSemaine : null,
+      site_application_id: body.application_id ? String(body.application_id).slice(0, 120) : null,
+      ruul_jeton: crypto.randomUUID(),
+    })
     .eq("id", cree.userId);
   if (errProfil) throw errProfil;
 
@@ -385,6 +450,16 @@ async function lireCohorteRuul(
 
 /** Rejeu sur un poster déjà créé : rien n'est recréé, le rattachement au HM est revérifié. */
 // deno-lint-ignore no-explicit-any
+/** 0690 : une création refusée laisse une trace (une ligne par signé), pour « Aujourd'hui ». */
+async function noterEchec(supabase: Supabase, hubId: string, email: string | null, nom: string, erreur: string): Promise<void> {
+  const { data } = await supabase.from("hub_echecs").select("essais").eq("hub_id", hubId).maybeSingle();
+  const maintenant = new Date().toISOString();
+  const { error } = data
+    ? await supabase.from("hub_echecs").update({ erreur: erreur.slice(0, 500), essais: (data.essais as number) + 1, dernier_at: maintenant, resolu_at: null }).eq("hub_id", hubId)
+    : await supabase.from("hub_echecs").insert({ hub_id: hubId, email, nom: nom.slice(0, 200), erreur: erreur.slice(0, 500) });
+  if (error) console.error("[hub-posteurs] hub_echecs", error.message);
+}
+
 async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
   const { data: profil, error } = await supabase
     .from("profiles")
@@ -403,16 +478,18 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
     ? await supabase.from("profiles").select("id, prenom, nom, email").eq("id", managerId).maybeSingle()
     : { data: null };
 
-  // Jamais connecté : ses identifiants ont pu se perdre en route, on remet le
-  // mot de passe de départ pour que l'email renvoyé dise vrai. Déjà connecté :
-  // on ne touche à rien.
+  // Jamais connecté : ses identifiants ont pu se perdre en route, on pose un mot de
+  // passe neuf, unique et aléatoire (13/11 : plus de 12345678) et on renvoie CELUI-LÀ,
+  // pour que l'email dise vrai. Déjà connecté : on ne touche à rien.
   const { data: auth } = await supabase.auth.admin.getUserById(profil.id);
   const jamaisConnecte = !auth?.user?.last_sign_in_at;
   let password: string | null = null;
   if (jamaisConnecte) {
-    password = MOT_DE_PASSE_INITIAL;
-    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password });
+    const neuf = motDePasseRecrue();
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password: neuf });
     if (errMdp) throw errMdp;
+    password = neuf;
+    await supabase.from("hub_posteurs").update({ mdp_reel: true }).eq("hub_id", lien.hub_id);
   }
 
   return json({
@@ -429,7 +506,7 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
 }
 
 type ResultatCreation =
-  | { ok: true; userId: string; email: string; compteId: string | null }
+  | { ok: true; userId: string; email: string; compteId: string | null; password: string | null }
   | { ok: false; incertain: boolean; error: string };
 
 async function appelerManageUsers(corps: Record<string, unknown>): Promise<ResultatCreation> {
@@ -451,7 +528,9 @@ async function appelerManageUsers(corps: Record<string, unknown>): Promise<Resul
   // deno-lint-ignore no-explicit-any
   const charge: any = await reponse.json().catch(() => null);
   if (reponse.ok && charge?.ok && charge.userId) {
-    return { ok: true, userId: String(charge.userId), email: String(charge.email ?? ""), compteId: charge.compte?.id || null };
+    // 9/11 : le mot de passe réellement mis en place par manage-users (aléatoire depuis le 31/10).
+    const password = typeof charge.password === "string" && charge.password.length >= 8 ? charge.password : null;
+    return { ok: true, userId: String(charge.userId), email: String(charge.email ?? ""), compteId: charge.compte?.id || null, password };
   }
   const erreur = String(charge?.error ?? `HTTP ${reponse.status}`).slice(0, 300);
   // Un 5xx (ou une réponse illisible) peut arriver APRÈS createUser : issue inconnue.

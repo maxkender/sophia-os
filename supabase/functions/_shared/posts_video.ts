@@ -18,6 +18,8 @@ export interface VideoAPoser {
   chemin: string | null;
   nom: string | null;
   generationId: string | null;
+  /** Vidéo complète UGC IA (réaction + démo, 0665) d'où vient la vidéo. */
+  assemblageId?: string | null;
 }
 
 export interface PostVideoAPoser {
@@ -69,6 +71,7 @@ export async function poserPostVideo(supabase: Supabase, d: PostVideoAPoser): Pr
         chemin: v.chemin,
         nom: v.nom,
         generation_id: v.generationId,
+        ...(v.assemblageId ? { assemblage_id: v.assemblageId } : {}),
       })),
     );
     if (errV) throw new Error(errV.message);

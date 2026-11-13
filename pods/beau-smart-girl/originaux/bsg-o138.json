@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o138",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "178e8451-132a-48fa-b9a1-50e3cd8e8f37",
+  "titre": "how to embrace your own beauty and feel confident #confidence #thatgirl",
+  "inspirations": [
+    "178e8451-132a-48fa-b9a1-50e3cd8e8f37"
+  ],
+  "notes": "G1, déclinaison de 178e8451 (« how to embrace your own beauty and feel confident », génération 0 en anglais ; meilleur passage tr 7,1 k vues, r 2,51), en anglais. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent : ni comparaison, ni compliments au miroir, ni regard des autres). Aucun conseil physique ni de régime. Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Agatha_Christie : « she made international headlines by going missing for 11 days » (3 au 14 décembre 1926). Routine du 11/11 sur BLEO : jauge 2 full tests et 6 déclinaisons (lignes 1 à 6 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "how to embrace your own beauty\nand feel confident",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. dress for how you want to feel\n\nnot for who might see you.\ncomfort is a kind of beauty.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. curate what you look at\n\nfill your days with art, nature and people who make you feel good.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. be interesting, not just pretty\n\nthis morning i learned that agatha christie went missing for 11 days in 1926.\nthe queen of mystery had her own mystery.",
+      "texte_sophia": "3. be interesting, not just pretty\n\nthis morning, the Sophia app taught me that agatha christie went missing for 11 days in 1926.\nthe queen of mystery had her own mystery.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "4. let your face move\n\nlaugh with your whole face.\njoy is the best look there is.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "5. build what's inside\n\nopinions, passions, stories.\nconfidence that doesn't depend on a mirror.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "which one do you need today?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

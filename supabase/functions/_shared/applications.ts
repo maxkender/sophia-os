@@ -95,6 +95,7 @@ export function placementParDefaut(langue: string): string {
     lt: "Nori kasdien išmokti ką nors naujo? Programėlė Sophia per kelias minutes suteiks tau nerealių bendrųjų žinių. Išbandyk 👀",
     lv: "Gribi katru dienu uzzināt ko jaunu? Lietotne Sophia dažās minūtēs iemācīs tev traki labu vispārējo erudīciju. Izmēģini 👀",
     ja: "毎日なにか新しいことを学びたい？Sophiaアプリなら数分ですごい教養が身につくよ。試してみて 👀",
+    ko: "매일 새로운 걸 배우고 싶어? Sophia 앱이면 몇 분 만에 엄청난 교양이 생겨. 한번 써 봐 👀",
   };
   return par[langue] ?? par.en;
 }

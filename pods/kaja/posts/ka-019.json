@@ -1,0 +1,340 @@
+{
+ "id": "ka-019",
+ "titre": {
+  "en": "10/10 skills to impress anyone",
+  "fr": "10/10 skills pour épater tout le monde",
+  "de": "10/10 Skills zum Beeindrucken"
+ },
+ "legendes": {
+  "en": "10/10 skills to impress anyone #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour épater tout le monde #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills zum Beeindrucken #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 11/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor branche2, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : tour de cartes, beatbox, calcul mental (tout neuf chez nous). Sophia en étape 3 « HOW TO IMPRESS WITH WHAT YOU KNOW » : cta A, « 5 min a day ». Couverture fr en « SKILLS » (colonne de la branche). Vraies vidéos : en MLT Magic Tricks, Spencer X, Brain Station ; fr MagieGratuit, Le Svendro, Mathrix ; de Matthias Berger, Beatbox Germany, Lehrerschmidt.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS TO",
+     "IMPRESS",
+     "ANYONE"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "ÉPATER TOUT",
+     "LE MONDE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS ZUM",
+     "BEEINDRUCKEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "A CARD TRICK",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QXcFMjKy4sk",
+     "titre": "Impress ANYONE With This Card Trick!",
+     "chaine": "MLT Magic Tricks",
+     "vues": "9.9M views",
+     "date": "9 years ago",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ltG7ED6nRgrU42D6pGCWbEXPwMoWVYA8cDGi3oFD7WIik=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN TOUR DE CARTES",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i91qATghcZI",
+     "titre": "Tour de Magie Facile avec des cartes (explication)",
+     "chaine": "MagieGratuit",
+     "vues": "4 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXU3F3x8Sbq-OHN1zcTlFC9lyNevYebQpU43-d3Fl1v60=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT",
+     [
+      {
+       "t": "EIN KARTENTRICK",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "p91nhMzmz6M",
+     "titre": "Der PERFEKTE KARTENTRICK für ANFÄNGER (Reverse Card) | Erklärung zum Nachmachen",
+     "chaine": "Matthias Berger",
+     "vues": "276.575 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "13:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfIVFyDA9WIbV7yGj8_wmldW0ymBEI5Fu9lzIXDrwmXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BEATBOX",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EAHExoZIgjM",
+     "titre": "How To Beatbox Basics In 1 Minute",
+     "chaine": "Spencer X",
+     "vues": "13M views",
+     "date": "8 years ago",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/V5fk25aK3A3SXjyKAAcWBCUQ5IUYK-xw0Orme7ts5xLN5x9ET-AE1mCgfSWgvb9WMWiRDgUk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DU BEATBOX",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yl1UVxfWDbQ",
+     "titre": "TUTO BEATBOX #1 - APPRENDRE FACILEMENT LE 1ER SON (KICK)",
+     "chaine": "Le Svendro",
+     "vues": "416 k vues",
+     "date": "il y a 8 ans",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nODXV1xmrIeGT0sWZp64me8_fP5vXnG1g4DIK8BpfLJw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "BEATBOXEN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "slGs_d59bx8",
+     "titre": "Beatbox lernen für [ANFÄNGER] | #1 KICK",
+     "chaine": "Beatbox Germany",
+     "vues": "103.398 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpYaeDQb24G6w5eJOtBBbWyDqgkeXB4znuR23uitE6nA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO IMPRESS",
+     [
+      {
+       "t": "WITH WHAT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "YOU KNOW",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ÉPATER",
+     [
+      {
+       "t": "AVEC CE QUE",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "TU SAIS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BEEINDRUCKST",
+     [
+      {
+       "t": "DU MIT WISSEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "MENTAL MATH",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1wAr2Kbe-GM",
+     "titre": "How to Calculate Faster than a Calculator - Mental Math #1",
+     "chaine": "Brain Station",
+     "vues": "7.7M views",
+     "date": "1 year ago",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/_Q8DnNm6nXHjLtNGWuhMlvqt1G9BilcflliJv28jFQcsjtUtfUWvRo6FNTWkhRXno84QkJOPQw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "CALCULER DE TÊTE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_OtUzIQ5cqs",
+     "titre": "TECHNIQUE des EXPERTS du CALCUL MENTAL (facile à apprendre !!)",
+     "chaine": "Mathrix",
+     "vues": "260 k vues",
+     "date": "il y a 4 ans",
+     "duree": "15:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lVe0jH091_Hj0iuKUYMQiVsYm2YR_2Zt8Np2TiIHoW8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO RECHNEST DU",
+     [
+      {
+       "t": "IM KOPF",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PCcK92FAzwo",
+     "titre": "Kopfrechnen - superschnell - genialer Rechentrick | Lehrerschmidt",
+     "chaine": "Lehrerschmidt",
+     "vues": "5,9 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:53",
+     "avatar": "https://yt3.ggpht.com/UyZNd_1wpswHfD461v_saXO6_nuxm4-C5TRz3PClMyBblASW2nOnMPXpUapKZJvXg47V198f6w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

@@ -11,6 +11,7 @@ import {
   ExternalLink,
   Eye,
   Film,
+  Layers,
   Loader2,
   type LucideIcon,
   RefreshCw,
@@ -48,6 +49,7 @@ import {
   type ResultatLancement,
   type SourceUgcIa,
 } from "./api";
+import { DialogueAssemblage } from "./Assemblage";
 import { DialogueMontage } from "./Montage";
 import {
   arrondiDixieme,
@@ -589,6 +591,7 @@ function CarteGeneration({
   const rafraichir = useRafraichir();
   const [refaire, setRefaire] = React.useState(false);
   const [monter, setMonter] = React.useState(false);
+  const [assembler, setAssembler] = React.useState(false);
   const montageEnCours = g.montage_statut === "en_cours";
   const [prompt, setPrompt] = React.useState(g.prompt || PROMPT_DEFAUT);
   const [resolution, setResolution] = React.useState<ResolutionUgcIa>(g.resolution);
@@ -656,6 +659,12 @@ function CarteGeneration({
             {t("ugcIa.montage.monter")}
           </Button>
         )}
+        {g.statut === "prete" && (g.video_brute_url || g.video_url) && (
+          <Button variant="outline" size="xs" disabled={montageEnCours} onClick={() => setAssembler(true)}>
+            <Layers aria-hidden />
+            {t("ugcIa.assemblage.bouton")}
+          </Button>
+        )}
         {g.statut !== "en_cours" && (
           <Button variant="outline" size="xs" disabled={occupe} title={occupe ? t("ugcIa.personaOccupe") : undefined} onClick={() => setRefaire((v) => !v)}>
             <RotateCcw aria-hidden />
@@ -687,6 +696,7 @@ function CarteGeneration({
       )}
       <Alerte erreur={relancer.error ?? supprimer.error} />
       {monter && <DialogueMontage generation={g} nomPersona={nom} ctaTexte={ctaTexte} ouvert={monter} fermer={() => setMonter(false)} />}
+      {assembler && <DialogueAssemblage generation={g} nomPersona={nom} ctaTexte={ctaTexte} fermer={() => setAssembler(false)} />}
     </div>
   );
 }

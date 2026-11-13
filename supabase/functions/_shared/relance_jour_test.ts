@@ -12,6 +12,7 @@ import {
   planRelance,
   TEXTES_RELANCE_DEFAUT,
   texteRelance,
+  CADRE_RELANCE_RUUL,
 } from "./relance_jour.ts";
 
 const base: RecrueAccueil = {
@@ -91,23 +92,14 @@ const texteSlack = (x: RecrueAccueil, iso: string, slack = "https://join.slack/x
     email: x.email, slack,
   });
 
-Deno.test("1/11 : pas sur Slack, « join our Slack » vient APRÈS l'étape la plus importante (dashboard > TikTok > Start warmup > Slack)", () => {
+Deno.test("10/11 : Slack ne bloque plus : plus jamais de relance « join our Slack »", () => {
   assertEquals(planSlack(base, "2026-10-27T09:00:00Z").elements, []);
-  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").elements, ["connexion", "slack"]);
-  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").element, "connexion");
-  const t = texteSlack(base, "2026-10-27T11:00:00Z");
-  assertStringIncludes(t, "you still need to log in to your dashboard: https://os");
-  assertStringIncludes(t, "and join our Slack: https://join.slack/x");
-  // Sur Slack : plus d'étape 0.
-  assertEquals(planSlack({ ...base, slack_user_id: "U1" }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
-  // 6/11 : déjà sur Slack sans id sur le profil (hub_posteurs, « I've joined ») : pas de relance Slack.
-  assertEquals(planSlack({ ...base, slack_connu: true }, "2026-10-27T11:00:00Z").elements, ["connexion"]);
-  // Le 2e compte d'un Double : jamais d'étape 0.
-  assertEquals(planSlack({ ...base, deuxieme: true }, "2026-10-27T11:00:00Z").elements.includes("slack"), false);
-  // Tout fait sauf Slack : l'étape 0 seule.
+  assertEquals(planSlack(base, "2026-10-27T11:00:00Z").elements, ["connexion"]);
+  assertEquals(texteSlack(base, "2026-10-27T11:00:00Z").includes("Slack"), false);
+  // Tout fait sauf Slack : rien.
   const pret = { ...base, premiere_connexion_at: "x", tiktok_existe: true, tiktok_vu_at: "2026-10-27T08:00:00Z", warmup_started_at: "2026-10-27T09:00:00Z", abonnements: 6 };
-  assertEquals(planSlack(pret, "2026-10-28T11:00:00Z").elements, ["slack"]);
-  assertStringIncludes(texteSlack(pret, "2026-10-28T11:00:00Z"), "you still need to join our Slack: https://join.slack/x.");
+  assertEquals(planSlack(pret, "2026-10-28T11:00:00Z").elements, []);
+  assertEquals(messageDeRetrait(null), false);
 });
 
 Deno.test("v4 : sans lien Slack, l'étape 0 est laissée de côté ; Start warmup cliqué et compte introuvable : rien", () => {
@@ -117,16 +109,15 @@ Deno.test("v4 : sans lien Slack, l'étape 0 est laissée de côté ; Start warmu
   assertEquals(planSlack(clique, "2026-10-29T09:00:00Z"), { element: null, elements: [], needsYou: true, follows: 0 });
 });
 
-Deno.test("1/11 : canal des relances : Slack d'abord, Upwork une fois 24 h après ; pas sur Slack : Upwork une fois", () => {
+Deno.test("10/11 : canal des relances : Slack seulement si relié ; pas sur Slack : le canal hors Slack (email, sinon Upwork) une fois", () => {
   const t0 = new Date("2026-11-01T10:00:00Z");
   const plus = (h: number) => new Date(t0.getTime() + h * 3_600_000);
   // Sur Slack, rien encore : Slack.
   assertEquals(choisirRelance({ elements: ["connexion"] }, true, new Map(), t0), { element: "connexion", canal: "slack", upwork_prevu_at: null });
-  // Slack parti il y a 10 h : on attend, Upwork prévu à +24 h.
+  // Slack parti : plus rien sur Upwork, même 24 h après.
   const slack = new Map([["connexion", { slack_at: t0.toISOString() }]]);
-  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(10)), { element: null, canal: null, upwork_prevu_at: plus(24).toISOString() });
-  // 24 h après : Upwork, une fois.
-  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(24)).canal, "upwork");
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(10)), { element: null, canal: null, upwork_prevu_at: null });
+  assertEquals(choisirRelance({ elements: ["connexion"] }, true, slack, plus(24)).canal, null);
   const lesDeux = new Map([["connexion", { slack_at: t0.toISOString(), upwork_at: plus(25).toISOString() }]]);
   assertEquals(choisirRelance({ elements: ["connexion"] }, true, lesDeux, plus(72)).canal, null);
   // Pas sur Slack : Upwork directement, une fois ; puis l'étape suivante.
@@ -170,25 +161,29 @@ Deno.test("1/11 : un STOP (même dans une phrase) ou un retrait arrête les rela
   assertEquals(messageDeRetrait(null), false);
 });
 
-Deno.test("1/11 : Start Tuesday : la relance annonce mardi 3 November, pas lundi", () => {
-  const plan = { element: "tiktok" as const, elements: ["tiktok" as const], needsYou: false, follows: 0 };
-  const t = texteRelance({ ...TEXTES_RELANCE_DEFAUT, cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}." }, plan, {
-    prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-02", email: "a@x", mardi: true,
-  });
-  assertStringIncludes(t, "to start posting on Tuesday 3 November");
-});
-
-
-Deno.test("2/11 : après lundi 12:00 (Paris), la relance donne la vraie date de début (le lundi suivant)", () => {
+Deno.test("10/11 : la date est toujours le lundi de la cohorte (jamais mardi, jamais recalculée)", () => {
   const plan = { element: "tiktok" as const, elements: ["tiktok" as const], needsYou: false, follows: 0 };
   const cadre = { ...TEXTES_RELANCE_DEFAUT, cadre: "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}." };
-  const o = { prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-02", email: "a@x", mardi: true };
-  // Lundi 11:59 (Paris) : encore « Tuesday 3 November ».
-  assertStringIncludes(texteRelance(cadre, plan, { ...o, maintenant: new Date("2026-11-02T10:59:00Z") }), "on Tuesday 3 November");
-  // Lundi 12:00 (Paris) et après : « Monday 9 November », plus jamais « Tuesday ».
-  const apres = texteRelance(cadre, plan, { ...o, maintenant: new Date("2026-11-02T11:00:00Z") });
-  assertStringIncludes(apres, "to start posting on Monday 9 November");
-  assertEquals(apres.includes("Tuesday"), false);
+  const o = { prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-16", email: "a@x", mardi: true };
+  for (const maintenant of [new Date("2026-11-10T10:00:00Z"), new Date("2026-11-16T10:59:00Z"), new Date("2026-11-16T11:00:00Z")]) {
+    const t = texteRelance(cadre, plan, { ...o, maintenant });
+    assertStringIncludes(t, "to start posting on Monday 16 November");
+    assertEquals(t.includes("Tuesday"), false);
+  }
+  // Un ancien cadre qui disait « Tuesday {date} » : toujours « Monday ».
+  assertStringIncludes(texteRelance({ ...cadre, cadre: "Start on Tuesday {date}: {ce_qui_manque}" }, plan, o), "Start on Monday 16 November");
+  // Passé le lundi 12:00 (Paris), la relance ne part plus (debutReel ≠ cohorte : recrues-check l'écarte).
   assertEquals(debutReel("2026-11-02", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
   assertEquals(debutReel("2026-11-09", new Date("2026-11-03T08:00:00Z")), "2026-11-09");
+});
+
+Deno.test("0592 : relance d'un posteur Ruul (samedi 20 h, lundi de cohorte) ; l'email compte comme le canal hors Slack", () => {
+  const plan = { element: "connexion" as const, elements: ["connexion" as const], needsYou: false, follows: 0 };
+  const t = texteRelance({ ...TEXTES_RELANCE_DEFAUT, cadre: CADRE_RELANCE_RUUL }, plan, {
+    prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-16", email: "ana@sophia.com",
+  });
+  assertStringIncludes(t, "to start posting on Monday 16 November, you still need to log in to your dashboard: https://os");
+  assertStringIncludes(t, "Please finish before Saturday 8 pm (Paris time).");
+  const h = historiqueRelances([{ donnees: { element: "connexion" }, canaux: ["email"], envoye_at: "2026-11-10T10:00:00Z" }]);
+  assertEquals(choisirRelance(plan, false, h, new Date("2026-11-11T10:00:00Z")).element, null);
 });

@@ -13,9 +13,17 @@ import { SectionDoubles } from "@/features/doubles/SectionDoubles";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
+import { Replie } from "@/components/ui/replie";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
+import { SectionSupport } from "@/features/support/SectionSupport";
+import { PageAujourdhui } from "@/features/auto/aujourdhui/PageAujourdhui";
+import { PageReglagesAuto } from "@/features/auto/PageReglagesAuto";
 import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
+import { PageBonus } from "@/features/bonus/PageBonus";
+import { AgentRuul, DernierImportRuul } from "@/features/ruul/AgentRuul";
+import { VueParcoursRuul } from "@/features/ruul/VueParcoursRuul";
+import { PageAjoutRuul, PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
 import { PageRetirerSlack } from "@/features/slackRetrait/PageRetirerSlack";
 import { ResumeNeedsYou } from "@/features/needsYou/ResumeNeedsYou";
 import { PageReponses } from "@/features/reponses/PageReponses";
@@ -99,7 +107,7 @@ export function DecisionsPage() {
         </SectionSure>
         {/* 0564 : les bonus du lundi (Comment Masters, parrainages, bonus en une phrase), envoyés au clic. */}
         <SectionSure nom="Bonus de lundi">
-          <BonusLundi />
+          <BonusLundi lienPage />
         </SectionSure>
         <SectionSure nom="Weekly decisions">
           <AdminCheckKillDoublePage />
@@ -197,11 +205,47 @@ export function ReponsesOfficiellesPage() {
   );
 }
 
+/** 12/11 (OS clair) : Support, une section : Boîte, Aperçu posteur, Tester, Consignes, Règles, Catalogue, Tests, Suivi. */
+export function SupportPage() {
+  return (
+    <PageAuto cle="support">
+      <SectionSupport />
+    </PageAuto>
+  );
+}
+
+/** 12/11 (OS clair) : ce que Max doit faire maintenant. */
+export function AujourdhuiPage() {
+  return (
+    <PageAuto cle="aujourdhui">
+      <PageAujourdhui />
+    </PageAuto>
+  );
+}
+
+/** 12/11 (OS clair) : les interrupteurs et les pages sorties du menu. */
+export function ReglagesAutoPage() {
+  return (
+    <PageAuto cle="reglages">
+      <PageReglagesAuto />
+    </PageAuto>
+  );
+}
+
 /** 8/11 : le parrainage par email (par pays et par semaine, top des parrains, pays). */
 export function ParrainagePage() {
   return (
     <PageAuto cle="parrainage">
       <SuiviParrainage />
+    </PageAuto>
+  );
+}
+
+/** 8/11 : les bonus (Donner un bonus, bonus de lundi, historique). */
+export function BonusPage() {
+  return (
+    <PageAuto cle="bonus">
+      <PageBonus />
     </PageAuto>
   );
 }
@@ -219,6 +263,43 @@ export function LogsPage() {
   return (
     <PageAuto cle="logs">
       <PageLogs />
+    </PageAuto>
+  );
+}
+
+/** 9/11 (0577) : les candidatures du site (Ruul). */
+export function CandidatsRuulPage() {
+  return (
+    <PageAuto cle="candidats_ruul">
+      <PageCandidatsRuul />
+    </PageAuto>
+  );
+}
+
+/** 9/11 (0577) : les cohortes des posteurs du site, étape par étape. */
+export function CohortesRuulPage() {
+  return (
+    <PageAuto cle="cohortes_ruul">
+      <PageCohortesRuul />
+    </PageAuto>
+  );
+}
+
+/**
+ * 10/11 : Ruul. En haut, la cohorte étape par étape et une ligne de pastilles
+ * par posteur ; en bas, replié, l'agent Ruul et les imports (« Marquer ajouté »).
+ */
+export function RuulSuiviPage() {
+  return (
+    <PageAuto cle="ruul_suivi">
+      <div className="space-y-4">
+        <VueParcoursRuul />
+        <Replie titre="Agent Ruul et imports">
+          <DernierImportRuul />
+          <AgentRuul />
+          <PageAjoutRuul />
+        </Replie>
+      </div>
     </PageAuto>
   );
 }

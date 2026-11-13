@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o094",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8413648d-c211-4766-9cf1-7d28c8d8d7b4",
+  "titre": "sitting down to study and somehow scrolling for an hour without noticing #studytok #studytips #focus",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "8413648d-c211-4766-9cf1-7d28c8d8d7b4"
+  ],
+  "notes": "Déclinaison G2 de 8413648d (notre cs-o057 en G1 : r 2,25 en turc), ligne 2 de la boîte. Même promesse (le téléphone qui mange la séance, et comment ça s'arrête), autres mots : « sitting down to study and somehow scrolling for an hour without noticing ». Gestes neufs, aucun de cs-o009 ni de cs-o057 : le téléphone dans un tiroir avec un mot dessus, l'écran en noir et blanc, une limite de temps sur les applis, se déconnecter après chaque usage, commencer par 5 questions sur la dernière séance (place micabo, slide 6), le téléphone se gagne (une tâche = 5 minutes). Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ece9e778",
+      "texte_overlay": "sitting down to study and somehow\nscrolling for an hour without noticing",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ed65fe64",
+      "texte_overlay": "what finally fixed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "edd6e949",
+      "texte_overlay": "my phone goes in a drawer with a sticky note on it:\n\"study first\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ee13d9a8",
+      "texte_overlay": "black and white screen mode while i study.\ngrey apps are way less tempting.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ee9bb3ea",
+      "texte_overlay": "time limits on the apps i lose myself in.\nwhen it pops up, i stop.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "489692c7",
+      "texte_overlay": "i start with 5 questions on last session.\nmy brain is busy before my thumb is.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ef7e50d6",
+      "texte_overlay": "the phone is earned now:\none task done = 5 minutes. then back.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

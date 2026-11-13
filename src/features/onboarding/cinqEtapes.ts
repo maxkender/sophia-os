@@ -134,3 +134,26 @@ export function jourAnglais(date: string): string {
     new Date(`${date}T12:00:00Z`),
   );
 }
+
+/**
+ * L'heure de la prochaine vérification par l'OS, à Paris (« 19:00 ») :
+ *   - Slack : la liaison automatique tourne toutes les 15 minutes (slack-auto-relier) ;
+ *   - TikTok et warm-up : le relevé des comptes tourne à 6 h et 18 h UTC (ckd-warmup-releve).
+ */
+export function prochaineVerification(etape: "slack" | "tiktok" | "warmup", maintenant = new Date()): string {
+  const d = new Date(maintenant.getTime());
+  if (etape === "slack") {
+    d.setUTCSeconds(0, 0);
+    d.setUTCMinutes(Math.floor(d.getUTCMinutes() / 15) * 15 + 15);
+  } else {
+    const heures = [6, 18];
+    const h = heures.find((x) => x > maintenant.getUTCHours() || (x === maintenant.getUTCHours() && maintenant.getUTCMinutes() === 0));
+    d.setUTCMinutes(0, 0, 0);
+    if (h === undefined) {
+      d.setUTCDate(d.getUTCDate() + 1);
+      d.setUTCHours(heures[0]);
+    } else d.setUTCHours(h);
+  }
+  return new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit" }).format(d);
+}
+

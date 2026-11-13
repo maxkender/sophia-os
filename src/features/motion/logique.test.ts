@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  ajouterScene,
   cheminCapture,
+  problemeScript,
+  SCENES_MAX,
+  supprimerScene,
   comptesDeLaLangue,
   dernieresLignes,
   moteurAuTravail,
@@ -23,11 +27,11 @@ const SCRIPT = {
 };
 
 describe("motion : script", () => {
-  it("scriptEditable ramène le script à ses textes", () => {
-    expect(scriptEditable(SCRIPT)).toEqual({
+  it("scriptEditable ramène le script à ce qui se modifie", () => {
+    expect(scriptEditable({ ...SCRIPT, scenes: [SCRIPT.scenes[0], { ...SCRIPT.scenes[1], animation: "Des montagnes surgissent." }] })).toEqual({
       scenes: [
-        { id: "S1", texte: "Switzerland hasn't fought a war. Why?" },
-        { id: "S2", texte: "One: the Alps." },
+        { id: "S1", origine: 0, texte: "Switzerland hasn't fought a war. Why?", animation: "" },
+        { id: "S2", origine: 1, texte: "One: the Alps.", animation: "Des montagnes surgissent." },
       ],
       outro: "Answer all these questions with the Sophia app.",
       legende: "#switzerland",
@@ -36,16 +40,37 @@ describe("motion : script", () => {
     expect(scriptEditable({ scenes: [] })).toBeNull();
   });
 
-  it("scriptModifie n'envoie que les textes", () => {
+  it("scriptModifie envoie la liste des scènes voulue, sans les repères", () => {
     const e = scriptEditable(SCRIPT)!;
     expect(scriptModifie(e)).toEqual({
       scenes: [
-        { id: "S1", texte: "Switzerland hasn't fought a war. Why?" },
-        { id: "S2", texte: "One: the Alps." },
+        { origine: 0, id: "S1", texte: "Switzerland hasn't fought a war. Why?", animation: "" },
+        { origine: 1, id: "S2", texte: "One: the Alps.", animation: "" },
       ],
       outro: { texte: "Answer all these questions with the Sophia app." },
       legende: "#switzerland",
     });
+  });
+
+  it("ajouterScene et supprimerScene", () => {
+    const e = scriptEditable(SCRIPT)!;
+    const plus = ajouterScene(e, 0);
+    expect(plus.scenes.map((s) => s.origine)).toEqual([0, null, 1]);
+    expect(plus.scenes[1]).toEqual({ id: null, origine: null, texte: "", animation: "" });
+    expect(ajouterScene(e, -1).scenes[0].origine).toBeNull();
+    expect(supprimerScene(plus, 0).scenes.map((s) => s.origine)).toEqual([null, 1]);
+    const une = supprimerScene(e, 1);
+    expect(supprimerScene(une, 0)).toBe(une);
+    let pleine = e;
+    for (let i = 0; i < 30; i++) pleine = ajouterScene(pleine, 0);
+    expect(pleine.scenes).toHaveLength(SCENES_MAX);
+  });
+
+  it("problemeScript : scène sans texte ou animation trop longue", () => {
+    const e = scriptEditable(SCRIPT)!;
+    expect(problemeScript(e)).toBeNull();
+    expect(problemeScript(ajouterScene(e, 1))).toBe("texte_vide");
+    expect(problemeScript({ ...e, scenes: [{ ...e.scenes[0], animation: "x".repeat(1001) }] })).toBe("animation_longue");
   });
 
   it("scriptsDifferents voit une modification", () => {
@@ -53,6 +78,7 @@ describe("motion : script", () => {
     const b = scriptEditable({ ...SCRIPT, legende: "#suisse" });
     expect(scriptsDifferents(a, scriptEditable(SCRIPT))).toBe(false);
     expect(scriptsDifferents(a, b)).toBe(true);
+    expect(scriptsDifferents(a, ajouterScene(a!, 0))).toBe(true);
   });
 });
 

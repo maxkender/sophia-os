@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o137",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f6f1eae3-5517-47bd-9db0-a65de92c212a",
+  "titre": "mes astuces un peu folles pour ne plus procrastiner mes révisions #etudes #pourtoi",
+  "inspirations": [
+    "f6f1eae3-5517-47bd-9db0-a65de92c212a"
+  ],
+  "notes": "G2, déclinaison de f6f1eae3 (« unhinged ways to lock tf in for school », G1 gagnante, génération 1 en français ; meilleur passage tr 4,1 k vues, r 2,46), en français ; troisième et dernière déclinaison de ce parent. Accroche reformulée : « mes astuces un peu folles pour ne plus procrastiner mes révisions » (autres mots que bsg-o121 et bsg-o130). cta A (avant / après sur le dernier item). Items neufs. Routine du 11/11 sur BLEO : jauge 2 full tests et 6 déclinaisons (lignes 1 à 6 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "mes astuces un peu folles\npour ne plus procrastiner mes révisions",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "414511dc",
+      "texte_overlay": "1. j'enregistre un vocal à moi-même\n\n« tu as promis deux chapitres ».\nm'écouter, c'est gênant. et ça marche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "01c21b76",
+      "texte_overlay": "2. je révise dans le bus, en vrai\n\nun tour complet de ligne, une fiche.\nle paysage aide à retenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3615b305",
+      "texte_overlay": "3. je me mets une alarme toutes les 25 minutes\n\nà chaque sonnerie, j'écris une phrase de résumé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0f057bec",
+      "texte_overlay": "4. je change de pièce à chaque matière\n\nl'histoire dans la cuisine, l'anglais au salon.\nchaque pièce devient un souvenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. je rends mes pauses intéressantes\n\navant, mes pauses duraient une heure sur mon téléphone.\nmaintenant, j'apprends un petit truc sur le monde. et je reprends tout de suite.",
+      "texte_sophia": "5. je rends mes pauses intéressantes\n\navant, mes pauses duraient une heure sur mon téléphone.\nmaintenant, j'ouvre l'appli Sophia cinq minutes. et je reprends tout de suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "laquelle tu testes ce soir ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

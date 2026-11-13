@@ -64,9 +64,14 @@ export function texteMemoire(m: MemoireSamedi): string {
  *  - gardé et toujours 0 post avec lien → Kill (« déjà gardé le JJ/MM ») ;
  *  - doublé il y a ≥ 2 semaines et 2e compte sous 50 % de la médiane du 1er → « Recréer ou retirer le 2e compte ».
  */
-export function alerteMemoire(m: MemoireSamedi | undefined, aujourdhui: string): { choix: "kill" | null; texte: string } | null {
+export function alerteMemoire(m: MemoireSamedi | undefined, aujourdhui: string): { choix: "kill" | "double" | null; texte: string } | null {
   if (!m) return null;
   if (m.decision === "garder" && m.posts === 0) return { choix: "kill", texte: `Kill : déjà gardé le ${jj(m.jour)}, 0 post avec lien depuis` };
+  // « Pas maintenant » et toujours régulier (12 posts avec lien par semaine depuis) : Doubler, si la règle le permet (≥ 2 semaines, pays ≥ 50 par compte).
+  const semaines = Math.max(1, Math.round((Date.parse(`${aujourdhui}T12:00:00Z`) - Date.parse(`${m.jour}T12:00:00Z`)) / (7 * 86_400_000)));
+  if (m.decision === "pas_maintenant" && m.posts >= 12 * semaines) {
+    return { choix: "double", texte: `Doubler : « pas maintenant » le ${jj(m.jour)}, toujours régulier (${m.posts} posts avec lien depuis)` };
+  }
   const jours = (Date.parse(`${aujourdhui}T12:00:00Z`) - Date.parse(`${m.jour}T12:00:00Z`)) / 86_400_000;
   const c2 = m.compte2;
   if (m.decision === "doubler" && jours >= 14 && c2 && c2.mediane !== null && c2.mediane1 && c2.mediane < 0.5 * c2.mediane1) {

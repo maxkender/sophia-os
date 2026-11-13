@@ -106,6 +106,7 @@ import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 import { HandleTiktok } from "@/features/ckd/cohorte/liens";
+import { PlateformeDecisions, type Plateforme } from "@/features/ruul/canal";
 
 const CLE = ["ckd"] as const;
 
@@ -200,6 +201,8 @@ export function AdminCheckKillDoublePage() {
   const jeudiFait = Boolean(faitDansCycle(faits.data ?? [], "jeudi", aujourdhuiParis()));
   const [onglet, choisir] = useOnglet(ONGLETS, ongletDuJour(new Date(), jeudiFait), ANCIENNES_VUES);
   const aDeciderSamedi = useNombreADecider(GROUPES_SAMEDI);
+  // Parcours Ruul, point 8 : Upwork et Ruul séparés (listes du samedi et du dimanche).
+  const [plateforme, setPlateforme] = React.useState<Plateforme>("upwork");
 
   if (params.get("vue") === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
 
@@ -227,6 +230,22 @@ export function AdminCheckKillDoublePage() {
         alerte={["samedi"]}
       />
 
+      <div className="flex gap-2" role="tablist" aria-label="Plateforme" data-testid="plateforme-decisions">
+        {(["upwork", "ruul"] as const).map((p) => (
+          <Button
+            key={p}
+            size="sm"
+            role="tab"
+            aria-selected={plateforme === p}
+            variant={plateforme === p ? "default" : "outline"}
+            onClick={() => setPlateforme(p)}
+          >
+            {p === "upwork" ? "Upwork" : "Ruul"}
+          </Button>
+        ))}
+      </div>
+
+      <PlateformeDecisions.Provider value={plateforme}>
       <PanneauOnglet id="decisions" actif={onglet}>
         {onglet === "jeudi" ? (
           <>
@@ -275,6 +294,7 @@ export function AdminCheckKillDoublePage() {
           <VueReglages />
         )}
       </PanneauOnglet>
+      </PlateformeDecisions.Provider>
     </div>
   );
 }

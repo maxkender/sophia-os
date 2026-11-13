@@ -132,3 +132,21 @@ select p.date_publication_prevue, c.handle_tiktok, p.statut, p.publie_url,
 from public.posts p join public.comptes c on c.id = p.compte_id
 where p.type = 'video' order by 1 desc limit 20;
 ```
+
+## Démos et vidéos complètes (migration 0665)
+
+- **Démos** (`ugc_ia_demos`) : bibliothèque commune des vidéos de l'appli à
+  coller après une réaction. Importées de l'ordinateur
+  (`medias/ugc-ia/demos/<id>/brut-…`) ou reprises de la partie téléphone d'une
+  source (`source_id`). « Monter » garde des passages (`passages`, dans
+  l'ordre), et accélère (`vitesse` 1, 1,25, 1,5 ou 2).
+- **Vidéos complètes** (`ugc_ia_assemblages`) : réaction (l'original de
+  Genjutsu recadré comme son montage, sans son bandeau) + démo, muettes, avec
+  le bandeau sur toute la durée.
+- **Rendu** : fait par la page (`src/features/ugcIa/rendu.ts` : canevas 720×1280
+  + MediaRecorder), le temps de la vidéo, onglet visible ; rien des fichiers
+  d'origine ne passe (ni C2PA ni marques IA). La fonction `ugc-ia`
+  (`finaliser_demo`, `finaliser_assemblage`) réencode en MP4 H.264 en
+  arrière-plan.
+- **Envoi** : « Envoyer à un créateur » ouvre la création de post UGCV avec la
+  vidéo et « CTA déjà incrusté » (`post_videos.assemblage_id`).

@@ -10,14 +10,18 @@
   "de": "5 Rabbit Holes, die sich lohnen",
   "pt": "5 temas para explorar a fundo",
   "it": "5 argomenti in cui vale la pena perdersi",
-  "es-419": "5 temas en los que vale la pena perderse"
+  "es-419": "5 temas en los que vale la pena perderse",
+  "fr": "5 sujets passionnants à creuser",
+  "es": "5 temas fascinantes para investigar"
  },
  "legendes": {
   "en": "5 Rabbit Holes Worth Going Down #rabbithole #learnontiktok #curiosity",
   "de": "5 Rabbit Holes, die sich lohnen #rabbithole #lernenmittiktok #wissen",
   "pt": "5 temas para explorar a fundo #curiosidades #aprendernotiktok #conhecimento",
   "it": "5 argomenti in cui vale la pena perdersi #imparacontiktok #curiosità #cultura",
-  "es-419": "5 temas en los que vale la pena perderse #aprendeentiktok #curiosidades #cultura"
+  "es-419": "5 temas en los que vale la pena perderse #aprendeentiktok #curiosidades #cultura",
+  "fr": "5 sujets passionnants à creuser #apprendresurtiktok #curiosité #culture",
+  "es": "5 temas fascinantes para investigar #aprendeentiktok #curiosidades #cultura"
  },
  "musique": {
   "titre": "audio originale",
@@ -93,6 +97,40 @@
      [
       {
        "t": "PERDERSE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 SUJETS",
+       "bronze": true
+      }
+     ],
+     "PASSIONNANTS",
+     [
+      {
+       "t": "À CREUSER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "FASCINANTES",
+     [
+      {
+       "t": "PARA INVESTIGAR",
        "bronze": true
       }
      ]
@@ -175,6 +213,36 @@
      "duree": "3:43",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0mAcph2hZad92o2lXZfwXrset3K475jUgTmOFywWQDw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT LE GPS",
+     "SAIT OÙ TU ES"
+    ],
+    "video": {
+     "id": "e79tSIpLiDk",
+     "titre": "#Galileo : fonctionnement du GPS européen",
+     "chaine": "CNES",
+     "vues": "423 k vues",
+     "date": "il y a 9 ans",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/B8IPo7_rF0cC2ozIFdtR4ukYl6PrurPb8K-DKdGIFTLa2zVou9dheg-dSNZTthgzbjU7UsNG=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÓMO SABE EL GPS",
+     "DÓNDE ESTÁS"
+    ],
+    "video": {
+     "id": "8tL-UBNsCv8",
+     "titre": "¿Cómo funciona el GPS?",
+     "chaine": "Date un Voltio",
+     "vues": "308 K visualizaciones",
+     "date": "hace 11 años",
+     "duree": "3:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0mAcph2hZad92o2lXZfwXrset3K475jUgTmOFywWQDw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -253,6 +321,36 @@
      "duree": "10:19",
      "avatar": "https://yt3.ggpht.com/4d7aSrmvF-AQ6ObXR2CmPKD6Qy61_eiaaKm4C2pJvhNPrrVbJ0bRBE68uOfgcXcdOwt77meC_w=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT MARCHE",
+     "VRAIMENT INTERNET"
+    ],
+    "video": {
+     "id": "9UMvyfT4V_Y",
+     "titre": "Comment fonctionne Internet ?",
+     "chaine": "Sabin Génie Civil",
+     "vues": "1 M de vues",
+     "date": "il y a 7 ans",
+     "duree": "9:27",
+     "avatar": "https://yt3.ggpht.com/kCMUiWTFj4ix_0HZgVyakCF7c7TPs-E9n9XZ_FbhHKHsngs_cn8jh2bVx8RumTAncjxe06oVKQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÓMO FUNCIONA",
+     "REALMENTE INTERNET"
+    ],
+    "video": {
+     "id": "rw41W8crZ_Y",
+     "titre": "¿Cómo funciona Internet?",
+     "chaine": "Sabin Ingeniería Civil",
+     "vues": "3,5 M de visualizaciones",
+     "date": "hace 7 años",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/4d7aSrmvF-AQ6ObXR2CmPKD6Qy61_eiaaKm4C2pJvhNPrrVbJ0bRBE68uOfgcXcdOwt77meC_w=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -311,6 +409,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "UN TEMA NUEVO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UN NOUVEAU SUJET",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "UN TEMA NUEVO",
      "CADA DÍA"
@@ -400,6 +524,36 @@
      "duree": "5:36",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT VOLENT",
+     "LES AVIONS"
+    ],
+    "video": {
+     "id": "r-ESaj_4ujc",
+     "titre": "Comment les avions volent-ils ?",
+     "chaine": "ScienceEtonnante",
+     "vues": "1,1 M de vues",
+     "date": "il y a 7 ans",
+     "duree": "22:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kzU96H3Lq6fihVVFNWXUEFaidERMvSqyMwn0f455Gi4w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "POR QUÉ VUELAN",
+     "LOS AVIONES"
+    ],
+    "video": {
+     "id": "DzWgqxUNIXM",
+     "titre": "El principio de Bernoulli o ¿Por qué vuelan los aviones?",
+     "chaine": "CuriosaMente",
+     "vues": "1,5 M de visualizaciones",
+     "date": "hace 8 años",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -477,6 +631,36 @@
      "date": "hace 6 años",
      "duree": "7:18",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "OÙ SONT TOUS",
+     "LES ALIENS ?"
+    ],
+    "video": {
+     "id": "jNetovoFPVY",
+     "titre": "Le paradoxe de Fermi – Où sont tous les aliens ? (1/2)",
+     "chaine": "Tout Simplement – Kurzgesagt",
+     "vues": "648 k vues",
+     "date": "il y a 4 ans",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/mUCcUGjasH8j3iIM8vWfRc52gAViDxEf6h4Oo7MYqa3BPizKO_s44SmW0mnfzvbgfjT3X_kVb_w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿DÓNDE ESTÁN",
+     "LOS ALIENS?"
+    ],
+    "video": {
+     "id": "b_3e1FuSDYc",
+     "titre": "Las Aterradoras Soluciones a la PARADOJA de FERMI | Documental 4K",
+     "chaine": "AdagioCero",
+     "vues": "715 K visualizaciones",
+     "date": "hace 10 meses",
+     "duree": "10:31",
+     "avatar": "https://yt3.ggpht.com/BR48jogG8-K-jgPdiQOqnLLSy2R-0VMKIBgknUlC6yqbj2AjtzcXuXqzCNyIIDBMC-kqkzbIGg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

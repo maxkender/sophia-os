@@ -3,10 +3,10 @@ import * as React from "react";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 
-import { lirePhraseBonus } from "../../../supabase/functions/_shared/bonus";
-import { donnerBonus, envoyerBonus, lireCarteBonus, retirerBonus, type LigneBonusLundi } from "./api";
+import { DonnerBonus } from "./DonnerBonus";
+import { envoyerBonus, lireCarteBonus, payerBonusRuul, retirerBonus, type LigneBonusLundi } from "./api";
 import { delaiCm, jourMois, LIBELLE_TYPE, totaux } from "./lundi";
 
 const dollars = (n: number) => `${Number(n).toFixed(2)} $`;
@@ -16,12 +16,11 @@ const dollars = (n: number) => `${Number(n).toFixed(2)} $`;
  * parrainages et bonus donnés en une phrase ; total + 10 % de frais Upwork.
  * Rien ne part sans « Tout envoyer » (bonus Upwork, compte de Max).
  */
-export function BonusLundi() {
+export function BonusLundi({ avecDonner = true, lienPage = false }: { avecDonner?: boolean; lienPage?: boolean }) {
   const qc = useQueryClient();
   const q = useQuery({ queryKey: ["bonus-lundi"], queryFn: lireCarteBonus });
   const [occupe, setOccupe] = React.useState<string | null>(null);
   const [message, setMessage] = React.useState<string | null>(null);
-  const [phrase, setPhrase] = React.useState("");
 
   const agir = async (cle: string, f: () => Promise<string | null>) => {
     setOccupe(cle);
@@ -40,17 +39,6 @@ export function BonusLundi() {
   if (!q.data) return null;
   const c = q.data;
   const t = totaux(c.lignes);
-  const aVerifier = c.lignes.filter((l) => (l.a_verifier ?? 0) > 0);
-
-  const donner = () =>
-    agir("donner", async () => {
-      const lu = lirePhraseBonus(phrase, Number(c.lundi.slice(0, 4)));
-      if ("erreur" in lu) return `Pas compris : ${lu.erreur}.`;
-      const r = await donnerBonus(lu);
-      if (!r.ok) return `Pas ajouté : ${r.erreur}.`;
-      setPhrase("");
-      return `Ajouté : ${r.montant} $ à ${r.nom} (lundi ${jourMois(String(r.lundi))}, raison : ${lu.raison}).`;
-    });
 
   const toutEnvoyer = () => {
     if (!window.confirm(`Envoyer ${t.n} bonus sur Upwork : ${dollars(t.total)} + 10 % de frais = ${dollars(t.totalFrais)} ?`)) return;
@@ -69,6 +57,7 @@ export function BonusLundi() {
           {t.n} ligne{t.n > 1 ? "s" : ""} à envoyer · {dollars(t.total)} + 10 % de frais Upwork ({dollars(t.frais)}) ={" "}
           <b>{dollars(t.totalFrais)}</b>
           {c.paye > 0 ? ` · déjà payé ${dollars(c.paye)}` : ""}. Rien ne part sans « Tout envoyer ».
+          {t.nRuul > 0 ? <span className="block" data-testid="bonus-ruul-total">+ {t.nRuul} à payer via Ruul : {dollars(t.totalRuul)} (à ajouter au paiement Ruul du lundi)</span> : null}
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
@@ -77,6 +66,11 @@ export function BonusLundi() {
           <Button size="sm" disabled={occupe !== null || t.n === 0 || !c.test_valide} onClick={toutEnvoyer}>
             {occupe === "envoyer" ? "Envoi…" : `Tout envoyer (${dollars(t.totalFrais)})`}
           </Button>
+          {lienPage ? (
+            <Link to="/admin/auto/bonus" className="self-center text-sm underline" data-testid="lien-page-bonus">
+              Ouvrir la page Bonus (historique) →
+            </Link>
+          ) : null}
         </div>
         {message ? <p className="text-sm" role="status">{message}</p> : null}
         {c.lignes.length === 0 ? (
@@ -94,48 +88,41 @@ export function BonusLundi() {
                   <Ligne key={l.id} l={l} occupe={occupe} retirer={(r) => agir(`r:${l.id}`, async () => {
                     await retirerBonus(l.id, r);
                     return r ? `${l.nom} : ligne retirée.` : `${l.nom} : ligne remise.`;
+                  })} payerRuul={() => agir(`p:${l.id}`, async () => {
+                    await payerBonusRuul(l.id);
+                    return `${l.nom} : payé via Ruul.`;
                   })} />
                 ))}
               </tbody>
             </table>
           </div>
         )}
-        {aVerifier.length > 0 || c.parrainages_a_confirmer > 0 ? (
-          <div className="space-y-1 rounded-lg border px-3 py-2 text-sm" data-testid="bonus-a-verifier">
-            <p className="font-medium">À vérifier (non payé)</p>
-            {aVerifier.map((l) => (
-              <p key={l.id} className="text-muted-foreground">{l.nom} : {l.a_verifier} commentaire{(l.a_verifier ?? 0) > 1 ? "s" : ""} fait{(l.a_verifier ?? 0) > 1 ? "s" : ""} mais pas retrouvé{(l.a_verifier ?? 0) > 1 ? "s" : ""} publié{(l.a_verifier ?? 0) > 1 ? "s" : ""}</p>
-            ))}
-            {c.parrainages_a_confirmer > 0 ? <p className="text-muted-foreground">{c.parrainages_a_confirmer} parrainage(s) à confirmer dans « À décider maintenant »</p> : null}
-          </div>
+        {c.parrainages_a_confirmer > 0 ? (
+          <p className="text-sm text-muted-foreground" data-testid="bonus-a-confirmer">
+            {c.parrainages_a_confirmer} parrainage(s) à confirmer dans « À décider maintenant »
+          </p>
         ) : null}
-        <div className="space-y-1.5">
-          <p className="text-sm font-medium">Donner un bonus</p>
-          <div className="flex flex-wrap gap-2">
-            <Input
-              className="min-w-0 flex-1"
-              value={phrase}
-              onChange={(e) => setPhrase(e.target.value)}
-              placeholder="donne 2 $ de bonus à Martin Befeld lundi, raison …"
-              aria-label="Donner un bonus"
-            />
-            <Button size="sm" variant="outline" disabled={occupe !== null || !phrase.trim()} onClick={donner}>Ajouter</Button>
-          </div>
-          <p className="text-xs text-muted-foreground">La ligne arrive ici, à valider. Aussi sur Slack : /bonus …</p>
-        </div>
+        {avecDonner ? <DonnerBonus annee={Number(c.lundi.slice(0, 4))} /> : null}
       </CardContent>
     </Card>
   );
 }
 
-function Ligne({ l, occupe, retirer }: { l: LigneBonusLundi; occupe: string | null; retirer: (r: boolean) => void }) {
+function Ligne({ l, occupe, retirer, payerRuul }: {
+  l: LigneBonusLundi; occupe: string | null; retirer: (r: boolean) => void; payerRuul: () => void;
+}) {
   const delai = delaiCm(l);
   const retiree = l.statut === "retire";
   const envoyee = Boolean(l.envoi_at) || l.statut === "paye";
+  const ruul = l.canal_paie === "ruul";
   return (
     <tr className={`border-b border-border/40 align-top ${retiree ? "opacity-50" : ""}`} data-testid="bonus-ligne">
       <td className="py-1.5 pr-3 text-xs">{LIBELLE_TYPE[l.type]}</td>
-      <td className="py-1.5 pr-3 font-medium">{l.nom}{!l.contrat_ok ? <span className="block text-xs text-destructive">pas de contrat VIk relié</span> : null}</td>
+      <td className="py-1.5 pr-3 font-medium">
+        {l.nom}
+        {ruul ? <span className="ml-1 rounded bg-violet-100 px-1.5 py-0.5 text-xs text-violet-900 dark:bg-violet-950/40 dark:text-violet-200" data-testid="badge-ruul">à payer via Ruul</span> : null}
+        {!l.contrat_ok ? <span className="block text-xs text-destructive">pas de contrat VIk relié</span> : null}
+      </td>
       <td className="py-1.5 pr-3 text-xs">
         {l.detail}
         {delai ? <span className="block text-muted-foreground">{delai}</span> : null}
@@ -143,8 +130,11 @@ function Ligne({ l, occupe, retirer }: { l: LigneBonusLundi; occupe: string | nu
       </td>
       <td className="py-1.5 pr-3 text-xs">{l.tarif !== null ? `${l.tarif} $${l.zone ? ` (zone ${l.zone})` : ""}` : "—"}</td>
       <td className="py-1.5 pr-3">{dollars(l.montant)}</td>
-      <td className="py-1.5 pr-3 text-xs">{l.statut === "paye" ? "Payé" : retiree ? "Retirée" : envoyee ? "Envoi en cours / échec" : "À valider"}</td>
+      <td className="py-1.5 pr-3 text-xs">{l.statut === "paye" ? (ruul ? "Payé via Ruul" : "Payé") : retiree ? "Retirée" : envoyee ? "Envoi en cours / échec" : ruul ? "À payer via Ruul" : "À valider"}</td>
       <td className="py-1.5 pr-0 text-right">
+        {ruul && !envoyee && !retiree ? (
+          <Button size="xs" variant="outline" disabled={occupe !== null} onClick={payerRuul}>Payé via Ruul</Button>
+        ) : null}
         {!envoyee ? (
           <Button size="xs" variant="ghost" disabled={occupe !== null} onClick={() => retirer(!retiree)}>{retiree ? "Remettre" : "Retirer"}</Button>
         ) : null}

@@ -1,6 +1,8 @@
 // UGC IA (page /admin/ugc-ia, migrations 0656 à 0662) : règles pures de la page.
 // Mêmes bornes que la fonction `ugc-ia` (supabase/functions/_shared/ugc_ia.ts).
 
+import type { AssemblageUgcIa } from "./api";
+
 export type StatutGenerationUgcIa = "en_cours" | "prete" | "echec";
 export type ResolutionUgcIa = "480p" | "720p" | "1080p";
 
@@ -121,6 +123,10 @@ export interface VideoChoisie {
   nom: string;
   chemin?: string | null;
   generationId?: string | null;
+  /** Vidéo complète (réaction + démo, 0665). */
+  assemblageId?: string | null;
+  /** Langue de la vidéo (celle de la démo d'une vidéo complète, 0666). */
+  langue?: string | null;
   sourceId?: string | null;
   /** Vidéo montée avec le bandeau : le CTA y est déjà. */
   ctaIncruste?: boolean;
@@ -147,14 +153,20 @@ type SourcePourPost = {
   }>;
 };
 
-/** Les vidéos de la page qu'on peut mettre dans un post, rangées par source. */
+/**
+ * Les vidéos de la page qu'on peut mettre dans un post : les vidéos complètes
+ * (réaction + démo) d'abord, puis celles de chaque source.
+ */
 export function videosDisponibles(
   sources: readonly SourcePourPost[],
   personas: ReadonlyArray<{ id: string; nom: string }>,
-  libelles: { montee: string; telephone: string },
+  libelles: { montee: string; telephone: string; completes?: string },
+  completes: readonly VideoChoisie[] = [],
 ): GroupeVideos[] {
   const nomPersona = new Map(personas.map((p) => [p.id, p.nom]));
-  return sources
+  const groupeCompletes: GroupeVideos[] =
+    completes.length > 0 ? [{ sourceId: "completes", titre: libelles.completes ?? "", options: [...completes] }] : [];
+  return groupeCompletes.concat(sources
     .map((s) => {
       const options: VideoChoisie[] = s.generations
         .filter((g) => g.statut === "prete" && g.video_url)
@@ -170,7 +182,7 @@ export function videosDisponibles(
       const texte = (s.source_texte ?? "").replace(/\s+/g, " ").trim();
       return { sourceId: s.id, titre: texte ? (texte.length > 50 ? `${texte.slice(0, 50)}…` : texte) : s.source_url, options };
     })
-    .filter((g) => g.options.length > 0);
+    .filter((g) => g.options.length > 0));
 }
 
 /** Déplace un élément d'un cran (ordre des vidéos du post). */
@@ -200,4 +212,25 @@ export function manquePostVideo(p: {
   if (!p.ctaIncruste && !p.captureUrl) return "capture";
   if (p.legende.length > LEGENDE_MAX) return "legende";
   return null;
+}
+
+/** Une vidéo complète, à mettre dans un post UGCV (le CTA y est si le bandeau y est). */
+export function videoDAssemblage(a: AssemblageUgcIa, nom: string): VideoChoisie | null {
+  if (!a.video_url || a.statut !== "prete") return null;
+  return {
+    cle: `asm:${a.id}`,
+    url: a.video_url,
+    nom,
+    generationId: a.generation_id,
+    assemblageId: a.id,
+    langue: a.langue,
+    sourceId: a.source_id,
+    ctaIncruste: a.bandeau_actif,
+  };
+}
+
+/** Les comptes de la langue de la vidéo d'abord (sans langue connue : l'ordre ne bouge pas). */
+export function comptesParLangue<T extends { langue: string | null }>(comptes: readonly T[], langue: string | null | undefined): T[] {
+  if (!langue) return [...comptes];
+  return [...comptes].sort((a, b) => Number(b.langue === langue) - Number(a.langue === langue));
 }

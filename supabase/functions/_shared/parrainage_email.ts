@@ -1,11 +1,12 @@
 /**
  * 8/11 : parrainage par email. Les 3 emails au filleul (J0, J+2, J+5), dans
- * la langue de son pays, depuis sophia-culture.com (expéditeur « Sophia »).
+ * la langue de son pays, par le site vik-studios-creators.com (expéditeur « Sophia », noreply@sophia-culture.com).
  * Texte J0 validé par Max (anglais) ; les autres langues en sont la
  * traduction. Une langue absente → anglais.
  */
 
 import { TRADUCTIONS, type TextesTraduits } from "./parrainage_traductions.ts";
+import { URL_SITE } from "./site.ts";
 
 export type EtapeEmail = 0 | 2 | 5;
 
@@ -43,7 +44,7 @@ const EN: Textes = {
     ],
   },
   bouton: "👉 Apply in 1 minute",
-  signature: ["See you soon,", "The Sophia team"],
+  signature: ["See you soon,", "The Vik Studios team"],
   pied: "You received this email because {referrer} shared your address with us.",
   desinscrire: "Unsubscribe",
 };
@@ -72,7 +73,7 @@ const EL: Textes = {
     ],
   },
   bouton: "👉 Κάνε αίτηση σε 1 λεπτό",
-  signature: ["Τα λέμε σύντομα,", "Η ομάδα της Sophia"],
+  signature: ["Τα λέμε σύντομα,", "Η ομάδα της Vik Studios"],
   pied: "Έλαβες αυτό το email επειδή ο/η {referrer} μοιράστηκε τη διεύθυνσή σου μαζί μας.",
   desinscrire: "Απεγγραφή",
 };
@@ -107,8 +108,12 @@ export function langueSite(langue: string | null | undefined): string {
   return String(langue ?? "en").toLowerCase().split("-")[0] || "en";
 }
 
+/**
+ * Le lien de l'email (J0, J+2, J+5, toutes les langues) : 10/11 (Max), le site
+ * vik-studios-creators.com, page /{lang}/creators/slideshow, avec ?ref= (le code du parrain).
+ */
 export function lienCreators(langue: string | null | undefined, code: string): string {
-  return `https://sophia-culture.com/${langueSite(langue)}/creators?ref=${encodeURIComponent(code)}`;
+  return `${URL_SITE}/${langueSite(langue)}/creators/slideshow?ref=${encodeURIComponent(code)}`;
 }
 
 export interface DonneesEmail {
@@ -142,7 +147,7 @@ export function rendreEmail(d: DonneesEmail): { objet: string; html: string; tex
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:28px 24px">
-<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">Sophia</td></tr>
+<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">Vik Studios</td></tr>
 ${paragraphes.map((p) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p)}</td></tr>`).join("\n")}
 <tr><td style="padding:8px 0 20px"><a href="${echapper(d.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(t.bouton)}</a></td></tr>
 ${t.signature.map((s) => `<tr><td style="font-size:15px;line-height:1.4">${echapper(s)}</td></tr>`).join("\n")}

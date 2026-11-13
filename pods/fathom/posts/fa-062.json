@@ -1,0 +1,571 @@
+{
+ "id": "fa-062",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Life Skills Nobody Teaches You",
+  "fr": "3 compétences de vie qu'on ne t'apprend pas",
+  "es": "3 habilidades que nadie te enseña",
+  "de": "3 Alltagsskills, die dir niemand beibringt",
+  "it": "3 abilità che nessuno ti insegna",
+  "pt-BR": "3 habilidades que ninguém te ensina",
+  "es-419": "3 habilidades que nadie te enseña"
+ },
+ "legendes": {
+  "en": "3 Life Skills Nobody Teaches You #lifeskills #learnontiktok #adulting",
+  "fr": "3 compétences de vie qu'on ne t'apprend pas #astuces #apprendresurtiktok #viedadulte",
+  "es": "3 habilidades que nadie te enseña #trucos #aprendeentiktok #vidaadulta",
+  "de": "3 Alltagsskills, die dir niemand beibringt #lifehacks #lernenmittiktok #alltag",
+  "it": "3 abilità che nessuno ti insegna #trucchi #imparacontiktok #vitadaadulti",
+  "pt-BR": "3 habilidades que ninguém te ensina #dicas #aprendanotiktok #vidaadulta",
+  "es-419": "3 habilidades que nadie te enseña #trucos #aprendeentiktok #vidaadulta"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta A. Full test (jauge BLEO du 12/11) : accroche neuve au format liste de @fathom0g (« 3 Life Skills Nobody Teaches You »), jamais faite chez nous. Étapes : riz, chemise, Sophia, couteau. Langues des comptes du label (en, fr, es, de, it, pt-BR, es-419), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 LIFE SKILLS",
+       "bronze": true
+      }
+     ],
+     "NOBODY",
+     [
+      {
+       "t": "TEACHES YOU",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 COMPÉTENCES",
+       "bronze": true
+      }
+     ],
+     "QU'ON NE",
+     [
+      {
+       "t": "T'APPREND PAS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE NADIE",
+     [
+      {
+       "t": "TE ENSEÑA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE DIR NIEMAND",
+     [
+      {
+       "t": "BEIBRINGT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABILITÀ",
+       "bronze": true
+      }
+     ],
+     "CHE NESSUNO",
+     [
+      {
+       "t": "TI INSEGNA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE NINGUÉM",
+     [
+      {
+       "t": "TE ENSINA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE NADIE",
+     [
+      {
+       "t": "TE ENSEÑA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "COOK PERFECT",
+     "RICE"
+    ],
+    "video": {
+     "id": "Xx7sxWI9FNI",
+     "titre": "How To Cook Perfect Rice Every Time",
+     "chaine": "Tasty",
+     "vues": "13M views",
+     "date": "9 years ago",
+     "duree": "4:34",
+     "avatar": "https://yt3.ggpht.com/CfYIjL1dN06jrOxVxw4ElFs_0ShkZw9WpFmfkgoEx_-tdmG5Iv6CtlFmi3L-jkTmvTKfBXtMoMw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "RÉUSSIS",
+     "TON RIZ"
+    ],
+    "video": {
+     "id": "_hTPWfK3W84",
+     "titre": "Presque tout le monde fait ces 3 erreurs lors de la cuisson du riz",
+     "chaine": "Bon Ap’",
+     "vues": "2 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUSF4BJVbWCIRB48Qvy7MlgpuYfnsnAYNZvrnSvrmYBw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ UN ARROZ",
+     "PERFECTO"
+    ],
+    "video": {
+     "id": "hXKKuq_D0ss",
+     "titre": "Cómo hacer un ARROZ blanco perfecto (FÁCIL)",
+     "chaine": "TULIO Recomienda",
+     "vues": "4,9 M de visualizaciones",
+     "date": "hace 9 años",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRJVXaV3wDF__EM5A8z7DHUZME0EBv-plLHg4fspu0-Wif=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KOCH REIS",
+     "RICHTIG"
+    ],
+    "video": {
+     "id": "GzKA6rCjPz0",
+     "titre": "Reis kochen 🍚 | So einfach geht’s | REWE Deine Küche",
+     "chaine": "REWE Deine Küche",
+     "vues": "655.463 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/6ICLmrRXwxYi-Dtkm5yu8BPBeGYEwYsAGj5a3sP6dUOUNZir2D3Pz7EkOoG4dgxN17AT0z9k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CUOCI IL RISO",
+     "ALLA PERFEZIONE"
+    ],
+    "video": {
+     "id": "wxphGrQECAc",
+     "titre": "Quasi tutti fanno questi 3 errori nella cottura del riso",
+     "chaine": "De gustibus",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjLT8kw2YsbQbz2gXfJ1FlYZe_rtWpN5EJl3XHx9FreA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "FAÇA ARROZ",
+     "SOLTINHO"
+    ],
+    "video": {
+     "id": "IhUKu07aFkM",
+     "titre": "Como fazer arroz soltinho",
+     "chaine": "Gastronomismo",
+     "vues": "9,6 mi visualizações",
+     "date": "há 13 anos",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/Wv6AEuwt_GGxc_fjEEw9_ebkmLC3oQXBP9UcwcPbJexdfCdpRcoHOnFwtog0rEXXGrx2cMRdmQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ UN ARROZ",
+     "PERFECTO"
+    ],
+    "video": {
+     "id": "smwalseT2R8",
+     "titre": "Como hacer arroz blanco perfecto (fácil y rápido)",
+     "chaine": "Cocinando con Vilucy",
+     "vues": "3.4 M de vistas",
+     "date": "hace 6 años",
+     "duree": "4:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPEjc_z0-7WlXH5zdvZL-8mnnt0ycjiIIvoB5oGNJAvvs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "IRON A SHIRT",
+     "IN 2 MINUTES"
+    ],
+    "video": {
+     "id": "MSr04jhuTes",
+     "titre": "How to iron a shirt in 2 minutes - Laurastar",
+     "chaine": "Laurastar",
+     "vues": "5.7M views",
+     "date": "12 years ago",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/rVLyzx-wNQnBf7B-SRmN3lrjDov8rHejb6nwJqAMgU3AnXEYUgMnhrL0jE6n1z1zyyG_xMjN3QE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "REPASSE UNE",
+     "CHEMISE"
+    ],
+    "video": {
+     "id": "cEx0B2tuZ2Y",
+     "titre": "Repasser une chemise en deux temps trois mouvements",
+     "chaine": "Calor Belgique",
+     "vues": "650 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzWggF5OKDfxiw71rsRvR4yUR1HQRTvxIL_Mz37qJuew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "PLANCHA UNA",
+     "CAMISA"
+    ],
+    "video": {
+     "id": "y1bMEGU0RGY",
+     "titre": "Cómo planchar una camisa en menos de 3 minutos",
+     "chaine": "Como lo hace Diego",
+     "vues": "1,7 M de visualizaciones",
+     "date": "hace 8 años",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqYuI4Z_LuwGTmN6sZkN39nZ_P1ZRKO_Tqxf7DILNstQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BÜGEL EIN",
+     "HEMD"
+    ],
+    "video": {
+     "id": "TLwKSAOXQ7s",
+     "titre": "Hemd bügeln ANLEITUNG: So geht’s richtig [schnell & einfach]",
+     "chaine": "Breuninger",
+     "vues": "109.976 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "2:05",
+     "avatar": "https://yt3.ggpht.com/9hnEIs2gcN3AOnmWOdyiiqQefG-kOKtLg1JccbvJyTfJiqx9nm6tJr1wnrNNXYEeeJDK6ptuSQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "STIRA UNA",
+     "CAMICIA"
+    ],
+    "video": {
+     "id": "wHkUZ0ITY_Q",
+     "titre": "Laurastar - Come si può stirare una camicia in 2 minuti?",
+     "chaine": "Laurastar",
+     "vues": "1,3 Mln visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/rVLyzx-wNQnBf7B-SRmN3lrjDov8rHejb6nwJqAMgU3AnXEYUgMnhrL0jE6n1z1zyyG_xMjN3QE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "PASSE UMA",
+     "CAMISA"
+    ],
+    "video": {
+     "id": "PzYcR5J_j-Q",
+     "titre": "Como passar uma Camisa Social",
+     "chaine": "ComoFaz",
+     "vues": "1,3 mi visualizações",
+     "date": "há 12 anos",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrRFChgBJWc483czaegWXUGNjhv6_ImWYAnTA87PMnc2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "PLANCHA UNA",
+     "CAMISA"
+    ],
+    "video": {
+     "id": "y1bMEGU0RGY",
+     "titre": "Cómo planchar una camisa en menos de 3 minutos",
+     "chaine": "Como lo hace Diego",
+     "vues": "1.7 M de vistas",
+     "date": "hace 8 años",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqYuI4Z_LuwGTmN6sZkN39nZ_P1ZRKO_Tqxf7DILNstQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN",
+     "SOMETHING NEW"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS",
+     "UN TRUC NOUVEAU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "ALGO NUEVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "QUALCOSA DI NUOVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA",
+     "ALGO NOVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     "ALGO NUEVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SHARPEN",
+     "A KNIFE"
+    ],
+    "video": {
+     "id": "h6faatE8b9Q",
+     "titre": "How to Sharpen a Knife with a Whetstone – Sharpening Dull Kitchen Knife to Extremely Sharp",
+     "chaine": "TheRenderQ",
+     "vues": "1.9M views",
+     "date": "8 years ago",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcWCFJZG8af-evu1iF8aFhOjUmpCqoqNphAV-5kVk77w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "AIGUISE",
+     "UN COUTEAU"
+    ],
+    "video": {
+     "id": "myWL1Wq6F8M",
+     "titre": "Aiguisage d'un couteau à la pierre",
+     "chaine": "Chef Simon",
+     "vues": "892 k vues",
+     "date": "il y a 10 ans",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/mPHi_SZqX2r22tK0I_n9wXw1drlSfu5dBkkMj-H2xpgsHo2dlFnbumI1dDzfjtjvYHh07FBUWA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "AFILA UN",
+     "CUCHILLO"
+    ],
+    "video": {
+     "id": "ZHblwMSnnJw",
+     "titre": "¿Cómo afilar Cuchillos? - Ciencia y Cocina",
+     "chaine": "Heinz Wuth - Ciencia y Cocina",
+     "vues": "971 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "1:30",
+     "avatar": "https://yt3.ggpht.com/9-IsEtFk6rZ4f1nSlHlnUvjPazk-v-KIPnPrMJGjbywrLDRcQ9lM99GtGW7SAtepmzniBRpP96w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHÄRF EIN",
+     "MESSER"
+    ],
+    "video": {
+     "id": "TB0Vd8-p380",
+     "titre": "Messer richtig schärfen – auf dem Schleifstein",
+     "chaine": "WÜSTHOF",
+     "vues": "2,6 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/aFgEhMjN48Q5FUaSxr0-GKLCiSq6JmjNCGqvpSwH4NaxzBheu6CdgM2PhaRrmEyNrFsITR43=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "AFFILA UN",
+     "COLTELLO"
+    ],
+    "video": {
+     "id": "9I0bOUBLRiA",
+     "titre": "Come affilare un coltello - Scuola di Cucina",
+     "chaine": "CucinaPerTe",
+     "vues": "337K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDBlipPoKcHorynb6KuDRNBcbQnpjZCe636fGaJP0ZSEw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "AFIE UMA",
+     "FACA"
+    ],
+    "video": {
+     "id": "ByimatxymRI",
+     "titre": "Como AFIAR e AMOLAR uma faca PROFISSIONAL na PEDRA - sem a chaira",
+     "chaine": "Rei da Cutelaria",
+     "vues": "506 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/sLOyCKIEaQSpL_PsJMa_8CqkOH4p_6wz3hg5Xx4_g8feA4TbIdaAmHM27g4mmcEYXdtwEVfoYXM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "AFILA UN",
+     "CUCHILLO"
+    ],
+    "video": {
+     "id": "8PnnGLY3RtE",
+     "titre": "Como AFILAR un CUCHILLO con PIEDRA - Afilado FACIL",
+     "chaine": "HoyCocinaDiego",
+     "vues": "385 k vistas",
+     "date": "hace 2 años",
+     "duree": "2:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZaslzAhddlgMf4WBh94Ulg8OkZj06yNwISXMN6DpyqQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

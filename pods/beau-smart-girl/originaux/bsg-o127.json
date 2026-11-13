@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o127",
+  "type_bleo": "full_test",
+  "titre": "les sujets de conversation qui marchent à tous les coups (et ce n'est pas la météo) #conversation #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : les sujets de conversation, liste enregistrable. Accroches écrites : « les sujets de conversation qui marchent à tous les coups (et ce n'est pas la météo) » (retenue : utile, une pointe d'humour), « comment ne plus avoir de blancs » (écartée : angle de l'angoisse), « parler à n'importe qui » (écartée : vague). Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Palace_of_Versailles : « Louis XIII built a modest brick-and-stone hunting lodge in 1623 ». Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "les sujets de conversation\nqui marchent à tous les coups\n(et ce n'est pas la météo)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. le meilleur repas de sa vie\n\ntout le monde a une réponse,\net elle raconte toujours une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. ce qu'on ferait avec une année sabbatique\n\non apprend en deux minutes\nce qui compte vraiment pour la personne.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. une anecdote surprenante\n\nce matin, j'ai appris que versailles n'était au départ qu'un pavillon de chasse de louis XIII, en 1623.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. une anecdote surprenante\n\nce matin, l'appli Sophia m'a appris que versailles n'était au départ qu'un pavillon de chasse de louis XIII, en 1623.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. le livre ou le film qui l'a marquée enfant\n\nles yeux s'allument à chaque fois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "5. ce qu'elle aimerait apprendre\n\nla poterie, l'italien, le piano.\non finit souvent par se donner rendez-vous.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0f057bec",
+      "texte_overlay": "enregistre-le pour ta prochaine soirée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

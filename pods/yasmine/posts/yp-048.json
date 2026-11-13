@@ -1,0 +1,343 @@
+{
+ "id": "yp-048",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "ce que je fais les 10 premières minutes de mes révisions",
+  "es": "lo que hago los 10 primeros minutos de estudio",
+  "tr": "ders çalışırken ilk 10 dakikam"
+ },
+ "legendes": {
+  "fr": "le plus dur, c’est de commencer 🤍 #revisions #studytok #thatgirl #motivation #methode",
+  "es": "lo más difícil es empezar 🤍 #estudiar #studytok #thatgirl #motivacion #metodo",
+  "tr": "en zoru başlamak 🤍 #ders #studytok #thatgirl #motivasyon #yöntem"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7495865113889065750"
+ },
+ "fond": {
+  "media_id": "4914044f-75f0-43ab-a73a-5093b8815c74",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55d49029-394f-4e3f-be4a-0ef9e23143b2/8.jpg?v=1790608761733",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je fais un quiz sur le cours d’hier », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ce que je fais les",
+     "lignes": [
+      "10 PREMIÈRES",
+      "MINUTES DE MES",
+      "RÉVISIONS"
+     ],
+     "taille": 116,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "lo que hago",
+     "lignes": [
+      "LOS 10 PRIMEROS",
+      "MINUTOS DE",
+      "ESTUDIO"
+     ],
+     "taille": 100,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS ÇALIŞIRKEN",
+      "İLK 10",
+      "DAKİKAM"
+     ],
+     "taille": 104,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "530aff9f-1a5b-4354-bb9e-152747c0d300",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/622daba9-028e-4693-88ea-59d9861a22ec/3.jpg?v=1790608097447",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je range mon bureau🧹",
+      "texte": "juste ce qu’il faut devant moi : le cours, un stylo, de l’eau.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ordeno mi escritorio🧹",
+      "texte": "solo lo necesario delante: los apuntes, un boli, agua.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "masamı topluyorum🧹",
+      "texte": "önümde sadece gerekenler: ders notu, bir kalem, su.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "158a0bb0-cb38-4a30-a239-7fa2d732fcd5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2b637137-5393-4627-9f0f-be5880b84940/7.jpg?v=1792841407299",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je lance un minuteur⏱️",
+      "texte": "50 min. savoir quand ça s’arrête aide à commencer.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "pongo un temporizador⏱️",
+      "texte": "50 min. saber cuándo termina ayuda a empezar.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "zamanlayıcı kuruyorum⏱️",
+      "texte": "50 dakika. ne zaman biteceğini bilmek başlamayı kolaylaştırıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "30262381-59f4-4701-a9f6-c3b317010f94",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/10a5b622-7530-4861-92d7-4f9be502c21c/4.jpg?v=1791726201652",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je fais un quiz sur le cours d’hier🧠",
+      "texte": "5 questions sur micabo pour réveiller ma mémoire. ce que je rate devient ma première tâche.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hago un quiz sobre la clase de ayer🧠",
+      "texte": "5 preguntas en micabo para despertar la memoria. lo que fallo es mi primera tarea.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "dünkü dersten test çözüyorum🧠",
+      "texte": "hafızamı uyandırmak için micabo’da 5 soru. yanlış yaptığım ilk işim oluyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "fd49a459-e41a-43f5-ba49-c6c66ea8dbbc",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a6464591-1e49-465a-bef1-2047471a7c50/3.jpg?v=1790606948401",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "j’écris 3 objectifs précis✍️",
+      "texte": "pas « réviser la bio », mais « finir le chapitre 4 et refaire l’exo 2 ».",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "escribo 3 objetivos concretos✍️",
+      "texte": "no «estudiar biología», sino «terminar el tema 4 y repetir el ejercicio 2».",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "3 net hedef yazıyorum✍️",
+      "texte": "«biyoloji çalış» değil, «4. üniteyi bitir ve 2. alıştırmayı tekrar çöz».",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3e52a8dc-7044-4d0e-94a1-16ab06b98b06",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/113291c3-81e0-4cf7-b72d-f434747bb0ab/4.jpg?v=1791726197564",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je commence par le plus facile✅",
+      "texte": "une première tâche réussie, et le reste suit tout seul.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "empiezo por lo más fácil✅",
+      "texte": "una primera tarea hecha y el resto viene solo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "en kolayından başlıyorum✅",
+      "texte": "ilk iş bitince gerisi kendiliğinden geliyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "da93bc2d-bfc1-450e-b093-3fd73e6a20a6",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7e947f3d-0e16-4214-8c41-144d6341185c/4.jpg?v=1792601607060",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je bois un grand verre d’eau💧",
+      "texte": "c’est tout bête, mais un cerveau hydraté se concentre mieux.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "me bebo un vaso grande de agua💧",
+      "texte": "es una tontería, pero un cerebro hidratado se concentra mejor.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "büyük bir bardak su içiyorum💧",
+      "texte": "çok basit ama susuz kalmayan beyin daha iyi odaklanır.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "ce que je fais les 10 premières minutes de mes révisions"
+ }
+}

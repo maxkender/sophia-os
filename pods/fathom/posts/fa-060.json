@@ -1,0 +1,571 @@
+{
+ "id": "fa-060",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Hobbies To Start This Weekend",
+  "fr": "3 loisirs à commencer ce week-end",
+  "es": "3 aficiones para empezar este finde",
+  "de": "3 Hobbys für dieses Wochenende",
+  "it": "3 hobby da iniziare questo weekend",
+  "pt-BR": "3 hobbies para o fim de semana",
+  "es-419": "3 pasatiempos para este fin de semana"
+ },
+ "legendes": {
+  "en": "3 Hobbies To Start This Weekend #hobbies #learnontiktok #selfimprovement",
+  "fr": "3 loisirs à commencer ce week-end #loisirs #apprendresurtiktok #développementpersonnel",
+  "es": "3 aficiones para empezar este finde #aficiones #aprendeentiktok #desarrollopersonal",
+  "de": "3 Hobbys für dieses Wochenende #hobbys #lernenmittiktok #selbstverbesserung",
+  "it": "3 hobby da iniziare questo weekend #hobby #imparacontiktok #crescitapersonale",
+  "pt-BR": "3 hobbies para o fim de semana #hobbies #aprendanotiktok #desenvolvimentopessoal",
+  "es-419": "3 pasatiempos para este fin de semana #pasatiempos #aprendeentiktok #desarrollopersonal"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "cta C. Full test (jauge BLEO du 10/11) : accroche neuve au format liste de @fathom0g (« 3 Hobbies To Start This Weekend »), jamais faite chez nous. Étapes : skate, journal, Sophia, avion en papier. Langues des comptes du label (en, fr, es, de, it, pt-BR, es-419), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 HOBBIES",
+       "bronze": true
+      }
+     ],
+     "TO START",
+     [
+      {
+       "t": "THIS WEEKEND",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 LOISIRS",
+       "bronze": true
+      }
+     ],
+     "À COMMENCER",
+     [
+      {
+       "t": "CE WEEK-END",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 AFICIONES",
+       "bronze": true
+      }
+     ],
+     "PARA EMPEZAR",
+     [
+      {
+       "t": "ESTE FINDE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 HOBBYS",
+       "bronze": true
+      }
+     ],
+     "FÜR DIESES",
+     [
+      {
+       "t": "WOCHENENDE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 HOBBY",
+       "bronze": true
+      }
+     ],
+     "DA INIZIARE",
+     [
+      {
+       "t": "QUESTO WEEKEND",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HOBBIES",
+       "bronze": true
+      }
+     ],
+     "PARA O",
+     [
+      {
+       "t": "FIM DE SEMANA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 PASATIEMPOS",
+       "bronze": true
+      }
+     ],
+     "PARA ESTE",
+     [
+      {
+       "t": "FIN DE SEMANA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO",
+     "SKATEBOARD"
+    ],
+    "video": {
+     "id": "p3NXd3DhH08",
+     "titre": "HOW TO SKATEBOARD FOR BEGINNERS | HOW TO SKATEBOARD EPISODE 1",
+     "chaine": "Braille Skateboarding",
+     "vues": "18M views",
+     "date": "11 years ago",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFlvVtwzdQv9YAoGyA32hkHC_iTWR1ecYv6T65wl5NRA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS",
+     "LE SKATE"
+    ],
+    "video": {
+     "id": "ax2yGNuBTi0",
+     "titre": "COMMENT DÉBUTER LE SKATE ?",
+     "chaine": "Joseph Garbaccio",
+     "vues": "522 k vues",
+     "date": "il y a 5 ans",
+     "duree": "12:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbylc4JeQpMTJ8w0YCvtaySUewhMvHCwHarQDqzczfOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE A",
+     "IR EN SKATE"
+    ],
+    "video": {
+     "id": "t-UqQBBg7yc",
+     "titre": "CÓMO ANDAR en SKATE desde CERO! | PARA PRINCIPIANTES",
+     "chaine": "Planeta Skate",
+     "vues": "708 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "17:13",
+     "avatar": "https://yt3.ggpht.com/utkIPM7ub4yul_ajTZyE-b1s5sQ2eKaEkACF_JQdtC62mort6oUBEAIdEMNRlyHyTYb7yxHJRw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "SKATEBOARDEN"
+    ],
+    "video": {
+     "id": "NYqdWiM-5gc",
+     "titre": "Der Einfachste Weg den Ollie zu lernen! | Skate Tutorial | FriiDon",
+     "chaine": "FRIIDON'T",
+     "vues": "543.400 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/Y1uspcUbR2rQGHfWOPHqS6rZMrll594dNx_GvmdxX5imYEoCaKjzRbVnIYJb8aB1sdYBOmL3jg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "LO SKATE"
+    ],
+    "video": {
+     "id": "270o2K0OY00",
+     "titre": "Skateboard: Ecco come iniziare. Tutorial per principianti ITA. Spingere-Frenare-Curvare.",
+     "chaine": "Vagaboarder",
+     "vues": "198K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "7:33",
+     "avatar": "https://yt3.ggpht.com/3dMrhDth2NIkXiYiPjqgNvBvezLSy38f_rgYrEJuMIwpJfsa63e3JwhhXxhiIdW6TGJOxFDi0w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA A",
+     "ANDAR DE SKATE"
+    ],
+    "video": {
+     "id": "2jGYLrqoPxA",
+     "titre": "APRENDA A ANDAR DE SKATE: AULA BÁSICA!",
+     "chaine": "Natan por Aí",
+     "vues": "2,6 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/IZzK9T0YHjOBEwmdWlCoLW3uB5Eqx1ZYFUzpeqHUSoL-iIKfA5JsLQOG6V3lqFULewa9MO8D=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE A",
+     "PATINAR"
+    ],
+    "video": {
+     "id": "5mPNu20Q6Pg",
+     "titre": "CÓMO PATINAR PARA PRINCIPIANTES",
+     "chaine": "Braille Skateboarding Español",
+     "vues": "4.5 M de vistas",
+     "date": "hace 9 años",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nWvi4JKGe3JAsEtW5tG13upMB9WaM_I_9PbHi7F5vpwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START A",
+     "JOURNAL"
+    ],
+    "video": {
+     "id": "MXITTbeLDfA",
+     "titre": "JOURNALING FOR BEGINNERS ✨» Easy + Effortless \"How To\" Guide for Starting A Journal Today",
+     "chaine": "Nae's Laugh",
+     "vues": "683K views",
+     "date": "6 years ago",
+     "duree": "9:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBy89UKXylbkVbNAMVGp3uMBS5ikzEWBxJKWqbEYVvSzY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENCE UN",
+     "JOURNAL"
+    ],
+    "video": {
+     "id": "jHoUHE32MlE",
+     "titre": "COMMENCER SON BULLET JOURNAL | Tutoriel",
+     "chaine": "L' Olive Savante",
+     "vues": "75 k vues",
+     "date": "il y a 6 ans",
+     "duree": "7:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpN97NMHrlY_hBvr4tEh-qeEprkvRjTq59ifqVSRTOoI0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EMPIEZA UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "79Hqbzs5GQg",
+     "titre": "Guía para empezar un Journal 📓🌷(tips y consejos + Journaling  juntos)",
+     "chaine": "Mar 🦋",
+     "vues": "200 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/N7hIoxHt57WgVhInZmeBj0RkUvJgwXR5lgL6S-vByQgwZ-K88-yPCnrqKYTKXyPzBbQtNIEH2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHREIB",
+     "TAGEBUCH"
+    ],
+    "video": {
+     "id": "2pbqSJX0sNI",
+     "titre": "Tagebuch schreiben: Diesen Fehler solltest du vermeiden | #gesundesmiteinander | DAK-Gesundheit",
+     "chaine": "DAK niceones",
+     "vues": "37.284 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/p9ZLPdzL9A_K0OPKZOt8oaOYHrLNUOFUQcSUt_pff3I9MM7zbuDfCKpxWT_CiD9v9ktto7UG7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "TIENI UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "oCJP_E0kKqg",
+     "titre": "Tengo un *diario personale* da 15 anni. Ecco cosa ho imparato…",
+     "chaine": "EfficaceMente (con Andrea Giuliodori)",
+     "vues": "15K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "11:56",
+     "avatar": "https://yt3.ggpht.com/ixZegPxbLUlAo8YklFToyRu3NK5jNhnVJoagaVRTkLl5AN8hWEUiXc3UC8cSSW5P0HOSsGsdHQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMECE UM",
+     "DIÁRIO"
+    ],
+    "video": {
+     "id": "BQtl0rzcfOc",
+     "titre": "JOURNALING: o melhor HOBBY para 2026 | Psicóloga Explica",
+     "chaine": "Lisa Guerra",
+     "vues": "60 mil visualizações",
+     "date": "há 9 meses",
+     "duree": "8:57",
+     "avatar": "https://yt3.ggpht.com/_Mhdmdvuq2VwaIEdUEMtMa9686u_d3Vyl9uvgDVVx87sG_tNkV9X8ifFZk94OoyECF-sD8CzXQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EMPIEZA UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "JVDok8da-eI",
+     "titre": "Cómo hacer Journaling? Cambia tu vida haciendo Journaling en 2026",
+     "chaine": "Adrià Solà Pastor",
+     "vues": "417 k vistas",
+     "date": "hace 2 años",
+     "duree": "11:53",
+     "avatar": "https://yt3.ggpht.com/teuevM7HuT6ap1FW50v80NmmwmuNJhyKiWhznSEmFleIqPES39v7MksSKi4sLDPTn2C0u87D_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN",
+     "SOMETHING NEW"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS",
+     "UN TRUC NOUVEAU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "ALGO NUEVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "QUALCOSA DI NUOVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA",
+     "ALGO NOVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     "ALGO NUEVO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "FOLD THE BEST",
+     "PAPER PLANE"
+    ],
+    "video": {
+     "id": "JV2aMbGtmZE",
+     "titre": "WORLD RECORD Paper Airplane | BEST Origami Plane Tutorial",
+     "chaine": "PPO",
+     "vues": "27M views",
+     "date": "6 years ago",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFLo4N4XwCH3_Q1hFAE_zyZ2LpcIqbUAXvZJmMFrcq2Ew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "PLIE LE MEILLEUR",
+     "AVION EN PAPIER"
+    ],
+    "video": {
+     "id": "RUejGexzeWo",
+     "titre": "meilleur avion en papier - world record !!",
+     "chaine": "origami papier",
+     "vues": "3 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "3:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRcWhx1N4cFZa02tZ_bswb08L_kKEj4mgtr91D2RP4k5s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ EL MEJOR",
+     "AVIÓN DE PAPEL"
+    ],
+    "video": {
+     "id": "lZYRraIg3no",
+     "titre": "como hacer EL AVION DE PAPEL QUE MEJOR VUELA",
+     "chaine": "LA PAPELERA DE SHON",
+     "vues": "25 M de visualizaciones",
+     "date": "hace 9 años",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasjA1NiTmM4TPqnGVnW9OGIyLMoaWgWxkOxMN5mQfqg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FALTE DEN BESTEN",
+     "PAPIERFLIEGER"
+    ],
+    "video": {
+     "id": "OneYlWOpVzE",
+     "titre": "Papierflieger falten der weit fliegt - Beste Papierflieger der Welt basteln | Luise",
+     "chaine": "Mahir Origami",
+     "vues": "17 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "6:22",
+     "avatar": "https://yt3.ggpht.com/_gjM6GdpnjtYZ79LggT5yHNBgqekyWnHneivONWiJvXL4tMFSvD_MGjtnhCyvkuPN2Ju1y3w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PIEGA IL MIGLIOR",
+     "AEREO DI CARTA"
+    ],
+    "video": {
+     "id": "HS-YJ6jWdDk",
+     "titre": "100 metri - Aeroplanino di Carta che Vola Lontano",
+     "chaine": "Aeroplanini di Carta & Creazioni fai da te",
+     "vues": "191K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/Tmzi9JEZxQm_NkY4Owh9CXY5zF1q1ZuSAv6CziaoetIdrYb6fRjNKLyNoacibwJRL6R0DLpL2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "FAÇA O MELHOR",
+     "AVIÃO DE PAPEL"
+    ],
+    "video": {
+     "id": "juuv38ZsAzs",
+     "titre": "Como fazer um Avião de Papel Fácil que voa longe - Modelo 3",
+     "chaine": "Easy Origami",
+     "vues": "642 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/XWJAkif4NMjuBV1RnyUbjdn-KDC4outbCycA1rlgLTR7r3U5AyyPaS4ZZpB8AIh93UjFdVX2bOQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ EL MEJOR",
+     "AVIÓN DE PAPEL"
+    ],
+    "video": {
+     "id": "sgzTdtv1hD8",
+     "titre": "Como Hacer un Avión de Papel que VUELA MUCHO y LEJOS! Paper Airplane",
+     "chaine": "Mejores Aviones De Papel",
+     "vues": "11 M de vistas",
+     "date": "hace 6 años",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/idiywMC6pfZxRTDvbdDcmXp3w8sZ5UrDnpYv2H-hH4IhIfPGLkMgzkk68HBby91E8X_twl1B_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

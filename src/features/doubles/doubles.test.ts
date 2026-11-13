@@ -46,4 +46,11 @@ describe("0559 : Doubler avec l'accord du posteur", () => {
     expect(alerteMemoire(double, "2026-11-07")?.texte).toContain("recréer ou retirer le 2e compte");
     expect(alerteMemoire({ ...double, jour: "2026-11-01" }, "2026-11-07")).toBeNull();
   });
+
+  it("mémoire du samedi : « pas maintenant » toujours régulier → Doubler pré-sélectionné", () => {
+    const pm: MemoireSamedi = { jour: "2026-11-07", decision: "pas_maintenant", action: "doubler", posts: 13, mediane: 800, compte2: null, offre: null };
+    expect(alerteMemoire(pm, "2026-11-14")?.choix).toBe("double");
+    expect(alerteMemoire({ ...pm, posts: 8 }, "2026-11-14")).toBeNull();
+    expect(alerteMemoire({ ...pm, jour: "2026-10-31", posts: 20 }, "2026-11-14")).toBeNull();
+  });
 });

@@ -1,4 +1,5 @@
 import { dansFenetre, type Delais, instantLocal, lireMode, lundiParis, partiesLocales, rappelsEnPause } from "../_shared/relances.ts";
+import type { MalgreStop } from "../_shared/stop.ts";
 import { automationEnPause, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { passageDu } from "../_shared/frequences.ts";
 import {
@@ -38,6 +39,7 @@ import {
   SIGNATURE_RELANCE_DEFAUT,
   signerRelance,
   choisirRelance,
+  debutReel,
   type DejaRelance,
   type ElementRelance,
   historiqueRelances,
@@ -46,6 +48,7 @@ import {
   type TextesRelance,
   TEXTES_RELANCE_DEFAUT,
   texteRelance,
+  CADRE_RELANCE_RUUL,
 } from "../_shared/relance_jour.ts";
 import {
   ceQuiManqueRecrue,
@@ -91,6 +94,7 @@ import { jetonLectureSlack, synchroniser } from "../_shared/slack_relier.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { construirePromptContestation, lireContestation, texteAccuse } from "../_shared/contestations.ts";
 import { assertRole, corsHeaders, json, messageErreur, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
+import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -163,8 +167,16 @@ Deno.serve(async (request) => {
       const b = body as { profil_id?: string; texte?: string };
       const texte = String(b.texte ?? "").trim();
       if (!b.profil_id || !texte) return json({ ok: false, error: "profil_id et texte requis" });
-      const issue = await ecrireAuPosteur(serviceClient(), String(b.profil_id), texte);
+      // 0684 : tapé à la main (carte Problèmes) : part malgré un STOP.
+      const issue = await ecrireAuPosteur(serviceClient(), String(b.profil_id), texte, fetch, undefined, { malgreStop: "manuel" });
       return json(issue.statut === "envoye" ? { ok: true } : { ok: false, error: "erreur" in issue ? issue.erreur : issue.statut });
+    }
+    // 10/11 : une relance ponctuelle, maintenant, à des recrues choisies (aperçu, puis envoi sur « envoyer »).
+    if (body.action === "relance_maintenant") {
+      const b = body as { poster_ids?: unknown; envoyer?: unknown; element?: unknown };
+      const ids = Array.isArray(b.poster_ids) ? b.poster_ids.map(String) : [];
+      const element = typeof b.element === "string" && b.element ? b.element as ElementRelance : null;
+      return json(await relanceMaintenant(serviceClient(), ids, b.envoyer === true, new Date(), element));
     }
     if (body.action === "lien_mot_de_passe_envoyer") {
       return json(await envoyerLienMotDePasse(serviceClient(), String((body as { poster_id?: string }).poster_id ?? ""), acces.userId));
@@ -412,10 +424,15 @@ async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
   const bienvenues = new Set<string>();
   // 6/11 : déjà sur Slack sans id sur le profil (hub_posteurs, « I've joined » déclaré) : pas de relance Slack.
   const slackConnus = new Set<string>();
+  // 0592 : les posteurs Ruul (payés par Ruul, pas de contrat Upwork).
+  const ruuls = new Set<string>();
   for (let i = 0; i < ids.length; i += 200) {
     const lot = ids.slice(i, i + 200);
-    const { data: pr } = await supabase.from("profiles").select("id, email").in("id", lot);
-    for (const x of pr ?? []) emails.set(x.id as string, (x.email as string | null) ?? null);
+    const { data: pr } = await supabase.from("profiles").select("id, email, canal_paie").in("id", lot);
+    for (const x of pr ?? []) {
+      emails.set(x.id as string, (x.email as string | null) ?? null);
+      if (x.canal_paie === "ruul") ruuls.add(x.id as string);
+    }
     const { data: ac } = await supabase.from("accueils").select("poster_id").in("poster_id", lot).eq("statut", "envoye").not("message_at", "is", null);
     for (const x of ac ?? []) bienvenues.add(x.poster_id as string);
     const { data: hub } = await supabase.from("hub_posteurs").select("profile_id").in("profile_id", lot).not("slack_user_id", "is", null);
@@ -428,6 +445,7 @@ async function lireRecrues(supabase: Supabase): Promise<RecrueAccueil[]> {
     email: emails.get(x.poster_id) ?? null,
     bienvenue_os: bienvenues.has(x.poster_id),
     slack_connu: slackConnus.has(x.poster_id),
+    ruul: ruuls.has(x.poster_id),
   }));
 }
 
@@ -536,7 +554,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     });
   }
 
-  // Lundi soir, à minuit heure de Paris (le prochain lundi) : les recrues de la cohorte, si elles n'ont rien publié ce jour-là.
+  // Lundi soir, à 20:00 heure de Paris (le prochain lundi) : les recrues de la cohorte, si elles n'ont rien publié ce jour-là.
   for (const x of recrues) {
     if (x.deuxieme || x.cohorte_lundi !== prochain || !x.contrat_id) continue;
     const dest = { poster_id: x.poster_id, slack_user_id: null, contrat_id: x.contrat_id };
@@ -545,7 +563,7 @@ async function apercu(supabase: Supabase, maintenant: Date, o: { demain?: boolea
     ajouter("lundi_soir", {
       poster_id: x.poster_id, nom: nomDe.get(x.poster_id) ?? x.prenom, hm: hmDe.get(x.poster_id) ?? null, canaux: doublon ? [] : ["upwork"], doublon,
       variante: "si_aucun_post_lundi", texte: texteLundiSoir(r.texteLundiSoir, x.prenom),
-      donnees: { cohorte: x.cohorte_lundi, condition: "seulement si aucun post avec lien publié le lundi, check à minuit (heure de Paris)" },
+      donnees: { cohorte: x.cohorte_lundi, condition: "seulement si aucun post avec lien publié le lundi, check à 20:00 (heure de Paris)" },
     });
   }
   return {
@@ -910,6 +928,9 @@ async function lireHistoriqueRelances(supabase: Supabase, maintenant: Date): Pro
  * étape et le texte (sur Upwork, la ligne STOP à la fin).
  */
 function relanceChoisie(r: Reglages, x: RecrueAccueil, plan: PlanRelance, bilan: Bilan, maintenant: Date) {
+  // 10/11 : la date du texte est toujours profiles.cohorte_lundi ; passé ce lundi 12:00 (Paris), la recrue
+  // pas prête est reportée (lundi 23:59) : plus de relance avec une date dépassée.
+  if (debutReel(x.cohorte_lundi, maintenant) !== x.cohorte_lundi) return { choix: { element: null, canal: null, upwork_prevu_at: null }, plan: null, texte: "" };
   const choix = choisirRelance(plan, Boolean(x.slack_user_id), bilan.historique?.get(x.poster_id), maintenant);
   if (!choix.element || !choix.canal) return { choix, plan: null, texte: "" };
   const un: PlanRelance = { ...plan, element: choix.element, elements: [choix.element] };
@@ -1038,7 +1059,9 @@ async function suivreEtape(
 
 /** Le texte de la relance du jour (vide : rien ne part). */
 function texteRelancePour(r: Reglages, x: RecrueAccueil, plan: ReturnType<typeof planRelance>, mardi = false): string {
-  return texteRelance(r.textesRelance, plan, {
+  // 0592 : un posteur Ruul : « … before Saturday 8 pm (Paris time) ».
+  const textes = x.ruul ? { ...r.textesRelance, cadre: CADRE_RELANCE_RUUL } : r.textesRelance;
+  return texteRelance(textes, plan, {
     mardi,
     // 2/11 : après lundi 12:00 (Paris), la vraie date de début (le lundi suivant).
     maintenant: new Date(),
@@ -1093,6 +1116,8 @@ async function relanceDuJour(
 ) {
   if (killEnCours(x) || bilan.pauses?.has(x.poster_id) || bilan.rappelsEnPause) return;
   if (horsPerimetre(x, bilan, maintenant)) return;
+  // 0688 (Max, 12/11) : un posteur Ruul n'a qu'un seul moteur de relances, le parcours Ruul (fonction ruul).
+  if (x.ruul && await parcoursRuulActif(supabase)) return;
   const planComplet = planRelance(x, etats, maintenant, r.etapes, { slack: Boolean(r.slackLien) });
   if (planComplet.needsYou) bilan.needsYou++;
   if (!planComplet.element || !dansFenetre(maintenant, x.fuseau, r.etapes as unknown as Delais)) return;
@@ -1107,6 +1132,12 @@ async function relanceDuJour(
   if (bilan.relanceEnFile?.has(x.poster_id)) return;
   if (bilan.automationPause) {
     await noterBloquee(supabase, { fonction: "recrues-check", action: "relance", poster_id: x.poster_id });
+    return;
+  }
+  // 10/11 (Upwork saturé) : pas relié à Slack : l'email d'abord (via le site) ; Upwork seulement en dernier recours.
+  if (choisie.choix.canal === "upwork" && choisie.texte && await relanceEmailRuul(supabase, r, x, plan, jour, choisie.texte, bilan)) {
+    bilan.relancesFaites?.add(`${x.poster_id}|${jour}`);
+    noterPrepare(bilan, x, "relance", jour);
     return;
   }
   // 1/11 : un seul canal : Slack, ou Upwork (une fois par étape, sous le plafond par recrue).
@@ -1807,6 +1838,8 @@ async function upworkPossible(supabase: Supabase, contratId: string): Promise<bo
  * lundi. Tout fait : le rouge pas encore décidé de cette cohorte s'efface.
  */
 async function rougeDimanche(supabase: Supabase, r: Reglages, x: RecrueAccueil, maintenant: Date, bilan: Bilan) {
+  // Parcours Ruul (points 5 et 8) : pas de « Start Tuesday » pour un posteur Ruul ; pas prêt, il passe au lundi suivant (moteur ruul).
+  if (x.ruul && await parcoursRuulActif(supabase)) return;
   const etape = etapeRouge(x, r.etapes);
   // 1/11 : pas prête dimanche 22:45 (Paris), aucun choix : « Start Tuesday » (avant l'assignation de lundi, 23:00).
   if (etape !== null && momentChoixAuto(maintenant, x.cohorte_lundi)) {
@@ -2025,11 +2058,11 @@ async function envoyerLienMotDePasse(supabase: Supabase, posterId: string, par: 
   let erreur: string | null = null;
   if (p.slack_user_id) {
     canal = "slack";
-    erreur = await envoyerSlack(supabase, posterId, lien.texte);
+    erreur = await envoyerSlack(supabase, posterId, lien.texte, undefined, "manuel");
   }
   if ((!canal || erreur) && p.upwork_contract_id) {
     canal = "upwork";
-    erreur = (await envoyerUpwork(String(p.upwork_contract_id), avecLigneStop(lien.texte), { prioritaire: true })).erreur;
+    erreur = (await envoyerUpwork(String(p.upwork_contract_id), avecLigneStop(lien.texte), { prioritaire: true, malgreStop: "manuel" })).erreur;
   }
   if (!canal) erreur = "ni Slack ni contrat Upwork";
   await supabase.from("nudges").insert({
@@ -2058,8 +2091,9 @@ async function reportsDuLundi(supabase: Supabase, maintenant: Date, bilan: Bilan
   }
 }
 
-async function envoyerSlack(supabase: Supabase, posterId: string, texte: string, blocs?: unknown[]): Promise<string | null> {
-  const issue = await ecrireAuPosteur(supabase, posterId, texte, fetch, blocs);
+async function envoyerSlack(supabase: Supabase, posterId: string, texte: string, blocs?: unknown[], malgreStop?: MalgreStop): Promise<string | null> {
+  // 0684 : une relance ne part jamais après un STOP ; une réponse ou un envoi à la main, si.
+  const issue = await ecrireAuPosteur(supabase, posterId, texte, fetch, blocs, malgreStop ? { malgreStop } : {});
   if (issue.statut === "envoye") return null;
   return issue.statut === "erreur" ? issue.erreur : "introuvable sur Slack";
 }
@@ -2084,7 +2118,7 @@ async function noterEnvoi(supabase: Supabase, id: string, r: { partis: string[];
 async function envoyerUpwork(
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean; compte?: string } = {},
+  o: { prioritaire?: boolean; compte?: string; malgreStop?: MalgreStop } = {},
 ): Promise<{ erreur: string | null; budget: boolean; reporter?: boolean; compte?: string | null }> {
   const base = Deno.env.get("SUPABASE_URL");
   const secret = secretCronConnu();
@@ -2093,7 +2127,11 @@ async function envoyerUpwork(
     const r = await fetch(`${base}/functions/v1/upwork`, {
       method: "POST",
       headers: { "content-type": "application/json", "x-cron-secret": secret },
-      body: JSON.stringify({ action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false, ...(o.compte ? { compte: o.compte } : {}) }),
+      body: JSON.stringify({
+        action: "message", contrat_id: contratId, texte, priorite: o.prioritaire !== false, ...(o.compte ? { compte: o.compte } : {}),
+        // 0684 : sans motif, la fonction upwork refuse d'écrire à un posteur qui a dit STOP.
+        ...(o.malgreStop ? { malgre_stop: o.malgreStop } : {}),
+      }),
     });
     const corps = await r.json().catch(() => null);
     // Prompt 25 v4 : « reporter » : le compte de secours n'a pas pu écrire ici ; le message repart demain (Max d'abord).
@@ -2375,7 +2413,7 @@ async function traiterReponses(supabase: Supabase, maintenant: Date) {
           });
           maj.reponse_statut = "a_la_main";
         } else {
-          const envoi = l.canal === "upwork" ? u!.erreur : await envoyerSlack(supabase, l.poster_id, plan.repondre);
+          const envoi = l.canal === "upwork" ? u!.erreur : await envoyerSlack(supabase, l.poster_id, plan.repondre, undefined, plan.arret ? "confirmation_arret" : "reponse");
           maj.reponse_statut = envoi ? "erreur" : "envoye";
           maj.reponse_at = new Date().toISOString();
           if (envoi) maj.erreur = envoi;
@@ -2460,7 +2498,7 @@ async function traiterContestations(supabase: Supabase) {
     let statut = "simule";
     let erreur: string | null = null;
     if (reel) {
-      erreur = c.canal === "upwork" ? await repondreUpwork(supabase, c.poster_id, texte) : await envoyerSlack(supabase, c.poster_id, texte);
+      erreur = c.canal === "upwork" ? await repondreUpwork(supabase, c.poster_id, texte) : await envoyerSlack(supabase, c.poster_id, texte, undefined, "reponse");
       statut = erreur ? "erreur" : "envoye";
     }
     await supabase.from("contestations")
@@ -2482,7 +2520,7 @@ async function repondreContestation(supabase: Supabase, id: string, texte: strin
   if (!c) return { ok: false, error: "contestation introuvable" };
   const erreur = c.canal === "upwork"
     ? await repondreUpwork(supabase, c.poster_id as string, texte.trim())
-    : await envoyerSlack(supabase, c.poster_id as string, texte.trim());
+    : await envoyerSlack(supabase, c.poster_id as string, texte.trim(), undefined, "reponse");
   await supabase.from("contestations")
     .update({ reponse_texte: texte.trim(), reponse_statut: erreur ? "erreur" : "envoye", reponse_at: new Date().toISOString(), maj_at: new Date().toISOString() })
     .eq("id", id);
@@ -2513,14 +2551,15 @@ async function questionPaie(posterId: string, simuler: boolean): Promise<{ cas: 
 async function repondreUpworkBudget(supabase: Supabase, posterId: string, texte: string): Promise<{ erreur: string | null; budget: boolean }> {
   const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   if (!data?.upwork_contract_id) return { erreur: "contrat Upwork non relié", budget: false };
-  const u = await envoyerUpwork(data.upwork_contract_id as string, texte);
+  // 0684 : une réponse au message que le posteur vient d'écrire (sa confirmation d'arrêt comprise) part malgré un STOP.
+  const u = await envoyerUpwork(data.upwork_contract_id as string, texte, { malgreStop: "reponse" });
   return { erreur: u.erreur, budget: u.budget };
 }
 
 async function repondreUpwork(supabase: Supabase, posterId: string, texte: string): Promise<string | null> {
   const { data } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   if (!data?.upwork_contract_id) return "contrat Upwork non relié";
-  return (await envoyerUpwork(data.upwork_contract_id as string, texte)).erreur;
+  return (await envoyerUpwork(data.upwork_contract_id as string, texte, { malgreStop: "reponse" })).erreur;
 }
 
 // ---------------------------------------------------------------------------
@@ -2528,7 +2567,7 @@ async function repondreUpwork(supabase: Supabase, posterId: string, texte: strin
 // ---------------------------------------------------------------------------
 
 /**
- * Chaque lundi, à minuit heure de Paris (prompt 25 MAJ, 15) : la nouvelle cohorte et les 2es comptes
+ * Chaque lundi, à 20:00 heure de Paris (3/11 ; avant : minuit) : la nouvelle cohorte et les 2es comptes
  * qui démarrent, sans aucun post publié avec son lien ce jour-là → un seul
  * message sur Upwork (`lundi_soir_auto`). Décisions finales : plus de Kill
  * automatique ensuite ; le samedi, Max décide (masterlist).
@@ -3015,4 +3054,160 @@ async function liensIntrouvables(supabase: Supabase, r: Reglages, maintenant: Da
     // Un seul message par lien : sur On, les liens sont notés dès qu'il est dans la file.
     if (!test) await supabase.from("passages").update({ lien_message_at: new Date().toISOString() }).in("id", p.passages);
   }
+}
+
+// ---------------------------------------------------------------------------
+// 10/11 : une relance ponctuelle, maintenant (cohorte du 16/11 jamais connectée)
+// ---------------------------------------------------------------------------
+
+const URL_RUUL = "https://mbikecieskoobeizixig.supabase.co/functions/v1/ruul";
+
+/**
+ * 10/11 : la relance de ce qui manque maintenant à chaque recrue choisie, une
+ * seule par personne et par jour (la même ligne « relance » du jour que le
+ * passage automatique : il n'en enverra pas une 2e). Date : profiles.cohorte_lundi.
+ * Canal : Slack s'il est relié, sinon Upwork (contrat), sinon email (posteur
+ * Ruul, par le site). Sans « envoyer » : l'aperçu seulement, rien n'est écrit.
+ * Une ligne du jour restée sans canal (un échec, ex. HTTP 429) est renvoyée.
+ * `force` (ex. « connexion ») : cette étape, si elle n'est pas faite, même avant son délai habituel.
+ */
+async function relanceMaintenant(supabase: Supabase, ids: string[], envoyer: boolean, maintenant: Date, force: ElementRelance | null = null) {
+  if (!ids.length) return { ok: false, error: "poster_ids requis" };
+  const r = await reglages(supabase);
+  const recrues = new Map((await lireRecrues(supabase)).filter((x) => !x.deuxieme).map((x) => [x.poster_id, x]));
+  const { data: profils } = await supabase.from("profiles")
+    .select("id, prenom, nom, email, email_perso, ruul_email, ruul_jeton, canal_paie, slack_user_id, upwork_contract_id, relances_stop_at, is_active")
+    .in("id", ids);
+  const { data: hubs } = await supabase.from("hub_posteurs").select("profile_id, email_perso").in("profile_id", ids);
+  const emailHub = new Map((hubs ?? []).map((h) => [h.profile_id as string, (h.email_perso as string | null) ?? null]));
+  const pauses = await lirePauses(supabase, maintenant);
+  const lignes: Record<string, unknown>[] = [];
+  for (const p of profils ?? []) {
+    const x = recrues.get(p.id as string);
+    const nom = `${p.prenom ?? ""} ${p.nom ?? ""}`.trim();
+    const ligne: Record<string, unknown> = { poster_id: p.id, nom, cohorte: x?.cohorte_lundi ?? null };
+    lignes.push(ligne);
+    if (!p.is_active || !x) { ligne.ecarte = "plus une recrue à relancer"; continue; }
+    if (p.relances_stop_at) { ligne.ecarte = "STOP demandé"; continue; }
+    if (pauses.has(p.id as string)) { ligne.ecarte = "en pause ou demande d'arrêt en attente"; continue; }
+    if (debutReel(x.cohorte_lundi, maintenant) !== x.cohorte_lundi) { ligne.ecarte = "lundi de cohorte passé"; continue; }
+    const etats = etatsAccueil(x, r.etapes);
+    const calcule = planRelance(x, etats, maintenant, r.etapes);
+    const faitForce = force === "connexion" ? Boolean(x.premiere_connexion_at) : etats.find((e) => e.etape === force)?.fait ?? true;
+    const plan: PlanRelance = force
+      ? (faitForce ? { ...calcule, element: null, elements: [] } : { ...calcule, needsYou: false, element: force, elements: [force] })
+      : calcule;
+    if (!plan.element) { ligne.ecarte = force ? `${force} : déjà fait` : plan.needsYou ? "Needs you" : "rien ne manque"; continue; }
+    const un: PlanRelance = { ...plan, elements: [plan.element] };
+    const jour = partiesLocales(maintenant, x.fuseau).date;
+    const { data: deja } = await supabase.from("nudges").select("id, canaux").eq("poster_id", p.id).eq("type", "relance").eq("periode", jour).maybeSingle();
+    if (deja && (deja.canaux as string[] | null)?.length) { ligne.ecarte = "déjà une relance aujourd'hui"; continue; }
+    const contact = emailHub.get(p.id as string) || (p.email_perso as string | null) || (p.ruul_email as string | null);
+    const canal = p.slack_user_id ? "slack" : p.upwork_contract_id ? "upwork" : contact ? "email" : null;
+    if (!canal) { ligne.ecarte = "ni Slack, ni contrat, ni email"; continue; }
+    let texte = signerRelance(texteRelancePour(r, x, un), r.signature);
+    if (canal === "upwork") texte = avecLigneStop(texte);
+    Object.assign(ligne, { element: plan.element, canal, vers: canal === "email" ? contact : canal === "upwork" ? p.upwork_contract_id : "DM Slack", texte, renvoi: Boolean(deja) });
+    if (!envoyer) continue;
+    // Le lien « Set my password » personnel, créé maintenant.
+    const lien = await avecLienMotDePasse(supabase, p.id as string, texte, OS_URL, "recrues-check:relance_maintenant");
+    if (lien.erreur) { ligne.erreur = lien.erreur; continue; }
+    const donnees = { ...donneesRelance(x, un), canal_relance: canal, manuel: "relance_maintenant" };
+    // La colonne nudges.canal n'accepte que slack / os / upwork : un email (par le site) est noté « os » ; canaux = ["email"].
+    const canalNudge = canal === "email" ? "os" : canal;
+    let id = deja?.id as string | undefined;
+    if (id) {
+      await supabase.from("nudges").update({ canal: canalNudge, texte: lien.texte, donnees, envoye_at: new Date().toISOString() }).eq("id", id);
+    } else {
+      const { data: n, error } = await supabase.from("nudges").insert({
+        poster_id: p.id, type: "relance", periode: jour, compte_id: null, cible: "recrues-check", canal: canalNudge, texte: lien.texte,
+        raison: raisonLisible("relance", donnees), donnees,
+      }).select("id").single();
+      if (error) { ligne.erreur = error.code === "23505" ? "déjà une relance aujourd'hui" : error.message; continue; }
+      id = n.id as string;
+    }
+    let erreur: string | null = null;
+    if (canal === "slack") erreur = await envoyerSlack(supabase, p.id as string, lien.texte);
+    else if (canal === "upwork") erreur = (await envoyerUpwork(String(p.upwork_contract_id), lien.texte, { prioritaire: true })).erreur;
+    else {
+      erreur = await emailRelanceRuul(String(contact), (p.ruul_jeton as string | null) ?? null, lien.texte, String(plan.element));
+    }
+    const bilanLocal = { erreurs: [] as string[], envoyes: 0 } as unknown as Bilan;
+    await noterEnvoi(supabase, id, { partis: erreur ? [] : [canal], erreurs: erreur ? [erreur] : [] }, `relance ${p.id}`, bilanLocal);
+    ligne.statut = erreur ? "erreur" : "envoye";
+    if (erreur) ligne.erreur = erreur;
+  }
+  const prets = lignes.filter((l) => l.texte);
+  return {
+    ok: true, envoyer, total: lignes.length, a_envoyer: prets.length,
+    envoyes: lignes.filter((l) => l.statut === "envoye").length, erreurs: lignes.filter((l) => l.statut === "erreur").length,
+    lignes,
+  };
+}
+
+/** 0688 : le parcours Ruul est-il sur on (réglage ruul_parcours) ? Lu une fois par exécution. */
+let parcoursRuulLu: { at: number; on: Promise<boolean> } | null = null;
+function parcoursRuulActif(supabase: Supabase): Promise<boolean> {
+  if (!parcoursRuulLu || Date.now() - parcoursRuulLu.at > 60_000) {
+    parcoursRuulLu = {
+      at: Date.now(),
+      on: Promise.resolve(supabase.from("reglages").select("valeur").eq("cle", "ruul_parcours").maybeSingle())
+        .then(({ data }) => data?.valeur === "on").catch(() => false),
+    };
+  }
+  return parcoursRuulLu.on;
+}
+
+/** 0592 : l'objet de la relance par email d'un posteur Ruul, selon l'étape. */
+function objetRelanceRuul(element: string): string {
+  return element === "connexion" ? "Please log in to your Sophia dashboard" : "Your next step to start posting";
+}
+
+/** 0592 : une relance par email (posteur Ruul, par le site), sans la signature (« The Sophia team » du gabarit). */
+async function emailRelanceRuul(to: string, jeton: string | null, texte: string, element: string): Promise<string | null> {
+  const lienStop = jeton ? `${URL_RUUL}?stop=${jeton}` : OS_URL;
+  const corps = texte.replace(/\n+[^\n]*team\s*$/i, "").trim();
+  const objet = objetRelanceRuul(element);
+  const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open my dashboard", lien: OS_URL }, lienStop });
+  return (await envoyerEmailSite(to, objet, e.html, e.texte, lienStop, ["relance", element])).erreur;
+}
+
+/**
+ * 0592 / 10/11 : la relance du jour d'un posteur pas relié à Slack, Ruul ou Upwork,
+ * qui a un email (candidature) : par email, via le site, tout de suite. Une par
+ * étape (l'email compte comme le canal « hors Slack » dans l'historique). Pas
+ * d'email : false (Upwork en dernier recours).
+ */
+async function relanceEmailRuul(
+  supabase: Supabase, r: Reglages, x: RecrueAccueil, plan: PlanRelance, jour: string, texte: string, bilan: Bilan,
+): Promise<boolean> {
+  const [{ data: p }, { data: h }] = await Promise.all([
+    supabase.from("profiles").select("email_perso, ruul_email, ruul_jeton, relances_stop_at").eq("id", x.poster_id).maybeSingle(),
+    supabase.from("hub_posteurs").select("email_perso").eq("profile_id", x.poster_id).maybeSingle(),
+  ]);
+  if (!p || p.relances_stop_at) return false;
+  const contact = (h?.email_perso as string | null) || (p.email_perso as string | null) || (p.ruul_email as string | null);
+  if (!contact) return false;
+  const cle = { poster_id: x.poster_id, type: "relance", periode: jour };
+  const donnees = { ...donneesRelance(x, plan, bilan), canal_relance: "email" };
+  if (r.mode !== "on") {
+    await supabase.from("relances_prevues").upsert({ ...cle, statut: "prevu", canal: "email", texte, donnees, raison: "simulation", maj_at: new Date().toISOString() });
+    bilan.prevus++;
+    return true;
+  }
+  const lien = await avecLienMotDePasse(supabase, x.poster_id, texte, OS_URL, "recrues-check:relance_email");
+  if (lien.erreur) {
+    bilan.erreurs.push(`relance email ${x.poster_id} : ${lien.erreur}`);
+    return true;
+  }
+  const { data: n, error } = await supabase.from("nudges").insert({
+    ...cle, compte_id: null, cible: "recrues-check", canal: "os", texte: lien.texte, raison: raisonLisible("relance", donnees), donnees,
+  }).select("id").single();
+  if (error) {
+    if (error.code !== "23505") bilan.erreurs.push(`relance email ${x.poster_id} : ${error.message}`);
+    return true;
+  }
+  const erreur = await emailRelanceRuul(contact, (p.ruul_jeton as string | null) ?? null, lien.texte, String(plan.element));
+  await noterEnvoi(supabase, n.id as string, { partis: erreur ? [] : ["email"], erreurs: erreur ? [erreur] : [] }, `relance email ${x.poster_id}`, bilan);
+  return true;
 }

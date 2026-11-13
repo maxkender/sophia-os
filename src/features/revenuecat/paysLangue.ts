@@ -79,6 +79,7 @@ const CODES_ISO_PAYS: Record<string, string> = {
   lt: "lt", // Lituanie
   lv: "lv", // Lettonie
   jp: "ja", // Japon ; JA n'est pas un code pays
+  kr: "ko", // Corée du Sud ; KO n'est pas un code pays
 };
 
 /** Nom de pays (normalisé) → langue OS. Inclut les abréviations non-ISO. */
@@ -153,6 +154,10 @@ const NOMS_PAYS: Record<string, string> = {
   japan: "ja",
   nippon: "ja",
   nihon: "ja",
+  korea: "ko",
+  "south korea": "ko",
+  "republic of korea": "ko",
+  "korea republic of": "ko",
 };
 
 /**
@@ -167,6 +172,7 @@ const CODES_LANGUE_SANS_COLLISION: Record<string, string> = {
   da: "da",
   he: "he",
   ja: "ja",
+  ko: "ko",
 };
 
 const LANGUES = new Set<string>(LANGUES_CIBLES);

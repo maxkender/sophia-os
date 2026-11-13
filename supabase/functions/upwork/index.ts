@@ -1,10 +1,12 @@
 import {
   abregerPourJournal,
   aRenouveler,
-  attenteRetryAfter,
+  attente429,
+  ATTENTES_429_MS,
   avecRetry,
   corpsJeton,
   erreurGraphql,
+  ESPACEMENT_MESSAGES_MS,
   INTROSPECTION,
   lireContrat,
   lireJetons,
@@ -32,6 +34,7 @@ import {
   urlAutorisation,
   urlRetour,
 } from "../_shared/upwork.ts";
+import { type MalgreStop, STOP_POSTEUR, stopDuContrat, typeUpworkPermisMalgreStop } from "../_shared/stop.ts";
 import {
   type Annonce,
   bienvenueARattraper,
@@ -43,7 +46,9 @@ import {
   codePays,
   type DetailsContrat,
   hmDeNomUpwork,
+  type HmRegle,
   type InfosApi,
+  LANGUE_DU_PAYS,
   langueDePays,
   REQUETES_LOCALISATION,
   lireDetailsContrat,
@@ -59,6 +64,7 @@ import {
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { noteBonus } from "../_shared/bonus.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { type EtatParcours, lignesPointSoirRuul } from "../_shared/parcours_ruul.ts";
 import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { decoderHtml, derniersMessagesSalon } from "../_shared/contexte.ts";
@@ -75,7 +81,6 @@ import {
 } from "../_shared/arret.ts";
 import {
   ACTIONS_PAYEES,
-  aReessayer,
   choisirCanari,
   classerErreur,
   ecartsCanari,
@@ -84,7 +89,10 @@ import {
   type LigneAuto,
   montantConforme,
   numeroSemaine,
+  jourDePaie,
   peutPayer,
+  prochainEssai,
+  reessaiPossible,
   reessaisFinis,
   remplirTexte,
   semaineAPayer,
@@ -117,6 +125,9 @@ import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
 import { planCompleterOffre, semainesDepuis } from "../_shared/offres.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
+
+/** 0684 : les raisons acceptées pour un message Upwork malgré un STOP. */
+const MOTIFS_MALGRE_STOP: unknown[] = ["confirmation_arret", "paie", "reponse", "manuel"];
 
 /** L'OS, où l'admin revient après avoir autorisé Upwork (src/features/recrutements/constantes.ts). */
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
@@ -247,9 +258,14 @@ Deno.serve(async (request) => {
         return json(await lireContrats(supabase, par));
       case "jalons":
         return json(await lireJalons(supabase, par, Array.isArray(body.contrats) ? body.contrats.map(String).slice(0, 300) : null));
+      case "rapport_soir":
+        // 10/11 : le bilan Upwork du jour, à Max sur Slack, à 21 h (Paris) ; « forcer » : tout de suite (test).
+        return json(await rapportSoir(supabase, body.forcer === true));
       case "jalons_problemes":
         // 3/11 : les milestones des contrats des cartes ouvertes de la page Problèmes (lecture seule).
-        return json(await lireJalons(supabase, par, await contratsProblemes(supabase)));
+        // 10/11 : un contrat lu depuis moins de `upwork_jalons_cache_h` heures (6) n'est pas relu ; « forcer » (admin) relit tout.
+        return json(await lireJalons(supabase, par, await contratsProblemes(supabase),
+          body.forcer === true && acces.userId !== "cron" ? null : await reglageNombre(supabase, "upwork_jalons_cache_h", 6, 1, 48)));
       case "offres":
         // Prompt 27 (Needs you « No channel ») : toutes les offres, tous états, lecture seule.
         return json(await lireOffres(supabase, par));
@@ -301,6 +317,8 @@ Deno.serve(async (request) => {
           await envoyerMessage(supabase, par, contratId, String(body.texte ?? ""), {
             prioritaire: body.priorite !== false,
             ...(body.compte === COMPTE_SECOURS ? { forcer: COMPTE_SECOURS } : {}),
+            // 0684 : l'appelant dit pourquoi le message part malgré un STOP (sinon il ne part pas).
+            ...(MOTIFS_MALGRE_STOP.includes(body.malgre_stop) ? { malgreStop: body.malgre_stop as MalgreStop } : {}),
           }),
         );
       }
@@ -637,10 +655,57 @@ async function jetonValide(supabase: Supabase, par: string | null, compte: strin
 }
 
 /**
+ * 10/11 (Upwork saturé) : les lectures d'un contrat précis (milestones, statut,
+ * fin) passent par le compte secours (réglage upwork_compte_lectures), le compte
+ * principal gardant les envois. Le secours n'a pas accès, ou n'est pas connecté :
+ * on relit avec le principal (et on ne réessaie plus le secours pendant ce passage).
+ * Les listes (contrats, offres) et les conversations restent sur le principal :
+ * une liste vue par un autre compte pourrait être incomplète sans erreur.
+ */
+const LECTURES_SECOURS = new Set([
+  "jalons", "offre_completer_lecture", "sans_posteur_jalons", "arret_verif_jalons", "arret_verif_statut", "contrat_fin",
+]);
+let secoursLectures: { actif: boolean; lu_at: number } | null = null;
+let secoursEchecs = 0;
+
+async function compteDeLecture(supabase: Supabase): Promise<string | null> {
+  if (secoursEchecs >= 3) return null;
+  if (!secoursLectures || Date.now() - secoursLectures.lu_at > 60_000) {
+    const [{ data: r }, { data: c }] = await Promise.all([
+      supabase.from("reglages").select("valeur").eq("cle", "upwork_compte_lectures").maybeSingle(),
+      supabase.from("upwork_connexion").select("statut").eq("compte", COMPTE_SECOURS).maybeSingle(),
+    ]);
+    secoursLectures = { actif: r?.valeur === COMPTE_SECOURS && c?.statut === "connecte", lu_at: Date.now() };
+  }
+  return secoursLectures.actif ? COMPTE_SECOURS : null;
+}
+
+async function lire(
+  supabase: Supabase,
+  o: { par: string | null; action: string; query: string; variables?: Record<string, unknown>; tenant?: string | null; compte?: string },
+  // deno-lint-ignore no-explicit-any
+): Promise<{ data: any; erreur: string | null; statut: number | null }> {
+  if (!o.compte && LECTURES_SECOURS.has(o.action)) {
+    const secours = await compteDeLecture(supabase);
+    if (secours) {
+      try {
+        const r = await lireAvec(supabase, { ...o, compte: secours });
+        // Une réponse lisible, ou un 429 (le passage s'arrête comme avant) : on garde. Sinon : le principal.
+        if (!r.erreur || r.statut === 429) return r;
+      } catch (e) {
+        console.error("[upwork] lecture secours", o.action, messageErreur(e));
+      }
+      secoursEchecs++;
+    }
+  }
+  return await lireAvec(supabase, o);
+}
+
+/**
  * Une LECTURE GraphQL (retry 1 s, 2 s, 4 s sur réseau, 429 et 5xx). Les
  * écritures (points 3 à 5) auront leur propre fonction, sans aucun retry.
  */
-async function lire(
+async function lireAvec(
   supabase: Supabase,
   o: { par: string | null; action: string; query: string; variables?: Record<string, unknown>; tenant?: string | null; compte?: string },
   // deno-lint-ignore no-explicit-any
@@ -937,7 +1002,7 @@ async function terminesDepuisOffres(supabase: Supabase, par: string | null): Pro
 // F1 (28 oct.) : la milestone à approuver de chaque contrat relié
 // ---------------------------------------------------------------------------
 
-async function lireJalons(supabase: Supabase, par: string | null, seulement: string[] | null = null) {
+async function lireJalons(supabase: Supabase, par: string | null, seulement: string[] | null = null, cacheH: number | null = null) {
   // Les contrats actifs lus (action « contrats ») et reliés à un posteur actif.
   const [{ data: contrats, error: e1 }, { data: posteurs, error: e2 }] = await Promise.all([
     supabase.from("upwork_contrats").select("contrat_id, organisation_id").eq("actif", true).not("contrat_id", "is", null),
@@ -961,7 +1026,15 @@ async function lireJalons(supabase: Supabase, par: string | null, seulement: str
   }
   // 3/11 : la page Problèmes relit seulement les contrats de ses cartes (à l'ouverture et toutes les 30 min).
   const voulus = seulement ? new Set(seulement.map(String)) : null;
-  const aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)) && (!voulus || voulus.has(String(c.contrat_id))));
+  let aLire = (contrats ?? []).filter((c) => relies.has(String(c.contrat_id)) && (!voulus || voulus.has(String(c.contrat_id))));
+  // 10/11 (Upwork saturé) : un contrat lu il y a moins de `cacheH` heures n'est pas relu (sauf action d'un admin).
+  let enCache = 0;
+  if (cacheH && aLire.length) {
+    const recents = await contratsLusDepuis(supabase, aLire.map((c) => String(c.contrat_id)), cacheH);
+    enCache = aLire.filter((c) => recents.has(String(c.contrat_id))).length;
+    aLire = aLire.filter((c) => !recents.has(String(c.contrat_id)));
+    if (aLire.length === 0) return { ok: true, contrats: 0, lus: 0, erreurs: 0, en_cache: enCache };
+  }
   if (aLire.length === 0) {
     return voulus ? { ok: true, contrats: 0, lus: 0, erreurs: 0 } : { ok: false, error: "aucun contrat actif relié : lancer d'abord l'action contrats" };
   }
@@ -1012,7 +1085,38 @@ async function lireJalons(supabase: Supabase, par: string | null, seulement: str
   }
   // Prompt 21, S2 : le contrat gagne. tarif_hebdo corrigé, noté dans le Pipeline (Logs).
   const corriges = await corrigerTarifsHebdo(supabase).catch((e) => ({ erreur: messageErreur(e), corriges: 0 }));
-  return { ok: true, contrats: aLire.length, lus, erreurs, tarifs: bilanTarifs, ...("erreur" in corriges ? { erreur_tarifs: corriges.erreur } : { corriges: corriges.corriges }) };
+  return { ok: true, contrats: aLire.length, en_cache: enCache, lus, erreurs, tarifs: bilanTarifs, ...("erreur" in corriges ? { erreur_tarifs: corriges.erreur } : { corriges: corriges.corriges }) };
+}
+
+/** 10/11 : les contrats dont les milestones ont été lues (sans erreur) il y a moins de `heures` heures. */
+async function contratsLusDepuis(supabase: Supabase, contrats: string[], heures: number): Promise<Set<string>> {
+  const depuis = new Date(Date.now() - heures * 3_600_000).toISOString();
+  const recents = new Set<string>();
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_jalons").select("contrat_id").in("contrat_id", contrats.slice(i, i + 200))
+      .gte("lu_at", depuis).is("erreur", null);
+    for (const x of data ?? []) recents.add(String(x.contrat_id));
+  }
+  return recents;
+}
+
+/** 10/11 : les cibles d'un type (« offre », « reponses »…) lues il y a moins de `heures` heures (table upwork_lectures). */
+async function lecturesRecentes(supabase: Supabase, type: string, heures: number): Promise<Set<string>> {
+  const depuis = new Date(Date.now() - heures * 3_600_000).toISOString();
+  const { data } = await supabase.from("upwork_lectures").select("cle").like("cle", `${type}:%`).gte("lu_at", depuis).limit(5000);
+  return new Set((data ?? []).map((x) => String(x.cle).slice(type.length + 1)));
+}
+
+/** 10/11 : note qu'une cible vient d'être lue chez Upwork. */
+async function noterLecture(supabase: Supabase, type: string, cible: string, activite: string | null = null) {
+  await supabase.from("upwork_lectures").upsert({ cle: `${type}:${cible}`, lu_at: new Date().toISOString(), ...(activite ? { activite_at: activite } : {}) });
+}
+
+/** 10/11 : un réglage numérique (heures de cache…), borné. */
+async function reglageNombre(supabase: Supabase, cle: string, defaut: number, min: number, max: number): Promise<number> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", cle).maybeSingle();
+  const n = Number(data?.valeur);
+  return Number.isFinite(n) ? Math.max(min, Math.min(max, n)) : defaut;
 }
 
 /** 3/11 : les contrats des posteurs qui ont une carte ouverte sur la page Problèmes. */
@@ -1123,11 +1227,13 @@ async function chargerLignes(
   const posteurs = brutes.map((l) => l.poster_id);
   const [{ data: profils }, { data: paysComptes }] = posteurs.length
     ? await Promise.all([
-      supabase.from("profiles").select("id, upwork_contract_id").in("id", posteurs),
+      supabase.from("profiles").select("id, upwork_contract_id, canal_paie").in("id", posteurs),
       supabase.from("comptes").select("poster_id, pays").in("poster_id", posteurs),
     ])
     : [{ data: [] }, { data: [] }];
   const contratDe = new Map((profils ?? []).map((p) => [p.id as string, (p.upwork_contract_id as string | null) ?? null]));
+  // 0574 : les posteurs Ruul sont payés par le lot Ruul, jamais par l'API Upwork.
+  const ruul = new Set((profils ?? []).filter((p) => p.canal_paie === "ruul").map((p) => p.id as string));
   const paysDe = new Map<string, (string | null)[]>();
   for (const c of paysComptes ?? []) paysDe.set(String(c.poster_id), [...(paysDe.get(String(c.poster_id)) ?? []), (c.pays as string | null) ?? null]);
   const contrats = [...new Set([...contratDe.values()].filter(Boolean))] as string[];
@@ -1145,7 +1251,7 @@ async function chargerLignes(
     suivante_comptes: brute.suivante_comptes === null ? null : Number(brute.suivante_comptes),
     suivante_montant: brute.suivante_montant === null ? null : Number(brute.suivante_montant),
     contrat_id: contratDe.get(brute.poster_id) ?? null,
-    hors_upwork: estHorsUpwork(contratDe.get(brute.poster_id) ?? null, paysDe.get(brute.poster_id) ?? []),
+    hors_upwork: ruul.has(brute.poster_id) || estHorsUpwork(contratDe.get(brute.poster_id) ?? null, paysDe.get(brute.poster_id) ?? []),
     nb_comptes: Number(brute.nb_comptes ?? 1),
     // deno-lint-ignore no-explicit-any
     moins6: (Array.isArray(brute.detail_comptes) ? brute.detail_comptes : []).filter((d: any) => d?.moins6 === true).length,
@@ -1615,6 +1721,7 @@ interface PaiementApi {
   tentatives: number | null;
   reessai: boolean | null;
   prochain_essai: string | null;
+  type_erreur?: string | null;
   soumission_message_at: string | null;
   etapes: Record<string, unknown>[] | null;
   montant_approuve: number | null;
@@ -1681,7 +1788,7 @@ async function relireAFinancer(supabase: Supabase, par: string | null) {
 }
 
 const COLONNES_PAIEMENT =
-  "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, soumission_message_at, etapes, montant_approuve, updated_at";
+  "id, paie_semaine_id, statut, plan, jalon_approuve, jalon_complement, jalon_finance, tentatives, reessai, prochain_essai, type_erreur, soumission_message_at, etapes, montant_approuve, updated_at";
 
 async function relireJalons(supabase: Supabase, par: string | null, contrat: string, tenant: string | null, action: string) {
   const lu = await lire(supabase, { par, action, query: REQUETE_JALONS, variables: { id: contrat }, tenant });
@@ -1789,11 +1896,12 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
   /** Un échec : réessai dans 1 h (problème technique, lundi et mardi) ou To do. */
   const echec = async (raison: string, brute: string | null, typeForce?: TypeErreur): Promise<Issue> => {
     const type = typeForce ?? classerErreur(brute ?? raison);
-    const reessai = aReessayer(type) && !reessaisFinis(new Date(), semaine);
+    // 9/11 : un plafond n'est jamais abandonné (lendemain 0 h 05) ; le reste : 1 h, jusqu'au mardi 20 h.
+    const reessai = reessaiPossible(type, new Date(), semaine);
     tentatives++;
     await maj({
       statut: "a_verifier", erreur: raison, type_erreur: type, reessai, tentatives,
-      prochain_essai: reessai ? new Date(Date.now() + 3_600_000).toISOString() : null,
+      prochain_essai: reessai ? prochainEssai(type) : null,
       jalon_approuve: jalonApprouve, jalon_complement: jalonComplement, jalon_finance: jalonFinance,
     });
     const nom = ligne.poster_nom ?? ligne.poster_id;
@@ -1846,7 +1954,8 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
           const texte = remplirTexte(texteReglage(v.paie_soumettre_texte, SOUMETTRE_DEFAUT), {
             prenom: await prenomPosteur(supabase, ligne.poster_id), NN: numeroSemaine(semaine),
           });
-          const m = await envoyerMessage(supabase, par, contrat, texte);
+          // 0684 : la paie de sa dernière semaine passe malgré un STOP.
+          const m = await envoyerMessage(supabase, par, contrat, texte, { malgreStop: "paie" });
           etapes.push({ etape: "message_soumettre", ok: m.ok, erreur: m.ok ? null : m.error ?? null });
           if (m.ok) await maj({ soumission_message_at: new Date().toISOString() });
         }
@@ -2004,7 +2113,16 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     const v = await reglagesValeurs(supabase, ["paie_auto_heure"]);
     const heure = Number.isFinite(Number(v.paie_auto_heure)) ? Number(v.paie_auto_heure) : 9;
     const quand = peutPayer(new Date(), heure, etat.lance_at);
-    if (!quand.ok) return { ok: true, ignore: quand.raison };
+    // 9/11 : hors lundi et mardi, seuls les paiements bloqués par le plafond du jour sont repris.
+    let plafondSeul = false;
+    if (!quand.ok) {
+      if (jourDePaie()) return { ok: true, ignore: quand.raison };
+      const { count } = await supabase.from("paie_paiements_api").select("id", { count: "exact", head: true })
+        .eq("semaine", semaine).eq("statut", "a_verifier").eq("type_erreur", "plafond").eq("reessai", true)
+        .lte("prochain_essai", new Date().toISOString());
+      if (!count) return { ok: true, ignore: quand.raison };
+      plafondSeul = true;
+    }
     if (etat.statut === "arrete") return { ok: true, ignore: `arrêtée après le canari : ${etat.arret_raison ?? "voir Payroll"}` };
     const { lignes, tenantDe } = await chargerLignes(supabase, semaine);
     const tenant = (l: LigneAuto) => (l.contrat_id ? (tenantDe.get(l.contrat_id) ?? null) : null);
@@ -2016,7 +2134,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     const verrouDe = new Map(((verrous ?? []) as PaiementApi[]).map((x) => [x.paie_semaine_id, x]));
 
     // 1. Le canari (B4) : un seul contrat, relu en entier avant d'aller plus loin.
-    if (!etat.canari_ok) {
+    if (!etat.canari_ok && !plafondSeul) {
       const libres = lignes.filter((l) => !verrouDe.has(l.ids[0]) && !horsPaieAuto(l) && l.contrat_id);
       // Le canari : une ligne simple ; à défaut, la 1re ligne « Payer » d'un seul profil.
       const c = choisirCanari(libres) ?? libres.find((l) => l.action === "payer" && l.ids.length === 1) ?? null;
@@ -2060,9 +2178,10 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
       if (x) {
         const enCoursMort = x.statut === "en_cours" && Date.now() - new Date(x.updated_at).getTime() > 5 * 60_000;
         const reessaiDu = x.statut === "a_verifier" && x.reessai && (!x.prochain_essai || new Date(x.prochain_essai) <= maintenant);
-        if (enCoursMort || reessaiDu) reprises.push({ l, v: x });
+        if (plafondSeul ? reessaiDu && x.type_erreur === "plafond" : enCoursMort || reessaiDu) reprises.push({ l, v: x });
         continue;
       }
+      if (plafondSeul) continue;
       if ((l.action === "legacy" || l.action === "a_verifier") && l.ids[0] && !l.exclu && !l.paye_at) {
         // Prompt 21, S : hors paie automatique, visibles dans To do.
         await aFaire(supabase, {
@@ -2092,7 +2211,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     };
     for (const { l, v } of reprises) {
       if (Date.now() - debut > BUDGET_MS) { encore = true; break; }
-      if (finis && v.statut === "a_verifier") {
+      if (finis && v.statut === "a_verifier" && v.type_erreur !== "plafond") {
         // Mardi 20 h passé : plus de réessai, la ligne va dans To do.
         await supabase.from("paie_paiements_api").update({ reessai: false, prochain_essai: null, updated_at: new Date().toISOString() }).eq("id", v.id);
         await aFaire(supabase, { cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : à vérifier`, detail: "réessais finis (mardi 20 h)", poster_id: l.poster_id, contrat_id: l.contrat_id, semaine });
@@ -2137,10 +2256,10 @@ async function noterRefus(supabase: Supabase, par: string | null, semaine: strin
   });
   if (!id) return;
   const type = classerErreur(raison);
-  const reessai = aReessayer(type) && !reessaisFinis(new Date(), semaine);
+  const reessai = reessaiPossible(type, new Date(), semaine);
   await supabase.from("paie_paiements_api").update({
     statut: "a_verifier", erreur: raison ?? "refusée", type_erreur: type, reessai, lignes: l.ids,
-    prochain_essai: reessai ? new Date(Date.now() + 3_600_000).toISOString() : null, updated_at: new Date().toISOString(),
+    prochain_essai: reessai ? prochainEssai(type) : null, updated_at: new Date().toISOString(),
   }).eq("id", id);
   if (!reessai) {
     await aFaire(supabase, {
@@ -2528,9 +2647,9 @@ async function ecrire(
   let statut: number | null = null;
   // deno-lint-ignore no-explicit-any
   let valeur: any = null;
-  // Un 429 n'a rien fait chez Upwork : on attend ce qu'il demande (Retry-After,
-  // prompt 21 B11) et on renvoie une seule fois. Toute autre erreur : jamais.
-  for (let essai = 1; essai <= 2; essai++) {
+  // Un 429 n'a rien fait chez Upwork : 10/11 : 3 nouveaux essais, avec un délai qui
+  // augmente (5 s, 10 s, 20 s, ou Retry-After s'il est plus long). Toute autre erreur : jamais.
+  for (let essai = 1; essai <= ATTENTES_429_MS.length + 1; essai++) {
     let retryAfter: string | null = null;
     try {
       const reponse = await fetch(UPWORK_GRAPHQL, {
@@ -2550,8 +2669,8 @@ async function ecrire(
       valeur = { errors: [{ message: messageErreur(e) }] };
     }
     if (statut === 429) await noter429(supabase, null);
-    if (statut !== 429 || essai === 2) break;
-    await new Promise((r) => setTimeout(r, attenteRetryAfter(retryAfter) ?? 5_000));
+    if (statut !== 429 || essai > ATTENTES_429_MS.length) break;
+    await new Promise((r) => setTimeout(r, attente429(essai - 1, retryAfter)));
   }
   const erreur = statut !== null && statut >= 400
     ? `HTTP ${statut}${erreurGraphql(valeur) ? ` : ${erreurGraphql(valeur)}` : ""}`
@@ -2585,7 +2704,8 @@ async function bonusParrainagePayer(supabase: Supabase, par: string | null) {
   const { data: tests } = await supabase.from("upwork_bonus_tests").select("id").eq("statut", "envoye").not("valide_at", "is", null).limit(1);
   if (!tests?.length) return { ok: true, payes: 0, raison: "test du bonus pas encore validé par Max : rien ne part" };
   const { data: lignes } = await supabase.from("bonus").select("id, poster_id, recrue_id, referral_id, montant, detail")
-    .eq("type", "parrainage").eq("statut", "a_payer").is("envoi_at", null).gt("montant", 0).limit(30);
+    // 0585 : un bonus « à payer via Ruul » ne part jamais sur Upwork.
+    .eq("type", "parrainage").eq("statut", "a_payer").eq("canal_paie", "upwork").is("envoi_at", null).gt("montant", 0).limit(30);
   const resultats: Record<string, unknown>[] = [];
   for (const b of lignes ?? []) {
     const montant = Number(b.montant);
@@ -2642,7 +2762,8 @@ async function bonusEnvoyer(supabase: Supabase, par: string, lundi: string) {
   if (expediteur) return { ok: false, error: expediteur };
   const { data: lignes, error } = await supabase.from("bonus")
     .select("id, poster_id, recrue_id, type, montant, quantite, periode_fin, raison")
-    .eq("lundi_bonus", lundi).eq("statut", "a_valider").is("envoi_at", null).gt("montant", 0).limit(60);
+    // 0585 : les lignes « à payer via Ruul » restent pour le paiement Ruul de Max.
+    .eq("lundi_bonus", lundi).eq("statut", "a_valider").eq("canal_paie", "upwork").is("envoi_at", null).gt("montant", 0).limit(60);
   if (error) return { ok: false, error: error.message };
   const resultats: Record<string, unknown>[] = [];
   for (const b of lignes ?? []) {
@@ -2730,7 +2851,10 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
   const { data: p } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   const contrat = p?.upwork_contract_id as string | undefined;
   if (!contrat) return { ok: false, error: "contrat Upwork non relié à ce posteur" };
-  const envoi = await envoyerMessage(supabase, par, contrat, texte.trim());
+  // 0684 : confirmation d'arrêt, paie ou message tapé à la main : permis malgré un STOP ; le reste non.
+  const manuel = !!par && par !== "cron";
+  const envoi = await envoyerMessage(supabase, par, contrat, texte.trim(),
+    typeUpworkPermisMalgreStop(type, manuel) ? { malgreStop: String(type ?? "").includes("stop") ? "confirmation_arret" : type === "paie" ? "paie" : "manuel" } : {});
   if (!envoi.ok) return envoi;
   await supabase.from("nudges").insert({
     poster_id: posterId,
@@ -2750,7 +2874,7 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
  * s'arrêtent `upwork_reserve_prioritaire` (5) avant, pour la bienvenue, le Kill
  * et l'arrêt. Écrire à une conversation déjà écrite aujourd'hui ne compte pas.
  * Après l'erreur de limite d'Upwork : plus rien sur ce compte jusqu'au
- * lendemain. 1 message par seconde au plus.
+ * lendemain. 10/11 : un message toutes les 2 secondes au plus.
  * 3/11 : le compte de Max seulement (_shared/upwork_comptes.ts ; Adrien ne sert
  * plus qu'à « Run now » sur un contrat de test). Rend le compte, ou l'erreur si
  * rien ne peut partir aujourd'hui.
@@ -2766,7 +2890,8 @@ async function compteDuMessage(
   const b = data as { max: number; reserve: number; dernier_ms: number | null; comptes?: CompteDuJour[] };
   const choix = choisirCompte(b.comptes ?? [], { max: b.max, reserve: b.reserve, prioritaire, exclure });
   if (choix.compte === null) return { compte: null, erreur: choix.raison };
-  if (b.dernier_ms !== null && b.dernier_ms < 1_000) await new Promise((r) => setTimeout(r, 1_000 - b.dernier_ms!));
+  // 10/11 : au moins 2 secondes entre deux messages Upwork (les 429 du 10/11).
+  if (b.dernier_ms !== null && b.dernier_ms < ESPACEMENT_MESSAGES_MS) await new Promise((r) => setTimeout(r, ESPACEMENT_MESSAGES_MS - b.dernier_ms!));
   return { compte: choix.compte, erreur: null };
 }
 
@@ -2775,9 +2900,11 @@ async function envoyerMessage(
   par: string | null,
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean; exclure?: string[]; forcer?: string } = {},
-): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
+  o: { prioritaire?: boolean; exclure?: string[]; forcer?: string; malgreStop?: MalgreStop } = {},
+): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string; stop?: boolean }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
+  // 0684 : un posteur qui a dit STOP ne reçoit plus rien sur Upwork, sauf les exceptions nommées.
+  if (!o.malgreStop && await stopDuContrat(supabase, contratId)) return { ok: false, error: STOP_POSTEUR, stop: true };
   // 1/11 : jamais de mot de passe sur Upwork, quel que soit le message.
   const refus = refusMotDePasseUpwork(texte);
   if (refus) return { ok: false, error: refus };
@@ -2918,6 +3045,42 @@ async function hmsDeLOs(supabase: Supabase): Promise<{ id: string; prenom: strin
   return (data ?? []).filter((p) => normaliserNom(p.prenom) !== "ruul").map((p) => ({ id: String(p.id), prenom: p.prenom, nom: p.nom }));
 }
 
+/**
+ * 12/11 (Max) : ce qu'il faut à la règle « HM inconnue » : les HM (rôle hiring_manager,
+ * actives, hors RUUL) avec leurs pays (hm_pays), leurs langues et leurs posteurs actifs ;
+ * les pays fermés au recrutement (parrainage_pays) ; la langue d'un pays.
+ */
+async function contexteRegle(
+  supabase: Supabase,
+  languesPays: { pays: string | null; langue: string | null }[],
+): Promise<Pick<InfosApi, "hms_regle" | "pays_fermes" | "langue_de">> {
+  const [{ data: roles }, { data: zones }, { data: fermes }, { data: actifs }] = await Promise.all([
+    supabase.from("user_roles").select("user_id").eq("role", "hiring_manager"),
+    supabase.from("hm_pays").select("pays, hm_id").not("hm_id", "is", null),
+    supabase.from("parrainage_pays").select("pays").eq("recrutement_ouvert", false),
+    supabase.from("profiles").select("manager_id").eq("is_active", true).not("manager_id", "is", null),
+  ]);
+  const ids = (roles ?? []).map((r) => String(r.user_id));
+  const { data: profils } = ids.length
+    ? await supabase.from("profiles").select("id, prenom, langues").in("id", ids).eq("is_active", true)
+    : { data: [] };
+  const charge = new Map<string, number>();
+  for (const a of actifs ?? []) charge.set(String(a.manager_id), (charge.get(String(a.manager_id)) ?? 0) + 1);
+  const hms_regle: HmRegle[] = (profils ?? [])
+    .filter((p) => normaliserNom(p.prenom) !== "ruul")
+    .map((p) => ({
+      id: String(p.id),
+      langues: ((p.langues ?? []) as string[]).map(String),
+      pays: (zones ?? []).filter((z) => String(z.hm_id) === String(p.id)).map((z) => String(z.pays)),
+      actifs: charge.get(String(p.id)) ?? 0,
+    }));
+  return {
+    hms_regle,
+    pays_fermes: (fermes ?? []).map((f) => String(f.pays)),
+    langue_de: (pays: string) => langueDePays(pays, languesPays) ?? LANGUE_DU_PAYS[pays] ?? null,
+  };
+}
+
 /** 0470 : la HM de l'OS du contrat : hiringManager, sinon supervisor ; une correspondance notée à la main (hm_upwork) d'abord. */
 function hmDuContrat(
   d: { hm_upwork_id: string | null; hm_upwork_nom?: string | null; superviseur_upwork_id?: string | null; superviseur_upwork_nom?: string | null },
@@ -3021,7 +3184,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
     : { data: [] };
   const connuDe = new Map((connus ?? []).map((a) => [String(a.contrat_id), a]));
   const [{ data: profils }, { data: comptesPays }, hms, { data: hmNotees }] = await Promise.all([
-    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie"),
     supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
     hmsDeLOs(supabase),
     supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
@@ -3033,8 +3196,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const paysDe = new Map((comptesPays ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id,
-    pays: paysDe.get(p.id) ?? null,
+    pays: paysDe.get(p.id) ?? null, canal_paie: p.canal_paie ?? null,
   }));
+  // 12/11 (Max) : plus rien à relier à la main quand la HM du contrat n'est pas une HM de l'OS.
+  const regle = await contexteRegle(supabase, languesPays);
 
   // Prompt 25 v4 (0440) : sur un contrat de test, la bienvenue part pour de vrai même sur Test ou Approve.
   const { data: tests } = await supabase.from("contrats_test").select("contrat_id, poster_id").is("retire_at", null);
@@ -3077,9 +3242,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
     const hmContrat = hmDuContrat(details, hms, notees);
     const api: InfosApi = {
       freelance_pays: freelancePays,
-      freelance_langue: langueDePays(freelancePays, languesPays),
+      freelance_langue: langueDePays(freelancePays, languesPays) ?? (freelancePays ? LANGUE_DU_PAYS[freelancePays] ?? null : null),
       hm_id: hmContrat.hm_id,
       hm_nom: hmContrat.hm_nom,
+      ...regle,
     };
     // L'annonce : vue pour la 1re fois → notée, pays à dire.
     let annonce: Annonce | null = null;
@@ -3104,6 +3270,11 @@ async function accueillir(supabase: Supabase, par: string | null) {
       api,
     );
     if (errAnnonce && plan.raison) plan.raison = `${plan.raison} (annonce non notée : ${errAnnonce})`;
+    // La HM choisie par la règle a une recrue de plus pour le contrat suivant de ce passage.
+    if (plan.statut === "a_creer" && plan.hm_id && !hmContrat.hm_id) {
+      const h = regle.hms_regle?.find((x) => x.id === plan.hm_id);
+      if (h) h.actifs++;
+    }
     const base = {
       contrat_id: contratId, organisation_id: c.organisation_id, offre_id: details.offre_id ?? c.offre_id, job_id: details.job_id,
       job_titre: details.job_titre, prenom: details.prenom, nom: details.nom, debut_at: details.debut_at ?? c.debut_at,
@@ -3224,7 +3395,7 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
     hmsDeLOs(supabase),
     supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
     supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
-    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie"),
     supabase.from("upwork_contrats").select("contrat_id, organisation_id, organisation_nom").in("contrat_id", (lignes ?? []).map((l) => l.contrat_id)),
   ]);
   const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
@@ -3232,7 +3403,9 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
   const paysDe = new Map((comptes ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id, pays: paysDe.get(p.id) ?? null,
+    canal_paie: p.canal_paie ?? null,
   }));
+  const regle = await contexteRegle(supabase, languesPays);
   const orgDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), o]));
   const nomHm = new Map(hms.map((h) => [h.id, [h.prenom, h.nom].filter(Boolean).join(" ")]));
   await jetonValide(supabase, par);
@@ -3257,7 +3430,7 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
       annonce,
       { statut: a.statut, pays: a.pays, langue: a.langue, hm_id: a.hm_id, relie_at: a.relie_at },
       posteurs,
-      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom },
+      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom, ...regle },
     );
     await supabase.from("accueils").update({
       ...champs, pays_source: plan.source ?? null, ecart_pays: ecartPays(plan.ecart), updated_at: new Date().toISOString(),
@@ -3574,14 +3747,8 @@ async function creerEtAccueillir(
   const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, a.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
-    // Prompt 25 v4 (0442) : Upwork plein (Max et Adrien) : la HM envoie la bienvenue à la main aujourd'hui.
-    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
-    await supabase.from("relances_prevues").upsert({
-      poster_id: cree.userId, type: "accueil", periode: jour, statut: "main", canal: "upwork", texte, raison: "upwork_plein",
-      main_at: new Date().toISOString(), main_hm_id: a.hm_id, main_slack_at: null, maj_at: new Date().toISOString(),
-      donnees: { contrat: a.contrat_id, cohorte: a.cohorte_lundi || null, email: cree.email ?? null },
-    });
-    await fin({ statut: "cree", raison: "Upwork plein : bienvenue à envoyer à la main par la HM (To send by hand)", message_texte: texte });
+    // 10/11 : Upwork plein : la bienvenue part en premier demain à 8 h (Paris) ; la HM est prévenue sur Slack.
+    await fin({ statut: "cree", ...(await bienvenueDemain(supabase, a.hm_id, a.prenom, a.contrat_id)), message_texte: texte });
     return { erreur: null };
   }
   if (!envoi.ok) {
@@ -3776,8 +3943,11 @@ async function apercuBienvenues(supabase: Supabase, par: string | null) {
 
 /** 1/11 : sur On, le welcome des recrues créées sans welcome (au plus 20 par passage). */
 async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null, modele: string, slack: string) {
+  // 10/11 : une bienvenue repoussée (Upwork plein) attend son heure (le lendemain 8 h Paris) ; les plus anciennes d'abord.
   const { data } = await supabase.from("accueils").select("contrat_id, organisation_id, prenom, nom, hm_id, poster_id")
-    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null).limit(20);
+    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null)
+    .or(`bienvenue_apres.is.null,bienvenue_apres.lte.${new Date().toISOString()}`)
+    .order("updated_at").limit(20);
   const bilan = { envoyes: 0, erreurs: [] as string[] };
   for (const a of data ?? []) {
     const r = await accueillirExistant(
@@ -3794,6 +3964,33 @@ async function envoyerBienvenuesEnAttente(supabase: Supabase, par: string | null
   }
   return bilan;
 }
+
+/** 10/11 : demain 8 h à Paris (l'heure où partent les bienvenues repoussées). */
+export function demainHuitHeuresParis(maintenant = new Date()): string {
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date(maintenant.getTime() + 86_400_000));
+  // 8 h Paris = 7 h UTC en hiver, 6 h UTC en été : l'heure exacte vient du décalage de Paris ce jour-là.
+  const midi = new Date(`${jour}T12:00:00Z`);
+  const heureParis = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(midi));
+  return new Date(Date.UTC(midi.getUTCFullYear(), midi.getUTCMonth(), midi.getUTCDate(), 8 - (heureParis - 12))).toISOString();
+}
+
+/**
+ * 10/11 : Upwork plein (réserve des 15 bienvenues comprise) : la bienvenue passe
+ * en file d'attente et part en premier le lendemain à 8 h (Paris). La HM du
+ * contrat est prévenue sur Slack (rien à faire de sa part).
+ */
+async function bienvenueDemain(supabase: Supabase, hmId: string | null, prenom: string | null, contrat: string) {
+  const apres = demainHuitHeuresParis();
+  if (hmId) {
+    const nom = (prenom ?? "").trim() || "the new recruit";
+    await ecrireAuPosteur(supabase, hmId,
+      `Upwork daily limit reached: the welcome message for ${nom} (contract ${contrat}) will be sent automatically tomorrow at 8:00 (Paris time). Nothing to do.`)
+      .catch((e) => console.error("[upwork] alerte HM bienvenue", messageErreur(e)));
+  }
+  return { raison: RAISON_BIENVENUE_DEMAIN, bienvenue_attente: true, bienvenue_apres: apres };
+}
+
+const RAISON_BIENVENUE_DEMAIN = "Upwork plein : la bienvenue part demain à 8 h (Paris)";
 
 /** Le posteur s'est-il déjà connecté à l'OS (auth.users.last_sign_in_at, ou une connexion notée) ? */
 async function dejaConnecte(supabase: Supabase, posterId: string): Promise<boolean> {
@@ -3882,13 +4079,8 @@ async function accueillirExistant(
   const texte = pret.texte;
   const envoi = await envoyerMessage(supabase, par, base.contrat_id, texte);
   if (!envoi.ok && envoi.budget) {
-    const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date());
-    await supabase.from("relances_prevues").upsert({
-      poster_id: posterId, type: "accueil", periode: jour, statut: "main", canal: "upwork", texte, raison: "upwork_plein",
-      main_at: new Date().toISOString(), main_hm_id: base.hm_id, main_slack_at: null, maj_at: new Date().toISOString(),
-      donnees: { contrat: base.contrat_id, cohorte: cohorte || null, email: p.email ?? null, existant: true },
-    });
-    await fin({ statut: "cree", raison: "Upwork plein : bienvenue à envoyer à la main par la HM", message_texte: texte });
+    // 10/11 : Upwork plein : la bienvenue part en premier demain à 8 h (Paris) ; la HM est prévenue sur Slack.
+    await fin({ statut: "cree", ...(await bienvenueDemain(supabase, base.hm_id, (p?.prenom as string | null) ?? (base.prenom as string | null) ?? null, base.contrat_id)), message_texte: texte });
     return { erreur: null };
   }
   if (!envoi.ok) {
@@ -4068,6 +4260,85 @@ async function repriseConversations(supabase: Supabase, par: string | null) {
   return { ok: bilan.erreurs.length === 0, ...bilan, erreurs: bilan.erreurs.slice(0, 20) };
 }
 
+/** 10/11 : la liste des salons du compte (le plus récent d'abord) et la date de leur dernier message. */
+const REQUETE_LISTE_SALONS = `query ListeSalons($after: String) {
+  roomList(pagination: { first: 100, after: $after }, sortOrder: DESC) {
+    edges { node { id contractId latestStory { createdDateTime } } }
+    pageInfo { endCursor hasNextPage }
+  }
+}`;
+
+/** 10/11 : au plus 10 pages (1 000 salons) par passage. */
+const LISTE_SALONS_PAGES_MAX = 10;
+
+/**
+ * 10/11 (Upwork saturé) : quels contrats relire. Un appel par page de la liste
+ * des salons : un contrat est relu si son salon a un message plus récent que
+ * notre dernière lecture (upwork_lectures), ou s'il n'est pas dans la liste et
+ * n'a pas été lu depuis 6 h. Liste illisible : null (on relit tout, comme avant).
+ */
+async function triParActivite(supabase: Supabase, par: string | null, type: string, contrats: string[]) {
+  if (contrats.length === 0) return { aLire: new Set<string>(), salons: new Map<string, string>(), activites: new Map<string, string>(), source: "vide" };
+  const voulus = new Set(contrats);
+  const salons = new Map<string, string>();
+  const activites = new Map<string, string>();
+  // 11/11 : la liste des salons est lue dans l'organisation de chaque contrat (en-tête tenant) ;
+  // sans elle, Upwork renvoie les salons de l'organisation par défaut (aucun contrat actuel).
+  const orgs = new Map<string, number>();
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", contrats.slice(i, i + 200));
+    for (const x of data ?? []) if (x.organisation_id) orgs.set(String(x.organisation_id), (orgs.get(String(x.organisation_id)) ?? 0) + 1);
+  }
+  let lue = false;
+  for (const tenant of [...orgs.entries()].sort((a, b) => b[1] - a[1]).map(([o]) => o)) {
+    let apres: string | null = null;
+    for (let page = 0; page < LISTE_SALONS_PAGES_MAX; page++) {
+      const r = await lire(supabase, { par, action: `${type}_liste_salons`, query: REQUETE_LISTE_SALONS, variables: { after: apres }, tenant });
+      const liste = r.data?.roomList;
+      if (!liste) break;
+      lue = true;
+      // deno-lint-ignore no-explicit-any
+      for (const e of (liste.edges ?? []) as any[]) {
+        const id = e?.node?.contractId ? String(e.node.contractId) : null;
+        if (!id || !voulus.has(id)) continue;
+        salons.set(id, String(e.node.id));
+        if (e.node.latestStory?.createdDateTime) activites.set(id, new Date(e.node.latestStory.createdDateTime).toISOString());
+      }
+      if (salons.size >= voulus.size || !liste.pageInfo?.hasNextPage) break;
+      apres = liste.pageInfo.endCursor ?? null;
+    }
+    if (salons.size >= voulus.size) break;
+  }
+  if (!lue) return null;
+  return await finTri();
+
+  async function finTri() {
+    const { data: lus } = await supabase.from("upwork_lectures").select("cle, lu_at, activite_at")
+      .in("cle", contrats.map((c) => `${type}:${c}`));
+    const dernier = new Map((lus ?? []).map((x) => [String(x.cle).slice(type.length + 1), x as { lu_at: string; activite_at: string | null }]));
+    const aLire = new Set<string>();
+    const sixHeures = Date.now() - 6 * 3_600_000;
+    for (const c of contrats) {
+      const act = activites.get(c);
+      const lu = dernier.get(c);
+      if (act) {
+        if (!lu?.activite_at || new Date(act).getTime() > new Date(lu.activite_at).getTime()) aLire.add(c);
+      } else if (!lu || new Date(lu.lu_at).getTime() < sixHeures) aLire.add(c);
+    }
+    return { aLire, salons, activites, source: "liste_salons" };
+  }
+}
+
+/** 10/11 : le salon et le freelance déjà connus de chaque contrat (upwork_salons). */
+async function salonsDeContrats(supabase: Supabase, contrats: string[]): Promise<Map<string, { room_id: string | null; freelance_id: string | null }>> {
+  const m = new Map<string, { room_id: string | null; freelance_id: string | null }>();
+  for (let i = 0; i < contrats.length; i += 200) {
+    const { data } = await supabase.from("upwork_salons").select("contrat_id, room_id, freelance_id").in("contrat_id", contrats.slice(i, i + 200));
+    for (const x of data ?? []) m.set(String(x.contrat_id), { room_id: x.room_id ?? null, freelance_id: x.freelance_id ?? null });
+  }
+  return m;
+}
+
 /** Prompt 21, A2 : 5 conversations à la fois au plus (Upwork : 10 requêtes par seconde). */
 const REPONSES_EN_PARALLELE = 5;
 
@@ -4075,16 +4346,27 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
   // Toutes les conversations où l'OS a écrit depuis 14 jours (0413) ; `posteurs` : juste avant un Kill.
   const { data: cibles, error } = await supabase.rpc("reponses_cibles_upwork_v2", { p_posteurs: posteurs });
   if (error) throw error;
-  const liste = (cibles ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; depuis: string }[];
-  const bilan = { cibles: liste.length, nouveaux: 0, erreurs: [] as string[], posteurs_nouveaux: [] as string[] };
+  const toutes = (cibles ?? []) as { poster_id: string; contrat_id: string; organisation_id: string | null; depuis: string }[];
+  // 10/11 (Upwork saturé) : un seul appel (la liste des salons et leur dernier message), puis seulement
+  // les salons qui ont un message plus récent que notre dernière lecture. `posteurs` (avant un Kill) : tout.
+  const tri = posteurs ? null : await triParActivite(supabase, par, "reponses", toutes.map((c) => c.contrat_id));
+  const liste = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)) : toutes;
+  const bilan = { cibles: toutes.length, a_lire: liste.length, sans_nouveau: toutes.length - liste.length, liste_salons: tri?.source ?? "toutes", nouveaux: 0, erreurs: [] as string[], posteurs_nouveaux: [] as string[] };
+  const salonsConnus = await salonsDeContrats(supabase, liste.map((c) => c.contrat_id));
   const lireUne = async (c: (typeof liste)[number]) => {
     try {
-      const salon = await lire(supabase, { par, action: "reponses_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
-      const roomId = salon.data?.contractRoom?.id as string | undefined;
-      const freelancer = salon.data?.contractDetails?.freelancer?.id as string | undefined;
+      // 10/11 : le salon et le freelance déjà connus (upwork_salons, liste des salons) : pas d'appel « salon ».
+      const connu = salonsConnus.get(c.contrat_id);
+      let roomId = tri?.salons.get(c.contrat_id) ?? connu?.room_id ?? undefined;
+      let freelancer = connu?.freelance_id ?? undefined;
       if (!roomId || !freelancer) {
-        bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
-        return;
+        const salon = await lire(supabase, { par, action: "reponses_salon", query: REQUETE_SALON_POSTEUR, variables: { id: c.contrat_id }, tenant: c.organisation_id });
+        roomId = salon.data?.contractRoom?.id as string | undefined;
+        freelancer = salon.data?.contractDetails?.freelancer?.id as string | undefined;
+        if (!roomId || !freelancer) {
+          bilan.erreurs.push(`${c.contrat_id} : ${salon.erreur ?? "conversation introuvable"}`);
+          return;
+        }
       }
       const msgs = await lire(supabase, { par, action: "reponses_messages", query: REQUETE_MESSAGES_SALON, variables: { r: roomId }, tenant: c.organisation_id });
       if (msgs.erreur) {
@@ -4092,6 +4374,7 @@ async function lireReponsesUpwork(supabase: Supabase, par: string | null, posteu
         return;
       }
       const depuis = new Date(c.depuis).getTime();
+      await noterLecture(supabase, "reponses", c.contrat_id, tri?.activites.get(c.contrat_id) ?? null);
       // deno-lint-ignore no-explicit-any
       await garderConversation(supabase, c, roomId, freelancer, ((msgs.data?.roomStories?.edges ?? []) as any[]).map((e) => e?.node), "reponses");
       // deno-lint-ignore no-explicit-any
@@ -4230,15 +4513,24 @@ async function fermerContratSansPosteur(supabase: Supabase, par: string | null, 
 }
 
 async function lireContexteUpwork(supabase: Supabase, par: string | null, posteurs: string[] | null, max: number) {
-  const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: max });
+  // 11/11 : le passage du cron prend tous les contrats (400 au plus), trie par activité, puis lit `max` au plus ;
+  // sinon les contrats sautés (sans nouveau message) gardent leur vieille date et reprennent les 120 places.
+  const { data, error } = await supabase.rpc("contexte_cibles_upwork", { p_posteurs: posteurs, p_max: posteurs ? max : 400 });
   if (error) throw error;
   // 0469 : une room demandée par une page peut venir d'un contrat sans posteur (poster_id null).
-  const liste = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
-  const bilan = { cibles: liste.length, lus: 0, erreurs: [] as string[] };
+  const toutes = (data ?? []) as { poster_id: string | null; contrat_id: string; organisation_id: string | null; room_id: string | null; freelance_id: string | null }[];
+  // 10/11 (Upwork saturé) : le passage du cron relit seulement les salons qui ont un nouveau message.
+  const tri = posteurs ? null : await triParActivite(supabase, par, "contexte", toutes.map((c) => c.contrat_id));
+  const aLire = tri ? toutes.filter((c) => tri.aLire.has(c.contrat_id)).map((c) => ({ ...c, room_id: c.room_id ?? tri.salons.get(c.contrat_id) ?? null })) : toutes;
+  const liste = aLire.slice(0, max);
+  const bilan = { cibles: toutes.length, a_lire: aLire.length, sans_nouveau: toutes.length - aLire.length, lus: 0, erreurs: [] as string[] };
   const lireUn = async (c: (typeof liste)[number]) => {
     const erreur = await lireSalon(supabase, par, c);
     if (erreur) bilan.erreurs.push(`${c.contrat_id} : ${erreur}`);
-    else bilan.lus++;
+    else {
+      bilan.lus++;
+      await noterLecture(supabase, "contexte", c.contrat_id, tri?.activites.get(c.contrat_id) ?? null);
+    }
   };
   for (let i = 0; i < liste.length; i += REPONSES_EN_PARALLELE) {
     await Promise.all(liste.slice(i, i + REPONSES_EN_PARALLELE).map(lireUn));
@@ -4462,7 +4754,12 @@ async function finsDeContrat(supabase: Supabase, par: string | null, reel: boole
     }
     const nouvelles: EtapeArret[] = [];
     let termine = false;
-    if (!f.contrat_id) {
+    // 0574 : un posteur payé par Ruul n'a pas de contrat Upwork à fermer.
+    const { data: canal } = f.contrat_id ? { data: null } : await supabase.from("profiles").select("canal_paie").eq("id", f.poster_id).maybeSingle();
+    if (!f.contrat_id && canal?.canal_paie === "ruul") {
+      nouvelles.push(etape("fermeture", "sans_objet", "posteur Ruul : pas de contrat Upwork (retiré de Ruul à la main si besoin)"));
+      termine = true;
+    } else if (!f.contrat_id) {
       nouvelles.push(etape("fermeture", "erreur", "contrat Upwork non relié"));
     } else if (await contratPartage(supabase, f.contrat_id, f.poster_id)) {
       nouvelles.push(etape("fermeture", "sans_objet", "contrat partagé avec un autre compte actif du posteur"));
@@ -4798,15 +5095,19 @@ async function offresCompleter(supabase: Supabase, par: string | null, contrats:
   if (error) return { ok: false, error: error.message };
   const { data: deja } = await supabase.from("offres_completions").select("contrat_id");
   const faits = new Set((deja ?? []).map((x) => String(x.contrat_id)));
+  // 10/11 (Upwork saturé) : un contrat déjà vérifié depuis moins de 6 h (rien à faire) n'est pas relu à chaque passage.
+  const cacheH = await reglageNombre(supabase, "upwork_jalons_cache_h", 6, 1, 48);
+  const recents = contrats?.length ? new Set<string>() : await lecturesRecentes(supabase, "offre", cacheH);
   const bilan: Record<string, unknown>[] = [];
   for (const a of accueils ?? []) {
     const contrat = String(a.contrat_id ?? "");
     if (!contrat || ["autre_activite", "hm"].includes(String(a.classement ?? "")) || a.statut === "doublon") continue;
-    if (!contrats?.length && faits.has(contrat)) continue;
+    if (!contrats?.length && (faits.has(contrat) || recents.has(contrat))) continue;
     const { data: zp } = await supabase.from("zones_paie_pays").select("zone").eq("pays", String(a.pays ?? "").toUpperCase()).is("retire_at", null).maybeSingle();
     const { data: z } = zp ? await supabase.from("zones_paie").select("tarif").eq("zone", zp.zone).maybeSingle() : { data: null };
     const tarif = z?.tarif !== undefined && z?.tarif !== null ? Number(z.tarif) : null;
     const relu = await relireJalons(supabase, par, contrat, ORG_VIK_OFFRES, "offre_completer_lecture");
+    await noterLecture(supabase, "offre", contrat);
     if (!relu.jalons) {
       bilan.push({ contrat, erreur: `milestones illisibles : ${relu.erreur}` });
       continue;
@@ -4936,3 +5237,93 @@ async function doublesMessages(supabase: Supabase, par: string | null) {
   return { ok: true, messages: bilan };
 }
 
+
+// ---------------------------------------------------------------------------
+// 10/11 (Upwork saturé) : le bilan du soir à Max sur Slack
+// ---------------------------------------------------------------------------
+
+const MAX_PROFIL = "dde5916a-89b8-4fc3-897b-dc7f0d88e20e";
+
+/**
+ * Chaque soir à 21 h (Paris), une fois : les appels Upwork du jour par compte,
+ * les 429 et les bienvenues en attente, en message privé Slack à Max (réglages
+ * upwork_rapport_soir « on » / « off », upwork_rapport_destinataire : un profil).
+ */
+/** 0675 : les cartes que l'OS ferme dès leur création (un compteur par type dans le point du soir). */
+const LIBELLES_RETIREES: Record<string, string> = {
+  autre: "autre",
+  pas_poste_aujourdhui: "pas posté aujourd'hui",
+  login_sans_contrat: "login sans contrat ni Slack",
+  payroll_api: "Payroll API à vérifier",
+  slack_non_relie: "Slack non relié",
+};
+
+/** Point 12 (parcours Ruul) : prêts / pas prêts, emails par type, désactivés, erreurs, à faire. */
+async function lignesRuulDuSoir(supabase: Supabase, depuis: string): Promise<string[]> {
+  const [{ data: etats, error: e1 }, { data: envois, error: e2 }, { data: arrets, error: e3 }] = await Promise.all([
+    supabase.rpc("ruul_parcours_etat"),
+    supabase.from("ruul_parcours_envois").select("type, ok").gte("envoye_at", depuis),
+    supabase.from("arrets").select("source, profiles!inner(canal_paie)").gte("created_at", depuis).eq("profiles.canal_paie", "ruul"),
+  ]);
+  const err = e1 ?? e2 ?? e3;
+  if (err) throw new Error(err.message);
+  return lignesPointSoirRuul({
+    etats: (etats ?? []) as EtatParcours[],
+    envois: (envois ?? []) as { type: string; ok: boolean }[],
+    arrets: (arrets ?? []) as { source: string }[],
+  });
+}
+
+async function rapportSoir(supabase: Supabase, forcer: boolean) {
+  const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["upwork_rapport_soir", "upwork_rapport_destinataire"]);
+  const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
+  const paris = maintenantParis();
+  const heure = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(new Date()));
+  if (!forcer) {
+    if (v.upwork_rapport_soir !== "on") return { ok: true, ignore: "upwork_rapport_soir n'est pas sur on" };
+    if (heure !== 21) return { ok: true, ignore: "pas 21 h à Paris" };
+    const { data: deja } = await supabase.from("upwork_lectures").select("cle").eq("cle", `rapport:${paris.jour}`).maybeSingle();
+    if (deja) return { ok: true, ignore: "déjà envoyé ce soir" };
+  }
+  // Le début de la journée à Paris (minuit), en UTC.
+  const debut = new Date(`${paris.jour}T00:00:00Z`);
+  const decalage = Number(new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", hour: "2-digit", hour12: false }).format(debut));
+  const depuis = new Date(debut.getTime() - decalage * 3_600_000).toISOString();
+  const compter = async (compte: string, seuls429: boolean) => {
+    let q = supabase.from("upwork_appels").select("id", { count: "exact", head: true }).gte("at", depuis).eq("compte", compte);
+    if (seuls429) q = q.eq("statut_http", 429);
+    const { count } = await q;
+    return count ?? 0;
+  };
+  const [p, p429, s, s429] = await Promise.all([compter(COMPTE, false), compter(COMPTE, true), compter(COMPTE_SECOURS, false), compter(COMPTE_SECOURS, true)]);
+  const { data: attente } = await supabase.from("accueils").select("prenom, nom, bienvenue_apres")
+    .eq("bienvenue_attente", true).is("message_at", null).not("poster_id", "is", null);
+  const noms = (attente ?? []).map((a) => [a.prenom, a.nom].filter(Boolean).join(" ").trim() || "?");
+  const jourCourt = paris.jour.split("-").reverse().slice(0, 2).join("/");
+  // 11/11 (0671) : le support dans le même point du soir (ouverts, en retard).
+  const [{ data: sup }, { data: jour }] = await Promise.all([supabase.rpc("support_compteurs"), supabase.rpc("support_compteurs_jour")]);
+  const c = (sup ?? {}) as { problemes?: number; questions?: number; en_retard?: number };
+  // 12/11 (Support propre, 0675) : les cartes que l'OS ne montre plus, comptées par type, et les 3 niveaux.
+  const j = (jour ?? {}) as { cartes_retirees?: Record<string, number>; regles_par_bot?: number; adrien_ouverts?: number; max_ouverts?: number };
+  const r = j.cartes_retirees ?? {};
+  const retirees = Object.entries(LIBELLES_RETIREES).map(([cle, lib]) => `${lib} ${r[cle] ?? 0}`).join(" · ");
+  // 12/11 (parcours Ruul, point 12) : le point du soir Ruul en 5 lignes.
+  const ruul = await lignesRuulDuSoir(supabase, depuis).catch((e) => [`Ruul : point du soir illisible (${e instanceof Error ? e.message : String(e)})`]);
+  const texte = [
+    `Upwork : bilan du ${jourCourt}`,
+    `• Compte principal : ${p} appels, dont ${p429} erreurs 429`,
+    `• Compte secours : ${s} appels, dont ${s429} erreurs 429`,
+    `• Bienvenues en attente : ${noms.length}${noms.length ? ` (${noms.join(", ")})` : ""}`,
+    `Support : ${c.problemes ?? 0} problèmes et ${c.questions ?? 0} questions ouverts, dont ${c.en_retard ?? 0} en retard`,
+    ...(jour ? [
+      `• Réglé par le bot aujourd'hui : ${j.regles_par_bot ?? 0} · ouverts pour Adrien : ${j.adrien_ouverts ?? 0} · pour Max : ${j.max_ouverts ?? 0}`,
+      `• Cartes retirées aujourd'hui : ${retirees}`,
+    ] : []),
+    ...ruul,
+  ].join("\n");
+  const destinataire = typeof v.upwork_rapport_destinataire === "string" && v.upwork_rapport_destinataire ? v.upwork_rapport_destinataire : MAX_PROFIL;
+  const issue = await ecrireAuPosteur(supabase, destinataire, texte);
+  const ok = issue.statut === "envoye";
+  if (ok && !forcer) await supabase.from("upwork_lectures").upsert({ cle: `rapport:${paris.jour}`, lu_at: new Date().toISOString() });
+  return { ok, texte, ...(ok ? {} : { erreur: "erreur" in issue ? issue.erreur : issue.statut }) };
+}

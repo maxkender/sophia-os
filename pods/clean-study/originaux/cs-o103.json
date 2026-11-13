@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o103",
+  "type_bleo": "full_test",
+  "titre": "how i stopped forgetting everything a week after the test #studytok #studytips #school #studymethod",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 13/11 : 1 full test sur 6). Accroche jamais faite chez nous (« a week after the test » absent du label). Accroches écrites : « how i stopped forgetting everything a week after the test » (retenue : une frustration très partagée), « why you forget what you studied » (écartée : explication sans promesse), « study once, remember forever » (écartée : promesse fausse). Gestes vrais (répétition espacée) : se retester 1 jour, 3 jours puis 1 semaine après, les cartes ratées qui reviennent plus tôt, relier au chapitre suivant, expliquer à quelqu'un, garder une page « à revoir » (place micabo, slide 4 : se tester), le test du mois. Depuis le 12/11 : images prises dans toute la banque (aucune livrée depuis 14 jours), son alterné parmi 6 sons du label qui ont marché. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "25baaa23",
+      "texte_overlay": "how i stopped forgetting everything\na week after the test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2f217fba",
+      "texte_overlay": "i don't study once. i come back to it.\nday 1, day 3, day 7.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "21187bc3",
+      "texte_overlay": "each time, notes closed first.\nwhat comes back on its own is what i really know.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e038e203",
+      "texte_overlay": "every comeback is a quick quiz.\n10 minutes, not a whole evening.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4311a277",
+      "texte_overlay": "what i miss comes back sooner.\nwhat i nail can wait longer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c46ae9df",
+      "texte_overlay": "i link it to the next chapter.\nold lessons stay alive when new ones use them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "86ee78c7",
+      "texte_overlay": "once a month: one mixed test on everything.\nno surprises in june.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

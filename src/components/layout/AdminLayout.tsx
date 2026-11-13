@@ -2,9 +2,6 @@ import { useQuery } from "@tanstack/react-query";
 import { PageSure } from "@/components/erreurs/PageSure";
 import { useTranslation } from "react-i18next";
 import {
-  Siren,
-  BadgeCheck,
-  CircleAlert,
   ClipboardCheck,
   Link2,
   MessageSquareWarning,
@@ -14,14 +11,10 @@ import {
   CalendarDays,
   Columns2,
   FlaskConical,
-  Flag,
   Gavel,
   Gauge,
   LineChart,
-  Inbox,
-  LayoutDashboard,
   ListChecks,
-  ListTodo,
   type LucideIcon,
   Gift,
   GitBranch,
@@ -29,10 +22,8 @@ import {
   Languages,
   Library,
   ListOrdered,
-  MessageCircle,
   MessagesSquare,
   Workflow,
-  ChartColumn,
   Clapperboard,
   Film,
   MoonStar,
@@ -40,7 +31,6 @@ import {
   Boxes,
   Radar,
   Scale,
-  Send,
   Settings,
   Shuffle,
   SlidersHorizontal,
@@ -49,16 +39,15 @@ import {
   UserPlus,
   Wallet,
   Globe2,
-  UserMinus,
+  LifeBuoy,
 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { BandePause } from "@/features/auto/BandePause";
-import { HORS_MENU, PAGES_AUTO, type PageAuto } from "@/features/auto/pages";
+import { type EntreeMenuAuto, MENU_AUTO } from "@/features/auto/pages";
+import { lireAujourdhui } from "@/features/auto/aujourdhui/api";
 import { useProblemes } from "@/features/auto/useProblemes";
 import { useAuth } from "@/features/auth/AuthContext";
-import { compterContestations } from "@/features/disputes/api";
-import { lireCompteProblemes } from "@/features/problemes/api";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
@@ -68,22 +57,14 @@ import type { NavGroup } from "./Sidebar";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
 
 /** Les icônes des pages de Recruitment Automation (prompt 22). */
-const ICONES_AUTO: Record<PageAuto, LucideIcon> = {
-  overview: LayoutDashboard,
-  recruits: Workflow,
-  cohorts: ChartColumn,
+const ICONES_MENU: Record<EntreeMenuAuto, LucideIcon> = {
+  aujourdhui: ListChecks,
+  posteurs: Users,
+  ruul: UserPlus,
   decisions: Gavel,
-  sent: Send,
-  received: Inbox,
-  needs: CircleAlert,
-  problems: Siren,
-  disputes: Flag,
-  payroll: Wallet,
-  faq: MessageCircle,
-  officielles: BadgeCheck,
-  parrainage: Gift,
-  slack: UserMinus,
-  logs: ListTodo,
+  paie: Wallet,
+  support: LifeBuoy,
+  reglages: SlidersHorizontal,
 };
 
 export function AdminLayout() {
@@ -93,10 +74,9 @@ export function AdminLayout() {
   const estHo = role === "head_of_ops";
   const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
-  const needsYou = useQuery({ queryKey: ["problemes", "compte"], queryFn: lireCompteProblemes, refetchInterval: 5 * 60_000 });
+  const aujourdhui = useQuery({ queryKey: ["os", "aujourdhui"], queryFn: lireAujourdhui, refetchInterval: 5 * 60_000, enabled: role === "admin" || role === "head_of_ops" });
   // Le badge de Problems : seulement pour l'admin et la Head of Ops (Health leur est réservé).
   const problemes = useProblemes(role === "admin" || role === "head_of_ops");
-  const contestations = useQuery({ queryKey: ["disputes", "compte"], queryFn: compterContestations, refetchInterval: 5 * 60_000 });
 
   /**
    * Le Head of Ops partage la coquille de l'admin mais n'a droit qu'aux
@@ -349,20 +329,17 @@ export function AdminLayout() {
             },
           ],
         },
-        // Prompt 22 : tout le système du 2 nov. en une section, sous « Tracking ».
+        // 12/11 (OS clair) : la section en 7 entrées ; les autres pages sont dans Réglages (adresses gardées).
         {
           title: t("auto.section"),
-          items: PAGES_AUTO.filter((p) => !HORS_MENU.includes(p.cle)).map((p) => ({
-            to: p.to,
-            label: t(`auto.pages.${p.cle}.titre`),
-            icon: ICONES_AUTO[p.cle],
-            description: t(`auto.phrases.${p.cle}`),
-            // Bloc C : le badge de « Problems » (les urgents, sinon tous les ouverts).
-            ...(p.cle === "needs" ? { badge: needsYou.data ? needsYou.data.urgent || needsYou.data.total : 0 } : {}),
-            // Prompt 21, R : les contestations ouvertes (et les retours contestés à trancher).
-            ...(p.cle === "disputes" ? { badge: contestations.data?.ouvertes ?? 0 } : {}),
-            // Les problèmes graves de l'automatisation.
-            ...(p.cle === "problems" ? { badge: problemes.problemes.filter((x) => x.gravite === "grave").length } : {}),
+          items: MENU_AUTO.map((m) => ({
+            to: m.to,
+            label: t(`auto.menu.${m.cle}`),
+            icon: ICONES_MENU[m.cle],
+            description: t(`auto.menuDesc.${m.cle}`),
+            // Support : les demandes « Pour Max » (paiement / urgent) ; Aujourd'hui : les alertes graves.
+            ...(m.cle === "support" ? { badge: aujourdhui.data?.pour_max ?? 0 } : {}),
+            ...(m.cle === "aujourdhui" ? { badge: problemes.problemes.filter((x) => x.gravite === "grave").length } : {}),
           })),
         },
         {

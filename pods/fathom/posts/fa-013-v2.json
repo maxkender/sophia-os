@@ -1,0 +1,219 @@
+{
+ "id": "fa-013-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7696547871994219798",
+  "vues": 73200,
+  "accroche": "5 Ways To Glow Up Before Christmas"
+ },
+ "titre": {
+  "en": "5 Ways To Glow Up Before Christmas",
+  "de": "5 Wege zum Glow-up vor Weihnachten"
+ },
+ "legendes": {
+  "en": "5 Ways To Glow Up Before Christmas #glowup #selfimprovement #learnontiktok",
+  "de": "5 Wege zum Glow-up vor Weihnachten #glowup #selbstverbesserung #lernenmittiktok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "remplace fa-013 (carte UnSwipe retirée). L'étape 1 « QUIT REELS FOR A MONTH » redevient une étape normale avec sa vraie vidéo YouTube native (Tadeo en anglais, tomatolix en allemand) ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 2). Livré en en et de, comme les autres reprises du chantier.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO GLOW UP",
+     [
+      {
+       "t": "BEFORE CHRISTMAS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 WEGE",
+       "bronze": true
+      }
+     ],
+     "ZUM GLOW-UP",
+     [
+      {
+       "t": "VOR WEIHNACHTEN",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "QUIT REELS",
+     "FOR A MONTH"
+    ],
+    "video": {
+     "id": "ImdtZKSdPuc",
+     "titre": "just delete social media, see what happens.",
+     "chaine": "Tadeo",
+     "vues": "3.9M views",
+     "date": "3 years ago",
+     "duree": "5:34",
+     "avatar": "https://yt3.ggpht.com/IVoXr9oF7VqNwR4ktAQXWpNHR3vRoOGgJ09Tm8r9B8sObUcuoV7eDCHSCrEtCZEYzgxHjwWGxQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "EINEN MONAT",
+     "OHNE REELS"
+    ],
+    "video": {
+     "id": "np9EdrIL8F8",
+     "titre": "Das passiert, wenn du Social Media löschst!",
+     "chaine": "tomatolix",
+     "vues": "847.221 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:30",
+     "avatar": "https://yt3.ggpht.com/eeIkr8bSxZSipki-zg8roL21XVJPhCESWgPYPsZ9-CFc8jladWczIU8OY6CbIuMnObkBopb8Bw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN",
+     "NEW THINGS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE",
+     "NEUE DINGE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WALK DAILY"
+    ],
+    "video": {
+     "id": "eEWa7cpiyD8",
+     "titre": "Do you really need to take 10,000 steps a day? - Shannon Odell",
+     "chaine": "TED-Ed",
+     "vues": "10M views",
+     "date": "1 year ago",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GEH TÄGLICH",
+     "SPAZIEREN"
+    ],
+    "video": {
+     "id": "M37QUSYEB3Q",
+     "titre": "Das passiert, wenn du täglich 30 Minuten spazieren gehst",
+     "chaine": "DoktorWeigl",
+     "vues": "403.082 Aufrufe",
+     "date": "vor 1 Monat",
+     "duree": "22:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "JOURNAL DAILY"
+    ],
+    "video": {
+     "id": "5DqXHg52H1g",
+     "titre": "How to Journal (Like a Philosopher)",
+     "chaine": "Jared Henderson",
+     "vues": "2.3M views",
+     "date": "3 years ago",
+     "duree": "6:53",
+     "avatar": "https://yt3.ggpht.com/hD3OORvL4-7g-In9kHhX9xSR_SjVP2ikCovuHaVqPNZhmhjPxvq1O8AT2yLqrjSVI-F8rNd9zQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHREIB",
+     "TAGEBUCH"
+    ],
+    "video": {
+     "id": "N5cTc0SlccI",
+     "titre": "100 Tage Journaling | Selbstexperiment",
+     "chaine": "Dominik Lebersorger",
+     "vues": "81.179 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "8:30",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO COOK"
+    ],
+    "video": {
+     "id": "bS9fPyaqg0U",
+     "titre": "cooking is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "213K views",
+     "date": "1 year ago",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN KOCHEN"
+    ],
+    "video": {
+     "id": "lyzbdZFpSr0",
+     "titre": "Ich habe in 7 Tagen kochen gelernt",
+     "chaine": "Dominik Lebersorger",
+     "vues": "104.035 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "9:03",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

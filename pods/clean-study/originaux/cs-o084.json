@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o084",
+  "type_bleo": "full_test",
+  "titre": "how i made my handwriting neat enough to actually reread my notes #studytok #studytips #notetaking",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Première accroche (« how i study for the subject i genuinely hate ») refusée par le guichet : theme_gagnant (proche de « i study the same way for every subject »). Remplacée par un thème neuf, l'écriture des notes (« handwriting » presque absent du label). Accroches écrites : « how i made my handwriting neat enough to actually reread my notes » (retenue : un problème concret et une promesse modeste), « handwriting glow up for school » (écartée : esthétique vague), « fix your messy notes » (écartée : injonction). Gestes vrais : ralentir un peu, le même stylo, des lettres séparées, une marge et des interlignes, des titres en capitales, relire ses notes en se testant le soir (place micabo, slide 7). Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f6768fa",
+      "texte_overlay": "how i made my handwriting neat enough\nto actually reread my notes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1a2faf97",
+      "texte_overlay": "i slowed down. just a little.\nspeed was the whole problem.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2490c329",
+      "texte_overlay": "one pen that i like, always the same.\nmy writing got more regular.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "26f6732a",
+      "texte_overlay": "i stopped joining every letter.\nseparate letters = easier to read later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "398858b8",
+      "texte_overlay": "space between the lines and a real margin.\na crowded page is unreadable.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "40f0d0a6",
+      "texte_overlay": "titles in capitals.\ni can scan a page in 2 seconds.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "365870da",
+      "texte_overlay": "every evening i quiz myself from my notes.\nif i can't read a line, i rewrite it right away.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

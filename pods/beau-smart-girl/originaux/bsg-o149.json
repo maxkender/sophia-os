@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o149",
+  "type_bleo": "full_test",
+  "titre": "les questions que je pose pour avoir des conversations vraiment profondes #conversation #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : les questions profondes, liste enregistrable. Accroches écrites : « les questions que je pose pour avoir des conversations vraiment profondes » (retenue : utile, concrète), « comment avoir des discussions intéressantes » (écartée : vague), « 36 questions pour tomber amoureux » (écartée : déjà connue, autre promesse). Aucun fait daté. Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0a7fd626",
+      "texte_overlay": "les questions que je pose\npour avoir des conversations\nvraiment profondes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0acfe446",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1826fa4d",
+      "texte_overlay": "1. qu'est-ce qui t'a fait changer d'avis récemment ?\n\non apprend comment la personne pense,\npas seulement ce qu'elle pense.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f5a387f",
+      "texte_overlay": "2. c'est quoi le meilleur conseil qu'on t'ait donné ?\n\net qui te l'a donné.\nil y a toujours une histoire derrière.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "20e963a9",
+      "texte_overlay": "3. qu'est-ce que tu ferais si tu n'avais pas peur ?\n\nla question qui fait le silence.\npuis les vraies réponses.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "237221d7",
+      "texte_overlay": "4. quel livre t'a marquée enfant ?\n\nles yeux s'allument à chaque fois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0531b483",
+      "texte_overlay": "5. qu'est-ce que tu aimerais savoir faire ?\n\non finit souvent par l'apprendre ensemble.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "2d6eae3c",
+      "texte_overlay": "enregistre-le pour ta prochaine soirée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

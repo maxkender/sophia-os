@@ -99,6 +99,17 @@ describe("PopupMessagesPosteur", () => {
     await waitFor(() => expect(api.marquerMessageLu).toHaveBeenCalledWith("r"));
   });
 
+  it("l'info parrainage (0568) : après les autres, Got it ou Refer a friend la ferme", async () => {
+    api.mesMessages.mockResolvedValue([
+      { ...offre, id: "i", type: "info", texte: "Don't forget: if you refer a friend, you can earn $10 per friend.", expire_at: null },
+    ]);
+    api.marquerMessageLu.mockResolvedValue(undefined);
+    rendu(<PopupMessagesPosteur />);
+    expect(await screen.findByTestId("popup-info")).toHaveTextContent("$10 per friend");
+    fireEvent.click(screen.getByRole("button", { name: "Refer a friend" }));
+    await waitFor(() => expect(api.marquerMessageLu).toHaveBeenCalledWith("i"));
+  });
+
   it("rien pour l'admin qui traverse l'espace", () => {
     auth.roleReel = "admin";
     rendu(<PopupMessagesPosteur />);

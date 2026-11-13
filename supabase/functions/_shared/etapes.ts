@@ -103,6 +103,8 @@ export interface RecrueAccueil {
    * relance « join Slack ». slack_user_id reste la seule adresse d'envoi.
    */
   slack_connu?: boolean;
+  /** 0592 : payé par Ruul (canal_paie = 'ruul') : pas de contrat Upwork, relances par email. */
+  ruul?: boolean;
   contrat_id: string | null;
   compte_id: string | null;
   handle: string | null;

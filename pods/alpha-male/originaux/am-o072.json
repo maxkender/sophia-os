@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o072",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "077f9af9-d6f6-46bb-8545-1c1c3e8e1928",
+ "titre": "Surviving your 20s (Starter pack) #advice #20s #men #growthmindset #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7360418078004267809",
+ "inspirations": [
+  "077f9af9-d6f6-46bb-8545-1c1c3e8e1928"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 9/11. Déclinaison G1 de la ligne 3 (parent 077f9af9, @millyjhino, langue source en ; meilleur passage hu 6,4 k vues, r 2,23). Accroche du parent mot pour mot. Format du parent : « The Law of X: » puis un paragraphe. Lois neuves, aucune du parent (self-extraction, disrupted identity, emotional debt, necessary isolation, broken alignment, value calibration, silent upgrades, personal accountability). Rien de médical. Images de la banque ; slide Sophia : chambre de nuit sur la ville, sans personne. reference_url : slides présentes du parent (4 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1543356e",
+   "texte_overlay": "Surviving your 20s\n(Starter pack)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "22228ad9",
+   "texte_overlay": "The Law of\nCompound Habits:\nWhat you do every day\nmatters more than what you\ndo once in a while. Ten pages,\nten push-ups, ten minutes.\nIn five years, it's a different man.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0c7603e9",
+   "texte_overlay": "The Law of\nSmall Circles:\nYou'll go from twenty friends\nto four. That's not losing.\nThat's finding out who stays.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "107fad3a",
+   "texte_overlay": "The Law of\nDelayed Proof:\nYou'll work for months\nwith nothing to show.\nThe results come late,\nthen all at once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0e849c5e",
+   "texte_overlay": "The Law of\nBorrowed Time:\nYour parents are getting older\nwhile you're getting busier.\nCall. Visit. Ask their stories\nwhile you still can.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1262dd30",
+   "texte_overlay": "The Law of\nthe Comfort Trap:\nThe bed, the feed, the same\nweekend every weekend.\nComfort feels safe.\nIt's where years disappear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "20fdd9cd",
+   "texte_overlay": "The Law of\nthe Honest No:\nEvery yes to the wrong thing\nis a no to your own plans.\nSay it once. Say it kindly.\nMean it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/8.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "253b4287",
+   "texte_overlay": "The Law of\nCuriosity:\nThe men who keep learning\nnever get stuck.\nStay curious, every day.",
+   "texte_sophia": "The Law of\nCuriosity:\nThe men who keep learning\nnever get stuck.\nMy rule: 5 minutes a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7579745957189897483/9.jpg"
+  }
+ ]
+}

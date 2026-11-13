@@ -80,6 +80,10 @@ verify_jwt = false
 [functions.creation-manuelle]
 verify_jwt = false
 
+# 0700 : le suivi des emails (journal, réessais, livraisons Brevo) : cron toutes les 10 minutes.
+[functions.emails]
+verify_jwt = false
+
 # Doublons d'accroche et de couverture (0388) : cron toutes les 10 minutes.
 [functions.empreintes]
 verify_jwt = false
@@ -194,6 +198,9 @@ verify_jwt = false
 [functions.revoquer-post]
 verify_jwt = false
 
+[functions.ruul]
+verify_jwt = false
+
 [functions.scan-visage-ugc]
 verify_jwt = false
 
@@ -217,10 +224,17 @@ verify_jwt = false
 [functions.slack-retrait]
 verify_jwt = false
 
+[functions.bots-banc]
+verify_jwt = false
+
 [functions.nudges]
 verify_jwt = false
 
 [functions.upwork]
+verify_jwt = false
+
+# 0671 : l'espace support (Help / Support) ; la tâche support-alertes appelle avec x-cron-secret.
+[functions.support]
 verify_jwt = false
 
 [functions.recrues-check]

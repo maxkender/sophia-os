@@ -1,0 +1,340 @@
+{
+ "id": "yp-055",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "ce que je fais quand je n’arrive pas à me concentrer",
+  "es": "lo que hago cuando no consigo concentrarme",
+  "tr": "odaklanamadığımda ne yapıyorum"
+ },
+ "legendes": {
+  "fr": "enregistre-le pour ta prochaine journée sans focus 🤍 #concentration #revisions #studytok #thatgirl #productivite",
+  "es": "guárdalo para tu próximo día sin foco 🤍 #concentracion #estudiar #studytok #thatgirl #productividad",
+  "tr": "odaklanamadığın bir sonraki gün için kaydet 🤍 #odak #ders #studytok #thatgirl #verimlilik"
+ },
+ "musique": {
+  "titre": "Genesis",
+  "url": "https://www.tiktok.com/music/genesis-6751217134107363329"
+ },
+ "fond": {
+  "media_id": "83e7b475-b12f-484f-a9ca-a93203f9bccf",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8e632196-5e78-4183-8d11-2c4ad9d18cd8/4.jpg?v=1787136354146",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je me fais interroger », sans capture. photos jamais livrées depuis 14 jours, son nouveau (consigne du 12/11)",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ce que je fais quand",
+     "lignes": [
+      "JE N’ARRIVE",
+      "PAS À ME",
+      "CONCENTRER"
+     ],
+     "taille": 140,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "lo que hago cuando",
+     "lignes": [
+      "NO CONSIGO",
+      "CONCENTRARME"
+     ],
+     "taille": 104,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ODAKLANAMADIĞIM",
+      "ZAMANLARDA",
+      "NE YAPIYORUM"
+     ],
+     "taille": 90,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "19cb288c-071b-4bb7-a60a-0dad5ffd7778",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fe5e1817-a7a0-4bf5-beef-f929553bd29b/5.jpg?v=1790607271205",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je change de place🪟",
+      "texte": "une autre pièce, une autre table. mon cerveau repart à zéro.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "cambio de sitio🪟",
+      "texte": "otra habitación, otra mesa. mi cerebro empieza de cero.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "yer değiştiriyorum🪟",
+      "texte": "başka bir oda, başka bir masa. beynim sıfırdan başlıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9d871bb3-243c-48fa-a9cc-2a3e0ce85c5e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/78016068-9115-4e84-b8dc-6af5d898f025/7.jpg?v=1792841532922",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je lance un minuteur de 25 min⏳",
+      "texte": "juste 25 min. après, j’ai le droit d’arrêter.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "pongo un temporizador de 25 min⏳",
+      "texte": "solo 25 min. después, puedo parar.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "25 dakikalık zamanlayıcı kuruyorum⏳",
+      "texte": "sadece 25 dakika. sonra bırakma hakkım var.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "8cc4664d-7645-4bf4-a1ee-c1a209380737",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/80429757-1d58-440f-8e88-0653579fd263/1.jpg?v=1791725608847",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je me fais interroger🧠",
+      "texte": "je mets le cours dans micabo et je réponds à ses questions. répondre m’oblige à rester dedans.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "dejo que me pregunten🧠",
+      "texte": "meto la clase en micabo y respondo sus preguntas. responder me obliga a seguir concentrada.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "kendime soru sorduruyorum🧠",
+      "texte": "dersi micabo’ya koyup sorularını cevaplıyorum. cevap vermek beni derste tutuyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "15ad3237-b4d0-4d94-9a5a-8a540e005fe0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/091cf710-6b15-4e6b-bded-54824e8ee5d8/5.jpg?v=1790609011660",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je fais une vraie pause☕",
+      "texte": "5 min sans écran : un café, une fenêtre ouverte.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hago una pausa de verdad☕",
+      "texte": "5 min sin pantalla: un café, la ventana abierta.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "gerçek bir mola veriyorum☕",
+      "texte": "ekransız 5 dakika: bir kahve, açık bir pencere.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "80d18506-5310-4407-8462-9ee8d8da9a11",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/20bb2017-35fc-4b68-993d-895af680317b/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je découpe en mini-tâches✂️",
+      "texte": "pas « réviser la bio », mais « relire la page 12 ».",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lo divido en minitareas✂️",
+      "texte": "no «estudiar biología», sino «releer la página 12».",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "küçük görevlere bölüyorum✂️",
+      "texte": "«biyoloji çalış» değil, «12. sayfayı oku».",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1ef003ff-65b0-4ad0-a567-ceac75dc1c23",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/089ab8dd-ddc7-461c-bd23-e0e13731910c/6.png?v=1790688144777",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je m’autorise à arrêter tôt🌙",
+      "texte": "une soirée off vaut mieux que 3 h à fixer une page.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "me permito parar antes🌙",
+      "texte": "una noche libre es mejor que 3 h mirando una página.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "erken bırakmaya izin veriyorum🌙",
+      "texte": "boş bir akşam, bir sayfaya 3 saat bakmaktan iyidir.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "ce que je fais quand je n’arrive pas à me concentrer"
+ }
+}

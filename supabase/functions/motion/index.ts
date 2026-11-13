@@ -39,6 +39,7 @@
 
 import { ID_SOPHIA } from "../_shared/multi_app.ts";
 import {
+  changementsScenes,
   cheminCaptureValide,
   cheminDeLaLangue,
   cheminMotion,
@@ -173,7 +174,13 @@ async function majScript(supabase: Supabase, body: Corps): Promise<Response> {
   if ("erreur" in script) return refus(String(script.erreur));
   const statut = ["script_demande", "script_pret"].includes(video.statut) ? "script_pret" : video.statut;
   await majVideo(supabase, video.id, { script, statut });
-  await journaliser(supabase, video.id, "Script modifié par l'admin.");
+  const c = changementsScenes(video.script, script);
+  const details = [
+    c.ajoutees.length ? `scènes ajoutées : ${c.ajoutees.join(", ")}` : "",
+    c.supprimees.length ? `scènes supprimées : ${c.supprimees.join(", ")}` : "",
+    c.animations.length ? `animation modifiée : ${c.animations.join(", ")}` : "",
+  ].filter(Boolean);
+  await journaliser(supabase, video.id, `Script modifié par l'admin${details.length ? ` (${details.join(" ; ")})` : ""}.`);
   return ok({ script });
 }
 

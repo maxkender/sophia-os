@@ -73,7 +73,7 @@ Deno.test("jeudi : sous 6 posts avec lien (compte par compte, aujourd'hui inclus
   assertEquals(jeudiDu({ ...x, envoyes: ["jeudi"] }, LUNDI, t("2026-11-05T16:00:00Z"), J, 4), false);
   assertEquals(
     texteJeudi("Hi {prenom}, ({faits} of {attendus}).", { prenom: "Ana", faits: 4, attendus: 6 }),
-    "Hi Ana, (4 of 6).",
+    "Hi Ana, (4 of 6).\n\nStuck? Click Help on your dashboard.",
   );
 });
 
@@ -115,13 +115,13 @@ Deno.test("prompt 21, C7 : le jeudi des recrues du lundi suivant pas encore prê
       "Hi {prenom}, you start on Monday {date} only if your warm-up is done by Sunday midnight. Still missing: {ce_qui_manque}.",
       { prenom: "Ana", cohorte_lundi: "2026-11-09", ceQuiManque: "follow 2 more accounts" },
     ),
-    "Hi Ana, you start on Monday 9 November only if your warm-up is done by Sunday midnight. Still missing: follow 2 more accounts.",
+    "Hi Ana, you start on Monday 9 November only if your warm-up is done by Sunday midnight. Still missing: follow 2 more accounts.\n\nStuck? Click Help on your dashboard.",
   );
 });
 
 Deno.test("prompt 21, C7 : jeudi_texte, le nombre de posts avec lien", () => {
   assertEquals(
     texteJeudi("Hi {prenom}, you have {faits} posts with link this week. Below 6 by Sunday midnight, we'll have to stop our collaboration.", { prenom: "Ana", faits: 3, attendus: 6 }),
-    "Hi Ana, you have 3 posts with link this week. Below 6 by Sunday midnight, we'll have to stop our collaboration.",
+    "Hi Ana, you have 3 posts with link this week. Below 6 by Sunday midnight, we'll have to stop our collaboration.\n\nStuck? Click Help on your dashboard.",
   );
 });

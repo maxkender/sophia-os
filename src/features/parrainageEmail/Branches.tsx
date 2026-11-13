@@ -6,12 +6,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { changerPaysParrainage, inviterAmi, lireMonParrainage, lirePaysParrainage, lireSuiviParrainage, nomPays } from "./api";
 import { BlocParrainer } from "./BlocParrainer";
 import { PaysParrainage } from "./PaysParrainage";
+import { lireMonEmailRuul } from "@/features/ruul/api";
 import { LANGUE_PAR_PAYS } from "../../../supabase/functions/_shared/hub_posteurs";
 
 /** Le bloc « Refer a friend » du dashboard (seulement quand le parrainage par email est ouvert). */
 export function ParrainerDashboard() {
   const qc = useQueryClient();
   const q = useQuery({ queryKey: ["mon-parrainage"], queryFn: lireMonParrainage, staleTime: 60_000 });
+  // 0592 : un parrain payé par Ruul : son bonus part avec sa paie Ruul (aucun texte Upwork).
+  const ruul = useQuery({ queryKey: ["ruul-mon-email"], queryFn: lireMonEmailRuul, staleTime: 5 * 60_000 });
   if (!q.data?.actif) return null;
   const pays = q.data.pays
     .map((p) => ({ code: p.code, nom: nomPays(p.code), ouvert: p.ouvert }))
@@ -22,6 +25,7 @@ export function ParrainerDashboard() {
       pays={pays}
       filleuls={filleuls}
       ceMois={q.data.ce_mois}
+      ruul={Boolean(ruul.data?.ruul)}
       envoyer={async (f) => {
         const r = await inviterAmi(f);
         await qc.invalidateQueries({ queryKey: ["mon-parrainage"] });

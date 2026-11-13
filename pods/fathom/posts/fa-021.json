@@ -10,14 +10,18 @@
   "de": "S-Tier-YouTube-Videos, die du sehen musst",
   "pt": "Vídeos do YouTube de nível S que tens de ver",
   "it": "Video di YouTube di livello S da guardare assolutamente",
-  "es-419": "Videos de YouTube nivel S que tienes que ver"
+  "es-419": "Videos de YouTube nivel S que tienes que ver",
+  "fr": "Les vidéos YouTube de niveau S à voir absolument",
+  "es": "Videos de YouTube nivel S que tienes que ver"
  },
  "legendes": {
   "en": "S Tier YouTube Videos You Need To Watch #youtube #learnontiktok #selfimprovement",
   "de": "S-Tier-YouTube-Videos, die du sehen musst #youtube #lernenmittiktok #selbstverbesserung",
   "pt": "Vídeos do YouTube de nível S que tens de ver #youtube #aprendernotiktok #desenvolvimentopessoal",
   "it": "Video di YouTube di livello S da guardare assolutamente #imparacontiktok #curiosità #cultura",
-  "es-419": "Videos de YouTube nivel S que tienes que ver #aprendeentiktok #curiosidades #cultura"
+  "es-419": "Videos de YouTube nivel S que tienes que ver #aprendeentiktok #curiosidades #cultura",
+  "fr": "Les vidéos YouTube de niveau S à voir absolument #apprendresurtiktok #curiosité #culture",
+  "es": "Videos de YouTube nivel S que tienes que ver #aprendeentiktok #curiosidades #cultura"
  },
  "musique": {
   "titre": "original sound",
@@ -82,6 +86,40 @@
     ]
    },
    "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "VIDEOS DE YOUTUBE",
+       "bronze": true
+      }
+     ],
+     "NIVEL S QUE",
+     [
+      {
+       "t": "TIENES QUE VER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "VIDÉOS YOUTUBE",
+       "bronze": true
+      }
+     ],
+     "DE NIVEAU S",
+     [
+      {
+       "t": "À VOIR",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
     "lignes": [
      [
       {
@@ -172,6 +210,36 @@
      "duree": "6:43",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "LA VIE,",
+     "C'EST QUOI ?"
+    ],
+    "video": {
+     "id": "1Hy6vJVo7m0",
+     "titre": "La vie, c’est quoi ? La mort est-elle réelle ?",
+     "chaine": "Tout Simplement – Kurzgesagt",
+     "vues": "204 k vues",
+     "date": "il y a 3 ans",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/mUCcUGjasH8j3iIM8vWfRc52gAViDxEf6h4Oo7MYqa3BPizKO_s44SmW0mnfzvbgfjT3X_kVb_w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿QUÉ ES",
+     "LA VIDA?"
+    ],
+    "video": {
+     "id": "ktxH-lN_tiQ",
+     "titre": "¿Qué es la vida? ¿Es la muerte real?",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "2 M de visualizaciones",
+     "date": "hace 6 años",
+     "duree": "6:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -238,6 +306,32 @@
      "texte": [
       "lo que abro",
       "en lugar de scrollear."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SI TU N'AS QUE",
+     "5 MINUTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "SI SOLO TIENES",
+     "5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
      ]
     }
    }
@@ -318,6 +412,36 @@
      "duree": "6:29",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "QUE FAIS-TU",
+     "DE TA VIE ?"
+    ],
+    "video": {
+     "id": "d35JQvaEen0",
+     "titre": "Que faites-vous de votre vie ? La toute fin",
+     "chaine": "Tout Simplement – Kurzgesagt",
+     "vues": "576 k vues",
+     "date": "il y a 3 ans",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/mUCcUGjasH8j3iIM8vWfRc52gAViDxEf6h4Oo7MYqa3BPizKO_s44SmW0mnfzvbgfjT3X_kVb_w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿QUÉ HACES CON",
+     "TU VIDA?"
+    ],
+    "video": {
+     "id": "uYYRAPBbr_w",
+     "titre": "¿Qué hacemos con nuestras vidas? El vagón de cola",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "1,9 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "9:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -395,6 +519,36 @@
      "duree": "6:30",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "LE LIBRE ARBITRE",
+     "EXISTE-T-IL ?"
+    ],
+    "video": {
+     "id": "6WQ9sqIHBCA",
+     "titre": "Le libre-arbitre existe-t-il ?",
+     "chaine": "ScienceEtonnante",
+     "vues": "841 k vues",
+     "date": "il y a 11 ans",
+     "duree": "11:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kzU96H3Lq6fihVVFNWXUEFaidERMvSqyMwn0f455Gi4w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿QUÉ",
+     "SOMOS?"
+    ],
+    "video": {
+     "id": "FtPqu6Q6Xl4",
+     "titre": "¿Qué somos?",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "2,8 M de visualizaciones",
+     "date": "hace 5 años",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -468,6 +622,36 @@
      "titre": "Este Problema De Teoría De Juegos Cambiará La Forma En Que Ves El Mundo",
      "chaine": "Veritasium en español",
      "vues": "3 M de vistas",
+     "date": "hace 2 años",
+     "duree": "27:12",
+     "avatar": "https://yt3.ggpht.com/eEzOCQszM2PCifAaJlJhjRsewotTEIqDdqt9YN4qS2Y-JldCdUMHW19ULcIqd-3WvQi70qvENqU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LA THÉORIE",
+     "DES JEUX"
+    ],
+    "video": {
+     "id": "StRqGx9ri2I",
+     "titre": "La Théorie des Jeux",
+     "chaine": "ScienceEtonnante",
+     "vues": "1,3 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kzU96H3Lq6fihVVFNWXUEFaidERMvSqyMwn0f455Gi4w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "LA TEORÍA",
+     "DE JUEGOS"
+    ],
+    "video": {
+     "id": "vBgrvVY1jGo",
+     "titre": "Este Problema De Teoría De Juegos Cambiará La Forma En Que Ves El Mundo",
+     "chaine": "Veritasium en español",
+     "vues": "3 M de visualizaciones",
      "date": "hace 2 años",
      "duree": "27:12",
      "avatar": "https://yt3.ggpht.com/eEzOCQszM2PCifAaJlJhjRsewotTEIqDdqt9YN4qS2Y-JldCdUMHW19ULcIqd-3WvQi70qvENqU=s176-c-k-c0x00ffffff-no-rj"

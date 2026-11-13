@@ -96,6 +96,8 @@ export const CLE_SOURCES_UGC_IA = ["ugc-ia", "sources"] as const;
 export const CLE_PERSONAS_UGC_IA = ["ugc-ia", "personas"] as const;
 export const CLE_COMPTES_UGCV = ["ugc-ia", "comptes-ugcv"] as const;
 export const CLE_POSTS_VIDEO = ["ugc-ia", "posts-video"] as const;
+export const CLE_DEMOS = ["ugc-ia", "demos"] as const;
+export const CLE_ASSEMBLAGES = ["ugc-ia", "assemblages"] as const;
 
 const nombreOuNull = (v: unknown): number | null => (v == null || v === "" ? null : Number(v));
 
@@ -259,7 +261,7 @@ export interface PostVideoUgcv {
 export interface NouveauPostVideo {
   compteId: string;
   date: string;
-  videos: Array<{ url: string; chemin?: string | null; nom?: string | null; generationId?: string | null }>;
+  videos: Array<{ url: string; chemin?: string | null; nom?: string | null; generationId?: string | null; assemblageId?: string | null }>;
   ctaTexte: string | null;
   ctaIncruste: boolean;
   captureUrl: string | null;
@@ -330,4 +332,154 @@ export async function supprimerFichiersPost(chemins: string[]): Promise<void> {
   if (aRetirer.length === 0) return;
   const { error } = await supabase.storage.from("medias").remove(aRetirer);
   if (error) throw error;
+}
+
+// --- Démos et vidéos complètes (0665) ----------------------------------------
+
+/** Le rapport du nettoyage final d'un MP4 (0666) : boîtes retirées, plus aucune trace de C2PA / XMP. */
+export interface RapportNettoyage {
+  retires: string[];
+  verifie: boolean;
+  taille: number;
+}
+
+export interface DemoUgcIa {
+  id: string;
+  nom: string;
+  /** Langue de la démo (celle de l'appli à l'écran). */
+  langue: string;
+  nettoyage: RapportNettoyage | null;
+  /** Partie téléphone d'une source reprise comme démo (sinon vidéo importée). */
+  source_id: string | null;
+  brut_url: string;
+  brut_duree_s: number | null;
+  passages: Array<{ debut: number; fin: number }>;
+  vitesse: number;
+  /** La démo montée (MP4), vide tant qu'elle n'est pas montée. */
+  video_url: string | null;
+  duree_s: number | null;
+  montage_statut: "en_cours" | "echec" | null;
+  montage_erreur: string | null;
+  created_at: string;
+}
+
+export interface AssemblageUgcIa {
+  id: string;
+  generation_id: string;
+  demo_id: string | null;
+  /** Langue de la vidéo complète, celle de sa démo. */
+  langue: string | null;
+  nettoyage: RapportNettoyage | null;
+  bandeau_actif: boolean;
+  bandeau_texte: string | null;
+  bandeau_position: number | null;
+  video_url: string | null;
+  duree_s: number | null;
+  statut: "en_cours" | "prete" | "echec";
+  erreur: string | null;
+  created_at: string;
+  /** La réaction : son persona et sa source. */
+  persona_id: string | null;
+  source_id: string | null;
+  demo_nom: string | null;
+}
+
+export async function listerDemos(): Promise<DemoUgcIa[]> {
+  const { data, error } = await supabase
+    .from("ugc_ia_demos")
+    .select(
+      "id, nom, langue, nettoyage, source_id, brut_url, brut_duree_s, passages, vitesse, video_url, duree_s, montage_statut, montage_erreur, created_at",
+    )
+    .order("created_at", { ascending: false });
+  if (error) throw error;
+  return ((data ?? []) as unknown as DemoUgcIa[]).map((d) => ({
+    ...d,
+    brut_duree_s: nombreOuNull(d.brut_duree_s),
+    duree_s: nombreOuNull(d.duree_s),
+    vitesse: Number(d.vitesse) || 1,
+    passages: Array.isArray(d.passages) ? d.passages.map((p) => ({ debut: Number(p.debut), fin: Number(p.fin) })) : [],
+  }));
+}
+
+export async function listerAssemblages(): Promise<AssemblageUgcIa[]> {
+  const { data, error } = await supabase
+    .from("ugc_ia_assemblages")
+    .select(
+      "id, generation_id, demo_id, langue, nettoyage, bandeau_actif, bandeau_texte, bandeau_position, video_url, duree_s, statut, erreur, created_at, " +
+        "generation:ugc_ia_generations(persona_id, source_id), demo:ugc_ia_demos(nom)",
+    )
+    .order("created_at", { ascending: false })
+    .limit(100);
+  if (error) throw error;
+  type Ligne = Omit<AssemblageUgcIa, "persona_id" | "source_id" | "demo_nom"> & {
+    generation?: { persona_id: string; source_id: string } | null;
+    demo?: { nom: string } | null;
+  };
+  return ((data ?? []) as unknown as Ligne[]).map(({ generation, demo, ...a }) => ({
+    ...a,
+    duree_s: nombreOuNull(a.duree_s),
+    bandeau_position: nombreOuNull(a.bandeau_position),
+    persona_id: generation?.persona_id ?? null,
+    source_id: generation?.source_id ?? null,
+    demo_nom: demo?.nom ?? null,
+  }));
+}
+
+/** Dépose dans le stockage de l'OS un fichier de la page (vidéo importée, rendu). Admin seulement. */
+export async function deposerFichier(fichier: Blob, chemin: string, contentType: string): Promise<string> {
+  const { error } = await supabase.storage.from("medias").upload(chemin, fichier, { contentType, cacheControl: "3600", upsert: false });
+  if (error) throw error;
+  return supabase.storage.from("medias").getPublicUrl(chemin).data.publicUrl;
+}
+
+/** Importe une démo de l'ordinateur dans la bibliothèque, dans sa langue. */
+export async function importerDemo(fichier: File, dureeS: number | null, langue: string): Promise<{ demo: DemoUgcIa }> {
+  const chemin = `ugc-ia/demos/${crypto.randomUUID()}/brut-${nomFichierSur(fichier.name)}`;
+  const brutUrl = await deposerFichier(fichier, chemin, fichier.type || "video/mp4");
+  const nom = fichier.name.replace(/\.[^.]+$/, "").slice(0, 80) || "Démo";
+  return invoke("ugc-ia", { action: "ajouter_demo", langue, nom, brutUrl, brutPath: chemin, dureeS });
+}
+
+/** La partie téléphone d'une source, reprise dans la bibliothèque (une fois), dans sa langue. */
+export function ajouterDemoDeSource(sourceId: string, langue: string): Promise<{ demo: DemoUgcIa }> {
+  return invoke("ugc-ia", { action: "ajouter_demo", sourceId, langue });
+}
+
+/** Renommer une démo ou changer sa langue. */
+export function majDemo(id: string, patch: { nom?: string; langue?: string }): Promise<{ demo: DemoUgcIa }> {
+  return invoke("ugc-ia", { action: "maj_demo", id, ...patch });
+}
+
+/** Dépose le rendu de la démo montée et le fait réencoder (en arrière-plan). */
+export async function finaliserDemo(
+  id: string,
+  rendu: { blob: Blob; mime: string },
+  passages: Array<{ debut: number; fin: number }>,
+  vitesse: number,
+): Promise<{ ok: true; statut: string }> {
+  const ext = rendu.mime.startsWith("video/mp4") ? "mp4" : "webm";
+  const renduPath = `ugc-ia/demos/${id}/rendu-${Date.now()}.${ext}`;
+  await deposerFichier(rendu.blob, renduPath, rendu.mime.split(";")[0]);
+  return invoke("ugc-ia", { action: "finaliser_demo", id, renduPath, passages, vitesse });
+}
+
+export function supprimerDemo(id: string): Promise<{ ok: true }> {
+  return invoke("ugc-ia", { action: "supprimer_demo", id });
+}
+
+/** Dépose le rendu de la vidéo complète et le fait réencoder (en arrière-plan). */
+export async function finaliserAssemblage(
+  generationId: string,
+  demoId: string,
+  rendu: { blob: Blob; mime: string },
+  bandeau: { actif: boolean; texte: string; position: number },
+): Promise<{ ok: true; id: string; statut: string }> {
+  const ext = rendu.mime.startsWith("video/mp4") ? "mp4" : "webm";
+  const renduPath = `ugc-ia/assemblages/rendus/${crypto.randomUUID()}.${ext}`;
+  await deposerFichier(rendu.blob, renduPath, rendu.mime.split(";")[0]);
+  return invoke("ugc-ia", { action: "finaliser_assemblage", generationId, demoId, renduPath, bandeau });
+}
+
+export function supprimerAssemblage(id: string): Promise<{ ok: true }> {
+  return invoke("ugc-ia", { action: "supprimer_assemblage", id });
 }

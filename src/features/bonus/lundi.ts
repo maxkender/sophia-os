@@ -9,9 +9,14 @@ const arrondi = (n: number) => Math.round(n * 100) / 100;
 
 /** Les lignes qui partiront au clic, leur total et le total frais compris. */
 export function totaux(lignes: LigneBonusLundi[]) {
-  const aEnvoyer = lignes.filter((l) => l.statut === "a_valider" && !l.envoi_at && Number(l.montant) > 0);
+  // 0585 : les lignes « à payer via Ruul » ne partent pas sur Upwork (Max les ajoute au paiement Ruul).
+  const aEnvoyer = lignes.filter((l) => l.statut === "a_valider" && !l.envoi_at && Number(l.montant) > 0 && l.canal_paie !== "ruul");
+  const ruul = lignes.filter((l) => l.canal_paie === "ruul" && (l.statut === "a_valider" || l.statut === "a_payer"));
   const total = arrondi(aEnvoyer.reduce((s, l) => s + Number(l.montant), 0));
-  return { n: aEnvoyer.length, total, frais: arrondi(total * FRAIS_UPWORK), totalFrais: arrondi(total * (1 + FRAIS_UPWORK)) };
+  return {
+    n: aEnvoyer.length, total, frais: arrondi(total * FRAIS_UPWORK), totalFrais: arrondi(total * (1 + FRAIS_UPWORK)),
+    nRuul: ruul.length, totalRuul: arrondi(ruul.reduce((s, l) => s + Number(l.montant), 0)),
+  };
 }
 
 /** « 9/11 » */

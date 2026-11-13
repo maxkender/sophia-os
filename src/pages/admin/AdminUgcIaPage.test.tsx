@@ -4,7 +4,7 @@ import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import i18n from "@/locales";
-import type { CompteUgcv, GenerationUgcIa, PersonaUgcIa, SourceUgcIa } from "@/features/ugcIa/api";
+import type { AssemblageUgcIa, CompteUgcv, DemoUgcIa, GenerationUgcIa, PersonaUgcIa, SourceUgcIa } from "@/features/ugcIa/api";
 
 const SOPHIE: PersonaUgcIa = { id: "p1", nom: "Sophie", description: "~20 ans, blonde", image_url: "https://x/sophie.jpg", image_path: "ugc-ia/personas/p1.jpg", compte_id: null };
 const CLARA: PersonaUgcIa = { id: "p2", nom: "Clara", description: "~20 ans, brune", image_url: "https://x/clara.jpg", image_path: "ugc-ia/personas/p2.jpg", compte_id: null };
@@ -23,6 +23,14 @@ const annulerMontage = vi.fn();
 const listerComptes = vi.fn();
 const assigner = vi.fn();
 const listerPostsVideo = vi.fn();
+const listerDemos = vi.fn();
+const listerAssemblages = vi.fn();
+const importerDemo = vi.fn();
+const ajouterDemoDeSource = vi.fn();
+const finaliserDemo = vi.fn();
+const finaliserAssemblage = vi.fn();
+const rendreVideo = vi.fn();
+const majDemo = vi.fn();
 const creerPostVideo = vi.fn();
 const supprimerPostVideo = vi.fn();
 const televerser = vi.fn();
@@ -37,6 +45,17 @@ vi.mock("@/features/ugcIa/api", () => ({
   supprimerPostVideo: (...a: unknown[]) => supprimerPostVideo(...a),
   televerserPourPost: (...a: unknown[]) => televerser(...a),
   supprimerFichiersPost: () => Promise.resolve(),
+  CLE_DEMOS: ["ugc-ia", "demos"],
+  CLE_ASSEMBLAGES: ["ugc-ia", "assemblages"],
+  listerDemos: () => listerDemos(),
+  listerAssemblages: () => listerAssemblages(),
+  importerDemo: (...a: unknown[]) => importerDemo(...a),
+  ajouterDemoDeSource: (...a: unknown[]) => ajouterDemoDeSource(...a),
+  finaliserDemo: (...a: unknown[]) => finaliserDemo(...a),
+  supprimerDemo: () => Promise.resolve({ ok: true }),
+  majDemo: (...a: unknown[]) => majDemo(...a),
+  finaliserAssemblage: (...a: unknown[]) => finaliserAssemblage(...a),
+  supprimerAssemblage: () => Promise.resolve({ ok: true }),
   listerComptesUgcv: () => listerComptes(),
   assignerPersonaUgcIa: (...a: unknown[]) => assigner(...a),
   listerPersonasUgcIa: () => listerPersonas(),
@@ -55,6 +74,14 @@ vi.mock("@/features/ugcIa/api", () => ({
 }));
 
 // jsdom ne dessine pas : le bandeau rendu est remplacé par une image factice.
+// jsdom n'enregistre pas de vidéo : le rendu est simulé.
+vi.mock("@/features/ugcIa/rendu", async (original) => ({
+  ...(await original<typeof import("@/features/ugcIa/rendu")>()),
+  rendreVideo: (...a: unknown[]) => rendreVideo(...a),
+  dureeFichier: async () => 12.5,
+  chargerImage: async (src: string) => ({ src }),
+}));
+
 vi.mock("@/features/ugcIa/bandeau", async (original) => ({
   ...(await original<typeof import("@/features/ugcIa/bandeau")>()),
   bandeauPng: async (l: number, h: number, texte: string, position: number) => `data:image/png;base64,${l}x${h}:${position}:${texte.length}`,
@@ -130,6 +157,8 @@ describe("AdminUgcIaPage", () => {
     listerPersonas.mockResolvedValue([SOPHIE, CLARA]);
     listerComptes.mockResolvedValue([]);
     listerPostsVideo.mockResolvedValue([]);
+    listerDemos.mockResolvedValue([]);
+    listerAssemblages.mockResolvedValue([]);
     window.localStorage.clear();
     await i18n.changeLanguage("fr");
   });
@@ -517,6 +546,194 @@ describe("AdminUgcIaPage", () => {
       expect(screen.getByRole("button", { name: "Tout fermer" })).toBeDisabled();
       fireEvent.click(screen.getByRole("button", { name: "Tout ouvrir" }));
       expect(screen.getAllByRole("button", { name: "Replier la source" })).toHaveLength(2);
+    });
+  });
+
+  describe("démos et vidéos complètes", () => {
+    const DEMO: DemoUgcIa = {
+      id: "d1",
+      nom: "demo appli",
+      langue: "de",
+      nettoyage: null,
+      source_id: null,
+      brut_url: "https://x/demo-brut.mp4",
+      brut_duree_s: 20,
+      passages: [],
+      vitesse: 1,
+      video_url: null,
+      duree_s: null,
+      montage_statut: null,
+      montage_erreur: null,
+      created_at: "2026-11-09T10:00:00Z",
+    };
+    const RENDU = { blob: new Blob(["x"]), mime: "video/webm" };
+
+    it("importe une démo, et propose de monter la partie téléphone d'une source", async () => {
+      listerSources.mockResolvedValue([source({ telephone_url: "https://x/tel.mp4", source_texte: "ma source" })]);
+      importerDemo.mockResolvedValue({ demo: DEMO });
+      ajouterDemoDeSource.mockResolvedValue({ demo: { ...DEMO, id: "d2", source_id: "s1", brut_url: "https://x/tel.mp4" } });
+      rendre();
+      const carte = await screen.findByTestId("demos");
+      expect(await within(carte).findByText("Partie téléphone · ma source")).toBeInTheDocument();
+      // Langue des démos importées : allemand.
+      fireEvent.change(within(carte).getByLabelText("Langue des démos importées"), { target: { value: "de" } });
+      const fichier = new File(["x"], "demo.mp4", { type: "video/mp4" });
+      fireEvent.change(within(carte).getByLabelText("Importer une démo"), { target: { files: [fichier] } });
+      await waitFor(() => expect(importerDemo).toHaveBeenCalledWith(fichier, 12.5, "de"));
+      // Glisser-déposer : seules les vidéos entrent.
+      const depot = within(carte).getByTestId("depot-demos");
+      expect(depot).toHaveTextContent("Glisse tes vidéos démo ici (elles seront en 🇩🇪 Allemand)");
+      const video2 = new File(["y"], "demo2.mov", { type: "video/quicktime" });
+      fireEvent.drop(depot, { dataTransfer: { files: [video2, new File(["z"], "notes.txt", { type: "text/plain" })] } });
+      await waitFor(() => expect(importerDemo).toHaveBeenCalledWith(video2, 12.5, "de"));
+      expect(importerDemo).toHaveBeenCalledTimes(2);
+      fireEvent.click(within(screen.getByTestId("demo-telephone-s1")).getByRole("button", { name: "Monter" }));
+      await waitFor(() => expect(ajouterDemoDeSource).toHaveBeenCalledWith("s1", "de"));
+      expect(await screen.findByText("Monter la démo « demo appli »")).toBeInTheDocument();
+    });
+
+    it("monte une démo : passages gardés, réordonnés (glisser-déposer), accélérés", async () => {
+      listerSources.mockResolvedValue([]);
+      listerDemos.mockResolvedValue([{ ...DEMO, passages: [{ debut: 0, fin: 4 }, { debut: 10, fin: 14 }] }]);
+      rendreVideo.mockResolvedValue(RENDU);
+      finaliserDemo.mockResolvedValue({ ok: true, statut: "en_cours" });
+      rendre();
+      fireEvent.click(within(await screen.findByTestId("demo-d1")).getByRole("button", { name: "Monter" }));
+      await screen.findByText("Monter la démo « demo appli »");
+      // Glisser le passage 2 sur le passage 1.
+      fireEvent.dragStart(screen.getByTestId("passage-1"));
+      fireEvent.drop(screen.getByTestId("passage-0"));
+      expect(screen.getByLabelText("Début du passage 1")).toHaveValue("10");
+      // Ajouter un passage puis l'enlever.
+      fireEvent.click(screen.getByRole("button", { name: "Ajouter un passage (au temps du lecteur)" }));
+      expect(screen.getByTestId("passage-2")).toBeInTheDocument();
+      fireEvent.click(screen.getByRole("button", { name: "Enlever le passage 3" }));
+      expect(screen.queryByTestId("passage-2")).not.toBeInTheDocument();
+      fireEvent.click(screen.getByRole("button", { name: "×2" }));
+      expect(screen.getByText("Durée de la démo : 4 s")).toBeInTheDocument();
+      fireEvent.click(screen.getByRole("button", { name: "Rendre la démo" }));
+      await waitFor(() => expect(finaliserDemo).toHaveBeenCalledTimes(1));
+      expect(rendreVideo.mock.calls[0][0].segments).toEqual([
+        { url: "https://x/demo-brut.mp4", debut: 10, fin: 14, vitesse: 2 },
+        { url: "https://x/demo-brut.mp4", debut: 0, fin: 4, vitesse: 2 },
+      ]);
+      expect(finaliserDemo).toHaveBeenCalledWith("d1", RENDU, [{ debut: 10, fin: 14 }, { debut: 0, fin: 4 }], 2);
+    });
+
+    it("assemble une réaction et une démo, bandeau par-dessus les deux", async () => {
+      listerSources.mockResolvedValue([
+        source({
+          debut_s: 0,
+          fin_s: 4,
+          coupe_url: "https://x/reaction.mp4",
+          generations: [generation({ id: "g1", video_brute_url: "https://x/g1-brut.mp4", montage_debut_s: 0.5, montage_fin_s: 3.5 })],
+        }),
+      ]);
+      listerDemos.mockResolvedValue([{ ...DEMO, video_url: "https://x/demo-montee.mp4", duree_s: 8 }]);
+      rendreVideo.mockResolvedValue(RENDU);
+      finaliserAssemblage.mockResolvedValue({ ok: true, id: "a1", statut: "en_cours" });
+      rendre();
+      fireEvent.click(within(await screen.findByTestId("generation-g1")).getByRole("button", { name: "Réaction + démo" }));
+      await screen.findByText("Vidéo complète : Sophie + une démo");
+      await waitFor(() => expect(screen.getByLabelText("Démo à coller après la réaction")).toHaveValue("d1"));
+      expect(screen.getByLabelText("Texte du bandeau")).toHaveValue("I could KISS the person who showed me this");
+      fireEvent.click(screen.getByRole("button", { name: "Rendre la vidéo complète" }));
+      await waitFor(() => expect(finaliserAssemblage).toHaveBeenCalledTimes(1));
+      const options = rendreVideo.mock.calls[0][0];
+      expect(options.segments).toEqual([
+        { url: "https://x/g1-brut.mp4", debut: 0.5, fin: 3.5, vitesse: 1 },
+        { url: "https://x/demo-montee.mp4", debut: 0, fin: null, vitesse: 1 },
+      ]);
+      expect(options.calque).toBeTruthy();
+      expect(finaliserAssemblage).toHaveBeenCalledWith("g1", "d1", RENDU, {
+        actif: true,
+        texte: "I could KISS the person who showed me this",
+        position: 36,
+      });
+    });
+
+    it("envoie une vidéo complète à un créateur : post UGCV avec CTA déjà incrusté", async () => {
+      const assemblage: AssemblageUgcIa = {
+        id: "a1",
+        generation_id: "g1",
+        demo_id: "d1",
+        langue: "en",
+        nettoyage: null,
+        bandeau_actif: true,
+        bandeau_texte: "lien en bio",
+        bandeau_position: 36,
+        video_url: "https://x/complete.mp4",
+        duree_s: 11,
+        statut: "prete",
+        erreur: null,
+        created_at: "2026-11-09T10:00:00Z",
+        persona_id: "p1",
+        source_id: "s1",
+        demo_nom: "demo appli",
+      };
+      listerSources.mockResolvedValue([source({ source_texte: "my study app #study" })]);
+      listerAssemblages.mockResolvedValue([assemblage]);
+      listerComptes.mockResolvedValue([COMPTE_LEA]);
+      creerPostVideo.mockResolvedValue({ ok: true, postId: "post1" });
+      rendre();
+      fireEvent.click(within(await screen.findByTestId("assemblage-a1")).getByRole("button", { name: "Envoyer à un créateur" }));
+      expect(await screen.findByRole("link", { name: "Sophie + demo appli" })).toBeInTheDocument();
+      expect(screen.getByLabelText("Le CTA est déjà incrusté dans la vidéo (rien à ajouter)")).toBeChecked();
+      expect(screen.getByLabelText("Légende et hashtags")).toHaveValue("my study app #study");
+      fireEvent.click(screen.getByRole("button", { name: "Créer le post" }));
+      await waitFor(() => expect(creerPostVideo).toHaveBeenCalledTimes(1));
+      expect(creerPostVideo.mock.calls[0][0]).toMatchObject({
+        compteId: "c1",
+        ctaIncruste: true,
+        videos: [{ url: "https://x/complete.mp4", assemblageId: "a1", generationId: "g1" }],
+      });
+    });
+
+    it("change la langue d'une démo, et la montre nettoyée de ses identifiants IA", async () => {
+      listerSources.mockResolvedValue([]);
+      listerDemos.mockResolvedValue([{ ...DEMO, video_url: "https://x/d.mp4", duree_s: 6, nettoyage: { retires: ["moov/udta"], verifie: true, taille: 10 } }]);
+      majDemo.mockResolvedValue({ demo: DEMO });
+      rendre();
+      const ligne = await screen.findByTestId("demo-d1");
+      expect(within(ligne).getByText("sans identifiants IA")).toBeInTheDocument();
+      expect(within(ligne).getByLabelText("Langue de la démo demo appli")).toHaveValue("de");
+      fireEvent.change(within(ligne).getByLabelText("Langue de la démo demo appli"), { target: { value: "fr" } });
+      await waitFor(() => expect(majDemo).toHaveBeenCalledWith("d1", { langue: "fr" }));
+    });
+
+    it("à l'envoi, les comptes de la langue de la vidéo d'abord, et une alerte si la langue diffère", async () => {
+      const compteDe = { ...COMPTE_LEA, id: "c2", handle_tiktok: "anna.ugc", poster_prenom: "Anna", langue: "de" };
+      listerSources.mockResolvedValue([source({})]);
+      listerComptes.mockResolvedValue([COMPTE_LEA, compteDe]);
+      listerAssemblages.mockResolvedValue([
+        {
+          id: "a1",
+          generation_id: "g1",
+          demo_id: "d1",
+          langue: "de",
+          nettoyage: { retires: [], verifie: true, taille: 1 },
+          bandeau_actif: true,
+          bandeau_texte: "x",
+          bandeau_position: 36,
+          video_url: "https://x/complete.mp4",
+          duree_s: 9,
+          statut: "prete",
+          erreur: null,
+          created_at: "2026-11-09T10:00:00Z",
+          persona_id: "p1",
+          source_id: "s1",
+          demo_nom: "demo appli",
+        } satisfies AssemblageUgcIa,
+      ]);
+      rendre();
+      fireEvent.click(within(await screen.findByTestId("assemblage-a1")).getByRole("button", { name: "Envoyer à un créateur" }));
+      const choix = await screen.findByLabelText("Compte UGCV");
+      const options = within(choix).getAllByRole("option").map((o) => o.textContent);
+      expect(options[1]).toContain("@anna.ugc");
+      fireEvent.change(choix, { target: { value: "c1" } });
+      expect(screen.getByText("Attention : la vidéo est en Allemand, le compte en Anglais.")).toBeInTheDocument();
+      fireEvent.change(choix, { target: { value: "c2" } });
+      expect(screen.queryByText(/Attention : la vidéo est en/)).not.toBeInTheDocument();
     });
   });
 });

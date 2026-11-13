@@ -1,0 +1,400 @@
+{
+ "id": "ka-016",
+ "titre": {
+  "en": "10/10 skills to learn at home",
+  "fr": "10/10 skills à apprendre chez toi",
+  "de": "10/10 Skills für zuhause"
+ },
+ "legendes": {
+  "en": "10/10 skills to learn at home #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills à apprendre chez toi #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für zuhause #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 10/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor branche, en en, fr et de. Des passe-temps qu'on apprend seul chez soi (échecs, dessin, Rubik's cube, guitare), jamais faits chez nous. Sophia en étape 3 « HOW TO BE WELL-READ » : cta A, « 5 min a day ». Couverture fr en « SKILLS » (colonne étroite de la branche). Vraies vidéos : en Mr.Animate, pikat, J Perm, Andy Guitar ; fr Julien Song, Apprendre à Dessiner, Delnart, La Guitare avec Alexandre ; de Niklas Steenfatt, Jessie Bluegrey, Cubecumber, werdemusiker.de.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO LEARN",
+     "AT HOME"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS À",
+     "APPRENDRE",
+     "CHEZ TOI"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "ZUHAUSE"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PLAY CHESS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IU6k-4rKf-g",
+     "titre": "Learn How to Play Chess for Beginners in Less Than 8 Minutes",
+     "chaine": "Mr.Animate",
+     "vues": "2.9M views",
+     "date": "6 years ago",
+     "duree": "7:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_keErs7KSaKWnjurcbpK6B2b7EN2kIeVMZYJe4SKDw1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT JOUER",
+     [
+      {
+       "t": "AUX ÉCHECS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "upixcS1m540",
+     "titre": "Apprends à jouer aux échecs ! Le guide ultime pour débutant.",
+     "chaine": "Julien Song",
+     "vues": "693 k vues",
+     "date": "il y a 3 ans",
+     "duree": "49:20",
+     "avatar": "https://yt3.ggpht.com/Bd9iqICF-q6k5wYIvodr_KSRU_o_i-1IkAR3_D_yBOwHDkAydJfzfWohHdIRsi0yVYGhte7QCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPIELST DU",
+     [
+      {
+       "t": "SCHACH",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y6vQRcp0w40",
+     "titre": "SCHACH LERNEN: Das einzige Video, das du brauchst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "767.008 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "21:55",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "DRAW",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XeIR7P82aPU",
+     "titre": "How to start drawing (for beginners)",
+     "chaine": "pikat",
+     "vues": "2.5M views",
+     "date": "2 years ago",
+     "duree": "9:43",
+     "avatar": "https://yt3.ggpht.com/vu81JD2vVkaWd0n06pfqiNnN2qPT-7R9sbu5gyQubNnA-j7SejdteBW9_zTpBfVbRAjd1GvMJkM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "DESSINER",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sCdLEruNklI",
+     "titre": "APPRENDRE À DESSINER: LA SEULE MÉTHODE QUI FONCTIONNE",
+     "chaine": "Apprendre à Dessiner",
+     "vues": "635 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:39",
+     "avatar": "https://yt3.ggpht.com/fPLVxfprU2jffNQlDjWe0---wAqtcXfhVq9zN8h6cMTy3buTDiLH0qacd8lAK454EPEUIH9V7Xo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "ZEICHNEN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VDxfM2ul-Bo",
+     "titre": "SO KANN JEDER ZEICHNEN! Ja, sogar DU ✨// Zeichnen für Anfänger",
+     "chaine": "Jessie Bluegrey",
+     "vues": "1,4 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "17:20",
+     "avatar": "https://yt3.ggpht.com/qO19V-b2dgpH_cvwzxpoFQ_W4ebNDPTyl2BBzScW-ni3OhOl5nkrRW-1ltQqn8YgJdQgosu4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO BE",
+     [
+      {
+       "t": "WELL-READ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "ÊTRE CULTIVÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRST DU",
+     [
+      {
+       "t": "BELESEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SOLVE",
+     [
+      {
+       "t": "A RUBIK'S CUBE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "102M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FINIR",
+     [
+      {
+       "t": "UN RUBIK'S CUBE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uORbJS9bp54",
+     "titre": "Comment résoudre un Rubik's Cube (méthode facile et rapide)",
+     "chaine": "Delnart",
+     "vues": "5,7 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/iJE1jTrWOv2-oFTsmZwq1eYWf63RfDb6pKX7U1187EZubJ-VaKY4dXV4pCYix9xDEML27naa=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LÖST DU",
+     [
+      {
+       "t": "DEN ZAUBERWÜRFEL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PLAY GUITAR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BBz-Jyr23M4",
+     "titre": "Guitar Lesson 1 - Absolute Beginner? Start Here! [Free 10 Day Starter Course]",
+     "chaine": "Andy Guitar",
+     "vues": "39M views",
+     "date": "10 years ago",
+     "duree": "16:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU3JrPpx35JfjrJ7I1Ta4Il7w7eLhwwIqpGFPKxz9jkrhy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT JOUER",
+     [
+      {
+       "t": "DE LA GUITARE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6f3N3-fLwAA",
+     "titre": "Votre tout PREMIER COURS DE GUITARE tuto CHANSON FACILE débutant",
+     "chaine": "La Guitare avec Alexandre",
+     "vues": "3,5 M de vues",
+     "date": "il y a 4 ans",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/g3g1HGtoQjVPWFvqwiP7NqFb3rVWoPhq1QOalKGsY3V7gUZ3evkIBBPsBSpDdHUrinfSMETPAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPIELST DU",
+     [
+      {
+       "t": "GITARRE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fwJ7knXMLj4",
+     "titre": "Gitarre lernen für Anfänger - Deine erste Gitarrenstunde - einfach & auf Deutsch",
+     "chaine": "Gitarre lernen (werdemusiker.de)",
+     "vues": "3,3 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "35:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l2oifu8pRIRvGh8eRjWF_FJVHNTfELGrPW7Y7zLBSImA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

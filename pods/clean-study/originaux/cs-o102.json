@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o102",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "db43ee88-b4a8-4ff9-9061-7284f2c814f1",
+  "titre": "elegant words to upgrade your vocabulary #vocabulary #studytok #english",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "db43ee88-b4a8-4ff9-9061-7284f2c814f1"
+  ],
+  "notes": "Déclinaison G2 de db43ee88 (notre cs-o050 en G1 : r 45,45 en allemand, 41,7 k vues), ligne 4 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o096 : « elegant words to upgrade your vocabulary ». Mots neufs, aucun de cs-o050, cs-o096 ni du parent 85dd07fe ; définitions et exemples vérifiés dans leur sens courant : candid, pragmatic, tenacious, lucid, cultivate (place micabo, slide 6 : se tester). Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "39eb3892",
+      "texte_overlay": "elegant words to upgrade your vocabulary",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3e84d05c",
+      "texte_overlay": "candid\nadjective — honest and direct\n\"my teacher gave me candid feedback on my essay.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "420a5531",
+      "texte_overlay": "pragmatic\nadjective — dealing with things in a practical way\n\"a pragmatic plan: one chapter a day.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "424a6b53",
+      "texte_overlay": "tenacious\nadjective — not giving up easily\n\"she's tenacious: she redid the exercise until it worked.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "424e8b39",
+      "texte_overlay": "lucid\nadjective — clear and easy to understand\n\"her explanation was so lucid i finally got it.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "d2a46b01",
+      "texte_overlay": "cultivate\nverb — to develop a skill or quality over time\n\"quizzing yourself daily cultivates a strong memory.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4368fe7a",
+      "texte_overlay": "part 3? 📜",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

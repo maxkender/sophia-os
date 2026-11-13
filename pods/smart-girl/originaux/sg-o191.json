@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o191",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2370726f-6eba-42dc-ba86-f85e5539ba8b",
+ "titre": "basic manners that will instantly raise your status #manners #etiquette #smartgirl #elegance #status",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "2370726f-6eba-42dc-ba86-f85e5539ba8b"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 22 de la boîte (parent 2370726f, langue source en) : accroche du parent mot pour mot. Manières neuves face au parent (frapper avant d'entrer, rendre un appel manqué, ne pas parler la bouche pleine, remettre sa chaise, saluer en entrant dans une boutique, dire au revoir à l'hôte). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "484e1b68",
+   "texte_overlay": "basic manners that will\ninstantly raise your status",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3294fb20",
+   "texte_overlay": "1. knocking before you enter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d24fbbd6",
+   "texte_overlay": "2. returning missed calls\nthe same day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "170df1ba",
+   "texte_overlay": "3. never talking with\nyour mouth full",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "23f94b81",
+   "texte_overlay": "4. pushing your chair back in",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "031b9dc0",
+   "texte_overlay": "5. saying hello when you\nwalk into a shop",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4af2421f",
+   "texte_overlay": "6. saying goodbye to the host",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8506a100",
+   "texte_overlay": "7. general knowledge\n\nyou don't need an encyclopedia,\njust one short story a day.",
+   "texte_sophia": "7. general knowledge\n\nyou don't need an encyclopedia:\n5 minutes a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "54d63d19",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586609726767713556/9.jpg"
+  }
+ ]
+}

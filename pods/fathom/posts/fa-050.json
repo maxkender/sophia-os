@@ -11,7 +11,9 @@
   "pt": "10/10 habilidades para aprender num dia!",
   "pt-BR": "10/10 habilidades para aprender em um dia!",
   "it": "10/10 abilità da imparare in un giorno!",
-  "es-419": "¡10/10 habilidades para aprender en un día!"
+  "es-419": "¡10/10 habilidades para aprender en un día!",
+  "fr": "10/10 compétences à apprendre en une journée",
+  "es": "10/10 habilidades que puedes aprender en un día"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Day! #skills #learnontiktok #selfmastery",
@@ -19,7 +21,9 @@
   "pt": "10/10 habilidades para aprender num dia! #habilidades #aprendernotiktok #desenvolvimentopessoal",
   "pt-BR": "10/10 habilidades para aprender em um dia! #habilidades #aprendanotiktok #desenvolvimentopessoal",
   "it": "10/10 abilità da imparare in un giorno! #imparacontiktok #crescitapersonale #abilità",
-  "es-419": "¡10/10 habilidades para aprender en un día! #aprendeentiktok #desarrollopersonal #habilidades"
+  "es-419": "¡10/10 habilidades para aprender en un día! #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "10/10 compétences à apprendre en une journée #apprendresurtiktok #développementpersonnel #compétences",
+  "es": "10/10 habilidades que puedes aprender en un día #aprendeentiktok #desarrollopersonal #habilidades"
  },
  "musique": {
   "titre": "sonido original",
@@ -131,6 +135,42 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES",
+     "À APPRENDRE",
+     [
+      {
+       "t": "EN UNE JOURNÉE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE",
+     "PUEDES APRENDER",
+     [
+      {
+       "t": "EN UN DÍA",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -223,6 +263,36 @@
      "date": "hace 6 años",
      "duree": "7:47",
      "avatar": "https://yt3.ggpht.com/idiywMC6pfZxRTDvbdDcmXp3w8sZ5UrDnpYv2H-hH4IhIfPGLkMgzkk68HBby91E8X_twl1B_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "PLIE LE MEILLEUR",
+     "AVION EN PAPIER"
+    ],
+    "video": {
+     "id": "RUejGexzeWo",
+     "titre": "meilleur avion en papier - world record !!",
+     "chaine": "origami papier",
+     "vues": "3 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "3:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRcWhx1N4cFZa02tZ_bswb08L_kKEj4mgtr91D2RP4k5s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ EL MEJOR",
+     "AVIÓN DE PAPEL"
+    ],
+    "video": {
+     "id": "lZYRraIg3no",
+     "titre": "como hacer EL AVION DE PAPEL QUE MEJOR VUELA",
+     "chaine": "LA PAPELERA DE SHON",
+     "vues": "25 M de visualizaciones",
+     "date": "hace 9 años",
+     "duree": "3:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasjA1NiTmM4TPqnGVnW9OGIyLMoaWgWxkOxMN5mQfqg=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -317,6 +387,36 @@
      "duree": "4:50",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "MÉLANGE LES CARTES",
+     "COMME UN PRO"
+    ],
+    "video": {
+     "id": "PcERKclj9YM",
+     "titre": "Mélanger des Cartes Comme un Croupier ! (manipulations)",
+     "chaine": "MagieGratuit",
+     "vues": "287 k vues",
+     "date": "il y a 12 ans",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXU3F3x8Sbq-OHN1zcTlFC9lyNevYebQpU43-d3Fl1v60=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "BARAJA CARTAS",
+     "COMO UN PRO"
+    ],
+    "video": {
+     "id": "zgubZRupf94",
+     "titre": "😱MEZCLA COMO UN PRO! Como BARAJAR CARTAS con ESTILO para PRINCIPIANTES",
+     "chaine": "Domina La Magia",
+     "vues": "648 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "5:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -388,6 +488,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "UN DATO NUEVO",
+     "EN 5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UN NOUVEAU FAIT",
+     "EN 5 MINUTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "UN DATO NUEVO",
      "EN 5 MINUTOS"
@@ -491,6 +617,36 @@
      "date": "hace 7 años",
      "duree": "11:42",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMLEWxNh6DAng8uyCux9DtPpIKIaQyGqT6tgEQNjB0i1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "RÉSOUS UN",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "uORbJS9bp54",
+     "titre": "Comment résoudre un Rubik's Cube (méthode facile et rapide)",
+     "chaine": "Delnart",
+     "vues": "5,7 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/iJE1jTrWOv2-oFTsmZwq1eYWf63RfDb6pKX7U1187EZubJ-VaKY4dXV4pCYix9xDEML27naa=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "RESUELVE EL",
+     "CUBO DE RUBIK"
+    ],
+    "video": {
+     "id": "GyY0OxDk5lI",
+     "titre": "Resolver cubo de Rubik 3x3 (Principiantes) | Rápido y Fácil | EL MEJOR TUTORIAL | Español",
+     "chaine": "Cuby",
+     "vues": "85 M de visualizaciones",
+     "date": "hace 11 años",
+     "duree": "38:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ki1hWmCujGbk4_8wNHIVdZOe9p81HW8rK5uiib7ecptlU=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

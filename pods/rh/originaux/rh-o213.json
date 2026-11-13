@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o213",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai dit à ma manager que j'étais débordée (sans passer pour faible) #travail #charge #manager #santementale #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (dire qu'on est débordée). Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "076fcb1f",
+   "texte_overlay": "comment j'ai dit à ma manager\nque j'étais débordée\n(sans passer pour faible)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b936b9fd",
+   "texte_overlay": "j'ai demandé un rendez-vous\npas en couloir, pas par message",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b94e543e",
+   "texte_overlay": "j'ai listé mes tâches\navec le temps que prend chacune",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b96e4c9f",
+   "texte_overlay": "j'ai dit le fait, pas l'émotion\n« là, j'ai 50 heures de travail pour 35 »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ba8a425d",
+   "texte_overlay": "j'ai proposé des choix\n« lequel je mets en pause ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "841ee1a2",
+   "texte_overlay": "j'ai gardé un peu de temps pour moi\n5 minutes par jour à apprendre autre chose. pour tenir",
+   "texte_sophia": "j'ai gardé un peu de temps pour moi\n5 minutes par jour sur l'appli Sophia, à apprendre autre chose. pour tenir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bab987dd",
+   "texte_overlay": "elle a dit merci de lui avoir dit tôt",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "bb13a285",
+   "texte_overlay": "t'as déjà osé le dire ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

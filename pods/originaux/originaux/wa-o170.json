@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o170",
+ "type_bleo": "full_test",
+ "titre": "things you should stop apologising for #selfrespect #confidence #selfimprovement #mindset #boundaries",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "5e847779-074c-4c2f-9a6c-0ea8f02f84e3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 5e847779). full test BLEO : accroche jamais faite (format « things you should stop »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0433361a-9cab-4a08-87f8-c61c74b088dc",
+   "texte_overlay": "things you should stop\napologising for",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653867047855590669/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2671d445-158b-4b93-8d75-90cdc9a32533",
+   "texte_overlay": "taking up space\n\nstop saying sorry for sitting down, asking a question or being in the room. you belong there as much as anyone, and apologising for existing teaches people you don't.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653867047855590669/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "46baa28d-6407-4e48-8ddd-0620ec5aaab9",
+   "texte_overlay": "having needs\n\nstop apologising for needing rest, help or time alone. everyone has needs, and the people who state theirs calmly are the ones others quietly respect the most.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653867047855590669/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "605ae68b-de55-4a3d-9540-d901c71bc571",
+   "texte_overlay": "not knowing everything\n\nstop apologising for what you don't know yet. learning a little every day, like a fact about history or science, is how everyone gets smart, slowly and quietly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653867047855590669/3.jpg",
+   "texte_sophia": "not knowing everything\n\ni stopped apologising for what i didn't know. i do it with the Sophia app now, one lesson a day, a fact about history or science, and that's how everyone gets smart, slowly and quietly."
+  },
+  {
+   "position": 5,
+   "media_id": "3d6aea41-f1f2-438d-8ffc-8d2c4424e931",
+   "texte_overlay": "changing your mind\n\nstop saying sorry for changing your opinion after learning something new. updating your views is a clear sign of a growing mind, not an unreliable one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653867047855590669/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9f11071b-ebf9-4bc5-8886-d2e4f73d3506",
+   "texte_overlay": "saying no\n\nstop apologising for saying no to things you don't want to do. a calm, kind no protects your time, and the right people in your life will always understand it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7653867047855590669/6.jpg"
+  }
+ ]
+}

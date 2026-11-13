@@ -1,0 +1,60 @@
+{
+ "source_id": "am-o095",
+ "type_bleo": "full_test",
+ "titre": "Texting rules every grown man should follow #men #texting #respect #selfimprovement #communication",
+ "musique_titre": "bipolar (slowed)",
+ "musique_url": "https://www.tiktok.com/music/bipolar-slowed-7391819517150660624",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 12/11. Full test du jour (1 sur 3, jauge : 3 sur 9). Accroche jamais faite chez nous : aucun « texting » dans donnees/label.json. Le respect concret, dans un lieu neuf : le téléphone. Format : numéro, règle, deux lignes. Images de la banque ; slide Sophia : chambre de nuit sur la ville, sans personne. reference_url : le post source de am-o042 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35e70e36",
+   "texte_overlay": "Texting rules every grown man\nshould follow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1262dd30",
+   "texte_overlay": "1. Reply within a day\n\n\"Just saw this\" works once.\nNot every time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2d98b7de",
+   "texte_overlay": "2. Never text angry\n\nWrite it. Don't send it.\nRead it tomorrow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "207ef742",
+   "texte_overlay": "3. Call when it matters\n\nBad news, big news,\nan apology. Use your voice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "253b4287",
+   "texte_overlay": "4. Send something worth reading\n\nA good article, a funny fact,\nsomething you learned today.",
+   "texte_sophia": "4. Send something worth reading\n\nA good article, a funny fact,\nsomething you learned today\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2299e49d",
+   "texte_overlay": "5. No \"k\"\n\nOne letter says:\nyou're not worth a word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "052d8994",
+   "texte_overlay": "6. Voice notes under a minute\n\nNobody wants a podcast\nabout your day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0bb706fb",
+   "texte_overlay": "7. Don't leave people on read\non purpose\n\nGames are for kids.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  }
+ ]
+}

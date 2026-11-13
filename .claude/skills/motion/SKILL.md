@@ -39,14 +39,31 @@ La vidéo a un `sujet`, parfois une `consigne`, et une `capture_url` : la captur
 **en anglais** avec la carte du cours du sujet (fournie par l'admin, une par sujet).
 
 Le script suit `videos/suisse-guerre/src/langues/en/script.json` (types : `src/langues/types.ts`) :
-- **7 scènes**, ~85 mots, ~35 s à l'oral. S1 = accroche avec une question (« Why…? »). S7 = la chute.
+- **7 à 9 scènes**, ~85 à 140 mots (respecte la durée de la consigne, fin Sophia comprise : ~9 s). S7 = la chute.
   Phrases courtes, un fait par phrase, pas de chiffres inutiles.
+- **Rétention : 2 à 3 scènes d'intro avant la réponse** (demande d'Adrien). S1 = un chiffre ou une image choc,
+  puis on fait monter la question : fausses pistes (« no balloon… and no, it's not the engines »), « even some
+  textbooks get this wrong », la question posée franchement. La réponse ne tombe qu'à la S3 ou S4 (~12 à 15 s).
+  **La question posée, c'est la question du sujet, avec ses mots** (retour d'Adrien) : pour « How do planes fly? »,
+  la voix dit « So how do planes actually fly? », pas une variante (« why doesn't it fall? »).
+- **Une image de tous les jours** pour faire comprendre le point clé, juste après lui (demande d'Adrien ; ex. la
+  main qu'on sort par la fenêtre de la voiture pour la portance) : une scène à part, concrète, que chacun a vécue.
 - **Faits vérifiés**, formulations prudentes quand il le faut (ex. « foreign war » et pas « war »).
 - `reperes` : dans chaque scène, 0 à 2 mots sur lesquels doit tomber un moment fort de l'animation
   (`{mot, image, ou?}` ; `mot` = un mot exact du texte, ponctuation comprise ; `image` = l'image de la
   scène où tombe l'événement ; `ou: "fin"` pour caler sur la fin du mot, ex. une explosion après le mot).
+- `animation` (dans chaque scène, en français) : ce que l'animation montre, en 1 à 3 phrases concrètes
+  (décor, personnages, 2 à 4 actions et le mot sur lequel tombe chacune, transition). L'admin la relit et la
+  corrige dans la page avant de valider : écris-la pour qu'il voie la vidéo en lisant.
 - `outro.texte` : « Answer all these questions with the Sophia app. »
-- Écris pour l'oral : pas de « : » (pause forcée de la voix), « First, … / Second, … » plutôt que « One: … ».
+- **Écris pour l'oreille, pas pour l'œil** (demande d'Adrien) : la ponctuation, c'est le souffle de la voix.
+  Une virgule où on respire, un point seulement là où on marquerait vraiment une pause en parlant, jamais de
+  « … », pas de « : ». Des phrases qui s'enchaînent comme quand on raconte (« so », « and no », « plus », « but »),
+  des contractions (« it's », « what's », « your hand's »), pas de phrases télégraphiques (« Curved and tilted, it… »).
+  Relis chaque scène à voix haute : si tu ne la dirais pas comme ça à un ami, réécris-la.
+  La question qui ouvre la réponse : un point juste avant (« …get this wrong. So what's really…? ») pour que la
+  voix la pose vraiment, puis une réponse qui commence comme à l'oral (« Well, it's the wings. »), jamais sèche.
+  « First, … / Second, … » plutôt que « One: … ».
 - `appli` : les textes de l'appli. **Recopie de la capture** la catégorie, le titre, la description,
   « 100 k reads », etc. Écris la leçon (sous-titre + 2 paragraphes, 3 passages surlignés `{m}`) et
   **2 questions de quiz** dont la réponse est dans le script (`bonne` = index de la bonne réponse, B de
@@ -163,6 +180,11 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
      (Guillaume, 1.18) ; de `NlRO8ABjJNJNYaRaLiPJ` (Konrad, 1.2, style 0.45) ; it `32vqZVYOe7sQVGys0soJ`
      (Roberto, 1.2). Modèle `eleven_multilingual_v2`. Pas d'espace avant « ? » / « : » en français dans le
      texte dit (les sous-titres coupent sur les espaces).
+   - **Prononciation** (retour d'Adrien) : dans le texte dit, les nombres s'écrivent **en lettres** dans la langue
+     (« deux mille un », « cinq cents ») : en chiffres, la voix multilingue les lit parfois à l'anglaise. Pas de mots
+     composés rares avec trait d'union (« kilomètres-heure » → « à l'heure »). Garde la vitesse habituelle de la voix ;
+     si le texte est trop long, raccourcis-le plutôt qu'accélérer. Après `voix`, transcris le récit (ElevenLabs
+     speech-to-text, `scribe_v1`) et compare : un mot absent, changé ou anormalement court/long = à corriger.
 3. La capture : télécharge `capture_url` et convertis-la en `public/sophia-home.webp`
    (`ffmpeg -i capture.png public/sophia-home.webp`). Elle doit être une capture d'iPhone portrait de
    l'accueil, carte du cours en haut. Si sa carte n'est pas au même endroit que celle de la Suisse
@@ -179,6 +201,9 @@ Pour chaque langue de la vidéo (`fr, en, de, it` par défaut) :
    `rendre … --lambda` (tant que le quota AWS est à 10 : ~28 min pour 3 min 30, rendu en tranches ; après relèvement du quota et `REMOTION_LAMBDA_CONCURRENCE=100`, quelques minutes ; voir `videos/moteur/LAMBDA.md` §8). Après un échec Lambda, attendre ~15 min avant de relancer. Sinon, rendu local.
    `rendre --projet P --langue L` (la version postée, avec sous-titres, son à −14 LUFS ; ajoute `--sans-sous-titres`
    seulement si l'admin demande la version sans), puis `livrer --video V --projet P --langue L`.
+   **Nettoyage avant livraison** (demande d'Adrien) : `rendre` et `livrer` nettoient le MP4 d'eux-mêmes (aucune
+   métadonnée, aucune signature Remotion / x264 / Lavf / Lavc / ElevenLabs) et `livrer` refuse un fichier qui en garde.
+   Ne livre jamais un fichier par un autre chemin que `livrer`.
 7. `journal` à chaque étape importante. À la fin : `finir --tache T`.
 
 ## 4. Tâche `corriger`
@@ -188,6 +213,13 @@ La `consigne` est le commentaire de rejet de l'admin pour une `langue`. Applique
 visuel, `rendre`, `livrer`, `finir`. Si la consigne vaut pour toutes les langues, refais-les toutes.
 Ce que l'admin redemande souvent devient une règle : ajoute-le au §6.
 
+**L'admin peut changer les scènes dans la page** (ajouter, supprimer, réordonner, changer l'`animation`). Le journal
+le dit : « Script modifié par l'admin (scènes ajoutées : S8 ; scènes supprimées : S3 ; animation modifiée : S2) ».
+Les ids restent stables (une scène ajoutée prend le numéro libre suivant, sans repères ; l'ordre est celui de la
+liste). Avant de rendre, compare le script à `motion.json` du projet : écris les scènes ajoutées (§5), retire les
+supprimées de `motion.json`, `timeline.ts` (`BASE`) et `Sound.tsx`, refais celles dont l'animation a changé, puis
+régénère la voix (le texte a bougé) et recale les repères.
+
 ## 5. Nouveau sujet : écrire les scènes
 
 Copie `videos/supervolcan` (le modèle le plus récent) dans `videos/<slug>` (sans `node_modules`, `out`, `public/audio`,
@@ -195,6 +227,9 @@ Copie `videos/supervolcan` (le modèle le plus récent) dans `videos/<slug>` (sa
 (id de composition). Puis écris les scènes du sujet dans `src/scenes/` (autant que le script en a ; une scène = un
 fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 
+0. Pour chaque scène, l'`animation` du script validé est la commande de l'admin : respecte-la (décor, actions, mots
+   où elles tombent) et complète ce qu'elle ne dit pas avec les règles du §6. Si elle est impossible ou contredit
+   le §6, fais au plus proche et écris pourquoi dans le journal.
 1. Génère d'abord la voix anglaise, puis calcule pour chaque scène son début, sa durée et l'image locale de chaque mot
    (même calcul que `construireTimeline`) : la scène se conçoit **à la vitesse de la voix anglaise** (`STRETCH = 1`,
    `BASE` = ces durées), chaque action tombe sur l'image de son mot.
@@ -224,6 +259,13 @@ fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 
 ## 6. Règles de qualité (retours de l'admin)
 
+- Script : ne donne jamais la réponse dans la première scène ; 2 à 3 scènes de suspense d'abord (§2).
+- **Cohérence du dessin** (retour d'Adrien) : un objet a le même dessin dans toutes les scènes et dans la fin Sophia
+  (décor qui flotte, carte, image de la leçon) ; le sens du mouvement est le même partout (l'avion vole vers la
+  droite, donc ses gros plans et l'air qui le frappe aussi) ; mêmes couleurs pour le même décor (herbe, route).
+  Sans capture du cours, rien de la capture du modèle ne doit se voir dans la fin (carte, image de la leçon,
+  « Up next » assorti à son titre). Avant le rendu, une planche dense (une image par seconde) pour le vérifier.
+
 - **Chaque nombre dit a son unité** (« treize mille kilomètres », jamais « treize mille » seul), même si elle vient d'être dite.
 - **Voix fluide** : pas plus vite que speed 1,1 en français ; on ne coupe pas les blancs entre les mots d'une phrase
   (geo-modele/scripts/resserrer.mjs : fins de phrase et virgules seulement, avec fondu).
@@ -231,6 +273,10 @@ fichier, un SVG 1080×1920 via `Stage`). La bonne méthode (supervolcan) :
 - Papier découpé : fond kraft, couleurs franches, ombres, bords qui vibrent légèrement. **Aucun texte dans
   les visuels** (seulement les sous-titres et l'interface de l'appli).
 - **Très dynamique** : une action toutes les 1 à 2 s, transitions déchirure / panoramique fouetté entre scènes.
+  **Mais jamais entre deux plans identiques** (retour d'Adrien) : quand la scène suivante reprend le même décor au
+  même cadrage (même projecteur, même profil d'aile…), c'est une coupe franche, `none()` de `@remotion/transitions/none`,
+  sans son de transition (`''` dans `TRANSITIONS` de `Sound.tsx`), et la fin de l'une = le début de l'autre au pixel près
+  (caméra, décor, éclairage). Vérifie les jointures sur une planche des 2 images avant / après.
 - **Peu de tremblements** : `SHAKE_K = 0.35`, pas de secousse forte hors des gros impacts.
 - Rythme : le récit dure ~36 s en anglais (un poil plus que 30 s). Pentes de scène ≥ 0,5.
 - Voix fluide : aucun « : » dans le texte dit, blancs resserrés (0,28 s max entre deux phrases).

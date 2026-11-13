@@ -13,12 +13,12 @@ import {
   libelleBouton,
   lireDemandeAide,
   lireLibellesBoutons,
-  texteDemandeAide,
   vueAide,
 } from "../_shared/reponses.ts";
+import { depuisAideSlack } from "../_shared/support.ts";
 import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
-import { lirePhraseBonus } from "../_shared/bonus.ts";
-import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { lirePhraseBonus, personneSure, raisonBonus, type PersonneProche } from "../_shared/bonus.ts";
+import { json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Point d'entrée « Interactivity » des deux applis Slack de l'OS :
@@ -213,9 +213,9 @@ async function ouvrirAide(payload: any): Promise<boolean> {
 }
 
 /**
- * La fenêtre envoyée : un message du posteur (posteur_reponses, canal slack)
- * avec le sujet, sa question et le lien de la capture. Il suit le chemin des
- * messages reçus (classé par l'IA, réponse du guide ou carte Problèmes).
+ * La fenêtre envoyée : une demande dans Support (0671, page admin « Support »),
+ * question ou problème selon le sujet, avec sa question et le lien de la capture.
+ * La réponse de l'équipe lui revient en message privé et sur Help.
  */
 // deno-lint-ignore no-explicit-any
 async function envoyerAide(payload: any): Promise<Response> {
@@ -233,15 +233,29 @@ async function envoyerAide(payload: any): Promise<Response> {
     meta = {};
   }
   if (!profil?.id) {
-    return json({ response_action: "errors", errors: { texte: "We couldn't find your account. Please write in #questions." } });
+    return json({ response_action: "errors", errors: { texte: "We couldn't find your account. Please click Help on your dashboard." } });
   }
-  const { error } = await supabase.from("posteur_reponses").insert({
-    poster_id: profil.id,
-    canal: "slack",
-    source_id: `aide:${String(payload?.view?.id ?? meta.ts ?? Date.now())}`,
-    texte: texteDemandeAide(demande),
+  // 11/11 (0671) : la demande arrive dans Support (page admin), plus dans Problèmes.
+  const { type, categorie } = depuisAideSlack(demande.categorie);
+  const { data: ajout, error } = await supabase.rpc("support_ajouter", {
+    p: {
+      poster_id: profil.id, type, categorie, texte: demande.texte, source: "slack_aide", escalader: true,
+      capture: demande.captures.join(" ") || null,
+    },
   });
-  if (error && error.code !== "23505") {
+  const idAide = (ajout as { id?: string; fusion?: boolean } | null);
+  if (!error && idAide?.id && idAide.fusion === false) {
+    // 12/11 (Support propre) : le support trie la demande (Adrien, ou Max pour paiement / urgent, avec son alerte).
+    const alerte = fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/support`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": (await secretCron()) ?? "" },
+      body: JSON.stringify({ action: "trier", id: idAide.id }),
+    }).catch(() => undefined);
+    // deno-lint-ignore no-explicit-any
+    const edgeA = (globalThis as any).EdgeRuntime;
+    if (edgeA?.waitUntil) edgeA.waitUntil(alerte);
+  }
+  if (error) {
     console.error("slack-interactions aide", messageErreur(error));
     return json({ response_action: "errors", errors: { texte: "Not sent, please try again." } });
   }
@@ -252,7 +266,7 @@ async function envoyerAide(payload: any): Promise<Response> {
       body: JSON.stringify({
         replace_original: false,
         response_type: "ephemeral",
-        text: "✅ Thanks, your question was sent to the team. You'll get an answer here.",
+        text: "✅ Thanks, your request was sent to the team. You'll get an answer here and on Help in your dashboard.",
       }),
     }).catch(() => undefined);
     // deno-lint-ignore no-explicit-any
@@ -402,9 +416,19 @@ async function commandeBonus(f: URLSearchParams): Promise<Response> {
   if (!texte) return repondre("Exemple : /bonus donne 2 $ de bonus à Martin Befeld lundi, raison test");
   const lu = lirePhraseBonus(texte, new Date().getUTCFullYear());
   if ("erreur" in lu) return repondre(`Pas compris : ${lu.erreur}.`);
-  const { data, error } = await supabase.rpc("bonus_donner", { p_nom: lu.nom, p_montant: lu.montant, p_lundi: lu.lundi, p_raison: lu.raison, p_par: null });
+  // 0571 : la personne par ressemblance ; un seul nom exact, sinon on propose les plus proches.
+  const { data: proches, error: errProches } = await supabase.rpc("bonus_personnes_proches", { p_texte: lu.texteNom, p_limite: 5 });
+  if (errProches) return repondre(`Erreur : ${errProches.message}`);
+  const liste = (proches ?? []) as PersonneProche[];
+  const personne = personneSure(liste);
+  if (!personne) {
+    if (liste.length === 0) return repondre(`Personne ne ressemble à « ${lu.nom || lu.texteNom} ». Écris le prénom et le nom.`);
+    return repondre(`Pas de nom exact. Tu voulais dire : ${liste.map((x) => x.nom).join(", ")} ? Renvoie /bonus avec le nom exact.`);
+  }
+  const raison = raisonBonus(lu, personne.nom);
+  const { data, error } = await supabase.rpc("bonus_donner_a", { p_poster: personne.id, p_montant: lu.montant, p_lundi: lu.lundi, p_raison: raison, p_par: null });
   if (error) return repondre(`Erreur : ${error.message}`);
   const r = data as { ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string };
   if (!r.ok) return repondre(`Pas ajouté : ${r.erreur}.`);
-  return repondre(`✅ ${r.montant} $ à ${r.nom} (lundi ${r.lundi}, raison : ${lu.raison}). À valider dans Weekly decisions → Bonus de lundi.`);
+  return repondre(`✅ ${r.montant} $ à ${r.nom} (lundi ${r.lundi}, raison : ${raison}). À valider sur la page Bonus.`);
 }

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o194",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "afc8dfba-c654-4197-a53f-f5bfb1b4aaa8",
+ "titre": "Things men learn too late about friendship #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "afc8dfba-c654-4197-a53f-f5bfb1b4aaa8"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 5895d55d. déclinaison G1 de la ligne 9 de la boîte (afc8dfba, notre full test ay-o118 qui a gagné : tr 8,3 k r 6,93) : accroche du parent mot pour mot. Items neufs, aucun repris d'ay-o118. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5895d55d",
+   "texte_overlay": "Things men learn too\nlate about friendship",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Friendships fade quietly, not with a fight. No drama, just months without a call. If you value someone, put a regular dinner or call in the calendar.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "The friends from your 20s won't all stay. People move, marry, change. Keeping a few close is a choice you make again and again, not something that just happens.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Men need to talk too. Not just about football and work. A friend who asks \"How are you really?\" and waits for the answer is worth more than ten party friends.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You can make new friends at any age. A sport, a class, a new job. It feels awkward at first, but adult friendships can be the deepest ones of all.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: catch-ups were the same old stories. After: five minutes a day of history, art or science, and something new to bring to every dinner with friends.",
+   "texte_sophia": "Before: catch-ups were the same old stories. After: five minutes a day on a micro-learning app like the Sophia app. Now I bring something new to every dinner.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Showing up matters more than saying the right thing. At the hospital, the funeral, the move. You don't need words. Being there is the whole message.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Real friends are allowed to disagree with you. The one who tells you a hard truth kindly is protecting you. Keep that friend close for the rest of your life.",
+   "media_id": "3be6dd87"
+  }
+ ]
+}

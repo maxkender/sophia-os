@@ -46,12 +46,10 @@ export function planRelance(
 ): PlanRelance {
   const etape = planEtape(x, etats, maintenant, d);
   if (etape.needsYou) return { element: null, elements: [], needsYou: true, follows: 0 };
-  // L'étape 0 : pas sur Slack (lien d'invitation connu), le même délai que la connexion.
-  // 6/11 : « déjà sur Slack » = l'id du profil, ou un id connu ailleurs / une déclaration (slack_connu).
-  const slack = o.slack === true && !x.deuxieme && !x.slack_user_id && !x.slack_connu && Boolean(x.bienvenue_at) &&
-    maintenant.getTime() >= new Date(x.bienvenue_at!).getTime() + (d.connexion_message_h ?? 24) * H;
-  // 1/11 : l'étape la plus importante d'abord (dashboard > TikTok > Start warmup > follows), Slack en dernier.
-  const elements: ElementRelance[] = [...(etape.element ? [etape.element] : []), ...(slack ? ["slack" as const] : [])];
+  // 10/11 : Slack ne bloque plus (décision du 28/10) : plus jamais de relance « pas sur Slack ».
+  // Slack reste une recommandation de l'onboarding seulement (`o.slack` est ignoré).
+  void o;
+  const elements: ElementRelance[] = etape.element ? [etape.element] : [];
   return { element: elements[0] ?? null, elements, needsYou: false, follows: etape.follows };
 }
 
@@ -109,6 +107,10 @@ export const TEXTES_RELANCE_DEFAUT: TextesRelance = {
   follows: "follow {follows} with @{handle} (Start warmup is done)",
 };
 
+/** 0592 : la relance d'un posteur Ruul : la date limite est le samedi 20 h (Paris), la date de début son lundi. */
+export const CADRE_RELANCE_RUUL =
+  "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}. Please finish before Saturday 8 pm (Paris time). If something is blocking you, just reply to this message.";
+
 /** Les variables connues ; une variable inconnue reste telle quelle (comme ailleurs). */
 function remplir(modele: string, vars: Record<string, string>): string {
   return modele.replace(/\{(\w+)\}/g, (tout, k: string) => (k in vars ? vars[k]! : tout));
@@ -131,26 +133,22 @@ export function texteRelance(
     email: string | null | undefined;
     /** Le lien d'invitation Slack (étape 0). */
     slack?: string;
-    /** 1/11 : « Start Tuesday » : le début est le mardi (« Tuesday {date} »), pas le lundi. */
+    /** 10/11 : ignoré : la date est toujours un lundi, celui de la cohorte (jamais « Tuesday »). */
     mardi?: boolean;
-    /**
-     * 2/11 : l'heure de l'envoi. Après le lundi de la cohorte 12:00 (Paris),
-     * une recrue pas prête ne commence plus cette semaine : le texte donne la
-     * vraie date de début, le lundi suivant (jamais « Tuesday »).
-     */
+    /** 10/11 : ignoré : la date vient de profiles.cohorte_lundi, lu au moment de l'envoi. */
     maintenant?: Date;
   },
 ): string {
   if (!t.cadre.trim()) return "";
-  const lundi = debutReel(o.cohorte_lundi, o.maintenant);
-  const mardi = Boolean(o.mardi) && lundi === o.cohorte_lundi;
-  const cadre = mardi ? t.cadre.replace(/\bMonday(\s+\{date\})/g, "Tuesday$1") : t.cadre;
+  // 10/11 : la date est le lundi de la cohorte (profiles.cohorte_lundi, lu à l'envoi), jamais
+  // une date calculée ou mémorisée, jamais un mardi.
+  const cadre = t.cadre.replace(/\bTuesday(\s+\{date\})/g, "Monday$1");
   const vars: Record<string, string> = {
     prenom: (o.prenom ?? "").trim() || "there",
     handle: (o.handle ?? "").replace(/^@/, ""),
     url: o.url,
     lien_etapes: o.lien_etapes,
-    date: dateAnglaise(mardi ? lendemain(lundi) : lundi),
+    date: dateAnglaise(o.cohorte_lundi),
     follows: `${plan.follows} more account${plan.follows > 1 ? "s" : ""}`,
     ...(o.email ? { email: o.email } : {}),
     slack: (o.slack ?? "").trim(),
@@ -161,7 +159,16 @@ export function texteRelance(
     .map((e) => remplir(((t[e] ?? "").includes("{mot_de_passe}") ? TEXTES_RELANCE_DEFAUT[e] : t[e] ?? "").trim(), vars))
     .filter(Boolean);
   if (morceaux.length === 0) return "";
-  return remplir(cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim();
+  return avecPiedHelp(remplir(cadre, { ...vars, ce_qui_manque: morceaux.join(" and ") }).trim());
+}
+
+/** 12/11 (Support propre) : chaque relance de l'OS se termine par ce renvoi vers Help. */
+export const PIED_HELP = "Stuck? Click Help on your dashboard.";
+
+export function avecPiedHelp(texte: string): string {
+  const t = texte.trimEnd();
+  if (!t || t.includes(PIED_HELP)) return t;
+  return `${t}\n\n${PIED_HELP}`;
 }
 
 /** 2/11 : le lundi où la recrue commence vraiment : celui de sa cohorte, ou le suivant après le lundi 12:00 (Paris). */
@@ -171,12 +178,6 @@ export function debutReel(cohorteLundi: string, maintenant?: Date): string {
   if (maintenant.getTime() < midi.getTime()) return cohorteLundi;
   const d = new Date(`${cohorteLundi}T12:00:00Z`);
   d.setUTCDate(d.getUTCDate() + 7);
-  return d.toISOString().slice(0, 10);
-}
-
-function lendemain(jour: string): string {
-  const d = new Date(`${jour}T12:00:00Z`);
-  d.setUTCDate(d.getUTCDate() + 1);
   return d.toISOString().slice(0, 10);
 }
 
@@ -215,22 +216,18 @@ export function choisirRelance(
   plan: Pick<PlanRelance, "elements">,
   surSlack: boolean,
   deja: ReadonlyMap<string, DejaRelance> | undefined,
-  maintenant: Date,
+  _maintenant: Date,
 ): ChoixRelance {
-  let attente: string | null = null;
   for (const e of plan.elements) {
     const d = deja?.get(e) ?? {};
     if (surSlack && e !== "slack") {
+      // 10/11 (Upwork saturé) : relié à Slack : la relance part sur Slack seulement (plus de relance Upwork 24 h après).
       if (!d.slack_at) return { element: e, canal: "slack", upwork_prevu_at: null };
-      if (d.upwork_at) continue;
-      const due = new Date(new Date(d.slack_at).getTime() + 24 * H);
-      if (maintenant >= due) return { element: e, canal: "upwork", upwork_prevu_at: null };
-      attente ??= due.toISOString();
       continue;
     }
     if (!d.upwork_at) return { element: e, canal: "upwork", upwork_prevu_at: null };
   }
-  return { element: null, canal: null, upwork_prevu_at: attente };
+  return { element: null, canal: null, upwork_prevu_at: null };
 }
 
 /** L'historique des relances parties (nudges) : par étape, l'heure de la 1re sur Slack et sur Upwork. */
@@ -244,7 +241,8 @@ export function historiqueRelances(
     for (const e of els) {
       const d = h.get(e) ?? {};
       if ((n.canaux ?? []).includes("slack")) d.slack_at ??= n.envoye_at;
-      if ((n.canaux ?? []).includes("upwork")) d.upwork_at ??= n.envoye_at;
+      // 0592 : l'email (posteur Ruul, par le site) tient la place d'Upwork (le canal hors Slack).
+      if ((n.canaux ?? []).includes("upwork") || (n.canaux ?? []).includes("email")) d.upwork_at ??= n.envoye_at;
       h.set(e, d);
     }
   }

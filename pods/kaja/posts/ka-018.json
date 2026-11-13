@@ -1,0 +1,341 @@
+{
+ "id": "ka-018",
+ "titre": {
+  "en": "10/10 skills to survive in the wild",
+  "fr": "10/10 compétences pour survivre dans la nature",
+  "de": "10/10 Skills zum Überleben in der Wildnis"
+ },
+ "legendes": {
+  "en": "10/10 skills to survive in the wild #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences pour survivre dans la nature #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills zum Überleben in der Wildnis #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 11/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor falaise, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia (comme ses posts à 5 slides) : abri, eau potable, nœuds ; « trouver le nord » écarté faute de vraie vidéo allemande au niveau. Sophia en étape 3 « HOW TO UNDERSTAND THE WORLD » : cta C, « 5 min a day ». Vraies vidéos : en Survival Lilly, Simon a bloke in the woods, InnerBark Outdoors ; fr Armée de Terre, Survie-Formation, RESAUV ; de ERN Survival, Bundeswehr, Fritz Meinecke.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS TO",
+     "SURVIVE IN",
+     "THE WILD"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "POUR SURVIVRE",
+     "DANS LA NATURE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS ZUM",
+     "ÜBERLEBEN IN",
+     "DER WILDNIS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO BUILD",
+     [
+      {
+       "t": "A SHELTER",
+       "couleur": "#6a482f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tzUpH0Zft5c",
+     "titre": "5 Survival Shelters Everyone Should Know",
+     "chaine": "Survival Lilly",
+     "vues": "3.2M views",
+     "date": "6 years ago",
+     "duree": "17:46",
+     "avatar": "https://yt3.ggpht.com/82RHrpGf24eSsUUJh2TQtia90rO1slUTkVAalo6Yi2M9v4Y9lCoLbpMZaHo2NW87iYLt_vc-6qo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT CONSTRUIRE",
+     [
+      {
+       "t": "UN ABRI",
+       "couleur": "#6a482f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r12hB0zTges",
+     "titre": "[TUTOS] L'adjudant-chef Gatien vous dit tout sur la survie : épisode 2 \"l'abri\"",
+     "chaine": "Armée de Terre",
+     "vues": "346 k vues",
+     "date": "il y a 6 ans",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/7xt-ahjEFJWtPBqEOvxnTGyEVkFXUAU9iYwr2g2eT9c-SXZ_tz4KzgdCC0huuLvrKBFe4OGq4g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BAUST DU",
+     [
+      {
+       "t": "EINEN UNTERSCHLUPF",
+       "couleur": "#6a482f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R9qyYmLNiyo",
+     "titre": "Die Laubhütte - Unterschlupf bauen ohne Werkzeug",
+     "chaine": "ERN Survival",
+     "vues": "22.447 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "20:00",
+     "avatar": "https://yt3.ggpht.com/sqtkvL34DsLXfspwLBbhTCSLtkWY-qu38Jb6uJeWvOg34oze_Hjm2h--y7hz6M0Jwqvod6Tlktk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PURIFY WATER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ayu1ykggouk",
+     "titre": "Purifying Water - Filters vs Boiling vs Chemicals. What I do to Make Water Safe for Drinking.",
+     "chaine": "Simon, a bloke in the woods",
+     "vues": "171K views",
+     "date": "3 years ago",
+     "duree": "12:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIz_NbQSsbJyGwOCxMPT45xOr7IXrrXlih_NEUI6AvKQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "PURIFIER L'EAU",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aZusRHXECMY",
+     "titre": "Secret des forces spéciales - Purification de l'eau sans matériel.",
+     "chaine": "SURVIE-FORMATION",
+     "vues": "572 k vues",
+     "date": "il y a 4 ans",
+     "duree": "9:54",
+     "avatar": "https://yt3.ggpht.com/lyYIRC0GuH6wR8RONr6fY_YXDWXtbvRzxyR5l2Qv7e-R64gMw4OIG_JMtOFeUg0RkJz_64XW-SU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FILTERST DU",
+     [
+      {
+       "t": "WASSER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lUkChDqH5IM",
+     "titre": "Survival-Tipps #5: Wasser filtern - Bundeswehr",
+     "chaine": "Bundeswehr",
+     "vues": "68.659 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "1:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kqDNaSzIKZAEcrDoZQYyKmik8hCL7ofj29bgJaK1jgLoo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "UNDERSTAND",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "THE WORLD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "COMPRENDRE",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "LE MONDE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO VERSTEHST DU",
+     [
+      {
+       "t": "DIE WELT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "TIE KNOTS",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3X8drKsdf5E",
+     "titre": "7 Essential Knots You Need To Know",
+     "chaine": "InnerBark Outdoors",
+     "vues": "19M views",
+     "date": "10 years ago",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mNq4RS5g4TRhD-OkMUCmboTlg182ejjTvvVZhnXVM0wg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "LES BONS NŒUDS",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m3InYxFpzI4",
+     "titre": "15 Nœuds indispensables pour la #survie et #buscraft",
+     "chaine": "RESAUV",
+     "vues": "72 k vues",
+     "date": "il y a 3 ans",
+     "duree": "27:04",
+     "avatar": "https://yt3.ggpht.com/SzC_dCuy1asb6vGlmyoQrwgSvDmzqdUHAA4VmSKSjd9TrRdDbMxa2pJ3GYi4gMsdzBTVXnoR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "KNOTEN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N6JpoBYoGdk",
+     "titre": "Meine Top 5 Outdoor Bushcraft Survival Knoten - Deutschland (german/deutsch)",
+     "chaine": "Fritz Meinecke",
+     "vues": "185.777 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/5AHYzlRfdC4xpFIzCroJ35-qqzlgkilcUu3J7CWFvZ_l0bp9OKeOUgjdQfKPsoXEBjTSHLNb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

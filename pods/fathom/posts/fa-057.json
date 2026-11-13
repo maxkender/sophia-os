@@ -6,14 +6,18 @@
   "de": "4 Hobbys für ein junges Gehirn",
   "it": "4 hobby per un cervello sempre giovane",
   "pt-BR": "4 hobbies que mantêm seu cérebro jovem",
-  "es-419": "4 pasatiempos que mantienen tu cerebro joven"
+  "es-419": "4 pasatiempos que mantienen tu cerebro joven",
+  "fr": "4 loisirs pour un cerveau jeune",
+  "es": "4 aficiones para un cerebro joven"
  },
  "legendes": {
   "en": "4 Hobbies That Keep Your Brain Young #brainhealth #learnontiktok #selfimprovement",
   "de": "4 Hobbys für ein junges Gehirn #gehirn #lernenmittiktok #selbstverbesserung",
   "it": "4 hobby per un cervello sempre giovane #cervello #imparacontiktok #crescitapersonale",
   "pt-BR": "4 hobbies que mantêm seu cérebro jovem #cérebro #aprendanotiktok #desenvolvimentopessoal",
-  "es-419": "4 pasatiempos que mantienen tu cerebro joven #cerebro #aprendeentiktok #desarrollopersonal"
+  "es-419": "4 pasatiempos que mantienen tu cerebro joven #cerebro #aprendeentiktok #desarrollopersonal",
+  "fr": "4 loisirs pour un cerveau jeune #cerveau #apprendresurtiktok #loisirs",
+  "es": "4 aficiones para un cerebro joven #cerebro #aprendeentiktok #aficiones"
  },
  "musique": {
   "titre": "audio originale",
@@ -108,6 +112,40 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "4 LOISIRS",
+       "bronze": true
+      }
+     ],
+     "POUR UN",
+     [
+      {
+       "t": "CERVEAU JEUNE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "4 AFICIONES",
+       "bronze": true
+      }
+     ],
+     "PARA UN",
+     [
+      {
+       "t": "CEREBRO JOVEN",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -180,6 +218,36 @@
      "date": "hace 6 años",
      "duree": "13:45",
      "avatar": "https://yt3.ggpht.com/PBHX0FLo9QGmDh5wh5QBdU1vBDwf7DNJ6KUR2dWZYfConH-k8CNj2ZPdjBCUwha9xwWMK_JHMg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "JOUE AUX",
+     "ÉCHECS"
+    ],
+    "video": {
+     "id": "sxJmefXA46M",
+     "titre": "Les 4 ERREURS que les DEBUTANTS font le plus aux échecs",
+     "chaine": "Julien Song",
+     "vues": "254 k vues",
+     "date": "il y a 3 ans",
+     "duree": "11:51",
+     "avatar": "https://yt3.ggpht.com/Bd9iqICF-q6k5wYIvodr_KSRU_o_i-1IkAR3_D_yBOwHDkAydJfzfWohHdIRsi0yVYGhte7QCw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "JUEGA",
+     "AL AJEDREZ"
+    ],
+    "video": {
+     "id": "X7F_vPjkMqM",
+     "titre": "21 CONSEJOS de AJEDREZ para PRINCIPIANTES (FUNCIONAN!)",
+     "chaine": "Rey Enigma",
+     "vues": "224 K visualizaciones",
+     "date": "hace 6 meses",
+     "duree": "19:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTu7ZL5ZR2EeI1H5CZzLpaQ3GTjqbIva8Ry323qw1CLw=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -259,6 +327,36 @@
      "duree": "11:42",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMLEWxNh6DAng8uyCux9DtPpIKIaQyGqT6tgEQNjB0i1A=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "RÉSOUS UN",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "uORbJS9bp54",
+     "titre": "Comment résoudre un Rubik's Cube (méthode facile et rapide)",
+     "chaine": "Delnart",
+     "vues": "5,7 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/iJE1jTrWOv2-oFTsmZwq1eYWf63RfDb6pKX7U1187EZubJ-VaKY4dXV4pCYix9xDEML27naa=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "RESUELVE EL",
+     "CUBO DE RUBIK"
+    ],
+    "video": {
+     "id": "GyY0OxDk5lI",
+     "titre": "Resolver cubo de Rubik 3x3 (Principiantes) | Rápido y Fácil | EL MEJOR TUTORIAL | Español",
+     "chaine": "Cuby",
+     "vues": "85 M de visualizaciones",
+     "date": "hace 11 años",
+     "duree": "38:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ki1hWmCujGbk4_8wNHIVdZOe9p81HW8rK5uiib7ecptlU=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -326,6 +424,32 @@
      "texte": [
       "lo que abro",
       "en lugar de scrollear."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS UN TRUC",
+     "NOUVEAU CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE ALGO",
+     "NUEVO CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
      ]
     }
    }
@@ -405,6 +529,36 @@
      "date": "hace 3 años",
      "duree": "17:19",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYf6yz2VdprFSCb7RwQt2TZm6_7C1k62qtlNVhSAkVWjI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "VA",
+     "COURIR"
+    ],
+    "video": {
+     "id": "3r9IwH7AjP4",
+     "titre": "Si je commençais à courir en 2026, voilà ce que je ferais :",
+     "chaine": "Running Addict",
+     "vues": "274 k vues",
+     "date": "il y a 2 mois",
+     "duree": "17:38",
+     "avatar": "https://yt3.ggpht.com/zxJqY61mhOVZk3Mcs4T-hHPbO0KZm3GaOsH4sIAn0TVIYJa35a_pV-Oj1rX1DK_NPzonnvq70Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "SAL A",
+     "CORRER"
+    ],
+    "video": {
+     "id": "73AiHU88spc",
+     "titre": "Cómo EMPEZAR a CORRER Desde CERO | PRINCIPIANTES",
+     "chaine": "RETO Maratón con Fitness Ramos",
+     "vues": "8,4 K visualizaciones",
+     "date": "hace 9 meses",
+     "duree": "11:40",
+     "avatar": "https://yt3.ggpht.com/SguB99f68c4uvH6xnjt8cvLF7TXO0n1mVT-kVHLPE2eT1eI1Hmz_6E4R2pTVUDon5stHdPRciQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

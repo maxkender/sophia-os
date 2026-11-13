@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o148",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "616bebeb-069a-4624-ad9e-1d386e8ce85e",
+  "titre": "les habitudes inconnues j'ai volées aux filles toujours parfaites <3 #habitudes #pourtoi",
+  "inspirations": [
+    "616bebeb-069a-4624-ad9e-1d386e8ce85e"
+  ],
+  "notes": "G1, déclinaison de 616bebeb (« les habitudes inconnues j'ai volées aux filles toujours parfaites <3 », génération 0 en français ; meilleur passage sl 9,2 k vues, r 8,51), en français. cta C (le défi de 7 jours en slide 2). Accroche recopiée telle que la boîte la normalise (« les habitudes inconnues j ai volees aux filles toujours parfaites 3 »), avec le <3 du parent. Habitudes neuves, sans santé ni régime ni soin de peau (rien de repris du parent : ni marche, ni SPF, ni alimentation, ni autre appli). Routine du 12/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1 à 5 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "les habitudes inconnues\nj'ai volées aux filles toujours parfaites <3",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. elles préparent leurs affaires la veille\n\nle matin, elles sont prêtes en dix minutes.\net jamais en retard.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. elles ont toujours un livre en cours\n\npas pour poser.\nparce qu'elles veulent savoir la suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "3. elles écrivent tout\n\nun carnet pour les idées, les dates, les mots qu'elles aiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. elles disent non avec le sourire\n\npas d'excuse en trois phrases.\nnon, merci.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "5. elles rangent en cinq minutes, chaque soir\n\nle bureau propre le matin,\nc'est la moitié du travail.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3615b305",
+      "texte_overlay": "vole-leur une habitude <3",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

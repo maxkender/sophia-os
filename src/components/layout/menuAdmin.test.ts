@@ -2,13 +2,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { PAGES_AUTO } from "@/features/auto/pages";
+import { ANCIENNES_PAGES, MENU_AUTO, PAGES_AUTO } from "@/features/auto/pages";
 
 const source = fs.readFileSync(path.join(process.cwd(), "src/components/layout/AdminLayout.tsx"), "utf8");
 
 describe("menu admin (prompt 22)", () => {
   it("Recruitment Automation sous Tracking, 13 pages dans l'ordre demandé", () => {
     expect(PAGES_AUTO.map((p) => p.to)).toEqual([
+      "/admin/auto/aujourdhui",
+      "/admin/auto/reglages",
       "/admin/auto",
       "/admin/auto/recruits",
       "/admin/auto/cohorts",
@@ -19,8 +21,13 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/problems",
       "/admin/auto/disputes",
       "/admin/auto/payroll",
+      "/admin/auto/bonus",
+      "/admin/auto/candidats-ruul",
+      "/admin/auto/cohortes-ruul",
+      "/admin/auto/ruul",
       "/admin/auto/faq",
       "/admin/auto/reponses-officielles",
+      "/admin/auto/support",
       "/admin/auto/parrainage",
       "/admin/auto/retirer-slack",
       "/admin/auto/logs",
@@ -28,6 +35,16 @@ describe("menu admin (prompt 22)", () => {
     // La section passe juste sous « Tracking », avant « Configuration ».
     expect(source.indexOf('title: t("auto.section")')).toBeGreaterThan(source.indexOf('title: t("navSection.suivi")'));
     expect(source.indexOf('title: t("auto.section")')).toBeLessThan(source.indexOf('title: t("navSection.config")'));
+  });
+
+  it("OS clair (12/11) : 7 entrées dans le menu, les autres pages rangées dans Réglages", () => {
+    expect(MENU_AUTO.map((m) => m.cle)).toEqual(["aujourdhui", "posteurs", "ruul", "decisions", "paie", "support", "reglages"]);
+    expect(source).toContain("items: MENU_AUTO.map((m) => ({");
+    // Rien n'est perdu : chaque page est au menu ou dans Réglages.
+    for (const p of PAGES_AUTO) {
+      expect(MENU_AUTO.some((m) => m.page === p.cle) || ANCIENNES_PAGES.includes(p.cle), p.cle).toBe(true);
+    }
+    for (const cachee of ["cohorts", "sent", "received", "needs"] as const) expect(ANCIENNES_PAGES).toContain(cachee);
   });
 
   it("les pages remplacées ou retirées ne sont plus dans le menu", () => {

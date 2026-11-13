@@ -10,14 +10,18 @@
   "de": "10/10 Skills, die du vor 30 lernen solltest",
   "pt": "10/10 habilidades para aprender antes dos 30",
   "it": "10/10 abilità da imparare prima dei 30 anni",
-  "es-419": "10/10 habilidades para aprender antes de los 30"
+  "es-419": "10/10 habilidades para aprender antes de los 30",
+  "fr": "10/10 compétences à apprendre avant 30 ans",
+  "es": "10/10 habilidades que aprender antes de los 30"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #learnontiktok #selfmastery #curiosity",
   "de": "10/10 Skills, die du vor 30 lernen solltest #lernenmittiktok #selbstverbesserung #neugier",
   "pt": "10/10 habilidades para aprender antes dos 30 #aprendernotiktok #desenvolvimentopessoal #curiosidade",
   "it": "10/10 abilità da imparare prima dei 30 anni #imparacontiktok #crescitapersonale #abilità",
-  "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades"
+  "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "10/10 compétences à apprendre avant 30 ans #apprendresurtiktok #développementpersonnel #culture",
+  "es": "10/10 habilidades que aprender antes de los 30 #aprendeentiktok #desarrollopersonal #cultura"
  },
  "musique": {
   "titre": "original sound",
@@ -112,6 +116,41 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES",
+     "À APPRENDRE",
+     [
+      {
+       "t": "AVANT 30 ANS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES PARA",
+     [
+      {
+       "t": "ANTES DE LOS 30",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -189,6 +228,36 @@
      "date": "hace 10 años",
      "duree": "8:37",
      "avatar": "https://yt3.ggpht.com/qcOyOVikXQfVnf8OJ0TD6oIGYa6-igJYxq6JKPtuFHqjAmTUctHoMFE5PZZePUlknsTRoxNtcA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "CHANGE",
+     "UNE ROUE"
+    ],
+    "video": {
+     "id": "BtoUrJdUgb0",
+     "titre": "Comment changer une roue de voiture ?",
+     "chaine": "Antoine Waag",
+     "vues": "677 k vues",
+     "date": "il y a 11 ans",
+     "duree": "4:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_Nap43OrA87w5VZxp40Hi4-e6WGt1rASNLszbaN1hINg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CAMBIA",
+     "UNA RUEDA"
+    ],
+    "video": {
+     "id": "bTs7RaLQS8c",
+     "titre": "🔴 CAMBIAR RUEDAS DEL COCHE EN 5 MIN!! ⏱️ (Fácil y paso a paso)",
+     "chaine": "Actualidad Motor - Pruebas de coches",
+     "vues": "267 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/vvcGXvi5uzQy8Q7cYmm8EenpLxE63tWcJgREgHTZd_aPytW7xTT2j510u33O5TmiFbbiY-827A=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -268,6 +337,36 @@
      "duree": "11:13",
      "avatar": "https://yt3.ggpht.com/1sOfdzzaWPuhwJvxm4Kz-Q9gQx6_lU4jwYvw3CEVHsfsiW8wSwW4D2RZyYOwkuR9Jef3V4Z6Ng=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS À",
+     "NÉGOCIER"
+    ],
+    "video": {
+     "id": "8cc7k1rPA8E",
+     "titre": "Les négociateurs de HARVARD expliquent : Comment obtenir ce que vous voulez à chaque fois",
+     "chaine": "Un Peu Mieux",
+     "vues": "1,1 M de vues",
+     "date": "il y a 2 ans",
+     "duree": "12:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nPZYNGrRuK_2Anh-lpgVSPFFxHMPpbuQ7q7PJa2TgCFg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE A",
+     "NEGOCIAR"
+    ],
+    "video": {
+     "id": "RxXEBFf2w7w",
+     "titre": "Cómo NEGOCIAR de Manera que Siempre Acabes GANANDO ✔️",
+     "chaine": "Euge Oller",
+     "vues": "904 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "11:50",
+     "avatar": "https://yt3.ggpht.com/Rmh2fRiManK8F0s6cqa4oCUVCTtlRGRYuLDdTAjCmwlSnJfTxUzOOatpKYqhbRMvf4NXUDwl=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -335,6 +434,32 @@
      "texte": [
       "lo que abro",
       "en lugar de scrollear."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "N'ARRÊTE JAMAIS",
+     "D'APPRENDRE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "NUNCA DEJES",
+     "DE APRENDER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
      ]
     }
    }
@@ -414,6 +539,36 @@
      "date": "hace 6 años",
      "duree": "2:55",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kgPKvsaNfnuCc7eFbcCge4vBp_ETfnV3cCY7xixlN0mA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "FAIS UN",
+     "CV PARFAIT"
+    ],
+    "video": {
+     "id": "LWYoowR4ejw",
+     "titre": "Comment faire un CV qui passe TOUS les ATS ? (avec ou sans expérience)",
+     "chaine": "La Jobsetteuse",
+     "vues": "120 k vues",
+     "date": "il y a 1 an",
+     "duree": "12:30",
+     "avatar": "https://yt3.ggpht.com/j6GstXfljO5YlaL6FynXlWCJvTcl_9moI6ZUlTdzz-wIxN2kLVHHQw9XJYVm054LyB9lfS6AwA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ UN",
+     "BUEN CURRÍCULUM"
+    ],
+    "video": {
+     "id": "Rl7a8LWM0L4",
+     "titre": "Cómo hacer un buen Curriculum Vitae en 5 minutos | 2026 | Plantillas gratis",
+     "chaine": "Eva Porto RRHH",
+     "vues": "508 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/FjIqYTpTeyfHp2Vjag73IAwvPRPaEAH_4ovYOlk6-TEE9HgBhSkUjj2Ym3qOjXK9wLAOV51hSXU=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -338,6 +338,87 @@ export async function performanceSources(): Promise<Record<string, PerfSource>> 
   return m;
 }
 
+/** Décision de la règle des sources du lundi (A11, 0667). */
+export type DecisionSourceLundi = "maj" | "pas_maj" | "peu_de_mesures";
+
+export interface SourceLundi {
+  compteReferenceId: string;
+  handle: string;
+  langue: string | null;
+  label: string | null;
+  posts: number;
+  r: number | null;
+  rVsLabel: number | null;
+  decision: DecisionSourceLundi;
+  /** Pourquoi elle est retenue : toujours, neuve, r, label, 100k ; null si pas cette semaine. */
+  raison: string | null;
+  /** Son meilleur post chez nous (3 à 30 jours). */
+  meilleurVues: number | null;
+  /** Quand son lot l'a lancée ; null : lot à venir (ou pas retenue). */
+  lanceeLe: string | null;
+  importes: number;
+  valides: number;
+}
+
+export interface SemaineSources {
+  /** Le lundi de la semaine (AAAA-MM-JJ). */
+  semaine: string;
+  sources: SourceLundi[];
+}
+
+/**
+ * Le compte rendu de la mise à jour des sources du dernier lundi
+ * (`bleo_sources_semaine_ui`, 0667) : chaque source active, sa décision, son r
+ * et ce que l'import a rapporté dans la semaine. `null` : jamais lancée.
+ */
+export async function sourcesDeLaSemaine(): Promise<SemaineSources | null> {
+  const { data: derniere, error: e1 } = await supabase
+    .from("bleo_sources_semaine_ui")
+    .select("semaine")
+    .order("semaine", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (e1) throw e1;
+  if (!derniere) return null;
+  const semaine = derniere.semaine as string;
+  const { data, error } = await supabase
+    .from("bleo_sources_semaine_ui")
+    .select(
+      "compte_reference_id, handle, langue, label, posts, r_mediane, r_vs_label, decision, raison, meilleur_vues, lancee_le, importes, valides",
+    )
+    .eq("semaine", semaine);
+  if (error) throw error;
+  const nombre = (v: unknown) => (v === null || v === undefined ? null : Number(v));
+  return {
+    semaine,
+    sources: (data ?? []).map((l) => ({
+      compteReferenceId: l.compte_reference_id as string,
+      handle: (l.handle as string | null) ?? "",
+      langue: (l.langue as string | null) ?? null,
+      label: (l.label as string | null) ?? null,
+      posts: Number(l.posts ?? 0),
+      r: nombre(l.r_mediane),
+      rVsLabel: nombre(l.r_vs_label),
+      decision: l.decision as DecisionSourceLundi,
+      raison: (l.raison as string | null) ?? null,
+      meilleurVues: nombre(l.meilleur_vues),
+      lanceeLe: (l.lancee_le as string | null) ?? null,
+      importes: Number(l.importes ?? 0),
+      valides: Number(l.valides ?? 0),
+    })),
+  };
+}
+
+/**
+ * Une source ajoutée passe par la file des mises à jour (0669) : lancée tout de
+ * suite si rien ne tourne, sinon en tête du lot suivant (6 h 37).
+ */
+export async function ajouterSourceALaFile(compteReferenceId: string): Promise<"lancee" | "attente"> {
+  const { data, error } = await supabase.rpc("maj_sources_ajouter", { p_compte: compteReferenceId });
+  if (error) throw error;
+  return (data as { file?: string } | null)?.file === "lancee" ? "lancee" : "attente";
+}
+
 export async function majSource(id: string, patch: Partial<CompteReference>): Promise<void> {
   const { error } = await supabase.from("comptes_reference").update(patch).eq("id", id);
   if (error) throw error;

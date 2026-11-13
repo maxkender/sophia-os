@@ -12,7 +12,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import i18n from "@/locales";
 
 import { PageAuto } from "./PageAuto";
-import { PAGES_AUTO } from "./pages";
+import { MENU_AUTO, PAGES_AUTO } from "./pages";
 
 // Le texte exact demandé (partie 11) ; Needs you et Logs se sont séparés depuis (prompt 21, U).
 const TEXTES_EN: Record<string, string> = {
@@ -30,8 +30,8 @@ describe("les phrases en haut des pages (prompt 22, partie 11)", () => {
     await i18n.changeLanguage("en");
   });
 
-  it("chacune des 15 pages a sa phrase, en anglais et en français", () => {
-    expect(PAGES_AUTO).toHaveLength(15);
+  it("chacune des 22 pages a sa phrase, en anglais et en français", () => {
+    expect(PAGES_AUTO).toHaveLength(22);
     for (const langue of ["en", "fr"]) {
       const t = i18n.getFixedT(langue);
       for (const p of PAGES_AUTO) {
@@ -65,8 +65,15 @@ describe("les phrases en haut des pages (prompt 22, partie 11)", () => {
     expect(screen.getByRole("heading", { name: i18n.t(`auto.pages.${cle}.titre`) })).toBeTruthy();
   });
 
-  it("le menu reprend la même phrase sous le nom de chaque page", () => {
+  it("OS clair : chaque entrée du menu a son nom et sa phrase, en anglais et en français", () => {
     const menu = fs.readFileSync(path.join(process.cwd(), "src/components/layout/AdminLayout.tsx"), "utf8");
-    expect(menu).toContain("description: t(`auto.phrases.${p.cle}`)");
+    expect(menu).toContain("description: t(`auto.menuDesc.${m.cle}`)");
+    for (const langue of ["en", "fr"]) {
+      const t = i18n.getFixedT(langue);
+      for (const m of MENU_AUTO) {
+        expect(t(`auto.menu.${m.cle}`), `${langue} ${m.cle}`).not.toBe(`auto.menu.${m.cle}`);
+        expect(t(`auto.menuDesc.${m.cle}`), `${langue} ${m.cle}`).not.toBe(`auto.menuDesc.${m.cle}`);
+      }
+    }
   });
 });

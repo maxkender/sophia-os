@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o147",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e7189ca4-c47c-49b4-ab12-7d4735d6497d",
+ "titre": "6 habits that make you more knowledgeable #habits #knowledge #smartgirl #learning #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "b6047a52-7aa9-416b-b37d-36dcbd13718f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 9 de la boîte (parent e7189ca4, langue source en) : accroche du parent mot pour mot. Habitudes neuves face au parent (un livre audio dans les transports, une liste de mots à chercher, l'histoire d'un lieu avant d'y aller, expliquer à un ami ce qu'on a appris, la longue édition du week-end). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a62a45a4",
+   "texte_overlay": "6 habits that make you\nmore knowledgeable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "beeff47d",
+   "texte_overlay": "1. an audiobook on your commute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c1b0fe4",
+   "texte_overlay": "2. a list of words to look up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7ef729ec",
+   "texte_overlay": "3. one short lesson a day\n\na painting, a war, a planet.",
+   "texte_sophia": "3. one short lesson a day\n\non a general knowledge app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6812e55f",
+   "texte_overlay": "4. the history of a place\nbefore you visit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ae5048f0",
+   "texte_overlay": "5. explain one thing you learned\nto a friend each week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bf5523e2",
+   "texte_overlay": "6. the long weekend edition\nof a newspaper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c64bd052",
+   "texte_overlay": "save this and start today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  }
+ ]
+}

@@ -14,6 +14,7 @@ import {
 } from "../_shared/labels_file.ts";
 import { retirerContentCredentialsBytes } from "../_shared/c2pa.ts";
 import { normaliserHandle } from "../_shared/handle_tiktok.ts";
+import { baseLogin } from "../_shared/login_email.ts";
 import { lireProfilTiktokFiable } from "../_shared/profil_tiktok.ts";
 import { lireContactPoster } from "../_shared/contact_poster.ts";
 import { separerNomComplet } from "../_shared/nom_complet.ts";
@@ -505,7 +506,8 @@ async function gererRequete(request: Request): Promise<Response> {
           prenom,
           nom: nom || null,
           is_active: true,
-          must_change_password: roleVoulu === "poster",
+          // 9/11 (Max) : 12345678 pour l'instant, pas de changement obligatoire.
+          must_change_password: false,
           ...lectureContact.contact,
           // 31/10 : relié au contrat tout de suite (plus d'attente de contrats_relier).
           ...(contratId ? { upwork_contract_id: contratId } : {}),
@@ -1133,20 +1135,13 @@ async function refuserSiHorsEquipe(
   return json({ error: "forbidden" }, 403);
 }
 
-function normaliser(valeur: string): string {
-  return valeur
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]/g, "");
-}
-
 async function emailDisponible(
   supabase: ReturnType<typeof serviceClient>,
   prenom: string,
   nom: string,
 ): Promise<string> {
-  const base = normaliser(prenom) + normaliser(nom).slice(0, 1);
+  // 12/11 : grec et cyrillique translittérés ; rien de lisible → « poster » (jamais « @sophia.com »).
+  const base = baseLogin(prenom, nom);
 
   for (let suffixe = 0; suffixe < 50; suffixe += 1) {
     const email = `${base}${suffixe || ""}@${DOMAINE}`;

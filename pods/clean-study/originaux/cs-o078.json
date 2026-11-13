@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o078",
+  "type_bleo": "full_test",
+  "titre": "how i fit a whole chapter on one page #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 9/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« one page » absent du label). Accroches écrites : « how i fit a whole chapter on one page » (retenue : un résultat concret et visuel), « my one-page summary method » (écartée : plate), « stop making 10-page summaries » (écartée : injonction). Méthode vraie : les titres comme squelette, une ligne par idée, les mots-clés seulement, un schéma à la place d'un paragraphe, écrite de mémoire puis complétée (place micabo, slide 6 : se tester), relue avant chaque contrôle. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "13b5123d",
+      "texte_overlay": "how i fit a whole chapter\non one page",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "27937c1c",
+      "texte_overlay": "the chapter's titles become my skeleton.\nthat's the structure, done.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "30819263",
+      "texte_overlay": "one line per idea. never two.\nif it doesn't fit, it's two ideas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "30a196b6",
+      "texte_overlay": "key words only.\ndates, names, formulas, definitions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "420a5531",
+      "texte_overlay": "a little diagram instead of a paragraph.\narrows explain faster than sentences.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3efbe9fb",
+      "texte_overlay": "i write it from memory first, then check the book.\nwhat i forgot gets a color.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4368fe7a",
+      "texte_overlay": "the night before the test, i only reread this page.\none page, five minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

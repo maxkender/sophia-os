@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o230",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "922dc6af-cdbe-4817-ac61-478055a4fa6d",
+ "titre": "ce qu'il faut répondre quand on te demande ton salaire actuel #salaire #negociation #entretien #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 11 (parent 922dc6af), 3e et dernière : accroche mot pour mot, autre angle (les erreurs à éviter). Jamais un faux chiffre. Rien de juridique. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ebde80b1",
+   "texte_overlay": "ce qu'il faut répondre\nquand on te demande\nton salaire actuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3ddf8d5e",
+   "texte_overlay": "l'erreur 1 : donner un chiffre faux\nça se vérifie. jamais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3e21a801",
+   "texte_overlay": "l'erreur 2 : t'excuser\n« je sais que c'est peu, mais… »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "43e0bd8d",
+   "texte_overlay": "l'erreur 3 : donner un seul chiffre pour la suite\ndonne une fourchette",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "43ef347a",
+   "texte_overlay": "l'erreur 4 : improviser\nprépare ta réponse la veille. et nourris ta confiance chaque jour",
+   "texte_sophia": "l'erreur 4 : improviser\nprépare ta réponse la veille. et nourris ta confiance, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e87ac8ac",
+   "texte_overlay": "la bonne réponse\nton chiffre vrai, puis « pour ce poste, je vise entre X et Y »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4a4213a0",
+   "texte_overlay": "laquelle tu faisais ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

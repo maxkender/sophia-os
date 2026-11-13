@@ -1,3 +1,4 @@
+import { PageLienEmail } from "@/features/liens/PageLienEmail";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { SetPasswordPage } from "@/features/auth/SetPasswordPage";
@@ -13,8 +14,15 @@ import {
   DecisionsPage,
   FaqPage,
   ReponsesOfficiellesPage,
+  SupportPage,
+  AujourdhuiPage,
+  ReglagesAutoPage,
   ParrainagePage,
   RetirerSlackPage,
+  BonusPage,
+  CandidatsRuulPage,
+  CohortesRuulPage,
+  RuulSuiviPage,
   LogsPage,
   NeedsYouAncienPage,
   NeedsYouPage,
@@ -43,7 +51,9 @@ import { AdminCommentMastersHubPage } from "@/pages/admin/AdminCommentMastersHub
 import { GUIDE_NOTION_HM, GUIDE_NOTION_POSTER } from "@/features/documents/BoutonGuideNotion";
 import { RedirectionGuideNotion } from "@/features/documents/RedirectionGuideNotion";
 import { PageFaqPosteur } from "@/features/officielles/PageFaqPosteur";
+import { PageHelp } from "@/features/support/PageHelp";
 import { PageProblemesV2 } from "@/features/problemes/v2/PageProblemesV2";
+import { PageBot } from "@/features/bot/PageBot";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
@@ -80,7 +90,7 @@ import { AdminBleoFamillePage } from "@/pages/admin/AdminBleoFamillePage";
 import { AdminBleoReglagesPage } from "@/pages/admin/AdminBleoReglagesPage";
 import { PosterCalendrierPage } from "@/pages/poster/PosterCalendrierPage";
 import { PosterLierSlackPage } from "@/pages/poster/PosterLierSlackPage";
-import { PosterReferralPage } from "@/pages/poster/PosterReferralPage";
+import { PosterParrainerPage } from "@/pages/poster/PosterParrainerPage";
 import { PosterPaiementsPage } from "@/pages/poster/PosterPaiementsPage";
 import { PosterRetoursPage } from "@/pages/poster/PosterRetoursPage";
 import { PosterPostPage } from "@/pages/poster/PosterPostPage";
@@ -107,6 +117,8 @@ export function AppRouter() {
       </Route>
       {/* 1/11 : le lien « Set my password » du welcome, connecté ou non. */}
       <Route path="/set-password" element={<SetPasswordPage />} />
+      {/* 0696 : les liens des emails aux posteurs (jeton à usage unique), sans connexion. */}
+      <Route path="/r/:action" element={<PageLienEmail />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Accueil />} />
@@ -122,6 +134,8 @@ export function AppRouter() {
                 sent en lecture pour le Head of Ops (interrupteurs et textes :
                 admin seulement, vérifiés en base). */}
             <Route path="/admin/auto" element={<OverviewPage />} />
+            <Route path="/admin/auto/aujourdhui" element={<AujourdhuiPage />} />
+            <Route path="/admin/auto/reglages" element={<ReglagesAutoPage />} />
             <Route path="/admin/auto/recruits" element={<RecruitsPage />} />
             <Route path="/admin/auto/cohorts" element={<CohortsPage />} />
             <Route path="/admin/auto/decisions" element={<DecisionsPage />} />
@@ -132,8 +146,13 @@ export function AppRouter() {
             <Route path="/admin/auto/problems" element={<ProblemsPage />} />
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
+            <Route path="/admin/auto/bonus" element={<BonusPage />} />
+            <Route path="/admin/auto/candidats-ruul" element={<CandidatsRuulPage />} />
+            <Route path="/admin/auto/cohortes-ruul" element={<CohortesRuulPage />} />
+            <Route path="/admin/auto/ruul" element={<RuulSuiviPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
             <Route path="/admin/auto/reponses-officielles" element={<ReponsesOfficiellesPage />} />
+            <Route path="/admin/auto/support" element={<SupportPage />} />
             <Route path="/admin/auto/parrainage" element={<ParrainagePage />} />
             <Route path="/admin/auto/retirer-slack" element={<RetirerSlackPage />} />
             <Route path="/admin/auto/logs" element={<LogsPage />} />
@@ -162,6 +181,8 @@ export function AppRouter() {
               {/* 3/11 : les règles des bots (feedback → règles), admin seulement. */}
               <Route path="/admin/auto/regles-bots" element={<ReglesBotsPage />} />
               <Route path="/admin/auto/problemes-v2" element={<PageProblemesV2 />} />
+              {/* 12/11 (Support propre) : le bot du support (tester, catalogue, tests, suivi), admin seulement. */}
+              <Route path="/admin/bot" element={<PageBot />} />
               <Route path="/admin/minuit" element={<AdminMinuitPage />} />
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />
@@ -213,7 +234,7 @@ export function AppRouter() {
             <Route path="/calendrier" element={<PosterCalendrierPage />} />
             {/* Prompt 25 MAJ, 7a : le lien du DM Slack et le retour de « Connect my Slack ». */}
             <Route path="/lier-slack" element={<PosterLierSlackPage />} />
-            <Route path="/createur/parrainage" element={<PosterReferralPage />} />
+            <Route path="/createur/parrainage" element={<PosterParrainerPage />} />
             <Route path="/createur/paiements" element={<PosterPaiementsPage />} />
             <Route path="/createur/retours" element={<PosterRetoursPage />} />
             <Route path="/createur/relecture" element={<PosterRelecturePage />} />
@@ -221,6 +242,8 @@ export function AppRouter() {
             {/* Prompt 21, D3 : les anciennes pages Guide et FAQ renvoient vers le guide Notion. */}
             <Route path="/createur/guide" element={<RedirectionGuideNotion url={GUIDE_NOTION_POSTER} />} />
             <Route path="/createur/faq" element={<PageFaqPosteur />} />
+            {/* 11/11 (0671) : Help, poser une question ou signaler un problème. */}
+            <Route path="/createur/help" element={<PageHelp />} />
           </Route>
         </Route>
 

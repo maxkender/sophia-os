@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o169",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fc1d22c0-b63a-476d-a67f-7d95a3a3ccad",
+ "titre": "glamorous events the public can actually attend #culture #travel #smartgirl #bucketlist #art",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "4044eed7-a900-4304-a5d0-2634f5cdd34a"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 3 de la boîte (parent fc1d22c0, langue source en) : accroche reformulée (« high society events you don't need an invitation for » → « glamorous events the public can actually attend »), autre que sg-o153. Événements neufs, sans argent : défilé de la Bastille et feu d'artifice à Paris, Fête des Lumières à Lyon, Carnaval de Venise déjà fait donc remplacé par le festival de Cannes (montée des marches visible depuis la rue), Hogmanay à Édimbourg. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6d705ae8",
+   "texte_overlay": "glamorous events the public\ncan actually attend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5f330f67",
+   "texte_overlay": "cannes film festival, france\n\nwatch the red carpet from\nthe street, every may.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ecbf55d3",
+   "texte_overlay": "fête des lumières, lyon\n\nfour nights in december,\nthe whole city lit up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7233695e",
+   "texte_overlay": "know the story before you go:\nyou'll enjoy it twice as much.",
+   "texte_sophia": "know the story before you go.\ni learn it in 5 minutes on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d6d62f86",
+   "texte_overlay": "bastille day, paris\n\nthe parade in the morning,\nfireworks at the eiffel tower\nat night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ee1ab438",
+   "texte_overlay": "hogmanay, edinburgh\n\nnew year's eve under\nthe castle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d9c6967d",
+   "texte_overlay": "save this for your\nbucket list",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/7.jpg"
+  }
+ ]
+}

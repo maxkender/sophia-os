@@ -1,0 +1,75 @@
+{
+ "source_id": "am-o100",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c5ce2827-a6ba-4bbb-a0e3-810e9071e76c",
+ "titre": "10 sentences to maximize your social intelligence #socialskills #men #psychology #mindset #selfimprovement",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [
+  "c5ce2827-a6ba-4bbb-a0e3-810e9071e76c"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Déclinaison G1 de la ligne 4 (parent c5ce2827, langue source en ; meilleur passage hu 10 k vues, r 2,16). Accroche du parent mot pour mot (mots de la boîte). 10 phrases sur 9 slides (la dernière en porte deux : 10 slides au plus). Phrases neuves, aucune du parent (écouter deux fois plus, regarder comment on traite les inutiles, logique, ambiance, mystère, ragots, compliments rares, silence, fond, loyauté). Rien de manipulateur. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Célébrités en illustration (autorisé) ; slide Sophia : salon sur la ville, sans personne. reference_url : slides présentes du parent (5, 6, 8 manquantes : 400, remplacées), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b1dd35c1",
+   "texte_overlay": "10 Sentences to Maximize\nYour Social Intelligence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7c23791f",
+   "texte_overlay": "1. Ask about their day\nbefore you share your news.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "915bfb03",
+   "texte_overlay": "2. Remember the small detail\nthey told you, and bring it up\nnext time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b4f4c68c",
+   "texte_overlay": "3. Match their pace\nbefore you try to lead.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e0b7fc64",
+   "texte_overlay": "4. Never correct someone\nin front of a crowd.\nTell them later, alone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "331992b3",
+   "texte_overlay": "5. Have range. Know a little\nabout a lot, and every\nconversation opens up.",
+   "texte_sophia": "5. Have range. Learn a little\nabout a lot on the Sophia app,\nand every conversation opens up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/9.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2eb14c80",
+   "texte_overlay": "6. Let people finish their story,\neven when you know the ending.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/10.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "894dfb48",
+   "texte_overlay": "7. Disagree with a question,\nnot a statement.\n\"What makes you sure?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/1.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "7cf1fd23",
+   "texte_overlay": "8. Notice who's left out\nand bring them in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/2.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "aa1fcdd0",
+   "texte_overlay": "9. Learn the names of the people\nthey love.\n\n10. Leave before the energy drops.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7517702038612905222/3.jpg"
+  }
+ ]
+}

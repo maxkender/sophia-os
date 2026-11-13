@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o096",
+ "type_bleo": "full_test",
+ "titre": "Things my dad taught me without saying a word #men #father #respect #lifelessons #selfimprovement",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 12/11. Full test du jour (2 sur 3, jauge : 3 sur 9). Accroche jamais faite chez nous : aucun « dad taught » ni « my dad » dans donnees/label.json. L'exemple du père, en gestes : terrain de « 7 signs a man was raised right » (am-o002, rang S), promesse neuve. Rien de violent, rien de négatif sur la mère. Format : numéro, geste, deux lignes. Images : la banque et des célébrités (autorisé) ; slide Sophia : fenêtre au lever du jour, sans personne. reference_url : le post source de am-o034 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "394f5cb3",
+   "texte_overlay": "Things my dad taught me\nwithout saying a word",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c58ad90",
+   "texte_overlay": "1. He fixed things himself\n\nI never saw him call\nsomeone for a leaky tap.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1d11b6d9",
+   "texte_overlay": "2. He was always first up\n\nThe coffee was ready\nbefore the house woke.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3871d5dc",
+   "texte_overlay": "3. He showed up\n\nEvery game, every school play.\nTired or not.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0e7fb5ac",
+   "texte_overlay": "4. He kept his body strong\n\nNot for looks.\nTo carry us when we needed it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "339114f1",
+   "texte_overlay": "5. He spoke well of my mother\n\nIn every room.\nEven when she wasn't there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2022773e",
+   "texte_overlay": "6. He never stopped learning\n\nA book on his nightstand,\nalways.",
+   "texte_sophia": "6. He never stopped learning\n\nI keep it going:\n5 minutes a day on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o097",
+  "type_bleo": "full_test",
+  "titre": "how i actually get work done at the library #studytok #studytips #school #library",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 12/11 : 2 full tests sur 6). Accroche jamais faite chez nous. Accroches écrites : « how i actually get work done at the library » (retenue : un lieu que tout le monde idéalise, une promesse concrète), « library study routine » (écartée : plate), « why the library makes me 2x more productive » (écartée : chiffre inventé). Gestes vrais : une liste de 3 tâches avant d'y aller, une place loin des passages, le téléphone au fond du sac, les pauses dehors, se tester avant de partir (place micabo, slide 6), une heure de fin fixe. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "00b9a45b",
+      "texte_overlay": "how i actually get work done\nat the library",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a6c56e6",
+      "texte_overlay": "i write my 3 tasks before i leave home.\nno wandering around \"deciding\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0bf19a3f",
+      "texte_overlay": "a seat away from the door and the printers.\nfewer people walking by.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0cc82b66",
+      "texte_overlay": "phone at the bottom of my bag.\ndigging it out is just annoying enough.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0d28ab14",
+      "texte_overlay": "breaks happen outside.\nchatting at the table breaks everyone's focus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3efbe9fb",
+      "texte_overlay": "before i leave, i quiz myself on what i did.\nproof the trip was worth it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0e8b3d73",
+      "texte_overlay": "a fixed time to leave.\na clear end makes the hours count.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -65,6 +65,10 @@ describe("posterGuideCle — nouveaux posters, codes OS", () => {
     expect(cle({ compteLangues: ["lv"] })).toBe("guide_poster_zone_b");
     expect(cle({ compteLangues: ["ja"] })).toBe("guide_poster_zone_a");
   });
+
+  it("coréen en zone B (comme KR dans zones_paie_pays)", () => {
+    expect(cle({ compteLangues: ["ko"] })).toBe("guide_poster_zone_b");
+  });
 });
 
 describe("resoudreZonePoster — tous les pays du PDF", () => {

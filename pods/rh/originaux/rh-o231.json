@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o231",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "db514542-a8bb-4517-80d6-cfadac3d6517",
+ "titre": "je suis devenue manager et j'ai ARRÊTÉ 5 habitudes de la pire manager que j'ai eue #manager #travail #carriere #emploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 12 (parent db514542), 3e et dernière : accroche mot pour mot, cinq autres habitudes que rh-o069, rh-o206 et rh-o219. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4aa15761",
+   "texte_overlay": "je suis devenue manager\net j'ai ARRÊTÉ 5 habitudes\nde la pire manager que j'ai eue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4b75486a",
+   "texte_overlay": "dire « c'est urgent » pour tout\nmoi je dis pour quand, vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4cb00c20",
+   "texte_overlay": "ne jamais dire « je me suis trompée »\nmoi je le dis. l'équipe aussi, maintenant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4e318a14",
+   "texte_overlay": "décider seule ce qui concerne l'équipe\nmoi je demande avant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f3ab28e0",
+   "texte_overlay": "mépriser les questions\nmoi je dis « bonne question ». et j'apprends moi-même chaque jour",
+   "texte_sophia": "mépriser les questions\nmoi je dis « bonne question ». et j'apprends moi-même, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5399490e",
+   "texte_overlay": "partir sans dire au revoir le vendredi\nmoi je dis « bon week-end, merci pour la semaine »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "55341c00",
+   "texte_overlay": "l'habitude que tu ne copieras jamais ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

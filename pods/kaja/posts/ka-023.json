@@ -1,0 +1,327 @@
+{
+ "id": "ka-023",
+ "titre": {
+  "en": "10/10 skills to travel the world",
+  "fr": "10/10 skills pour voyager",
+  "de": "10/10 Skills zum Reisen"
+ },
+ "legendes": {
+  "en": "10/10 skills to travel the world #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour voyager #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills zum Reisen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Solitude",
+  "url": "https://www.tiktok.com/music/solitude-7355730432355502096"
+ },
+ "notes": "Full test (BLEO, 13/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor branche2, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : valise cabine, voyager pas cher, décalage horaire. Musique : « Solitude », un de ses sons (202 k) jamais pris chez nous, pour alterner (règle du 12/11). Sophia en étape 3 « HOW TO KNOW EVERY COUNTRY » : cta B, « 5 min a day ». Couverture fr en « SKILLS » (colonne de la branche). Vraies vidéos : en The Wall Street Journal, Dylan Squire, Greg and Mitch ; fr Frenchylo, Oseille TV, Dr Jimmy Mohamed ; de relaxdays, Finanzfluss, AOK.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS TO",
+     "TRAVEL THE",
+     "WORLD"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "VOYAGER"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS ZUM",
+     "REISEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO PACK",
+     [
+      {
+       "t": "A CARRY-ON",
+       "couleur": "#2d4068"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tfMsTVVER2Y",
+     "titre": "Expert Butler Explains the Best Way to Pack Your Carry-On Bag | WSJ",
+     "chaine": "The Wall Street Journal",
+     "vues": "970K views",
+     "date": "7 years ago",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/zbPzRWTIiIg_sNPoAgBf4COWvAoac3vgbiTEu1dfpqH3YPDNvnxMjDtAGftuw5EPx8wfSjMzr2I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UNE VALISE CABINE",
+       "couleur": "#2d4068"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y2wH69n-bp4",
+     "titre": "1 Mois = 1 Valise Cabine ✈️ MEILLEURES ASTUCES pour faire sa valise",
+     "chaine": "Frenchylo",
+     "vues": "337 k vues",
+     "date": "il y a 4 ans",
+     "duree": "7:06",
+     "avatar": "https://yt3.ggpht.com/rkbZ09jxsmRz-3pT8bCDoyjaeZ3qhd9OlqmC5ENA3okJ6A0s3DucJWrJRSEv5dSxhoysiRj0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO PACKST DU",
+     [
+      {
+       "t": "DEINEN KOFFER",
+       "couleur": "#2d4068"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A3a-FQax8OI",
+     "titre": "6 Tipps: Koffer richtig packen - platzsparend & knitterfrei",
+     "chaine": "relaxdays",
+     "vues": "857.840 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:58",
+     "avatar": "https://yt3.ggpht.com/8zp_mtGoUH9czIPCb90gHMk2UqJS_7XxNxvsyiO7jYp1GkwZUbSqct9Hmwl0dV6-Z_6v_tQv=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "TRAVEL CHEAP",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rJYDtygI9H8",
+     "titre": "How to TRAVEL for DIRT CHEAP",
+     "chaine": "Dylan Squire",
+     "vues": "331K views",
+     "date": "3 months ago",
+     "duree": "13:17",
+     "avatar": "https://yt3.ggpht.com/AeQe010MhM5q0WtSTIOjlfNp3WcedsEKUpTcncdo3VSVbiaO2xvoOap_xtaOUSUlJO96LQTKegU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT VOYAGER",
+     [
+      {
+       "t": "PAS CHER",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Mi6cbFmRkWQ",
+     "titre": "5 Secrets pour Voyager à Moitié Prix",
+     "chaine": "Oseille TV",
+     "vues": "318 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:48",
+     "avatar": "https://yt3.ggpht.com/dXWkKU0x2q0TrDSRNIE4fwOdk7rGG81_gwklJpLv26LjmIeUTVdImFht1K3eARvKkocDMF3x=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO REIST DU",
+     [
+      {
+       "t": "GÜNSTIG",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2A4lo6viAk0",
+     "titre": "63 Reise-Spartipps für den Urlaub! | Hacks für günstige Flüge, Hotels & mehr!",
+     "chaine": "Finanzfluss",
+     "vues": "156.337 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "17:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO KNOW",
+     [
+      {
+       "t": "EVERY COUNTRY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT CONNAÎTRE",
+     [
+      {
+       "t": "CHAQUE PAYS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KENNST DU",
+     [
+      {
+       "t": "JEDES LAND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO BEAT",
+     [
+      {
+       "t": "JET LAG",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sbNkAcfNhh0",
+     "titre": "6 Tips To Beat Jet Lag",
+     "chaine": "Greg and Mitch",
+     "vues": "321K views",
+     "date": "11 years ago",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l0MDg9RktBEd9bRHO3iLmKMveChvS5lJzdBsH6p_GOaB8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ÉVITER",
+     [
+      {
+       "t": "LE DÉCALAGE HORAIRE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2lsc_QoQvqc",
+     "titre": "Comment éviter le décalage horaire ?",
+     "chaine": "Dr Jimmy Mohamed",
+     "vues": "16 k vues",
+     "date": "il y a 2 ans",
+     "duree": "7:44",
+     "avatar": "https://yt3.ggpht.com/fWhk-7KWqcN4IZPunr3rWclx3ZATKxWJ3gw0x6K5tUbgQlhjSzyNkjucQJ2WRXwIwmJlCDdxqw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO VERMEIDEST DU",
+     [
+      {
+       "t": "JETLAG",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fuTD0XMYOvk",
+     "titre": "3 Tipps gegen Jetlag: Zeitzonenkater überwinden & vermeiden",
+     "chaine": "AOK - Der Gesundheitskanal",
+     "vues": "187.461 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/1KJj46cSlEvqgWy1uGX7wollCZPtXWjlG54h7sAuVMpkRTofPHp_T-wGncl3rjT73v0BgaX8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

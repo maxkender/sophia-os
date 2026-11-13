@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { CircleAlert, RefreshCw } from "lucide-react";
+import { CircleAlert, Gift, RefreshCw } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -35,6 +35,8 @@ export const EN = {
   killTitre: "Message from the team",
   recreerTitre: "Your new TikTok account",
   compris: "Got it",
+  infoTitre: "Refer a friend 💸",
+  parrainer: "Refer a friend",
 } as const;
 
 /**
@@ -54,13 +56,16 @@ function MessagesDuPosteur() {
   const kill = (data ?? []).find((m) => m.type === "kill");
   const recreation = (data ?? []).find((m) => m.type === "recreer");
   const offre = (data ?? []).find((m) => m.type === "double");
+  const info = (data ?? []).find((m) => m.type === "info");
   return (
     <>
       {kill && <BandeauKill message={kill} />}
       {recreation ? (
         <Recreation key={recreation.id} message={recreation} />
+      ) : offre ? (
+        <OffreDouble key={offre.id} message={offre} />
       ) : (
-        offre && <OffreDouble key={offre.id} message={offre} />
+        info && <Info key={info.id} message={info} />
       )}
     </>
   );
@@ -79,6 +84,45 @@ function BandeauKill({ message }: { message: MonMessage }) {
         <p>{message.texte}</p>
       </div>
     </div>
+  );
+}
+
+/** 0568 : une info de l'équipe (parrainage) : « Got it » ou « Refer a friend » la ferme (et pose `lu_at`). */
+function Info({ message }: { message: MonMessage }) {
+  const queryClient = useQueryClient();
+  const lu = useMutation({
+    mutationFn: () => marquerMessageLu(message.id),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["mes-messages-posteur"] }),
+  });
+  const parrainer = () => {
+    lu.mutate();
+    window.setTimeout(() => document.querySelector('[data-testid="bloc-parrainer"]')?.scrollIntoView({ behavior: "smooth", block: "start" }), 300);
+  };
+  return (
+    <Dialog open disablePointerDismissal>
+      <DialogPopup showCloseButton={false} className="max-w-md" data-testid="popup-info">
+        <DialogHeader>
+          <div className="flex items-center gap-3">
+            <span className="flex size-10 items-center justify-center rounded-xl bg-success/15 text-success-foreground">
+              <Gift className="size-5" />
+            </span>
+            <DialogTitle className="text-base">{EN.infoTitre}</DialogTitle>
+          </div>
+        </DialogHeader>
+        <DialogPanel>
+          <p className="whitespace-pre-wrap rounded-lg bg-muted/50 p-4 text-sm leading-relaxed">{message.texte}</p>
+          {lu.isError && <p className="mt-2 text-sm text-destructive">{EN.erreur}</p>}
+        </DialogPanel>
+        <DialogFooter>
+          <Button variant="outline" disabled={lu.isPending} onClick={() => lu.mutate()}>
+            {EN.compris}
+          </Button>
+          <Button disabled={lu.isPending} onClick={parrainer}>
+            {EN.parrainer}
+          </Button>
+        </DialogFooter>
+      </DialogPopup>
+    </Dialog>
   );
 }
 

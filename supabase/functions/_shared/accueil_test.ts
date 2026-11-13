@@ -7,6 +7,8 @@ import {
   cohorteRecrue,
   codePays,
   hmDeNomUpwork,
+  hmParRegle,
+  type HmRegle,
   type InfosApi,
   langueDePays,
   lireDetailsContrat,
@@ -62,6 +64,7 @@ Deno.test("annonce inconnue ou générique → Contrats à relier ; pays choisi 
   assertEquals(planAccueil(d, annonce({ langue: null }), null, []).statut, "a_relier");
 });
 
+const sansPaysTitre = { ...d, job_titre: "TikTok poster" };
 const api = (o: Partial<InfosApi> = {}): InfosApi => ({ freelance_pays: "HR", freelance_langue: "hr", hm_id: "hmC", hm_nom: "Lucia D.", ...o });
 
 Deno.test("0470 : pays du freelance si l'annonce n'en a pas ; HM du contrat, pas celle de l'annonce", () => {
@@ -72,10 +75,12 @@ Deno.test("0470 : pays du freelance si l'annonce n'en a pas ; HM du contrat, pas
   assertEquals([a.pays, a.hm_id, a.source, a.ecart], ["PT", "hmC", "annonce", undefined]);
   // Le freelance vit ailleurs : pays de l'annonce, l'écart est noté.
   assertEquals(planAccueil(d, annonce(), null, [], api()).ecart, { vit: "HR", annonce: "PT" });
-  // Ni annonce ni pays du freelance : la carte.
-  assertEquals(planAccueil(d, null, null, [], api({ freelance_pays: null })).statut, "a_relier");
+  // Ni annonce, ni pays du freelance, ni pays dans le titre : la carte.
+  assertEquals(planAccueil(sansPaysTitre, null, null, [], api({ freelance_pays: null })).statut, "a_relier");
+  // 12/11 : le titre de l'annonce donne le pays (« TikTok poster (Portugal) »).
+  assertEquals(planAccueil(d, null, null, [], api({ freelance_pays: null })).pays, "PT");
   // Pays du freelance sans langue connue : la carte, avec la raison.
-  assertEquals(planAccueil(d, null, null, [], api({ freelance_pays: "IS", freelance_langue: null })).raison, "le freelance vit en IS, aucune langue connue pour ce pays");
+  assertEquals(planAccueil(sansPaysTitre, null, null, [], api({ freelance_pays: "IS", freelance_langue: null })).raison, "le freelance vit en IS, aucune langue connue pour ce pays");
   // HM du contrat pas dans l'OS : la carte (pays gardé).
   const sansHm = planAccueil(d, null, null, [], api({ hm_id: null, hm_nom: "Dzenita S." }));
   assertEquals([sansHm.statut, sansHm.pays, sansHm.raison], ["a_relier", "HR", "HM du contrat (Dzenita S.) pas dans l'OS : choisis la HM"]);
@@ -85,7 +90,7 @@ Deno.test("0470 : un choix à la main reste après une simulation (statut simule
   const p = planAccueil(d, null, { statut: "simule", pays: "SK", langue: "sk", hm_id: "hmX", relie_at: "2026-10-30T10:00:00Z" }, [], api({ freelance_pays: null, hm_id: null }));
   assertEquals([p.statut, p.pays, p.langue, p.hm_id, p.source], ["a_creer", "SK", "sk", "hmX", "main"]);
   // Simulé par l'annonce (sans relie_at) : pas un choix à la main.
-  assertEquals(planAccueil(d, null, { statut: "simule", pays: "SK", langue: "sk", hm_id: null }, [], api({ freelance_pays: null })).statut, "a_relier");
+  assertEquals(planAccueil(sansPaysTitre, null, { statut: "simule", pays: "SK", langue: "sk", hm_id: null }, [], api({ freelance_pays: null })).statut, "a_relier");
 });
 
 Deno.test("0470 : HM par le nom Upwork, langue d'un pays, code d'un pays", () => {
@@ -199,4 +204,50 @@ Deno.test("1/11 : login déjà donné par la HM dans la conversation (@sophia.co
   assertEquals(loginDejaDonne([hm("Login: ana.s@vikmail.com")], "ana.s@vikmail.com") !== null, true);
   assertEquals(loginDejaDonne([hm("Hi, thanks for signing! Join our Slack: https://join.slack.com/t/x")]), null);
   assertEquals(loginDejaDonne([]), null);
+});
+
+// 12/11 (Max) : plus rien à relier à la main.
+const hmsRegle: HmRegle[] = [
+  { id: "amanda", langues: ["tr", "he", "sr"], pays: ["IL"], actifs: 28 },
+  { id: "kris", langues: ["bg", "tr"], pays: [], actifs: 51 },
+  { id: "nana", langues: ["sr"], pays: [], actifs: 17 },
+  { id: "regina", langues: ["de", "da"], pays: ["DE", "DK"], actifs: 61 },
+];
+
+Deno.test("règle HM inconnue : la HM qui couvre le pays ou la langue, la moins chargée", () => {
+  assertEquals(hmParRegle("TR", "tr", hmsRegle), "amanda");
+  assertEquals(hmParRegle("RS", "sr", hmsRegle), "nana");
+  assertEquals(hmParRegle("DK", "da", hmsRegle), "regina");
+  assertEquals(hmParRegle("JP", "ja", hmsRegle), null);
+  const p = planAccueil(d, null, null, [], api({ freelance_pays: "BG", freelance_langue: "bg", hm_id: null, hm_nom: "Erla M.", hms_regle: hmsRegle }));
+  assertEquals([p.statut, p.pays, p.langue, p.hm_id], ["a_creer", "BG", "bg", "kris"]);
+  const r = planAccueil(d, null, null, [], api({ freelance_pays: "JP", freelance_langue: "ja", hm_id: null, hm_nom: "Maximilien K.", hms_regle: hmsRegle }));
+  assertEquals(r.statut, "a_relier");
+  assertEquals(r.raison, "aucune HM de l'OS ne couvre ce pays ni cette langue (JP, ja)");
+  // Sans la règle (anciens appels) : la carte, comme avant.
+  assertEquals(planAccueil(d, null, null, [], api({ hm_id: null, hm_nom: "Erla M." })).statut, "a_relier");
+});
+
+Deno.test("règle : le pays du titre de l'annonce quand le freelance est illisible", () => {
+  const israel = { ...d, job_titre: "TikTok Content Posting for Slideshows (about 10 minutes a day) — ISRAEL" };
+  const p = planAccueil(israel, null, null, [], api({ freelance_pays: null, freelance_langue: null, hm_id: "amanda", hm_nom: "Amanda C.", hms_regle: hmsRegle }));
+  assertEquals([p.statut, p.pays, p.langue, p.hm_id], ["a_creer", "IL", "he", "amanda"]);
+  const rien = { ...d, job_titre: "TikTok Content Posting" };
+  assertEquals(planAccueil(rien, null, null, [], api({ freelance_pays: null, freelance_langue: null, hms_regle: hmsRegle })).statut, "a_relier");
+});
+
+Deno.test("règle : un pays fermé pose une question, sauf si Max a déjà dit « créer »", () => {
+  const p = planAccueil(d, null, null, [], api({ freelance_pays: "PT", freelance_langue: "pt", hm_id: "hm1", pays_fermes: ["PT", "ID"] }));
+  assertEquals([p.statut, p.raison], ["a_relier", "pays fermé (PT)"]);
+  const main = planAccueil(d, null, { statut: "a_creer", pays: "PT", langue: "pt", hm_id: "hm1", relie_at: "2026-11-12" }, [],
+    api({ freelance_pays: "PT", freelance_langue: "pt", hm_id: "hm1", pays_fermes: ["PT"] }));
+  assertEquals(main.statut, "a_creer");
+});
+
+Deno.test("règle : le même nom chez un posteur Ruul n'est jamais relié (rien envoyé)", () => {
+  const p = planAccueil(d, annonce(), null, [posteur({ canal_paie: "ruul" })], api({ freelance_pays: "PT", hm_id: "hm1" }));
+  assertEquals(p.statut, "doublon");
+  assertEquals(p.poster_id, undefined);
+  assertEquals(p.raison, "même nom et même pays qu'un posteur Ruul : rien créé ni envoyé");
+  assertEquals(planAccueil(d, annonce(), null, [posteur()], api({ freelance_pays: "PT", hm_id: "hm1" })).poster_id, "p1");
 });

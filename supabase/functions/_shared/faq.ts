@@ -46,8 +46,8 @@ export interface ReglagesFaq {
   message_attente: boolean;
 }
 
-/** #questions (posters). */
-export const CANAL_QUESTIONS = "C0BL56RJH7T";
+/** 12/11 : #questions est archivé ; le salon par défaut est #posting-help (puis #ruul-posters, #upwork-posters). */
+export const CANAL_QUESTIONS = "C0CGA81NTDH";
 
 export const REGLAGES_FAQ_DEFAUT: ReglagesFaq = {
   mode_slack: "test",
@@ -212,7 +212,7 @@ export function construirePromptFaq(input: {
 }): string {
   const slack = input.canal === "slack";
   const ou = slack
-    ? "posté sur Slack dans le canal #questions"
+    ? "posté sur Slack dans un salon des posteurs (#posting-help, #ruul-posters ou #upwork-posters)"
     : "posé dans la bulle d'aide de son dashboard (l'OS)";
   const langue = slack
     ? "Réponds dans la langue du message (le plus souvent l'anglais : toute la communication de l'équipe est en anglais)."
@@ -221,7 +221,7 @@ export function construirePromptFaq(input: {
   const autresCas = slack
     ? `Pour "incertain", "bug", "inconnu" et "hors_sujet" : "reponse" vide. "section" null, sauf pour "incertain". Sur Slack, tu ne réponds QUE quand la base répond clairement.`
     : `Sur le dashboard, la personne attend toujours un mot, donc "reponse" n'est jamais vide :
-- "bug" : dis-lui de poster le problème dans #questions sur Slack avec une capture d'écran, l'équipe technique s'en occupe là.
+- "bug" : dis-lui d'utiliser Help sur son dashboard (I need help) avec une capture d'écran, l'équipe s'en occupe.
 - "incertain" et "inconnu" : réponds exactement « Thanks for your message! I'm checking this and will get back to you today. » (traduit dans sa langue s'il n'écrit pas en anglais).
 - "hors_sujet" : une réponse brève et polie.
 - Si la SITUATION ci-dessous explique ce que la personne voit (warm-up en cours, rien de prévu avant lundi, posts prévus demain), réponds avec ces données : c'est "repondu". Ne cite que les chiffres de la SITUATION.`;

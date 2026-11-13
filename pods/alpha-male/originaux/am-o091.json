@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o091",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7c06f70a-ac47-49f5-9dba-a093f66feef6",
+ "titre": "Office rules men only learn the hard way #men #work #respect #career #mindset",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "7c06f70a-ac47-49f5-9dba-a093f66feef6"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 12/11. Déclinaison G2 de la ligne 3 (parent 7c06f70a = notre am-o023, langue source en ; 3e et dernière déclinaison après am-o076 et am-o082). Même promesse, troisième reformulation (« Office rules men only learn the hard way »). Même format : « N. If… » + règle. Règles neuves, ni de am-o023, am-o076, am-o082 ou am-o003. Rien sur le salaire. Images : célébrités (autorisé) et la banque ; slide Sophia : salon vide, sans personne ni écran. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "309fc180",
+   "texte_overlay": "Office rules men only\nlearn the hard way",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1570817f",
+   "texte_overlay": "1. If You Borrow Something...\nReturn It the Same Day:\n\nThe charger, the pen, the book.\nTrust lives in small things.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "442e0411",
+   "texte_overlay": "2. If a Colleague Gets Promoted...\nCongratulate First:\n\nBefore the group chat does.\nEnvy is loud. Class is quick.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "021a527d",
+   "texte_overlay": "3. If the Topic Is New to You...\nPrepare Before the Meeting:\n\nFive minutes of reading.\nWalk in with one good question.",
+   "texte_sophia": "3. If the Topic Is New to You...\nPrepare Before the Meeting:\n\nFive minutes on the Sophia app.\nWalk in with one good question.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "080e99c7",
+   "texte_overlay": "4. If You're Asked to Stay Late...\nSay Yes Once, Then Set the Line:\n\nHelp in a crunch.\nDon't become the default.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "10562f66",
+   "texte_overlay": "5. If You Don't Understand...\nAsk Once, Clearly:\n\n\"Can you walk me through it?\"\nGuessing costs more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "105dddf3",
+   "texte_overlay": "6. If You Hit \"Reply All\"...\nThink Twice:\n\nHalf the room didn't need it.\nRespect people's inboxes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

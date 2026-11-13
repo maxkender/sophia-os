@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o167",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a157d3c4-0769-4c97-af30-936252f46f7d",
+ "titre": "true history facts that sound completely made up #history #funfacts #smartgirl #darkacademia #learning",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent a157d3c4, langue source en) : accroche reformulée (« 5 history facts that sound fake but are true » → « true history facts that sound completely made up »), même promesse. Le parent est la version hongroise de notre sg-o112 ; faits neufs vérifiés : Harvard (1636) est plus ancienne que le calcul infinitésimal de Newton et Leibniz ; Pluton n'a pas fait un seul tour du Soleil entre sa découverte (1930) et son reclassement (2006) ; la dernière exécution à la guillotine en France date de 1977 ; George V, Guillaume II et Nicolas II étaient cousins ; Napoléon mesurait environ 1,69 m, la moyenne de son époque. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9561e305",
+   "texte_overlay": "true history facts that sound\ncompletely made up",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "55f46fd5",
+   "texte_overlay": "1. harvard is older than\ncalculus.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "51b6120e",
+   "texte_overlay": "2. pluto never finished one orbit\nbetween its discovery in 1930\nand losing planet status in 2006.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "988bed43",
+   "texte_overlay": "3. france's last execution by\nguillotine was in 1977.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1c9c3613",
+   "texte_overlay": "4. the kings of britain and\ngermany and the tsar of russia\nwere cousins in world war i.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5c25f4cb",
+   "texte_overlay": "5. napoleon wasn't short.\nhe was about average for\nhis time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a8590bea",
+   "texte_overlay": "swap one scroll a day for\na story like this.",
+   "texte_sophia": "swap one scroll a day for a\nstory like this, on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ee0f869e",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

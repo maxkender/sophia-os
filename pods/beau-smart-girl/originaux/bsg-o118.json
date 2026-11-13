@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o118",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en écrivant une page de journal chaque soir pendant un an #journal #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : le journal intime sur un an, récit « je ». Accroches écrites : « ce que j'ai appris en écrivant une page de journal chaque soir pendant un an » (retenue : expérience longue, chiffre concret), « pourquoi tenir un journal » (écartée : conseil sec), « le journaling a changé ma vie » (écartée : promesse vague). Aucun fait daté. Routine du 9/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 4 full tests et 4 déclinaisons (lignes 1 en G2, 2, 3 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 4 (4d7c5f32, accroche illisible), 5 (083ac272, hobbies « backed by science »), 6 (837491f7, « enterimarnt »), 7 (6211e51e, « other then »), 8 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "ce que j'ai appris en écrivant\nune page de journal chaque soir\npendant un an",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. mes pires jours tiennent en trois lignes\n\nrelus six mois plus tard,\nils ne font plus peur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. j'écris mieux\n\nune page par soir, c'est 365 pages.\nma plume a changé sans que je m'en rende compte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "41a74286",
+      "texte_overlay": "3. je me souviens de ma vie\n\nun dîner, une phrase, une chanson.\nsans le journal, tout serait parti.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "4. je vois mes schémas\n\nles mêmes disputes, les mêmes peurs.\nécrites, elles sont plus faciles à changer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. j'ai enfin des choses à écrire\n\navant, mes pages parlaient seulement de ma journée.\nmaintenant, j'apprends un truc sur le monde chaque matin. et je l'écris le soir.",
+      "texte_sophia": "5. j'ai enfin des choses à écrire\n\navant, mes pages parlaient seulement de ma journée.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et je l'écris le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu tiens un journal, toi ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

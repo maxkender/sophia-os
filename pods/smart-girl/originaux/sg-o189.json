@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o189",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "20d601c7-a291-444c-9df6-332ecb8bf233",
+ "titre": "7 philosophy topics to explore when you're bored #philosophy #smartgirl #darkacademia #stoicism #learning",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 20 de la boîte (parent 20d601c7, langue source en) : accroche du parent mot pour mot. Sujets neufs face au parent (le bateau de Thésée, la caverne de Platon, le pari de Pascal, le voile d'ignorance de Rawls, le problème du tramway, l'existentialisme de Beauvoir, le rasoir d'Ockham). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3e990db3",
+   "texte_overlay": "7 philosophy topics to explore\nwhen you're bored",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "da93bc2d",
+   "texte_overlay": "1. the ship of theseus\n\nif you replace every part,\nis it still the same ship?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "867d808b",
+   "texte_overlay": "2. plato's cave\n\nwhat if what we see\nis only shadows?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "796893c2",
+   "texte_overlay": "3. pascal's wager\n\na bet on faith, made with logic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c7b1e7c1",
+   "texte_overlay": "4. the veil of ignorance\n\nwhat rules would you choose\nif you didn't know who\nyou'd be?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "561b50eb",
+   "texte_overlay": "5. the trolley problem\n\nwould you pull the lever?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "42c3601e",
+   "texte_overlay": "6. simone de beauvoir\n\n\"one is not born, but rather\nbecomes, a woman.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dd47409e",
+   "texte_overlay": "7. ockham's razor\n\nthe simplest explanation\nis often right.",
+   "texte_sophia": "7. ockham's razor\n\nthe simplest explanation is\noften right. i learn ideas like\nthis on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "98cbd523",
+   "texte_overlay": "which one will you\nthink about tonight?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/9.jpg"
+  }
+ ]
+}

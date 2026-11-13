@@ -226,8 +226,9 @@ export function texteAlerteMax(
 /** L'email au posteur quand l'équipe répond. */
 export function texteEmailReponse(prenom: string | null, reponse: string, osUrl: string): { objet: string; corps: string; lien: string } {
   return {
-    objet: "The team answered your request",
-    corps: `Hi ${prenom || "there"},\n\nThe team answered your request:\n\n${reponse}\n\nYou can reply from the Help page of your dashboard.`,
+    // 13/11 (Max) : « You have a new answer » ; la réponse est aussi dans son chat Help.
+    objet: "You have a new answer",
+    corps: `Hi ${prenom || "there"},\n\nYou have a new answer to your question:\n\n${reponse}\n\nOpen Help on your dashboard to read it and reply.`,
     lien: `${osUrl.replace(/\/+$/, "")}${LIEN_HELP}`,
   };
 }

@@ -107,9 +107,9 @@ export const TEXTES_RELANCE_DEFAUT: TextesRelance = {
   follows: "follow {follows} with @{handle} (Start warmup is done)",
 };
 
-/** 0592 : la relance d'un posteur Ruul : la date limite est le samedi 20 h (Paris), la date de début son lundi. */
+/** 0592 : la relance d'un posteur Ruul ; 13/11 : la date limite est dimanche minuit (Paris), la date de début son lundi. */
 export const CADRE_RELANCE_RUUL =
-  "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}. Please finish before Saturday 8 pm (Paris time). If something is blocking you, just reply to this message.";
+  "Hi {prenom}, to start posting on Monday {date}, you still need to {ce_qui_manque}. Please finish before Sunday midnight (Paris time). If something is blocking you, just reply to this message.";
 
 /** Les variables connues ; une variable inconnue reste telle quelle (comme ailleurs). */
 function remplir(modele: string, vars: Record<string, string>): string {

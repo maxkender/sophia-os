@@ -26,7 +26,8 @@ export function etapesRuulFaites(o: MonOnboardingRuul): Record<EtapeRuul, boolea
     tiktok: o.tiktok,
     warmup: o.pret_warmup || (o.warmup_lance && o.abonnements >= 5),
     slack: o.slack,
-    ruul: o.ruul_pret,
+    // 13/11 (Max) : « ready » seulement quand le compte Ruul est Active (import) ou « It's done » cliqué.
+    ruul: etatRuul(o) === "pret",
   };
 }
 
@@ -41,13 +42,18 @@ function jourMois(jour: string, langue: string): string {
     .format(new Date(`${jour}T12:00:00Z`));
 }
 
-/** 13/11 : l'étape « Prepare your Ruul account » : son état (invitation à venir, envoyée, compte actif, fait). */
-export function etatRuul(o: MonOnboardingRuul): "fait" | "actif" | "invite" | "attente" {
-  if (o.ruul_pret) return "fait";
-  if (o.ruul_compte === "active") return "actif";
-  if (o.ruul_invite) return "invite";
+/**
+ * 13/11 (Max) : l'étape Ruul du dashboard, selon le statut Ruul. Jamais « ready » tant que le compte
+ * n'est pas Active : pas encore invité (⏳, rien à faire) → invité (finir le compte) → prêt.
+ */
+export function etatRuul(o: MonOnboardingRuul): "attente" | "invite" | "pret" {
+  if (o.ruul_pret || o.ruul_compte === "active") return "pret";
+  if (o.ruul_invite || o.ruul_compte === "invited") return "invite";
   return "attente";
 }
+
+/** L'espace Ruul (connexion, identité, banque). */
+const LIEN_RUUL = "https://app.ruul.io";
 
 function Pastille({ numero, fait, recommande }: { numero: number; fait: boolean; recommande?: boolean }) {
   return (
@@ -116,7 +122,7 @@ function BoutonPret() {
   });
   return (
     <span className="mt-1 inline-flex flex-wrap items-center gap-2">
-      <Button size="sm" className="h-8" disabled={m.isPending} onClick={() => m.mutate()} data-testid="ruul-pret">{t("ruulOnboarding.fait")}</Button>
+      <Button size="sm" variant="outline" className="h-8" disabled={m.isPending} onClick={() => m.mutate()} data-testid="ruul-pret">{t("ruulOnboarding.fait")}</Button>
       {(m.isError || (m.data && !m.data.ok)) && <span className="text-destructive text-xs">{m.data?.erreur ?? t("ruulOnboarding.erreur")}</span>}
     </span>
   );
@@ -180,23 +186,21 @@ export function ChecklistRuul() {
     },
     {
       cle: "ruul",
-      titre: t("ruulOnboarding.ruul"),
+      titre: ruul === "pret" ? t("ruulOnboarding.ruulPretTitre") : ruul === "invite" ? t("ruulOnboarding.ruulInviteTitre") : t("ruulOnboarding.ruulAttenteTitre"),
       detail: (
         <div className="space-y-1" data-testid="ruul-statut" data-etat={ruul}>
-          <span
-            className={cn(
-              "inline-block rounded-full px-2 py-0.5 font-medium text-xs",
-              ruul === "fait" ? "bg-success/15 text-success" : ruul === "attente" ? "bg-muted text-muted-foreground" : "bg-primary/10 text-primary",
-            )}
-          >
-            {ruul === "fait" ? t("ruulOnboarding.ruulFait") : ruul === "actif" ? t("ruulOnboarding.statutActif") : ruul === "invite" ? t("ruulOnboarding.statutInvite") : t("ruulOnboarding.statutAttente")}
-          </span>
-          {ruul !== "fait" && (
-            <p className="text-muted-foreground text-xs">
-              {ruul === "actif" ? t("ruulOnboarding.ruulActif") : ruul === "invite" ? t("ruulOnboarding.ruulInvite") : t("ruulOnboarding.ruulAttente")}
-            </p>
+          <p className="text-muted-foreground text-xs">
+            {ruul === "attente" && <span aria-hidden className="mr-1">⏳</span>}
+            {ruul === "pret" ? t("ruulOnboarding.ruulPretTexte") : ruul === "invite" ? t("ruulOnboarding.ruulInviteTexte") : t("ruulOnboarding.ruulAttenteTexte")}
+          </p>
+          {ruul === "invite" && (
+            <span className="mt-1 inline-flex flex-wrap items-center gap-2">
+              <Button asChild size="sm" className="h-8">
+                <a href={LIEN_RUUL} target="_blank" rel="noreferrer" data-testid="ouvrir-ruul">{t("ruulOnboarding.ouvrirRuul")}</a>
+              </Button>
+              <BoutonPret />
+            </span>
           )}
-          {(ruul === "invite" || ruul === "actif") && <BoutonPret />}
         </div>
       ),
     },

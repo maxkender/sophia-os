@@ -3,7 +3,6 @@ import * as React from "react";
 import { useTranslation } from "react-i18next";
 
 import { PageHeader } from "@/components/layout/PageHeader";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -13,7 +12,9 @@ import {
   actionPosteur,
   CATEGORIES_PROBLEME,
   cleCategorie,
+  demandeOuverte,
   deposerCapture,
+  filChat,
   lireDemandesDe,
   lireMaPlateforme,
   lireMesDemandes,
@@ -21,7 +22,6 @@ import {
   type Plateforme,
   poserQuestion,
   signalerProbleme,
-  statutPosteur,
 } from "./api";
 
 const H = "support.help";
@@ -53,78 +53,140 @@ export function PageHelp({ apercu }: { apercu?: ApercuHelp } = {}) {
   const userId = apercu ? (apercu.posterId ?? "") : user?.id ?? "";
   const plateforme = useQuery({ queryKey: ["support", "plateforme", userId], queryFn: () => lireMaPlateforme(userId), enabled: !apercu && !!userId, staleTime: Infinity });
   const cleDemandes = apercu ? ["support", "apercu", apercu.cle] : ["support", "mes-demandes"];
+  // 13/11 : la réponse de l'équipe apparaît dans le chat sans recharger la page.
   const demandes = useQuery({
     queryKey: cleDemandes,
     queryFn: () => (apercu ? (apercu.posterId ? lireDemandesDe(apercu.posterId) : Promise.resolve([])) : lireMesDemandes()),
+    refetchInterval: apercu ? false : 30_000,
   });
-  const [mode, setMode] = React.useState<"question" | "probleme" | null>(null);
+  const [probleme, setProbleme] = React.useState(false);
   const pf: Plateforme = apercu?.plateforme ?? plateforme.data ?? "upwork";
   const rafraichir = () => qc.invalidateQueries({ queryKey: cleDemandes });
-
   const liste = demandes.data ?? [];
-  const questions = liste.filter((d) => d.type === "question");
-  const problemes = liste.filter((d) => d.type === "probleme");
 
   return (
     <ApercuContexte.Provider value={apercu ?? null}>
-    <div className="space-y-4" data-testid="page-help">
+    <div className="mx-auto max-w-2xl space-y-3" data-testid="page-help">
       <PageHeader title={t(`${H}.titre`)} description={t(`${H}.description`)} />
-      <div className="flex flex-wrap gap-2">
-        <Button variant={mode === "question" ? "default" : "outline"} onClick={() => setMode("question")} data-testid="help-demander">
-          {t(`${H}.demander`)}
-        </Button>
-        <Button variant={mode === "probleme" ? "default" : "outline"} onClick={() => setMode("probleme")} data-testid="help-signaler">
-          {t(`${H}.signaler`)}
-        </Button>
-      </div>
-      {mode === "question" && <FormQuestion onFini={rafraichir} />}
-      {mode === "probleme" && <FormProbleme plateforme={pf} userId={userId} onFini={() => { setMode(null); void rafraichir(); }} />}
       {demandes.error && <p className="text-sm text-destructive">{(demandes.error as Error).message}</p>}
-      <Liste titre={t(`${H}.mesProblemes`)} demandes={problemes} plateforme={pf} onChange={rafraichir} testid="mes-problemes" />
-      <Liste titre={t(`${H}.mesQuestions`)} demandes={questions} plateforme={pf} onChange={rafraichir} testid="mes-questions" />
+      <Chat demandes={liste} onChange={rafraichir} onProbleme={() => setProbleme(true)} />
+      {probleme && <FormProbleme plateforme={pf} userId={userId} onFini={() => { setProbleme(false); void rafraichir(); }} />}
     </div>
     </ApercuContexte.Provider>
   );
 }
 
-function FormQuestion({ onFini }: { onFini: () => void }) {
+const heure = (at: string) => new Date(at).toLocaleString("en-GB", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
+
+/**
+ * 13/11 (Max) : Help en chat. Le posteur à droite, « Vik Studios » à gauche ; « typing… » pendant
+ * la réponse ; sous chaque réponse « 👍 Solved » / « I still need help » (→ l'équipe). Une demande
+ * encore ouverte : le message part dans son fil ; sinon c'est une nouvelle question.
+ */
+function Chat({ demandes, onChange, onProbleme }: { demandes: MaDemande[]; onChange: () => void; onProbleme: () => void }) {
   const { t } = useTranslation();
-  const [texte, setTexte] = React.useState("");
-  const [fait, setFait] = React.useState<"resolu" | "aide" | null>(null);
   const apercu = React.useContext(ApercuContexte);
+  const [texte, setTexte] = React.useState("");
+  const [enAttente, setEnAttente] = React.useState<string | null>(null);
+  const [simulees, setSimulees] = React.useState<{ q: string; r: string }[]>([]);
+  const [nouvelle, setNouvelle] = React.useState(false);
+  const bas = React.useRef<HTMLDivElement>(null);
+  const ouverte = nouvelle ? null : demandeOuverte(demandes);
+  const groupes = filChat(demandes);
+
   const envoi = useMutation({
-    mutationFn: async (): Promise<{ id: string | null; reponse: string; envoye_equipe: boolean }> =>
-      apercu ? { id: null, ...(await apercu.simuler(texte.trim())) } : poserQuestion(texte.trim()),
-    onSuccess: () => { setFait(null); onFini(); },
+    mutationFn: async (q: string) => {
+      if (apercu) {
+        const r = await apercu.simuler(q);
+        setSimulees((s) => [...s, { q, r: r.reponse }]);
+        return;
+      }
+      if (ouverte) await actionPosteur(ouverte.id, "repondre", q);
+      else await poserQuestion(q);
+    },
+    onMutate: (q) => { setEnAttente(q); setTexte(""); },
+    onSettled: () => { setEnAttente(null); setNouvelle(false); onChange(); },
   });
-  const suite = useMutation({
-    mutationFn: (a: "resolu" | "aide") => actionPosteur(envoi.data!.id!, a),
-    onSuccess: (_d, a) => { setFait(a); onFini(); },
-  });
-  const r = envoi.data;
+  const suite = useMutation({ mutationFn: (p: { id: string; a: "resolu" | "aide" }) => actionPosteur(p.id, p.a), onSuccess: onChange });
+
+  React.useEffect(() => { bas.current?.scrollIntoView?.({ block: "end" }); }, [demandes.length, enAttente, simulees.length]);
+  const envoyer = () => { const q = texte.trim(); if (q.length >= 2 && !envoi.isPending) envoi.mutate(q); };
+
   return (
-    <Card data-testid="form-question">
-      <CardContent className="space-y-3 p-4 text-sm">
-        <Textarea value={texte} onChange={(e) => setTexte(e.target.value)} placeholder={t(`${H}.questionPlaceholder`)} rows={3} />
-        <Button disabled={texte.trim().length < 3 || envoi.isPending} onClick={() => envoi.mutate()}>
-          {envoi.isPending ? t(`${H}.envoi`) : t(`${H}.envoyer`)}
-        </Button>
-        {envoi.error && <p className="text-destructive">{(envoi.error as Error).message}</p>}
-        {r && (
-          <div className="space-y-2 rounded-md border bg-muted/40 p-3" data-testid="reponse-bot">
-            <p className="whitespace-pre-wrap">{r.reponse}</p>
-            {!r.envoye_equipe && r.id && !fait && (
-              <div className="flex flex-wrap gap-2">
-                <Button size="sm" onClick={() => suite.mutate("resolu")} disabled={suite.isPending}>{t(`${H}.resolu`)}</Button>
-                <Button size="sm" variant="outline" onClick={() => suite.mutate("aide")} disabled={suite.isPending}>{t(`${H}.aide`)}</Button>
+    <div className="flex flex-col overflow-hidden rounded-xl border bg-background" data-testid="chat-help">
+      <div className="flex max-h-[60vh] min-h-[320px] flex-col gap-2 overflow-y-auto bg-muted/30 p-3" data-testid="fil-chat">
+        {groupes.length === 0 && simulees.length === 0 && !enAttente && (
+          <Bulle cote="eux" texte={t(`${H}.accueil`)} />
+        )}
+        {groupes.map((g) => (
+          <div key={g.demande.id} className="flex flex-col gap-2" data-testid="groupe-chat">
+            {g.bulles.map((b) => <Bulle key={b.cle} cote={b.cote} texte={b.texte} at={b.at} />)}
+            {g.choix && !apercu && (
+              <div className="flex flex-wrap gap-2 pl-1" data-testid="choix-chat">
+                <Button size="sm" variant="outline" className="h-7 rounded-full" disabled={suite.isPending} onClick={() => suite.mutate({ id: g.demande.id, a: "resolu" })}>
+                  {t(`${H}.resolu`)}
+                </Button>
+                <Button size="sm" variant="outline" className="h-7 rounded-full" disabled={suite.isPending} onClick={() => suite.mutate({ id: g.demande.id, a: "aide" })}>
+                  {t(`${H}.aide`)}
+                </Button>
               </div>
             )}
-            {fait === "resolu" && <p className="text-muted-foreground">{t(`${H}.merciResolu`)}</p>}
-            {fait === "aide" && <p className="text-muted-foreground">{t(`${H}.envoyeEquipe`)}</p>}
+            {g.chezEquipe && <p className="self-center rounded-full border border-amber-300 bg-amber-50 px-3 py-0.5 text-amber-800 text-xs dark:bg-amber-950/40 dark:text-amber-200" data-testid="chez-equipe">{t(`${H}.envoyeEquipe`)}</p>}
+            {g.demande.statut === "resolu" && <p className="self-center text-muted-foreground text-xs">{t(`${H}.statuts.resolu`)}</p>}
           </div>
+        ))}
+        {simulees.map((s, i) => (
+          <React.Fragment key={i}><Bulle cote="moi" texte={s.q} /><Bulle cote="eux" texte={s.r} /></React.Fragment>
+        ))}
+        {enAttente && (
+          <>
+            <Bulle cote="moi" texte={enAttente} />
+            <p className="pl-2 text-muted-foreground text-xs italic" data-testid="typing">{t(`${H}.typing`)}</p>
+          </>
         )}
-      </CardContent>
-    </Card>
+        {envoi.error && <p className="text-destructive text-xs">{(envoi.error as Error).message}</p>}
+        <div ref={bas} />
+      </div>
+      {ouverte && (
+        <p className="flex flex-wrap items-center gap-2 border-t bg-muted/20 px-3 py-1.5 text-muted-foreground text-xs" data-testid="reponse-a">
+          {t(`${H}.repondreA`)}
+          <button type="button" className="underline" onClick={() => setNouvelle(true)}>{t(`${H}.nouvelleQuestion`)}</button>
+        </p>
+      )}
+      <form className="flex gap-2 border-t p-2" onSubmit={(e) => { e.preventDefault(); envoyer(); }}>
+        <Textarea
+          value={texte}
+          onChange={(e) => setTexte(e.target.value)}
+          onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); envoyer(); } }}
+          placeholder={t(`${H}.questionPlaceholder`)}
+          rows={1}
+          className="min-h-10 resize-none rounded-2xl"
+          data-testid="saisie-chat"
+        />
+        <Button type="submit" disabled={texte.trim().length < 2 || envoi.isPending} data-testid="envoyer-chat">{t(`${H}.envoyer`)}</Button>
+      </form>
+      <button type="button" className="border-t px-3 py-2 text-left text-muted-foreground text-xs underline-offset-2 hover:underline" onClick={onProbleme} data-testid="help-signaler">
+        {t(`${H}.signalerCapture`)}
+      </button>
+    </div>
+  );
+}
+
+function Bulle({ cote, texte, at }: { cote: "moi" | "eux"; texte: string; at?: string }) {
+  const { t } = useTranslation();
+  return (
+    <div className={cote === "moi" ? "flex flex-col items-end" : "flex flex-col items-start"} data-testid={`bulle-${cote}`}>
+      <span className="px-1 text-[11px] text-muted-foreground">{cote === "moi" ? t(`${H}.auteurs.posteur`) : "Vik Studios"}{at ? ` · ${heure(at)}` : ""}</span>
+      <p
+        className={
+          cote === "moi"
+            ? "max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-br-sm bg-primary px-3 py-2 text-primary-foreground text-sm"
+            : "max-w-[85%] whitespace-pre-wrap rounded-2xl rounded-bl-sm border bg-background px-3 py-2 text-sm"
+        }
+      >
+        {texte}
+      </p>
+    </div>
   );
 }
 
@@ -172,57 +234,3 @@ function FormProbleme({ plateforme, userId, onFini }: { plateforme: Plateforme; 
   );
 }
 
-function Liste({ titre, demandes, plateforme, onChange, testid }: {
-  titre: string; demandes: MaDemande[]; plateforme: Plateforme; onChange: () => void; testid: string;
-}) {
-  const { t } = useTranslation();
-  return (
-    <section className="space-y-2" data-testid={testid}>
-      <h2 className="text-base font-semibold">{titre}</h2>
-      {demandes.length === 0 && <p className="text-sm text-muted-foreground">{t(`${H}.aucune`)}</p>}
-      {demandes.map((d) => <Demande key={d.id} d={d} plateforme={plateforme} onChange={onChange} />)}
-    </section>
-  );
-}
-
-function Demande({ d, plateforme, onChange }: { d: MaDemande; plateforme: Plateforme; onChange: () => void }) {
-  const { t } = useTranslation();
-  const lectureSeule = !!React.useContext(ApercuContexte);
-  const [texte, setTexte] = React.useState("");
-  const statut = statutPosteur(d);
-  const repondre = useMutation({ mutationFn: () => actionPosteur(d.id, "repondre", texte.trim()), onSuccess: () => { setTexte(""); onChange(); } });
-  const suite = useMutation({ mutationFn: (a: "resolu" | "aide") => actionPosteur(d.id, a), onSuccess: onChange });
-  const variante = statut === "resolu" ? "success" : statut === "en_cours" || statut === "repondu" ? "info" : "secondary";
-  return (
-    <Card data-testid="demande">
-      <CardContent className="space-y-2 p-4 text-sm">
-        <div className="flex flex-wrap items-center gap-2">
-          {d.type === "probleme" && <Badge variant="outline">{t(`${H}.categories.${cleCategorie(d.categorie, plateforme)}`)}</Badge>}
-          <Badge variant={variante} data-testid="statut">{t(`${H}.statuts.${statut}`)}</Badge>
-          <span className="text-xs text-muted-foreground">{new Date(d.cree_at).toLocaleDateString("en-GB")}</span>
-        </div>
-        <p className="font-medium whitespace-pre-wrap">{d.texte}</p>
-        <div className="space-y-1">
-          {d.messages.map((m, i) => (
-            <div key={i} className={m.auteur === "posteur" ? "rounded-md bg-muted/50 p-2" : "rounded-md border p-2"}>
-              <p className="text-xs text-muted-foreground">{t(`${H}.auteurs.${m.auteur}`)}</p>
-              <p className="whitespace-pre-wrap">{m.texte}</p>
-            </div>
-          ))}
-        </div>
-        {d.statut === "bot" && !lectureSeule && (
-          <div className="flex flex-wrap gap-2">
-            <Button size="sm" onClick={() => suite.mutate("resolu")} disabled={suite.isPending}>{t(`${H}.resolu`)}</Button>
-            <Button size="sm" variant="outline" onClick={() => suite.mutate("aide")} disabled={suite.isPending}>{t(`${H}.aide`)}</Button>
-          </div>
-        )}
-        {d.statut !== "bot" && statut !== "resolu" && !lectureSeule && (
-          <div className="flex gap-2">
-            <Textarea value={texte} onChange={(e) => setTexte(e.target.value)} placeholder={t(`${H}.repondrePlaceholder`)} rows={2} />
-            <Button size="sm" disabled={!texte.trim() || repondre.isPending} onClick={() => repondre.mutate()}>{t(`${H}.repondre`)}</Button>
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  );
-}

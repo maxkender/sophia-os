@@ -21,7 +21,7 @@
  *       (USD), email Ruul (peut être vide) et application du site sont gardés
  *       sur le profil. Un posteur Ruul n'a jamais de contrat Upwork.
  *       Crée le poster par le MÊME chemin que l'admin (manage-users `create` :
- *       login @sophia.com, mot de passe mis par manage-users (12345678 pour
+ *       login @sophia.com, mot de passe unique et aléatoire (13/11 ; avant : 12345678 pour
  *       l'instant ; c'est CE mot de passe qui est renvoyé au site), premier
  *       compte perso, labels, persona), dans la langue de son pays, puis le
  *       rattache au profil « RUUL cohort » (réglage `hub_posteurs`), ou à
@@ -30,7 +30,7 @@
  *       avant son lundi de démarrage (`start_monday`), il dure jusqu'à ce
  *       lundi (trigger de 0296) — premiers posts et paie partent du lundi.
  *       Idempotent sur `hub_id` : un rejeu renvoie `existed: true` et, si le
- *       poster ne s'est jamais connecté, 12345678 remis et renvoyé (sinon
+ *       poster ne s'est jamais connecté, un mot de passe neuf remis et renvoyé (sinon
  *       `password: null`, `deja_connecte: true`).
  *   { action: "posts_semaine", profile_ids, lundi }
  *       Prévus / publiés / manqués de la semaine par poster (paie du site).
@@ -76,7 +76,7 @@ import {
   secretValide,
 } from "../_shared/hub_posteurs.ts";
 import { lireParLots } from "../_shared/lots.ts";
-import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
+import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { corsHeaders, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
 const VERSION = "2026-11-10-ruul-p1";
@@ -339,8 +339,9 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
     action: "create",
     prenom,
     nom,
-    // 9/11 : manage-users tire le mot de passe ; on renvoie au site celui qu'il a mis en place.
-    password: "auto",
+    // 13/11 (Réparer Ruul, point 5) : plus jamais de mot de passe par défaut : un mot de passe unique et
+    // aléatoire par compte. Le site le reçoit dans la réponse (son email de bienvenue dit le bon).
+    password: motDePasseRecrue(),
     langue,
     type_compte: "perso",
     posts_par_jour: POSTS_PAR_JOUR,
@@ -372,7 +373,7 @@ async function creerPosteur(supabase: Supabase, body: any): Promise<Response> {
   // Sans mot de passe dans la réponse (ne devrait pas arriver) : on en met un en place nous-mêmes.
   let password = cree.password;
   if (!password) {
-    password = MOT_DE_PASSE_COMMUN;
+    password = motDePasseRecrue();
     const { error: errMdp } = await supabase.auth.admin.updateUserById(cree.userId, { password });
     if (errMdp) throw errMdp;
   }
@@ -477,16 +478,17 @@ async function dejaCree(supabase: Supabase, lien: any): Promise<Response> {
     ? await supabase.from("profiles").select("id, prenom, nom, email").eq("id", managerId).maybeSingle()
     : { data: null };
 
-  // Jamais connecté : ses identifiants ont pu se perdre en route, on remet
-  // 12345678 (9/11, Max : pour l'instant partout) et on renvoie CELUI-LÀ, pour
-  // que l'email dise vrai. Déjà connecté : on ne touche à rien.
+  // Jamais connecté : ses identifiants ont pu se perdre en route, on pose un mot de
+  // passe neuf, unique et aléatoire (13/11 : plus de 12345678) et on renvoie CELUI-LÀ,
+  // pour que l'email dise vrai. Déjà connecté : on ne touche à rien.
   const { data: auth } = await supabase.auth.admin.getUserById(profil.id);
   const jamaisConnecte = !auth?.user?.last_sign_in_at;
   let password: string | null = null;
   if (jamaisConnecte) {
-    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password: MOT_DE_PASSE_COMMUN });
+    const neuf = motDePasseRecrue();
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(profil.id, { password: neuf });
     if (errMdp) throw errMdp;
-    password = MOT_DE_PASSE_COMMUN;
+    password = neuf;
     await supabase.from("hub_posteurs").update({ mdp_reel: true }).eq("hub_id", lien.hub_id);
   }
 

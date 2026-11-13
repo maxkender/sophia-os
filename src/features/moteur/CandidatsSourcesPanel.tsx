@@ -14,6 +14,7 @@ import {
   deciderCandidatSource,
   languesDeLOnglet,
   listerCandidatsSources,
+  noterCandidatSource,
   validerCandidatSource,
   vuesCourtes,
   type CandidatSource,
@@ -129,6 +130,8 @@ function CarteCandidat({
   const [langue, setLangue] = React.useState(c.langue);
   const [refus, setRefus] = React.useState(false);
   const [raison, setRaison] = React.useState("");
+  const [noteOuverte, setNoteOuverte] = React.useState(false);
+  const [note, setNote] = React.useState(c.note ?? "");
 
   const rafraichir = () => {
     queryClient.invalidateQueries({ queryKey: ["sources-candidats"] });
@@ -161,8 +164,20 @@ function CarteCandidat({
       rafraichir();
     },
   });
-  const occupe = valider.isPending || decider.isPending;
-  const erreur = (valider.error ?? decider.error) as Error | null;
+  // La note s'écrit en mettant la carte de côté, ou se corrige ensuite sur place.
+  const noter = useMutation({
+    mutationFn: async (v: { deCote: boolean }) => {
+      if (note.trim() !== (c.note ?? "")) await noterCandidatSource(c.id, note);
+      if (v.deCote) await deciderCandidatSource(c.id, "plus_tard");
+    },
+    onSuccess: () => {
+      setNoteOuverte(false);
+      onMessage(null);
+      rafraichir();
+    },
+  });
+  const occupe = valider.isPending || decider.isPending || noter.isPending;
+  const erreur = (valider.error ?? decider.error ?? noter.error) as Error | null;
   const label = niches.find((n) => n.id === c.labelId)?.nom ?? null;
   const ch = c.chiffres;
   const jour = (d: string | null) =>
@@ -242,6 +257,12 @@ function CarteCandidat({
         <p className="text-xs text-muted-foreground">{t("sources.candidats.raisonRefus", { raison: c.raisonRefus })}</p>
       )}
 
+      {c.note && !noteOuverte && (
+        <p className="text-sm" data-testid="candidat-note">
+          <span className="font-medium">{t("sources.candidats.note")}</span> {c.note}
+        </p>
+      )}
+
       {!decide && (
         <div className="flex flex-wrap items-center gap-2 pt-1">
           <select
@@ -276,19 +297,47 @@ function CarteCandidat({
             {valider.isPending ? t("common.saving") : t("sources.candidats.valider")}
           </Button>
           {c.statut === "propose" ? (
-            <Button size="sm" variant="ghost" disabled={occupe} onClick={() => decider.mutate({ statut: "plus_tard" })}>
+            <Button size="sm" variant="ghost" disabled={occupe} onClick={() => setNoteOuverte((v) => !v)} aria-expanded={noteOuverte}>
               {t("sources.candidats.plusTard")}
             </Button>
           ) : (
-            <Button size="sm" variant="ghost" disabled={occupe} onClick={() => decider.mutate({ statut: "propose" })}>
-              {t("sources.candidats.remettre")}
-            </Button>
+            <>
+              <Button size="sm" variant="ghost" disabled={occupe} onClick={() => decider.mutate({ statut: "propose" })}>
+                {t("sources.candidats.remettre")}
+              </Button>
+              <Button size="sm" variant="ghost" disabled={occupe} onClick={() => setNoteOuverte((v) => !v)} aria-expanded={noteOuverte}>
+                {t(c.note ? "sources.candidats.noteModifier" : "sources.candidats.noteAjouter")}
+              </Button>
+            </>
           )}
           <Button size="sm" variant="outline" disabled={occupe} onClick={() => setRefus((v) => !v)} aria-expanded={refus}>
             {t("sources.candidats.refuser")}
           </Button>
           {!labelId && <span className="text-xs text-muted-foreground">{t("sources.candidats.labelRequis")}</span>}
         </div>
+      )}
+
+      {!decide && noteOuverte && (
+        <form
+          className="flex flex-wrap items-center gap-2"
+          onSubmit={(e) => {
+            e.preventDefault();
+            noter.mutate({ deCote: c.statut === "propose" });
+          }}
+        >
+          <Input
+            className="h-8 max-w-md flex-1 text-sm"
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder={t("sources.candidats.noteAide")}
+            aria-label={t("sources.candidats.noteLibelle", { handle: c.handle })}
+            disabled={occupe}
+            autoFocus
+          />
+          <Button type="submit" size="sm" disabled={occupe}>
+            {t(c.statut === "propose" ? "sources.candidats.mettreDeCote" : "sources.candidats.noteEnregistrer")}
+          </Button>
+        </form>
       )}
 
       {!decide && refus && (

@@ -8,6 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { useRegles } from "@/features/regles/api";
 import { BoutonDeclarer } from "@/features/onboarding/BoutonDeclarer";
+import { prochaineVerification } from "@/features/onboarding/cinqEtapes";
+import { lireMesDeclarations } from "@/features/onboarding/cinqEtapesApi";
 import { enregistrerIdentiteRuul } from "@/features/moteur/api";
 import { cn } from "@/lib/utils";
 
@@ -37,6 +39,14 @@ export function onboardingRuulFini(o: MonOnboardingRuul): boolean {
 function jourMois(jour: string, langue: string): string {
   return new Intl.DateTimeFormat(langue.startsWith("fr") ? "fr-FR" : "en-GB", { day: "numeric", month: "long", timeZone: "UTC" })
     .format(new Date(`${jour}T12:00:00Z`));
+}
+
+/** 13/11 : l'étape « Prepare your Ruul account » : son état (invitation à venir, envoyée, compte actif, fait). */
+export function etatRuul(o: MonOnboardingRuul): "fait" | "actif" | "invite" | "attente" {
+  if (o.ruul_pret) return "fait";
+  if (o.ruul_compte === "active") return "actif";
+  if (o.ruul_invite) return "invite";
+  return "attente";
 }
 
 function Pastille({ numero, fait, recommande }: { numero: number; fait: boolean; recommande?: boolean }) {
@@ -120,11 +130,18 @@ function BoutonPret() {
 export function ChecklistRuul() {
   const { t, i18n } = useTranslation();
   const q = useQuery({ queryKey: ["ruul-mon-onboarding"], queryFn: lireMonOnboardingRuul, staleTime: 60_000 });
+  const declarations = useQuery({ queryKey: ["mes-declarations"], queryFn: lireMesDeclarations, staleTime: 60_000 });
   const regles = useRegles();
   const o = q.data;
   if (!o?.ruul || onboardingRuulFini(o)) return null;
   const f = etapesRuulFaites(o);
   const date = o.cohorte_lundi ? jourMois(o.cohorte_lundi, i18n.language ?? "en") : null;
+  // 13/11 (Max) : la limite est dimanche minuit (heure de Paris), la veille du lundi de départ.
+  const dimanche = o.cohorte_lundi
+    ? jourMois(new Date(new Date(`${o.cohorte_lundi}T12:00:00Z`).getTime() - 86_400_000).toISOString().slice(0, 10), i18n.language ?? "en")
+    : null;
+  const warmupDeclare = (declarations.data ?? []).some((d) => d.etape === "warmup" && d.statut === "en_attente");
+  const ruul = etatRuul(o);
   const handle = o.handle ? `@${o.handle.replace(/^@/, "")}` : null;
 
   const lignes: { cle: EtapeRuul; titre: string; detail?: React.ReactNode }[] = [
@@ -135,7 +152,20 @@ export function ChecklistRuul() {
       titre: handle ? t("ruulOnboarding.tiktok", { handle }) : t("ruulOnboarding.tiktokSansHandle"),
       detail: !f.tiktok && <BoutonDeclarer etape="tiktok" libelle={t("calendrier.cinq.declarer.fait")} />,
     },
-    { cle: "warmup", titre: t("ruulOnboarding.warmup"), detail: !f.warmup && <p className="text-muted-foreground text-xs">{t("ruulOnboarding.warmupDetail", { n: o.abonnements })}</p> },
+    {
+      cle: "warmup",
+      titre: t("ruulOnboarding.warmup"),
+      detail: !f.warmup && (
+        <div className="space-y-1">
+          <p className="text-muted-foreground text-xs">{t("ruulOnboarding.warmupDetail", { n: o.abonnements })}</p>
+          {warmupDeclare ? (
+            <p className="text-success text-xs" data-testid="warmup-declare">{t("calendrier.cinq.declarer.merci", { heure: prochaineVerification("warmup") })}</p>
+          ) : (
+            <BoutonDeclarer etape="warmup" libelle={t("ruulOnboarding.warmupDeclarer")} />
+          )}
+        </div>
+      ),
+    },
     {
       cle: "slack",
       titre: t("ruulOnboarding.slack"),
@@ -151,7 +181,24 @@ export function ChecklistRuul() {
     {
       cle: "ruul",
       titre: t("ruulOnboarding.ruul"),
-      detail: !f.ruul && (o.ruul_invite ? <BoutonPret /> : <p className="text-muted-foreground text-xs">{t("ruulOnboarding.ruulAttente")}</p>),
+      detail: (
+        <div className="space-y-1" data-testid="ruul-statut" data-etat={ruul}>
+          <span
+            className={cn(
+              "inline-block rounded-full px-2 py-0.5 font-medium text-xs",
+              ruul === "fait" ? "bg-success/15 text-success" : ruul === "attente" ? "bg-muted text-muted-foreground" : "bg-primary/10 text-primary",
+            )}
+          >
+            {ruul === "fait" ? t("ruulOnboarding.ruulFait") : ruul === "actif" ? t("ruulOnboarding.statutActif") : ruul === "invite" ? t("ruulOnboarding.statutInvite") : t("ruulOnboarding.statutAttente")}
+          </span>
+          {ruul !== "fait" && (
+            <p className="text-muted-foreground text-xs">
+              {ruul === "actif" ? t("ruulOnboarding.ruulActif") : ruul === "invite" ? t("ruulOnboarding.ruulInvite") : t("ruulOnboarding.ruulAttente")}
+            </p>
+          )}
+          {(ruul === "invite" || ruul === "actif") && <BoutonPret />}
+        </div>
+      ),
     },
   ];
 
@@ -159,7 +206,7 @@ export function ChecklistRuul() {
     <Card data-testid="checklist-ruul" className="border-primary/40">
       <CardHeader>
         <CardTitle>{t("ruulOnboarding.titre")}</CardTitle>
-        {date && <CardDescription>{t("ruulOnboarding.avant", { date })}</CardDescription>}
+        {date && <CardDescription>{t("ruulOnboarding.avant", { date, dimanche })}</CardDescription>}
       </CardHeader>
       <CardContent>
         <ol className="space-y-3">

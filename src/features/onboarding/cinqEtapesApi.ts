@@ -6,19 +6,22 @@ export interface MaPremiereSemaine {
   slackLie: boolean;
   /** 0544 : l'heure du 1er post publié avec lien (tous ses comptes), ou null. */
   premierPostLienAt?: string | null;
+  /** 13/11 : le montant de SA semaine (Ruul : ruul_tarif_semaine), affiché seulement sur son dashboard. */
+  montantSemaine?: number | null;
 }
 
 export async function lireMaPremiereSemaine(): Promise<MaPremiereSemaine> {
   const { data: auth } = await supabase.auth.getUser();
   const id = auth.user?.id;
   if (!id) return { cohorteLundi: null, slackLie: false };
-  const { data, error } = await supabase.from("profiles").select("cohorte_lundi, slack_user_id").eq("id", id).maybeSingle();
+  const { data, error } = await supabase.from("profiles").select("cohorte_lundi, slack_user_id, ruul_tarif_semaine").eq("id", id).maybeSingle();
   if (error) throw error;
   const premier = await supabase.rpc("mon_premier_post_lien");
   return {
     cohorteLundi: (data?.cohorte_lundi as string | null) ?? null,
     slackLie: Boolean(data?.slack_user_id),
     premierPostLienAt: premier.error ? null : ((premier.data as string | null) ?? null),
+    montantSemaine: data?.ruul_tarif_semaine == null ? null : Number(data.ruul_tarif_semaine),
   };
 }
 

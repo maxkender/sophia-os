@@ -178,6 +178,8 @@ export interface MonOnboardingRuul {
   ruul_statut: string | null;
   ruul_invite: boolean;
   ruul_pret: boolean;
+  /** 0702 : le compte Ruul lu par l'import (invited / active), null si inconnu. */
+  ruul_compte?: string | null;
 }
 
 export const lireMonOnboardingRuul = () => rpc<MonOnboardingRuul | null>("ruul_mon_onboarding");

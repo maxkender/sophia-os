@@ -350,7 +350,7 @@ async function envoyer(supabase: Supabase) {
         continue;
       }
       const corps = texteSansSlack(String(r.texte ?? ""));
-      const objet = "A message from the Sophia team";
+      const objet = "A message from the Vik Studios team";
       const lienStop = `${URL_FONCTION}?stop=${p.ruul_jeton}`;
       const e = rendreEmailRuul({ objet, corps, bouton: null, lienStop });
       const envoi = await envoyerEmail(p.ruul_email, objet, e.html, e.texte, lienStop, ["ruul", `relais-${r.source}`]);
@@ -406,7 +406,7 @@ async function envoyer(supabase: Supabase) {
 const SYNC_ESSAIS = 5;
 const URL_DASHBOARD = "https://sophia-marketing-orga.vercel.app";
 const EMAIL_RUUL_OBJET = "Add your Ruul email so we can pay you";
-const EMAIL_RUUL_TEXTE = "Hi {prenom},\n\nWe still need your Ruul email to pay you every Monday. Log in to your Sophia dashboard and add it at the top of the page.\n\nNo Ruul account yet? Create a free one on ruul.io, then add the same email on your dashboard.";
+const EMAIL_RUUL_TEXTE = "Hi {prenom},\n\nWe still need your Ruul email to pay you every Monday. Log in to your dashboard (Sophia OS) and add it at the top of the page.\n\nNo Ruul account yet? Within 24 hours you'll receive an invitation email from Ruul: create your account FROM that email, with the address shown on your dashboard.";
 const EMAIL_RUUL_SLACK = "Hi {prenom}! We still need your Ruul email to pay you every Monday. Please add it at the top of your Sophia dashboard: https://sophia-marketing-orga.vercel.app 🙏";
 
 interface RelanceEmailRuul {

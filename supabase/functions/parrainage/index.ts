@@ -144,7 +144,7 @@ async function envoyerTest(supabase: Supabase, to: string, langue: string) {
     method: "POST",
     headers: { "content-type": "application/json", "x-hub-secret": secret },
     body: JSON.stringify({
-      action: "envoyer_email", to: adresse, from_name: "Sophia", subject: `[TEST] ${email.objet}`, html: email.html, text: email.texte,
+      action: "envoyer_email", to: adresse, from_name: "Vik Studios", subject: `[TEST] ${email.objet}`, html: email.html, text: email.texte,
       tags: ["parrainage", "test"], unsubscribe_url: `${URL_FONCTION}?desinscrire=00000000-0000-0000-0000-000000000000`,
     }),
   });

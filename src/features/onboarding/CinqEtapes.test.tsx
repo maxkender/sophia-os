@@ -86,6 +86,6 @@ describe("0497 : le dashboard des 5 étapes", () => {
     api.declarations = [{ etape: "warmup", statut: "en_attente", declare_at: "2026-11-01T17:00:00Z" }];
     afficher();
     await waitFor(() => expect(etape("warmup")?.getAttribute("data-etat")).toBe("fait"));
-    expect(screen.getByTestId("verification-warmup").textContent).toBe("(we'll check)");
+    expect(screen.getByTestId("verification-warmup").textContent).toBe("(thanks! we're checking it)");
   });
 });

@@ -427,16 +427,28 @@ export function OnboardingParcours({
   const semaine = useQuery({ queryKey: ["ma-premiere-semaine"], queryFn: lireMaPremiereSemaine, enabled: !simulation });
   const contexte = React.useMemo<ContexteAccueil | null | undefined>(() => {
     if (simulation) return contexteSimule;
-    if (!cohorte.data || cohorte.data.cohorteRuul) return cohorte.data;
+    if (!cohorte.data) return cohorte.data;
     const compte = comptePrincipal(comptes.data ?? []);
     const maintenant = new Date();
-    const premier = premierPostLe({
-      warmupEndsAt: compte?.warmup_ends_at ?? null,
-      cohorteLundi: semaine.data?.cohorteLundi ?? null,
-      maintenant,
-      aujourdhui: partiesParis(maintenant).date,
-    });
-    return { ...cohorte.data, handle: compte?.handle_tiktok ?? null, premierPost: jourAnglais(premier) };
+    // Ruul : le lundi de sa cohorte ; Upwork : la fin du warm-up ou le lundi de cohorte.
+    const premier = cohorte.data.cohorteRuul && cohorte.data.debutLe
+      ? cohorte.data.debutLe
+      : premierPostLe({
+        warmupEndsAt: compte?.warmup_ends_at ?? null,
+        cohorteLundi: semaine.data?.cohorteLundi ?? null,
+        maintenant,
+        aujourdhui: partiesParis(maintenant).date,
+      });
+    // 13/11 (Max) : le 1er paiement, le lundi après la 1re semaine de posts ; le montant de SA semaine (Ruul).
+    const paie = new Date(`${premier}T12:00:00Z`);
+    paie.setUTCDate(paie.getUTCDate() + 7);
+    return {
+      ...cohorte.data,
+      handle: compte?.handle_tiktok ?? null,
+      premierPost: jourAnglais(premier),
+      premierPaiement: jourAnglais(paie.toISOString().slice(0, 10)),
+      montantSemaine: cohorte.data.cohorteRuul ? (semaine.data?.montantSemaine ?? null) : null,
+    };
   }, [simulation, contexteSimule, cohorte.data, comptes.data, semaine.data]);
   const ecrans = ecransPour(contexte);
   const questions = questionsPour(contexte);

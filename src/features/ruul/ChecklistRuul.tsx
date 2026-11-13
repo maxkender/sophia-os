@@ -191,7 +191,9 @@ export function ChecklistRuul() {
         <div className="space-y-1" data-testid="ruul-statut" data-etat={ruul}>
           <p className="text-muted-foreground text-xs">
             {ruul === "attente" && <span aria-hidden className="mr-1">⏳</span>}
-            {ruul === "pret" ? t("ruulOnboarding.ruulPretTexte") : ruul === "invite" ? t("ruulOnboarding.ruulInviteTexte") : t("ruulOnboarding.ruulAttenteTexte")}
+            {ruul === "pret" ? t("ruulOnboarding.ruulPretTexte") : ruul === "invite"
+              ? t("ruulOnboarding.ruulInviteTexte", { email: o.ruul_email ?? o.email_candidature ?? "your email" })
+              : t("ruulOnboarding.ruulAttenteTexte")}
           </p>
           {ruul === "invite" && (
             <span className="mt-1 inline-flex flex-wrap items-center gap-2">

@@ -64,12 +64,23 @@ describe("Paie Ruul", () => {
           { id: "b", semaine: "2026-11-02", montant: 10, rattrapage: false, statut: "a_payer", nb_comptes: 1, faits: 14, prevus: 14, paye_at: null, ecart: null },
         ],
       }],
-      reportes: [{ poster_id: "p2", nom: "Bo Test", ruul_statut: "invite", semaine: "2026-11-02", montant: 7, raison: "x" }],
+      reportes: [
+        { poster_id: "p2", nom: "Bo Test", ruul_statut: "invite", ruul_compte: "invited", semaine: "2026-11-02", montant: 7, raison: "x" },
+        { poster_id: "p3", nom: "Cy Test", ruul_statut: "invite", ruul_compte: "invited", semaine: "2026-11-02", montant: 0, raison: "0 post" },
+      ],
+      totaux: { payable: 20, nb_payable: 1, en_attente: 7, nb_en_attente: 1 },
     });
     rendu();
     const lot = await screen.findByTestId("lot-ruul");
     expect(within(lot).getByTestId("alertes-ruul")).toHaveTextContent("Ana Test : rattrapage");
-    expect(within(lot).getByTestId("reportes-ruul")).toHaveTextContent("Bo Test 2/11 (7.00 $");
+    // 0705 : 2 totaux, et la liste « en attente » (Invited qui ont posté) avec le montant dû.
+    expect(within(lot).getByTestId("total-payable")).toHaveTextContent("20.00 $");
+    expect(within(lot).getByTestId("total-attente")).toHaveTextContent("7.00 $");
+    expect(within(lot).getByTestId("totaux-ruul")).toHaveTextContent("Payable maintenant (Active) · 1 posteur(s)");
+    const attente = within(lot).getByTestId("reportes-ruul");
+    expect(attente).toHaveTextContent("En attente : pas encore Active (7.00 $)");
+    expect(attente).toHaveTextContent("Bo Test · semaine du 2/11 · 7.00 $ · Invited");
+    expect(attente).not.toHaveTextContent("Cy Test");
     fireEvent.change(within(lot).getByLabelText("Numéro de facture Ruul"), { target: { value: "INV-1" } });
     fireEvent.click(within(lot).getByRole("button", { name: "Saisi" }));
     await waitFor(() => expect(api.saisirLotRuul).toHaveBeenCalledWith("2026-11-02", "INV-1"));

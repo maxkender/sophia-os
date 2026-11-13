@@ -57,9 +57,19 @@ export interface Reporte {
   poster_id: string;
   nom: string;
   ruul_statut: StatutRuul | null;
+  /** 0705 : le statut du compte dans Ruul (invited | active). */
+  ruul_compte?: string | null;
   semaine: string;
   montant: number;
   raison: string | null;
+}
+
+/** 0705 : « payable maintenant (Active) » et « en attente (pas encore Active) ». */
+export interface TotauxRuul {
+  payable: number;
+  nb_payable: number;
+  en_attente: number;
+  nb_en_attente: number;
 }
 
 export interface LotRuul {
@@ -68,6 +78,7 @@ export interface LotRuul {
   rapprochement: { email: string; nom: string | null; attendu: number | null; ruul: number | null; resultat: string }[] | null;
   lignes: LigneLot[];
   reportes: Reporte[];
+  totaux?: TotauxRuul;
 }
 
 export interface TableauRuul {

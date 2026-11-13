@@ -24,7 +24,7 @@ export const fr = {
       ruulAttente: "You'll receive an email from Ruul within 24h. Nothing to do for now.",
       ruulAttenteTexte: "You'll receive an email from Ruul within 24h. Nothing to do for now.",
       ruulInviteTitre: "Finish your Ruul account",
-      ruulInviteTexte: "Open the Ruul email (check spam) and add your ID + bank details. 5 minutes.",
+      ruulInviteTexte: "Go to app.ruul.io and sign up with this exact email: {{email}}. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.",
       ruulPretTitre: "Your Ruul account is ready ✅",
       ruulPretTexte: "You'll be paid every Monday via Ruul.",
       ouvrirRuul: "Open Ruul",

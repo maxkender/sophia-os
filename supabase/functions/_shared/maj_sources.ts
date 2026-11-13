@@ -120,6 +120,19 @@ async function mesurerFile(supabase: Supabase): Promise<MesureFile> {
   };
 }
 
+/**
+ * L'échec d'une source se voit dans la file (0698) : la décision de la semaine
+ * garde la raison et la source repart au lot suivant. `null` : l'échec est levé.
+ * Jamais bloquant : la séquence continue même si l'écriture rate.
+ */
+async function noterEchec(supabase: Supabase, compteId: string, message: string | null): Promise<void> {
+  try {
+    await supabase.rpc("maj_sources_echec", { p_compte: compteId, p_message: message });
+  } catch {
+    /* best-effort */
+  }
+}
+
 type Claim =
   | { action: "idle" }
   | { action: "busy"; etat: MajSourcesRun }
@@ -254,6 +267,9 @@ export async function tickMajSources(
         marquerScrape: true,
         ...(await lireReglagesMaj(supabase)),
       });
+      // 0698 : un profil que personne n'a pu lire est un échec, pas « rien à rattraper ».
+      if (listed.illisible) throw new Error(listed.illisible);
+      await noterEchec(supabase, compte.id, null);
       const r = await enqueueImportUrls(supabase, {
         urls: listed.urls,
         compteReferenceId: compte.id,
@@ -293,10 +309,11 @@ export async function tickMajSources(
           faits: index + 1,
           phase: "import",
         },
-        "warn",
+        "error",
         `${rang} @${compte.handle} — échec (on continue)`,
         (e as Error).message,
       );
+      await noterEchec(supabase, compte.id, (e as Error).message);
       await relacherLease(supabase, run);
       return { more: true, action: "echec", etat: run };
     }

@@ -25,6 +25,7 @@ export function FileSourcesPanel() {
   const { enCours, attente, essais, reglages } = file.data;
   if (!enCours && attente.length === 0 && essais.length === 0) return null;
 
+  const echecs = attente.filter((s) => s.echec);
   const jour = (d: string | null) =>
     d
       ? new Date(`${d.slice(0, 10)}T12:00:00`).toLocaleDateString(i18n.language, { weekday: "long", day: "numeric", month: "long" })
@@ -60,6 +61,20 @@ export function FileSourcesPanel() {
               : t("sources.file.enCoursDemarre")}
             {enCours.aSuivre.length > 0 && ` ${t("sources.file.aSuivre", { sources: enCours.aSuivre.map((h) => `@${h}`).join(", ") })}`}
           </p>
+        )}
+
+        {echecs.length > 0 && (
+          <div className="space-y-1 rounded-md border border-destructive/40 bg-destructive/5 p-3 text-sm" role="alert" data-testid="file-echecs">
+            <p className="font-medium text-destructive-foreground">{t("sources.file.echecs", { count: echecs.length })}</p>
+            <ul className="space-y-0.5">
+              {echecs.map((s) => (
+                <li key={s.compteReferenceId}>
+                  @{s.handle} : {s.echec}
+                </li>
+              ))}
+            </ul>
+            <p className="text-xs text-muted-foreground">{t("sources.file.echecsSuite")}</p>
+          </div>
         )}
 
         {attente.length > 0 && (

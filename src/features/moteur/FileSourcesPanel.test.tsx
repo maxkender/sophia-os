@@ -92,6 +92,29 @@ describe("FileSourcesPanel", () => {
     confirme.mockRestore();
   });
 
+  it("dit en rouge qu'une mise à jour a échoué, avec la raison", async () => {
+    lireFileSources.mockResolvedValue(
+      versFileSources({
+        ...BRUT,
+        attente: [
+          { compte_reference_id: "a", handle: "soci.apuntes", sorte: "neuve", essai_max: 30, prevu_le: "2026-11-14", echec: "clé Apify refusée, le profil n'a pas été lu (Apify 401)" },
+          ...BRUT.attente.slice(1),
+        ],
+      }),
+    );
+    rendre();
+    const alerte = await screen.findByTestId("file-echecs");
+    expect(alerte.textContent).toContain("1 mise à jour a échoué : rien n'a été importé");
+    expect(alerte.textContent).toContain("@soci.apuntes : clé Apify refusée, le profil n'a pas été lu (Apify 401)");
+  });
+
+  it("ne montre pas d'alerte quand rien n'a échoué", async () => {
+    lireFileSources.mockResolvedValue(versFileSources(BRUT));
+    rendre();
+    await screen.findByTestId("file-en-cours");
+    expect(screen.queryByTestId("file-echecs")).toBeNull();
+  });
+
   it("regroupe l'attente par jour sans changer l'ordre", () => {
     const f = versFileSources(BRUT);
     expect(attenteParJour(f.attente).map((j) => [j.jour, j.sources.map((s) => s.handle)])).toEqual([

@@ -15,6 +15,8 @@ export interface SourceEnAttente {
   essaiMax: number | null;
   /** Jour au plus tôt (AAAA-MM-JJ) ; nul si les sources neuves sont à l'arrêt. */
   prevuLe: string | null;
+  /** Raison du dernier échec de sa mise à jour (0698) ; nul : pas d'échec. */
+  echec: string | null;
 }
 
 export type VerdictEssai = "tient" | "ne_tient_pas" | null;
@@ -64,6 +66,7 @@ export function versFileSources(brut: Record<string, unknown>): FileSources {
       sorte: l.sorte === "neuve" ? "neuve" : "maj",
       essaiMax: nombre(l.essai_max),
       prevuLe: texte(l.prevu_le),
+      echec: texte(l.echec),
     })),
     essais: liste(brut.essais).map((l) => ({
       compteReferenceId: String(l.compte_reference_id),

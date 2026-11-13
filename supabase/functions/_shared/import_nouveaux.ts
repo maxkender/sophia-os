@@ -117,3 +117,18 @@ export function plafondEnfilage(o: {
   if (tranche === null) return essai;
   return Math.min(essai, tranche);
 }
+
+/**
+ * Un profil que personne n'a pu lire n'est pas un profil vide (0698). Le 13/11,
+ * la clé Apify de l'OS était refusée : chaque source rendait « rien à
+ * rattraper » et la mise à jour passait pour réussie. Si aucun slideshow n'a
+ * été vu ET qu'Apify a répondu par une erreur, c'est un échec, à dire tel quel.
+ * `null` : le profil a été lu (même vide).
+ */
+export function profilIllisible(o: { vus: number; apifyErreur: string | null }): string | null {
+  if (o.vus > 0 || !o.apifyErreur) return null;
+  const cle = /\b40[13]\b|token|unauthori[sz]ed/i.test(o.apifyErreur);
+  return cle
+    ? `clé Apify refusée, le profil n'a pas été lu (${o.apifyErreur.replace(/\s+/g, " ").slice(0, 160)})`
+    : `profil illisible, Apify en erreur (${o.apifyErreur.replace(/\s+/g, " ").slice(0, 160)})`;
+}

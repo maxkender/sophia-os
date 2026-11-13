@@ -24,7 +24,7 @@ vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), .
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ user: { id: "p1" } }) }));
 
 import i18n from "@/locales";
-import { age, filtrer, statutPosteur, type LigneSupport } from "./api";
+import { age, chezLeBot, filChat, filtrer, filtrerToutes, nomBot, quiAAgi, statutPosteur, type LigneSupport } from "./api";
 import { PageHelp } from "./PageHelp";
 import { PageSupport } from "./PageSupport";
 
@@ -79,27 +79,35 @@ describe("Support, logique (0671)", () => {
   });
 });
 
-describe("PageHelp (posteur)", () => {
-  it("Ruul : « Ruul account », jamais « Upwork contract » ; la question reçoit la réponse du bot et deux boutons", async () => {
+describe("PageHelp (posteur) — 13/11 : le chat", () => {
+  it("bulles (posteur à droite, Vik Studios à gauche), « typing… », puis 👍 Solved / I still need help sous la réponse", async () => {
     api.lireMaPlateforme.mockResolvedValue("ruul");
-    api.lireMesDemandes.mockResolvedValue([]);
-    api.poserQuestion.mockResolvedValue({ id: "q1", reponse: "You are paid every Monday.", envoye_equipe: false });
+    let demandes: unknown[] = [];
+    api.lireMesDemandes.mockImplementation(async () => demandes);
+    let fini: () => void = () => {};
+    api.poserQuestion.mockImplementation(() => new Promise((ok) => {
+      fini = () => {
+        demandes = [{ id: "q1", type: "question", categorie: null, texte: "When am I paid?", statut: "bot", equipe_a_repondu: false, cree_at: "2026-11-13T08:00:00Z", resolu_at: null,
+          messages: [{ auteur: "bot", texte: "You are paid every Monday.", cree_at: "2026-11-13T08:00:05Z" }] }];
+        ok({ id: "q1", reponse: "You are paid every Monday.", envoye_equipe: false });
+      };
+    }));
     rendu(<PageHelp />);
-    fireEvent.click(await screen.findByTestId("help-signaler"));
-    await waitFor(() => expect(screen.getByTestId("categorie-compte")).toHaveTextContent("Ruul account"));
-    expect(screen.getByTestId("form-probleme")).not.toHaveTextContent("Upwork");
-
-    fireEvent.click(screen.getByTestId("help-demander"));
-    fireEvent.change(screen.getByPlaceholderText("Write your question…"), { target: { value: "When am I paid?" } });
-    fireEvent.click(screen.getByRole("button", { name: "Send" }));
-    const rep = await screen.findByTestId("reponse-bot");
-    expect(rep).toHaveTextContent("You are paid every Monday.");
-    expect(within(rep).getByRole("button", { name: "This solved it" })).toBeInTheDocument();
-    fireEvent.click(within(rep).getByRole("button", { name: "I still need help" }));
+    expect(await screen.findByText(/Ask any question about the job here/)).toBeInTheDocument();
+    fireEvent.change(screen.getByTestId("saisie-chat"), { target: { value: "When am I paid?" } });
+    fireEvent.click(screen.getByTestId("envoyer-chat"));
+    expect(await screen.findByTestId("typing")).toHaveTextContent("Vik Studios is typing…");
+    fini();
+    const rep = await screen.findByText("You are paid every Monday.");
+    expect(rep.closest("[data-testid='bulle-eux']")).toHaveTextContent("Vik Studios");
+    expect(screen.getByText("When am I paid?").closest("[data-testid='bulle-moi']")).toBeInTheDocument();
+    expect(document.body.textContent).not.toMatch(/\bbot\b/i);
+    const choix = await screen.findByTestId("choix-chat");
+    fireEvent.click(within(choix).getByRole("button", { name: "I still need help" }));
     await waitFor(() => expect(api.actionPosteur).toHaveBeenCalledWith("q1", "aide"));
   });
 
-  it("Upwork : « Upwork contract » ; le problème part avec sa catégorie ; mes problèmes avec statut et fil", async () => {
+  it("une demande ouverte : le message part dans son fil ; la réponse de l'équipe apparaît ; un problème avec capture garde sa catégorie", async () => {
     api.lireMaPlateforme.mockResolvedValue("upwork");
     api.lireMesDemandes.mockResolvedValue([
       { id: "d1", type: "probleme", categorie: "paiement", texte: "Not paid", statut: "attente_posteur", equipe_a_repondu: true,
@@ -107,15 +115,62 @@ describe("PageHelp (posteur)", () => {
     ]);
     api.signalerProbleme.mockResolvedValue({ id: "d2", reponse: "ok" });
     rendu(<PageHelp />);
-    const mes = await screen.findByTestId("mes-problemes");
-    await waitFor(() => expect(within(mes).getByTestId("statut")).toHaveTextContent("In progress"));
-    expect(mes).toHaveTextContent("Paid today.");
+    expect(await screen.findByText("Paid today.")).toBeInTheDocument();
+    expect(screen.getByTestId("reponse-a")).toBeInTheDocument();
+    fireEvent.change(screen.getByTestId("saisie-chat"), { target: { value: "Thanks, received" } });
+    fireEvent.click(screen.getByTestId("envoyer-chat"));
+    await waitFor(() => expect(api.actionPosteur).toHaveBeenCalledWith("d1", "repondre", "Thanks, received"));
+    expect(api.poserQuestion).not.toHaveBeenCalled();
     fireEvent.click(screen.getByTestId("help-signaler"));
     await waitFor(() => expect(screen.getByTestId("categorie-compte")).toHaveTextContent("Upwork contract"));
     fireEvent.click(screen.getByTestId("categorie-paiement"));
     fireEvent.change(screen.getByPlaceholderText("Explain what happens and what you already tried."), { target: { value: "My milestone was not paid" } });
     fireEvent.click(within(screen.getByTestId("form-probleme")).getByRole("button", { name: "Send" }));
     await waitFor(() => expect(api.signalerProbleme).toHaveBeenCalledWith({ categorie: "paiement", texte: "My milestone was not paid", capture: null }));
+  });
+});
+
+describe("13/11 : fil du chat et « qui a agi »", () => {
+  it("filChat : l'ordre, les choix sous une réponse, « envoyée à l'équipe »", () => {
+    const g = filChat([
+      { id: "b", type: "question", categorie: null, texte: "B?", statut: "ouvert", equipe_a_repondu: false, cree_at: "2026-11-13T09:00:00Z", resolu_at: null, messages: [] },
+      { id: "a", type: "question", categorie: null, texte: "A?", statut: "bot", equipe_a_repondu: false, cree_at: "2026-11-13T08:00:00Z", resolu_at: null,
+        messages: [{ auteur: "bot", texte: "A.", cree_at: "2026-11-13T08:00:01Z" }] },
+    ]);
+    expect(g.map((x) => x.demande.id)).toEqual(["a", "b"]);
+    expect(g[0]!.bulles.map((x) => x.cote)).toEqual(["moi", "eux"]);
+    expect([g[0]!.choix, g[0]!.chezEquipe, g[1]!.choix, g[1]!.chezEquipe]).toEqual([true, false, false, true]);
+  });
+
+  it("quiAAgi : bot, actions, Ruul Bot, OS tickets, Max, équipe", () => {
+    const t = { id: "x", statut: "resolu" as const, niveau: "bot", bot_reponse: "ok", auto_action: null, auto_resultat: null, action_faite: null, ticket_at: null, equipe_at: null, escalade_at: null, resolu_par_bot: true };
+    const cles = (d: Partial<typeof t>) => quiAAgi({ ...t, ...d }).map((x) => x.cle);
+    expect(cles({})).toEqual(["bot"]);
+    expect(cles({ auto_action: "lien_mot_de_passe", action_faite: "lien de mot de passe : envoyé" })).toEqual(["bot", "mot_de_passe"]);
+    expect(cles({ action_faite: "fait par le bot : à réinviter dans Ruul (renvoi 1/2)" })).toEqual(["bot", "ruul_bot"]);
+    expect(cles({ action_faite: "fait par le bot : nouvelle adresse ana@x.zz" })).toEqual(["bot", "email_ruul", "ruul_bot"]);
+    expect(cles({ action_faite: "pseudo TikTok invalide : rien changé" })).toEqual(["bot"]);
+    expect(cles({ bot_reponse: null, niveau: "max", resolu_par_bot: false, statut: "ouvert" as never, ticket_at: "2026-11-13" })).toEqual(["os_tickets", "max"]);
+    expect(cles({ bot_reponse: null, niveau: "adrien", resolu_par_bot: null, equipe_at: "2026-11-13" })).toEqual(["equipe"]);
+  });
+
+  it("0706 : réglé / remonté par un bot, « chez le bot », filtre par bot", () => {
+    const t = { id: "x", statut: "ouvert" as const, niveau: "adrien", bot_reponse: null, auto_action: null, auto_resultat: null, action_faite: null,
+      ticket_at: null, equipe_at: null, escalade_at: null, resolu_par_bot: null, bot_responsable: "control_bot", bot_passages: 1 };
+    expect(chezLeBot(t)).toBe(true);
+    const regle = { ...t, regle_par_bot: "control_bot" };
+    expect(chezLeBot(regle)).toBe(false);
+    expect(quiAAgi(regle)).toEqual([{ cle: "regle_bot", detail: "control_bot" }]);
+    const remonte = { ...t, bot_responsable: "max", niveau: "max", remonte_par: "ruul_bot", remonte_pourquoi: "rien fait après 2 passages de ruul_bot" };
+    expect(chezLeBot(remonte)).toBe(false);
+    expect(quiAAgi(remonte)).toEqual([{ cle: "remonte", detail: "Ruul Bot : rien fait après 2 passages de ruul_bot" }, { cle: "max" }]);
+    expect(nomBot("os_tickets")).toBe("OS tickets");
+    const ligne = (o: object) => ({ ...t, poster_id: "p", type: "question" as const, source: "help", categorie: null, plateforme: "upwork", texte: "q", cree_at: "2026-11-13", nom: "Ana", email: null, ...o });
+    const lignes = [ligne({ id: "a" }), ligne({ id: "b", bot_responsable: "pay_bot" }), ligne({ id: "c", bot_responsable: "max", remonte_par: "control_bot" })];
+    const f = { q: "", source: "", statut: "", niveau: "", qui: "" as const };
+    expect(filtrerToutes(lignes, { ...f, bot: "control_bot" }).map((l) => l.id)).toEqual(["a", "c"]);
+    expect(filtrerToutes(lignes, { ...f, bot: "pay_bot" }).map((l) => l.id)).toEqual(["b"]);
+    expect(filtrerToutes(lignes, f)).toHaveLength(3);
   });
 });
 

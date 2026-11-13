@@ -63,7 +63,15 @@ describe("Problèmes : l'entrée des bots", () => {
   });
 
   it("seulement proposer ou créer (posteur obligatoire) ; jamais valider, envoyer, kill ou payer", () => {
-    expect(lireCorps({ action: "valider", probleme_id: "x" })).toEqual({ erreur: "action refusée : lire, proposer, creer ou faire seulement" });
+    expect(lireCorps({ action: "valider", probleme_id: "x" })).toEqual({ erreur: "action refusée : lire, proposer, creer, faire, regler ou remonter seulement" });
+    // 0706 : régler / remonter une demande Support ; jamais payer.
+    const id = "00000000-0000-0000-0000-000000000001";
+    expect(lireCorps({ action: "regler", demande_id: id, reponse: "Hi! It's fixed now.", fait: "lien renvoyé" }))
+      .toEqual({ action: "regler", args: { demande_id: id, reponse: "Hi! It's fixed now.", fait: "lien renvoyé" } });
+    expect(lireCorps({ action: "regler", demande_id: id, reponse: "ok" })).toEqual({ erreur: "reponse (au posteur, en anglais) obligatoire" });
+    expect(lireCorps({ action: "regler", demande_id: id, reponse: "Paid you now", payer: true })).toEqual({ erreur: "un bot ne paie jamais" });
+    expect(lireCorps({ action: "remonter", demande_id: id, pourquoi: "identité refusée" })).toEqual({ action: "remonter", args: { demande_id: id, pourquoi: "identité refusée" } });
+    expect(lireCorps({ action: "remonter", demande_id: "x", pourquoi: "identité refusée" })).toEqual({ erreur: "demande_id (uuid) obligatoire" });
     expect(lireCorps({ action: "lire" })).toEqual({ action: "lire", args: {} });
     expect(lireCorps({ action: "lire", probleme_id: "00000000-0000-0000-0000-000000000009" })).toEqual({ action: "lire", args: { probleme_id: "00000000-0000-0000-0000-000000000009" } });
     expect(lireCorps({ action: "lire", probleme_id: "x" })).toHaveProperty("erreur");
@@ -151,7 +159,7 @@ describe("Problèmes v4 : groupes, diagnostic, bots", () => {
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x" })).toHaveProperty("action", "proposer");
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", action_proposee: "none" })).toMatchObject({ args: { action: "none" } });
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", groupe_suggere: "vip" })).toHaveProperty("erreur");
-    expect(etatSecrets({ new_cohort_bot: "a".repeat(32), control_bot: "" })).toEqual({ new_cohort_bot: true, control_bot: false, pay_bot: false });
+    expect(etatSecrets({ new_cohort_bot: "a".repeat(32), control_bot: "" })).toEqual({ new_cohort_bot: true, control_bot: false, pay_bot: false, ruul_bot: false });
   });
 });
 

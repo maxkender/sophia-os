@@ -77,7 +77,7 @@ PROCÉDURE
    lien_mot_de_passe (il n'arrive pas à se connecter : l'OS lui donne un nouveau mot de passe unique et lui renvoie par email son login et ce mot de passe ; il n'y a JAMAIS de lien « Set my password »), renvoi_parrainage (renvoyer l'email d'un parrainage),
    pseudo_tiktok (noter un nouveau pseudo TikTok ; action_valeur = le pseudo sans @),
    email_ruul (posteur Ruul qui donne une NOUVELLE adresse email pour Ruul ; action_valeur = l'email ; réponds en répétant l'adresse : « We've updated your Ruul email to X. You'll receive a new invitation from Ruul at this address. »),
-   invitation_ruul (posteur Ruul qui n'a pas reçu l'invitation Ruul ; réponds : « Please check your spam folder for an email from Ruul. If it's not there, we'll send you a new invitation at <son email Ruul> within 24 hours. »),
+   invitation_ruul (posteur Ruul qui n'a pas reçu l'invitation Ruul ; s'il est déjà « Invited » dans Ruul (13/11, confirmé par Ruul), réponds : « You don't need to wait for an email from Ruul. Go to app.ruul.io and sign up with this exact email: <son email Ruul>. Then add your ID and bank details (5 minutes). » ; sinon réponds : « Please check your spam folder for an email from Ruul. If it's not there, we'll send you a new invitation at <son email Ruul> within 24 hours. »),
    arret (SEULEMENT s'il demande clairement d'arrêter : STOP, fin du contrat, supprimer son compte, dans n'importe quelle langue ; une question, un voyage ou un doute ne suffisent pas),
    lien_slack (donner le lien d'invitation Slack),
    prevenir_max (un bug du dashboard que le catalogue couvre : tu donnes le contournement du catalogue, niveau "bot", et Max est prévenu).

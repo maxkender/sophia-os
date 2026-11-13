@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -34,21 +34,31 @@ beforeEach(async () => {
 });
 
 describe("ChecklistRuul (0592)", () => {
-  it("13/11 : l'étape Ruul montre son état (invitation à venir, envoyée, compte actif, fait) et It's done dès l'invitation", async () => {
+  it("13/11 : l'étape Ruul selon le statut ; jamais « ready » tant que le compte n'est pas Active", async () => {
     expect(etatRuul({ ...base })).toBe("attente");
     expect(etatRuul({ ...base, ruul_invite: true })).toBe("invite");
-    expect(etatRuul({ ...base, ruul_invite: true, ruul_compte: "active" })).toBe("actif");
-    expect(etatRuul({ ...base, ruul_invite: true, ruul_pret: true })).toBe("fait");
-    api.lireMonOnboardingRuul.mockResolvedValue({ ...base, ruul_invite: true, ruul_compte: "active" });
+    expect(etatRuul({ ...base, ruul_invite: true, ruul_compte: "invited" })).toBe("invite");
+    expect(etatRuul({ ...base, ruul_invite: true, ruul_compte: "active" })).toBe("pret");
+    expect(etatRuul({ ...base, ruul_invite: true, ruul_pret: true })).toBe("pret");
+    api.lireMonOnboardingRuul.mockResolvedValue({ ...base });
+    const { unmount } = rendu();
+    const attente = await screen.findByTestId("ruul-etape-ruul");
+    expect(attente).toHaveTextContent("Ruul invitation on its way");
+    expect(attente).toHaveTextContent("Nothing to do for now.");
+    expect(within(attente).queryByRole("button")).toBeNull();
+    unmount();
+    api.lireMonOnboardingRuul.mockResolvedValue({ ...base, ruul_invite: true, ruul_compte: "invited" });
     rendu();
-    const statut = await screen.findByTestId("ruul-statut");
-    expect(statut.getAttribute("data-etat")).toBe("actif");
-    expect(statut.textContent).toContain("Account active");
-    expect(screen.getByTestId("ruul-pret")).toBeInTheDocument();
+    const invite = await screen.findByTestId("ruul-etape-ruul");
+    expect(invite).toHaveTextContent("Finish your Ruul account");
+    // 13/11 (règle Ruul) : il s'inscrit lui-même avec l'email exact, sans attendre d'email de Ruul.
+    expect(invite).toHaveTextContent(
+      "Go to app.ruul.io and sign up with this exact email: ana@test.zz. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.",
+    );
+    expect(within(invite).getByTestId("ouvrir-ruul")).toHaveAttribute("href", "https://app.ruul.io");
     // Le warm-up : le compteur et « I've started the warm-up ».
     expect(screen.getByTestId("ruul-etape-warmup").textContent).toContain("I've started the warm-up");
   });
-
 
   it("6 étapes dans l'ordre, la date du lundi de cohorte, l'email de candidature pré-rempli, aucun texte Upwork", async () => {
     api.lireMonOnboardingRuul.mockResolvedValue(base);

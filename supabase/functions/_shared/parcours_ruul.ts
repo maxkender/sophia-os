@@ -19,6 +19,11 @@ export const INACTIF_JOURS = 14;
 /** 13/11 (Max) : la phrase des messages d'entrée, mot pour mot (accueil Upwork, bienvenue Ruul, encart du dashboard). */
 export const PHRASE_QUESTION_OS =
   "Any question about the job? Ask it in the Sophia OS: log in to your dashboard and click Help. You'll get an answer right away, and you can escalate to our team if needed.";
+/** 13/11 (Max, confirmé par le support Ruul) : un posteur « Invited » s'inscrit lui-même, sans attendre d'email. */
+export const LIEN_RUUL = "https://app.ruul.io";
+export function texteInviteRuul(email: string | null): string {
+  return `Go to app.ruul.io and sign up with this exact email: ${email ?? "your email"}. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.`;
+}
 export const PHRASE_HELP = "Have a question or a problem? Don't reply to this email: click Help on your dashboard, you'll get an answer there.";
 
 export interface EtatParcours {
@@ -52,7 +57,9 @@ export type TypeParcours =
   // 13/11 (Réparer Ruul, v2) : les emails A/B passent par le même moteur ; la confirmation d'arrêt.
   | "invite_a" | "invite_b" | "arret"
   // Point 4 : la vérification d'identité Ruul refusée (1re fois : refaire ; 2e : fin de collaboration).
-  | "identite_refusee" | "identite_fin";
+  | "identite_refusee" | "identite_fin"
+  // 13/11 (Max) : le samedi, « Invited » qui a posté : finir Ruul avant lundi pour être payé cette semaine.
+  | "samedi_ruul";
 
 export interface Decision {
   type: TypeParcours;
@@ -137,6 +144,11 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
     if (e.ruul_compte === "invited" && !e.ruul_email_a_at && !e.ruul_email_b_at) return { type: "invite_a", cle: "invite_a" };
     if (e.ruul_compte === "active" && !e.ruul_email_b_at) return { type: "invite_b", cle: "invite_b" };
   }
+  // 13/11 (Max) : le samedi (Paris), un « Invited » qui a posté : une relance spéciale, une fois par samedi.
+  if (o.v2 && e.ruul_compte === "invited" && e.posts > 0 && p.isoJour === 6) {
+    const cle = `samedi_ruul:${p.date}`;
+    if (!envoye(e, cle)) return { type: "samedi_ruul", cle };
+  }
 
   // Dimanche 20 h → minuit : « you start tomorrow » à qui est prêt pour le lendemain.
   if (e.cohorte_lundi && p.isoJour === 7 && p.heure >= 20 && e.cohorte_lundi === ajouterJours(p.date, 1) && estPret(e)) {
@@ -183,6 +195,8 @@ export interface DonneesEmail {
   slack: string;
   cohorte_lundi: string | null;
   ruul_email: string | null;
+  /** 13/11 : le statut du compte dans Ruul (invited | active) : le texte de la relance Ruul en dépend. */
+  ruul_compte?: string | null;
   abonnements: number | null;
   /** report : le nouveau lundi. */
   lundi?: string;
@@ -269,6 +283,15 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
           "That's where you'll get news and tips from the team."].join("\n\n"),
       };
     case "ruul":
+      // 13/11 (Max) : « Invited » dans Ruul : il s'inscrit lui-même sur app.ruul.io avec l'email exact.
+      if (d.ruul_compte !== "active") {
+        return {
+          objet: "Reminder: create your Ruul account to get paid",
+          corps: [bonjour(d), "Your Ruul account isn't ready yet, so we can't pay you.", texteInviteRuul(d.ruul_email),
+            "You're paid every Monday for the week you posted (Monday to Sunday)."].join("\n\n"),
+          bouton: { texte: "Open Ruul", lien: LIEN_RUUL },
+        };
+      }
       return {
         objet: "Reminder: finish your Ruul account to get paid",
         corps: [bonjour(d),
@@ -301,12 +324,22 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
       };
     case "invite_a":
       return {
-        objet: "Your Ruul invitation is in your inbox",
+        objet: "Create your Ruul account to get paid",
         corps: [bonjour(d),
-          "We use Ruul to pay you. We've just invited you:",
-          `1. Open the email from Ruul (check your spam folder too).\n2. Create your account with the same address: ${d.ruul_email ?? "your email"}.\n3. Use your real name, as on your ID.\n4. Verify your identity (ID + selfie).\n5. Add your bank account.\n6. Click the button below.`,
+          "We use Ruul to pay you.",
+          texteInviteRuul(d.ruul_email),
+          "Use your real name, as on your ID.",
           `You start posting on ${debut}. Keep setting up your dashboard and TikTok meanwhile.`].join("\n\n"),
-        bouton: { texte: "It's done", lien: lienPret },
+        bouton: { texte: "Open Ruul", lien: LIEN_RUUL },
+      };
+    case "samedi_ruul":
+      return {
+        objet: "Finish your Ruul account before Monday to be paid this week",
+        corps: [bonjour(d),
+          "Finish your Ruul account before Monday to be paid this week.",
+          texteInviteRuul(d.ruul_email),
+          "If it's not done by Monday, your pay isn't lost: it's added to the next Monday once your account is ready."].join("\n\n"),
+        bouton: { texte: "Open Ruul", lien: LIEN_RUUL },
       };
     case "invite_b":
       return {
@@ -364,6 +397,9 @@ const LIBELLES_ENVOIS: Record<string, string> = {
   demain: "you start tomorrow",
   desactivation: "désactivation",
   carte_ruul: "carte Ruul jamais fini",
+  invite_a: "Ruul Invited",
+  invite_b: "Ruul Active",
+  samedi_ruul: "Ruul avant lundi (samedi)",
 };
 
 export interface PointSoirRuul {

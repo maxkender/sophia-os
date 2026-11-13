@@ -42,7 +42,9 @@ export interface EtatParcours {
 }
 
 export type TypeParcours =
-  | "bienvenue" | "demain" | "report" | "desactivation" | "jamais_connecte" | "tiktok" | "warmup" | "slack" | "ruul" | "carte_ruul";
+  | "bienvenue" | "demain" | "report" | "desactivation" | "jamais_connecte" | "tiktok" | "warmup" | "slack" | "ruul" | "carte_ruul"
+  // 13/11 (Réparer Ruul, v2) : les emails A/B passent par le même moteur ; la confirmation d'arrêt.
+  | "invite_a" | "invite_b" | "arret";
 
 export interface Decision {
   type: TypeParcours;
@@ -101,7 +103,7 @@ export function dansFenetre(maintenant: Date, type: TypeParcours): boolean {
   return h >= 9 && h < 20;
 }
 
-export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue: boolean; bienvenueDepuis?: string | null }): Decision | null {
+export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue: boolean; bienvenueDepuis?: string | null; v2?: boolean }): Decision | null {
   if (e.relances_stop_at || !e.email) return null;
   const t = maintenant.getTime();
   const p = partiesLocales(maintenant, PARIS);
@@ -116,6 +118,11 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
 
   if (o.bienvenue && o.bienvenueDepuis && e.cree_at >= o.bienvenueDepuis && !envoye(e, "bienvenue")) {
     return { type: "bienvenue", cle: "bienvenue" };
+  }
+  // v2 : l'email A (« Invited » dans Ruul) ou B (« Active »), une fois chacun, par ce moteur (plus par `envoyer`).
+  if (o.v2 && !ruulPret(e)) {
+    if (e.ruul_compte === "invited" && !e.ruul_email_a_at && !e.ruul_email_b_at) return { type: "invite_a", cle: "invite_a" };
+    if (e.ruul_compte === "active" && !e.ruul_email_b_at) return { type: "invite_b", cle: "invite_b" };
   }
 
   // Dimanche 20 h → minuit : « you start tomorrow » à qui est prêt pour le lendemain.
@@ -168,6 +175,8 @@ export interface DonneesEmail {
   lundi?: string;
   /** relance Ruul : son numéro (1 à 6). */
   numero?: number;
+  /** report : ce qui est déjà fait (sa checklist personnelle). */
+  faites?: { connexion: boolean; tiktok: boolean; warmup: boolean; slack: boolean };
 }
 
 export interface Email {
@@ -255,11 +264,18 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
       };
     case "report": {
       const nouveau = d.lundi ? jourLundi(d.lundi) : "next Monday";
+      const f = d.faites ?? { connexion: false, tiktok: false, warmup: false, slack: false };
+      const etapes = [
+        !f.connexion ? `Log in to your dashboard (${d.dashboard}).` : null,
+        !f.tiktok ? `Create your TikTok account${d.handle ? ` with this exact name: @${d.handle}` : ""}.` : null,
+        !f.warmup ? "Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally." : null,
+        !f.slack ? `Join Slack: ${d.slack}` : null,
+      ].filter((x): x is string => !!x);
       return {
         objet: `You'll start on ${nouveau}`,
         corps: [bonjour(d),
           `Your setup wasn't finished by Sunday midnight, so you'll start one week later, on ${nouveau}.`,
-          `Finish these steps before ${d.lundi ? echeance(d.lundi) : "next Sunday at midnight (Paris time)"}:\n1. Log in to your dashboard (${d.dashboard}).\n2. Create your TikTok account${d.handle ? ` (@${d.handle})` : ""}.\n3. Click « Start warmup », follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`].join("\n\n"),
+          `Finish these steps before ${d.lundi ? echeance(d.lundi) : "next Sunday at midnight (Paris time)"}:\n${etapes.map((x, i) => `${i + 1}. ${x}`).join("\n") || "1. Log in to your dashboard and check your checklist."}`].join("\n\n"),
       };
     }
     case "demain":
@@ -268,6 +284,30 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
         corps: [bonjour(d), "You start posting tomorrow. Here's how it works:",
           "- Your posts are on your dashboard from Monday morning.\n- 2 slideshows a day, 7 days a week.\n- Keep at least 5 follows and keep using TikTok normally.\n- Paste the link of each post on your dashboard.\n- You're paid every Monday for the week you posted.",
           `Dashboard: ${d.dashboard}`].join("\n\n"),
+      };
+    case "invite_a":
+      return {
+        objet: "Your Ruul invitation is in your inbox",
+        corps: [bonjour(d),
+          "We use Ruul to pay you. We've just invited you:",
+          `1. Open the email from Ruul (check your spam folder too).\n2. Create your account with the same address: ${d.ruul_email ?? "your email"}.\n3. Use your real name, as on your ID.\n4. Verify your identity (ID + selfie).\n5. Add your bank account.\n6. Click the button below.`,
+          `You start posting on ${debut}. Keep setting up your dashboard and TikTok meanwhile.`].join("\n\n"),
+        bouton: { texte: "It's done", lien: lienPret },
+      };
+    case "invite_b":
+      return {
+        objet: "You're connected on Ruul: one last check to get paid",
+        corps: [bonjour(d),
+          "Your Ruul account is connected. Just make sure your ID is verified and your bank account is added, then click the button below.",
+          "You're paid every Monday for the week you posted (Monday to Sunday)."].join("\n\n"),
+        bouton: { texte: "It's done", lien: lienPret },
+      };
+    case "arret":
+      return {
+        objet: "You've stopped working with Vik Studios",
+        corps: [bonjour(d),
+          "As you asked, your access is closed and you won't receive any more emails from us.",
+          "If you posted this week, that week is still paid on Monday. Thank you for your time with us."].join("\n\n"),
       };
     case "desactivation":
       return {

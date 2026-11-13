@@ -103,6 +103,8 @@ Deno.serve(async (request) => {
       const { data, error } = await supabase.rpc("ruul_arret_jeton", { p_jeton: arreter });
       if (error) return PAGE("Something went wrong", "Please try again later.");
       if (data !== true) return PAGE("Link not valid", "This link is not valid.");
+      const { data: qui } = await supabase.from("profiles").select("id").eq("ruul_jeton", arreter).maybeSingle();
+      if (qui?.id) await confirmerArret(supabase, qui.id).catch(() => null);
       return PAGE("Done", "Your access is closed. You won't receive any more emails from us. Thank you for your time with Vik Studios.");
     }
     // 13/11 (rattrapage) : « Get a new password » → confirmation → le mot de passe s'affiche.
@@ -147,7 +149,7 @@ Deno.serve(async (request) => {
     if (body?.action === "candidatures") return json(await candidatures(supabase));
     // 0688 : le parcours Ruul (toutes les heures) ; l'aperçu de ses emails pour un posteur (rien n'est envoyé).
     if (body?.action === "parcours") return json(await parcours(supabase, body?.forcer === true, body?.simuler === true));
-    if (body?.action === "parcours_apercu") return json(await parcoursApercu(supabase, String(body?.poster_id ?? "")));
+    if (body?.action === "parcours_apercu") return json(await parcoursApercu(supabase, String(body?.poster_id ?? ""), body?.v2 === true));
     // 13/11 : l'email de rattrapage d'une cohorte (aperçu, puis envoi seulement avec confirmer: true).
     if (body?.action === "rattrapage") return json(await rattrapage(supabase, body));
     // 0592 : « dimanche » (ancien nom de la tâche) et « soir » : la liste de tous les soirs.
@@ -224,7 +226,8 @@ async function envoyer(supabase: Supabase) {
   if (error) throw error;
   // 0681 (Agent Ruul) : l'email A (« Invited » dans Ruul) ou B (« Active »), une seule fois chacun,
   // seulement quand Max a mis ruul_emails_ab sur on. L'email A remplace l'ancienne invitation.
-  const emailsAB = await interrupteur(supabase, "ruul_emails_ab");
+  // 13/11 (Réparer Ruul) : en v2, A et B partent par le moteur du parcours (un seul système).
+  const emailsAB = await interrupteur(supabase, "ruul_emails_ab") && await reglageTexte(supabase, "ruul_emails_v2") !== "on";
   const ab = await textesAB(supabase);
   for (const p of (invites ?? []) as Profil[]) {
     const quel = emailAB({ compte: p.ruul_compte, a_at: p.ruul_email_a_at, b_at: p.ruul_email_b_at, statut: p.ruul_statut, stop_at: p.relances_stop_at });
@@ -622,16 +625,44 @@ async function lienSlackInvitation(supabase: Supabase): Promise<string> {
   return typeof v === "string" && v ? v : "https://join.slack.com/t/sophia-system";
 }
 
-/** L'email d'une étape pour un posteur (objet, corps, bouton) rendu en HTML + texte. */
-function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">, slack: string, lundi?: string, numero?: number, motDePasse = "(the one in our previous email)") {
+/** Les liens à usage unique d'un email v2 (/r/done, /r/password, /r/stop sur le dashboard). */
+interface LiensV2 { done: string; password: string; stop: string }
+const LIENS_APERCU: LiensV2 = { done: "<jeton>", password: "<jeton>", stop: "<jeton>" };
+
+/** 0696 : 3 jetons neufs (14 jours, usage unique) pour les liens d'un email. */
+async function creerLiensV2(supabase: Supabase, posterId: string, source: string): Promise<LiensV2 | null> {
+  const j: Record<string, string> = {};
+  for (const a of ["done", "password", "stop"] as const) {
+    const { data, error } = await supabase.rpc("lien_posteur_creer", { p_poster: posterId, p_action: a, p_source: source });
+    if (error || typeof data !== "string") return null;
+    j[a] = data;
+  }
+  return j as unknown as LiensV2;
+}
+
+/**
+ * L'email d'une étape pour un posteur (objet, corps, bouton) rendu en HTML + texte.
+ * `liens` (v2, Réparer Ruul 13/11) : titre « Vik Studios » et liens à usage unique sur le dashboard ;
+ * sans : l'ancien format (liens de la fonction).
+ */
+function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">, slack: string, lundi?: string, numero?: number,
+  motDePasse = "(the one in our previous email)", liens: LiensV2 | null = null) {
   const jeton = e.ruul_jeton ?? "";
-  const lienPret = `${URL_FONCTION}?pret=${jeton}`;
-  const lienStop = `${URL_FONCTION}?stop=${jeton}`;
+  const lienPret = liens ? `${URL_DASHBOARD_OS}/r/done?t=${liens.done}` : `${URL_FONCTION}?pret=${jeton}`;
+  const lienStop = liens ? `${URL_DASHBOARD_OS}/r/stop?t=${liens.stop}` : `${URL_FONCTION}?stop=${jeton}`;
   const m = emailParcours(type, {
     prenom: e.prenom, login: e.login, motDePasse, dashboard: URL_DASHBOARD_OS, handle: e.handle, slack,
     cohorte_lundi: e.cohorte_lundi, ruul_email: e.email, abonnements: e.abonnements, lundi, numero,
+    faites: {
+      connexion: !!e.premiere_connexion_at, tiktok: e.tiktok_existe === true,
+      warmup: !!e.warmup_started_at && (e.abonnements ?? 0) >= 5, slack: !!e.slack_user_id,
+    },
   }, lienPret);
-  const r = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied: type === "desactivation" });
+  const sansPied = type === "desactivation" || type === "arret";
+  const r = rendreEmailRuul({
+    objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied,
+    ...(liens ? { titre: "Vik Studios", arret: lienStop } : {}),
+  });
   return { objet: m.objet, html: r.html, texte: r.texte, lienStop };
 }
 
@@ -646,6 +677,8 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const { data, error } = await supabase.rpc("ruul_parcours_etat");
   if (error) throw error;
   const slack = await lienSlackInvitation(supabase);
+  // 13/11 (Réparer Ruul) : le nouveau format (Vik Studios, liens à usage unique, A/B dans ce moteur).
+  const v2 = await reglageTexte(supabase, "ruul_emails_v2") === "on";
   // Les posteurs que Max a mis de côté (« ne pas inviter ») ne reçoivent rien.
   const { data: exclus } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").eq("ruul_ne_pas_inviter", true);
   const deCote = new Set(((exclus ?? []) as { id: string }[]).map((x) => x.id));
@@ -653,7 +686,7 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const bilan: Record<string, unknown>[] = [];
   for (const e of (data ?? []) as EtatParcours[]) {
     if (deCote.has(e.poster_id)) continue;
-    const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis });
+    const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis, v2 });
     if (!d) continue;
     // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.
     // 13/11 : hors de 9 h–20 h (Paris), l'email attend le prochain passage dans la fenêtre.
@@ -662,7 +695,7 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
       continue;
     }
     if (simuler) { bilan.push({ poster: e.poster_id, type: d.type, cle: d.cle, ok: true, simulation: true }); continue; }
-    bilan.push(await executer(supabase, e, d, slack));
+    bilan.push(await executer(supabase, e, d, slack, v2));
   }
   return {
     ok: true, posteurs: (data ?? []).length, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length,
@@ -670,7 +703,7 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   };
 }
 
-async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack: string): Promise<Record<string, unknown>> {
+async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack: string, v2 = false): Promise<Record<string, unknown>> {
   const noter = (ok: boolean, canaux: string[], erreur: string | null) =>
     supabase.from("ruul_parcours_envois").upsert({ poster_id: e.poster_id, cle: d.cle, type: d.type, ok, canaux, erreur, envoye_at: new Date().toISOString() },
       { onConflict: "poster_id,cle" });
@@ -700,8 +733,18 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack:
       return { poster: e.poster_id, type: d.type, cle: d.cle, ok: false, erreur: `mot de passe : ${errMdp.message}` };
     }
   }
-  const m = rendreEtape(e, d.type, slack, d.lundi, numero, motDePasse);
+  const liens = v2 ? await creerLiensV2(supabase, e.poster_id, `parcours:${d.cle}`) : null;
+  if (v2 && !liens) {
+    await noter(false, [], "jetons des liens : création impossible");
+    return { poster: e.poster_id, type: d.type, cle: d.cle, ok: false, erreur: "jetons des liens" };
+  }
+  const m = rendreEtape(e, d.type, slack, d.lundi, numero, motDePasse, liens);
   const r = await envoyerEmail(e.email!, m.objet, m.html, m.texte, m.lienStop, ["ruul", "parcours", d.type]);
+  // A/B : la date reste sur la fiche (les relances Ruul tous les 2 jours comptent depuis elle).
+  if (r.ok && (d.type === "invite_a" || d.type === "invite_b")) {
+    const at = new Date().toISOString();
+    await supabase.from("profiles").update(d.type === "invite_a" ? { ruul_email_a_at: at } : { ruul_email_b_at: at }).eq("id", e.poster_id);
+  }
   if (d.type === "desactivation" && r.ok) {
     await supabase.rpc("ruul_desactiver", { p_poster: e.poster_id, p_source: "manuel", p_motif: "14 jours sans aucune activité" });
   }
@@ -710,17 +753,19 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack:
 }
 
 /** L'aperçu de chaque email du parcours pour un vrai posteur : rien n'est envoyé ni écrit. */
-async function parcoursApercu(supabase: Supabase, posterId: string) {
+async function parcoursApercu(supabase: Supabase, posterId: string, v2 = false) {
   const { data, error } = await supabase.rpc("ruul_parcours_etat", { p_poster: posterId || null });
   if (error) throw error;
   const e = ((data ?? []) as EtatParcours[])[0];
   if (!e) return { ok: false, error: "posteur Ruul actif introuvable" };
   const slack = await lienSlackInvitation(supabase);
   const lundiSuivant = e.cohorte_lundi ? new Date(new Date(`${e.cohorte_lundi}T12:00:00Z`).getTime() + 7 * 86_400_000).toISOString().slice(0, 10) : undefined;
-  const types: Exclude<TypeParcours, "carte_ruul">[] = ["bienvenue", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "report", "demain", "desactivation"];
+  const types: Exclude<TypeParcours, "carte_ruul">[] = v2
+    ? ["bienvenue", "invite_a", "invite_b", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "demain", "report", "desactivation", "arret"]
+    : ["bienvenue", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "report", "demain", "desactivation"];
   return {
     ok: true, poster: e.poster_id, prochain: prochainEnvoi(e, new Date(), { bienvenue: false }),
-    emails: types.map((t) => ({ type: t, ...rendreEtape(e, t, slack, t === "report" ? lundiSuivant : undefined, t === "ruul" ? 1 : undefined, "••••••") })),
+    emails: types.map((t) => ({ type: t, ...rendreEtape(e, t, slack, t === "report" ? lundiSuivant : undefined, t === "ruul" ? 1 : undefined, "••••••", v2 ? LIENS_APERCU : null) })),
   };
 }
 
@@ -817,10 +862,11 @@ async function rattrapage(supabase: Supabase, body: any) {
 // 0696 : les liens à usage unique des emails (pages /r/… du dashboard)
 // ---------------------------------------------------------------------------
 
+// Les pages /r/… (GET) et l'admin (POST, functions.invoke) : le preflight doit accepter les deux.
 const CORS_LIEN: Record<string, string> = {
   "access-control-allow-origin": "*",
-  "access-control-allow-methods": "GET, OPTIONS",
-  "access-control-allow-headers": "content-type",
+  "access-control-allow-methods": "GET, POST, OPTIONS",
+  "access-control-allow-headers": "authorization, x-client-info, apikey, content-type, accept, x-cron-secret",
 };
 
 /**
@@ -847,6 +893,7 @@ async function utiliserLien(supabase: Supabase, jeton: string, a: string, confir
     const { data: d, error: e } = await supabase.rpc("ruul_arret_jeton", { p_jeton: pr.ruul_jeton });
     if (e || d !== true) return { ok: false, raison: "erreur" };
     resultat = { ok: true, fait: "stop" };
+    await confirmerArret(supabase, pr.id).catch(() => null);
   } else {
     if (!pr.is_active) return { ok: false, raison: "introuvable" };
     const motDePasse = motDePasseRecrue();
@@ -856,4 +903,20 @@ async function utiliserLien(supabase: Supabase, jeton: string, a: string, confir
   }
   await supabase.rpc("lien_posteur_utiliser", { p_jeton: jeton, p_action: a, p_lire: false });
   return resultat;
+}
+
+/** v2 : l'email court de confirmation après « I do not wish to continue » (une fois, sans lien d'arrêt). */
+async function confirmerArret(supabase: Supabase, posterId: string) {
+  if (await reglageTexte(supabase, "ruul_emails_v2") !== "on") return;
+  const { data: p } = await supabase.from("profiles").select("prenom, ruul_email, email_perso, email").eq("id", posterId).maybeSingle();
+  const to = p?.ruul_email || p?.email_perso;
+  if (!to) return;
+  const m = emailParcours("arret", {
+    prenom: p?.prenom ?? null, login: p?.email ?? null, motDePasse: "", dashboard: URL_DASHBOARD_OS, handle: null, slack: "",
+    cohorte_lundi: null, ruul_email: p?.ruul_email ?? null, abonnements: null,
+  }, URL_DASHBOARD_OS);
+  const r = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: null, lienStop: URL_DASHBOARD_OS, sansPied: true, titre: "Vik Studios" });
+  const env = await envoyerEmail(to, m.objet, r.html, r.texte, URL_DASHBOARD_OS, ["ruul", "parcours", "arret"]);
+  await supabase.from("ruul_parcours_envois").upsert({ poster_id: posterId, cle: "arret", type: "arret", ok: env.ok, canaux: env.ok ? ["email"] : [], erreur: env.erreur, envoye_at: new Date().toISOString() },
+    { onConflict: "poster_id,cle" });
 }

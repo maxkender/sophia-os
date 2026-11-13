@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { useAuth } from "@/features/auth/AuthContext";
+import { RelancesRuul } from "@/features/ruul/RelancesRuul";
 
 import { ANCIENNES_PAGES, cheminAuto } from "./pages";
 
@@ -25,6 +26,7 @@ export function PageReglagesAuto() {
   ];
   return (
     <div className="space-y-3" data-testid="page-reglages-auto">
+      <RelancesRuul />
       <h2 className="text-sm font-semibold text-muted-foreground">Pages rangées ici (adresses et données gardées)</h2>
       <div className="grid gap-2 sm:grid-cols-2">
         {pages.map((p) => (

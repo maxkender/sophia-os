@@ -108,3 +108,26 @@ Deno.test("13/11 : emails entre 9 h et 20 h (Paris), sauf « you start tomorrow 
   assertEquals(dansFenetre(soir, "demain"), true);
   assertEquals(dansFenetre(nuit, "carte_ruul"), true);
 });
+
+Deno.test("v2 : A (Invited) puis B (Active) par le même moteur, une fois chacun ; jamais si Ruul est fini", () => {
+  const invite = base({ ruul_compte: "invited", premiere_connexion_at: "2026-11-11T09:00:00Z" });
+  assertEquals(prochainEnvoi(invite, jeudi, { bienvenue: false, v2: true })?.type, "invite_a");
+  assertEquals(prochainEnvoi(invite, jeudi, { bienvenue: false })?.type, "tiktok");
+  const actif = base({ ruul_compte: "active", ruul_email_a_at: "2026-11-10T09:00:00Z", premiere_connexion_at: "2026-11-11T09:00:00Z" });
+  assertEquals(prochainEnvoi(actif, jeudi, { bienvenue: false, v2: true })?.type, "invite_b");
+  assertEquals(prochainEnvoi(base({ ruul_compte: "active", ruul_statut: "pret" }), jeudi, { bienvenue: false, v2: true })?.type === "invite_b", false);
+});
+
+Deno.test("v2 : report avec sa checklist personnelle ; A, B, arrêt sans mot interdit", () => {
+  const d = { prenom: "Ana", login: "anas@sophia.com", motDePasse: "x", dashboard: "https://os", handle: "ana.x", slack: "https://slack", cohorte_lundi: "2026-11-16", ruul_email: "a@b.c", abonnements: 2, lundi: "2026-11-23",
+    faites: { connexion: true, tiktok: true, warmup: false, slack: false } };
+  const r = emailParcours("report", d, "https://pret");
+  assert(!r.corps.includes("Log in to your dashboard"));
+  assertStringIncludes(r.corps, "1. Click « Start warmup »");
+  assertStringIncludes(r.corps, "2. Join Slack: https://slack");
+  for (const t of ["invite_a", "invite_b", "arret"] as const) {
+    const e = emailParcours(t, d, "https://pret");
+    assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
+  }
+  assertEquals(emailParcours("invite_a", d, "https://pret").bouton?.texte, "It's done");
+});

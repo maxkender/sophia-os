@@ -67,6 +67,9 @@ export interface EmailRuul {
   lienStop: string;
   /** Email de fermeture du compte : ni phrase Help ni « I do not wish to continue ». */
   sansPied?: boolean;
+  /** 13/11 (Réparer Ruul, v2) : le titre en haut (« Vik Studios ») et le lien « I do not wish to continue » (/r/stop). */
+  titre?: string;
+  arret?: string | null;
 }
 
 /** 12/11 (Max) : la dernière ligne de chaque email aux posteurs. */
@@ -86,12 +89,12 @@ export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
   const paragraphes = e.corps.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
   // La phrase Help vient après le bouton, juste avant la signature (sauf si le texte la dit déjà).
   const help = e.sansPied || /click Help on your dashboard/i.test(e.corps) ? null : PIED_HELP_EMAIL;
-  const arret = e.sansPied ? null : lienArret(e.lienStop);
+  const arret = e.sansPied ? null : (e.arret ?? lienArret(e.lienStop));
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(e.objet)}</title></head>
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:28px 24px">
-<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">Sophia</td></tr>
+<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">${echapper(e.titre ?? "Sophia")}</td></tr>
 ${paragraphes.map((p) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p).replace(/\n/g, "<br>")}</td></tr>`).join("\n")}
 ${e.bouton ? `<tr><td style="padding:8px 0 20px"><a href="${echapper(e.bouton.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(e.bouton.texte)}</a></td></tr>` : ""}
 ${help ? `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(help)}</td></tr>` : ""}

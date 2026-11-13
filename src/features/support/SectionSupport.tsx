@@ -35,16 +35,18 @@ import {
   regleProposee,
   type TraceDemande,
 } from "./api";
+import { Controle } from "./Controle";
 import { ConversationPosteur } from "./Conversation";
 import { Entrainer } from "./Entrainer";
 import { PageHelp } from "./PageHelp";
 
-type OngletSupport = "repondre" | "toutes" | "bot" | "entrainer";
+type OngletSupport = "repondre" | "toutes" | "bot" | "entrainer" | "controle";
 const ONGLETS_SUPPORT: readonly { cle: OngletSupport; contenu: string }[] = [
   { cle: "repondre", contenu: "À répondre" },
   { cle: "toutes", contenu: "Toutes les demandes" },
   { cle: "bot", contenu: "Ce que le bot sait" },
   { cle: "entrainer", contenu: "🎯 Entraîner le bot" },
+  { cle: "controle", contenu: "🎛️ Contrôle" },
 ];
 /** Les anciens onglets (liens déjà partagés : ?onglet=boite, ?onglet=tester…) mènent au bon endroit. */
 const ANCIENS: Record<string, OngletSupport> = {
@@ -83,6 +85,7 @@ export function SectionSupport() {
       {onglet === "repondre" && <ARepondre lignes={toutes.data ?? []} charge={toutes.isLoading} />}
       {onglet === "toutes" && <Toutes lignes={toutes.data ?? []} />}
       {onglet === "entrainer" && <Entrainer />}
+      {onglet === "controle" && <Controle />}
       {onglet === "bot" && <BotSait initial={(SOUS_BOT as readonly string[]).includes(brut) ? (brut as SousBot) : "tester"} />}
     </div>
   );

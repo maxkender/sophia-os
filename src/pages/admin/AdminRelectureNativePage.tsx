@@ -7,6 +7,7 @@ import { PageHeader } from "@/components/layout/PageHeader";
 import { Button } from "@/components/ui/button";
 import { Segments } from "@/components/ui/segments";
 import { CarteInterrupteurs } from "@/features/relectureNative/CarteInterrupteurs";
+import { BandeauBoucle } from "@/features/relectureNative/BandeauBoucle";
 import { ChiffresRelecture } from "@/features/relectureNative/ChiffresRelecture";
 import { DuelsAdmin } from "@/features/relectureNative/DuelsAdmin";
 import { SectionCorrections } from "@/features/relectureNative/SectionCorrections";
@@ -52,6 +53,7 @@ export function AdminRelectureNativePage() {
         }
       />
 
+      <BandeauBoucle onEtape={(e) => setOnglet(e === "traduction" ? "corrections" : e)} />
       <ChiffresRelecture />
       <CarteInterrupteurs />
 

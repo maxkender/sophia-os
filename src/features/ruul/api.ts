@@ -190,6 +190,8 @@ export interface AInviterRuul {
   nom: string;
   email_ruul: string;
   pays: string | null;
+  /** 0698 : « nouvelle adresse » ou « renvoyer l'invitation » (posé par le bot). */
+  etiquette?: string | null;
 }
 
 export interface ImportRuul {
@@ -262,7 +264,7 @@ export function paysEnAnglais(code: string | null | undefined): string {
   }
 }
 
-/** La liste à coller dans Ruul : « nom ; email ; pays » (pays de la candidature signée, en anglais), une ligne par personne. */
+/** La liste à coller dans Ruul : « nom ; email ; pays [; étiquette] » (pays de la candidature signée, en anglais), une ligne par personne. */
 export function texteAInviter(l: readonly AInviterRuul[]): string {
-  return l.map((p) => `${p.nom || "?"} ; ${p.email_ruul} ; ${paysEnAnglais(p.pays)}`).join("\n");
+  return l.map((p) => `${p.nom || "?"} ; ${p.email_ruul} ; ${paysEnAnglais(p.pays)}${p.etiquette ? ` ; ${p.etiquette}` : ""}`).join("\n");
 }

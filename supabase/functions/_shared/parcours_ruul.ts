@@ -39,12 +39,17 @@ export interface EtatParcours {
   ruul_jeton: string | null;
   posts: number;
   envois: { cle: string; type: string; at: string; ok: boolean }[];
+  /** 0698 : la vérification d'identité lue dans Ruul (not_started | pending | approved | declined) et le nombre de refus. */
+  identite?: string | null;
+  identite_refus?: number;
 }
 
 export type TypeParcours =
   | "bienvenue" | "demain" | "report" | "desactivation" | "jamais_connecte" | "tiktok" | "warmup" | "slack" | "ruul" | "carte_ruul"
   // 13/11 (Réparer Ruul, v2) : les emails A/B passent par le même moteur ; la confirmation d'arrêt.
-  | "invite_a" | "invite_b" | "arret";
+  | "invite_a" | "invite_b" | "arret"
+  // Point 4 : la vérification d'identité Ruul refusée (1re fois : refaire ; 2e : fin de collaboration).
+  | "identite_refusee" | "identite_fin";
 
 export interface Decision {
   type: TypeParcours;
@@ -118,6 +123,11 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
 
   if (o.bienvenue && o.bienvenueDepuis && e.cree_at >= o.bienvenueDepuis && !envoye(e, "bienvenue")) {
     return { type: "bienvenue", cle: "bienvenue" };
+  }
+  // 0698 : identité refusée par Ruul. 2e refus : fin de collaboration (email poli, puis désactivation).
+  if (o.v2 && e.identite === "declined") {
+    if ((e.identite_refus ?? 0) >= 2 && !envoye(e, "identite_fin")) return { type: "identite_fin", cle: "identite_fin" };
+    if ((e.identite_refus ?? 0) === 1 && !envoye(e, "identite_refus_1")) return { type: "identite_refusee", cle: "identite_refus_1" };
   }
   // v2 : l'email A (« Invited » dans Ruul) ou B (« Active »), une fois chacun, par ce moteur (plus par `envoyer`).
   if (o.v2 && !ruulPret(e)) {
@@ -302,6 +312,22 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
           "You're paid every Monday for the week you posted (Monday to Sunday)."].join("\n\n"),
         bouton: { texte: "It's done", lien: lienPret },
       };
+    case "identite_refusee":
+      return {
+        objet: "Ruul couldn't verify your identity: please try again",
+        corps: [bonjour(d),
+          "Ruul couldn't verify your identity, so we can't pay you yet. Please try again in Ruul:",
+          "1. Use a valid ID (passport, ID card or driving licence) that isn't expired.\n2. Take clear photos in good light, with the 4 corners of the ID visible.\n3. Make sure the name on your Ruul account is exactly the name on your ID.\n4. Take the selfie in good light, without glasses or a hat.\n5. Then click the button below.",
+          "If it's declined a second time, we won't be able to pay you through Ruul."].join("\n\n"),
+        bouton: { texte: "It's done", lien: lienPret },
+      };
+    case "identite_fin":
+      return {
+        objet: "About your work with Vik Studios",
+        corps: [bonjour(d),
+          "Ruul couldn't verify your identity a second time. We can only pay through Ruul, so unfortunately we have to end our collaboration. Your access is now closed.",
+          "If you posted this week, that week is still paid on Monday. Thank you for your time with us, and we wish you all the best."].join("\n\n"),
+      };
     case "arret":
       return {
         objet: "You've stopped working with Vik Studios",
@@ -347,7 +373,8 @@ export interface PointSoirRuul {
 
 /** Les 5 lignes : prêts / pas prêts, emails par type, désactivés, erreurs, ce que Max doit faire. */
 export function lignesPointSoirRuul(d: PointSoirRuul): string[] {
-  const prets = d.etats.filter((e) => estPret(e) && !!e.slack_user_id && ruulPret(e)).length;
+  // Réparer Ruul (point 6) : prêt = connecté + TikTok + warm-up lancé + 5 abonnements ; Slack et Ruul ne bloquent pas.
+  const prets = d.etats.filter((e) => estPret(e)).length;
   const pasPrets = d.etats.length - prets;
   const sansRuul = d.etats.filter((e) => !ruulPret(e)).length;
   const ok = d.envois.filter((x) => x.ok && x.type !== "carte_ruul");

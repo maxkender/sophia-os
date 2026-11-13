@@ -56,7 +56,7 @@ export function AgentRuul() {
       <CardContent className="space-y-6">
         <section className="space-y-2" data-testid="agent-ruul-a-inviter">
           <h3 className="font-semibold">À inviter dans Ruul ({liste.length})</h3>
-          <p className="text-xs text-muted-foreground">Signés pas encore dans Ruul : nom ; email ; pays (de la candidature signée). Sans les pays fermés ni les personnes en attente de décision.</p>
+          <p className="text-xs text-muted-foreground">Signés pas encore dans Ruul : nom ; email ; pays (de la candidature signée) ; étiquette (« nouvelle adresse » ou « renvoyer l'invitation »). Sans les pays fermés ni les personnes en attente de décision.</p>
           <Textarea aria-label="À inviter dans Ruul" readOnly rows={Math.min(8, Math.max(2, liste.length))} value={texteAInviter(liste)} />
           <Button size="sm" disabled={!liste.length} data-testid="agent-ruul-copier"
             onClick={() => { void navigator.clipboard?.writeText(texteAInviter(liste)); setCopie(true); setTimeout(() => setCopie(false), 2000); }}>
@@ -81,11 +81,12 @@ export function AgentRuul() {
         <section className="space-y-2" data-testid="agent-ruul-statuts">
           <h3 className="font-semibold">Importer statuts Ruul</h3>
           <p className="text-xs text-muted-foreground">
-            Une ligne par personne : « email ; Active » ou « email ; Invited ». Nouveau Invited : email A une seule fois, puis relances.
+            Une ligne par personne : « email ; Active » ou « email ; Invited », et si possible la vérification d'identité
+            (« ; Not started », « ; Pending », « ; Approved » ou « ; Declined »). Nouveau Invited : email A une seule fois, puis relances.
             Nouveau Active : email B une seule fois. Jamais deux fois le même email.
           </p>
           <Textarea aria-label="Importer statuts Ruul" rows={5} value={statuts} onChange={(x) => { setStatuts(x.target.value); setApercu(null); }}
-            placeholder={"ana@gmail.com ; Active\nleo@gmail.com ; Invited"} />
+            placeholder={"ana@gmail.com ; Active ; Approved\nleo@gmail.com ; Invited ; Not started"} />
           <div className="flex flex-wrap gap-2">
             <Button size="sm" variant="outline" disabled={!statuts.trim() || verifier.isPending} onClick={() => verifier.mutate()} data-testid="agent-ruul-verifier">Vérifier</Button>
             <Button size="sm" disabled={!apercu || importer.isPending} onClick={() => importer.mutate()} data-testid="agent-ruul-importer">Importer</Button>

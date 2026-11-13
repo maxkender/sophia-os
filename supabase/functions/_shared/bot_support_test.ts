@@ -55,6 +55,13 @@ Deno.test("bot v2 : signature, prompt, test vert / rouge", () => {
 Deno.test("accuseReception : les simples merci / ok ne reçoivent rien", () => {
   for (const t of ["ok", "Thanks!", "thank you so much", "👍", ":pray:", "merci", "Got it."]) assertEquals(accuseReception(t), true, t);
   for (const t of ["ok but when do I get paid?", "Thanks, I can't log in", "Is the warm-up paid?"]) assertEquals(accuseReception(t), false, t);
+  // 13/11 (Max) : les promesses et accusés courts ne créent pas de demande.
+  for (const t of ["I'll do it tonight", "Ok thanks, I will do it tomorrow!", "Will do", "On it.", "Understood, thank you", "I'm doing it now", "Thank you, I'll finish it later"]) {
+    assertEquals(accuseReception(t), true, t);
+  }
+  for (const t of ["I'll do it tonight but where is the warm-up button?", "I will not do it", "I can't do it, my account is banned", "I'll do it tonight, can you send the link?"]) {
+    assertEquals(accuseReception(t), false, t);
+  }
 });
 
 Deno.test("top 10 : lecture du JSON et texte du lundi", () => {

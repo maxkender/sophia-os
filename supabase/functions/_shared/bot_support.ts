@@ -245,7 +245,13 @@ export function accuseReception(texte: string): boolean {
   if (t.length < 2) return true;
   if (/^(:[a-z0-9_+-]+:\s*)+$/.test(t)) return true;
   if (/^[\p{Extended_Pictographic}\s\u200d\ufe0f]+$/u.test(t)) return true;
-  return /^(ok(ay)?|k|thanks?|thank you|thank u|thx|ty|merci|danke|grazie|gracias|obrigad[oa]|dzięki|perfect|great|cool|nice|got it|noted|alright|sure|yes|yep|done)( (thanks?|thank you|you|a lot|so much))*$/u.test(t);
+  if (/^(ok(ay)?|k|thanks?|thank you|thank u|thx|ty|merci|danke|grazie|gracias|obrigad[oa]|dzięki|perfect|great|cool|nice|got it|noted|alright|sure|yes|yep|done)( (thanks?|thank you|you|a lot|so much))*$/u.test(t)) return true;
+  // 13/11 (Max) : « I'll do it tonight », « will do », « on it », « understood »… : pas de demande, « vu » dans le fil.
+  if (t.length > 90 || /\?/.test(t)) return false;
+  const u = t.replace(/[,.!;:]+/g, " ").replace(/\s+/g, " ").trim()
+    .replace(/^((thank you( so much| a lot)?|thanks?|ok(ay)?|alright|sure|yes|yep|perfect|great|noted|got it|thx|ty|hi|hello|dear \w+) )+/u, "");
+  if (/^(will do|on it|noted|understood|i understand|no problem|no worries|sounds good|all good|of course|for sure|with pleasure|you're welcome|have a (nice|good) (day|evening|night|weekend)|see you)( (thanks?|thank you|you))*$/u.test(u)) return true;
+  return /^(i('ll| will| am going to|'m going to)|i'm|i am|will|gonna) (do(ing)?|finish(ing)?|complet(e|ing)|start(ing)?|check(ing)?|try(ing)?|fix(ing)?|set(ting)?|send(ing)?|join(ing)?|creat(e|ing)|post(ing)?|mak(e|ing)|work(ing)? on)( it| that| this| them| everything| all| up| the rest)?( (now|today|tonight|tomorrow|later|soon|asap|right away|this evening|this weekend|in a (few|couple of) (minutes|hours)|in the evening|in the morning))?( (thanks?|thank you|you))*$/u.test(u);
 }
 
 /** Une ligne de la liste du soir d'Adrien. */

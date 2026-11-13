@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o243",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2aaa39ce-fb20-4aaa-8876-a598ed6cb2e1",
+ "titre": "Le secret pour réinventer totalement ta vie en 6 mois #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "2aaa39ce-fb20-4aaa-8876-a598ed6cb2e1"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 10 de la boîte (2aaa39ce, fr, es 8,4 k), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. Étapes neuves (aucune reprise : distractions, objectifs, habitudes, solitude, architecte). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "37f9b199-44d9-4777-a28e-62fb5f14c295",
+   "texte_overlay": "Le secret pour réinventer\ntotalement ta vie en 6 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Étape 1 : Écris la personne que tu veux devenir. Une page, au présent. « Je m'entraîne quatre fois par semaine. Je dors avant minuit. » Relis-la chaque matin.",
+   "media_id": "4a2738db-c1f2-45aa-80db-1e6a9e1d6539"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Étape 2 : Choisis une seule habitude par mois. Le sport en janvier, la lecture en février. Six habitudes solides en six mois changent une vie entière.",
+   "media_id": "5537b689-eb9a-4d34-92fd-743ca183da68"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Étape 3 : Change ton environnement. Range ta chambre, déplace ton bureau, mets ton téléphone hors de portée. Ton décor pousse tes choix plus que ta volonté.",
+   "media_id": "561f229b-9ed8-4a32-9180-669bd5b1b6e9"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Étape 4 : Entoure-toi de gens qui avancent. Un club de sport, un groupe de lecture, des amis ambitieux. On finit par ressembler aux personnes qu'on fréquente.",
+   "media_id": "5be1ba41-339a-41a8-95fd-cf7b9d632e92"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Nourris ta tête chaque jour. Je fais cinq minutes d'histoire, d'art ou de science par jour, et six mois de petites leçons ont changé ma façon de penser.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Six mois de petites leçons ont changé ma façon de penser.",
+   "media_id": "35a1a0ca-d0dd-4efe-8893-31e6610c7725"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pourquoi ça marche : personne ne change en un jour. Mais cent quatre-vingts jours de petits choix répétés construisent une personne que tu ne reconnais plus.",
+   "media_id": "6f82dbcf-b288-4eb9-bf21-5f72c3a604a9"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Le vrai secret, c'est la patience. Mesure tes progrès chaque mois, pas chaque jour. Dans six mois, tu te demanderas pourquoi tu n'as pas commencé plus tôt.",
+   "media_id": "b30967a0-4c61-47c4-94fd-0ad47816397e"
+  }
+ ]
+}

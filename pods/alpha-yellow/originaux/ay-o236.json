@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o236",
+ "type_bleo": "full_test",
+ "titre": "How to stop overthinking at night #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : les pensées du soir, conseils simples et sûrs. Accroches écrites : « How to stop overthinking at night » (retenue), « Why your brain won't shut up at 2am » (écartée : sans méthode), « How to quiet a busy mind » (écartée : plus vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1f43e0a3-c51f-4a1d-989a-834cbbe625dd",
+   "texte_overlay": "How to stop overthinking\nat night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Write it all down before bed. Every worry, every task, every idea, on paper. Your brain lets go much more easily once it knows nothing will be forgotten.",
+   "media_id": "26cb9c67-2c83-479a-af7f-f42221ebffb2"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Set a worry time earlier in the day. Fifteen minutes at 6pm to think through problems. When thoughts come at night, remind yourself you'll handle them then.",
+   "media_id": "40435558-aca9-4f72-8df9-554236de7c5e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Get out of bed if you can't sleep. Read in another room with dim light for twenty minutes. Lying there fighting your thoughts only makes them louder.",
+   "media_id": "ebf24b1c-6bf2-424c-8971-13eba6043143"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Breathe slowly with a longer exhale. In for four seconds, out for seven. It tells your body it's safe, and a calmer body brings a calmer mind.",
+   "media_id": "812402cb-f183-40f0-af07-57f3df5c0d1c"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Give your mind something gentle to hold. I do five minutes a day of history, art or science before bed, and calm curiosity crowds out the anxious loops.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app before bed. History, art, science. Calm curiosity crowds out the anxious loops.",
+   "media_id": "04388b7e-1fdb-44bf-9c0e-65e5b40657dd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Move your body during the day. A tired body sleeps more easily. A walk, a workout or a swim makes your evenings calmer and your nights deeper and more restful.",
+   "media_id": "849e54bc-b5eb-486c-a413-21c6dda6fff6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Talk to someone if it doesn't stop. A friend, your doctor, a therapist. Thoughts that keep you up for weeks deserve real support, not silence.",
+   "media_id": "490b5a5d-3bed-4f52-bca3-0d159f32530d"
+  }
+ ]
+}

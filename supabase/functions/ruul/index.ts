@@ -50,8 +50,8 @@ import {
 } from "../_shared/ruul.ts";
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
-import { type Decision, emailParcours, type EtatParcours, prochainEnvoi, type TypeParcours } from "../_shared/parcours_ruul.ts";
-import { MOT_DE_PASSE_COMMUN, motDePasseRecrue } from "../_shared/mot_de_passe.ts";
+import { dansFenetre, type Decision, emailParcours, type EtatParcours, prochainEnvoi, type TypeParcours } from "../_shared/parcours_ruul.ts";
+import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { emailRattrapage, estPret as estPretRattrapage, etapesFaites, type SituationRattrapage } from "../_shared/rattrapage_ruul.ts";
 import { urlEmailSite } from "../_shared/site.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
@@ -116,10 +116,12 @@ Deno.serve(async (request) => {
       }
       const { data: pr } = await supabase.from("profiles").select("id, email, is_active").eq("ruul_jeton", mdp).maybeSingle();
       if (!pr?.id || !pr.is_active) return PAGE("Link not valid", "This link is not valid.");
-      const { error: errMdp } = await supabase.auth.admin.updateUserById(pr.id, { password: MOT_DE_PASSE_COMMUN });
+      // 13/11 : un mot de passe neuf, unique et aléatoire (plus jamais 12345678).
+      const nouveau = motDePasseRecrue();
+      const { error: errMdp } = await supabase.auth.admin.updateUserById(pr.id, { password: nouveau });
       if (errMdp) return PAGE("Something went wrong", "Please try again later, or click Help on your dashboard.");
       return PAGE("Your new password",
-        `Dashboard: <a href="${URL_DASHBOARD_OS}">${URL_DASHBOARD_OS}</a><br>Login: <b>${String(pr.email ?? "")}</b><br>Password: <b>${MOT_DE_PASSE_COMMUN}</b>`);
+        `Dashboard: <a href="${URL_DASHBOARD_OS}">${URL_DASHBOARD_OS}</a><br>Login: <b>${String(pr.email ?? "")}</b><br>Password: <b>${nouveau}</b>`);
     }
     if (stop) {
       if (!JETON.test(stop)) return PAGE("Link not valid", "This link is not valid.");
@@ -621,12 +623,12 @@ async function lienSlackInvitation(supabase: Supabase): Promise<string> {
 }
 
 /** L'email d'une étape pour un posteur (objet, corps, bouton) rendu en HTML + texte. */
-function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">, slack: string, lundi?: string, numero?: number) {
+function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">, slack: string, lundi?: string, numero?: number, motDePasse = "(the one in our previous email)") {
   const jeton = e.ruul_jeton ?? "";
   const lienPret = `${URL_FONCTION}?pret=${jeton}`;
   const lienStop = `${URL_FONCTION}?stop=${jeton}`;
   const m = emailParcours(type, {
-    prenom: e.prenom, login: e.login, motDePasse: MOT_DE_PASSE_COMMUN, dashboard: URL_DASHBOARD_OS, handle: e.handle, slack,
+    prenom: e.prenom, login: e.login, motDePasse, dashboard: URL_DASHBOARD_OS, handle: e.handle, slack,
     cohorte_lundi: e.cohorte_lundi, ruul_email: e.email, abonnements: e.abonnements, lundi, numero,
   }, lienPret);
   const r = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied: type === "desactivation" });
@@ -654,6 +656,11 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
     const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis });
     if (!d) continue;
     // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.
+    // 13/11 : hors de 9 h–20 h (Paris), l'email attend le prochain passage dans la fenêtre.
+    if (!dansFenetre(maintenant, d.type)) {
+      if (simuler) bilan.push({ poster: e.poster_id, type: d.type, cle: d.cle, ok: true, simulation: true, attend: "fenêtre 9 h–20 h" });
+      continue;
+    }
     if (simuler) { bilan.push({ poster: e.poster_id, type: d.type, cle: d.cle, ok: true, simulation: true }); continue; }
     bilan.push(await executer(supabase, e, d, slack));
   }
@@ -682,7 +689,18 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack:
     if (error) return { poster: e.poster_id, type: d.type, ok: false, erreur: error.message };
   }
   const numero = d.type === "ruul" ? Number(d.cle.split("_")[1]) : undefined;
-  const m = rendreEtape(e, d.type, slack, d.lundi, numero);
+  // 13/11 (Max) : plus jamais de mot de passe par défaut dans un email. Jamais connecté (relance J+1,
+  // bienvenue) : un mot de passe neuf, unique et aléatoire, posé sur le compte juste avant l'envoi.
+  let motDePasse: string | undefined;
+  if ((d.type === "jamais_connecte" || d.type === "bienvenue") && !e.premiere_connexion_at) {
+    motDePasse = motDePasseRecrue();
+    const { error: errMdp } = await supabase.auth.admin.updateUserById(e.poster_id, { password: motDePasse });
+    if (errMdp) {
+      await noter(false, [], `mot de passe : ${errMdp.message}`);
+      return { poster: e.poster_id, type: d.type, cle: d.cle, ok: false, erreur: `mot de passe : ${errMdp.message}` };
+    }
+  }
+  const m = rendreEtape(e, d.type, slack, d.lundi, numero, motDePasse);
   const r = await envoyerEmail(e.email!, m.objet, m.html, m.texte, m.lienStop, ["ruul", "parcours", d.type]);
   if (d.type === "desactivation" && r.ok) {
     await supabase.rpc("ruul_desactiver", { p_poster: e.poster_id, p_source: "manuel", p_motif: "14 jours sans aucune activité" });
@@ -702,7 +720,7 @@ async function parcoursApercu(supabase: Supabase, posterId: string) {
   const types: Exclude<TypeParcours, "carte_ruul">[] = ["bienvenue", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "report", "demain", "desactivation"];
   return {
     ok: true, poster: e.poster_id, prochain: prochainEnvoi(e, new Date(), { bienvenue: false }),
-    emails: types.map((t) => ({ type: t, ...rendreEtape(e, t, slack, t === "report" ? lundiSuivant : undefined, t === "ruul" ? 1 : undefined) })),
+    emails: types.map((t) => ({ type: t, ...rendreEtape(e, t, slack, t === "report" ? lundiSuivant : undefined, t === "ruul" ? 1 : undefined, "••••••") })),
   };
 }
 

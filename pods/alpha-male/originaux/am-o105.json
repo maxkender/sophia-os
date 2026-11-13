@@ -1,53 +1,53 @@
 {
  "source_id": "am-o105",
  "type_bleo": "full_test",
- "titre": "What real confidence looks like in a man #men #confidence #mindset #selfimprovement #respect",
+ "titre": "Things a man stops doing when he finally grows up #men #maturity #mindset #selfimprovement #respect",
  "musique_titre": "Interstellar",
  "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
  "inspirations": [],
- "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Full test du jour (1 sur 3, jauge : 3 sur 10). Accroche jamais faite chez nous : aucun « real confidence » dans donnees/label.json. Mécanique des signes (am-o002, rang S), promesse neuve : la vraie assurance, calme. Format : numéro, signe, deux lignes. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Célébrités en illustration (autorisé) ; slide Sophia : pièce vitrée sur la neige, sans personne. reference_url : le post source de am-o034 (format de référence), vérifiées en 200.",
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Full test du jour (1 sur 3, jauge : 3 sur 10). Accroche jamais faite chez nous : aucun « stops doing », « grows up » ni « grown man » dans donnees/label.json. Remplace une première version (« What real confidence looks like in a man ») refusée au guichet en theme_gagnant. Promesse neuve : la maturité, en gestes qu'on arrête. Format : numéro, signe, deux lignes. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Célébrités en illustration (autorisé) ; slide Sophia : pièce vitrée sur la neige, sans personne. reference_url : le post source de am-o034 (format de référence), vérifiées en 200.",
  "slides": [
   {
    "position": 1,
    "media_id": "78576e32",
-   "texte_overlay": "What real confidence\nlooks like in a man",
+   "texte_overlay": "Things a man stops doing\nwhen he finally grows up",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
   },
   {
    "position": 2,
    "media_id": "514103a4",
-   "texte_overlay": "1. He's comfortable in silence\n\nNo need to fill every pause.",
+   "texte_overlay": "1. He stops needing\nthe last word\n\nHe lets it go. Peace is worth more.",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
   },
   {
    "position": 3,
-   "media_id": "6bacec67",
-   "texte_overlay": "2. He doesn't need to win\nevery argument\n\nHe's sure without proving it.",
+   "media_id": "9a4b7edb",
+   "texte_overlay": "2. He stops chasing approval\n\nHe does it right,\nnot to be watched.",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
   },
   {
    "position": 4,
    "media_id": "2c76a585",
-   "texte_overlay": "3. He's happy to be a beginner\n\nNew sport, new subject.\nHe doesn't mind starting at zero.",
-   "texte_sophia": "3. He's happy to be a beginner\n\nNew subject on the Sophia app,\nnew sport. He starts at zero.",
+   "texte_overlay": "3. He stops fearing\nthe beginner stage\n\nNew sport, new subject.\nHe starts at zero, happily.",
+   "texte_sophia": "3. He stops fearing\nthe beginner stage\n\nNew subject on the Sophia app,\nnew sport. He starts at zero.",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
   },
   {
    "position": 5,
    "media_id": "4a889e03",
-   "texte_overlay": "4. He compliments other men\n\nTheir win doesn't threaten him.",
+   "texte_overlay": "4. He stops talking down\non other men\n\nTheir win doesn't threaten him.",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
   },
   {
    "position": 6,
    "media_id": "171590e6",
-   "texte_overlay": "5. He takes feedback\nwithout sulking\n\n\"Fair point. I'll fix it.\"",
+   "texte_overlay": "5. He stops sulking at feedback\n\n\"Fair point. I'll fix it.\"",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
   },
   {
    "position": 7,
    "media_id": "0d6a435e",
-   "texte_overlay": "6. He says no\nwithout a long excuse\n\nOne sentence. Done.",
+   "texte_overlay": "6. He stops over-explaining\nhis no\n\nOne sentence. Done.",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
   }
  ]

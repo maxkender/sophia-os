@@ -1,5 +1,6 @@
 import {
   avancerImport,
+  bailApresPassage,
   claimContenu,
   claimImportFile,
   eloParLangue,
@@ -10,6 +11,7 @@ import {
   lirePisteSource,
   lireScoring,
   listerUrlsCompteReference,
+  MAX_ECHECS_CONTENU,
   MAX_TENTATIVES_IMPORT,
   prochainContenu,
   statsImportBatch,
@@ -281,7 +283,7 @@ Deno.serve(async (request) => {
     const r = await avancerImport(supabase, contenu);
     await supabase
       .from("contenus")
-      .update({ import_lease_until: null })
+      .update({ import_lease_until: bailApresPassage(r.echecsDeSuite ?? 0, r.progres) })
       .eq("id", contenu.id);
 
     return json({
@@ -372,7 +374,7 @@ async function runWorker(
     const r = await avancerImport(supabase, backfill);
     await supabase
       .from("contenus")
-      .update({ import_lease_until: null })
+      .update({ import_lease_until: bailApresPassage(r.echecsDeSuite ?? 0, r.progres) })
       .eq("id", backfill.id);
     return continuer(supabase, {
       action: "backfill",
@@ -384,7 +386,7 @@ async function runWorker(
   const r = await avancerImport(supabase, contenu);
   await supabase
     .from("contenus")
-    .update({ import_lease_until: null })
+    .update({ import_lease_until: bailApresPassage(r.echecsDeSuite ?? 0, r.progres) })
     .eq("id", contenu.id);
 
   return continuer(supabase, {
@@ -412,6 +414,7 @@ async function hasMoreWork(
       .from("contenus")
       .select("id", { count: "exact", head: true })
       .in("import_statut", ["pending", "running", "failed"])
+      .lt("import_tentatives", MAX_ECHECS_CONTENU)
       .or(`import_lease_until.is.null,import_lease_until.lt."${now}"`),
   ]);
   return (files ?? 0) + (contenus ?? 0) > 0;

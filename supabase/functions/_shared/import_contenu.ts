@@ -1319,6 +1319,35 @@ export interface AvancerImportResultat {
   nettoyage?: NettoyageRapport;
   /** Présent sur l'étape caption. */
   captions?: CaptionRapport;
+  /** Passages stériles de suite après ce passage (0 s'il a avancé) : `import_tentatives`. */
+  echecsDeSuite?: number;
+}
+
+/**
+ * Échecs de suite au-delà desquels les workers ne reprennent plus un contenu.
+ * `import_tentatives` compte les passages stériles DE SUITE (remis à 0 dès
+ * qu'un pas avance). Sans plafond, un diaporama qu'une étape ne peut pas
+ * traiter était repris sans fin dès que la file se vidait : le 13/11, un post
+ * de @_plony_ dont Gemini refusait l'image a été retenté 670 fois en 1 h 30,
+ * en occupant un des deux workers. Le contenu reste `failed` avec son erreur ;
+ * un pas ciblé (`contenuId`, relance à la main) le reprend toujours.
+ */
+export const MAX_ECHECS_CONTENU = 8;
+
+/**
+ * Bail posé sur un contenu après un passage : aucun s'il a avancé ; sinon une
+ * attente qui double à chaque échec de suite (1, 2, 4… minutes, 60 au plus),
+ * pour qu'une panne passagère (Gemini, fal) ne brûle pas les essais en
+ * quelques minutes. Les 8 échecs de suite couvrent ainsi environ 2 h.
+ */
+export function bailApresPassage(
+  echecsDeSuite: number,
+  progres: boolean,
+  maintenant = Date.now(),
+): string | null {
+  if (progres || !(echecsDeSuite > 0)) return null;
+  const minutes = Math.min(2 ** (echecsDeSuite - 1), 60);
+  return new Date(maintenant + minutes * 60_000).toISOString();
 }
 
 /** Ligne `contenus` telle que renvoyée par le claim (colonnes non typées). */
@@ -1334,14 +1363,15 @@ export async function avancerImport(
 ): Promise<AvancerImportResultat> {
   const r = await executerPasImport(supabase, contenu);
   const tentatives = Number(contenu.import_tentatives ?? 0);
+  const echecsDeSuite = r.progres ? 0 : tentatives + 1;
   try {
     await marquer(supabase, contenu.id, {
-      import_tentatives: r.progres ? 0 : tentatives + 1,
+      import_tentatives: echecsDeSuite,
     });
   } catch {
     // Bookkeeping de priorité : ne doit jamais faire échouer le passage.
   }
-  return r;
+  return { ...r, echecsDeSuite };
 }
 
 /**
@@ -2654,6 +2684,7 @@ export async function prochainContenu(
   if (contenuId) query = query.eq("id", contenuId);
   else {
     query = query
+      .lt("import_tentatives", MAX_ECHECS_CONTENU)
       .order("import_tentatives", { ascending: true })
       .order("pertinence_score", { ascending: true, nullsFirst: true })
       .order("created_at");
@@ -2671,7 +2702,8 @@ const LEASE_MS = 8 * 60_000;
  *
  * `import_tentatives` en premier critère : un diaporama qui enchaîne les
  * passages stériles passe derrière les imports frais au lieu d'aspirer tous
- * les workers.
+ * les workers. Au-delà de `MAX_ECHECS_CONTENU` échecs de suite, il n'est plus
+ * pris du tout.
  */
 export async function claimContenu(
   supabase: Supabase,
@@ -2683,6 +2715,7 @@ export async function claimContenu(
     .from("contenus")
     .select("id")
     .in("import_statut", ["pending", "running", "failed"])
+    .lt("import_tentatives", MAX_ECHECS_CONTENU)
     .or(libre)
     .order("import_tentatives", { ascending: true })
     .order("pertinence_score", { ascending: true, nullsFirst: true })
@@ -2699,6 +2732,7 @@ export async function claimContenu(
       })
       .eq("id", c.id)
       .in("import_statut", ["pending", "running", "failed"])
+      .lt("import_tentatives", MAX_ECHECS_CONTENU)
       .or(libre)
       .select("*")
       .maybeSingle();

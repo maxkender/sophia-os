@@ -200,7 +200,7 @@ async function cerveau(db: Db, f: Fiche | null, texte: string, ctx = "") {
   }
 }
 
-async function poserQuestion(db: Db, poster: string, texte: string, categorie: string | null) {
+async function poserQuestion(db: Db, poster: string, texte: string, categorie: string | null, source: "help" | "email" = "help") {
   texte = texte.trim();
   if (texte.length < 3) return { ok: false, error: "Please write your question." };
   // 12/11 (Support propre) : le bot v2 répond à tout ; il ne passe la main qu'à Adrien ou Max.
@@ -210,7 +210,7 @@ async function poserQuestion(db: Db, poster: string, texte: string, categorie: s
   const action = regle && d.action ? await executerAction(db, poster, d, texte) : null;
   const { data, error } = await db.rpc("support_ajouter", {
     p: {
-      poster_id: poster, type: "question", categorie: categorie ?? d.categorie, texte, bot_reponse: r.texte, bot_decision: d.niveau,
+      poster_id: poster, type: "question", categorie: categorie ?? d.categorie, texte, bot_reponse: r.texte, bot_decision: d.niveau, source,
       brouillon: regle || d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse, escalader: !regle,
     },
   });
@@ -954,6 +954,11 @@ async function analyserContexte(db: Db, id: string) {
  * Help. Un expéditeur inconnu : la demande arrive dans la Boîte, sans réponse. Un email déjà reçu
  * (même Message-ID) n'est jamais traité deux fois.
  */
+/**
+ * 13/11 (Max) : chaque réponse email d'un posteur devient une demande Support (source « email »),
+ * traitée par le bot comme Help ; il reçoit la réponse par email et dans son chat Help. Une demande
+ * déjà ouverte (moins de 7 jours) reçoit l'email dans son fil. Rien ne va à Adrien : tout va à Max.
+ */
 async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>) {
   const bilan: Record<string, unknown>[] = [];
   for (const e of emails) {
@@ -962,15 +967,33 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
     const poster = await posteurParEmail(db, e.de);
     const texte = e.sujet && !/^re:/i.test(e.sujet) ? `${e.sujet}\n\n${e.texte}` : e.texte;
     if (!poster) {
-      const { data, error } = await db.rpc("support_ajouter", { p: { poster_id: null, type: "question", texte, source: "help", escalader: true, slack_user: e.nom ?? e.de } });
+      const { data, error } = await db.rpc("support_ajouter", { p: { poster_id: null, type: "question", texte, source: "email", escalader: true, slack_user: e.nom ?? e.de } });
       if (error) { bilan.push({ de: e.de, erreur: error.message }); continue; }
       const id = (data as { id?: string } | null)?.id;
-      if (id) await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de, niveau: "adrien", raison: "Email d'un expéditeur inconnu." }).eq("id", id);
+      if (id) await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de, niveau: "max", raison: "Email d'un expéditeur inconnu." }).eq("id", id);
       bilan.push({ de: e.de, poster: null, id });
       continue;
     }
-    const r = await poserQuestion(db, poster, texte, null);
-    if (r.id) await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de }).eq("id", r.id);
+    // Une demande déjà ouverte (moins de 7 jours) : l'email entre dans son fil, la demande repasse « à répondre ».
+    const depuis = new Date(Date.now() - 7 * 86_400_000).toISOString();
+    const { data: ouverte } = await db.from("support_demandes").select("id, niveau")
+      .eq("poster_id", poster).in("statut", ["ouvert", "attente_posteur"]).gte("cree_at", depuis)
+      .order("cree_at", { ascending: false }).limit(1).maybeSingle();
+    if (ouverte?.id) {
+      const maintenant = new Date().toISOString();
+      await db.from("support_messages").insert({ demande_id: ouverte.id, auteur: "posteur", auteur_id: poster, texte: e.texte });
+      await db.from("support_demandes").update({
+        statut: "ouvert", posteur_at: maintenant, maj_at: maintenant, ...(ouverte.niveau === "adrien" || !ouverte.niveau ? { niveau: "max" } : {}),
+      }).eq("id", ouverte.id);
+      bilan.push({ de: e.de, poster, id: ouverte.id, fil: true });
+      continue;
+    }
+    const r = await poserQuestion(db, poster, texte, null, "email");
+    if (r.id) {
+      // Rien ne va à Adrien : ce que le bot ne règle pas va à Max.
+      const { data: d } = await db.from("support_demandes").select("niveau").eq("id", r.id).maybeSingle();
+      await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de, ...(d?.niveau === "adrien" ? { niveau: "max" } : {}) }).eq("id", r.id);
+    }
     let envoi = "pas de réponse";
     if (r.ok && r.reponse) {
       const { data: p } = await db.from("profiles").select("prenom, ruul_jeton").eq("id", poster).maybeSingle();

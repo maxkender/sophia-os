@@ -1147,6 +1147,13 @@ async function traiterProposition(db: Db, par: string, id: string, faire: boolea
     await db.from("journal_auto").update({ annule_at: maintenant, annule_par: par, details: { ...details, fait: "ignoree" } }).eq("id", id);
     return { ok: true, ignoree: true };
   }
+  if (details.action === "pay_ok") {
+    // 13/11 (Pay BOT) : OK de Max pour une milestone hors barème ou au-dessus du plafond : Pay BOT pourra la financer.
+    const { error: e } = await db.from("paie_a_financer").update({ ok_max_at: maintenant, ok_max_par: par }).eq("id", String(details.valeur ?? "")).is("finance_at", null);
+    const resultat = e ? `OK pas noté : ${e.message}` : "OK donné : Pay BOT peut la financer";
+    await db.from("journal_auto").update({ details: { ...details, fait: maintenant, resultat } }).eq("id", id);
+    return { ok: !e, resultat };
+  }
   if (!j.poster_id) return { ok: false, error: "pas de posteur" };
   if (details.action === "ticket_regle_prevenir") {
     const resultat = await prevenirTicketRegle(db, String(details.valeur ?? ""));

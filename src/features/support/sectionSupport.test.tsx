@@ -73,7 +73,7 @@ describe("Support (OS clair)", () => {
     }));
     sup.envoyerReponse.mockResolvedValue({ envois: { email: "ok" } });
     bot.enregistrerConsigne.mockResolvedValue("c1");
-    rendu(<SectionSupport />);
+    rendu(<SectionSupport />, "/admin/auto/support?onglet=repondre");
     const cartes = await screen.findAllByTestId("carte-a-repondre");
     expect(cartes).toHaveLength(2);
     // L'argent (Pour Max) d'abord.

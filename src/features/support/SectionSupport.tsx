@@ -35,22 +35,29 @@ import {
   regleProposee,
   type TraceDemande,
 } from "./api";
+import { Boite } from "./Boite";
 import { Controle } from "./Controle";
 import { ConversationPosteur } from "./Conversation";
 import { Entrainer } from "./Entrainer";
 import { PageHelp } from "./PageHelp";
 
-type OngletSupport = "repondre" | "toutes" | "bot" | "entrainer" | "controle";
+type OngletSupport = "boite" | "entrainer" | "controle" | "bot";
+/** 13/11 (refonte, Phase 5) : 4 onglets. La Boîte garde « À répondre » et « Toutes les demandes » en vues. */
 const ONGLETS_SUPPORT: readonly { cle: OngletSupport; contenu: string }[] = [
-  { cle: "repondre", contenu: "À répondre" },
-  { cle: "toutes", contenu: "Toutes les demandes" },
-  { cle: "bot", contenu: "Ce que le bot sait" },
+  { cle: "boite", contenu: "📥 Boîte" },
   { cle: "entrainer", contenu: "🎯 Entraîner le bot" },
   { cle: "controle", contenu: "🎛️ Contrôle" },
+  { cle: "bot", contenu: "⚙️ Réglages du bot" },
+];
+type VueBoite = "messagerie" | "repondre" | "toutes";
+const VUES_BOITE: readonly { cle: VueBoite; contenu: string }[] = [
+  { cle: "messagerie", contenu: "Par posteur" },
+  { cle: "repondre", contenu: "À répondre" },
+  { cle: "toutes", contenu: "Toutes les demandes" },
 ];
 /** Les anciens onglets (liens déjà partagés : ?onglet=boite, ?onglet=tester…) mènent au bon endroit. */
 const ANCIENS: Record<string, OngletSupport> = {
-  boite: "repondre", apercu: "bot", tester: "bot", consignes: "bot", regles: "bot", catalogue: "bot", documents: "bot", exemples: "bot", tests: "bot", suivi: "bot",
+  repondre: "boite", toutes: "boite", apercu: "bot", tester: "bot", consignes: "bot", regles: "bot", catalogue: "bot", documents: "bot", exemples: "bot", tests: "bot", suivi: "bot",
 };
 
 /**
@@ -62,10 +69,11 @@ const ANCIENS: Record<string, OngletSupport> = {
 export function SectionSupport() {
   const [params, setParams] = useSearchParams();
   const brut = params.get("onglet") ?? "";
-  const onglet: OngletSupport = ONGLETS_SUPPORT.some((o) => o.cle === brut) ? (brut as OngletSupport) : ANCIENS[brut] ?? "repondre";
-  const choisir = (o: OngletSupport) => {
+  const onglet: OngletSupport = ONGLETS_SUPPORT.some((o) => o.cle === brut) ? (brut as OngletSupport) : ANCIENS[brut] ?? "boite";
+  const vue: VueBoite = brut === "repondre" || brut === "toutes" ? brut : "messagerie";
+  const choisir = (o: OngletSupport | VueBoite) => {
     const p = new URLSearchParams(params);
-    p.set("onglet", o);
+    p.set("onglet", o === "messagerie" ? "boite" : o);
     setParams(p, { replace: true });
   };
   const toutes = useQuery({ queryKey: ["support", "toutes"], queryFn: () => lireToutes(), refetchInterval: 60_000 });
@@ -75,15 +83,19 @@ export function SectionSupport() {
       <div className="-mx-1 overflow-x-auto px-1">
         <Segments
           libelle="Onglets du support"
-          options={ONGLETS_SUPPORT.map((o) => (o.cle === "repondre" && n > 0 ? { ...o, contenu: `${o.contenu} (${n})` } : o))}
+          options={ONGLETS_SUPPORT.map((o) => (o.cle === "boite" && n > 0 ? { ...o, contenu: `${o.contenu} (${n})` } : o))}
           actif={onglet}
           onChange={choisir}
           className="flex-nowrap whitespace-nowrap"
         />
       </div>
       {toutes.error && <p className="text-sm text-destructive">{(toutes.error as Error).message}</p>}
-      {onglet === "repondre" && <ARepondre lignes={toutes.data ?? []} charge={toutes.isLoading} />}
-      {onglet === "toutes" && <Toutes lignes={toutes.data ?? []} />}
+      {onglet === "boite" && (
+        <Segments libelle="Vue de la boîte" options={VUES_BOITE.map((o) => (o.cle === "repondre" && n > 0 ? { ...o, contenu: `${o.contenu} (${n})` } : o))} actif={vue} onChange={choisir} />
+      )}
+      {onglet === "boite" && vue === "messagerie" && <Boite />}
+      {onglet === "boite" && vue === "repondre" && <ARepondre lignes={toutes.data ?? []} charge={toutes.isLoading} />}
+      {onglet === "boite" && vue === "toutes" && <Toutes lignes={toutes.data ?? []} />}
       {onglet === "entrainer" && <Entrainer />}
       {onglet === "controle" && <Controle />}
       {onglet === "bot" && <BotSait initial={(SOUS_BOT as readonly string[]).includes(brut) ? (brut as SousBot) : "tester"} />}

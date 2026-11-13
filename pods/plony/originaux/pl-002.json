@@ -1,0 +1,34 @@
+{
+  "source_id": "pl-002",
+  "titre": "If you press me to say why I loved him, I can only answer: because it was him, because it was me. #love #friendship #montaigne #quotes",
+  "source_phrase": "Montaigne, Essays, I.28 « Of Friendship » (Frame translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "Naima",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "36f4132f",
+      "texte_overlay": "If you press me to say why I loved him,",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697037435779239220/2.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8aa2e097",
+      "texte_overlay": "I can only answer this:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697790159961525511/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "58c4a356",
+      "texte_overlay": "because it was him, because it was me.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7702256294937300242/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6dc2399b",
+      "texte_overlay": "Montaigne, Essays, Of Friendship.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700825033760836882/1.jpg",
+      "texte_sophia": "Montaigne wrote this about his best friend 400 years ago. I read it this morning on Sophia."
+    }
+  ]
+}

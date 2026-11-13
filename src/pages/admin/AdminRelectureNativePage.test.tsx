@@ -26,6 +26,10 @@ const listerFichesLangue = vi.fn();
 const enregistrerFicheLangue = vi.fn();
 const majLabelExemple = vi.fn();
 
+vi.mock("@/features/relectureNative/apiBoucle", () => ({
+  CLE_BOUCLE: ["boucle-etat"],
+  etatBoucle: () => Promise.resolve([{ langue: "de", relecteurs: 1, envoyes_7j: 15, a_relire: 3, relus_7j: 12, duels_a_voter: 0, proposees: 7, retenues: 20, retenues_7j: 5, reprises_pct: 18, reprises_pct_avant: 31 }]),
+}));
 vi.mock("@/features/relectureNative/api", () => ({
   lireReglageRelecture: () => lireReglage(),
   ecrireEspaceOuvert: (...a: unknown[]) => ecrireEspace(...a),
@@ -399,5 +403,17 @@ describe("AdminRelectureNativePage", () => {
     expect(screen.queryByRole("button", { name: "Fiches appli" })).not.toBeInTheDocument();
     expect(screen.queryByRole("button", { name: "CTA" })).not.toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Fiches" })).toHaveAttribute("href", "/admin/fiches");
+  });
+
+  it("le bandeau de la boucle : les quatre étapes avec les chiffres, et une étape ouvre son onglet", async () => {
+    rendre();
+    const bandeau = await screen.findByTestId("bandeau-boucle");
+    await waitFor(() => expect(within(bandeau).getByTestId("boucle-langue")).toBeInTheDocument());
+    expect(bandeau.textContent).toMatch(/15 (cette semaine|this week) · 3/);
+    expect(bandeau.textContent).toMatch(/7 (proposées|proposed)/);
+    expect(bandeau.textContent).toMatch(/20 (retenues|kept)/);
+    expect(within(bandeau).getByTestId("boucle-reprises").textContent).toMatch(/18 %.*31 %/);
+    fireEvent.click(within(bandeau).getByTestId("boucle-corrections"));
+    expect(await screen.findByTestId("section-corrections")).toBeInTheDocument();
   });
 });

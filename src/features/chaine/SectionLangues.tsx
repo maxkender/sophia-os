@@ -10,6 +10,7 @@ import { Replie } from "@/components/ui/replie";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import { messageErreur } from "@/features/bleo/format";
 
+import { BandeauBoucle } from "@/features/relectureNative/BandeauBoucle";
 import { blocCorrectionsNatives } from "@/features/relectureNative/apiCorrections";
 
 import { compterComptesParLangue, compterCorrectionsRetenuesParLangue, compterRelecteursParLangue, listerPromptsMeta } from "./api";
@@ -151,6 +152,8 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
               </div>
               <p className="text-xs text-muted-foreground">{t(`chaine.langues.explication.${choisie.source}`, { langue: nomLangue(choisie.code), cle: choisie.cle })}</p>
             </div>
+
+            {choisie.relecteurs > 0 && <BandeauBoucle langue={choisie.code} compact />}
 
             <EditeurPrompt key={choisie.cle} cle={choisie.cle} rows={22} nu />
 

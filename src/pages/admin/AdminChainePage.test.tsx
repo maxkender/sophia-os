@@ -59,6 +59,10 @@ vi.mock("@/features/chaine/api", () => ({
   compterCorrectionsRetenuesParLangue: () => Promise.resolve({ de: 2 }),
 }));
 
+vi.mock("@/features/relectureNative/apiBoucle", () => ({
+  CLE_BOUCLE: ["boucle-etat"],
+  etatBoucle: () => Promise.resolve([]),
+}));
 vi.mock("@/features/relectureNative/apiCorrections", () => ({
   blocCorrectionsNatives: (langue: string) => Promise.resolve(langue === "de" ? "=== RETOURS DES RELECTEURS NATIFS (DE) ===\n- [calque] évite « Insouciant »" : ""),
 }));

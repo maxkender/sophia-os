@@ -49,7 +49,7 @@ export async function listerCorrectionsNatives(langue: string): Promise<Correcti
     .limit(500);
   if (error) throw error;
   return (data ?? []).map((ligne) => {
-    const l = ligne as Omit<CorrectionNative, "relecteur" | "remarque_source"> & {
+    const l = ligne as unknown as Omit<CorrectionNative, "relecteur" | "remarque_source"> & {
       relecteurs_natifs?: { profiles?: { prenom: string | null; nom: string | null } | null } | null;
       ab_traduction_votes?: { remarque: string | null } | null;
       relectures_posts?: { remarque: string | null; slides_corrigees: Array<{ position: number; texte: string }> | null } | null;

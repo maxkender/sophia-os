@@ -72,41 +72,42 @@ export function BandeauBoucle({
       )}
       {etat.isSuccess && lignes.length === 0 && <p className="text-xs text-muted-foreground">{t("relectureNative.boucle.aucune")}</p>}
       {lignes.map((l) => (
-        <div key={l.langue} className="flex flex-wrap items-center gap-1.5" data-testid="boucle-langue" data-langue={l.langue}>
-          {!langue && (
-            <span className="w-24 shrink-0 text-xs">
-              <span aria-hidden>{drapeauLangue(l.langue)}</span> {nomLangue(l.langue)}
-            </span>
+        <div key={l.langue} className="space-y-1" data-testid="boucle-langue" data-langue={l.langue}>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {!langue && (
+              <span className="w-24 shrink-0 text-xs">
+                <span aria-hidden>{drapeauLangue(l.langue)}</span> {nomLangue(l.langue)}
+              </span>
+            )}
+            <span className="w-28 shrink-0 text-[11px] text-muted-foreground uppercase">{t("relectureNative.boucle.ligneSamedi")}</span>
+            <Etape
+              cle="relectures"
+              icone={FileCheck}
+              enfant={<Badge variant={l.a_relire > 0 ? "info" : "outline"}>{t("relectureNative.boucle.envoyes", { n: l.envoyes_7j, aFaire: l.a_relire })}</Badge>}
+            />
+            <ArrowRight className="size-3 text-muted-foreground" aria-hidden />
+            <Etape cle="relecteurs" icone={ListChecks} enfant={<Badge variant="outline">{t("relectureNative.boucle.relus", { n: l.relus_7j })}</Badge>} />
+            <ArrowRight className="size-3 text-muted-foreground" aria-hidden />
+            <Etape
+              cle="corrections"
+              icone={Scissors}
+              enfant={<Badge variant={l.proposees > 0 ? "warning" : "outline"}>{t("relectureNative.boucle.proposees", { n: l.proposees })}</Badge>}
+            />
+            <ArrowRight className="size-3 text-muted-foreground" aria-hidden />
+            <Etape
+              cle="traduction"
+              icone={Languages}
+              enfant={<Badge variant={l.retenues > 0 ? "success" : "outline"}>{t("relectureNative.boucle.retenues", { n: l.retenues, semaine: l.retenues_7j })}</Badge>}
+            />
+            <Reprises l={l} />
+          </div>
+          {l.duels_a_voter > 0 && (
+            <div className="flex flex-wrap items-center gap-1.5 text-xs text-muted-foreground" data-testid="boucle-duels">
+              {!langue && <span className="w-24 shrink-0" />}
+              <span className="w-28 shrink-0 text-[11px] uppercase">{t("relectureNative.boucle.ligneDuels")}</span>
+              <span>{t("relectureNative.boucle.duels", { n: l.duels_a_voter })}</span>
+            </div>
           )}
-          <Etape
-            cle="relectures"
-            icone={FileCheck}
-            enfant={<Badge variant={l.a_relire > 0 ? "info" : "outline"}>{t("relectureNative.boucle.envoyes", { n: l.envoyes_7j, aFaire: l.a_relire })}</Badge>}
-          />
-          <ArrowRight className="size-3 text-muted-foreground" aria-hidden />
-          <Etape
-            cle="relecteurs"
-            icone={ListChecks}
-            enfant={
-              <>
-                <Badge variant="outline">{t("relectureNative.boucle.relus", { n: l.relus_7j })}</Badge>
-                {l.duels_a_voter > 0 && <Badge variant="outline">{t("relectureNative.boucle.duels", { n: l.duels_a_voter })}</Badge>}
-              </>
-            }
-          />
-          <ArrowRight className="size-3 text-muted-foreground" aria-hidden />
-          <Etape
-            cle="corrections"
-            icone={Scissors}
-            enfant={<Badge variant={l.proposees > 0 ? "warning" : "outline"}>{t("relectureNative.boucle.proposees", { n: l.proposees })}</Badge>}
-          />
-          <ArrowRight className="size-3 text-muted-foreground" aria-hidden />
-          <Etape
-            cle="traduction"
-            icone={Languages}
-            enfant={<Badge variant={l.retenues > 0 ? "success" : "outline"}>{t("relectureNative.boucle.retenues", { n: l.retenues, semaine: l.retenues_7j })}</Badge>}
-          />
-          <Reprises l={l} />
         </div>
       ))}
     </div>

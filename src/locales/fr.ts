@@ -5010,6 +5010,7 @@ export const fr = {
       // 12/11 (OS clair) : le menu de la section, 7 entrées.
       menu: {
         aujourdhui: "Aujourd'hui",
+        problemes: "Problèmes",
         posteurs: "Posteurs",
         ruul: "Ruul",
         decisions: "Décisions",
@@ -5019,6 +5020,7 @@ export const fr = {
       },
       menuDesc: {
         aujourdhui: "Ce que tu dois faire maintenant.",
+        problemes: "Urgent, chez les bots, samedi : ce qui reste à régler.",
         posteurs: "Chaque posteur, ses étapes et ses relances.",
         ruul: "Les posteurs payés par Ruul, de la candidature à la paie.",
         decisions: "Les décisions de la semaine (jeudi, samedi).",
@@ -5036,6 +5038,7 @@ export const fr = {
         sent: { titre: "Messages envoyés" },
         received: { titre: "Messages reçus" },
         needs: { titre: "Problèmes" },
+        cartes: { titre: "Problèmes · cartes (ancienne vue)" },
         problems: { titre: "Alertes système" },
         disputes: { titre: "Disputes" },
         payroll: { titre: "Paie" },
@@ -5089,6 +5092,7 @@ export const fr = {
         sent: "Chaque message que l'OS envoie aux recrues et aux posteurs, et les textes qu'il utilise.",
         received: "Tout ce que les posteurs nous écrivent, trié par l'OS.",
         needs: "Un problème par posteur et par sujet : urgent, aujourd'hui ou samedi, avec une réponse et une action proposées. Valider, modifier, ignorer ou reporter au samedi.",
+        cartes: "L'ancienne vue des cartes Problèmes, une carte par posteur, avec tous les gestes. La page du menu montre les mêmes problèmes en 3 sections.",
         problems: "Seulement les alertes graves : messages qui ne partent plus, trop d'appels à l'API, une connexion ou une tâche en panne. Chacune avec une piste de débogage.",
         disputes: "Quand quelqu'un dit que l'OS s'est trompé : paie, Kill, posts, messages. Vérifier, corriger, répondre.",
         payroll: "La paie du lundi pour la semaine qui vient de finir.",

@@ -35,6 +35,7 @@ import {
   regleProposee,
   type TraceDemande,
 } from "./api";
+import { ConversationPosteur } from "./Conversation";
 import { Entrainer } from "./Entrainer";
 import { PageHelp } from "./PageHelp";
 
@@ -140,7 +141,9 @@ export function QuiAAgi({ d }: { d: TraceDemande }) {
   );
 }
 
-const SOURCES: Record<string, string> = { help: "Help", slack_salon: "Slack", slack_aide: "Slack · I need help", email: "Email" };
+const SOURCES: Record<string, string> = {
+  help: "Help", slack_salon: "Slack · salon", slack_aide: "Slack · I need help", slack: "Slack", email: "Email", upwork: "Upwork",
+};
 const STATUTS: Record<string, string> = { bot: "Répondu par le bot", ouvert: "À répondre", attente_posteur: "Attente posteur", resolu: "Résolu" };
 const quand = (at: string) => new Date(at).toLocaleString("fr-FR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit", timeZone: "Europe/Paris" });
 
@@ -172,6 +175,7 @@ function CarteARepondre({ l }: { l: LigneToutes }) {
   const [apprendre, setApprendre] = React.useState(true);
   const [type, setType] = React.useState<"regle" | "reponse">("regle");
   const [regle, setRegle] = React.useState<string | null>(null);
+  const [conv, setConv] = React.useState(false);
   const texte = reponse ?? d?.brouillon ?? "";
   const texteRegle = regle ?? regleProposee(l.texte, texte);
   const rafraichir = () => { void qc.invalidateQueries({ queryKey: ["support"] }); };
@@ -262,10 +266,12 @@ function CarteARepondre({ l }: { l: LigneToutes }) {
           <Button disabled={texte.trim().length < 2 || envoyer.isPending} onClick={() => envoyer.mutate()} data-testid="envoyer-admin">Envoyer</Button>
           <Button variant="outline" disabled={resoudre.isPending} onClick={() => resoudre.mutate()}>Marquer résolu sans répondre</Button>
           {!l.ticket_at && <Button variant="outline" disabled={ticket.isPending} onClick={() => ticket.mutate()}>Envoyer à OS tickets</Button>}
+          {l.poster_id && <Button variant="outline" onClick={() => setConv(!conv)} data-testid="voir-conversation">{conv ? "Masquer la conversation" : "💬 Conversation complète"}</Button>}
           {d?.capture && <BoutonCapture capture={d.capture} />}
         </div>
         {(envoyer.error || resoudre.error || ticket.error) && <p className="text-destructive">{((envoyer.error ?? resoudre.error ?? ticket.error) as Error).message}</p>}
         {envoyer.isSuccess && <p className="text-success">Envoyé{apprendre ? " · appris par le bot" : ""}.</p>}
+        {conv && l.poster_id && <ConversationPosteur posterId={l.poster_id} demandeId={l.id} source={l.source} />}
       </CardContent>
     </Card>
   );
@@ -316,7 +322,11 @@ function Toutes({ lignes }: { lignes: LigneToutes[] }) {
                   <td className="whitespace-nowrap pr-2 text-xs">{STATUTS[l.statut] ?? l.statut}</td>
                   <td><span className="inline-flex flex-wrap gap-1"><ChezBot d={l} /><QuiAAgi d={l} /></span></td>
                 </tr>
-                {ouverte === l.id && <tr><td colSpan={6} className="bg-muted/20 p-3"><FilDemande id={l.id} /></td></tr>}
+                {ouverte === l.id && (
+                  <tr><td colSpan={6} className="bg-muted/20 p-3">
+                    {l.poster_id ? <ConversationPosteur posterId={l.poster_id} demandeId={l.id} source={l.source} /> : <FilDemande id={l.id} />}
+                  </td></tr>
+                )}
               </React.Fragment>
             ))}
           </tbody>

@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "aujourdhui" | "reglages" | "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs";
+export type PageAuto = "aujourdhui" | "reglages" | "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs" | "cartes";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // 12/11 (OS clair) : ce que Max doit faire maintenant, et toutes les anciennes pages rangées.
@@ -20,6 +20,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // Bloc C (2/11) : « Problems » remplace Needs you (un problème par posteur et par catégorie).
   // L'ancienne adresse redirige ici ; l'ancienne page reste ouverte pendant le test (/admin/auto/needs-you-ancien).
   { cle: "needs", to: "/admin/auto/problemes" },
+  // 13/11 (Max) : l'ancienne page des cartes Problèmes (la page du menu est la page claire en 3 sections).
+  { cle: "cartes", to: "/admin/auto/problemes-cartes" },
   // Seulement les alertes graves (messages bloqués, trop d'appels à l'API, panne), avec une piste de débogage.
   { cle: "problems", to: "/admin/auto/problems" },
   // Prompt 21, R : quand un posteur dit que l'OS s'est trompé (entre Messages received et Payroll).
@@ -57,9 +59,11 @@ export const HORS_MENU: readonly PageAuto[] = ["problems", "disputes"];
  * ouvertes (même adresse) et rangées dans Réglages › Anciennes pages : rien n'est supprimé.
  * Posteurs, Ruul, Décisions et Paie pointent vers les pages actuelles jusqu'à leur refonte.
  */
-export type EntreeMenuAuto = "aujourdhui" | "posteurs" | "ruul" | "decisions" | "paie" | "support" | "reglages";
+export type EntreeMenuAuto = "aujourdhui" | "problemes" | "posteurs" | "ruul" | "decisions" | "paie" | "support" | "reglages";
 export const MENU_AUTO: readonly { cle: EntreeMenuAuto; to: string; page: PageAuto }[] = [
   { cle: "aujourdhui", to: "/admin/auto/aujourdhui", page: "aujourdhui" },
+  // 13/11 (Max) : UNE page « Problèmes » dans le menu (🔴 urgent, 🤖 chez les bots, 📅 samedi).
+  { cle: "problemes", to: "/admin/auto/problemes", page: "needs" },
   { cle: "posteurs", to: "/admin/auto/recruits", page: "recruits" },
   { cle: "ruul", to: "/admin/auto/ruul", page: "ruul_suivi" },
   { cle: "decisions", to: "/admin/auto/decisions", page: "decisions" },

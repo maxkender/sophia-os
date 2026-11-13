@@ -26,7 +26,7 @@ import {
   appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, plainteSansDonnees, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
   accuseReception, texteBugMax, texteListeAdrien, texteTop10,
 } from "../_shared/bot_support.ts";
-import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * support (0671) — l'espace support : « Help » côté posteur, « Support » côté admin.
@@ -146,6 +146,13 @@ Deno.serve(async (request) => {
         // 13/11 (Entraîner le bot) : l'historique (chatbot + Help/Slack/email) regroupé en questions types.
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await entrainementRegrouper(db));
+      case "repondre_canal":
+        // 13/11 (Max) : répondre depuis la conversation complète, sur le même canal.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await repondreCanal(db, acces.userId === "cron" ? null : acces.userId, {
+          poster_id: String(body.poster_id ?? ""), canal: String(body.canal ?? ""), texte: String(body.texte ?? ""),
+          demande_id: typeof body.demande_id === "string" && body.demande_id ? body.demande_id : null,
+        }));
       case "tickets_auto":
         // 13/11 (escalations, 0706) : les demandes techniques (bot responsable « os_tickets ») partent seules
         // par le bouton existant, une fois chacune (cron support-tickets, toutes les 15 min).
@@ -675,9 +682,20 @@ async function messagesTraiter(db: Db) {
     if (deja.has(c.id) || resultats.length >= 15) continue;
     const src = (c.sources ?? []).filter((x) => x.type === "reponse" || x.type === "slack");
     const texte = src.map((x) => x.texte ?? "").filter(Boolean).join("\n").trim();
-    if (!texte || accuseReception(texte)) continue;
+    // 13/11 (Max) : la vraie source (Upwork ou Slack), plus « help ».
+    const canal = src.some((x) => x.canal === "upwork") ? "upwork" : "slack";
+    if (!texte) continue;
+    // 13/11 (Max) : un simple accusé (« thank you », « ok », « I'll do it tonight ») : pas de demande, « vu » dans le fil.
+    if (accuseReception(texte)) {
+      await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
+      continue;
+    }
     const r = await deciderBot(db, { message: texte, source: "help", poster: c.poster_id, profil: null });
     const d = r.decision;
+    if (d.categorie === "salutation") {
+      await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
+      continue;
+    }
     const parBot = d.niveau === "bot" && d.reponse !== TEXTE_ON_VERIFIE;
     let envoi = "rien";
     let action: string | null = null;
@@ -687,7 +705,7 @@ async function messagesTraiter(db: Db) {
     }
     const { data: aj, error: e } = await db.rpc("support_ajouter", {
       p: {
-        poster_id: c.poster_id, type: "question", categorie: d.categorie, texte, bot_reponse: parBot ? r.texte : null,
+        poster_id: c.poster_id, type: "question", categorie: d.categorie, texte, bot_reponse: parBot ? r.texte : null, source: canal,
         bot_decision: d.niveau, brouillon: parBot || d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse, escalader: !parBot,
       },
     });
@@ -966,6 +984,12 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
     if ((deja ?? []).length) { bilan.push({ de: e.de, ignore: "déjà reçu" }); continue; }
     const poster = await posteurParEmail(db, e.de);
     const texte = e.sujet && !/^re:/i.test(e.sujet) ? `${e.sujet}\n\n${e.texte}` : e.texte;
+    // 13/11 (Max) : un simple accusé d'un posteur : pas de demande ni de réponse, « vu » dans son fil.
+    if (poster && accuseReception(e.texte)) {
+      await noterVu(db, poster, "email", e.texte, `email:${e.messageId}`);
+      bilan.push({ de: e.de, poster, vu: true });
+      continue;
+    }
     if (!poster) {
       const { data, error } = await db.rpc("support_ajouter", { p: { poster_id: null, type: "question", texte, source: "email", escalader: true, slack_user: e.nom ?? e.de } });
       if (error) { bilan.push({ de: e.de, erreur: error.message }); continue; }
@@ -1007,6 +1031,58 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
     bilan.push({ de: e.de, poster, id: r.id ?? null, envoye_equipe: r.envoye_equipe ?? null, reponse: envoi });
   }
   return { ok: true, recus: emails.length, bilan };
+}
+
+/** 13/11 (Max) : un accusé reçu, gardé pour le fil (« vu »), sans demande. Une seule fois par message. */
+async function noterVu(db: Db, poster: string, canal: string, texte: string, ref: string) {
+  await db.from("support_vus").upsert({ poster_id: poster, canal, texte: texte.slice(0, 2000), ref }, { onConflict: "ref", ignoreDuplicates: true });
+}
+
+/**
+ * 13/11 (Max) : répondre depuis la conversation, sur le canal choisi. Help : dans sa demande (chat + email) ;
+ * Email : un email ; Slack : un message privé ; Upwork : un message dans la conversation Upwork.
+ * La réponse entre dans le fil de la demande (si une est donnée) et la passe « attente posteur ».
+ */
+async function repondreCanal(db: Db, auteur: string | null, o: { poster_id: string; canal: string; texte: string; demande_id: string | null }) {
+  const texte = o.texte.trim();
+  if (!o.poster_id || texte.length < 1) return { ok: false, error: "posteur et texte obligatoires" };
+  if (o.canal === "help") {
+    if (!o.demande_id) return { ok: false, error: "Help : il faut une demande (sinon choisis Email, Slack ou Upwork)" };
+    return await repondre(db, auteur, o.demande_id, texte);
+  }
+  let envoi: string;
+  if (o.canal === "email") {
+    const c = await contactPosteur(db, o.poster_id);
+    if (!c.email) return { ok: false, error: "pas d'email pour ce posteur" };
+    const m = texteEmailReponse(c.prenom, texte, OS_URL);
+    const e = rendreEmailRuul({ objet: m.objet, corps: m.corps, bouton: { texte: "Open Help", lien: m.lien }, lienStop: OS_URL });
+    const r = await envoyerEmailSite(c.email, m.objet, e.html, e.texte, OS_URL, ["support", "reponse"]);
+    if (!r.ok) return { ok: false, error: `email : ${r.erreur}` };
+    envoi = "email";
+  } else if (o.canal === "slack") {
+    const r = await ecrireAuPosteur(db, o.poster_id, texte, fetch, undefined, { malgreStop: "reponse" });
+    if (r.statut !== "envoye") return { ok: false, error: `Slack : ${"erreur" in r ? r.erreur : r.statut}` };
+    envoi = "slack";
+  } else if (o.canal === "upwork") {
+    await secretCron();
+    const secret = secretCronConnu();
+    const rep = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/upwork`, {
+      method: "POST",
+      headers: { "content-type": "application/json", ...(secret ? { "x-cron-secret": secret } : {}) },
+      body: JSON.stringify({ action: "message_posteur", poster_id: o.poster_id, texte, type: "support_reponse" }),
+    });
+    const data = await rep.json().catch(() => ({})) as { ok?: boolean; error?: string };
+    if (!rep.ok || data.ok === false) return { ok: false, error: `Upwork : ${data.error ?? `HTTP ${rep.status}`}` };
+    envoi = "upwork";
+  } else {
+    return { ok: false, error: "canal : help, email, slack ou upwork" };
+  }
+  if (o.demande_id) {
+    const maintenant = new Date().toISOString();
+    await db.from("support_messages").insert({ demande_id: o.demande_id, auteur: "equipe", auteur_id: auteur, texte, envois: { [envoi]: "ok" } });
+    await db.from("support_demandes").update({ statut: "attente_posteur", equipe_at: maintenant, maj_at: maintenant }).eq("id", o.demande_id);
+  }
+  return { ok: true, envoi };
 }
 
 /** Le posteur d'une adresse email : login, email Ruul, ou email perso donné au site. */

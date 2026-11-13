@@ -26,6 +26,7 @@ import {
   LogsPage,
   NeedsYouAncienPage,
   NeedsYouPage,
+  CartesProblemesPage,
   ProblemsPage,
   DisputesPage,
   OverviewPage,
@@ -142,6 +143,7 @@ export function AppRouter() {
             <Route path="/admin/auto/sent" element={<SentPage />} />
             <Route path="/admin/auto/received" element={<ReceivedPage />} />
             <Route path="/admin/auto/problemes" element={<NeedsYouPage />} />
+            <Route path="/admin/auto/problemes-cartes" element={<CartesProblemesPage />} />
             <Route path="/admin/auto/needs-you-ancien" element={<NeedsYouAncienPage />} />
             <Route path="/admin/auto/problems" element={<ProblemsPage />} />
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />

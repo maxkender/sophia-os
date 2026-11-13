@@ -52,6 +52,7 @@ import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Decision, emailParcours, type EtatParcours, prochainEnvoi, type TypeParcours } from "../_shared/parcours_ruul.ts";
 import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
+import { emailRattrapage, estPret as estPretRattrapage, type SituationRattrapage } from "../_shared/rattrapage_ruul.ts";
 import { urlEmailSite } from "../_shared/site.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -97,6 +98,22 @@ Deno.serve(async (request) => {
       if (data !== true) return PAGE("Link not valid", "This link is not valid.");
       return PAGE("Done", "Your access is closed. You won't receive any more emails from us. Thank you for your time with Vik Studios.");
     }
+    // 13/11 (rattrapage) : « Get a new password » → confirmation → le mot de passe s'affiche.
+    const mdp = url.searchParams.get("motdepasse");
+    if (mdp) {
+      if (!JETON.test(mdp)) return PAGE("Link not valid", "This link is not valid.");
+      if (url.searchParams.get("confirme") !== "1") {
+        const oui = `${URL_FONCTION}?motdepasse=${mdp}&confirme=1`;
+        return PAGE("Get a new password",
+          `Your password will be reset and shown on the next page.<br><br><a href="${oui}" style="display:inline-block;background:#18181b;color:#fff;text-decoration:none;font-weight:600;padding:12px 20px;border-radius:8px">Get a new password</a>`);
+      }
+      const { data: pr } = await supabase.from("profiles").select("id, email, is_active").eq("ruul_jeton", mdp).maybeSingle();
+      if (!pr?.id || !pr.is_active) return PAGE("Link not valid", "This link is not valid.");
+      const { error: errMdp } = await supabase.auth.admin.updateUserById(pr.id, { password: MOT_DE_PASSE_COMMUN });
+      if (errMdp) return PAGE("Something went wrong", "Please try again later, or click Help on your dashboard.");
+      return PAGE("Your new password",
+        `Dashboard: <a href="${URL_DASHBOARD_OS}">${URL_DASHBOARD_OS}</a><br>Login: <b>${String(pr.email ?? "")}</b><br>Password: <b>${MOT_DE_PASSE_COMMUN}</b>`);
+    }
     if (stop) {
       if (!JETON.test(stop)) return PAGE("Link not valid", "This link is not valid.");
       const { data, error } = await supabase.rpc("ruul_stop_jeton", { p_jeton: stop, p_source: "email" });
@@ -122,6 +139,8 @@ Deno.serve(async (request) => {
     // 0688 : le parcours Ruul (toutes les heures) ; l'aperçu de ses emails pour un posteur (rien n'est envoyé).
     if (body?.action === "parcours") return json(await parcours(supabase, body?.forcer === true, body?.simuler === true));
     if (body?.action === "parcours_apercu") return json(await parcoursApercu(supabase, String(body?.poster_id ?? "")));
+    // 13/11 : l'email de rattrapage d'une cohorte (aperçu, puis envoi seulement avec confirmer: true).
+    if (body?.action === "rattrapage") return json(await rattrapage(supabase, body));
     // 0592 : « dimanche » (ancien nom de la tâche) et « soir » : la liste de tous les soirs.
     if (body?.action === "dimanche" || body?.action === "soir") return json(await listeSoir(supabase, body?.forcer === true));
     return json({ ok: false, error: "action inconnue" }, 400);
@@ -678,4 +697,79 @@ async function parcoursApercu(supabase: Supabase, posterId: string) {
     ok: true, poster: e.poster_id, prochain: prochainEnvoi(e, new Date(), { bienvenue: false }),
     emails: types.map((t) => ({ type: t, ...rendreEtape(e, t, slack, t === "report" ? lundiSuivant : undefined, t === "ruul" ? 1 : undefined) })),
   };
+}
+
+// ---------------------------------------------------------------------------
+// 13/11 (Max) : l'email de rattrapage d'une cohorte Ruul (une seule fois par personne)
+// ---------------------------------------------------------------------------
+
+const ID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const ids = (v: unknown): Set<string> => new Set(Array.isArray(v) ? v.filter((x): x is string => typeof x === "string" && ID.test(x)) : []);
+
+/**
+ * { lundi: "2026-11-16", exclure: [ids], apercu_ids?: [ids] } → la liste et les aperçus.
+ * Avec confirmer: true (et max) : l'envoi (déjà envoyés sautés ; journal ruul_parcours_envois, cle rattrapage:<lundi>).
+ */
+// deno-lint-ignore no-explicit-any
+async function rattrapage(supabase: Supabase, body: any) {
+  const lundi = String(body?.lundi ?? "");
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(lundi)) return { ok: false, error: "lundi requis (AAAA-MM-JJ)" };
+  const exclure = ids(body?.exclure);
+  const cle = `rattrapage:${lundi}`;
+  const { data, error } = await supabase.rpc("ruul_parcours_etat");
+  if (error) throw error;
+  const etats = ((data ?? []) as EtatParcours[]).filter((e) => e.cohorte_lundi === lundi && !exclure.has(e.poster_id) && !e.relances_stop_at);
+  const { data: profils, error: errP } = await supabase.from("profiles")
+    .select("id, ruul_email, ruul_ne_pas_inviter, is_active").in("id", etats.map((e) => e.poster_id));
+  if (errP) throw errP;
+  const parId = new Map(((profils ?? []) as { id: string; ruul_email: string | null; ruul_ne_pas_inviter: boolean | null; is_active: boolean }[]).map((p) => [p.id, p]));
+  const situation = (e: EtatParcours): SituationRattrapage => ({
+    prenom: e.prenom, login: e.login, handle: e.handle, ruul_email: parId.get(e.poster_id)?.ruul_email ?? e.email,
+    connecte: !!e.premiere_connexion_at, tiktok: e.tiktok_existe === true, warmup_lance: !!e.warmup_started_at,
+    abonnements: e.abonnements, slack: !!e.slack_user_id, ruul_fini: e.ruul_statut === "pret" || e.ruul_statut === "paye_1x",
+    ruul_active: e.ruul_compte === "active",
+  });
+  const dest = etats.filter((e) => parId.get(e.poster_id)?.is_active && !parId.get(e.poster_id)?.ruul_ne_pas_inviter && !estPretRattrapage(situation(e)));
+  const dejaEnvoye = (e: EtatParcours) => e.envois.some((x) => x.cle === cle && x.ok);
+  const slack = await lienSlackInvitation(supabase);
+  const rendre = (e: EtatParcours) => emailRattrapage(situation(e), {
+    dashboard: URL_DASHBOARD_OS, slack, motDePasse: `${URL_FONCTION}?motdepasse=${e.ruul_jeton}`,
+    pret: `${URL_FONCTION}?pret=${e.ruul_jeton}`, stop: `${URL_FONCTION}?stop=${e.ruul_jeton}`,
+  }, {
+    motDePasse: MOT_DE_PASSE_COMMUN,
+    debut: lundi === "2026-11-16" ? "Monday 16 November" : `Monday ${lundi}`,
+    echeance: lundi === "2026-11-16" ? "Sunday 15 November, midnight (Paris time)" : "Sunday at midnight (Paris time)",
+  });
+  const auj = new Date().toISOString().slice(0, 10);
+  const liste = dest.map((e) => ({
+    poster_id: e.poster_id, prenom: e.prenom, email: e.email, jeton: !!e.ruul_jeton, deja_envoye: dejaEnvoye(e),
+    email_deja_aujourdhui: e.envois.some((x) => x.ok && String(x.at).slice(0, 10) === auj),
+    jamais_connecte: !e.premiere_connexion_at, ruul_active: e.ruul_compte === "active",
+  }));
+  if (body?.confirmer !== true) {
+    const apercuIds = ids(body?.apercu_ids);
+    return {
+      ok: true, lundi, total: dest.length, a_envoyer: dest.filter((e) => !dejaEnvoye(e) && e.email && e.ruul_jeton).length,
+      sans_email_ou_jeton: dest.filter((e) => !e.email || !e.ruul_jeton).map((e) => e.poster_id), liste,
+      apercus: dest.filter((e) => apercuIds.has(e.poster_id)).map((e) => ({ poster_id: e.poster_id, a: e.email, ...rendre(e) })),
+    };
+  }
+  const max = Math.min(80, Math.max(1, Number(body?.max ?? 30)));
+  let envoyes = 0;
+  const erreurs: { poster_id: string; erreur: string }[] = [];
+  for (const e of dest.filter((x) => !dejaEnvoye(x) && x.email && x.ruul_jeton).slice(0, max)) {
+    // Jamais connecté : le mot de passe écrit dans l'email (12345678) est bien celui du compte.
+    if (!e.premiere_connexion_at) {
+      const { error: errMdp } = await supabase.auth.admin.updateUserById(e.poster_id, { password: MOT_DE_PASSE_COMMUN });
+      if (errMdp) { erreurs.push({ poster_id: e.poster_id, erreur: `mot de passe : ${errMdp.message}` }); continue; }
+    }
+    const m = rendre(e);
+    const r = await envoyerEmail(e.email!, m.objet, m.html, m.texte, `${URL_FONCTION}?stop=${e.ruul_jeton}`, ["ruul", "rattrapage"]);
+    await supabase.from("ruul_parcours_envois").upsert({ poster_id: e.poster_id, cle, type: "rattrapage", ok: r.ok, canaux: r.ok ? ["email"] : [], erreur: r.erreur, envoye_at: new Date().toISOString() },
+      { onConflict: "poster_id,cle" });
+    if (r.ok) envoyes++;
+    else erreurs.push({ poster_id: e.poster_id, erreur: r.erreur ?? "erreur" });
+  }
+  const restants = dest.filter((x) => !dejaEnvoye(x) && x.email && x.ruul_jeton).length - envoyes - erreurs.length;
+  return { ok: true, lundi, total: dest.length, envoyes, erreurs, restants: Math.max(0, restants) };
 }

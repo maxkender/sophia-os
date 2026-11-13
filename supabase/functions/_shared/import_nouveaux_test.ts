@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { instantPostTiktok, plafondEnfilage, separerTropRecents } from "./import_nouveaux.ts";
+import { instantPostTiktok, plafondEnfilage, profilIllisible, separerTropRecents } from "./import_nouveaux.ts";
 
 // Un identifiant TikTok porte son heure de création dans ses 32 bits hauts.
 const idA = (sec: number) => (BigInt(sec) << 32n).toString();
@@ -51,4 +51,16 @@ Deno.test("plafondEnfilage : hors essai, une mise à jour s'arrête à la tranch
 Deno.test("plafondEnfilage : sans réglage, pas de plafond", () => {
   assertEquals(plafondEnfilage({ essaiMax: null, dejaDeLaSource: 400, maxParMaj: null }), null);
   assertEquals(plafondEnfilage({ essaiMax: null, dejaDeLaSource: 0, maxParMaj: 0 }), null);
+});
+
+Deno.test("profilIllisible : rien vu et Apify en erreur, c'est un échec, pas un profil vide", () => {
+  const cle = profilIllisible({ vus: 0, apifyErreur: 'Apify 401: {"error": {"type": "user-or-token-not-found"}}' });
+  assertEquals(cle?.startsWith("clé Apify refusée"), true);
+  assertEquals(profilIllisible({ vus: 0, apifyErreur: "Apify 502: bad gateway" })?.startsWith("profil illisible"), true);
+});
+
+Deno.test("profilIllisible : un profil lu, même vide, n'est pas un échec", () => {
+  assertEquals(profilIllisible({ vus: 0, apifyErreur: null }), null);
+  // La page TikTok a donné des slideshows : Apify en panne ne bloque pas.
+  assertEquals(profilIllisible({ vus: 12, apifyErreur: "Apify 401" }), null);
 });

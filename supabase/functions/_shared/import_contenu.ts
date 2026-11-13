@@ -53,6 +53,7 @@ import {
   maxIdTiktok,
   normaliserCreateTime,
   plafondEnfilage,
+  profilIllisible,
   separerTropRecents,
   urlsManquantes,
 } from "./import_nouveaux.ts";
@@ -1069,6 +1070,8 @@ export interface ListingCompte {
   tropRecents?: number;
   /** Manquants laissés pour la suite par le plafond (essai de la source, tranche par mise à jour ; 0686). */
   reportes?: number;
+  /** Le profil n'a pas pu être lu (0698) : la raison. Absent : lu, même vide. */
+  illisible?: string;
 }
 
 /**
@@ -1122,6 +1125,7 @@ export async function listerUrlsCompteReference(
   const diagnostic: string[] = [];
   let viaPage = 0;
   let viaApify = 0;
+  let apifyErreur: string | null = null;
 
   // 1) Page publique TikTok (gratuit, rapide) — IDs photo uniquement.
   try {
@@ -1160,7 +1164,8 @@ export async function listerUrlsCompteReference(
       );
     }
   } catch (error) {
-    diagnostic.push(`Apify indisponible: ${messageErreur(error)}`);
+    apifyErreur = messageErreur(error);
+    diagnostic.push(`Apify indisponible: ${apifyErreur}`);
   }
 
   const source: ListingCompte["source"] =
@@ -1230,6 +1235,7 @@ export async function listerUrlsCompteReference(
     diagnostic,
     tropRecents: tropRecents.length,
     reportes,
+    illisible: profilIllisible({ vus: toutes.length, apifyErreur }) ?? undefined,
   };
 }
 

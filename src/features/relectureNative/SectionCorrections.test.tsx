@@ -52,6 +52,7 @@ const correction = (id: string, statut: "proposee" | "retenue" | "ecartee", faut
   created_at: "2026-11-05T10:00:00Z",
   updated_at: "2026-11-05T10:00:00Z",
   relecteur: { prenom: "Bogdan", nom: "Kocsis" },
+  remarque_source: "Insouciant gibt es nicht, man sagt unbekümmert.",
 });
 
 const CORRECTIONS = [
@@ -89,6 +90,7 @@ describe("SectionCorrections", () => {
     expect(within(liste).getAllByTestId("correction").map((c) => c.getAttribute("data-statut"))).toEqual(["proposee", "proposee"]);
     expect(liste.textContent).toContain("Insouciant");
     expect(liste.textContent).toContain("unbekümmert");
+    expect(within(liste).getAllByTestId("remarque-source")[0].textContent).toContain("Insouciant gibt es nicht");
     expect(screen.getByRole("button", { name: /(proposées|proposed) · 2/i })).toHaveAttribute("aria-pressed", "true");
     fireEvent.click(screen.getByRole("button", { name: /(retenues|kept) · 1/i }));
     expect(within(screen.getByTestId("liste-corrections")).getAllByTestId("correction")).toHaveLength(1);

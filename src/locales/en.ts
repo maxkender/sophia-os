@@ -1997,6 +1997,8 @@ export const en = {
           sens: "meaning",
           autre: "other",
         },
+        redigeParModele: "Faulty, write instead and why are written by the model from the reviewer's remark: check before keeping.",
+        voirRemarque: "See {{nom}}'s remark as they wrote it",
         sourceDuel: "duel",
         sourceRelecture: "published post",
         version: { actuel: "published version", candidat: "candidate version", les_deux: "both versions" },

@@ -10,7 +10,8 @@
 --  - `relectures_posts` : un post envoyé à un relecteur, avec le deck publié
 --    figé (`slides`), la source pour l'admin, puis sa relecture ;
 --  - `relectures_envoyer(langue, n, jours)` : admin ou service_role, choisit
---    n passages publiés de la langue sur les derniers jours, les plus vus,
+--    n passages publiés de la langue sur les derniers jours, les plus vus
+--    (tirés au sort depuis 0632),
 --    un par contenu, au plus 3 par label, jamais deux fois au même relecteur,
 --    et les envoie à chaque relecteur invité ou actif de la langue ;
 --  - `relectures_envoyer_toutes(n)` : toutes les langues qui ont un

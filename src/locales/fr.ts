@@ -2003,7 +2003,7 @@ export const fr = {
       },
       relecturesAdmin: {
         titre: "Posts publiés envoyés aux relecteurs",
-        aide: "Chaque samedi, {{n}} slideshows publiés dans la langue (les plus vus des 14 derniers jours, un par contenu, au plus 3 par label) partent à chaque relecteur de la langue, tels qu'ils sont partis. Il réécrit, note, remarque ; ses réécritures sont découpées en corrections (onglet Corrections). Le bouton envoie {{n}} posts tout de suite.",
+        aide: "Chaque samedi, {{n}} slideshows publiés dans la langue (tirés au sort parmi les publiés des 14 derniers jours, un par contenu, au plus 3 par label) partent à chaque relecteur de la langue, tels qu'ils sont partis. Il réécrit, note, remarque ; ses réécritures sont découpées en corrections (onglet Corrections). Le bouton envoie {{n}} posts tout de suite.",
         langue: "Langue",
         aucuneLangue: "Aucun relecteur natif.",
         envoyer: "Envoyer {{n}} posts maintenant",

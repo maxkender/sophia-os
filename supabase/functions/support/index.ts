@@ -141,6 +141,11 @@ Deno.serve(async (request) => {
         // 12/11 (Max) : « Envoyer en ticket à l'OS » depuis la Boîte → #a-os-tickets (l'IT guy le traite).
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await envoyerTicket(db, acces.userId === "cron" ? null : acces.userId, String(body.id ?? ""), typeof body.note === "string" ? body.note : null));
+      case "tickets_auto":
+        // 13/11 (escalations, 0706) : les demandes techniques (bot responsable « os_tickets ») partent seules
+        // par le bouton existant, une fois chacune (cron support-tickets, toutes les 15 min).
+        if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
+        return json(await ticketsAuto(db));
       case "contexte":
         // 12/11 (Max) : « Avoir le contexte » : l'analyse de tout ce que l'OS sait sur le posteur. Ne fait que lire.
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
@@ -811,6 +816,22 @@ async function envoyerTicket(db: Db, par: string | null, id: string, note: strin
     .update({ ticket_at: maintenant, ticket_slack_ts: r.ts ?? null, ticket_par: par, maj_at: maintenant }).eq("id", id);
   if (e) throw new Error(e.message);
   return { ok: true, ticket_at: maintenant };
+}
+
+/** 0706 : les demandes techniques ouvertes sans ticket, créées depuis l'allumage (réglage support_tickets_auto). */
+async function ticketsAuto(db: Db) {
+  const { data: reg } = await db.from("reglages").select("valeur").eq("cle", "support_tickets_auto").maybeSingle();
+  const depuis = (reg?.valeur as { depuis?: string } | null)?.depuis;
+  if (!depuis) return { ok: true, ignore: "réglage support_tickets_auto absent" };
+  const { data, error } = await db.from("support_demandes").select("id")
+    .eq("bot_responsable", "os_tickets").eq("statut", "ouvert").is("ticket_at", null).gte("cree_at", depuis).order("cree_at").limit(10);
+  if (error) throw new Error(error.message);
+  const resultats: { id: string; ok: boolean; erreur?: string }[] = [];
+  for (const d of (data ?? []) as { id: string }[]) {
+    const r = await envoyerTicket(db, null, d.id, "Envoyé automatiquement par l'OS (demande technique).");
+    resultats.push({ id: d.id, ok: r.ok, ...(r.ok ? {} : { erreur: (r as { error?: string }).error }) });
+  }
+  return { ok: true, envoyes: resultats.filter((r) => r.ok).length, resultats };
 }
 
 /** 12/11 (Max) : fiche + historique OS + Upwork + Slack + messages reçus → une note en français (Gemini). */

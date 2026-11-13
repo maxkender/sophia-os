@@ -3,14 +3,19 @@
  * Rien ici ne touche la base ni le réseau.
  */
 
-export type Bot = "new_cohort_bot" | "control_bot" | "pay_bot";
+export type Bot = "new_cohort_bot" | "control_bot" | "pay_bot" | "ruul_bot";
 
 /** Le secret Supabase de chaque bot (Edge Functions → Secrets). Jamais renvoyé ni écrit. */
 export const SECRETS_BOTS: Readonly<Record<Bot, string>> = {
   new_cohort_bot: "BOT_TOKEN_NEW_COHORT",
   control_bot: "BOT_TOKEN_CONTROL",
   pay_bot: "BOT_TOKEN_PAY",
+  // 13/11 (escalations) : Ruul Bot a son jeton et sa file (demandes Ruul : invitation, email, identité).
+  ruul_bot: "BOT_TOKEN_RUUL",
 };
+
+/** 13/11 : les bots qui ont des cartes Problèmes (Ruul Bot n'a que sa file de demandes Support). */
+export const BOTS_PROBLEMES: readonly Bot[] = ["new_cohort_bot", "control_bot", "pay_bot"];
 
 /** Les groupes de posteurs (page Problèmes v4). */
 export const GROUPES: readonly string[] = ["onboarding", "nouveaux_actifs", "actifs"];
@@ -64,9 +69,25 @@ export function botDuJeton(entete: string | null, secrets: Partial<Record<Bot, s
 /** 0535 : ce qu'un bot peut faire seul (garde-fous dans probleme_bot_faire). */
 export const ACTIONS_FAIRE: readonly string[] = ["reponse", "resend_password_link", "relink_slack", "reread_tiktok", "relance", "message_hm", "stop"];
 
-export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "creer" | "faire"; args: Record<string, unknown> } | { erreur: string } {
+export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "creer" | "faire" | "regler" | "remonter"; args: Record<string, unknown> } | { erreur: string } {
   if (!corps || typeof corps !== "object") return { erreur: "corps JSON attendu" };
   const c = corps as Record<string, unknown>;
+  // 13/11 (escalations, 0706) : une demande Support de sa file : la régler (réponse au posteur + ce qui a été
+  // fait) ou la remonter chez Max (pourquoi). Jamais de paiement.
+  if (c.action === "regler" || c.action === "remonter") {
+    const id = typeof c.demande_id === "string" ? c.demande_id : "";
+    if (!/^[0-9a-f-]{36}$/i.test(id)) return { erreur: "demande_id (uuid) obligatoire" };
+    if ("payer" in c || /^(payer|pay|approve|fund)/i.test(String(c.action_proposee ?? ""))) return { erreur: "un bot ne paie jamais" };
+    const t = (k: string, max: number) => (typeof c[k] === "string" ? (c[k] as string).trim().slice(0, max) : "");
+    if (c.action === "regler") {
+      const reponse = t("reponse", 4000);
+      if (reponse.length < 5) return { erreur: "reponse (au posteur, en anglais) obligatoire" };
+      return { action: "regler", args: { demande_id: id, reponse, fait: t("fait", 500) || null } };
+    }
+    const pourquoi = t("pourquoi", 500);
+    if (pourquoi.length < 5) return { erreur: "pourquoi obligatoire" };
+    return { action: "remonter", args: { demande_id: id, pourquoi } };
+  }
   // 3/11 : « lire » : ses problèmes ouverts (avec les messages), ses règles et ses feedbacks.
   if (c.action === "lire") {
     // Option : un seul problème, avec ses 20 derniers messages.
@@ -139,5 +160,5 @@ export function lireCorps(corps: unknown): { action: "lire" | "proposer" | "cree
       args: { ...args, poster_id: poster, contrat_id: contrat, categorie: texte("categorie", 40), resume: texte("resume", 200), texte: texte("texte"), lien: texte("lien", 500) },
     };
   }
-  return { erreur: "action refusée : lire, proposer, creer ou faire seulement" };
+  return { erreur: "action refusée : lire, proposer, creer, faire, regler ou remonter seulement" };
 }

@@ -17,7 +17,7 @@ const PAR_CATEGORIE: Record<string, Responsable> = {
   connexion: "new_cohort_bot", login: "new_cohort_bot", compte: "new_cohort_bot", upwork: "new_cohort_bot", slack: "new_cohort_bot",
   onboarding: "new_cohort_bot", statut: "new_cohort_bot", contrat: "new_cohort_bot", bienvenue: "new_cohort_bot",
   // posts, warm-up, retard, STOP
-  posting: "control_bot", tiktok: "control_bot", warmup: "control_bot", retard: "control_bot", arret: "control_bot", stop: "control_bot",
+  posting: "control_bot", posts: "control_bot", tiktok: "control_bot", warmup: "control_bot", retard: "control_bot", arret: "control_bot", stop: "control_bot",
   lien: "control_bot", pause: "control_bot",
   // paie, milestone, bonus
   paiement: "pay_bot", paie: "pay_bot", milestone: "pay_bot", bonus: "pay_bot", parrainage: "pay_bot",

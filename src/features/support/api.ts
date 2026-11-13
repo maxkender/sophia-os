@@ -337,11 +337,29 @@ export interface TraceDemande {
   escalade_at: string | null;
   resolu_par_bot: boolean | null;
   posteur_at?: string | null;
+  /** 0706 : le bot responsable, ses passages, et ce qu'il a fait (réglé / remonté chez Max). */
+  bot_responsable?: string | null;
+  bot_passages?: number | null;
+  regle_par_bot?: string | null;
+  remonte_par?: string | null;
+  remonte_pourquoi?: string | null;
+}
+
+/** 0706 : les bots responsables, en clair. */
+export const NOMS_BOTS: Record<string, string> = {
+  new_cohort_bot: "new_cohort_bot", control_bot: "control_bot", pay_bot: "pay_bot", ruul_bot: "Ruul Bot", os_tickets: "OS tickets", max: "Max",
+};
+export const nomBot = (b: string | null | undefined) => (b ? NOMS_BOTS[b] ?? b : "?");
+
+/** 0706 : la demande attend encore son bot (il ne l'a ni réglée ni remontée). */
+export function chezLeBot(d: TraceDemande): boolean {
+  return d.statut === "ouvert" && !d.regle_par_bot && !d.remonte_par
+    && ["new_cohort_bot", "control_bot", "pay_bot", "ruul_bot"].includes(d.bot_responsable ?? "");
 }
 
 export type CleQui =
   | "bot" | "mot_de_passe" | "lien_slack" | "email_ruul" | "pseudo_tiktok" | "parrainage" | "arret" | "etape"
-  | "ruul_bot" | "os_tickets" | "max" | "equipe" | "renvoyee";
+  | "ruul_bot" | "os_tickets" | "max" | "equipe" | "renvoyee" | "regle_bot" | "remonte";
 
 /** 13/11 (Max) : les étiquettes « qui a agi » d'une demande, dans l'ordre où elles se lisent. */
 export function quiAAgi(d: TraceDemande): { cle: CleQui; detail?: string }[] {
@@ -359,6 +377,8 @@ export function quiAAgi(d: TraceDemande): { cle: CleQui; detail?: string }[] {
   if (action.includes("parrainage") && reussie(action)) out.push({ cle: "parrainage" });
   if ((d.auto_action === "procedure_arret" || action.includes("arrêt")) && reussie(action)) out.push({ cle: "arret" });
   if (action.includes("étape")) out.push({ cle: "etape" });
+  if (d.regle_par_bot) out.push({ cle: "regle_bot", detail: nomBot(d.regle_par_bot) });
+  if (d.remonte_par) out.push({ cle: "remonte", detail: `${nomBot(d.remonte_par)}${d.remonte_pourquoi ? ` : ${d.remonte_pourquoi}` : ""}` });
   if (d.ticket_at) out.push({ cle: "os_tickets" });
   if (d.niveau === "max") out.push({ cle: "max" });
   if (d.equipe_at) out.push({ cle: "equipe" });
@@ -381,7 +401,7 @@ export interface LigneToutes extends TraceDemande {
 
 export async function lireToutes(limite = 400): Promise<LigneToutes[]> {
   const { data, error } = await supabase.from("support_demandes")
-    .select("id, poster_id, type, source, categorie, plateforme, statut, niveau, texte, bot_reponse, auto_action, auto_resultat, action_faite, ticket_at, equipe_at, escalade_at, resolu_par_bot, posteur_at, cree_at, slack_user, email_de")
+    .select("id, poster_id, type, source, categorie, plateforme, statut, niveau, texte, bot_reponse, auto_action, auto_resultat, action_faite, ticket_at, equipe_at, escalade_at, resolu_par_bot, posteur_at, cree_at, slack_user, email_de, bot_responsable, bot_passages, regle_par_bot, remonte_par, remonte_pourquoi")
     .order("cree_at", { ascending: false }).limit(limite);
   if (error) throw new Error(error.message);
   const lignes = (data ?? []) as (Omit<LigneToutes, "nom" | "email"> & { slack_user: string | null; email_de: string | null })[];
@@ -405,6 +425,8 @@ export interface FiltresToutes {
   statut: string;
   niveau: string;
   qui: "" | CleQui;
+  /** 0706 : le bot responsable (ou qui a réglé / remonté). */
+  bot?: string;
 }
 
 export function filtrerToutes(lignes: readonly LigneToutes[], f: FiltresToutes): LigneToutes[] {
@@ -414,7 +436,8 @@ export function filtrerToutes(lignes: readonly LigneToutes[], f: FiltresToutes):
     && (!f.source || (f.source === "slack" ? l.source.startsWith("slack") : l.source === f.source))
     && (!f.statut || l.statut === f.statut)
     && (!f.niveau || (l.niveau ?? "adrien") === f.niveau)
-    && (!f.qui || quiAAgi(l).some((x) => x.cle === f.qui)));
+    && (!f.qui || quiAAgi(l).some((x) => x.cle === f.qui))
+    && (!f.bot || l.bot_responsable === f.bot || l.regle_par_bot === f.bot || l.remonte_par === f.bot));
 }
 
 /** « À répondre » : ce que le bot n'a pas su et ce que le posteur a renvoyé. Max (argent) d'abord, puis le plus ancien. */

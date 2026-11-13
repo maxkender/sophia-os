@@ -1,10 +1,17 @@
--- Podz 14 « Plony » (Sophia, 100 % podz) : le label et sa source d'images.
+-- Podz 14 « Plony » (Sophia, voie 1) : le label et sa source d'images.
 --
 -- Demande d'Adrien du 13/11 : un podz sur le modèle de @_plony_ (TikTok,
 -- espagnol, 493 k abonnés). Ce sont des phrases (amour, stoïcisme, anxiété)
 -- coupées en 3 slides, sur des illustrations façon estampe japonaise. Le podz
 -- écrit ses propres textes en 4 slides (la phrase sur 3, puis Sophia sur la 4e)
 -- et mélange les images de @_plony_ avec des images Seedream (fal) du même style.
+--
+-- PAS un label 100 % podz « slides finies » (voie 2) : le texte n'est pas
+-- incrusté dans l'image. Le podz dépose des originaux dans une seule langue,
+-- avec la slide d'appli marquée (slide 4). L'OS traduit et place Sophia à la
+-- cuisson du deck, dans la langue de chaque compte, comme pour tout original
+-- de voie 1. Ses contenus ne sont pas « livrés » (`livre` faux) : le label
+-- reste en voie 1, et le choix de label le traite comme un label normal.
 --
 -- Les images de @_plony_ passent par l'import de l'OS, qui retire le texte et
 -- les métadonnées IA. Procédure validée par la session de coordination BLEO :

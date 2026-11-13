@@ -12,9 +12,9 @@
 // créature cachée dans les fleurs, un œil sous la vague. Seedream ajoute parfois
 // un petit tampon rouge ou une marge crème : jette l'image et relance.
 //
-// À REGARDER avant d'en faire quoi que ce soit. Une image neuve n'est pas encore
-// dans la banque du label : tant que l'OS n'a pas d'action pour l'y ajouter,
-// seules les images de la banque (npm run images, npm run sources) se déposent.
+// À REGARDER avant d'en faire quoi que ce soit. Une image retenue entre dans la
+// banque du label avec npm run ajouter -- <fichier> "<légende en anglais>" ;
+// elle se dépose ensuite comme les autres.
 import { mkdirSync, writeFileSync } from "node:fs";
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 

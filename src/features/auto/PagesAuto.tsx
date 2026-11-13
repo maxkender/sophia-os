@@ -13,6 +13,7 @@ import { SectionDoubles } from "@/features/doubles/SectionDoubles";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
+import { Replie } from "@/components/ui/replie";
 import { PageReponsesOfficielles } from "@/features/officielles/PageReponsesOfficielles";
 import { SectionSupport } from "@/features/support/SectionSupport";
 import { PageAujourdhui } from "@/features/auto/aujourdhui/PageAujourdhui";
@@ -284,15 +285,20 @@ export function CohortesRuulPage() {
   );
 }
 
-/** 10/11 : Ruul, les posteurs à ajouter dans Ruul (« Marquer ajouté », un par un ou tous). */
+/**
+ * 10/11 : Ruul. En haut, la cohorte étape par étape et une ligne de pastilles
+ * par posteur ; en bas, replié, l'agent Ruul et les imports (« Marquer ajouté »).
+ */
 export function RuulSuiviPage() {
   return (
     <PageAuto cle="ruul_suivi">
       <div className="space-y-4">
         <VueParcoursRuul />
-        <DernierImportRuul />
-        <AgentRuul />
-        <PageAjoutRuul />
+        <Replie titre="Agent Ruul et imports">
+          <DernierImportRuul />
+          <AgentRuul />
+          <PageAjoutRuul />
+        </Replie>
       </div>
     </PageAuto>
   );

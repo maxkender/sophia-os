@@ -24,6 +24,11 @@ export interface EntreeAujourdhui {
   /** 0690 : signés sans compte (création refusée), erreurs d'envoi du parcours Ruul. */
   creationsEchouees?: number;
   parcoursErreurs?: number;
+  /** 0700 : emails en file (réessai auto), non délivrés (24 h), Brevo sans crédit, clé Brevo absente. */
+  emailsEnFile?: number;
+  emailsNonDelivres?: number;
+  brevoSansCredit?: boolean;
+  brevoCleAbsente?: boolean;
   /** 0 = dimanche … 6 = samedi, heure de Paris. */
   jourSemaine: number;
 }
@@ -40,6 +45,19 @@ export function lignesAujourdhui(e: EntreeAujourdhui): LigneAujourdhui[] {
   }
   if ((e.parcoursErreurs ?? 0) > 0) {
     l.push({ cle: "parcours", icone: "✉️", rang: 2, texte: `${s(e.parcoursErreurs!, "email Ruul", "emails Ruul")} en erreur (24 h)`, bouton: "Voir", to: "/admin/auto/ruul" });
+  }
+  // 0700 (13/11) : Brevo sans crédit → les emails attendent en file ; sinon les emails en file / non délivrés.
+  if (e.brevoSansCredit) {
+    const n = e.emailsEnFile ?? 0;
+    l.push({ cle: "brevo_credit", icone: "🚨", rang: 0, texte: `Brevo sans crédit : ${s(n, "email en attente", "emails en attente")} (ils partiront dès que Brevo a du crédit)`, bouton: "Brevo", to: "https://app.brevo.com/billing/addon/customize/emails" });
+  } else if ((e.emailsEnFile ?? 0) > 0) {
+    l.push({ cle: "emails_file", icone: "📨", rang: 2, texte: `${s(e.emailsEnFile!, "email en file", "emails en file")} : Brevo a refusé, nouvel essai automatique`, bouton: "Voir", to: "/admin/auto/ruul" });
+  }
+  if ((e.emailsNonDelivres ?? 0) > 0) {
+    l.push({ cle: "emails_refuses", icone: "✉️", rang: 2, texte: `${s(e.emailsNonDelivres!, "email non délivré", "emails non délivrés")} (24 h)`, bouton: "Voir", to: "/admin/auto/ruul" });
+  }
+  if (e.brevoCleAbsente) {
+    l.push({ cle: "brevo_cle", icone: "🔑", rang: 3, texte: "Livraison des emails non vérifiée : clé Brevo à ajouter", bouton: "Ajouter", to: "https://supabase.com/dashboard/project/mbikecieskoobeizixig/functions/secrets" });
   }
   if (e.maintenant > 0) {
     l.push({ cle: "maintenant", icone: "✋", rang: 2, texte: `${s(e.maintenant, "décision", "décisions")} à prendre maintenant`, bouton: "Décider", to: "/admin/auto/decisions" });

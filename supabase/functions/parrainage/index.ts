@@ -22,6 +22,7 @@ import { secretValide } from "../_shared/hub_posteurs.ts";
 import { type EtapeEmail, lienCreators, prochaineEtape, rendreEmail } from "../_shared/parrainage_email.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { estSecretCron, json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
+import { envoyerSuivi } from "../_shared/emails.ts";
 import { urlEmailSite } from "../_shared/site.ts";
 
 const URL_FONCTION = "https://mbikecieskoobeizixig.supabase.co/functions/v1/parrainage";
@@ -103,28 +104,16 @@ async function envoyer(supabase: Supabase) {
       lien: lienCreators(langue, String(d.code ?? "")),
       lienDesinscription: `${URL_FONCTION}?desinscrire=${d.token}`,
     });
-    let ok = false;
-    let messageId: string | null = null;
-    let erreur: string | null = null;
-    let rebond = false;
-    try {
-      const r = await fetch(urlEnvoi, {
-        method: "POST",
-        headers: { "content-type": "application/json", "x-hub-secret": secret },
-        body: JSON.stringify({
-          action: "envoyer_email", to: d.email, from_name: "Sophia", subject: email.objet, html: email.html, text: email.texte,
-          // Le site attend une liste de chaînes (tags Brevo).
-          tags: ["parrainage", `etape-${etape}`, ...(pays ? [`pays-${pays}`] : [])], unsubscribe_url: `${URL_FONCTION}?desinscrire=${d.token}`,
-        }),
-      });
-      const j = await r.json().catch(() => ({}));
-      ok = r.ok && j?.ok !== false;
-      messageId = j?.message_id ? String(j.message_id) : null;
-      erreur = ok ? null : String(j?.error ?? `HTTP ${r.status}`);
-      rebond = !ok && /bounce|invalid|does not exist|rejected/i.test(erreur ?? "");
-    } catch (e) {
-      erreur = messageErreur(e);
-    }
+    // 13/11 : par l'envoi suivi (journal emails_envois, file de réessai si Brevo refuse ou n'a plus de crédit).
+    const r = await envoyerSuivi({
+      to: String(d.email), objet: email.objet, html: email.html, texte: email.texte,
+      // Le site attend une liste de chaînes (tags Brevo).
+      tags: ["parrainage", `etape-${etape}`, ...(pays ? [`pays-${pays}`] : [])], stop: `${URL_FONCTION}?desinscrire=${d.token}`,
+    });
+    const ok = r.ok;
+    const messageId = r.message_id ?? null;
+    const erreur = r.erreur;
+    const rebond = !ok && /bounce|invalid|does not exist|rejected/i.test(erreur ?? "");
     await supabase.rpc("parrainage_envoi_noter", { p_id: d.id, p_etape: etape, p_ok: ok, p_message_id: messageId, p_erreur: erreur, p_rebond: rebond });
     bilan.push({ id: d.id, etape, ok, erreur });
   }

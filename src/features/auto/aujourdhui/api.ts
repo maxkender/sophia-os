@@ -13,6 +13,11 @@ export interface ChiffresAujourdhui {
   creations_echouees: number;
   /** 0690 : emails du parcours Ruul en erreur (24 h). */
   parcours_erreurs: number;
+  /** 0700 : le suivi des emails (Brevo). */
+  emails_en_file: number;
+  emails_non_delivres: number;
+  brevo_sans_credit: boolean;
+  brevo_cle_absente: boolean;
 }
 
 export async function lireAujourdhui(): Promise<ChiffresAujourdhui> {
@@ -21,5 +26,7 @@ export async function lireAujourdhui(): Promise<ChiffresAujourdhui> {
   const d = (data ?? {}) as Partial<ChiffresAujourdhui>;
   return { pour_max: Number(d.pour_max ?? 0), pour_adrien: Number(d.pour_adrien ?? 0), ruul_a_inviter: Number(d.ruul_a_inviter ?? 0), contrats_a_relier: Number(d.contrats_a_relier ?? 0),
     ruul_import_heures: d.ruul_import_heures === null || d.ruul_import_heures === undefined ? null : Number(d.ruul_import_heures),
-    creations_echouees: Number(d.creations_echouees ?? 0), parcours_erreurs: Number(d.parcours_erreurs ?? 0) };
+    creations_echouees: Number(d.creations_echouees ?? 0), parcours_erreurs: Number(d.parcours_erreurs ?? 0),
+    emails_en_file: Number(d.emails_en_file ?? 0), emails_non_delivres: Number(d.emails_non_delivres ?? 0),
+    brevo_sans_credit: d.brevo_sans_credit === true, brevo_cle_absente: d.brevo_cle_absente === true };
 }

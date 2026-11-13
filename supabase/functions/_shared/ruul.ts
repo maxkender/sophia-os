@@ -1,4 +1,4 @@
-import { urlEmailSite } from "./site.ts";
+import { envoyerSuivi, type ResultatEnvoi } from "./emails.ts";
 
 /**
  * Ruul (0574) : le calendrier des messages d'invitation et le rendu des
@@ -214,23 +214,12 @@ ${reste ? `<p>${echapper(reste)}</p>\n` : ""}<p>Puis dans l'OS : <a href="${echa
   return { objet, html, texte };
 }
 
-/** 10/11 : un email envoyé par le site vik-studios-creators.com (os-email, en-tête x-hub-secret). */
-export async function envoyerEmailSite(
+/**
+ * 10/11 : un email envoyé par le site vik-studios-creators.com (os-email, en-tête x-hub-secret).
+ * 13/11 : par l'envoi suivi (journal emails_envois, file de réessai si Brevo refuse ou n'a plus de crédit).
+ */
+export function envoyerEmailSite(
   to: string, objet: string, html: string, texte: string, stop: string, tags: string[], fetchFn: typeof fetch = fetch,
-): Promise<{ ok: boolean; erreur: string | null }> {
-  const urlEnvoi = urlEmailSite();
-  const secret = Deno.env.get("OS_HUB_SECRET");
-  if (!urlEnvoi || !secret) return { ok: false, erreur: "HUB_EMAIL_URL ou OS_HUB_SECRET manquant" };
-  try {
-    const r = await fetchFn(urlEnvoi, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-hub-secret": secret },
-      body: JSON.stringify({ action: "envoyer_email", to, from_name: "Sophia", subject: objet, html, text: texte, tags, unsubscribe_url: stop }),
-    });
-    const j = await r.json().catch(() => ({}));
-    const ok = r.ok && j?.ok !== false;
-    return { ok, erreur: ok ? null : String(j?.error ?? `HTTP ${r.status}`) };
-  } catch (e) {
-    return { ok: false, erreur: e instanceof Error ? e.message : String(e) };
-  }
+): Promise<ResultatEnvoi> {
+  return envoyerSuivi({ to, objet, html, texte, stop, tags }, fetchFn);
 }

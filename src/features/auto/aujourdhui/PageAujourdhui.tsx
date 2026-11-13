@@ -30,6 +30,10 @@ export function PageAujourdhui() {
     ruulImportHeures: chiffres.data ? chiffres.data.ruul_import_heures : undefined,
     creationsEchouees: chiffres.data?.creations_echouees ?? 0,
     parcoursErreurs: chiffres.data?.parcours_erreurs ?? 0,
+    emailsEnFile: chiffres.data?.emails_en_file ?? 0,
+    emailsNonDelivres: chiffres.data?.emails_non_delivres ?? 0,
+    brevoSansCredit: chiffres.data?.brevo_sans_credit ?? false,
+    brevoCleAbsente: chiffres.data?.brevo_cle_absente ?? false,
     jourSemaine: jourParis(),
   });
   const date = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long" }).format(new Date());
@@ -54,7 +58,11 @@ export function PageAujourdhui() {
             <CardContent className="flex items-center gap-3 p-4">
               <span className="text-2xl" aria-hidden>{l.icone}</span>
               <span className="min-w-0 flex-1 text-base font-medium">{l.texte}</span>
-              <Link to={l.to} className={buttonVariants({ size: "sm" })}>{l.bouton}</Link>
+              {/^https?:\/\//.test(l.to) ? (
+                <a href={l.to} target="_blank" rel="noreferrer" className={buttonVariants({ size: "sm" })}>{l.bouton}</a>
+              ) : (
+                <Link to={l.to} className={buttonVariants({ size: "sm" })}>{l.bouton}</Link>
+              )}
             </CardContent>
           </Card>
         ))}

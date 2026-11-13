@@ -36,6 +36,18 @@ describe("Aujourd'hui (OS clair)", () => {
     expect(lignesAujourdhui(base).some((x) => x.cle === "creations" || x.cle === "parcours")).toBe(false);
   });
 
+  it("0700 : Brevo sans crédit en tête ; sinon emails en file, non délivrés, clé Brevo absente", () => {
+    const base = { pourMax: 0, maintenant: 0, jeudi: 0, samedi: 0, ruulAInviter: 0, jourSemaine: 3 };
+    const sans = lignesAujourdhui({ ...base, pourMax: 2, maintenant: 1, emailsEnFile: 40, brevoSansCredit: true });
+    expect(sans[0].cle).toBe("brevo_credit");
+    expect(sans[0].texte).toContain("40 emails en attente");
+    expect(sans.some((l) => l.cle === "emails_file")).toBe(false);
+    const file = lignesAujourdhui({ ...base, emailsEnFile: 1, emailsNonDelivres: 3, brevoCleAbsente: true });
+    expect(file.map((l) => l.cle)).toEqual(["emails_file", "emails_refuses", "brevo_cle"]);
+    expect(file[0].texte).toBe("1 email en file : Brevo a refusé, nouvel essai automatique");
+    expect(lignesAujourdhui({ ...base, emailsEnFile: 0, emailsNonDelivres: 0 })).toEqual([]);
+  });
+
   it("le jour de la semaine à Paris", () => {
     expect(jourParis(new Date("2026-11-12T12:00:00Z"))).toBe(4);
     expect(jourParis(new Date("2026-11-15T23:30:00Z"))).toBe(1);

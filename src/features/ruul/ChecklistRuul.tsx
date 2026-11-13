@@ -53,7 +53,37 @@ export function etatRuul(o: MonOnboardingRuul): "attente" | "invite" | "pret" {
 }
 
 /** L'espace Ruul (connexion, identité, banque). */
-const LIEN_RUUL = "https://app.ruul.io";
+const LIEN_RUUL = "https://app.ruul.io/register";
+
+/** 13/11 (Max) : le guide Ruul pas à pas, dépliable sous l'étape 6 (tant que le compte n'est pas Active). */
+export function GuideRuul({ email }: { email: string }) {
+  const { t } = useTranslation();
+  return (
+    <details className="rounded-md border bg-muted/30 p-2 text-xs" data-testid="guide-ruul">
+      <summary className="cursor-pointer font-medium text-primary text-sm">{t("ruulOnboarding.guideOuvrir")}</summary>
+      <div className="mt-2 space-y-2">
+        <p className="font-semibold">{t("ruulOnboarding.guideTitre")}</p>
+        <p>{t("ruulOnboarding.guideAvant")}</p>
+        <ol className="list-decimal space-y-1 pl-5">
+          <li>{t("ruulOnboarding.guide1")}</li>
+          <li>{t("ruulOnboarding.guide2")}</li>
+          <li>
+            {t("ruulOnboarding.guide3")}
+            <br />{t("ruulOnboarding.guide3Email", { email })}
+            <br />{t("ruulOnboarding.guide3Gmail")}
+          </li>
+          <li>{t("ruulOnboarding.guide4")}</li>
+          <li>{t("ruulOnboarding.guide5")}</li>
+          <li>{t("ruulOnboarding.guide6")}</li>
+          <li>{t("ruulOnboarding.guide7")}</li>
+          <li>{t("ruulOnboarding.guide8")}</li>
+        </ol>
+        <p>{t("ruulOnboarding.guidePaie")}</p>
+        <p>{t("ruulOnboarding.guideAide")}</p>
+      </div>
+    </details>
+  );
+}
 
 function Pastille({ numero, fait, recommande }: { numero: number; fait: boolean; recommande?: boolean }) {
   return (
@@ -195,12 +225,13 @@ export function ChecklistRuul() {
               ? t("ruulOnboarding.ruulInviteTexte", { email: o.ruul_email ?? o.email_candidature ?? "your email" })
               : t("ruulOnboarding.ruulAttenteTexte")}
           </p>
-          {ruul === "invite" && (
+          {ruul !== "pret" && <GuideRuul email={o.ruul_email ?? o.email_candidature ?? "your Ruul email"} />}
+          {ruul !== "pret" && (
             <span className="mt-1 inline-flex flex-wrap items-center gap-2">
               <Button asChild size="sm" className="h-8">
                 <a href={LIEN_RUUL} target="_blank" rel="noreferrer" data-testid="ouvrir-ruul">{t("ruulOnboarding.ouvrirRuul")}</a>
               </Button>
-              <BoutonPret />
+              {ruul === "invite" && <BoutonPret />}
             </span>
           )}
         </div>

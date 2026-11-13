@@ -4,7 +4,7 @@
  * déjà faites en petit et en gris. Anglais, jamais « bot », « IA », « automatique ».
  */
 
-import { lienArret, PIED_HELP_EMAIL } from "./ruul.ts";
+import { PIED_HELP_EMAIL } from "./ruul.ts";
 
 export const FOLLOWS_MIN = 5;
 
@@ -61,7 +61,7 @@ export interface LiensRattrapage {
   motDePasse: string;
   /** [It's done] (Ruul prêt). */
   pret: string;
-  /** Lien d'arrêt des relances (?stop=) : le bas de l'email en déduit « I do not wish to continue ». */
+  /** « I do not wish to continue » (lien à usage unique, page de confirmation). */
   stop: string;
 }
 
@@ -79,20 +79,24 @@ interface Etape {
 }
 
 /**
- * L'email. Le mot de passe (toujours 12345678) est écrit en clair à l'étape 1 ; « Get a new
- * password » le remet à 12345678 s'il ne marche pas.
+ * L'email. Jamais connecté : son mot de passe (unique, aléatoire) est écrit en clair à l'étape 1 ;
+ * « Get a new password » (lien à usage unique) en donne un nouveau s'il ne marche pas.
  */
 export function emailRattrapage(
   s: SituationRattrapage,
   l: LiensRattrapage,
-  o: { motDePasse: string; debut: string; echeance: string },
+  o: { motDePasse: string | null; debut: string; echeance: string },
 ): { objet: string; html: string; texte: string } {
   const prenom = prenomPropre(s.prenom);
   const f = etapesFaites(s);
   const login = s.login ?? "your @sophia.com login";
-  // Max (13/11) : le mot de passe est toujours 12345678 ; le lien ne sert que s'il ne marche pas.
-  const mdpHtml = `Your password: <b>${echapper(o.motDePasse)}</b><br><span style="font-size:13px">Doesn't work? ${lien(l.motDePasse, "Get a new password")}</span>`;
-  const mdpTexte = `Your password: ${o.motDePasse}\nDoesn't work? Get a new password: ${l.motDePasse}`;
+  // Max (13/11) : jamais connecté → son mot de passe unique en clair ; « Get a new password » en secours.
+  const mdpHtml = o.motDePasse
+    ? `Your password: <b>${echapper(o.motDePasse)}</b><br><span style="font-size:13px">Doesn't work? ${lien(l.motDePasse, "Get a new password")}</span>`
+    : `Your password: the one you chose. Forgot it? ${lien(l.motDePasse, "Get a new password")}`;
+  const mdpTexte = o.motDePasse
+    ? `Your password: ${o.motDePasse}\nDoesn't work? Get a new password: ${l.motDePasse}`
+    : `Your password: the one you chose. Forgot it? Get a new password: ${l.motDePasse}`;
   const ruulHtml = s.ruul_active
     ? `Your Ruul account is connected: just make sure your ID and bank account are done, then click<br><br>${bouton(l.pret, "It's done")}`
     : `Open the invitation email from Ruul (check spam), create your account with <b>${echapper(s.ruul_email ?? "your email")}</b>, verify your ID, add your bank account, then click<br><br>${bouton(l.pret, "It's done")}`;
@@ -139,13 +143,13 @@ export function emailRattrapage(
   const intro = `You start posting on ${o.debut}. Here's exactly where you are:`;
   const fin1 = `Deadline: ${o.echeance}. If you're not ready by then, you'll simply start one week later.`;
   const fin2 = "You're paid every Monday for the week you posted (Monday to Sunday).";
-  const arret = lienArret(l.stop);
+  const arret = l.stop;
 
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(objet)}</title></head>
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:28px 24px">
-<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">Sophia</td></tr>
+<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">Vik Studios</td></tr>
 <tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">Hi ${echapper(prenom)},</td></tr>
 <tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(intro)}</td></tr>
 ${etapes.map(ligneHtml).join("\n")}

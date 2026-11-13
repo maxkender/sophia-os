@@ -5,18 +5,20 @@ const s = (x: Partial<SituationRattrapage> = {}): SituationRattrapage => ({
   prenom: "Ana", login: "anas@sophia.com", handle: "ana.x1", ruul_email: "ana@mail.com", connecte: false, tiktok: false,
   warmup_lance: false, abonnements: null, slack: false, ruul_fini: false, ruul_active: false, ...x,
 });
-const l = { dashboard: "https://os", slack: "https://slack", motDePasse: "https://f?motdepasse=j", pret: "https://f?pret=j", stop: "https://f?stop=j" };
-const o = { motDePasse: "12345678", debut: "Monday 16 November", echeance: "Sunday 15 November, midnight (Paris time)" };
+const l = { dashboard: "https://os", slack: "https://slack", motDePasse: "https://os/r/password?t=j", pret: "https://os/r/done?t=j", stop: "https://os/r/stop?t=j" };
+const o = { motDePasse: "bake2345", debut: "Monday 16 November", echeance: "Sunday 15 November, midnight (Paris time)" };
 
-Deno.test("rattrapage : jamais connecté, tout en gras, mot de passe 12345678 écrit, lien de secours", () => {
+Deno.test("rattrapage : jamais connecté, tout en gras, son mot de passe unique écrit, liens vercel", () => {
   const m = emailRattrapage(s(), l, o);
   assertEquals(m.objet, "Ana, here's what's left before you start on Monday");
   assertStringIncludes(m.html, "<b>⬜ 1. Log in to your dashboard</b>");
   assertStringIncludes(m.html, "Get a new password");
   assertStringIncludes(m.html, "create your account with <b>ana@mail.com</b>");
   assertStringIncludes(m.html, "I do not wish to continue");
-  assertStringIncludes(m.html, "?arreter=j");
-  assertStringIncludes(m.texte, "Your login: anas@sophia.com\nYour password: 12345678");
+  assertStringIncludes(m.html, "https://os/r/stop?t=j");
+  assertStringIncludes(m.html, ">Vik Studios</td>");
+  assert(!m.html.includes("supabase.co"));
+  assertStringIncludes(m.texte, "Your login: anas@sophia.com\nYour password: bake2345");
   assert(!/set my password|\b(bot|AI|automatic|automated)\b/i.test(`${m.objet} ${m.texte}`));
 });
 

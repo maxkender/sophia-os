@@ -9293,7 +9293,7 @@ export const fr = {
           titre: "Good to know:",
           absent: "Can't post for a few days? Click \"I'll be away\" on your dashboard and tell us how long.",
           arreter: "Want to stop completely? Send a message in #poster-pause on Slack. Your contract will be ended.",
-          questions: "Any question or request: always on Slack, in #questions. Never on Upwork.",
+          questions: "Any question about the job? Ask it in the Sophia OS: log in to your dashboard and click Help. You'll get an answer right away, and you can escalate to our team if needed.",
         },
         titre: "Ta première semaine, en 5 étapes",
         connexion: "1. Se connecter",
@@ -9320,6 +9320,7 @@ export const fr = {
       ruul: {
         frise: {
           titre: "Ta première semaine, étape par étape",
+          questionHelp: "Any question about the job? Ask it in the Sophia OS: log in to your dashboard and click Help. You'll get an answer right away, and you can escalate to our team if needed.",
           lancer: "Clique sur « Commencer le warmup » (juste en dessous)",
           lancerQuand: "Maintenant, et au plus tard le {{dimanche}}",
           lancerRetard: "Maintenant : ta première semaine a commencé le {{lundi}}",

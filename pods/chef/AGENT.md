@@ -45,6 +45,7 @@ Les podz :
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; plus de carte UnSwipe depuis le 4/11) |
 | 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
 | 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; 2 par jour depuis le 5/11, demande d'Adrien ; en test sur 3 comptes, un par langue) |
+| 14 · Originaux Plony (Sophia) | `plony` | (session à créer au lancement) | Plony (Sophia seul, voie 1, en anglais, images de @_plony_ et Seedream ; en préparation au 13/11, en pause dans le rythme jusqu'au lancement par Adrien) |
 
 ## Règles absolues
 
@@ -70,7 +71,7 @@ Les podz :
 
 ## BLEO, voie 1 (depuis le 1/11) et voie 2 (depuis le 5/11)
 
-Les podz de la voie 1 (2, 4, 5, 7, 8, 9 et 12) passent sur BLEO quand
+Les podz de la voie 1 (2, 4, 5, 7, 8, 9, 12 et 14) passent sur BLEO quand
 `select valeur->'podz'->>'type_obligatoire' from reglages where cle = 'bleo';`
 vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont les premières sur BLEO). Dès lors, pour eux :
 

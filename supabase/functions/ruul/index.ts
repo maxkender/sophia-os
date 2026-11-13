@@ -51,8 +51,8 @@ import {
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Decision, emailParcours, type EtatParcours, prochainEnvoi, type TypeParcours } from "../_shared/parcours_ruul.ts";
-import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
-import { emailRattrapage, estPret as estPretRattrapage, type SituationRattrapage } from "../_shared/rattrapage_ruul.ts";
+import { MOT_DE_PASSE_COMMUN, motDePasseRecrue } from "../_shared/mot_de_passe.ts";
+import { emailRattrapage, estPret as estPretRattrapage, etapesFaites, type SituationRattrapage } from "../_shared/rattrapage_ruul.ts";
 import { urlEmailSite } from "../_shared/site.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -74,6 +74,13 @@ Deno.serve(async (request) => {
   const url = new URL(request.url);
   const supabase = serviceClient();
 
+  // 0696 : les liens des emails (/r/done, /r/password, /r/stop sur sophia-marketing-orga.vercel.app) : la page
+  // du dashboard appelle ici, en JSON. Jeton à usage unique, 14 jours.
+  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS_LIEN });
+  if (request.method === "GET" && url.searchParams.get("lien")) {
+    return new Response(JSON.stringify(await utiliserLien(supabase, url.searchParams.get("lien")!, url.searchParams.get("a") ?? "", url.searchParams.get("confirme") === "1")),
+      { headers: { ...CORS_LIEN, "content-type": "application/json; charset=utf-8" } });
+  }
   if (request.method === "GET") {
     const pret = url.searchParams.get("pret");
     const stop = url.searchParams.get("stop");
@@ -732,11 +739,12 @@ async function rattrapage(supabase: Supabase, body: any) {
   const dest = etats.filter((e) => parId.get(e.poster_id)?.is_active && !parId.get(e.poster_id)?.ruul_ne_pas_inviter && !estPretRattrapage(situation(e)));
   const dejaEnvoye = (e: EtatParcours) => e.envois.some((x) => x.cle === cle && x.ok);
   const slack = await lienSlackInvitation(supabase);
-  const rendre = (e: EtatParcours) => emailRattrapage(situation(e), {
-    dashboard: URL_DASHBOARD_OS, slack, motDePasse: `${URL_FONCTION}?motdepasse=${e.ruul_jeton}`,
-    pret: `${URL_FONCTION}?pret=${e.ruul_jeton}`, stop: `${URL_FONCTION}?stop=${e.ruul_jeton}`,
+  // Aperçu : des jetons fictifs, aucun mot de passe. Envoi : 3 jetons neufs à usage unique, un mot de passe unique.
+  const rendre = (e: EtatParcours, j: { done: string; password: string; stop: string } = { done: "<jeton>", password: "<jeton>", stop: "<jeton>" }, motDePasse: string | null = e.premiere_connexion_at ? null : "••••••") => emailRattrapage(situation(e), {
+    dashboard: URL_DASHBOARD_OS, slack, motDePasse: `${URL_DASHBOARD_OS}/r/password?t=${j.password}`,
+    pret: `${URL_DASHBOARD_OS}/r/done?t=${j.done}`, stop: `${URL_DASHBOARD_OS}/r/stop?t=${j.stop}`,
   }, {
-    motDePasse: MOT_DE_PASSE_COMMUN,
+    motDePasse,
     debut: lundi === "2026-11-16" ? "Monday 16 November" : `Monday ${lundi}`,
     echeance: lundi === "2026-11-16" ? "Sunday 15 November, midnight (Paris time)" : "Sunday at midnight (Paris time)",
   });
@@ -748,8 +756,11 @@ async function rattrapage(supabase: Supabase, body: any) {
   }));
   if (body?.confirmer !== true) {
     const apercuIds = ids(body?.apercu_ids);
+    const manque = (k: keyof ReturnType<typeof etapesFaites>) => dest.filter((e) => !etapesFaites(situation(e))[k]).length;
     return {
-      ok: true, lundi, total: dest.length, a_envoyer: dest.filter((e) => !dejaEnvoye(e) && e.email && e.ruul_jeton).length,
+      ok: true, lundi, total: dest.length,
+      detail: { jamais_connectes: manque("connexion"), sans_tiktok: manque("tiktok"), sans_warmup: manque("warmup"), sans_slack: manque("slack"), ruul_pas_fini: manque("ruul") },
+      a_envoyer: dest.filter((e) => !dejaEnvoye(e) && e.email && e.ruul_jeton).length,
       sans_email_ou_jeton: dest.filter((e) => !e.email || !e.ruul_jeton).map((e) => e.poster_id), liste,
       apercus: dest.filter((e) => apercuIds.has(e.poster_id)).map((e) => ({ poster_id: e.poster_id, a: e.email, ...rendre(e) })),
     };
@@ -758,13 +769,23 @@ async function rattrapage(supabase: Supabase, body: any) {
   let envoyes = 0;
   const erreurs: { poster_id: string; erreur: string }[] = [];
   for (const e of dest.filter((x) => !dejaEnvoye(x) && x.email && x.ruul_jeton).slice(0, max)) {
-    // Jamais connecté : le mot de passe écrit dans l'email (12345678) est bien celui du compte.
+    // 3 jetons à usage unique (14 jours) pour les liens de CET email.
+    const jetons: Record<string, string> = {};
+    for (const a of ["done", "password", "stop"] as const) {
+      const { data: j, error: errJ } = await supabase.rpc("lien_posteur_creer", { p_poster: e.poster_id, p_action: a, p_source: cle });
+      if (errJ || typeof j !== "string") { erreurs.push({ poster_id: e.poster_id, erreur: `jeton : ${errJ?.message ?? "?"}` }); break; }
+      jetons[a] = j;
+    }
+    if (Object.keys(jetons).length < 3) continue;
+    // Jamais connecté (Max, 13/11) : un mot de passe UNIQUE et aléatoire, écrit dans l'email.
+    let motDePasse: string | null = null;
     if (!e.premiere_connexion_at) {
-      const { error: errMdp } = await supabase.auth.admin.updateUserById(e.poster_id, { password: MOT_DE_PASSE_COMMUN });
+      motDePasse = motDePasseRecrue();
+      const { error: errMdp } = await supabase.auth.admin.updateUserById(e.poster_id, { password: motDePasse });
       if (errMdp) { erreurs.push({ poster_id: e.poster_id, erreur: `mot de passe : ${errMdp.message}` }); continue; }
     }
-    const m = rendre(e);
-    const r = await envoyerEmail(e.email!, m.objet, m.html, m.texte, `${URL_FONCTION}?stop=${e.ruul_jeton}`, ["ruul", "rattrapage"]);
+    const m = rendre(e, jetons as { done: string; password: string; stop: string }, motDePasse);
+    const r = await envoyerEmail(e.email!, m.objet, m.html, m.texte, `${URL_DASHBOARD_OS}/r/stop?t=${jetons.stop}`, ["ruul", "rattrapage"]);
     await supabase.from("ruul_parcours_envois").upsert({ poster_id: e.poster_id, cle, type: "rattrapage", ok: r.ok, canaux: r.ok ? ["email"] : [], erreur: r.erreur, envoye_at: new Date().toISOString() },
       { onConflict: "poster_id,cle" });
     if (r.ok) envoyes++;
@@ -772,4 +793,49 @@ async function rattrapage(supabase: Supabase, body: any) {
   }
   const restants = dest.filter((x) => !dejaEnvoye(x) && x.email && x.ruul_jeton).length - envoyes - erreurs.length;
   return { ok: true, lundi, total: dest.length, envoyes, erreurs, restants: Math.max(0, restants) };
+}
+
+// ---------------------------------------------------------------------------
+// 0696 : les liens à usage unique des emails (pages /r/… du dashboard)
+// ---------------------------------------------------------------------------
+
+const CORS_LIEN: Record<string, string> = {
+  "access-control-allow-origin": "*",
+  "access-control-allow-methods": "GET, OPTIONS",
+  "access-control-allow-headers": "content-type",
+};
+
+/**
+ * a = done | password | stop. Sans confirme : vérifie seulement le jeton (la page demande « Are you sure? »).
+ * Avec confirme : fait l'action, puis le jeton est consommé. Les textes vont tels quels au posteur (anglais).
+ */
+async function utiliserLien(supabase: Supabase, jeton: string, a: string, confirme: boolean): Promise<Record<string, unknown>> {
+  if (!/^[A-Za-z0-9_-]{20,64}$/.test(jeton) || !["done", "password", "stop"].includes(a)) return { ok: false, raison: "introuvable" };
+  const { data: v, error } = await supabase.rpc("lien_posteur_utiliser", { p_jeton: jeton, p_action: a, p_lire: true });
+  if (error) return { ok: false, raison: "erreur" };
+  const lu = v as { ok: boolean; raison?: string; poster_id?: string };
+  if (!lu.ok) return { ok: false, raison: lu.raison ?? "introuvable" };
+  if (!confirme) return { ok: true, confirmer: true };
+  const { data: pr } = await supabase.from("profiles").select("id, email, is_active, ruul_jeton").eq("id", lu.poster_id!).maybeSingle();
+  if (!pr?.id) return { ok: false, raison: "introuvable" };
+  let resultat: Record<string, unknown>;
+  if (a === "done") {
+    if (!pr.ruul_jeton) return { ok: false, raison: "erreur" };
+    const { error: e } = await supabase.rpc("ruul_pret_jeton", { p_jeton: pr.ruul_jeton });
+    if (e) return { ok: false, raison: "erreur" };
+    resultat = { ok: true, fait: "done" };
+  } else if (a === "stop") {
+    if (!pr.ruul_jeton) return { ok: false, raison: "erreur" };
+    const { data: d, error: e } = await supabase.rpc("ruul_arret_jeton", { p_jeton: pr.ruul_jeton });
+    if (e || d !== true) return { ok: false, raison: "erreur" };
+    resultat = { ok: true, fait: "stop" };
+  } else {
+    if (!pr.is_active) return { ok: false, raison: "introuvable" };
+    const motDePasse = motDePasseRecrue();
+    const { error: e } = await supabase.auth.admin.updateUserById(pr.id, { password: motDePasse });
+    if (e) return { ok: false, raison: "erreur" };
+    resultat = { ok: true, fait: "password", login: pr.email, mot_de_passe: motDePasse, dashboard: URL_DASHBOARD_OS };
+  }
+  await supabase.rpc("lien_posteur_utiliser", { p_jeton: jeton, p_action: a, p_lire: false });
+  return resultat;
 }

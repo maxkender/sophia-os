@@ -1,3 +1,4 @@
+import { PageLienEmail } from "@/features/liens/PageLienEmail";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { SetPasswordPage } from "@/features/auth/SetPasswordPage";
@@ -116,6 +117,8 @@ export function AppRouter() {
       </Route>
       {/* 1/11 : le lien « Set my password » du welcome, connecté ou non. */}
       <Route path="/set-password" element={<SetPasswordPage />} />
+      {/* 0696 : les liens des emails aux posteurs (jeton à usage unique), sans connexion. */}
+      <Route path="/r/:action" element={<PageLienEmail />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Accueil />} />

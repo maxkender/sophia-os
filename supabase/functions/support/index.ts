@@ -1,8 +1,8 @@
 import { chargerBase, demanderAuCerveau, jetonSlackFaq, posterSlack } from "../_shared/faq_moteur.ts";
 import { chargerSourcesSupport } from "../_shared/support_sources.ts";
 import { CANAL_TICKETS, erreurTicket, promptContexte, texteTicket } from "../_shared/support_ticket.ts";
-import { jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_shared/email_entrant.ts";
-import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
+import { emailReel, jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_shared/email_entrant.ts";
+import { lienMotDePasse, refusMotDePasseUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import {
@@ -20,7 +20,7 @@ import {
   promptVerdict,
   texteProblemeRecu,
 } from "../_shared/support.ts";
-import { generateTextFast } from "../_shared/gemini.ts";
+import { decrireCapture, generateTextFast } from "../_shared/gemini.ts";
 import { lireGroupes, promptRegroupement, type QuestionLue, resumerGroupe, TEXTE_ATTENTE } from "../_shared/entrainement.ts";
 import {
   appliquerControle, type CanalControle, canalDeSource, journaliser, lireControle, modeAction, modeAgent, type ResultatControle,
@@ -162,6 +162,10 @@ Deno.serve(async (request) => {
         // par le bouton existant, une fois chacune (cron support-tickets, toutes les 15 min).
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await ticketsAuto(db));
+      case "lien_mot_de_passe":
+        // 13/11 (Max) : envoyer (ou renvoyer, avec excuse) le login + lien « choisir mon mot de passe » par email.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json({ ok: true, resultat: await envoyerLienMotDePasse(db, String(body.poster_id ?? ""), null, body.correction === true) });
       case "proposition":
         // 13/11 (Contrôle) : une action proposée par le bot (mode « proposer ») : Max la fait ou l'ignore.
         if (acces.role !== "admin" || acces.userId === "cron") return json({ ok: false, error: "réservé à Max" }, 403);
@@ -461,35 +465,37 @@ async function verifier(categorie: string, texte: string, f: Fiche | null, ctx: 
 
 async function contactPosteur(db: Db, poster: string) {
   const [{ data: p }, { data: h }] = await Promise.all([
-    db.from("profiles").select("prenom, email, email_perso, slack_user_id").eq("id", poster).maybeSingle(),
+    db.from("profiles").select("prenom, email, email_perso, ruul_email, slack_user_id").eq("id", poster).maybeSingle(),
     db.from("hub_posteurs").select("email_perso").eq("profile_id", poster).maybeSingle(),
   ]);
   return {
     prenom: (p?.prenom as string | null) ?? null,
-    email: (h?.email_perso as string | null) || (p?.email_perso as string | null) || (p?.email as string | null) || null,
+    email: emailReel([h?.email_perso, p?.email_perso, p?.ruul_email, p?.email]),
     slack: (p?.slack_user_id as string | null) ?? null,
   };
 }
 
 /**
- * 12/11 (Max) : plus de lien « Set my password ». 13/11 : plus de mot de passe par défaut.
- * « Je n'arrive pas à me connecter » : un mot de passe neuf, unique et aléatoire, et l'email redonne le
- * login, le mot de passe et le lien du dashboard.
+ * 13/11 (Max) : « Jamais de mot de passe dans un message. Toujours login + lien « choisir mon mot de passe ». »
+ * L'email part à la vraie adresse du posteur : son login et son lien personnel (une fois, 14 jours).
+ * `correction` : une ligne d'excuse pour un email précédent qui donnait un mauvais mot de passe.
  */
-async function envoyerLienMotDePasse(db: Db, poster: string, nom: string | null): Promise<string> {
+async function envoyerLienMotDePasse(db: Db, poster: string, nom: string | null, correction = false): Promise<string> {
   const c = await contactPosteur(db, poster);
   if (!c.email) return "pas d'email connu";
   const { data: p } = await db.from("profiles").select("email").eq("id", poster).maybeSingle();
   const login = (p?.email as string | null) ?? null;
-  // 13/11 (Max) : plus de mot de passe par défaut : un mot de passe neuf, unique et aléatoire, envoyé par email.
-  const motDePasse = motDePasseRecrue();
-  const { error: errMdp } = await db.auth.admin.updateUserById(poster, { password: motDePasse });
-  if (errMdp) return `mot de passe : ${errMdp.message}`;
-  const objet = "Your Sophia dashboard access";
+  if (!login) return "pas de login";
+  const { data: jeton, error } = await db.rpc("mot_de_passe_lien_creer", { p_poster: poster, p_par: "support" });
+  if (error || typeof jeton !== "string" || !jeton) return `lien : ${error?.message ?? "non créé"}`;
+  const lien = lienMotDePasse(OS_URL, jeton);
+  const objet = correction ? "Your Sophia dashboard login (corrected)" : "Your Sophia dashboard login";
   const e = rendreEmailRuul({
     objet,
-    corps: `Hi ${c.prenom || nom || "there"},\n\nYou told us you can't log in. Here are your access details:\n- Dashboard: ${OS_URL}\n- Login: ${login ?? "your @sophia.com login"}\n- Password: ${motDePasse}`,
-    bouton: { texte: "Open my dashboard", lien: OS_URL },
+    corps: `Hi ${c.prenom || nom || "there"},\n\n` +
+      (correction ? "Sorry, our previous email gave you a wrong password. Please ignore it and use the link below instead.\n\n" : "") +
+      `Your login: ${login}\n\nClick the button below to choose your own password (the link works once, for 14 days), then log in to your dashboard: ${OS_URL}`,
+    bouton: { texte: "Choose my password", lien },
     lienStop: OS_URL,
   });
   const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, ["support", "mot_de_passe"]);
@@ -499,6 +505,7 @@ async function envoyerLienMotDePasse(db: Db, poster: string, nom: string | null)
 async function repondre(db: Db, auteur: string | null, id: string, texte: string) {
   texte = texte.trim();
   if (!id || texte.length < 1) return { ok: false, error: "réponse vide" };
+  if (refusMotDePasseUpwork(texte)) return { ok: false, error: "Jamais de mot de passe dans un message : envoie le lien « choisir mon mot de passe »." };
   const { data: d, error } = await db.from("support_demandes").select("id, poster_id, source, slack_canal, slack_ts, statut").eq("id", id).maybeSingle();
   if (error) throw new Error(error.message);
   if (!d) return { ok: false, error: "demande introuvable" };
@@ -586,6 +593,7 @@ interface ProfilFictif {
 }
 
 const LIEN_HELP = `${OS_URL}/createur/help`;
+const TEXTE_LIEN_ENVOYE = "I've just emailed you your login and a personal link to choose your password. Check your inbox (and spam), then log in to your dashboard.";
 
 function ficheFictive(p: ProfilFictif): string {
   return [
@@ -659,6 +667,17 @@ async function deciderBot(
   }
   const nbMemeSujet = entree.historique.filter((h) => h.categorie && h.categorie === decision!.categorie).length;
   const finale = appliquerGardeFous(decision, { source: o.source, plateforme, lienHelp: LIEN_HELP, nbMemeSujet });
+  // 13/11 (Max) : jamais de mot de passe dans un message : le lien « choisir mon mot de passe » à la place.
+  if (refusMotDePasseUpwork(finale.reponse)) {
+    finale.raison = `${finale.raison} (mot de passe retiré de la réponse : lien « choisir mon mot de passe » à la place)`.trim();
+    if (finale.niveau === "bot") {
+      finale.reponse = TEXTE_LIEN_ENVOYE;
+      finale.action = "lien_mot_de_passe";
+      finale.action_valeur = null;
+    } else {
+      finale.reponse = TEXTE_ON_VERIFIE;
+    }
+  }
   // 13/11 (page Contrôle) : ce qui n'est pas en « agir » (cerveau, canal, action) ne part pas :
   // la demande va à Max avec le brouillon du bot et l'action proposée (un clic dans la Boîte).
   const controle: ResultatControle = ctlReglage
@@ -1071,9 +1090,12 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
     const { data: deja } = await db.from("support_demandes").select("id").eq("email_message_id", e.messageId).limit(1);
     if ((deja ?? []).length) { bilan.push({ de: e.de, ignore: "déjà reçu" }); continue; }
     const poster = await posteurParEmail(db, e.de);
-    const texte = e.sujet && !/^re:/i.test(e.sujet) ? `${e.sujet}\n\n${e.texte}` : e.texte;
+    // 13/11 (Max) : une capture jointe est lue (décrite en une phrase) et ajoutée au message.
+    const captures = await decrireImagesBrevo(e.images ?? []);
+    const corpsEmail = captures.length ? `${e.texte}\n\n${captures.map((c) => `[Screenshot: ${c}]`).join("\n")}` : e.texte;
+    const texte = e.sujet && !/^re:/i.test(e.sujet) ? `${e.sujet}\n\n${corpsEmail}` : corpsEmail;
     // 13/11 (Max) : un simple accusé d'un posteur : pas de demande ni de réponse, « vu » dans son fil.
-    if (poster && accuseReception(e.texte)) {
+    if (poster && !captures.length && accuseReception(e.texte)) {
       await noterVu(db, poster, "email", e.texte, `email:${e.messageId}`);
       bilan.push({ de: e.de, poster, vu: true });
       continue;
@@ -1093,7 +1115,7 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
       .order("cree_at", { ascending: false }).limit(1).maybeSingle();
     if (ouverte?.id) {
       const maintenant = new Date().toISOString();
-      await db.from("support_messages").insert({ demande_id: ouverte.id, auteur: "posteur", auteur_id: poster, texte: e.texte });
+      await db.from("support_messages").insert({ demande_id: ouverte.id, auteur: "posteur", auteur_id: poster, texte: corpsEmail });
       await db.from("support_demandes").update({
         statut: "ouvert", posteur_at: maintenant, maj_at: maintenant, ...(ouverte.niveau === "adrien" || !ouverte.niveau ? { niveau: "max" } : {}),
       }).eq("id", ouverte.id);
@@ -1122,6 +1144,27 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
   return { ok: true, recus: emails.length, bilan };
 }
 
+/** Les images jointes d'un email Brevo, téléchargées (API Brevo) et décrites par le modèle. Ne lève pas. */
+async function decrireImagesBrevo(images: { nom: string; type: string; jeton: string }[]): Promise<string[]> {
+  const cle = Deno.env.get("BREVO_API_KEY");
+  if (!cle || !images.length) return [];
+  const sortie: string[] = [];
+  for (const im of images) {
+    try {
+      const r = await fetch(`https://api.brevo.com/v3/inbound/attachments/${encodeURIComponent(im.jeton)}`, { headers: { "api-key": cle } });
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      const octets = new Uint8Array(await r.arrayBuffer());
+      let binaire = "";
+      for (let i = 0; i < octets.length; i += 0x8000) binaire += String.fromCharCode(...octets.subarray(i, i + 0x8000));
+      sortie.push((await decrireCapture(btoa(binaire), im.type === "image/jpg" ? "image/jpeg" : im.type)).slice(0, 600));
+    } catch (erreur) {
+      console.warn(`[support] capture ${im.nom} : ${messageErreur(erreur)}`);
+      sortie.push(`${im.nom} (image not readable)`);
+    }
+  }
+  return sortie;
+}
+
 /** 13/11 (Max) : un accusé reçu, gardé pour le fil (« vu »), sans demande. Une seule fois par message. */
 async function noterVu(db: Db, poster: string, canal: string, texte: string, ref: string) {
   await db.from("support_vus").upsert({ poster_id: poster, canal, texte: texte.slice(0, 2000), ref }, { onConflict: "ref", ignoreDuplicates: true });
@@ -1135,6 +1178,7 @@ async function noterVu(db: Db, poster: string, canal: string, texte: string, ref
 async function repondreCanal(db: Db, auteur: string | null, o: { poster_id: string; canal: string; texte: string; demande_id: string | null }) {
   const texte = o.texte.trim();
   if (!o.poster_id || texte.length < 1) return { ok: false, error: "posteur et texte obligatoires" };
+  if (refusMotDePasseUpwork(texte)) return { ok: false, error: "Jamais de mot de passe dans un message : envoie le lien « choisir mon mot de passe »." };
   if (o.canal === "help") {
     if (!o.demande_id) return { ok: false, error: "Help : il faut une demande (sinon choisis Email, Slack ou Upwork)" };
     return await repondre(db, auteur, o.demande_id, texte);

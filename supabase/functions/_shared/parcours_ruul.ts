@@ -152,7 +152,8 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
 
   // La carte « Ruul jamais fini » n'est pas un email : elle passe même un jour où un email est parti.
   const ruul = etatRuul(e);
-  const ruulEnCours = !ruulPret(e) && (!!e.ruul_email_a_at || !!e.ruul_email_b_at);
+  // 13/11 (règle Ruul) : « Active » dans Ruul = payable le lundi : plus de relance « Ruul pas prêt ».
+  const ruulEnCours = !ruulPret(e) && e.ruul_compte !== "active" && (!!e.ruul_email_a_at || !!e.ruul_email_b_at);
   if (ruulEnCours && ruul.n >= RUUL_MAX && ruul.depuis && t - new Date(ruul.depuis).getTime() >= 2 * JOUR && !envoye(e, "carte_ruul")) {
     return { type: "carte_ruul", cle: "carte_ruul" };
   }
@@ -315,7 +316,8 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
       if (d.ruul_compte !== "active") {
         return {
           objet: "Reminder: create your Ruul account to get paid",
-          corps: [bonjour(d), "Your Ruul account isn't ready yet, so we can't pay you.", guideRuul(d.ruul_email, avant)].join("\n\n"),
+          corps: [bonjour(d), "Your Ruul account isn't ready yet, so we can't pay you.", guideRuul(d.ruul_email, avant),
+            "You don't need Ruul to start posting — it's only to get paid. You're paid every Monday for the week you posted."].join("\n\n"),
           bouton: BOUTON_RUUL,
         };
       }

@@ -50,7 +50,8 @@ import {
 } from "../_shared/ruul.ts";
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
-import { dansFenetre, type Decision, emailParcours, type EtatParcours, prochainEnvoi, type TypeParcours } from "../_shared/parcours_ruul.ts";
+import { dansFenetre, type Decision, emailParcours, etatRuul, type EtatParcours, PARIS, prochainEnvoi, ruulPret, type TypeParcours } from "../_shared/parcours_ruul.ts";
+import { partiesLocales as partiesParis } from "../_shared/relances.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { emailRattrapage, estPret as estPretRattrapage, etapesFaites, type SituationRattrapage } from "../_shared/rattrapage_ruul.ts";
 import {
@@ -168,6 +169,8 @@ Deno.serve(async (request) => {
     if (body?.action === "rattrapage") return json(await rattrapage(supabase, body));
     // 13/11 : le rattrapage des emails perdus (Brevo) : le plan, puis l'envoi seulement avec confirmer: true.
     if (body?.action === "perdus") return json(await perdus(supabase, body));
+    // 13/11 (Max) : une relance Ruul ponctuelle à une cohorte (« Invited » pas prêts) : la liste, puis l'envoi avec confirmer: true.
+    if (body?.action === "relance_ruul") return json(await relanceRuul(supabase, body));
     // 0592 : « dimanche » (ancien nom de la tâche) et « soir » : la liste de tous les soirs.
     if (body?.action === "dimanche" || body?.action === "soir") return json(await listeSoir(supabase, body?.forcer === true));
     return json({ ok: false, error: "action inconnue" }, 400);
@@ -761,6 +764,48 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision & { num
   }
   await noter(r.ok, r.ok ? ["email"] : [], r.erreur);
   return { poster: e.poster_id, type: d.type, cle: d.cle, ok: r.ok, erreur: r.erreur };
+}
+
+/**
+ * 13/11 (Max) : la relance Ruul d'une cohorte, une seule fois par jour et par personne, aux « Invited »
+ * pas prêts (STOP et mis de côté exclus). C'est la relance Ruul du parcours (même texte, même suite :
+ * elle compte comme ruul_N). Sans confirmer : la liste seulement. Par défaut, pas à qui a déjà reçu un
+ * email aujourd'hui (règle des relances) ; aujourdhui_aussi: true lève cette règle pour cet envoi.
+ */
+async function relanceRuul(supabase: Supabase, body: { cohorte?: string; confirmer?: boolean; aujourdhui_aussi?: boolean; max?: number }) {
+  const cohorte = String(body?.cohorte ?? "");
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(cohorte)) return { ok: false, error: "cohorte (lundi AAAA-MM-JJ) obligatoire" };
+  const { data, error } = await supabase.rpc("ruul_parcours_etat");
+  if (error) throw error;
+  const { data: exclus } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").eq("ruul_ne_pas_inviter", true);
+  const deCote = new Set(((exclus ?? []) as { id: string }[]).map((x) => x.id));
+  const maintenant = new Date();
+  const auj = partiesParis(maintenant, PARIS).date;
+  const jourDe = (at: string) => partiesParis(new Date(at), PARIS).date;
+  const cibles = ((data ?? []) as EtatParcours[]).filter((e) =>
+    e.cohorte_lundi === cohorte && e.ruul_compte === "invited" && !ruulPret(e) && !e.relances_stop_at && !!e.email && !deCote.has(e.poster_id)
+    // Une seule fois aujourd'hui : pas si une relance Ruul est déjà partie aujourd'hui.
+    && !e.envois.some((x) => x.ok && x.type === "ruul" && jourDe(x.at) === auj));
+  const emailAuj = (e: EtatParcours) => e.envois.some((x) => x.ok && x.type !== "carte_ruul" && jourDe(x.at) === auj)
+    || [e.ruul_email_a_at, e.ruul_email_b_at].some((x) => !!x && jourDe(x) === auj);
+  const liste = cibles.map((e) => ({ poster: e.poster_id, prenom: e.prenom, email: e.email, deja_email_aujourdhui: emailAuj(e), relances: etatRuul(e).n }));
+  const envoyables = cibles.filter((e) => body?.aujourdhui_aussi === true || !emailAuj(e));
+  if (body?.confirmer !== true) {
+    return { ok: true, simulation: true, cohorte, total: cibles.length, envoyables: envoyables.length, deja_email_aujourdhui: liste.filter((l) => l.deja_email_aujourdhui).length, liste };
+  }
+  if (!dansFenetre(maintenant, "ruul")) return { ok: false, error: "hors de la fenêtre 9 h–20 h (Paris) : rien n'est parti" };
+  const v2 = await reglageTexte(supabase, "ruul_emails_v2") === "on";
+  const slack = await lienSlackInvitation(supabase);
+  const max = Math.min(60, Math.max(1, Number(body?.max ?? 60)));
+  const bilan: Record<string, unknown>[] = [];
+  for (const e of envoyables.slice(0, max)) {
+    const n = etatRuul(e).n + 1;
+    bilan.push(await executer(supabase, e, { type: "ruul", cle: `ruul_${n}`, numero: n }, slack, v2));
+  }
+  return {
+    ok: true, cohorte, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length,
+    restants: Math.max(0, envoyables.length - max), bilan,
+  };
 }
 
 /** L'aperçu de chaque email du parcours pour un vrai posteur : rien n'est envoyé ni écrit. */

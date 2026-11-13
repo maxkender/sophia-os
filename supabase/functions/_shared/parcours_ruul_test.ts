@@ -183,3 +183,16 @@ Deno.test("0698 : identité refusée une fois → refaire ; deux fois → fin de
     assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
   }
 });
+
+Deno.test("13/11 : « Active » dans Ruul = payable : plus de relance « Ruul pas prêt » ; « Invited » : relance tous les 2 jours", () => {
+  const vendredi = new Date("2026-11-13T10:00:00Z");
+  const co = { premiere_connexion_at: "2026-11-11T09:00:00Z", tiktok_existe: true, warmup_started_at: "2026-11-11T10:00:00Z", abonnements: 6, slack_user_id: "U1" };
+  const invite = base({ ...co, ruul_compte: "invited", ruul_email_a_at: "2026-11-11T08:00:00Z" });
+  assertEquals(prochainEnvoi(invite, vendredi, { bienvenue: false, v2: true })?.type, "ruul");
+  const actif = base({ ...co, ruul_compte: "active", ruul_email_a_at: "2026-11-11T08:00:00Z", ruul_email_b_at: "2026-11-11T08:30:00Z" });
+  assertEquals(prochainEnvoi(actif, vendredi, { bienvenue: false, v2: true }), null);
+  // Email A il y a moins de 2 jours : pas encore de relance.
+  assertEquals(prochainEnvoi(base({ ...co, ruul_compte: "invited", ruul_email_a_at: "2026-11-12T16:41:00Z" }), vendredi, { bienvenue: false, v2: true }), null);
+  const d = { prenom: "Ana", login: null, motDePasse: "x", dashboard: "https://os", handle: null, slack: "https://slack", cohorte_lundi: "2026-11-16", ruul_email: "a@b.c", abonnements: null, ruul_compte: "invited" };
+  assertStringIncludes(emailParcours("ruul", d, "https://pret").corps, "You don't need Ruul to start posting — it's only to get paid. You're paid every Monday for the week you posted.");
+});

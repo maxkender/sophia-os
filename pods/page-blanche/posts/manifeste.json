@@ -3164,6 +3164,33 @@
     "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
    },
    "statut": "nouveau"
+  },
+  {
+   "post_id": "var-success-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7705457734870699296?variante=var-success-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#successhabits #selfimprovement #discipline",
+   "musique": {
+    "titre": "hold the line",
+    "auteur": "drifting.",
+    "original": false,
+    "id": "7694570671943534599",
+    "url_tiktok": "https://www.tiktok.com/music/x-7694570671943534599"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7705457734870699296_1",
+    "2": "7696836327026724128_6",
+    "3": "7685736268617059616_5",
+    "4": "7703619977630190881_6",
+    "5": "7680975889932225814_6",
+    "6": "7686189452963712288_3"
+   },
+   "notes": "déclinaison G1 de 7705457734870699296 (variante de 7705457734870699296); cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "c4ee8a11-e13a-4241-9e09-3799519f1609"
   }
  ]
 }

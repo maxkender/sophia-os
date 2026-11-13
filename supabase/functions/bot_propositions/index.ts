@@ -56,6 +56,26 @@ Deno.serve(async (request) => {
   const bot = botDuJeton(request.headers.get("authorization"), secrets);
   if (!bot) return json({ ok: false, error: "jeton refusé" }, 401);
 
+  // 13/11 (refonte, Pay BOT) : la liste « à financer », « finance » (milestone financée), « attente » (OK de Max).
+  if (bot === "pay_bot" && ["a_financer", "finance", "attente"].includes(String(corps?.action ?? ""))) {
+    try {
+      const supabase = serviceClient();
+      if (modeAgent(await lireControle(supabase), bot) === "eteint") return json({ ok: false, error: "Paused by the admin: do nothing for now and try again later." });
+      const id = String(corps?.id ?? "");
+      if (corps?.action !== "a_financer" && !/^[0-9a-f-]{36}$/i.test(id)) return json({ ok: false, error: "id (uuid) obligatoire" }, 400);
+      const { data, error } = corps?.action === "a_financer"
+        ? await supabase.rpc("pay_bot_liste")
+        : corps?.action === "finance"
+        ? await supabase.rpc("pay_bot_finance", { p_id: id })
+        : await supabase.rpc("pay_bot_attente", { p_id: id, p_raison: String(corps?.raison ?? "").slice(0, 300) });
+      if (error) return json({ ok: false, error: error.message }, 500);
+      await supabase.from("bot_appels").insert({ bot, action: `pay_${corps?.action}`, ok: (data as { ok?: boolean })?.ok !== false, args: { id: id || null } });
+      return json(data);
+    } catch (e) {
+      return json({ ok: false, error: messageErreur(e) }, 500);
+    }
+  }
+
   const lu = lireCorps(corps);
   if ("erreur" in lu) return json({ ok: false, error: lu.erreur }, 400);
 

@@ -69,6 +69,14 @@ export const LIBELLES_ACTIONS: Record<string, string> = {
   ticket_regle_prevenir: "Prévenir le posteur quand le ticket est réglé",
 };
 
+/** Ce qui apparaît seulement au journal ou en proposition (pas d'interrupteur à part). */
+export const LIBELLES_JOURNAL: Record<string, string> = {
+  reponse: "Réponse au posteur",
+  financer: "Financer une milestone (Upwork)",
+  pay_ok: "OK de Max pour financer",
+  reglage: "Réglage changé",
+};
+
 export const CANAUX: readonly { cle: string; libelle: string }[] = [
   { cle: "help", libelle: "Help (dashboard)" },
   { cle: "slack", libelle: "Slack" },

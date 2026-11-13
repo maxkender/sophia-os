@@ -9,7 +9,7 @@ import { Segments } from "@/components/ui/segments";
 import { cn } from "@/lib/utils";
 
 import {
-  AGENTS, annuler, CANAUX, LIBELLES_ACTIONS, lireControle, lirePropositions, listeActions, type Mode, regler, traiterProposition,
+  AGENTS, annuler, CANAUX, LIBELLES_ACTIONS, LIBELLES_JOURNAL, lireControle, lirePropositions, listeActions, type Mode, regler, traiterProposition,
 } from "./controle";
 
 const MODES: readonly { cle: Mode; contenu: string }[] = [
@@ -200,7 +200,7 @@ function LigneProposition({ p }: { p: Awaited<ReturnType<typeof lirePropositions
     <div className="flex flex-wrap items-center gap-2 rounded-md border px-3 py-1.5 text-sm" data-testid="proposition">
       <span className="text-muted-foreground text-xs">{quand(p.at)}</span>
       <Badge variant="outline">{p.qui}</Badge>
-      <span className="min-w-0 flex-1">{LIBELLES_ACTIONS[action] ?? action}{p.details.valeur ? ` : ${p.details.valeur}` : ""}</span>
+      <span className="min-w-0 flex-1">{LIBELLES_ACTIONS[action] ?? LIBELLES_JOURNAL[action] ?? action}{action === "pay_ok" ? ` : ${p.resultat ?? ""}` : p.details.valeur ? ` : ${p.details.valeur}` : ""}</span>
       {m.data?.resultat ? <span className="text-success text-xs">{m.data.resultat}</span> : (
         <>
           <Button size="sm" disabled={m.isPending} onClick={() => m.mutate(true)}>Faire</Button>
@@ -241,7 +241,7 @@ function Journal() {
               <tr key={`${l.source}-${l.id}`} className={cn("border-border/40 border-b", l.annule_at && "line-through opacity-60")} data-testid="ligne-journal">
                 <td className="whitespace-nowrap py-1 pr-2">{quand(l.at)}</td>
                 <td className="py-1 pr-2">{l.qui}</td>
-                <td className="py-1 pr-2">{LIBELLES_ACTIONS[l.quoi] ?? l.quoi}{l.mode !== "agir" && <Badge variant="outline" className="ml-1 h-4 px-1 text-[10px]">{l.mode === "proposer" ? "proposé" : "bloqué"}</Badge>}</td>
+                <td className="py-1 pr-2">{LIBELLES_ACTIONS[l.quoi] ?? LIBELLES_JOURNAL[l.quoi] ?? l.quoi}{l.mode !== "agir" && <Badge variant="outline" className="ml-1 h-4 px-1 text-[10px]">{l.mode === "proposer" ? "proposé" : "bloqué"}</Badge>}</td>
                 <td className="py-1 pr-2">{l.nom ?? "—"}</td>
                 <td className="py-1 pr-2">{l.canal ?? "—"}</td>
                 <td className="py-1 pr-2">{l.montant != null ? `${l.montant} $` : "—"}</td>

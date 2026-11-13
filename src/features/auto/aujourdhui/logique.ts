@@ -29,6 +29,8 @@ export interface EntreeAujourdhui {
   emailsNonDelivres?: number;
   brevoSansCredit?: boolean;
   brevoCleAbsente?: boolean;
+  /** 0701 : crédits Brevo restants (null : inconnus). */
+  brevoCredits?: number | null;
   /** 0 = dimanche … 6 = samedi, heure de Paris. */
   jourSemaine: number;
 }
@@ -52,6 +54,10 @@ export function lignesAujourdhui(e: EntreeAujourdhui): LigneAujourdhui[] {
     l.push({ cle: "brevo_credit", icone: "🚨", rang: 0, texte: `Brevo sans crédit : ${s(n, "email en attente", "emails en attente")} (ils partiront dès que Brevo a du crédit)`, bouton: "Brevo", to: "https://app.brevo.com/billing/addon/customize/emails" });
   } else if ((e.emailsEnFile ?? 0) > 0) {
     l.push({ cle: "emails_file", icone: "📨", rang: 2, texte: `${s(e.emailsEnFile!, "email en file", "emails en file")} : Brevo a refusé, nouvel essai automatique`, bouton: "Voir", to: "/admin/auto/ruul" });
+  }
+  // 0701 : moins de 1 000 crédits Brevo → recharger avant la panne.
+  if (!e.brevoSansCredit && typeof e.brevoCredits === "number" && e.brevoCredits < 1000) {
+    l.push({ cle: "brevo_bas", icone: "🪫", rang: 1, texte: `Brevo : plus que ${e.brevoCredits} crédits`, bouton: "Recharger", to: "https://app.brevo.com/billing/addon/customize/emails" });
   }
   if ((e.emailsNonDelivres ?? 0) > 0) {
     l.push({ cle: "emails_refuses", icone: "✉️", rang: 2, texte: `${s(e.emailsNonDelivres!, "email non délivré", "emails non délivrés")} (24 h)`, bouton: "Voir", to: "/admin/auto/ruul" });

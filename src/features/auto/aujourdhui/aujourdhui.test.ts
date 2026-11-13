@@ -46,6 +46,9 @@ describe("Aujourd'hui (OS clair)", () => {
     expect(file.map((l) => l.cle)).toEqual(["emails_file", "emails_refuses", "brevo_cle"]);
     expect(file[0].texte).toBe("1 email en file : Brevo a refusé, nouvel essai automatique");
     expect(lignesAujourdhui({ ...base, emailsEnFile: 0, emailsNonDelivres: 0 })).toEqual([]);
+    expect(lignesAujourdhui({ ...base, brevoCredits: 850 }).map((l) => l.texte)).toEqual(["Brevo : plus que 850 crédits"]);
+    expect(lignesAujourdhui({ ...base, brevoCredits: 1000 })).toEqual([]);
+    expect(lignesAujourdhui({ ...base, brevoCredits: null })).toEqual([]);
   });
 
   it("le jour de la semaine à Paris", () => {

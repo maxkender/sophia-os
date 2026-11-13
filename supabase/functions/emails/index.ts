@@ -14,6 +14,7 @@
 import {
   appelerSite,
   brevoGet,
+  contenuBrevo,
   creditsEmail,
   delaiEssai,
   type EvenementBrevo,
@@ -283,19 +284,6 @@ async function verifierRattrapage(supabase: Supabase, body: { cle?: string; jour
     evenements_vus: [...new Set(liste.flatMap((l) => l.evenements))],
     non_delivres_liste: liste.filter((l) => l.statut !== "delivre").map((l) => ({ poster_id: l.poster_id, prenom: l.prenom, email: l.email, statut: l.statut, evenement: l.evenement, raison: l.raison })),
   };
-}
-
-/** Le contenu d'un email envoyé, gardé par Brevo (GET /smtp/emails?messageId → uuid → /smtp/emails/{uuid}). */
-async function contenuBrevo(messageId: string): Promise<{ objet: string; html: string } | { erreur: string }> {
-  const l = await brevoGet(`/smtp/emails?${new URLSearchParams({ messageId, limit: "5" })}`);
-  if (!l.ok) return { erreur: `liste : ${l.erreur}` };
-  const uuid = ((l.data as { transactionalEmails?: { uuid?: string }[] } | null)?.transactionalEmails ?? [])[0]?.uuid;
-  if (!uuid) return { erreur: "email introuvable chez Brevo" };
-  const c = await brevoGet(`/smtp/emails/${encodeURIComponent(uuid)}`);
-  if (!c.ok) return { erreur: `contenu : ${c.erreur}` };
-  const d = c.data as { subject?: string; body?: string } | null;
-  if (!d?.body || !d.subject) return { erreur: "contenu non gardé par Brevo" };
-  return { objet: d.subject, html: d.body };
 }
 
 async function renvoyerRattrapage(supabase: Supabase, body: { cle?: string; jour?: string; confirmer?: boolean; max?: number }) {

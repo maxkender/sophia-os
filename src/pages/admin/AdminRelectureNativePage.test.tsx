@@ -28,7 +28,7 @@ const majLabelExemple = vi.fn();
 
 vi.mock("@/features/relectureNative/apiBoucle", () => ({
   CLE_BOUCLE: ["boucle-etat"],
-  etatBoucle: () => Promise.resolve([{ langue: "de", relecteurs: 1, envoyes_7j: 15, a_relire: 3, relus_7j: 12, duels_a_voter: 0, proposees: 7, retenues: 20, retenues_7j: 5, reprises_pct: 18, reprises_pct_avant: 31 }]),
+  etatBoucle: () => Promise.resolve([{ langue: "de", relecteurs: 1, envoyes_7j: 15, a_relire: 3, relus_7j: 12, duels_a_voter: 4, proposees: 7, retenues: 20, retenues_7j: 5, reprises_pct: 18, reprises_pct_avant: 31 }]),
 }));
 vi.mock("@/features/relectureNative/api", () => ({
   lireReglageRelecture: () => lireReglage(),
@@ -413,6 +413,7 @@ describe("AdminRelectureNativePage", () => {
     expect(bandeau.textContent).toMatch(/7 (proposées|proposed)/);
     expect(bandeau.textContent).toMatch(/20 (retenues|kept)/);
     expect(within(bandeau).getByTestId("boucle-reprises").textContent).toMatch(/18 %.*31 %/);
+    expect(within(bandeau).getByTestId("boucle-duels").textContent).toMatch(/4 duels/);
     fireEvent.click(within(bandeau).getByTestId("boucle-corrections"));
     expect(await screen.findByTestId("section-corrections")).toBeInTheDocument();
   });

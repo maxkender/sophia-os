@@ -44,8 +44,19 @@ describe("ChecklistRuul (0592)", () => {
     const { unmount } = rendu();
     const attente = await screen.findByTestId("ruul-etape-ruul");
     expect(attente).toHaveTextContent("Ruul invitation on its way");
-    expect(attente).toHaveTextContent("Nothing to do for now.");
-    expect(within(attente).queryByRole("button")).toBeNull();
+    expect(attente).toHaveTextContent("You can already set up your Ruul account now (5 minutes)");
+    // 13/11 (Max) : le guide pas à pas, dépliable, avec l'email exact ; Open Ruul → app.ruul.io/register ; pas encore « It's done ».
+    const guide = within(attente).getByTestId("guide-ruul");
+    expect(guide).toHaveTextContent("How to set up Ruul");
+    expect(guide).toHaveTextContent("Set up Ruul — required to get paid (5 minutes)");
+    expect(guide).toHaveTextContent("Do it before your first post: before Sunday midnight (Paris time).");
+    expect(guide).toHaveTextContent("Choose « Contractor » (not Business).");
+    expect(guide).toHaveTextContent("Email: use exactly ana@test.zz (the one in your dashboard).");
+    expect(guide).toHaveTextContent("Role: choose « Digital Creator ».");
+    expect(guide).toHaveTextContent("go to « Payment accounts » → « Add my ID »");
+    expect(guide).toHaveTextContent("Problem with Ruul? Click Help in your dashboard.");
+    expect(within(attente).getByTestId("ouvrir-ruul")).toHaveAttribute("href", "https://app.ruul.io/register");
+    expect(within(attente).queryByTestId("ruul-pret")).toBeNull();
     unmount();
     api.lireMonOnboardingRuul.mockResolvedValue({ ...base, ruul_invite: true, ruul_compte: "invited" });
     rendu();
@@ -55,7 +66,8 @@ describe("ChecklistRuul (0592)", () => {
     expect(invite).toHaveTextContent(
       "Go to app.ruul.io and sign up with this exact email: ana@test.zz. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.",
     );
-    expect(within(invite).getByTestId("ouvrir-ruul")).toHaveAttribute("href", "https://app.ruul.io");
+    expect(within(invite).getByTestId("ouvrir-ruul")).toHaveAttribute("href", "https://app.ruul.io/register");
+    expect(within(invite).getByTestId("guide-ruul")).toBeInTheDocument();
     // Le warm-up : le compteur et « I've started the warm-up ».
     expect(screen.getByTestId("ruul-etape-warmup").textContent).toContain("I've started the warm-up");
   });

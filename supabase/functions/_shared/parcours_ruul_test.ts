@@ -81,8 +81,19 @@ Deno.test("emails : anglais, sans « bot », mot de passe 12345678, dates de Par
   assertEquals(emailParcours("ruul", { ...d, ruul_compte: "active" }, "https://pret").bouton?.texte, "It's done");
   // 13/11 (Max) : « Invited » : il s'inscrit lui-même sur app.ruul.io avec l'email exact.
   const inv = emailParcours("ruul", { ...d, ruul_compte: "invited" }, "https://pret");
-  assertEquals(inv.bouton, { texte: "Open Ruul", lien: "https://app.ruul.io" });
-  assertStringIncludes(inv.corps, "Go to app.ruul.io and sign up with this exact email: e@gmail.com. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.");
+  assertEquals(inv.bouton, { texte: "Open Ruul", lien: "https://app.ruul.io/register" });
+  // 13/11 (Max) : le guide Ruul pas à pas, avec l'email Ruul exact et la date limite.
+  assertStringIncludes(inv.corps, "Set up Ruul — required to get paid (5 minutes)");
+  assertStringIncludes(inv.corps, "Do it before your first post: before Sunday, 15 November at midnight (Paris time).");
+  assertStringIncludes(inv.corps, "1. Go to app.ruul.io/register\n2. Choose « Contractor » (not Business).");
+  assertStringIncludes(inv.corps, "   Email: use exactly e@gmail.com (the one in your dashboard).");
+  assertStringIncludes(inv.corps, "7. Once inside Ruul: go to « Payment accounts » → « Add my ID » → follow the steps (ID + bank details).");
+  assertStringIncludes(inv.corps, "Problem with Ruul? Click Help in your dashboard.");
+  // La bienvenue porte le même guide et le bouton Open Ruul.
+  const bv = emailParcours("bienvenue", d, "https://pret");
+  assertStringIncludes(bv.corps, "Set up Ruul — required to get paid (5 minutes)");
+  assertEquals(bv.bouton, { texte: "Open Ruul", lien: "https://app.ruul.io/register" });
+  assert(!bv.corps.includes("within 24 hours you'll receive an invitation"));
 });
 
 Deno.test("point du soir Ruul : 5 lignes (prêts, emails par type, désactivés, erreurs, à faire)", () => {
@@ -134,8 +145,8 @@ Deno.test("v2 : report avec sa checklist personnelle ; A, B, arrêt sans mot int
     assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
   }
   const a = emailParcours("invite_a", d, "https://pret");
-  assertEquals(a.bouton, { texte: "Open Ruul", lien: "https://app.ruul.io" });
-  assertStringIncludes(a.corps, "sign up with this exact email: a@b.c.");
+  assertEquals(a.bouton, { texte: "Open Ruul", lien: "https://app.ruul.io/register" });
+  assertStringIncludes(a.corps, "Email: use exactly a@b.c (the one in your dashboard).");
   assert(!a.corps.includes("Open the email from Ruul"));
 });
 
@@ -154,7 +165,8 @@ Deno.test("13/11 : le samedi, « Invited » qui a posté → « Finish your Ruul
   const e = emailParcours("samedi_ruul", d, "https://pret");
   assertEquals(e.objet, "Finish your Ruul account before Monday to be paid this week");
   assertStringIncludes(e.corps, "Finish your Ruul account before Monday to be paid this week.");
-  assertStringIncludes(e.corps, "sign up with this exact email: a@b.c.");
+  assertStringIncludes(e.corps, "Email: use exactly a@b.c (the one in your dashboard).");
+  assert(!e.corps.includes("Do it before your first post"));
   assertEquals(e.bouton?.texte, "Open Ruul");
   assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`));
 });

@@ -158,7 +158,7 @@ export function age(depuis: string, maintenant = Date.now()): string {
   return `${Math.round(heures / 24)} d`;
 }
 
-async function appeler<T>(body: Record<string, unknown>): Promise<T> {
+export async function appeler<T>(body: Record<string, unknown>): Promise<T> {
   const { data, error } = await supabase.functions.invoke("support", { body });
   if (error) {
     let message = error.message;

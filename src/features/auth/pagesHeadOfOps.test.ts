@@ -33,6 +33,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/sent",
   "/admin/auto/received",
   "/admin/auto/problemes",
+  "/admin/auto/problemes-cartes",
   "/admin/auto/needs-you-ancien",
   "/admin/auto/problems",
   "/admin/auto/disputes",

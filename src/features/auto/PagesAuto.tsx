@@ -10,6 +10,7 @@ import { PageNeedsYou } from "@/features/needsYou/PageNeedsYou";
 import { ADeciderMaintenant } from "@/features/problemes/ADeciderMaintenant";
 import { BandeauCoherence } from "@/features/coherence/BandeauCoherence";
 import { SectionDoubles } from "@/features/doubles/SectionDoubles";
+import { PageProblemesClaire } from "@/features/problemes/PageProblemesClaire";
 import { PageProblemesPosteurs } from "@/features/problemes/PageProblemesPosteurs";
 import { PageReglesBots } from "@/features/problemes/PageReglesBots";
 import { SectionSure } from "@/components/erreurs/SectionSure";
@@ -141,6 +142,15 @@ export function ReceivedPage() {
 export function NeedsYouPage() {
   return (
     <PageAuto cle="needs">
+      <PageProblemesClaire />
+    </PageAuto>
+  );
+}
+
+/** 13/11 (Max) : l'ancienne vue des cartes Problèmes (hors menu, dans Réglages › Anciennes pages). */
+export function CartesProblemesPage() {
+  return (
+    <PageAuto cle="cartes">
       <PageProblemesPosteurs />
     </PageAuto>
   );

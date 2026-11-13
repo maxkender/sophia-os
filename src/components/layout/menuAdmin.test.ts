@@ -18,6 +18,7 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/sent",
       "/admin/auto/received",
       "/admin/auto/problemes",
+      "/admin/auto/problemes-cartes",
       "/admin/auto/problems",
       "/admin/auto/disputes",
       "/admin/auto/payroll",
@@ -38,13 +39,13 @@ describe("menu admin (prompt 22)", () => {
   });
 
   it("OS clair (12/11) : 7 entrées dans le menu, les autres pages rangées dans Réglages", () => {
-    expect(MENU_AUTO.map((m) => m.cle)).toEqual(["aujourdhui", "posteurs", "ruul", "decisions", "paie", "support", "reglages"]);
+    expect(MENU_AUTO.map((m) => m.cle)).toEqual(["aujourdhui", "problemes", "posteurs", "ruul", "decisions", "paie", "support", "reglages"]);
     expect(source).toContain("items: MENU_AUTO.map((m) => ({");
     // Rien n'est perdu : chaque page est au menu ou dans Réglages.
     for (const p of PAGES_AUTO) {
       expect(MENU_AUTO.some((m) => m.page === p.cle) || ANCIENNES_PAGES.includes(p.cle), p.cle).toBe(true);
     }
-    for (const cachee of ["cohorts", "sent", "received", "needs"] as const) expect(ANCIENNES_PAGES).toContain(cachee);
+    for (const cachee of ["cohorts", "sent", "received", "cartes"] as const) expect(ANCIENNES_PAGES).toContain(cachee);
   });
 
   it("les pages remplacées ou retirées ne sont plus dans le menu", () => {

@@ -15,6 +15,7 @@ import {
   Gauge,
   LineChart,
   ListChecks,
+  Siren,
   type LucideIcon,
   Gift,
   GitBranch,
@@ -59,6 +60,7 @@ import { useParrainageActif } from "@/features/bonus/parrainageActif";
 /** Les icônes des pages de Recruitment Automation (prompt 22). */
 const ICONES_MENU: Record<EntreeMenuAuto, LucideIcon> = {
   aujourdhui: ListChecks,
+  problemes: Siren,
   posteurs: Users,
   ruul: UserPlus,
   decisions: Gavel,

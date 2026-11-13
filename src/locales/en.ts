@@ -5001,6 +5001,7 @@ export const en = {
       // 12/11 (OS clair): the section menu, 7 entries.
       menu: {
         aujourdhui: "Today",
+        problemes: "Problems",
         posteurs: "Posters",
         ruul: "Ruul",
         decisions: "Decisions",
@@ -5010,6 +5011,7 @@ export const en = {
       },
       menuDesc: {
         aujourdhui: "What you need to do now.",
+        problemes: "Urgent, with the bots, Saturday: what is left to fix.",
         posteurs: "Every poster, their steps and reminders.",
         ruul: "Posters paid through Ruul, from application to pay.",
         decisions: "This week's decisions (Thursday, Saturday).",
@@ -5027,6 +5029,7 @@ export const en = {
         sent: { titre: "Messages sent" },
         received: { titre: "Messages received" },
         needs: { titre: "Problems" },
+        cartes: { titre: "Problems · cards (old view)" },
         problems: { titre: "System alerts" },
         disputes: { titre: "Disputes" },
         payroll: { titre: "Payroll" },
@@ -5080,6 +5083,7 @@ export const en = {
         sent: "Every message the OS sends to recruits and posters, and the texts it uses.",
         received: "Everything posters write to us, sorted by the OS.",
         needs: "One problem per poster and per topic: urgent, today or Saturday, with a proposed reply and action. Validate, edit, ignore or move to Saturday.",
+        cartes: "The old Problems card view, one card per poster, with every action. The menu page shows the same problems in 3 sections.",
         problems: "Only serious alerts: messages that no longer go out, too many API calls, a connection or a task down. Each with a way to debug it.",
         disputes: "When someone says the OS got it wrong: pay, Kill, posts, messages. Check, fix, answer.",
         payroll: "Monday pay for the week just finished.",

@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o107",
+ "type_bleo": "full_test",
+ "titre": "Habits that make a man sharper every single year #men #habits #selfimprovement #discipline #learning",
+ "musique_titre": "Elle Ta Tue Instrumental (Morena)",
+ "musique_url": "https://www.tiktok.com/music/elle-ta-tue-instrumental-morena-7430147882671508257",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Full test du jour (3 sur 3, jauge : 3 sur 10). Accroche jamais faite chez nous : aucun « sharper every » dans donnees/label.json (« smarter » n'y est que dans des items). Habitudes concrètes, promesse neuve : progresser d'année en année. Rien de médical. Format : numéro, habitude, deux lignes. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Slide Sophia : montagne enneigée au crépuscule, sans personne. reference_url : le post source de am-o036 (slides 2 à 7 ; 1 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ed265d52",
+   "texte_overlay": "Habits that make a man\nsharper every single year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aae8ff9f",
+   "texte_overlay": "1. Write down one thing\nyou learned each night\n\nOne line. 365 a year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "314c92e5",
+   "texte_overlay": "2. Train your body\n\nA strong body carries\na clear head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0028f0a3",
+   "texte_overlay": "3. Teach what you learn\n\nExplaining it to a friend\nlocks it in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "31965402",
+   "texte_overlay": "4. Pick one new skill a year\n\nCooking, a language, chess.\nTen years, ten skills.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "42c1e888",
+   "texte_overlay": "5. Walk without headphones\n\nYour best ideas need\na little quiet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4c2f46cc",
+   "texte_overlay": "6. Learn something daily\n\nFive minutes.\nEvery single day.",
+   "texte_sophia": "6. Learn something daily\n\nI do 5 minutes a day\non the Sophia app.\nEvery single day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

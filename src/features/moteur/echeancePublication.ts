@@ -94,6 +94,7 @@ export const FUSEAU_PAYS: Readonly<Record<string, string>> = Object.freeze({
   PK: "Asia/Karachi",
   IN: "Asia/Kolkata",
   JP: "Asia/Tokyo",
+  KR: "Asia/Seoul",
   NZ: "Pacific/Auckland",
 });
 

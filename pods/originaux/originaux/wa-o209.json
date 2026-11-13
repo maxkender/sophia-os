@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o209",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ea4ba00f-25e7-462a-8327-c2542b2ae97f",
+ "titre": "psychology hacks that make people open up to you #psychology #socialskills #conversation #humanbehavior #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "ff08dbe6-59fc-4d62-b938-c2fec3885344"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ff08dbe6). déclinaison G2 de « weird psychology tricks that actually work » (parent ea4ba00f). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "044594ec-2ebf-4043-af0f-2c0252231056",
+   "texte_overlay": "psychology hacks that make\npeople open up to you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04efbb67-065a-4877-8137-db700ad4648d",
+   "texte_overlay": "mirror their last words\n\nrepeat the last few words someone said as a gentle question. it shows you're listening closely, and people almost always keep talking and explain more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "08538975-1b72-40ef-853c-e0c621689290",
+   "texte_overlay": "sit at an angle\n\nsit beside someone or at a slight angle instead of directly opposite. face to face feels like an interview, while side by side feels relaxed and friendly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1d3cef1d-c77c-406c-a7ad-30e22bb16a7c",
+   "texte_overlay": "share something first\n\npeople open up after you share something real first. an interesting story or a strange fact is the easiest and most natural place to start any conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/4.jpg",
+   "texte_sophia": "share something first\n\ni always share one interesting thing first, like a strange myth. i learn one a day in 5 minutes with the Sophia app, and people open up so much faster after i do."
+  },
+  {
+   "position": 5,
+   "media_id": "1fd34e88-2401-48be-a567-0544f63e415a",
+   "texte_overlay": "lower your voice\n\nspeak a little softer when the conversation turns personal. a quieter voice signals that this is a safe space, and people naturally match your calm tone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "09f3c5ec-5865-4b75-aaf2-09b26f882393",
+   "texte_overlay": "don't rush to advise\n\nwhen someone shares a problem, ask how they feel before offering solutions. feeling understood first is what makes people trust you with even more of their story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/6.jpg"
+  }
+ ]
+}

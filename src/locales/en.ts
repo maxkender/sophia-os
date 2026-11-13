@@ -948,6 +948,7 @@ export const en = {
       lt: "Lithuanian",
       lv: "Latvian",
       ja: "Japanese",
+      ko: "Korean",
     },
     pays: {
       fr: "France",
@@ -981,6 +982,7 @@ export const en = {
       lt: "Lithuania",
       lv: "Latvia",
       ja: "Japan",
+      ko: "South Korea",
     },
     applications: {
       switcher: "Application",
@@ -1033,7 +1035,7 @@ export const en = {
         loginAide: "Keep it: it's the login of your dashboard.",
         valider: "Save my password and log in",
         aide:
-          "First time? Open the personal « Set my password » link in your welcome message on Upwork: it works once, for 14 days. Lost it or expired? Ask your hiring manager on Upwork, or on Slack in #questions, for a new link.",
+          "First time? Open the personal « Set my password » link in your welcome message on Upwork: it works once, for 14 days. Lost it or expired? Ask your hiring manager on Upwork for a new link.",
         connexionAPart: "Your password is saved. Log in with your login and this password.",
         versConnexion: "Go to the login page",
         etat: {
@@ -3785,9 +3787,9 @@ export const en = {
       compteAjouteJob:
         "Account @{handle} added — scrape + scores + cleaning started in the background (see logs below).",
       compteAjouteFile:
-        "@{{handle}} added: its profile goes straight into the update queue, one source at a time (follow it in “Update sources”).",
+        "@{{handle}} added: the import of its best posts is starting. The rest will come if it holds on our accounts (see “Sources import queue”).",
       compteAjouteAttente:
-        "@{{handle}} added: an update is already running, its profile will lead the next batch (next morning at 6:37).",
+        "@{{handle}} added: it is waiting for its turn in the import queue, behind the updates (see “Sources import queue”).",
       importJobLance:
         "Import started in the background — the page stays usable. Follow the logs below.",
       jobsTitre: "Imports in progress",
@@ -3854,6 +3856,79 @@ export const en = {
       updateAide:
         "Catches up on everything missing for this account: new TikToks, but also those an earlier import left behind. Anything already in stock is not re-imported.",
       updateLance: "Update started — catching up on missing slideshows (see logs).",
+      file: {
+        titre: "Sources import queue",
+        description:
+          "Imports are spread over days. Every morning at 6:37: up to {{lot}} weekly updates, then at most {{neuves}} new sources, one source at a time. A new source first imports only its {{essai}} best posts; if it holds on our accounts, the rest comes in batches of {{tranche}}, one Monday after another.",
+        enCours: "Running",
+        enCoursSource_one: "@{{handle}}, {{count}} slideshow still in the queue.",
+        enCoursSource_other: "@{{handle}}, {{count}} slideshows still in the queue.",
+        enCoursDemarre: "A batch is starting.",
+        aSuivre: "Next: {{sources}}.",
+        attente_one: "{{count}} source waiting",
+        attente_other: "{{count}} sources waiting",
+        sansDate: "No date",
+        neuve: "new source",
+        neuveEssai: "new source, {{n}} posts",
+        auPlusTot: "Earliest day: a batch only starts once the previous one is done.",
+        essais: "Sources on trial",
+        colSource: "Source",
+        colLabel: "Label",
+        colImportes: "Imported",
+        colR: "r",
+        colRLabel: "Vs label",
+        colEtat: "Trial",
+        importes: "{{importes}} ({{valides}} approved)",
+        etat: {
+          en_cours: "Running: {{posts}} of {{min}} posts measured",
+          tient: "Holds: the rest comes {{n}} at a time",
+          ne_tient_pas: "Does not hold: import stopped",
+        },
+        lever: "Import the rest",
+        leverConfirme: "Import the rest of @{{handle}} without waiting for the verdict? It will come in batches of {{n}} posts.",
+      },
+      candidats: {
+        titre: "Source proposals",
+        description:
+          "TikTok accounts found by the scout agent, in every language. Approving creates the source and puts it in the import queue: its best posts first, the rest only if it holds on our accounts. Rejecting with a reason helps the agent search better.",
+        onglet: { a_decider: "To decide", plus_tard: "Later", decides: "Decided" },
+        sorteLibelle: "Kind of proposal",
+        sorte: { tout: "All", label: "For a label", concept: "New concepts" },
+        langueFiltre: "Language of the proposals",
+        toutesLangues: "All languages",
+        vide: {
+          a_decider: "Nothing to decide right now.",
+          plus_tard: "Nothing set aside.",
+          decides: "No decision yet.",
+        },
+        conceptNouveau: "New concept",
+        statut: { valide: "Approved", refuse: "Rejected" },
+        chiffres_one:
+          "{{count}} slideshow in the last {{posts}} posts · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
+        chiffres_other:
+          "{{count}} slideshows in the last {{posts}} posts · median {{mediane}} views · best {{max}} · {{n100k}} at 100,000 views or more",
+        posts10k: "{{n}} at 10,000 or more",
+        abonnes: "{{n}} followers",
+        postsTotal_one: "{{count}} post in total",
+        postsTotal_other: "{{count}} posts in total",
+        dernierSlideshow: "last slideshow on {{date}}",
+        releve: "sampled on {{date}}",
+        risques: "Note:",
+        raisonRefus: "Rejected: {{raison}}",
+        labelChoix: "Label for @{{handle}}",
+        langueChoix: "Language of @{{handle}}",
+        labelRequis: "Pick a label to approve.",
+        valider: "Approve",
+        plusTard: "Later",
+        remettre: "Back to decide",
+        refuser: "Reject",
+        raisonLibelle: "Reason for rejecting @{{handle}}",
+        raisonAide: "Why? (the agent reads it)",
+        confirmerRefus: "Confirm rejection",
+        valideLancee: "@{{handle}} is now a source. The import of its {{n}} best posts is starting.",
+        valideAttente: "@{{handle}} is now a source. The import of its {{n}} best posts will start on {{date}} at the earliest.",
+        valideSansDate: "@{{handle}} is now a source. It is in the import queue.",
+      },
       lundi: {
         titre: "Weekly sources update",
         description:
@@ -4872,7 +4947,28 @@ export const en = {
     auto: {
       section: "Recruitment Automation",
       switchesDeplaces: "The switches (off / test / on), pay through the API and the FAQ bot are now in Overview → Switches:",
+      // 12/11 (OS clair): the section menu, 7 entries.
+      menu: {
+        aujourdhui: "Today",
+        posteurs: "Posters",
+        ruul: "Ruul",
+        decisions: "Decisions",
+        paie: "Pay",
+        support: "Support",
+        reglages: "Settings",
+      },
+      menuDesc: {
+        aujourdhui: "What you need to do now.",
+        posteurs: "Every poster, their steps and reminders.",
+        ruul: "Posters paid through Ruul, from application to pay.",
+        decisions: "This week's decisions (Thursday, Saturday).",
+        paie: "Monday pay, Upwork and Ruul.",
+        support: "Poster requests, bot, instructions, rules.",
+        reglages: "Switches, texts and older pages.",
+      },
       pages: {
+        aujourdhui: { titre: "Today" },
+        reglages: { titre: "Settings" },
         overview: { titre: "Overview" },
         recruits: { titre: "Onboarding posters" },
         cohorts: { titre: "Cohorts" },
@@ -4924,6 +5020,8 @@ export const en = {
         },
       },
       phrases: {
+        aujourdhui: "What you need to do now: 5 lines at most, each with its button.",
+        reglages: "Switches, texts and every older page, kept here: nothing is deleted.",
         overview: "Everything the automation does, on one page. The red button stops every automatic action.",
         recruits: "Every recruit until their first post: steps, messages sent, next reminder.",
         cohorts: "Each cohort at a glance: will the next one be ready by Sunday midnight, and how did the past ones do. Read only.",
@@ -4940,7 +5038,7 @@ export const en = {
         ruul_suivi: "Ruul posters to add in Ruul (name, Ruul email, country, zone, rate): add them in Ruul, then mark them added, one by one or all at once.",
         faq: "What the bot answers on Slack and in the dashboard, and what it doesn't know.",
         officielles: "Answers approved by Max: the FAQ bot and the 3 bots give them first, posters see them under “FAQ”.",
-        support: "Everything posters ask: Problems (something is broken for them) and Questions the bot couldn't answer. Reply, solve, add to official answers.",
+        support: "Poster requests and the bot in one place: the inbox (for Max, for Adrien), the Help page preview, the sandbox, your instructions, current rules, the catalogue and tests.",
         parrainage: "Friends that posters invite by email: emails, applications, active, bonuses and cost per recruit, by country and week; top referrers; open countries.",
         slack: "People deactivated in the OS (Kill, STOP, Portugal, contract closed) who are still active Slack members: remove them from channels, deactivate the account.",
         logs: "Everything the automation did. What needs you and what's broken is in Needs you.",
@@ -5479,6 +5577,16 @@ export const en = {
         off: "Off: new contracts aren't read.",
         test: "Test: the OS reads new contracts and shows what it would do (“simulated”), without creating any poster or sending any message.",
         on: "On: each new contract from a known job post creates its poster and gets the welcome message, once.",
+      },
+      // 12/11 (Max): one question per contract (country not found or closed).
+      question: {
+        pays: "Which country does {{nom}} live in?",
+        choisirPays: "Country",
+        valider: "Confirm",
+        ferme: "{{nom}} lives in {{pays}}, a closed country. Create anyway?",
+        creer: "Create anyway",
+        ecarter: "Don't create",
+        aideRegle: "Language and HM come from the rule: an HM covering this country, the least loaded one.",
       },
       aRelier: "Contracts to link ({{n}})",
       rienARelier: "No contract to link.",
@@ -7989,13 +8097,13 @@ export const en = {
         "Text crooked, wrong place, unreadable, or weird photos? Tap below — we throw this slideshow away and give you another one for the same day. Not for “I don’t like the topic”. 2 tries max.",
       rechargerRestants_one: "You have {{count}} attempt left.",
       rechargerRestants_other: "You have {{count}} attempts left.",
-      rechargerEpuise: "You’ve already reloaded this post twice. If the issue continues, ask in #questions on Slack.",
+      rechargerEpuise: "You’ve already reloaded this post twice. If the issue continues, click Help on your dashboard.",
       rechargerConfirm:
         "Replace this post with a completely NEW one? Only if the slideshow is truly broken. You’ll have {{restantes}} attempt(s) left after.",
       rechargerEnCours: "Finding a new post…",
       rechargerOk: "New post ready.",
       rechargerAucun:
-        "No other slideshow available right now — try again later, or ask in #questions on Slack.",
+        "No other slideshow available right now — try again later, or click Help on your dashboard.",
       rechargerEnCoursAilleurs: "This post is already being reloaded. Wait a minute, then refresh the page.",
       rechargerLimite: "Limit reached: 2 reloads maximum for this post.",
       rechargerPublie: "This post is already published — it can’t be reloaded.",
@@ -8345,7 +8453,7 @@ export const en = {
       },
       admin: {
         onglets: { probleme: "Problems", question: "Questions" },
-        filtres: { plateforme: "Platform", toutes: "All", categorie: "Category", statut: "Status", statutOuverts: "Open + waiting", retard: "Late only" },
+        filtres: { niveau: "Level", niveaux: { tous: "All levels", adrien: "Adrien", max: "Max · Payment / urgent", bot: "Bot" }, plateforme: "Platform", toutes: "All", categorie: "Category", statut: "Status", statutOuverts: "Open + waiting", retard: "Late only" },
         statuts: { bot: "Bot", ouvert: "Open", attente_posteur: "Waiting for poster", resolu: "Solved" },
         verdict: { probleme_confirme: "Bot check: problem confirmed", pas_de_probleme: "Bot check: no problem in the data", incertain: "Bot check: not enough data" },
         late: "Late",
@@ -9531,6 +9639,7 @@ export const en = {
         lt: "Lithuania",
         lv: "Latvia",
         ja: "Japan",
+        ko: "South Korea",
       },
       err: {
         prenom: "First name is required.",

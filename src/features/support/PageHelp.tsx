@@ -14,6 +14,7 @@ import {
   CATEGORIES_PROBLEME,
   cleCategorie,
   deposerCapture,
+  lireDemandesDe,
   lireMaPlateforme,
   lireMesDemandes,
   type MaDemande,
@@ -32,22 +33,40 @@ const H = "support.help";
  * Ses questions et ses problèmes, avec leur statut et le fil des réponses.
  * Tout en anglais ; « Ruul account » ou « Upwork contract » selon sa plateforme.
  */
-export function PageHelp() {
+/**
+ * 12/11 (OS clair) : l'aperçu admin (Support › Aperçu posteur). La page exacte d'un posteur
+ * réel ou fictif, en lecture seule : rien n'est envoyé, rien n'est écrit ; une question
+ * passe par le bot en simulation.
+ */
+export interface ApercuHelp {
+  cle: string;
+  posterId: string | null;
+  plateforme: Plateforme;
+  simuler: (texte: string) => Promise<{ reponse: string; envoye_equipe: boolean }>;
+}
+const ApercuContexte = React.createContext<ApercuHelp | null>(null);
+
+export function PageHelp({ apercu }: { apercu?: ApercuHelp } = {}) {
   const { t } = useTranslation();
   const { user } = useAuth();
   const qc = useQueryClient();
-  const userId = user?.id ?? "";
-  const plateforme = useQuery({ queryKey: ["support", "plateforme", userId], queryFn: () => lireMaPlateforme(userId), enabled: !!userId, staleTime: Infinity });
-  const demandes = useQuery({ queryKey: ["support", "mes-demandes"], queryFn: lireMesDemandes });
+  const userId = apercu ? (apercu.posterId ?? "") : user?.id ?? "";
+  const plateforme = useQuery({ queryKey: ["support", "plateforme", userId], queryFn: () => lireMaPlateforme(userId), enabled: !apercu && !!userId, staleTime: Infinity });
+  const cleDemandes = apercu ? ["support", "apercu", apercu.cle] : ["support", "mes-demandes"];
+  const demandes = useQuery({
+    queryKey: cleDemandes,
+    queryFn: () => (apercu ? (apercu.posterId ? lireDemandesDe(apercu.posterId) : Promise.resolve([])) : lireMesDemandes()),
+  });
   const [mode, setMode] = React.useState<"question" | "probleme" | null>(null);
-  const pf: Plateforme = plateforme.data ?? "upwork";
-  const rafraichir = () => qc.invalidateQueries({ queryKey: ["support", "mes-demandes"] });
+  const pf: Plateforme = apercu?.plateforme ?? plateforme.data ?? "upwork";
+  const rafraichir = () => qc.invalidateQueries({ queryKey: cleDemandes });
 
   const liste = demandes.data ?? [];
   const questions = liste.filter((d) => d.type === "question");
   const problemes = liste.filter((d) => d.type === "probleme");
 
   return (
+    <ApercuContexte.Provider value={apercu ?? null}>
     <div className="space-y-4" data-testid="page-help">
       <PageHeader title={t(`${H}.titre`)} description={t(`${H}.description`)} />
       <div className="flex flex-wrap gap-2">
@@ -64,6 +83,7 @@ export function PageHelp() {
       <Liste titre={t(`${H}.mesProblemes`)} demandes={problemes} plateforme={pf} onChange={rafraichir} testid="mes-problemes" />
       <Liste titre={t(`${H}.mesQuestions`)} demandes={questions} plateforme={pf} onChange={rafraichir} testid="mes-questions" />
     </div>
+    </ApercuContexte.Provider>
   );
 }
 
@@ -71,7 +91,12 @@ function FormQuestion({ onFini }: { onFini: () => void }) {
   const { t } = useTranslation();
   const [texte, setTexte] = React.useState("");
   const [fait, setFait] = React.useState<"resolu" | "aide" | null>(null);
-  const envoi = useMutation({ mutationFn: () => poserQuestion(texte.trim()), onSuccess: () => { setFait(null); onFini(); } });
+  const apercu = React.useContext(ApercuContexte);
+  const envoi = useMutation({
+    mutationFn: async (): Promise<{ id: string | null; reponse: string; envoye_equipe: boolean }> =>
+      apercu ? { id: null, ...(await apercu.simuler(texte.trim())) } : poserQuestion(texte.trim()),
+    onSuccess: () => { setFait(null); onFini(); },
+  });
   const suite = useMutation({
     mutationFn: (a: "resolu" | "aide") => actionPosteur(envoi.data!.id!, a),
     onSuccess: (_d, a) => { setFait(a); onFini(); },
@@ -105,6 +130,7 @@ function FormQuestion({ onFini }: { onFini: () => void }) {
 
 function FormProbleme({ plateforme, userId, onFini }: { plateforme: Plateforme; userId: string; onFini: () => void }) {
   const { t } = useTranslation();
+  const apercu = React.useContext(ApercuContexte);
   const [categorie, setCategorie] = React.useState<string>("");
   const [texte, setTexte] = React.useState("");
   const [fichier, setFichier] = React.useState<File | null>(null);
@@ -136,9 +162,10 @@ function FormProbleme({ plateforme, userId, onFini }: { plateforme: Plateforme; 
           <span className="font-medium">{t(`${H}.capture`)}</span>
           <input type="file" accept="image/*" onChange={(e) => setFichier(e.target.files?.[0] ?? null)} className="block text-sm" />
         </label>
-        <Button disabled={!categorie || texte.trim().length < 3 || envoi.isPending} onClick={() => envoi.mutate()}>
+        <Button disabled={!!apercu || !categorie || texte.trim().length < 3 || envoi.isPending} onClick={() => envoi.mutate()}>
           {envoi.isPending ? t(`${H}.envoi`) : t(`${H}.envoyer`)}
         </Button>
+        {apercu && <p className="text-xs text-muted-foreground">Aperçu : un problème n'est pas envoyé depuis l'aperçu.</p>}
         {envoi.error && <p className="text-destructive">{(envoi.error as Error).message}</p>}
       </CardContent>
     </Card>
@@ -160,6 +187,7 @@ function Liste({ titre, demandes, plateforme, onChange, testid }: {
 
 function Demande({ d, plateforme, onChange }: { d: MaDemande; plateforme: Plateforme; onChange: () => void }) {
   const { t } = useTranslation();
+  const lectureSeule = !!React.useContext(ApercuContexte);
   const [texte, setTexte] = React.useState("");
   const statut = statutPosteur(d);
   const repondre = useMutation({ mutationFn: () => actionPosteur(d.id, "repondre", texte.trim()), onSuccess: () => { setTexte(""); onChange(); } });
@@ -182,13 +210,13 @@ function Demande({ d, plateforme, onChange }: { d: MaDemande; plateforme: Platef
             </div>
           ))}
         </div>
-        {d.statut === "bot" && (
+        {d.statut === "bot" && !lectureSeule && (
           <div className="flex flex-wrap gap-2">
             <Button size="sm" onClick={() => suite.mutate("resolu")} disabled={suite.isPending}>{t(`${H}.resolu`)}</Button>
             <Button size="sm" variant="outline" onClick={() => suite.mutate("aide")} disabled={suite.isPending}>{t(`${H}.aide`)}</Button>
           </div>
         )}
-        {d.statut !== "bot" && statut !== "resolu" && (
+        {d.statut !== "bot" && statut !== "resolu" && !lectureSeule && (
           <div className="flex gap-2">
             <Textarea value={texte} onChange={(e) => setTexte(e.target.value)} placeholder={t(`${H}.repondrePlaceholder`)} rows={2} />
             <Button size="sm" disabled={!texte.trim() || repondre.isPending} onClick={() => repondre.mutate()}>{t(`${H}.repondre`)}</Button>

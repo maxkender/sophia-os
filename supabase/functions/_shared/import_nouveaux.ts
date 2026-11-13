@@ -92,3 +92,28 @@ export function separerTropRecents(
   }
   return { murs, tropRecents };
 }
+
+/**
+ * Combien de slideshows une mise à jour peut enfiler pour une source (0686).
+ *
+ * Deux plafonds, le plus petit gagne :
+ *   - l'essai : une source neuve n'importe d'abord que ses `essaiMax`
+ *     meilleurs posts ; tant que l'essai n'est pas levé, ce qu'elle a déjà en
+ *     stock est décompté ;
+ *   - la tranche : une mise à jour n'enfile jamais plus de `maxParMaj` posts,
+ *     pour qu'un gros catalogue s'étale sur plusieurs semaines.
+ * Les URLs arrivent triées par vues : ce sont donc les meilleurs qui passent,
+ * les autres restent « manquants » pour la mise à jour suivante. `null` : pas
+ * de plafond.
+ */
+export function plafondEnfilage(o: {
+  essaiMax: number | null;
+  dejaDeLaSource: number;
+  maxParMaj: number | null;
+}): number | null {
+  const essai = o.essaiMax !== null && o.essaiMax >= 0 ? Math.max(0, o.essaiMax - o.dejaDeLaSource) : null;
+  const tranche = o.maxParMaj !== null && o.maxParMaj > 0 ? o.maxParMaj : null;
+  if (essai === null) return tranche;
+  if (tranche === null) return essai;
+  return Math.min(essai, tranche);
+}

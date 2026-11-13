@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o103",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0f6ca4bf-ac9a-4680-be64-f1bc1a9e2a05",
+ "titre": "5 moments that force a man to grow #men #growth #fatherhood #selfgrowth #mindset",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [
+  "0f6ca4bf-ac9a-4680-be64-f1bc1a9e2a05"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Déclinaison G1 de la ligne 8 (parent 0f6ca4bf, @millyjhino, langue source en ; meilleurs passages es 10,3 k r 7,19, es-419 8,2 k). Accroche du parent mot pour mot. Format du parent : « N. The First Time He… : » puis trois lignes. Moments neufs, aucun du parent (père parti, fierté contre loyer, rien à dire, colère, peur de l'enfant) ; ton plus doux, sans violence. Ligne 7 (« dumb ways to attract anything ») sautée : manifestation, hors faits vrais. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Slide Sophia : fauteuil face à la montagne, sans personne. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5043a828",
+   "texte_overlay": "5 Moments That Force\na Man to Grow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "41d29a34",
+   "texte_overlay": "1. The First Time He Held\nHis Newborn:\n\nThe room went quiet.\nHis hands felt too big.\nHe decided who he'd become.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "152811bc",
+   "texte_overlay": "2. The First Time His Father\nAsked Him for Help:\n\nThe roles flipped.\nHe saw his dad getting older.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5231aecd",
+   "texte_overlay": "3. The First Time He Lived Alone:\n\nEmpty fridge. Bills on the table.\nNobody to wake him up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3752af39",
+   "texte_overlay": "4. The First Time His Kid Asked\nSomething He Couldn't Answer:\n\n\"Let's find out together.\"\nHe started learning again.",
+   "texte_sophia": "4. The First Time His Kid Asked\nSomething He Couldn't Answer:\n\n\"Let's find out together.\"\nThey learned it on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "53a8f6e5",
+   "texte_overlay": "5. The First Time He Failed\nin Front of Everyone:\n\nHe got up anyway.\nThat was the real win.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697371245272386823/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,329 @@
+{
+ "id": "ka-022",
+ "titre": {
+  "en": "10/10 skills to get in shape",
+  "fr": "10/10 compétences pour être en forme",
+  "de": "10/10 Skills für deine Fitness"
+ },
+ "legendes": {
+  "en": "10/10 skills to get in shape #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences pour être en forme #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für deine Fitness #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Bitter Sweet Symphony - Remastered 2016",
+  "url": "https://www.tiktok.com/music/bitter-sweet-symphony-remastered-2016-6927374282162964481"
+ },
+ "notes": "Full test (BLEO, 13/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor falaise, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : pompes, première traction, course à pied. Musique : « Bitter Sweet Symphony », un de ses sons (642 k) jamais pris chez nous, pour alterner (règle du 12/11 : plus de 5 posts sur 20 avec le même son). Sophia en étape 3 « HOW TO TRAIN YOUR MIND TOO » : cta C, « 5 min a day ». Vraies vidéos : en Calisthenicmovement, THENX, Global Triathlon Network ; fr Tibo InShape (deux vidéos), Running Addict ; de Kraftschule.TV, Coach Stef, FIT FOR FUN.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO GET",
+     "IN SHAPE"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "POUR ÊTRE",
+     "EN FORME"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "FÜR DEINE",
+     "FITNESS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "A PUSH UP",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IODxDxX7oi4",
+     "titre": "The Perfect Push Up | Do it right!",
+     "chaine": "Calisthenicmovement",
+     "vues": "41M views",
+     "date": "10 years ago",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/K7DNFIcoXfvlRhryRDi3tVBRCQFfW-XeY5zoHWriD3LWsEcDIS_o5k3OOr4TMLNbtxCajP8ufP4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UNE POMPE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HDFjA-uYRug",
+     "titre": "Incapable de faire une pompe ? Faites ça !",
+     "chaine": "Tibo InShape Entrainement",
+     "vues": "1,2 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-rFXuQUQxN2nBlEtFNGzlGllOjvjgHqh0vFwaBAOnFg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "LIEGESTÜTZE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H6Pq6i7xAv4",
+     "titre": "Liegestütz richtige Ausführung – Lernen für Anfänger",
+     "chaine": "Kraftschule.TV",
+     "vues": "711.631 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "2:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgHNOBMByaj3JBjXfPOZsHxU2iyMfBW9VA76PdS-Yig70=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "A PULL UP",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XeErfmGSwfE",
+     "titre": "How To Do Your First Pull Up | 0-20 Reps",
+     "chaine": "THENX",
+     "vues": "3.3M views",
+     "date": "6 years ago",
+     "duree": "13:18",
+     "avatar": "https://yt3.ggpht.com/qXC3TS-oiAMDgPuE3eucuP8BRGkmY-BCeO7wMAkXpU6ouMlFZ61CqLTmcUvFwgFvfeVzBaPN=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RÉUSSIR",
+     [
+      {
+       "t": "UNE TRACTION",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ofcnTY-Ymss",
+     "titre": "Réussir une traction en 7 jours de A à Z !! (débutant tutoriel)",
+     "chaine": "Tibo InShape Entrainement",
+     "vues": "92 k vues",
+     "date": "il y a 1 an",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-rFXuQUQxN2nBlEtFNGzlGllOjvjgHqh0vFwaBAOnFg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHAFFST DU",
+     [
+      {
+       "t": "EINEN KLIMMZUG",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tu2N9LgzmmI",
+     "titre": "Der Weg zum ERSTEN KLIMMZUG | Klimmzüge lernen",
+     "chaine": "Coach Stef",
+     "vues": "319.135 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "14:34",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO TRAIN",
+     [
+      {
+       "t": "YOUR MIND TOO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ENTRAÎNER",
+     [
+      {
+       "t": "TON CERVEAU AUSSI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TRAINIERST DU",
+     [
+      {
+       "t": "AUCH DEINEN KOPF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "START RUNNING",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kVnyY17VS9Y",
+     "titre": "11 Beginner Run Tips | How To Start Running!",
+     "chaine": "Global Triathlon Network",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "COMMENCER À COURIR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Xu36I2rEcQw",
+     "titre": "Comment débuter la course à pied : 5 conseils pour commencer à courir et aimer ça !",
+     "chaine": "Running Addict",
+     "vues": "529 k vues",
+     "date": "il y a 8 ans",
+     "duree": "7:37",
+     "avatar": "https://yt3.ggpht.com/zxJqY61mhOVZk3Mcs4T-hHPbO0KZm3GaOsH4sIAn0TVIYJa35a_pV-Oj1rX1DK_NPzonnvq70Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÄNGST DU",
+     [
+      {
+       "t": "MIT LAUFEN AN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nADPAWIm6iw",
+     "titre": "Joggen: 12 gängige (und vermeidbare) Anfängerfehler beim Laufen 🏃🏽‍♂️",
+     "chaine": "FIT FOR FUN",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4JktUjD11B_nLVNKGdsHPqAxmJjCpAd3ZSR4CAX41MA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

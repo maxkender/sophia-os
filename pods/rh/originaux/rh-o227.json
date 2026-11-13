@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o227",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cfc13876-ccf7-4798-a29b-a06b645b3b14",
+ "titre": "les « mensonges » d'entretien que je referais sans hésiter #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 3. Déclinaison G2 de la ligne 1 (parent cfc13876), 2e : même promesse, autres mots que rh-o216. Phrases vraies ou rendues vraies. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4274c341",
+   "texte_overlay": "les « mensonges » d'entretien\nque je referais\nsans hésiter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e81d4c7b",
+   "texte_overlay": "« je suis organisée »\nrendu vrai : j'ai montré mon agenda papier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1866f87e",
+   "texte_overlay": "« j'adore apprendre »\nrendu vrai : 5 minutes par jour, depuis des mois",
+   "texte_sophia": "« j'adore apprendre »\nrendu vrai : 5 minutes par jour sur l'appli Sophia, depuis des mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f016ef69",
+   "texte_overlay": "« votre entreprise m'intéresse depuis longtemps »\nvrai : depuis 6 mois. c'est long, 6 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f096047e",
+   "texte_overlay": "« je gère bien la pression »\nvrai, avec une méthode : une liste et une pause",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f411aaef",
+   "texte_overlay": "« je suis prête à commencer vite »\nvrai : avec mon vrai préavis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f68fab4c",
+   "texte_overlay": "pas de mensonge.\nde la préparation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1f249554",
+   "texte_overlay": "lequel tu vas rendre vrai ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

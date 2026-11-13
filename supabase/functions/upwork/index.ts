@@ -34,6 +34,7 @@ import {
   urlAutorisation,
   urlRetour,
 } from "../_shared/upwork.ts";
+import { type MalgreStop, STOP_POSTEUR, stopDuContrat, typeUpworkPermisMalgreStop } from "../_shared/stop.ts";
 import {
   type Annonce,
   bienvenueARattraper,
@@ -45,7 +46,9 @@ import {
   codePays,
   type DetailsContrat,
   hmDeNomUpwork,
+  type HmRegle,
   type InfosApi,
+  LANGUE_DU_PAYS,
   langueDePays,
   REQUETES_LOCALISATION,
   lireDetailsContrat,
@@ -61,6 +64,7 @@ import {
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { noteBonus } from "../_shared/bonus.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { type EtatParcours, lignesPointSoirRuul } from "../_shared/parcours_ruul.ts";
 import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
 import { decoderHtml, derniersMessagesSalon } from "../_shared/contexte.ts";
@@ -121,6 +125,9 @@ import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
 import { planCompleterOffre, semainesDepuis } from "../_shared/offres.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
+
+/** 0684 : les raisons acceptées pour un message Upwork malgré un STOP. */
+const MOTIFS_MALGRE_STOP: unknown[] = ["confirmation_arret", "paie", "reponse", "manuel"];
 
 /** L'OS, où l'admin revient après avoir autorisé Upwork (src/features/recrutements/constantes.ts). */
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
@@ -310,6 +317,8 @@ Deno.serve(async (request) => {
           await envoyerMessage(supabase, par, contratId, String(body.texte ?? ""), {
             prioritaire: body.priorite !== false,
             ...(body.compte === COMPTE_SECOURS ? { forcer: COMPTE_SECOURS } : {}),
+            // 0684 : l'appelant dit pourquoi le message part malgré un STOP (sinon il ne part pas).
+            ...(MOTIFS_MALGRE_STOP.includes(body.malgre_stop) ? { malgreStop: body.malgre_stop as MalgreStop } : {}),
           }),
         );
       }
@@ -1945,7 +1954,8 @@ async function executer(supabase: Supabase, par: string | null, semaine: string,
           const texte = remplirTexte(texteReglage(v.paie_soumettre_texte, SOUMETTRE_DEFAUT), {
             prenom: await prenomPosteur(supabase, ligne.poster_id), NN: numeroSemaine(semaine),
           });
-          const m = await envoyerMessage(supabase, par, contrat, texte);
+          // 0684 : la paie de sa dernière semaine passe malgré un STOP.
+          const m = await envoyerMessage(supabase, par, contrat, texte, { malgreStop: "paie" });
           etapes.push({ etape: "message_soumettre", ok: m.ok, erreur: m.ok ? null : m.error ?? null });
           if (m.ok) await maj({ soumission_message_at: new Date().toISOString() });
         }
@@ -2841,7 +2851,10 @@ async function messagePosteur(supabase: Supabase, par: string | null, posterId: 
   const { data: p } = await supabase.from("profiles").select("upwork_contract_id").eq("id", posterId).maybeSingle();
   const contrat = p?.upwork_contract_id as string | undefined;
   if (!contrat) return { ok: false, error: "contrat Upwork non relié à ce posteur" };
-  const envoi = await envoyerMessage(supabase, par, contrat, texte.trim());
+  // 0684 : confirmation d'arrêt, paie ou message tapé à la main : permis malgré un STOP ; le reste non.
+  const manuel = !!par && par !== "cron";
+  const envoi = await envoyerMessage(supabase, par, contrat, texte.trim(),
+    typeUpworkPermisMalgreStop(type, manuel) ? { malgreStop: String(type ?? "").includes("stop") ? "confirmation_arret" : type === "paie" ? "paie" : "manuel" } : {});
   if (!envoi.ok) return envoi;
   await supabase.from("nudges").insert({
     poster_id: posterId,
@@ -2887,9 +2900,11 @@ async function envoyerMessage(
   par: string | null,
   contratId: string,
   texte: string,
-  o: { prioritaire?: boolean; exclure?: string[]; forcer?: string } = {},
-): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string }> {
+  o: { prioritaire?: boolean; exclure?: string[]; forcer?: string; malgreStop?: MalgreStop } = {},
+): Promise<{ ok: boolean; error?: string; budget?: boolean; reporter?: boolean; story_id?: string; compte?: string; stop?: boolean }> {
   if (!contratId || !texte.trim()) return { ok: false, error: "contrat_id et texte requis" };
+  // 0684 : un posteur qui a dit STOP ne reçoit plus rien sur Upwork, sauf les exceptions nommées.
+  if (!o.malgreStop && await stopDuContrat(supabase, contratId)) return { ok: false, error: STOP_POSTEUR, stop: true };
   // 1/11 : jamais de mot de passe sur Upwork, quel que soit le message.
   const refus = refusMotDePasseUpwork(texte);
   if (refus) return { ok: false, error: refus };
@@ -3030,6 +3045,42 @@ async function hmsDeLOs(supabase: Supabase): Promise<{ id: string; prenom: strin
   return (data ?? []).filter((p) => normaliserNom(p.prenom) !== "ruul").map((p) => ({ id: String(p.id), prenom: p.prenom, nom: p.nom }));
 }
 
+/**
+ * 12/11 (Max) : ce qu'il faut à la règle « HM inconnue » : les HM (rôle hiring_manager,
+ * actives, hors RUUL) avec leurs pays (hm_pays), leurs langues et leurs posteurs actifs ;
+ * les pays fermés au recrutement (parrainage_pays) ; la langue d'un pays.
+ */
+async function contexteRegle(
+  supabase: Supabase,
+  languesPays: { pays: string | null; langue: string | null }[],
+): Promise<Pick<InfosApi, "hms_regle" | "pays_fermes" | "langue_de">> {
+  const [{ data: roles }, { data: zones }, { data: fermes }, { data: actifs }] = await Promise.all([
+    supabase.from("user_roles").select("user_id").eq("role", "hiring_manager"),
+    supabase.from("hm_pays").select("pays, hm_id").not("hm_id", "is", null),
+    supabase.from("parrainage_pays").select("pays").eq("recrutement_ouvert", false),
+    supabase.from("profiles").select("manager_id").eq("is_active", true).not("manager_id", "is", null),
+  ]);
+  const ids = (roles ?? []).map((r) => String(r.user_id));
+  const { data: profils } = ids.length
+    ? await supabase.from("profiles").select("id, prenom, langues").in("id", ids).eq("is_active", true)
+    : { data: [] };
+  const charge = new Map<string, number>();
+  for (const a of actifs ?? []) charge.set(String(a.manager_id), (charge.get(String(a.manager_id)) ?? 0) + 1);
+  const hms_regle: HmRegle[] = (profils ?? [])
+    .filter((p) => normaliserNom(p.prenom) !== "ruul")
+    .map((p) => ({
+      id: String(p.id),
+      langues: ((p.langues ?? []) as string[]).map(String),
+      pays: (zones ?? []).filter((z) => String(z.hm_id) === String(p.id)).map((z) => String(z.pays)),
+      actifs: charge.get(String(p.id)) ?? 0,
+    }));
+  return {
+    hms_regle,
+    pays_fermes: (fermes ?? []).map((f) => String(f.pays)),
+    langue_de: (pays: string) => langueDePays(pays, languesPays) ?? LANGUE_DU_PAYS[pays] ?? null,
+  };
+}
+
 /** 0470 : la HM de l'OS du contrat : hiringManager, sinon supervisor ; une correspondance notée à la main (hm_upwork) d'abord. */
 function hmDuContrat(
   d: { hm_upwork_id: string | null; hm_upwork_nom?: string | null; superviseur_upwork_id?: string | null; superviseur_upwork_nom?: string | null },
@@ -3133,7 +3184,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
     : { data: [] };
   const connuDe = new Map((connus ?? []).map((a) => [String(a.contrat_id), a]));
   const [{ data: profils }, { data: comptesPays }, hms, { data: hmNotees }] = await Promise.all([
-    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie"),
     supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
     hmsDeLOs(supabase),
     supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
@@ -3145,8 +3196,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
   const paysDe = new Map((comptesPays ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id,
-    pays: paysDe.get(p.id) ?? null,
+    pays: paysDe.get(p.id) ?? null, canal_paie: p.canal_paie ?? null,
   }));
+  // 12/11 (Max) : plus rien à relier à la main quand la HM du contrat n'est pas une HM de l'OS.
+  const regle = await contexteRegle(supabase, languesPays);
 
   // Prompt 25 v4 (0440) : sur un contrat de test, la bienvenue part pour de vrai même sur Test ou Approve.
   const { data: tests } = await supabase.from("contrats_test").select("contrat_id, poster_id").is("retire_at", null);
@@ -3189,9 +3242,10 @@ async function accueillir(supabase: Supabase, par: string | null) {
     const hmContrat = hmDuContrat(details, hms, notees);
     const api: InfosApi = {
       freelance_pays: freelancePays,
-      freelance_langue: langueDePays(freelancePays, languesPays),
+      freelance_langue: langueDePays(freelancePays, languesPays) ?? (freelancePays ? LANGUE_DU_PAYS[freelancePays] ?? null : null),
       hm_id: hmContrat.hm_id,
       hm_nom: hmContrat.hm_nom,
+      ...regle,
     };
     // L'annonce : vue pour la 1re fois → notée, pays à dire.
     let annonce: Annonce | null = null;
@@ -3216,6 +3270,11 @@ async function accueillir(supabase: Supabase, par: string | null) {
       api,
     );
     if (errAnnonce && plan.raison) plan.raison = `${plan.raison} (annonce non notée : ${errAnnonce})`;
+    // La HM choisie par la règle a une recrue de plus pour le contrat suivant de ce passage.
+    if (plan.statut === "a_creer" && plan.hm_id && !hmContrat.hm_id) {
+      const h = regle.hms_regle?.find((x) => x.id === plan.hm_id);
+      if (h) h.actifs++;
+    }
     const base = {
       contrat_id: contratId, organisation_id: c.organisation_id, offre_id: details.offre_id ?? c.offre_id, job_id: details.job_id,
       job_titre: details.job_titre, prenom: details.prenom, nom: details.nom, debut_at: details.debut_at ?? c.debut_at,
@@ -3336,7 +3395,7 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
     hmsDeLOs(supabase),
     supabase.from("hm_upwork").select("upwork_id, hm_id").not("hm_id", "is", null),
     supabase.from("comptes").select("poster_id, pays, langue").not("pays", "is", null),
-    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id"),
+    supabase.from("profiles").select("id, prenom, nom, is_active, upwork_contract_id, canal_paie"),
     supabase.from("upwork_contrats").select("contrat_id, organisation_id, organisation_nom").in("contrat_id", (lignes ?? []).map((l) => l.contrat_id)),
   ]);
   const notees = new Map((hmNotees ?? []).map((h) => [String(h.upwork_id), String(h.hm_id)]));
@@ -3344,7 +3403,9 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
   const paysDe = new Map((comptes ?? []).map((c) => [String(c.poster_id), String(c.pays)]));
   const posteurs: PosteurExistant[] = (profils ?? []).map((p) => ({
     id: p.id, prenom: p.prenom, nom: p.nom, is_active: p.is_active, upwork_contract_id: p.upwork_contract_id, pays: paysDe.get(p.id) ?? null,
+    canal_paie: p.canal_paie ?? null,
   }));
+  const regle = await contexteRegle(supabase, languesPays);
   const orgDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), o]));
   const nomHm = new Map(hms.map((h) => [h.id, [h.prenom, h.nom].filter(Boolean).join(" ")]));
   await jetonValide(supabase, par);
@@ -3369,7 +3430,7 @@ async function localiserAccueils(supabase: Supabase, par: string | null, contrat
       annonce,
       { statut: a.statut, pays: a.pays, langue: a.langue, hm_id: a.hm_id, relie_at: a.relie_at },
       posteurs,
-      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom },
+      { freelance_pays: infos.loc.pays, freelance_langue: langueDePays(infos.loc.pays, languesPays), hm_id: hm.hm_id, hm_nom: hm.hm_nom, ...regle },
     );
     await supabase.from("accueils").update({
       ...champs, pays_source: plan.source ?? null, ecart_pays: ecartPays(plan.ecart), updated_at: new Date().toISOString(),
@@ -5188,6 +5249,31 @@ const MAX_PROFIL = "dde5916a-89b8-4fc3-897b-dc7f0d88e20e";
  * les 429 et les bienvenues en attente, en message privé Slack à Max (réglages
  * upwork_rapport_soir « on » / « off », upwork_rapport_destinataire : un profil).
  */
+/** 0675 : les cartes que l'OS ferme dès leur création (un compteur par type dans le point du soir). */
+const LIBELLES_RETIREES: Record<string, string> = {
+  autre: "autre",
+  pas_poste_aujourdhui: "pas posté aujourd'hui",
+  login_sans_contrat: "login sans contrat ni Slack",
+  payroll_api: "Payroll API à vérifier",
+  slack_non_relie: "Slack non relié",
+};
+
+/** Point 12 (parcours Ruul) : prêts / pas prêts, emails par type, désactivés, erreurs, à faire. */
+async function lignesRuulDuSoir(supabase: Supabase, depuis: string): Promise<string[]> {
+  const [{ data: etats, error: e1 }, { data: envois, error: e2 }, { data: arrets, error: e3 }] = await Promise.all([
+    supabase.rpc("ruul_parcours_etat"),
+    supabase.from("ruul_parcours_envois").select("type, ok").gte("envoye_at", depuis),
+    supabase.from("arrets").select("source, profiles!inner(canal_paie)").gte("created_at", depuis).eq("profiles.canal_paie", "ruul"),
+  ]);
+  const err = e1 ?? e2 ?? e3;
+  if (err) throw new Error(err.message);
+  return lignesPointSoirRuul({
+    etats: (etats ?? []) as EtatParcours[],
+    envois: (envois ?? []) as { type: string; ok: boolean }[],
+    arrets: (arrets ?? []) as { source: string }[],
+  });
+}
+
 async function rapportSoir(supabase: Supabase, forcer: boolean) {
   const { data: regl } = await supabase.from("reglages").select("cle, valeur").in("cle", ["upwork_rapport_soir", "upwork_rapport_destinataire"]);
   const v = Object.fromEntries((regl ?? []).map((r) => [r.cle as string, r.valeur]));
@@ -5215,14 +5301,25 @@ async function rapportSoir(supabase: Supabase, forcer: boolean) {
   const noms = (attente ?? []).map((a) => [a.prenom, a.nom].filter(Boolean).join(" ").trim() || "?");
   const jourCourt = paris.jour.split("-").reverse().slice(0, 2).join("/");
   // 11/11 (0671) : le support dans le même point du soir (ouverts, en retard).
-  const { data: sup } = await supabase.rpc("support_compteurs");
+  const [{ data: sup }, { data: jour }] = await Promise.all([supabase.rpc("support_compteurs"), supabase.rpc("support_compteurs_jour")]);
   const c = (sup ?? {}) as { problemes?: number; questions?: number; en_retard?: number };
+  // 12/11 (Support propre, 0675) : les cartes que l'OS ne montre plus, comptées par type, et les 3 niveaux.
+  const j = (jour ?? {}) as { cartes_retirees?: Record<string, number>; regles_par_bot?: number; adrien_ouverts?: number; max_ouverts?: number };
+  const r = j.cartes_retirees ?? {};
+  const retirees = Object.entries(LIBELLES_RETIREES).map(([cle, lib]) => `${lib} ${r[cle] ?? 0}`).join(" · ");
+  // 12/11 (parcours Ruul, point 12) : le point du soir Ruul en 5 lignes.
+  const ruul = await lignesRuulDuSoir(supabase, depuis).catch((e) => [`Ruul : point du soir illisible (${e instanceof Error ? e.message : String(e)})`]);
   const texte = [
     `Upwork : bilan du ${jourCourt}`,
     `• Compte principal : ${p} appels, dont ${p429} erreurs 429`,
     `• Compte secours : ${s} appels, dont ${s429} erreurs 429`,
     `• Bienvenues en attente : ${noms.length}${noms.length ? ` (${noms.join(", ")})` : ""}`,
     `Support : ${c.problemes ?? 0} problèmes et ${c.questions ?? 0} questions ouverts, dont ${c.en_retard ?? 0} en retard`,
+    ...(jour ? [
+      `• Réglé par le bot aujourd'hui : ${j.regles_par_bot ?? 0} · ouverts pour Adrien : ${j.adrien_ouverts ?? 0} · pour Max : ${j.max_ouverts ?? 0}`,
+      `• Cartes retirées aujourd'hui : ${retirees}`,
+    ] : []),
+    ...ruul,
   ].join("\n");
   const destinataire = typeof v.upwork_rapport_destinataire === "string" && v.upwork_rapport_destinataire ? v.upwork_rapport_destinataire : MAX_PROFIL;
   const issue = await ecrireAuPosteur(supabase, destinataire, texte);

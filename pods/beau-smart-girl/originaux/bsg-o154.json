@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o154",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a6049150-b6f2-411f-9780-1950e10b6284",
+  "titre": "ce que je fais chaque dimanche pour devenir un peu plus cultivée chaque semaine #dimanche #culture #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [
+    "a6049150-b6f2-411f-9780-1950e10b6284"
+  ],
+  "notes": "G2, déclinaison de a6049150 (« les habitudes chelous que je fais le dimanche pour arriver lundi plus cultivée », G1 gagnante, génération 1 en français ; meilleur passage de 3,1 k vues, r 2,79), en français. Accroche reformulée : « ce que je fais chaque dimanche pour devenir un peu plus cultivée chaque semaine » (autres mots que bsg-o144). cta B (l'anecdote du jour en item 3). Items neufs (rien de repris de bsg-o108 ni de bsg-o144). Fait vérifié le 4/11 sur https://en.wikipedia.org/wiki/The_Umbrellas_of_Cherbourg : « won the Palme d'Or at the 1964 Cannes Film Festival ». Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "28bf5c64",
+      "texte_overlay": "ce que je fais chaque dimanche\npour devenir un peu plus cultivée\nchaque semaine",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02a267b9",
+      "texte_overlay": "1. je vais au marché aux puces\n\nvieux livres, cartes postales, disques.\nchaque objet a une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2dbc0a4b",
+      "texte_overlay": "2. je visite le musée gratuit du premier dimanche\n\nune seule salle.\nmais je la regarde vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e4989e64",
+      "texte_overlay": "3. je regarde un film classique\n\nce matin, j'ai appris que les parapluies de cherbourg a reçu la palme d'or à cannes, en 1964.\nje l'ai regardé le soir même.",
+      "texte_sophia": "3. je regarde un film classique\n\nce matin, l'appli Sophia m'a appris que les parapluies de cherbourg a reçu la palme d'or à cannes, en 1964.\nje l'ai regardé le soir même.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "301a165e",
+      "texte_overlay": "4. j'appelle ma grand-mère\n\net je lui demande comment c'était, avant.\nla meilleure leçon d'histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "02f74c80",
+      "texte_overlay": "5. je range mon bureau et je choisis mon livre de la semaine\n\nlundi, tout est prêt.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "87cbec30",
+      "texte_overlay": "vole-moi un rituel.\nenregistre-le pour dimanche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

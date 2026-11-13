@@ -1,10 +1,11 @@
 /**
  * Relier les posteurs à leur compte Slack (sophia-system, 0381).
  *
- * Ordre : email perso, puis email de connexion, puis nom complet (sans
- * accents, sans casse, ponctuation ignorée). Un lien n'est posé que s'il est
- * unique des deux côtés : un nom porté par deux membres Slack, ou par deux
- * posteurs, ne relie personne (le posteur reste « à relier » dans l'OS).
+ * 0693 (Max, 12/11) : par l'EMAIL seulement — l'email du profil Slack doit être
+ * un email connu de la fiche (connexion, perso, Ruul, site, candidature Ruul).
+ * Jamais par le prénom ni le nom. Un lien n'est posé que s'il est unique des
+ * deux côtés : un email qui mène à deux fiches, ou une fiche à deux comptes
+ * Slack, ne relie personne (la fiche reste dans « Slack à relier »).
  *
  * Lecture : users.list demande `users:read`, et `users:read.email` pour les
  * emails. On lit avec SLACK_BOT_TOKEN2 (qui a les emails, voir
@@ -30,6 +31,8 @@ export interface PosteurSlack {
   email_perso: string | null;
   email: string | null;
   slack_user_id: string | null;
+  /** 0693 : tous les emails connus de la fiche (slack_posteur_emails). */
+  emails?: string[];
 }
 
 export type Par = "email" | "nom" | "team_join";
@@ -111,43 +114,27 @@ export function apparier(
     ambigus.delete(p.id);
   };
 
-  // 1. Emails : perso puis connexion.
+  // Emails seulement (0693) : tous les emails connus de la fiche.
+  const emailsDe = (p: PosteurSlack) =>
+    [...new Set([p.email_perso, p.email, ...(p.emails ?? [])].map(normaliserEmail).filter((e): e is string => !!e))];
   const membresParEmail = index(libres, (m) => [normaliserEmail(m.email)]);
-  const posteursParEmail = index(aRelier, (p) => [normaliserEmail(p.email_perso), normaliserEmail(p.email)]);
-  for (const champ of ["email_perso", "email"] as const) {
-    for (const p of aRelier) {
-      if (relies.has(p.id)) continue;
-      const e = normaliserEmail(p[champ]);
-      if (!e) continue;
-      const ms = (membresParEmail.get(e) ?? []).filter((m) => !utilises.has(m.slack_user_id));
-      const ps = posteursParEmail.get(e) ?? [];
-      if (ms.length === 1 && ps.length === 1) poser(p, ms[0], "email");
-      else if (ms.length > 1 || (ms.length === 1 && ps.length > 1)) ambigus.add(p.id);
-    }
-  }
-
-  // 2. Nom complet, unique des deux côtés.
-  const nomMembre = (m: MembreSlack) => [normaliserNom(m.nom_reel), normaliserNom(m.nom_affiche)];
-  const membresParNom = index(
-    libres.filter((m) => !utilises.has(m.slack_user_id)),
-    nomMembre,
-  );
-  const nomPosteur = (p: PosteurSlack) => normaliserNom(`${p.prenom ?? ""} ${p.nom ?? ""}`);
-  const posteursParNom = index(aRelier, (p) => [nomPosteur(p)]);
+  const posteursParEmail = index(aRelier, emailsDe);
+  // Pour chaque fiche, les comptes Slack trouvés par ses emails.
   for (const p of aRelier) {
-    if (relies.has(p.id)) continue;
-    const n = nomPosteur(p);
-    // Un prénom seul ne suffit pas.
-    if (!n || !n.includes(" ")) continue;
-    const ms = membresParNom.get(n) ?? [];
-    const ps = posteursParNom.get(n) ?? [];
-    // Le membre ne doit, lui non plus, ressembler à aucun autre posteur (nom réel ou affiché).
-    const autres = ms.length === 1
-      ? new Set(nomMembre(ms[0]).flatMap((c) => (posteursParNom.get(c) ?? []).map((q) => q.id)))
-      : new Set<string>();
-    if (ms.length === 1 && ps.length === 1 && autres.size === 1 && !utilises.has(ms[0].slack_user_id)) {
-      poser(p, ms[0], "nom");
-    } else if (ms.length >= 1) ambigus.add(p.id);
+    const ms = [...new Map(emailsDe(p).flatMap((e) => membresParEmail.get(e) ?? []).map((m) => [m.slack_user_id, m])).values()];
+    if (ms.length === 0) continue;
+    // Une fiche, deux comptes Slack : pas sûr.
+    if (ms.length > 1) {
+      ambigus.add(p.id);
+      continue;
+    }
+    // L'email du membre ne doit mener qu'à cette fiche.
+    const fiches = new Set((posteursParEmail.get(normaliserEmail(ms[0].email) ?? "") ?? []).map((q) => q.id));
+    if (fiches.size !== 1 || utilises.has(ms[0].slack_user_id)) {
+      ambigus.add(p.id);
+      continue;
+    }
+    poser(p, ms[0], "email");
   }
 
   return { liens, ambigus: [...ambigus] };
@@ -181,14 +168,19 @@ export function jetonLectureSlack(): string | null {
 type Db = any;
 
 async function chargerPosteursEtPris(db: Db): Promise<{ posteurs: PosteurSlack[]; pris: Set<string> }> {
-  const { data: posteurs, error } = await db.rpc("slack_posteurs");
+  const { data: liste, error } = await db.rpc("slack_posteurs");
   if (error) throw new Error(`slack_posteurs : ${error.message}`);
+  // 0693 : tous les emails connus de chaque fiche (connexion, perso, Ruul, site, candidature).
+  const { data: emails, error: errE } = await db.rpc("slack_posteur_emails");
+  if (errE) throw new Error(`slack_posteur_emails : ${errE.message}`);
+  const parId = new Map<string, string[]>((emails ?? []).map((e: { id: string; emails: string[] }) => [e.id, e.emails ?? []]));
+  const posteurs: PosteurSlack[] = (liste ?? []).map((p: PosteurSlack) => ({ ...p, emails: parId.get(p.id) ?? [] }));
   const { data: hms, error: errH } = await db.from("hm_slack").select("slack_user_id");
   if (errH) throw new Error(`hm_slack : ${errH.message}`);
   const pris = new Set<string>();
-  for (const p of posteurs ?? []) if (p.slack_user_id) pris.add(p.slack_user_id);
+  for (const p of posteurs) if (p.slack_user_id) pris.add(p.slack_user_id);
   for (const h of hms ?? []) if (h.slack_user_id) pris.add(h.slack_user_id);
-  return { posteurs: posteurs ?? [], pris };
+  return { posteurs, pris };
 }
 
 async function enregistrerMembres(db: Db, membres: MembreSlack[]): Promise<void> {

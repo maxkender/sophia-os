@@ -11,11 +11,14 @@ const api = vi.hoisted(() => ({
   actionPosteur: vi.fn(),
   deposerCapture: vi.fn(),
   lireSupport: vi.fn(),
+  lireNiveaux: vi.fn(),
   lireDetail: vi.fn(),
   envoyerReponse: vi.fn(),
   changer: vi.fn(),
   versOfficielles: vi.fn(),
   lienCapture: vi.fn(),
+  envoyerTicket: vi.fn(),
+  analyserContexte: vi.fn(),
 }));
 vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), ...api }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ user: { id: "p1" } }) }));
@@ -58,6 +61,10 @@ describe("Support, logique (0671)", () => {
     ];
     const vide = { plateforme: "" as const, categorie: "", statut: "" as const, retard: false };
     expect(filtrer(l, "probleme", vide).map((x) => x.id)).toEqual(["r", "o", "g"]);
+    // 12/11 (Support propre) : le niveau ; sans niveau, la demande est pour Adrien.
+    const niveaux = new Map<string, string | null>([["r", "max"], ["o", "adrien"]]);
+    expect(filtrer(l, "probleme", { ...vide, niveau: "max" }, niveaux).map((x) => x.id)).toEqual(["r"]);
+    expect(filtrer(l, "probleme", { ...vide, niveau: "adrien" }, niveaux).map((x) => x.id)).toEqual(["o", "g"]);
     expect(filtrer(l, "probleme", { ...vide, plateforme: "ruul" }).map((x) => x.id)).toEqual(["r"]);
     expect(filtrer(l, "probleme", { ...vide, retard: true }).map((x) => x.id)).toEqual(["o"]);
     expect(filtrer(l, "probleme", { ...vide, statut: "resolu" }).map((x) => x.id)).toEqual(["s"]);
@@ -114,6 +121,7 @@ describe("PageHelp (posteur)", () => {
 
 describe("PageSupport (admin)", () => {
   it("onglets avec compteur, pastille, Late, panneau : fiche, brouillon modifiable, Send reply + Add to official answers", async () => {
+    api.lireNiveaux.mockResolvedValue(new Map([["a", "max"], ["b", null]]));
     api.lireSupport.mockResolvedValue([
       ligne({ id: "a", urgence: "rouge", categorie: "paiement", en_retard: true, nom: "Ana", plateforme: "ruul" }),
       ligne({ id: "b", type: "question", nom: "Bo" }),
@@ -143,5 +151,29 @@ describe("PageSupport (admin)", () => {
     fireEvent.click(within(p).getByTestId("support-envoyer"));
     await waitFor(() => expect(api.envoyerReponse).toHaveBeenCalledWith("a", "We are checking your payment."));
     await waitFor(() => expect(api.versOfficielles).toHaveBeenCalledWith({ question: "Not paid", reponse: "We are checking your payment.", portee: "ruul", categorie: "paiement" }));
+    // 12/11 : la paie a son badge rouge et passe en premier.
+    expect(within(l).getByTestId("badge-paie")).toHaveTextContent("Paie");
+  });
+
+  it("12/11 : « Envoyer en ticket à l'OS » (avec une note) et « Avoir le contexte »", async () => {
+    api.lireNiveaux.mockResolvedValue(new Map([["a", null]]));
+    api.lireSupport.mockResolvedValue([ligne({ id: "a", categorie: "bug", nom: "Leidy" })]);
+    api.lireDetail.mockResolvedValue({
+      id: "a", type: "probleme", categorie: "bug", plateforme: "upwork", source: "slack_salon", statut: "ouvert", texte: "Blank screen again",
+      capture: null, brouillon: null, bot_reponse: null, auto_action: null, auto_resultat: null, slack_user: "Leidy",
+      escalade_at: "2026-11-11T08:00:00Z", urgence: "orange", en_retard: false, poster_id: "p", messages: [], fiche: null,
+      ticket_at: null, contexte_analyse: null, contexte_at: null,
+    });
+    api.envoyerTicket.mockResolvedValue({ ticket_at: "2026-11-12T18:00:00Z" });
+    api.analyserContexte.mockResolvedValue({ analyse: "- Upwork, actif depuis le 26/10\n- Écran blanc signalé 2 fois", contexte_at: "2026-11-12T18:00:00Z" });
+    rendu(<PageSupport />);
+    fireEvent.click(await screen.findByTestId("support-ligne"));
+    const p = await screen.findByTestId("support-panneau");
+    fireEvent.change(within(p).getByLabelText("Note pour le ticket"), { target: { value: "2e fois" } });
+    fireEvent.click(within(p).getByTestId("support-ticket"));
+    await waitFor(() => expect(api.envoyerTicket).toHaveBeenCalledWith("a", "2e fois"));
+    fireEvent.click(within(p).getByTestId("support-contexte"));
+    await waitFor(() => expect(api.analyserContexte).toHaveBeenCalledWith("a"));
+    expect(await within(p).findByTestId("support-analyse")).toHaveTextContent("Écran blanc signalé 2 fois");
   });
 });

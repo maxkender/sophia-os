@@ -1,3 +1,4 @@
+import { dmSlackEnPause } from "./slack_posteur.ts";
 /**
  * Prompt 25 MAJ, point 7a : relier un posteur à son compte Slack de façon sûre.
  *
@@ -87,6 +88,7 @@ export async function proposerLienSlack(
     const v = Object.fromEntries(((regs ?? []) as { cle: string; valeur: unknown }[]).map((x) => [x.cle, x.valeur]));
     const mode = modeLienDm(v.slack_lien_dm_auto);
     if (mode === "off") return { statut: "off" };
+    if (await dmSlackEnPause(db)) return { statut: "off" };
     const { data: jeton, error } = await db.rpc("slack_jeton_creer", { p_slack: slackUserId });
     if (error || typeof jeton !== "string") return { statut: "erreur", erreur: error?.message ?? "jeton" };
     if (mode === "test") {

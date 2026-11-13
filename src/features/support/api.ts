@@ -92,6 +92,11 @@ export interface DetailSupport {
   poster_id: string | null;
   messages: MessageFil[];
   fiche: Fiche | null;
+  /** 0685 : envoyée en ticket dans #a-os-tickets (bouton de la Boîte). */
+  ticket_at?: string | null;
+  /** 0685 : la dernière analyse « Avoir le contexte ». */
+  contexte_analyse?: string | null;
+  contexte_at?: string | null;
 }
 
 /** Le libellé d'une ligne : la catégorie d'un problème ; « Question » pour une question sans catégorie. */
@@ -117,20 +122,27 @@ export function statutPosteur(d: Pick<MaDemande, "statut" | "equipe_a_repondu">)
 /** La page Support : un onglet, des filtres, l'urgence puis l'ancienneté. */
 export interface FiltresSupport {
   plateforme: "" | Plateforme;
+  /** 12/11 (Support propre) : le niveau (Adrien, ou Max pour « Paiement / urgent »). */
+  niveau?: "" | "adrien" | "max";
   categorie: string;
   statut: "" | "ouvert" | "attente_posteur" | "resolu";
   retard: boolean;
 }
 
-export function filtrer(lignes: readonly LigneSupport[], type: TypeDemande, f: FiltresSupport): LigneSupport[] {
+export function filtrer(lignes: readonly LigneSupport[], type: TypeDemande, f: FiltresSupport, niveaux?: ReadonlyMap<string, string | null>): LigneSupport[] {
   const rang = { rouge: 0, orange: 1, gris: 2 } as const;
   return lignes
     .filter((l) => l.type === type)
+    .filter((l) => !f.niveau || (niveaux?.get(l.id) ?? "adrien") === f.niveau)
     .filter((l) => (f.statut ? l.statut === f.statut : l.statut !== "resolu"))
     .filter((l) => !f.plateforme || l.plateforme === f.plateforme)
     .filter((l) => !f.categorie || (l.categorie ?? "autre") === f.categorie)
     .filter((l) => !f.retard || l.en_retard)
-    .sort((a, b) => rang[a.urgence] - rang[b.urgence] || a.escalade_at.localeCompare(b.escalade_at));
+    // 12/11 (Max) : une seule liste dans la Boîte ; la paie (niveau Max) passe en premier.
+    .sort((a, b) => paie(a) - paie(b) || rang[a.urgence] - rang[b.urgence] || a.escalade_at.localeCompare(b.escalade_at));
+  function paie(l: LigneSupport): number {
+    return niveaux?.get(l.id) === "max" ? 0 : 1;
+  }
 }
 
 export function compter(lignes: readonly LigneSupport[], type: TypeDemande): number {
@@ -172,6 +184,13 @@ export async function lireMesDemandes(): Promise<MaDemande[]> {
   return (data ?? []) as MaDemande[];
 }
 
+/** 12/11 (OS clair, 0677) : l'espace Help d'un posteur, pour l'aperçu admin. */
+export async function lireDemandesDe(posterId: string): Promise<MaDemande[]> {
+  const { data, error } = await supabase.rpc("support_demandes_de", { p_poster: posterId });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as MaDemande[];
+}
+
 export function poserQuestion(texte: string): Promise<{ id: string | null; reponse: string; envoye_equipe: boolean }> {
   return appeler({ action: "question", texte });
 }
@@ -202,6 +221,13 @@ export async function lireSupport(): Promise<LigneSupport[]> {
   return (data ?? []) as LigneSupport[];
 }
 
+/** 12/11 : le niveau de chaque demande (bot / adrien / max), lu à part (support_liste ne le donne pas). */
+export async function lireNiveaux(): Promise<Map<string, string | null>> {
+  const { data, error } = await supabase.from("support_demandes").select("id, niveau").neq("statut", "resolu").limit(1000);
+  if (error) throw new Error(error.message);
+  return new Map((data ?? []).map((d) => [d.id as string, (d.niveau as string | null) ?? null]));
+}
+
 export async function lireDetail(id: string): Promise<DetailSupport | null> {
   const { data, error } = await supabase.rpc("support_detail", { p_id: id });
   if (error) throw new Error(error.message);
@@ -210,6 +236,16 @@ export async function lireDetail(id: string): Promise<DetailSupport | null> {
 
 export function envoyerReponse(id: string, texte: string): Promise<{ envois: Record<string, string> }> {
   return appeler({ action: "repondre", id, texte });
+}
+
+/** 12/11 (Max) : la demande part en ticket dans #a-os-tickets ; l'IT guy la traite. */
+export function envoyerTicket(id: string, note?: string): Promise<{ ticket_at?: string; deja?: boolean }> {
+  return appeler({ action: "ticket", id, note: note ?? null });
+}
+
+/** 12/11 (Max) : l'analyse de tout ce que l'OS sait sur le posteur (fiche, Upwork, Slack, Help, Ruul, posts). */
+export function analyserContexte(id: string): Promise<{ analyse: string; contexte_at: string }> {
+  return appeler({ action: "contexte", id });
 }
 
 export async function changer(id: string, p: { statut?: "ouvert" | "resolu"; type?: TypeDemande }): Promise<void> {

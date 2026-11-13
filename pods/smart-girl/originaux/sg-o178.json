@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o178",
+ "type_bleo": "full_test",
+ "titre": "the european art of doing nothing #slowliving #dolcefarniente #smartgirl #rest #culture",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta B. Full test 2/4 (la jauge en demande 4 sur 15) : accroche jamais faite chez nous (« art of doing nothing » absent des accroches de donnees/label.json). Accroches écrites : « the european art of doing nothing » (retenue : culture, repos élégant, mots vérifiables), « how to rest like an italian » (écartée : plus étroite), « why you should do nothing this weekend » (écartée : sermon). Sens vérifiés : dolce far niente (italien), niksen (néerlandais), flâner (français), hygge (danois), lagom (suédois). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d92eb40c",
+   "texte_overlay": "the european art of\ndoing nothing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "25f16d4c",
+   "texte_overlay": "dolce far niente\n\nitalian: the sweetness\nof doing nothing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cdf54976",
+   "texte_overlay": "niksen\n\ndutch: doing nothing,\non purpose.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bc20f5c1",
+   "texte_overlay": "every culture has a word like\nthis. learn one a day.",
+   "texte_sophia": "every culture has a word like\nthis. i learn one a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a5a0d1ed",
+   "texte_overlay": "flâner\n\nfrench: to stroll with\nno destination.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "61b60d6b",
+   "texte_overlay": "hygge\n\ndanish: the warmth of\na cosy moment.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "19f88fba",
+   "texte_overlay": "lagom\n\nswedish: not too much,\nnot too little.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "13733e35",
+   "texte_overlay": "which one do you need\nthis weekend?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

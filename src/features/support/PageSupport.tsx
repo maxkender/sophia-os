@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 
 import {
   age,
+  analyserContexte,
   CATEGORIES,
   changer,
   cleCategorie,
@@ -17,10 +18,12 @@ import {
   compter,
   type DetailSupport,
   envoyerReponse,
+  envoyerTicket,
   filtrer,
   type FiltresSupport,
   lienCapture,
   lireDetail,
+  lireNiveaux,
   lireSupport,
   type LigneSupport,
   type TypeDemande,
@@ -30,7 +33,7 @@ import {
 const A = "support.admin";
 const H = "support.help";
 const PASTILLE: Record<LigneSupport["urgence"], string> = { rouge: "bg-red-500", orange: "bg-orange-400", gris: "bg-zinc-400" };
-const FILTRES_VIDES: FiltresSupport = { plateforme: "", categorie: "", statut: "", retard: false };
+const FILTRES_VIDES: FiltresSupport = { plateforme: "", niveau: "", categorie: "", statut: "", retard: false };
 
 /**
  * 0671 : « Support » (Recruitment automation). Deux onglets avec compteur,
@@ -43,14 +46,16 @@ export function PageSupport() {
   const { t } = useTranslation();
   const lignes = useQuery({ queryKey: ["support", "liste"], queryFn: lireSupport, refetchInterval: 60_000 });
   const [onglet, setOnglet] = React.useState<TypeDemande>("probleme");
+  // 12/11 (Max) : une seule liste ; la paie (niveau Max) passe en premier, avec un badge.
   const [f, setF] = React.useState<FiltresSupport>(FILTRES_VIDES);
   const [choisi, setChoisi] = React.useState<string | null>(null);
   const toutes = lignes.data ?? [];
-  const visibles = filtrer(toutes, onglet, f);
+  const niveaux = useQuery({ queryKey: ["support", "niveaux"], queryFn: lireNiveaux, refetchInterval: 60_000 });
+  const visibles = filtrer(toutes, onglet, f, niveaux.data);
 
   return (
     <div className="space-y-3" data-testid="page-support">
-      <div className="flex flex-wrap gap-2">
+      <div className="flex flex-wrap items-center gap-2">
         {(["probleme", "question"] as const).map((o) => (
           <Button key={o} variant={onglet === o ? "default" : "outline"} onClick={() => { setOnglet(o); setChoisi(null); }} data-testid={`onglet-${o}`}>
             {t(`${A}.onglets.${o}`)} <Badge variant="secondary" className="ml-1 bg-background text-foreground">{compter(toutes, o)}</Badge>
@@ -62,7 +67,7 @@ export function PageSupport() {
       <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <div className="space-y-2" data-testid="support-liste">
           {visibles.length === 0 && !lignes.isLoading && <p className="text-sm text-muted-foreground">{t(`${A}.vide`)}</p>}
-          {visibles.map((l) => <Ligne key={l.id} l={l} actif={choisi === l.id} onClick={() => setChoisi(l.id)} />)}
+          {visibles.map((l) => <Ligne key={l.id} l={l} paie={niveaux.data?.get(l.id) === "max"} actif={choisi === l.id} onClick={() => setChoisi(l.id)} />)}
         </div>
         <div>
           {choisi ? <Panneau id={choisi} onFini={() => setChoisi(null)} /> : <p className="text-sm text-muted-foreground">{t(`${A}.choisir`)}</p>}
@@ -100,7 +105,7 @@ function Filtres({ f, setF }: { f: FiltresSupport; setF: (f: FiltresSupport) => 
   );
 }
 
-function Ligne({ l, actif, onClick }: { l: LigneSupport; actif: boolean; onClick: () => void }) {
+function Ligne({ l, paie, actif, onClick }: { l: LigneSupport; paie?: boolean; actif: boolean; onClick: () => void }) {
   const { t } = useTranslation();
   return (
     <button type="button" onClick={onClick} data-testid="support-ligne"
@@ -110,6 +115,7 @@ function Ligne({ l, actif, onClick }: { l: LigneSupport; actif: boolean; onClick
         <span className="flex flex-wrap items-center gap-1.5">
           <span className="font-medium">{t(`${H}.categories.${cleLibelle(l.type, l.categorie, l.plateforme)}`)}</span>
           <span className="text-muted-foreground">· {l.nom} · {l.plateforme === "ruul" ? "Ruul" : "Upwork"}</span>
+          {paie && <Badge variant="error" data-testid="badge-paie">Paie</Badge>}
           {l.en_retard && <Badge variant="error">{t(`${A}.late`)}</Badge>}
           {l.statut !== "ouvert" && <Badge variant="outline">{t(`${A}.statuts.${l.statut}`)}</Badge>}
         </span>
@@ -171,6 +177,7 @@ function PanneauDetail({ d, rafraichir, onFini }: { d: DetailSupport; rafraichir
           </div>
         )}
         {d.fiche ? <Fiche d={d} /> : <p className="text-muted-foreground">{t(`${A}.sansPosteur`)}{d.slack_user ? ` : ${d.slack_user}` : ""}</p>}
+        <TicketEtContexte d={d} rafraichir={rafraichir} />
 
         <div className="space-y-1">
           <p className="font-medium">{t(`${A}.fil`)}</p>
@@ -225,6 +232,45 @@ function PanneauDetail({ d, rafraichir, onFini }: { d: DetailSupport; rafraichir
         {(envoyer.error ?? action.error) && <p className="text-destructive">{((envoyer.error ?? action.error) as Error).message}</p>}
       </CardContent>
     </Card>
+  );
+}
+
+/**
+ * 12/11 (Max) : « Envoyer en ticket à l'OS » (#a-os-tickets, l'IT guy le traite ; la demande reste ici
+ * tant qu'elle n'est pas réglée) et « Avoir le contexte » (tout ce que l'OS sait sur ce posteur).
+ */
+function TicketEtContexte({ d, rafraichir }: { d: DetailSupport; rafraichir: () => Promise<unknown> }) {
+  const [note, setNote] = React.useState("");
+  const ticket = useMutation({ mutationFn: () => envoyerTicket(d.id, note.trim() || undefined), onSuccess: () => void rafraichir() });
+  const contexte = useMutation({ mutationFn: () => analyserContexte(d.id), onSuccess: () => void rafraichir() });
+  const analyse = contexte.data?.analyse ?? d.contexte_analyse ?? null;
+  const date = contexte.data?.contexte_at ?? d.contexte_at ?? null;
+  return (
+    <div className="space-y-2 rounded-md border p-2" data-testid="support-ticket-contexte">
+      <div className="flex flex-wrap items-center gap-2">
+        {d.ticket_at
+          ? <Badge variant="secondary" data-testid="ticket-envoye">Ticket envoyé à l'OS · {new Date(d.ticket_at).toLocaleString("fr-FR")}</Badge>
+          : (
+            <>
+              <input aria-label="Note pour le ticket" placeholder="Note pour le ticket (facultatif)" value={note} onChange={(e) => setNote(e.target.value)}
+                className="h-8 min-w-0 flex-1 rounded-md border bg-background px-2 text-sm" />
+              <Button size="sm" variant="outline" disabled={ticket.isPending} onClick={() => ticket.mutate()} data-testid="support-ticket">
+                {ticket.isPending ? "Envoi…" : "Envoyer en ticket à l'OS"}
+              </Button>
+            </>
+          )}
+        <Button size="sm" variant="outline" disabled={!d.poster_id || contexte.isPending} onClick={() => contexte.mutate()} data-testid="support-contexte">
+          {contexte.isPending ? "Analyse en cours…" : analyse ? "Refaire l'analyse" : "Avoir le contexte"}
+        </Button>
+      </div>
+      {(ticket.error ?? contexte.error) && <p className="text-destructive">{((ticket.error ?? contexte.error) as Error).message}</p>}
+      {analyse && (
+        <div className="rounded-md bg-muted/50 p-2" data-testid="support-analyse">
+          <p className="text-xs text-muted-foreground">Contexte du posteur{date ? ` · ${new Date(date).toLocaleString("fr-FR")}` : ""} (fiche, Upwork, Slack, Help, Ruul, posts)</p>
+          <p className="whitespace-pre-wrap">{analyse}</p>
+        </div>
+      )}
+    </div>
   );
 }
 

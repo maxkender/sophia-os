@@ -14,6 +14,8 @@ import {
   FaqPage,
   ReponsesOfficiellesPage,
   SupportPage,
+  AujourdhuiPage,
+  ReglagesAutoPage,
   ParrainagePage,
   RetirerSlackPage,
   BonusPage,
@@ -50,6 +52,7 @@ import { RedirectionGuideNotion } from "@/features/documents/RedirectionGuideNot
 import { PageFaqPosteur } from "@/features/officielles/PageFaqPosteur";
 import { PageHelp } from "@/features/support/PageHelp";
 import { PageProblemesV2 } from "@/features/problemes/v2/PageProblemesV2";
+import { PageBot } from "@/features/bot/PageBot";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
@@ -128,6 +131,8 @@ export function AppRouter() {
                 sent en lecture pour le Head of Ops (interrupteurs et textes :
                 admin seulement, vérifiés en base). */}
             <Route path="/admin/auto" element={<OverviewPage />} />
+            <Route path="/admin/auto/aujourdhui" element={<AujourdhuiPage />} />
+            <Route path="/admin/auto/reglages" element={<ReglagesAutoPage />} />
             <Route path="/admin/auto/recruits" element={<RecruitsPage />} />
             <Route path="/admin/auto/cohorts" element={<CohortsPage />} />
             <Route path="/admin/auto/decisions" element={<DecisionsPage />} />
@@ -173,6 +178,8 @@ export function AppRouter() {
               {/* 3/11 : les règles des bots (feedback → règles), admin seulement. */}
               <Route path="/admin/auto/regles-bots" element={<ReglesBotsPage />} />
               <Route path="/admin/auto/problemes-v2" element={<PageProblemesV2 />} />
+              {/* 12/11 (Support propre) : le bot du support (tester, catalogue, tests, suivi), admin seulement. */}
+              <Route path="/admin/bot" element={<PageBot />} />
               <Route path="/admin/minuit" element={<AdminMinuitPage />} />
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />

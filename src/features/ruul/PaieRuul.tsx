@@ -8,6 +8,7 @@ import { telechargerCsv, versCsv } from "@/lib/csv";
 
 import {
   changerStatutRuul,
+  libelleArret,
   lireLotRuul,
   lirePosteursRuul,
   lireTableauRuul,
@@ -80,6 +81,8 @@ function AjouterSurRuul() {
   const actifs = q.data.filter((p) => p.actif);
   const aAjouter = actifs.filter((p) => p.ruul_statut === "a_ajouter");
   const invites = actifs.filter((p) => p.ruul_statut === "invite");
+  // 0694 : les posteurs arrêtés (Kill du samedi, arrêt par le posteur, 14 jours inactif), le plus récent d'abord.
+  const arretes = q.data.filter((p) => !p.actif && p.arret).sort((a, b) => (b.arret!.at > a.arret!.at ? 1 : -1));
 
   const agir = async (p: PosteurRuul, statut: "invite" | "pret" | null, email?: string) => {
     setMessage(null);
@@ -128,6 +131,21 @@ function AjouterSurRuul() {
                   {p.stop_at ? " · a demandé STOP" : ""}
                 </span>
                 <Button size="sm" variant="outline" onClick={() => void agir(p, "pret")}>Marquer prêt</Button>
+              </div>
+            ))}
+          </div>
+        ) : null}
+        {arretes.length > 0 ? (
+          <div className="space-y-1 text-sm" data-testid="arretes-ruul">
+            <p className="font-medium">Arrêtés ({arretes.length})</p>
+            {arretes.map((p) => (
+              <div key={p.poster_id} className="flex flex-wrap items-center gap-2">
+                <span>{p.nom}</span>
+                <span className="text-xs text-muted-foreground">
+                  {libelleArret(p.arret!)}
+                  {p.arret!.motif ? ` · ${p.arret!.motif}` : ""}
+                  {` · dernière semaine due : ${Number(p.du) > 0 ? `${p.du} $` : "0 (pas posté)"}`}
+                </span>
               </div>
             ))}
           </div>

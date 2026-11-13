@@ -68,6 +68,7 @@ export const LANGUES_CIBLES = [
   "lt",
   "lv",
   "ja",
+  "ko",
 ] as const;
 
 /**
@@ -116,6 +117,7 @@ const NOM_LANGUE: Record<string, string> = {
   lt: "Lituanien",
   lv: "Letton",
   ja: "Japonais",
+  ko: "Coréen",
 };
 
 /** Drapeau emoji d'une langue cible (aligné Documents : en → 🇬🇧). */
@@ -151,6 +153,7 @@ const DRAPEAU_LANGUE: Record<string, string> = {
   lt: "🇱🇹",
   lv: "🇱🇻",
   ja: "🇯🇵",
+  ko: "🇰🇷",
 };
 
 /** Nom lisible d'une langue, dans la langue de l'interface (FR/EN). */
@@ -205,6 +208,7 @@ const NOM_PAYS: Record<string, string> = {
   lt: "Lituanie",
   lv: "Lettonie",
   ja: "Japon",
+  ko: "Corée du Sud",
 };
 
 export function nomPays(code: string): string {

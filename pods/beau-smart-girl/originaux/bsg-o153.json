@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o153",
+  "type_bleo": "full_test",
+  "titre": "comment j'ai appris à aimer la poésie (alors que je trouvais ça ringard) #poesie #culture #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : se réconcilier avec la poésie, récit « je ». Accroches écrites : « comment j'ai appris à aimer la poésie (alors que je trouvais ça ringard) » (retenue : aveu et retournement), « les plus beaux poèmes » (écartée : liste de textes à vérifier), « la poésie, c'est pour qui ? » (écartée : molle). Aucun fait daté. Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "aac386cd",
+      "texte_overlay": "comment j'ai appris à aimer la poésie\n(alors que je trouvais ça ringard)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b1968d92",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "aaf7293e",
+      "texte_overlay": "1. j'ai commencé par les poèmes courts\n\nquatre vers, pas plus.\non peut les relire dix fois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "99987c7e",
+      "texte_overlay": "2. je les lis à voix haute\n\nla poésie est faite pour être entendue.\ntout change.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bb28c9d1",
+      "texte_overlay": "3. j'en garde un dans mon téléphone\n\nje le relis dans le métro.\nau bout d'une semaine, je le sais par cœur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1afb4bd8",
+      "texte_overlay": "4. je cherche la vie du poète\n\nquand on sait ce qu'il vivait,\nchaque mot prend du poids.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "18e768b0",
+      "texte_overlay": "5. j'écris le mien, même nul\n\npersonne ne le lira.\nmais je comprends enfin comment ils font.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "c92323db",
+      "texte_overlay": "tu as un poème préféré ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

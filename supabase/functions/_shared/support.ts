@@ -59,7 +59,24 @@ export interface Fiche {
   tiktok?: string | null;
   warmup_debut?: string | null;
   warmup_fin?: string | null;
-  ruul?: { statut?: string | null; email_ruul?: boolean; ajoute_at?: string | null; pret_at?: string | null; premier_paiement_at?: string | null } | null;
+  ruul?: {
+    statut?: string | null;
+    email_ruul?: boolean;
+    ajoute_at?: string | null;
+    pret_at?: string | null;
+    premier_paiement_at?: string | null;
+    /** 0681 : le statut lu dans Ruul (import) et sa date. */
+    compte_ruul?: string | null;
+    compte_ruul_vu_at?: string | null;
+    email_a_at?: string | null;
+    email_b_at?: string | null;
+  } | null;
+  /** 0682 */
+  statut?: string | null;
+  zone?: string | null;
+  tarif?: number | null;
+  hm?: string | null;
+  prochain_lundi?: string | null;
   contrat_upwork?: string | null;
   parrainages?: { declares?: number; invites?: number; recrues?: number } | null;
   derniere_paie?: { semaine?: string | null; statut?: string | null; montant?: number | null; paye_at?: string | null } | null;
@@ -85,11 +102,8 @@ export function ficheTexte(f: Fiche | null): string {
       f.warmup_debut ? (f.warmup_fin && new Date(f.warmup_fin).getTime() < Date.now() ? "terminé" : "en cours") : "pas commencé"
     }.`,
   ];
-  if (ruul && f.ruul) {
-    l.push(`Ruul : statut ${f.ruul.statut ?? "?"} ; email Ruul ${f.ruul.email_ruul ? "donné" : "pas encore donné"} ; ${
-      f.ruul.pret_at ? "compte Ruul prêt" : "compte Ruul pas encore prêt"
-    }${f.ruul.premier_paiement_at ? " ; déjà payé une fois" : ""}.`);
-  }
+  l.push(`Statut : ${f.statut ?? "?"}. Zone ${f.zone ?? "?"}, tarif ${f.tarif != null ? `${f.tarif} $ par semaine` : "?"}. HM : ${f.hm ?? "?"}. Prochain lundi : ${f.prochain_lundi ?? "?"}.`);
+  if (ruul && f.ruul) l.push(ligneRuul(f.ruul));
   if (!ruul && f.contrat_upwork) l.push(`Contrat Upwork : ${f.contrat_upwork}.`);
   const p = f.parrainages;
   if (p) l.push(`Parrainages : ${p.declares ?? 0} déclarés, ${p.invites ?? 0} invités, ${p.recrues ?? 0} recrutés.`);
@@ -97,6 +111,25 @@ export function ficheTexte(f: Fiche | null): string {
   l.push(d ? `Dernière paie : semaine ${d.semaine ?? "?"}, statut ${d.statut ?? "?"}${d.montant != null ? `, ${d.montant} $` : ""}.` : "Dernière paie : aucune pour l'instant.");
   l.push(f.manque?.length ? `Étapes manquantes : ${f.manque.join(" ; ")}.` : "Étapes manquantes : aucune.");
   return l.join("\n");
+}
+
+/** 0682 : où en est la personne dans Ruul, d'après le dernier statut lu dans Ruul (avec sa date). */
+export function ligneRuul(r: NonNullable<Fiche["ruul"]>, maintenant = new Date()): string {
+  const jours = (iso: string | null | undefined) => (iso ? Math.floor((maintenant.getTime() - Date.parse(iso)) / 86_400_000) : null);
+  const vu = jours(r.compte_ruul_vu_at);
+  const lu = r.compte_ruul
+    ? `statut lu dans Ruul : ${r.compte_ruul === "active" ? "Active (compte relié à Vik Studios)" : "Invited (invité, compte pas encore créé)"}, lu il y a ${vu} jour(s)${
+      vu !== null && vu > 7 ? " — DONNÉE DE PLUS DE 7 JOURS : ne l'affirme pas, dis qu'on vérifie" : ""
+    }`
+    : r.ajoute_at ? "ajouté dans Ruul, statut Ruul pas encore lu" : "pas encore ajouté dans Ruul (Max l'ajoute)";
+  return [
+    `Ruul : ${lu}`,
+    `email Ruul ${r.email_ruul ? "donné" : "pas encore donné"}`,
+    r.pret_at ? "a cliqué « It's done » (prêt à être payé)" : "n'a pas encore cliqué « It's done »",
+    r.premier_paiement_at ? "déjà payé une fois sur Ruul" : "jamais payé sur Ruul",
+    r.email_a_at ? `email d'invitation envoyé le ${r.email_a_at.slice(0, 10)}` : "",
+    r.email_b_at ? `email « compte relié » envoyé le ${r.email_b_at.slice(0, 10)}` : "",
+  ].filter(Boolean).join(" ; ") + ".";
 }
 
 /** Garde-fou : une réponse qui parle de l'autre plateforme ne part pas (elle va à l'équipe). */
@@ -110,8 +143,30 @@ export function parleDeLAutrePlateforme(texte: string, plateforme: Plateforme): 
  */
 export function questionPersonnelle(texte: string): boolean {
   const t = texte.toLowerCase();
-  return /\b(my|i)\b[^.?!]{0,40}\b(pay|paid|payment|money|salary|milestone|contract|account|password|login|log in|ruul|invoice|bonus)\b/.test(t) ||
+  // 12/11 (Max) : une question sur TikTok, les posts ou l'app n'est PAS perso, même avec « my account » /
+  // « I can't log in » : le bot y répond directement. Seule la paie reste perso dans ce cas.
+  if (parleDeTikTokPostsOuApp(t) && !PAIE.test(t)) return false;
+  // 12/11 : « my account » seul ne compte plus — dans les salons, c'est presque toujours le compte
+  // TikTok (cas de Noemi : le champ « Links » à 1 000 abonnés). Seul un compte Upwork / Ruul / dashboard est personnel.
+  return /\b(my|i)\b[^.?!]{0,40}\b(pay|paid|payment|money|salary|milestone|contract|password|login|log in|ruul|invoice|bonus)\b/.test(t) ||
+    /\b(upwork|ruul|sophia|dashboard)\s+account\b/.test(t) ||
     /\b(not|never|haven'?t|didn'?t|wasn'?t)\b[^.?!]{0,20}\b(paid|received|got)\b/.test(t);
+}
+
+/** La paie : toujours une question perso. */
+const PAIE = /\b(pay|paid|payment|money|salary|milestone|invoice|bonus|fund(ed|s)?|ruul|upwork|contract)\b/;
+
+/** TikTok, les posts, les photos, l'app, le dashboard des posts : des questions générales. */
+export function parleDeTikTokPostsOuApp(texte: string): boolean {
+  return /\b(tiktok|tik tok|post|posts|posted|posting|slide|slides|slideshow|photo|photos|picture|video|caption|hashtags?|sound|music|followers?|views?|likes?|bio|links?|profile|warm ?up|handle|username|app|sophia app)\b/
+    .test(texte.toLowerCase());
+}
+
+/** 12/11 : une question perso venue d'un salon Slack, notée dans Support — la paie va à Max, le reste à Adrien. */
+export function niveauQuestionPersonnelle(texte: string): { categorie: "paiement" | "compte"; niveau: "max" | "adrien" } {
+  const t = texte.toLowerCase();
+  const paie = /\b(pay|paid|payment|money|salary|milestone|invoice|bonus|fund(ed|s)?)\b/.test(t);
+  return paie ? { categorie: "paiement", niveau: "max" } : { categorie: "compte", niveau: "adrien" };
 }
 
 export const LIEN_HELP = "/createur/help";
@@ -126,7 +181,7 @@ export const TEXTE_ENVOYE_EQUIPE = "I'm not sure about this one, so I've sent yo
 /** Ce que voit le posteur après « Report a problem », selon ce que l'OS a pu faire seul. */
 export function texteProblemeRecu(categorie: string, auto: "lien_envoye" | "arret" | null): string {
   if (auto === "lien_envoye") {
-    return "We've just emailed you a link to set a new password. Open it and choose your password. If it still doesn't work, reply here.";
+    return "We've just emailed you your login and password (12345678). If it still doesn't work, reply here.";
   }
   if (auto === "arret") return "We've received your request. The team will confirm the next steps here.";
   if (categorie === "paiement") return "Thanks, we've received it. Payment issues are checked first: the team will answer you here.";
@@ -151,8 +206,20 @@ export function depuisAideSlack(choix: string): { type: TypeDemande; categorie: 
 }
 
 /** L'alerte Slack à Max (en français), avec le lien de la page Support. */
-export function texteAlerteMax(d: { nom: string; plateforme: Plateforme; categorie: string | null; texte: string; raison: "paiement" | "compte_24h" }, osUrl: string): string {
-  const tete = d.raison === "paiement" ? "🔴 Support : problème de paiement" : "🟠 Support : compte bloqué depuis plus de 24 h";
+export function texteAlerteMax(
+  d: { nom: string; plateforme: Plateforme; categorie: string | null; texte: string; raison: "paiement" | "compte_24h" | "urgent"; os?: string | null; action?: string | null },
+  osUrl: string,
+): string {
+  const tete = d.raison === "paiement" ? "🔴 Support : paiement / urgent" : d.raison === "urgent" ? "🔴 Support : urgent" : "🟠 Support : compte bloqué depuis plus de 24 h";
+  if (d.os || d.action) {
+    return [
+      `${tete} — ${d.nom} (${d.plateforme === "ruul" ? "Ruul" : "Upwork"}, ${libelleCategorie(d.categorie, d.plateforme)})`,
+      `Le posteur : « ${d.texte.slice(0, 300)} »`,
+      ...(d.os ? [`L'OS : ${d.os}`] : []),
+      ...(d.action ? [`Action proposée : ${d.action}`] : []),
+      `${osUrl.replace(/\/+$/, "")}/admin/auto/support`,
+    ].join("\n");
+  }
   return `${tete} — ${d.nom} (${d.plateforme === "ruul" ? "Ruul" : "Upwork"}, ${libelleCategorie(d.categorie, d.plateforme)})\n« ${d.texte.slice(0, 300)} »\n${osUrl.replace(/\/+$/, "")}/admin/auto/support`;
 }
 
@@ -166,10 +233,11 @@ export function texteEmailReponse(prenom: string | null, reponse: string, osUrl:
 }
 
 /** 0673 : tout ce que l'OS sait du posteur (messages, paie, milestones, posts), pour le bot. Coupé à `plafond`. */
-export function contexteTexte(c: Record<string, unknown> | null, plafond = 14_000): string {
+export function contexteTexte(c: Record<string, unknown> | null, plafond = 20_000): string {
   if (!c) return "";
   // Les faits d'abord (paie, milestones, posts), puis les messages : une coupe ne perd que les plus vieux messages.
-  const ordre = ["paie_semaines", "paie_ruul", "paie_upwork", "milestones", "posts", "envoye_par_os", "messages_au_bot", "messages_slack", "messages_upwork"];
+  const ordre = ["paie_semaines", "paie_ruul", "paie_upwork", "milestones", "posts", "demandes_help", "decisions", "posts_recents", "ruul_dernier_import",
+    "envoye_par_os", "messages_au_bot", "messages_slack", "messages_upwork"];
   const range = Object.fromEntries([...ordre.filter((k) => k in c).map((k) => [k, c[k]]), ...Object.entries(c).filter(([k]) => !ordre.includes(k))]);
   const t = `DONNÉES DE L'OS SUR CE POSTEUR (montants en dollars ; « de » : posteur, hm, max, os, nous) :\n${JSON.stringify(range)}`;
   return t.length > plafond ? `${t.slice(0, plafond)}…` : t;

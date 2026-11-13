@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o205",
+ "type_bleo": "full_test",
+ "titre": "signs you're healing even if it doesn't feel like it #healing #mentalhealth #selfgrowth #selfimprovement #mindset",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "3fb47dcc-e11e-4fc0-8880-fff84cc80b3e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3fb47dcc). full test BLEO : accroche jamais faite (format « signs you're X even if it doesn't feel like it »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "04e65b80-9fc7-4bb4-bcd6-344714a35087",
+   "texte_overlay": "signs you're healing even if\nit doesn't feel like it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0784e99b-47d0-4818-a1d0-998f37ef0537",
+   "texte_overlay": "you rest without guilt\n\nyou can spend a slow afternoon doing nothing and not feel like you failed. letting yourself rest is one of the quietest and most important signs of healing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0266a076-dbff-42a1-8eb4-97fb98020b21",
+   "texte_overlay": "old triggers feel smaller\n\nthe things that used to ruin your whole week now only sting for an hour. you still feel them, but they don't take over your life the way they once did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "001755f2-9975-4818-b48b-e56658d07b1d",
+   "texte_overlay": "you're curious again\n\nyou start wanting to learn things just for fun again, like a planet or a painting. that small spark of curiosity is a sign your mind finally feels safe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/4.jpg",
+   "texte_sophia": "you're curious again\n\ni stopped being curious for a long time. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and feeling curious again tells me i'm healing."
+  },
+  {
+   "position": 5,
+   "media_id": "13c14ee1-be9c-40ec-a34a-33eadedaa5ce",
+   "texte_overlay": "you say no more easily\n\nyou turn down plans that drain you without writing a long apology. protecting your energy calmly, without drama, means you finally believe you matter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0f7a0d9e-9a99-40a2-8f71-51a1d524d1ce",
+   "texte_overlay": "you notice good moments\n\nyou catch yourself enjoying small things: warm coffee, a funny text, a sunny walk. a healing mind slowly learns to see the good that was always there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/6.jpg"
+  }
+ ]
+}

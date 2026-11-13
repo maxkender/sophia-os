@@ -949,6 +949,7 @@ export const fr = {
       lt: "Lituanien",
       lv: "Letton",
       ja: "Japonais",
+      ko: "Coréen",
     },
     pays: {
       fr: "France",
@@ -982,6 +983,7 @@ export const fr = {
       lt: "Lituanie",
       lv: "Lettonie",
       ja: "Japon",
+      ko: "Corée du Sud",
     },
     applications: {
       switcher: "Application",
@@ -1034,7 +1036,7 @@ export const fr = {
         loginAide: "Garde-le : c'est le login de ton dashboard.",
         valider: "Enregistrer et me connecter",
         aide:
-          "Première fois ? Ouvre le lien personnel « Set my password » de ton message de bienvenue sur Upwork : il sert une fois, pendant 14 jours. Perdu ou expiré ? Demande un nouveau lien à ta hiring manager sur Upwork, ou sur Slack dans #questions.",
+          "Première fois ? Ouvre le lien personnel « Set my password » de ton message de bienvenue sur Upwork : il sert une fois, pendant 14 jours. Perdu ou expiré ? Demande un nouveau lien à ta hiring manager sur Upwork.",
         connexionAPart: "Ton mot de passe est enregistré. Connecte-toi avec ton login et ce mot de passe.",
         versConnexion: "Aller à la connexion",
         etat: {
@@ -3791,9 +3793,9 @@ export const fr = {
       compteAjouteJob:
         "Compte @{handle} ajouté — scrape + scores + nettoyage lancés en arrière-plan (voir logs ci-dessous).",
       compteAjouteFile:
-        "@{{handle}} ajoutée : son profil part tout de suite dans la file des mises à jour, une source à la fois (suivi dans « Mettre à jour les sources »).",
+        "@{{handle}} ajoutée : l'import de ses meilleurs posts démarre. La suite viendra si elle tient sur nos comptes (voir « File d'import des sources »).",
       compteAjouteAttente:
-        "@{{handle}} ajoutée : une mise à jour tourne déjà, son profil partira en tête du prochain lot (le lendemain à 6 h 37).",
+        "@{{handle}} ajoutée : elle attend son tour dans la file d'import, derrière les mises à jour (voir « File d'import des sources »).",
       importJobLance:
         "Import lancé côté serveur — tu peux changer de page ou quitter le site, ça continue.",
       jobsTitre: "Imports en cours",
@@ -3860,6 +3862,79 @@ export const fr = {
       updateAide:
         "Rattrape tout ce qui manque sur ce compte : les nouveaux TikToks, mais aussi ceux qu'un import précédent avait laissés de côté. Ce qui est déjà en stock n'est pas ré-importé.",
       updateLance: "Mise à jour lancée — rattrapage des slideshows manquants (voir logs).",
+      file: {
+        titre: "File d'import des sources",
+        description:
+          "Les imports s'étalent dans les jours. Chaque matin à 6 h 37 : jusqu'à {{lot}} mises à jour de la semaine, puis {{neuves}} sources neuves au plus, une source à la fois. Une source neuve n'importe d'abord que ses {{essai}} meilleurs posts ; si elle tient sur nos comptes, la suite arrive par tranches de {{tranche}}, un lundi après l'autre.",
+        enCours: "En cours",
+        enCoursSource_one: "@{{handle}}, {{count}} slideshow encore dans la file.",
+        enCoursSource_other: "@{{handle}}, {{count}} slideshows encore dans la file.",
+        enCoursDemarre: "Un lot démarre.",
+        aSuivre: "À suivre : {{sources}}.",
+        attente_one: "{{count}} source attend",
+        attente_other: "{{count}} sources attendent",
+        sansDate: "Sans date",
+        neuve: "source neuve",
+        neuveEssai: "source neuve, {{n}} posts",
+        auPlusTot: "Jour au plus tôt : un lot ne part que si celui de la veille est fini.",
+        essais: "Sources à l'essai",
+        colSource: "Source",
+        colLabel: "Label",
+        colImportes: "Importés",
+        colR: "r",
+        colRLabel: "Face au label",
+        colEtat: "Essai",
+        importes: "{{importes}} ({{valides}} validés)",
+        etat: {
+          en_cours: "En cours : {{posts}} posts mesurés sur {{min}}",
+          tient: "Tient : la suite arrive par {{n}}",
+          ne_tient_pas: "Ne tient pas : import arrêté",
+        },
+        lever: "Importer la suite",
+        leverConfirme: "Importer la suite de @{{handle}} sans attendre le verdict ? Elle arrivera par tranches de {{n}} posts.",
+      },
+      candidats: {
+        titre: "Propositions de sources",
+        description:
+          "Des comptes TikTok trouvés par l'agent éclaireur, dans toutes les langues. Valider crée la source et la met dans la file d'import : ses meilleurs posts d'abord, la suite seulement si elle tient sur nos comptes. Refuser avec la raison aide l'agent à mieux chercher.",
+        onglet: { a_decider: "À décider", plus_tard: "Plus tard", decides: "Décidées" },
+        sorteLibelle: "Sorte de proposition",
+        sorte: { tout: "Tout", label: "Pour un label", concept: "Concepts nouveaux" },
+        langueFiltre: "Langue des propositions",
+        toutesLangues: "Toutes les langues",
+        vide: {
+          a_decider: "Rien à décider pour le moment.",
+          plus_tard: "Rien de côté.",
+          decides: "Aucune décision pour le moment.",
+        },
+        conceptNouveau: "Concept nouveau",
+        statut: { valide: "Validée", refuse: "Refusée" },
+        chiffres_one:
+          "{{count}} slideshow sur ses {{posts}} derniers posts · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
+        chiffres_other:
+          "{{count}} slideshows sur ses {{posts}} derniers posts · médiane {{mediane}} vues · meilleur {{max}} · {{n100k}} à 100 000 vues ou plus",
+        posts10k: "{{n}} à 10 000 ou plus",
+        abonnes: "{{n}} abonnés",
+        postsTotal_one: "{{count}} post en tout",
+        postsTotal_other: "{{count}} posts en tout",
+        dernierSlideshow: "dernier slideshow le {{date}}",
+        releve: "relevé le {{date}}",
+        risques: "À savoir :",
+        raisonRefus: "Refusée : {{raison}}",
+        labelChoix: "Label de @{{handle}}",
+        langueChoix: "Langue de @{{handle}}",
+        labelRequis: "Choisis un label pour valider.",
+        valider: "Valider",
+        plusTard: "Plus tard",
+        remettre: "Remettre à décider",
+        refuser: "Refuser",
+        raisonLibelle: "Raison du refus de @{{handle}}",
+        raisonAide: "Pourquoi ? (l'agent le relit)",
+        confirmerRefus: "Confirmer le refus",
+        valideLancee: "@{{handle}} est une source. L'import de ses {{n}} meilleurs posts démarre.",
+        valideAttente: "@{{handle}} est une source. L'import de ses {{n}} meilleurs posts partira au plus tôt {{date}}.",
+        valideSansDate: "@{{handle}} est une source. Elle est dans la file d'import.",
+      },
       lundi: {
         titre: "Mise à jour hebdomadaire des sources",
         description:
@@ -4881,7 +4956,28 @@ export const fr = {
     auto: {
       section: "Automatisation du recrutement",
       switchesDeplaces: "Les interrupteurs (off / test / on), la paie par l'API et le bot FAQ sont maintenant dans Vue d'ensemble → Switches :",
+      // 12/11 (OS clair) : le menu de la section, 7 entrées.
+      menu: {
+        aujourdhui: "Aujourd'hui",
+        posteurs: "Posteurs",
+        ruul: "Ruul",
+        decisions: "Décisions",
+        paie: "Paie",
+        support: "Support",
+        reglages: "Réglages",
+      },
+      menuDesc: {
+        aujourdhui: "Ce que tu dois faire maintenant.",
+        posteurs: "Chaque posteur, ses étapes et ses relances.",
+        ruul: "Les posteurs payés par Ruul, de la candidature à la paie.",
+        decisions: "Les décisions de la semaine (jeudi, samedi).",
+        paie: "La paie du lundi, Upwork et Ruul.",
+        support: "Demandes des posteurs, bot, consignes, règles.",
+        reglages: "Interrupteurs, textes et anciennes pages.",
+      },
       pages: {
+        aujourdhui: { titre: "Aujourd'hui" },
+        reglages: { titre: "Réglages" },
         overview: { titre: "Vue d'ensemble" },
         recruits: { titre: "Onboarding posters" },
         cohorts: { titre: "Cohortes" },
@@ -4933,6 +5029,8 @@ export const fr = {
         },
       },
       phrases: {
+        aujourdhui: "Ce que tu dois faire maintenant : 5 lignes au plus, chacune avec son bouton.",
+        reglages: "Les interrupteurs, les textes et toutes les anciennes pages, rangées ici : rien n'est supprimé.",
         overview: "Tout ce que fait l'automatisation, sur une page. Le bouton rouge arrête toutes les actions automatiques.",
         recruits: "Chaque recrue jusqu'à son 1er post : étapes, messages envoyés, prochaine relance.",
         cohorts: "Chaque cohorte d'un coup d'œil : la prochaine sera-t-elle prête dimanche minuit, et comment ont fait les précédentes. Lecture seule.",
@@ -4949,7 +5047,7 @@ export const fr = {
         ruul_suivi: "Les posteurs Ruul à ajouter dans Ruul (nom, email Ruul, pays, zone, tarif) : ajoute-les dans Ruul, puis marque-les ajoutés, un par un ou tous ensemble.",
         faq: "Ce que le bot répond sur Slack et dans le tableau de bord, et ce qu'il ne sait pas.",
         officielles: "Les réponses validées par Max : le bot FAQ et les 3 bots les donnent en priorité, les posteurs les voient dans « FAQ ».",
-        support: "Tout ce que demandent les posteurs : Problems (quelque chose est cassé pour eux) et les Questions que le bot n'a pas su traiter. Répondre, régler, ajouter aux réponses officielles.",
+        support: "Les demandes des posteurs et le bot, au même endroit : la Boîte (Pour Max, Pour Adrien), l'aperçu de la page Help, le bac à sable, tes consignes, les règles du moment, le catalogue et les tests.",
         parrainage: "Les amis que les posteurs invitent par email : emails, candidatures, actifs, bonus et coût par recrue, par pays et par semaine ; le top des parrains ; les pays ouverts.",
         slack: "Les personnes désactivées dans l'OS (Kill, STOP, Portugal, contrat fermé) encore membres actifs de Slack : les retirer des canaux, désactiver le compte.",
         logs: "Tout ce que l'automatisation a fait. Ce qui t'attend et ce qui casse est dans Needs you.",
@@ -5488,6 +5586,16 @@ export const fr = {
         off: "Éteint : les nouveaux contrats ne sont pas lus.",
         test: "Test : l'OS lit les nouveaux contrats et montre ce qu'il ferait (« simulé »), sans créer de posteur ni envoyer de message.",
         on: "On : chaque nouveau contrat d'une annonce connue crée son posteur et reçoit le message de bienvenue, une seule fois.",
+      },
+      // 12/11 (Max) : une seule question par contrat (pays introuvable ou pays fermé).
+      question: {
+        pays: "Dans quel pays vit {{nom}} ?",
+        choisirPays: "Pays",
+        valider: "Valider",
+        ferme: "{{nom}} vit en {{pays}}, un pays fermé. Créer quand même ?",
+        creer: "Créer quand même",
+        ecarter: "Ne pas créer",
+        aideRegle: "La langue et la HM viennent de la règle : HM qui couvre ce pays, la moins chargée.",
       },
       aRelier: "Contrats à relier ({{n}})",
       rienARelier: "Aucun contrat à relier.",
@@ -8001,13 +8109,13 @@ export const fr = {
         "Texte de travers, mal placé, illisible, ou photos bizarres ? Appuie ci-dessous — on jette ce slideshow et on t’en donne un autre pour le même jour. Pas pour « j’aime pas le sujet ». 2 essais max.",
       rechargerRestants_one: "Il te reste {{count}} essai.",
       rechargerRestants_other: "Il te reste {{count}} essais.",
-      rechargerEpuise: "Tu as déjà rechargé ce post 2 fois. Si le problème continue, demande dans #questions sur Slack.",
+      rechargerEpuise: "Tu as déjà rechargé ce post 2 fois. Si le problème continue, clique sur Help dans ton dashboard.",
       rechargerConfirm:
         "Remplacer ce post par un NOUVEAU entièrement ? Seulement si le slideshow est vraiment buggé. Il te restera {{restantes}} essai(s) après.",
       rechargerEnCours: "Recherche d’un nouveau post…",
       rechargerOk: "Nouveau post prêt.",
       rechargerAucun:
-        "Aucun autre slideshow disponible pour l’instant — réessaie plus tard, ou demande dans #questions sur Slack.",
+        "Aucun autre slideshow disponible pour l’instant — réessaie plus tard, ou clique sur Help dans ton dashboard.",
       rechargerEnCoursAilleurs: "Une recharge de ce post est déjà en cours. Attends une minute, puis rafraîchis la page.",
       rechargerLimite: "Limite atteinte : 2 recharges maximum pour ce post.",
       rechargerPublie: "Ce post est déjà publié — impossible de le recharger.",
@@ -8357,7 +8465,7 @@ export const fr = {
       },
       admin: {
         onglets: { probleme: "Problems", question: "Questions" },
-        filtres: { plateforme: "Plateforme", toutes: "Toutes", categorie: "Catégorie", statut: "Statut", statutOuverts: "Ouverts + en attente", retard: "En retard seulement" },
+        filtres: { niveau: "Niveau", niveaux: { tous: "Tous les niveaux", adrien: "Adrien", max: "Max · Paiement / urgent", bot: "Bot" }, plateforme: "Plateforme", toutes: "Toutes", categorie: "Catégorie", statut: "Statut", statutOuverts: "Ouverts + en attente", retard: "En retard seulement" },
         statuts: { bot: "Bot", ouvert: "Open", attente_posteur: "Waiting for poster", resolu: "Solved" },
         verdict: { probleme_confirme: "Vérifié par le bot : problème confirmé", pas_de_probleme: "Vérifié par le bot : pas de problème dans les données", incertain: "Vérifié par le bot : données insuffisantes" },
         late: "Late",
@@ -9539,6 +9647,7 @@ export const fr = {
         lt: "Lituanie",
         lv: "Lettonie",
         ja: "Japon",
+        ko: "Corée du Sud",
       },
       err: {
         prenom: "Le prénom est obligatoire.",

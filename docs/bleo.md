@@ -658,7 +658,7 @@ Onze lots, chacun livrable seul, par une PR sur `main` avec ses tests. Un lot ne
 | L0 | Modèle de données fait (0600). Pas encore : `enregistrements` (0 sur 3 290 posts publiés en 7 jours), `modele` et `cuit_le` des decks, garde des colonnes BLEO de `passages` (D10) |
 | L1 | Fait (0601) |
 | L2 | Fait (0602, 0604, 0608, 0612, 0616), en fonction SQL |
-| L3 | A11 fait (0667, 10/11) : `bleo_lundi_sources` le lundi à 6 h 07 (décisions, plus la règle des 100 k), `bleo_sources_lot` (6 sources par jour), compte rendu `bleo_sources_semaine_ui` (page Sources). Pas commencé : `bleo_classes` recalculé, alertes de jauge |
+| L3 | *12/11 (0686) : une source neuve passe par un essai (30 meilleurs posts, verdict le lundi avec 10 posts mesurés), une mise à jour n'enfile jamais plus de 100 posts par source, et les sources neuves partent à 2 par jour derrière les mises à jour (`sources_file()`, panneau « File d'import des sources »).* A11 fait (0667, 10/11) : `bleo_lundi_sources` le lundi à 6 h 07 (décisions, plus la règle des 100 k), `bleo_sources_lot` (6 sources par jour), compte rendu `bleo_sources_semaine_ui` (page Sources). Pas commencé : `bleo_classes` recalculé, alertes de jauge |
 | L4 | Fait (0615, 0628, guichet, outils des 7 podz, routines, chef, légendes) ; bascule le 1/11 au soir |
 | L5 | Fait (0603, 0614), en fonction SQL ; rapports quotidiens |
 | L6 | Abandonné (pas d'A/B) ; remplacé par le suivi plan à minuit (bascule) et le suivi avant/après (0617) |

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o224",
+ "type_bleo": "full_test",
+ "titre": "ce que font les gens qui ne stressent jamais le lundi matin #travail #lundi #routine #santementale #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (le lundi matin). Rien de médical. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1ad07d86",
+   "texte_overlay": "ce que font les gens\nqui ne stressent jamais\nle lundi matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2d4703ad",
+   "texte_overlay": "ils ont écrit leurs 3 priorités le vendredi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2f644d6b",
+   "texte_overlay": "ils n'ouvrent pas tous leurs mails d'un coup\nils les trient en 10 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "31e748b6",
+   "texte_overlay": "ils commencent par une tâche facile\npour démarrer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0c6d86b5",
+   "texte_overlay": "ils gardent un moment pour eux à midi\n5 minutes à apprendre un truc, loin de l'écran du boulot",
+   "texte_sophia": "ils gardent un moment pour eux à midi\n5 minutes sur l'appli Sophia, loin de l'écran du boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3ab758a4",
+   "texte_overlay": "ils ne fixent aucune réunion avant 10 h\nquand ils peuvent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3ea6204c",
+   "texte_overlay": "le lundi n'est pas le problème.\nle vendredi qui le prépare, si",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3fab71b2",
+   "texte_overlay": "ton lundi, c'est plutôt calme ou chaos ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

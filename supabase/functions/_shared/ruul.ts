@@ -31,6 +31,23 @@ export function prochaineEtapeRuul(e: EtatRuul, maintenant = new Date()): EtapeR
   return null;
 }
 
+/**
+ * 0681 (Agent Ruul) : l'email à envoyer d'après le dernier statut lu dans Ruul. B (« Active »)
+ * une seule fois ; A (« Invited ») une seule fois, et jamais après B. Rien une fois prêt.
+ */
+export function emailAB(p: {
+  compte: string | null;
+  a_at: string | null;
+  b_at: string | null;
+  statut: string | null;
+  stop_at: string | null;
+}): "A" | "B" | null {
+  if (p.stop_at || p.statut === "pret" || p.statut === "paye_1x") return null;
+  if (p.compte === "active" && !p.b_at) return "B";
+  if (p.compte === "invited" && !p.a_at && !p.b_at) return "A";
+  return null;
+}
+
 /** Les {variables} d'un texte modifiable ; une variable inconnue reste telle quelle. */
 export function remplirRuul(texte: string, v: Record<string, string | number | null | undefined>): string {
   return texte.replace(/\{(\w+)\}/g, (tout, cle) => {
@@ -48,11 +65,28 @@ export interface EmailRuul {
   corps: string;
   bouton?: { texte: string; lien: string } | null;
   lienStop: string;
+  /** Email de fermeture du compte : ni phrase Help ni « I do not wish to continue ». */
+  sansPied?: boolean;
 }
 
-/** Un email simple (Sophia), en anglais : paragraphes, un bouton, le lien « Unsubscribe ». */
+/** 12/11 (Max) : la dernière ligne de chaque email aux posteurs. */
+export const PIED_HELP_EMAIL = "Have a question or a problem? Don't reply to this email: click Help on your dashboard, you'll get an answer there.";
+
+/** Le lien « I do not wish to continue » (page de confirmation) déduit du lien d'arrêt des relances. */
+export function lienArret(lienStop: string): string | null {
+  return /[?&]stop=/.test(lienStop) ? lienStop.replace(/([?&])stop=/, "$1arreter=") : null;
+}
+
+/**
+ * Un email simple (Sophia), en anglais : paragraphes, un bouton, la phrase Help, puis en petit
+ * « I do not wish to continue » (12/11, Max : plus de « reply STOP »). Le lien d'arrêt des relances
+ * reste dans l'en-tête List-Unsubscribe (envoi).
+ */
 export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
   const paragraphes = e.corps.split(/\n{2,}/).map((p) => p.trim()).filter(Boolean);
+  // La phrase Help vient après le bouton, juste avant la signature (sauf si le texte la dit déjà).
+  const help = e.sansPied || /click Help on your dashboard/i.test(e.corps) ? null : PIED_HELP_EMAIL;
+  const arret = e.sansPied ? null : lienArret(e.lienStop);
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${echapper(e.objet)}</title></head>
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
@@ -60,10 +94,12 @@ export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
 <tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">Sophia</td></tr>
 ${paragraphes.map((p) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p).replace(/\n/g, "<br>")}</td></tr>`).join("\n")}
 ${e.bouton ? `<tr><td style="padding:8px 0 20px"><a href="${echapper(e.bouton.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(e.bouton.texte)}</a></td></tr>` : ""}
-<tr><td style="font-size:15px;line-height:1.4">The Sophia team</td></tr>
-<tr><td style="font-size:12px;line-height:1.5;color:#71717a;padding-top:24px;border-top:1px solid #e4e4e7">You can also reply STOP. <a href="${echapper(e.lienStop)}" style="color:#71717a">Unsubscribe</a></td></tr>
+${help ? `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(help)}</td></tr>` : ""}
+<tr><td style="font-size:15px;line-height:1.4">The Vik Studios team</td></tr>
+${arret ? `<tr><td style="font-size:12px;line-height:1.5;color:#a1a1aa;padding-top:24px;border-top:1px solid #e4e4e7"><a href="${echapper(arret)}" style="color:#a1a1aa">I do not wish to continue</a></td></tr>` : ""}
 </table></td></tr></table></body></html>`;
-  const texte = [...paragraphes, ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), "The Sophia team", `Unsubscribe: ${e.lienStop}`].join("\n\n");
+  const texte = [...paragraphes, ...(e.bouton ? [`${e.bouton.texte}: ${e.bouton.lien}`] : []), ...(help ? [help] : []), "The Vik Studios team",
+    ...(arret ? [`I do not wish to continue: ${arret}`] : [])].join("\n\n");
   return { html, texte };
 }
 

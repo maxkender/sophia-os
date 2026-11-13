@@ -98,6 +98,7 @@ describe("pays déduit de la langue", () => {
     expect(paysParDefaut("lt")).toBe("LT");
     expect(paysParDefaut("lv")).toBe("LV");
     expect(paysParDefaut("ja")).toBe("JP");
+    expect(paysParDefaut("ko")).toBe("KR");
     expect(paysParDefaut(null)).toBeNull();
   });
 

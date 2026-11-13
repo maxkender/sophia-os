@@ -20,6 +20,14 @@ export interface PosteurRuul {
   relance_at: string | null;
   stop_at: string | null;
   du: number;
+  /** 0694 : le dernier arrêt (Kill du samedi, « I do not wish to continue », 14 jours inactif). */
+  arret?: { source: string; motif: string | null; at: string } | null;
+}
+
+/** « Killé le 14/11 » (Kill du samedi) ou « Arrêté le 14/11 » (le posteur, 14 jours inactif, à la main). */
+export function libelleArret(a: { source: string; at: string }): string {
+  const le = new Date(a.at).toLocaleDateString("fr-FR", { day: "numeric", month: "numeric", timeZone: "Europe/Paris" });
+  return a.source === "kill_samedi" ? `Killé le ${le}` : `Arrêté le ${le}`;
 }
 
 export interface SemaineLot {
@@ -174,3 +182,87 @@ export interface MonOnboardingRuul {
 
 export const lireMonOnboardingRuul = () => rpc<MonOnboardingRuul | null>("ruul_mon_onboarding");
 export const jeSuisPretRuul = () => rpc<Retour>("ruul_je_suis_pret");
+
+// --- 0681 : Agent Ruul (un agent externe ou Max colle ce qu'il lit dans Ruul) --------------
+
+export interface AInviterRuul {
+  poster_id: string;
+  nom: string;
+  email_ruul: string;
+  pays: string | null;
+}
+
+export interface ImportRuul {
+  id: string;
+  type: "statuts" | "invites";
+  at: string;
+  par: string;
+  lignes: number;
+  appliques: number;
+  nouveaux_invited: number;
+  nouveaux_active: number;
+  introuvables: string[];
+}
+
+export interface EtatAgentRuul {
+  dernier_import_at: string | null;
+  emails_ab: boolean;
+  a_envoyer_a: number;
+  a_envoyer_b: number;
+  envoyes_a: number;
+  envoyes_b: number;
+  journal: ImportRuul[];
+}
+
+export interface ResultatStatuts {
+  lignes: number;
+  trouves: number;
+  changes: number;
+  a_envoyer_a: number;
+  a_envoyer_b: number;
+  nouveaux_invited: number;
+  nouveaux_active: number;
+  introuvables: string[];
+  illisibles: string[];
+  simulation?: boolean;
+}
+
+export async function lireAInviterRuul(): Promise<AInviterRuul[]> {
+  const { data, error } = await supabase.rpc("ruul_agent_a_inviter");
+  if (error) throw new Error(error.message);
+  return (data ?? []) as AInviterRuul[];
+}
+
+export async function lireEtatAgentRuul(): Promise<EtatAgentRuul> {
+  const { data, error } = await supabase.rpc("ruul_agent_etat");
+  if (error) throw new Error(error.message);
+  return data as EtatAgentRuul;
+}
+
+export async function marquerInvitesRuul(texte: string): Promise<{ emails: number; marques: number; deja: number; introuvables: string[] }> {
+  const { data, error } = await supabase.rpc("ruul_agent_marquer_invites", { p_texte: texte });
+  if (error) throw new Error(error.message);
+  return data as { emails: number; marques: number; deja: number; introuvables: string[] };
+}
+
+export async function importerStatutsRuul(texte: string, simuler: boolean): Promise<ResultatStatuts> {
+  const { data, error } = await supabase.rpc("ruul_agent_importer_statuts", { p_texte: texte, p_simuler: simuler });
+  if (error) throw new Error(error.message);
+  return data as ResultatStatuts;
+}
+
+/** Le pays en anglais (« ES » → « Spain ») ; un code inconnu reste tel quel, rien → « ? ». */
+export function paysEnAnglais(code: string | null | undefined): string {
+  const c = (code ?? "").trim().toUpperCase();
+  if (!c) return "?";
+  try {
+    return new Intl.DisplayNames(["en"], { type: "region" }).of(c) ?? c;
+  } catch {
+    return c;
+  }
+}
+
+/** La liste à coller dans Ruul : « nom ; email ; pays » (pays de la candidature signée, en anglais), une ligne par personne. */
+export function texteAInviter(l: readonly AInviterRuul[]): string {
+  return l.map((p) => `${p.nom || "?"} ; ${p.email_ruul} ; ${paysEnAnglais(p.pays)}`).join("\n");
+}

@@ -47,6 +47,7 @@ export const HASHTAGS_PAR_LANGUE: Record<string, string[]> = {
   lt: ["#mokymasis", "#saviugda", "#booktok", "#tau", "#zinios", "#mokykistiktok", "#motyvacija", "#faktai", "#kultura", "#fyp", "#patarimai", "#protinga"],
   lv: ["#macibas", "#pasattistiba", "#booktok", "#tev", "#zinasanas", "#macitiestiktoka", "#motivacija", "#fakti", "#kultura", "#fyp", "#padomi", "#gudri"],
   ja: ["#勉強", "#自己啓発", "#booktok", "#おすすめ", "#知識", "#勉強垢", "#モチベーション", "#雑学", "#教養", "#fyp", "#豆知識", "#ライフハック"],
+  ko: ["#공부", "#자기계발", "#booktok", "#추천", "#지식", "#공부스타그램", "#동기부여", "#잡학", "#교양", "#fyp", "#꿀팁", "#생활꿀팁"],
 };
 
 /**

@@ -13,5 +13,5 @@
  "fathom": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "clean-study": { "par_jour": 6 },
  "kaja": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
- "plony": { "par_jour": 0, "pause": true, "motif": "en préparation (13/11) : import des images de @_plony_ en cours, pas encore de ligne pods ni de comptes. Lancement décidé par Adrien" }
+ "plony": { "par_jour": 2 }
 }

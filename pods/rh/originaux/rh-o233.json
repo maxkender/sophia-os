@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o233",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8eeeac6e-f658-42fb-8378-2860155dc1cb",
+ "titre": "j'ai été promue 6 fois en 8 ans, voici mes secrets #promotion #carriere #travail #salaire #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 14 (parent 8eeeac6e), 2e : accroche mot pour mot, autres conseils que rh-o099. Aucun chiffre de salaire inventé. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6e5c9b8b",
+   "texte_overlay": "j'ai été promue 6 fois en 8 ans,\nvoici mes secrets",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6fdadcb4",
+   "texte_overlay": "j'écrivais ce que je voulais dans 2 ans\net je le relisais chaque trimestre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7e6c3174",
+   "texte_overlay": "je réglais les problèmes que personne ne voulait\nles petits. ceux qu'on voit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7e7fe28a",
+   "texte_overlay": "je disais oui aux projets avec d'autres services\nça fait connaître ton nom",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "807b40df",
+   "texte_overlay": "j'apprenais un peu chaque jour\n5 minutes, hors de mon métier. ça nourrit les idées",
+   "texte_sophia": "j'apprenais un peu chaque jour\n5 minutes sur l'appli Sophia, hors de mon métier. ça nourrit les idées",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "82594229",
+   "texte_overlay": "je demandais clairement la promotion\navec mes preuves, à date fixe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "82a00329",
+   "texte_overlay": "personne ne te promeut par hasard",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "83d07ba1",
+   "texte_overlay": "lequel tu fais déjà ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

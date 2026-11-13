@@ -2002,7 +2002,7 @@ export const en = {
       },
       relecturesAdmin: {
         titre: "Published posts sent to reviewers",
-        aide: "Every Saturday, {{n}} slideshows published in the language (the most viewed of the last 14 days, one per content, at most 3 per label) go to each reviewer of the language, as they went out. They rewrite, rate, remark; their rewrites are cut into corrections (Corrections tab). The button sends {{n}} posts right away.",
+        aide: "Every Saturday, {{n}} slideshows published in the language (drawn at random among those published in the last 14 days, one per content, at most 3 per label) go to each reviewer of the language, as they went out. They rewrite, rate, remark; their rewrites are cut into corrections (Corrections tab). The button sends {{n}} posts right away.",
         langue: "Language",
         aucuneLangue: "No native reviewer.",
         envoyer: "Send {{n}} posts now",

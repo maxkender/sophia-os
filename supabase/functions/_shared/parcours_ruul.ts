@@ -20,10 +20,37 @@ export const INACTIF_JOURS = 14;
 export const PHRASE_QUESTION_OS =
   "Any question about the job? Ask it in the Sophia OS: log in to your dashboard and click Help. You'll get an answer right away, and you can escalate to our team if needed.";
 /** 13/11 (Max, confirmé par le support Ruul) : un posteur « Invited » s'inscrit lui-même, sans attendre d'email. */
-export const LIEN_RUUL = "https://app.ruul.io";
+export const LIEN_RUUL = "https://app.ruul.io/register";
 export function texteInviteRuul(email: string | null): string {
   return `Go to app.ruul.io and sign up with this exact email: ${email ?? "your email"}. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.`;
 }
+/**
+ * 13/11 (Max) : le guide Ruul pas à pas (posteurs Ruul seulement), dans la bienvenue, les relances Ruul
+ * et l'étape 6 du dashboard. Tout est fait avant le premier post (dimanche minuit, heure de Paris).
+ */
+export function guideRuul(email: string | null, avant: string | null = "Sunday midnight (Paris time)"): string {
+  return [
+    "Set up Ruul — required to get paid (5 minutes)",
+    ...(avant ? [`Do it before your first post: before ${avant}.`] : []),
+    "",
+    "1. Go to app.ruul.io/register",
+    "2. Choose « Contractor » (not Business).",
+    "3. First name + last name exactly as on your ID.",
+    `   Email: use exactly ${email ?? "your Ruul email"} (the one in your dashboard).`,
+    "   Tip: if it's a Gmail address, you can also click « Continue with Google ».",
+    "4. Role: choose « Digital Creator ».",
+    "5. Tick « I agree to the Terms of Use » → « Create account ».",
+    "6. Enter the code Ruul sent to your email. Didn't get it after 1 minute? Click « Resend » and check your spam.",
+    "7. Once inside Ruul: go to « Payment accounts » → « Add my ID » → follow the steps (ID + bank details).",
+    "8. That's it. Nothing else to do on Ruul.",
+    "",
+    "How you get paid: every Monday, the money for the week you posted arrives in your Ruul space, then goes to your bank. Your first payment: the Monday after your first week.",
+    "",
+    "Problem with Ruul? Click Help in your dashboard.",
+  ].join("\n");
+}
+const BOUTON_RUUL = { texte: "Open Ruul", lien: LIEN_RUUL };
+
 export const PHRASE_HELP = "Have a question or a problem? Don't reply to this email: click Help on your dashboard, you'll get an answer there.";
 
 export interface EtatParcours {
@@ -125,7 +152,8 @@ export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue:
 
   // La carte « Ruul jamais fini » n'est pas un email : elle passe même un jour où un email est parti.
   const ruul = etatRuul(e);
-  const ruulEnCours = !ruulPret(e) && (!!e.ruul_email_a_at || !!e.ruul_email_b_at);
+  // 13/11 (règle Ruul) : « Active » dans Ruul = payable le lundi : plus de relance « Ruul pas prêt ».
+  const ruulEnCours = !ruulPret(e) && e.ruul_compte !== "active" && (!!e.ruul_email_a_at || !!e.ruul_email_b_at);
   if (ruulEnCours && ruul.n >= RUUL_MAX && ruul.depuis && t - new Date(ruul.depuis).getTime() >= 2 * JOUR && !envoye(e, "carte_ruul")) {
     return { type: "carte_ruul", cle: "carte_ruul" };
   }
@@ -251,8 +279,9 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
           acces(d),
           `Before ${avant}:\n1. Log in to your dashboard.\n2. Create your TikTok account with the exact name above.\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
           PHRASE_QUESTION_OS,
-          "How you get paid: within 24 hours you'll receive an invitation from Ruul, the platform we use to pay you. Create your account from that email, verify your ID and add your bank account. You're paid every Monday for the week you posted (Monday to Sunday).",
+          guideRuul(d.ruul_email, avant),
         ].join("\n\n"),
+        bouton: BOUTON_RUUL,
       };
     case "jamais_connecte":
       return {
@@ -287,9 +316,9 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
       if (d.ruul_compte !== "active") {
         return {
           objet: "Reminder: create your Ruul account to get paid",
-          corps: [bonjour(d), "Your Ruul account isn't ready yet, so we can't pay you.", texteInviteRuul(d.ruul_email),
-            "You're paid every Monday for the week you posted (Monday to Sunday)."].join("\n\n"),
-          bouton: { texte: "Open Ruul", lien: LIEN_RUUL },
+          corps: [bonjour(d), "Your Ruul account isn't ready yet, so we can't pay you.", guideRuul(d.ruul_email, avant),
+            "You don't need Ruul to start posting — it's only to get paid. You're paid every Monday for the week you posted."].join("\n\n"),
+          bouton: BOUTON_RUUL,
         };
       }
       return {
@@ -326,20 +355,19 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
       return {
         objet: "Create your Ruul account to get paid",
         corps: [bonjour(d),
-          "We use Ruul to pay you.",
-          texteInviteRuul(d.ruul_email),
-          "Use your real name, as on your ID.",
+          "We use Ruul to pay you. You don't need to wait for an email from Ruul: create your account now.",
+          guideRuul(d.ruul_email, avant),
           `You start posting on ${debut}. Keep setting up your dashboard and TikTok meanwhile.`].join("\n\n"),
-        bouton: { texte: "Open Ruul", lien: LIEN_RUUL },
+        bouton: BOUTON_RUUL,
       };
     case "samedi_ruul":
       return {
         objet: "Finish your Ruul account before Monday to be paid this week",
         corps: [bonjour(d),
           "Finish your Ruul account before Monday to be paid this week.",
-          texteInviteRuul(d.ruul_email),
+          guideRuul(d.ruul_email, null),
           "If it's not done by Monday, your pay isn't lost: it's added to the next Monday once your account is ready."].join("\n\n"),
-        bouton: { texte: "Open Ruul", lien: LIEN_RUUL },
+        bouton: BOUTON_RUUL,
       };
     case "invite_b":
       return {

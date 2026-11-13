@@ -45,7 +45,7 @@ Les podz :
 | 11 · Remakes @fathom0g (Sophia) | `fathom` | `session_01T1YweZ2oXEptQ6jpdRf18c` | Fathomly (Sophia seul, anglais ; plus de carte UnSwipe depuis le 4/11) |
 | 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
 | 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; 2 par jour depuis le 5/11, demande d'Adrien ; en test sur 3 comptes, un par langue) |
-| 14 · Originaux Plony (Sophia) | `plony` | (session à créer au lancement) | Plony (Sophia seul, voie 1, en anglais, images de @_plony_ et Seedream ; en préparation au 13/11, en pause dans le rythme jusqu'au lancement par Adrien) |
+| 14 · Originaux Plony (Sophia) | `plony` | `session_017c8FRZ8qRaSWXppDYa8Lum` | Plony (Sophia seul, voie 1, en anglais, images de @_plony_ et Seedream ; lancé par Adrien le 13/11 à 2 par jour ; label rattaché à Sophia après le nettoyage de l'import, comptes à choisir dans Pilotage) |
 
 ## Règles absolues
 

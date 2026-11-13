@@ -9,11 +9,12 @@ const api = vi.hoisted(() => ({
 }));
 vi.mock("./api", () => api);
 vi.mock("@/features/moteur/api", () => ({ enregistrerIdentiteRuul: vi.fn() }));
+vi.mock("@/features/onboarding/cinqEtapesApi", () => ({ lireMesDeclarations: vi.fn().mockResolvedValue([]) }));
 vi.mock("@/features/regles/api", () => ({ useRegles: () => ({ slack: "https://join.slack/x" }) }));
 vi.mock("@/features/onboarding/BoutonDeclarer", () => ({ BoutonDeclarer: ({ libelle }: { libelle: string }) => <button type="button">{libelle}</button> }));
 
 import i18n from "@/locales";
-import { ChecklistRuul, etapesRuulFaites, onboardingRuulFini } from "./ChecklistRuul";
+import { ChecklistRuul, etapesRuulFaites, etatRuul, onboardingRuulFini } from "./ChecklistRuul";
 import { commentCaMarche } from "@/features/parrainageEmail/BlocParrainer";
 
 const base = {
@@ -33,6 +34,22 @@ beforeEach(async () => {
 });
 
 describe("ChecklistRuul (0592)", () => {
+  it("13/11 : l'étape Ruul montre son état (invitation à venir, envoyée, compte actif, fait) et It's done dès l'invitation", async () => {
+    expect(etatRuul({ ...base })).toBe("attente");
+    expect(etatRuul({ ...base, ruul_invite: true })).toBe("invite");
+    expect(etatRuul({ ...base, ruul_invite: true, ruul_compte: "active" })).toBe("actif");
+    expect(etatRuul({ ...base, ruul_invite: true, ruul_pret: true })).toBe("fait");
+    api.lireMonOnboardingRuul.mockResolvedValue({ ...base, ruul_invite: true, ruul_compte: "active" });
+    rendu();
+    const statut = await screen.findByTestId("ruul-statut");
+    expect(statut.getAttribute("data-etat")).toBe("actif");
+    expect(statut.textContent).toContain("Account active");
+    expect(screen.getByTestId("ruul-pret")).toBeInTheDocument();
+    // Le warm-up : le compteur et « I've started the warm-up ».
+    expect(screen.getByTestId("ruul-etape-warmup").textContent).toContain("I've started the warm-up");
+  });
+
+
   it("6 étapes dans l'ordre, la date du lundi de cohorte, l'email de candidature pré-rempli, aucun texte Upwork", async () => {
     api.lireMonOnboardingRuul.mockResolvedValue(base);
     const { container } = rendu();
@@ -40,7 +57,7 @@ describe("ChecklistRuul (0592)", () => {
     const etapes = [...container.querySelectorAll("[data-testid^='ruul-etape-']")].map((e) => e.getAttribute("data-testid"));
     expect(etapes).toEqual(["identite", "email", "tiktok", "warmup", "slack", "ruul"].map((e) => `ruul-etape-${e}`));
     expect(screen.getByDisplayValue("ana@test.zz")).toBeInTheDocument();
-    expect(container.textContent).toContain("Finish before Saturday 8 pm (Paris time) to start on Monday 16 November.");
+    expect(container.textContent).toContain("Finish before Sunday 15 November, midnight (Paris time), to start on Monday 16 November.");
     expect(container.textContent?.toLowerCase()).not.toMatch(/upwork|milestone/);
   });
 

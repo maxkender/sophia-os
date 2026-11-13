@@ -94,7 +94,7 @@ export function rendreEmailRuul(e: EmailRuul): { html: string; texte: string } {
 <body style="margin:0;padding:0;background:#f4f4f5;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:#18181b">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:24px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:520px;background:#ffffff;border-radius:12px;padding:28px 24px">
-<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">${echapper(e.titre ?? "Sophia")}</td></tr>
+<tr><td style="font-size:20px;font-weight:700;padding-bottom:16px">${echapper(e.titre ?? "Vik Studios")}</td></tr>
 ${paragraphes.map((p) => `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(p).replace(/\n/g, "<br>")}</td></tr>`).join("\n")}
 ${e.bouton ? `<tr><td style="padding:8px 0 20px"><a href="${echapper(e.bouton.lien)}" style="display:inline-block;background:#18181b;color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 20px;border-radius:8px">${echapper(e.bouton.texte)}</a></td></tr>` : ""}
 ${help ? `<tr><td style="font-size:15px;line-height:1.55;padding-bottom:12px">${echapper(help)}</td></tr>` : ""}

@@ -48,7 +48,7 @@ function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
 
 /** Le conseil « TikTok limite les follows » (0498), modifiable dans Settings. */
 export const CONSEIL_FOLLOWS_DEFAUT =
-  "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then tell us in #questions.";
+  "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then click Help on your dashboard and tell us.";
 
 /**
  * La première semaine en 5 étapes, sur l'accueil du posteur (chantier du
@@ -208,6 +208,8 @@ export function CinqEtapes({
           <li>• {t("calendrier.cinq.bonASavoir.absent")}</li>
           <li>• {t("calendrier.cinq.bonASavoir.arreter")}</li>
           <li>• {t("calendrier.cinq.bonASavoir.questions")}</li>
+          <li>• {t("calendrier.cinq.bonASavoir.paie")}</li>
+          <li>• {t("calendrier.cinq.bonASavoir.argent")}</li>
         </ul>
       </div>
     </section>

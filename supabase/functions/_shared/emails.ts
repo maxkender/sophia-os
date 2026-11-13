@@ -70,7 +70,7 @@ export async function appelerSite(m: Message, fetchFn: typeof fetch = fetch): Pr
     const r = await fetchFn(url, {
       method: "POST",
       headers: { "content-type": "application/json", "x-hub-secret": secret },
-      body: JSON.stringify({ action: "envoyer_email", to: m.to, from_name: "Sophia", subject: m.objet, html: m.html, text: m.texte, tags: m.tags, unsubscribe_url: m.stop }),
+      body: JSON.stringify({ action: "envoyer_email", to: m.to, from_name: "Vik Studios", subject: m.objet, html: m.html, text: m.texte, tags: m.tags, unsubscribe_url: m.stop }),
     });
     const j = await r.json().catch(() => ({}));
     const ok = r.ok && j?.ok !== false;

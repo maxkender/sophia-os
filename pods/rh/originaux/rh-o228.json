@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o228",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9d59a3ad-7b99-48f6-965e-ddd97210d20c",
+ "titre": "ce que j'ai compris en changeant 3 fois de boîte en 5 ans #carriere #travail #emploi #reconversion #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 2 (parent 9d59a3ad, notre rh-o166) : accroche mot pour mot, autres leçons. Récit inventé, aucune entreprise. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ee7a3a4",
+   "texte_overlay": "ce que j'ai compris\nen changeant 3 fois de boîte\nen 5 ans",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "222408d9",
+   "texte_overlay": "partir trop vite, ça se voit sur le cv\npartir trop tard, ça se voit dans les yeux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2736a504",
+   "texte_overlay": "le meilleur moment pour chercher\nc'est quand tout va encore bien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "28ccfa22",
+   "texte_overlay": "chaque départ m'a appris quelque chose\nune compétence, une limite, une personne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2ae02b4f",
+   "texte_overlay": "ce qui ne change pas d'une boîte à l'autre\nma curiosité. 5 minutes par jour à apprendre un truc",
+   "texte_sophia": "ce qui ne change pas d'une boîte à l'autre\nma curiosité. 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2eec1c4a",
+   "texte_overlay": "la bonne boîte\nc'est celle où tu apprends encore",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2f2ab02e",
+   "texte_overlay": "tu en es à combien de boîtes ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

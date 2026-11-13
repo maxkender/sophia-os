@@ -1,0 +1,25 @@
+{
+  "name": "pod-plony",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 14 — originaux Plony : phrases en anglais (amour, stoïcisme, anxiété, lâcher-prise) coupées sur 3 slides, sur des illustrations façon estampe japonaise (images de @_plony_ nettoyées par l'import de l'OS, et Seedream via fal), puis une slide Sophia. Voie 1 : l'OS traduit et place Sophia au placement.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "images": "NODE_USE_ENV_PROXY=1 node atelier/cli-images.ts",
+    "sources": "NODE_USE_ENV_PROXY=1 node atelier/cli-sources.ts",
+    "seedream": "NODE_USE_ENV_PROXY=1 node atelier/cli-seedream.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-apercu.ts",
+    "doublons": "NODE_USE_ENV_PROXY=1 node atelier/cli-doublons.ts",
+    "deposer": "NODE_USE_ENV_PROXY=1 node atelier/cli-deposer.ts"
+  }
+}

@@ -1,5 +1,5 @@
 import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
-import { jetonValide, lireEmailsBrevo, sansCitation, texteReponseEmail } from "./email_entrant.ts";
+import { emailReel, jetonValide, lireEmailsBrevo, sansCitation, sansImagesInline, texteReponseEmail } from "./email_entrant.ts";
 
 Deno.test("12/11 : une réponse à nos emails est lue (expéditeur, sujet, texte sans la citation)", () => {
   const e = lireEmailsBrevo({
@@ -34,4 +34,22 @@ Deno.test("12/11 : jeton Brevo exact seulement ; la réponse finit par la phrase
   assert(!jetonValide(null, j));
   assert(!jetonValide("Bearer court", "court"));
   assertStringIncludes(texteReponseEmail("Jane", "You're paid every Monday."), "Don't reply to this email: click Help on your dashboard");
+});
+
+Deno.test("13/11 : captures jointes gardées, images Gmail retirées du texte, vraie adresse (jamais @sophia.com)", () => {
+  const [e] = lireEmailsBrevo({
+    items: [{
+      From: { Address: "Ana@Example.com" }, Subject: "Re: login", MessageId: "<m1>",
+      ExtractedMarkdownMessage: "I can't log in, see below\n\n[ii_abc123](ii_abc123)",
+      Attachments: [
+        { Name: "shot.png", ContentType: "image/png", ContentLength: 1000, DownloadToken: "tok1" },
+        { Name: "doc.pdf", ContentType: "application/pdf", ContentLength: 1000, DownloadToken: "tok2" },
+      ],
+    }],
+  });
+  assertEquals(e.texte, "I can't log in, see below");
+  assertEquals(e.images, [{ nom: "shot.png", type: "image/png", jeton: "tok1" }]);
+  assertEquals(sansImagesInline("Hi [image: Screenshot 1.png] there"), "Hi  there");
+  assertEquals(emailReel([null, "", "ana@sophia.com", "Ana@Gmail.com"]), "ana@gmail.com");
+  assertEquals(emailReel(["ana@sophia.com"]), null);
 });

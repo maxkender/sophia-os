@@ -231,6 +231,21 @@ export async function generateTextCreative(
   throw new Error(failures.join(" | "));
 }
 
+/** 13/11 (support) : une capture d'écran envoyée par un posteur, décrite en une ou deux phrases (texte visible compris). */
+export async function decrireCapture(base64: string, mime: string): Promise<string> {
+  const failures: string[] = [];
+  const consigne = "This is a screenshot a content poster sent to our support. Describe in 1-2 short sentences what it shows " +
+    "(which app or page, any error message or visible text, word for word). No guessing beyond what is visible.";
+  for (const model of TEXT_MODELS) {
+    try {
+      return textOf(await call(model, [{ text: consigne }, { inline_data: { mime_type: mime, data: base64 } }], { temperature: 0.1 })).trim();
+    } catch (error) {
+      failures.push(`${model}: ${messageErreur(error)}`);
+    }
+  }
+  throw new Error(failures.join(" | "));
+}
+
 export async function fetchImageAsInline(url: string): Promise<Part> {
   // Passe par le helper Apify : les visuels issus du key-value store exigent
   // le token, ceux déjà rapatriés dans notre Storage sont servis tels quels.

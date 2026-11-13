@@ -10,6 +10,22 @@ export interface EmailEntrant {
   nom: string | null;
   sujet: string;
   texte: string;
+  /** 13/11 : les images jointes (captures d'écran), à télécharger chez Brevo avec leur jeton. */
+  images: { nom: string; type: string; jeton: string }[];
+}
+
+/** Les images jointes d'un email Brevo (au plus 3, moins de 8 Mo chacune). */
+export function imagesJointes(it: Item): { nom: string; type: string; jeton: string }[] {
+  const pieces = Array.isArray(it?.Attachments) ? it.Attachments as Item[] : [];
+  return pieces
+    .filter((a) => /^image\/(png|jpe?g|webp|gif|heic)$/i.test(String(a?.ContentType ?? "")) && a?.DownloadToken && Number(a?.ContentLength ?? 0) < 8_000_000)
+    .slice(0, 3)
+    .map((a) => ({ nom: String(a.Name ?? "image").slice(0, 120), type: String(a.ContentType).toLowerCase(), jeton: String(a.DownloadToken) }));
+}
+
+/** Les images collées dans Gmail laissent « [ii_…](ii_…) » ou « [image: …] » dans le texte : on les retire. */
+export function sansImagesInline(texte: string): string {
+  return texte.replace(/!?\[(?:ii_[\w-]+|image:[^\]]*)\]\([^)]*\)/gi, "").replace(/\[image:[^\]]*\]/gi, "").replace(/\n{3,}/g, "\n\n").trim();
 }
 
 // deno-lint-ignore no-explicit-any
@@ -24,11 +40,12 @@ export function lireEmailsBrevo(corps: unknown): EmailEntrant[] {
     const de = String(it?.From?.Address ?? "").trim().toLowerCase();
     const sujet = String(it?.Subject ?? "").trim().slice(0, 200);
     const brut = String(it?.ExtractedMarkdownMessage ?? it?.RawTextBody ?? "").trim();
-    const texte = sansCitation(brut).slice(0, 3500);
+    const images = imagesJointes(it);
+    const texte = sansImagesInline(sansCitation(brut)).slice(0, 3500) || (images.length ? "(screenshot only)" : "");
     const messageId = String(it?.MessageId ?? it?.Uuid?.[0] ?? "").trim();
     if (!de || !/@/.test(de) || !messageId || texte.length < 2) continue;
     if (estAutomatique(de, sujet, it?.Headers)) continue;
-    sortie.push({ messageId, de, nom: it?.From?.Name ? String(it.From.Name).slice(0, 120) : null, sujet, texte });
+    sortie.push({ messageId, de, nom: it?.From?.Name ? String(it.From.Name).slice(0, 120) : null, sujet, texte, images });
   }
   return sortie;
 }
@@ -67,4 +84,16 @@ export function jetonValide(entete: string | null, attendu: string | undefined):
 export function texteReponseEmail(prenom: string | null, reponse: string): string {
   return `Hi ${prenom?.trim() || "there"},\n\n${reponse.trim()}\n\n` +
     "Have a question or a problem? Don't reply to this email: click Help on your dashboard, you'll get an answer there.";
+}
+
+/**
+ * 13/11 (Max) : les emails partent à la vraie adresse du posteur (email perso, puis email Ruul), jamais à
+ * l'adresse de connexion @sophia.com (personne ne la lit).
+ */
+export function emailReel(candidats: unknown[]): string | null {
+  for (const c of candidats) {
+    const e = typeof c === "string" ? c.trim().toLowerCase() : "";
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e) && !e.endsWith("@sophia.com")) return e;
+  }
+  return null;
 }

@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o155",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7e70f93d-a3f4-46d7-b120-1fb036390230",
+  "titre": "les drôles d'habitudes d'étudiante qui ont changé mes notes #etudiante #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "7e70f93d-a3f4-46d7-b120-1fb036390230"
+  ],
+  "notes": "G2, déclinaison de 7e70f93d (« les habitudes étranges que j'ai intégré dans ma vie en tant qu'étudiante à l'ens », G1 gagnante, génération 1 en français ; meilleur passage ru 3,8 k vues, r 6,34), en français. Accroche reformulée : « les drôles d'habitudes d'étudiante qui ont changé mes notes » (autres mots que bsg-o146). cta A (avant / après sur le dernier item). Items neufs (rien de repris de bsg-o090 ni de bsg-o146). Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "045cddef",
+      "texte_overlay": "les drôles d'habitudes d'étudiante\nqui ont changé mes notes",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "193e5ff1",
+      "texte_overlay": "1. je relis mes cours en marchant\n\nun tour du parc, une fiche.\nle cerveau aime bouger.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "067576b5",
+      "texte_overlay": "2. je fais semblant de passer l'oral\n\ndevant le miroir, avec une tenue d'examen.\nle jour j, je suis déjà rodée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a1e465a8",
+      "texte_overlay": "3. je dessine mes cours\n\nune frise, une carte, un schéma moche.\nje m'en souviens bien mieux qu'un paragraphe.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "06def6dd",
+      "texte_overlay": "4. je termine chaque séance par une question\n\nce que je n'ai pas compris.\nle lendemain, je commence par là.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2c5057e4",
+      "texte_overlay": "5. je nourris ma curiosité en dehors des cours\n\navant, je ne lisais que mes polycopiés.\nmaintenant, j'apprends un truc sur le monde chaque matin. et mes copies sont plus riches.",
+      "texte_sophia": "5. je nourris ma curiosité en dehors des cours\n\navant, je ne lisais que mes polycopiés.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et mes copies sont plus riches.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0d83f6b4",
+      "texte_overlay": "laquelle est la plus étrange ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

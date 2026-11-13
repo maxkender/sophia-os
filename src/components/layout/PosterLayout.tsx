@@ -1,5 +1,6 @@
 import * as React from "react";
 import { PageSure } from "@/components/erreurs/PageSure";
+import { SectionSure } from "@/components/erreurs/SectionSure";
 import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { CalendarDays, CircleHelp, Gift, Languages, LifeBuoy, MessageSquareQuote, Wallet } from "lucide-react";
@@ -55,12 +56,31 @@ export function PosterLayout() {
     >
       {/* 10/11 : posteur Ruul sans email Ruul, en haut de l'espace. */}
       <BandeauEmailRuul />
-      <OnboardingPopup />
-      <ReviewPopup />
-      <NudgePopup />
-      <PopupMessagesPosteur />
-      <AnnoncesPopup />
-      <DebutPopup />
+      {/*
+        11/11 : chaque pop-up dans sa SectionSure. Ils s'ouvrent par-dessus le
+        calendrier et ne se ferment que par leur bouton : un pop-up qui plantait
+        démontait toute l'app (page blanche, calendrier inaccessible, Leidy les
+        4, 7 et 11/11). Il ne reste plus à sa place que le message d'erreur, la
+        page se voit dessous.
+      */}
+      <SectionSure nom="Welcome">
+        <OnboardingPopup />
+      </SectionSure>
+      <SectionSure nom="Feedback">
+        <ReviewPopup />
+      </SectionSure>
+      <SectionSure nom="Reminder">
+        <NudgePopup />
+      </SectionSure>
+      <SectionSure nom="Messages">
+        <PopupMessagesPosteur />
+      </SectionSure>
+      <SectionSure nom="Announcements">
+        <AnnoncesPopup />
+      </SectionSure>
+      <SectionSure nom="Getting started">
+        <DebutPopup />
+      </SectionSure>
       <PageSure />
       <BoutonHelp />
     </AppShell>

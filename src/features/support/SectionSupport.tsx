@@ -101,7 +101,7 @@ const LIBELLES_QUI: Record<CleQui, { texte: string; classe: string }> = {
   arret: { texte: "Action : arrêt transmis", classe: "bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-200" },
   etape: { texte: "Action : étape marquée", classe: "bg-green-100 text-green-800 dark:bg-green-950 dark:text-green-200" },
   ruul_bot: { texte: "Envoyé à Ruul Bot", classe: "bg-violet-100 text-violet-800 dark:bg-violet-950 dark:text-violet-200" },
-  os_tickets: { texte: "Envoyé à OS tickets", classe: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-200" },
+  os_tickets: { texte: "→ OS tickets", classe: "bg-sky-100 text-sky-800 dark:bg-sky-950 dark:text-sky-200" },
   max: { texte: "Pour Max", classe: "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200" },
   equipe: { texte: "Répondu par l'équipe", classe: "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200" },
   renvoyee: { texte: "Renvoyée par le posteur", classe: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200" },

@@ -54,6 +54,7 @@ import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceCl
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
 /** L'ID Slack de Max (ADMINS_SLACK). */
 const MAX_SLACK = "U0BL5FRLBEU";
+const ADRIEN_SLACK = "U0BMTK7BLCW";
 
 type Db = ReturnType<typeof serviceClient>;
 
@@ -169,6 +170,10 @@ Deno.serve(async (request) => {
           canal: String(body.canal ?? ""), ts: String(body.ts ?? ""), auteur: String(body.auteur ?? ""), texte: String(body.texte ?? ""),
           nom: typeof body.nom === "string" ? body.nom : null, plateforme: body.plateforme === "ruul" || body.plateforme === "upwork" ? body.plateforme : null,
         }));
+      case "tickets_regles":
+        // 13/11 (refonte, 4 bis) : ✅ sur les tickets de #a-os-tickets → posteur prévenu (cron support-tickets-regles).
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await ticketsRegles(db));
       case "slack_suite": {
         // 13/11 : la suite d'un fil Slack d'une demande : elle entre dans le fil de la demande, qui repasse « à répondre ».
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -240,6 +245,11 @@ async function cerveau(db: Db, f: Fiche | null, texte: string, ctx = "") {
 async function poserQuestion(db: Db, poster: string, texte: string, categorie: string | null, source: "help" | "email" = "help") {
   texte = texte.trim();
   if (texte.length < 3) return { ok: false, error: "Please write your question." };
+  // 13/11 (refonte, Phase 3) : un simple accusé (« thanks », « ok », « will do ») : pas de réponse, sur tous les canaux, Help compris.
+  if (accuseReception(texte)) {
+    await noterVu(db, poster, source, texte, `${source}:${crypto.randomUUID()}`);
+    return { ok: true, id: null, reponse: "", envoye_equipe: false, muet: true, vu: true };
+  }
   // 12/11 (Support propre) : le bot v2 répond à tout ; il ne passe la main qu'à Adrien ou Max.
   const r = await deciderBot(db, { message: texte, source: "help", poster, profil: null, canal: source });
   const d = r.decision;
@@ -945,21 +955,115 @@ async function trierDemande(db: Db, id: string) {
 /** 12/11 (Max) : la demande part en ticket dans #a-os-tickets ; elle reste ouverte dans la Boîte. */
 async function envoyerTicket(db: Db, par: string | null, id: string, note: string | null) {
   const { data: d, error } = await db.from("support_demandes")
-    .select("id, poster_id, plateforme, categorie, texte, slack_canal, slack_ts, slack_user, ticket_at, ticket_slack_ts").eq("id", id).maybeSingle();
+    .select("id, poster_id, plateforme, categorie, texte, slack_canal, slack_ts, slack_user, ticket_at, ticket_slack_ts, source, capture, action_faite, auto_resultat, bot_reponse")
+    .eq("id", id).maybeSingle();
   if (error) throw new Error(error.message);
   if (!d) return { ok: false, error: "demande introuvable" };
   if (d.ticket_at) return { ok: true, deja: true, ticket_at: d.ticket_at };
   const jeton = jetonSlackFaq();
   if (!jeton) return { ok: false, error: "jeton Slack absent" };
   const f = d.poster_id ? await fiche(db, d.poster_id) : null;
-  const texte = texteTicket({ ...d, nom: (f as { nom?: string } | null)?.nom ?? d.slack_user ?? null, note }, OS_URL);
+  // 13/11 (refonte, 4 bis) : le ticket dit tout : posteur, canal, message exact, capture, ce que le bot a déjà essayé.
+  const essaye = [d.auto_resultat, d.action_faite, d.bot_reponse ? `réponse : ${String(d.bot_reponse).slice(0, 200)}` : null].filter(Boolean).join(" · ");
+  const capture = d.capture ? await lienCaptureSigne(db, String(d.capture)) : null;
+  const note2 = [note, `Canal : ${d.source ?? "help"}`, capture ? `Capture : ${capture}` : null, essaye ? `Déjà essayé : ${essaye}` : "Déjà essayé : rien"]
+    .filter(Boolean).join("\n");
+  const texte = texteTicket({ ...d, nom: (f as { nom?: string } | null)?.nom ?? d.slack_user ?? null, note: note2 }, OS_URL);
   const r = await posterSlack(jeton, CANAL_TICKETS, texte);
   if (!r.ok) return { ok: false, error: erreurTicket(r.error ?? "inconnue") };
   const maintenant = new Date().toISOString();
   const { error: e } = await db.from("support_demandes")
     .update({ ticket_at: maintenant, ticket_slack_ts: r.ts ?? null, ticket_par: par, maj_at: maintenant }).eq("id", id);
   if (e) throw new Error(e.message);
-  return { ok: true, ticket_at: maintenant };
+  await journaliser(db, { qui: par ? "Max" : "cerveau_support", quoi: "ticket_os", poster_id: d.poster_id, canal: d.source ?? null, demande_id: id, resultat: "ticket envoyé dans #a-os-tickets" });
+  // Le posteur est prévenu sur son canal (une fois).
+  let posteur = "pas de posteur";
+  if (d.poster_id) {
+    const m = await messageCanal(db, { id, poster_id: d.poster_id, source: d.source ?? null }, TEXTE_TICKET_OUVERT);
+    posteur = m.ok ? "prévenu" : `pas prévenu : ${m.error}`;
+  }
+  return { ok: true, ticket_at: maintenant, posteur };
+}
+
+const ACCES = /\b(log ?in|sign ?in|password|mot de passe|connexion|can'?t access|cannot access|locked out|connect)\b/i;
+
+/** Un lien « choisir mon mot de passe » envoyé à ce posteur ces 24 dernières heures (journal). */
+async function lienRecent(db: Db, poster: string): Promise<boolean> {
+  const { data } = await db.from("journal_auto").select("id").eq("poster_id", poster).eq("quoi", "lien_mot_de_passe").eq("mode", "agir")
+    .gte("at", new Date(Date.now() - 86_400_000).toISOString()).limit(1);
+  return (data ?? []).length > 0;
+}
+
+const TEXTE_TICKET_OUVERT = "Thanks, our team is fixing it. We'll get back to you here.";
+
+/** Un message de l'équipe au posteur sur le canal de sa demande (Upwork : message Upwork ; sinon Help + email + Slack). */
+async function messageCanal(db: Db, d: { id: string; poster_id: string; source: string | null }, texte: string): Promise<{ ok: boolean; error?: string }> {
+  const r = d.source === "upwork"
+    ? await repondreCanal(db, null, { poster_id: d.poster_id, canal: "upwork", texte, demande_id: d.id })
+    : await repondre(db, null, d.id, texte);
+  return { ok: r.ok !== false, error: (r as { error?: string }).error };
+}
+
+/** Une capture Help (chemin du stockage) en lien signé 7 jours ; un lien http tel quel. */
+async function lienCaptureSigne(db: Db, chemin: string): Promise<string | null> {
+  if (/^https?:\/\//.test(chemin)) return chemin;
+  try {
+    const { data } = await db.storage.from("support").createSignedUrl(chemin, 7 * 86_400);
+    return data?.signedUrl ?? null;
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * 13/11 (refonte, 4 bis) : ✅ de Max ou d'Adrien sur un ticket de #a-os-tickets (lecture des réactions seulement) :
+ * le ticket est noté réglé, et le posteur prévenu sur son canal selon l'action « ticket_regle_prevenir » (Contrôle).
+ */
+async function ticketsRegles(db: Db) {
+  const jeton = jetonSlackFaq();
+  if (!jeton) return { ok: false, error: "jeton Slack absent" };
+  const { data, error } = await db.from("support_demandes").select("id, poster_id, source, ticket_slack_ts")
+    .not("ticket_slack_ts", "is", null).is("ticket_regle_at", null).gte("ticket_at", new Date(Date.now() - 21 * 86_400_000).toISOString())
+    .order("ticket_at").limit(40);
+  if (error) throw new Error(error.message);
+  const ctl = await lireControle(db);
+  const resultats: Record<string, unknown>[] = [];
+  for (const d of (data ?? []) as { id: string; poster_id: string | null; source: string | null; ticket_slack_ts: string }[]) {
+    const r = await fetch(`https://slack.com/api/reactions.get?channel=${CANAL_TICKETS}&timestamp=${encodeURIComponent(d.ticket_slack_ts)}&full=true`, {
+      headers: { authorization: `Bearer ${jeton}` },
+    }).then((x) => x.json()).catch((e) => ({ ok: false, error: messageErreur(e) })) as { ok: boolean; error?: string; message?: { reactions?: { name: string; users?: string[] }[] } };
+    if (!r.ok) { resultats.push({ id: d.id, erreur: r.error }); continue; }
+    const regle = (r.message?.reactions ?? []).some((x) => /^(white_check_mark|heavy_check_mark|ballot_box_with_check)$/.test(x.name) &&
+      (x.users ?? []).some((u) => u === MAX_SLACK || u === ADRIEN_SLACK));
+    if (!regle) continue;
+    await db.from("support_demandes").update({ ticket_regle_at: new Date().toISOString() }).eq("id", d.id);
+    let prevenu = "pas de posteur";
+    if (d.poster_id) {
+      const mode = modeAction(ctl, "ticket_regle_prevenir");
+      if (mode === "agir") prevenu = await prevenirTicketRegle(db, d.id);
+      else if (mode === "proposer") {
+        await journaliser(db, { qui: "cerveau_support", quoi: "ticket_regle_prevenir", mode: "proposer", poster_id: d.poster_id, canal: d.source, demande_id: d.id,
+          resultat: "ticket réglé (✅) : prévenir le posteur ?", details: { action: "ticket_regle_prevenir", valeur: d.id } });
+        prevenu = "proposé";
+      } else prevenu = "action éteinte";
+    }
+    resultats.push({ id: d.id, regle: true, prevenu });
+  }
+  return { ok: true, lus: (data ?? []).length, resultats };
+}
+
+/** Le message « c'est réglé » au posteur (texte du réglage ticket_regle_texte), une fois. */
+async function prevenirTicketRegle(db: Db, id: string): Promise<string> {
+  const { data: d } = await db.from("support_demandes").select("id, poster_id, source, ticket_prevenu_at").eq("id", id).maybeSingle();
+  if (!d?.poster_id) return "pas de posteur";
+  if (d.ticket_prevenu_at) return "déjà prévenu";
+  const { data: reg } = await db.from("reglages").select("valeur").eq("cle", "ticket_regle_texte").maybeSingle();
+  const texte = typeof reg?.valeur === "string" && reg.valeur.trim() ? reg.valeur.trim() : "Good news: it's fixed. Can you try again?";
+  const m = await messageCanal(db, { id: d.id, poster_id: d.poster_id, source: d.source }, texte);
+  if (!m.ok) return `pas prévenu : ${m.error}`;
+  await db.from("support_demandes").update({ ticket_prevenu_at: new Date().toISOString() }).eq("id", id);
+  await journaliser(db, { qui: "cerveau_support", quoi: "ticket_regle_prevenir", poster_id: d.poster_id, canal: d.source, demande_id: id, resultat: texte });
+  return "prévenu";
 }
 
 /**
@@ -1044,6 +1148,11 @@ async function traiterProposition(db: Db, par: string, id: string, faire: boolea
     return { ok: true, ignoree: true };
   }
   if (!j.poster_id) return { ok: false, error: "pas de posteur" };
+  if (details.action === "ticket_regle_prevenir") {
+    const resultat = await prevenirTicketRegle(db, String(details.valeur ?? ""));
+    await db.from("journal_auto").update({ details: { ...details, fait: maintenant, resultat } }).eq("id", id);
+    return { ok: true, resultat };
+  }
   const resultat = await executerAction(db, j.poster_id, { action: details.action as ActionBot, action_valeur: details.valeur ?? null, reponse: "", raison: "fait par Max (proposition)" }, "", "Max");
   await db.from("journal_auto").update({ details: { ...details, fait: maintenant, resultat } }).eq("id", id);
   return { ok: true, resultat };
@@ -1057,11 +1166,18 @@ async function ticketsAuto(db: Db) {
   // 13/11 (Contrôle) : « Créer un ticket OS » seul en « agir » ; sinon Max l'envoie d'un clic depuis la Boîte.
   const mode = modeAction(await lireControle(db), "ticket_os");
   if (mode !== "agir") return { ok: true, ignore: `ticket_os en « ${mode} » (page Contrôle)` };
-  const { data, error } = await db.from("support_demandes").select("id")
+  const { data, error } = await db.from("support_demandes").select("id, poster_id, texte, categorie")
     .eq("bot_responsable", "os_tickets").eq("statut", "ouvert").is("ticket_at", null).gte("cree_at", depuis).order("cree_at").limit(10);
   if (error) throw new Error(error.message);
-  const resultats: { id: string; ok: boolean; erreur?: string }[] = [];
-  for (const d of (data ?? []) as { id: string }[]) {
+  const resultats: { id: string; ok: boolean; erreur?: string; lien?: string }[] = [];
+  for (const d of (data ?? []) as { id: string; poster_id: string | null; texte: string; categorie: string | null }[]) {
+    // 13/11 (Max) : un problème de mot de passe ou d'accès n'est PAS un bug : d'abord le lien « choisir mon mot de passe ».
+    if (d.poster_id && ACCES.test(`${d.categorie ?? ""} ${d.texte}`) && !(await lienRecent(db, d.poster_id))) {
+      const lien = await executerAction(db, d.poster_id, { action: "lien_mot_de_passe", action_valeur: null, reponse: "", raison: "accès avant ticket" });
+      await db.from("support_demandes").update({ action_faite: lien, maj_at: new Date().toISOString() }).eq("id", d.id);
+      resultats.push({ id: d.id, ok: true, lien });
+      continue;
+    }
     const r = await envoyerTicket(db, null, d.id, "Envoyé automatiquement par l'OS (demande technique).");
     resultats.push({ id: d.id, ok: r.ok, ...(r.ok ? {} : { erreur: (r as { error?: string }).error }) });
   }
@@ -1308,10 +1424,13 @@ async function repondreCanal(db: Db, auteur: string | null, o: { poster_id: stri
 
 /** Le posteur d'une adresse email : login, email Ruul, ou email perso donné au site. */
 async function posteurParEmail(db: Db, email: string): Promise<string | null> {
-  for (const col of ["email", "ruul_email"]) {
-    const { data: p } = await db.from("profiles").select("id").ilike(col, email).limit(1);
+  // 13/11 (refonte, Phase 3) : login, email Ruul, email perso (profils désactivés compris) ; « _ » et « % » pris à la lettre.
+  const motif = email.trim().replace(/[\\%_]/g, (c) => `\\${c}`);
+  if (!motif) return null;
+  for (const col of ["email", "ruul_email", "email_perso"]) {
+    const { data: p } = await db.from("profiles").select("id").ilike(col, motif).order("is_active", { ascending: false }).limit(1);
     if (p?.[0]?.id) return p[0].id as string;
   }
-  const { data: h } = await db.from("hub_posteurs").select("profile_id").ilike("email_perso", email).not("profile_id", "is", null).limit(1);
+  const { data: h } = await db.from("hub_posteurs").select("profile_id").ilike("email_perso", motif).not("profile_id", "is", null).limit(1);
   return (h?.[0]?.profile_id as string | undefined) ?? null;
 }

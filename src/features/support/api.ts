@@ -333,6 +333,9 @@ export interface TraceDemande {
   auto_resultat: string | null;
   action_faite: string | null;
   ticket_at: string | null;
+  /** 0714 : ✅ sur le ticket (Max ou Adrien) et le posteur prévenu. */
+  ticket_regle_at?: string | null;
+  ticket_prevenu_at?: string | null;
   equipe_at: string | null;
   escalade_at: string | null;
   resolu_par_bot: boolean | null;
@@ -379,7 +382,9 @@ export function quiAAgi(d: TraceDemande): { cle: CleQui; detail?: string }[] {
   if (action.includes("étape")) out.push({ cle: "etape" });
   if (d.regle_par_bot) out.push({ cle: "regle_bot", detail: nomBot(d.regle_par_bot) });
   if (d.remonte_par) out.push({ cle: "remonte", detail: `${nomBot(d.remonte_par)}${d.remonte_pourquoi ? ` : ${d.remonte_pourquoi}` : ""}` });
-  if (d.ticket_at) out.push({ cle: "os_tickets" });
+  if (d.ticket_at) {
+    out.push({ cle: "os_tickets", detail: d.ticket_prevenu_at ? "✅ réglé, posteur prévenu" : d.ticket_regle_at ? "✅ réglé" : "en cours" });
+  }
   if (d.niveau === "max") out.push({ cle: "max" });
   if (d.equipe_at) out.push({ cle: "equipe" });
   if (d.statut === "ouvert" && d.niveau !== "max" && (d.bot_reponse || d.resolu_par_bot === false) && !d.equipe_at) out.push({ cle: "renvoyee" });
@@ -401,7 +406,7 @@ export interface LigneToutes extends TraceDemande {
 
 export async function lireToutes(limite = 400): Promise<LigneToutes[]> {
   const { data, error } = await supabase.from("support_demandes")
-    .select("id, poster_id, type, source, categorie, plateforme, statut, niveau, texte, bot_reponse, auto_action, auto_resultat, action_faite, ticket_at, equipe_at, escalade_at, resolu_par_bot, posteur_at, cree_at, slack_user, email_de, bot_responsable, bot_passages, regle_par_bot, remonte_par, remonte_pourquoi")
+    .select("id, poster_id, type, source, categorie, plateforme, statut, niveau, texte, bot_reponse, auto_action, auto_resultat, action_faite, ticket_at, ticket_regle_at, ticket_prevenu_at, equipe_at, escalade_at, resolu_par_bot, posteur_at, cree_at, slack_user, email_de, bot_responsable, bot_passages, regle_par_bot, remonte_par, remonte_pourquoi")
     .order("cree_at", { ascending: false }).limit(limite);
   if (error) throw new Error(error.message);
   const lignes = (data ?? []) as (Omit<LigneToutes, "nom" | "email"> & { slack_user: string | null; email_de: string | null })[];

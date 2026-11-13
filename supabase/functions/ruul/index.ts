@@ -53,6 +53,7 @@ import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { dansFenetre, type Decision, emailParcours, type EtatParcours, prochainEnvoi, type TypeParcours } from "../_shared/parcours_ruul.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { emailRattrapage, estPret as estPretRattrapage, etapesFaites, type SituationRattrapage } from "../_shared/rattrapage_ruul.ts";
+import { envoyerSuivi, type ResultatEnvoi } from "../_shared/emails.ts";
 import { urlEmailSite } from "../_shared/site.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -194,22 +195,9 @@ async function textesAB(supabase: Supabase): Promise<{ a_objet: string; a_texte:
 }
 
 /** Un email par le site (vik-studios-creators.com ; expéditeur noreply@sophia-culture.com). */
-async function envoyerEmail(to: string, objet: string, html: string, texte: string, stop: string, tags: string[]): Promise<{ ok: boolean; erreur: string | null }> {
-  const urlEnvoi = urlEmailSite();
-  const secret = Deno.env.get("OS_HUB_SECRET");
-  if (!urlEnvoi || !secret) return { ok: false, erreur: "HUB_EMAIL_URL ou OS_HUB_SECRET manquant" };
-  try {
-    const r = await fetch(urlEnvoi, {
-      method: "POST",
-      headers: { "content-type": "application/json", "x-hub-secret": secret },
-      body: JSON.stringify({ action: "envoyer_email", to, from_name: "Sophia", subject: objet, html, text: texte, tags, unsubscribe_url: stop }),
-    });
-    const j = await r.json().catch(() => ({}));
-    const ok = r.ok && j?.ok !== false;
-    return { ok, erreur: ok ? null : String(j?.error ?? `HTTP ${r.status}`) };
-  } catch (e) {
-    return { ok: false, erreur: messageErreur(e) };
-  }
+// 13/11 : par l'envoi suivi (journal emails_envois, file de réessai si Brevo refuse ou n'a plus de crédit).
+function envoyerEmail(to: string, objet: string, html: string, texte: string, stop: string, tags: string[]): Promise<ResultatEnvoi> {
+  return envoyerSuivi({ to, objet, html, texte, stop, tags });
 }
 
 async function envoyer(supabase: Supabase) {

@@ -16,6 +16,9 @@ export const PARIS = "Europe/Paris";
 export const RUUL_MAX = 6;
 export const FOLLOWS_MIN = 5;
 export const INACTIF_JOURS = 14;
+/** 13/11 (Max) : la phrase des messages d'entrée, mot pour mot (accueil Upwork, bienvenue Ruul, encart du dashboard). */
+export const PHRASE_QUESTION_OS =
+  "Any question about the job? Ask it in the Sophia OS: log in to your dashboard and click Help. You'll get an answer right away, and you can escalate to our team if needed.";
 export const PHRASE_HELP = "Have a question or a problem? Don't reply to this email: click Help on your dashboard, you'll get an answer there.";
 
 export interface EtatParcours {
@@ -233,6 +236,7 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
           `You start on ${debut}.`,
           acces(d),
           `Before ${avant}:\n1. Log in to your dashboard.\n2. Create your TikTok account with the exact name above.\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
+          PHRASE_QUESTION_OS,
           "How you get paid: within 24 hours you'll receive an invitation from Ruul, the platform we use to pay you. Create your account from that email, verify your ID and add your bank account. You're paid every Monday for the week you posted (Monday to Sunday).",
         ].join("\n\n"),
       };

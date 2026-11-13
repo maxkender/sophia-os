@@ -7,6 +7,7 @@ Deno.test("routage : chaque famille de catégories a son bot", () => {
   assertEquals(botResponsable({ categorie: "compte" }), "new_cohort_bot");
   assertEquals(botResponsable({ categorie: "compte", ruul: true }), "ruul_bot");
   assertEquals(botResponsable({ categorie: "posting" }), "control_bot");
+  assertEquals(botResponsable({ categorie: "posts" }), "control_bot");
   assertEquals(botResponsable({ categorie: "warmup" }), "control_bot");
   assertEquals(botResponsable({ categorie: "arret" }), "control_bot");
   assertEquals(botResponsable({ categorie: "paiement" }), "pay_bot");
@@ -30,3 +31,4 @@ Deno.test("remontée : après 2 passages sans action", () => {
   assertEquals(doitRemonter({ passages: 5, regle_at: "2026-11-13", remonte_at: null }), false);
   assertEquals(doitRemonter({ passages: 5, regle_at: null, remonte_at: "2026-11-13" }), false);
 });
+

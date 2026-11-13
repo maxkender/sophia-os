@@ -19,6 +19,7 @@ import { Regles } from "@/features/bot/Regles";
 import {
   aRepondre,
   changer,
+  chezLeBot,
   type CleQui,
   envoyerReponse,
   envoyerTicket,
@@ -29,6 +30,7 @@ import {
   lireDetail,
   lireToutes,
   type LigneToutes,
+  nomBot,
   quiAAgi,
   regleProposee,
   type TraceDemande,
@@ -96,7 +98,30 @@ const LIBELLES_QUI: Record<CleQui, { texte: string; classe: string }> = {
   max: { texte: "Pour Max", classe: "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-200" },
   equipe: { texte: "Répondu par l'équipe", classe: "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200" },
   renvoyee: { texte: "Renvoyée par le posteur", classe: "bg-amber-100 text-amber-900 dark:bg-amber-950 dark:text-amber-200" },
+  regle_bot: { texte: "Réglé par", classe: "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-200" },
+  remonte: { texte: "Remonté par", classe: "bg-orange-100 text-orange-900 dark:bg-orange-950 dark:text-orange-200" },
 };
+
+/** 0706 : « chez control_bot · passage 1/2 » tant que son bot ne l'a ni réglée ni remontée. */
+export function ChezBot({ d }: { d: TraceDemande }) {
+  if (!chezLeBot(d)) return null;
+  return (
+    <span className="rounded-full bg-indigo-100 px-2 py-0.5 font-medium text-indigo-800 text-xs dark:bg-indigo-950 dark:text-indigo-200" data-testid="chez-bot">
+      Chez {nomBot(d.bot_responsable)} · passage {Math.min(d.bot_passages ?? 0, 2)}/2
+    </span>
+  );
+}
+
+const OPTIONS_BOTS = ["new_cohort_bot", "control_bot", "pay_bot", "ruul_bot", "os_tickets", "max"] as const;
+
+function FiltreBot({ valeur, onChange, classe }: { valeur: string; onChange: (v: string) => void; classe: string }) {
+  return (
+    <select className={classe} value={valeur} onChange={(e) => onChange(e.target.value)} aria-label="Bot responsable">
+      <option value="">Bot responsable : tous</option>
+      {OPTIONS_BOTS.map((b) => <option key={b} value={b}>{nomBot(b)}</option>)}
+    </select>
+  );
+}
 
 export function QuiAAgi({ d }: { d: TraceDemande }) {
   const liste = quiAAgi(d);
@@ -119,12 +144,17 @@ const quand = (at: string) => new Date(at).toLocaleString("fr-FR", { day: "2-dig
 // --- a) À répondre ----------------------------------------------------------------
 
 function ARepondre({ lignes, charge }: { lignes: LigneToutes[]; charge: boolean }) {
-  const liste = aRepondre(lignes);
+  const [bot, setBot] = React.useState("");
+  const liste = aRepondre(lignes).filter((l) => !bot || l.bot_responsable === bot || l.regle_par_bot === bot || l.remonte_par === bot);
   return (
     <div className="space-y-3" data-testid="a-repondre">
-      <p className="text-muted-foreground text-sm">
-        Ce que le bot n'a pas su, et ce que le posteur a renvoyé (« I still need help »). L'argent (Pour Max) d'abord, puis la plus ancienne.
-      </p>
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <p className="text-muted-foreground text-sm">
+          Ce que le bot n'a pas su, et ce que le posteur a renvoyé (« I still need help »). L'argent (Pour Max) d'abord, puis la plus ancienne.
+          Chaque demande passe d'abord par son bot ; sans rien faire après 2 passages, elle remonte chez toi.
+        </p>
+        <FiltreBot valeur={bot} onChange={setBot} classe="h-9 rounded-md border bg-background px-2 text-sm" />
+      </div>
       {!charge && liste.length === 0 && <Card><CardContent className="p-6 text-center">Rien à répondre 👌</CardContent></Card>}
       {liste.map((l) => <CarteARepondre key={l.id} l={l} />)}
     </div>
@@ -169,6 +199,7 @@ function CarteARepondre({ l }: { l: LigneToutes }) {
             {l.email && <span className="text-muted-foreground text-xs">{l.email}</span>}
             {l.plateforme && <Badge variant="outline">{l.plateforme === "ruul" ? "Ruul" : "Upwork"}</Badge>}
             <Badge variant="outline">{SOURCES[l.source] ?? l.source}</Badge>
+            <ChezBot d={l} />
             <QuiAAgi d={l} />
           </div>
           <span className="text-muted-foreground text-xs">{quand(l.escalade_at ?? l.cree_at)}</span>
@@ -245,7 +276,7 @@ function BoutonCapture({ capture }: { capture: string }) {
 // --- b) Toutes les demandes ----------------------------------------------------------
 
 function Toutes({ lignes }: { lignes: LigneToutes[] }) {
-  const [f, setF] = React.useState<FiltresToutes>({ q: "", source: "", statut: "", niveau: "", qui: "" });
+  const [f, setF] = React.useState<FiltresToutes>({ q: "", source: "", statut: "", niveau: "", qui: "", bot: "" });
   const [ouverte, setOuverte] = React.useState<string | null>(null);
   const liste = filtrerToutes(lignes, f);
   const champ = "h-9 rounded-md border bg-background px-2 text-sm";
@@ -265,6 +296,7 @@ function Toutes({ lignes }: { lignes: LigneToutes[] }) {
         <select className={champ} value={f.qui} onChange={(e) => setF({ ...f, qui: e.target.value as FiltresToutes["qui"] })} aria-label="Qui a agi">
           <option value="">Qui a agi : tous</option>{(Object.keys(LIBELLES_QUI) as CleQui[]).map((k) => <option key={k} value={k}>{LIBELLES_QUI[k].texte}</option>)}
         </select>
+        <FiltreBot valeur={f.bot ?? ""} onChange={(v) => setF({ ...f, bot: v })} classe={champ} />
       </div>
       <p className="text-muted-foreground text-xs">{liste.length} demande{liste.length > 1 ? "s" : ""} (les 400 plus récentes).</p>
       <div className="overflow-x-auto">
@@ -279,7 +311,7 @@ function Toutes({ lignes }: { lignes: LigneToutes[] }) {
                   <td className="pr-2 text-xs">{SOURCES[l.source] ?? l.source}</td>
                   <td className="max-w-[320px] pr-2"><span className="line-clamp-2">{l.texte}</span></td>
                   <td className="whitespace-nowrap pr-2 text-xs">{STATUTS[l.statut] ?? l.statut}</td>
-                  <td><QuiAAgi d={l} /></td>
+                  <td><span className="inline-flex flex-wrap gap-1"><ChezBot d={l} /><QuiAAgi d={l} /></span></td>
                 </tr>
                 {ouverte === l.id && <tr><td colSpan={6} className="bg-muted/20 p-3"><FilDemande id={l.id} /></td></tr>}
               </React.Fragment>

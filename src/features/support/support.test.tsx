@@ -24,7 +24,7 @@ vi.mock("./api", async (orig) => ({ ...(await orig<typeof import("./api")>()), .
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ user: { id: "p1" } }) }));
 
 import i18n from "@/locales";
-import { age, filChat, filtrer, quiAAgi, statutPosteur, type LigneSupport } from "./api";
+import { age, chezLeBot, filChat, filtrer, filtrerToutes, nomBot, quiAAgi, statutPosteur, type LigneSupport } from "./api";
 import { PageHelp } from "./PageHelp";
 import { PageSupport } from "./PageSupport";
 
@@ -152,6 +152,25 @@ describe("13/11 : fil du chat et « qui a agi »", () => {
     expect(cles({ action_faite: "pseudo TikTok invalide : rien changé" })).toEqual(["bot"]);
     expect(cles({ bot_reponse: null, niveau: "max", resolu_par_bot: false, statut: "ouvert" as never, ticket_at: "2026-11-13" })).toEqual(["os_tickets", "max"]);
     expect(cles({ bot_reponse: null, niveau: "adrien", resolu_par_bot: null, equipe_at: "2026-11-13" })).toEqual(["equipe"]);
+  });
+
+  it("0706 : réglé / remonté par un bot, « chez le bot », filtre par bot", () => {
+    const t = { id: "x", statut: "ouvert" as const, niveau: "adrien", bot_reponse: null, auto_action: null, auto_resultat: null, action_faite: null,
+      ticket_at: null, equipe_at: null, escalade_at: null, resolu_par_bot: null, bot_responsable: "control_bot", bot_passages: 1 };
+    expect(chezLeBot(t)).toBe(true);
+    const regle = { ...t, regle_par_bot: "control_bot" };
+    expect(chezLeBot(regle)).toBe(false);
+    expect(quiAAgi(regle)).toEqual([{ cle: "regle_bot", detail: "control_bot" }]);
+    const remonte = { ...t, bot_responsable: "max", niveau: "max", remonte_par: "ruul_bot", remonte_pourquoi: "rien fait après 2 passages de ruul_bot" };
+    expect(chezLeBot(remonte)).toBe(false);
+    expect(quiAAgi(remonte)).toEqual([{ cle: "remonte", detail: "Ruul Bot : rien fait après 2 passages de ruul_bot" }, { cle: "max" }]);
+    expect(nomBot("os_tickets")).toBe("OS tickets");
+    const ligne = (o: object) => ({ ...t, poster_id: "p", type: "question" as const, source: "help", categorie: null, plateforme: "upwork", texte: "q", cree_at: "2026-11-13", nom: "Ana", email: null, ...o });
+    const lignes = [ligne({ id: "a" }), ligne({ id: "b", bot_responsable: "pay_bot" }), ligne({ id: "c", bot_responsable: "max", remonte_par: "control_bot" })];
+    const f = { q: "", source: "", statut: "", niveau: "", qui: "" as const };
+    expect(filtrerToutes(lignes, { ...f, bot: "control_bot" }).map((l) => l.id)).toEqual(["a", "c"]);
+    expect(filtrerToutes(lignes, { ...f, bot: "pay_bot" }).map((l) => l.id)).toEqual(["b"]);
+    expect(filtrerToutes(lignes, f)).toHaveLength(3);
   });
 });
 

@@ -56,7 +56,7 @@ export function AgentRuul() {
       <CardContent className="space-y-6">
         <section className="space-y-2" data-testid="agent-ruul-a-inviter">
           <h3 className="font-semibold">À inviter dans Ruul ({liste.length})</h3>
-          <p className="text-xs text-muted-foreground">Signés pas encore dans Ruul. Sans les pays fermés ni les personnes en attente de décision.</p>
+          <p className="text-xs text-muted-foreground">Signés pas encore dans Ruul : nom ; email ; pays (de la candidature signée). Sans les pays fermés ni les personnes en attente de décision.</p>
           <Textarea aria-label="À inviter dans Ruul" readOnly rows={Math.min(8, Math.max(2, liste.length))} value={texteAInviter(liste)} />
           <Button size="sm" disabled={!liste.length} data-testid="agent-ruul-copier"
             onClick={() => { void navigator.clipboard?.writeText(texteAInviter(liste)); setCopie(true); setTimeout(() => setCopie(false), 2000); }}>

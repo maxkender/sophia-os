@@ -251,7 +251,18 @@ export async function importerStatutsRuul(texte: string, simuler: boolean): Prom
   return data as ResultatStatuts;
 }
 
-/** La liste à coller dans Ruul : « nom ; email », une ligne par personne. */
+/** Le pays en anglais (« ES » → « Spain ») ; un code inconnu reste tel quel, rien → « ? ». */
+export function paysEnAnglais(code: string | null | undefined): string {
+  const c = (code ?? "").trim().toUpperCase();
+  if (!c) return "?";
+  try {
+    return new Intl.DisplayNames(["en"], { type: "region" }).of(c) ?? c;
+  } catch {
+    return c;
+  }
+}
+
+/** La liste à coller dans Ruul : « nom ; email ; pays » (pays de la candidature signée, en anglais), une ligne par personne. */
 export function texteAInviter(l: readonly AInviterRuul[]): string {
-  return l.map((p) => `${p.nom || "?"} ; ${p.email_ruul}`).join("\n");
+  return l.map((p) => `${p.nom || "?"} ; ${p.email_ruul} ; ${paysEnAnglais(p.pays)}`).join("\n");
 }

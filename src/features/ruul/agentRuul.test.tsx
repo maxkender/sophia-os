@@ -32,9 +32,12 @@ beforeEach(() => {
 });
 
 describe("0681 : Agent Ruul", () => {
-  it("la liste à copier : « nom ; email »", () => {
-    expect(texteAInviter([{ poster_id: "1", nom: "Ana B", email_ruul: "ana@gmail.com", pays: "ES" }, { poster_id: "2", nom: "", email_ruul: "b@x.io", pays: null }]))
-      .toBe("Ana B ; ana@gmail.com\n? ; b@x.io");
+  it("la liste à copier : « nom ; email ; pays » (pays en anglais)", () => {
+    expect(texteAInviter([
+      { poster_id: "1", nom: "Ana B", email_ruul: "ana@gmail.com", pays: "ES" },
+      { poster_id: "2", nom: "", email_ruul: "b@x.io", pays: null },
+      { poster_id: "3", nom: "Ece", email_ruul: "e@x.io", pays: "tr" },
+    ])).toBe("Ana B ; ana@gmail.com ; Spain\n? ; b@x.io ; ?\nEce ; e@x.io ; Türkiye");
   });
 
   it("intitulés fixes ; Importer seulement après Vérifier ; Marquer invités montre les introuvables", async () => {

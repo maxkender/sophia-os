@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o207",
+ "type_bleo": "full_test",
+ "titre": "weird things your brain does when you're stressed #stress #psychology #brain #mentalhealth #facts",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). full test BLEO : accroche jamais faite (format « weird things your brain does when X »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "513f99f5-5761-482b-ab7a-d1a088f2610a",
+   "texte_overlay": "weird things your brain does\nwhen you're stressed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01501526-7f8f-4434-8503-1a9e586fa237",
+   "texte_overlay": "it forgets simple words\n\nstress pulls energy away from the parts of your brain that handle language. that's why you suddenly can't find an easy word in the middle of a hard conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0a60d3e4-f624-42a1-864f-ed27d25fa50f",
+   "texte_overlay": "it shrinks your vision\n\nunder pressure your brain narrows your focus to the threat in front of you. you literally notice less around you, which is why you miss obvious solutions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "07af9560-893a-403f-85c3-6eeaaeb6f9bd",
+   "texte_overlay": "it replays old mistakes\n\na stressed brain scans the past for danger, so it digs up embarrassing memories from years ago. they feel urgent, but they're just your alarm system misfiring.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "08323510-aa53-4282-8af0-da549157dccb",
+   "texte_overlay": "it craves something new\n\nlearning one calm new thing, like a star or a painting, gives a stressed brain a short and gentle break from playing the same old worries on repeat all day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg",
+   "texte_sophia": "it craves something new\n\nlearn one calm new thing, like a star or a painting. the Sophia app turns it into one short lesson a day, and 5 minutes gives a stressed brain a break from the same worries."
+  },
+  {
+   "position": 6,
+   "media_id": "0456c8f8-11b5-47c6-aa6d-8e94dd36d928",
+   "texte_overlay": "it makes time feel strange\n\nstressful days fly by while single stressful moments drag on forever. your brain records more detail when it feels threatened, so seconds feel like minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

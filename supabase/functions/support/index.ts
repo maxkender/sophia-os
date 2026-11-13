@@ -21,9 +21,12 @@ import {
   texteProblemeRecu,
 } from "../_shared/support.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
-import { actionActive, lireGroupes, promptRegroupement, type QuestionLue, resumerGroupe, TEXTE_ATTENTE } from "../_shared/entrainement.ts";
+import { lireGroupes, promptRegroupement, type QuestionLue, resumerGroupe, TEXTE_ATTENTE } from "../_shared/entrainement.ts";
 import {
-  appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, plainteSansDonnees, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
+  appliquerControle, type CanalControle, canalDeSource, journaliser, lireControle, modeAction, modeAgent, type ResultatControle,
+} from "../_shared/controle.ts";
+import {
+  type ActionBot, appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, plainteSansDonnees, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
   accuseReception, texteBugMax, texteListeAdrien, texteTop10,
 } from "../_shared/bot_support.ts";
 import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
@@ -90,6 +93,7 @@ Deno.serve(async (request) => {
         return json({
           ok: true, simulation: true,
           ...(await deciderBot(db, {
+            simulation: true,
             message, source: body.source === "slack_salon" ? "slack_salon" : "help",
             poster: typeof body.poster_id === "string" && body.poster_id ? body.poster_id : null,
             profil: body.profil && typeof body.profil === "object" ? body.profil as ProfilFictif : null,
@@ -158,6 +162,10 @@ Deno.serve(async (request) => {
         // par le bouton existant, une fois chacune (cron support-tickets, toutes les 15 min).
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await ticketsAuto(db));
+      case "proposition":
+        // 13/11 (Contrôle) : une action proposée par le bot (mode « proposer ») : Max la fait ou l'ignore.
+        if (acces.role !== "admin" || acces.userId === "cron") return json({ ok: false, error: "réservé à Max" }, 403);
+        return json(await traiterProposition(db, acces.userId, String(body.id ?? ""), body.faire === true));
       case "contexte":
         // 12/11 (Max) : « Avoir le contexte » : l'analyse de tout ce que l'OS sait sur le posteur. Ne fait que lire.
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
@@ -211,21 +219,43 @@ async function poserQuestion(db: Db, poster: string, texte: string, categorie: s
   texte = texte.trim();
   if (texte.length < 3) return { ok: false, error: "Please write your question." };
   // 12/11 (Support propre) : le bot v2 répond à tout ; il ne passe la main qu'à Adrien ou Max.
-  const r = await deciderBot(db, { message: texte, source: "help", poster, profil: null });
+  const r = await deciderBot(db, { message: texte, source: "help", poster, profil: null, canal: source });
   const d = r.decision;
   const regle = d.niveau === "bot";
   const action = regle && d.action ? await executerAction(db, poster, d, texte) : null;
   const { data, error } = await db.rpc("support_ajouter", {
     p: {
       poster_id: poster, type: "question", categorie: categorie ?? d.categorie, texte, bot_reponse: r.texte, bot_decision: d.niveau, source,
-      brouillon: regle || d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse, escalader: !regle,
+      brouillon: brouillonDe(r), escalader: !regle,
     },
   });
   if (error) throw new Error(`support_ajouter : ${error.message}`);
   const id = (data as { id: string })?.id ?? null;
   if (id) await noterDecision(db, id, d, action, r.regle_utilisee);
+  await noterControle(db, poster, id, source, regle ? r.texte : null, r.controle);
   if (id && d.niveau === "max") await alerterMax(db, id, { nom: (await fiche(db, poster))?.nom ?? "?", plateforme: r.plateforme ?? "upwork", categorie: d.categorie, texte, raison: "urgent", os: d.raison, action: d.reponse });
-  return { ok: true, id, reponse: r.texte, envoye_equipe: !regle };
+  return { ok: true, id, reponse: r.texte, envoye_equipe: !regle, muet: r.controle.muet };
+}
+
+/** Le brouillon pour Max : celui gardé par la page Contrôle, sinon la réponse du bot quand elle n'est pas « We're checking ». */
+function brouillonDe(r: { decision: DecisionBot; controle: ResultatControle }): string | null {
+  if (r.controle.brouillon) return r.controle.brouillon;
+  return r.decision.niveau === "bot" || r.decision.reponse === TEXTE_ON_VERIFIE ? null : r.decision.reponse;
+}
+
+/** 13/11 (Contrôle) : la réponse partie (« agir ») ou le brouillon et l'action proposés à Max, dans le journal. */
+async function noterControle(db: Db, poster: string, demande: string | null, canal: string, envoyee: string | null, c: ResultatControle) {
+  if (envoyee) await journaliser(db, { qui: "cerveau_support", quoi: "reponse", poster_id: poster, canal, resultat: envoyee.slice(0, 200), demande_id: demande });
+  if (c.brouillon) {
+    await journaliser(db, { qui: "cerveau_support", quoi: "reponse", mode: "proposer", poster_id: poster, canal, resultat: c.brouillon.slice(0, 200), demande_id: demande });
+  }
+  if (c.action_proposee) {
+    await journaliser(db, {
+      qui: "cerveau_support", quoi: c.action_proposee.action, mode: "proposer", poster_id: poster, canal, demande_id: demande,
+      resultat: `proposé${c.action_proposee.valeur ? ` : ${c.action_proposee.valeur}` : ""}`,
+      details: { action: c.action_proposee.action, valeur: c.action_proposee.valeur },
+    });
+  }
 }
 
 /** La décision du bot sur la demande : niveau, risque, action faite, règle, raison, langue. */
@@ -240,31 +270,50 @@ async function noterDecision(db: Db, id: string, d: DecisionBot, action: string 
  * permises par Max : pseudo TikTok, email Ruul ; plus le lien de mot de passe, le renvoi d'un
  * parrainage et la procédure d'arrêt existante. Rend ce qui a été fait (ou pourquoi rien).
  */
-async function executerAction(db: Db, poster: string, d: DecisionBot, message = ""): Promise<string> {
+async function executerAction(
+  db: Db, poster: string, d: Pick<DecisionBot, "action" | "action_valeur" | "reponse" | "raison">, message = "", qui = "cerveau_support",
+): Promise<string> {
+  if (!d.action) return "aucune action";
+  const r = await executerActionBrute(db, poster, d, message);
+  // 13/11 (Contrôle) : chaque action faite entre au journal ; @ TikTok et email Ruul gardent la valeur d'avant (annulables).
+  await journaliser(db, {
+    qui, quoi: d.action, poster_id: poster, resultat: r.texte, details: r.details ?? {}, annulable: !!r.details && r.ok,
+  });
+  return r.texte;
+}
+
+async function executerActionBrute(
+  db: Db, poster: string, d: Pick<DecisionBot, "action" | "action_valeur" | "reponse" | "raison">, message: string,
+): Promise<{ texte: string; ok: boolean; details?: Record<string, unknown> }> {
+  const t = (texte: string, ok = true) => ({ texte, ok });
   try {
     switch (d.action) {
       case "lien_mot_de_passe":
-        return `lien de mot de passe : ${await envoyerLienMotDePasse(db, poster, null)}`;
+        return t(`lien de mot de passe : ${await envoyerLienMotDePasse(db, poster, null)}`);
       case "pseudo_tiktok": {
         const handle = (d.action_valeur ?? "").replace(/^@/, "").trim();
-        if (!/^[a-z0-9._]{2,30}$/i.test(handle)) return "pseudo TikTok invalide : rien changé";
+        if (!/^[a-z0-9._]{2,30}$/i.test(handle)) return t("pseudo TikTok invalide : rien changé", false);
         const { data: c } = await db.from("comptes").select("id, handle_tiktok").eq("poster_id", poster).eq("is_active", true)
           .eq("type_compte", "perso").order("created_at").limit(1).maybeSingle();
-        if (!c) return "aucun compte actif : rien changé";
+        if (!c) return t("aucun compte actif : rien changé", false);
         const { error } = await db.from("comptes").update({ handle_tiktok: handle }).eq("id", c.id);
-        return error ? `pseudo TikTok : ${error.message}` : `pseudo TikTok : @${c.handle_tiktok ?? "?"} → @${handle}`;
+        return error ? t(`pseudo TikTok : ${error.message}`, false)
+          : { texte: `pseudo TikTok : @${c.handle_tiktok ?? "?"} → @${handle}`, ok: true, details: { compte_id: c.id, avant: c.handle_tiktok ?? "", apres: handle } };
       }
       case "email_ruul": {
         // Réparer Ruul (point 4) : adresse valide, pas déjà prise ; historique gardé ; fiche « à réinviter ».
+        const { data: avant } = await db.from("profiles").select("ruul_email").eq("id", poster).maybeSingle();
         const { data, error } = await db.rpc("ruul_bot_nouvelle_adresse", { p_poster: poster, p_email: d.action_valeur ?? "" });
-        if (error) return `email Ruul : ${error.message}`;
+        if (error) return t(`email Ruul : ${error.message}`, false);
         const r = data as { ok: boolean; raison?: string; texte?: string };
-        return r.ok ? `fait par le bot : ${r.texte}` : `email Ruul pas changé (${r.raison})`;
+        return r.ok
+          ? { texte: `fait par le bot : ${r.texte}`, ok: true, details: { avant: avant?.ruul_email ?? "", apres: d.action_valeur ?? "" } }
+          : t(`email Ruul pas changé (${r.raison})`, false);
       }
       case "invitation_ruul": {
         // Moins de 24 h : les spams ; plus : à réinviter (2 renvois au plus) ; ensuite Adrien.
         const { data, error } = await db.rpc("ruul_bot_invitation", { p_poster: poster });
-        if (error) return `invitation Ruul : ${error.message}`;
+        if (error) return t(`invitation Ruul : ${error.message}`, false);
         const r = data as { cas: string; adresse?: string; renvoi?: number };
         if (r.cas === "adrien") {
           await db.rpc("probleme_ajouter", {
@@ -273,36 +322,36 @@ async function executerAction(db: Db, poster: string, d: DecisionBot, message = 
             p_texte: `Le posteur dit ne pas avoir reçu l'invitation Ruul (${r.adresse ?? "email ?"}), déjà renvoyée 2 fois.`,
             p_at: new Date().toISOString(), p_lien: null, p_canal: "os", p_par: null,
           });
-          return "invitation Ruul : 2 renvois déjà faits, Adrien prévenu (Problèmes)";
+          return t("invitation Ruul : 2 renvois déjà faits, Adrien prévenu (Problèmes)");
         }
-        return r.cas === "reinvite" ? `fait par le bot : à réinviter dans Ruul (renvoi ${r.renvoi}/2)` : `invitation Ruul : ${r.cas}`;
+        return t(r.cas === "reinvite" ? `fait par le bot : à réinviter dans Ruul (renvoi ${r.renvoi}/2)` : `invitation Ruul : ${r.cas}`);
       }
       case "arret": {
         const { error } = await db.from("posteur_reponses").insert({ poster_id: poster, canal: "bouton", source_id: `support:${crypto.randomUUID()}`, texte: "I want to stop" });
-        return error ? `arrêt : ${error.message}` : "arrêt transmis à la procédure d'arrêt";
+        return error ? t(`arrêt : ${error.message}`, false) : t("arrêt transmis à la procédure d'arrêt");
       }
       case "renvoi_parrainage": {
         const { data, error } = await db.from("parrainage_invitations").update({ prochain_at: new Date().toISOString() })
           .eq("parrain_id", poster).eq("statut", "en_cours").lt("envois", 3).select("id");
-        return error ? `parrainage : ${error.message}` : `parrainage : ${(data ?? []).length} invitation(s) renvoyée(s) au prochain passage`;
+        return error ? t(`parrainage : ${error.message}`, false) : t(`parrainage : ${(data ?? []).length} invitation(s) renvoyée(s) au prochain passage`);
       }
       case "lien_slack":
-        return "lien Slack donné";
+        return t("lien Slack donné");
       case "prevenir_max": {
         // 12/11 : un bug du dashboard couvert par le catalogue : le posteur a le contournement, Max un DM.
         const jeton = jetonSlackFaq();
-        if (!jeton) return "Max pas prévenu : jeton Slack absent";
+        if (!jeton) return t("Max pas prévenu : jeton Slack absent", false);
         const f = await fiche(db, poster);
         const r = await posterSlack(jeton, MAX_SLACK, texteBugMax({
           nom: f?.nom ?? "?", plateforme: f?.plateforme === "ruul" ? "ruul" : "upwork", message, reponse: d.reponse, raison: d.raison,
         }, OS_URL));
-        return r.ok ? "Max prévenu (bug)" : `Max pas prévenu : ${r.error}`;
+        return r.ok ? t("Max prévenu (bug)") : t(`Max pas prévenu : ${r.error}`, false);
       }
       default:
-        return "aucune action";
+        return t("aucune action", false);
     }
   } catch (erreur) {
-    return `action : ${messageErreur(erreur)}`;
+    return t(`action : ${messageErreur(erreur)}`, false);
   }
 }
 
@@ -317,16 +366,20 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
   let auto: "lien_envoye" | "arret" | null = null;
   let autoAction: string | null = null;
   let autoResultat: string | null = null;
-  if (categorie === "connexion") {
+  // 13/11 (Contrôle) : ces gestes automatiques suivent aussi leur interrupteur (« agir » seulement).
+  const ctl = await lireControle(db);
+  if (categorie === "connexion" && modeAction(ctl, "lien_mot_de_passe") === "agir") {
     autoAction = "lien_mot_de_passe";
     autoResultat = await envoyerLienMotDePasse(db, poster, f?.nom ?? null);
     if (autoResultat === "envoyé") auto = "lien_envoye";
-  } else if (categorie === "arret") {
+    await journaliser(db, { qui: "cerveau_support", quoi: "lien_mot_de_passe", poster_id: poster, canal: "help", resultat: `lien de mot de passe : ${autoResultat}` });
+  } else if (categorie === "arret" && modeAction(ctl, "arret") === "agir") {
     // La procédure d'arrêt existante : le message entre dans les réponses des posteurs (classé stop / pause).
     autoAction = "procedure_arret";
     const { error } = await db.from("posteur_reponses").insert({ poster_id: poster, canal: "slack", source_id: `support:${crypto.randomUUID()}`, texte });
     autoResultat = error ? `erreur : ${error.message}` : "transmis à la procédure d'arrêt";
     if (!error) auto = "arret";
+    await journaliser(db, { qui: "cerveau_support", quoi: "arret", poster_id: poster, canal: "help", resultat: autoResultat });
   }
 
   // Paiement : le verdict d'abord (faits vérifiés) ; Max seulement si les données montrent le problème.
@@ -335,6 +388,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
   let brouillon: string | null = null;
   let reponseBot: string | null = null;
   let d: DecisionBot | null = null;
+  let ctlRes: ResultatControle | null = null;
   let niveau: "bot" | "adrien" | "max";
   if (categorie === "paiement") {
     v = await verifier(categorie, texte, f, ctx);
@@ -343,10 +397,11 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     niveau = v?.verdict === "probleme_confirme" ? "max" : v?.verdict === "pas_de_probleme" && b.sur ? "bot" : "adrien";
     if (niveau === "bot") reponseBot = signer(b.reponse);
   } else {
-    const r = await deciderBot(db, { message: `[${categorie}] ${texte}`, source: "help", poster, profil: null });
+    const r = await deciderBot(db, { message: `[${categorie}] ${texte}`, source: "help", poster, profil: null, canal: "help" });
     d = r.decision;
+    ctlRes = r.controle;
     niveau = auto ? "bot" : d.niveau;
-    brouillon = d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse;
+    brouillon = r.controle.brouillon ?? (d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse);
     if (niveau === "bot" && !auto) reponseBot = r.texte;
   }
   const recu = reponseBot ?? texteProblemeRecu(categorie, auto);
@@ -373,6 +428,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
       ...(niveau === "bot" ? { statut: "bot" } : {}),
     }).eq("id", res.id);
   }
+  if (res?.id && ctlRes) await noterControle(db, poster, res.id, "help", reponseBot, ctlRes);
   if (res?.id && niveau === "max") {
     await alerterMax(db, res.id, {
       nom: f?.nom ?? "?", plateforme, categorie, texte, raison: categorie === "paiement" ? "paiement" : "urgent",
@@ -550,9 +606,16 @@ async function deciderBot(
     profil: ProfilFictif | null;
     /** 0683 : un test peut simuler des demandes passées (cas « même question pour la 3e fois »). */
     historique?: { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[] | null;
+    /** 13/11 (Contrôle) : le canal d'où vient le message (help, email, slack, upwork). */
+    canal?: CanalControle;
+    /** Simulation (/admin/bot, tests) : la page Contrôle ne s'applique pas. */
+    simulation?: boolean;
   },
 ) {
   const fictif = !o.poster && o.profil;
+  const ctlReglage = o.simulation ? null : await lireControle(db);
+  // 13/11 (Contrôle) : STOP général ou cerveau éteint : pas de modèle, tout va à Max.
+  const eteint = ctlReglage ? modeAgent(ctlReglage, "cerveau_support") === "eteint" : false;
   const [f, ctx, infos, histo] = await Promise.all([
     o.poster ? fiche(db, o.poster) : Promise.resolve(null),
     o.poster ? contexte(db, o.poster) : Promise.resolve(""),
@@ -580,6 +643,10 @@ async function deciderBot(
     documents: sources.documents,
   };
   let decision: DecisionBot | null = null;
+  if (eteint) {
+    decision = { langue: "en", categorie: "autre", personnel: false, reponse: TEXTE_ON_VERIFIE, action: null, action_valeur: null,
+      niveau: "max", regle: null, risque: [], raison: "Contrôle : support éteint (STOP général ou cerveau éteint) : la demande va à Max." };
+  }
   try {
     const prompt = promptBot(entree);
     for (let essai = 0; essai < 2 && !decision; essai++) decision = lireDecision(await generateTextFast(prompt));
@@ -592,17 +659,11 @@ async function deciderBot(
   }
   const nbMemeSujet = entree.historique.filter((h) => h.categorie && h.categorie === decision!.categorie).length;
   const finale = appliquerGardeFous(decision, { source: o.source, plateforme, lienHelp: LIEN_HELP, nbMemeSujet });
-  // 13/11 (Entraîner le bot) : une action désactivée par Max n'est plus faite ; la demande passe à l'équipe.
-  if (finale.action) {
-    const { data: reg } = await db.from("reglages").select("valeur").eq("cle", "bot_actions_actives").maybeSingle();
-    if (!actionActive(reg?.valeur, finale.action)) {
-      finale.raison = `${finale.raison} (action ${finale.action} désactivée : à l'équipe)`.trim();
-      finale.action = null;
-      finale.action_valeur = null;
-      if (finale.niveau === "bot") finale.niveau = "adrien";
-      finale.reponse = TEXTE_ON_VERIFIE;
-    }
-  }
+  // 13/11 (page Contrôle) : ce qui n'est pas en « agir » (cerveau, canal, action) ne part pas :
+  // la demande va à Max avec le brouillon du bot et l'action proposée (un clic dans la Boîte).
+  const controle: ResultatControle = ctlReglage
+    ? appliquerControle(ctlReglage, finale, o.canal ?? "help", TEXTE_ON_VERIFIE)
+    : { brouillon: null, action_proposee: null, muet: false };
   // 0683 : pas payé + aucune paie connue (contrat pas relié, milestones illisibles) → on vérifie, Max tranche.
   if (o.source === "help" && f && plainteSansDonnees(o.message, plateforme, !f.derniere_paie) && finale.niveau !== "max") {
     finale.niveau = "max";
@@ -616,6 +677,7 @@ async function deciderBot(
     regle_utilisee: regle,
     plateforme,
     action_prevue: finale.action ? { action: finale.action, valeur: finale.action_valeur, executee: false } : null,
+    controle,
     // 0683 (Tester) : ce que le bot a lu avant de répondre, pour voir tout de suite ce qui lui manquait.
     lu: {
       fiche: entree.fiche,
@@ -642,7 +704,7 @@ async function lancerTests(db: Db, ids: string[] | null) {
     historique: { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[] | null }[];
   for (let i = 0; i < liste.length; i += 4) {
     await Promise.all(liste.slice(i, i + 4).map(async (t) => {
-      const r = await deciderBot(db, { message: t.message, source: t.source, poster: t.poster_id, profil: t.profil, historique: t.historique });
+      const r = await deciderBot(db, { message: t.message, source: t.source, poster: t.poster_id, profil: t.profil, historique: t.historique, simulation: true });
       const ok = testOk(r.decision, t);
       resultats.push({ id: t.id, ok, niveau: r.decision.niveau, reponse: r.texte, action: r.decision.action });
       await db.from("bot_tests").update({ dernier: r, dernier_ok: ok, dernier_at: new Date().toISOString() }).eq("id", t.id);
@@ -690,7 +752,7 @@ async function messagesTraiter(db: Db) {
       await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
       continue;
     }
-    const r = await deciderBot(db, { message: texte, source: "help", poster: c.poster_id, profil: null });
+    const r = await deciderBot(db, { message: texte, source: "help", poster: c.poster_id, profil: null, canal: canal === "upwork" ? "upwork" : "slack" });
     const d = r.decision;
     if (d.categorie === "salutation") {
       await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
@@ -706,7 +768,7 @@ async function messagesTraiter(db: Db) {
     const { data: aj, error: e } = await db.rpc("support_ajouter", {
       p: {
         poster_id: c.poster_id, type: "question", categorie: d.categorie, texte, bot_reponse: parBot ? r.texte : null, source: canal,
-        bot_decision: d.niveau, brouillon: parBot || d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse, escalader: !parBot,
+        bot_decision: d.niveau, brouillon: parBot ? null : brouillonDe(r), escalader: !parBot,
       },
     });
     if (e) {
@@ -719,11 +781,12 @@ async function messagesTraiter(db: Db) {
         probleme_id: c.id, niveau: parBot ? "bot" : d.niveau, risque: d.risque, action_faite: action, regle: r.regle_utilisee,
         raison: `${d.raison} (message ${src[0]?.canal ?? src[0]?.type ?? "?"} repris ; réponse : ${envoi})`, langue: d.langue,
       }).eq("id", id);
+      await noterControle(db, c.poster_id, id, canal, parBot ? r.texte : null, r.controle);
       if (d.niveau === "max") {
         const f = await fiche(db, c.poster_id);
         await alerterMax(db, id, {
           nom: f?.nom ?? "?", plateforme: f?.plateforme === "ruul" ? "ruul" : "upwork", categorie: d.categorie, texte, raison: "urgent",
-          os: d.raison, action: d.reponse,
+          os: d.raison, action: brouillonDe(r) ?? d.reponse,
         });
       }
     }
@@ -819,7 +882,7 @@ async function trierDemande(db: Db, id: string) {
     const r = await deciderBot(db, { message: `[${dem.categorie ?? "autre"}] ${dem.texte}`, source: "help", poster: dem.poster_id, profil: null });
     niveau = r.decision.niveau === "max" ? "max" : "adrien";
     os = r.decision.raison;
-    brouillon = brouillon ?? (r.decision.reponse === TEXTE_ON_VERIFIE ? null : r.decision.reponse);
+    brouillon = brouillon ?? r.controle.brouillon ?? (r.decision.reponse === TEXTE_ON_VERIFIE ? null : r.decision.reponse);
     maj = { risque: r.decision.risque, langue: r.decision.langue };
   }
   await db.from("support_demandes").update({ ...maj, niveau, raison: os, brouillon }).eq("id", id);
@@ -917,11 +980,36 @@ async function entrainementRegrouper(db: Db) {
   return { ok: true, lues: lues.length, types: groupes.length, crees, mis_a_jour: majs };
 }
 
+/**
+ * 13/11 (Contrôle) : une proposition du bot (journal_auto, mode « proposer »). Faire : l'action part
+ * (comme si le bot était en « agir »), notée au journal par Max. Ignorer : marquée, rien ne part.
+ */
+async function traiterProposition(db: Db, par: string, id: string, faire: boolean) {
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return { ok: false, error: "id requis" };
+  const { data: j, error } = await db.from("journal_auto").select("id, quoi, mode, poster_id, details, annule_at").eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  const details = (j?.details ?? {}) as { action?: string; valeur?: string | null; fait?: string };
+  if (!j || j.mode !== "proposer" || !details.action) return { ok: false, error: "pas une action proposée" };
+  if (details.fait || j.annule_at) return { ok: false, error: "déjà traitée" };
+  const maintenant = new Date().toISOString();
+  if (!faire) {
+    await db.from("journal_auto").update({ annule_at: maintenant, annule_par: par, details: { ...details, fait: "ignoree" } }).eq("id", id);
+    return { ok: true, ignoree: true };
+  }
+  if (!j.poster_id) return { ok: false, error: "pas de posteur" };
+  const resultat = await executerAction(db, j.poster_id, { action: details.action as ActionBot, action_valeur: details.valeur ?? null, reponse: "", raison: "fait par Max (proposition)" }, "", "Max");
+  await db.from("journal_auto").update({ details: { ...details, fait: maintenant, resultat } }).eq("id", id);
+  return { ok: true, resultat };
+}
+
 /** 0706 : les demandes techniques ouvertes sans ticket, créées depuis l'allumage (réglage support_tickets_auto). */
 async function ticketsAuto(db: Db) {
   const { data: reg } = await db.from("reglages").select("valeur").eq("cle", "support_tickets_auto").maybeSingle();
   const depuis = (reg?.valeur as { depuis?: string } | null)?.depuis;
   if (!depuis) return { ok: true, ignore: "réglage support_tickets_auto absent" };
+  // 13/11 (Contrôle) : « Créer un ticket OS » seul en « agir » ; sinon Max l'envoie d'un clic depuis la Boîte.
+  const mode = modeAction(await lireControle(db), "ticket_os");
+  if (mode !== "agir") return { ok: true, ignore: `ticket_os en « ${mode} » (page Contrôle)` };
   const { data, error } = await db.from("support_demandes").select("id")
     .eq("bot_responsable", "os_tickets").eq("statut", "ouvert").is("ticket_at", null).gte("cree_at", depuis).order("cree_at").limit(10);
   if (error) throw new Error(error.message);
@@ -1019,7 +1107,8 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
       await db.from("support_demandes").update({ email_message_id: e.messageId, email_de: e.de, ...(d?.niveau === "adrien" ? { niveau: "max" } : {}) }).eq("id", r.id);
     }
     let envoi = "pas de réponse";
-    if (r.ok && r.reponse) {
+    if (r.ok && r.muet) envoi = "canal email coupé (Contrôle) : rien envoyé";
+    else if (r.ok && r.reponse) {
       const { data: p } = await db.from("profiles").select("prenom, ruul_jeton").eq("id", poster).maybeSingle();
       const objet = e.sujet ? (/^re:/i.test(e.sujet) ? e.sujet : `Re: ${e.sujet}`) : "Your question";
       const corps = texteReponseEmail(p?.prenom ?? null, r.reponse);

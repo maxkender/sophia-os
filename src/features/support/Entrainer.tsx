@@ -10,13 +10,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { nomBot } from "./api";
 import {
   ACTIONS_CARTE,
-  activerAction,
   aEntrainer,
   BOTS_CARTE,
   type Choix,
   decider,
   LIBELLE_STATUT,
-  lireActions,
   lireDirect,
   lireQuestionsTypes,
   type QuestionType,
@@ -288,46 +286,11 @@ function EnDirect() {
 
 // --- 4. Actions possibles ----------------------------------------------------------------
 
+/** 13/11 : les actions se règlent maintenant dans l'onglet « Contrôle » (Éteint / Proposer / Agir). */
 function ActionsPossibles() {
-  const qc = useQueryClient();
-  const q = useQuery({ queryKey: ["entrainement", "actions"], queryFn: lireActions });
-  const m = useMutation({
-    mutationFn: (p: { action: string; actif: boolean }) => activerAction(p.action, p.actif),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["entrainement", "actions"] }),
-  });
-  if (q.error) return <p className="text-destructive text-sm">{(q.error as Error).message}</p>;
-  if (!q.data) return <p className="text-muted-foreground text-sm">…</p>;
   return (
-    <div className="space-y-2" data-testid="actions-possibles">
-      <div className="overflow-x-auto">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="border-b text-left text-muted-foreground text-xs">
-              <th className="py-2 pr-3">Action</th><th className="py-2 pr-3">Bot</th><th className="py-2 pr-3">Actif</th><th className="py-2 pr-3">Fait ces 7 j</th>
-            </tr>
-          </thead>
-          <tbody>
-            {q.data.map((a) => (
-              <tr key={a.action} className="border-border/40 border-b">
-                <td className="py-1.5 pr-3">{a.libelle}</td>
-                <td className="py-1.5 pr-3 text-xs">{a.bot}</td>
-                <td className="py-1.5 pr-3">
-                  <label className="inline-flex items-center gap-1 text-xs">
-                    <input type="checkbox" checked={a.actif} disabled={m.isPending} onChange={(e) => m.mutate({ action: a.action, actif: e.target.checked })} aria-label={`Activer : ${a.libelle}`} />
-                    {a.actif ? "oui" : "non"}
-                  </label>
-                </td>
-                <td className="py-1.5 pr-3">{a.fois_7j}</td>
-              </tr>
-            ))}
-            <tr className="border-border/40 border-b text-muted-foreground">
-              <td className="py-1.5 pr-3">Préparer une ligne de paie (jamais payer)</td><td className="py-1.5 pr-3 text-xs">pay_bot</td><td className="py-1.5 pr-3 text-xs">toujours</td><td />
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <p className="text-muted-foreground text-xs">Désactiver une action : le bot ne la fait plus ; il répond et la demande passe à l'équipe.</p>
-      {m.error && <p className="text-destructive text-sm">{(m.error as Error).message}</p>}
-    </div>
+    <p className="text-sm" data-testid="actions-possibles">
+      Les actions se règlent maintenant dans l'onglet <a className="underline" href="?onglet=controle">🎛️ Contrôle</a> (Éteint / Proposer / Agir, compteur du jour, journal).
+    </p>
   );
 }

@@ -1,6 +1,7 @@
 import { estSecretCron, json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { type Bot, BOTS_PROBLEMES, botDuJeton, etatSecrets, lireCorps, SECRETS_BOTS } from "../_shared/bot_propositions.ts";
+import { journaliser, lireControle, type Mode, modeAgent } from "../_shared/controle.ts";
 
 /**
  * Bloc C, C8 (2/11) : l'entrée des 3 bots (new_cohort_bot, control_bot,
@@ -60,6 +61,11 @@ Deno.serve(async (request) => {
 
   try {
     const supabase = serviceClient();
+    // 13/11 (page Contrôle) : éteint = le bot ne fait rien ; proposer = ses gestes deviennent des propositions pour Max.
+    const mode: Mode = modeAgent(await lireControle(supabase), bot);
+    if (mode === "eteint") return json({ ok: false, error: "Paused by the admin: do nothing for now and try again later." });
+    if (mode === "proposer" && lu.action === "regler") return json(await reglerEnProposition(supabase, bot, lu.args));
+    if (mode === "proposer" && lu.action === "faire") return json(await faireEnProposition(supabase, bot, lu.args));
     if (lu.action === "regler" || lu.action === "remonter") return json(await fileSupport(supabase, bot, lu.action, lu.args));
     if (lu.action === "lire") {
       // La file Support du bot (demandes dont il est responsable), plus ses cartes Problèmes s'il en a.
@@ -86,6 +92,40 @@ Deno.serve(async (request) => {
 
 const LIGNE_STOP = "If you don't wish to continue, just reply STOP here.";
 
+/** 13/11 (Contrôle, « proposer ») : « regler » devient une remontée chez Max avec la réponse en brouillon. */
+async function reglerEnProposition(supabase: ReturnType<typeof serviceClient>, bot: Bot, args: Record<string, unknown>) {
+  const reponse = String(args.reponse ?? "").trim();
+  if (reponse.length < 5) return { ok: false, error: "reponse (au posteur) obligatoire" };
+  const { data, error } = await supabase.rpc("support_bot", {
+    p_bot: bot, p_action: "remonter", p_args: { demande_id: args.demande_id, pourquoi: `Proposé par ${bot} (mode proposer) : réponse en brouillon.` },
+  });
+  if (error) return { ok: false, error: error.message };
+  const r = data as { ok: boolean; error?: string; demande_id?: string };
+  if (!r.ok) return r;
+  const { data: d } = await supabase.from("support_demandes").update({ brouillon: reponse.slice(0, 4000) }).eq("id", r.demande_id!).select("poster_id").maybeSingle();
+  await journaliser(supabase, {
+    qui: bot, quoi: "reponse", mode: "proposer", poster_id: (d?.poster_id as string | null) ?? null, demande_id: r.demande_id ?? null,
+    resultat: reponse.slice(0, 200), details: { fait: args.fait ?? null },
+  });
+  return { ok: true, demande_id: r.demande_id, proposition: true };
+}
+
+/** 13/11 (Contrôle, « proposer ») : « faire » devient une proposition sur la carte Problèmes (rien ne part). */
+async function faireEnProposition(supabase: ReturnType<typeof serviceClient>, bot: Bot, args: Record<string, unknown>) {
+  const { data, error } = await supabase.rpc("probleme_bot", {
+    p_bot: bot, p_action: "proposer",
+    p_args: { probleme_id: args.probleme_id, action: args.action, reponse: args.reponse, canal: args.canal, diagnostic: args.diagnostic },
+  });
+  if (error) return { ok: false, error: error.message };
+  const r = data as { ok: boolean; error?: string };
+  const { data: p } = await supabase.from("problemes").select("poster_id").eq("id", String(args.probleme_id ?? "")).maybeSingle();
+  await journaliser(supabase, {
+    qui: bot, quoi: String(args.action ?? "faire"), mode: "proposer", poster_id: (p?.poster_id as string | null) ?? null,
+    resultat: r.ok ? `proposé (confiance ${args.confiance ?? "?"})` : `refusé : ${r.error}`, details: { probleme_id: args.probleme_id },
+  });
+  return { ...r, proposition: true };
+}
+
 /**
  * 0706 : régler ou remonter une demande de sa file. Régler : la base note « Réglé par [bot] », puis la
  * réponse part au posteur comme une réponse de l'équipe (chat Help + email « You have a new answer »).
@@ -97,6 +137,7 @@ async function fileSupport(supabase: ReturnType<typeof serviceClient>, bot: Bot,
   if (!r.ok || action !== "regler") return r;
   try {
     const envoi = await appelFonction("support", { action: "repondre", id: r.demande_id, texte: r.reponse });
+    await journaliser(supabase, { qui: bot, quoi: "reponse", demande_id: r.demande_id ?? null, resultat: String(r.reponse ?? "").slice(0, 200) });
     return { ok: true, demande_id: r.demande_id, envoi };
   } catch (e) {
     return { ok: false, demande_id: r.demande_id, error: `réglée mais réponse non envoyée : ${messageErreur(e)}` };

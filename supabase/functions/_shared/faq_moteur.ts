@@ -18,6 +18,7 @@ import {
   type ReponseFaq,
   type ReponseOfficielle,
 } from "./faq.ts";
+import { canalActif, type Controle, lireControle, modeAgent } from "./controle.ts";
 import { generateTextFast } from "./gemini.ts";
 import { liensPublics } from "./guide_public.ts";
 import { messageErreur, type serviceClient } from "./supabase.ts";
@@ -25,12 +26,30 @@ import { messageErreur, type serviceClient } from "./supabase.ts";
 type Db = ReturnType<typeof serviceClient>;
 
 export async function chargerReglagesFaq(db: Db): Promise<ReglagesFaq> {
-  const { data, error } = await db.from("reglages").select("valeur").eq("cle", "faq_automatique").maybeSingle();
+  const [{ data, error }, c] = await Promise.all([
+    db.from("reglages").select("valeur").eq("cle", "faq_automatique").maybeSingle(),
+    lireControle(db),
+  ]);
   if (error) {
     console.warn(`[faq] réglages illisibles, mode test : ${messageErreur(error)}`);
     return REGLAGES_FAQ_DEFAUT;
   }
-  return lireReglagesFaq(data?.valeur);
+  return brideParControle(lireReglagesFaq(data?.valeur), c);
+}
+
+/**
+ * 13/11 (page Contrôle) : le STOP général, le cerveau du support hors « agir » ou un canal coupé
+ * font taire l'ancien bot FAQ (Slack : rien ne part ; bulle Help : mode test).
+ */
+export function brideParControle(r: ReglagesFaq, c: Controle): ReglagesFaq {
+  const agent = modeAgent(c, "cerveau_support");
+  const slackOk = agent === "agir" && canalActif(c, "slack");
+  const helpOk = agent === "agir" && canalActif(c, "help");
+  return {
+    ...r,
+    mode_slack: agent === "eteint" ? "eteint" : slackOk ? r.mode_slack : r.mode_slack === "eteint" ? "eteint" : "test",
+    mode_os: helpOk ? r.mode_os : "test",
+  };
 }
 
 export interface BaseChargee {

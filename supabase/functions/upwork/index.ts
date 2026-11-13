@@ -121,6 +121,7 @@ import { posteurExistantDeErreur } from "../_shared/contrat_unique.ts";
 import { automationEnPause, bloquer, noterBloquee, PAUSE } from "../_shared/pause.ts";
 import { choisirCompte, COMPTE_SECOURS, type CompteDuJour, estCompteDeMax, lireCompte, UPWORK_USER_MAX } from "../_shared/upwork_comptes.ts";
 import { estLimiteUpwork } from "../_shared/garde_fous.ts";
+import { lireParLots } from "../_shared/lots.ts";
 import { type PlanKill, planKill, texteKill } from "../_shared/kill_upwork.ts";
 import { planCompleterOffre, semainesDepuis } from "../_shared/offres.ts";
 
@@ -1149,11 +1150,16 @@ async function corrigerTarifsHebdo(supabase: Supabase): Promise<{ corriges: numb
     if (v !== null && Number.isFinite(v)) voulu.set(String(t.contrat_id), v);
   }
   if (voulu.size === 0) return { corriges: 0 };
-  const { data: profils, error: errP } = await supabase.from("profiles").select("id, upwork_contract_id, tarif_hebdo")
-    .eq("is_active", true).in("upwork_contract_id", [...voulu.keys()]);
-  if (errP) throw errP;
+  // Par lots : ~480 contrats voulus débordaient l'URL PostgREST d'un seul in(...).
+  const profils = await lireParLots<{ id: string; upwork_contract_id: string | null; tarif_hebdo: number | null }>(
+    [...voulu.keys()],
+    "Posteurs actifs des contrats à tarif",
+    (lot) =>
+      supabase.from("profiles").select("id, upwork_contract_id, tarif_hebdo")
+        .eq("is_active", true).in("upwork_contract_id", lot),
+  );
   let corriges = 0;
-  for (const p of profils ?? []) {
+  for (const p of profils) {
     const v = voulu.get(String(p.upwork_contract_id));
     if (v === undefined || (p.tarif_hebdo !== null && Math.abs(Number(p.tarif_hebdo) - v) < 0.005)) continue;
     const { error: errU } = await supabase.from("profiles").update({ tarif_hebdo: v }).eq("id", p.id);

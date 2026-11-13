@@ -91,6 +91,16 @@ export function etatRuul(e: EtatParcours): { n: number; depuis: string | null } 
  * bienvenue ; `bienvenueDepuis` : seuls les comptes créés après l'allumage la reçoivent (jamais les
  * posteurs déjà en place).
  */
+/**
+ * 13/11 (Max) : les emails partent entre 9 h et 20 h (heure de Paris). Exceptions : « you start tomorrow »
+ * (dimanche 20 h → minuit) et la carte « Ruul jamais fini » (pas un email).
+ */
+export function dansFenetre(maintenant: Date, type: TypeParcours): boolean {
+  if (type === "carte_ruul" || type === "demain") return true;
+  const h = partiesLocales(maintenant, PARIS).heure;
+  return h >= 9 && h < 20;
+}
+
 export function prochainEnvoi(e: EtatParcours, maintenant: Date, o: { bienvenue: boolean; bienvenueDepuis?: string | null }): Decision | null {
   if (e.relances_stop_at || !e.email) return null;
   const t = maintenant.getTime();

@@ -1,5 +1,5 @@
 import { assert, assertEquals, assertStringIncludes } from "jsr:@std/assert@1";
-import { echeance, emailParcours, type EtatParcours, jourLundi, lignesPointSoirRuul, prochainEnvoi } from "./parcours_ruul.ts";
+import { dansFenetre, echeance, emailParcours, type EtatParcours, jourLundi, lignesPointSoirRuul, prochainEnvoi } from "./parcours_ruul.ts";
 
 const base = (x: Partial<EtatParcours> = {}): EtatParcours => ({
   poster_id: "p", prenom: "Eduarda", login: "eduardas@sophia.com", email: "e@gmail.com", cohorte_lundi: "2026-11-16",
@@ -96,4 +96,15 @@ Deno.test("point du soir Ruul : 5 lignes (prêts, emails par type, désactivés,
   assertStringIncludes(l[4], "1 carte « Ruul jamais fini »");
   assertStringIncludes(l[4], "1 envoi en erreur");
   assertEquals(lignesPointSoirRuul({ etats: [], envois: [], arrets: [] })[4], "• À faire : rien");
+});
+
+Deno.test("13/11 : emails entre 9 h et 20 h (Paris), sauf « you start tomorrow » et la carte", () => {
+  const nuit = new Date("2026-11-12T23:07:00Z"); // 0 h 07 à Paris
+  const matin = new Date("2026-11-13T08:07:00Z"); // 9 h 07
+  const soir = new Date("2026-11-13T19:07:00Z"); // 20 h 07
+  assertEquals(dansFenetre(nuit, "jamais_connecte"), false);
+  assertEquals(dansFenetre(matin, "jamais_connecte"), true);
+  assertEquals(dansFenetre(soir, "tiktok"), false);
+  assertEquals(dansFenetre(soir, "demain"), true);
+  assertEquals(dansFenetre(nuit, "carte_ruul"), true);
 });

@@ -83,8 +83,8 @@ Deno.test("0671 : I need help (Slack) → question ou problème", () => {
 });
 
 Deno.test("0671 : textes au posteur (anglais) et alerte à Max (français)", () => {
-  // 12/11 (Max) : plus de lien « Set my password » : login et mot de passe 12345678 par email.
-  assertStringIncludes(texteProblemeRecu("connexion", "lien_envoye"), "password (12345678)");
+  // 13/11 (Max) : login et un mot de passe neuf (unique) par email ; plus jamais 12345678.
+  assertStringIncludes(texteProblemeRecu("connexion", "lien_envoye"), "a new password");
   assertStringIncludes(texteProblemeRecu("paiement", null), "Payment issues are checked first");
   const a = texteAlerteMax({ nom: "Ana", plateforme: "ruul", categorie: "paiement", texte: "Not paid", raison: "paiement" }, "https://os.example");
   assertStringIncludes(a, "paiement / urgent");

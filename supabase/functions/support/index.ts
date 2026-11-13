@@ -2,7 +2,7 @@ import { chargerBase, demanderAuCerveau, jetonSlackFaq, posterSlack } from "../_
 import { chargerSourcesSupport } from "../_shared/support_sources.ts";
 import { CANAL_TICKETS, erreurTicket, promptContexte, texteTicket } from "../_shared/support_ticket.ts";
 import { jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_shared/email_entrant.ts";
-import { MOT_DE_PASSE_COMMUN } from "../_shared/mot_de_passe.ts";
+import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import {
@@ -382,8 +382,8 @@ async function contactPosteur(db: Db, poster: string) {
 }
 
 /**
- * 12/11 (Max) : plus de lien « Set my password » — le mot de passe est toujours 12345678.
- * « Je n'arrive pas à me connecter » : le mot de passe est remis à 12345678 et l'email redonne le
+ * 12/11 (Max) : plus de lien « Set my password ». 13/11 : plus de mot de passe par défaut.
+ * « Je n'arrive pas à me connecter » : un mot de passe neuf, unique et aléatoire, et l'email redonne le
  * login, le mot de passe et le lien du dashboard.
  */
 async function envoyerLienMotDePasse(db: Db, poster: string, nom: string | null): Promise<string> {
@@ -391,12 +391,14 @@ async function envoyerLienMotDePasse(db: Db, poster: string, nom: string | null)
   if (!c.email) return "pas d'email connu";
   const { data: p } = await db.from("profiles").select("email").eq("id", poster).maybeSingle();
   const login = (p?.email as string | null) ?? null;
-  const { error: errMdp } = await db.auth.admin.updateUserById(poster, { password: MOT_DE_PASSE_COMMUN });
+  // 13/11 (Max) : plus de mot de passe par défaut : un mot de passe neuf, unique et aléatoire, envoyé par email.
+  const motDePasse = motDePasseRecrue();
+  const { error: errMdp } = await db.auth.admin.updateUserById(poster, { password: motDePasse });
   if (errMdp) return `mot de passe : ${errMdp.message}`;
   const objet = "Your Sophia dashboard access";
   const e = rendreEmailRuul({
     objet,
-    corps: `Hi ${c.prenom || nom || "there"},\n\nYou told us you can't log in. Here are your access details:\n- Dashboard: ${OS_URL}\n- Login: ${login ?? "your @sophia.com login"}\n- Password: ${MOT_DE_PASSE_COMMUN}`,
+    corps: `Hi ${c.prenom || nom || "there"},\n\nYou told us you can't log in. Here are your access details:\n- Dashboard: ${OS_URL}\n- Login: ${login ?? "your @sophia.com login"}\n- Password: ${motDePasse}`,
     bouton: { texte: "Open my dashboard", lien: OS_URL },
     lienStop: OS_URL,
   });

@@ -21,6 +21,7 @@ import {
   texteProblemeRecu,
 } from "../_shared/support.ts";
 import { generateTextFast } from "../_shared/gemini.ts";
+import { actionActive, lireGroupes, promptRegroupement, type QuestionLue, resumerGroupe, TEXTE_ATTENTE } from "../_shared/entrainement.ts";
 import {
   appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, plainteSansDonnees, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
   accuseReception, texteBugMax, texteListeAdrien, texteTop10,
@@ -141,6 +142,10 @@ Deno.serve(async (request) => {
         // 12/11 (Max) : « Envoyer en ticket à l'OS » depuis la Boîte → #a-os-tickets (l'IT guy le traite).
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await envoyerTicket(db, acces.userId === "cron" ? null : acces.userId, String(body.id ?? ""), typeof body.note === "string" ? body.note : null));
+      case "entrainement_regrouper":
+        // 13/11 (Entraîner le bot) : l'historique (chatbot + Help/Slack/email) regroupé en questions types.
+        if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
+        return json(await entrainementRegrouper(db));
       case "tickets_auto":
         // 13/11 (escalations, 0706) : les demandes techniques (bot responsable « os_tickets ») partent seules
         // par le bouton existant, une fois chacune (cron support-tickets, toutes les 15 min).
@@ -580,6 +585,17 @@ async function deciderBot(
   }
   const nbMemeSujet = entree.historique.filter((h) => h.categorie && h.categorie === decision!.categorie).length;
   const finale = appliquerGardeFous(decision, { source: o.source, plateforme, lienHelp: LIEN_HELP, nbMemeSujet });
+  // 13/11 (Entraîner le bot) : une action désactivée par Max n'est plus faite ; la demande passe à l'équipe.
+  if (finale.action) {
+    const { data: reg } = await db.from("reglages").select("valeur").eq("cle", "bot_actions_actives").maybeSingle();
+    if (!actionActive(reg?.valeur, finale.action)) {
+      finale.raison = `${finale.raison} (action ${finale.action} désactivée : à l'équipe)`.trim();
+      finale.action = null;
+      finale.action_valeur = null;
+      if (finale.niveau === "bot") finale.niveau = "adrien";
+      finale.reponse = TEXTE_ON_VERIFIE;
+    }
+  }
   // 0683 : pas payé + aucune paie connue (contrat pas relié, milestones illisibles) → on vérifie, Max tranche.
   if (o.source === "help" && f && plainteSansDonnees(o.message, plateforme, !f.derniere_paie) && finale.niveau !== "max") {
     finale.niveau = "max";
@@ -816,6 +832,71 @@ async function envoyerTicket(db: Db, par: string | null, id: string, note: strin
     .update({ ticket_at: maintenant, ticket_slack_ts: r.ts ?? null, ticket_par: par, maj_at: maintenant }).eq("id", id);
   if (e) throw new Error(e.message);
   return { ok: true, ticket_at: maintenant };
+}
+
+/**
+ * 13/11 (Entraîner le bot) : relit l'historique des 90 derniers jours (chatbot_questions des posteurs et
+ * support_demandes), le fait regrouper en questions types par le modèle (en réutilisant celles qui
+ * existent), puis met à jour bot_questions_types (compteur, plateformes, exemples, réponse actuelle,
+ * statut). Les choix d'entraînement de Max ne sont jamais touchés.
+ */
+async function entrainementRegrouper(db: Db) {
+  const depuis = new Date(Date.now() - 90 * 86_400_000).toISOString();
+  const [cq, sd, ex] = await Promise.all([
+    db.from("chatbot_questions").select("id, user_id, question, reponse, etat, source, slack_nom, created_at")
+      .eq("role", "poster").not("test", "is", true).or("etat.is.null,etat.not.in.(hors_sujet,ignore)").gte("created_at", depuis)
+      .order("created_at", { ascending: false }).limit(700),
+    db.from("support_demandes").select("id, poster_id, texte, bot_reponse, niveau, plateforme, source, cree_at, regle, slack_user, email_de")
+      .gte("cree_at", depuis).order("cree_at", { ascending: false }).limit(300),
+    db.from("bot_questions_types").select("id, question"),
+  ]);
+  if (cq.error) throw new Error(cq.error.message);
+  if (sd.error) throw new Error(sd.error.message);
+  if (ex.error) throw new Error(ex.error.message);
+  const ids = [...new Set([...(cq.data ?? []).map((q) => q.user_id), ...(sd.data ?? []).map((d) => d.poster_id)].filter(Boolean))] as string[];
+  const profils = new Map<string, { prenom: string | null; canal_paie: string | null }>();
+  for (let i = 0; i < ids.length; i += 300) {
+    const { data } = await db.from("profiles").select("id, prenom, canal_paie").in("id", ids.slice(i, i + 300));
+    for (const p of (data ?? []) as { id: string; prenom: string | null; canal_paie: string | null }[]) profils.set(p.id, p);
+  }
+  const plat = (id: string | null) => (id ? (profils.get(id)?.canal_paie === "ruul" ? "ruul" : "upwork") : null) as QuestionLue["plateforme"];
+  const lues: QuestionLue[] = [
+    ...((cq.data ?? []) as { id: string; user_id: string | null; question: string; reponse: string | null; etat: string | null; source: string; slack_nom: string | null; created_at: string }[])
+      .filter((q) => (q.question ?? "").trim().length >= 4)
+      .map((q) => ({
+        ref: `c:${q.id}`, texte: q.question, reponse: q.reponse, repondu: q.etat === "repondu" && !!q.reponse && q.reponse.trim() !== TEXTE_ATTENTE,
+        plateforme: plat(q.user_id), source: q.source === "slack" ? "Slack" : "Chatbot OS", qui: (q.user_id ? profils.get(q.user_id)?.prenom : null) ?? q.slack_nom ?? null,
+        at: q.created_at, regle: null,
+      })),
+    ...((sd.data ?? []) as { id: string; poster_id: string | null; texte: string; bot_reponse: string | null; niveau: string | null; plateforme: string | null; source: string; cree_at: string; regle: string | null; slack_user: string | null; email_de: string | null }[])
+      .map((d) => ({
+        ref: `s:${d.id}`, texte: d.texte, reponse: d.bot_reponse, repondu: d.niveau === "bot" && !!d.bot_reponse && !d.bot_reponse.includes(TEXTE_ATTENTE),
+        plateforme: (d.plateforme === "ruul" ? "ruul" : d.plateforme === "upwork" ? "upwork" : plat(d.poster_id)) as QuestionLue["plateforme"],
+        source: d.source === "help" ? "Help" : d.source === "email" ? "Email" : "Slack", qui: (d.poster_id ? profils.get(d.poster_id)?.prenom : null) ?? d.slack_user ?? d.email_de ?? null,
+        at: d.cree_at, regle: d.regle,
+      })),
+  ];
+  if (!lues.length) return { ok: true, lues: 0, types: 0 };
+  const existants = (ex.data ?? []) as { id: string; question: string }[];
+  const groupes = lireGroupes(await generateTextFast(promptRegroupement(lues, existants)), lues.length, existants);
+  if (!groupes.length) return { ok: false, error: "le modèle n'a rendu aucun groupe lisible" };
+  const maintenant = new Date().toISOString();
+  let crees = 0;
+  let majs = 0;
+  for (const g of groupes) {
+    const r = resumerGroupe(g.membres.map((i) => lues[i]!));
+    const champs = { ...r, regroupe_at: maintenant, maj_at: maintenant };
+    if (g.existant) {
+      const { error } = await db.from("bot_questions_types").update(champs).eq("id", g.existant);
+      if (error) throw new Error(error.message);
+      majs++;
+    } else {
+      const { error } = await db.from("bot_questions_types").insert({ ...champs, question: g.question, categorie: g.categorie });
+      if (error) throw new Error(error.message);
+      crees++;
+    }
+  }
+  return { ok: true, lues: lues.length, types: groupes.length, crees, mis_a_jour: majs };
 }
 
 /** 0706 : les demandes techniques ouvertes sans ticket, créées depuis l'allumage (réglage support_tickets_auto). */

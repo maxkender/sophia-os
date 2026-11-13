@@ -31,7 +31,7 @@ import { chargerModeSituations, colonnesSituation, situationSansRisque } from ".
 import { relierNouveau } from "../_shared/slack_relier.ts";
 import { proposerLienSlack } from "../_shared/slack_connect.ts";
 import { messageAGarder } from "../_shared/slack_messages.ts";
-import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
 import { niveauQuestionPersonnelle, parleDeLAutrePlateforme, questionPersonnelle, texteRenvoiHelp } from "../_shared/support.ts";
 
@@ -177,7 +177,6 @@ type Db = ReturnType<typeof serviceClient>;
 async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<void> {
   const db = serviceClient();
   const reglages = await chargerReglagesFaq(db);
-  if (reglages.mode_slack === "eteint") return;
 
   const admins = new Set(Object.keys(ADMINS_SLACK));
   // 11/11 (0671) : #posting-help, #ruul-posters et #upwork-posters passent par le même bot
@@ -188,6 +187,22 @@ async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<vo
 
   const managers = await chargerManagersSlack(db);
   const token = jetonSlackFaq();
+  // 13/11 (refonte, un seul cerveau) : un posteur (ni admin ni HM) passe par le cerveau du support
+  // (page Contrôle) ; l'ancien bot FAQ ne garde que les HM.
+  if (!admins.has(tri.auteur) && !managers.has(tri.auteur)) {
+    try {
+      if (tri.cas === "suite") {
+        await appelSupport({ action: "slack_suite", canal: tri.canal, parent_ts: tri.parentTs, texte: tri.texte });
+      } else {
+        const nom = token ? await nomSlack(token, tri.auteur) : null;
+        await appelSupport({ action: "slack_message", canal: tri.canal, ts: tri.ts, auteur: tri.auteur, texte: tri.texte, nom, plateforme: plateformeDuSalon(tri.canal) });
+      }
+    } catch (e) {
+      console.error("[slack-faq] support", messageErreur(e));
+    }
+    return;
+  }
+  if (reglages.mode_slack === "eteint") return;
   if (tri.cas === "suite") {
     await suivreFil(db, tri, new Set([...admins, ...managers.keys()]), token);
     return;
@@ -221,6 +236,19 @@ async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<vo
     return;
   }
   await repondre(db, tri, reglages, managers, token, support ? plateformeDuSalon(tri.canal) : undefined);
+}
+
+/** 13/11 : la fonction support, avec le secret des crons. */
+async function appelSupport(corps: Record<string, unknown>): Promise<void> {
+  await secretCron();
+  const secret = secretCronConnu();
+  const r = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/support`, {
+    method: "POST",
+    headers: { "content-type": "application/json", ...(secret ? { "x-cron-secret": secret } : {}) },
+    body: JSON.stringify(corps),
+  });
+  const data = await r.json().catch(() => ({})) as { ok?: boolean; error?: string };
+  if (!r.ok || data.ok === false) throw new Error(data.error ?? `support : HTTP ${r.status}`);
 }
 
 /** 0671 : les salons du support, seulement si l'interrupteur est sur on. */

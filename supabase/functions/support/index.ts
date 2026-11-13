@@ -23,7 +23,7 @@ import {
 import { decrireCapture, generateTextFast } from "../_shared/gemini.ts";
 import { lireGroupes, promptRegroupement, type QuestionLue, resumerGroupe, TEXTE_ATTENTE } from "../_shared/entrainement.ts";
 import {
-  appliquerControle, type CanalControle, canalDeSource, journaliser, lireControle, modeAction, modeAgent, type ResultatControle,
+  appliquerControle, type CanalControle, journaliser, lireControle, modeAction, modeAgent, type ResultatControle,
 } from "../_shared/controle.ts";
 import {
   type ActionBot, appliquerGardeFous, type DecisionBot, lireDecision, lireTop10, plainteSansDonnees, promptBot, promptTop10, signer, type SourceBot, testOk, TEXTE_ON_VERIFIE, type Top10,
@@ -162,6 +162,24 @@ Deno.serve(async (request) => {
         // par le bouton existant, une fois chacune (cron support-tickets, toutes les 15 min).
         if (acces.role !== "admin") return json({ ok: false, error: "réservé aux admins" }, 403);
         return json(await ticketsAuto(db));
+      case "slack_message":
+        // 13/11 (refonte, un seul cerveau) : un message d'un posteur dans un salon Slack (#posting-help…), passé par slack-faq.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await messageSlack(db, {
+          canal: String(body.canal ?? ""), ts: String(body.ts ?? ""), auteur: String(body.auteur ?? ""), texte: String(body.texte ?? ""),
+          nom: typeof body.nom === "string" ? body.nom : null, plateforme: body.plateforme === "ruul" || body.plateforme === "upwork" ? body.plateforme : null,
+        }));
+      case "slack_suite": {
+        // 13/11 : la suite d'un fil Slack d'une demande : elle entre dans le fil de la demande, qui repasse « à répondre ».
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        const { data: dem } = await db.from("support_demandes").select("id, poster_id")
+          .eq("slack_canal", String(body.canal ?? "")).eq("slack_ts", String(body.parent_ts ?? "")).limit(1).maybeSingle();
+        if (!dem?.id) return json({ ok: true, ignore: "pas une demande suivie" });
+        const maintenant = new Date().toISOString();
+        await db.from("support_messages").insert({ demande_id: dem.id, auteur: "posteur", auteur_id: dem.poster_id, texte: String(body.texte ?? "").slice(0, 4000) });
+        await db.from("support_demandes").update({ statut: "ouvert", posteur_at: maintenant, maj_at: maintenant }).eq("id", dem.id);
+        return json({ ok: true, id: dem.id });
+      }
       case "lien_mot_de_passe":
         // 13/11 (Max) : envoyer (ou renvoyer, avec excuse) le login + lien « choisir mon mot de passe » par email.
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -593,6 +611,7 @@ interface ProfilFictif {
 }
 
 const LIEN_HELP = `${OS_URL}/createur/help`;
+const RISQUES_SILENCE: readonly string[] = ["argent_tiers", "multi_comptes", "hors_plateforme", "menace"];
 const TEXTE_LIEN_ENVOYE = "I've just emailed you your login and a personal link to choose your password. Check your inbox (and spam), then log in to your dashboard.";
 
 function ficheFictive(p: ProfilFictif): string {
@@ -666,7 +685,7 @@ async function deciderBot(
       niveau: "adrien", regle: null, risque: [], raison: "Le modèle n'a pas répondu : la demande va à Adrien." };
   }
   const nbMemeSujet = entree.historique.filter((h) => h.categorie && h.categorie === decision!.categorie).length;
-  const finale = appliquerGardeFous(decision, { source: o.source, plateforme, lienHelp: LIEN_HELP, nbMemeSujet });
+  const finale = appliquerGardeFous(decision, { source: o.source, plateforme, lienHelp: LIEN_HELP, nbMemeSujet, connu: !!f });
   // 13/11 (Max) : jamais de mot de passe dans un message : le lien « choisir mon mot de passe » à la place.
   if (refusMotDePasseUpwork(finale.reponse)) {
     finale.raison = `${finale.raison} (mot de passe retiré de la réponse : lien « choisir mon mot de passe » à la place)`.trim();
@@ -683,6 +702,15 @@ async function deciderBot(
   const controle: ResultatControle = ctlReglage
     ? appliquerControle(ctlReglage, finale, o.canal ?? "help", TEXTE_ON_VERIFIE)
     : { brouillon: null, action_proposee: null, muet: false };
+  // 13/11 (Max) : « Fraude, litige, paiement hors plateforme : directement à Max, sans réponse automatique. »
+  if (finale.risque.some((x) => RISQUES_SILENCE.includes(x))) {
+    finale.niveau = "max";
+    finale.reponse = TEXTE_ON_VERIFIE;
+    finale.action = null;
+    finale.action_valeur = null;
+    controle.muet = true;
+    finale.raison = `${finale.raison} (fraude / litige / hors plateforme : à Max, sans réponse automatique)`.trim();
+  }
   // 0683 : pas payé + aucune paie connue (contrat pas relié, milestones illisibles) → on vérifie, Max tranche.
   if (o.source === "help" && f && plainteSansDonnees(o.message, plateforme, !f.derniere_paie) && finale.niveau !== "max") {
     finale.niveau = "max";
@@ -1142,6 +1170,66 @@ async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>
     bilan.push({ de: e.de, poster, id: r.id ?? null, envoye_equipe: r.envoye_equipe ?? null, reponse: envoi });
   }
   return { ok: true, recus: emails.length, bilan };
+}
+
+/**
+ * 13/11 (refonte, Phase 2) : un seul cerveau. Un message d'un posteur dans un salon Slack : le bot v2 lit sa situation,
+ * répond dans le fil (question générale) ou en message privé (sujet perso), fait l'action permise ; sinon la demande
+ * va à Max (« We're checking » dans le fil seulement pour une vraie remontée). Jamais de renvoi vers Help ni #questions
+ * quand on connaît le posteur. Tout passe par la page Contrôle.
+ */
+async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: string; texte: string; nom: string | null; plateforme: "ruul" | "upwork" | null }) {
+  const texte = o.texte.trim();
+  if (!o.canal || !o.ts || texte.length < 2) return { ok: false, error: "canal, ts et texte requis" };
+  const { data: deja } = await db.from("support_demandes").select("id").eq("slack_canal", o.canal).eq("slack_ts", o.ts).limit(1);
+  if ((deja ?? []).length) return { ok: true, deja: true };
+  const { data: p } = await db.from("profiles").select("id").eq("slack_user_id", o.auteur).limit(1).maybeSingle();
+  const poster = (p?.id as string | undefined) ?? null;
+  if (poster && accuseReception(texte)) {
+    await noterVu(db, poster, "slack", texte, `slack:${o.canal}:${o.ts}`);
+    return { ok: true, vu: true };
+  }
+  const r = await deciderBot(db, { message: texte, source: "slack_salon", poster, profil: null, canal: "slack" });
+  const d = r.decision;
+  if (d.categorie === "salutation" && poster) {
+    await noterVu(db, poster, "slack", texte, `slack:${o.canal}:${o.ts}`);
+    return { ok: true, vu: true };
+  }
+  const parBot = d.niveau === "bot" && d.reponse !== TEXTE_ON_VERIFIE;
+  const jeton = jetonSlackFaq();
+  let envoi = "rien";
+  let action: string | null = null;
+  if (parBot && poster && d.action) action = await executerAction(db, poster, d, texte);
+  if (!r.controle.muet && jeton) {
+    if (parBot && d.personnel && poster) {
+      const dm = await ecrireAuPosteur(db, poster, r.texte, fetch, undefined, { malgreStop: "reponse" });
+      envoi = dm.statut === "envoye" ? "message privé" : `message privé : ${"erreur" in dm ? dm.erreur : dm.statut}`;
+      if (dm.statut === "envoye") await posterSlack(jeton, o.canal, "I've sent you a private message 👋", o.ts);
+    } else if (parBot || d.niveau === "max") {
+      const t = await posterSlack(jeton, o.canal, parBot ? r.texte : TEXTE_ON_VERIFIE, o.ts);
+      envoi = t.ok ? "fil" : `fil : ${t.error}`;
+    }
+  }
+  const { data: aj, error } = await db.rpc("support_ajouter", {
+    p: {
+      poster_id: poster, type: "question", categorie: d.categorie, texte, source: "slack_salon", escalader: !parBot, plateforme: o.plateforme,
+      bot_reponse: parBot ? r.texte : null, bot_decision: d.niveau, brouillon: parBot ? null : brouillonDe(r),
+      slack_canal: o.canal, slack_ts: o.ts, slack_user: o.nom ?? o.auteur,
+    },
+  });
+  if (error) return { ok: false, error: `support_ajouter : ${error.message}` };
+  const id = (aj as { id?: string } | null)?.id ?? null;
+  if (id) {
+    await db.from("support_demandes").update({
+      niveau: parBot ? "bot" : d.niveau === "adrien" ? "max" : d.niveau, risque: d.risque, action_faite: action, regle: r.regle_utilisee,
+      raison: `${d.raison} (salon Slack ; réponse : ${envoi})`, langue: d.langue, ...(parBot ? { statut: "bot" } : {}),
+    }).eq("id", id);
+    if (poster) await noterControle(db, poster, id, "slack", parBot ? r.texte : null, r.controle);
+    if (d.niveau === "max") {
+      await alerterMax(db, id, { nom: o.nom ?? "?", plateforme: o.plateforme ?? "upwork", categorie: d.categorie, texte, raison: "urgent", os: d.raison, action: brouillonDe(r) });
+    }
+  }
+  return { ok: true, id, niveau: parBot ? "bot" : d.niveau, envoi };
 }
 
 /** Les images jointes d'un email Brevo, téléchargées (API Brevo) et décrites par le modèle. Ne lève pas. */

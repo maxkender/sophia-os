@@ -8,7 +8,7 @@
 --   par l'OS (voie 1).
 -- Les comptes qui portent le label sont choisis par Adrien et Max (Pilotage).
 -- 0709 et 0710 sont prises sur main : ce rattachement prend 0711.
--- À appliquer (MCP) seulement après avoir vérifié qu'aucun contenu de
+-- ✅ Appliquée le 2026-11-13 (MCP), après avoir vérifié qu'aucun contenu de
 -- @_plony_ n'était encore valide ni brouillon. Additive, idempotente.
 
 insert into public.label_applications (label_id, application_id)

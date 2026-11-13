@@ -1998,6 +1998,8 @@ export const fr = {
           sens: "sens",
           autre: "autre",
         },
+        redigeParModele: "Fautif, à écrire et pourquoi sont rédigés par le modèle d'après la remarque du relecteur : vérifie avant de retenir.",
+        voirRemarque: "Voir la remarque de {{nom}} telle qu'il l'a écrite",
         sourceDuel: "duel",
         sourceRelecture: "post publié",
         version: { actuel: "version publiée", candidat: "version candidate", les_deux: "les deux versions" },

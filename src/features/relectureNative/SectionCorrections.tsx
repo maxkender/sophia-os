@@ -111,6 +111,13 @@ function LigneCorrection({ c }: { c: CorrectionNative }) {
           </>
         )}
       </div>
+      <p className="text-[11px] text-muted-foreground">{t("relectureNative.corrections.redigeParModele")}</p>
+      {c.remarque_source && (
+        <details className="text-xs" data-testid="remarque-source">
+          <summary className="cursor-pointer text-muted-foreground">{t("relectureNative.corrections.voirRemarque", { nom: nomRelecteur || "?" })}</summary>
+          <blockquote className="mt-1 border-l-2 pl-2 whitespace-pre-wrap italic">{c.remarque_source}</blockquote>
+        </details>
+      )}
       <div className="flex flex-wrap items-center gap-2">
         {edition ? (
           <>

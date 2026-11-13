@@ -33,6 +33,8 @@ export interface CorrectionNative {
   updated_at: string;
   /** Le relecteur dont la remarque vient, s'il existe encore. */
   relecteur: { prenom: string | null; nom: string | null } | null;
+  /** La remarque brute du relecteur (duel ou post publié) dont la ligne a été découpée par le modèle. */
+  remarque_source: string | null;
 }
 
 const COLONNES = "id, langue, vote_id, duel_id, relecture_id, relecteur_id, version, slide, type, fautif, corrige, explication, statut, decide_le, created_at, updated_at";
@@ -41,17 +43,25 @@ const COLONNES = "id, langue, vote_id, duel_id, relecture_id, relecteur_id, vers
 export async function listerCorrectionsNatives(langue: string): Promise<CorrectionNative[]> {
   const { data, error } = await supabase
     .from("corrections_natives")
-    .select(`${COLONNES}, relecteurs_natifs(profiles(prenom, nom))`)
+    .select(`${COLONNES}, relecteurs_natifs(profiles(prenom, nom)), ab_traduction_votes(remarque), relectures_posts(remarque, slides_corrigees)`)
     .eq("langue", langue.toLowerCase())
     .order("created_at", { ascending: false })
     .limit(500);
   if (error) throw error;
   return (data ?? []).map((ligne) => {
-    const l = ligne as Omit<CorrectionNative, "relecteur"> & {
+    const l = ligne as Omit<CorrectionNative, "relecteur" | "remarque_source"> & {
       relecteurs_natifs?: { profiles?: { prenom: string | null; nom: string | null } | null } | null;
+      ab_traduction_votes?: { remarque: string | null } | null;
+      relectures_posts?: { remarque: string | null; slides_corrigees: Array<{ position: number; texte: string }> | null } | null;
     };
-    const { relecteurs_natifs, ...reste } = l;
-    return { ...reste, relecteur: relecteurs_natifs?.profiles ?? null };
+    const { relecteurs_natifs, ab_traduction_votes, relectures_posts, ...reste } = l;
+    const reecrites = (relectures_posts?.slides_corrigees ?? []).map((r) => `slide ${r.position} : ${r.texte}`).join("\n");
+    const remarque = ab_traduction_votes?.remarque ?? relectures_posts?.remarque ?? null;
+    return {
+      ...reste,
+      relecteur: relecteurs_natifs?.profiles ?? null,
+      remarque_source: [remarque, reecrites].filter(Boolean).join("\n") || null,
+    };
   });
 }
 

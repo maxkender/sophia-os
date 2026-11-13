@@ -73,7 +73,8 @@ rejette est validée toute seule 5 h après son dépôt.
 - **La banque du label** (`npm run images`) : les images de @_plony_ sans son texte, nettoyées par l'OS. `npm run sources` montre ses posts, leur phrase (pour l'idée), leurs images propres et leurs slides d'origine.
 - **Une image différente par slide**, qui raconte la phrase : un démon pour la peur, un couple pour l'amour, une vague pour l'anxiété, un moine pour la paix. Les 4 images forment une suite, comme chez lui.
 - **Un vide pour le texte** : ciel, mur, sol, mer calme. Jamais un texte sur un visage, un démon ou un détail fort. `npm run apercu` le montre avant le dépôt.
-- **Seedream** (`npm run seedream`) crée des images neuves dans le même style, à 0,03 $ l'image. Elle n'est **pas encore dans la banque** : tant que l'OS n'a pas d'action pour y ajouter une image, ne dépose que des images de la banque. Seedream sert à préparer et à montrer des propositions à l'humain.
+- **Seedream** (`npm run seedream`) crée des images neuves dans le même style, à 0,03 $ l'image. **Regarde chaque image** : jette celles qui ont un tampon rouge, une marge, une signature, des lettres ou un visage raté. Une image retenue entre dans la banque avec `npm run ajouter -- <fichier> "<légende en anglais>"`, 40 par jour au plus. Elle se dépose ensuite comme les autres.
+- **Le mélange** : ses images d'abord, des images Seedream pour les scènes qui manquent (un thème, un décor, un démon qu'il n'a pas).
 - **La règle du guichet** : une image que tu as livrée depuis 14 jours est refusée (`images_recentes`), comme un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`).
 
 ## La musique
@@ -87,7 +88,8 @@ Ses sons sont calmes : piano, jazz lent, instrumentaux (« Sleepy Lagoon », « 
 | `npm run boite` | La boîte BLEO et la jauge : combien de full tests et de déclinaisons aujourd'hui |
 | `npm run images -- --cherche "demon sky"` | La banque d'images propres du label, en planches (légendes en anglais) |
 | `npm run sources -- --top 20` | Les posts de @_plony_ : vues, phrase, images propres et slides d'origine ; `--planche <id8>` pour un post |
-| `npm run seedream -- <nom> "<scène>"` | Une image neuve dans le style (pas encore déposable) |
+| `npm run seedream -- <nom> "<scène>"` | Une image neuve dans le style, à regarder avant tout |
+| `npm run ajouter -- <fichier> "<légende>"` | Une image retenue entre dans la banque du label (40 par jour au plus) |
 | `npm run apercu -- <id>` | La planche d'un original, la slide 4 en version Sophia |
 | `npm run doublons -- <id>` | Une slide 1 ou une couverture déjà prise par un autre original |
 | `npm run deposer -- <id> --essai` | Les contrôles du format, sans rien envoyer ; sans `--essai`, le dépôt |

@@ -89,7 +89,9 @@ import { genererHashtagsSlideshow, scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
 import {
   applicationsHorsSophia,
+  BANQUE_PODZ,
   CHEMIN_POD,
+  controlerImageBanque,
   decksApplicationDepuisBase,
   livraisonsAutoValidables,
   type LivraisonEnAttente,
@@ -183,6 +185,7 @@ Deno.serve(async (request) => {
     if (body?.action === "langues") return await languesDuPod(request, supabase, body);
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
+    if (body?.action === "ajouter_image") return await ajouterImageBanque(request, supabase, body);
     if (body?.action === "photos") return await photosDeLaBanque(request, supabase, body);
     if (body?.action === "top_posts") return await topPosts(request, supabase, body);
     if (body?.action === "auto_valider" || body?.action === "ouvrir_applications_originaux") {
@@ -201,7 +204,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | boite | label | images | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | boite | label | images | ajouter_image | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -1825,6 +1828,78 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
 }
 
 /**
+ * Ajoute une image du podz (Seedream du podz Plony, demande d'Adrien du 13/11)
+ * à la banque propre de son label. L'image est un JPEG vertical, sans
+ * métadonnées (le podz la réencode), avec sa légende en anglais
+ * (`controlerImageBanque`).
+ *
+ * Elle est rangée sous `propre/podz/<pod>/` (source `genere_ia`, sans texte) et
+ * rattachée au label du podz. Le dépôt d'un original l'accepte ensuite comme une
+ * image d'import nettoyée (`verifierImagesDuLabel`). `photosDeLaBanque`
+ * l'écarte : elle n'est pas proposée aux autres podz. Au plus
+ * `BANQUE_PODZ.parJour` images par podz sur 24 h.
+ *
+ *   { action: "ajouter_image", pod, jpeg_base64, legende } → { id, url }
+ */
+async function ajouterImageBanque(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  let octets: Uint8Array;
+  try {
+    octets = Uint8Array.from(atob(String(body.jpeg_base64 ?? "")), (c) => c.charCodeAt(0));
+  } catch {
+    return json({ ok: false, error: "jpeg_base64 invalide" }, 400);
+  }
+  const legende = String(body.legende ?? "").trim();
+  const erreurs = controlerImageBanque(octets, legende);
+  if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  const prefixe = `propre/podz/${pod.slug}/`;
+  const { count, error: errCompte } = await supabase
+    .from("media_library")
+    .select("id", { count: "exact", head: true })
+    .like("storage_path", `${prefixe}%`)
+    .gte("created_at", new Date(Date.now() - 86_400_000).toISOString());
+  if (errCompte) throw new Error(`images du jour : ${messageErreur(errCompte)}`);
+  if ((count ?? 0) >= BANQUE_PODZ.parJour) {
+    return json({ ok: false, code: "quota_images", error: `quota_images : ${BANQUE_PODZ.parJour} images ajoutées en 24 h au plus` }, 429);
+  }
+  const { data: label } = await supabase.from("labels").select("application_id").eq("id", pod.label_id).maybeSingle();
+
+  const chemin = `${prefixe}${crypto.randomUUID()}.jpg`;
+  const { error: upErr } = await supabase.storage.from(BUCKET).upload(chemin, octets, { contentType: "image/jpeg", upsert: false });
+  if (upErr) throw new Error(`stockage ${chemin} : ${messageErreur(upErr)}`);
+  const url = supabase.storage.from(BUCKET).getPublicUrl(chemin).data.publicUrl as string;
+  const { data: media, error: mErr } = await supabase
+    .from("media_library")
+    .insert({
+      storage_path: chemin,
+      url,
+      source: "genere_ia",
+      texte_restant: false,
+      caption: legende,
+      caption_statut: "ok",
+      caption_modele: "podz",
+      caption_le: new Date().toISOString(),
+      ...(label?.application_id ? { application_id: label.application_id } : {}),
+    })
+    .select("id")
+    .single();
+  if (mErr || !media) {
+    await supabase.storage.from(BUCKET).remove([chemin]);
+    throw new Error(`média ${chemin} : ${messageErreur(mErr)}`);
+  }
+  const { error: lienErr } = await supabase.from("media_labels").insert({ media_id: media.id, label_id: pod.label_id });
+  if (lienErr) {
+    await supabase.from("media_library").delete().eq("id", media.id);
+    await supabase.storage.from(BUCKET).remove([chemin]);
+    throw new Error(`banque du label : ${messageErreur(lienErr)}`);
+  }
+  return json({ ok: true, id: media.id, url });
+}
+
+/**
  * Photos propres de toute la banque de l'OS dont la description contient
  * chaque mot cherché (les descriptions sont en anglais), les moins utilisées
  * d'abord. Jamais une personne entière (une main ou des pieds au plus), ni
@@ -1842,6 +1917,8 @@ async function photosDeLaBanque(request: Request, supabase: Supabase, body: Reco
     .from("media_library")
     .select("id, url, caption, used_count")
     .like("storage_path", "propre/%")
+    // Les images ajoutées par un podz (Seedream…) restent à la banque de son label.
+    .neq("source", "genere_ia")
     .not("caption", "imatch", LEGENDE_A_ECARTER)
     .not("visage_identifiable", "is", true)
     .not("visage_premier_plan", "is", true)

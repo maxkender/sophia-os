@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o182",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "66a3113f-78f4-4be5-b492-98398ffd3f10",
+ "titre": "tiny daily habits that make you smarter over time #habits #smarter #smartgirl #learning #selfimprovement",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "b6047a52-7aa9-416b-b37d-36dcbd13718f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 2 de la boîte (parent 66a3113f, langue source en) : accroche reformulée (« 6 habits that make you unexpectedly intelligent » → « tiny daily habits that make you smarter over time »), autre que sg-o168. Habitudes neuves (une carte du monde au mur, résumer un article en une phrase, apprendre d'où vient un mot, un podcast pendant la vaisselle, relire ses notes du dimanche). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2d8bbb20",
+   "texte_overlay": "tiny daily habits that make\nyou smarter over time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "df28df64",
+   "texte_overlay": "1. a world map on your wall",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3353b62a",
+   "texte_overlay": "2. summarise every article\nin one sentence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a8ea7801",
+   "texte_overlay": "3. look up where one word\ncomes from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f9c391f0",
+   "texte_overlay": "4. a podcast while you\ndo the dishes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5c9ee7e0",
+   "texte_overlay": "5. reread your notes\non sunday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6b2bce89",
+   "texte_overlay": "6. one lesson instead of\none scroll\n\na painting, a war, a planet.",
+   "texte_sophia": "6. one lesson instead of\none scroll\n\n5 minutes on an app like\nSophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f2f4d419",
+   "texte_overlay": "which one starts today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o181",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a157d3c4-0769-4c97-af30-936252f46f7d",
+ "titre": "historical facts so strange they sound invented #history #funfacts #smartgirl #darkacademia #didyouknow",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 1 de la boîte (parent a157d3c4, langue source en) : accroche reformulée (« 5 history facts that sound fake but are true » → « historical facts so strange they sound invented »), autre que sg-o167. Faits vérifiés : Darwin et Lincoln nés le 12 février 1809 ; la guerre de Cent Ans a duré 116 ans (1337-1453) ; la plus ancienne photographie conservée date d'environ 1827 (Niépce) ; Cléopâtre fut la première de sa dynastie à apprendre l'égyptien ; les Romains refroidissaient leurs boissons avec de la neige. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9962f5c0",
+   "texte_overlay": "historical facts so strange\nthey sound invented",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5c68a899",
+   "texte_overlay": "1. charles darwin and abraham\nlincoln were born on the\nsame day: 12 february 1809.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "11bfceac",
+   "texte_overlay": "2. the hundred years' war\nlasted 116 years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bb64e5fb",
+   "texte_overlay": "every era hides a story like this.\nlearn one a day.",
+   "texte_sophia": "every era hides a story.\ni learn one a day on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b3ebe78b",
+   "texte_overlay": "3. the oldest surviving photograph\nwas taken around 1827.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6ee84c6e",
+   "texte_overlay": "4. cleopatra was the first of her\ndynasty to learn egyptian.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "68d62276",
+   "texte_overlay": "5. romans chilled their drinks\nwith snow from the mountains.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e8882e94",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

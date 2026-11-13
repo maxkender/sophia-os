@@ -655,7 +655,7 @@ function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">,
   const lienStop = liens ? `${URL_DASHBOARD_OS}/r/stop?t=${liens.stop}` : `${URL_FONCTION}?stop=${jeton}`;
   const m = emailParcours(type, {
     prenom: e.prenom, login: e.login, motDePasse, dashboard: URL_DASHBOARD_OS, handle: e.handle, slack,
-    cohorte_lundi: e.cohorte_lundi, ruul_email: e.email, abonnements: e.abonnements, lundi, numero,
+    cohorte_lundi: e.cohorte_lundi, ruul_email: e.email, ruul_compte: e.ruul_compte, abonnements: e.abonnements, lundi, numero,
     faites: {
       connexion: !!e.premiere_connexion_at, tiktok: e.tiktok_existe === true,
       warmup: !!e.warmup_started_at && (e.abonnements ?? 0) >= 5, slack: !!e.slack_user_id,
@@ -772,7 +772,7 @@ async function parcoursApercu(supabase: Supabase, posterId: string, v2 = false) 
   const slack = await lienSlackInvitation(supabase);
   const lundiSuivant = e.cohorte_lundi ? new Date(new Date(`${e.cohorte_lundi}T12:00:00Z`).getTime() + 7 * 86_400_000).toISOString().slice(0, 10) : undefined;
   const types: Exclude<TypeParcours, "carte_ruul">[] = v2
-    ? ["bienvenue", "invite_a", "invite_b", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "demain", "report", "desactivation", "identite_refusee", "identite_fin", "arret"]
+    ? ["bienvenue", "invite_a", "invite_b", "samedi_ruul", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "demain", "report", "desactivation", "identite_refusee", "identite_fin", "arret"]
     : ["bienvenue", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "report", "demain", "desactivation"];
   return {
     ok: true, poster: e.poster_id, prochain: prochainEnvoi(e, new Date(), { bienvenue: false }),

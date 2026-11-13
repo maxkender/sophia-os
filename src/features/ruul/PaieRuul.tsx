@@ -188,6 +188,9 @@ function LotRuulCarte() {
   const statut = d.lot?.statut ?? null;
   const total = d.lignes.reduce((s, l) => s + Number(l.total), 0);
   const alertes = d.lignes.flatMap((l) => l.alertes.map((a) => `${l.nom} : ${a}`));
+  // 0705 : la liste « en attente » = les reportés avec un montant dû (les 0 $ de la semaine n'y sont pas).
+  const enAttente = d.reportes.filter((r) => Number(r.montant) > 0);
+  const attente = enAttente.reduce((s, r) => s + Number(r.montant), 0);
 
   const agir = async (f: () => Promise<{ ok: boolean; erreur?: string } & Record<string, unknown>>, ok: string) => {
     setOccupe(true);
@@ -218,10 +221,25 @@ function LotRuulCarte() {
         <CardTitle>À payer sur Ruul · semaine du {jourMois(d.semaine)}</CardTitle>
         <CardDescription>
           {statut ? `Lot ${statut}${d.lot?.facture ? ` · facture ${d.lot.facture}` : ""} · ` : "Lot pas encore préparé · "}
-          {d.lignes.length} posteur(s) · <b>{dollars(total)}</b>. Seuls les posteurs prêts sur Ruul y entrent ; les autres sont reportés au lot suivant.
+          {d.lignes.length} posteur(s) · <b>{dollars(total)}</b>. Seuls les posteurs « Active » dans Ruul y entrent ; les autres attendent et
+          passent au lot du lundi suivant dès qu'ils sont Active.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
+        <div className="grid gap-3 sm:grid-cols-2" data-testid="totaux-ruul">
+          <div className="rounded-lg border border-emerald-500/40 bg-emerald-500/5 px-3 py-2">
+            <div className="text-2xl font-semibold" data-testid="total-payable">{dollars(d.totaux?.payable ?? total)}</div>
+            <div className="text-xs text-muted-foreground">
+              Payable maintenant (Active) · {d.totaux?.nb_payable ?? d.lignes.length} posteur(s)
+            </div>
+          </div>
+          <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2">
+            <div className="text-2xl font-semibold" data-testid="total-attente">{dollars(d.totaux?.en_attente ?? attente)}</div>
+            <div className="text-xs text-muted-foreground">
+              En attente (Invited, pas encore Active) · {d.totaux?.nb_en_attente ?? new Set(enAttente.map((r) => r.poster_id)).size} posteur(s)
+            </div>
+          </div>
+        </div>
         {alertes.length > 0 ? (
           <ul className="space-y-0.5 rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2 text-sm" data-testid="alertes-ruul">
             {alertes.map((a) => <li key={a}>⚠ {a}</li>)}
@@ -293,12 +311,18 @@ function LotRuulCarte() {
             </table>
           </div>
         ) : null}
-        {d.reportes.length > 0 ? (
+        {enAttente.length > 0 ? (
           <div className="text-sm" data-testid="reportes-ruul">
-            <p className="font-medium">Reportés (compte Ruul pas prêt) : {dollars(d.reportes.reduce((s, r) => s + Number(r.montant), 0))}</p>
-            <p className="text-xs text-muted-foreground">
-              {d.reportes.map((r) => `${r.nom} ${jourMois(r.semaine)} (${dollars(r.montant)}, ${LIBELLE_STATUT[r.ruul_statut ?? "aucun"]})`).join(" · ")}
-            </p>
+            <p className="font-medium">En attente : pas encore Active ({dollars(attente)})</p>
+            <p className="text-xs text-muted-foreground">Ajoutés au paiement du lundi suivant dès qu'ils passent Active dans Ruul.</p>
+            <ul className="mt-1 space-y-0.5 text-xs">
+              {enAttente.map((r) => (
+                <li key={`${r.poster_id}:${r.semaine}`}>
+                  {r.nom} · semaine du {jourMois(r.semaine)} · <b>{dollars(r.montant)}</b> ·{" "}
+                  {r.ruul_compte === "invited" ? "Invited" : r.raison ?? LIBELLE_STATUT[r.ruul_statut ?? "aucun"]}
+                </li>
+              ))}
+            </ul>
           </div>
         ) : null}
         {d.rapprochement ? (

@@ -78,7 +78,11 @@ Deno.test("emails : anglais, sans « bot », mot de passe 12345678, dates de Par
     const e = emailParcours(t, { ...d, lundi: "2026-11-23" }, "https://pret");
     assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
   }
-  assertEquals(emailParcours("ruul", d, "https://pret").bouton?.texte, "It's done");
+  assertEquals(emailParcours("ruul", { ...d, ruul_compte: "active" }, "https://pret").bouton?.texte, "It's done");
+  // 13/11 (Max) : « Invited » : il s'inscrit lui-même sur app.ruul.io avec l'email exact.
+  const inv = emailParcours("ruul", { ...d, ruul_compte: "invited" }, "https://pret");
+  assertEquals(inv.bouton, { texte: "Open Ruul", lien: "https://app.ruul.io" });
+  assertStringIncludes(inv.corps, "Go to app.ruul.io and sign up with this exact email: e@gmail.com. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.");
 });
 
 Deno.test("point du soir Ruul : 5 lignes (prêts, emails par type, désactivés, erreurs, à faire)", () => {
@@ -129,7 +133,30 @@ Deno.test("v2 : report avec sa checklist personnelle ; A, B, arrêt sans mot int
     const e = emailParcours(t, d, "https://pret");
     assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
   }
-  assertEquals(emailParcours("invite_a", d, "https://pret").bouton?.texte, "It's done");
+  const a = emailParcours("invite_a", d, "https://pret");
+  assertEquals(a.bouton, { texte: "Open Ruul", lien: "https://app.ruul.io" });
+  assertStringIncludes(a.corps, "sign up with this exact email: a@b.c.");
+  assert(!a.corps.includes("Open the email from Ruul"));
+});
+
+Deno.test("13/11 : le samedi, « Invited » qui a posté → « Finish your Ruul account before Monday », une fois par samedi", () => {
+  const samedi = new Date("2026-11-14T10:07:00Z"); // 11 h 07 à Paris
+  const inv = base({ ruul_compte: "invited", ruul_email_a_at: "2026-11-10T09:00:00Z", premiere_connexion_at: "2026-11-11T09:00:00Z", posts: 4 });
+  assertEquals(prochainEnvoi(inv, samedi, { bienvenue: false, v2: true }), { type: "samedi_ruul", cle: "samedi_ruul:2026-11-14" });
+  // Pas sans v2, pas sans post, pas un « Active », pas deux fois le même samedi, pas un autre jour.
+  assertEquals(prochainEnvoi(inv, samedi, { bienvenue: false })?.type === "samedi_ruul", false);
+  assertEquals(prochainEnvoi({ ...inv, posts: 0 }, samedi, { bienvenue: false, v2: true })?.type === "samedi_ruul", false);
+  assertEquals(prochainEnvoi({ ...inv, ruul_compte: "active", ruul_email_b_at: "2026-11-10T09:00:00Z" }, samedi, { bienvenue: false, v2: true })?.type === "samedi_ruul", false);
+  const fait = { ...inv, envois: [{ cle: "samedi_ruul:2026-11-14", type: "samedi_ruul", at: "2026-11-13T10:00:00Z", ok: true }] };
+  assertEquals(prochainEnvoi(fait, samedi, { bienvenue: false, v2: true })?.type === "samedi_ruul", false);
+  assertEquals(prochainEnvoi(inv, jeudi, { bienvenue: false, v2: true })?.type === "samedi_ruul", false);
+  const d = { prenom: "Ana", login: null, motDePasse: "x", dashboard: "https://os", handle: null, slack: "https://slack", cohorte_lundi: null, ruul_email: "a@b.c", abonnements: null };
+  const e = emailParcours("samedi_ruul", d, "https://pret");
+  assertEquals(e.objet, "Finish your Ruul account before Monday to be paid this week");
+  assertStringIncludes(e.corps, "Finish your Ruul account before Monday to be paid this week.");
+  assertStringIncludes(e.corps, "sign up with this exact email: a@b.c.");
+  assertEquals(e.bouton?.texte, "Open Ruul");
+  assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`));
 });
 
 Deno.test("0698 : identité refusée une fois → refaire ; deux fois → fin de collaboration (v2 seulement)", () => {

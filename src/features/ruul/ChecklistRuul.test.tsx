@@ -51,6 +51,10 @@ describe("ChecklistRuul (0592)", () => {
     rendu();
     const invite = await screen.findByTestId("ruul-etape-ruul");
     expect(invite).toHaveTextContent("Finish your Ruul account");
+    // 13/11 (règle Ruul) : il s'inscrit lui-même avec l'email exact, sans attendre d'email de Ruul.
+    expect(invite).toHaveTextContent(
+      "Go to app.ruul.io and sign up with this exact email: ana@test.zz. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.",
+    );
     expect(within(invite).getByTestId("ouvrir-ruul")).toHaveAttribute("href", "https://app.ruul.io");
     // Le warm-up : le compteur et « I've started the warm-up ».
     expect(screen.getByTestId("ruul-etape-warmup").textContent).toContain("I've started the warm-up");

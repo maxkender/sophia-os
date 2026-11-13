@@ -10,7 +10,7 @@
 -- les métadonnées IA. Procédure validée par la session de coordination BLEO :
 --   1. le label, SANS label_applications : il n'entre dans aucun pool, rien
 --      ne peut être diffusé pendant l'import (ici) ;
---   2. la source @_plony_, rattachée au label (ici), puis l'import par la
+--   2. la source @_plony_ (sans essai), rattachée au label (ici), puis l'import par la
 --      file des sources (`maj_sources_ajouter`, hors migration) ;
 --   3. import fini : ses contenus passent `rejete` et la source est désactivée.
 --      Les images nettoyées restent dans la banque du label (media_labels) ;
@@ -24,8 +24,13 @@ select 'plony', 'Plony', '#d7261e', null, a.id
  where a.slug = 'sophia'
 on conflict (slug) do nothing;
 
-insert into public.comptes_reference (handle_tiktok, niche, langue)
-select '_plony_', 'Banque d''images du podz Plony (estampes japonaises) : import seulement, jamais diffusé', 'es'
+-- Pas d'essai de 30 posts (0686) : on veut TOUTES ses images (environ 158
+-- posts). La source naît donc « essai levé » (essai_verdict = 'tient'), comme
+-- après `sources_essai_lever`. Son catalogue s'importe par tranches de 100
+-- (posts_max_par_maj), les plus vus d'abord : on relance `maj_sources_ajouter`
+-- une seconde fois pour le reste avant de désactiver la source.
+insert into public.comptes_reference (handle_tiktok, niche, langue, essai_verdict, essai_juge_le)
+select '_plony_', 'Banque d''images du podz Plony (estampes japonaises) : import seulement, jamais diffusé', 'es', 'tient', now()
  where not exists (select 1 from public.comptes_reference where handle_tiktok = '_plony_');
 
 insert into public.compte_reference_labels (compte_reference_id, label_id)

@@ -245,3 +245,77 @@ export function texteDepuisHtml(html: string): string {
     .replace(/&nbsp;/g, " ").replace(/&amp;/g, "&").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&quot;/g, '"').replace(/&#39;/g, "'")
     .split("\n").map((l) => l.trim()).filter((l, i, a) => l || (a[i - 1] ?? "") !== "").join("\n").trim();
 }
+
+// ---------------------------------------------------------------------------
+// 13/11 (Max) : le rattrapage des emails perdus (Brevo plafonné du 10 au 12/11, bloqué le 13 depuis 01:44 UTC).
+// ---------------------------------------------------------------------------
+
+/** Ce qu'est devenu UN email chez Brevo. */
+export type EtatMessage = "recu" | "en_attente" | "perdu" | "adresse_refusee";
+
+/**
+ * Règle d'or (Max) : on ne renvoie qu'à ceux qui n'ont RIEN reçu.
+ *   - délivré, ouvert, cliqué → reçu ;
+ *   - rebond dur, adresse invalide, spam → adresse refusée (on ne renvoie pas, on le dit) ;
+ *   - bloqué : si c'est le compte (crédit, quota, limite) → perdu, sinon adresse refusée ;
+ *   - différé, rebond doux (Brevo réessaie lui-même) → en attente ; demandé il y a moins de 30 min → en attente ;
+ *   - le reste (seulement « requests », « error ») → perdu.
+ */
+export function etatMessage(evenements: EvenementBrevo[], maintenant = new Date()): EtatMessage {
+  const noms = new Set(evenements.map((e) => String(e.event ?? "").toLowerCase()));
+  const a = (...n: string[]) => n.some((x) => noms.has(x));
+  if (a("delivered", "opened", "clicks", "click", "uniqueopened", "loadedbyproxy", "proxy_open", "unique_proxy_open")) return "recu";
+  if (a("hardbounces", "hard_bounce", "hardbounce", "invalid", "invalid_email", "spam", "complaint")) return "adresse_refusee";
+  const bloque = evenements.find((e) => String(e.event ?? "").toLowerCase() === "blocked");
+  if (bloque) return /credit|quota|limit|plan|account|compte|suspend|daily|exceed/i.test(bloque.reason ?? "") ? "perdu" : "adresse_refusee";
+  if (a("deferred", "softbounces", "soft_bounce", "softbounce")) return "en_attente";
+  const dates = evenements.map((e) => Date.parse(e.date ?? "")).filter((t) => !Number.isNaN(t));
+  if (a("requests") && !a("error") && dates.length && maintenant.getTime() - Math.max(...dates) < 30 * 60_000) return "en_attente";
+  return "perdu";
+}
+
+export interface MessageBrevo {
+  message_id: string;
+  email: string;
+  sujet: string;
+  date: string;
+  etat: EtatMessage;
+  evenements: string[];
+  raison: string | null;
+}
+
+/** Les événements d'une adresse, regroupés par email (message_id). Le plus récent d'abord. */
+export function messagesParEmail(evenements: EvenementBrevo[], maintenant = new Date()): MessageBrevo[] {
+  const par = new Map<string, EvenementBrevo[]>();
+  for (const e of evenements) {
+    if (!e.messageId) continue;
+    par.set(e.messageId, [...(par.get(e.messageId) ?? []), e]);
+  }
+  return [...par.entries()].map(([id, ev]) => {
+    const dates = ev.map((e) => e.date ?? "").filter(Boolean).sort();
+    return {
+      message_id: id, email: String(ev[0].email ?? ""), sujet: String(ev.find((e) => e.subject)?.subject ?? ""), date: dates[0] ?? "",
+      etat: etatMessage(ev, maintenant), evenements: [...new Set(ev.map((e) => String(e.event)))].sort(),
+      raison: ev.find((e) => e.reason)?.reason ?? null,
+    };
+  }).sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/** Le meilleur état d'une série d'emails (reçu > en attente > perdu > adresse refusée). */
+export function meilleurEtat(m: MessageBrevo[]): EtatMessage | null {
+  for (const e of ["recu", "en_attente", "perdu", "adresse_refusee"] as EtatMessage[]) if (m.some((x) => x.etat === e)) return e;
+  return null;
+}
+
+/** Le contenu d'un email envoyé, gardé par Brevo (GET /smtp/emails?messageId → uuid → /smtp/emails/{uuid}). */
+export async function contenuBrevo(messageId: string, fetchFn: typeof fetch = fetch): Promise<{ objet: string; html: string } | { erreur: string }> {
+  const l = await brevoGet(`/smtp/emails?${new URLSearchParams({ messageId, limit: "5" })}`, fetchFn);
+  if (!l.ok) return { erreur: `liste : ${l.erreur}` };
+  const uuid = ((l.data as { transactionalEmails?: { uuid?: string }[] } | null)?.transactionalEmails ?? [])[0]?.uuid;
+  if (!uuid) return { erreur: "email introuvable chez Brevo" };
+  const c = await brevoGet(`/smtp/emails/${encodeURIComponent(uuid)}`, fetchFn);
+  if (!c.ok) return { erreur: `contenu : ${c.erreur}` };
+  const d = c.data as { subject?: string; body?: string } | null;
+  if (!d?.body || !d.subject) return { erreur: "contenu non gardé par Brevo" };
+  return { objet: d.subject, html: d.body };
+}

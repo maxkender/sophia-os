@@ -53,7 +53,20 @@ import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { dansFenetre, type Decision, emailParcours, type EtatParcours, prochainEnvoi, type TypeParcours } from "../_shared/parcours_ruul.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
 import { emailRattrapage, estPret as estPretRattrapage, etapesFaites, type SituationRattrapage } from "../_shared/rattrapage_ruul.ts";
-import { envoyerSuivi, type ResultatEnvoi } from "../_shared/emails.ts";
+import {
+  brevoGet,
+  contenuBrevo,
+  creditsEmail,
+  envoyerSuivi,
+  type EtatMessage,
+  evenementsBrevo,
+  lienStopDansHtml,
+  meilleurEtat,
+  type MessageBrevo,
+  messagesParEmail,
+  type ResultatEnvoi,
+  texteDepuisHtml,
+} from "../_shared/emails.ts";
 import { urlEmailSite } from "../_shared/site.ts";
 import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
@@ -153,6 +166,8 @@ Deno.serve(async (request) => {
     if (body?.action === "parcours_apercu") return json(await parcoursApercu(supabase, String(body?.poster_id ?? ""), body?.v2 === true));
     // 13/11 : l'email de rattrapage d'une cohorte (aperçu, puis envoi seulement avec confirmer: true).
     if (body?.action === "rattrapage") return json(await rattrapage(supabase, body));
+    // 13/11 : le rattrapage des emails perdus (Brevo) : le plan, puis l'envoi seulement avec confirmer: true.
+    if (body?.action === "perdus") return json(await perdus(supabase, body));
     // 0592 : « dimanche » (ancien nom de la tâche) et « soir » : la liste de tous les soirs.
     if (body?.action === "dimanche" || body?.action === "soir") return json(await listeSoir(supabase, body?.forcer === true));
     return json({ ok: false, error: "action inconnue" }, 400);
@@ -696,7 +711,7 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   };
 }
 
-async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack: string, v2 = false): Promise<Record<string, unknown>> {
+async function executer(supabase: Supabase, e: EtatParcours, d: Decision & { numero?: number }, slack: string, v2 = false): Promise<Record<string, unknown>> {
   const noter = (ok: boolean, canaux: string[], erreur: string | null) =>
     supabase.from("ruul_parcours_envois").upsert({ poster_id: e.poster_id, cle: d.cle, type: d.type, ok, canaux, erreur, envoye_at: new Date().toISOString() },
       { onConflict: "poster_id,cle" });
@@ -714,7 +729,7 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack:
     const { error } = await supabase.rpc("ruul_reporter", { p_poster: e.poster_id, p_lundi: d.lundi });
     if (error) return { poster: e.poster_id, type: d.type, ok: false, erreur: error.message };
   }
-  const numero = d.type === "ruul" ? Number(d.cle.split("_")[1]) : undefined;
+  const numero = d.type === "ruul" ? (d.numero ?? Number(d.cle.split("_")[1])) : undefined;
   // 13/11 (Max) : plus jamais de mot de passe par défaut dans un email. Jamais connecté (relance J+1,
   // bienvenue) : un mot de passe neuf, unique et aléatoire, posé sur le compte juste avant l'envoi.
   let motDePasse: string | undefined;
@@ -852,6 +867,164 @@ async function rattrapage(supabase: Supabase, body: any) {
   }
   const restants = dest.filter((x) => !dejaEnvoye(x) && x.email && x.ruul_jeton).length - envoyes - erreurs.length;
   return { ok: true, lundi, total: dest.length, envoyes, erreurs, restants: Math.max(0, restants) };
+}
+
+// ---------------------------------------------------------------------------
+// 13/11 (Max) : le rattrapage des emails perdus. Brevo était plafonné (~300/jour du 10 au 12/11) puis
+// bloqué le 13 à partir de 01:44 UTC. Règle d'or : seulement à ceux qui n'ont RIEN reçu (« delivered »
+// dans Brevo), une seule fois, un seul email par personne aujourd'hui. Jamais de doublon.
+//   1. le rattrapage de ce matin, pas délivré ni en attente → le MÊME email (contenu gardé par Brevo :
+//      même mot de passe, mêmes liens) ;
+//   2. les signés sans identifiants (liste de Max) : déjà connecté → rien ; rattrapage délivré ou en
+//      attente → rien (couvert) ; sinon (et pas déjà dans 1) → la bienvenue OS, mot de passe neuf ;
+//   3. les autres posteurs Ruul avec au moins un email perdu depuis le 10/11 → l'email le plus utile
+//      pour leur situation ACTUELLE (pas l'ancien), sauf s'ils ont déjà reçu un email aujourd'hui.
+// ---------------------------------------------------------------------------
+
+/** L'email le plus utile maintenant : la première étape qui manque (connexion, TikTok, warm-up, Ruul, Slack). */
+function emailUtile(e: EtatParcours): TypeParcours | null {
+  if (!e.premiere_connexion_at) return "jamais_connecte";
+  if (e.tiktok_existe !== true) return "tiktok";
+  if (!e.warmup_started_at || (e.abonnements ?? 0) < 5) return "warmup";
+  // Ruul : seulement une fois invité dans Ruul (A : invitation à ouvrir ; B : compte connecté, reste à finir).
+  if (e.ruul_statut === "invite") return e.ruul_compte === "active" ? "invite_b" : "invite_a";
+  if (!e.slack_user_id) return "slack";
+  return null;
+}
+
+const jourParis = (d: Date) => d.toLocaleDateString("sv-SE", { timeZone: "Europe/Paris" });
+
+/** Sujet de l'email de rattrapage du 13/11 (« Anna, here's what's left before you start on Monday »). */
+const SUJET_RATTRAPAGE = /what's left before you start/i;
+
+async function enParallele<T, R>(liste: T[], n: number, f: (x: T) => Promise<R>): Promise<R[]> {
+  const res: R[] = new Array(liste.length);
+  let i = 0;
+  await Promise.all(Array.from({ length: Math.min(n, liste.length) }, async () => {
+    while (i < liste.length) {
+      const k = i++;
+      res[k] = await f(liste[k]);
+    }
+  }));
+  return res;
+}
+
+// deno-lint-ignore no-explicit-any
+async function perdus(supabase: Supabase, body: any) {
+  const depuis = String(body?.depuis ?? "2026-11-10");
+  const cleRattrapage = String(body?.cle_rattrapage ?? "rattrapage:2026-11-16");
+  const bienvenueIds = ids(body?.bienvenue);
+  const exclure = ids(body?.exclure);
+  const maintenant = new Date();
+  const auj = jourParis(maintenant);
+  const compte = await brevoGet("/account");
+  if (!compte.ok) return { ok: false, error: `Brevo : ${compte.erreur}` };
+  const credits = creditsEmail((compte.data as { plan?: unknown } | null)?.plan);
+
+  const { data, error } = await supabase.rpc("ruul_parcours_etat");
+  if (error) throw error;
+  const etats = (data ?? []) as EtatParcours[];
+  const { data: profils, error: errP } = await supabase.from("profiles")
+    .select("id, ruul_email, email_perso, ruul_ne_pas_inviter").in("id", etats.map((e) => e.poster_id));
+  if (errP) throw errP;
+  const profil = new Map(((profils ?? []) as { id: string; ruul_email: string | null; email_perso: string | null; ruul_ne_pas_inviter: boolean | null }[]).map((p) => [p.id, p]));
+  const { data: deja } = await supabase.from("ruul_parcours_envois").select("poster_id, cle, ok")
+    .or(`cle.eq.${cleRattrapage},cle.like.perdus:*,cle.eq.renvoi:${cleRattrapage}`).limit(900);
+  const envoisCle = (id: string, test: (cle: string) => boolean) => ((deja ?? []) as { poster_id: string; cle: string; ok: boolean }[]).some((x) => x.poster_id === id && x.ok && test(x.cle));
+
+  // Brevo : tous les emails de chaque posteur depuis le 10/11 (toutes ses adresses).
+  const parPosteur = new Map<string, MessageBrevo[]>();
+  const erreursBrevo: string[] = [];
+  await enParallele(etats, 6, async (e) => {
+    const p = profil.get(e.poster_id);
+    const adresses = [...new Set([e.email, p?.ruul_email, p?.email_perso].filter((x): x is string => !!x).map((x) => x.trim().toLowerCase()))];
+    const msgs: MessageBrevo[] = [];
+    for (const a of adresses) {
+      const r = await evenementsBrevo({ email: a, startDate: depuis, endDate: auj });
+      if (!r.ok) { erreursBrevo.push(`${e.poster_id} : ${r.erreur}`); continue; }
+      msgs.push(...messagesParEmail(r.evenements, maintenant));
+    }
+    parPosteur.set(e.poster_id, msgs);
+  });
+  if (erreursBrevo.length > etats.length / 4) return { ok: false, error: `Brevo : ${erreursBrevo.length} lectures en erreur`, exemples: erreursBrevo.slice(0, 5) };
+
+  type Plan = { poster_id: string; prenom: string | null; cat: 1 | 2 | 3; type: string; message_id?: string; email: string };
+  const plan: Plan[] = [];
+  const ignores: Record<string, number> = {};
+  const ignorer = (raison: string) => { ignores[raison] = (ignores[raison] ?? 0) + 1; };
+  const adressesRefusees: { prenom: string | null; email: string; raison: string | null }[] = [];
+  const etatsVus: Record<string, number> = {};
+  let rattrapageSansTrace = 0;
+  for (const e of etats) {
+    const msgs = parPosteur.get(e.poster_id) ?? [];
+    for (const m of msgs) {
+      const k = `${m.etat} [${m.evenements.join("+")}]`;
+      etatsVus[k] = (etatsVus[k] ?? 0) + 1;
+      if (m.etat === "adresse_refusee") adressesRefusees.push({ prenom: e.prenom, email: m.email, raison: m.raison });
+    }
+    if (exclure.has(e.poster_id)) { if (msgs.some((m) => m.etat === "perdu")) ignorer("exclu par Max"); continue; }
+    if (e.relances_stop_at || profil.get(e.poster_id)?.ruul_ne_pas_inviter) { if (msgs.some((m) => m.etat === "perdu")) ignorer("arrêté ou mis de côté"); continue; }
+    if (envoisCle(e.poster_id, (c) => c.startsWith("perdus:") || c === `renvoi:${cleRattrapage}`)) { ignorer("déjà rattrapé"); continue; }
+    const rattr = msgs.filter((m) => SUJET_RATTRAPAGE.test(m.sujet));
+    const etatRattr: EtatMessage | null = meilleurEtat(rattr);
+    if (!rattr.length && envoisCle(e.poster_id, (c) => c === cleRattrapage)) rattrapageSansTrace++;
+    const recuAujourdhui = msgs.some((m) => m.etat === "recu" && m.date && jourParis(new Date(m.date)) === auj);
+    // 1. Le rattrapage de ce matin, perdu.
+    if (envoisCle(e.poster_id, (c) => c === cleRattrapage) && rattr.length && etatRattr === "perdu") {
+      const m = rattr.find((x) => x.etat === "perdu")!;
+      plan.push({ poster_id: e.poster_id, prenom: e.prenom, cat: 1, type: "rattrapage (même email)", message_id: m.message_id, email: m.email });
+      continue;
+    }
+    // 2. Les signés sans identifiants (liste de Max).
+    if (bienvenueIds.has(e.poster_id)) {
+      if (e.premiere_connexion_at) ignorer("2 : déjà connecté");
+      else if (etatRattr === "recu" || etatRattr === "en_attente") ignorer("2 : couvert par le rattrapage");
+      else if (recuAujourdhui) ignorer("2 : un email déjà reçu aujourd'hui");
+      else if (!e.email) ignorer("2 : sans adresse email");
+      else plan.push({ poster_id: e.poster_id, prenom: e.prenom, cat: 2, type: "bienvenue", email: e.email });
+      continue;
+    }
+    // 3. Les autres : au moins un email perdu depuis le 10/11.
+    if (!msgs.some((m) => m.etat === "perdu")) continue;
+    if (etatRattr === "recu" || etatRattr === "en_attente") { ignorer("3 : le rattrapage (reçu) couvre tout"); continue; }
+    if (recuAujourdhui) { ignorer("3 : un email déjà reçu aujourd'hui"); continue; }
+    if (!e.email) { ignorer("3 : sans adresse email"); continue; }
+    const t = emailUtile(e);
+    if (!t) { ignorer("3 : tout est fait"); continue; }
+    plan.push({ poster_id: e.poster_id, prenom: e.prenom, cat: 3, type: t, email: e.email });
+  }
+  const parCat = (c: number) => plan.filter((p) => p.cat === c);
+  const parType = (l: Plan[]) => l.reduce<Record<string, number>>((a, p) => ({ ...a, [p.type]: (a[p.type] ?? 0) + 1 }), {});
+  const resume = {
+    credits_brevo: credits, depuis, posteurs_verifies: etats.length, lectures_brevo_en_erreur: erreursBrevo.length,
+    categorie_1: parCat(1).length, categorie_2: parCat(2).length, categorie_3: parCat(3).length, categorie_3_par_email: parType(parCat(3)),
+    total_personnes: new Set(plan.map((p) => p.poster_id)).size, ignores, rattrapage_sans_trace_brevo: rattrapageSansTrace, adresses_refusees: adressesRefusees, etats_brevo_vus: etatsVus,
+  };
+  if (body?.confirmer !== true) {
+    return { ok: true, ...resume, liste: plan.map((p) => ({ cat: p.cat, prenom: p.prenom, email: p.email, type: p.type, poster_id: p.poster_id })) };
+  }
+
+  // L'envoi, par lots (max par appel) ; relancer l'action jusqu'à restants = 0 (les envoyés sont sautés).
+  const max = Math.min(60, Math.max(1, Number(body?.max ?? 30)));
+  const slack = await lienSlackInvitation(supabase);
+  const parId = new Map(etats.map((e) => [e.poster_id, e]));
+  const bilan: Record<string, unknown>[] = [];
+  for (const p of plan.slice(0, max)) {
+    const e = parId.get(p.poster_id)!;
+    if (p.cat === 1) {
+      const c = await contenuBrevo(p.message_id!);
+      if ("erreur" in c) { bilan.push({ poster: p.poster_id, cat: 1, ok: false, erreur: c.erreur }); continue; }
+      const r = await envoyerSuivi({ to: p.email, objet: c.objet, html: c.html, texte: texteDepuisHtml(c.html), stop: lienStopDansHtml(c.html) ?? URL_DASHBOARD_OS, tags: ["ruul", "rattrapage", "renvoi"] });
+      await supabase.from("ruul_parcours_envois").upsert({ poster_id: p.poster_id, cle: `renvoi:${cleRattrapage}`, type: "rattrapage", ok: r.ok, canaux: r.ok ? ["email"] : [], erreur: r.erreur, envoye_at: new Date().toISOString() },
+        { onConflict: "poster_id,cle" });
+      bilan.push({ poster: p.poster_id, cat: 1, ok: r.ok, erreur: r.erreur });
+      continue;
+    }
+    const type = p.type as TypeParcours;
+    const numero = type === "ruul" ? 1 : undefined;
+    bilan.push({ cat: p.cat, ...(await executer(supabase, e, { type, cle: `perdus:${type}`, numero }, slack, true)) });
+  }
+  return { ok: true, ...resume, envoyes: bilan.filter((b) => b.ok).length, erreurs: bilan.filter((b) => !b.ok), restants: Math.max(0, plan.length - max) };
 }
 
 // ---------------------------------------------------------------------------

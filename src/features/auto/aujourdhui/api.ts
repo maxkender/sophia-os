@@ -18,6 +18,8 @@ export interface ChiffresAujourdhui {
   emails_non_delivres: number;
   brevo_sans_credit: boolean;
   brevo_cle_absente: boolean;
+  /** 0701 : crédits Brevo restants (null : inconnus). */
+  brevo_credits: number | null;
 }
 
 export async function lireAujourdhui(): Promise<ChiffresAujourdhui> {
@@ -28,5 +30,6 @@ export async function lireAujourdhui(): Promise<ChiffresAujourdhui> {
     ruul_import_heures: d.ruul_import_heures === null || d.ruul_import_heures === undefined ? null : Number(d.ruul_import_heures),
     creations_echouees: Number(d.creations_echouees ?? 0), parcours_erreurs: Number(d.parcours_erreurs ?? 0),
     emails_en_file: Number(d.emails_en_file ?? 0), emails_non_delivres: Number(d.emails_non_delivres ?? 0),
-    brevo_sans_credit: d.brevo_sans_credit === true, brevo_cle_absente: d.brevo_cle_absente === true };
+    brevo_sans_credit: d.brevo_sans_credit === true, brevo_cle_absente: d.brevo_cle_absente === true,
+    brevo_credits: d.brevo_credits === null || d.brevo_credits === undefined ? null : Number(d.brevo_credits) };
 }

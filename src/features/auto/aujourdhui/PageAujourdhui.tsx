@@ -34,6 +34,7 @@ export function PageAujourdhui() {
     emailsNonDelivres: chiffres.data?.emails_non_delivres ?? 0,
     brevoSansCredit: chiffres.data?.brevo_sans_credit ?? false,
     brevoCleAbsente: chiffres.data?.brevo_cle_absente ?? false,
+    brevoCredits: chiffres.data?.brevo_credits ?? null,
     jourSemaine: jourParis(),
   });
   const date = new Intl.DateTimeFormat("fr-FR", { timeZone: "Europe/Paris", weekday: "long", day: "numeric", month: "long" }).format(new Date());

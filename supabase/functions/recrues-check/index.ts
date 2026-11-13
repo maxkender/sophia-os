@@ -1059,7 +1059,7 @@ async function suivreEtape(
 
 /** Le texte de la relance du jour (vide : rien ne part). */
 function texteRelancePour(r: Reglages, x: RecrueAccueil, plan: ReturnType<typeof planRelance>, mardi = false): string {
-  // 0592 : un posteur Ruul : « … before Saturday 8 pm (Paris time) ».
+  // 0592 : un posteur Ruul : « … before Sunday midnight (Paris time) » (13/11).
   const textes = x.ruul ? { ...r.textesRelance, cadre: CADRE_RELANCE_RUUL } : r.textesRelance;
   return texteRelance(textes, plan, {
     mardi,

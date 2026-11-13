@@ -54,6 +54,8 @@ export function PosterLayout() {
         <BoutonGuideNotion url={GUIDE_NOTION_POSTER} titre={t("documents.voirRegles")} sousTitre={t("documents.guideNotionPoster")} />
       }
     >
+      {/* 13/11 (Max) : le bouton rouge « Question or problem? Ask here », en haut de toutes les pages. */}
+      <BoutonHelp />
       {/* 10/11 : posteur Ruul sans email Ruul, en haut de l'espace. */}
       <BandeauEmailRuul />
       {/*
@@ -82,7 +84,6 @@ export function PosterLayout() {
         <DebutPopup />
       </SectionSure>
       <PageSure />
-      <BoutonHelp />
     </AppShell>
   );
 }

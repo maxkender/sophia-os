@@ -274,3 +274,165 @@ export async function lireMaPlateforme(userId: string): Promise<Plateforme> {
   if (error) throw new Error(error.message);
   return (data as { plateforme?: string } | null)?.plateforme === "ruul" ? "ruul" : "upwork";
 }
+
+// --- 13/11 (Max) : Help en mode chat ; Support admin en 3 onglets ------------------------------
+
+/** Une bulle du chat Help : le posteur à droite, « Vik Studios » (bot ou équipe) à gauche. */
+export interface Bulle {
+  cle: string;
+  demandeId: string;
+  cote: "moi" | "eux";
+  texte: string;
+  at: string;
+}
+
+/** Une demande du chat : ses bulles dans l'ordre, et ce que le posteur peut faire en dessous. */
+export interface GroupeChat {
+  demande: MaDemande;
+  bulles: Bulle[];
+  /** Le bot a répondu : « 👍 Solved » / « I still need help ». */
+  choix: boolean;
+  /** Envoyée à l'équipe, pas encore de réponse de sa part. */
+  chezEquipe: boolean;
+}
+
+/** Le fil du chat : toutes ses demandes (questions et problèmes), de la plus ancienne à la plus récente. */
+export function filChat(demandes: readonly MaDemande[]): GroupeChat[] {
+  return [...demandes]
+    .sort((a, b) => a.cree_at.localeCompare(b.cree_at))
+    .map((d) => {
+      const bulles: Bulle[] = [
+        { cle: `${d.id}:q`, demandeId: d.id, cote: "moi", texte: d.texte, at: d.cree_at },
+        ...d.messages.map((m, i) => ({
+          cle: `${d.id}:${i}`, demandeId: d.id, cote: (m.auteur === "posteur" ? "moi" : "eux") as Bulle["cote"], texte: m.texte, at: m.cree_at,
+        })),
+      ];
+      const derniere = bulles[bulles.length - 1]!;
+      return {
+        demande: d,
+        bulles,
+        choix: (d.statut === "bot" || d.statut === "attente_posteur") && derniere.cote === "eux",
+        chezEquipe: d.statut === "ouvert" && derniere.cote === "moi",
+      };
+    });
+}
+
+/** La demande encore ouverte la plus récente (le posteur y répond depuis le chat), ou null. */
+export function demandeOuverte(demandes: readonly MaDemande[]): MaDemande | null {
+  const ouvertes = demandes.filter((d) => d.statut === "ouvert" || d.statut === "attente_posteur");
+  return ouvertes.sort((a, b) => b.cree_at.localeCompare(a.cree_at))[0] ?? null;
+}
+
+/** Ce que l'OS sait de « qui a agi » sur une demande (champs de support_demandes). */
+export interface TraceDemande {
+  id: string;
+  statut: StatutDemande;
+  niveau: string | null;
+  bot_reponse: string | null;
+  auto_action: string | null;
+  auto_resultat: string | null;
+  action_faite: string | null;
+  ticket_at: string | null;
+  equipe_at: string | null;
+  escalade_at: string | null;
+  resolu_par_bot: boolean | null;
+  posteur_at?: string | null;
+}
+
+export type CleQui =
+  | "bot" | "mot_de_passe" | "lien_slack" | "email_ruul" | "pseudo_tiktok" | "parrainage" | "arret" | "etape"
+  | "ruul_bot" | "os_tickets" | "max" | "equipe" | "renvoyee";
+
+/** 13/11 (Max) : les étiquettes « qui a agi » d'une demande, dans l'ordre où elles se lisent. */
+export function quiAAgi(d: TraceDemande): { cle: CleQui; detail?: string }[] {
+  const out: { cle: CleQui; detail?: string }[] = [];
+  const action = `${d.action_faite ?? ""} ${d.auto_resultat ?? ""}`.toLowerCase();
+  const reussie = (s: string) => !/erreur|pas chang|rien chang|invalide|introuvable|aucun compte/.test(s);
+  if (d.bot_reponse || d.niveau === "bot" || d.statut === "bot" || d.resolu_par_bot) out.push({ cle: "bot" });
+  if ((d.auto_action === "lien_mot_de_passe" || action.includes("mot de passe")) && reussie(action)) out.push({ cle: "mot_de_passe" });
+  if (/lien slack|slack (relié|renvoy)/.test(action) && reussie(action)) out.push({ cle: "lien_slack" });
+  if (action.includes("email ruul") || (action.includes("fait par le bot") && action.includes("@"))) {
+    if (reussie(action)) out.push({ cle: "email_ruul" }, { cle: "ruul_bot", detail: "nouvelle adresse" });
+  }
+  if (action.includes("réinviter dans ruul") || action.includes("reinviter dans ruul")) out.push({ cle: "ruul_bot", detail: "réinvitation" });
+  if (action.includes("pseudo tiktok") && reussie(action)) out.push({ cle: "pseudo_tiktok" });
+  if (action.includes("parrainage") && reussie(action)) out.push({ cle: "parrainage" });
+  if ((d.auto_action === "procedure_arret" || action.includes("arrêt")) && reussie(action)) out.push({ cle: "arret" });
+  if (action.includes("étape")) out.push({ cle: "etape" });
+  if (d.ticket_at) out.push({ cle: "os_tickets" });
+  if (d.niveau === "max") out.push({ cle: "max" });
+  if (d.equipe_at) out.push({ cle: "equipe" });
+  if (d.statut === "ouvert" && d.niveau !== "max" && (d.bot_reponse || d.resolu_par_bot === false) && !d.equipe_at) out.push({ cle: "renvoyee" });
+  return out;
+}
+
+/** Une ligne de « Toutes les demandes » (admin) : la demande, son posteur, ce qui a été fait. */
+export interface LigneToutes extends TraceDemande {
+  poster_id: string | null;
+  type: TypeDemande;
+  source: string;
+  categorie: string | null;
+  plateforme: string | null;
+  texte: string;
+  cree_at: string;
+  nom: string;
+  email: string | null;
+}
+
+export async function lireToutes(limite = 400): Promise<LigneToutes[]> {
+  const { data, error } = await supabase.from("support_demandes")
+    .select("id, poster_id, type, source, categorie, plateforme, statut, niveau, texte, bot_reponse, auto_action, auto_resultat, action_faite, ticket_at, equipe_at, escalade_at, resolu_par_bot, posteur_at, cree_at, slack_user, email_de")
+    .order("cree_at", { ascending: false }).limit(limite);
+  if (error) throw new Error(error.message);
+  const lignes = (data ?? []) as (Omit<LigneToutes, "nom" | "email"> & { slack_user: string | null; email_de: string | null })[];
+  const ids = [...new Set(lignes.map((l) => l.poster_id).filter((x): x is string => !!x))];
+  const profils = new Map<string, { prenom: string | null; nom: string | null; email: string | null; email_perso: string | null }>();
+  for (let i = 0; i < ids.length; i += 300) {
+    const { data: p, error: e } = await supabase.from("profiles").select("id, prenom, nom, email, email_perso").in("id", ids.slice(i, i + 300));
+    if (e) throw new Error(e.message);
+    for (const x of (p ?? []) as { id: string; prenom: string | null; nom: string | null; email: string | null; email_perso: string | null }[]) profils.set(x.id, x);
+  }
+  return lignes.map((l) => {
+    const p = l.poster_id ? profils.get(l.poster_id) : undefined;
+    const nom = p ? [p.prenom, p.nom].filter(Boolean).join(" ").trim() : "";
+    return { ...l, nom: nom || l.slack_user || l.email_de || "?", email: p?.email_perso ?? p?.email ?? l.email_de ?? null };
+  });
+}
+
+export interface FiltresToutes {
+  q: string;
+  source: string;
+  statut: string;
+  niveau: string;
+  qui: "" | CleQui;
+}
+
+export function filtrerToutes(lignes: readonly LigneToutes[], f: FiltresToutes): LigneToutes[] {
+  const q = f.q.trim().toLowerCase();
+  return lignes.filter((l) =>
+    (!q || `${l.nom} ${l.email ?? ""}`.toLowerCase().includes(q))
+    && (!f.source || (f.source === "slack" ? l.source.startsWith("slack") : l.source === f.source))
+    && (!f.statut || l.statut === f.statut)
+    && (!f.niveau || (l.niveau ?? "adrien") === f.niveau)
+    && (!f.qui || quiAAgi(l).some((x) => x.cle === f.qui)));
+}
+
+/** « À répondre » : ce que le bot n'a pas su et ce que le posteur a renvoyé. Max (argent) d'abord, puis le plus ancien. */
+export function aRepondre(lignes: readonly LigneToutes[]): LigneToutes[] {
+  return lignes
+    .filter((l) => l.statut === "ouvert")
+    .sort((a, b) => (a.niveau === "max" ? 0 : 1) - (b.niveau === "max" ? 0 : 1) || (a.escalade_at ?? a.cree_at).localeCompare(b.escalade_at ?? b.cree_at));
+}
+
+/** « Apprendre au bot » : le texte de la règle proposé à partir de la question et de la réponse (modifiable). */
+export function regleProposee(question: string, reponse: string): string {
+  const q = question.trim().replace(/\s+/g, " ").slice(0, 200);
+  return `When a poster asks something like « ${q} », answer: ${reponse.trim()}`;
+}
+
+/** 0704 : la dernière fois que l'OS a fait chaque action seul (null : jamais), pour « Ce que le bot peut faire ». */
+export async function lireCapacites(): Promise<Record<string, string | null>> {
+  const { data, error } = await supabase.rpc("support_capacites");
+  if (error) throw new Error(error.message);
+  return (data ?? {}) as Record<string, string | null>;
+}

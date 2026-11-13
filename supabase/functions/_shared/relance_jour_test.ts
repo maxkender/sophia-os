@@ -183,7 +183,7 @@ Deno.test("0592 : relance d'un posteur Ruul (samedi 20 h, lundi de cohorte) ; l'
     prenom: "Ana", handle: "ana.x", url: "https://os", lien_etapes: "https://guide", cohorte_lundi: "2026-11-16", email: "ana@sophia.com",
   });
   assertStringIncludes(t, "to start posting on Monday 16 November, you still need to log in to your dashboard: https://os");
-  assertStringIncludes(t, "Please finish before Saturday 8 pm (Paris time).");
+  assertStringIncludes(t, "Please finish before Sunday midnight (Paris time).");
   const h = historiqueRelances([{ donnees: { element: "connexion" }, canaux: ["email"], envoye_at: "2026-11-10T10:00:00Z" }]);
   assertEquals(choisirRelance(plan, false, h, new Date("2026-11-11T10:00:00Z")).element, null);
 });

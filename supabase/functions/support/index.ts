@@ -238,10 +238,27 @@ async function executerAction(db: Db, poster: string, d: DecisionBot, message = 
         return error ? `pseudo TikTok : ${error.message}` : `pseudo TikTok : @${c.handle_tiktok ?? "?"} → @${handle}`;
       }
       case "email_ruul": {
-        const email = (d.action_valeur ?? "").trim().toLowerCase();
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return "email Ruul invalide : rien changé";
-        const { error } = await db.from("profiles").update({ ruul_email: email }).eq("id", poster).eq("canal_paie", "ruul");
-        return error ? `email Ruul : ${error.message}` : `email Ruul corrigé : ${email}`;
+        // Réparer Ruul (point 4) : adresse valide, pas déjà prise ; historique gardé ; fiche « à réinviter ».
+        const { data, error } = await db.rpc("ruul_bot_nouvelle_adresse", { p_poster: poster, p_email: d.action_valeur ?? "" });
+        if (error) return `email Ruul : ${error.message}`;
+        const r = data as { ok: boolean; raison?: string; texte?: string };
+        return r.ok ? `fait par le bot : ${r.texte}` : `email Ruul pas changé (${r.raison})`;
+      }
+      case "invitation_ruul": {
+        // Moins de 24 h : les spams ; plus : à réinviter (2 renvois au plus) ; ensuite Adrien.
+        const { data, error } = await db.rpc("ruul_bot_invitation", { p_poster: poster });
+        if (error) return `invitation Ruul : ${error.message}`;
+        const r = data as { cas: string; adresse?: string; renvoi?: number };
+        if (r.cas === "adrien") {
+          await db.rpc("probleme_ajouter", {
+            p_type: "ruul_invite", p_ref: `${poster}:invitation_pas_recue`, p_poster: poster, p_contrat: null, p_categorie: "paie",
+            p_resume: "Invitation Ruul pas reçue après 2 renvois",
+            p_texte: `Le posteur dit ne pas avoir reçu l'invitation Ruul (${r.adresse ?? "email ?"}), déjà renvoyée 2 fois.`,
+            p_at: new Date().toISOString(), p_lien: null, p_canal: "os", p_par: null,
+          });
+          return "invitation Ruul : 2 renvois déjà faits, Adrien prévenu (Problèmes)";
+        }
+        return r.cas === "reinvite" ? `fait par le bot : à réinviter dans Ruul (renvoi ${r.renvoi}/2)` : `invitation Ruul : ${r.cas}`;
       }
       case "arret": {
         const { error } = await db.from("posteur_reponses").insert({ poster_id: poster, canal: "bouton", source_id: `support:${crypto.randomUUID()}`, texte: "I want to stop" });

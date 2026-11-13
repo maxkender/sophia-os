@@ -658,7 +658,7 @@ function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">,
       warmup: !!e.warmup_started_at && (e.abonnements ?? 0) >= 5, slack: !!e.slack_user_id,
     },
   }, lienPret);
-  const sansPied = type === "desactivation" || type === "arret";
+  const sansPied = type === "desactivation" || type === "arret" || type === "identite_fin";
   const r = rendreEmailRuul({
     objet: m.objet, corps: m.corps, bouton: m.bouton ?? null, lienStop, sansPied,
     ...(liens ? { titre: "Vik Studios", arret: lienStop } : {}),
@@ -679,6 +679,9 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const slack = await lienSlackInvitation(supabase);
   // 13/11 (Réparer Ruul) : le nouveau format (Vik Studios, liens à usage unique, A/B dans ce moteur).
   const v2 = await reglageTexte(supabase, "ruul_emails_v2") === "on";
+  // 0698 : la vérification d'identité Ruul (import de Ruul Bot).
+  const { data: idents } = await supabase.rpc("ruul_parcours_identite");
+  const identite = new Map(((idents ?? []) as { poster_id: string; identite: string; refus: number }[]).map((x) => [x.poster_id, x]));
   // Les posteurs que Max a mis de côté (« ne pas inviter ») ne reçoivent rien.
   const { data: exclus } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").eq("ruul_ne_pas_inviter", true);
   const deCote = new Set(((exclus ?? []) as { id: string }[]).map((x) => x.id));
@@ -686,6 +689,8 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   const bilan: Record<string, unknown>[] = [];
   for (const e of (data ?? []) as EtatParcours[]) {
     if (deCote.has(e.poster_id)) continue;
+    const id = identite.get(e.poster_id);
+    if (id) { e.identite = id.identite; e.identite_refus = id.refus; }
     const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis, v2 });
     if (!d) continue;
     // Simulation : ce qui partirait maintenant, sans rien envoyer ni écrire.
@@ -745,6 +750,9 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision, slack:
     const at = new Date().toISOString();
     await supabase.from("profiles").update(d.type === "invite_a" ? { ruul_email_a_at: at } : { ruul_email_b_at: at }).eq("id", e.poster_id);
   }
+  if (d.type === "identite_fin" && r.ok) {
+    await supabase.rpc("ruul_desactiver", { p_poster: e.poster_id, p_source: "manuel", p_motif: "Fin de collaboration : identité refusée 2 fois par Ruul" });
+  }
   if (d.type === "desactivation" && r.ok) {
     await supabase.rpc("ruul_desactiver", { p_poster: e.poster_id, p_source: "manuel", p_motif: "14 jours sans aucune activité" });
   }
@@ -761,7 +769,7 @@ async function parcoursApercu(supabase: Supabase, posterId: string, v2 = false) 
   const slack = await lienSlackInvitation(supabase);
   const lundiSuivant = e.cohorte_lundi ? new Date(new Date(`${e.cohorte_lundi}T12:00:00Z`).getTime() + 7 * 86_400_000).toISOString().slice(0, 10) : undefined;
   const types: Exclude<TypeParcours, "carte_ruul">[] = v2
-    ? ["bienvenue", "invite_a", "invite_b", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "demain", "report", "desactivation", "arret"]
+    ? ["bienvenue", "invite_a", "invite_b", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "demain", "report", "desactivation", "identite_refusee", "identite_fin", "arret"]
     : ["bienvenue", "jamais_connecte", "tiktok", "warmup", "slack", "ruul", "report", "demain", "desactivation"];
   return {
     ok: true, poster: e.poster_id, prochain: prochainEnvoi(e, new Date(), { bienvenue: false }),

@@ -82,14 +82,14 @@ Deno.test("emails : anglais, sans « bot », mot de passe 12345678, dates de Par
 });
 
 Deno.test("point du soir Ruul : 5 lignes (prêts, emails par type, désactivés, erreurs, à faire)", () => {
-  const pret = base({ premiere_connexion_at: "2026-11-10T10:00:00Z", tiktok_existe: true, warmup_started_at: "2026-11-10T11:00:00Z", abonnements: 6, slack_user_id: "U", ruul_statut: "pret" });
+  const pret = base({ premiere_connexion_at: "2026-11-10T10:00:00Z", tiktok_existe: true, warmup_started_at: "2026-11-10T11:00:00Z", abonnements: 6 });
   const l = lignesPointSoirRuul({
     etats: [pret, base()],
     envois: [{ type: "tiktok", ok: true }, { type: "tiktok", ok: true }, { type: "desactivation", ok: true }, { type: "ruul", ok: false }, { type: "carte_ruul", ok: true }],
     arrets: [{ source: "manuel" }, { source: "je_ne_veux_plus" }],
   });
   assertEquals(l.length, 5);
-  assertEquals(l[0], "Ruul : 1 prêts · 1 pas prêts (dont 1 sans Ruul fini)");
+  assertEquals(l[0], "Ruul : 1 prêts · 1 pas prêts (dont 2 sans Ruul fini)");
   assertEquals(l[1], "• Emails envoyés : TikTok 2 · désactivation 1");
   assertEquals(l[2], "• Désactivés : 1 14 jours inactifs · 1 arrêtés par le posteur");
   assertEquals(l[3], "• Erreurs : 1");
@@ -130,4 +130,17 @@ Deno.test("v2 : report avec sa checklist personnelle ; A, B, arrêt sans mot int
     assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
   }
   assertEquals(emailParcours("invite_a", d, "https://pret").bouton?.texte, "It's done");
+});
+
+Deno.test("0698 : identité refusée une fois → refaire ; deux fois → fin de collaboration (v2 seulement)", () => {
+  const un = base({ identite: "declined", identite_refus: 1, ruul_compte: "active", ruul_email_b_at: "2026-11-10T09:00:00Z" });
+  assertEquals(prochainEnvoi(un, jeudi, { bienvenue: false, v2: true })?.type, "identite_refusee");
+  assertEquals(prochainEnvoi(un, jeudi, { bienvenue: false })?.type === "identite_refusee", false);
+  const deux = base({ identite: "declined", identite_refus: 2, envois: [{ cle: "identite_refus_1", type: "identite_refusee", at: "2026-11-05T09:00:00Z", ok: true }] });
+  assertEquals(prochainEnvoi(deux, jeudi, { bienvenue: false, v2: true })?.type, "identite_fin");
+  const d = { prenom: "Ana", login: "x", motDePasse: "x", dashboard: "https://os", handle: null, slack: "s", cohorte_lundi: null, ruul_email: null, abonnements: null };
+  for (const t of ["identite_refusee", "identite_fin"] as const) {
+    const e = emailParcours(t, d, "https://pret");
+    assert(!/\b(bot|AI|automatic|automated|STOP)\b/i.test(`${e.objet} ${e.corps}`), t);
+  }
 });

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o151",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en écrivant une lettre par semaine pendant deux mois #lettre #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : les lettres manuscrites, récit « je ». Accroches écrites : « ce que j'ai appris en écrivant une lettre par semaine pendant deux mois » (retenue : expérience concrète, émouvante), « pourquoi écrire des lettres » (écartée : sèche), « le retour des lettres » (écartée : tendance vague). Fait vérifié le 31/10 sur https://fr.wikipedia.org/wiki/Le_Petit_Prince : « Il est publié en anglais le 6 avril 1943 à New York » (déjà utilisé pour bsg-o066). Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "542d2fcf",
+      "texte_overlay": "ce que j'ai appris en écrivant\nune lettre par semaine\npendant deux mois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0adbf4dd",
+      "texte_overlay": "1. on ne répond pas, on raconte\n\nune lettre, c'est une histoire.\npas un message.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6974cdce",
+      "texte_overlay": "2. tout le monde répond\n\nma grand-mère, une amie perdue de vue,\nmême mon ancienne prof de français.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4369cacb",
+      "texte_overlay": "3. il faut avoir quelque chose à raconter\n\nce matin, j'ai appris que le petit prince a d'abord été publié à new york, en 1943.\nje l'ai écrit dans ma lettre.",
+      "texte_sophia": "3. il faut avoir quelque chose à raconter\n\nce matin, l'appli Sophia m'a appris que le petit prince a d'abord été publié à new york, en 1943.\nje l'ai écrit dans ma lettre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0b9c6962",
+      "texte_overlay": "4. mon écriture a changé\n\nplus lente, plus belle.\nmes idées aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "08417aeb",
+      "texte_overlay": "5. les lettres, on les garde\n\nles messages, on les oublie.\nles lettres, on les relit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1dd6d37d",
+      "texte_overlay": "à qui tu écrirais la première ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

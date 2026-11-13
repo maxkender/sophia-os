@@ -70,17 +70,15 @@ describe("Entraîner le bot (0707)", () => {
     await waitFor(() => expect(e.decider).toHaveBeenCalledWith("t2", "corriger", { reponse_upwork: "Upwork answer", reponse_ruul: "Ruul answer", meme: false }));
   });
 
-  it("actions possibles : désactiver une action ; en direct : compteurs et fil", async () => {
+  it("actions possibles : renvoie vers Contrôle ; en direct : compteurs et fil", async () => {
     e.lireQuestionsTypes.mockResolvedValue([]);
-    e.lireActions.mockResolvedValue([{ action: "arret", libelle: "Transmettre un arrêt (STOP)", bot: "cerveau support · control_bot", actif: true, fois_7j: 3 }]);
     e.lireDirect.mockResolvedValue({
       compteurs: { repondu: 8, action: 1, escalade: 2, bloque: 0 },
       fil: [{ id: "d", cree_at: "2026-11-13T13:58:00Z", source: "help", texte: "milestone not paid", nom: "Leo M.", issue: "escalade", action_faite: null, niveau: "max", ticket_at: null, remonte_par: null, regle_par_bot: null, bot_responsable: "max" }],
     });
     rendu();
     fireEvent.click(await screen.findByRole("button", { name: "⚡ Actions possibles" }));
-    fireEvent.click(await screen.findByLabelText("Activer : Transmettre un arrêt (STOP)"));
-    await waitFor(() => expect(e.activerAction).toHaveBeenCalledWith("arret", false));
+    expect(await screen.findByTestId("actions-possibles")).toHaveTextContent("Contrôle");
     fireEvent.click(screen.getByRole("button", { name: "🔴 En direct" }));
     const direct = await screen.findByTestId("en-direct");
     expect(direct).toHaveTextContent("8Répondu seul");

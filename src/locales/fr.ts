@@ -3775,7 +3775,7 @@ export const fr = {
       colPart: "Part",
       santeVide: "Aucun compte dans cette case.",
       stockTitre: "Stock des labels",
-      stockDesc: "Jours de passages en réserve. Sous 7 jours, il faut sourcer.",
+      stockDesc: "Jours de posts forts et frais (valeur BLEO d'au moins 3 dans une langue du label), au rythme de la récolte des 7 derniers jours. Sous 7 jours, il faut sourcer.",
       colLabel: "Label",
       colJours: "Jours",
       seuilStock: "Seuil : {{n}} jours",
@@ -7071,7 +7071,7 @@ export const fr = {
       creer: "Créer",
       reserveJours: "{{jours}} j",
       reserveAide:
-        "Réserve : {{restants}} passage(s) en stock pour {{demande}}/jour réclamés par {{comptes}} compte(s). C'est un plancher — le stock se recharge à chaque requalification et à chaque import ; sous 7 jours, il faut sourcer maintenant.",
+        "Réserve : {{restants}} post(s) forts et frais (valeur BLEO d'au moins 3) pour une récolte de {{demande}}/jour sur {{comptes}} compte(s). Elle se recharge quand un contenu gagne ou se repose ; sous 7 jours, il faut sourcer maintenant.",
       reserveAucunCompte: "dormant",
       reserveSansCompte:
         "Aucun compte ne porte ce label : il ne consomme rien, sa réserve n'est donc pas mesurable.",
@@ -7246,7 +7246,7 @@ export const fr = {
         r: "r médian",
         publies7j: "Publiés 7 j",
         runway: "Runway",
-        runwayAide: "Mesure de l'ancienne tierlist : les passages qui restaient au cycle des contenus de CE podz, divisés par les posts de ce podz par jour. BLEO n'use plus les contenus comme ça (il les ressert avec la fatigue) : ce chiffre ne dit plus combien de jours le podz tient. Le stock du Pilotage compte tout le label (imports compris) contre la demande de tous ses comptes, d'où un autre chiffre.",
+        runwayAide: "Les passages restants des contenus de CE podz (ancienne tierlist), à son rythme des 7 derniers jours. Entre parenthèses, la réserve du label (depuis 0718) : ses posts forts et frais, toutes origines, au rythme de sa récolte. C'est elle qui compte pour le choix de label et le stock du Pilotage.",
         aValider: "À valider",
         rangs: "Coupés · en tête",
         percees: "Ce qui perce (30 k vues ou plus, 14 jours)",

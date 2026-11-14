@@ -81,4 +81,12 @@ describe("lignesPods", () => {
     ]);
     expect(lignes.map((p) => p.slug)).toEqual(["en-attente", "calme", "moyen"]);
   });
+
+  it("trie par vues moyennes quand elles sont là", () => {
+    const lignes = lignesPods([
+      pod("mediane-haute", { vues_mediane: 5000, vues_moyenne: 6000 }),
+      pod("moyenne-haute", { vues_mediane: 800, vues_moyenne: 12000 }),
+    ]);
+    expect(lignes.map((p) => p.slug)).toEqual(["moyenne-haute", "mediane-haute"]);
+  });
 });

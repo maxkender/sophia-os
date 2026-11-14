@@ -187,6 +187,8 @@ export interface PodTableau {
   publies_7j: number;
   mures: number;
   vues_mediane: number | null;
+  /** Vues moyennes des posts mûrs (0717) ; absent avant la migration. */
+  vues_moyenne?: number | null;
   pct_10k: number | null;
   max_vues: number | null;
   r_mediane: number | null;
@@ -436,4 +438,24 @@ export function libelleChangement(n: number): string {
 /** Les langues des comptes, de la plus remplie à la moins remplie (puis par code). */
 export function languesParComptes(parLangue: Record<string, number>): [string, number][] {
   return Object.entries(parLangue).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+/** Un compte qui porte le label d'un podz (`pods_comptes`, 0717). */
+export interface CompteDuPod {
+  compte_id: string;
+  handle: string | null;
+  langue: string;
+  pays: string | null;
+  cree_le: string;
+  posts_15j: number;
+  mures: number;
+  vues_moyenne: number | null;
+  vues_max: number | null;
+  dernier_post: string | null;
+}
+
+export async function listerComptesPod(pod: string): Promise<CompteDuPod[]> {
+  const { data, error } = await supabase.rpc("pods_comptes", { p_pod: pod });
+  if (error) throw error;
+  return (data ?? []) as CompteDuPod[];
 }

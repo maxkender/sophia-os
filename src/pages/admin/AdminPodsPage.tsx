@@ -26,6 +26,7 @@ import {
   enregistrerDemo,
   itemsVideo,
   languesOrdonnees,
+  lireFichesPods,
   lireTableauPods,
   listerDemos,
   listerPersonas,
@@ -45,6 +46,7 @@ import {
   type PreuveOriginal,
   type StatutLivraison,
 } from "@/features/pods/api";
+import { ComptesDuPod } from "@/features/pods/ComptesDuPod";
 import { FichePodz } from "@/features/pods/FichePodz";
 import { lignesPods, OBJECTIF_PART_PODS, resumePods, type ResumePods } from "@/features/pods/resume";
 import { cn } from "@/lib/utils";
@@ -500,6 +502,10 @@ function CarteJours({ resume }: { resume: ResumePods }) {
 function CarteTableauPods({ lignes }: { lignes: PodTableau[] }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.language;
+  // Les labels 100 % podz viennent des fiches (0716) ; le clic sur le badge montre leurs comptes.
+  const fiches = useQuery({ queryKey: ["pods", "fiches"], queryFn: lireFichesPods, staleTime: 60_000 });
+  const centPodz = new Set((fiches.data ?? []).filter((f) => f.cent_podz).map((f) => f.slug));
+  const [ouvert, setOuvert] = React.useState<string | null>(null);
   const nombre = (n: number | null | undefined) => (n == null ? "—" : n.toLocaleString(langue === "fr" ? "fr-FR" : "en-US"));
   return (
     <Card>
@@ -512,7 +518,7 @@ function CarteTableauPods({ lignes }: { lignes: PodTableau[] }) {
           <thead>
             <tr className="border-b">
               <th className={TH}>{t("pods.tableau.podz")}</th>
-              <th className={cn(TH, "text-right")}>{t("pods.tableau.vuesMediane")}</th>
+              <th className={cn(TH, "text-right")}>{t("pods.tableau.vuesMoyenne")}</th>
               <th className={cn(TH, "text-right")}>{t("pods.tableau.pct10k")}</th>
               <th className={cn(TH, "text-right")}>{t("pods.tableau.meilleur")}</th>
               <th className={cn(TH, "text-right")}>{t("pods.tableau.r")}</th>
@@ -532,7 +538,8 @@ function CarteTableauPods({ lignes }: { lignes: PodTableau[] }) {
               const runway = autonomieMin(p.autonomie);
               const court = runway?.jours != null && runway.jours < SEUIL_STOCK_JOURS;
               return (
-                <tr key={p.slug} className={LIGNE}>
+                <React.Fragment key={p.slug}>
+                <tr className={LIGNE}>
                   <td className={TD}>
                     <a href={`#pod-${p.slug}`} className="font-medium underline-offset-2 hover:underline">
                       {p.nom}
@@ -540,9 +547,25 @@ function CarteTableauPods({ lignes }: { lignes: PodTableau[] }) {
                     {p.auto_validation && (
                       <span className="ml-1.5 rounded-full border px-1.5 py-px text-[10px] text-muted-foreground">{t("pods.tableau.auto")}</span>
                     )}
+                    {centPodz.has(p.slug) && (
+                      <button
+                        type="button"
+                        onClick={() => setOuvert(ouvert === p.slug ? null : p.slug)}
+                        aria-expanded={ouvert === p.slug}
+                        title={t("pods.tableau.voirComptes")}
+                        className="ml-1.5 rounded-full border border-primary/40 bg-primary/10 px-1.5 py-px text-[10px] font-medium text-primary hover:bg-primary/20"
+                      >
+                        {t("pods.tableau.centPodz")}
+                      </button>
+                    )}
                     {p.label && <div className="font-mono text-xs text-muted-foreground">{p.label}</div>}
                   </td>
-                  <td className={cn(TD, "whitespace-nowrap text-right tabular-nums")}>{p.vues_mediane == null ? "—" : abrege(p.vues_mediane, langue)}</td>
+                  <td className={cn(TD, "whitespace-nowrap text-right tabular-nums")}>
+                    {p.vues_moyenne != null ? abrege(p.vues_moyenne, langue) : p.vues_mediane == null ? "—" : abrege(p.vues_mediane, langue)}
+                    {p.vues_moyenne != null && p.vues_mediane != null && (
+                      <div className="text-xs text-muted-foreground">{t("pods.tableau.mediane", { n: abrege(p.vues_mediane, langue) })}</div>
+                    )}
+                  </td>
                   <td className={cn(TD, "whitespace-nowrap text-right tabular-nums")}>{pourcent(p.pct_10k, langue)}</td>
                   <td className={cn(TD, "whitespace-nowrap text-right tabular-nums")}>{p.max_vues ? abrege(p.max_vues, langue) : "—"}</td>
                   <td className={cn(TD, "whitespace-nowrap text-right tabular-nums")}>{nombre(p.r_mediane)}</td>
@@ -580,6 +603,14 @@ function CarteTableauPods({ lignes }: { lignes: PodTableau[] }) {
                     {p.coupes} · {p.en_tete}
                   </td>
                 </tr>
+                {ouvert === p.slug && (
+                  <tr className="border-b">
+                    <td colSpan={9} className="bg-muted/30 px-3 py-2">
+                      <ComptesDuPod pod={p.slug} label={p.label} />
+                    </td>
+                  </tr>
+                )}
+                </React.Fragment>
               );
             })}
           </tbody>

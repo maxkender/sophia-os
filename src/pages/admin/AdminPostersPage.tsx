@@ -1420,6 +1420,8 @@ export function AdminPostersPage() {
           const handle = (c.handle_tiktok ?? "").replace(/^@+/, "");
           return [handle, handle ? `@${handle}` : null, c.persona_nom];
         }),
+        // « Plony » trouve les posteurs dont un compte porte ce label (14/11).
+        ...liste.flatMap((c) => (labelsComptes.data?.get(c.id) ?? []).map((l) => l.nom)),
       ];
       if (!champs.some((v) => v && sansAccents(v).includes(rechercheNormalisee))) return false;
     }

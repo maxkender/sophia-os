@@ -1,0 +1,349 @@
+{
+ "id": "ka-026",
+ "titre": {
+  "en": "10/10 skills to learn this year",
+  "fr": "10/10 compétences à apprendre cette année",
+  "de": "10/10 Skills für dieses Jahr"
+ },
+ "legendes": {
+  "en": "10/10 skills to learn this year #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences à apprendre cette année #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für dieses Jahr #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "LOOSE CANNON",
+  "url": "https://www.tiktok.com/music/loose-cannon-7188203306077014827"
+ },
+ "notes": "Full test (BLEO, 14/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor falaise, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : nager, siffler avec les doigts, jongler avec un ballon. Il avait le sifflet dans un post à 139 k (avec Cleverly) : on prend d'autres vidéos (Howcast, Andrew Ino, Tollabea), pas les doublages de Cleverly. Musique : « LOOSE CANNON », un de ses sons, pour alterner. Sophia en étape 3 « HOW TO HAVE FUN FACTS FOR EVERYONE » : cta B, « 5 min a day ». Vraies vidéos : en Christian Wedoy, Howcast, Daniel Meyn Football ; fr Nager Passion, Andrew Ino, Unisport FR ; de FITBOOK, Tollabea, Camill Hauser.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO LEARN",
+     "THIS YEAR"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "À APPRENDRE",
+     "CETTE ANNÉE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "FÜR DIESES",
+     "JAHR"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SWIM",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VNdUONyi2hU",
+     "titre": "How To Swim For Beginners",
+     "chaine": "Christian Wedoy",
+     "vues": "2.3M views",
+     "date": "3 years ago",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lStyIX03EPDOwwt25BfToa3A5V683OyNoj_OdzueRdya8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "NAGER",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A84B0F8mRVE",
+     "titre": "Apprendre à NAGER SEUL - De La Natation Pour Débutant.",
+     "chaine": "Nager Passion - Techniques et Conseils Natation",
+     "vues": "902 k vues",
+     "date": "il y a 6 ans",
+     "duree": "13:50",
+     "avatar": "https://yt3.ggpht.com/wegovw8u37CKuop9XgREd1pWX3PvGFcqdTubKqqPjjAWf6PDXBpg6RGKL2vKlfIXfUOx8NdZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SCHWIMMEN",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cg5kkJH1EvA",
+     "titre": "Kraulen lernen mit Toni Embacher I FITBOOK",
+     "chaine": "FITBOOK",
+     "vues": "798.556 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/lDiYI6wycn5806h72qsedIp_ETbGRSZ43KnbIu77eSVzXz-xI4bmPzvfJUMx794Q8ZRAV3j1Aw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "WHISTLE",
+       "couleur": "#ec8713"
+      }
+     ],
+     "WITH YOUR FINGERS"
+    ],
+    "video": {
+     "id": "G8Oz_ELAjNg",
+     "titre": "How to Whistle with Your Fingers",
+     "chaine": "Howcast",
+     "vues": "7.7M views",
+     "date": "17 years ago",
+     "duree": "1:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNH2pDkz9-fE3Xkix_Vcz_ijlYXBIy-y03Ei1yaHhTujA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "SIFFLER",
+       "couleur": "#ec8713"
+      }
+     ],
+     "AVEC LES DOIGTS"
+    ],
+    "video": {
+     "id": "xBmLx0dkAAA",
+     "titre": "Comment siffler avec les doigts - FACILE",
+     "chaine": "Andrew Ino",
+     "vues": "1 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "5:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nJdK2h1FQ9xxDFBfo4I7LBhA0WJjdlmikgxKkizxz4CEjb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO PFEIFST DU",
+     [
+      {
+       "t": "MIT DEN FINGERN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LnOP0VYTJbc",
+     "titre": "Wie lerne ich Pfeifen in 1min ? Tutorial von Bea Beste",
+     "chaine": "Tollabea",
+     "vues": "758.329 Aufrufe",
+     "date": "vor 13 Jahren",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nx2jAOzby4vzIzubfM4XoVFFW0DFfNPGV-CWwzCaKc-Vo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO HAVE",
+     [
+      {
+       "t": "A FUN FACT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FOR EVERYONE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "UNE ANECDOTE",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "POUR TOUT LE MONDE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU",
+     [
+      {
+       "t": "FÜR JEDEN",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "EINEN FUN FACT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO JUGGLE",
+     [
+      {
+       "t": "A FOOTBALL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5PQgz2SUPdk",
+     "titre": "How To ACTUALLY Juggle A FOOTBALL For Beginners",
+     "chaine": "Daniel Meyn Football",
+     "vues": "3.4M views",
+     "date": "3 years ago",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/_cBX0ajGwwGp5t1jewpFVEK_vC5Dc-zuecrTPL89r7RX_IKIe1NiS3pwrQCH1i2kxsQum-WaOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT JONGLER",
+     [
+      {
+       "t": "AVEC UN BALLON",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2mAzxlul8gk",
+     "titre": "Apprends à JONGLER facilement en 5 MINUTES !",
+     "chaine": "Unisport FR",
+     "vues": "489 k vues",
+     "date": "il y a 5 ans",
+     "duree": "4:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lAkbln4SrzBRKgs2ZgqqkhQ1sD_LngbV7eEjTF-wW3tg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO JONGLIERST DU",
+     [
+      {
+       "t": "EINEN FUSSBALL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JDaNk8YlOnM",
+     "titre": "Jonglieren lernen? So geht's! - Fußball lernen für Anfänger",
+     "chaine": "Camill Hauser",
+     "vues": "755.898 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "2:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8vdB6tXrIf0aTGrDKeZnxg9_BBgBUF3I4ILu1MJNogIjM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

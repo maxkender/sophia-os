@@ -1,0 +1,347 @@
+{
+ "id": "ka-024",
+ "titre": {
+  "en": "10/10 skills every driver needs",
+  "fr": "10/10 compétences pour bien conduire",
+  "de": "10/10 Skills für jeden Autofahrer"
+ },
+ "legendes": {
+  "en": "10/10 skills every driver needs #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences pour bien conduire #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für jeden Autofahrer #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Earrings",
+  "url": "https://www.tiktok.com/music/earrings-7354423336196933649"
+ },
+ "notes": "Full test (BLEO, 14/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor falaise, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : créneau, boîte manuelle, niveau d'huile (ka-003 avait les « bases de la voiture », pas la conduite). Musique : « Earrings », un de ses sons (1,1 M), pour alterner. Sophia en étape 3 « HOW TO NEVER GET BORED ON THE ROAD » : cta C, « 5 min a day ». Vraies vidéos : en Zed Driving School, Conquer Driving, CD How To ; fr CONDUITE ONLINE, Mehdi-moi, auto-doc.fr ; de Fischer Academy, Exhoschi, ADAC.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "EVERY DRIVER",
+     "NEEDS"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "POUR BIEN",
+     "CONDUIRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "FÜR JEDEN",
+     "AUTOFAHRER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PARALLEL PARK",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FjEmxM2PMv8",
+     "titre": "Parallel Parking | How to Parallel Park Perfectly  (Step by Step) | Parking tips.🇺🇸",
+     "chaine": "Zed Driving School",
+     "vues": "11M views",
+     "date": "4 years ago",
+     "duree": "1:36",
+     "avatar": "https://yt3.ggpht.com/_bHV6g7TCqLBgB30eW4RS_FPbJ_y2xozrnvDJu6H8la_c-xG_15341zI-GxmUgtkuIQ1Z4yx8A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "FAIRE UN CRÉNEAU",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8oxkwwypeIc",
+     "titre": "RÉUSSIR UN CRÉNEAU",
+     "chaine": "CONDUITE ONLINE",
+     "vues": "6 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n0u3hVVEaofHechmx9LmYQBO8pFgaiY1PemVhAN845nw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO PARKST DU",
+     [
+      {
+       "t": "RÜCKWÄRTS EIN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xySkh2Q8QXM",
+     "titre": "Grundfahraufgabe PKW: Wie funktioniert Einparken? - Längsparken 🚘 | Fischer Academy",
+     "chaine": "Fischer Academy - Die Fahrschule",
+     "vues": "939.670 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:58",
+     "avatar": "https://yt3.ggpht.com/Ucfb145_i6s2GjlnFf49AUJtkxyGUmCM9j1kSrPSzEsyX1jg3mJ2IPjl9lSzYKHuij0wyZewnA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DRIVE",
+     [
+      {
+       "t": "A MANUAL CAR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VIVaqt4VhKc",
+     "titre": "How to drive a manual car - Driving lesson with clutch advice",
+     "chaine": "Conquer Driving",
+     "vues": "15M views",
+     "date": "7 years ago",
+     "duree": "12:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbDfafqB4SHsqnXNXNqxrqQ0t7FRRjff4k7_JiU8b3GEY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT CONDUIRE",
+     [
+      {
+       "t": "UNE MANUELLE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4HeRZY1Pvp4",
+     "titre": "COMMENT CONDUIRE UNE VOITURE MANUELLE TUTO FACILE !",
+     "chaine": "Mehdi-moi",
+     "vues": "5,1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "10:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdKwgS2cnpZQjVmeMMKsn44Tm2qEs3bHX8kLqwIGH99A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÄHRST DU",
+     [
+      {
+       "t": "MIT SCHALTUNG",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QIFbfc-Kzls",
+     "titre": "Autofahren lernen: Fahren mit Gangschaltung - Tutorial für Fahranfänger (Teil 1/4)",
+     "chaine": "Exhoschi",
+     "vues": "1,4 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lGBCc2az1sZrZoeLUAQs-KVziJ2qIfiLb1OH_dkwHJ-I8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO NEVER",
+     [
+      {
+       "t": "GET BORED",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ON THE ROAD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NE JAMAIS",
+     [
+      {
+       "t": "T'ENNUYER",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "EN ROUTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRD DIR",
+     [
+      {
+       "t": "UNTERWEGS NIE",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "LANGWEILIG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "CHECK YOUR OIL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wtajhigBhBE",
+     "titre": "How To: Check & Add Oil To Your Car",
+     "chaine": "CD How To",
+     "vues": "602K views",
+     "date": "6 years ago",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMoVbtWLeiEU9zNLO19qYfBgH-AZJdlWoEzY9RpRspLA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT VÉRIFIER",
+     [
+      {
+       "t": "LE NIVEAU D'HUILE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6l6FLT9Lxwc",
+     "titre": "Comment vérifier le niveau d'huile de moteur de votre voiture | Les conseils d'AUTODOC",
+     "chaine": "auto-doc.fr",
+     "vues": "154 k vues",
+     "date": "il y a 7 ans",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/4aAQPSNt7YrkvC1sP34OPnr0cQ0qQoiX0T09-wh36gpjDiNwfbh0B6DMnhSbj3KpfFuR72Mp=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO PRÜFST DU",
+     [
+      {
+       "t": "DEN ÖLSTAND",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7cNPlFTWhLI",
+     "titre": "Ölstand richtig messen: Was Ihr alles wissen solltet | Einfach. Selber. Machen.",
+     "chaine": "ADAC",
+     "vues": "124.097 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o109",
+  "type_bleo": "full_test",
+  "titre": "how i get through a long study day without burning out #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 14/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« long study day » absent du label). Accroches écrites : « how i get through a long study day without burning out » (retenue : une journée que tout le monde redoute, une promesse modeste), « study day routine » (écartée : plate), « study 10 hours a day like me » (écartée : chiffre qui pousse à l'excès). Santé générale seulement : le plus dur le matin, des blocs avec de vraies pauses, manger et boire de l'eau, bouger, se tester à la fin de chaque bloc (place micabo, slide 5), une heure de fin. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f4215fd",
+      "texte_overlay": "how i get through a long study day\nwithout burning out",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "22fb440e",
+      "texte_overlay": "the hardest subject goes in the morning.\nwhile my brain is fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "29151e1f",
+      "texte_overlay": "50 minutes on, 10 minutes off.\nthe break is not optional.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "38abcfc3",
+      "texte_overlay": "real lunch, away from my desk.\nand water all day long.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c169736c",
+      "texte_overlay": "every block ends with a quick self-quiz.\nso i know the hours actually counted.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9306d98a",
+      "texte_overlay": "a short walk in the afternoon.\nmy focus comes back after it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "dc135912",
+      "texte_overlay": "a fixed time to stop.\ntomorrow-me needs energy too.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

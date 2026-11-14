@@ -1,0 +1,341 @@
+{
+ "id": "yp-057",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je reste motivée jusqu’aux vacances",
+  "es": "cómo sigo motivada hasta las vacaciones",
+  "tr": "tatile kadar motive kalmamın yolu"
+ },
+ "legendes": {
+  "fr": "plus que quelques semaines 🤍 #motivation #revisions #studytok #thatgirl #vacances",
+  "es": "solo quedan unas semanas 🤍 #motivacion #estudiar #studytok #thatgirl #vacaciones",
+  "tr": "sadece birkaç hafta kaldı 🤍 #motivasyon #ders #studytok #thatgirl #tatil"
+ },
+ "musique": {
+  "titre": "Life Will Be",
+  "url": "https://www.tiktok.com/music/life-will-be-7288041310028302338"
+ },
+ "fond": {
+  "media_id": "182e6897-d16d-4419-8d1b-153fc1d14180",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ecb0feb0-9d25-4bb5-b2fe-cf94fbaf5e1d/4.jpg?v=1790679145238",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je vois mes progrès », sans capture. photos jamais livrées, son nouveau (consigne du 12/11)",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "comment je reste motivée",
+     "lignes": [
+      "JUSQU’AUX",
+      "VACANCES"
+     ],
+     "taille": 150,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cómo sigo motivada",
+     "lignes": [
+      "HASTA LAS",
+      "VACACIONES"
+     ],
+     "taille": 140,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "TATİLE KADAR",
+      "MOTİVE",
+      "KALMAMIN YOLU"
+     ],
+     "taille": 110,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "710ba2cd-5ac8-4ac2-b960-9416ed55ab12",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55376335-ad2b-47dc-8aa1-03b3d6241fce/7.jpg?v=1791725505268",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je compte les semaines, pas les jours🗓️",
+      "texte": "« plus que 5 semaines », ça paraît tout de suite faisable.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "cuento las semanas, no los días🗓️",
+      "texte": "«solo 5 semanas» suena mucho más posible.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "günleri değil haftaları sayıyorum🗓️",
+      "texte": "«sadece 5 hafta» kulağa hemen yapılabilir geliyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "410103f5-469c-46f9-af26-8f6a3831b058",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/99f90f29-eb36-4ef8-b450-02854198b6cb/3.jpg?v=1790680405501",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un petit objectif par semaine🎯",
+      "texte": "finir un chapitre, rendre un devoir en avance. pas plus.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un objetivo pequeño por semana🎯",
+      "texte": "terminar un tema, entregar un trabajo antes. nada más.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her hafta küçük bir hedef🎯",
+      "texte": "bir üniteyi bitirmek, bir ödevi erken teslim etmek. fazlası değil.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "f1cd1ce8-c58c-4821-9cc2-af28fa5566a2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7f4a5feb-be98-4312-8a81-0fc7ece73ba4/6.jpg?v=1790608968071",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je vois mes progrès📈",
+      "texte": "je fais les quiz de micabo sur mes cours et je regarde mon score monter. rien ne motive plus.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "veo mis progresos📈",
+      "texte": "hago los quiz de micabo con mis apuntes y veo subir mi puntuación. nada motiva más.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ilerlememi görüyorum📈",
+      "texte": "derslerimle micabo testlerini çözüp puanımın yükselişini izliyorum. hiçbir şey daha çok motive etmiyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1ed0d94c-bb71-4ee8-aa3b-ca813ba5b957",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0d0b26a7-7212-46d9-b052-a39c733b1f56/5.png?v=1785365599615",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je prévois un truc sympa chaque vendredi🌅",
+      "texte": "un film, une balade. j’ai toujours quelque chose à attendre.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "planeo algo bonito cada viernes🌅",
+      "texte": "una peli, un paseo. siempre tengo algo que esperar.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her cuma güzel bir şey planlıyorum🌅",
+      "texte": "bir film, bir yürüyüş. hep bekleyecek bir şeyim oluyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "52c1d107-099b-4898-940f-8c4073d6efaa",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4caa33a5-de35-4f01-a066-ca93161c54ef/1.jpg?v=1787123969226",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je change de décor📚",
+      "texte": "une semaine à la bibli, une semaine à la maison. la routine ne pèse plus.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "cambio de escenario📚",
+      "texte": "una semana en la biblio, otra en casa. la rutina ya no pesa.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ortam değiştiriyorum📚",
+      "texte": "bir hafta kütüphane, bir hafta ev. rutin artık bunaltmıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3712c895-6d7e-43bf-9d21-8727ecfc73b9",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/712b95f3-7f5c-4949-87b5-02a868aa0862/2.jpg?v=1792841258735",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je pense à moi en vacances✨",
+      "texte": "libre, sans rien à rattraper. ça vaut bien quelques efforts.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "pienso en mí de vacaciones✨",
+      "texte": "libre, sin nada pendiente. vale la pena el esfuerzo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "tatildeki halimi düşünüyorum✨",
+      "texte": "özgür, telafi edecek hiçbir şey yok. biraz çabaya değer.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je reste motivée jusqu’aux vacances"
+ }
+}

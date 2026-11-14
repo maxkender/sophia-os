@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o220",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "20bc146e-0a53-46b7-b228-16037ff19b34",
+ "titre": "hobbies that turn you into a formidable thinker #intelligence #thinking #hobbies #selfimprovement #learning",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "49a2cd5e-fd6d-4c66-8fcb-d0d8d89ad23d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 49a2cd5e). déclinaison G2 de « hobbies that will make you intellectually lethal » (parent 20bc146e). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a4bb5dcb-50e7-4755-ad8d-fe99c3154c83",
+   "texte_overlay": "hobbies that turn you into\na formidable thinker",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656519492763258134/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "111d3fa7-c4f0-46fe-a139-3e6d0ccebd85",
+   "texte_overlay": "debating yourself\n\nwrite down your opinion on something, then argue against it as well as you can. testing your own ideas makes them much stronger, or shows you where you were wrong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656519492763258134/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "24d8e98f-a5bf-4eb9-84ba-94d191cf9c9f",
+   "texte_overlay": "reading old books\n\nread one book a year that is over a hundred years old. old ideas give you a perspective that modern articles can't, and you will think in deeper ways.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656519492763258134/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4112df06-c5c0-40a6-adbb-5934b9c8c0f9",
+   "texte_overlay": "one theory a day\n\nlearning one real idea a day, like a theory, an experiment or a turning point in history, slowly turns you into a much sharper and more careful thinker.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656519492763258134/4.jpg",
+   "texte_sophia": "one theory a day\n\ni used to only skim headlines. now i spend 5 minutes a day on one lesson in the Sophia app, a theory or an experiment, and i think through problems so much more clearly."
+  },
+  {
+   "position": 5,
+   "media_id": "65d7d80f-d1c1-4c6d-9733-8504ba91d5fe",
+   "texte_overlay": "solving logic puzzles\n\ndo one logic puzzle a day with your morning coffee. puzzles train you to question your first answer, which is the most important habit of any good thinker.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656519492763258134/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7255f839-25a1-4a27-bccb-9ce49d81b49c",
+   "texte_overlay": "explaining things simply\n\nexplain one complicated idea a week to a friend in plain words. if you can't keep it simple, you've found exactly the part you need to understand better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656519492763258134/6.jpg"
+  }
+ ]
+}

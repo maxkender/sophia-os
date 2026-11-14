@@ -1,0 +1,51 @@
+{
+ "source_id": "rh-o235",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais dans les 5 premières minutes de ma journée de travail #travail #routine #organisation #carriere #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 14/11 (2 full tests seulement : banque d'images épuisée par la règle des 14 jours). cta A (confession à la 1re personne), slide Sophia en position 5. Full test : accroche jamais faite chez nous (les 5 premières minutes). 6 slides, banque d'images réduite. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e91ac6ab",
+   "texte_overlay": "ce que je fais\ndans les 5 premières minutes\nde ma journée de travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4ea2abf5",
+   "texte_overlay": "je relis mes 3 priorités\nécrites la veille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "eb09ed70",
+   "texte_overlay": "je ferme ce qui me distrait\nmessagerie, notifications, onglets",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f15aaf1e",
+   "texte_overlay": "je commence par la tâche la plus lourde\navant d'ouvrir mes mails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fd49a459",
+   "texte_overlay": "j'ai un petit rituel avant\n5 minutes à apprendre un truc, avec mon café. la tête démarre doucement",
+   "texte_sophia": "j'ai un petit rituel avant\n5 minutes sur l'appli Sophia, avec mon café. la tête démarre doucement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f62ead58",
+   "texte_overlay": "et toi, tes 5 premières minutes ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

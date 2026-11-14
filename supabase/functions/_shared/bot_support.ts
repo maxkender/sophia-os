@@ -74,7 +74,7 @@ PROCÉDURE
 2. Classe le message (categorie).
 3. Réponds dans la langue du message (anglais par défaut), en 3 phrases au plus, simple, avec l'étape exacte qui lui manque d'après sa fiche.
 4. Si une action de la liste règle le cas, choisis-la et dis-le dans la réponse. Actions possibles :
-   lien_mot_de_passe (il n'arrive pas à se connecter : l'OS lui donne un nouveau mot de passe unique et lui renvoie par email son login et ce mot de passe ; il n'y a JAMAIS de lien « Set my password »), renvoi_parrainage (renvoyer l'email d'un parrainage),
+   lien_mot_de_passe (il n'arrive pas à se connecter ou a oublié son mot de passe : l'OS lui envoie par email son login et un lien personnel « Choose my password » ; ne donne JAMAIS de mot de passe), renvoi_parrainage (renvoyer l'email d'un parrainage),
    pseudo_tiktok (noter un nouveau pseudo TikTok ; action_valeur = le pseudo sans @),
    email_ruul (posteur Ruul qui donne une NOUVELLE adresse email pour Ruul ; action_valeur = l'email ; réponds en répétant l'adresse : « We've updated your Ruul email to X. You'll receive a new invitation from Ruul at this address. »),
    invitation_ruul (posteur Ruul qui n'a pas reçu l'invitation Ruul ; s'il est déjà « Invited » dans Ruul (13/11, confirmé par Ruul), réponds : « You don't need to wait for an email from Ruul. Go to app.ruul.io and sign up with this exact email: <son email Ruul>. Then add your ID and bank details (5 minutes). » ; sinon réponds : « Please check your spam folder for an email from Ruul. If it's not there, we'll send you a new invitation at <son email Ruul> within 24 hours. »),
@@ -99,7 +99,8 @@ VÉRIFIER AVANT D'AFFIRMER (obligatoire)
 - Posteur Ruul qui parle d'Upwork (milestone, contrat Upwork) : réponds qu'il est payé chaque lundi par Ruul, sans JAMAIS écrire le mot « Upwork ».
 - Un compte Ruul « Active » n'est PAS à créer : ne lui dis jamais de finir ou créer son compte Ruul.
 - DÉJÀ RÉPONDU : lis « demandes_help » (ce qu'il a demandé et ce qu'on lui a répondu). Ne te contredis jamais. S'il revient avec le même problème, ne répète pas la même réponse : cherche plus loin dans ses données ; à la 3e fois, niveau "adrien".
-- En salon Slack : rien de personnel (ni paie, ni montant, ni compte) : renvoie vers Help.
+- En salon Slack : si le message est personnel (paie, montant, compte), mets personnel = true : ta réponse lui part en message privé, jamais dans le salon.
+- Fraude, litige, menace, paiement hors plateforme : niveau "max", aucune réponse (reponse = "${TEXTE_ON_VERIFIE}").
 
 RÈGLES
 - Ruul : jamais d'Upwork. Upwork : jamais de Ruul, ne propose jamais Ruul.
@@ -194,7 +195,7 @@ export function plainteSansDonnees(message: string, plateforme: "ruul" | "upwork
 
 export function appliquerGardeFous(
   d: DecisionBot,
-  o: { source: SourceBot; plateforme: "ruul" | "upwork" | null; lienHelp: string; nbMemeSujet: number },
+  o: { source: SourceBot; plateforme: "ruul" | "upwork" | null; lienHelp: string; nbMemeSujet: number; connu?: boolean },
 ): DecisionBot {
   const r: DecisionBot = { ...d, risque: [...d.risque] };
   if (o.nbMemeSujet >= 2 && !r.risque.includes("repetition")) r.risque.push("repetition");
@@ -212,8 +213,10 @@ export function appliquerGardeFous(
   if (PARLE_DE_BOT.test(r.reponse)) {
     r.reponse = r.reponse.split(/(?<=[.!?])\s+/).filter((p) => !PARLE_DE_BOT.test(p)).join(" ").trim();
   }
-  // Salon public : sujet perso → Help ; jamais de montant.
-  if (o.source === "slack_salon" && (r.personnel || MONTANT.test(r.reponse))) {
+  // Salon public : sujet perso → message privé si on connaît le posteur (13/11) ; sinon Help ; jamais de montant en public.
+  if (o.source === "slack_salon" && (r.personnel || MONTANT.test(r.reponse)) && o.connu) {
+    r.personnel = true;
+  } else if (o.source === "slack_salon" && (r.personnel || MONTANT.test(r.reponse))) {
     r.reponse = `Please use Help on your dashboard: ${o.lienHelp}`;
     if (r.action !== "lien_slack") r.action = null;
   }

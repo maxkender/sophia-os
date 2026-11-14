@@ -73,7 +73,7 @@ describe("Support (OS clair)", () => {
     }));
     sup.envoyerReponse.mockResolvedValue({ envois: { email: "ok" } });
     bot.enregistrerConsigne.mockResolvedValue("c1");
-    rendu(<SectionSupport />);
+    rendu(<SectionSupport />, "/admin/auto/support?onglet=repondre");
     const cartes = await screen.findAllByTestId("carte-a-repondre");
     expect(cartes).toHaveLength(2);
     // L'argent (Pour Max) d'abord.
@@ -103,7 +103,7 @@ describe("Support (OS clair)", () => {
     expect(await screen.findAllByTestId("ligne-toutes")).toHaveLength(2);
     fireEvent.change(screen.getByLabelText("Qui a agi"), { target: { value: "os_tickets" } });
     expect(screen.getAllByTestId("ligne-toutes")).toHaveLength(1);
-    expect(screen.getByTestId("ligne-toutes")).toHaveTextContent("Envoyé à OS tickets");
+    expect(screen.getByTestId("ligne-toutes")).toHaveTextContent("→ OS tickets");
     fireEvent.change(screen.getByLabelText("Qui a agi"), { target: { value: "mot_de_passe" } });
     expect(screen.getByTestId("ligne-toutes")).toHaveTextContent("Mia K.");
   });

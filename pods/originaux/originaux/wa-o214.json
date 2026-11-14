@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o214",
+ "type_bleo": "full_test",
+ "titre": "things that make you more likeable without trying #likeable #socialskills #psychology #selfimprovement #charisma",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "3c9413ba-4d14-4c62-9e24-9039e1c80390"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3c9413ba). full test BLEO : accroche jamais faite (format « things that make you X without trying »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "037aab07-4d30-4e26-980a-2bffa3a148f7",
+   "texte_overlay": "things that make you more\nlikeable without trying",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "007cb8a5-05a5-4731-9da0-2f912bb121e8",
+   "texte_overlay": "smiling with your eyes\n\na real smile reaches your eyes, not just your mouth. people feel the difference instantly, and a warm, genuine smile makes them relax around you right away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "195ddc67-0c17-4ffb-8672-149c2ec88900",
+   "texte_overlay": "being easily delighted\n\nget visibly excited about small good things: a nice view, a good song, a funny story. people love being around someone who enjoys life without hiding it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2ac6bb5c-02e2-4114-8fe9-4e0cac07752a",
+   "texte_overlay": "knowing a little about a lot\n\npeople warm up to someone who can join any conversation with one curious detail or question. learning a little every day makes that feel easy and natural.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/4.jpg",
+   "texte_sophia": "knowing a little about a lot\n\ni used to stay quiet in groups. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and i can always add something that makes people smile."
+  },
+  {
+   "position": 5,
+   "media_id": "4b7b3a75-2079-4c76-bcb5-361ab98db26b",
+   "texte_overlay": "admitting what you don't know\n\nsaying i've never heard of that, tell me more makes people light up. curiosity about their world is far more likeable than pretending to know everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4bba52be-d815-44e4-aba7-34761f7ac541",
+   "texte_overlay": "remembering the little things\n\nremember someone's dog's name or the exam they were nervous about. small details show you truly care, and people never forget how that makes them feel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661596125631089942/6.jpg"
+  }
+ ]
+}

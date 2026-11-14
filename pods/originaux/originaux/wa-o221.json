@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o221",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7db5eacb-00e0-4caa-b0de-bd567006480f",
+ "titre": "habits that make you impossible to intimidate #confidence #selfrespect #habits #selfimprovement #mindset",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "a9f8c9cf-9c3a-4cee-ade3-ac63f801ff8a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, a9f8c9cf). déclinaison G2 de « habits that will make you unreasonably confident » (parent 7db5eacb). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "71eac475-93e1-42ac-b44a-6967af88fc25",
+   "texte_overlay": "habits that make you\nimpossible to intimidate",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659777840627322134/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1354ded9-919c-4b54-a17b-a64453ebf244",
+   "texte_overlay": "calm disagreement\n\nonce a week, calmly and kindly disagree out loud with something you don't believe. people respect a clear opinion far more than polite silence and nodding.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659777840627322134/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25731bf1-77d2-4ae9-ab59-21ea66df4a3e",
+   "texte_overlay": "asking what they meant\n\nwhen a comment stings, ask what did you mean by that, in a calm voice. most little digs fall apart the moment you ask someone to explain them clearly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659777840627322134/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4812f9e7-356c-417b-9489-b2ba75f11ac5",
+   "texte_overlay": "learning how people work\n\nspend 5 minutes a day on one idea from psychology: why we people please, how habits form. understanding how people work makes them far less intimidating.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659777840627322134/4.jpg",
+   "texte_sophia": "learning how people work\n\ni spend 5 minutes a day on one idea from psychology, like why we people please. i do it with the Sophia app, and understanding people makes them much less scary."
+  },
+  {
+   "position": 5,
+   "media_id": "68989027-3340-4668-af75-4a75c64c6e32",
+   "texte_overlay": "writing your first line\n\nbefore a hard conversation, write the one sentence you need to say on paper. walking in with a clear first line keeps your voice steady when nerves kick in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659777840627322134/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "68cd2051-eb8c-4a5e-8e88-dc841a55cd60",
+   "texte_overlay": "no over explaining\n\nwhen you say no, give one reason or none at all, never five. over explaining sounds like asking for permission, while a short answer sounds sure of itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659777840627322134/6.jpg"
+  }
+ ]
+}

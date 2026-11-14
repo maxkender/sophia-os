@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o222",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "08205dcf-9d05-4b87-844e-e454559bae6e",
+ "titre": "weird habits that made me a morning person #morningroutine #morningperson #habits #selfimprovement #productivity",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "d2d4e7d3-a4d5-4e4d-be47-5d910115571c"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d2d4e7d3). déclinaison G1 de « weird habits that made me a morning person » (parent 08205dcf). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7f7fbb51-6ed7-4fef-9a86-07651c14f2b5",
+   "texte_overlay": "weird habits that made me\na morning person",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "188dbe71-29a9-4555-9320-ea7c20ac64bc",
+   "texte_overlay": "the alarm across the room\n\ni put my alarm on the other side of the room. by the time i've walked over to switch it off, i'm already standing up before my brain can start negotiating.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25c2d631-8533-44c6-b7cf-673f689d3131",
+   "texte_overlay": "breakfast i look forward to\n\ni decide the night before what i'll eat in the morning. having something delicious waiting for me makes getting out of a warm, cosy bed so much easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "55bba000-eccd-454b-9bbe-f3669ff39428",
+   "texte_overlay": "opening the window\n\ni open the window as soon as i get up, whatever the weather. fresh air wakes me up before the coffee does, and the whole room instantly feels brand new.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7b936a8c-f1e5-491a-875c-7c5a79ed5053",
+   "texte_overlay": "a lesson with my coffee\n\ni spend 5 minutes with my coffee discovering something new: a myth, a planet, a painting. it gives me a lovely little reason to wake up curious every single day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/5.jpg",
+   "texte_sophia": "a lesson with my coffee\n\ni spend 5 minutes with my coffee on something new, a myth or a planet. the Sophia app turns it into one short lesson a day, and it gives me a reason to wake up curious."
+  },
+  {
+   "position": 6,
+   "media_id": "5b987da8-dece-467a-aec9-7ca590417089",
+   "texte_overlay": "the same bedtime\n\ni go to bed at the same time every night, weekends included. the real secret of being a morning person was always the evening before, never the alarm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/6.jpg"
+  }
+ ]
+}

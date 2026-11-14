@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o197",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a157d3c4-0769-4c97-af30-936252f46f7d",
+ "titre": "history facts that sound like fiction (but aren't) #history #funfacts #smartgirl #darkacademia #learning",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent a157d3c4, langue source en) : accroche reformulée (« 5 history facts that sound fake but are true » → « history facts that sound like fiction (but aren't) »), troisième et dernière déclinaison du parent, autre que sg-o167 et sg-o181. Faits vérifiés : Ivan le Terrible et Christophe Colomb vivent au même siècle ; Shakespeare et Pocahontas étaient contemporains ; la reine Élisabeth II a servi comme mécanicienne pendant la Seconde Guerre mondiale ; la machine à vapeur d'Héron d'Alexandrie (éolipyle) date du Ier siècle ; Marie Curie est la seule personne à avoir reçu deux Nobel dans deux sciences différentes. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "838e0f2d",
+   "texte_overlay": "history facts that sound like\nfiction (but aren't)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3dd80f39",
+   "texte_overlay": "1. shakespeare and pocahontas\nlived at the same time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4230cc48",
+   "texte_overlay": "2. queen elizabeth ii trained\nas a mechanic in world war ii.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9564b7af",
+   "texte_overlay": "3. a simple steam engine was\ndescribed in ancient alexandria,\n2,000 years ago.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "291ce061",
+   "texte_overlay": "4. marie curie is the only person\nwith nobel prizes in two\ndifferent sciences.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3edd964f",
+   "texte_overlay": "swap one scroll a day for\na story like this.",
+   "texte_sophia": "swap one scroll a day for a\nstory like this, on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7d463f3e",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

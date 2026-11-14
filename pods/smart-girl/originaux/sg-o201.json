@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o201",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "24ff75bf-6875-415e-b533-36b843a34f58",
+ "titre": "5 tiny habits that make you look way more confident than you feel #confidence #presence #smartgirl #selfimprovement #habits",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "24ff75bf-6875-415e-b533-36b843a34f58"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 16 de la boîte (parent 24ff75bf, langue source en) : accroche du parent mot pour mot. Lignes 5 à 15 écartées (faute « habeits », régime, argent, argent, manipulation, autres applis, fautes, nom de compte, richesse). Habitudes neuves face au parent (respirer avant de parler, poser les mains calmement, finir ses phrases, sourire en entrant, avoir quelque chose à dire). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9cf72a2f",
+   "texte_overlay": "5 tiny habits that make you look\nway more confident than you feel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607335862539390221/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c70a6359",
+   "texte_overlay": "1. breathe before you speak",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607335862539390221/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "054b7145",
+   "texte_overlay": "2. keep your hands still",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607335862539390221/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fea8fc6c",
+   "texte_overlay": "3. finish your sentences\n\nno trailing \"so... yeah\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607335862539390221/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a944917d",
+   "texte_overlay": "4. smile when you walk in",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607335862539390221/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2a625f91",
+   "texte_overlay": "5. have something to say\n\ninteresting people feed their\nminds every day.",
+   "texte_sophia": "5. have something to say\n\ni learn something new every day\non a micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607335862539390221/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c0f27d12",
+   "texte_overlay": "save this before your\nnext big day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607335862539390221/5.jpg"
+  }
+ ]
+}

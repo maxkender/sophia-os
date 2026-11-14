@@ -112,13 +112,22 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   semaines de déclinaisons la boîte tient au rythme du podz ;
   `part_full_test` : la part de full tests qui en découle (10 % au-delà de
   6 semaines, 40 % sous 1 semaine).
-- **Monter `par_jour` de 1** (voie 1) quand la boîte tient plus de 6 semaines **et**
-  que la file à juger du label a de la place : moins de 90 % de ses créneaux
-  utilisés sur les 7 derniers plans
-  (`select key as label, sum((value->>'utilise')::int) as utilise, sum((value->>'capacite')::int) as capacite from bleo_runs r, jsonb_each(r.resume->'labels_file_juger') where r.fini_le is not null and r.erreur is null and r.jour_vise > current_date - 7 group by 1;`).
-- **Baisser `par_jour` de 1** (voie 1) quand `semaines` est resté sous 1 sur chacun
-  des 14 derniers jours de `bleo_jauge_jours`. Jamais sous 1 livraison par
-  jour.
+- **Le rythme de la voie 1 suit les résultats (depuis le 14/11, 0716)** :
+  chaque matin, lis
+  `select pod, verdicts, taux, taux_flotte, full_tests_gagnants, full_tests_juges, declinaisons_gagnantes, declinaisons_jugees, changement, raison from bleo_rythme_resultats();`
+  et applique `changement` à `par_jour` dans `pods/rythme.json`, podz par podz,
+  sans rien y ajouter :
+  - moins de 10 verdicts sur 21 jours : rien ne bouge (pas assez de recul) ;
+  - taux de gagnants sous la moitié de la flotte : **−1** (jamais sous 1 par jour) ;
+  - file à juger du label pleine (90 % de ses créneaux sur 7 jours) : rien ne
+    bouge, ses livraisons attendraient ;
+  - taux d'au moins 1,25 fois la flotte : **+2** ;
+  - taux au moins égal à la flotte : **+1** ;
+  - sinon : rien ne bouge.
+  Le stock de la boîte ne décide plus du rythme : il ne dit que la part de
+  full tests (la jauge). Les seuils sont dans
+  `reglages.bleo.podz.rythme_resultats` : seuls Adrien ou Max les changent.
+  Mets chaque changement dans le point, avec sa raison (ligne « Rythme »).
 - **Le point du matin ajoute**, par podz actif (voies 1 et 2) : la jauge (semaines,
   part de full tests), les full tests et les déclinaisons déposés hier
   (`pod_livraisons.type_bleo`) et, en voie 2, les remakes du compte modèle
@@ -127,9 +136,8 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   (`select (select count(*) from bleo_familles where close_le > now() - interval '1 day') as closes, (select count(*) from bleo_boite where sorte = 'g2') as g2;`).
   Format : `• BLEO : <podz> · <semaines> sem. · <part> % full tests · hier <f> full test(s), <d> déclinaison(s)[, <r> remake(s)]` (une ligne par podz),
   puis `• Familles : <n> closes cette nuit, <n> générations 2 ouvertes`.
-- **La règle 8** (objectif 30 %) ne monte le rythme d'un podz de la voie 1
-  que dans les conditions ci-dessus (boîte au-delà de 6 semaines, file à
-  juger avec de la place) : au-delà, ses full tests attendraient leur test.
+- **La règle 8** (objectif 30 %) ne monte pas le rythme d'un podz de la
+  voie 1 : seul `bleo_rythme_resultats()` le fait (0716).
 
 ## Le point du matin
 

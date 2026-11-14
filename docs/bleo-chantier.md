@@ -755,3 +755,11 @@ recalculée à la main, rejouabilité, derniers plans).
     - **Ça marche :** turc (2 comptes), français (emma.lit147 1,32), italien (martina.saggezza245 1,81), anglais (~1,0).
     - **Simulation :** sans nikoleta.diavazei900 et asya.ogrenir761, le label passe à 0,80 ; sans klara.mudrost149 aussi, à 0,84. Proposé à Adrien : nikoleta → smart_girl, asya.ogrenir761 → compte à refaire, klara → weird_alpha ou une semaine d'attente.
     - **11/11, 13 h (Adrien : « passe nikoleta.diavazei900 sur smart_girl et enlève beau_smart_girl, sans toucher aux posts d'aujourd'hui ») :** fait (`compte_labels`) ; ses 2 posts du 11/11 restent beau_smart_girl. Plan du 12/11 (bbeeca3c, 692 créneaux, 0 vide) : ses 2 créneaux sont de la récolte smart_girl. asya.ogrenir761 (compte à refaire) et klara.mudrost149 (weird_alpha ou une semaine d'attente) : en attente d'Adrien.
+- **13/11 et 14/11** : la nuit du 13/11 a fermé weird_alpha (0,726) et voulu
+  refermer beau_smart_girl : weird_alpha rouvert, ses 20 comptes remis, la
+  fermeture automatique coupée (`fermeture_min_posts` = 1 milliard), réserve
+  basse à 4 jours au lieu de 5 (décisions d'Adrien). Les podz en clair (0716,
+  SQL collé par Adrien) : le rythme de la voie 1 suit le taux de gagnants sur
+  21 jours face à la flotte (`bleo_rythme_resultats`, appliqué par le chef),
+  une fiche par podz sur la page Pods (`pods_fiches`), et le démarrage d'un
+  podz neuf : 4 comptes de test d'office, un par langue, jugés à 30 posts.

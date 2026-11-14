@@ -771,3 +771,11 @@ recalculée à la main, rejouabilité, derniers plans).
   Pilotage, sanity et tableau des podz suivent. Au 14/11 : weird_alpha 0,4 j,
   alpha_male_yellow 4,6, smart_girl 5,2, RH 7,8, alpha_male 9,4,
   beau_smart_girl 11,1.
+- **14/11, étalement des labels 100 % podz (0720, Adrien)** : un même contenu
+  white_bg reposté dans la même langue par un autre compte fait −65 % (2e
+  passage), −77 % (3e). Le tirage ne sert plus un contenu 100 % podz qu'à un
+  compte par langue ; le rythme des remakes compte la consommation par langue
+  (2 comptes = production doublée). D'abord étaler (un compte par langue, les
+  langues sans recrutement sautées), ensuite un 2e compte avec ses propres
+  contenus. Les comptes en trop de white_bg et Fathomly attendent les labels
+  qu'Adrien donnera.

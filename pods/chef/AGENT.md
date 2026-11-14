@@ -128,6 +128,12 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   full tests (la jauge). Les seuils sont dans
   `reglages.bleo.podz.rythme_resultats` : seuls Adrien ou Max les changent.
   Mets chaque changement dans le point, avec sa raison (ligne « Rythme »).
+- **Un label 100 % podz de la voie 1 (Plony) avec 2 comptes dans une langue
+  (0720)** : un contenu n'y va qu'à un compte par langue, le 2e compte a
+  besoin de ses propres contenus. Son `par_jour` vaut au moins le nombre de
+  comptes de sa langue la plus remplie (`select langue, count(*) from
+  compte_labels cl join comptes c on c.id = cl.compte_id join labels l on
+  l.id = cl.label_id where l.nom = 'Plony' and c.is_active group by 1;`).
 - **Le point du matin ajoute**, par podz actif (voies 1 et 2) : la jauge (semaines,
   part de full tests), les full tests et les déclinaisons déposés hier
   (`pod_livraisons.type_bleo`) et, en voie 2, les remakes du compte modèle

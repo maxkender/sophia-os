@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o216",
+ "type_bleo": "full_test",
+ "titre": "rules for being alone without feeling lonely #solitude #alone #mentalhealth #selfimprovement #peace",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "211c8c24-7841-45ae-a789-96303a85cd2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 211c8c24). full test BLEO : accroche jamais faite (format « rules for being X without feeling Y »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b65bd3f7-fe04-4f71-9b71-5147059e7ee8",
+   "texte_overlay": "rules for being alone\nwithout feeling lonely",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04ae0952-6a5c-4b4f-bc12-35317148e579",
+   "texte_overlay": "make plans with yourself\n\nplan your alone time like a date: a film, a walk, a new café. treating your own company as something worth planning turns empty hours into time you enjoy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2148dcf8-ea6d-4a06-863b-8c6cc56c0fc4",
+   "texte_overlay": "keep a routine\n\neat, move and sleep at regular times, even when nobody is watching. a gentle rhythm keeps your days feeling full instead of long, shapeless and lonely.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2d8ae15e-9167-41cd-b414-dc10529b7577",
+   "texte_overlay": "talk to strangers a little\n\nsay a few words to the barista or the neighbour. tiny moments of connection add up, and they quietly remind you that you're part of the world around you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5deb9c32-fa0f-4cd2-be2a-3d1ded7f9114",
+   "texte_overlay": "keep your mind busy\n\nfill some quiet hours with learning: a myth, a planet, a painting. a curious mind is rarely lonely, because it always has something interesting to explore.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/5.jpg",
+   "texte_sophia": "keep your mind busy\n\nfill quiet hours with learning, like a myth or a planet. the Sophia app turns it into one short lesson a day, and a curious mind always has something to explore."
+  },
+  {
+   "position": 6,
+   "media_id": "8e6fc38c-9fb2-4e79-913b-0e9d9ed36667",
+   "texte_overlay": "write things down\n\nkeep a small journal of thoughts and funny moments. putting your days on paper feels like talking to a friend, and it helps you notice how much you live.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/6.jpg"
+  }
+ ]
+}

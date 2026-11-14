@@ -3218,6 +3218,33 @@
    },
    "notes": "full test BLEO (suivre l'actu sans doomscroller); cta B",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-repartie-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#comebacks #quickthinking #socialskills",
+   "musique": {
+    "titre": "Love is in the Air, Pt. 2",
+    "auteur": "Rock Burwell",
+    "original": false,
+    "id": "7636876081187588097",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636876081187588097"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685340052989398275_1",
+    "2": "7683541501007252758_4",
+    "3": "7680975889932225814_5",
+    "4": "7691007701127564576_3",
+    "5": "7703525134610566433_6",
+    "6": "7700620281760533792_6"
+   },
+   "notes": "déclinaison G1 de original-066 (variante de original-066); cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "e901f7e2-f29e-4bb6-abde-4cb640de62fd"
   }
  ]
 }

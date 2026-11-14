@@ -779,3 +779,10 @@ recalculée à la main, rejouabilité, derniers plans).
   langues sans recrutement sautées), ensuite un 2e compte avec ses propres
   contenus. Les comptes en trop de white_bg et Fathomly attendent les labels
   qu'Adrien donnera.
+- **14/11, soupape des langues (0722, option A d'Adrien)** : chaque nuit
+  (4 h 40), un podz de remakes dont toutes les langues déclarées ont un compte
+  et dont le label tient 0,75 de la flotte sur 30 posts reçoit UNE langue de
+  plus (celle où l'on recrute le plus, hors ar/he/fa/ur/ja), au plus une par
+  semaine. 0721 : Plony (voie 1) s'étale dans toutes les langues où l'on
+  recrute. Changements de labels (doublons white_bg/Fathomly, daniela,
+  comptes en warmup vers Fathomly) : le 15/11 avec Adrien.

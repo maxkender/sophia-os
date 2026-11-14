@@ -3941,7 +3941,8 @@ export const fr = {
         titre: "Propositions de sources",
         description:
           "Des comptes TikTok trouvés par l'agent éclaireur, dans toutes les langues. Valider crée la source et la met dans la file d'import : ses meilleurs posts d'abord, la suite seulement si elle tient sur nos comptes. Refuser avec la raison aide l'agent à mieux chercher.",
-        onglet: { a_decider: "À décider", plus_tard: "Plus tard", decides: "Décidées" },
+        onglet: { a_decider: "À décider", plus_tard: "Plus tard", decides: "Décidées", ecartes: "Écartés" },
+        ecartesAide: "Des comptes que l'agent a relevés puis laissés de côté, avec sa raison. « Remettre à décider » en refait une carte ; elle n'aura ni chiffres frais ni exemples tant que l'agent ne l'a pas relevé de nouveau.",
         sorteLibelle: "Sorte de proposition",
         sorte: { tout: "Tout", label: "Pour un label", concept: "Concepts nouveaux" },
         langueFiltre: "Langue des propositions",
@@ -3950,6 +3951,7 @@ export const fr = {
           a_decider: "Rien à décider pour le moment.",
           plus_tard: "Rien de côté.",
           decides: "Aucune décision pour le moment.",
+          ecartes: "Aucun compte écarté.",
         },
         conceptNouveau: "Concept nouveau",
         statut: { valide: "Validée", refuse: "Refusée" },

@@ -3935,7 +3935,8 @@ export const en = {
         titre: "Source proposals",
         description:
           "TikTok accounts found by the scout agent, in every language. Approving creates the source and puts it in the import queue: its best posts first, the rest only if it holds on our accounts. Rejecting with a reason helps the agent search better.",
-        onglet: { a_decider: "To decide", plus_tard: "Later", decides: "Decided" },
+        onglet: { a_decider: "To decide", plus_tard: "Later", decides: "Decided", ecartes: "Set aside" },
+        ecartesAide: "Accounts the agent sampled then set aside, with its reason. “Back to decide” turns one into a card again; it will have no fresh figures or examples until the agent samples it again.",
         sorteLibelle: "Kind of proposal",
         sorte: { tout: "All", label: "For a label", concept: "New concepts" },
         langueFiltre: "Language of the proposals",
@@ -3944,6 +3945,7 @@ export const en = {
           a_decider: "Nothing to decide right now.",
           plus_tard: "Nothing set aside.",
           decides: "No decision yet.",
+          ecartes: "No account set aside.",
         },
         conceptNouveau: "New concept",
         statut: { valide: "Approved", refuse: "Rejected" },

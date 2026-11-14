@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o193",
+ "type_bleo": "full_test",
+ "titre": "the unwritten rules of afternoon tea #afternoontea #etiquette #smartgirl #elegance #british",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 2/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« afternoon tea » absent des accroches de donnees/label.json). Accroches écrites : « the unwritten rules of afternoon tea » (retenue : savoir-vivre élégant, vérifiable), « how to have tea like a british lady » (écartée : cliché), « afternoon tea etiquette » (écartée : sans tension). Faits vérifiés : l'afternoon tea est attribué à Anna, duchesse de Bedford, vers 1840 ; on mange de bas en haut (sandwichs, scones, pâtisseries) ; on coupe le scone à la main ; on ne lève pas le petit doigt ; on remue sans faire tinter la tasse. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b06c2a15",
+   "texte_overlay": "the unwritten rules of\nafternoon tea",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "813244b7",
+   "texte_overlay": "1. it began around 1840\n\nwith anna, duchess of bedford,\nwho got hungry before dinner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5ab4505e",
+   "texte_overlay": "2. eat from the bottom up\n\nsandwiches, then scones,\nthen cakes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9d2e8130",
+   "texte_overlay": "3. know the story behind it\n\nevery ritual has one.",
+   "texte_sophia": "3. know the story behind it\n\ni learn one a day on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f2df4f03",
+   "texte_overlay": "4. break your scone by hand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f0227232",
+   "texte_overlay": "5. no raised little finger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "20a1de9f",
+   "texte_overlay": "6. stir gently, without\nclinking the cup",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "479cc2db",
+   "texte_overlay": "save this for your next\nafternoon tea",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o194",
+ "type_bleo": "full_test",
+ "titre": "the secret meaning of 6 flowers #flowers #floriography #smartgirl #romantic #victorian",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« flower » et « meaning » absent des accroches de donnees/label.json). Accroches écrites : « the secret meaning of 6 flowers » (retenue : floriographie victorienne, romantique et vérifiable), « what your favourite flower says » (écartée : horoscope), « flowers to give and never give » (écartée : moins culturel). Significations victoriennes courantes : rose rouge amour, tournesol adoration, lilas premier amour, myosotis souvenir, lavande dévotion, pivoine bonheur. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ad46a9b2",
+   "texte_overlay": "the secret meaning of 6 flowers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4978de68",
+   "texte_overlay": "red rose\n\nlove.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "89caccfb",
+   "texte_overlay": "sunflower\n\nadoration.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "79f08bc3",
+   "texte_overlay": "lilac\n\nfirst love.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7e9f2da6",
+   "texte_overlay": "forget-me-not\n\nremembrance.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6967e734",
+   "texte_overlay": "peony\n\nhappiness and good fortune.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1c240711",
+   "texte_overlay": "the victorians sent whole messages\nin bouquets. learn one story\nlike this instead of one scroll.",
+   "texte_sophia": "the victorians sent whole\nmessages in bouquets.\ni learn stories like this on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "83725a26",
+   "texte_overlay": "which one would you send?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

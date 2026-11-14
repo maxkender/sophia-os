@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o206",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "30d06bfb-fae0-4ce0-a2c5-a959b61a8635",
+ "titre": "8 habits i quit that made me more elegant #elegance #habits #smartgirl #selfimprovement #classy",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "30d06bfb-fae0-4ce0-a2c5-a959b61a8635"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 23 de la boîte (parent 30d06bfb, langue source en) : accroche du parent mot pour mot. Habitudes quittées neuves face au parent (crier d'une pièce à l'autre, manger en marchant, répondre par vocaux de 5 minutes, se plaindre du temps, interrompre, scroller à table, s'excuser sans cesse, ne rien avoir à raconter). Deux par slide. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "06926941",
+   "texte_overlay": "8 habits i quit that made\nme more elegant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581831719851019540/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "904dc32a",
+   "texte_overlay": "1. shouting from another room\n\n2. eating while walking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581831719851019540/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ea4a2ef7",
+   "texte_overlay": "3. five-minute voice notes\n\n4. complaining about\nthe weather",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581831719851019540/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5729fce8",
+   "texte_overlay": "5. interrupting\n\n6. scrolling at the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581831719851019540/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "68a5115d",
+   "texte_overlay": "7. apologising for everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581831719851019540/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e074dc92",
+   "texte_overlay": "8. having nothing to talk about\n\nnow i learn a little every day:\nart, history, science.",
+   "texte_sophia": "8. having nothing to talk about\n\nnow i spend 5 minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581831719851019540/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "927c62dd",
+   "texte_overlay": "which one will you quit?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581831719851019540/7.jpg"
+  }
+ ]
+}

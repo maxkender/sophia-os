@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o202",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "254078fb-d6ac-4bfd-b0bb-4812ba2055b3",
+ "titre": "niche tips to help sleep like a baby at night #sleep #nightroutine #smartgirl #selfcare #wellness",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "abd762f7-dc53-414b-a967-e1bc6d3f66e8"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 17 de la boîte (parent 254078fb, langue source en) : accroche du parent mot pour mot, symboles ୨୧ de tête gardés. Conseils neufs face au parent (même heure de lever, lumière du matin, pas de café après midi, téléphone hors de la chambre, carnet pour vider sa tête, lecture papier). Bien-être général, jamais corps. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "53e1e5cd",
+   "texte_overlay": "୨୧ niche tips to help sleep\nlike a baby at night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "98e723d2",
+   "texte_overlay": "wake up at the same time\nevery day, even on sundays",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bbf425c8",
+   "texte_overlay": "get morning light within\nan hour of waking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "644c3913",
+   "texte_overlay": "swap the bedtime scroll\nfor one calm story:\nart, history, the stars.",
+   "texte_sophia": "swap the bedtime scroll for\n5 minutes on an app like\nSophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "49f642a7",
+   "texte_overlay": "no coffee after noon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "288efb4e",
+   "texte_overlay": "charge your phone outside\nthe bedroom",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "66a37bef",
+   "texte_overlay": "write tomorrow's worries\non paper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f78285f2",
+   "texte_overlay": "follow for more daily tips",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7633193743088127253/6.jpg"
+  }
+ ]
+}

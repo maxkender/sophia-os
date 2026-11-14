@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o192",
+ "type_bleo": "full_test",
+ "titre": "how to enjoy your first opera #opera #culture #smartgirl #classicalmusic #elegance",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 1/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« opera » absent des accroches de donnees/label.json). Accroches écrites : « how to enjoy your first opera » (retenue : culture accessible, concrète), « operas everyone should see once » (écartée : liste à consommer), « opera etiquette » (écartée : plus étroite). Faits vérifiés : les surtitres sont projetés dans la plupart des grandes maisons d'opéra ; on applaudit à la fin des airs et des actes ; « bravo / brava / bravi » selon le chanteur ; La Traviata et La Bohème sont des opéras courants pour débuter. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9748f13a",
+   "texte_overlay": "how to enjoy your first opera",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "257bdea1",
+   "texte_overlay": "1. pick a classic\n\nla traviata or la bohème:\nbeautiful, and easy to follow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f4cb43d6",
+   "texte_overlay": "2. read the story before you go\n\nknowing the plot lets you\nwatch the singers, not the text.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "354bcbbe",
+   "texte_overlay": "3. look up\n\nmost opera houses show\nsurtitles above the stage.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d7270105",
+   "texte_overlay": "4. clap at the end of an aria,\nnot in the middle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ad7fe18f",
+   "texte_overlay": "5. \"brava\" for a woman,\n\"bravo\" for a man,\n\"bravi\" for everyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "395d71ec",
+   "texte_overlay": "6. learn one story behind it\n\nwho wrote it, and why.",
+   "texte_sophia": "6. learn one story behind it\n\ni learn one a day on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "75be9208",
+   "texte_overlay": "save this for your first night\nat the opera",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

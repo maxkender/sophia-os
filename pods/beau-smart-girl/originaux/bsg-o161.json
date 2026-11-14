@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o161",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a6049150-b6f2-411f-9780-1950e10b6284",
+  "titre": "mes dimanches pas comme les autres pour devenir plus cultivée sans y penser #dimanche #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "a6049150-b6f2-411f-9780-1950e10b6284"
+  ],
+  "notes": "G2, déclinaison de a6049150 (« les habitudes chelous que je fais le dimanche pour arriver lundi plus cultivée », G1 gagnante, génération 1 en français ; meilleur passage de 3,1 k vues, r 2,79), en français ; troisième et dernière déclinaison de ce parent. Accroche reformulée : « mes dimanches pas comme les autres pour devenir plus cultivée sans y penser » (autres mots que bsg-o144 et bsg-o154). cta C (le défi de 7 jours en slide 2). Items neufs. Routine du 14/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 4 full tests. Lignes sautées : 5 (« validé par les neurosciences », preuves à vérifier), 6 (« je notes »), 7 (accroche illisible), 8 (« backed by science »), 9 (« enterimarnt »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "795caf02",
+      "texte_overlay": "mes dimanches pas comme les autres\npour devenir plus cultivée\nsans y penser",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5a0d03c7",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f2e29c28",
+      "texte_overlay": "1. je prends un petit-déjeuner d'un autre pays\n\nun dimanche japonais, un dimanche turc.\net je cherche d'où viennent les plats.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2686b53e",
+      "texte_overlay": "2. je vais voir une exposition minuscule\n\nles petites galeries,\ncelles où l'on est seule face aux œuvres.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "094bec3a",
+      "texte_overlay": "3. je lis un chapitre à voix haute\n\nseule, ou à quelqu'un.\nla langue prend une autre couleur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "09b9c364",
+      "texte_overlay": "4. je trie mes photos de la semaine\n\net je note ce que j'ai appris ce jour-là.\nmon année devient un livre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0f53d2cf",
+      "texte_overlay": "5. je termine par un documentaire court\n\nvingt minutes, un sujet que je ne connais pas.\nlundi, j'ai une histoire à raconter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "2ad4d61a",
+      "texte_overlay": "vole-moi un dimanche.\nenregistre-le.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

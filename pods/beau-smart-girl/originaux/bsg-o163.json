@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o163",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "042e30b0-74b7-48f4-a7dd-f48889ba08f1",
+  "titre": "comment je prépare une visite de musée pour ne jamais m'ennuyer #musee #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "042e30b0-74b7-48f4-a7dd-f48889ba08f1"
+  ],
+  "notes": "G1, déclinaison de 042e30b0 (« comment je prépare une visite de musée pour ne jamais m'ennuyer », génération 0 ; meilleur passage es 5,4 k vues, r 4,53), en français. Famille de mon full test bsg-o119, gagnante. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris de bsg-o119 : ni trois œuvres, ni histoire la veille, ni anecdote sur Pise, ni venir tôt, ni café). Fait vérifié le 28/10 sur https://fr.wikipedia.org/wiki/Vol_de_La_Joconde : vol « survenu le 21 août 1911 au musée du Louvre », tableau « retrouvé en 1913 ». Routine du 14/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 4 full tests. Lignes sautées : 5 (« validé par les neurosciences », preuves à vérifier), 6 (« je notes »), 7 (accroche illisible), 8 (« backed by science »), 9 (« enterimarnt »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "32f434d5",
+      "texte_overlay": "comment je prépare une visite de musée\npour ne jamais m'ennuyer",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "37ce0a09",
+      "texte_overlay": "1. je choisis un fil rouge\n\nles chiens dans les tableaux, les robes rouges, les mains.\nla visite devient une chasse au trésor.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5e4c7ffe",
+      "texte_overlay": "2. je regarde le plan avant d'entrer\n\net je garde la salle préférée pour la fin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2fe8e8f0",
+      "texte_overlay": "3. j'apprends l'histoire d'une œuvre avant de la voir\n\nce matin, j'ai appris que la joconde a été volée au louvre en 1911, et retrouvée deux ans plus tard.\ndevant elle, je ne voyais plus que ça.",
+      "texte_sophia": "3. j'apprends l'histoire d'une œuvre avant de la voir\n\nce matin, l'appli Sophia m'a appris que la joconde a été volée au louvre en 1911, et retrouvée deux ans plus tard.\ndevant elle, je ne voyais plus que ça.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6091323b",
+      "texte_overlay": "4. je m'assois devant une œuvre\n\nles bancs sont là pour ça.\ndix minutes, et on voit tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3178ad92",
+      "texte_overlay": "5. je repars avec une carte postale\n\nde mon œuvre préférée.\nelle finit sur mon bureau.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3e121acb",
+      "texte_overlay": "tu vas à quel musée ce mois-ci ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

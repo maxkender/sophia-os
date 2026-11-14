@@ -45,6 +45,7 @@ import {
   type PreuveOriginal,
   type StatutLivraison,
 } from "@/features/pods/api";
+import { FichePodz } from "@/features/pods/FichePodz";
 import { lignesPods, OBJECTIF_PART_PODS, resumePods, type ResumePods } from "@/features/pods/resume";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
@@ -803,6 +804,7 @@ export function AdminPodsPage() {
               )}
             </CardHeader>
             <CardContent className="space-y-4">
+              {slug !== POD_VIDEO && <FichePodz slug={slug} />}
               {slug === POD_VIDEO && (
                 <div className="space-y-2">
                   <PanneauPersonas pod={slug} />

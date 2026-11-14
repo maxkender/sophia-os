@@ -10,6 +10,7 @@ import {
   choisirLabel,
   classerLabels,
   cleFermeture,
+  demarragePod,
   doitFermer,
   enTestPod,
   estFerme,
@@ -592,6 +593,29 @@ Deno.test("test pod : au-delà de 3 comptes, le test est passé pour de bon (tou
   // Servi par une 2e application où il n'a aucun post : pas bloqué non plus.
   const autreApp = stat({ ...FATHOMLY, comptes_total: 4, passages: 0, perf_label: null });
   assertEquals(testPodPlein(autreApp, R, "00000000-0000-4000-8000-000000000003"), false);
+});
+
+// ── Démarrage d'un podz (0716) : ses comptes de test d'office, une langue chacun ──
+
+Deno.test("démarrage : un label de podz en test, absent de la langue, passe devant le meilleur label", () => {
+  // Très peu de perf et de stock : sans la règle, il passerait après les autres.
+  const neuf = stat({ ...FATHOMLY, comptes_total: 1, comptes_langue: 0, perf_label: 0.5, passages: 0, recents_langue: 2 });
+  assert(demarragePod(neuf, R, APP));
+  assertEquals(choisirLabel([...FR_24_10, neuf], R), "fathomly");
+});
+
+Deno.test("démarrage : jamais deux comptes de test dans la même langue, ni au-delà du test, ni dans une langue muette", () => {
+  const deja = stat({ ...FATHOMLY, comptes_total: 1, comptes_langue: 1 });
+  assertEquals(demarragePod(deja, R, APP), false);
+  const plein = stat({ ...FATHOMLY, comptes_total: 3, comptes_langue: 0 });
+  assertEquals(demarragePod(plein, R, APP), false);
+  const muet = stat({ ...FATHOMLY, comptes_total: 0, comptes_langue: 0, livre_langue: false });
+  assertEquals(demarragePod(muet, R, APP), false);
+  // Un label ordinaire ne démarre jamais.
+  assertEquals(demarragePod(stat({ label_id: "alpha_male", comptes_total: 1 }), R, APP), false);
+  // Avec 4 comptes de test (réglage), le 4e arrive encore d'office.
+  const quatre = lireReglagesChoixLabel({ test_pod_comptes: 4 });
+  assert(demarragePod(stat({ ...FATHOMLY, comptes_total: 3, comptes_langue: 0 }), quatre, APP));
 });
 
 // ── Pays saturé (0354) : l'élément central contre la sur-utilisation d'un marché ──

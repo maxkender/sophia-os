@@ -3192,6 +3192,32 @@
    "notes": "déclinaison G1 de 7705457734870699296 (variante de 7705457734870699296); cta C",
    "type_bleo": "declinaison",
    "parent_contenu_id": "c4ee8a11-e13a-4241-9e09-3799519f1609"
+  },
+  {
+   "post_id": "original-078",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#news #doomscrolling #digitalwellbeing",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7691007701127564576_1",
+    "2": "7683541501007252758_3",
+    "3": "7695416366886604064_6",
+    "4": "7691007701127564576_4",
+    "5": "7690642292855672096_2",
+    "6": "7695416366886604064_5"
+   },
+   "notes": "full test BLEO (suivre l'actu sans doomscroller); cta B",
+   "type_bleo": "full_test"
   }
  ]
 }

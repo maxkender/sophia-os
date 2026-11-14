@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o114",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "95803a1f-dda2-4c5e-9b52-0c782406c5d1",
+ "titre": "5 painful truths that change you as a man #men #truth #mindset #selfimprovement #discipline",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [
+  "95803a1f-dda2-4c5e-9b52-0c782406c5d1"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 14/11. Déclinaison G1 de la ligne 10 (parent 95803a1f, langue source en ; meilleur passage en 4 k vues, r 3,81). Accroche du parent mot pour mot. Format du parent : « N. » puis deux ou trois phrases. Vérités neuves, aucune du parent (moins de talent, douleur enfouie, nourrir l'esprit, perdre ses excuses, personne n'applaudit). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Slide Sophia : jacuzzi sous la neige, sans personne. reference_url : slides présentes du parent (2 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "11f9fbee",
+   "texte_overlay": "5 painful truths that change\nyou as a man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7512982053491592454/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0de65b86",
+   "texte_overlay": "1.\nYour parents won't be here forever.\nThe calls you skip now\nare the ones you'll miss most.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7512982053491592454/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0cfd2ab8",
+   "texte_overlay": "2.\nNobody is coming to save you.\nThat's not bad news.\nIt means you're in charge.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7512982053491592454/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "57525bc5",
+   "texte_overlay": "3.\nThe world keeps changing.\nThe men who keep learning\nnever get left behind.",
+   "texte_sophia": "3.\nThe world keeps changing.\nThe men who keep learning, even\n5 minutes a day on the Sophia app,\nnever get left behind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7512982053491592454/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4f988999",
+   "texte_overlay": "4.\nComfort is the slowest way to lose.\nNothing grows where\nnothing is hard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7512982053491592454/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "39bb0237",
+   "texte_overlay": "5.\nThe friends you party with\naren't always the ones who show up.\nYou find out on your worst day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7512982053491592454/1.jpg"
+  }
+ ]
+}

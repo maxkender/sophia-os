@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o116",
+ "type_bleo": "full_test",
+ "titre": "How to be the man your family can count on #men #family #protector #respect #selfimprovement",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 14/11. Full test du jour (1 sur 3, jauge : 3 sur 11). Accroche jamais faite chez nous : aucun « count on » dans donnees/label.json. Terrain de la famille protecteur (am-o010, rang S), promesse neuve : la famille. Rien de violent. Format : numéro, geste, deux lignes. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Slide Sophia : terrasse sur la montagne, sans personne. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "47d1dfd1",
+   "texte_overlay": "How to be the man your\nfamily can count on",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4496f931",
+   "texte_overlay": "1. Be on time\n\nFor dinner, for pickups,\nfor the hard talks.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "15853848",
+   "texte_overlay": "2. Fix things yourself\n\nThe shelf, the tire,\nthe dripping tap.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "50449937",
+   "texte_overlay": "3. Know a little\nabout everything\n\nHomework questions, news,\nhow things work.",
+   "texte_sophia": "3. Know a little\nabout everything\n\nI learn a bit every day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5e88d1db",
+   "texte_overlay": "4. Have a plan for\nemergencies\n\nNumbers saved, a kit ready.\nCalm when it counts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "327e0b27",
+   "texte_overlay": "5. Call your parents\nevery week\n\nNot only when you need something.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2df9dc75",
+   "texte_overlay": "6. Do what you said\n\nSmall promises build\nbig trust at home.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

@@ -10,14 +10,18 @@
   "de": "5 nutzlose Skills, die dich sofort cooler machen",
   "pt": "5 habilidades inúteis que te tornam logo mais fixe",
   "it": "5 abilità inutili che ti rendono subito più figo",
-  "es-419": "5 habilidades inútiles que te hacen más cool al instante"
+  "es-419": "5 habilidades inútiles que te hacen más cool al instante",
+  "fr": "5 talents inutiles qui te rendent instantanément plus cool",
+  "es": "5 habilidades inútiles que te hacen más cool al instante"
  },
  "legendes": {
   "en": "5 Pointless Skills That Make You Instantly Cooler #skills #learnontiktok #selfimprovement",
   "de": "5 nutzlose Skills, die dich sofort cooler machen #skills #lernenmittiktok #selbstverbesserung",
   "pt": "5 habilidades inúteis que te tornam logo mais fixe #habilidades #aprendernotiktok #desenvolvimentopessoal",
   "it": "5 abilità inutili che ti rendono subito più figo #imparacontiktok #crescitapersonale #abilità",
-  "es-419": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #desarrollopersonal #habilidades"
+  "es-419": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "5 talents inutiles qui te rendent instantanément plus cool #apprendresurtiktok #astuces #talents",
+  "es": "5 habilidades inútiles que te hacen más cool al instante #aprendeentiktok #trucos #habilidades"
  },
  "musique": {
   "titre": "Cinderella (Instrumental)",
@@ -132,6 +136,45 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "TALENTS INUTILES",
+     "QUI TE RENDENT",
+     [
+      {
+       "t": "PLUS COOL",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES INÚTILES",
+     "QUE TE HACEN",
+     [
+      {
+       "t": "MÁS COOL ",
+       "bronze": true
+      },
+      {
+       "t": "AL INSTANTE"
+      }
+     ]
+    ]
    }
   },
   {
@@ -209,6 +252,36 @@
      "date": "hace 4 años",
      "duree": "3:30",
      "avatar": "https://yt3.ggpht.com/_965lGYf0ZAbF26hVlgR9mE64pJ60gEHXJhx4Y5LpUGTOunQNugct2I0ONeHFIaJO0m1HuCcvQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "SIFFLE AVEC",
+     "LES DOIGTS"
+    ],
+    "video": {
+     "id": "TZAttahXqjY",
+     "titre": "Apprendre à siffler avec les doigts en 1 minute",
+     "chaine": "L'astucerie",
+     "vues": "3,2 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "0:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mx3lILLNxDiSeEEkGJ2klPHs8NMyiUm42UknbU7ePKs1Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "SILBA CON",
+     "LOS DEDOS"
+    ],
+    "video": {
+     "id": "fu065xizHPo",
+     "titre": "Aprendiendo a SILBAR con los dedos DESDE CERO",
+     "chaine": "Aprendiendo A",
+     "vues": "417 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "3:45",
+     "avatar": "https://yt3.ggpht.com/AKMtNUf1B0YAxIv1PY8MHM79L7LYB-lFxiQHEp3MKpPyBBjkq_MKrcpVuA-ee925bR965Vem=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -288,6 +361,36 @@
      "duree": "9:48",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "FAIS ROULER UNE",
+     "PIÈCE SUR TES DOIGTS"
+    ],
+    "video": {
+     "id": "o6yiWig9TLk",
+     "titre": "Comment faire rouler une pièce sur vos doigts | 3 étapes faciles",
+     "chaine": "Oscar Owen Magic",
+     "vues": "423 k vues",
+     "date": "il y a 4 ans",
+     "duree": "7:53",
+     "avatar": "https://yt3.ggpht.com/at3omuhyoOdPp4lxH00Lmy-yjzCSMB-bwtAwT4W0id6qK3Soxhm0k6q5zgBjnOD-VrCD15Od=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "PASA UNA MONEDA",
+     "ENTRE LOS DEDOS"
+    ],
+    "video": {
+     "id": "auc5rYzTA0w",
+     "titre": "Pasar o rodar una moneda entre los dedos - CoinRoll - Coindistry",
+     "chaine": "Domina La Magia",
+     "vues": "1 M de visualizaciones",
+     "date": "hace 10 años",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -346,6 +449,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "UN DATO CURIOSO PARA",
+     "CADA SITUACIÓN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UNE ANECDOTE POUR",
+     "CHAQUE SITUATION"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "UN DATO CURIOSO PARA",
      "CADA SITUACIÓN"
@@ -435,6 +564,36 @@
      "duree": "4:50",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "MÉLANGE LES CARTES",
+     "COMME UN CROUPIER"
+    ],
+    "video": {
+     "id": "PcERKclj9YM",
+     "titre": "Mélanger des Cartes Comme un Croupier ! (manipulations)",
+     "chaine": "MagieGratuit",
+     "vues": "287 k vues",
+     "date": "il y a 12 ans",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lXU3F3x8Sbq-OHN1zcTlFC9lyNevYebQpU43-d3Fl1v60=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "BARAJA CARTAS",
+     "COMO UN CRUPIER"
+    ],
+    "video": {
+     "id": "zgubZRupf94",
+     "titre": "😱MEZCLA COMO UN PRO! Como BARAJAR CARTAS con ESTILO para PRINCIPIANTES",
+     "chaine": "Domina La Magia",
+     "vues": "648 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "5:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -504,6 +663,34 @@
      "titre": "COMO HACER EL MOONWALK DE MICHAEL JACKSON DESDE CERO 🦶🚀",
      "chaine": "Baila Facilito",
      "vues": "2.3 M de vistas",
+     "date": "hace 5 años",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/1vI3CQHm387wdluYo7uYPbGGHtZ1w4MV7WoW0v41TWV2F3d32TIzOBZlVH7u1eJPwVAPk0aX=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LE MOONWALK"
+    ],
+    "video": {
+     "id": "6j9ordx8ZOw",
+     "titre": "Comment faire le moonwalk / Tuto danse MOONWALK en 5 minutes",
+     "chaine": "Super Mylo",
+     "vues": "526 k vues",
+     "date": "il y a 7 ans",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/Hc21e6TfjtWw3WO4-Yic6J0e8s0f7qRGKKCTfcCRSgQpQDveySq0EKdGnsbuCvUAwNBsChBV=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EL MOONWALK"
+    ],
+    "video": {
+     "id": "du1EH67R17Y",
+     "titre": "COMO HACER EL MOONWALK DE MICHAEL JACKSON DESDE CERO 🦶🚀",
+     "chaine": "Baila Facilito",
+     "vues": "2,3 M de visualizaciones",
      "date": "hace 5 años",
      "duree": "7:10",
      "avatar": "https://yt3.ggpht.com/1vI3CQHm387wdluYo7uYPbGGHtZ1w4MV7WoW0v41TWV2F3d32TIzOBZlVH7u1eJPwVAPk0aX=s176-c-k-c0x00ffffff-no-rj"

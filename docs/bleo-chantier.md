@@ -763,3 +763,11 @@ recalculée à la main, rejouabilité, derniers plans).
   21 jours face à la flotte (`bleo_rythme_resultats`, appliqué par le chef),
   une fiche par podz sur la page Pods (`pods_fiches`), et le démarrage d'un
   podz neuf : 4 comptes de test d'office, un par langue, jugés à 30 posts.
+- **14/11, réserve BLEO (0718, décision d'Adrien, option 3)** : la réserve d'un
+  label ne compte plus les passages restants de la tierlist mais ses posts
+  « forts et frais » (valeur BLEO ≥ 3 dans une langue où le label a un compte),
+  au rythme de sa récolte des 7 derniers jours. Même vue
+  (`label_application_reserve`) : choix de label, Répartition, stock du
+  Pilotage, sanity et tableau des podz suivent. Au 14/11 : weird_alpha 0,4 j,
+  alpha_male_yellow 4,6, smart_girl 5,2, RH 7,8, alpha_male 9,4,
+  beau_smart_girl 11,1.

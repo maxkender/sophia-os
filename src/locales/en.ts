@@ -3769,7 +3769,7 @@ export const en = {
       colPart: "Share",
       santeVide: "No account in this tier.",
       stockTitre: "Label stock",
-      stockDesc: "Days of passages in reserve. Under 7 days, source more now.",
+      stockDesc: "Days of strong, fresh posts (BLEO value of at least 3 in one of the label's languages), at the last 7 days' harvest pace. Under 7 days, source more now.",
       colLabel: "Label",
       colJours: "Days",
       seuilStock: "Threshold: {{n}} days",
@@ -7061,7 +7061,7 @@ export const en = {
       creer: "Create",
       reserveJours: "{{jours}} d",
       reserveAide:
-        "Runway: {{restants}} pass(es) in stock against {{demande}}/day claimed by {{comptes}} account(s). This is a floor — stock reloads on every requalification and every import; under 7 days, source now.",
+        "Reserve: {{restants}} strong, fresh post(s) (BLEO value of at least 3) for a harvest of {{demande}}/day across {{comptes}} account(s). It reloads when a content wins or rests; under 7 days, source now.",
       reserveAucunCompte: "dormant",
       reserveSansCompte:
         "No account carries this label: it consumes nothing, so its runway cannot be measured.",
@@ -7236,7 +7236,7 @@ export const en = {
         r: "Median r",
         publies7j: "Posted 7 d",
         runway: "Runway",
-        runwayAide: "Old tier-list measure: posts left in the cycle of THIS pod's content, divided by this pod's posts per day. BLEO no longer uses content up this way (it serves it again with fatigue): this figure no longer tells how many days the pod lasts. The Pilotage stock counts the whole label (imports included) against all its accounts' demand, hence a different figure.",
+        runwayAide: "Posts left for THIS pod's content (old tier list), at its last 7 days' pace. In brackets, the label reserve (since 0718): its strong, fresh posts, any origin, at its harvest pace. That one drives the label choice and the Pilotage stock.",
         aValider: "To review",
         rangs: "Cut · top",
         percees: "Breakouts (30k views or more, 14 days)",

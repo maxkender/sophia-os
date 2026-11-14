@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o159",
+  "type_bleo": "full_test",
+  "titre": "comment je me fais une culture en architecture rien qu'en me promenant #architecture #culture #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : l'architecture en balade, méthode « je ». Accroches écrites : « comment je me fais une culture en architecture rien qu'en me promenant » (retenue : gratuit, concret, original), « les styles d'architecture à connaître » (écartée : liste de faits à vérifier), « regarder les immeubles » (écartée : vague). Aucun fait daté. Routine du 14/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 4 full tests. Lignes sautées : 5 (« validé par les neurosciences », preuves à vérifier), 6 (« je notes »), 7 (accroche illisible), 8 (« backed by science »), 9 (« enterimarnt »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "086de4ae",
+      "texte_overlay": "comment je me fais une culture\nen architecture\nrien qu'en me promenant",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2095774b",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "46b88c6b",
+      "texte_overlay": "1. je lève les yeux\n\nles plus beaux détails sont au troisième étage.\npersonne ne les regarde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "46cfddf5",
+      "texte_overlay": "2. je cherche l'année sur la façade\n\nelle est souvent gravée au-dessus de la porte.\nchaque rue devient une frise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a159f9ee",
+      "texte_overlay": "3. je compare les fenêtres\n\nrondes, hautes, carrées.\nelles racontent l'époque mieux qu'un livre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1f6cb190",
+      "texte_overlay": "4. j'entre dans les églises et les gares\n\ngratuites, ouvertes,\net souvent les plus beaux bâtiments de la ville.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "24907ef7",
+      "texte_overlay": "5. je note mes immeubles préférés\n\nune photo, une adresse, une question.\nle soir, je cherche leur histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "28ac8004",
+      "texte_overlay": "enregistre-le pour ta prochaine balade.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

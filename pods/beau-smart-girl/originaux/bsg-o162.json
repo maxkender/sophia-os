@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o162",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7e70f93d-a3f4-46d7-b120-1fb036390230",
+  "titre": "les petits rituels inhabituels qui m'ont rendue meilleure étudiante #etudiante #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "7e70f93d-a3f4-46d7-b120-1fb036390230"
+  ],
+  "notes": "G2, déclinaison de 7e70f93d (« les habitudes étranges que j'ai intégré dans ma vie en tant qu'étudiante à l'ens », G1 gagnante, génération 1 en français ; meilleur passage ru 3,9 k vues, r 4,77), en français ; troisième et dernière déclinaison de ce parent. Accroche reformulée : « les petits rituels inhabituels qui m'ont rendue meilleure étudiante » (autres mots que bsg-o146 et bsg-o155). cta A (avant / après sur le dernier item). Items neufs. Routine du 14/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 4 full tests. Lignes sautées : 5 (« validé par les neurosciences », preuves à vérifier), 6 (« je notes »), 7 (accroche illisible), 8 (« backed by science »), 9 (« enterimarnt »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "21cdb338",
+      "texte_overlay": "les petits rituels inhabituels\nqui m'ont rendue meilleure étudiante",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3cf2c4b5",
+      "texte_overlay": "1. je commence ma journée par la matière que je déteste\n\nelle est faite avant que j'aie le temps d'y penser.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "487e5424",
+      "texte_overlay": "2. je travaille toujours avec la même musique\n\nau bout de trois jours,\nmon cerveau comprend que c'est l'heure.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "04d0584d",
+      "texte_overlay": "3. j'écris mes objectifs sur un post-it\n\ncollé sur l'écran.\nimpossible de les oublier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "51b47800",
+      "texte_overlay": "4. je relis mes notes en les racontant à voix haute\n\ncomme une histoire.\nje vois tout de suite ce qui manque.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2309c58d",
+      "texte_overlay": "5. je cultive ma curiosité tous les jours\n\navant, je trouvais mes cours ennuyeux.\nmaintenant, j'apprends un truc sur le monde chaque matin. et tout se relie.",
+      "texte_sophia": "5. je cultive ma curiosité tous les jours\n\navant, je trouvais mes cours ennuyeux.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et tout se relie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5d0b8545",
+      "texte_overlay": "tu testes lequel demain ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o253",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "89f2f257-7991-4272-9936-aae0c202d9d1",
+ "titre": "Little things that make you the easiest person to chat with #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "89f2f257-7991-4272-9936-aae0c202d9d1"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 3 de la boîte (89f2f257, notre ay-o150 : es-419 4,7 k r 8,6), 2e déclinaison après ay-o237. Même promesse, autres mots, sans « small talk » pour ne pas toucher la ligne 10. Items neufs, aucun repris d'ay-o044, o141, o150 ni o237.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "37fd58aa-0040-4bba-9ed5-0c0be9986c87",
+   "texte_overlay": "Little things that make you\nthe easiest person to chat with",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Answering questions with a little extra. Not \"Fine\" but \"Good, I finally finished that bookshelf.\" A small detail gives the other person something to ask about.",
+   "media_id": "bb23e6d8-6fd1-436a-8a85-91de93f0bc44"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Laughing at the small stuff. A dropped fork, a wrong turn, a strange song. People relax around someone who doesn't take every moment seriously.",
+   "media_id": "59998901-46ab-402a-9263-f2c9054a0eea"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Never checking the time while someone talks. Watch, phone, clock on the wall. Every glance tells them you'd rather be somewhere else.",
+   "media_id": "55f7374d-3e0d-4a4e-b645-f7f96ad88fcd"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Remembering what they told you last time. \"How's the new puppy?\" Following up shows you listened, and people love talking to good listeners.",
+   "media_id": "df95ab42-7142-4805-8e48-5191ea4d9955"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Always having something new to share. I do five minutes a day of history, art or science, and conversations never run dry when I have fresh stories.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Conversations never run dry when I have fresh stories.",
+   "media_id": "3cfedf52-ac0e-4829-ad5b-8d7e03911acd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Being curious about different opinions. \"Interesting, why do you see it that way?\" Curiosity makes people feel safe to share, even when you disagree.",
+   "media_id": "189c4551-9bce-49d2-9e72-91ceae16b817"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Ending conversations warmly. \"Really enjoyed this, let's do it again.\" How a chat ends is what people remember the most, so finish it with a smile and their name.",
+   "media_id": "2727650f-4fad-4353-8ffb-467dbd30b8f2"
+  }
+ ]
+}

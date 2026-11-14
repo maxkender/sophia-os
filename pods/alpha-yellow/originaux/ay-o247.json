@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o247",
+ "type_bleo": "full_test",
+ "titre": "Small changes that make your home feel calmer #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : le calme chez soi, concret (différent d'ay-o131 qui parle d'accueillir). Accroches écrites : « Small changes that make your home feel calmer » (retenue), « How to make your flat feel like a retreat » (écartée : plus déco), « Why your home stresses you out » (écartée : négatif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "04f1a4e2-d58b-4b45-a1e4-5acbd83e2bfd",
+   "texte_overlay": "Small changes that make\nyour home feel calmer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Clear one surface completely. The kitchen counter, the desk or the bedside table. One empty, clean surface gives your eyes a place to rest every time you walk in.",
+   "media_id": "524bb0d2-f5ab-4560-b324-3d26441c76b7"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Swap bright ceiling lights for lamps in the evening. Warm, low light after sunset tells your brain the day is ending and makes the whole room feel softer.",
+   "media_id": "6f82dbcf-b288-4eb9-bf21-5f72c3a604a9"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Give everything a home. Keys in a bowl, chargers in a drawer, shoes by the door. When things have a place, the mess stops piling up and so does the stress.",
+   "media_id": "98be6b2a-a6ad-41ae-808c-60f089cac3cd"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Add one living plant. Something easy like a snake plant or a pothos. Caring for something green slows you down and makes any room feel more alive.",
+   "media_id": "5b036a63-3100-482f-a112-f3030ec6852f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Make one corner for quiet moments. I do five minutes a day of history, art or science in my reading chair, and it's become the calmest part of my home.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app in my reading chair. History, art, science. It's become the calmest corner of my home.",
+   "media_id": "17ad5025-5465-45b9-8ca6-75d05838789e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Open the windows every morning. Ten minutes of fresh air clears the stale feeling from a room and wakes you up better than a second coffee.",
+   "media_id": "6451e0b1-2304-453b-8b58-5e7ed93cf56a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep screens out of the bedroom. No TV, phone charging in the hall. A room that's only for rest helps your mind switch off as soon as you walk in.",
+   "media_id": "b3fe8bfa-1b9c-4dd8-b121-74fe21728d20"
+  }
+ ]
+}

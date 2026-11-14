@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o249",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man underrated but impressive #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : qualités discrètes, angle positif. Accroches écrites : « Things that make a man underrated but impressive » (retenue), « Quiet skills nobody notices until they matter » (écartée : long), « Hidden strengths of good men » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0fa8dd1b-0c34-42d7-8e9e-cf81f56dbfb8",
+   "texte_overlay": "Things that make a man\nunderrated but impressive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "He can cook a full dinner for six. No stress, no takeaway backup. Feeding people well is a rare and generous skill that people remember for years.",
+   "media_id": "bf282ce4-7aa9-4fa1-aeb1-bd59a5ffda15"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "He stays calm in an emergency. A cut hand, a car breakdown, a lost child at the market. While others panic, he quietly does what needs to be done.",
+   "media_id": "785a858e-39a2-4319-8e5d-2efcca87c828"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "He reads more than he talks about reading. No big announcements, just real knowledge that shows up in calm, thoughtful conversations.",
+   "media_id": "a69de20a-5c0c-4c0e-b7be-afb602ed26e8"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "He keeps his friendships for decades. The same friends from school, still close. Long friendships show loyalty, patience and real character.",
+   "media_id": "8502174f-76c0-4c89-a5f8-7e1401ab6741"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "He learns something every day. I do five minutes a day of history, art or science, and quiet curiosity is the most underrated habit I know.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Quiet curiosity is the most underrated habit I know.",
+   "media_id": "29eaad8b-a7c9-4bb5-a56b-5defba5a3cde"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "He fixes things without being asked. The squeaky door, the wobbly table, the bike with a flat. Practical help speaks louder than any compliment.",
+   "media_id": "ac864582-2021-4bf4-a549-b6f22a63abf2"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "He never needs to win the argument. He listens, makes his point once, and lets it go. Calm confidence like that is impressive in any room.",
+   "media_id": "10a490d5-1395-4e98-a0b6-4af8f608ba0e"
+  }
+ ]
+}

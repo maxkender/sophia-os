@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o256",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "86c14886-4179-4ff7-bf98-e47c396d0923",
+ "titre": "How to become seriously well-read in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "86c14886-4179-4ff7-bf98-e47c396d0923"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 6 de la boîte (86c14886, notre ay-o155 « How You Become Extremely Educated In Your 20s. » : tr 5,2 k r 4,29). Même promesse, autres mots, sans « extremely » pour ne pas toucher la ligne 12. Items neufs, aucun repris d'ay-o155 ni du parent d'origine.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a8bcd17-37e0-4dfe-9aa6-5c0c0a684b65",
+   "texte_overlay": "How to become seriously\nwell-read in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Keep a book on you at all times. On the bus, in waiting rooms, at lunch. Twenty minutes of dead time a day is around fifteen books a year.",
+   "media_id": "d06a5e76-96fd-489d-8a7e-7fd774e2056b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Mix old and new. One classic, then one modern book, then a biography. Variety gives you a wider view than reading only one kind of book.",
+   "media_id": "ee625bf8-253e-40ee-8fb6-de15607145de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Read about places before you visit them. A city's history, its famous people, its food. Travel becomes ten times richer when you know the story.",
+   "media_id": "2f078bf2-371d-427c-93ba-ab9120ee1d6d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Join or start a small reading group. Three friends, one book a month, one dinner to discuss it. Talking about books with friends makes the ideas stick far longer than reading alone.",
+   "media_id": "9130bbdf-8638-4fa6-84f1-48e3cea7ab74"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learn a little every day. I do five minutes a day of history, art or science, and it fills the gaps that books leave between them.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It fills the gaps that books leave between them.",
+   "media_id": "45fd5155-73bd-431e-a83b-147a09f78b22"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Underline and write in the margins. Arguing with a book makes you think. A marked-up book is a book you actually understood.",
+   "media_id": "b087c6d8-a00c-4046-9e21-a0e03ed8d437"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Don't finish books you hate. Life is short. Drop a boring book after fifty pages and pick up one that excites you. Loving reading matters most.",
+   "media_id": "cef0ec7d-49eb-4939-9c75-80682c66cd35"
+  }
+ ]
+}

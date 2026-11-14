@@ -1,0 +1,238 @@
+{
+ "post_id": "original-078",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously disciplined"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra disciplinée",
+     "texte": "how to keep up with the news without doomscrolling"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(informed, not anxious)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7694340359056313632_5.jpg",
+      "boite": [
+       48,
+       620,
+       445,
+       328
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop going on your phone",
+      "when you eat"
+     ],
+     "fr": "lâche ton tel pendant les repas",
+     "texte": "check the news at [[one fixed time]]"
+    },
+    "T2": {
+     "en": [
+      "going on your phone every",
+      "time you eat is teaching",
+      "your brain that every quiet",
+      "moment needs stimulation"
+     ],
+     "fr": "sortir ton tel à chaque repas, ça apprend à ton cerveau que le moindre moment calme doit être rempli",
+     "texte": "mine is breakfast: 15 minutes, then it's done. the news will still be there tomorrow morning"
+    },
+    "T3": {
+     "en": [
+      "give your brain 20 minutes",
+      "where nothing is fighting for",
+      "your attention"
+     ],
+     "fr": "laisse ton cerveau tranquille 20 minutes, sans rien qui le sollicite",
+     "texte": "checking all day doesn't make you [[more informed]], just [[more on edge]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "keeping stimulation within reach"
+     ],
+     "fr": "avoir des distractions [[sous la main]]",
+     "texte": "read [[one long article]] every day"
+    },
+    "T2": {
+     "en": [
+      "your phone is on the desk,",
+      "youtube is one tab away,",
+      "and every distracting app",
+      "is already logged in"
+     ],
+     "fr": "ton tel est sur le bureau, youtube est à un onglet, et toutes tes applis à distraction sont déjà connectées",
+     "texte": "40 headlines give you 40 reactions and zero context. you feel informed but couldn't explain any of it"
+    },
+    "T3": {
+     "en": [
+      "you’re forcing yourself to",
+      "resist temptation hundreds",
+      "of times a day"
+     ],
+     "fr": "tu t'obliges à résister à la tentation [[des centaines de fois par jour]]",
+     "texte": "one long article explains [[how it started]] and what could happen next"
+    },
+    "T4": {
+     "en": [
+      "make distraction inconvenient before trying to become",
+      "more disciplined"
+     ],
+     "fr": "complique-toi l'accès aux distractions avant de chercher plus de discipline",
+     "texte": "pick the story you care about most and go deep, the rest can wait"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "learn [[the why]] too"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis que [[tu veux apprendre plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "the news tells you what happened today, almost never [[why it happened]]"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found readup which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[j'étais pareille]], jusqu'à ce que je remplace mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "without context every headline feels random and scary. with it, you [[see the pattern]]"
+    },
+    "T4": {
+     "en": [
+      "it builds patience, attention,",
+      "memory, and the ability to",
+      "keep going without constant",
+      "stimulation"
+     ],
+     "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]",
+     "texte": "my 5 minutes today: why the renaissance started in italy. one short lesson a day, on [[the Sophia app]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "switch to a [[weekly paper]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "i read it on sunday morning with a coffee. the whole week in an hour, already sorted by what mattered"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "paper has [[a last page]]. no endless feed, no autoplay, it ends"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "a week later you can see which stories actually mattered, and you read them [[with a calm head]] instead of in a panic"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "skipping every boring part"
+     ],
+     "fr": "zapper chaque passage chiant",
+     "texte": "notice [[how you feel after]]"
+    },
+    "T2": {
+     "en": [
+      "you skip intros, speed up videos, skim paragraphs,",
+      "jump between chapters"
+     ],
+     "fr": "tu zappes les intros, [[tu mets en x2]], tu survoles, tu sautes des chapitres",
+     "texte": "after the news, ask yourself: do i [[understand more]], or do i just feel worse?"
+    },
+    "T3": {
+     "en": [
+      "you’re teaching yourself that",
+      "anything slightly slow",
+      "deserves to be escaped"
+     ],
+     "fr": "t'apprends à ton cerveau que dès que c'est un peu lent, faut fuir",
+     "texte": "if it's always worse, change the source. you don't have to quit the news"
+    },
+    "T4": {
+     "en": [
+      "then real work feels",
+      "unbearable because there’s",
+      "no “skip 10 seconds” button"
+     ],
+     "fr": "alors bosser devient insupportable, y'a [[pas de bouton « avancer de 10 s »]]",
+     "texte": "you can care about the world [[without carrying it]] all day, every day"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

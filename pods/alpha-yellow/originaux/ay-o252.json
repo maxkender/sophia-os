@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o252",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a03c4954-8cac-41cb-b4b1-53af2061a0d6",
+ "titre": "How to make a great first impression on anyone #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "a03c4954-8cac-41cb-b4b1-53af2061a0d6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (a03c4954, notre ay-o167 en fr). Même promesse, autres mots. Items neufs, aucun repris d'ay-o085 ni d'ay-o167.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1f43e0a3-c51f-4a1d-989a-834cbbe625dd",
+   "texte_overlay": "How to make a great first\nimpression on anyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Have your hands free when you walk in. Coat off, bag down, drink in your left hand. You're ready to shake hands without awkward juggling.",
+   "media_id": "53da0752-200d-466d-aff7-69c8ae0f6b94"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Use their name once early and once at the end. \"Nice to meet you, Anna\" and \"Great talking, Anna.\" Twice feels warm and personal. Ten times sounds like a sales trick, so keep it natural.",
+   "media_id": "729ddff3-1cf8-48a1-91ae-940ad5181def"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ask about something they chose. Their job, their city, their dog. People light up when talking about decisions they made themselves.",
+   "media_id": "7447aee1-1611-4e2a-b1c5-19196f5f036e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep your first story short. Thirty seconds, one funny detail, then hand the conversation back. First impressions are about them, not your biography.",
+   "media_id": "0d2d6f47-40db-4d84-8586-917330ddde59"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bring something interesting into the room. I do five minutes a day of history, art or science, and a fun fact is the easiest way to be remembered warmly.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A fun fact is the easiest way to be remembered warmly.",
+   "media_id": "390a9129-eb8a-4f5a-988f-f65506b08f93"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Match their handshake, not your strongest grip. Firm, short, with eye contact. A good handshake feels balanced and friendly, never like a contest of strength.",
+   "media_id": "36b03ea4-da0a-4a6e-8c90-3142a48e7bcf"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Leave with a small promise and keep it. \"I'll send you that book title tonight.\" Then send it. Follow-through turns a first impression into trust.",
+   "media_id": "8c78baa4-d57e-4ea8-8ad0-543babc6bbff"
+  }
+ ]
+}

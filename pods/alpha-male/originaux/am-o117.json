@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o117",
+ "type_bleo": "full_test",
+ "titre": "Small things that instantly make a man more interesting #men #charisma #selfimprovement #mindset #conversation",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 14/11. Full test du jour (2 sur 3, jauge : 3 sur 11). Accroche jamais faite chez nous : aucun « more interesting » ni « interesting man » dans donnees/label.json. Promesse neuve : être intéressant, par des gestes concrets. Format : numéro, chose, deux lignes. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Slide Sophia : plage lumineuse de nuit, sans personne. reference_url : le post source de am-o042 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2479d523",
+   "texte_overlay": "Small things that instantly\nmake a man more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0b4e91f7",
+   "texte_overlay": "1. One good story,\ntold well\n\nUnder a minute. One detail\nthat makes people see it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "09acbb0a",
+   "texte_overlay": "2. Better questions\n\n\"What's the best part\nof your job?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "70563c42",
+   "texte_overlay": "3. One fact nobody\nat the table knows\n\nWhy the sea glows at night.\nLearn one a day.",
+   "texte_sophia": "3. One fact nobody\nat the table knows\n\nWhy the sea glows at night.\nI learn one a day on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "01ad7a12",
+   "texte_overlay": "4. A skill with your hands\n\nCooking, woodwork, guitar.\nPeople love watching a craft.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "21c77e4c",
+   "texte_overlay": "5. Places you've actually been\n\nNot a list.\nOne trip you can talk about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "94fae301",
+   "texte_overlay": "6. A book you can recommend\n\nAnd say why in one sentence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  }
+ ]
+}

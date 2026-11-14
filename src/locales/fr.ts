@@ -3835,6 +3835,8 @@ export const fr = {
         "Compte @{handle} ajouté — scrape + scores + nettoyage lancés en arrière-plan (voir logs ci-dessous).",
       compteAjouteFile:
         "@{{handle}} ajoutée : l'import de ses meilleurs posts démarre. La suite viendra si elle tient sur nos comptes (voir « File d'import des sources »).",
+      compteAjouteFileSansEssai:
+        "@{{handle}} ajoutée : son label n'a pas encore de comptes, donc pas d'essai. L'import de ses 100 posts les plus vus démarre, la suite viendra à chaque mise à jour du lundi (voir « File d'import des sources »).",
       compteAjouteAttente:
         "@{{handle}} ajoutée : elle attend son tour dans la file d'import, derrière les mises à jour (voir « File d'import des sources »).",
       importJobLance:

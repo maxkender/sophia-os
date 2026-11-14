@@ -3829,6 +3829,8 @@ export const en = {
         "Account @{handle} added — scrape + scores + cleaning started in the background (see logs below).",
       compteAjouteFile:
         "@{{handle}} added: the import of its best posts is starting. The rest will come if it holds on our accounts (see “Sources import queue”).",
+      compteAjouteFileSansEssai:
+        "@{{handle}} added: its label has no accounts yet, so no trial. The import of its 100 most-viewed posts is starting; the rest will come with each Monday update (see “Sources import queue”).",
       compteAjouteAttente:
         "@{{handle}} added: it is waiting for its turn in the import queue, behind the updates (see “Sources import queue”).",
       importJobLance:

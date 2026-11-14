@@ -1102,8 +1102,8 @@ function FormAjoutSource({ niches, onFermer }: { niches: NicheLabel[]; onFermer:
         await setLabelsSource(cree.id, [nicheId]);
         // 0669 : l'extraction passe par la file des mises à jour (une source à
         // la fois), pas en parallèle du reste.
-        const file = await ajouterSourceALaFile(cree.id);
-        return { kind: "compte" as const, handle: cree.handle_tiktok, file };
+        const { file, essai } = await ajouterSourceALaFile(cree.id);
+        return { kind: "compte" as const, handle: cree.handle_tiktok, file, essai };
       }
 
       const lien = url.trim();
@@ -1120,7 +1120,14 @@ function FormAjoutSource({ niches, onFermer }: { niches: NicheLabel[]; onFermer:
     onSuccess: (r) => {
       if (r.kind === "compte") {
         setMessage(
-          t(r.file === "lancee" ? "sources.compteAjouteFile" : "sources.compteAjouteAttente", { handle: r.handle }),
+          t(
+            r.file === "attente"
+              ? "sources.compteAjouteAttente"
+              : r.essai
+                ? "sources.compteAjouteFile"
+                : "sources.compteAjouteFileSansEssai",
+            { handle: r.handle },
+          ),
         );
         setHandle("");
       } else {

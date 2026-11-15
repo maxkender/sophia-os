@@ -1,0 +1,51 @@
+{
+ "source_id": "rh-o238",
+ "type_bleo": "full_test",
+ "titre": "ex-rh : ce qui fait qu'on te rappelle pour un 2e entretien (même si t'étais stressée) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 15/11 (2 full tests seulement : banque d'images épuisée par la règle des 14 jours). cta A (confession à la 1re personne), slide Sophia en position 4. Full test : accroche jamais faite chez nous (le rappel malgré le stress). 6 slides, banque d'images réduite. Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7ecfa33b",
+   "texte_overlay": "ex-rh : ce qui fait qu'on te rappelle\npour un 2e entretien\n(même si t'étais stressée)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b962a1fd",
+   "texte_overlay": "t'as dit « je suis un peu stressée »\non le savait déjà. le dire nous a rassurés",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a888339d",
+   "texte_overlay": "t'as donné un exemple précis\nmême court, même maladroit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c1e10d7a",
+   "texte_overlay": "t'as parlé d'un truc qui te passionne\net tes yeux ont changé",
+   "texte_sophia": "t'as parlé d'un truc qui te passionne\net tes yeux ont changé. perso, je garde toujours un sujet appris sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "24558412",
+   "texte_overlay": "t'as posé une vraie question\net t'as écouté la réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eec28ab8",
+   "texte_overlay": "le stress ne te disqualifie pas.\nle vide, si",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

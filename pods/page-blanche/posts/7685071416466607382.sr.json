@@ -60,7 +60,7 @@
             "language"
           ],
           "fr": "[[surtout avec des paroles]] : une partie de ton attention traite encore les mots",
-          "texte": "[[pogotovo ako pesma ima tekst]], deo tvoje pažnje i dalje obrađuje reči"
+          "texte": "deo tvoje pažnje i dalje obrađuje reči, [[pogotovo ako pesma ima tekst]]"
         },
         "T4": {
           "en": [
@@ -207,7 +207,7 @@
             "procrastinating all day"
           ],
           "fr": "procrastiner [[toute la journée]]",
-          "texte": "sve odlažeš [[ceo dan]]"
+          "texte": "sve odlažeš [[po ceo dan]]"
         },
         "T2": {
           "en": [

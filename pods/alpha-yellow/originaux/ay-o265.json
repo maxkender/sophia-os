@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o265",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a03c4954-8cac-41cb-b4b1-53af2061a0d6",
+ "titre": "How to leave a strong first impression in five minutes #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "a03c4954-8cac-41cb-b4b1-53af2061a0d6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (a03c4954, notre ay-o167 en fr), 2e déclinaison après ay-o252. Même promesse, autres mots. Items neufs, aucun repris d'ay-o085, o167 ni o252.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "85a58c44-7ab8-4f4f-a9eb-cc19670224e4",
+   "texte_overlay": "How to leave a strong first\nimpression in five minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Minute one: smile before you speak. A warm face tells people you're friendly before you've said a single word, and it relaxes both of you.",
+   "media_id": "3de036db-de0d-4bf0-b572-a46abb52f6a2"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Minute two: ask one curious question. \"What brought you here tonight?\" Open questions get people talking about what matters to them.",
+   "media_id": "40c6878a-9e19-41d2-83c7-f404c81a38c5"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Minute three: share one small, real detail about yourself. A hobby, a funny moment from your week. A little openness makes you human and memorable.",
+   "media_id": "40e71de2-2ed1-45ff-aa6c-c1fa3e97429b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Minute four: find something you have in common. A city, a sport, a favourite food. Shared ground turns a stranger into someone familiar.",
+   "media_id": "47505fd5-1a16-4703-a657-088aaa7586d7"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Minute five: bring a little spark. I do five minutes a day of history, art or science, and a fun fact is often what people remember about me later.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A fun fact is often what people remember about me later.",
+   "media_id": "34a1d26f-c900-4e8e-b78a-87c944e72c52"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Throughout: keep your phone away and your eyes on them. Full attention for five minutes is rarer and more impressive than any clever line.",
+   "media_id": "486bd73a-bbd5-4f86-9df9-f9d65718364c"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Last: end warmly and use their name. \"Really nice meeting you, David.\" People remember how you made them feel in the last seconds.",
+   "media_id": "4afc99ef-9110-4901-97ce-fdc70b636782"
+  }
+ ]
+}

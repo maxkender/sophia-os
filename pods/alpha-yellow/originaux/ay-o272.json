@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o272",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "411606fc-9da8-4979-808a-0a7eed69ab35",
+ "titre": "unusual hobbies that make you better smarter #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "411606fc-9da8-4979-808a-0a7eed69ab35"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 12 de la boîte (411606fc, es 13,4 k) : accroche du parent mot pour mot (tournure du parent gardée). Hobbies neufs, aucun repris du parent (cuisine sans recette, marche, compétence physique, échecs étudiés) ni de nos decks hobbies.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ebd11971-e6c9-4a45-8585-4e7faee386c4",
+   "texte_overlay": "unusual hobbies that\nmake you better smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learning to identify trees and birds. Walking becomes a treasure hunt. Naming what you see trains memory and attention in a calm, surprising way.",
+   "media_id": "7feb8797-52c8-492b-be18-e69925ca9a6c"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Restoring old furniture. Sanding, repairing, painting. You learn patience, problem-solving and how things were built, and you end up with something unique.",
+   "media_id": "80aa9d6b-72e9-4400-8de9-ba69d66bb146"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learning basic astronomy. A star map, a clear night, a pair of binoculars. Finding planets and constellations makes you feel curious and small in the best way.",
+   "media_id": "8248d339-5b22-48ff-b121-78f9da57f1ff"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Writing short stories. Ten minutes a day, any idea. Writing fiction trains imagination, structure and empathy all at once. Nobody has to read them.",
+   "media_id": "83f6bd7a-554d-489f-ba9d-8288f2b06077"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feeding your curiosity every day. I do five minutes a day of history, art or science, and it gives every hobby I try a deeper meaning.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives every hobby I try a deeper meaning.",
+   "media_id": "53aaf60e-3ce5-4ad7-bada-58595964b46d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Learning to play poker properly. Not for money, for thinking. Probability, patience and reading people are skills that help in every part of life.",
+   "media_id": "8458a0c3-67f8-4977-9627-d5acdc89483d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Building a small garden on your balcony. Herbs, tomatoes, peppers. Planning, waiting and learning from mistakes makes you calmer and smarter.",
+   "media_id": "851df411-5c41-477e-b46d-63bbf96da65c"
+  }
+ ]
+}

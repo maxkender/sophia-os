@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o263",
+ "type_bleo": "full_test",
+ "titre": "Tiny habits that make you sharper by 30 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : esprit vif à 30 ans, concret. Accroches écrites : « Tiny habits that make you sharper by 30 » (retenue), « How to keep your brain young » (écartée : promesse santé), « Habits of quick-thinking men » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "77d9500b-b463-4bfb-a6c4-ba3e51c629df",
+   "texte_overlay": "Tiny habits that\nmake you sharper by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Doing mental maths instead of reaching for the calculator. Splitting a bill, working out a discount. Small daily practice keeps your brain quick.",
+   "media_id": "2a38774b-2d45-4322-8069-012d26968b9e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learning the route instead of following the GPS. Finding your way through a city trains memory and attention in a way a screen never will.",
+   "media_id": "2b4d3b3a-7bec-4c0b-b1b8-b824cfcf849c"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Reading long articles all the way to the end. Training your attention span on real content is the opposite of endless short videos.",
+   "media_id": "2e0ed231-f8cf-48ac-828a-fd38eb8d3627"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Playing strategy games with friends. Chess, card games, board games. Thinking two moves ahead is a skill that grows with practice.",
+   "media_id": "2eb3cceb-1f06-41b5-8e3c-077f6e84166d"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learning something new every day. I do five minutes a day of history, art or science, and small daily lessons keep my mind quick and curious.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Small daily lessons keep my mind quick and curious.",
+   "media_id": "16f6c2a9-54de-4b7c-a22d-1444066dfebe"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Explaining what you learned to someone else. If you can teach it simply, you really understand it, and it stays in your memory for good.",
+   "media_id": "324df99a-2707-4f6c-a6bc-ad7ecdd02eca"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Sleeping seven to eight hours. Your brain sorts and stores everything you learned while you sleep. Short nights quietly make you slower.",
+   "media_id": "356e5cc0-18aa-48eb-9214-c25fb33ab544"
+  }
+ ]
+}

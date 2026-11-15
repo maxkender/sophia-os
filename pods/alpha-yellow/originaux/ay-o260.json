@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o260",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man feel at peace with himself #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : la paix intérieure, ton calme. Accroches écrites : « Things that make a man feel at peace with himself » (retenue), « How to stop being at war with yourself » (écartée : négatif), « Habits of calm, content men » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "160e1acb-b32e-4b07-8276-ff17c8b28aa9",
+   "texte_overlay": "Things that make a man\nfeel at peace with himself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Keeping his word, even to himself. Every promise kept, big or small, builds a quiet self-respect that no compliment from anyone else can give you.",
+   "media_id": "0309c610-ed6e-4089-ad5c-2a1255f5afc0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Making peace with his past mistakes. He learned the lesson, apologised where he needed to, and stopped replaying it. Carrying old guilt helps nobody.",
+   "media_id": "06227b92-7cd2-4df3-99a3-a376aab8995d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Having a body he takes care of. Regular training, decent sleep, real food. A body that feels strong and rested makes the mind feel calmer too.",
+   "media_id": "062574d4-10dd-469c-ae9f-67453ce479f7"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Spending time alone without a screen. A walk, a quiet coffee, an evening reading. A man who enjoys his own company has nothing to run away from.",
+   "media_id": "07211305-8a1b-42cd-971b-8a981f9ec9d4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feeding his curiosity. I do five minutes a day of history, art or science, and learning something new every morning gives me a calm, steady start.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning something every morning gives me a calm, steady start.",
+   "media_id": "0efcd17f-4842-4a66-9e78-1aeaf10d688f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Not needing to win every argument. He says what he thinks, listens, and lets it go. Peace often starts the moment you stop needing to be right.",
+   "media_id": "0760f659-5c68-4be6-ac76-8317089c7035"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Being grateful for what he already has. Friends, health, a roof, a good meal. Noticing what's good is the fastest way to feel enough.",
+   "media_id": "0883777b-af35-4fb5-87c1-f42ad068fa17"
+  }
+ ]
+}

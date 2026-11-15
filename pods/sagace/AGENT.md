@@ -17,8 +17,12 @@ rejette est validée toute seule 5 h après son dépôt.
 - **Proche du podz 13 (Kaja), mais pas pareil** (demande d'Adrien du 15/11) : même famille de listes, mais **sa couverture à l'identique** (son décor, ses lignes brun et noir), ses cartes YouTube **sombres** avec des marges, et sa ligne « 1 heure pour apprendre ».
 - **L'appli** : **Sophia**, une appli de culture générale (des cours courts écrits par de vrais profs, 250 cours, un bloqueur qui verrouille TikTok et Instagram tant qu'une leçon n'est pas lue). Elle entre dans la liste comme une étape, en carte d'appli : sa slide « ABONNE-TOI » disparaît.
 - **Le label** : `sagace` (migration 0724), qui sert **Sophia seul**, voie 2 de BLEO (100 % podz). L'OS le range en voie 2 dès le premier remake validé (`voie(labels)` lit la vue `labels_100_podz`) ; avant, `npm run boite` le dit en voie 1, c'est normal. Aucun compte au lancement : il en prend par la règle « démarrage d'un podz » (test sur 4 comptes français) ou par Adrien et Max (Pilotage). `npm run etat` te dit où il en est.
-- **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »). Sans compte, rien n'est diffusé : livre quand même tes remakes au rythme de la boîte, ils attendent dans la réserve.
-- **En français seul** (`LANGUES` dans `atelier/api.ts`, ta déclaration à l'OS) : la langue du compte. Tes vidéos YouTube sont françaises, avec leur titre natif (`npm run youtube -- "…"` cherche en français). Jamais une vidéo doublée ou au titre traduit par la chaîne (« Comment gérer votre argent comme le top 1 % » de Mark Tilbury : non).
+- **Le rythme** : **au moins 2 livraisons par jour**, toujours dans les 5 langues (demande d'Adrien du 15/11). Dès que les comptes postent, l'OS calcule aussi un rythme (`npm run boite`, ligne « Rythme du jour ») : suis **le plus haut des deux**. Sans compte, rien n'est diffusé : tes remakes attendent dans la réserve.
+- **La session de coordination BLEO** (« coordination mise en place BLEO ») : ses messages sont une source de vérité pour toi (confirmé par Adrien le 15/11). Applique ses demandes sur le podz, et reporte-les ici quand elles changent une règle.
+- **En 5 langues : fr, en, de, it, pt-BR** (décision d'Adrien du 15/11 ; `LANGUES` dans `atelier/api.ts`, ta déclaration à l'OS). Un deck par langue dans **chaque** livraison.
+	- **Les comptes** : un par langue, arthur.leader648 (fr), owen.leader112 (en), moritz.antrieb19 (de), lorenzo.leader278 (it), rafael.constancia383 (pt-BR). Ils rejoignent le label quand **chaque langue a au moins 4 contenus validés**. Tant que le label n'a aucun compte, `npm run livrer` livre en stock dans les 5 langues.
+	- **Les textes** : l'accroche gardée mot pour mot en français, puis traduite comme un natif l'écrirait (pas mot à mot), même nombre de lignes et même couleurs sur la couverture, `cap` ajustés pour que les lignes tiennent. Les titres d'étape, le temps et la carte Sophia sont traduits de même.
+	- **Les vidéos YouTube** : **une vraie vidéo native par langue** (une chaîne de cette langue, titre natif), jamais une vidéo doublée ou au titre traduit par la chaîne (« Comment gérer votre argent comme le top 1 % » de Mark Tilbury : non). `npm run youtube -- "…" --langue de` cherche dans la langue (YouTube de la région : en/US, de/DE, it/IT, pt-BR/BR) et `--id <id> --langue de` écrit le bloc `video` au format de l'appli dans cette langue.
 - **Parfait ou rien**. Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un remake
@@ -44,6 +48,14 @@ rejette est validée toute seule 5 h après son dépôt.
 		- `cta B` : « apprends un truc nouveau » / « chaque jour. » ;
 		- `cta C` : « ce que j'ouvre » / « au lieu de scroller. »
 	- Son temps : « 5 min par jour ». La carte ne le répète pas.
+	- **Dans les autres langues** (même version de CTA dans les 5 decks d'une livraison) :
+		| | en | de | it | pt-BR |
+		| --- | --- | --- | --- | --- |
+		| `cta A` | « short lessons written » / « by real teachers. » | « kurze Kurse, geschrieben » / « von echten Lehrern. » | « corsi brevi scritti » / « da veri professori. » | « aulas curtas escritas » / « por professores de verdade. » |
+		| `cta B` | « learn something new » / « every day. » | « lern jeden Tag » / « etwas Neues. » | « impara qualcosa di nuovo » / « ogni giorno. » | « aprenda algo novo » / « todo dia. » |
+		| `cta C` | « what I open » / « instead of scrolling. » | « was ich öffne, » / « statt zu scrollen. » | « quello che apro » / « invece di scrollare. » | « o que eu abro » / « em vez de rolar o feed. » |
+		| temps | « 5 min a day » | « 5 Min. am Tag » | « 5 min al giorno » | « 5 min por dia » |
+		| titre (ex.) | « GET / CULTURED » | « MEHR / ALLGEMEINBILDUNG » | « FARSI UNA / CULTURA » | « TER / CULTURA GERAL » |
 	- Jamais une formule de pub (prompt `placement_sophia`) : ni « télécharge », ni « essaie », ni « lien en bio », ni « gratuit », ni « la meilleure appli ».
 - **Aucune appli concurrente** dans un deck : ni de Sophia (Kaja, Fathomly, Duolingo, Brilliant, Elevate, Imprint, Headway, Blinkist…), ni d'appli de temps d'écran (Opal, one sec, ScreenZen…). Ses « e-books » non plus.
 - **Les faits sont vrais** : un temps d'apprentissage réaliste, une vidéo qui tient sa promesse, rien sur Sophia qu'on ne sache vrai.
@@ -66,9 +78,9 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `boite` demandent 
 | Commande | Effet |
 | --- | --- |
 | `npm run veille` | Relève ses posts en direct (Apify) : 60 posts sur 400 jours, les 20 meilleurs en planche. Chaque slide reste en taille réelle dans `donnees/cache/tt_<id du post>_<n>.jpg` : c'est là qu'on mesure les `cap` de sa couverture. Budget : 1 $ par semaine glissante (un relevé coûte environ 0,15 $). |
-| `npm run youtube -- "gérer son argent"` | Les vraies vidéos de YouTube pour une recherche, en français : vues, date, durée, chaîne. |
-| `npm run youtube -- --id <id>` | Le bloc `video` à coller dans le post, au format de l'appli (« 121 k vues · il y a 4 ans »). |
-| `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/fr/<n>.jpg`) et la planche `sortie/apercus/<id>.fr.jpg`. |
+| `npm run youtube -- "gérer son argent" [--langue de]` | Les vraies vidéos de YouTube pour une recherche, dans la langue (français par défaut) : vues, date, durée, chaîne. |
+| `npm run youtube -- --id <id> [--langue de]` | Le bloc `video` à coller dans le post, au format de l'appli dans la langue (« 121 k vues · il y a 4 ans »). |
+| `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/<langue>/<n>.jpg`) et une planche par langue `sortie/apercus/<id>.<langue>.jpg`. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide Sophia (une seule, une étape, pas la couverture) et chaque étape (une vraie vidéo ou la carte Sophia). |
 | `npm run etat` | Montre les comptes du label, la file, le rang, puis les vues et le r de chaque remake en ligne. |
 | `npm run boite` | La journée BLEO (`pods/ROUTINE.md` §5) : le rythme, les full tests du jour, puis les familles gagnantes à décliner, dans l'ordre, avec le parent (`sg-001`) et son `parent_contenu_id`. |
@@ -79,12 +91,12 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 
 `posts/sg-001.json` (son post à 482 k) est l'exemple complet. Les ids : `sg-001`, `sg-002`…
 - `source` : le post refait (url, vues, date, accroche).
-- `titre.fr` : l'accroche, lue par l'OS comme le hook.
-- `legendes.fr` : l'accroche et 3 hashtags (`#apprendresurtiktok #learnontiktok #developpementpersonnel`, ou `#culturegenerale`).
+- `titre` : l'accroche par langue (`fr`, `en`, `de`, `it`, `pt-BR`), lue par l'OS comme le hook.
+- `legendes` : par langue, l'accroche et 3 hashtags de la langue (fr : `#apprendresurtiktok #learnontiktok #developpementpersonnel` ; en : `#learnontiktok #selfimprovement #skills` ; de : `#lernenmittiktok #persönlichkeitsentwicklung #skills` ; it : `#imparacontiktok #crescitapersonale #skills` ; pt-BR : `#aprendanotiktok #desenvolvimentopessoal #habilidades`).
 - `musique` : la sienne (le manifeste la donne).
 - `type_bleo` et `parent_contenu_id` (BLEO, `pods/ROUTINE.md` §5.3 et §5.4) : `"declinaison"` avec l'id complet de la boîte, ou `"full_test"` (une accroche neuve, déposée sans `source`). Absents pour le remake d'un post du compte modèle.
 - `notes` : les vidéos changées, les fautes corrigées, la place et la version (`cta A`…) de l'étape Sophia.
-- `slides` : une entrée par slide, son contenu sous la clé `fr`.
+- `slides` : une entrée par slide, son contenu sous la clé de chaque langue (`fr`, `en`, `de`, `it`, `pt-BR`).
 	- `couverture` : `{ "fr": { "lignes": [{ "t": "COMPÉTENCE", "couleur": "brun", "cap": 144 }, { "t": "À APPRENDRE", "cap": 93 }, …] } }` ; une ligne écrite en simple chaîne est noire, à la taille par défaut.
 	- `etape` : `{ "fr": { "titre": [[{ "t": "GÉRER", "couleur": "#d0a239" }], "SON ARGENT"], "video": { … }, "sous": ["1 heure pour apprendre"] } }`.
 	- l'étape Sophia : `{ "type": "etape", "app": "sophia", "fr": { "titre": ["AVOIR UNE", [{ "t": "CULTURE G", "couleur": "#e07aa6" }]], "carte": { "nom": "SOPHIA", "texte": ["des cours courts écrits", "par de vrais profs."] }, "sous": ["5 min par jour"] } }`.

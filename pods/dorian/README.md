@@ -6,7 +6,7 @@ l'OS : ses propres dépendances (`package.json`), aucun import depuis `src/` ni
 
 ## Ce qu'il fait
 
-Des originaux en anglais au style exact de [@dorian.frog](https://www.tiktok.com/@dorian.frog) :
+Des originaux en anglais, allemand, italien et portugais du Brésil au style exact de [@dorian.frog](https://www.tiktok.com/@dorian.frog) :
 icebergs de hobbies et listes « 5 niche… » sur fond blanc, Sophia en item de la
 liste ou en hobby de l'iceberg. Les slides finies partent au label `dorian`
 (Sophia seul, 0729). Infra reprise des podz 13 et 15.

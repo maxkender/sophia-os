@@ -1,0 +1,168 @@
+{
+ "id": "dr-005",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+  "vues": 568900,
+  "publie_le": "2026-10-19",
+  "accroche": "5 niche ways to disgustingly improve your critical thinking"
+ },
+ "titre": {
+  "en": "5 niche ways to disgustingly improve your memory",
+  "de": "5 nischen-tricks für ein absurd gutes gedächtnis",
+  "it": "5 modi di nicchia per una memoria assurdamente buona",
+  "pt-BR": "5 jeitos nichados de deixar sua memória absurda"
+ },
+ "legendes": {
+  "en": "#niche #memory #studytok #lockedin #selfimprovement",
+  "de": "#lernen #gedächtnis #studytok #selbstverbesserung",
+  "it": "#studio #memoria #studytok #crescitapersonale",
+  "pt-BR": "#estudos #memória #studytok #autodesenvolvimento"
+ },
+ "musique": {
+  "titre": "A Song of Ice and Fire - Ramin Djawadi",
+  "url": "https://www.tiktok.com/music/A-Song-of-Ice-and-Fire-6723045131219372033"
+ },
+ "notes": "Original sur sa liste à 569 k (« 5 niche ways to disgustingly improve your critical thinking ») : même accroche, sujet mémoire. Faits : méthode des lieux (Grèce antique, orateurs), courbe de l'oubli d'Ebbinghaus (1885), effet test (Roediger et Karpicke), consolidation pendant le sommeil. Tableaux AIC (domaine public) : de Man (« The Oude Kerk, Delft »), Füssli, Palma le Jeune, d'Agescy ; couverture Seedream. Sophia en item 3 sur 5 (cta C), écran « quiz » (en, pt-BR) ou accueil traduit (de, it).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche ways to disgustingly improve your memory",
+    "image": "images/cerveau-hippocampe.jpg",
+    "legende": "(science backed)"
+   },
+   "de": {
+    "titre": "5 nischen-tricks für ein absurd gutes gedächtnis",
+    "image": "images/cerveau-hippocampe.jpg",
+    "legende": "(wissenschaftlich belegt)"
+   },
+   "it": {
+    "titre": "5 modi di nicchia per una memoria assurdamente buona",
+    "image": "images/cerveau-hippocampe.jpg",
+    "legende": "(basato sulla scienza)"
+   },
+   "pt-BR": {
+    "titre": "5 jeitos nichados de deixar sua memória absurda",
+    "image": "images/cerveau-hippocampe.jpg",
+    "legende": "(com base na ciência)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The memory palace",
+    "texte": "picture a building you know well and leave each thing to remember in a different room. to recall it, walk through. the ancient greeks used it to give speeches without notes",
+    "image": "images/eglise-interieur.jpg"
+   },
+   "de": {
+    "titre": "Der Gedächtnispalast",
+    "texte": "stell dir ein gebäude vor, das du gut kennst, und leg alles, was du dir merken willst, in einen anderen raum. zum erinnern gehst du durch. die alten griechen hielten so reden ohne notizen",
+    "image": "images/eglise-interieur.jpg"
+   },
+   "it": {
+    "titre": "Il palazzo della memoria",
+    "texte": "immagina un edificio che conosci bene e lascia ogni cosa da ricordare in una stanza diversa. per ricordare, ci cammini dentro. gli antichi greci lo usavano per parlare senza appunti",
+    "image": "images/eglise-interieur.jpg"
+   },
+   "pt-BR": {
+    "titre": "O palácio da memória",
+    "texte": "imagine um lugar que você conhece bem e deixe cada coisa que quer lembrar num cômodo diferente. pra lembrar, é só andar por ele. os gregos antigos usavam isso pra discursar sem anotações",
+    "image": "images/eglise-interieur.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Spaced repetition",
+    "texte": "review right before you'd forget: after 1 day, 3 days, a week, a month. ebbinghaus mapped the forgetting curve in 1885. cramming fights it, spacing uses it",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "de": {
+    "titre": "Wiederholen mit Abstand",
+    "texte": "wiederhole kurz bevor du es vergessen würdest: nach 1 tag, 3 tagen, einer woche, einem monat. ebbinghaus hat 1885 die vergessenskurve vermessen. pauken kämpft gegen sie, abstände nutzen sie",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "it": {
+    "titre": "Ripetizione dilazionata",
+    "texte": "ripassa poco prima di dimenticare: dopo 1 giorno, 3 giorni, una settimana, un mese. ebbinghaus ha misurato la curva dell'oblio nel 1885. studiare all'ultimo la combatte, distanziare la sfrutta",
+    "image": "images/femme-ecrivant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Repetição espaçada",
+    "texte": "revise logo antes de esquecer: depois de 1 dia, 3 dias, uma semana, um mês. ebbinghaus mediu a curva do esquecimento em 1885. virar a noite luta contra ela, espaçar usa ela a seu favor",
+    "image": "images/femme-ecrivant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. 10 minutes, and the quiz is what makes it stick",
+    "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. 10 minuten, und das quiz sorgt dafür, dass es hängen bleibt",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. 10 minuti, ed è il quiz che te la fa ricordare",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. 10 minutos, e é o quiz que faz fixar",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Test yourself",
+    "texte": "close the book and write down everything you remember. pulling it out of your brain beats rereading it. psychologists call it the testing effect",
+    "image": "images/homme-billet.jpg"
+   },
+   "de": {
+    "titre": "Frag dich selbst ab",
+    "texte": "buch zu, und schreib alles auf, was du noch weißt. etwas aus dem kopf zu holen bringt mehr als nochmal lesen. psychologen nennen das den testeffekt",
+    "image": "images/homme-billet.jpg"
+   },
+   "it": {
+    "titre": "Interrogati da solo",
+    "texte": "chiudi il libro e scrivi tutto quello che ricordi. tirarlo fuori dalla testa funziona meglio che rileggere. gli psicologi lo chiamano effetto test",
+    "image": "images/homme-billet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Teste a si mesmo",
+    "texte": "feche o livro e escreva tudo o que lembra. puxar da memória funciona melhor do que reler. os psicólogos chamam isso de efeito de teste",
+    "image": "images/homme-billet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Sleep on it",
+    "texte": "while you sleep, your brain replays what you learned and files it into long-term memory. study in the evening, sleep, review in the morning",
+    "image": "images/lectrice-endormie.jpg"
+   },
+   "de": {
+    "titre": "Schlaf drüber",
+    "texte": "im schlaf spielt dein gehirn ab, was du gelernt hast, und legt es im langzeitgedächtnis ab. abends lernen, schlafen, morgens wiederholen",
+    "image": "images/lectrice-endormie.jpg"
+   },
+   "it": {
+    "titre": "Dormici sopra",
+    "texte": "mentre dormi il cervello ripassa quello che hai imparato e lo archivia nella memoria a lungo termine. studia la sera, dormi, ripassa al mattino",
+    "image": "images/lectrice-endormie.jpg"
+   },
+   "pt-BR": {
+    "titre": "Durma depois de estudar",
+    "texte": "enquanto você dorme, o cérebro repassa o que aprendeu e guarda na memória de longo prazo. estude à noite, durma, revise de manhã",
+    "image": "images/lectrice-endormie.jpg"
+   }
+  }
+ ]
+}

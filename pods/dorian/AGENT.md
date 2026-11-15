@@ -20,7 +20,9 @@ rejette est validée toute seule 5 h après son dépôt.
 	- dans un iceberg, comme **un hobby** avec l'icône de l'appli : « one sophia lesson a day », « 10-minute lessons on sophia ».
 - **Le label** : `dorian` (migration 0729), qui sert **Sophia seul**, label 100 % podz. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » (test sur 4 comptes anglais) ou Adrien et Max (Pilotage). `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais seul** (`LANGUES` dans `atelier/api.ts`), comme lui : minuscules, phrases courtes, ton « niche », un peu provoc (« disgustingly », « genuinely f*cking difficult »).
+- **En 4 langues : en, de, it, pt-BR** (décision d'Adrien du 15/11, `LANGUES` dans `atelier/api.ts`) : un deck par langue dans chaque livraison, traduit à la main au ton du compte modèle (minuscules, phrases courtes, ton « niche », un peu provoc : « disgustingly », « genuinely f*cking difficult »). Un exemple trop anglo-saxon s'adapte au lieu de se traduire mot à mot. Chaque langue tient sur la slide : raccourcis plutôt que réduire (une étiquette d'iceberg : deux lignes au plus, `npm run rendu` refuse au-delà).
+	- L'écran Sophia : `assets/sophia/<langue>/telephone-<écran>.jpg` (captures traduites du podz 1, mises dans un téléphone : de et it, l'accueil ; de, aussi la leçon), sinon l'écran anglais (pt-BR pour l'instant : dis-le dans ton compte rendu).
+- **Le rythme** (demande d'Adrien du 15/11) : au moins 2 livraisons par jour, toujours dans les 4 langues ; suis le plus haut de ce plancher et du rythme de `npm run boite`. Un contenu ne va qu'à un compte par langue (0720) : un 2e compte dans une langue double les posts à faire.
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un original
@@ -63,7 +65,7 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `boite` demandent 
 | `npm run tableau -- --id <id> <nom>` | Télécharge le tableau choisi dans `images/<nom>.jpg`. |
 | `npm run image -- <nom> "<scène>" [--format carre\|large\|haut] [--n 2]` | Une image Seedream (0,03 $) dans `images/`. |
 | `npm run image -- <nom> "<objet>" --objet` | Un objet détouré pour l'iceberg dans `images/objets/`. |
-| `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/en/<n>.jpg`) et la planche `sortie/apercus/<id>.en.jpg`. |
+| `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/<langue>/<n>.jpg`) et la planche `sortie/apercus/<id>.<langue>.jpg`, dans chaque langue écrite. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide Sophia (une seule, pas la couverture, qui montre l'appli) et que Sophia n'apparaît nulle part ailleurs. |
 | `npm run etat` | Les comptes du label, la file, le rang, puis les vues et le r de chaque original en ligne. |
 | `npm run boite` | La journée BLEO (`pods/ROUTINE.md` §5) : le rythme, les full tests, puis les familles gagnantes à décliner. |
@@ -79,7 +81,7 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 - `musique` : la sienne pour ce post (le manifeste donne son id).
 - `type_bleo` et `parent_contenu_id` : comme `pods/ROUTINE.md` §5.3 et §5.4.
 - `notes` : la preuve, les images (tableaux : titre et peintre), la place et la version (`cta A`…) de Sophia.
-- `slides`, contenu sous la clé `en` :
+- `titre`, `legendes` et chaque slide ont une clé par langue (`en`, `de`, `it`, `pt-BR`) ; les exemples ci-dessous montrent `en` :
 	- `couverture` : `{ "titre": "5 niche …", "image": "images/cerveau-irm.jpg", "legende": "(it's not just reading)" }` ;
 	- `item` : `{ "titre": "Steelmanning", "texte": "…", "image": "images/…jpg" }`, avec au besoin `difficulte` (« 35/50 »), `citation` (bleu-vert), `imageY` ;
 	- l'item Sophia : `{ "type": "item", "app": "sophia", "en": { "titre": "One lesson a day on Sophia", "texte": "…", "telephone": "accueil" } }` ;

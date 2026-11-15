@@ -266,6 +266,8 @@ export async function tickMajSources(
         nouveauxSeulement: true,
         marquerScrape: true,
         ...(await lireReglagesMaj(supabase)),
+        ordre: compte.ordre,
+        ...(typeof compte.max === "number" && compte.max > 0 ? { maxParMaj: compte.max, sansEssai: true } : {}),
       });
       // 0698 : un profil que personne n'a pu lire est un échec, pas « rien à rattraper ».
       if (listed.illisible) throw new Error(listed.illisible);

@@ -4,9 +4,9 @@
 // dans la file de validation de l'OS (fonction Edge `pods`, action `deposer`).
 // Rien n'est diffusé avant qu'un admin valide dans Pilotage → Pods.
 //
-// Le label du pod (mentalmaxxing) ne sert qu'UnSwipe : un deck par langue, la
-// slide de l'élément UnSwipe marquée `position_app` ; l'OS en tire la variante
-// UnSwipe, note la pertinence avec le prompt UnSwipe et la note d'import avec
+// Le label du pod (mentalmaxxing) sert Sophia seul (depuis le 15/11) : un deck
+// par langue, la slide de l'élément Sophia marquée `position_sophia` ; l'OS
+// note la pertinence Sophia et la note d'import avec
 // les vues du post source.
 //
 // Environnement : POD_JETON (jeton de l'agent du pod). --essai écrit le corps
@@ -15,7 +15,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { loadImage } from "@napi-rs/canvas";
-import { appelPod, ecrireManifeste, LANGUE_SOURCE, LANGUES, lireManifeste, POD, type Langue } from "./api.ts";
+import { appelPod, ecrireManifeste, idDepot, LANGUE_SOURCE, LANGUES, lireManifeste, POD, type Langue } from "./api.ts";
 import { CHEMIN_ICONE } from "./app.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
 import { lignesDe, rendreSlide } from "./rendu.ts";
@@ -29,7 +29,7 @@ const langues = (opt("--langues")?.split(",") ?? [...LANGUES]) as Langue[];
 const essai = opt("--essai");
 
 const t = lireTranscription(id);
-if (!t.app) throw new Error(`${id} : pas d'élément UnSwipe (app) dans la transcription, rien à promouvoir`);
+if (!t.app) throw new Error(`${id} : pas d'élément Sophia (app) dans la transcription, rien à promouvoir`);
 const manifeste = lireManifeste();
 const post = manifeste.posts.find((p) => p.id === id);
 if (!post) throw new Error(`${id} absent de sources/manifeste.json`);
@@ -37,7 +37,7 @@ if (post.statut === "exclu") throw new Error(`${id} est exclu : ${post.motif ?? 
 
 const icone = await loadImage(CHEMIN_ICONE);
 const bilan: string[] = [];
-const decks: Record<string, { hashtags: string; slides: { position: number; jpeg_base64: string; position_app?: true }[] }> = {};
+const decks: Record<string, { hashtags: string; slides: { position: number; jpeg_base64: string; position_sophia?: true }[] }> = {};
 for (const langue of langues) {
   // Une langue n'est livrée que si tous ses textes sont écrits.
   const manque = t.slides.flatMap((s) => s.blocs.filter((b) => b.action === "traduire" && !lignesDe(b, langue)).map((b) => `#${s.position} ${b.id}`));
@@ -55,7 +55,7 @@ for (const langue of langues) {
     const restes = metadonneesRestantes(r.jpeg);
     if (restes.length) throw new Error(`${langue} #${s.position} : métadonnées ${restes.join(", ")}`);
     bilan.push(...r.avertissements.map((a) => `  ⚠ ${a}`));
-    slides.push({ position: s.position, jpeg_base64: r.jpeg.toString("base64"), ...(s.position === t.app.position ? { position_app: true as const } : {}) });
+    slides.push({ position: s.position, jpeg_base64: r.jpeg.toString("base64"), ...(s.position === t.app.position ? { position_sophia: true as const } : {}) });
   }
   decks[langue] = { hashtags: t.legendes[langue]!, slides };
 }
@@ -65,7 +65,7 @@ const corps = {
   action: "deposer",
   pod: POD,
   source_url: post.url,
-  source_id: id,
+  source_id: idDepot(id),
   source_vues: post.vues,
   titre: t.titre.slice(0, 160),
   langue_source: LANGUE_SOURCE,
@@ -74,6 +74,10 @@ const corps = {
   // L'accroche d'abord : la note de pertinence de l'OS la lit comme le hook.
   textes: [t.titre, ...textesAnglais(t)],
   decks,
+  // BLEO (pods/ROUTINE.md §5, npm run boite) : déclaration facultative.
+  ...((t as { type_bleo?: string }).type_bleo
+    ? { type_bleo: (t as { type_bleo?: string }).type_bleo, ...((t as { parent_contenu_id?: string }).parent_contenu_id ? { parent_contenu_id: (t as { parent_contenu_id?: string }).parent_contenu_id } : {}) }
+    : {}),
 };
 
 if (essai) {

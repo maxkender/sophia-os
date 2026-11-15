@@ -154,9 +154,14 @@ export async function rendreOriginal(o: Original, langue: Langue, icone: Image):
       const bas = y + HR - 10;
       const max = COL - 10;
       if ("app" in c) {
-        police(x, 24, 300);
         const { texte, appli } = LEGENDE_APP[langue];
-        const haut = legende(x, [...couper(x, texte, max), appli], cx, bas, 24, max);
+        // Deux lignes entières (« learn, then scroll » / « (apps like Sophia) »)
+        // si elles tiennent à 19 px ou plus ; sinon le texte se coupe, à 24 px.
+        police(x, 24, 300);
+        const tailleDeux = (24 * max) / Math.max(largeur(x, texte), largeur(x, appli));
+        const deux = tailleDeux >= 19;
+        const lignesApp = deux ? [texte, appli] : [...couper(x, texte, max), appli];
+        const haut = legende(x, lignesApp, cx, bas, deux ? Math.min(24, tailleDeux) : 24, max);
         const cote = Math.min(95, haut - 6 - (y + 8));
         const [ix, iy, r2] = [cx - cote / 2, haut - 6 - cote, RAYON_ICONE * cote];
         x.save();

@@ -4265,6 +4265,7 @@ export const en = {
       },
       seulementActifs: "Only posters who have posted (first post with a link). {{n}} recruits not posting yet:",
       voirOnboarding: "Onboarding posters",
+      seulementPostes: "Only posters who have already posted (first post with a link)",
       title: "Posters",
       subtitle: "Creators (logins) and their TikTok accounts.",
       creerPosterDesc:

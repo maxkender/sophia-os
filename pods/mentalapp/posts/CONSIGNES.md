@@ -35,11 +35,11 @@ Sophia app ». Le test part en anglais seul.
 | Langue | Texte | Appli |
 | --- | --- | --- |
 | en | learn, then scroll | (apps like Sophia) |
-| fr | apprendre, puis scroller | (applis comme Sophia) |
-| de | erst lernen, dann scrollen | (Apps wie Sophia) |
+| fr | lire, puis scroller | (apps comme Sophia) |
+| de | lernen, dann scrollen | (Apps wie Sophia) |
 | es | aprender, luego scrollear | (apps como Sophia) |
-| it | imparare, poi scrollare | (app come Sophia) |
-| tr | önce öğren, sonra kaydır | (Sophia gibi uygulamalar) |
+| it | impara, poi scrolla | (app come Sophia) |
+| tr | öğren, sonra kaydır | (Sophia gibi appler) |
 
 Jusqu'au 4/11 : l'élément UnSwipe, « delete short-videos (UnSwipe app) ».
 Plus jamais UnSwipe dans un rendu.

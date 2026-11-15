@@ -12,11 +12,11 @@ import type { Langue } from "./api.ts";
 
 export const LEGENDE_APP: Record<Langue, { texte: string; appli: string }> = {
   en: { texte: "learn, then scroll", appli: "(apps like Sophia)" },
-  fr: { texte: "apprendre, puis scroller", appli: "(applis comme Sophia)" },
-  de: { texte: "erst lernen, dann scrollen", appli: "(Apps wie Sophia)" },
+  fr: { texte: "lire, puis scroller", appli: "(apps comme Sophia)" },
+  de: { texte: "lernen, dann scrollen", appli: "(Apps wie Sophia)" },
   es: { texte: "aprender, luego scrollear", appli: "(apps como Sophia)" },
-  it: { texte: "imparare, poi scrollare", appli: "(app come Sophia)" },
-  tr: { texte: "önce öğren, sonra kaydır", appli: "(Sophia gibi uygulamalar)" },
+  it: { texte: "impara, poi scrolla", appli: "(app come Sophia)" },
+  tr: { texte: "öğren, sonra kaydır", appli: "(Sophia gibi appler)" },
 };
 
 /** Icône App Store de Sophia (1024 px), arrondie au rendu comme sur iOS. */

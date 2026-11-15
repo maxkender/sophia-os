@@ -171,6 +171,15 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   "pt-BR": { hl: "pt", gl: "BR" },
   "es-419": { hl: "es-419", gl: "MX" },
   tr: { hl: "tr", gl: "TR" },
+  pl: { hl: "pl", gl: "PL" },
+  hu: { hl: "hu", gl: "HU" },
+  nl: { hl: "nl", gl: "NL" },
+  sv: { hl: "sv", gl: "SE" },
+  ro: { hl: "ro", gl: "RO" },
+  cs: { hl: "cs", gl: "CZ" },
+  sk: { hl: "sk", gl: "SK" },
+  hr: { hl: "hr", gl: "HR" },
+  sl: { hl: "sl", gl: "SI" },
 };
 
 const ENTETES = {
@@ -275,6 +284,26 @@ export function dateAppli(date: string, langue = "en"): string {
     const mot = { a: n(es[1]) ? "años" : "año", m: n(es[1]) ? "meses" : "mes", "sem.": n(es[1]) ? "semanas" : "semana", d: n(es[1]) ? "días" : "día", h: n(es[1]) ? "horas" : "hora", min: "min" }[es[2]];
     return `hace ${es[1]} ${mot}`;
   }
+  // cs, sk et hr : la page abrège (« před 5 l. », « pred 5 r. », « prije 5 g. ») ; l'appli écrit le mot.
+  const cs = date.match(/^před (\d+)\s*(l\.|r\.|měs\.|týd\.|d\.|h|min)$/);
+  if (langue === "cs" && cs) {
+    const un = cs[1] === "1";
+    const mot = { "l.": un ? "rokem" : "lety", "r.": un ? "rokem" : "lety", "měs.": un ? "měsícem" : "měsíci", "týd.": un ? "týdnem" : "týdny", "d.": un ? "dnem" : "dny", h: un ? "hodinou" : "hodinami", min: "min" }[cs[2]];
+    return `před ${cs[1]} ${mot}`;
+  }
+  const sk = date.match(/^pred (\d+)\s*(r\.|mes\.|týž\.|d\.|h|min)$/);
+  if (langue === "sk" && sk) {
+    const un = sk[1] === "1";
+    const mot = { "r.": un ? "rokom" : "rokmi", "mes.": un ? "mesiacom" : "mesiacmi", "týž.": un ? "týždňom" : "týždňami", "d.": un ? "dňom" : "dňami", h: un ? "hodinou" : "hodinami", min: "min" }[sk[2]];
+    return `pred ${sk[1]} ${mot}`;
+  }
+  const hr = date.match(/^prije (\d+)\s*(g\.|mj\.|tj\.|d\.|h|min)$/);
+  if (langue === "hr" && hr) {
+    const k = Number(hr[1]);
+    const f = k % 10 === 1 && k % 100 !== 11 ? 0 : k % 10 >= 2 && k % 10 <= 4 && (k % 100 < 12 || k % 100 > 14) ? 1 : 2;
+    const mot = { "g.": ["godinu", "godine", "godina"], "mj.": ["mjesec", "mjeseca", "mjeseci"], "tj.": ["tjedan", "tjedna", "tjedana"], "d.": ["dan", "dana", "dana"], h: ["sat", "sata", "sati"], min: ["min", "min", "min"] }[hr[2]]?.[f];
+    return `prije ${hr[1]} ${mot}`;
+  }
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -316,6 +345,17 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   pt: (c) => `${c} visualizações`,
   "pt-BR": (c) => `${c} visualizações`,
   "es-419": (c) => (/\sM$/.test(c) ? `${c} de vistas` : `${c} vistas`),
+  // Langues ouvertes le 15/11 : YouTube donne le chiffre court sans le mot.
+  cs: (c) => `${c} zhlédnutí`,
+  sk: (c) => `${c} zhliadnutí`,
+  hr: (c) => `${c} pregleda`,
+  sl: (c) => `${c} ogledov`,
+  pl: (c) => `${c} wyświetleń`,
+  hu: (c) => `${c} megtekintés`,
+  nl: (c) => `${c} weergaven`,
+  sv: (c) => `${c} visningar`,
+  ro: (c) => (/^\d{1,2}$/.test(c) && Number(c) < 20 ? `${c} vizionări` : `${c} de vizionări`),
+  tr: (c) => `${c} görüntüleme`,
 };
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */

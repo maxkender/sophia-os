@@ -13,7 +13,11 @@
   "it": "10/10 abilità da imparare in una settimana",
   "es-419": "10/10 habilidades para aprender en una semana",
   "fr": "10/10 compétences à apprendre en une semaine",
-  "es": "10/10 habilidades que puedes aprender en una semana"
+  "es": "10/10 habilidades que puedes aprender en una semana",
+  "cs": "10/10 dovedností, které se naučíš za týden",
+  "sk": "10/10 zručností, ktoré sa naučíš za týždeň",
+  "hr": "10/10 vještina koje možeš naučiti za tjedan dana",
+  "sl": "10/10 veščin, ki se jih naučiš v enem tednu"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Week #skills #learnontiktok #selfmastery",
@@ -23,7 +27,11 @@
   "it": "10/10 abilità da imparare in una settimana #imparacontiktok #crescitapersonale #abilità",
   "es-419": "10/10 habilidades para aprender en una semana #aprendeentiktok #desarrollopersonal #habilidades",
   "fr": "10/10 compétences à apprendre en une semaine #apprendresurtiktok #développementpersonnel #culture",
-  "es": "10/10 habilidades que puedes aprender en una semana #aprendeentiktok #desarrollopersonal #cultura"
+  "es": "10/10 habilidades que puedes aprender en una semana #aprendeentiktok #desarrollopersonal #cultura",
+  "cs": "10/10 dovedností, které se naučíš za týden #dovednosti #seberozvoj #vzdělávání",
+  "sk": "10/10 zručností, ktoré sa naučíš za týždeň #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "10/10 vještina koje možeš naučiti za tjedan dana #vještine #osobnirazvoj #učenje",
+  "sl": "10/10 veščin, ki se jih naučiš v enem tednu #veščine #osebnarast #učenje"
  },
  "musique": {
   "titre": "original sound",
@@ -171,6 +179,78 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "DOVEDNOSTÍ",
+     "KTERÉ SE NAUČÍŠ",
+     [
+      {
+       "t": "ZA TÝDEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZRUČNOSTÍ",
+     "KTORÉ SA NAUČÍŠ",
+     [
+      {
+       "t": "ZA TÝŽDEŇ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VJEŠTINA KOJE",
+     "MOŽEŠ NAUČITI",
+     [
+      {
+       "t": "ZA TJEDAN DANA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠČIN",
+     "KI SE JIH NAUČIŠ",
+     [
+      {
+       "t": "V ENEM TEDNU",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -293,6 +373,66 @@
      "date": "hace 5 años",
      "duree": "15:05",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4CBJT1nfJ5HAfnDsi3-DUKZF8q49kdSuKISt0yDYxbw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "PIŠ VŠEMI",
+     "DESETI"
+    ],
+    "video": {
+     "id": "GQ7b8hCtDwY",
+     "titre": "Psaní všemi deseti prsty   prstoklad",
+     "chaine": "Radek Němec",
+     "vues": "24 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyMK8HgEXvZhAKDyD3iahDQhbOQN55Hx4T8nog8Vw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "PÍŠ VŠETKÝMI",
+     "DESIATIMI"
+    ],
+    "video": {
+     "id": "6r3uHGG7Ptw",
+     "titre": "Písanie 10 prstami po klávesnici | Strojopis",
+     "chaine": "Informatika s Mišom",
+     "vues": "10 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "12:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lixyBioJEsikHNHJrUw1tQvo-ajc92l5k9ncSa_RwDCA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "TIPKAJ",
+     "NASLIJEPO"
+    ],
+    "video": {
+     "id": "-532TZK1gPg",
+     "titre": "Nepravilno i pravilno tipkanje - tečaj daktilografije",
+     "chaine": "Hrvatsko stenografsko društvo",
+     "vues": "4,7 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m38OLzeN4gzElD9Guc12fDI2MkYHIeMJRvQW_o1dvoSg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "TIPKAJ",
+     "NA SLEPO"
+    ],
+    "video": {
+     "id": "ZZGbCt2AZu0",
+     "titre": "Učenje tipkanja: Izbira programa in osnovne nastavitve",
+     "chaine": "pojasni_si",
+     "vues": "1 tis. ogledov",
+     "date": "pred 5 leti",
+     "duree": "1:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWk7keXWyUVXarqyPazo-PjLGHjAq4pGKKkx2MSd4=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -417,6 +557,66 @@
      "duree": "3:51",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "POSTAV SI",
+     "PAMĚŤOVÝ PALÁC"
+    ],
+    "video": {
+     "id": "FNKMbJnrKR8",
+     "titre": "Paměťový palác: Jak si mozek trénují šampioni?",
+     "chaine": "Ambryho Projekt",
+     "vues": "53 zhlédnutí",
+     "date": "před 3 měsíci",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/Qnr7Pj6INusqAWCK-mzGpOcO8MVg6BnVsDPuI8_S0NBSxhCKuqmT74TjZRpK88Y9EuKKLnpE2A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POSTAV SI",
+     "PAMÄŤOVÝ PALÁC"
+    ],
+    "video": {
+     "id": "qzrVC0gdwPY",
+     "titre": "Môžem použiť pamaťový palác pri učení slovíčok?",
+     "chaine": "AkoSaNaucit",
+     "vues": "643 zhliadnutí",
+     "date": "pred 13 rokmi",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMdo2uMfPCUh5bBD0LbdKm4cEvES28EU3erge324HOiQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "TRENIRAJ",
+     "PAMĆENJE"
+    ],
+    "video": {
+     "id": "LAWQ3Q3HWeI",
+     "titre": "TEHNIKE PAMĆENJA - memorijski principi - tehnike i teorija prisećanja",
+     "chaine": "tutor up",
+     "vues": "12 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "15:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUvGzq6RJowVQH8tRF4ncA-E33U0zfcbsQh4pHqr0QBg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "ZAPOMNI SI",
+     "VSA IMENA"
+    ],
+    "video": {
+     "id": "00CZ46Qxf_A",
+     "titre": "Kako si zapomniti imena - 5 namigov in 1 tehnika (tehnike pomnjenja)",
+     "chaine": "Nik Škrlec",
+     "vues": "9,3 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -523,6 +723,58 @@
      "texte": [
       "5 minutos al día",
       "para saber un poco de todo."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "VĚZ TROCHU",
+     "O VŠEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut denně",
+      "a víš trochu o všem."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "VEDZ TROCHU",
+     "O VŠETKOM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minút denne",
+      "a vieš trochu o všetkom."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZNAJ PONEŠTO",
+     "O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "VEDI MALO",
+     "O VSEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut na dan",
+      "da veš malo o vsem."
      ]
     }
    }
@@ -647,6 +899,66 @@
      "date": "hace 3 años",
      "duree": "10:57",
      "avatar": "https://yt3.ggpht.com/4zcjS0Yf9gsZUTIrO3MvAtglvRnEr1IdvhpCA9wQbds9yLUCBmq5geVk1MdK1AiM4X1okCjN9Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "POČÍTEJ",
+     "Z HLAVY"
+    ],
+    "video": {
+     "id": "Fgf-pXLRZFE",
+     "titre": "Násobení velkých čísel bez kalkulačky",
+     "chaine": "Broker Consulting - Palmovka",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbgPeUYpNkhx94ykDihqq6xHtIVu8yfYGt-Fl1O2Uj3A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POČÍTAJ",
+     "SPAMÄTI"
+    ],
+    "video": {
+     "id": "iot6plSItgk",
+     "titre": "Druhá odmocnina ľubovoľného čísla spamäti? Ako na to...",
+     "chaine": "Rudolf Zrebny",
+     "vues": "1 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kOjeshHGtcp02i_t2PD7Hs2xvdBL3ptfptd7uFoWBokAc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "RAČUNAJ",
+     "BEZ KALKULATORA"
+    ],
+    "video": {
+     "id": "3gUwyWp8R2c",
+     "titre": "Kako množiti pomoću prstiju?",
+     "chaine": "e-kako portal",
+     "vues": "349 tis. pregleda",
+     "date": "prije 14 godina",
+     "duree": "1:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "RAČUNAJ",
+     "NA PAMET"
+    ],
+    "video": {
+     "id": "xTeYk03a_zg",
+     "titre": "MATEMATIČNI TRIK 2: Hitro množenje - SUPER NA IZI 😁",
+     "chaine": "Mata na izi",
+     "vues": "1,4 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nABnDwrhOe4BkBEB8a7HzElW4zEuAbJfcc_9cypT1_TA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

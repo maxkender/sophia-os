@@ -6,14 +6,18 @@
   "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen",
   "it": "3 abitudini che ripagano per tutta la vita",
   "pt-BR": "3 hábitos que valem a pena para a vida toda",
-  "es-419": "3 hábitos que te sirven toda la vida"
+  "es-419": "3 hábitos que te sirven toda la vida",
+  "fr": "3 habitudes qui rapportent toute la vie",
+  "es": "3 hábitos que te sirven toda la vida"
  },
  "legendes": {
   "en": "3 Habits That Pay Off For Life #selfimprovement #learnontiktok #selfmastery",
   "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen #selbstverbesserung #lernenmittiktok #gewohnheiten",
   "it": "3 abitudini che ripagano per tutta la vita #crescitapersonale #imparacontiktok #abitudini",
   "pt-BR": "3 hábitos que valem a pena para a vida toda #desenvolvimentopessoal #aprendanotiktok #hábitos",
-  "es-419": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos"
+  "es-419": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos",
+  "fr": "3 habitudes qui rapportent toute la vie #développementpersonnel #apprendresurtiktok #habitudes",
+  "es": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos"
  },
  "musique": {
   "titre": "audio originale",
@@ -108,6 +112,40 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABITUDES",
+       "bronze": true
+      }
+     ],
+     "QUI RAPPORTENT",
+     [
+      {
+       "t": "TOUTE LA VIE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 HÁBITOS",
+       "bronze": true
+      }
+     ],
+     "QUE TE SIRVEN",
+     [
+      {
+       "t": "TODA LA VIDA",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -186,6 +224,36 @@
      "duree": "6:25",
      "avatar": "https://yt3.ggpht.com/RvRUK0MqXB-H3X0h4mTGmVEE9vE4uiUHyxQkWg8Lz8T3O0eVdX91opQ4EgehxYzZamnsFi9UMQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "COMPRENDS LES",
+     "INTÉRÊTS COMPOSÉS"
+    ],
+    "video": {
+     "id": "SC30iIqjl9U",
+     "titre": "Intérêts composés : comment ça marche ? (+ simulateur investissement)",
+     "chaine": "Matthieu Louvet - S'investir",
+     "vues": "191 k vues",
+     "date": "il y a 3 ans",
+     "duree": "8:48",
+     "avatar": "https://yt3.ggpht.com/F1hFe5VWFyd-4zegI31SBX-ajrIUTA5w1qvyBVCC6j_HpqFNiAfBhyUCwiuMNxHqR1beLxnSh24=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ENTIENDE EL",
+     "INTERÉS COMPUESTO"
+    ],
+    "video": {
+     "id": "6YiZ5SIMBdY",
+     "titre": "Qué es el Interés Compuesto | Explicado FÁCIL 🎓",
+     "chaine": "Economipedia",
+     "vues": "51 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/RvRUK0MqXB-H3X0h4mTGmVEE9vE4uiUHyxQkWg8Lz8T3O0eVdX91opQ4EgehxYzZamnsFi9UMQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -244,6 +312,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "APRENDE UN POCO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS UN PEU",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "APRENDE UN POCO",
      "CADA DÍA"
@@ -329,6 +423,36 @@
      "titre": "El Palacio de la Memoria: ¿Puedes hacerlo?",
      "chaine": "Sprouts Español",
      "vues": "94 k vistas",
+     "date": "hace 3 años",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "ENTRAÎNE TA",
+     "MÉMOIRE"
+    ],
+    "video": {
+     "id": "u6wu_iY4xd8",
+     "titre": "Le Palais Mental - Masterclass #2",
+     "chaine": "FabienOlicard",
+     "vues": "340 k vues",
+     "date": "il y a 2 ans",
+     "duree": "39:00",
+     "avatar": "https://yt3.ggpht.com/hOu5CGjWlGlRYry-hXYT20RX4D5XkZcxJ_DOfkz24oK2-UQKLSJjhkhdaZtSxcY2eS8X8PVr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ENTRENA TU",
+     "MEMORIA"
+    ],
+    "video": {
+     "id": "X_URHlAJ7aA",
+     "titre": "El Palacio de la Memoria: ¿Puedes hacerlo?",
+     "chaine": "Sprouts Español",
+     "vues": "95 K visualizaciones",
      "date": "hace 3 años",
      "duree": "3:51",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"

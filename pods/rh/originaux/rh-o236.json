@@ -1,0 +1,51 @@
+{
+ "source_id": "rh-o236",
+ "type_bleo": "full_test",
+ "titre": "ex-rh : ce que je pensais vraiment quand un candidat disait « je n'ai pas de défaut » #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 14/11 (2 full tests seulement : banque d'images épuisée par la règle des 14 jours). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (la réponse « je n'ai pas de défaut » décodée). 6 slides, banque d'images réduite. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cb17afd3",
+   "texte_overlay": "ex-rh : ce que je pensais vraiment\nquand un candidat disait\n« je n'ai pas de défaut »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4750405d",
+   "texte_overlay": "je pensais : « il ne se connaît pas »\nou « il me cache quelque chose »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "eb33a867",
+   "texte_overlay": "ce que j'aurais voulu entendre\nun vrai défaut. petit, mais vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f920a8e4",
+   "texte_overlay": "et surtout, la suite\n« et voilà ce que je fais pour le corriger »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f0f901f2",
+   "texte_overlay": "le meilleur que j'ai entendu\n« je parle trop vite quand je stresse. alors je prépare et je ralentis ». et elle apprenait un peu chaque jour pour être plus sûre d'elle",
+   "texte_sophia": "le meilleur que j'ai entendu\n« je parle trop vite quand je stresse ». elle prenait 5 minutes par jour sur l'appli Sophia pour être plus sûre d'elle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e54fd594",
+   "texte_overlay": "c'est quoi ton vrai défaut ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

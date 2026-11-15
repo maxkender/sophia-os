@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o089",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "73a88437-c1b3-46cd-ac3d-59c067e0f568",
+  "titre": "comment je suis devenue la fille qui sait toujours un truc (sans être une intello) #culture #pourtoi",
+  "inspirations": [
+    "73a88437-c1b3-46cd-ac3d-59c067e0f568"
+  ],
+  "notes": "G1, déclinaison de 73a88437 (« comment je suis devenue la fille qui sait toujours un truc (sans être une intello) », génération 0 en français ; meilleur passage tr 3 k vues, r 2,19), en français. cta B (l'anecdote du jour en item 2). Items neufs (rien de repris du parent : ni mot de la conversation, ni histoire des lieux, ni documentaires, ni autre appli). Fait vérifié le 5/11 sur Wikipédia (en) : University of Oxford (« evidence of teaching as early as 1096 ») et Tenochtitlan (date exacte incertaine, 1325 retenue) ; d'où la formulation prudente « plus de deux siècles avant la fondation ». Routine du 5/11 sur BLEO : jauge 1 full test et 7 déclinaisons ; j'ai fait 2 full tests et 6 déclinaisons (lignes 2 à 7 de la boîte), car les autres lignes ne se déclinent pas proprement : 1 (083ac272, 9 hobbies « validés par la science », des preuves que je ne peux pas vérifier, et le label évite la liste « prouvée par la science » vague), 8 (837491f7, faute de frappe et salaires), 9 (6211e51e, « other then »), 10 (9e0c287f, « je notes… j'ai essayé », fautes à recopier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "comment je suis devenue la fille\nqui sait toujours un truc\n(sans être une intello)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "414511dc",
+      "texte_overlay": "1. je pose la question que personne n'ose poser\n\net je retiens la réponse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "114ca47c",
+      "texte_overlay": "2. j'ai toujours une anecdote d'avance\n\nce matin, j'ai appris que on enseignait déjà à oxford plus de deux siècles avant la fondation de la capitale des aztèques.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "2. j'ai toujours une anecdote d'avance\n\nce matin, l'appli Sophia m'a appris que on enseignait déjà à oxford plus de deux siècles avant la fondation de la capitale des aztèques.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f057bec",
+      "texte_overlay": "3. je lis la plaque à côté du tableau\n\nau musée, dans la rue, sur les statues.\nc'est là que sont les meilleures histoires.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. je cherche l'origine des mots\n\nquand un mot me plaît, je regarde d'où il vient.\nles gens adorent ça.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "5. je dis ce que je ne sais pas\n\nsavoir un truc, ce n'est pas tout savoir.\nc'est rester curieuse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

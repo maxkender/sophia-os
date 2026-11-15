@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o048",
+  "type_bleo": "full_test",
+  "titre": "the sunday reset that makes my whole school week easier #studytok #studytips #school #thatgirl",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« sunday reset » absent du label ; « sunday » n'y apparaît que dans des items). Accroches écrites : « the sunday reset that makes my whole school week easier » (retenue : un rituel précis, très enregistrable), « my 30-minute sunday routine for a calm school week » (écartée : chiffre qui promet trop), « how i prepare my school week on sunday » (écartée : plate). Six gestes simples : regarder la semaine, une liste des devoirs, se tester 15 minutes sur la semaine passée (place micabo, slide 4), préparer le sac, ranger le bureau, une soirée sans scroll avant de dormir (place UnSwipe, slide 7). Slides 4 et 7 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (reprise permise, le texte change). Écartées à l'aperçu : a1876b29 (marque ou texte lisible, cigarette, écran sur une slide d'appli, ou même photo deux fois).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7b9893ef",
+      "texte_overlay": "the sunday reset that makes\nmy whole school week easier",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7bde9ca1",
+      "texte_overlay": "i look at the whole week first.\ntests, deadlines, anything big. no surprises on wednesday.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7ebc20ac",
+      "texte_overlay": "one list with every homework and its day.\nnot in my head. on paper.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9a4bd0a5",
+      "texte_overlay": "15 minutes testing myself on last week's lessons.\nwhatever i forgot goes on monday's list.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7f1088a8",
+      "texte_overlay": "bag packed for monday.\nbooks, pens, charger, water bottle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7f353f82",
+      "texte_overlay": "desk cleared.\nmonday-me sits down and starts. no tidying first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e2cbe16a",
+      "texte_overlay": "no scrolling in bed on sunday night.\ni start the week rested, not wired.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

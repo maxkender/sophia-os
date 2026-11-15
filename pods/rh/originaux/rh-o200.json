@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o200",
+ "type_bleo": "full_test",
+ "titre": "ex-rh : pourquoi on t'a demandé « une qualité et un défaut » (et ce qu'on écoutait vraiment) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le décodage de la question qualité/défaut). Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f1e8e8b3",
+   "texte_overlay": "ex-rh : pourquoi on t'a demandé\n« une qualité et un défaut »\n(et ce qu'on écoutait vraiment)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8454f14b",
+   "texte_overlay": "on n'écoutait pas le mot\non écoutait la preuve",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "854f2c04",
+   "texte_overlay": "pour la qualité\non voulait un exemple récent. pas « je suis rigoureuse »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8733e733",
+   "texte_overlay": "pour le défaut\non voulait savoir si tu te connais. et ce que t'en fais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "875c258c",
+   "texte_overlay": "le défaut parfait n'existe pas\n« perfectionniste », on l'entend 10 fois par jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "530aff9f",
+   "texte_overlay": "ce qui marquait vraiment\nquelqu'un qui disait « j'y travaille, voilà comment »\net qui avait une vraie habitude pour progresser",
+   "texte_sophia": "ce qui marquait vraiment\nquelqu'un qui disait « j'y travaille, voilà comment ». moi : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "89c2ea06",
+   "texte_overlay": "une qualité prouvée.\nun défaut assumé.\nc'est tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "04e46e61",
+   "texte_overlay": "c'est quoi ton défaut, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

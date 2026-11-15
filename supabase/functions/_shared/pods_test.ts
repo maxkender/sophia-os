@@ -5,7 +5,9 @@ import { NOTE_ORIGINAL_POD } from "./pertinence_apps.ts";
 import {
   applicationsHorsSophia,
   AUTO_VALIDATION_HEURES,
+  BANQUE_PODZ,
   CHEMIN_POD,
+  controlerImageBanque,
   contenusLivresHorsApplication,
   contenusLivresHorsLangue,
   deckLivre,
@@ -46,6 +48,28 @@ Deno.test("metadonneesJpeg : repère EXIF, ICC, C2PA, commentaires ; ignore JFIF
   assertEquals(metadonneesJpeg(jpeg(seg(0xe0))), []);
   assertEquals(metadonneesJpeg(jpeg(seg(0xe0), seg(0xe1), seg(0xe2), seg(0xeb), seg(0xfe))), ["0xe1", "0xe2", "0xeb", "0xfe"]);
   assertEquals(metadonneesJpeg(new Uint8Array([0x89, 0x50])), null);
+});
+
+Deno.test("controlerImageBanque : JPEG vertical sans métadonnées, légende en anglais", () => {
+  // Un en-tête JPEG : APP0 (JFIF), éventuellement d'autres segments, le SOF0 qui porte
+  // hauteur puis largeur, et le début des données (SOS).
+  const sof = (l: number, h: number) => [0xff, 0xc0, 0, 17, 8, h >> 8, h & 255, l >> 8, l & 255, 3, ...new Array(9).fill(0)];
+  const jpeg = (l: number, h: number, ...segs: number[][]) =>
+    new Uint8Array([0xff, 0xd8, 0xff, 0xe0, 0, 6, 0, 0, 0, 0, ...segs.flat(), ...sof(l, h), 0xff, 0xda, 0, 2]);
+  const legende = "a red oni demon watching a samurai under a blue sky";
+  assertEquals(controlerImageBanque(jpeg(1080, 1920), legende), []);
+  assertEquals(controlerImageBanque(jpeg(1080, 1920, [0xff, 0xeb, 0, 4, 0, 0]), legende), [
+    "métadonnées 0xeb : réencode l'image sans métadonnées (ni C2PA, ni XMP, ni EXIF)",
+  ]);
+  assertEquals(controlerImageBanque(jpeg(1920, 1080), legende), ["format 1920×1080 : image verticale 9:16 attendue"]);
+  assertEquals(controlerImageBanque(jpeg(540, 960), legende), [`540 px de large (${BANQUE_PODZ.largeurMin} au moins)`]);
+  assertEquals(controlerImageBanque(jpeg(1080, 1920), "oni"), [
+    "legende : décris l'image en anglais, en 3 mots au moins (elle sert à images --cherche)",
+  ]);
+  assertEquals(controlerImageBanque(new Uint8Array([0x89, 0x50, 0x4e, 0x47]), legende), ["pas un JPEG"]);
+  const lourd = new Uint8Array(BANQUE_PODZ.octetsMax + 1);
+  lourd.set(jpeg(1080, 1920));
+  assertEquals(controlerImageBanque(lourd, legende)[0], `image de 4.0 Mo (${BANQUE_PODZ.octetsMax / 1_000_000} Mo au plus)`);
 });
 
 Deno.test("verifierDepot : langue source, slide de l'app, positions uniques", () => {

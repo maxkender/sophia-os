@@ -3,12 +3,21 @@ import { describe, expect, it } from "vitest";
 import { ACTIONS_BOT, botDuJeton, etatSecrets, lireCorps } from "../../../supabase/functions/_shared/bot_propositions";
 import type { OptionDecision, Probleme, Situation } from "./api";
 import {
-  aDiagnosticOuAction, estDecision, optionLibre, planDecision, urlContratUpwork, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
+  autresSujets,
+  carteAncienne,
+  ordreMaintenant,
+  promesseAttente,
+  trierCartes,
+  diagnosticSimple,
+  lienDecision,
+  ongletProblemes,
+  reponseAJour,
+  aDiagnosticOuAction, estArret, estDecision, feedbackAuto, planFaire, optionLibre, planDecision, urlContratUpwork, peutDonnerFeedback, pourcentJuste, raisonObligatoire, regleDepuisFeedback, avecLigneStop, compterParGroupe, compterParNiveau, dansOnglet, etapesManquantes, groupeDe, filtrer, FILTRES_VIDES, gestes, gesteValider, grouper, LIGNE_STOP_UPWORK, peutValiderCategorie, phraseProbleme, rang, trier,
 } from "./logique";
 
 const p = (o: Partial<Probleme>): Probleme => ({
   id: "x", poster_id: "00000000-0000-0000-0000-000000000001", contrat_id: null, nom: "Test A", hm: "HM 1", cohorte: null, actif: true,
-  categorie: "question_bloquante", niveau: "aujourdhui", resume: "r", sources: [], proprietaire: "control_bot",
+  categorie: "question_bloquante", niveau: "bots", resume: "r", sources: [], proprietaire: "control_bot",
   proposition_reponse: null, canal_reponse: null, proposition_action: null, propose_par: null, propose_at: null,
   statut: "ouvert", ferme_raison: null, ferme_at: null, created_at: "2026-11-02T10:00:00Z", maj_at: "2026-11-02T10:00:00Z",
   slack_relie: false, compte_id: null, ...o,
@@ -38,7 +47,7 @@ describe("Problèmes : Valider", () => {
 
   it("filtres et compteurs par niveau", () => {
     const l = [p({ niveau: "urgent", categorie: "stop" }), p({ niveau: "samedi", categorie: "absence", hm: null }), p({ proprietaire: "pay_bot", categorie: "paie" })];
-    expect(compterParNiveau(l)).toEqual({ urgent: 1, aujourdhui: 1, samedi: 1 });
+    expect(compterParNiveau(l)).toEqual({ urgent: 1, bots: 1, samedi: 1 });
     expect(filtrer(l, { ...FILTRES_VIDES, hm: "—" })).toHaveLength(1);
     expect(filtrer(l, { ...FILTRES_VIDES, proprietaire: "pay_bot" })[0]!.categorie).toBe("paie");
   });
@@ -54,7 +63,15 @@ describe("Problèmes : l'entrée des bots", () => {
   });
 
   it("seulement proposer ou créer (posteur obligatoire) ; jamais valider, envoyer, kill ou payer", () => {
-    expect(lireCorps({ action: "valider", probleme_id: "x" })).toEqual({ erreur: "action refusée : lire, proposer ou creer seulement" });
+    expect(lireCorps({ action: "valider", probleme_id: "x" })).toEqual({ erreur: "action refusée : lire, proposer, creer, faire, regler ou remonter seulement" });
+    // 0706 : régler / remonter une demande Support ; jamais payer.
+    const id = "00000000-0000-0000-0000-000000000001";
+    expect(lireCorps({ action: "regler", demande_id: id, reponse: "Hi! It's fixed now.", fait: "lien renvoyé" }))
+      .toEqual({ action: "regler", args: { demande_id: id, reponse: "Hi! It's fixed now.", fait: "lien renvoyé" } });
+    expect(lireCorps({ action: "regler", demande_id: id, reponse: "ok" })).toEqual({ erreur: "reponse (au posteur, en anglais) obligatoire" });
+    expect(lireCorps({ action: "regler", demande_id: id, reponse: "Paid you now", payer: true })).toEqual({ erreur: "un bot ne paie jamais" });
+    expect(lireCorps({ action: "remonter", demande_id: id, pourquoi: "identité refusée" })).toEqual({ action: "remonter", args: { demande_id: id, pourquoi: "identité refusée" } });
+    expect(lireCorps({ action: "remonter", demande_id: "x", pourquoi: "identité refusée" })).toEqual({ erreur: "demande_id (uuid) obligatoire" });
     expect(lireCorps({ action: "lire" })).toEqual({ action: "lire", args: {} });
     expect(lireCorps({ action: "lire", probleme_id: "00000000-0000-0000-0000-000000000009" })).toEqual({ action: "lire", args: { probleme_id: "00000000-0000-0000-0000-000000000009" } });
     expect(lireCorps({ action: "lire", probleme_id: "x" })).toHaveProperty("erreur");
@@ -142,7 +159,7 @@ describe("Problèmes v4 : groupes, diagnostic, bots", () => {
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x" })).toHaveProperty("action", "proposer");
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", action_proposee: "none" })).toMatchObject({ args: { action: "none" } });
     expect(lireCorps({ action: "proposer", probleme_id: id, diagnostic: "x", groupe_suggere: "vip" })).toHaveProperty("erreur");
-    expect(etatSecrets({ new_cohort_bot: "a".repeat(32), control_bot: "" })).toEqual({ new_cohort_bot: true, control_bot: false, pay_bot: false });
+    expect(etatSecrets({ new_cohort_bot: "a".repeat(32), control_bot: "" })).toEqual({ new_cohort_bot: true, control_bot: false, pay_bot: false, ruul_bot: false });
   });
 });
 
@@ -178,7 +195,8 @@ describe("0528 : décisions", () => {
     expect(on.envoyer).toBe(avecLigneStop("Hi"));
     expect(on.motDePasse).toBe(q.poster_id);
     expect(planDecision(opt({ action: "saturday" }), q, "on").samedi).toBe(true);
-    expect(planDecision(opt({ action: "kill" }), q, "on").page).toBe(`/admin/posters?poster=${q.poster_id}`);
+    expect(planDecision(opt({ action: "kill" }), q, "on").page).toBeNull();
+    expect(planDecision(opt({ action: "recreate" }), q, "on").page).toBe(`/admin/posters?poster=${q.poster_id}`);
   });
 
   it("HM : la réponse est à copier, jamais envoyée ; option libre", () => {
@@ -211,5 +229,140 @@ describe("0531 : Doubler et Recréer vont au rituel", () => {
     expect(gesteValider(p({ proposition_action: "recreate" }))).toEqual({ type: "rituel", choix: "recreate" });
     expect(gesteValider(p({ proposition_action: "double" }))).toEqual({ type: "rituel", choix: "double" });
     expect(ACTIONS_BOT).toContain("double");
+  });
+});
+
+describe("0532 : l'étape d'une carte bloque_etape passe aux bots", () => {
+  it("creer garde l'étape (fusion par sujet)", () => {
+    expect(lireCorps({ action: "creer", poster_id: "00000000-0000-0000-0000-000000000001", categorie: "bloque_etape", resume: "r", etape: "tiktok" }))
+      .toMatchObject({ action: "creer", args: { etape: "tiktok" } });
+  });
+});
+
+describe("0533 : arrêt", () => {
+  const q = { poster_id: "00000000-0000-0000-0000-000000000001", contrat_id: "1", destinataire: "posteur" as const };
+  it("une réponse d'arrêt part sans la ligne « reply STOP » ; les autres la gardent", () => {
+    const o = { libelle: "Lui répondre et garder", reponse: "Hi, would you like to continue?", action: "garder" };
+    expect(planDecision(o, { ...q, categorie: "stop_doute" }, "on").envoyer).toBe("Hi, would you like to continue?");
+    expect(planDecision(o, { ...q, categorie: "autre" }, "on").envoyer).toBe(avecLigneStop("Hi, would you like to continue?"));
+    expect(estArret({ categorie: "stop" })).toBe(true);
+  });
+
+  it("bots : changer la catégorie demande une raison", () => {
+    const id = "00000000-0000-0000-0000-000000000009";
+    expect(lireCorps({ action: "proposer", probleme_id: id, categorie: "autre" })).toEqual({ erreur: "changer la catégorie : raison_categorie obligatoire" });
+    expect(lireCorps({ action: "proposer", probleme_id: id, categorie: "autre", raison_categorie: "absence avec reprise" }))
+      .toMatchObject({ action: "proposer", args: { categorie: "autre", raison_categorie: "absence avec reprise" } });
+  });
+});
+
+describe("4/11 : ✅ Faire ça et feedback automatique", () => {
+  const base = { proposition_reponse: null, poster_id: "00000000-0000-0000-0000-000000000001", compte_id: null, contrat_id: "4001", question: null, options: null };
+  it("le plan de ✅ selon la proposition", () => {
+    expect(planFaire({ ...base, categorie: "paie", proposition_action: "open_payroll" })).toEqual({ type: "argent", url: urlContratUpwork("4001"), vers: "/admin/auto/payroll" });
+    expect(planFaire({ ...base, categorie: "stop", proposition_action: "kill" })).toEqual({ type: "kill" });
+    expect(planFaire({ ...base, categorie: "question_bloquante", proposition_action: null, proposition_reponse: "Hi" })).toEqual({ type: "reponse" });
+    expect(planFaire({ ...base, categorie: "autre", proposition_action: "double" })).toEqual({ type: "rituel", choix: "double" });
+    expect(planFaire({ ...base, categorie: "paie", proposition_action: null, question: "Q ?", options: [{ libelle: "A" }, { libelle: "B" }] }))
+      .toEqual({ type: "decision", index: 0 });
+  });
+  it("feedback : ✅ bon, ✏️ correction, Ignorer pas un problème", () => {
+    expect(feedbackAuto("fait")).toEqual({ verdict: "juste", raison: null });
+    expect(feedbackAuto("corrige", "Hi Lia")).toMatchObject({ verdict: "mauvaise_action" });
+    expect(feedbackAuto("ignore").verdict).toBe("pas_un_probleme");
+  });
+  it("bots : « faire » demande une action permise et une confiance", () => {
+    const id = "00000000-0000-0000-0000-000000000009";
+    expect(lireCorps({ action: "faire", probleme_id: id, action_proposee: "payer", confiance: 0.9 })).toHaveProperty("erreur");
+    expect(lireCorps({ action: "faire", probleme_id: id, action_proposee: "reponse" })).toEqual({ erreur: "confiance obligatoire (0 à 1)" });
+    expect(lireCorps({ action: "faire", probleme_id: id, action_proposee: "reponse", reponse: "Hi", confiance: 0.9 }))
+      .toMatchObject({ action: "faire", args: { action: "reponse", confiance: 0.9 } });
+  });
+});
+
+describe("0537 : bot_propositions (relance, faire, urgent, niveau)", () => {
+  const id = "00000000-0000-0000-0000-000000000009";
+  it("accepte les nouvelles actions et le niveau", () => {
+    expect(ACTIONS_BOT).toEqual(expect.arrayContaining(["relance", "reponse", "message_hm", "faire", "urgent"]));
+    expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "urgent" })).toMatchObject({ action: "proposer", args: { niveau: "urgent" } });
+    expect(lireCorps({ action: "proposer", probleme_id: id, niveau: "aujourdhui" })).toEqual({ erreur: "niveau : urgent, samedi, bots" });
+    expect(lireCorps({ action: "proposer", probleme_id: id, action_proposee: "relance", reponse: "Hi" })).toMatchObject({ args: { action: "relance" } });
+  });
+});
+
+describe("0538 : la carte traite d'abord le message en attente", () => {
+  it("🧠 en une phrase simple : sans étiquette, sans lien ni id de contrat", () => {
+    expect(diagnosticSimple("[SAMEDI] Kill samedi. STOP sûr : STOP 2 nov.")).toBe("Kill samedi.");
+    expect(diagnosticSimple("URGENT · offre HM. Celestine (NZ, contrat 44709470) demande si elle peut accepter.")).toBe("offre HM.");
+    expect(diagnosticSimple("Elle ne trouve pas où mettre son lien https://x.y/z et ne peut pas poster aujourd'hui.")).toBe("Elle ne trouve pas où mettre son lien et ne peut pas poster aujourd'hui.");
+    expect(diagnosticSimple(null)).toBeNull();
+  });
+
+  it("onglet : un message en attente reste dans Problèmes (⚡ après 24 h sans réponse) ; une décision seule n'y est pas", () => {
+    const sr = { texte: "Where?", canal: "upwork" as const, at: "2026-11-04T08:00:00Z", depuis_heures: 30, question: true, attend: true };
+    expect(ongletProblemes({ sans_reponse: sr, proposition_reponse: null, propose_at: null, onglet: "samedi", confiance: null })).toBe("urgent");
+    expect(ongletProblemes({ sans_reponse: sr, proposition_reponse: "Hi", propose_at: "2026-11-04T09:00:00Z", onglet: "samedi", confiance: null })).toBe("bots");
+    expect(ongletProblemes({ sans_reponse: null, proposition_reponse: null, propose_at: null, onglet: "samedi", confiance: null })).toBeNull();
+    expect(reponseAJour({ sans_reponse: sr, proposition_reponse: "Close the card", propose_at: "2026-11-01T09:00:00Z" })).toBe(false);
+  });
+
+  it("les autres sujets en badges, avec leur rituel ; le lien vers Weekly decisions", () => {
+    expect(autresSujets({ categorie: "stop", proposition_action: null, rituel: "samedi", sujets: [{ categorie: "login" }, { categorie: "paie" }] }))
+      .toEqual([{ categorie: "stop", rituel: "samedi" }, { categorie: "login", rituel: null }, { categorie: "paie", rituel: "maintenant" }]);
+    expect(lienDecision("x", "jeudi")).toBe("/admin/auto/decisions?onglet=jeudi&carte=x");
+    expect(lienDecision("x", "maintenant")).toBe("/admin/auto/decisions?carte=x");
+  });
+});
+
+describe("6/11 : ⚡ Urgent, les messages de plus de 7 jours en bas, « ancien »", () => {
+  const maintenant = Date.parse("2026-11-06T12:00:00Z");
+  const sr = (at: string) => ({ texte: "Help?", canal: "upwork" as const, at, depuis_heures: 1, question: true, attend: true });
+  const vieux = p({ id: "vieux", niveau: "urgent", created_at: "2026-10-20T10:00:00Z", sans_reponse: sr("2026-10-28T10:00:00Z") });
+  const recent = p({ id: "recent", niveau: "urgent", created_at: "2026-10-20T10:00:00Z", sans_reponse: sr("2026-11-05T10:00:00Z") });
+  const sansMessage = p({ id: "sans", niveau: "urgent", created_at: "2026-11-01T10:00:00Z" });
+
+  it("ancien : le message en attente (sinon la carte) a plus de 7 jours", () => {
+    expect(carteAncienne(vieux, maintenant)).toBe(true);
+    expect(carteAncienne(recent, maintenant)).toBe(false);
+    expect(carteAncienne(sansMessage, maintenant)).toBe(false);
+    expect(carteAncienne(p({ created_at: "2026-10-29T11:00:00Z" }), maintenant)).toBe(true);
+  });
+
+  it("dans Urgent les anciens vont en bas ; ailleurs l'ordre ne change pas", () => {
+    expect(trierCartes([vieux, sansMessage, recent], "urgent", maintenant).map((x) => x.id)).toEqual(["recent", "sans", "vieux"]);
+    expect(trierCartes([vieux, sansMessage, recent], "bots", maintenant).map((x) => x.id)).toEqual(["vieux", "recent", "sans"]);
+  });
+});
+
+describe("6/11 : réponse promise par le bot FAQ : en tête d'Urgent, rouge après 6 h", () => {
+  const maintenant = Date.parse("2026-11-06T18:00:00Z");
+  const sr = { texte: "Can I post at night?", canal: "slack" as const, at: "2026-11-06T09:00:00Z", depuis_heures: 9, question: true, attend: true };
+  const promis = (at: string) => p({
+    id: at, niveau: "urgent", sans_reponse: sr,
+    messages: [{ at, canal: "slack", auteur: "os", texte: "Thanks for your message! I'm checking this and will get back to you today." }],
+  });
+
+  it("le temps depuis la promesse ; rouge à partir de 6 h ; rien sans promesse", () => {
+    expect(promesseAttente(promis("2026-11-06T14:00:00Z"), maintenant)).toEqual({ depuisH: 4, rouge: false });
+    expect(promesseAttente(promis("2026-11-06T09:01:00Z"), maintenant)).toEqual({ depuisH: 8, rouge: true });
+    expect(promesseAttente(p({ sans_reponse: sr, messages: [] }), maintenant)).toBeNull();
+  });
+
+  it("en tête d'Urgent, la plus longue attente d'abord", () => {
+    const autre = p({ id: "autre", niveau: "urgent", sans_reponse: sr });
+    const liste = trierCartes([autre, promis("2026-11-06T14:00:00Z"), promis("2026-11-06T09:01:00Z")], "urgent", maintenant);
+    expect(liste.map((x) => x.id)).toEqual(["2026-11-06T09:01:00Z", "2026-11-06T14:00:00Z", "autre"]);
+  });
+});
+
+describe("6/11 : « À décider maintenant », les décisions envoyées depuis Problèmes en tête", () => {
+  it("cartes à boutons de décision, puis offres HM, puis le reste", () => {
+    const opt = [{ libelle: "Killer les 14 maintenant", action: "kill_immediat" }] as Probleme["options"];
+    const liste = [
+      p({ id: "paie", categorie: "paie", created_at: "2026-11-01T10:00:00Z" }),
+      p({ id: "offre", categorie: "offre_hm_incorrecte", created_at: "2026-11-02T10:00:00Z" }),
+      p({ id: "kill", categorie: "kill_contrat", question: "Killer ?", options: opt, poster_id: null, sujet: "hm", created_at: "2026-11-06T10:00:00Z" }),
+    ];
+    expect(ordreMaintenant(liste).map((x) => x.id)).toEqual(["kill", "offre", "paie"]);
   });
 });

@@ -40,23 +40,27 @@ export const ATTENTE_TEXTE_S = 8;
 /** Le guide complet, pour toute question qui dépasse cet accueil. */
 export const LIEN_GUIDE = "https://star-water-a0e.notion.site/Vik-Studios-TikTok-Poster-Guide-3f4241308d6681f8ad41dc507f2c8505";
 
-/** Le salon où les posters posent leurs questions. */
-export const SALON_QUESTIONS = "#questions";
+/**
+ * 13/11 (Max) : LA règle des questions, la même partout (popups, dashboard, FAQ, quiz, emails,
+ * Upwork et Ruul). 1. Help dans le dashboard ; 2. Slack, dans le bon salon ; 3. l'argent : Help
+ * d'abord, puis un DM à Maximilien Kender seulement si c'est vraiment nécessaire.
+ * Plus jamais #questions, #ruul-questions, « DM Lucia », « ask all your questions in a channel ».
+ */
+export const SALON_POSTING_HELP = "#posting-help";
+export const SALON_RUUL = "#ruul-posters";
+export const SALON_UPWORK = "#upwork-posters";
+export const REGLE_HELP =
+  "**Any question or problem?** Click **Help** on your dashboard. You get an answer right away, and if needed it goes to our team.";
+export const regleSlack = (ruul: boolean) =>
+  `**Slack**, in the right channel: **${SALON_POSTING_HELP}** for problems with your posts, **${ruul ? SALON_RUUL : SALON_UPWORK}** for your platform. Please make sure you join Slack.`;
+export const REGLE_ARGENT =
+  "**Money**: ask **Help** first (it goes to our team if needed). If there is really a problem, DM **Maximilien Kender** on Slack, only if truly needed.";
+/** La règle n° 3 en texte simple (pages sans gras). */
+export const QUESTIONS_PAIE =
+  "Questions about money: ask Help on your dashboard first (it goes to our team if needed). If there is really a problem, DM Maximilien Kender on Slack, only if truly needed.";
 
-/** À qui écrire quand un paiement bloque et que la HM ne répond pas. */
-export const CONTACTS_PAIEMENT = "Lucia De Mojà or Maximilien Kender";
-
-/** Une question sur la paie : jamais « ask your hiring manager » (chantier du 28 oct., G). */
-export const QUESTIONS_PAIE = `Questions? Ask in ${SALON_QUESTIONS} on Slack, or reply to our message on Upwork.`;
-
-/** Le salon des posters venus du site, qui n'ont pas de HM. */
-export const SALON_COHORTE_RUUL = "#ruul-questions";
-
-/** Le salon d'accueil, que les posters venus du site rejoignent aussi. */
-export const SALON_BIENVENUE = "#welcome";
-
-/** Page d'inscription freelancer de Ruul (paie de la cohorte Ruul). */
-export const LIEN_RUUL_INSCRIPTION = "https://app.ruul.io/register";
+/** Le salon Slack de la plateforme d'un posteur Ruul (rejoindre Slack). */
+export const SALON_COHORTE_RUUL = SALON_RUUL;
 
 import type { EtatMico } from "./Mico";
 
@@ -93,47 +97,111 @@ export interface Ecran {
   attente: number;
 }
 
-/**
- * « Your first week, in 5 steps » (chantier du 28 oct., partie G) : le même
- * ordre que la carte de l'accueil. `handle` et `premierPost` (« Monday 2
- * November ») viennent du posteur quand on les connaît, sinon le texte
- * renvoie au tableau de bord.
- */
-export function ecranCompte(handle: string | null, premierPost: string | null): Ecran {
-  const arobase = handle ? `@${handle.replace(/^@/, "")}` : null;
+/** Écran « Slack » (2/11) : la règle unique des questions, pour Ruul et Upwork. */
+export function ecranSlack(ruul: boolean): Ecran {
   return {
-    cle: "compte",
-    titre: "Your first week, in 5 steps",
-    mico: "think",
+    cle: "slack",
+    titre: "Questions & Slack",
+    mico: "wave",
+    attente: ATTENTE_TEXTE_S,
+    blocs: [
+      { type: "titre", texte: "1. A QUESTION OR A PROBLEM? CLICK HELP." },
+      { type: "liste", items: [REGLE_HELP, regleSlack(ruul), REGLE_ARGENT] },
+      { type: "rejoindreSlack" },
+      { type: "alerte", ton: "orange", items: ["**Please make sure you join Slack**, with your **full name**."] },
+    ],
+  };
+}
+
+/** Écran « Payments » (3/11), Upwork : la paie par milestone, chaque semaine. */
+export function ecranPaiementsUpwork(): Ecran {
+  return {
+    cle: "paiements",
+    titre: "Payments",
+    mico: "happy",
     attente: ATTENTE_TEXTE_S,
     blocs: [
       {
-        type: "frise",
-        items: [
-          { quand: "Done", titre: "1. Log in", texte: "You're in: your dashboard has everything you need." },
-          {
-            quand: "Today (recommended)",
-            titre: "2. Join Slack",
-            texte: "Join with your **full name**: that's where you get news and answers to your questions.",
-          },
-          {
-            quand: "Today",
-            titre: arobase ? `3. Create your TikTok account ${arobase}` : "3. Create your TikTok account",
-            texte: `With an email address of your choice. Use the ${arobase ? `handle **${arobase}**` : "handle"}, bio and profile picture from your dashboard, **exactly as provided**.`,
-          },
-          {
-            quand: "Before Sunday midnight",
-            titre: "4. Start warmup + follow 5 accounts",
-            texte:
-              "Press **“Start warmup”** on your dashboard, then follow **5 accounts** in your niche. Until your first post, use TikTok every day and **do not post anything**.",
-          },
-          {
-            quand: premierPost ? premierPost : "Next Monday (the date is on your dashboard)",
-            titre: "5. Your first post",
-            texte: "Your slideshows arrive on the platform, **with your cohort**. Post, then paste the link on your dashboard the same day.",
-          },
-        ],
+        type: "p",
+        texte:
+          "You are paid **every week** through an **Upwork milestone** from Vik Studios. **Nothing to submit**: every Monday, we pay you for the week of posts that just ended (Monday → Sunday).",
       },
+      { type: "alerte", ton: "orange", items: [REGLE_ARGENT] },
+    ],
+  };
+}
+
+/** Ce que l'écran « Your first week » sait du posteur. */
+export interface PremiereSemaine {
+  handle: string | null;
+  /** « Monday 16 November » : le jour du 1er post. */
+  premierPost: string | null;
+  /** « Monday 23 November » : le 1er paiement (le lundi après la 1re semaine de posts). */
+  premierPaiement?: string | null;
+  /** Le montant de SA semaine (sa zone), en dollars : seulement sur son propre dashboard. */
+  montantSemaine?: number | null;
+  ruul?: boolean;
+}
+
+/**
+ * « Your first week, step by step » (chantier du 28 oct., partie G ; 13/11 : l'étape Ruul et le
+ * 1er paiement). Le @, le jour du 1er post et du 1er paiement viennent du posteur quand on les
+ * connaît, sinon le texte renvoie au tableau de bord.
+ */
+export function ecranCompte(handle: string | null, premierPost: string | null, o: Omit<PremiereSemaine, "handle" | "premierPost"> = {}): Ecran {
+  const arobase = handle ? `@${handle.replace(/^@/, "")}` : null;
+  const etapes: { quand: string; titre: string; texte?: string }[] = [
+    { quand: "Done", titre: "Log in", texte: "You're in: your dashboard has everything you need." },
+    {
+      quand: "Today",
+      titre: "Join Slack",
+      texte: "Join with your **full name**. **Please make sure you join Slack.**",
+    },
+    {
+      quand: "Today",
+      titre: arobase ? `Create your TikTok account ${arobase}` : "Create your TikTok account",
+      texte: `With an email address of your choice. Use the ${arobase ? `handle **${arobase}**` : "handle"}, bio and profile picture from your dashboard, **exactly as provided**.`,
+    },
+    {
+      quand: "Before Sunday midnight",
+      titre: "Start warmup + follow 5 accounts",
+      texte:
+        "Press **“Start warmup”** on your dashboard, then follow **5 accounts** in your niche. Until your first post, use TikTok every day and **do not post anything**.",
+    },
+  ];
+  if (o.ruul) {
+    etapes.push({
+      quand: "Before Sunday midnight",
+      titre: "Prepare your Ruul account",
+      texte: "Invitation email from Ruul → verify your ID → add your bank account → click **It's done** on your dashboard.",
+    });
+  }
+  etapes.push({
+    quand: premierPost ? premierPost : "Next Monday (the date is on your dashboard)",
+    titre: "Your first post",
+    texte: "Your slideshows arrive on the platform, **with your cohort**. Post, then paste the link on your dashboard the same day.",
+  });
+  const jourPaie = o.premierPaiement ?? null;
+  etapes.push(
+    o.ruul
+      ? {
+        quand: jourPaie ?? "The Monday after your first week",
+        titre: `Your first payment: ${jourPaie ?? "the Monday after your first week"}${o.montantSemaine ? `, ${o.montantSemaine} $ for your first week` : ""}`,
+        texte: "Through Ruul, for your first week of posts (Monday → Sunday). Nothing to submit.",
+      }
+      : {
+        quand: jourPaie ?? "The Monday after your first week",
+        titre: `Your first payment: ${jourPaie ?? "the Monday after your first week"}, via your Upwork milestone`,
+        texte: "For your first week of posts (Monday → Sunday). Nothing to submit.",
+      },
+  );
+  return {
+    cle: "compte",
+    titre: "Your first week, step by step",
+    mico: "think",
+    attente: ATTENTE_TEXTE_S,
+    blocs: [
+      { type: "frise", items: etapes.map((e, i) => ({ ...e, titre: `${i + 1}. ${e.titre}` })) },
       { type: "regle", regle: "warmup" },
       { type: "regle", regle: "lien" },
       {
@@ -173,31 +241,8 @@ export const ECRANS: Ecran[] = [
       },
     ],
   },
-  {
-    cle: "slack",
-    titre: "Slack",
-    mico: "wave",
-    attente: ATTENTE_TEXTE_S,
-    blocs: [
-      { type: "titre", texte: "1. JOIN SLACK (RECOMMENDED)" },
-      {
-        type: "p",
-        texte: "Join with your **full name**: that's where you get news and answers to your questions.",
-      },
-      { type: "rejoindreSlack" },
-      { type: "alerte", ton: "orange", items: [`Any question? Ask it in **${SALON_QUESTIONS}** on Slack.`] },
-    ],
-  },
-  {
-    cle: "paiements",
-    titre: "Payments",
-    mico: "happy",
-    attente: ATTENTE_TEXTE_S,
-    blocs: [
-      { type: "p", texte: "You're paid **every Monday on Upwork by Vik Studios**." },
-      { type: "alerte", ton: "orange", items: [QUESTIONS_PAIE] },
-    ],
-  },
+  ecranSlack(false),
+  ecranPaiementsUpwork(),
   {
     cle: "plateforme",
     titre: "The platform",
@@ -363,7 +408,7 @@ export const ECRANS: Ecran[] = [
     mico: "celebrate",
     attente: ATTENTE_TEXTE_S,
     blocs: [
-      { type: "p", texte: "We hope everything was clear. **Anything unclear? Ask on Slack.**" },
+      { type: "p", texte: "We hope everything was clear. **Anything unclear? Click Help on your dashboard.**" },
       {
         type: "p",
         texte: "Thank you for everything, and good luck! **We are building something great.**",
@@ -447,7 +492,7 @@ export const QUESTIONS: Question[] = [
   {
     cle: "question",
     question: "If I have a question, what do I do?",
-    options: ["I DM the CEO on Slack", `I ask in ${SALON_QUESTIONS} on Slack`, "I ask anybody"],
+    options: ["I DM the CEO", "I ask Help in the Sophia OS", "I ask anybody"],
     bonne: 1,
     ecran: "slack",
   },
@@ -455,8 +500,8 @@ export const QUESTIONS: Question[] = [
     cle: "paiement",
     question: "I have an issue regarding a payment. What do I do?",
     options: [
-      "I post about it in my country's channel",
-      `I ask in ${SALON_QUESTIONS} on Slack, or I reply to Vik Studios’ message on Upwork`,
+      "I post about it in a Slack channel",
+      "I ask Help in the OS; if it's really a problem, I DM Maximilien Kender on Slack",
       "I wait for the next payment",
     ],
     bonne: 1,
@@ -477,30 +522,17 @@ export interface ContexteAccueil {
   identite?: { prenom: string; nom: string } | null;
   /** Lundi de démarrage (AAAA-MM-JJ) : fin du warm-up, premiers posts, premier paiement. */
   debutLe?: string | null;
-  /** Le @ TikTok à créer et le jour du 1er post (« Monday 2 November »), pour les 5 étapes. */
+  /** Le @ TikTok à créer et le jour du 1er post (« Monday 2 November »), pour les étapes. */
   handle?: string | null;
   premierPost?: string | null;
+  /** 13/11 : le jour du 1er paiement et le montant de SA semaine (Ruul). */
+  premierPaiement?: string | null;
+  montantSemaine?: number | null;
 }
 
 function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
   return {
-    slack: {
-      cle: "slack",
-      titre: "Slack",
-      mico: "wave",
-      attente: ATTENTE_TEXTE_S,
-      blocs: [
-        { type: "titre", texte: "1. ALL COMMUNICATION HAPPENS ON SLACK." },
-        {
-          type: "p",
-          texte:
-            `Join the **${SALON_BIENVENUE}** and **${SALON_COHORTE_RUUL}** channels. Ask **all your questions in ${SALON_COHORTE_RUUL}**: a technical problem, a payment question, or just to chat with the team.`,
-        },
-        // Prompt 21, C8 : le lien du réglage slack_lien_invitation, comme les autres écrans.
-        { type: "p", texte: "**If you are not in it yet:**" },
-        { type: "rejoindreSlack" },
-      ],
-    },
+    slack: ecranSlack(true),
     paiements: {
       cle: "paiements",
       titre: "Payments",
@@ -510,30 +542,25 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
         {
           type: "p",
           texte:
-            "You are paid **every week** through **Ruul** (ruul.io), our payment partner. **Nothing to submit**: every Monday, we pay you for the week of posts that just ended (Monday → Sunday). Your first payment date is on your calendar.",
+            "You are paid **every week** through **Ruul**, our payment partner. **Nothing to submit**: every Monday, we pay you for the week of posts that just ended (Monday → Sunday).",
         },
         { type: "titre", texte: "Before your first Monday" },
         {
           type: "etapes",
           items: [
-            emailRuul
-              ? `Create your free freelancer account on ruul.io with **this email address: ${emailRuul}**.`
-              : "Create your free freelancer account on ruul.io with **the email address you applied with**.",
-            "Complete the **identity check** (ID and selfie, about 10 minutes).",
-            "Add your **bank account** in Ruul.",
+            `Within 24 hours you'll receive an **invitation email from Ruul**. Create your account **FROM that email**, with this address: **${emailRuul ?? "the email address you applied with"}**.`,
+            "Verify your **ID** (ID and selfie, about 10 minutes).",
+            "Add your **bank account**.",
+            "Then click **It's done** on your dashboard.",
           ],
         },
-        { type: "lien", avant: "Start here:", libelle: "Create my Ruul account", href: LIEN_RUUL_INSCRIPTION },
         {
           type: "alerte",
           ton: "orange",
           titre: "Same email address",
-          items: ["If you sign up on Ruul with another email address, **we cannot pay you**."],
+          items: ["If you create your Ruul account with another email address, **we cannot pay you**."],
         },
-        {
-          type: "p",
-          texte: `Questions about money: send a **direct message** on Slack to the team running ${SALON_COHORTE_RUUL}, **never in the channel**. No answer? DM **${CONTACTS_PAIEMENT}**.`,
-        },
+        { type: "alerte", ton: "orange", items: [REGLE_ARGENT] },
         { type: "identite" },
       ],
     },
@@ -543,35 +570,19 @@ function ecransCohorteRuul(emailRuul: string | null): Record<string, Ecran> {
 /**
  * Les écrans à montrer à ce créateur. Même nombre d'écrans dans tous les cas
  * (la reprise et le compteur d'étapes s'appuient sur `ECRANS.length`) : la
- * cohorte Ruul remplace deux écrans, elle n'en ajoute pas.
+ * cohorte Ruul remplace des écrans, elle n'en ajoute pas.
  */
 export function ecransPour(contexte: ContexteAccueil | null | undefined): Ecran[] {
-  if (!contexte?.cohorteRuul) {
-    if (!contexte?.handle && !contexte?.premierPost) return ECRANS;
-    const compte = ecranCompte(contexte.handle ?? null, contexte.premierPost ?? null);
-    return ECRANS.map((e) => (e.cle === "compte" ? compte : e));
-  }
-  const remplacants = ecransCohorteRuul(contexte.emailRuul);
+  const ruul = Boolean(contexte?.cohorteRuul);
+  const compte = ecranCompte(contexte?.handle ?? null, contexte?.premierPost ?? null, {
+    ruul, premierPaiement: contexte?.premierPaiement ?? null, montantSemaine: contexte?.montantSemaine ?? null,
+  });
+  const remplacants: Record<string, Ecran> = { compte, ...(ruul ? ecransCohorteRuul(contexte?.emailRuul ?? null) : {}) };
   return ECRANS.map((e) => remplacants[e.cle] ?? e);
 }
 
-/**
- * Les questions du quiz pour ce créateur. La cohorte Ruul n'a pas de HM et
- * pose ses questions dans son salon : ces deux réponses changent.
- */
-export function questionsPour(contexte: ContexteAccueil | null | undefined): Question[] {
-  if (!contexte?.cohorteRuul) return QUESTIONS;
-  const remplacantes: Record<string, Partial<Question>> = {
-    question: {
-      options: ["I DM the CEO on Slack", `I ask in ${SALON_COHORTE_RUUL} on Slack`, "I ask anybody"],
-    },
-    paiement: {
-      options: [
-        "I post about it in the channel",
-        `I DM the team running ${SALON_COHORTE_RUUL} on Slack. No answer? I DM ${CONTACTS_PAIEMENT}`,
-        "I wait for the next payment",
-      ],
-    },
-  };
-  return QUESTIONS.map((q) => (remplacantes[q.cle] ? { ...q, ...remplacantes[q.cle] } : q));
+/** 13/11 : les mêmes questions pour tous (la règle des questions est la même pour Ruul et Upwork). */
+export function questionsPour(contexte?: ContexteAccueil | null): Question[] {
+  void contexte;
+  return QUESTIONS;
 }

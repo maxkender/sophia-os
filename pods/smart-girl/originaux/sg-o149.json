@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o149",
+ "type_bleo": "full_test",
+ "titre": "what to bring to a dinner party (and what never to) #etiquette #dinnerparty #smartgirl #elegance #manners",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Full test 1/4 (la jauge en demande 4 sur 13) : accroche jamais faite chez nous (« dinner party » absent des accroches de donnees/label.json). Accroches écrites : « what to bring to a dinner party (and what never to) » (retenue : concret, savoir-vivre, très enregistrable), « dinner party etiquette » (écartée : sans tension), « how to be invited again » (écartée : proche de sg-o079). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3fbb1313",
+   "texte_overlay": "what to bring to a dinner party\n(and what never to)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "455e3090",
+   "texte_overlay": "bring: flowers already\nin a vase",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8818ef3",
+   "texte_overlay": "bring: something for breakfast\nthe next morning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b839fecb",
+   "texte_overlay": "bring: a good story\n\na painting, a city, a strange\nmoment in history.",
+   "texte_sophia": "bring: a good story\n\nswap one scroll a day for\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d0b32220",
+   "texte_overlay": "never: a dish that needs\nthe oven",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "08dff72f",
+   "texte_overlay": "never: a surprise guest",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "142f25ad",
+   "texte_overlay": "never: your phone on the table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5462de9c",
+   "texte_overlay": "save this before your\nnext invitation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

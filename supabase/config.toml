@@ -56,9 +56,6 @@ verify_jwt = false
 [functions.assignation-contenu]
 verify_jwt = false
 
-[functions.assignation-ugc-video]
-verify_jwt = false
-
 [functions.backfill-musique]
 verify_jwt = false
 
@@ -81,6 +78,10 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.creation-manuelle]
+verify_jwt = false
+
+# 0700 : le suivi des emails (journal, réessais, livraisons Brevo) : cron toutes les 10 minutes.
+[functions.emails]
 verify_jwt = false
 
 # Doublons d'accroche et de couverture (0388) : cron toutes les 10 minutes.
@@ -109,6 +110,9 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.hub-posteurs]
+verify_jwt = false
+
+[functions.parrainage]
 verify_jwt = false
 
 [functions.hub-slack-cohorte]
@@ -194,6 +198,9 @@ verify_jwt = false
 [functions.revoquer-post]
 verify_jwt = false
 
+[functions.ruul]
+verify_jwt = false
+
 [functions.scan-visage-ugc]
 verify_jwt = false
 
@@ -214,10 +221,20 @@ verify_jwt = false
 [functions.slack-relier]
 verify_jwt = false
 
+[functions.slack-retrait]
+verify_jwt = false
+
+[functions.bots-banc]
+verify_jwt = false
+
 [functions.nudges]
 verify_jwt = false
 
 [functions.upwork]
+verify_jwt = false
+
+# 0671 : l'espace support (Help / Support) ; la tâche support-alertes appelle avec x-cron-secret.
+[functions.support]
 verify_jwt = false
 
 [functions.recrues-check]
@@ -227,6 +244,9 @@ verify_jwt = false
 verify_jwt = false
 
 [functions.strip-c2pa]
+verify_jwt = false
+
+[functions.retoucher-bande]
 verify_jwt = false
 
 [functions.rc-pays]
@@ -244,10 +264,11 @@ verify_jwt = false
 [functions.traduire-test]
 verify_jwt = false
 
-[functions.ugc-persona]
+[functions.ugc-ia]
 verify_jwt = false
 
-[functions.ugc-reactions]
+[functions.motion]
+# Page Motion (JWT admin revérifié par la fonction) ou moteur Motion (en-tête x-motion-jeton, 0663).
 verify_jwt = false
 
 [functions.upscale-assignes]

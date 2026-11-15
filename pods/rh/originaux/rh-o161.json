@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o161",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "85306b49-7e97-4690-9773-e8b174fb5b2d",
+ "titre": "si je sortais d'école en 2026 sans aucune offre d'emploi, voilà exactement ce que je ferais #jeunediplome #rechercheemploi #emploi #premierjob #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 14 (parent 85306b49), 2e : accroche mot pour mot, autre plan que le parent et rh-o144. Aucune plateforme citée. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b1f54a06",
+   "texte_overlay": "si je sortais d'école en 2026\nsans aucune offre d'emploi,\nvoilà exactement ce que je ferais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ebef3cfc",
+   "texte_overlay": "je ferais une liste de 30 entreprises que j'aime\npas des offres. des boîtes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ec2f9acd",
+   "texte_overlay": "j'écrirais à une personne dans chacune\n« je sors d'école, je peux vous poser 2 questions ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ecdfa3da",
+   "texte_overlay": "je prendrais un job temporaire sans honte\nça paie, et ça se raconte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cd49696c",
+   "texte_overlay": "je garderais une routine d'apprentissage\n5 minutes par jour, sur un sujet qui m'intéresse",
+   "texte_sophia": "je garderais une routine d'apprentissage\n5 minutes par jour sur l'appli Sophia, sur un sujet qui m'intéresse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ed29d0a5",
+   "texte_overlay": "je compterais mes candidatures\net je fêterais chaque entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "edf600cc",
+   "texte_overlay": "3 mois de recherche à la sortie de l'école,\nc'est normal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ee2511a8",
+   "texte_overlay": "tu cherches depuis combien de temps ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

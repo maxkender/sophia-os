@@ -6,6 +6,7 @@ import {
 import { positionConcurrent } from "./concurrents.ts";
 import { integrateSophia, translateSlideshow } from "./gemini.ts";
 import { hashtagsPour } from "./hashtags_langue.ts";
+import { chargerBlocCorrectionsNatives, correctionsPlacementNatives } from "./corrections_natives.ts";
 import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { lireTout } from "./lots.ts";
 import { avecMentionPublicite } from "./mention_publicite.ts";
@@ -175,11 +176,13 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
       }
 
       const scolaire = await regleLocalisationScolaire(supabase, compte.langue);
+      const retours = await chargerBlocCorrectionsNatives(supabase, compte.langue);
       const regles = [
         base,
         scolaire,
         consignesType,
         voixSource ? `Voix propre à cette source :\n${voixSource}` : null,
+        retours,
       ]
         .filter(Boolean)
         .join("\n\n");
@@ -279,12 +282,16 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
         .order("created_at", { ascending: false })
         .limit(40);
 
+      const natives = await correctionsPlacementNatives(supabase, compte.langue);
       const placement = await integrateSophia({
         masterPrompt: (await chargerPrompt(supabase, clePromptPlacement(slugApp))) ?? "",
-        corrections: (corrections ?? []).map((c) => ({
-          original_text: c.texte_origine,
-          corrected_text: c.texte_corrige,
-        })),
+        corrections: [
+          ...natives,
+          ...(corrections ?? []).map((c) => ({
+            original_text: c.texte_origine,
+            corrected_text: c.texte_corrige,
+          })),
+        ],
         slides: existantes.map((s) => ({
           position: s.position,
           text: s.texte_overlay ?? "",

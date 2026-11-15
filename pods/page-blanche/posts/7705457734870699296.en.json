@@ -1,0 +1,985 @@
+{
+ "post_id": "7705457734870699296",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 uncommon habits of",
+      "extremely successful people"
+     ],
+     "texte": "10/10 uncommon habits of extremely successful people"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "texte": "(niche edition)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "say no to almost everything"
+     ],
+     "texte": "say [[no]] to almost everything"
+    },
+    "T2": {
+     "en": [
+      "warren buffett said really successful people say",
+      "no to almost everything"
+     ],
+     "texte": "warren buffett said really successful people [[say no to almost everything]]"
+    },
+    "T3": {
+     "en": [
+      "stop being a people's",
+      "pleaser"
+     ],
+     "texte": "[[stop being a people's pleaser]]"
+    },
+    "T4": {
+     "en": [
+      "you'll have less time for",
+      "what actually matters"
+     ],
+     "texte": "you'll have [[less time]] for what actually matters"
+    },
+    "T5": {
+     "en": [
+      "protect your time like",
+      "it's the most valuable",
+      "thing you have"
+     ],
+     "texte": "protect your time like it's [[the most valuable thing you have]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 43,
+      "y": 236,
+      "l": 696,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 236,
+       "l": 696,
+       "h": 56,
+       "base": 278
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 351,
+      "l": 778,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 351,
+       "l": 777,
+       "h": 37,
+       "base": 379
+      },
+      {
+       "x": 40,
+       "y": 395,
+       "l": 387,
+       "h": 37,
+       "base": 423
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 449,
+      "y": 405,
+      "l": 547,
+      "h": 507
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 484,
+      "l": 349,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 45,
+       "y": 484,
+       "l": 349,
+       "h": 36,
+       "base": 512
+      },
+      {
+       "x": 45,
+       "y": 528,
+       "l": 122,
+       "h": 35,
+       "base": 556
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 614,
+      "l": 378,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 614,
+       "l": 378,
+       "h": 36,
+       "base": 642
+      },
+      {
+       "x": 46,
+       "y": 659,
+       "l": 350,
+       "h": 35,
+       "base": 687
+      }
+     ],
+     "pas": 45,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 740,
+      "l": 347,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 48,
+       "y": 740,
+       "l": 342,
+       "h": 36,
+       "base": 768
+      },
+      {
+       "x": 48,
+       "y": 783,
+       "l": 344,
+       "h": 36,
+       "base": 811
+      },
+      {
+       "x": 45,
+       "y": 827,
+       "l": 242,
+       "h": 36,
+       "base": 855
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "understand it's all your fault"
+     ],
+     "texte": "understand [[it's all your fault]]"
+    },
+    "T2": {
+     "en": [
+      "your job, your body, your grades, your habits, your",
+      "position it's all your fault"
+     ],
+     "texte": "your job, your body, your grades, your habits, your position it's [[all your fault]]"
+    },
+    "T3": {
+     "en": [
+      "that sounds harsh, but",
+      "it's actually good news"
+     ],
+     "texte": "that sounds harsh, but it's actually good news"
+    },
+    "T4": {
+     "en": [
+      "if it's your fault, it's also",
+      "in your control, you don't",
+      "have to be the person",
+      "you were yesterday, you",
+      "can change"
+     ],
+     "texte": "if it's your fault, it's also [[in your control]], you don't have to be the person you were yesterday, you can change"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 238,
+      "l": 697,
+      "h": 58
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 238,
+       "l": 697,
+       "h": 58,
+       "base": 283
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 345,
+      "l": 819,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 345,
+       "l": 819,
+       "h": 39,
+       "base": 373
+      },
+      {
+       "x": 40,
+       "y": 390,
+       "l": 391,
+       "h": 36,
+       "base": 418
+      }
+     ],
+     "pas": 45,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 466,
+      "y": 411,
+      "l": 523,
+      "h": 517
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 498,
+      "l": 370,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 498,
+       "l": 367,
+       "h": 35,
+       "base": 526
+      },
+      {
+       "x": 37,
+       "y": 541,
+       "l": 369,
+       "h": 37,
+       "base": 569
+      }
+     ],
+     "pas": 43,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 34,
+      "y": 657,
+      "l": 404,
+      "h": 212
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 657,
+       "l": 375,
+       "h": 38,
+       "base": 685
+      },
+      {
+       "x": 34,
+       "y": 702,
+       "l": 404,
+       "h": 36,
+       "base": 730
+      },
+      {
+       "x": 37,
+       "y": 746,
+       "l": 354,
+       "h": 36,
+       "base": 774
+      },
+      {
+       "x": 36,
+       "y": 790,
+       "l": 394,
+       "h": 35,
+       "base": 818
+      },
+      {
+       "x": 36,
+       "y": 834,
+       "l": 188,
+       "h": 35,
+       "base": 862
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "texte": "read books [[instead of scrolling]]"
+    },
+    "T2": {
+     "en": [
+      "bill gates reads around 50 books a year"
+     ],
+     "texte": "bill gates reads around [[50 books a year]]"
+    },
+    "T3": {
+     "en": [
+      "doomscrolling is rotting your",
+      "brain"
+     ],
+     "texte": "doomscrolling is [[rotting your brain]]"
+    },
+    "T4": {
+     "en": [
+      "books do the opposite, they",
+      "make you focus and think for",
+      "yourself"
+     ],
+     "texte": "books do the opposite, they make you [[focus]] and [[think for yourself]]"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "texte": "when i'm on my phone anyway, i do 5 min on [[the Sophia app]]. today's was [[why the renaissance started in italy]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 47,
+      "y": 229,
+      "l": 830,
+      "h": 60
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 229,
+       "l": 830,
+       "h": 60,
+       "base": 275
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 41,
+      "y": 334,
+      "l": 641,
+      "h": 37
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 334,
+       "l": 641,
+       "h": 37,
+       "base": 362
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 551,
+      "y": 392,
+      "l": 432,
+      "h": 814
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 432,
+      "l": 464,
+      "h": 78
+     },
+     "lignes": [
+      {
+       "x": 38,
+       "y": 432,
+       "l": 463,
+       "h": 36,
+       "base": 460
+      },
+      {
+       "x": 37,
+       "y": 475,
+       "l": 83,
+       "h": 35,
+       "base": 503
+      }
+     ],
+     "pas": 43,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 563,
+      "l": 473,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 563,
+       "l": 454,
+       "h": 36,
+       "base": 591
+      },
+      {
+       "x": 40,
+       "y": 606,
+       "l": 471,
+       "h": 36,
+       "base": 634
+      },
+      {
+       "x": 38,
+       "y": 649,
+       "l": 132,
+       "h": 37,
+       "base": 677
+      }
+     ],
+     "pas": 43,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 746,
+      "l": 442,
+      "h": 165
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 746,
+       "l": 440,
+       "h": 36,
+       "base": 774
+      },
+      {
+       "x": 48,
+       "y": 789,
+       "l": 432,
+       "h": 37,
+       "base": 817
+      },
+      {
+       "x": 45,
+       "y": 833,
+       "l": 434,
+       "h": 36,
+       "base": 861
+      },
+      {
+       "x": 45,
+       "y": 876,
+       "l": 237,
+       "h": 35,
+       "base": 904
+      }
+     ],
+     "pas": 43,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 370,
+      "y": 1212,
+      "l": 291,
+      "h": 124
+     }
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "dont go on your phone first thing in the",
+      "morning"
+     ],
+     "texte": "dont go on your phone [[first thing in the morning]]"
+    },
+    "T2": {
+     "en": [
+      "messages, news, tiktok, you're reacting to",
+      "everyone else before you've even got out of bed"
+     ],
+     "texte": "messages, news, tiktok, you're reacting to [[everyone else]] before you've even got out of bed"
+    },
+    "T3": {
+     "en": [
+      "your brain gets a hit of",
+      "dopamine before you've",
+      "done anything"
+     ],
+     "texte": "your brain gets [[a hit of dopamine]] before you've done anything"
+    },
+    "T4": {
+     "en": [
+      "and the rest of your",
+      "day feels boring. give",
+      "yourself the first 30",
+      "minutes without your",
+      "phone"
+     ],
+     "texte": "and the rest of your day [[feels boring]]. give yourself the first 30 minutes without your phone"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 222,
+      "l": 992,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 222,
+       "l": 989,
+       "h": 57,
+       "base": 266
+      },
+      {
+       "x": 38,
+       "y": 291,
+       "l": 210,
+       "h": 55,
+       "base": 335
+      }
+     ],
+     "pas": 69,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 382,
+      "l": 786,
+      "h": 82
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 382,
+       "l": 682,
+       "h": 36,
+       "base": 410
+      },
+      {
+       "x": 40,
+       "y": 424,
+       "l": 786,
+       "h": 40,
+       "base": 452
+      }
+     ],
+     "pas": 42,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 40,
+      "y": 495,
+      "l": 507,
+      "h": 560
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 568,
+      "y": 536,
+      "l": 392,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 569,
+       "y": 536,
+       "l": 367,
+       "h": 39,
+       "base": 564
+      },
+      {
+       "x": 568,
+       "y": 580,
+       "l": 392,
+       "h": 36,
+       "base": 608
+      },
+      {
+       "x": 569,
+       "y": 624,
+       "l": 231,
+       "h": 36,
+       "base": 652
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 566,
+      "y": 731,
+      "l": 346,
+      "h": 211
+     },
+     "lignes": [
+      {
+       "x": 566,
+       "y": 731,
+       "l": 320,
+       "h": 37,
+       "base": 759
+      },
+      {
+       "x": 566,
+       "y": 775,
+       "l": 346,
+       "h": 37,
+       "base": 803
+      },
+      {
+       "x": 566,
+       "y": 818,
+       "l": 318,
+       "h": 37,
+       "base": 846
+      },
+      {
+       "x": 567,
+       "y": 862,
+       "l": 342,
+       "h": 36,
+       "base": 890
+      },
+      {
+       "x": 567,
+       "y": 907,
+       "l": 102,
+       "h": 35,
+       "base": 935
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "wake up before everyone else"
+     ],
+     "texte": "wake up [[before everyone else]]"
+    },
+    "T2": {
+     "en": [
+      "no messages, no notifications, no one needs you yet"
+     ],
+     "texte": "no messages, no notifications, [[no one needs you yet]]"
+    },
+    "T3": {
+     "en": [
+      "the first hour of the day is",
+      "when your focus is at its",
+      "best, so use it for your",
+      "own goals"
+     ],
+     "texte": "the first hour of the day is when your focus is [[at its best]], so use it for your own goals"
+    },
+    "T4": {
+     "en": [
+      "before anyone else can",
+      "take your attention"
+     ],
+     "texte": "before anyone else can [[take your attention]]"
+    },
+    "T5": {
+     "en": [
+      "even 30 minutes earlier makes a difference"
+     ],
+     "texte": "even [[30 minutes earlier]] makes a difference"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 200,
+      "l": 762,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 200,
+       "l": 762,
+       "h": 56,
+       "base": 243
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 345,
+      "l": 855,
+      "h": 38
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 345,
+       "l": 855,
+       "h": 38,
+       "base": 373
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 45,
+      "y": 415,
+      "l": 495,
+      "h": 479
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 558,
+      "y": 445,
+      "l": 419,
+      "h": 168
+     },
+     "lignes": [
+      {
+       "x": 558,
+       "y": 445,
+       "l": 419,
+       "h": 37,
+       "base": 473
+      },
+      {
+       "x": 559,
+       "y": 489,
+       "l": 395,
+       "h": 36,
+       "base": 517
+      },
+      {
+       "x": 558,
+       "y": 532,
+       "l": 364,
+       "h": 37,
+       "base": 560
+      },
+      {
+       "x": 560,
+       "y": 577,
+       "l": 166,
+       "h": 36,
+       "base": 605
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 561,
+      "y": 681,
+      "l": 380,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 564,
+       "y": 681,
+       "l": 377,
+       "h": 37,
+       "base": 709
+      },
+      {
+       "x": 561,
+       "y": 725,
+       "l": 308,
+       "h": 36,
+       "base": 753
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 924,
+      "l": 704,
+      "h": 36
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 924,
+       "l": 704,
+       "h": 36,
+       "base": 952
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  }
+ }
+}

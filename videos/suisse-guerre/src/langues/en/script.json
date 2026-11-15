@@ -1,0 +1,181 @@
+{
+  "langue": "en",
+  "voix": {
+    "id": "nPczCjzI2devNBz1zQrb",
+    "nom": "Brian",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.42,
+      "similarity_boost": 0.8,
+      "style": 0.35,
+      "use_speaker_boost": true,
+      "speed": 1.06
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "Switzerland hasn't fought a foreign war in over 200 years. Why?",
+      "reperes": [
+        {
+          "mot": "Why?",
+          "image": 70
+        }
+      ]
+    },
+    {
+      "id": "S2",
+      "texte": "First, the Alps. Over half the country is mountains, so invading it is a nightmare.",
+      "reperes": []
+    },
+    {
+      "id": "S3",
+      "texte": "Second, in 1815, Europe's great powers officially recognized its neutrality.",
+      "reperes": [
+        {
+          "mot": "neutrality.",
+          "image": 80
+        }
+      ]
+    },
+    {
+      "id": "S4",
+      "texte": "But neutral isn't weak. Most men serve in the army and keep their rifle at home.",
+      "reperes": [
+        {
+          "mot": "rifle",
+          "image": 106
+        }
+      ]
+    },
+    {
+      "id": "S5",
+      "texte": "In World War II, they rigged their Alpine tunnels with explosives. Invade, and you win… nothing.",
+      "reperes": [
+        {
+          "mot": "explosives.",
+          "image": 98,
+          "ou": "fin"
+        }
+      ]
+    },
+    {
+      "id": "S6",
+      "texte": "And they're useful to everyone, with banks, diplomacy and peace talks in Geneva.",
+      "reperes": [
+        {
+          "mot": "diplomacy",
+          "image": 46
+        },
+        {
+          "mot": "Geneva.",
+          "image": 82
+        }
+      ]
+    },
+    {
+      "id": "S7",
+      "texte": "Attacking Switzerland costs too much. Leaving it alone pays more.",
+      "reperes": [
+        {
+          "mot": "Leaving",
+          "image": 46
+        },
+        {
+          "mot": "more.",
+          "image": 78
+        }
+      ]
+    }
+  ],
+  "outro": {
+    "texte": "Answer all these questions with the Sophia app."
+  },
+  "legende": "Why is Switzerland never at war? 🇨🇭 The answer is smarter than you think. #switzerland #history #geography #ww2 #learnontiktok",
+  "appli": {
+    "categorie": "CURRENT AFFAIRS",
+    "lectures": "100 k reads",
+    "jours": "DAYS",
+    "commencer": "Start",
+    "onglets": [
+      "Home",
+      "Library",
+      "Path",
+      "Practice",
+      "Profile"
+    ],
+    "titre": "Why is Switzerland never at war?",
+    "description": "Neutral since 1815 and armed to the teeth: Switzerland does not fight wars, but it prepares for one every day.",
+    "lecon": {
+      "sousTitre": "Neutral since 1815 and armed to the teeth.",
+      "paragraphes": [
+        [
+          {
+            "t": "For more than 200 years, Switzerland has not fought a single foreign war. Not by luck, but by design: its mountains turn any invasion into a trap, its neutrality has been "
+          },
+          {
+            "m": "officially recognized since 1815"
+          },
+          {
+            "t": ", and "
+          },
+          {
+            "m": "most men serve in a citizen army"
+          },
+          {
+            "t": "."
+          }
+        ],
+        [
+          {
+            "t": "In 1940, General Guisan planned to pull the whole army back into the Alps, the famous “Réduit”, ready to "
+          },
+          {
+            "m": "blow up the Alpine tunnels"
+          },
+          {
+            "t": " if anyone invaded."
+          }
+        ]
+      ],
+      "continuer": "Continue"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} OF 2",
+      "bravo": "Correct!",
+      "questions": [
+        {
+          "q": "Since when has Swiss neutrality been officially recognized?",
+          "options": [
+            "1648",
+            "1815",
+            "1914",
+            "1945"
+          ],
+          "bonne": 1,
+          "fait": "Congress of Vienna, 1815."
+        },
+        {
+          "q": "What did Switzerland rig with explosives during WW2?",
+          "options": [
+            "Its banks",
+            "Its Alpine tunnels",
+            "Its lakes",
+            "Its cheese caves"
+          ],
+          "bonne": 1,
+          "fait": "Gotthard and Simplon were ready to blow."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lesson complete!",
+      "score": "2/2 correct answers",
+      "serie": "DAYS STREAK",
+      "xp": "XP EARNED",
+      "suivant": "UP NEXT",
+      "suivantTitre": "Why did Sisyphus never give up?",
+      "bouton": "Next lesson"
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o104",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "45c965d5-a064-49c5-bf35-2dbd6452f2ce",
+  "titre": "les habitudes insolites que j'ai volées à mon prof de philo #philo #pourtoi",
+  "inspirations": [
+    "45c965d5-a064-49c5-bf35-2dbd6452f2ce"
+  ],
+  "notes": "G1, déclinaison de 45c965d5 (« les habitudes insolites que j'ai volées à mon prof de philo », génération 0 en français ; meilleur passage fr 11,5 k vues, r 9,33), en français. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent : ni question par une question, ni avis adverse, ni Penseur de Rodin, ni marche, ni autre appli). Fait vérifié le 7/11 sur Wikipédia (en) : Shakespeare mort le 23 avril 1616, Cervantès le 22 avril 1616. Routine du 7/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 5, 7 et 8 de la boîte). Ligne 6 sautée (5c676138, métiers du droit : treize fiches métier à vérifier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "les habitudes insolites\nque j'ai volées à mon prof de philo",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. il écrivait la question au tableau et se taisait\n\ndeux minutes de silence.\nquelqu'un finissait toujours par oser.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. il demandait de définir les mots avant d'en parler\n\nla liberté, le bonheur.\nla moitié des débats s'arrêtait là.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. il ouvrait chaque cours par une anecdote\n\nce matin, j'ai appris que shakespeare et cervantès sont morts la même année, en 1616.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. il ouvrait chaque cours par une anecdote\n\nce matin, l'appli Sophia m'a appris que shakespeare et cervantès sont morts la même année, en 1616.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. il disait je ne sais pas, souvent\n\net il revenait le lundi avec la réponse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "5. il gardait un carnet de citations\n\npas pour briller.\npour les relire les jours difficiles.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "vole-lui une habitude.\nlaquelle tu testes en premier ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

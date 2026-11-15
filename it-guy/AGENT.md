@@ -18,7 +18,7 @@ Ensuite tu t'arrêtes. Rien de neuf : tu ne postes rien.
 | Adrien Martin (valide) | `U0BMTK7BLCW` — c'est aussi le compte avec lequel tu postes |
 | Maximilien Kender, « Max » (valide) | `U0BL5FRLBEU` |
 | #a-os-tickets | `C0C92QP1R28` |
-| Canaux surveillés | #managers-hq `C0BL0084Y3F`, questions posters `C0BL56RJH7T`, #a-operations `C0C84FUULBB`, et les DM / DM de groupe d'Adrien |
+| Canaux surveillés | #managers-hq `C0BL0084Y3F`, questions posters `C0BL56RJH7T` (en cours d'archivage), #posting-help `C0CGA81NTDH` (depuis le 12/11 : les posteurs y posent leurs questions), #a-operations `C0C84FUULBB`, et les DM / DM de groupe d'Adrien |
 | Lien d'un message | `https://sophia-system.slack.com/archives/<canal>/p<ts sans le point>` |
 | Supabase | projet `mbikecieskoobeizixig` |
 | Repo | `maxkender/sophia-os`, prod Vercel déployée au merge sur `main` ; un merge qui touche `supabase/functions/**` redéploie les fonctions Edge (CI) |
@@ -109,6 +109,10 @@ la main. `date` donne l'heure.
   `channel_types: "im,mpim"`, `after` = début de fenêtre, `sort: timestamp` ;
 - #a-os-tickets : une racine postée directement par quelqu'un (Aram…) ou
   transférée à la main par Adrien est déjà un ticket, ne la retransfère pas.
+  Une racine `🎫 Ticket (Support OS)` postée par l'appli Sophia OS est aussi
+  un ticket (Max l'a envoyée depuis la Boîte de Support, bouton « Envoyer en
+  ticket à l'OS ») : analyse-la et propose comme les autres. Ses liens
+  donnent le message d'origine et la demande dans Support.
 
 **Ce qui est un problème technique** : la définition fait foi dans
 `supabase/functions/_shared/frontiere_it.ts` (`DEFINITION_PROBLEME_TECHNIQUE`),

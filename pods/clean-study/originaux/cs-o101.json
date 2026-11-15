@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o101",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7ba30aea-bef4-436d-8e66-a523b4c711e8",
+  "titre": "copying the study routine of the clever girl from a 2000s tv show #studytok #studytips #2000s",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "7ba30aea-bef4-436d-8e66-a523b4c711e8"
+  ],
+  "notes": "Déclinaison G2 de 7ba30aea (notre cs-o049 en G1), ligne 3 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o086 et cs-o095 : « copying the study routine of the clever girl from a 2000s tv show ». Habitudes neuves, aucune de cs-o049, cs-o086 ni cs-o095 : ses devoirs avant la télé, un dictionnaire à portée de main, des notes recopiées au propre le week-end, se tester avec un ami (place micabo, slide 5), relire ses rédactions à voix haute, une heure de coucher fixe. Aucun personnage ni actrice nommés. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "30a196b6",
+      "texte_overlay": "copying the study routine of the clever girl\nfrom a 2000s tv show",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "34115e28",
+      "texte_overlay": "1. homework before tv\nthe show is the reward, not the starting point.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "34f8bfa0",
+      "texte_overlay": "2. a dictionary within reach\nevery new word gets looked up. right away.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "385de760",
+      "texte_overlay": "3. clean copies of her notes every weekend\nmessy week, neat sunday.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ea4a5e70",
+      "texte_overlay": "4. she quizzes herself with a friend\nquestions back and forth until it sticks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "39914ee3",
+      "texte_overlay": "5. she reads her essays out loud before handing them in\nher ears catch what her eyes miss.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3994d15d",
+      "texte_overlay": "6. same bedtime on school nights\ntired brains don't learn.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

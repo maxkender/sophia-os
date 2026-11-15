@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o139",
+ "type_bleo": "full_test",
+ "titre": "pourquoi le recruteur ne t'a jamais rappelée (une ex-rh répond franchement) #recrutement #rechercheemploi #candidature #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le silence après l'entretien, côté rh). Raisons générales, aucune entreprise. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6cb193bf",
+   "texte_overlay": "pourquoi le recruteur\nne t'a jamais rappelée\n(une ex-rh répond franchement)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8e5c3c0d",
+   "texte_overlay": "le poste a été gelé\nça arrive souvent. personne ne prévient",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8e73cbcd",
+   "texte_overlay": "un candidat interne est passé devant\net l'offre était déjà publiée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "900e7372",
+   "texte_overlay": "il a 40 candidatures et pas le temps\nton silence n'est pas un jugement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "912a4499",
+   "texte_overlay": "un autre profil collait à un détail\nune langue, un outil, une ville",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8cc8974d",
+   "texte_overlay": "ta relance n'est jamais arrivée\nrelance une fois, poliment.\net occupe ta tête avec autre chose",
+   "texte_sophia": "ta relance n'est jamais arrivée\nrelance une fois, poliment. et occupe-toi : utilise l'appli Sophia 5 minutes par jour pour apprendre autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9343df80",
+   "texte_overlay": "ce n'est presque jamais toi\nc'est le timing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a1bc50ff",
+   "texte_overlay": "t'attends un appel depuis combien de jours ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

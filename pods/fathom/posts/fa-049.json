@@ -1,0 +1,498 @@
+{
+ "id": "fa-049",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7692078458653953302",
+  "vues": 37000,
+  "accroche": "5 Best Skills To Learn In Your 20s"
+ },
+ "titre": {
+  "en": "5 Best Skills To Learn In Your 20s",
+  "de": "5 beste Skills für deine 20er",
+  "pt": "5 melhores habilidades para aprender nos teus 20",
+  "pt-BR": "5 melhores habilidades para aprender aos 20 anos",
+  "it": "5 migliori abilità da imparare a 20 anni",
+  "es-419": "5 mejores habilidades para aprender en tus 20"
+ },
+ "legendes": {
+  "en": "5 Best Skills To Learn In Your 20s #skills #learnontiktok #selfmastery",
+  "de": "5 beste Skills für deine 20er #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "5 melhores habilidades para aprender nos teus 20 #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "pt-BR": "5 melhores habilidades para aprender aos 20 anos #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "it": "5 migliori abilità da imparare a 20 anni #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "5 mejores habilidades para aprender en tus 20 #aprendeentiktok #desarrollopersonal #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "cta C. Accroche du manifeste, nos étapes (course, échecs, skate), Sophia à l'étape 3. Aucune étape commune avec fa-036. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 BEST SKILLS",
+       "bronze": true
+      }
+     ],
+     "TO LEARN",
+     [
+      {
+       "t": "IN YOUR 20S",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 BESTE SKILLS",
+       "bronze": true
+      }
+     ],
+     "FÜR",
+     [
+      {
+       "t": "DEINE 20ER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "5 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "PARA APRENDER",
+     [
+      {
+       "t": "NOS TEUS 20",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "5 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "PARA APRENDER",
+     [
+      {
+       "t": "AOS 20 ANOS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5 ABILITÀ",
+       "bronze": true
+      }
+     ],
+     "DA IMPARARE",
+     [
+      {
+       "t": "A 20 ANNI",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "5 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "PARA APRENDER",
+     [
+      {
+       "t": "EN TUS 20",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START",
+     "RUNNING"
+    ],
+    "video": {
+     "id": "kVnyY17VS9Y",
+     "titre": "11 Beginner Run Tips | How To Start Running!",
+     "chaine": "Global Triathlon Network",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FANG AN",
+     "ZU LAUFEN"
+    ],
+    "video": {
+     "id": "lhEwMUCPyk0",
+     "titre": "Joggen für Anfänger: So gelingt der Einstieg ins Lauftraining - Tipps, Trainingsplan & Fallstricke",
+     "chaine": "DoktorWeigl",
+     "vues": "203.102 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "COMEÇA",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "rRK6yk6vO5A",
+     "titre": "CORRIDA para INICIANTES! Como começar a correr do zero?",
+     "chaine": "Raquel Castanharo",
+     "vues": "632 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/t8V2iniXXtl4uZbw3KxKW5KvHUtfk4B9aoXWsMPZgSazxM8nx4H8HlqP-VB16npi2gMDCylBo70=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMECE",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "5FJoqhlszTI",
+     "titre": "Corrida para iniciantes: como começar a correr?",
+     "chaine": "Drauzio Varella",
+     "vues": "185 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/eKO6HupEds-Nnin2SJBUqojJww8qz6k76qWrKVZGJ3wYxBvRmtmjtfhd8UfFTyoYFgL99xr8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "INIZIA",
+     "A CORRERE"
+    ],
+    "video": {
+     "id": "LLL8Q_izTP8",
+     "titre": "Come INIZIARE A CORRERE - Tutto quello che devi sapere",
+     "chaine": "Your Personal Best",
+     "vues": "91K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/fIGTMynqyV9apkB6Hgq6tLgYe5UOLYZbZqZMK46dw7FAEDEAyVlrEdpRLnzTmjLqiTsKskPG=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EMPIEZA",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "gImHug3sGKI",
+     "titre": "CÓMO EMPEZAR a CORRER sin cansarte | 7 consejos para principiantes",
+     "chaine": "The Saiyan Kiwi",
+     "vues": "2 M de vistas",
+     "date": "hace 3 años",
+     "duree": "17:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYf6yz2VdprFSCb7RwQt2TZm6_7C1k62qtlNVhSAkVWjI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY",
+     "CHESS"
+    ],
+    "video": {
+     "id": "OCSbzArwB10",
+     "titre": "How To Play Chess: The Ultimate Beginner Guide",
+     "chaine": "GothamChess",
+     "vues": "13M views",
+     "date": "5 years ago",
+     "duree": "31:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJ4RQwl-WnWQ_3AgLxvPrLkVdfLHPCRKMxUtLJnjUkhkg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPIEL",
+     "SCHACH"
+    ],
+    "video": {
+     "id": "y6vQRcp0w40",
+     "titre": "SCHACH LERNEN: Das einzige Video, das du brauchst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "763.442 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "21:55",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "JOGA",
+     "XADREZ"
+    ],
+    "video": {
+     "id": "ePwjfbKpuPA",
+     "titre": "Como Jogar Xadrez: Um Guia Completo para Iniciantes",
+     "chaine": "INCRÍVEL",
+     "vues": "2,9 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "13:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_moyLRg4mLejXMsF2FPiI_dpzjG5v2Evy5mw_f8VLES9pc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "JOGUE",
+     "XADREZ"
+    ],
+    "video": {
+     "id": "kJTwOfl0RmA",
+     "titre": "Xadrez Total | Aprendendo a jogar xadrez",
+     "chaine": "Xadrez Total",
+     "vues": "908 mil visualizações",
+     "date": "há 11 anos",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/ueIZlYmJQTXN1X5rS2rWu2XB_Ap25uQdK9H4E1zVXEUZj1hkyIKSm7j47VXWqQ09EyPzg8kYLw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "GIOCA",
+     "A SCACCHI"
+    ],
+    "video": {
+     "id": "9WYTmBDFQfI",
+     "titre": "Come Giocare A Scacchi: Guida Completa Per Principianti",
+     "chaine": "IL LATO POSITIVO",
+     "vues": "443K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "12:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kIdS0V93z_CqiryUuoI4W2asMqZ-q_-Jk3uwPpuytzYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "JUEGA",
+     "AJEDREZ"
+    ],
+    "video": {
+     "id": "x4R2EPkYzZk",
+     "titre": "Cómo jugar al Ajedrez. Tutorial de Ajedrez para principiantes por Pepe Cuenca",
+     "chaine": "chess24 en Español",
+     "vues": "2.6 M de vistas",
+     "date": "hace 6 años",
+     "duree": "13:45",
+     "avatar": "https://yt3.ggpht.com/PBHX0FLo9QGmDh5wh5QBdU1vBDwf7DNJ6KUR2dWZYfConH-k8CNj2ZPdjBCUwha9xwWMK_JHMg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "STAY CURIOUS",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "BLEIB JEDEN TAG",
+     "NEUGIERIG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "MANTÉM-TE",
+     "CURIOSO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "CONTINUE",
+     "CURIOSO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "RESTA",
+     "CURIOSO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "MANTÉN LA",
+     "CURIOSIDAD"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO",
+     "SKATE"
+    ],
+    "video": {
+     "id": "p3NXd3DhH08",
+     "titre": "HOW TO SKATEBOARD FOR BEGINNERS | HOW TO SKATEBOARD EPISODE 1",
+     "chaine": "Braille Skateboarding",
+     "vues": "18M views",
+     "date": "11 years ago",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFlvVtwzdQv9YAoGyA32hkHC_iTWR1ecYv6T65wl5NRA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "SKATEBOARDEN"
+    ],
+    "video": {
+     "id": "NYqdWiM-5gc",
+     "titre": "Der Einfachste Weg den Ollie zu lernen! | Skate Tutorial | FriiDon",
+     "chaine": "FRIIDON'T",
+     "vues": "543.400 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/Y1uspcUbR2rQGHfWOPHqS6rZMrll594dNx_GvmdxX5imYEoCaKjzRbVnIYJb8aB1sdYBOmL3jg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE A",
+     "ANDAR DE SKATE"
+    ],
+    "video": {
+     "id": "Wf6jOfwFC34",
+     "titre": "Como Remar, Fazer Curva e Frear no Skate - Skate para Iniciantes",
+     "chaine": "SKTBR",
+     "vues": "2,5 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "9:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ko_SLtLYqoCkYcW0FmH3ZKfeiMxV-Y3RAfFGSQR-RpKA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA A",
+     "ANDAR DE SKATE"
+    ],
+    "video": {
+     "id": "2jGYLrqoPxA",
+     "titre": "APRENDA A ANDAR DE SKATE: AULA BÁSICA!",
+     "chaine": "Natan por Aí",
+     "vues": "2,6 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/IZzK9T0YHjOBEwmdWlCoLW3uB5Eqx1ZYFUzpeqHUSoL-iIKfA5JsLQOG6V3lqFULewa9MO8D=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "LO SKATE"
+    ],
+    "video": {
+     "id": "270o2K0OY00",
+     "titre": "Skateboard: Ecco come iniziare. Tutorial per principianti ITA. Spingere-Frenare-Curvare.",
+     "chaine": "Vagaboarder",
+     "vues": "198K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "7:33",
+     "avatar": "https://yt3.ggpht.com/3dMrhDth2NIkXiYiPjqgNvBvezLSy38f_rgYrEJuMIwpJfsa63e3JwhhXxhiIdW6TGJOxFDi0w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     "A PATINAR"
+    ],
+    "video": {
+     "id": "5mPNu20Q6Pg",
+     "titre": "CÓMO PATINAR PARA PRINCIPIANTES",
+     "chaine": "Braille Skateboarding Español",
+     "vues": "4.5 M de vistas",
+     "date": "hace 9 años",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nWvi4JKGe3JAsEtW5tG13upMB9WaM_I_9PbHi7F5vpwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

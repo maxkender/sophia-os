@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o175",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "10dc66e0-fd3c-4f6b-82b0-750109bc8d96",
+ "titre": "how to actually cure your brain rot #brainrot #focus #smartgirl #digitaldetox #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "b053325f-c2e0-4f25-bfd4-6bd09358eddc"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 19 de la boîte (parent 10dc66e0, langue source en) : accroche du parent mot pour mot. Lignes 14 à 18 écartées (autres applis citées, faute « confidence », nom de compte, faute « helps », richesse). Étapes neuves face au parent (téléphone hors de la chambre, un livre papier, des vidéos plus longues, ennuyer son cerveau, marcher sans écouteurs). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "373b2fd3",
+   "texte_overlay": "how to actually cure\nyour brain rot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7f651554",
+   "texte_overlay": "1. charge your phone outside\nyour bedroom",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "845c7ac9",
+   "texte_overlay": "2. keep a paper book\nin your bag",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ab63b0f2",
+   "texte_overlay": "3. swap short clips for one\nreal lesson\n\na painting, a war, a planet.",
+   "texte_sophia": "3. swap short clips for one\nreal lesson\n\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "11aa9452",
+   "texte_overlay": "4. let yourself be bored\n\nyour best ideas come from it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0a9252db",
+   "texte_overlay": "5. walk without headphones",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8ab36cd8",
+   "texte_overlay": "6. one thing at a time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b5c2d17f",
+   "texte_overlay": "try it for a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  }
+ ]
+}

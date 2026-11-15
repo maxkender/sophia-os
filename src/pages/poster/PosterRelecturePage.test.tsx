@@ -14,6 +14,7 @@ vi.mock("@/features/relectureNative/useEspaceRelecteur", () => ({
 vi.mock("@/features/relectureNative/api", async (importOriginal) => ({
   ...(await importOriginal<typeof import("@/features/relectureNative/api")>()),
   mesDuelsRelecteur: () => mesDuelsRelecteur(),
+  mesRelectures: () => Promise.resolve([]),
   voterDuelRelecteur: (...a: unknown[]) => voterDuelRelecteur(...a),
 }));
 vi.mock("@/lib/supabase/client", () => ({ supabase: {} }));
@@ -78,7 +79,7 @@ describe("PosterRelecturePage", () => {
     expect(screen.getByText("Welcome to native review 👋")).toBeInTheDocument();
     expect(screen.getByText(/The golden rule/)).toBeInTheDocument();
     expect(await screen.findByTestId("duels-vide")).toHaveTextContent(/No duel waiting/);
-    expect(screen.getByTestId("relecture-bientot")).toHaveTextContent("German");
+    expect(await screen.findByTestId("relectures-vide")).toHaveTextContent(/saturday/i);
     expect(screen.queryByText(/Your country, part by part/)).not.toBeInTheDocument();
     expect(screen.getByText(/50 words minimum/)).toBeInTheDocument();
   });

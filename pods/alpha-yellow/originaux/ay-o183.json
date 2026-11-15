@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o183",
+ "type_bleo": "full_test",
+ "titre": "How to bounce back from a terrible week #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 3c6d4f34. full test. Accroche jamais faite chez nous : se relever après une mauvaise semaine, angle concret et rassurant. Accroches écrites : « How to bounce back from a terrible week » (retenue), « What to do when everything goes wrong » (écartée : vague), « The reset every man needs on bad days » (écartée : moins précis).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c6d4f34",
+   "texte_overlay": "How to bounce back\nfrom a terrible week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Sleep first. Before you fix anything, get one full night of rest. Problems look half as big after eight hours of sleep, and your decisions get twice as good.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Clean one space. Your room, your desk, your car. Restoring order in one small area gives your mind a feeling of control when everything else feels messy.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Move your body hard once. A run, a swim, a heavy workout. Physical effort burns off the stress chemicals a bad week leaves behind in your body and mind.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Talk to one person you trust. Not to complain for hours, just to share it. Saying out loud what went wrong often makes it feel lighter and much clearer.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: bad weeks dragged into bad months. After: five minutes a day of history, art or science, and a daily moment of curiosity that pulls my head out of the stress.",
+   "texte_sophia": "Before: bad weeks dragged into bad months. After: five minutes a day on a micro-learning app like the Sophia app. A daily moment of curiosity pulls me out of the stress.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Write down three lessons. What happened, what you'd do differently, what was out of your control. A bad week becomes useful the moment you learn from it.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Plan one small win for Monday. A task you can finish by ten. Starting the new week with a quick success breaks the spell of the old one and gives you momentum.",
+   "media_id": "9b2ff5e0"
+  }
+ ]
+}

@@ -1,5 +1,5 @@
 import type React from "react";
-import type { LucideIcon } from "lucide-react";
+import { Star, type LucideIcon } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { cn } from "@/lib/utils";
@@ -67,5 +67,29 @@ export function MiniBarre({ valeur, total, ton = "vert" }: { valeur: number; tot
         style={{ width: `${pct}%` }}
       />
     </span>
+  );
+}
+
+/** Une note de 1 à 5, en étoiles ; recliquer la même étoile retire la note. */
+export function Etoiles({ libelle, valeur, onChange }: { libelle: string; valeur: number | null; onChange: (n: number | null) => void }) {
+  return (
+    <div className="space-y-1">
+      <p className="text-xs text-muted-foreground">{libelle}</p>
+      <div role="radiogroup" aria-label={libelle} className="flex gap-1">
+        {[1, 2, 3, 4, 5].map((n) => (
+          <button
+            key={n}
+            type="button"
+            role="radio"
+            aria-checked={valeur === n}
+            aria-label={`${n}/5`}
+            onClick={() => onChange(valeur === n ? null : n)}
+            className="rounded p-0.5 text-muted-foreground hover:text-amber-500 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+          >
+            <Star className={cn("size-5", valeur != null && n <= valeur && "fill-amber-400 text-amber-500")} aria-hidden />
+          </button>
+        ))}
+      </div>
+    </div>
   );
 }

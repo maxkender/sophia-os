@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o145",
+ "type_bleo": "full_test",
+ "titre": "Things our grandfathers did that still work today #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "91d8b0a6-0223-489b-ac2e-42d4ed22b054"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 8, sur une image sans visage. Couverture 5ca058a8. full test. Accroche jamais faite chez nous : la sagesse simple des anciens, angle chaleureux. Accroches écrites : « Things our grandfathers did that still work today » (retenue), « Old man habits that make you better » (écartée : moqueur), « Lessons from older generations » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ca058a8",
+   "texte_overlay": "Things our grandfathers did\nthat still work today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They fixed things before replacing them. A loose button, a squeaky door, a flat tyre. Knowing how to repair the basics saves money and gives you quiet confidence.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They wrote letters and kept them. Real words on paper for the people they loved. A handwritten note still means more than any message you'll ever send.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They walked everywhere they could. To the shop, to church, to see a friend. Daily walking kept them strong, clear-headed and connected to their neighbourhood.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They ate at the table, together. No screens, real food, real talk. Shared meals are where families and friendships are built, one ordinary evening at a time.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "They kept their word with a handshake. No contracts for small favours. A man's word was enough, and living up to it made people respect him for decades.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They saved before they spent. Cash in an envelope for the holiday, the car, the wedding. Buying only what you can afford brings a calm that debt never will.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Our grandfathers learned from life and books, and curiosity never goes out of date.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Like our grandfathers knew, curiosity never goes out of date.",
+   "media_id": "c33370a3"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o192",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "912755c6-751d-4c05-880d-ddafa860f0f8",
+ "titre": "Low-key details that make you more attractive than you think #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "912755c6-751d-4c05-880d-ddafa860f0f8"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture c7b88a0b. déclinaison G2 de la ligne 7 de la boîte (912755c6, « Things that make you quietly attractive »), 3e et dernière déclinaison de ce parent après ay-o108 et ay-o147. Même promesse, autres mots. Items neufs, aucun repris du parent, d'ay-o108 ni d'ay-o147. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c7b88a0b",
+   "texte_overlay": "Low-key details that make you\nmore attractive than you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A warm, slow voice. Speaking a little slower and lower than usual sounds calm and confident, and people find a relaxed voice instantly more attractive.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Knowing how to cook one dish really well. Not ten, just one you can make perfectly for someone. It's caring, practical and quietly impressive every time.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Good manners with older people. Helping your neighbour with shopping, chatting kindly with someone's grandmother. Kindness across generations always shows.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "A tidy, simple style. Clothes that fit, colours that match, clean shoes. You don't need fashion, you just need to look like you take care of yourself.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Curiosity about the world. I do five minutes a day of history, art or science, and having interesting things to share makes every date and dinner better.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Interesting things to share make every date and dinner better.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Being on time. Arriving when you said you would shows respect, and respect is one of the most underrated attractive qualities a man can have. Late every time says the opposite.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Laughing at yourself. A man who can laugh at his own small mistakes is relaxed and secure, and that ease draws people in. Nobody wants to be around someone who takes himself too seriously.",
+   "media_id": "bdf15e02"
+  }
+ ]
+}

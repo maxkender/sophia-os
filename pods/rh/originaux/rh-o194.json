@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o194",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b28bd0de-25d7-4c48-8311-267c37c08288",
+ "titre": "6 fois où j'ai « MENTI » à ma manager… et elle m'a remerciée #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 3 (parent b28bd0de, notre rh-o057) : accroche mot pour mot, six autres situations. On choisit ses mots, on ne cache aucun fait. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ee757184",
+   "texte_overlay": "6 fois où j'ai « MENTI » à ma manager…\net elle m'a remerciée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6d476d20",
+   "texte_overlay": "« t'as vu mon mail ? »\nj'ai dit « oui, je te réponds avant midi »\nla vérité : je venais de l'ouvrir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6e98b022",
+   "texte_overlay": "« tu peux me remplacer en réunion ? »\nj'ai dit « oui, tu me donnes les 3 points clés ? »\nla vérité : j'étais terrifiée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "700cd796",
+   "texte_overlay": "« t'en penses quoi, de mon idée ? »\nj'ai dit « j'aime X, et je me demande pour Y »\nla vérité : j'avais des doutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4ee2e82e",
+   "texte_overlay": "« tu connais ce client ? »\nj'ai dit « je me renseigne et je te fais un résumé »\nla vérité : pas du tout. le soir, j'ai appris",
+   "texte_sophia": "« tu connais ce client ? »\nj'ai dit « je me renseigne et je te fais un résumé ». la vérité : pas du tout. le soir, 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "719e5ad1",
+   "texte_overlay": "« t'as le temps pour un café ? »\nj'ai dit « 10 minutes, oui »\nla vérité : j'étais débordée. mais 10 minutes, c'était possible",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "72064543",
+   "texte_overlay": "« tout va bien dans l'équipe ? »\nj'ai dit « oui, et un point à améliorer »\nla vérité : il y en avait trois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "721fcc3d",
+   "texte_overlay": "la phrase que tu dis à ta manager\nsans tout dire, c'est laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

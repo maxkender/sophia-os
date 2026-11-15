@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o086",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c13b683b-b024-492e-b0c4-8588158af8ec",
+ "titre": "Things that look weak but are actually strong #men #strength #mindset #selfimprovement #respect",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [
+  "c13b683b-b024-492e-b0c4-8588158af8ec"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 11/11. Déclinaison G1 de la ligne 7 (parent c13b683b = notre full test am-o034, langue source en ; meilleurs passages cs 4,2 k r 4,18, it 3,2 k). Accroche du parent mot pour mot. Même format : numéro, chose, deux lignes. Choses neuves, aucune de am-o034 (partir d'une bagarre, s'excuser en premier, changer d'avis, partir tôt, demander une pause, encore apprendre). Images de la banque et célébrités (autorisé) ; slide Sophia : fenêtre sur la neige, sans personne. reference_url de am-o034 vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "071b63e8",
+   "texte_overlay": "Things that look weak\nbut are actually strong",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "309fc180",
+   "texte_overlay": "1. Asking for help\n\nThe man who never asks\ncarries everything alone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0c938189",
+   "texte_overlay": "2. Saying \"I don't know\"\n\nThen finding out.\nPretending is the weak move.",
+   "texte_sophia": "2. Saying \"I don't know\"\n\nThen finding out, on the\nSophia app, that same night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "394f5cb3",
+   "texte_overlay": "3. Being gentle with kids\nand animals\n\nStrength that never needs\nto prove itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2de2e4cf",
+   "texte_overlay": "4. Letting someone else\ntake the credit\n\nYou know what you did.\nThat's enough.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "107fad3a",
+   "texte_overlay": "5. Starting over\n\nNew city, new job, new plan.\nIt takes nerve to be a\nbeginner again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "46fda56c",
+   "texte_overlay": "6. Staying kind to someone\nwho was rude\n\nYou don't let them\nchoose who you are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  }
+ ]
+}

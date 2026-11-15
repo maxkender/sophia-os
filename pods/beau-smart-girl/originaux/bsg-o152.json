@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o152",
+  "type_bleo": "full_test",
+  "titre": "les petits plaisirs gratuits qui ont rendu mon automne plus doux #automne #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : les plaisirs gratuits de saison, liste douce. Accroches écrites : « les petits plaisirs gratuits qui ont rendu mon automne plus doux » (retenue : saison, gratuité, enregistrable), « que faire en automne » (écartée : vague), « l'automne de that girl » (écartée : cliché). Aucun fait daté, aucun conseil médical. Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "52c1d107",
+      "texte_overlay": "les petits plaisirs gratuits\nqui ont rendu mon automne\nplus doux",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3f00275a",
+      "texte_overlay": "1. une balade sous la pluie, sans se presser\n\nle bruit sur le parapluie\nvaut tous les podcasts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "092c749d",
+      "texte_overlay": "2. un vieux film le dimanche soir\n\nnoir et blanc, plaid, thé.\nle meilleur rendez-vous de la semaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "961648dc",
+      "texte_overlay": "3. la bibliothèque municipale\n\nmille livres gratuits,\net le plus beau silence de la ville.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1ab47e77",
+      "texte_overlay": "4. une lettre à quelqu'un que j'aime\n\nécrite à la main.\nla réponse arrive deux semaines après.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1830bb78",
+      "texte_overlay": "5. apprendre quelque chose de beau chaque matin\n\navant, je commençais la journée sur mon téléphone.\nmaintenant, j'apprends un truc sur le monde chaque matin. et la journée commence doucement.",
+      "texte_sophia": "5. apprendre quelque chose de beau chaque matin\n\navant, je commençais la journée sur mon téléphone.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et la journée commence doucement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "a551dadf",
+      "texte_overlay": "c'est quoi ton petit plaisir d'automne ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

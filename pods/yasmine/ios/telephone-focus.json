@@ -1,0 +1,544 @@
+{
+ "fond": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a1d424c0-f48e-49f3-9366-a76bced5fdf5/2.jpg?v=1790681153275",
+ "langues": {
+  "fr": {
+   "date": "jeudi 6 novembre",
+   "titre_musique": "pluie et jazz",
+   "artiste": "fin de journée",
+   "meteo_ville": "Paris",
+   "meteo_ciel": "nuit claire",
+   "widget_micabo": [
+    "série de 12 jours",
+    "quiz du soir · 8/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendrier",
+    "notes": "Notes",
+    "photos": "Photos",
+    "livres": "Livres",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Recherche",
+    "rappels": "Rappels"
+   },
+   "mois": "novembre",
+   "revisions": "révisions",
+   "jours": [
+    {
+     "nom": "lundi",
+     "taches": [
+      "sport",
+      "quiz d’anglais"
+     ]
+    },
+    {
+     "nom": "mardi",
+     "taches": [
+      "lire 20 pages",
+      "fiches de bio"
+     ]
+    },
+    {
+     "nom": "mercredi",
+     "taches": [
+      "appeler maman"
+     ]
+    },
+    {
+     "nom": "jeudi",
+     "taches": [
+      "quiz de maths",
+      "pas d’écran à 22 h"
+     ]
+    }
+   ],
+   "focus_titre": "modes de concentration🌙",
+   "focus": [
+    [
+     "Ne pas déranger",
+     "coupe toutes les notifications"
+    ],
+    [
+     "Sommeil",
+     ""
+    ],
+    [
+     "Soirée calme",
+     "seulement micabo et Livres"
+    ],
+    [
+     "Personnel",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nouveau mode",
+   "heure": "21:12",
+   "jour": 6,
+   "meteo_emoji": "🌙"
+  },
+  "en": {
+   "date": "Thursday, November 6",
+   "titre_musique": "rain and jazz",
+   "artiste": "end of the day",
+   "meteo_ville": "London",
+   "meteo_ciel": "clear night",
+   "widget_micabo": [
+    "12-day streak",
+    "evening quiz · 8/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendar",
+    "notes": "Notes",
+    "photos": "Photos",
+    "livres": "Books",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Search",
+    "rappels": "Reminders"
+   },
+   "mois": "november",
+   "revisions": "study time",
+   "jours": [
+    {
+     "nom": "Monday",
+     "taches": [
+      "workout",
+      "english quiz"
+     ]
+    },
+    {
+     "nom": "Tuesday",
+     "taches": [
+      "read 20 pages",
+      "bio flashcards"
+     ]
+    },
+    {
+     "nom": "Wednesday",
+     "taches": [
+      "call mom"
+     ]
+    },
+    {
+     "nom": "Thursday",
+     "taches": [
+      "math quiz",
+      "no screens at 10pm"
+     ]
+    }
+   ],
+   "focus_titre": "focus modes🌙",
+   "focus": [
+    [
+     "Do Not Disturb",
+     "silence all notifications"
+    ],
+    [
+     "Sleep",
+     ""
+    ],
+    [
+     "Wind down",
+     "only micabo and Books"
+    ],
+    [
+     "Personal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "New Focus",
+   "heure": "21:12",
+   "jour": 6,
+   "meteo_emoji": "🌙"
+  },
+  "es": {
+   "date": "jueves, 6 de noviembre",
+   "titre_musique": "lluvia y jazz",
+   "artiste": "fin del día",
+   "meteo_ville": "Madrid",
+   "meteo_ciel": "noche despejada",
+   "widget_micabo": [
+    "racha de 12 días",
+    "quiz de la noche · 8/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendario",
+    "notes": "Notas",
+    "photos": "Fotos",
+    "livres": "Libros",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Buscar",
+    "rappels": "Recordatorios"
+   },
+   "mois": "noviembre",
+   "revisions": "estudio",
+   "jours": [
+    {
+     "nom": "lunes",
+     "taches": [
+      "deporte",
+      "quiz de inglés"
+     ]
+    },
+    {
+     "nom": "martes",
+     "taches": [
+      "leer 20 páginas",
+      "fichas de bio"
+     ]
+    },
+    {
+     "nom": "miércoles",
+     "taches": [
+      "llamar a mamá"
+     ]
+    },
+    {
+     "nom": "jueves",
+     "taches": [
+      "quiz de mates",
+      "sin pantallas a las 22 h"
+     ]
+    }
+   ],
+   "focus_titre": "modos de concentración🌙",
+   "focus": [
+    [
+     "No molestar",
+     "silencia todas las notificaciones"
+    ],
+    [
+     "Sueño",
+     ""
+    ],
+    [
+     "Noche tranquila",
+     "solo micabo y Libros"
+    ],
+    [
+     "Personal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nuevo modo",
+   "heure": "21:12",
+   "jour": 6,
+   "meteo_emoji": "🌙"
+  },
+  "de": {
+   "date": "Donnerstag, 6. November",
+   "titre_musique": "Regen und Jazz",
+   "artiste": "Feierabend",
+   "meteo_ville": "Berlin",
+   "meteo_ciel": "klare Nacht",
+   "widget_micabo": [
+    "12 Tage am Stück",
+    "Abend-Quiz · 8/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Kalender",
+    "notes": "Notizen",
+    "photos": "Fotos",
+    "livres": "Bücher",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Suchen",
+    "rappels": "Erinnerungen"
+   },
+   "mois": "November",
+   "revisions": "Lernzeit",
+   "jours": [
+    {
+     "nom": "Montag",
+     "taches": [
+      "Sport",
+      "Englisch-Quiz"
+     ]
+    },
+    {
+     "nom": "Dienstag",
+     "taches": [
+      "20 Seiten lesen",
+      "Bio-Karteikarten"
+     ]
+    },
+    {
+     "nom": "Mittwoch",
+     "taches": [
+      "Mama anrufen"
+     ]
+    },
+    {
+     "nom": "Donnerstag",
+     "taches": [
+      "Mathe-Quiz",
+      "ab 22 Uhr kein Bildschirm"
+     ]
+    }
+   ],
+   "focus_titre": "Fokus-Modi🌙",
+   "focus": [
+    [
+     "Nicht stören",
+     "alle Mitteilungen stumm"
+    ],
+    [
+     "Schlafen",
+     ""
+    ],
+    [
+     "Ruhiger Abend",
+     "nur micabo und Bücher"
+    ],
+    [
+     "Persönlich",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Neuer Fokus",
+   "heure": "21:12",
+   "jour": 6,
+   "meteo_emoji": "🌙"
+  },
+  "it": {
+   "date": "giovedì 6 novembre",
+   "titre_musique": "pioggia e jazz",
+   "artiste": "fine giornata",
+   "meteo_ville": "Roma",
+   "meteo_ciel": "notte serena",
+   "widget_micabo": [
+    "serie di 12 giorni",
+    "quiz serale · 8/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendario",
+    "notes": "Note",
+    "photos": "Foto",
+    "livres": "Libri",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Cerca",
+    "rappels": "Promemoria"
+   },
+   "mois": "novembre",
+   "revisions": "studio",
+   "jours": [
+    {
+     "nom": "lunedì",
+     "taches": [
+      "allenamento",
+      "quiz di inglese"
+     ]
+    },
+    {
+     "nom": "martedì",
+     "taches": [
+      "leggere 20 pagine",
+      "schede di bio"
+     ]
+    },
+    {
+     "nom": "mercoledì",
+     "taches": [
+      "chiamare la mamma"
+     ]
+    },
+    {
+     "nom": "giovedì",
+     "taches": [
+      "quiz di mate",
+      "niente schermi alle 22"
+     ]
+    }
+   ],
+   "focus_titre": "modalità full immersion🌙",
+   "focus": [
+    [
+     "Non disturbare",
+     "silenzia tutte le notifiche"
+    ],
+    [
+     "Riposo",
+     ""
+    ],
+    [
+     "Serata tranquilla",
+     "solo micabo e Libri"
+    ],
+    [
+     "Personale",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Nuova modalità",
+   "heure": "21:12",
+   "jour": 6,
+   "meteo_emoji": "🌙"
+  },
+  "pt": {
+   "date": "quinta-feira, 6 de novembro",
+   "titre_musique": "chuva e jazz",
+   "artiste": "fim do dia",
+   "meteo_ville": "Lisboa",
+   "meteo_ciel": "noite limpa",
+   "widget_micabo": [
+    "sequência de 12 dias",
+    "quiz da noite · 8/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Calendário",
+    "notes": "Notas",
+    "photos": "Fotos",
+    "livres": "Livros",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Buscar",
+    "rappels": "Lembretes"
+   },
+   "mois": "novembro",
+   "revisions": "estudos",
+   "jours": [
+    {
+     "nom": "segunda",
+     "taches": [
+      "treino",
+      "quiz de inglês"
+     ]
+    },
+    {
+     "nom": "terça",
+     "taches": [
+      "ler 20 páginas",
+      "fichas de bio"
+     ]
+    },
+    {
+     "nom": "quarta",
+     "taches": [
+      "ligar pra mãe"
+     ]
+    },
+    {
+     "nom": "quinta",
+     "taches": [
+      "quiz de matemática",
+      "sem tela às 22 h"
+     ]
+    }
+   ],
+   "focus_titre": "modos de foco🌙",
+   "focus": [
+    [
+     "Não Perturbe",
+     "silencia todas as notificações"
+    ],
+    [
+     "Sono",
+     ""
+    ],
+    [
+     "Noite tranquila",
+     "só micabo e Livros"
+    ],
+    [
+     "Pessoal",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Novo foco",
+   "heure": "21:12",
+   "jour": 6,
+   "meteo_emoji": "🌙"
+  },
+  "tr": {
+   "date": "6 Kasım Perşembe",
+   "titre_musique": "yağmur ve caz",
+   "artiste": "gün sonu",
+   "meteo_ville": "İstanbul",
+   "meteo_ciel": "açık gece",
+   "widget_micabo": [
+    "12 günlük seri",
+    "akşam testi · 8/10"
+   ],
+   "apps": {
+    "notion": "Notion",
+    "focuspomo": "FocusPomo",
+    "calendrier": "Takvim",
+    "notes": "Notlar",
+    "photos": "Fotoğraflar",
+    "livres": "Kitaplar",
+    "sophia": "Sophia",
+    "unswipe": "UnSwipe",
+    "recherche": "Ara",
+    "rappels": "Anımsatıcılar"
+   },
+   "mois": "kasım",
+   "revisions": "ders süresi",
+   "jours": [
+    {
+     "nom": "Pazartesi",
+     "taches": [
+      "spor",
+      "İngilizce testi"
+     ]
+    },
+    {
+     "nom": "Salı",
+     "taches": [
+      "20 sayfa oku",
+      "biyoloji kartları"
+     ]
+    },
+    {
+     "nom": "Çarşamba",
+     "taches": [
+      "annemi ara"
+     ]
+    },
+    {
+     "nom": "Perşembe",
+     "taches": [
+      "matematik testi",
+      "22.00’de ekran yok"
+     ]
+    }
+   ],
+   "focus_titre": "odak modları🌙",
+   "focus": [
+    [
+     "Rahatsız Etme",
+     "tüm bildirimleri sessize al"
+    ],
+    [
+     "Uyku",
+     ""
+    ],
+    [
+     "Sakin akşam",
+     "sadece micabo ve Kitaplar"
+    ],
+    [
+     "Kişisel",
+     ""
+    ]
+   ],
+   "focus_nouveau": "Yeni Odak",
+   "heure": "21:12",
+   "jour": 6,
+   "meteo_emoji": "🌙"
+  }
+ }
+}

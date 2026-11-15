@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o160",
+ "type_bleo": "full_test",
+ "titre": "small things that make you seem incredibly well read #books #reading #intelligence #selfimprovement #learning",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "85010725-57e8-4c4c-8b02-c081af2955c1"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 85010725). full test BLEO : accroche jamais faite (format « small things that make you seem »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "96d98539-5cbf-446b-869e-f994e425a489",
+   "texte_overlay": "small things that make you\nseem incredibly well read",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700273827653143840/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6ba55aa7-5d9f-4cfc-a819-b8cabaa36a3f",
+   "texte_overlay": "quoting one line\n\nlearn one great line from a book you loved and use it only when it truly fits. a single well placed quote does more than a dozen half remembered summaries.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700273827653143840/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "17e63ca9-cb83-4fd6-9feb-8df9c900e90c",
+   "texte_overlay": "knowing the author's story\n\nlearn a little about the life of the authors you read. knowing why a book was written makes every conversation about it far richer, deeper and more personal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700273827653143840/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7a2664a8-2ba4-4a0b-a589-740ac4596b72",
+   "texte_overlay": "recommending the right book\n\nkeep a short mental list of books for different moods: comfort, adventure, ideas. people remember the friend who always knows exactly what they should read next.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700273827653143840/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b517379a-ee29-41d3-9138-887c73e9d89a",
+   "texte_overlay": "a little context daily\n\nspend 5 minutes a day learning the history behind famous books, paintings and ideas. context makes you sound well read even about things you haven't finished yet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700273827653143840/5.jpg",
+   "texte_sophia": "a little context daily\n\ni spend 5 minutes a day on one lesson in the Sophia app about the history behind famous books and ideas. context makes you sound well read even about things you haven't finished."
+  },
+  {
+   "position": 6,
+   "media_id": "e48a11bc-1f02-4285-9fb4-988094717a0c",
+   "texte_overlay": "reading slowly\n\nread fewer books, but read them properly, with a pencil in hand. people who truly understand five books always sound smarter than people who quickly skimmed fifty.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700273827653143840/6.jpg"
+  }
+ ]
+}

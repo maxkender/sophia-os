@@ -31,8 +31,9 @@ import { chargerModeSituations, colonnesSituation, situationSansRisque } from ".
 import { relierNouveau } from "../_shared/slack_relier.ts";
 import { proposerLienSlack } from "../_shared/slack_connect.ts";
 import { messageAGarder } from "../_shared/slack_messages.ts";
-import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import { bloquer, PAUSE } from "../_shared/pause.ts";
+import { niveauQuestionPersonnelle, parleDeLAutrePlateforme, questionPersonnelle, texteRenvoiHelp } from "../_shared/support.ts";
 
 const OS_URL = "https://sophia-marketing-orga.vercel.app";
 
@@ -176,19 +177,93 @@ type Db = ReturnType<typeof serviceClient>;
 async function traiter(ev: EvenementSlack, botUserId: string | null): Promise<void> {
   const db = serviceClient();
   const reglages = await chargerReglagesFaq(db);
-  if (reglages.mode_slack === "eteint") return;
 
   const admins = new Set(Object.keys(ADMINS_SLACK));
-  const tri = trierEvenementSlack(ev, { canaux: reglages.canaux_slack, admins, botUserId });
+  // 11/11 (0671) : #posting-help, #ruul-posters et #upwork-posters passent par le même bot
+  // quand l'interrupteur support_slack_salons est sur on.
+  const salons = await salonsSupport(db);
+  const tri = trierEvenementSlack(ev, { canaux: [...reglages.canaux_slack, ...salons], admins, botUserId });
   if (tri.cas === "ignore") return;
 
   const managers = await chargerManagersSlack(db);
   const token = jetonSlackFaq();
+  // 13/11 (refonte, un seul cerveau) : un posteur (ni admin ni HM) passe par le cerveau du support
+  // (page Contrôle) ; l'ancien bot FAQ ne garde que les HM.
+  if (!admins.has(tri.auteur) && !managers.has(tri.auteur)) {
+    try {
+      if (tri.cas === "suite") {
+        await appelSupport({ action: "slack_suite", canal: tri.canal, parent_ts: tri.parentTs, texte: tri.texte });
+      } else {
+        const nom = token ? await nomSlack(token, tri.auteur) : null;
+        await appelSupport({ action: "slack_message", canal: tri.canal, ts: tri.ts, auteur: tri.auteur, texte: tri.texte, nom, plateforme: plateformeDuSalon(tri.canal) });
+      }
+    } catch (e) {
+      console.error("[slack-faq] support", messageErreur(e));
+    }
+    return;
+  }
+  if (reglages.mode_slack === "eteint") return;
   if (tri.cas === "suite") {
     await suivreFil(db, tri, new Set([...admins, ...managers.keys()]), token);
     return;
   }
-  await repondre(db, tri, reglages, managers, token);
+  const support = salons.includes(tri.canal) && !managers.has(tri.auteur) && !admins.has(tri.auteur);
+  if (support && questionPersonnelle(tri.texte)) {
+    // Une question personnelle (son compte, sa paie) : réponse courte, vers Help.
+    if (reglages.mode_slack === "actif" && token && !(await bloquer(db, { fonction: "faq", action: "reponse_slack", cible: tri.ts }))) {
+      const envoi = await posterSlack(token, tri.canal, texteRenvoiHelp(OS_URL), tri.ts);
+      if (!envoi.ok) console.error("[slack-faq] renvoi Help", envoi.error);
+    }
+    // 12/11 : la question ne se perd plus — elle est notée dans Support (paie → Max, le reste → Adrien).
+    if (reglages.mode_slack === "actif") {
+      const n = niveauQuestionPersonnelle(tri.texte);
+      const posterId = await profilDuPoster(db, tri.auteur);
+      const nom = token ? await nomSlack(token, tri.auteur) : null;
+      const { data: aj, error: e } = await db.rpc("support_ajouter", {
+        p: {
+          poster_id: posterId, type: n.categorie === "paiement" ? "probleme" : "question", categorie: n.categorie, texte: tri.texte,
+          source: "slack_salon", escalader: true, plateforme: plateformeDuSalon(tri.canal), bot_reponse: texteRenvoiHelp(OS_URL),
+          bot_decision: "renvoi_help", slack_canal: tri.canal, slack_ts: tri.ts, slack_user: nom ?? tri.auteur,
+        },
+      });
+      if (e) console.error("[slack-faq] support (question perso)", e.message);
+      const idSupport = (aj as { id?: string } | null)?.id;
+      if (idSupport) {
+        await db.from("support_demandes").update({ niveau: n.niveau, raison: `Salon Slack : question perso (${n.categorie}).` })
+          .eq("id", idSupport).is("niveau", null);
+      }
+    }
+    return;
+  }
+  await repondre(db, tri, reglages, managers, token, support ? plateformeDuSalon(tri.canal) : undefined);
+}
+
+/** 13/11 : la fonction support, avec le secret des crons. */
+async function appelSupport(corps: Record<string, unknown>): Promise<void> {
+  await secretCron();
+  const secret = secretCronConnu();
+  const r = await fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/support`, {
+    method: "POST",
+    headers: { "content-type": "application/json", ...(secret ? { "x-cron-secret": secret } : {}) },
+    body: JSON.stringify(corps),
+  });
+  const data = await r.json().catch(() => ({})) as { ok?: boolean; error?: string };
+  if (!r.ok || data.ok === false) throw new Error(data.error ?? `support : HTTP ${r.status}`);
+}
+
+/** 0671 : les salons du support, seulement si l'interrupteur est sur on. */
+async function salonsSupport(db: Db): Promise<string[]> {
+  const { data } = await db.from("reglages").select("cle, valeur").in("cle", ["support_slack_salons", "support_salons"]);
+  const v = Object.fromEntries((data ?? []).map((r) => [r.cle as string, r.valeur]));
+  if (v.support_slack_salons !== true && v.support_slack_salons !== "on") return [];
+  return Array.isArray(v.support_salons) ? v.support_salons.map(String) : [];
+}
+
+/** #ruul-posters → Ruul ; #upwork-posters → Upwork ; #posting-help → tous. */
+function plateformeDuSalon(canal: string): "ruul" | "upwork" | null {
+  if (canal === "C0CA5SH59N0") return "ruul";
+  if (canal === "C0CG13NM2HM") return "upwork";
+  return null;
 }
 
 async function repondre(
@@ -197,6 +272,8 @@ async function repondre(
   reglages: ReglagesFaq,
   managers: Map<string, string>,
   token: string | null,
+  /** 0671 : une question d'un salon du support (undefined : #questions, comme avant). */
+  support?: "ruul" | "upwork" | null,
 ): Promise<void> {
   const role = managers.has(q.auteur) ? "hiring_manager" : "poster";
   const userId = managers.get(q.auteur) ?? await profilDuPoster(db, q.auteur);
@@ -225,7 +302,7 @@ async function repondre(
   const erreurs: string[] = [];
   const [nom, charge] = await Promise.all([
     token ? nomSlack(token, q.auteur) : Promise.resolve(null),
-    chargerBase(db, role),
+    chargerBase(db, role, support ?? null),
   ]);
   if (!charge.pages) erreurs.push("guide Notion pas encore copié (guides-notion)");
 
@@ -250,6 +327,10 @@ async function repondre(
     }
   }
   if (modeSituations === "test") sit = await situation;
+  // 0671 : dans #ruul-posters, jamais Upwork ; dans #upwork-posters, jamais Ruul (la question va à l'équipe).
+  if (support && r?.decision === "repondu" && parleDeLAutrePlateforme(r.reponse, support)) {
+    r = { ...r, decision: "inconnu", reponse: "" };
+  }
 
   const patch: Record<string, unknown> = {
     etat: r ? etatDepuisDecision(r.decision) : "a_traiter",
@@ -295,6 +376,23 @@ async function repondre(
       } else {
         erreurs.push(`Slack : ${envoi.error}`);
       }
+    }
+  }
+  // 0671 : un salon du support où le bot ne sait pas (ou personne de l'équipe n'a répondu) → Support › Questions.
+  if (support !== undefined && !test && (!r || ["inconnu", "incertain", "bug"].includes(r.decision)) && patch.etat !== "traite_slack") {
+    const { data: aj, error: e } = await db.rpc("support_ajouter", {
+      p: {
+        poster_id: userId, type: "question", categorie: null, texte: q.texte, source: "slack_salon", escalader: true,
+        plateforme: support, brouillon: r ? (r.proposition || r.reponse || null) : null, bot_decision: r?.decision ?? "erreur",
+        slack_canal: q.canal, slack_ts: q.ts, slack_user: nom ?? q.auteur,
+      },
+    });
+    if (e) erreurs.push(`support : ${e.message}`);
+    // 12/11 (Support propre) : une question de salon que le bot ne sait pas régler va à Adrien.
+    const idSupport = (aj as { id?: string } | null)?.id;
+    if (idSupport) {
+      await db.from("support_demandes").update({ niveau: "adrien", raison: `Salon Slack : le bot ne sait pas (${r?.decision ?? "erreur"}).` })
+        .eq("id", idSupport).is("niveau", null);
     }
   }
   if (erreurs.length) patch.erreur = erreurs.join(" · ");

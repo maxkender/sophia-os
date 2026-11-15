@@ -1,0 +1,366 @@
+{
+ "post_id": "7708068157784591649",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "extremely successful"
+     ],
+     "fr": "10/10 habitudes pour réussir comme jamais",
+     "texte": "10/10 abitudini per avere un successo enorme"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(lo dice la neuroscienza)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start before you feel ready"
+     ],
+     "fr": "lance-toi [[avant que tout soit prêt]]",
+     "texte": "inizia [[prima che sia tutto pronto]]"
+    },
+    "T2": {
+     "en": [
+      "the business, the gym, the youtube channel, you",
+      "keep waiting until you feel confident enough"
+     ],
+     "fr": "le projet, la salle, la chaîne, t'attends toujours le jour où t'auras [[assez confiance]]",
+     "texte": "il business, la palestra, il canale, continui ad aspettare di avere [[abbastanza fiducia]]"
+    },
+    "T3": {
+     "en": [
+      "but motivation usually",
+      "comes after you start,",
+      "not before"
+     ],
+     "fr": "mais la motivation arrive [[quand t'as commencé]], pas avant",
+     "texte": "ma la motivazione di solito arriva [[dopo che inizi]], non prima"
+    },
+    "T4": {
+     "en": [
+      "successful people feel",
+      "scared too, they just",
+      "start anyway"
+     ],
+     "fr": "les gens qui réussissent [[ont peur aussi]], ils y vont quand même",
+     "texte": "anche chi ha successo [[ha paura]], ma inizia lo stesso"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching productivity videos"
+     ],
+     "fr": "arrête les [[vidéos de productivité]]",
+     "texte": "smetti di guardare [[video sulla produttività]]"
+    },
+    "T2": {
+     "en": [
+      "5am routines, study with me, day in the life of a",
+      "CEO, it feels like you're working on yourself"
+     ],
+     "fr": "routines de 5h du mat, study with me, une journée de CEO, t'as l'impression [[de bosser sur toi]]",
+     "texte": "routine delle 5, study with me, un giorno da CEO, ti sembra di [[lavorare su di te]]"
+    },
+    "T4": {
+     "en": [
+      "but your brain gets",
+      "a hit of dopamine",
+      "like you've actually",
+      "done something"
+     ],
+     "fr": "mais ton cerveau reçoit [[sa dose de dopamine]] comme si t'avais fait un truc",
+     "texte": "ma il tuo cervello riceve [[una botta di dopamina]] come se avessi fatto qualcosa"
+    },
+    "T3": {
+     "en": [
+      "successful people aren't watching other people",
+      "work. close the video and do the thing instead"
+     ],
+     "fr": "les gens qui réussissent regardent pas les autres bosser. ferme la vidéo et [[fais le truc]] à la place",
+     "texte": "chi ha successo non guarda gli altri lavorare. chiudi il video e [[fai la cosa]] al posto loro"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 43,
+      "y": 227,
+      "l": 920,
+      "h": 60
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 227,
+       "l": 920,
+       "h": 60,
+       "base": 283
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 33,
+      "y": 349,
+      "l": 851,
+      "h": 89
+     },
+     "lignes": [
+      {
+       "x": 34,
+       "y": 349,
+       "l": 850,
+       "h": 43,
+       "base": 380
+      },
+      {
+       "x": 33,
+       "y": 397,
+       "l": 776,
+       "h": 41,
+       "base": 435
+      }
+     ],
+     "pas": 55,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 32,
+      "y": 477,
+      "l": 511,
+      "h": 359
+     }
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 561,
+      "y": 517,
+      "l": 341,
+      "h": 184
+     },
+     "lignes": [
+      {
+       "x": 565,
+       "y": 517,
+       "l": 337,
+       "h": 39,
+       "base": 548
+      },
+      {
+       "x": 561,
+       "y": 565,
+       "l": 316,
+       "h": 39,
+       "base": 596
+      },
+      {
+       "x": 564,
+       "y": 614,
+       "l": 334,
+       "h": 39,
+       "base": 645
+      },
+      {
+       "x": 563,
+       "y": 663,
+       "l": 290,
+       "h": 39,
+       "base": 694
+      }
+     ],
+     "pas": 49,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 32,
+      "y": 868,
+      "l": 856,
+      "h": 89
+     },
+     "lignes": [
+      {
+       "x": 32,
+       "y": 868,
+       "l": 856,
+       "h": 44,
+       "base": 899
+      },
+      {
+       "x": 32,
+       "y": 916,
+       "l": 835,
+       "h": 41,
+       "base": 954
+      }
+     ],
+     "pas": 55,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[chaque jour]]",
+     "texte": "leggi un libro [[ogni giorno]]"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis [[vouloir lire plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "dici che [[vuoi leggere di più]], poi ti ritrovi a [[scrollare tutto il giorno]]"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found this thing which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[c'était moi avant]]. maintenant c'est un livre au lit, des balades, et [[l'appli Sophia]] quand je prends mon tel",
+     "texte": "[[anch'io facevo così]]. ora è un libro a letto, lunghe passeggiate e [[l'app Sophia]] quando prendo il telefono"
+    },
+    "T4": {
+     "en": [
+      "warren buffett spends most",
+      "of his day reading. it builds",
+      "focus, patience and the",
+      "ability to think for yourself"
+     ],
+     "fr": "warren buffett [[lit presque toute la journée]]. ça muscle ta concentration, ta patience et [[ton esprit critique]]",
+     "texte": "warren buffett passa [[quasi tutto il giorno a leggere]]. allena concentrazione, pazienza e [[pensiero critico]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "eat the frog"
+     ],
+     "fr": "[[avale le crapaud]]",
+     "texte": "[[mangia il rospo]]"
+    },
+    "T2": {
+     "en": [
+      "do the hardest thing on your list first"
+     ],
+     "fr": "fais [[le truc le plus dur]] de ta liste en premier",
+     "texte": "fai [[la cosa più difficile]] della lista per prima"
+    },
+    "T3": {
+     "en": [
+      "your brain is freshest",
+      "in the morning, before",
+      "a hundred small",
+      "decisions wear it out"
+     ],
+     "fr": "ton cerveau est [[au top le matin]], avant que cent petites décisions l'épuisent",
+     "texte": "il tuo cervello è [[più fresco la mattina]], prima che cento piccole decisioni lo sfiniscano"
+    },
+    "T4": {
+     "en": [
+      "once the hardest thing",
+      "is done, the rest of",
+      "your day feels easy",
+      "and you stop dreading",
+      "it all day"
+     ],
+     "fr": "une fois le plus dur fait, le reste de la journée [[passe tout seul]] et t'as plus [[cette boule au ventre]]",
+     "texte": "fatta la cosa più difficile, il resto della giornata [[sembra facile]] e smetti di [[temerla tutto il giorno]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "track your progress every day"
+     ],
+     "fr": "note tes progrès [[chaque jour]]",
+     "texte": "segna i tuoi progressi [[ogni giorno]]"
+    },
+    "T2": {
+     "en": [
+      "a habit tracker, a gym log, a journal, anything",
+      "you can look back at"
+     ],
+     "fr": "un habit tracker, un carnet de muscu, un journal, [[n'importe quoi à relire]]",
+     "texte": "un habit tracker, un diario della palestra, un journal, [[qualcosa da rileggere]]"
+    },
+    "T3": {
+     "en": [
+      "your brain rewards",
+      "progress, even",
+      "small progress, so",
+      "seeing it makes you",
+      "want to keep going"
+     ],
+     "fr": "ton cerveau [[récompense les progrès]], même petits, alors les voir te donne envie de continuer",
+     "texte": "il tuo cervello [[premia i progressi]], anche piccoli, quindi vederli ti fa venire voglia di continuare"
+    },
+    "T4": {
+     "en": [
+      "you stop relying on motivation and start trusting",
+      "the proof that you're getting better"
+     ],
+     "fr": "tu comptes plus sur la motivation, tu [[te fies aux preuves]] que tu progresses",
+     "texte": "smetti di contare sulla motivazione e inizi a [[fidarti delle prove]] che stai migliorando"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

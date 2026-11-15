@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o139",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e21b61da-ae48-4bf4-966a-f922ede52efb",
+ "titre": "How to get extremely good at conversation in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "e21b61da-ae48-4bf4-966a-f922ede52efb"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 0cc56d8a. déclinaison G1 de la ligne 9 de la boîte (e21b61da, es-419 4,9 k r 13,11) : accroche du parent mot pour mot. Items neufs, aucun repris du parent ni d'ay-o048. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0cc56d8a",
+   "texte_overlay": "How to get extremely good at\nconversation in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676937223211617568/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn to listen for the hidden topic. When someone says \"I was up late,\" ask \"Doing something fun?\" Small details people drop are invitations to talk more.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Match the depth they offer. Light answer, keep it light. Personal answer, go a bit deeper. Mirroring how open someone is makes them feel safe with you.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Talk about ideas, not just events. \"What do you think makes a city feel alive?\" Questions about opinions lead to the best, most memorable conversations.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Feed your head every day. I do five minutes a day of history, art or science, and I always have something fresh to bring into any conversation I have.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have something fresh to bring into any conversation.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Admit when you don't know something. \"I've never heard of that, tell me more.\" Curiosity is far more engaging and likeable than pretending to know everything.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Make people laugh at situations, not at others. Light humour about shared moments brings people closer, while jokes at someone's expense push everyone away.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Remember to ask about them next time. \"How did the interview go?\" Picking up an old conversation shows you listened, and it makes every chat easier.",
+   "media_id": "79e0e876"
+  }
+ ]
+}

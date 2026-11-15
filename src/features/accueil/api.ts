@@ -71,6 +71,12 @@ export async function localiserAccueils(contrats?: string[]): Promise<Localisati
   return r.resultats ?? [];
 }
 
+/** 12/11 (Max) : « Ne pas créer » (pays fermé) : le contrat sort de la liste, rien n'est créé ni envoyé. */
+export async function ecarterAccueil(contratId: string, raison: string): Promise<void> {
+  const { error } = await supabase.rpc("accueil_ecarter", { p_contrat: contratId, p_raison: raison });
+  if (error) throw error;
+}
+
 /** « Contrats à relier » : pays, langue, HM ; créé au passage suivant. */
 export async function relierAccueil(contratId: string, pays: string, langue: string, hmId: string | null, retenir: boolean): Promise<void> {
   const { error } = await supabase.rpc("accueil_relier", {

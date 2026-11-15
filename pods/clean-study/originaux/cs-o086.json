@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o086",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7ba30aea-bef4-436d-8e66-a523b4c711e8",
+  "titre": "study habits of the bookish girl in every 2000s tv show #studytok #studytips #2000s",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "7ba30aea-bef4-436d-8e66-a523b4c711e8"
+  ],
+  "notes": "Déclinaison G2 de 7ba30aea (notre cs-o049 en G1), ligne 1 de la boîte. Même promesse (étudier comme la fille intello d'une série du début des années 2000), autres mots : « study habits of the bookish girl in every 2000s tv show ». Habitudes neuves, aucune de cs-o049 (livre dans le sac, notes à la main, questions en marge, test façon jeu télé, pas de téléphone, fierté) : une liste de lecture, la bibliothèque comme deuxième maison, un beau carnet de résumés, débattre des idées avec ses amis, se tester entre deux cours (place micabo, slide 6), un agenda papier. Aucun personnage ni actrice nommés. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "68c98e32",
+      "texte_overlay": "study habits of the bookish girl\nin every 2000s tv show",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6ba7007d",
+      "texte_overlay": "1. she has a reading list\nand she actually crosses books off it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "80f2d612",
+      "texte_overlay": "2. the library is her second home\nquiet, free, and no excuses.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "830a64c1",
+      "texte_overlay": "3. one pretty notebook just for summaries\nshe likes opening it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8636a665",
+      "texte_overlay": "4. she debates ideas with her friends\nexplaining = understanding.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "23b38f8b",
+      "texte_overlay": "5. she quizzes herself between classes\nfive minutes here and there add up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8fcfed36",
+      "texte_overlay": "6. a paper planner, filled every sunday\nnothing important lives only in her head.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

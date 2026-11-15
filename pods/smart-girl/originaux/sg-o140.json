@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o140",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "dc5c89ea-290c-4bb4-974a-1a2612f0bc34",
+ "titre": "everyday skills that make a woman timeless #timeless #elegance #smartgirl #skills #thatgirl",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "d175b6b6-554a-4ce6-b18e-977101819d58"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 2 de la boîte (parent dc5c89ea, langue source en) : accroche reformulée (« timeless skills every woman should learn » → « everyday skills that make a woman timeless »), troisième et dernière déclinaison du parent, autre que sg-o118 et sg-o130. Savoir-faire neufs (arranger des fleurs, un pique-nique réussi, repasser une chemise, dire non avec grâce). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d33ebe45",
+   "texte_overlay": "everyday skills that make\na woman timeless",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7011911f",
+   "texte_overlay": "1. arranging flowers\n\nodd numbers, different heights.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "391c4663",
+   "texte_overlay": "2. hosting a simple picnic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ee658035",
+   "texte_overlay": "3. ironing a shirt properly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "50356c61",
+   "texte_overlay": "4. saying no gracefully\n\n\"thank you so much,\nbut i can't this time.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cd354727",
+   "texte_overlay": "5. knowing the story behind\na famous painting",
+   "texte_sophia": "5. knowing the story behind\na famous painting. i learn\none a day on a micro-learning\napp like the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d89bad26",
+   "texte_overlay": "which one do you have?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/7.jpg"
+  }
+ ]
+}

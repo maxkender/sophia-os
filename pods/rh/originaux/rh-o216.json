@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o216",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cfc13876-ccf7-4798-a29b-a06b645b3b14",
+ "titre": "5 « petits mensonges » qui passent très bien en entretien #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne 1 (parent cfc13876, notre rh-o160) : même promesse, autres mots. Cinq autres phrases, chacune vraie ou rendue vraie. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "12090370",
+   "texte_overlay": "5 « petits mensonges »\nqui passent très bien\nen entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c3a9ef74",
+   "texte_overlay": "1. « je suis à l'aise en public »\nrends-le vrai : présente-toi à voix haute 3 fois avant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c3ba46ba",
+   "texte_overlay": "2. « je connais bien votre entreprise »\nrends-le vrai : 15 minutes sur leur site la veille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b1f5a81b",
+   "texte_overlay": "3. « je suis curieuse de tout »\nrends-le vrai : 5 minutes par jour à apprendre un truc",
+   "texte_sophia": "3. « je suis curieuse de tout »\nrends-le vrai : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c4a66a5e",
+   "texte_overlay": "4. « j'ai aimé mon ancien poste »\nchoisis ce que t'as vraiment aimé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c58a68fe",
+   "texte_overlay": "5. « je suis disponible rapidement »\navec ta vraie date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c6c5d68e",
+   "texte_overlay": "pas de mensonge.\njuste de la préparation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c6cdb904",
+   "texte_overlay": "lequel tu rends vrai cette semaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

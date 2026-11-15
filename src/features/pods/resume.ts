@@ -41,10 +41,15 @@ export function resumePods(data: TableauPods): ResumePods {
 /**
  * Les podz du tableau : actifs et qui ont déjà publié ou des contenus, plus
  * tout podz qui a une livraison en attente (sinon on ne le voit nulle part).
- * Ceux qui attendent une validation d'abord, puis par vues médianes.
+ * Ceux qui attendent une validation d'abord, puis par vues moyennes (la
+ * médiane en repli, avant 0717).
  */
 export function lignesPods(pods: PodTableau[]): PodTableau[] {
   return pods
     .filter((p) => (p.actif && (p.publies_30j > 0 || p.contenus > 0)) || p.a_valider > 0)
-    .sort((a, b) => Number(b.a_valider > 0) - Number(a.a_valider > 0) || (b.vues_mediane ?? -1) - (a.vues_mediane ?? -1));
+    .sort((a, b) => Number(b.a_valider > 0) - Number(a.a_valider > 0) || vuesTri(b) - vuesTri(a));
+}
+
+function vuesTri(p: PodTableau): number {
+  return p.vues_moyenne ?? p.vues_mediane ?? -1;
 }

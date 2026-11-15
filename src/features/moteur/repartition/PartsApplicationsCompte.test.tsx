@@ -37,7 +37,7 @@ function compte(patch: Partial<CompteAvecDetails> = {}): CompteAvecDetails {
     id: "c1",
     langue: "fr",
     ugc_ai: false,
-    ugc_ai_video: false,
+    ugcv: false,
     parts_applications: null,
     ...patch,
   } as CompteAvecDetails;

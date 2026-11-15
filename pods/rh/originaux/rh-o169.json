@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o169",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fca815c7-7a0a-48d9-bd44-55e2cd334bfd",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien, partie 6 #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G1 de la ligne 3 (parent fca815c7, notre rh-o068) : accroche mot pour mot, six questions neuves (aucune reprise des parties 1 à 6). Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c9747b19",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien\npartie 6",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "061d6833",
+   "texte_overlay": "1\n« vous avez été licenciée ? »\njamais un mensonge\ntu dis les faits en une phrase, puis ce que t'en as appris",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "06762ece",
+   "texte_overlay": "2\n« vous êtes à l'aise avec le changement ? »\njamais « j'adore le changement » si c'est faux\ntu dis comment tu t'adaptes, avec un exemple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f4c4ed4f",
+   "texte_overlay": "3\n« vous lisez la presse ? »\njamais « non »\ntu dis ce que tu suis, même 5 minutes par jour",
+   "texte_sophia": "3\n« vous lisez la presse ? »\njamais « non »\ntu dis ce que tu suis. perso, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "067cba61",
+   "texte_overlay": "4\n« qu'est-ce que vous n'aimez pas faire ? »\njamais « rien »\nune tâche précise, et comment tu la fais quand même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0708e548",
+   "texte_overlay": "5\n« vous avez des enfants ? »\nça ne les regarde pas\ntu dis « mon organisation me permet d'être disponible pour ce poste »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "074f09e6",
+   "texte_overlay": "6\n« vous connaissez quelqu'un ici ? »\njamais un nom au hasard\ntu dis la vérité, oui ou non",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "07985b7c",
+   "texte_overlay": "laquelle t'a déjà piégée ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

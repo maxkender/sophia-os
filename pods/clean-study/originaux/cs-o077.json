@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o077",
+  "type_bleo": "full_test",
+  "titre": "how i get back on track after a week of not studying #studytok #studytips #school #studymotivation",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). La jauge est passée de 30 à 40 % après les dépôts du 8/11 : un 2e full test. Accroche jamais faite chez nous (« back on track » absent du label). Accroches écrites : « how i get back on track after a week of not studying » (retenue : une situation très partagée, un plan simple), « i didn't study for a week. here's how i caught up » (écartée : longue), « catching up after falling behind » (écartée : plate). Six gestes vrais : pas de culpabilité, la liste de tout ce qui manque, les 3 urgences, les notes d'un ami, se tester sur ce qui tombe en premier (place micabo, slide 6), 30 minutes par jour. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne ; images reprises d'originaux de plus d'une semaine (la banque n'a plus de photos libres).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d92552d8",
+      "texte_overlay": "how i get back on track\nafter a week of not studying",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "bda29c6e",
+      "texte_overlay": "first: no guilt spiral.\nit's one week, not the whole year.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cfc79a56",
+      "texte_overlay": "i list everything i missed.\nlessons, homework, upcoming tests. on one page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "d454c574",
+      "texte_overlay": "i circle the 3 most urgent.\nthe rest waits.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d6ea18fe",
+      "texte_overlay": "i ask a friend for their notes\nand copy only what's missing from mine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "fa92c7f4",
+      "texte_overlay": "i quiz myself on what's tested first.\nso i know exactly where i stand.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d7e108a5",
+      "texte_overlay": "then 30 minutes a day until the list is empty.\nslow and steady catches up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

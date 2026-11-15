@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o077",
+  "type_bleo": "full_test",
+  "titre": "les films classiques que j'ai regardés pour me cultiver (et que j'ai vraiment aimés) #cinema #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 2). Accroche jamais faite chez nous : les films classiques, en récit « je ». Accroches écrites : « les films classiques que j'ai regardés pour me cultiver (et que j'ai vraiment aimés) » (retenue : liste concrète, enregistrable, rassure sur l'ennui), « les films qui font de toi une fille cultivée » (écartée : promesse vague), « 5 films à voir avant tes 25 ans » (écartée : trop vu). Faits vérifiés le 4/11 sur Wikipédia (en) : Roman Holiday (« Hepburn won an Academy Award for Best Actress »), La Dolce Vita (« won the Palme d'Or at the 1960 Cannes Film Festival »). Dates de sortie courantes : Casablanca 1942, Douze hommes en colère 1957, Les Parapluies de Cherbourg 1964. Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "les films classiques que j'ai regardés\npour me cultiver\n(et que j'ai vraiment aimés)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. casablanca (1942)\n\nje pensais m'ennuyer.\nj'ai pleuré à la dernière scène.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "114ca47c",
+      "texte_overlay": "2. vacances romaines (1953)\n\nce matin, j'ai appris qu'audrey hepburn a gagné l'oscar de la meilleure actrice pour ce film.\nje l'ai raconté trois fois dans la journée.",
+      "texte_sophia": "2. vacances romaines (1953)\n\nce matin, l'appli Sophia m'a appris qu'audrey hepburn a gagné l'oscar de la meilleure actrice pour ce film.\nje l'ai raconté trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4c866843",
+      "texte_overlay": "3. la dolce vita (1960)\n\npalme d'or à cannes.\nrome en noir et blanc, et une fontaine que tout le monde connaît.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "414511dc",
+      "texte_overlay": "4. les parapluies de cherbourg (1964)\n\nun film où tout est chanté.\nbizarre cinq minutes, puis on ne veut plus que ça s'arrête.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "01c21b76",
+      "texte_overlay": "5. douze hommes en colère (1957)\n\npresque tout le film se passe dans une seule pièce.\net tu ne lâches pas l'écran une seconde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "lequel tu regardes ce week-end ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o183",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fc1d22c0-b63a-476d-a67f-7d95a3a3ccad",
+ "titre": "cultured events you can join without knowing anyone #culture #travel #smartgirl #bucketlist #art",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "4044eed7-a900-4304-a5d0-2634f5cdd34a"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 3 de la boîte (parent fc1d22c0, langue source en) : accroche reformulée (« high society events you don't need an invitation for » → « cultured events you can join without knowing anyone »), troisième et dernière déclinaison du parent, autre que sg-o153 et sg-o169. Événements gratuits ou ouverts : Journées européennes du patrimoine (septembre), Fête de la musique (21 juin), Long Night of Museums à Berlin, le Festival d'Avignon et son Off. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "54d4a167",
+   "texte_overlay": "cultured events you can join\nwithout knowing anyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "39ea7e4a",
+   "texte_overlay": "european heritage days\n\nevery september, palaces and\nministries open their doors.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0695540d",
+   "texte_overlay": "fête de la musique\n\nevery 21 june, free music\nin the streets.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1f750f34",
+   "texte_overlay": "long night of museums, berlin\n\ndozens of museums, one ticket,\nopen until late.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ab458161",
+   "texte_overlay": "avignon festival, france\n\ntheatre everywhere in july,\neven in the streets.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3da2dea0",
+   "texte_overlay": "know the story before you go.",
+   "texte_sophia": "know the story before you go.\ni learn it in 5 minutes on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "603ad948",
+   "texte_overlay": "save this for your\nbucket list",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/7.jpg"
+  }
+ ]
+}

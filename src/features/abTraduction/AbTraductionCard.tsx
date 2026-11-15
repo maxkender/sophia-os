@@ -2,7 +2,7 @@ import * as React from "react";
 import { Link } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { Swords, Users } from "lucide-react";
+import { Swords } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
-import { formaterNombre, formaterPart, formaterVues, messageErreur } from "@/features/bleo/format";
+import { formaterNombre, formaterVues, messageErreur } from "@/features/bleo/format";
 import { localeDate } from "@/locales/localeDate";
 
 const dateCourte = (iso: string, langue: string) =>
@@ -26,13 +26,9 @@ import {
   listerDuels,
   listerVotesRelecteurs,
   preparerDuel,
-  type RapportVotes,
-  rapportVotesRelecteurs,
-  verdictCandidat,
   type VoteRelecteur,
   voterDuel,
 } from "./api";
-import { BlocLot } from "./BlocLot";
 import { TableDuel } from "./TableDuel";
 
 const selectClass =
@@ -45,10 +41,9 @@ const DUELS_PAR_LOT = 5;
  * à l'aveugle sur des slideshows déjà publiés, le deck parti contre celui d'un
  * nouveau circuit. Rien ne part en production (décision d'Adrien, 30/10).
  * Depuis 0626, l'admin peut envoyer un duel aux relecteurs natifs de la
- * langue, qui votent et notent depuis leur espace ; leurs votes et remarques
- * se lisent ici, et le candidat relit les remarques pour s'améliorer. Depuis
- * 0627, un lot commun de 15 slideshows (BlocLot) est préparé par le serveur
- * pour chaque langue qui a un relecteur, et envoyé d'office.
+ * langue, qui votent et notent depuis leur espace. Le lot commun (0627), le
+ * bilan des relecteurs et leurs remarques duel par duel se lisent dans
+ * Relecture native, onglet Duels (`DuelsAdmin`).
  */
 export function AbTraductionCard() {
   return <CarteDuels />;
@@ -77,11 +72,9 @@ function CarteDuels() {
     queryFn: () => listerVotesRelecteurs(prets.map((d) => d.id)),
     enabled: prets.length > 0,
   });
-  const cleRapport = ["ab-traduction", "votes-rapport", langue];
-  const rapport = useQuery({ queryKey: cleRapport, queryFn: () => rapportVotesRelecteurs(langue) });
   const rafraichir = () => {
     void queryClient.invalidateQueries({ queryKey: cleDuels });
-    void queryClient.invalidateQueries({ queryKey: cleRapport });
+    void queryClient.invalidateQueries({ queryKey: ["ab-traduction", "votes-rapport", langue] });
   };
 
   const preparer = useMutation({
@@ -102,18 +95,11 @@ function CarteDuels() {
     onSettled: () => void queryClient.invalidateQueries({ queryKey: cleDuels }),
   });
 
-  const nonEnvoyes = prets.filter((d) => !d.relecteurs_le);
-  const envoyerTous = useMutation({
-    mutationFn: () => envoyerAuxRelecteurs(nonEnvoyes.map((d) => d.id), true),
-    onSuccess: rafraichir,
-  });
-
   const aVoter = prets.filter((d) => !d.choix);
   const votes = prets.filter((d) => d.choix);
   const echecs = liste.filter((d) => d.statut === "echec").length;
   const compte = (c: string) => votes.filter((d) => d.choix === c).length;
   const votesDuDuel = (id: string) => (votesRelecteurs.data ?? []).filter((v) => v.duel_id === id);
-  const ligneRapport = (rapport.data ?? []).find((r) => r.candidat === candidat?.id && r.version === candidat?.version) ?? null;
 
   return (
     <Card>
@@ -163,9 +149,9 @@ function CarteDuels() {
           </p>
         )}
         {avance?.message && <p className="text-xs text-muted-foreground">{avance.message}</p>}
-        {(circuits.error ?? duels.error ?? preparer.error ?? envoyerTous.error ?? votesRelecteurs.error ?? rapport.error) && (
+        {(circuits.error ?? duels.error ?? preparer.error ?? votesRelecteurs.error) && (
           <p role="alert" className="text-xs text-destructive">
-            {messageErreur(circuits.error ?? duels.error ?? preparer.error ?? envoyerTous.error ?? votesRelecteurs.error ?? rapport.error)}
+            {messageErreur(circuits.error ?? duels.error ?? preparer.error ?? votesRelecteurs.error)}
           </p>
         )}
 
@@ -180,10 +166,6 @@ function CarteDuels() {
               })}
           {echecs > 0 && <span className="text-muted-foreground"> · {t("abTraduction.duels.echecs", { n: echecs })}</span>}
         </p>
-
-        <BlocLot onChange={rafraichir} />
-
-        <BlocRelecteurs rapport={ligneRapport} nonEnvoyes={nonEnvoyes.length} envoyer={() => envoyerTous.mutate()} enCours={envoyerTous.isPending} />
 
         {aVoter.map((d) => (
           <CarteDuel key={d.id} duel={d} votesRelecteurs={votesDuDuel(d.id)} rafraichir={rafraichir} cleDuels={cleDuels} />
@@ -202,102 +184,6 @@ function CarteDuels() {
         )}
       </CardContent>
     </Card>
-  );
-}
-
-/** Les relecteurs natifs : envoi groupé, décompte de leurs votes, verdict D8, remarques. */
-function BlocRelecteurs({
-  rapport,
-  nonEnvoyes,
-  envoyer,
-  enCours,
-}: {
-  rapport: RapportVotes | null;
-  nonEnvoyes: number;
-  envoyer: () => void;
-  enCours: boolean;
-}) {
-  const { t, i18n } = useTranslation();
-  const verdict = rapport ? verdictCandidat(rapport) : null;
-  const tonVerdict = verdict === "retenu" ? "success" : verdict === "ecarte" ? "warning" : "outline";
-
-  return (
-    <div className="space-y-2 rounded-md border bg-muted/30 p-3 text-sm" data-testid="ab-relecteurs">
-      <div className="flex flex-wrap items-center justify-between gap-2">
-        <p className="flex items-center gap-2 font-medium">
-          <Users className="size-4 text-muted-foreground" aria-hidden />
-          {t("abTraduction.duels.relecteurs.titre")}
-        </p>
-        <Button size="sm" variant="outline" disabled={nonEnvoyes === 0 || enCours} onClick={envoyer}>
-          {t("abTraduction.duels.relecteurs.envoyerTous", { n: nonEnvoyes })}
-        </Button>
-      </div>
-      <p className="text-xs text-muted-foreground">{t("abTraduction.duels.relecteurs.aide")}</p>
-      {rapport ? (
-        <div className="space-y-1">
-          <p>
-            {t("abTraduction.duels.relecteurs.envoyes", { duels: rapport.duels_envoyes, votes: rapport.votes, relecteurs: rapport.relecteurs })}
-            {rapport.votes > 0 && (
-              <>
-                {" · "}
-                {t("abTraduction.duels.decompte", {
-                  votes: rapport.votes,
-                  candidat: rapport.candidat_gagne,
-                  actuel: rapport.actuel_gagne,
-                  egal: rapport.egal,
-                })}
-              </>
-            )}
-          </p>
-          {rapport.votes > 0 && (
-            <p className="flex flex-wrap items-center gap-2">
-              {rapport.part_candidat != null && <span>{t("abTraduction.duels.relecteurs.part", { part: formaterPart(rapport.part_candidat) })}</span>}
-              {verdict && <Badge variant={tonVerdict}>{t(`abTraduction.duels.relecteurs.verdict_${verdict}`)}</Badge>}
-              {(rapport.note_actuel != null || rapport.note_candidat != null) && (
-                <span className="text-muted-foreground">
-                  {t("abTraduction.duels.relecteurs.notes", {
-                    actuel: formaterNombre(rapport.note_actuel, 1),
-                    candidat: formaterNombre(rapport.note_candidat, 1),
-                  })}
-                </span>
-              )}
-            </p>
-          )}
-          {Object.keys(rapport.types_erreur).length > 0 && (
-            <p className="text-xs text-muted-foreground">
-              {t("abTraduction.duels.relecteurs.types")}
-              {": "}
-              {Object.entries(rapport.types_erreur)
-                .sort((a, b) => b[1] - a[1])
-                .map(([k, n]) => `${t(`relectureNative.poster.duels.types.${k}`)} ${n}`)
-                .join(" · ")}
-            </p>
-          )}
-          {rapport.remarques.length > 0 && (
-            <details>
-              <summary className="cursor-pointer text-xs font-medium">
-                {t("abTraduction.duels.relecteurs.remarques", { n: rapport.remarques.length })}
-              </summary>
-              <ul className="mt-1 space-y-1 text-xs">
-                {rapport.remarques.map((r, i) => (
-                  <li key={i}>
-                    <span className="text-muted-foreground">
-                      {dateCourte(r.le, i18n.language)}
-                      {r.sur && ` · ${t(`abTraduction.duels.relecteurs.sur_${r.sur}`)}`}
-                      {r.type && ` · ${t(`relectureNative.poster.duels.types.${r.type}`)}`}
-                      {" : "}
-                    </span>
-                    {r.remarque}
-                  </li>
-                ))}
-              </ul>
-            </details>
-          )}
-        </div>
-      ) : (
-        <p className="text-xs text-muted-foreground">{t("abTraduction.duels.relecteurs.rien")}</p>
-      )}
-    </div>
   );
 }
 

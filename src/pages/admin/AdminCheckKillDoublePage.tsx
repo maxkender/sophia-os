@@ -81,6 +81,7 @@ import {
   ORDRE_ACTIONS,
   pourcentage,
   REGLAGES,
+  donneesSures,
   reglageDuNiveau,
   valeurEffective,
   valeurEnSaisie,
@@ -94,6 +95,9 @@ import { useNombreADecider } from "@/features/ckd/decisions/useNombreADecider";
 import { OngletsAuto, PanneauOnglet } from "@/features/auto/OngletsAuto";
 import { useOnglet } from "@/features/auto/useOnglet";
 import { SemaineDecisions } from "@/features/ckd/decisions/SemaineDecisions";
+import { RituelFait, useRituelsFaits } from "@/features/ckd/decisions/RituelFaitBandeau";
+import { faitDansCycle } from "@/features/ckd/decisions/rituelsFaits";
+import { aujourdhuiParis } from "@/features/moteur/cohortes";
 import { SuiviMessages } from "@/features/messagesPosteurs/SuiviMessages";
 import { DiagnosticCompte } from "@/features/ckd/DiagnosticCompte";
 import { VueShadowban } from "@/features/ckd/shadowban/VueShadowban";
@@ -102,6 +106,7 @@ import { Aide, BarreRepartition } from "@/features/moteur/repartition/graphes";
 import { cn } from "@/lib/utils";
 import { localeDate } from "@/locales/localeDate";
 import { HandleTiktok } from "@/features/ckd/cohorte/liens";
+import { PlateformeDecisions, type Plateforme } from "@/features/ruul/canal";
 
 const CLE = ["ckd"] as const;
 
@@ -137,10 +142,13 @@ const ANCIENNES_VUES: Readonly<Record<string, Onglet>> = {
   morts: "jeudi",
 };
 
-/** L'onglet ouvert par défaut : Thursday le jeudi et le vendredi (Paris), Sunday le dimanche (0474), sinon Saturday. */
-function ongletDuJour(maintenant = new Date()): Onglet {
+/**
+ * L'onglet ouvert par défaut : Thursday le jeudi et le vendredi (Paris), Sunday le dimanche (0474), sinon Saturday.
+ * 5/11 : le jeudi déjà fait → Saturday (le rituel suivant).
+ */
+function ongletDuJour(maintenant = new Date(), jeudiFait = false): Onglet {
   const jour = new Intl.DateTimeFormat("en-GB", { weekday: "short", timeZone: "Europe/Paris" }).format(maintenant);
-  return jour === "Thu" || jour === "Fri" ? "jeudi" : jour === "Sun" ? "dimanche" : "samedi";
+  return (jour === "Thu" || jour === "Fri") && !jeudiFait ? "jeudi" : jour === "Sun" ? "dimanche" : "samedi";
 }
 
 function messageErreur(err: unknown): string {
@@ -189,8 +197,12 @@ interface FiltreCohorte {
 export function AdminCheckKillDoublePage() {
   const { t } = useTranslation();
   const [params] = useSearchParams();
-  const [onglet, choisir] = useOnglet(ONGLETS, ongletDuJour(), ANCIENNES_VUES);
+  const faits = useRituelsFaits();
+  const jeudiFait = Boolean(faitDansCycle(faits.data ?? [], "jeudi", aujourdhuiParis()));
+  const [onglet, choisir] = useOnglet(ONGLETS, ongletDuJour(new Date(), jeudiFait), ANCIENNES_VUES);
   const aDeciderSamedi = useNombreADecider(GROUPES_SAMEDI);
+  // Parcours Ruul, point 8 : Upwork et Ruul séparés (listes du samedi et du dimanche).
+  const [plateforme, setPlateforme] = React.useState<Plateforme>("upwork");
 
   if (params.get("vue") === "cohorte") return <Navigate to="/admin/auto/recruits" replace />;
 
@@ -218,11 +230,29 @@ export function AdminCheckKillDoublePage() {
         alerte={["samedi"]}
       />
 
+      <div className="flex gap-2" role="tablist" aria-label="Plateforme" data-testid="plateforme-decisions">
+        {(["upwork", "ruul"] as const).map((p) => (
+          <Button
+            key={p}
+            size="sm"
+            role="tab"
+            aria-selected={plateforme === p}
+            variant={plateforme === p ? "default" : "outline"}
+            onClick={() => setPlateforme(p)}
+          >
+            {p === "upwork" ? "Upwork" : "Ruul"}
+          </Button>
+        ))}
+      </div>
+
+      <PlateformeDecisions.Provider value={plateforme}>
       <PanneauOnglet id="decisions" actif={onglet}>
         {onglet === "jeudi" ? (
           <>
-            {/* Prompt 25 : tous les comptes actifs, Nudge / Recreate / rien, rien ne part avant Send. */}
-            <ListeJeudi />
+            {/* Prompt 25 : tous les comptes actifs, Nudge / Recreate / rien, rien ne part avant Send. 5/11 : fait → replié jusqu'au jeudi suivant. */}
+            <RituelFait rituel="jeudi">
+              <ListeJeudi />
+            </RituelFait>
             {/* Ex « Dead accounts » : le détail du contrôle du jeudi et la page Shadowban. */}
             <details className="space-y-4 rounded-xl border p-4">
               <summary className="cursor-pointer text-sm font-medium">{t("autoOnglets.decisions.detailJeudi")}</summary>
@@ -236,7 +266,9 @@ export function AdminCheckKillDoublePage() {
           <>
             <SemaineDecisions />
             {/* Prompt 25 : la masterlist, tous les comptes, Kill / Double / Keep, rien sans Validate. */}
-            <ListeSamedi />
+            <RituelFait rituel="samedi">
+              <ListeSamedi />
+            </RituelFait>
             {/* Prompt 21, D : le samedi, la cible de recrutement par pays (avec recrutés et écart). */}
             <CiblesRecrutementAdmin />
             <details className="space-y-4 rounded-xl border p-4">
@@ -255,11 +287,14 @@ export function AdminCheckKillDoublePage() {
           </>
         ) : onglet === "dimanche" ? (
           // 0474 : le check du warm-up, dimanche 20:00 ; rien ne part sans clic.
-          <CheckWarmup />
+          <RituelFait rituel="dimanche">
+            <CheckWarmup />
+          </RituelFait>
         ) : (
           <VueReglages />
         )}
       </PanneauOnglet>
+      </PlateformeDecisions.Provider>
     </div>
   );
 }
@@ -516,7 +551,7 @@ function ChiffresControle({ type, controle, liste }: { type: TypeControle; contr
   let repartition: string;
   if (type === "jeudi") {
     const motifs = new Map<string, number>();
-    for (const p of liste) for (const m of p.donnees.motifs) motifs.set(m, (motifs.get(m) ?? 0) + 1);
+    for (const p of liste) for (const m of p.donnees?.motifs ?? []) motifs.set(m, (motifs.get(m) ?? 0) + 1);
     repartition = [...motifs.entries()]
       .sort((a, b) => b[1] - a[1])
       .map(([m, n]) => `${n} ${t(`ckd.motifs.${m}`)}`)
@@ -757,7 +792,8 @@ function LigneProposition({
 }) {
   const { t } = useTranslation();
   const date = useDate();
-  const d = p.donnees;
+  // 6/11 : une décision posée à la main n'a pas de période : données complétées (plus de page blanche).
+  const d = donneesSures(p.donnees);
   const per = d.periode;
   const tiktok = lienTiktok(d.handle);
   const manques = per.attendus - per.publies;

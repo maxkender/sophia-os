@@ -1,4 +1,5 @@
 // Usage : node atelier/cli-livrer.ts [sources] <post_id|all> [--langues fr,de] [--essai <dossier>]
+//         (sans --langues : fr, puis les langues du label qui ont un compte, 0654)
 //         [--unswipe <dossier>] [--app-seul]
 // --app-seul : complément d'un post déjà validé, ne dépose QUE les variantes
 // d'application (decks Sophia vides, rien n'est re-rendu côté Sophia).
@@ -25,6 +26,7 @@ import { join } from "node:path";
 import { analyserSlide } from "./geometrie.ts";
 import { chargerRessources, rendreSlide, type Transcription } from "./rendu.ts";
 import { metadonneesRestantes, retirerMetadonnees } from "./metadonnees.ts";
+import { languesDuLabel } from "./api.ts";
 
 const POD = "page_blanche";
 const URL_DEFAUT = "https://mbikecieskoobeizixig.supabase.co";
@@ -37,6 +39,13 @@ type Manifeste = {
     legende: string;
     statut: string;
     musique: { titre: string | null; url_tiktok: string | null };
+    /**
+     * BLEO (pods/ROUTINE.md §5) : « declinaison » d'une famille de la boîte
+     * (`npm run boite`, avec `parent_contenu_id`) ou « full_test » (une accroche
+     * neuve, déposée sans `url`). Absent : un remake d'un post du compte modèle.
+     */
+    type_bleo?: "full_test" | "declinaison";
+    parent_contenu_id?: string;
   }[];
 };
 
@@ -46,7 +55,15 @@ const opt = (nom: string) => {
   const i = args.indexOf(nom);
   return i >= 0 ? args[i + 1] : undefined;
 };
-const langues = (opt("--langues") ?? "fr").split(",").map((l) => l.trim()).filter(Boolean);
+// 0654 : la première langue est la source et part toujours ; les autres,
+// seulement si le label y a un compte (l'OS les donne). Sans --langues : le
+// français, puis toutes les langues du label qui ont un compte.
+const os = await languesDuLabel();
+const demandees = (opt("--langues") ?? ["fr", ...(os?.a_livrer ?? []).filter((l) => l !== "fr")].join(","))
+  .split(",").map((l) => l.trim()).filter(Boolean);
+const sansCompte = os?.a_livrer ? demandees.slice(1).filter((l) => !os.a_livrer!.includes(l)) : [];
+if (sansCompte.length) console.log(`pas de compte du label en ${sansCompte.join(", ")} : non livré`);
+const langues = demandees.filter((l, i) => i === 0 || !sansCompte.includes(l));
 const essai = opt("--essai");
 const dossierUnswipe = opt("--unswipe");
 const appSeul = args.includes("--app-seul");
@@ -154,10 +171,11 @@ for (const p of posts) {
   const corps = {
     action: "deposer",
     pod: POD,
-    source_url: p.url || null,
+    // Un full test (accroche neuve) part sans post source : un original, rang fixe.
+    source_url: p.type_bleo === "full_test" ? null : p.url || null,
     source_id: p.post_id,
     // Post original : pas de vues source (null, et non 0).
-    source_vues: p.vues ?? undefined,
+    source_vues: p.type_bleo === "full_test" ? undefined : p.vues ?? undefined,
     titre: textes[0]?.slice(0, 160) ?? null,
     langue_source: langueSource,
     musique_url: p.musique.url_tiktok,
@@ -165,6 +183,8 @@ for (const p of posts) {
     textes,
     decks: decksEnvoyes,
     ...(Object.keys(unswipe).length ? { decks_applications: { unswipe } } : {}),
+    // BLEO : jugé au guichet sur la boîte du label (ignoré pour un complément --app-seul).
+    ...(p.type_bleo ? { type_bleo: p.type_bleo, ...(p.parent_contenu_id ? { parent_contenu_id: p.parent_contenu_id } : {}) } : {}),
   };
 
   if (essai) {

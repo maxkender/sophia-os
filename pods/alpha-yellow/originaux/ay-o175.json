@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o175",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "00a9144c-3c5d-4aeb-8127-a851df56ae76",
+ "titre": "Quiet details that make a man look truly cultured #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "00a9144c-3c5d-4aeb-8127-a851df56ae76"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 1e30f722. déclinaison G2 de la ligne 3 de la boîte (00a9144c, « Small things that make you quietly sophisticated »), 3e et dernière déclinaison de ce parent après ay-o094 et ay-o132. Même promesse, autres mots. Items neufs, aucun repris du parent, d'ay-o094, ay-o132 ni d'ay-o115. Couverture sombre (celle du parent sert déjà à ay-o094 et ay-o132).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e30f722",
+   "texte_overlay": "Quiet details that make\na man look truly cultured",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Knowing the story behind what you eat. Why pizza is from Naples, where coffee first grew. A short fact at dinner turns a simple meal into a great conversation.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Recognising a few famous paintings. Not an expert, just enough to say \"That's a Monet, right?\" in a gallery. Small knowledge, big quiet charm on any date.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Pronouncing foreign names correctly. Croissant, Gnocchi, Van Gogh. Taking a second to learn the right way shows real respect and curiosity for other cultures.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learning something every single day. I do five minutes a day of history, art or science, and over time it shows in how I talk, travel and see the world.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Over time it shows in how I talk, travel and see the world.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Listening to music with lyrics in another language. Italian songs, French classics, Brazilian bossa nova. A wide taste in music always says something good about you.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Visiting a local museum on a quiet weekday. No crowds, no rush, just you and the history of your own city. Few things feel as calm and refined as that.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Writing without mistakes. Correct spelling in messages, proper punctuation in emails. Clean writing is a small detail that quietly signals education.",
+   "media_id": "c7b88a0b"
+  }
+ ]
+}

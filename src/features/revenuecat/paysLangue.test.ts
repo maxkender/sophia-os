@@ -140,6 +140,12 @@ describe("noms de pays", () => {
     expect(langueDepuisPays("ja")).toBe("ja");
   });
 
+  it("résout la Corée du Sud (KR est le pays, ko la langue)", () => {
+    expect(langueDepuisPays("KR")).toBe("ko");
+    expect(langueDepuisPays("South Korea")).toBe("ko");
+    expect(langueDepuisPays("ko")).toBe("ko");
+  });
+
   it("garde la règle majoritaire assumée sur les pays multilingues", () => {
     // Choix produit, pas un oubli : RC ne découpe pas par langue.
     expect(langueDepuisPays("Belgium")).toBe("nl");

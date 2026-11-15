@@ -1,0 +1,263 @@
+{
+ "post_id": "original-069",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "appuntamenti senza telefono [[davvero divertenti]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(zero silenzi)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides"
+     ],
+     "fr": "choisis-lui [[un livre]]",
+     "texte": "sceglietevi [[un libro]]"
+    },
+    "T2": {
+     "en": [
+      "YOU! most people swipe through slideshows like",
+      "this and never read the actual text"
+     ],
+     "fr": "allez en librairie, séparez-vous : 20 min pour trouver [[LE livre]] fait pour l'autre",
+     "texte": "andate in libreria, separatevi: 20 minuti per trovare [[il libro perfetto]] per l'altra persona"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything trains",
+      "your brain to grab",
+      "the headline and",
+      "move on"
+     ],
+     "fr": "interdit de demander, faut deviner [[ce qui va lui plaire]], pas ce qui te plaît",
+     "texte": "vietato chiedere, devi indovinare [[cosa potrebbe amare]], non cosa piace a te"
+    },
+    "T4": {
+     "en": [
+      "if you're still reading this, your attention span is",
+      "better than most"
+     ],
+     "fr": "après, échangez au café d'à côté et [[lisez la première page à voix haute]]",
+     "texte": "poi scambiateli al bar lì vicino e [[leggete la prima pagina ad alta voce]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop waiting to feel motivated"
+     ],
+     "fr": "arrête [[d'attendre la motivation]]",
+     "texte": "un museo, ma [[in modalità gioco]]"
+    },
+    "T2": {
+     "en": [
+      "motivation comes",
+      "after starting, not",
+      "before"
+     ],
+     "fr": "la motivation vient en faisant, pas avant",
+     "texte": "scegli un'opera e [[inventa la sua storia]]"
+    },
+    "T3": {
+     "en": [
+      "make yourself do just 10 minutes of the thing you're",
+      "avoiding. once you've crossed the initial resistance,",
+      "continuing is dramatically easier than starting from",
+      "zero."
+     ],
+     "fr": "force-toi à faire [[juste 10 minutes]] du truc que tu repousses. une fois le plus dur passé, continuer est mille fois plus facile que de partir de zéro.",
+     "texte": "chi sono, cos'è appena successo, perché quella faccia? ognuno racconta la sua versione, poi leggete il cartellino accanto. [[chi ci va più vicino sceglie la prossima]]."
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7696836327026724128_1.jpg",
+      "boite": [
+       94,
+       388,
+       779,
+       542
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "eat the frog"
+     ],
+     "fr": "cuisinez [[à 2]]",
+     "texte": "cucina [[in 2]]"
+    },
+    "T2": {
+     "en": [
+      "the hardest part of anything is just starting, so you",
+      "keep putting it off. do the hardest thing first."
+     ],
+     "fr": "choisissez une recette [[que vous avez jamais faite]], d'un pays inconnu si possible, et faites les courses ensemble.",
+     "texte": "scegliete una ricetta [[che nessuno dei due ha mai fatto]], magari di un paese sconosciuto, e fate la spesa insieme."
+    },
+    "T3": {
+     "en": [
+      "tell yourself you’ll only",
+      "do it for 5 minutes"
+     ],
+     "fr": "lisez la recette à voix haute, [[une étape chacun]]",
+     "texte": "leggete la ricetta ad alta voce, [[un passo a testa]]"
+    },
+    "T4": {
+     "en": [
+      "once you start, your",
+      "brain wants to finish, so",
+      "you usually keep going"
+     ],
+     "fr": "ça va sûrement un peu foirer, et franchement [[c'est ça le meilleur]]",
+     "texte": "probabilmente andrà un po' storto, e sinceramente [[è proprio il bello]]"
+    },
+    "T5": {
+     "en": [
+      "eat the frog"
+     ],
+     "fr": "(pas ça hein)",
+     "texte": "(niente rana)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "una lunga passeggiata [[con domande]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "niente meta, niente musica. a turno vi fate le domande che a cena non escono mai: [[cosa ti fa paura, cosa rifaresti]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "ognuno porta [[una domanda]]."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "fianco a fianco, [[le cose profonde escono da sole]]. la mia domanda migliore della settimana veniva dal telefono, per una volta:"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "i miei 5 min di oggi sull'[[app Sophia]]: perché il viola era dei re."
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take cold showers"
+     ],
+     "fr": "pique-nique + [[jeu]]",
+     "texte": "un picnic + [[carte]]"
+    },
+    "T2": {
+     "en": [
+      "I KNOW everyone says this, but it's true. every part of",
+      "you wants to get out, and you have to stay in anyway"
+     ],
+     "fr": "trouvez un coin au bord de l'eau, prenez vos snacks préférés et un jeu de cartes. [[qui perd saute à l'eau en premier]].",
+     "texte": "trovate un posto vicino all'acqua, portate gli snack che amate e un mazzo di carte. [[chi perde si tuffa per primo]]."
+    },
+    "T3": {
+     "en": [
+      "cold water is proven",
+      "to raise your",
+      "dopamine for hours,",
+      "without the crash you",
+      "get from scrolling"
+     ],
+     "fr": "un jeu tout bête avec un gage bat n'importe quel plan : on rit, on se chambre, on [[oublie l'heure]]",
+     "texte": "un gioco semplice con una posta batte qualsiasi piano: ridete, vi punzecchiate, [[vi scordate dell'ora]]"
+    },
+    "T4": {
+     "en": [
+      "it trains your brain to do the hard thing even when",
+      "everything in you says no"
+     ],
+     "fr": "vous vous souviendrez de [[cet aprèm]] bien plus que de n'importe quelle soirée canapé",
+     "texte": "vi ricorderete di [[quel pomeriggio]] molto più che di qualsiasi serata sul divano"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

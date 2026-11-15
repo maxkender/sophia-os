@@ -14,7 +14,7 @@ import { type ElementRelance, type TextesRelance, texteRelance } from "./relance
 export type ChoixDebut = "keep" | "mardi" | "reporter";
 
 export const TEXTE_DEBUT_MARDI =
-  "Hi {prenom}, your setup isn't finished yet: {ce_qui_manque}. Finish it by Monday noon and you'll start posting on Tuesday {date}. If it's not done by Monday night, you'll start the following Monday.";
+  "Hi {prenom}, your setup isn't finished yet: {ce_qui_manque}. Finish it by Monday {date} at noon to start posting this week. If it's not done by Monday night, you'll start the following Monday.";
 
 /** Tout ce qui manque encore (pas seulement l'étape due) : la connexion, puis le compte, Start warmup ou les abonnements. */
 export function elementsManquants(
@@ -48,7 +48,8 @@ export function texteDebutMardi(
   return modele
     .replace(/\{prenom\}/g, (x.prenom ?? "").trim() || "there")
     .replace(/\{ce_qui_manque\}/g, ceQuiManque)
-    .replace(/\{date\}/g, dateAnglaise(ajouterJours(x.cohorte_lundi, 1)));
+    // 10/11 : toujours le lundi de la cohorte (profiles.cohorte_lundi), jamais un mardi.
+    .replace(/\{date\}/g, dateAnglaise(x.cohorte_lundi));
 }
 
 /** Dimanche 22:45 → lundi 00:00 (Paris) : le choix automatique « Start Tuesday », avant l'assignation de 23:00. */

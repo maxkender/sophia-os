@@ -28,6 +28,9 @@ const resumePlan = {
   labels_file_juger: { RH: { utilise: 7, capacite: 7 } },
 };
 
+// Un run plus récent, avec son rapport de 22 h (0646), pour le test du rapport ; vide sinon.
+let runsAvecRapport: unknown[] = [];
+
 const changerModeBleo = vi.fn((mode: string) =>
   Promise.resolve({ mode, avant: "ombre", le: "2026-11-02T21:00:00Z", dernier_plan: null }),
 );
@@ -71,6 +74,7 @@ vi.mock("@/features/bleo/api", async (original) => ({
     ]),
   listerRuns: () =>
     Promise.resolve([
+      ...runsAvecRapport,
       { id: RUN, jour_vise: "2026-10-30", mode: "ombre", demarre_le: "2026-10-29T13:00:00Z", fini_le: "2026-10-29T13:00:18Z", erreur: null, resume: resumePlan },
       { id: "essai", jour_vise: "2026-10-30", mode: "ombre", demarre_le: "2026-10-29T11:00:00Z", fini_le: null, erreur: "essai manuel", resume: null },
     ]),
@@ -101,6 +105,8 @@ vi.mock("@/features/bleo/api", async (original) => ({
           verdict: "gagnant",
           reel_titres: null,
           identique_au_reel: false,
+          generation: 1,
+          type_bleo: "declinaison",
         },
       ],
     }),
@@ -297,6 +303,42 @@ describe("section BLEO de l'OS", () => {
     expect(screen.getByText(/Pas encore de rapport/)).toBeInTheDocument();
   });
 
+  it("vue d'ensemble : le rapport compare le plan à ce qui a été servi et publié (0646)", async () => {
+    runsAvecRapport = [
+      {
+        id: "rapporte",
+        jour_vise: "2026-11-03",
+        mode: "actif",
+        demarre_le: "2026-11-02T15:05:00Z",
+        fini_le: "2026-11-02T15:05:20Z",
+        erreur: null,
+        resume: {
+          ...resumePlan,
+          rapport: {
+            jour: "2026-11-03",
+            calcule_le: "2026-11-03T21:00:00Z",
+            portes: { quota: true, plan_servi: true, aucune_tierlist: false, aucune_repetition: true, valeur_plan_superieure: false },
+            execution: { creneaux_plan: 640, servis_au_plan: 607, remplaces_bleo: 27, tierlist: 3, non_servis: 4, publies: 561, posts: 636 },
+          },
+        },
+      },
+    ];
+    try {
+      rendre(<AdminBleoPage />);
+      expect(
+        await screen.findByText(
+          "607 créneaux sur 640 servis comme prévu, 27 remplacés par BLEO, 3 par la tierlist, 4 non servis · 561 posts publiés sur 636 à l'heure du rapport.",
+        ),
+      ).toBeInTheDocument();
+      expect(screen.getByText("Aucun post de la tierlist")).toBeInTheDocument();
+      expect(screen.getByText(/Plan servi/)).toBeInTheDocument();
+      // L'ancienne porte n'est plus affichée.
+      expect(screen.queryByText("Valeur du plan au-dessus de minuit")).not.toBeInTheDocument();
+    } finally {
+      runsAvecRapport = [];
+    }
+  });
+
   it("vue d'ensemble : l'interrupteur passe en actif après confirmation, plan suivi affiché", async () => {
     rendre(<AdminBleoPage />);
     fireEvent.click(await screen.findByRole("button", { name: "Passer en actif" }));
@@ -325,6 +367,10 @@ describe("section BLEO de l'OS", () => {
       `/admin/bleo/familles/${FAMILLE}`,
     );
     expect(screen.getByText("Pas encore assigné")).toBeInTheDocument();
+    // 0648 : une déclinaison en récolte se reconnaît dans le plan, et se filtre.
+    expect(within(screen.getByTestId("plan-origine")).getByText("G1")).toBeInTheDocument();
+    expect(screen.getByTestId("plan-origine")).toHaveTextContent("Déclinaison");
+    expect(screen.getByRole("option", { name: "Déclinaisons" })).toBeInTheDocument();
   });
 
   it("familles : la liste mène à la fiche", async () => {

@@ -1,0 +1,209 @@
+{
+ "id": "fa-024-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686070623206280470",
+  "vues": 97100,
+  "accroche": "5 Ways to Build Peak Intelligence"
+ },
+ "titre": {
+  "en": "5 Ways to Build Peak Intelligence",
+  "de": "5 Wege zu maximaler Intelligenz"
+ },
+ "legendes": {
+  "en": "5 Ways to Build Peak Intelligence #intelligence #learnontiktok #selfimprovement",
+  "de": "5 Wege zu maximaler Intelligenz #intelligenz #lernenmittiktok #selbstverbesserung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "remplace fa-024 (carte UnSwipe retirée). L'étape 2 « CUT THE REELS » redevient une étape normale avec sa vraie vidéo YouTube native (kate cassidy en anglais, I am so Vio! en allemand) ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 4). Son changé (règle 0671 : l'ancien est déjà sur 8 de nos 20 derniers posts). Livré en en et de. Étape 1 : vidéos mémoire changées (miniatures Sherlock Holmes, personnage sous droits).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO BUILD PEAK",
+     "INTELLIGENCE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 WEGE",
+       "bronze": true
+      }
+     ],
+     "ZU MAXIMALER",
+     "INTELLIGENZ"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUILD A",
+     "MEMORY PALACE"
+    ],
+    "video": {
+     "id": "p9IOqd1LpkA",
+     "titre": "The Memory Palace : Can You Do It?",
+     "chaine": "Sprouts",
+     "vues": "700K views",
+     "date": "9 years ago",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSAFsiX7DamIFNxlGd-Xwuw7IXUcwMQB_NhdLjd24_sw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "BAU DIR EINEN",
+     "GEDÄCHTNISPALAST"
+    ],
+    "video": {
+     "id": "hfsEV6WOFUY",
+     "titre": "Loci Methode - Erste Schritte zum Gedächtnispalast",
+     "chaine": "Niels Cimpa",
+     "vues": "137.600 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/aIGzzscYq8dFCBxn4UACJwqOcmE25SggKOxONpKEtbZU5htx75hcfOvtyYwtaTFY0-DzATa8lGw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "CUT THE REELS"
+    ],
+    "video": {
+     "id": "mIoSV6lxKFo",
+     "titre": "how deleting social media changed my life",
+     "chaine": "kate cassidy",
+     "vues": "150K views",
+     "date": "2 years ago",
+     "duree": "24:54",
+     "avatar": "https://yt3.ggpht.com/wVrGPUWfBPFG0iIZyfKzxdCuVMvXQz5-WBMya23tV67uyRYF4SFi-WtERW2JJgFoPt5ObEkR=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WEG MIT DEN REELS"
+    ],
+    "video": {
+     "id": "gOV7kpJTlrw",
+     "titre": "Wieso ich kein Instagram mehr habe | Social Media Sucht beenden | Detox",
+     "chaine": "I am so Vio!",
+     "vues": "16.005 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "25:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCSNd6elF6qMWT5jj7pABIOh2fo9O0_f_SWX1OafKzODg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY AN",
+     "INSTRUMENT"
+    ],
+    "video": {
+     "id": "R0JKCYZ8hng",
+     "titre": "How playing an instrument benefits your brain - Anita Collins",
+     "chaine": "TED-Ed",
+     "vues": "15M views",
+     "date": "12 years ago",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPIEL EIN",
+     "INSTRUMENT"
+    ],
+    "video": {
+     "id": "RSpOxUyyxcU",
+     "titre": "Wie das Spielen eines Instruments dem Gehirn nutzt – Anita Collins",
+     "chaine": "Bleib neugierig — TED-Ed",
+     "vues": "12.421 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "4:44",
+     "avatar": "https://yt3.ggpht.com/7PXZmYddF8Wu0-9i5SUaeI9VBQyP_7f8uhbFZ_yXo5UgxpGuLQypVUFary-WHsxr9yzoHfZxig=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "DO MENTAL MATH"
+    ],
+    "video": {
+     "id": "cZZ4feDHYLI",
+     "titre": "How to Calculate Extremely FAST (In Your Head!)",
+     "chaine": "Mr. Beano",
+     "vues": "229K views",
+     "date": "9 months ago",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/2uU7aCZawVSkFT3ZfXo8M8mtlYf8-MHDXxtpI-gWU4Ea65YgUgRNdavQ8KMrFI15Hqs1V1YV=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "RECHNE IM KOPF"
+    ],
+    "video": {
+     "id": "x6uEFwe9ilo",
+     "titre": "Super SCHNELL Kopfrechnen – Genialer Trick",
+     "chaine": "MathemaTrick",
+     "vues": "690.239 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ugyuS-QZor_23jIe3iTM7zBQD80i8pDIES7gam-yVES2m-kUnzoQLTOpcBAFrqsrk0qlRw8Psw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

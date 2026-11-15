@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o129",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e9614f13-fbac-45f1-84fb-9d9d88edfc5f",
+ "titre": "languages worth learning that almost no one considers #languages #languagelearning #smartgirl #polyglot #travel",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "9b8afb1c-e7bf-4ee2-8c5c-5b68e9fe96ad"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 1 de la boîte (parent e9614f13, langue source en) : accroche reformulée (« 6 languages that open doors most people overlook » → « languages worth learning that almost no one considers »), même promesse. Le parent est notre sg-o082 ; langues neuves (persan, vietnamien, néerlandais, tagalog, bengali, islandais). Faits vérifiés : le persan est parlé en Iran, en Afghanistan (dari) et au Tadjikistan ; le vietnamien s'écrit en alphabet latin ; le néerlandais est parlé aux Pays-Bas, en Belgique et au Suriname ; le tagalog compte de nombreux mots espagnols ; le bengali est parmi les dix langues les plus parlées ; les Islandais lisent encore les sagas médiévales. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c7a5e37d",
+   "texte_overlay": "languages worth learning that\nalmost no one considers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e0aa4070",
+   "texte_overlay": "1. persian\n\nspoken in iran, afghanistan\nand tajikistan.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fa19df86",
+   "texte_overlay": "2. vietnamese\n\nwritten in the latin alphabet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2149df95",
+   "texte_overlay": "3. dutch\n\nspoken in the netherlands,\nbelgium and suriname.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9e0b2f13",
+   "texte_overlay": "4. tagalog\n\nfull of spanish words:\nmesa, silya, kutsara.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3bc616e3",
+   "texte_overlay": "5. bengali\n\none of the ten most spoken\nlanguages in the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ccccc9b5",
+   "texte_overlay": "6. icelandic\n\nicelanders can still read\ntheir medieval sagas.",
+   "texte_sophia": "6. icelandic\n\nicelanders can still read their\nmedieval sagas. i learn stories\nlike this on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a47c591c",
+   "texte_overlay": "which one would you\nstart with?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/8.jpg"
+  }
+ ]
+}

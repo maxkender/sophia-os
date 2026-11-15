@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o121",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f6f1eae3-5517-47bd-9db0-a65de92c212a",
+  "titre": "les méthodes complètement folles pour enfin te concentrer sur tes cours #etudes #pourtoi",
+  "inspirations": [
+    "f6f1eae3-5517-47bd-9db0-a65de92c212a"
+  ],
+  "notes": "G2, déclinaison de f6f1eae3 (« unhinged ways to lock tf in for school », G1 gagnante, génération 1 en français selon la boîte ; meilleur passage tr 4 k vues, r 2,43), en français. Accroche reformulée : « les méthodes complètement folles pour enfin te concentrer sur tes cours » (même promesse, d'autres mots). cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni tenue de château, ni pari, ni plante, ni téléphone dans une autre pièce, ni autre appli). Routine du 9/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 4 full tests et 4 déclinaisons (lignes 1 en G2, 2, 3 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 4 (4d7c5f32, accroche illisible), 5 (083ac272, hobbies « backed by science »), 6 (837491f7, « enterimarnt »), 7 (6211e51e, « other then »), 8 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "les méthodes complètement folles\npour enfin te concentrer sur tes cours",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "057091a3",
+      "texte_overlay": "1. révise avec un accent\n\nanglais, italien, comme tu veux.\nton cerveau ne peut plus s'ennuyer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. fais semblant d'être filmée\n\nun documentaire sur la fille qui va réussir son année.\ntu ne lâches plus rien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "01be1362",
+      "texte_overlay": "3. écris le cours sur une vitre\n\nfeutre effaçable, en grand.\nça devient presque un jeu.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d0719620",
+      "texte_overlay": "4. récompense chaque chapitre\n\nun carré de chocolat, un épisode, une balade.\nton cerveau apprend vite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. fais des pauses qui nourrissent\n\navant, mes pauses de 5 minutes devenaient une heure sur mon téléphone.\nmaintenant, j'apprends un petit truc sur le monde. et je reprends vraiment.",
+      "texte_sophia": "5. fais des pauses qui nourrissent\n\navant, mes pauses de 5 minutes devenaient une heure sur mon téléphone.\nmaintenant, j'ouvre l'appli Sophia cinq minutes. et je reprends vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "000d7460",
+      "texte_overlay": "tu testes laquelle ce soir ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

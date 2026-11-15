@@ -20,7 +20,7 @@ vi.mock("./api", () => ({
 
 const base: Probleme = {
   id: "d1", poster_id: "00000000-0000-0000-0000-000000000001", contrat_id: "1234", nom: "Test A", hm: null, cohorte: null, actif: true,
-  categorie: "paie", niveau: "aujourdhui", resume: "r", sources: [], proprietaire: "pay_bot", proposition_reponse: null, canal_reponse: null,
+  categorie: "paie", niveau: "bots", resume: "r", sources: [], proprietaire: "pay_bot", proposition_reponse: null, canal_reponse: null,
   proposition_action: "decision", propose_par: "os", propose_at: null, statut: "ouvert", ferme_raison: null, ferme_at: null,
   created_at: "2026-11-03T10:00:00Z", maj_at: "2026-11-03T10:00:00Z", slack_relie: true, compte_id: null,
   question: "Week 45 : financer 14 $ ou 28 $ ?",

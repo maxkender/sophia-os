@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o171",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "02c284f5-366d-4e1e-b495-f495a5ea5278",
+ "titre": "calm rules of women who never chase #calm #selfrespect #smartgirl #detachment #peace",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "0e662ce8-fe35-4620-bb02-0e39daa361e8"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 5 de la boîte (parent 02c284f5, langue source en) : accroche reformulée (« laws of magnetic detachment (the rules unbothered people live by) » → « calm rules of women who never chase »), troisième et dernière déclinaison du parent, autre que sg-o142 et sg-o156. Règles neuves, jamais manipulatrices (pas de deuxième message, ne pas vérifier qui a vu, des projets à soi, la porte ouverte sans attendre, le calme comme réponse). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "67e3d845",
+   "texte_overlay": "calm rules of women\nwho never chase",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f21a73b6",
+   "texte_overlay": "1. one message is enough",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8644d34c",
+   "texte_overlay": "2. don't check who viewed\nyour story",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "302fabcb",
+   "texte_overlay": "3. keep plans of your own\nfor the weekend",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a3565220",
+   "texte_overlay": "4. leave the door open,\nbut don't wait by it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0a2f8e82",
+   "texte_overlay": "5. calm is a complete answer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "61ab51b6",
+   "texte_overlay": "6. stay busy learning\n\nart, history, science.",
+   "texte_sophia": "6. stay busy learning\n\ni spend 5 minutes a day on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f66ba806",
+   "texte_overlay": "which rule do you need most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  }
+ ]
+}

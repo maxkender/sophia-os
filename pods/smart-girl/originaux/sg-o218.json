@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o218",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3f7ce8f5-3802-40aa-8754-01f383e1d4ad",
+ "titre": "୨ৎ how to make studying and school more interesting #studytok #studymotivation #smartgirl #school #studytips",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "3f7ce8f5-3802-40aa-8754-01f383e1d4ad"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 23 de la boîte (parent 3f7ce8f5, langue source en) : accroche du parent mot pour mot, symbole ୨ৎ de tête gardé (le guichet l'exige). Matières neuves face au parent (histoire, biologie, littérature, chimie, géographie) avec un jeu de rôle par matière. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9504ba22",
+   "texte_overlay": "୨ৎ how to make studying and\nschool more interesting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c149b207",
+   "texte_overlay": "history:\n\npretend you're a detective\nreading old evidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e3cc435a",
+   "texte_overlay": "biology:\n\npretend you're the doctor\nexplaining it to a patient.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bdfaa959",
+   "texte_overlay": "general knowledge:\n\npretend you're preparing for\na dinner with interesting people.",
+   "texte_sophia": "general knowledge:\n\n5 minutes a day on an app\nlike Sophia, like preparing\nfor an interesting dinner.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "40d6f1bb",
+   "texte_overlay": "literature:\n\npretend you're the author\ndefending your book.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9efb5126",
+   "texte_overlay": "chemistry:\n\npretend you're a chef\nfollowing a recipe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "196d5fb2",
+   "texte_overlay": "geography:\n\nplan an imaginary trip.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1033a1a8",
+   "texte_overlay": "follow for more daily tips",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680926274595917078/5.jpg"
+  }
+ ]
+}

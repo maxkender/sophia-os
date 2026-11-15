@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o185",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "70f57f03-afde-42ad-a710-c6fbb8bead03",
+ "titre": "bizarre things confident people do that nobody notices #confidence #psychology #selfimprovement #habits #bizarre",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "d50d09f8-7b16-4c0a-94ae-9b89d4e29e95"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, d50d09f8). déclinaison G1 de « bizarre things confident people do that nobody notices » (parent 70f57f03, famille née de wa-o090). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "804249e5-7035-44bf-a449-3bc55788345a",
+   "texte_overlay": "bizarre things confident people\ndo that nobody notices",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483901954575629/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1c483a1e-ac54-4fb0-9b36-ed6521a2dbad",
+   "texte_overlay": "they sit in the middle\n\nthey choose the middle seat in a room, not the corner. picking a visible spot without thinking about it is a quiet but clear signal of real self assurance.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483901954575629/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "206a34e9-754b-4571-9683-0a65761030dd",
+   "texte_overlay": "they eat slowly\n\nthey eat at their own pace, even when everyone else is rushing. not matching other people's speed shows they're truly comfortable in their own rhythm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483901954575629/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "69d92196-ce07-4266-9f10-e5cfd26837b7",
+   "texte_overlay": "they keep learning\n\nthey spend 5 minutes a day learning something new: a strange fact, a famous painting, a moment in history. knowing things gives them a calm ease in any conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483901954575629/3.jpg",
+   "texte_sophia": "they keep learning\n\ni spend 5 minutes a day learning something new: a strange fact, a famous painting. i do it with the Sophia app, one lesson a day, and it gives me a calm ease in any conversation."
+  },
+  {
+   "position": 5,
+   "media_id": "323b6627-3f62-4233-954e-fcd2bfe4cf97",
+   "texte_overlay": "they hold the pause\n\nthey're comfortable with a few seconds of silence after they speak. they don't rush to fill it, and that calm confidence makes their words land so much harder.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483901954575629/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "61e68c56-0b97-472f-9524-e9cf753d0622",
+   "texte_overlay": "they ask for clarity\n\nthey say sorry, what do you mean without embarrassment. asking for clarity instead of nodding along is something only truly secure people do with ease.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666483901954575629/6.jpg"
+  }
+ ]
+}

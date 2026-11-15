@@ -1,0 +1,229 @@
+{
+ "post_id": "original-068",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 to habits to become",
+      "disgustingly productive"
+     ],
+     "fr": "10/10 habitudes pour devenir ultra productive",
+     "texte": "die Lesemythen, die dich vom Lesen abhalten"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(und was wirklich stimmt)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6."
+     ],
+     "fr": "6.",
+     "texte": ""
+    },
+    "T2": {
+     "en": [
+      "Keep your phone in",
+      "a different room"
+     ],
+     "fr": "Laisse ton tel dans une autre pièce",
+     "texte": "„man muss jedes Buch zu Ende lesen“"
+    },
+    "T3": {
+     "en": [
+      "Leave it in another",
+      "room or across from",
+      "you, you'll never get",
+      "any work done with",
+      "your phone by you"
+     ],
+     "fr": "Laisse-le dans une autre pièce ou loin de toi : avec ton tel à côté, tu feras jamais rien",
+     "texte": "ehrlich: Seite 100 und du quälst dich nur noch? [[leg es weg]]. wer sich durchzwingt, hört irgendwann ganz auf"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "„zählt nur, wenn's auf Papier ist“"
+    },
+    "T2": {
+     "en": [
+      "youtube, podcasts, lectures, even voice notes from",
+      "your friends, everything gets sped up these days"
+     ],
+     "fr": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]",
+     "texte": "E-Reader, Taschenbuch, ein Roman nachts auf dem Handy, dein Gehirn macht [[genau dieselbe Arbeit]]"
+    },
+    "T3": {
+     "en": [
+      "after a while,",
+      "anything at normal",
+      "speed starts to feel",
+      "painfully slow"
+     ],
+     "fr": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]",
+     "texte": "was zählt: einer Geschichte Seite für Seite folgen, [[ohne zu springen]]"
+    },
+    "T4": {
+     "en": [
+      "so a real",
+      "conversation or a",
+      "book feels too",
+      "slow to focus on"
+     ],
+     "fr": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]",
+     "texte": "also lies auf dem, was du heute Abend [[wirklich in die Hand nimmst]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "„Lesen ist einfach langweilig“"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "das Problem ist [[deine Konzentration]], nicht das Buch"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "nach Stunden voller schneller Clips wirkt alles Langsamere öde. weniger Lärm im Kopf und [[Bücher packen dich wieder]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "früher gingen meine freien Minuten an Videos, heute an [[eine 5-Minuten-Lektion in der Sophia-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "texte": "„echte Leser lesen nur Klassiker“"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5 out of 7 days",
+      "and accept that 2 might be",
+      "messy"
+     ],
+     "texte": "keiner klettert zuerst [[die schwerste Wand]]. Lesen genauso"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7 perfect",
+      "days a week to be",
+      "disciplined"
+     ],
+     "texte": "ein packender Thriller [[trainiert auch deinen Fokus]]"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal,",
+      "letting it turn into a bad",
+      "week is a choice"
+     ],
+     "texte": "Klassiker wirken viel stärker, wenn [[Lesen schon Gewohnheit ist]]"
+    },
+    "T5": {
+     "en": [
+      "."
+     ],
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "„keine Zeit dafür“"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "10 Seiten im Bett.\n10 Seiten im Bus.\n10 Seiten beim Nudelkochen."
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "rechne nach: 10 Seiten pro Abend sind [[ein 300-Seiten-Buch pro Monat]], ohne freie Stunde"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "die freie Stunde kommt sowieso nie. [[die 10 Seiten heute Abend schon]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

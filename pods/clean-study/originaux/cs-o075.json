@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o075",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0e2ac9b9-470b-440b-83a0-1fca1777257a",
+  "titre": "this is your sign to stop studying in your bed #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "0e2ac9b9-470b-440b-83a0-1fca1777257a"
+  ],
+  "notes": "Déclinaison G1 de 0e2ac9b9 (notre cs-o030 : r 2,71 en français, 4,2 k vues), ligne 4 de la boîte. Accroche du parent mot pour mot. Arguments neufs, aucun de cs-o030 (une page de plus puis endormie, lit = sommeil, un seul coin, s'asseoir pour se tester, téléphone, le lit pour dormir) : on lit en diagonale allongée, le dos et la nuque, on n'a pas de surface pour écrire, la lumière du lit est faite pour dormir, se tester à un bureau marche mieux (place micabo, slide 5), si le bureau manque, une table de cuisine ou la bibliothèque. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "738aaecd",
+      "texte_overlay": "this is your sign to stop studying in your bed",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "74125712",
+      "texte_overlay": "lying down, you skim.\nyou \"read\" 10 pages and remember 2.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7744fda5",
+      "texte_overlay": "no flat surface = no real notes.\njust highlighter and hope.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "789d4a59",
+      "texte_overlay": "bedside lighting is made for winding down.\nnot for focusing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cb419a6c",
+      "texte_overlay": "quizzing yourself at a desk keeps you sharp.\nin bed, it turns into a nap.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7b92ed27",
+      "texte_overlay": "no desk? the kitchen table counts.\nso does the library.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "85b6f53c",
+      "texte_overlay": "your bed is for sleeping.\nyour grades will thank you. 💛",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

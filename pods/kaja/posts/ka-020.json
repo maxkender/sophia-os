@@ -1,0 +1,327 @@
+{
+ "id": "ka-020",
+ "titre": {
+  "en": "10/10 skills for the kitchen",
+  "fr": "10/10 skills en cuisine",
+  "de": "10/10 Skills für die Küche"
+ },
+ "legendes": {
+  "en": "10/10 skills for the kitchen #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills en cuisine #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für die Küche #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 12/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor branche, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : aiguiser un couteau, couper un oignon, cuire le riz (des bases de cuisine jamais faites chez nous, ka-004 et ka-012 étaient « cuisiner » en général). Sophia en étape 3 « HOW TO FEED YOUR MIND » : cta B, « 5 min a day ». Couverture fr en « SKILLS » (colonne de la branche). Vraies vidéos : en Tasty, J. Kenji López-Alt, BBC ; fr Chef Simon, L'atelier des Chefs, Ricardo Cuisine ; de WÜSTHOF, Betty Bossi, Tim - Brot mit Ei.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "FOR THE",
+     "KITCHEN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS EN",
+     "CUISINE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "DIE KÜCHE"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SHARPEN A KNIFE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Wk3scs5FqCY",
+     "titre": "How To Sharpen Dull Knives",
+     "chaine": "Tasty",
+     "vues": "10M views",
+     "date": "9 years ago",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/CfYIjL1dN06jrOxVxw4ElFs_0ShkZw9WpFmfkgoEx_-tdmG5Iv6CtlFmi3L-jkTmvTKfBXtMoMw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "AIGUISER UN COUTEAU",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "myWL1Wq6F8M",
+     "titre": "Aiguisage d'un couteau à la pierre",
+     "chaine": "Chef Simon",
+     "vues": "892 k vues",
+     "date": "il y a 10 ans",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/mPHi_SZqX2r22tK0I_n9wXw1drlSfu5dBkkMj-H2xpgsHo2dlFnbumI1dDzfjtjvYHh07FBUWA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHÄRFST DU",
+     [
+      {
+       "t": "EIN MESSER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TB0Vd8-p380",
+     "titre": "Messer richtig schärfen – auf dem Schleifstein",
+     "chaine": "WÜSTHOF",
+     "vues": "2,6 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/aFgEhMjN48Q5FUaSxr0-GKLCiSq6JmjNCGqvpSwH4NaxzBheu6CdgM2PhaRrmEyNrFsITR43=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "CUT AN ONION",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BuebC0CfD8E",
+     "titre": "Knife Skills: How to Slice and Dice an Onion",
+     "chaine": "J. Kenji López-Alt",
+     "vues": "721K views",
+     "date": "10 years ago",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/tEql8Eq4IgP3UNx5v646k5U1QKidegUlZRvS18PyF2WM9YGt770IlxFVRrdDatLKHRCFuv9kfA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "ÉMINCER UN OIGNON",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ENkGZEbz8U8",
+     "titre": "Technique de cuisine : emincer un oignon",
+     "chaine": "L'atelier des Chefs",
+     "vues": "859 k vues",
+     "date": "il y a 12 ans",
+     "duree": "1:09",
+     "avatar": "https://yt3.ggpht.com/MBfwbEKkgE2LHvB3Xw93hU-uFvixAmmYjZPXj2vSqXVgkWCRSrYBN1qqUKFUCsw0d-wIHhBCBOI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHNEIDEST DU",
+     [
+      {
+       "t": "EINE ZWIEBEL",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jokU0Rl7v44",
+     "titre": "Zwiebel schneiden leicht gemacht! Tipps & Tricks von Betty Bossi",
+     "chaine": "Betty Bossi",
+     "vues": "386.143 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "1:07",
+     "avatar": "https://yt3.ggpht.com/Q0EIplz7dg8ZdALkq7XX7gd0XqASH2YpJUp8_y6-Om28sjQnv_g-c_tmLTpjiqvOltV6nrcZ_Ec=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "FEED YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NOURRIR",
+     [
+      {
+       "t": "TON ESPRIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÜTTERST DU",
+     [
+      {
+       "t": "DEINEN KOPF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "COOK RICE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iUgOz5emQ94",
+     "titre": "How you've been cooking rice WRONG your entire life - BBC",
+     "chaine": "BBC",
+     "vues": "5.8M views",
+     "date": "8 years ago",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ZJXeYEqiW-S6m2aq4Od06PhnzX-mub-BhhFADsAirgfljCE3rrPm46_FRZCc0IaGgEu78z9KUlU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "CUIRE LE RIZ",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aqxRvM14v1A",
+     "titre": "Comment cuire parfaitement du riz",
+     "chaine": "Ricardo Cuisine",
+     "vues": "954 k vues",
+     "date": "il y a 15 ans",
+     "duree": "2:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nf4llISJWONqrTLRQ8pA6ah8p_jsn59c4d_hzm_UP1jQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KOCHST DU",
+     [
+      {
+       "t": "REIS",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m7HLPsQtjCQ",
+     "titre": "Fluffigen Reis kochen wie die Profis 🍚(ohne Reiskocher!)",
+     "chaine": "Tim - Brot mit Ei",
+     "vues": "137.260 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "5:43",
+     "avatar": "https://yt3.ggpht.com/XdOsM384UspvGaLWEcHNtb8du3TVKn5sYPok_i6z-TAMDYX70fSBBkomiLITmNJ8w-w35I1YZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

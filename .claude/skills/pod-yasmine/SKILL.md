@@ -6,8 +6,9 @@ description: Agent du pod 10 « Remakes @yasminespixels (micabo) » (label that_
 Lis `pods/yasmine/AGENT.md` en entier avant d'agir : mission (micabo seul,
 français seulement, parfait ou rien), règles d'un remake (sa structure, nos
 images, une seule slide micabo avec une vraie capture, aucune autre appli,
-faits vrais), son style déjà dans l'atelier, commandes (`npm run veille |
-photos | rendu | livrer | etat` dans `pods/yasmine/`) et la petite langue des
+faits vrais), son style déjà dans l'atelier, commandes (`npm run boite | veille |
+photos | rendu | livrer | etat` dans `pods/yasmine/` ; la routine du matin suit
+`pods/ROUTINE.md` §5 : posts neufs du compte modèle, boîte BLEO, full tests) et la petite langue des
 pages de notes. `pods/yasmine/ANALYSE.md` analyse le compte,
 `pods/yasmine/sources/manifeste.json` donne l'ordre de travail et
 `pods/yasmine/posts/yp-001.json` est le pilote complet. Tout passe par la file

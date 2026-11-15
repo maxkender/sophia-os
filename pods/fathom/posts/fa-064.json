@@ -1,0 +1,571 @@
+{
+ "id": "fa-064",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Things To Learn Before The Year Ends",
+  "fr": "3 choses à apprendre avant la fin de l'année",
+  "es": "3 cosas que aprender antes de que acabe el año",
+  "de": "3 Dinge, die du vor Jahresende lernen solltest",
+  "it": "3 cose da imparare prima della fine dell'anno",
+  "pt-BR": "3 coisas para aprender antes do fim do ano",
+  "es-419": "3 cosas para aprender antes de que termine el año"
+ },
+ "legendes": {
+  "en": "3 Things To Learn Before The Year Ends #learnontiktok #newskills #selfimprovement",
+  "fr": "3 choses à apprendre avant la fin de l'année #apprendresurtiktok #compétences #développementpersonnel",
+  "es": "3 cosas que aprender antes de que acabe el año #aprendeentiktok #habilidades #desarrollopersonal",
+  "de": "3 Dinge, die du vor Jahresende lernen solltest #lernenmittiktok #skills #selbstverbesserung",
+  "it": "3 cose da imparare prima della fine dell'anno #imparacontiktok #abilità #crescitapersonale",
+  "pt-BR": "3 coisas para aprender antes do fim do ano #aprendanotiktok #habilidades #desenvolvimentopessoal",
+  "es-419": "3 cosas para aprender antes de que termine el año #aprendeentiktok #habilidades #desarrollopersonal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7378160940899994401"
+ },
+ "notes": "cta C. Full test (jauge BLEO du 14/11) : accroche neuve au format liste de @fathom0g (« 3 Things To Learn Before The Year Ends »), jamais faite chez nous. Étapes : jonglage, alphabet en langue des signes (la langue des signes du pays : ASL, LSF, LSE, DGS, LIS, Libras, LSM), Sophia, dessin. Son peu utilisé (0671). Langues des comptes du label (7), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 THINGS",
+       "bronze": true
+      }
+     ],
+     "TO LEARN BEFORE",
+     [
+      {
+       "t": "THE YEAR ENDS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 CHOSES",
+       "bronze": true
+      }
+     ],
+     "À APPRENDRE AVANT",
+     [
+      {
+       "t": "LA FIN DE L'ANNÉE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 COSAS",
+       "bronze": true
+      }
+     ],
+     "QUE APRENDER ANTES",
+     [
+      {
+       "t": "DE QUE ACABE EL AÑO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 DINGE",
+       "bronze": true
+      }
+     ],
+     "ZUM LERNEN",
+     [
+      {
+       "t": "VOR JAHRESENDE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 COSE",
+       "bronze": true
+      }
+     ],
+     "DA IMPARARE PRIMA",
+     [
+      {
+       "t": "DI FINE ANNO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 COISAS",
+       "bronze": true
+      }
+     ],
+     "PARA APRENDER ANTES",
+     [
+      {
+       "t": "DO FIM DO ANO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 COSAS",
+       "bronze": true
+      }
+     ],
+     "PARA APRENDER ANTES",
+     [
+      {
+       "t": "DE FIN DE AÑO",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "JUGGLE",
+     "3 BALLS"
+    ],
+    "video": {
+     "id": "dCYDZDlcO6g",
+     "titre": "Learn to JUGGLE 3 BALLS - Beginner Tutorial",
+     "chaine": "Taylor Tries",
+     "vues": "2.8M views",
+     "date": "7 years ago",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOzROZXubZiy5eJJBW8B3zaYPN9Zkqd6TLUmUd1XMTwcY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "JONGLE À",
+     "3 BALLES"
+    ],
+    "video": {
+     "id": "1AwZr-uhuZ8",
+     "titre": "TUTO JONGLER À 3 BALLES (simple, basique)",
+     "chaine": "Jean-Manu",
+     "vues": "412 k vues",
+     "date": "il y a 15 ans",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/O6uKo7Cn67sZ_Lvj4Xsozc3mie-rOnaGy_UDKmciuIUFj7qe1u3oeYXMqDvFmQsFJAwdSdWhCb8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "HAZ MALABARES",
+     "CON 3 PELOTAS"
+    ],
+    "video": {
+     "id": "Ys5cJ6fMBOc",
+     "titre": "Tutorial Malabares - 3 pelotas - Cascada",
+     "chaine": "Juggler Master",
+     "vues": "534 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lEZnXAlvG06saIMplUt6JF_kSsXrNaTSlljYO6kVvecg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "JONGLIER MIT",
+     "3 BÄLLEN"
+    ],
+    "video": {
+     "id": "vaXG365Eo_s",
+     "titre": "3 Bälle jonglieren lernen (FÜR Anfänger)",
+     "chaine": "FlyJuggler",
+     "vues": "151.685 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nim13vMX7qooRtrtqlIZ3vqlTkvVQIOxJvvE7Gv9B0KLk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "FAI GIOCOLERIA",
+     "CON 3 PALLINE"
+    ],
+    "video": {
+     "id": "Y8OBT5ofc2g",
+     "titre": "COME FARE il GIOCOLIERE con 3 PALLINE (in soli 3 minuti!) || Geocolerie d'appartamento",
+     "chaine": "Geo il Giocoliere",
+     "vues": "109K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgWeUiTgxRJgwfWc3pEiVV5j_UkeSqNw0WNCwDw7-iMg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "FAÇA MALABARISMO",
+     "COM 3 BOLINHAS"
+    ],
+    "video": {
+     "id": "9pi9ZctiGu0",
+     "titre": "Como fazer malabarismo com 3 bolinhas em 3 passos",
+     "chaine": "Manual do Mundo",
+     "vues": "1,2 mi visualizações",
+     "date": "há 14 anos",
+     "duree": "6:06",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "HAZ MALABARES",
+     "CON 3 PELOTAS"
+    ],
+    "video": {
+     "id": "cO2aSyds2Oo",
+     "titre": "¿Como Hacer Malabares con 3 pelotas? / Tutorial Completo",
+     "chaine": "César L. Lam",
+     "vues": "64 k vistas",
+     "date": "hace 6 años",
+     "duree": "8:45",
+     "avatar": "https://yt3.ggpht.com/elHyVvjHmnAeI7WLzwIeFEh2m6tyHX9ahYThcNjr5m6k7DgU-dlT2M-E6QAquES0UcYtVf6_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE SIGN",
+     "LANGUAGE ALPHABET"
+    ],
+    "video": {
+     "id": "DBQINq0SsAw",
+     "titre": "Learn the ASL Alphabet Fast | American Sign Language ABCs",
+     "chaine": "Learn How to Sign",
+     "vues": "1.8M views",
+     "date": "3 years ago",
+     "duree": "13:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjylWENsAjiqg9Ctp5NmnDOSyEtVO0KV44Mfk_XOBh1n8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "L'ALPHABET EN",
+     "LANGUE DES SIGNES"
+    ],
+    "video": {
+     "id": "jg5zXcN2tlY",
+     "titre": "Langue des signes : l’alphabet",
+     "chaine": "CODA",
+     "vues": "383 k vues",
+     "date": "il y a 6 ans",
+     "duree": "6:12",
+     "avatar": "https://yt3.ggpht.com/JxUqkf6Drh1k4m19rtdZqnKpxp9SHzaCkhEYENchDDs68G-b6LZYQvtXxfYHyRQ4a6VcXRv9iZ4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EL ABECEDARIO EN",
+     "LENGUA DE SIGNOS"
+    ],
+    "video": {
+     "id": "BfPBj4QrtwY",
+     "titre": "Alfabeto Dactilológico (Abecedario) - Aprende Lengua de Signos Española LSE / Tutorial InfoSordos",
+     "chaine": "InfoSordos",
+     "vues": "380 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "2:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgSN1P2XBGEWQM9X_Gg3yr-jfEwoNeEq-lnUuK5i340A8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS ALPHABET IN",
+     "GEBÄRDENSPRACHE"
+    ],
+    "video": {
+     "id": "UpNnIo80V8M",
+     "titre": "Gebärdensprache lernen: FINGERALPHABET | Cindy Klink",
+     "chaine": "Cindy Klink",
+     "vues": "233.254 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:39",
+     "avatar": "https://yt3.ggpht.com/bWj0wYU_Q_2k2gDR8qmLO0C9XLpyXeDnRACa14aS0DAHuePe48bncQcQg3InLkviHoHDUZDU0Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "L'ALFABETO",
+     "IN LIS"
+    ],
+    "video": {
+     "id": "6U3350i1shw",
+     "titre": "Corso LIS (Lingua Italiana dei Segni) - Lezione 1: L'alfabeto!",
+     "chaine": "Alex Wonder",
+     "vues": "360K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "8:11",
+     "avatar": "https://yt3.ggpht.com/gORKNQz8Vs_EskfasUNBX9CUI1n5ycm9NQQncJvhE3LY7rqE-e06iFlA2IMlpQFVcl6kAx6z=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O ALFABETO",
+     "EM LIBRAS"
+    ],
+    "video": {
+     "id": "ARX0sl6apCw",
+     "titre": "Alfabeto em Libras",
+     "chaine": "Neto Libras",
+     "vues": "783 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "2:23",
+     "avatar": "https://yt3.ggpht.com/0ymReASYlsR0qm0LDMPWnbsgSW4B5aKGg2z1O-y7NkExbyO7cGj10kwEaCB-cJbIpmwVgRipxQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL ABECEDARIO EN",
+     "LENGUA DE SEÑAS"
+    ],
+    "video": {
+     "id": "vXSSgzXJy1Q",
+     "titre": "Alfabeto de Lengua de Señas Mexicana",
+     "chaine": "Secretaría de Educación Pública",
+     "vues": "374 k vistas",
+     "date": "hace 3 años",
+     "duree": "1:39",
+     "avatar": "https://yt3.ggpht.com/8XhNL6m4OpTlTTSR9sMBgq6vOSUbWhGNa5dqJrx-KbjHc7spLlmaiGBjHPTtY0GZL-L9yQhvlnk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ONE NEW THING",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UN TRUC NOUVEAU",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "ALGO NUEVO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "QUALCOSA DI NUOVO",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ALGO NOVO",
+     "TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ALGO NUEVO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START",
+     "DRAWING"
+    ],
+    "video": {
+     "id": "XeIR7P82aPU",
+     "titre": "How to start drawing (for beginners)",
+     "chaine": "pikat",
+     "vues": "2.5M views",
+     "date": "2 years ago",
+     "duree": "9:43",
+     "avatar": "https://yt3.ggpht.com/vu81JD2vVkaWd0n06pfqiNnN2qPT-7R9sbu5gyQubNnA-j7SejdteBW9_zTpBfVbRAjd1GvMJkM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENCE",
+     "À DESSINER"
+    ],
+    "video": {
+     "id": "sCdLEruNklI",
+     "titre": "APPRENDRE À DESSINER: LA SEULE MÉTHODE QUI FONCTIONNE",
+     "chaine": "Apprendre à Dessiner",
+     "vues": "636 k vues",
+     "date": "il y a 2 ans",
+     "duree": "11:39",
+     "avatar": "https://yt3.ggpht.com/fPLVxfprU2jffNQlDjWe0---wAqtcXfhVq9zN8h6cMTy3buTDiLH0qacd8lAK454EPEUIH9V7Xo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EMPIEZA",
+     "A DIBUJAR"
+    ],
+    "video": {
+     "id": "hH_QrR6opTw",
+     "titre": "APRENDE  a DIBUJAR DESDE CERO a PROFESIONAL #1",
+     "chaine": "Sir Pino",
+     "vues": "2,5 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "26:02",
+     "avatar": "https://yt3.ggpht.com/266tAyMbCkh7oNrrwYNWtkjWNsNsTvYxMAwMpdUAH7hESLpBFqWdJtYfcMP61TMZ0s_O_Wu-7g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FANG AN",
+     "ZU ZEICHNEN"
+    ],
+    "video": {
+     "id": "DSkqMdGsb-c",
+     "titre": "Von 0 bis 100 Zeichnen lernen | Roadmap | DrawinglikeaSir",
+     "chaine": "Drawinglikeasir",
+     "vues": "400.931 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "19:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nZbkCqLeD02-0cFZWNhoiKBKJGZ7cLImfpN-MWQr_6miY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "INIZIA A",
+     "DISEGNARE"
+    ],
+    "video": {
+     "id": "n6PRn0l1h1c",
+     "titre": "✏️ Come IMPARARE a DISEGNARE (Parte 1/2)",
+     "chaine": "Andrea Granieri",
+     "vues": "56K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "25:26",
+     "avatar": "https://yt3.ggpht.com/wtpMmZDtCByqxeLqqbQiui-X_SCet5gHDF82pr5cA4T9D9WDHMHIeIh6C6GQEYB16-cC6vTJ7Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMECE A",
+     "DESENHAR"
+    ],
+    "video": {
+     "id": "3CKCOYvqZIk",
+     "titre": "Como Desenhar COMEÇANDO do ZERO - Aula 1",
+     "chaine": "Desenho Mestre",
+     "vues": "1,7 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "13:41",
+     "avatar": "https://yt3.ggpht.com/yt4IfjtWEFu_HhxcAgzOWA1A-WMflDrHYZLUJE9RiULJeDUi5TkLzP8if57J-GCZV5jIUW0Ptg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EMPIEZA",
+     "A DIBUJAR"
+    ],
+    "video": {
+     "id": "ubUoEuWdyuE",
+     "titre": "APRENDE a DIBUJAR de una MALDITA VEZ  [ DESDE 0 ]",
+     "chaine": "JS Linares",
+     "vues": "2.8 M de vistas",
+     "date": "hace 4 años",
+     "duree": "1:15:51",
+     "avatar": "https://yt3.ggpht.com/s6ee6qJb3d3yvAhotrUjHB2U6KYKWCxjaC5EV0ZOA5V0_v-hsgIKSNzUobYPuPn5XXgrsdtTd-U=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

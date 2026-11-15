@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o198",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ebe4b667-6279-4cf0-be56-41b8b876ffda",
+ "titre": "6 fois où j'ai « MENTI » à mon entretien de stage… et ils m'ont rappelée #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G1 de la ligne 14 (parent ebe4b667), 2e : accroche mot pour mot, six autres questions que rh-o056 et rh-o123. Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f117020c",
+   "texte_overlay": "6 fois où j'ai « MENTI »\nà mon entretien de stage…\net ils m'ont rappelée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "78f62b1d",
+   "texte_overlay": "« vous connaissez notre métier ? »\nj'ai dit « j'ai parlé avec quelqu'un qui le fait »\nla vérité : une amie de ma cousine. mais c'était vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7929df67",
+   "texte_overlay": "« vous êtes autonome ? »\nj'ai dit « j'ai rendu tous mes projets seule cette année »\nla vérité : en stressant beaucoup",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "50acef26",
+   "texte_overlay": "« vous suivez l'actualité ? »\nj'ai dit « un peu chaque jour »\nla vérité : 5 minutes. mais chaque jour",
+   "texte_sophia": "« vous suivez l'actualité ? »\nj'ai dit « un peu chaque jour »\nla vérité : 5 minutes sur l'appli Sophia. mais chaque jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7959b572",
+   "texte_overlay": "« pourquoi pas une grande entreprise ? »\nj'ai dit « je veux toucher à tout »\nla vérité : j'avais aussi postulé dans des grandes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "79afd16f",
+   "texte_overlay": "« vous parlez anglais ? »\nj'ai dit « je lis bien, et je travaille l'oral »\nla vérité : exactement ça",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "79f7bbcd",
+   "texte_overlay": "« vous avez d'autres entretiens ? »\nj'ai dit « oui, mais vous êtes mon premier choix »\nla vérité : c'était vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7ad0dfaa",
+   "texte_overlay": "tu cherches un stage pour quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

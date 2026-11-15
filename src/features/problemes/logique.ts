@@ -1,6 +1,6 @@
-import type { Groupe, Niveau, OptionDecision, Probleme, Proprietaire, Situation } from "./api";
+import type { Groupe, Niveau, OptionDecision, Probleme, Proprietaire, Rituel, Situation } from "./api";
 
-export const NIVEAUX: readonly Niveau[] = ["urgent", "aujourdhui", "samedi"];
+export const NIVEAUX: readonly Niveau[] = ["urgent", "bots", "samedi"];
 export const PROPRIETAIRES: readonly Proprietaire[] = ["new_cohort_bot", "control_bot", "pay_bot"];
 
 /** C10 : l'argent n'est jamais exécuté par un bouton, ni validé en lot. */
@@ -35,8 +35,8 @@ export function filtrer(liste: readonly Probleme[], f: FiltresProblemes): Proble
 }
 
 export function compterParNiveau(liste: readonly Probleme[]): Record<Niveau, number> {
-  const n: Record<Niveau, number> = { urgent: 0, aujourdhui: 0, samedi: 0 };
-  for (const p of liste) n[p.niveau]++;
+  const n: Record<Niveau, number> = { urgent: 0, bots: 0, samedi: 0 };
+  for (const p of liste) if (p.niveau in n) n[p.niveau]++;
   return n;
 }
 
@@ -317,6 +317,16 @@ export function regleDepuisFeedback(f: { id: string; bot: Proprietaire; raison: 
 
 export const estDecision = (p: Pick<Probleme, "question" | "options">): boolean => Boolean(p.question?.trim() && p.options?.length);
 
+/**
+ * 6/11 : l'ordre d'« À décider maintenant » : d'abord les cartes à boutons de
+ * décision envoyées depuis Problèmes (Kill immédiat, test bonus, offres HM…),
+ * puis les offres HM à refaire, puis le reste ; à rang égal, la plus ancienne.
+ */
+export function ordreMaintenant<T extends Pick<Probleme, "question" | "options" | "categorie" | "created_at">>(liste: readonly T[]): T[] {
+  const rangM = (p: T) => (estDecision(p) ? 0 : p.categorie === "offre_hm_incorrecte" ? 1 : 2);
+  return [...liste].sort((a, b) => rangM(a) - rangM(b) || a.created_at.localeCompare(b.created_at));
+}
+
 /** Ce que fait le clic sur une option. Jamais d'argent : une option « paie » ouvre le contrat Upwork. */
 export interface PlanDecision {
   /** Lien Upwork à ouvrir (paie). */
@@ -335,7 +345,7 @@ export interface PlanDecision {
 
 export function planDecision(
   o: OptionDecision,
-  p: Pick<Probleme, "poster_id" | "contrat_id" | "destinataire">,
+  p: Pick<Probleme, "poster_id" | "contrat_id" | "destinataire"> & Partial<Pick<Probleme, "categorie">>,
   mode: "test" | "on",
   texteLibre?: string,
 ): PlanDecision {
@@ -349,7 +359,10 @@ export function planDecision(
     case "resend_password_link":
       if (mode === "on" && p.poster_id) plan.motDePasse = p.poster_id;
       break;
-    case "kill": case "recreate": case "postpone": case "relink_slack":
+    case "kill":
+      // 0533 : « Kill samedi » d'une décision : préparé par la base (probleme_decider), rien à ouvrir.
+      break;
+    case "recreate": case "postpone": case "relink_slack":
       plan.page = fiche;
       break;
     case "open_payroll": case "pay_check":
@@ -365,7 +378,7 @@ export function planDecision(
   const texte = (o.reponse ?? texteLibre ?? "").trim();
   if (texte) {
     if (p.destinataire === "hm") plan.aCopier = texte;
-    else if (mode === "on" && p.poster_id) plan.envoyer = avecLigneStop(texte);
+    else if (mode === "on" && p.poster_id) plan.envoyer = estArret(p) ? texte : avecLigneStop(texte);
   }
   return plan;
 }
@@ -385,4 +398,205 @@ export function jourRituel(lundi: string, choix: "double" | "recreate"): string 
   const d = new Date(`${lundi}T12:00:00Z`);
   d.setUTCDate(d.getUTCDate() + (choix === "recreate" ? 3 : 5));
   return `${String(d.getUTCDate()).padStart(2, "0")}/${String(d.getUTCMonth() + 1).padStart(2, "0")}`;
+}
+
+/** 0533 : une carte d'arrêt (stop sûr ou doute) : la réponse part sans la ligne « reply STOP ». */
+export const estArret = (p: Partial<Pick<Probleme, "categorie">>): boolean => p.categorie === "stop" || p.categorie === "stop_doute";
+
+// ---------------------------------------------------------------------------
+// 4/11 : simplification. Une carte par posteur ; « ✅ Faire ça » fait tout :
+// l'action ET l'envoi du message. Jamais d'argent : il ouvre le contrat.
+// ---------------------------------------------------------------------------
+
+export type PlanFaire =
+  | { type: "decision"; index: number }
+  | { type: "kill" }
+  | { type: "rituel"; choix: "double" | "recreate" }
+  | { type: "argent"; url: string | null; vers: string }
+  | { type: "motDePasse" }
+  | { type: "releve"; compte_id: string }
+  | { type: "fiche"; vers: string }
+  | { type: "reponse" }
+  | { type: "fermer" };
+
+/** Ce que fait « ✅ Faire ça » pour la proposition d'une carte. */
+export function planFaire(
+  p: Pick<Probleme, "categorie" | "proposition_action" | "proposition_reponse" | "poster_id" | "compte_id" | "contrat_id" | "question" | "options">,
+): PlanFaire {
+  if (estDecision(p)) return { type: "decision", index: 0 };
+  const g = gesteValider(p);
+  switch (g.type) {
+    case "kill":
+      return { type: "kill" };
+    case "rituel":
+      return { type: "rituel", choix: g.choix };
+    case "motDePasse":
+      return { type: "motDePasse" };
+    case "releve":
+      return { type: "releve", compte_id: g.compte_id };
+    case "reponse":
+      return { type: "reponse" };
+    case "fermer":
+      return { type: "fermer" };
+    case "page":
+      if (CATEGORIES_ARGENT.includes(p.categorie) || g.vers.startsWith("/admin/auto/payroll")) {
+        return { type: "argent", url: p.contrat_id ? urlContratUpwork(p.contrat_id) : null, vers: g.vers };
+      }
+      return { type: "fiche", vers: g.vers };
+  }
+}
+
+/** Le texte de la proposition (👉) : l'option recommandée d'une décision, sinon la réponse proposée. */
+export function texteProposition(p: Pick<Probleme, "proposition_reponse" | "question" | "options">): string | null {
+  if (estDecision(p)) return p.options?.[0]?.reponse ?? null;
+  return p.proposition_reponse?.trim() ? p.proposition_reponse : null;
+}
+
+/** Le feedback automatique : ✅ = bon ; ✏️ puis ✅ = correction ; Ignorer = pas un problème. */
+export function feedbackAuto(geste: "fait" | "corrige" | "ignore", texte?: string | null): { verdict: "juste" | "mauvaise_action" | "pas_un_probleme"; raison: string | null } {
+  if (geste === "fait") return { verdict: "juste", raison: null };
+  if (geste === "corrige") return { verdict: "mauvaise_action", raison: `Max a corrigé le message : « ${(texte ?? "").slice(0, 280)} »` };
+  return { verdict: "pas_un_probleme", raison: "Ignoré par Max (pas un problème)" };
+}
+
+// ---------------------------------------------------------------------------
+// 0538 (5/11) : Weekly decisions décide ; Problèmes = le quotidien. Une carte
+// dont la personne attend une réponse ne traite QUE ce message.
+// ---------------------------------------------------------------------------
+
+/** La personne attend une réponse (question ou demande dans son dernier message). */
+export function messageEnAttente(p: Pick<Probleme, "sans_reponse">): boolean {
+  const s = p.sans_reponse;
+  return Boolean(s && (s.attend ?? s.question));
+}
+
+/** Une réponse est proposée depuis son dernier message (sinon le 👉 parlerait d'autre chose). */
+export function reponseAJour(p: Pick<Probleme, "sans_reponse" | "proposition_reponse" | "propose_at">): boolean {
+  if (!p.proposition_reponse?.trim()) return false;
+  if (!p.sans_reponse) return true;
+  return Boolean(p.propose_at && p.propose_at >= p.sans_reponse.at);
+}
+
+/** 6/11 : plus de 7 jours (le message en attente, sinon la carte) : « ancien », en bas de ⚡ Urgent. */
+export const ANCIEN_MS = 7 * 24 * 3600 * 1000;
+export function carteAncienne(p: Pick<Probleme, "sans_reponse" | "created_at">, maintenant: number = Date.now()): boolean {
+  const ref = new Date(p.sans_reponse?.at ?? p.created_at).getTime();
+  return Number.isFinite(ref) && maintenant - ref > ANCIEN_MS;
+}
+
+/**
+ * 6/11 : le bot FAQ a promis une réponse (« Thanks for your message! I'm
+ * checking this and will get back to you today. », ou l'ancien « I've passed
+ * your question to the team ») après la question du posteur, et personne n'a
+ * encore répondu. Renvoie depuis combien d'heures (la promesse), sinon null.
+ */
+export const RE_PROMESSE = /i.?m\s+checking\s+(this|it)\s+and\s+will\s+get\s+back\s+to\s+you|passed\s+your\s+question\s+to\s+the\s+team/i;
+export const PROMESSE_ROUGE_H = 6;
+export function promesseAttente(
+  p: Pick<Probleme, "sans_reponse" | "messages">, maintenant: number = Date.now(),
+): { depuisH: number; rouge: boolean } | null {
+  const s = p.sans_reponse;
+  if (!s) return null;
+  const promesse = (p.messages ?? [])
+    .filter((m) => m.auteur !== "posteur" && m.at >= s.at && RE_PROMESSE.test(m.texte))
+    .sort((a, b) => a.at.localeCompare(b.at))[0];
+  if (!promesse) return null;
+  const depuisH = Math.max(0, Math.floor((maintenant - Date.parse(promesse.at)) / 3_600_000));
+  return { depuisH, rouge: depuisH >= PROMESSE_ROUGE_H };
+}
+
+/**
+ * L'ordre dans un onglet : ceux qui attendent une réponse d'abord, puis les
+ * urgents, puis les plus anciens. Dans ⚡ Urgent : en tête, les questions à
+ * qui le bot a promis une réponse (la plus longue attente d'abord) ; les
+ * « anciens » (plus de 7 jours) en bas.
+ */
+export function trierCartes<T extends Pick<Probleme, "sans_reponse" | "created_at" | "niveau" | "messages">>(
+  liste: readonly T[], onglet: "bots" | "urgent", maintenant: number = Date.now(),
+): T[] {
+  const ancien = (p: T) => (onglet === "urgent" ? Number(carteAncienne(p, maintenant)) : 0);
+  const promesse = (p: T) => (onglet === "urgent" ? promesseAttente(p, maintenant)?.depuisH ?? -1 : -1);
+  return [...liste].sort((a, b) =>
+    Number(promesse(b) >= 0) - Number(promesse(a) >= 0)
+    || promesse(b) - promesse(a)
+    || ancien(a) - ancien(b)
+    || Number(messageEnAttente(b)) - Number(messageEnAttente(a))
+    || Number(b.niveau === "urgent") - Number(a.niveau === "urgent")
+    || a.created_at.localeCompare(b.created_at));
+}
+
+/** L'onglet dans Problèmes (🤖 ou ⚡), ou null : la carte se décide seulement dans Weekly decisions. */
+export function ongletProblemes(
+  p: Pick<Probleme, "sans_reponse" | "proposition_reponse" | "propose_at" | "onglet" | "confiance">,
+): "bots" | "urgent" | null {
+  if (messageEnAttente(p)) {
+    const enRetard = !reponseAJour(p) && (p.sans_reponse?.depuis_heures ?? 0) >= 24;
+    return p.onglet === "urgent" || enRetard || (p.confiance ?? 1) < 0.8 ? "urgent" : "bots";
+  }
+  if (p.onglet === "samedi") return null;
+  return p.onglet === "urgent" ? "urgent" : "bots";
+}
+
+const CATS_SAMEDI = ["stop", "stop_doute", "zero_post", "low_views", "demande_2e_compte", "absence", "avis_upwork", "retirer_slack"];
+const CATS_MAINTENANT = ["paie", "kill_contrat", "offre_hm_incorrecte"];
+
+/** Le rituel d'un sujet (catégorie et action proposée), ou null s'il est du quotidien. */
+export function rituelSujet(categorie: string, action?: string | null): Rituel | null {
+  if (CATS_MAINTENANT.includes(categorie) || ["pay_check", "open_payroll", "open_who_to_fund", "decision"].includes(action ?? "")) return "maintenant";
+  if (CATS_SAMEDI.includes(categorie) || ["kill", "double", "saturday"].includes(action ?? "")) return "samedi";
+  if (["recreate", "nudge"].includes(action ?? "")) return "jeudi";
+  if (action === "postpone") return "dimanche";
+  return null;
+}
+
+export interface BadgeSujet {
+  categorie: string;
+  rituel: Rituel | null;
+}
+
+/**
+ * Les autres sujets d'une carte, en petits badges sous le message : la
+ * catégorie principale quand elle se décide ailleurs, puis les sujets fusionnés
+ * (sans doublon).
+ */
+export function autresSujets(p: Pick<Probleme, "categorie" | "proposition_action" | "sujets" | "rituel">): BadgeSujet[] {
+  const vus = new Set<string>();
+  const out: BadgeSujet[] = [];
+  const ajouter = (categorie: string, rituel: Rituel | null) => {
+    const k = `${categorie}:${rituel ?? ""}`;
+    if (vus.has(k)) return;
+    vus.add(k);
+    out.push({ categorie, rituel });
+  };
+  const principal = rituelSujet(p.categorie, p.proposition_action) ?? p.rituel ?? null;
+  if (principal) ajouter(p.categorie, principal);
+  for (const x of p.sujets ?? []) ajouter(x.categorie, rituelSujet(x.categorie, x.proposition_action));
+  return out;
+}
+
+/** Le lien vers la décision dans Weekly decisions (le bon onglet, la carte surlignée). */
+export function lienDecision(id: string, rituel: Rituel | null | undefined): string {
+  const onglet = rituel && rituel !== "maintenant" ? `onglet=${rituel}&` : "";
+  return `/admin/auto/decisions?${onglet}carte=${id}`;
+}
+
+/**
+ * 🧠 en une phrase simple : sans étiquettes ([SAMEDI], URGENT…, DÉCISION :),
+ * sans lien ni id de contrat (ils restent dans les détails).
+ */
+export function diagnosticSimple(texte: string | null | undefined): string | null {
+  if (!texte?.trim()) return null;
+  let t = texte
+    .replace(/\[[^\]]{1,30}\]\s*/g, "")
+    .replace(/^(URGENT|DÉCISION|DECISION)[^:·]*[:·]\s*/i, "")
+    .replace(/^(URGENT|DÉCISION|DECISION)[^:·]*[:·]\s*/i, "")
+    .replace(/https?:\/\/\S+|www\.\S+/g, "")
+    .replace(/\(?\b(contrat|contract)\s*#?\s*\d{5,}\)?,?/gi, "")
+    .replace(/\b\d{7,}\b/g, "")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([,.])/g, "$1")
+    .trim();
+  const fin = t.search(/[.!?](\s|$)/);
+  if (fin >= 8) t = t.slice(0, fin + 1);
+  return t || null;
 }

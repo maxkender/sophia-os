@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o060",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7c174e67-8129-47cf-8a56-b88f28f421b3",
+ "titre": "solo challenges that build quiet confidence #men #confidence #selfimprovement #discipline #alone",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7626992013648448277",
+ "inspirations": [
+  "7c174e67-8129-47cf-8a56-b88f28f421b3"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 7/11. Déclinaison G2 de la ligne 2 (parent 7c174e67 = notre am-o032, langue source en ; 3e et dernière déclinaison après am-o051 et am-o055). Même promesse, troisième reformulation (« solo challenges that build quiet confidence »). Même format. Items neufs, ni du parent ni de am-o051 ni de am-o055. Images de la banque ; slide Sophia : salon vide, sans personne ni écran. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "107fad3a",
+   "texte_overlay": "solo challenges that\nbuild quiet confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "100b9e1e",
+   "texte_overlay": "eat at the counter of\na busy restaurant\n\nchat with the cook.\nyou're not waiting for anyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0c7603e9",
+   "texte_overlay": "take yourself out\non your birthday\n\nbest table you can get.\nyou don't need a crowd to celebrate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "021a527d",
+   "texte_overlay": "read in a café for an hour\n\nno laptop. no plans.\none chapter, then one\nnew idea to think about.",
+   "texte_sophia": "read in a café for an hour\n\nno laptop. no plans.\none chapter, then one\nlesson on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "48ec81a4",
+   "texte_overlay": "spend one night camping\n\njust you and the quiet.\nthe noise in your head\nhas nowhere to hide.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "937fda15",
+   "texte_overlay": "ride somewhere new\n\npick a direction. go.\nget lost a little.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d11b6d9",
+   "texte_overlay": "drive with no destination\n\none playlist. no map.\ncome back when you're ready.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  }
+ ]
+}

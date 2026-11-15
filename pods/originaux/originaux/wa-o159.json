@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o159",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d425b43e-1dab-4517-a523-f1033ad2b155",
+ "titre": "how to become unbelievably articulate and well spoken #communication #articulate #publicspeaking #selfimprovement #howto",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "3b3a13bc-03b2-437e-bcd2-59de84e431b4"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 3b3a13bc). déclinaison G1 de « how to become unbelievably articulate and well spoken » (parent d425b43e). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dda3f4cf-75ad-4505-bc50-0b00b16d8970",
+   "texte_overlay": "how to become unbelievably\narticulate and well spoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650985472834948366/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b5e4fa3e-47c4-4790-a4be-c7934cf0ce36",
+   "texte_overlay": "pause instead of filling\n\nreplace every um and like with a short, calm pause. silence sounds thoughtful, filler words sound unsure, and people slowly start hanging on your every word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650985472834948366/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9216a72c-bb0f-4890-9cb1-c1b1b740b512",
+   "texte_overlay": "summarise in one line\n\nbefore you answer any question, decide your one line answer first, then add detail. starting with the point makes you sound clear, calm and confident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650985472834948366/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7abd3b51-481a-437e-b7f9-44bfafe0d4d9",
+   "texte_overlay": "learn a new idea daily\n\nspend 5 minutes a day learning one new idea: a word's origin, a scientific concept, a moment in history. articulate people simply have more to talk about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650985472834948366/3.jpg",
+   "texte_sophia": "learn a new idea daily\n\ni spend 5 minutes a day learning one new idea: a word's origin, a scientific concept. i do it with the Sophia app, one lesson a day, and articulate people simply have more to say."
+  },
+  {
+   "position": 5,
+   "media_id": "cf2e554a-51fa-49a9-9f6c-d08652d12db8",
+   "texte_overlay": "read aloud\n\nread a page of a good book out loud every evening. it trains your mouth to handle long sentences and quietly fills your memory with richer, better words.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650985472834948366/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1915b096-877e-4458-b58f-7e2f121b8d79",
+   "texte_overlay": "record and listen\n\nrecord yourself answering one question a week and listen back. you'll hear exactly what to fix, and you'll also discover you already sound far better than you expect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7650985472834948366/6.jpg"
+  }
+ ]
+}

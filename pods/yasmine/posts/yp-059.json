@@ -1,0 +1,390 @@
+{
+ "id": "yp-059",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f3f1fd42-1158-4abc-928e-4f187f2487a6",
+ "titre": {
+  "fr": "j’ai testé des hacks de révision : voilà ma note sur 10",
+  "es": "he probado trucos de estudio: esta es mi nota del 1 al 10",
+  "tr": "ders taktiklerini denedim: işte 10 üzerinden notum"
+ },
+ "legendes": {
+  "fr": "lequel tu vas tester en premier ? 📝 #revisions #studyhacks #studytok #thatgirl #astuces",
+  "es": "¿cuál vas a probar primero? 📝 #estudiar #studyhacks #studytok #thatgirl #trucos",
+  "tr": "ilk hangisini deneyeceksin? 📝 #ders #studyhacks #studytok #thatgirl #taktik"
+ },
+ "musique": {
+  "titre": "100 Dean blunt slowed",
+  "url": "https://www.tiktok.com/music/100-dean-blunt-slowed-7469916177348315926"
+ },
+ "fond": {
+  "media_id": "e4c3b863-ce6d-4d2d-888f-b054de15b906",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3ba52405-9a63-432e-bb40-058a73f37156/2.jpg?v=1787157874013",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-017 (« je note des astuces de révision : ça vaut le coup ou pas ?, partie 3 », gagnante : 2,2 k en tr, r 2,79) : même promesse (des hacks notés sur 10) avec une autre accroche, 6 hacks jamais notés au label, photos et son neufs. cta A : micabo dans la note 10/10 « me faire interroger chaque soir », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "j’ai testé des",
+     "lignes": [
+      "HACKS DE",
+      "RÉVISION"
+     ],
+     "taille": 160,
+     "interligne": 1,
+     "taille_script": 84,
+     "texte_bas": "voilà ma note sur 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "he probado",
+     "lignes": [
+      "TRUCOS DE",
+      "ESTUDIO"
+     ],
+     "taille": 160,
+     "interligne": 1,
+     "taille_script": 84,
+     "texte_bas": "esta es mi nota del 1 al 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS TAKTİKLERİNİ",
+      "DENEDİM"
+     ],
+     "taille": 96,
+     "interligne": 1,
+     "texte_bas": "işte 10 üzerinden notum📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "14886a97-76fb-4907-99b4-f41929372d8d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/04df5d80-d094-4684-86d5-5ea8bdf459c0/4.jpg?v=1791725530630",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "écrire à la main plutôt qu’au clavier✍️",
+     "texte": "9/10\nplus lent, et c’est justement pour ça qu’on retient. au clavier, tu recopies sans réfléchir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "escribir a mano en vez de en el teclado✍️",
+     "texte": "9/10\nes más lento, y por eso se recuerda. con el teclado copias sin pensar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "klavye yerine elle yazmak✍️",
+     "texte": "9/10\ndaha yavaş, akılda kalmasının sebebi de bu. klavyede düşünmeden kopyalıyorsun.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "82b7f39c-a483-45f2-a821-7457e306739b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fe6c23c7-2d22-4068-89d9-bed211e00795/1.jpg?v=1791726215180",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "réviser en marchant🚶‍♀️",
+     "texte": "6/10\nparfait pour répéter du vocabulaire ou des dates. pour comprendre un nouveau chapitre, assieds-toi.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "estudiar caminando🚶‍♀️",
+     "texte": "6/10\nperfecto para repasar vocabulario o fechas. para entender un tema nuevo, siéntate.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "yürürken çalışmak🚶‍♀️",
+     "texte": "6/10\nkelime ya da tarih tekrarı için mükemmel. yeni bir üniteyi anlamak için otur.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "14785d9d-50a2-45d1-a0ef-22a2cb70ec0f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f2603737-d11f-4fe5-8b3e-9c5ae1482be1/2.jpg?v=1791725753756",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "les flashcards en papier🗂️",
+     "texte": "8/10\nune question au recto, la réponse au verso. le seul souci : on les perd vite.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "las flashcards de papel🗂️",
+     "texte": "8/10\nla pregunta delante, la respuesta detrás. el único problema: se pierden enseguida.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "kâğıt bilgi kartları🗂️",
+     "texte": "8/10\nön yüzde soru, arka yüzde cevap. tek sorun: çabuk kayboluyorlar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0a80cdcb-79ae-4af8-96c7-d4ab2094dfff",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ed13e9a7-5c93-44e1-994d-4fee0b4cf91d/5.jpg?v=1787136578296",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ranger tout son bureau avant de commencer🧽",
+     "texte": "4/10\nun bureau propre, oui. 40 min de rangement, c’est juste de la procrastination déguisée.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ordenar todo el escritorio antes de empezar🧽",
+     "texte": "4/10\nun escritorio limpio, sí. 40 min ordenando es procrastinar disfrazado.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "başlamadan bütün masayı toplamak🧽",
+     "texte": "4/10\ntemiz masa, evet. 40 dakika toplamak ise kılık değiştirmiş erteleme.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "6dca9389-0c8b-4ba1-8f2d-9a4048dc4888",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f31dbaeb-275d-4104-a0aa-3b308982fe71/5.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "me faire interroger chaque soir🧠",
+     "texte": "10/10\nje mets mes cours dans micabo et je fais ses quiz avant de dormir. ce que je rate revient le lendemain.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "que me pregunten cada noche🧠",
+     "texte": "10/10\nmeto mis clases en micabo y hago sus quiz antes de dormir. lo que fallo vuelve al día siguiente.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "her akşam kendime soru sordurmak🧠",
+     "texte": "10/10\nderslerimi micabo’ya koyup yatmadan testlerini çözüyorum. yanlış yaptıklarım ertesi gün tekrar geliyor.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "34e3e1fc-4f09-4dad-a44f-dda94f364ea3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3e1352a2-338d-479a-9720-449008ddc3d8/5-upscale.jpg?v=1786162746008",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "relire juste avant de dormir📖",
+     "texte": "7/10\n10 min, pas plus. le sommeil fait le reste, mais pas si tu y passes 2 h.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "repasar justo antes de dormir📖",
+     "texte": "7/10\n10 min, no más. el sueño hace el resto, pero no si le dedicas 2 h.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "yatmadan hemen önce tekrar etmek📖",
+     "texte": "7/10\n10 dakika, fazlası değil. gerisini uyku halleder ama 2 saat harcarsan değil.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ]
+}

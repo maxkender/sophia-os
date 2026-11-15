@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o234",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ff737a94-5b37-424e-993a-a98a7ed3d1f2",
+ "titre": "ce que ma première manager m'a appris sans jamais me le dire #manager #travail #carriere #emploi #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 15 (parent ff737a94), 2e : accroche mot pour mot, autres leçons que rh-o034 et rh-o100. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b0ae91a",
+   "texte_overlay": "ce que ma première manager\nm'a appris\nsans jamais me le dire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "96dfee09",
+   "texte_overlay": "elle ne coupait jamais la parole\nmême quand elle n'était pas d'accord",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "99332e8e",
+   "texte_overlay": "elle arrivait avec des croissants le jour des mauvaises nouvelles\nelle savait adoucir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9f4375bf",
+   "texte_overlay": "elle notait ce qu'on lui disait\net elle s'en souvenait la semaine suivante",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9fd56f99",
+   "texte_overlay": "elle racontait ce qu'elle lisait\nun article, une histoire, un truc appris le matin",
+   "texte_sophia": "elle racontait ce qu'elle lisait\nun article, une histoire, un truc appris le matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bb338b7d",
+   "texte_overlay": "elle disait « vas-y, je te fais confiance »\net elle le pensait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c8828544",
+   "texte_overlay": "ta première manager t'a appris quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

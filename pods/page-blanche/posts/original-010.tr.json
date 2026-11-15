@@ -1,0 +1,255 @@
+{
+ "post_id": "original-010",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "gerçekten zeki insanların green flag'leri"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(sessiz sedasız zeki olanlar)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "sana [[ikinci bir soru]] sorarlar"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "sadece sıra beklemezler"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "hikayenin nasıl bittiğini, ne demek istediğini, neden öyle düşündüğünü merak ederler. yani [[seni gerçekten dinliyorlardı]]"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "çoğu insan kafa sallayıp geçer. ikinci soruyu soran kişi [[seni merak ediyordur]], zeki görünmeyi değil"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "sessizlikte [[öylece oturabilirler]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "boşluk olduğu an müzik yok, podcast yok, telefon yok"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "sessiz bir araba yolculuğu ya da uzun yürüyüş onları korkutmaz, [[orada düşünürler]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "biriyle rahat bir sessizlik garip derecede nadir ve [[garip derecede çekici]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "[[acayip rastgele bilgiler]] bilirler"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "ahtapotun neden 3 kalbi var, [[ilk selfie'yi]] kim çekti"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "ve bunu eğlenceli bir hikaye gibi anlatırlar, asla [[hava atar gibi]] değil"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "bu yüzden onlarla yapılan her sohbet [[biraz daha ilginç]] geçer"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "kolay bir alışkanlık: günde bir kaydırma yerine [[Sophia uygulamasında]] 5 dk'lık bir ders"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "[[\"bilmiyorum\"]] diyebilirler"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "ve sonra gidip bakarlar, [[kafadan sallayıp geçmek]] yerine"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "5 saniye kararsız görünmeyi, 5 yıl [[kendinden emin yanılmaya]] tercih ederler"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "bilmediğin bir şeyi kabul etmek, [[onu öğrenmenin en hızlı yolu]]"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "sahte özgüven her yerde, dürüst merak ise nadir (ve bayağı çekici)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "improve your communication",
+      "skills"
+     ],
+     "fr": "apprends à [[bien communiquer]]",
+     "texte": "zor şeyleri [[basitçe]] anlatırlar"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "clearly, you probably don't",
+      "understand it deeply",
+      "enough"
+     ],
+     "fr": "si t'arrives pas à expliquer une idée simplement, c'est que [[tu l'as pas vraiment comprise]]",
+     "texte": "jargon yok, ukalalık yok, sadece [[12 yaşında birinin anlayacağı]] kelimeler"
+    },
+    "T3": {
+     "en": [
+      "practice writing, speaking,",
+      "storytelling, and teaching"
+     ],
+     "fr": "exerce-toi à écrire, parler, raconter et [[expliquer]]",
+     "texte": "yanlarında soru sormak [[rahat]] gelir, asla aptalca değil"
+    },
+    "T4": {
+     "en": [
+      "turning complicated",
+      "thoughts into simple",
+      "language forces your brain",
+      "to organise them properly"
+     ],
+     "fr": "dire un truc compliqué avec des mots simples, ça [[oblige ton cerveau]] à remettre de l'ordre dedans",
+     "texte": "ve bir şeyi ancak [[gerçekten anladığında]] basitçe anlatabilirsin, asıl flex de bu zaten"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

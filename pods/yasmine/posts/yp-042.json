@@ -1,0 +1,341 @@
+{
+ "id": "yp-042",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "les petites choses qui ont fait monter ma moyenne",
+  "es": "las pequeñas cosas que subieron mi media",
+  "tr": "ortalamamı yükselten küçük şeyler"
+ },
+ "legendes": {
+  "fr": "rien de fou, juste régulier 📈 #moyenne #studytok #thatgirl #revisions #conseils",
+  "es": "nada loco, solo constante 📈 #notas #studytok #thatgirl #estudiar #consejos",
+  "tr": "çılgınca bir şey değil, sadece düzenli 📈 #notlar #studytok #thatgirl #ders #tavsiye"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7495865113889065750"
+ },
+ "fond": {
+  "media_id": "221aebc3-43f0-434c-95b9-d22daf46eea0",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/57c6dd22-1270-4d67-b69a-ded48e3aa0f7/3.jpg?v=1790606890571",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je me teste au lieu de relire », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "les petites choses qui ont",
+     "lignes": [
+      "FAIT MONTER",
+      "MA MOYENNE"
+     ],
+     "taille": 140,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "las pequeñas cosas que",
+     "lignes": [
+      "SUBIERON",
+      "MI MEDIA"
+     ],
+     "taille": 160,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ORTALAMAMI",
+      "YÜKSELTEN",
+      "KÜÇÜK ŞEYLER"
+     ],
+     "taille": 120,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6700af6f-3ee6-496b-a39e-c0cb93a321ff",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8be2016b-600d-49d0-b13e-53bb3302ef5c/2.jpg?v=1791726919153",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je m’assois au même endroit🪑",
+      "texte": "même place en cours, même bureau à la maison. moins de décisions, plus de concentration.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "me siento siempre en el mismo sitio🪑",
+      "texte": "mismo sitio en clase, mismo escritorio en casa. menos decisiones, más concentración.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hep aynı yere oturuyorum🪑",
+      "texte": "sınıfta aynı yer, evde aynı masa. daha az karar, daha çok odak.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "d2061d89-99e6-437b-9245-b3df637d59c5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/dee3219b-a078-4765-8f21-9abc2091381c/6.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je relis mes notes le soir même📝",
+      "texte": "5 min, pas plus. le lendemain, le cours est encore là.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "releo mis apuntes esa misma noche📝",
+      "texte": "5 min, no más. al día siguiente, la clase sigue ahí.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "notlarımı aynı akşam tekrar okuyorum📝",
+      "texte": "5 dakika, fazlası değil. ertesi gün ders hâlâ aklımda.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "3409ff7c-650e-4162-8e59-828918242ca2",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/6197f72b-7ef6-4b5e-9e3e-60033b1d7a30/5.jpg?v=1790608094547",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je me teste au lieu de relire🧠",
+      "texte": "je mets mes cours dans micabo et je fais ses quiz. je vois tout de suite ce que je ne sais pas, et c’est ça que je révise.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "me pongo a prueba en vez de releer🧠",
+      "texte": "meto mis clases en micabo y hago sus quiz. veo enseguida lo que no sé, y eso es lo que estudio.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "tekrar okumak yerine kendimi test ediyorum🧠",
+      "texte": "derslerimi micabo’ya koyup testlerini çözüyorum. bilmediğimi hemen görüyorum ve onu çalışıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b39d7e3d-b938-4108-929b-b1a03350f1a4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5073d26c-6068-4bf0-a363-185958bc8899/7.jpg?v=1790608097607",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je demande mes copies corrigées🔍",
+      "texte": "chaque erreur, je la note. c’est là que se cachent les points faciles.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "pido los exámenes corregidos🔍",
+      "texte": "apunto cada error. ahí se esconden los puntos fáciles.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "düzeltilmiş kâğıtlarımı istiyorum🔍",
+      "texte": "her hatayı not ediyorum. kolay puanlar orada saklı.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "379134f4-d37d-4178-aef1-94dd87407861",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/36b50a7a-ac37-4b7b-928a-debeefed6722/5.jpg?v=1789049793109",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je rends tout à l’heure⏰",
+      "texte": "un devoir rendu en retard, c’est des points perdus pour rien.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "entrego todo a tiempo⏰",
+      "texte": "un trabajo entregado tarde son puntos perdidos por nada.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her şeyi zamanında teslim ediyorum⏰",
+      "texte": "geç teslim edilen bir ödev, boşuna kaybedilen puan demek.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "37df6b96-8d43-4687-946d-787bd7139775",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/91b3f111-dba2-4ef2-b09f-cd0a37baadfb/6.jpg?v=1790677902858",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je dors 8 h😴",
+      "texte": "sérieusement. c’est le hack le plus sous-coté.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "duermo 8 h😴",
+      "texte": "en serio. es el truco más infravalorado.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "8 saat uyuyorum😴",
+      "texte": "cidden. en hafife alınan taktik bu.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "les petites choses qui ont fait monter ma moyenne"
+ }
+}

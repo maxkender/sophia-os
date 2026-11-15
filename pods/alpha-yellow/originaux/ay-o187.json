@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o187",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5269fe48-8891-41a3-bfe5-593d8455aeea",
+ "titre": "First date habits that quietly ruin your chances #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "5269fe48-8891-41a3-bfe5-593d8455aeea"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture a75b8832. déclinaison G2 de la ligne 2 de la boîte (5269fe48, notre ay-o126 « Things you should stop doing on a first date » qui a gagné : ru 35,3 k). Même promesse, autres mots, sans « stop doing » pour ne pas toucher la ligne 4. Items neufs, aucun repris d'ay-o042 ni d'ay-o126. Respectueux. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a75b8832",
+   "texte_overlay": "First date habits that\nquietly ruin your chances",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687926438485511431/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Arriving with no plan at all. \"So, what do you want to do?\" on the spot feels lazy. Have one idea ready, and be happy to change it if she prefers something else.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Talking about money too much. What you earn, what things cost, your new watch. It sounds like you're trying to impress instead of trying to connect.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Agreeing with everything she says. Real opinions, kindly shared, are far more attractive than a man who nods along to avoid any disagreement at all.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Looking around the room while she talks. Your eyes wandering to the TV or other people tell her she's not your focus. Keep your full attention on her.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Running out of things to talk about. I do five minutes a day of history, art or science, and I always have a fun story ready when the conversation slows.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a fun story ready when the conversation slows.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Complaining about dating. \"Dating is so exhausting.\" Even if true, it brings the mood down. Stay in the moment and enjoy the person in front of you.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Being vague at the end. Say clearly if you'd like to see her again. A kind, honest ending is respectful and far more attractive than any mystery.",
+   "media_id": "3be6dd87"
+  }
+ ]
+}

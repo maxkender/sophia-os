@@ -5,6 +5,7 @@ import {
   lireSourceContenu,
   type SourceContenu,
 } from "../_shared/ab_circuits.ts";
+import { extraireCorrections } from "../_shared/corrections_natives.ts";
 import type { SlideDeck } from "../_shared/deck_langue.ts";
 import { assurerDeckPourLangue } from "../_shared/import_contenu.ts";
 import { ID_SOPHIA } from "../_shared/multi_app.ts";
@@ -23,7 +24,8 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *     range le duel : le deck parti contre celui du candidat, gauche ou droite
  *     tiré au sort. Un appel par duel : le candidat fait 2 à 4 appels modèle.
  *
- *   { action: "lot_servir" }
+ *   { action: "lot_servir", langue? }
+ *   { action: "corrections_extraire", langue?, max? }
  *       → { ok: true, faits: [{ langue, contenu_id, ok, raison? }], restants, langues }
  *     Le lot commun (0627) : pour chaque langue qui a un relecteur invité ou
  *     actif, et chaque contenu du lot sans duel pour le candidat du lot, prépare
@@ -70,7 +72,20 @@ Deno.serve(async (request) => {
       });
     }
 
-    if (action === "lot_servir") return json(await servirLots(supabase));
+    if (action === "corrections_extraire") {
+      // Boucle de correction (0630) : découper les remarques des relecteurs
+      // non traitées (toutes langues, ou `langue`), `max` votes par appel.
+      const langue = String(body?.langue ?? "").trim().toLowerCase() || null;
+      const max = Number(body?.max);
+      return json({ ok: true, ...(await extraireCorrections(supabase, { langue, max: Number.isFinite(max) ? max : undefined })) });
+    }
+
+    if (action === "lot_servir") {
+      // `langue` (facultatif) : ne servir que cette langue, pour sortir un lot
+      // dans une langue avant les autres (0629).
+      const seule = String(body?.langue ?? "").trim().toLowerCase() || null;
+      return json(await servirLots(supabase, seule));
+    }
 
     if (action !== "duel_preparer") return json({ error: `action inconnue : ${action || "aucune"}` }, 400);
 
@@ -222,6 +237,8 @@ interface Lot {
   id: string;
   numero: number;
   candidat: string;
+  /** Faux (0629) : les duels sont préparés mais attendent l'envoi par l'admin. */
+  envoi_auto: boolean;
 }
 
 interface FaitLot {
@@ -246,15 +263,16 @@ function langueSourceDe(item: { contenus?: unknown }): string | null {
   return typeof valeur === "string" && valeur.trim() ? valeur.trim().toLowerCase() : null;
 }
 
-async function servirLots(supabase: Supabase) {
+async function servirLots(supabase: Supabase, seule: string | null = null) {
   const debut = Date.now();
   const { data: lots, error } = await supabase
     .from("ab_lots")
-    .select("id, numero, candidat")
+    .select("id, numero, candidat, envoi_auto")
     .eq("statut", "actif")
     .order("numero");
   if (error) throw error;
-  const langues = await languesDesRelecteurs(supabase);
+  const toutes = await languesDesRelecteurs(supabase);
+  const langues = seule ? toutes.filter((l) => l === seule) : toutes;
   const faits: FaitLot[] = [];
   let restants = 0;
   const sansCircuit: string[] = [];
@@ -322,7 +340,7 @@ async function preparerDuelDuLot(
     slides_source: [],
     slides_actuel: [],
     gauche: Math.random() < 0.5 ? "actuel" : "candidat",
-    relecteurs_le: new Date().toISOString(),
+    relecteurs_le: lot.envoi_auto === false ? null : new Date().toISOString(),
   };
   try {
     const source = await lireSourceContenu(supabase, contenuId);

@@ -1,0 +1,341 @@
+{
+ "id": "ka-021",
+ "titre": {
+  "en": "10/10 skills to stay calm",
+  "fr": "10/10 compétences pour rester calme",
+  "de": "10/10 Skills, um ruhig zu bleiben"
+ },
+ "legendes": {
+  "en": "10/10 skills to stay calm #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences pour rester calme #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, um ruhig zu bleiben #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 12/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor falaise, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : respirer, méditer, arrêter de trop réfléchir. Sophia en étape 3 « HOW TO LEARN WITHOUT STRESS » : cta A, « 5 min a day ». Vraies vidéos : en Pocket Breath Coach, Mitch Manly, Clark Kegley ; fr Denis Fortier, Cédric Michel, Laganne ; de Die Techniker, Robin Fübbeker, Dominik Lebersorger.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO STAY",
+     "CALM"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "POUR RESTER",
+     "CALME"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS, UM",
+     "RUHIG ZU",
+     "BLEIBEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BREATHE TO",
+       "couleur": "#53c5f7"
+      }
+     ],
+     [
+      {
+       "t": "CALM DOWN",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rt08wzTYKHg",
+     "titre": "4-4-4-4 Breathing Exercise | Box Breathing for Calm and Focus",
+     "chaine": "Pocket Breath Coach - Luke Horton",
+     "vues": "402K views",
+     "date": "1 year ago",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/K3EheypHS6P27o67_NVJArpZEDw9a-BK2j5LZ-ayVLHIGHU6sdoTPo2tNNEUHGaghDOjU4qmIck=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "RESPIRER",
+       "couleur": "#53c5f7"
+      }
+     ],
+     [
+      {
+       "t": "POUR SE CALMER",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cHuUs483S4Q",
+     "titre": "Cohérence cardiaque : exercice de respiration anti-stress (5 min)",
+     "chaine": "Denis Fortier",
+     "vues": "1,9 M de vues",
+     "date": "il y a 2 ans",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lPbABFrxXs4q3hv8bbvM_r4gLSm0rmFyj283ZgZR-6xy0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ATMEST DU",
+     [
+      {
+       "t": "DICH RUHIG",
+       "couleur": "#53c5f7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QT8I4BoiL74",
+     "titre": "5-Finger-Atmung: 2 Minuten Atemübung zur Entspannung und gegen Stress",
+     "chaine": "Die Techniker",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "2:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "MEDITATE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JslvBcIVtDg",
+     "titre": "How To Meditate For Beginners (Animated)",
+     "chaine": "Mitch Manly",
+     "vues": "2.2M views",
+     "date": "7 years ago",
+     "duree": "5:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwiB5Ji4n19kCVY4Rtd-fODRSperExvoniNy6YDex5Peo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "MÉDITER",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d2b7VkaLp8k",
+     "titre": "10 minutes de MÉDITATION pour débutants  🎙 Cédric Michel",
+     "chaine": "Cédric Michel",
+     "vues": "182 k vues",
+     "date": "il y a 4 ans",
+     "duree": "12:26",
+     "avatar": "https://yt3.ggpht.com/WBbkoKoF6j8wZXtYK992PBhWxyTM8SvsmIgsHYka9THeHDb9j66KEldT8rwKY7yk6D5OSiqNIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "MEDITIEREN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RSpc9GH_OSQ",
+     "titre": "Richtig Meditieren Lernen In 4 Minuten (einfach erklärt)",
+     "chaine": "Robin Fübbeker",
+     "vues": "135.145 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/UM36K7GbLmK5DbcLphrX3ANtu_QNuU35VS-9TPRY9e8auAN791kRu0nyCAb4oxohRHCHgeJ6gQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "WITHOUT STRESS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "SANS STRESS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "OHNE STRESS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO STOP",
+     [
+      {
+       "t": "OVERTHINKING",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jMl73_lW5HY",
+     "titre": "It took me 3 years to beat overthinking. I'll tell you how to in 5 steps",
+     "chaine": "Clark Kegley",
+     "vues": "489K views",
+     "date": "2 years ago",
+     "duree": "18:16",
+     "avatar": "https://yt3.ggpht.com/_gOnyqb2HomtWZfUOlY0mENY36LgM-sBCeP2hIleeoj1yGlHtqg8ioQFPUGTIj02pIn4l1crxw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ARRÊTER",
+     [
+      {
+       "t": "DE TROP RÉFLÉCHIR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9mUWNqJQ7l8",
+     "titre": "Comment Arrêter de Trop Réfléchir",
+     "chaine": "Laganne",
+     "vues": "350 k vues",
+     "date": "il y a 2 ans",
+     "duree": "4:56",
+     "avatar": "https://yt3.ggpht.com/-ceP61H04EOsy9TFXzTYrBxh3CGsGRVX-rctTgvgZ2QuwuoZBZ88M432hz9Zq8eoZhQEGaX47A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HÖRST DU AUF",
+     [
+      {
+       "t": "ZU GRÜBELN",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Kq6waXRGo-0",
+     "titre": "Dein Overthinking endet mit diesem Video",
+     "chaine": "Dominik Lebersorger",
+     "vues": "253.590 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "13:18",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

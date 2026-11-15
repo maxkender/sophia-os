@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
+import { BancBots } from "./BancBots";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -63,6 +64,8 @@ export function PageReglesBots() {
         <Link to="/admin/auto/problemes" className="ml-auto text-xs underline">{t(`${P}.regles.retour`)}</Link>
       </div>
       <p className="text-sm text-muted-foreground">{t(`${P}.regles.aide`)}</p>
+
+      <BancBots />
 
       <Card>
         <CardContent className="space-y-2 p-4" data-testid="form-regle">

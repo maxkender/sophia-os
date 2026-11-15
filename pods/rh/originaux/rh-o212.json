@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o212",
+ "type_bleo": "full_test",
+ "titre": "les 6 habitudes des gens qui ont toujours une réponse en réunion #travail #reunion #confiance #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Full test : accroche jamais faite chez nous (avoir toujours une réponse en réunion). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "06edbb00",
+   "texte_overlay": "les 6 habitudes des gens\nqui ont toujours une réponse\nen réunion",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b6ed5840",
+   "texte_overlay": "ils lisent l'ordre du jour la veille\net notent une idée par point",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b6f49e80",
+   "texte_overlay": "ils posent une question s'ils ne savent pas\nau lieu de se taire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "826b1524",
+   "texte_overlay": "ils ont des exemples en réserve\nun chiffre, une anecdote, un truc appris récemment",
+   "texte_sophia": "ils ont des exemples en réserve\nun chiffre, une anecdote, un truc appris en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b848e340",
+   "texte_overlay": "ils disent « je vous réponds demain »\nquand ils n'ont pas la réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b8657045",
+   "texte_overlay": "ils écoutent jusqu'au bout\npuis ils parlent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b881e350",
+   "texte_overlay": "ils notent ce qu'ils ont promis\net ils le font",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b8dd95af",
+   "texte_overlay": "laquelle te manque ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o132",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93",
+ "titre": "ma collègue faisait moins d'heures que moi mais avançait plus vite, j'ai copié trois de ses habitudes #travail #productivite #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G1 de la ligne 6 (parent 48eff43a, 27,6 k vues en bg) : accroche mot pour mot, autres habitudes que le parent. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "521c58df",
+   "texte_overlay": "ma collègue faisait moins d'heures que moi\nmais avançait plus vite,\nj'ai copié trois de ses habitudes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "76cdfc49",
+   "texte_overlay": "habitude 1 : elle bloquait ses matinées\npas de réunion avant 11 h. c'est là qu'elle avançait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "77a8c1dc",
+   "texte_overlay": "habitude 2 : elle disait « c'est assez bien »\nelle ne peaufinait pas ce que personne ne lirait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "406552c3",
+   "texte_overlay": "habitude 3 : elle prenait une vraie pause\n5 minutes à apprendre un truc sans rapport.\nelle revenait plus vive",
+   "texte_sophia": "habitude 3 : elle prenait une vraie pause\n5 minutes à apprendre un truc sans rapport. utilise l'appli Sophia, tu reviens plus vive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "78e8acbb",
+   "texte_overlay": "un mois plus tard\nje partais à 18 h. et j'avançais plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "78f62b1d",
+   "texte_overlay": "rester tard ne prouve rien.\nla méthode, si",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7929df67",
+   "texte_overlay": "laquelle tu testes demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

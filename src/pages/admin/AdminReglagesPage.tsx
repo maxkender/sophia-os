@@ -23,6 +23,7 @@ import {
 import type { ModeleNudge, Reglages } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
 import { CarteUpwork } from "@/features/upwork/CarteUpwork";
+import { ReglagesPaysParrainage } from "@/features/parrainageEmail/Branches";
 import { CarteCohorteAccueil, CarteMessagesUpwork, CarteTextesPaie, CarteTextesPosteurs } from "@/features/reglagesOs/CartesReglages";
 
 function ChampNombre({
@@ -256,6 +257,8 @@ export function AdminReglagesPage() {
       <CarteCohorteAccueil />
       <CarteTextesPosteurs />
       <CarteTextesPaie />
+      {/* 8/11 : parrainage par email, pays par pays. */}
+      <ReglagesPaysParrainage />
 
       {/* ── Cleaning ── */}
       <Card>

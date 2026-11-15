@@ -1,0 +1,348 @@
+{
+ "id": "yp-058",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "mes règles pour réviser avec une amie sans bavarder",
+  "es": "mis reglas para estudiar con una amiga sin charlar",
+  "tr": "arkadaşımla sohbet etmeden ders çalışma kurallarım"
+ },
+ "legendes": {
+  "fr": "tague ta binôme de révisions 👯 #revisions #studytok #thatgirl #amies #etudiante",
+  "es": "etiqueta a tu compañera de estudio 👯 #estudiar #studytok #thatgirl #amigas #universidad",
+  "tr": "ders arkadaşını etiketle 👯 #ders #studytok #thatgirl #arkadaş #üniversite"
+ },
+ "musique": {
+  "titre": "let's keep pretending pt. 2 - sped up",
+  "url": "https://www.tiktok.com/music/let-s-keep-pretending-pt-2-sped-up-7474055002647545857"
+ },
+ "fond": {
+  "media_id": "497e1174-8f17-4eff-b933-422a723b5b05",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/be03296d-a957-4c19-acf3-e7bea9c70f00/5.jpg?v=1792601516394",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans la note de l’étape « on s’interroge », sans mise en scène. photos jamais livrées, son nouveau (consigne du 12/11)",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mes règles pour",
+     "lignes": [
+      "RÉVISER",
+      "AVEC UNE AMIE"
+     ],
+     "taille": 116,
+     "texte_bas": "(sans bavarder)",
+     "texte_bas_taille": 46,
+     "texte_bas_x": 540,
+     "y": 900
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mis reglas para",
+     "lignes": [
+      "ESTUDIAR",
+      "CON UNA AMIGA"
+     ],
+     "taille": 116,
+     "texte_bas": "(sin charlar)",
+     "texte_bas_taille": 46,
+     "texte_bas_x": 540,
+     "y": 900
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ARKADAŞIMLA",
+      "DERS ÇALIŞMA",
+      "KURALLARIM"
+     ],
+     "taille": 100,
+     "texte_bas": "(sohbet etmeden)",
+     "texte_bas_taille": 46,
+     "texte_bas_x": 540,
+     "y": 900
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "7959b572-53f4-4cee-91f4-66919ef18abe",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/091cf710-6b15-4e6b-bded-54824e8ee5d8/2.jpg?v=1790608885769",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "on se fixe un objectif chacune🎯",
+      "texte": "écrit avant de commencer",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "cada una se pone un objetivo🎯",
+      "texte": "escrito antes de empezar",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ikimiz de bir hedef koyuyoruz🎯",
+      "texte": "başlamadan önce yazılı",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6721c59a-f4e5-40e2-a84b-f1fab89a9077",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55692dc5-f02c-4a63-bc50-773e8a88bd99/4.jpg?v=1791727034041",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "les téléphones face cachée📵",
+      "texte": "au milieu de la table",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "los móviles boca abajo📵",
+      "texte": "en medio de la mesa",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "telefonlar ters çevrili📵",
+      "texte": "masanın ortasında",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "02a267b9-f00a-4f48-9b50-8e102f24f38f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/04a59b30-abba-48f2-bed5-033c01ee7fce/3.jpg?v=1787125838036",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "50 min de silence total🤫",
+      "texte": "on parle seulement à la pause",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "50 min de silencio total🤫",
+      "texte": "solo hablamos en la pausa",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "50 dakika tam sessizlik🤫",
+      "texte": "sadece molada konuşuyoruz",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "425cad9e-7fac-4131-a5db-df9b1b6da85f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/091cf710-6b15-4e6b-bded-54824e8ee5d8/4.jpg?v=1790608986170",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "puis on s’interroge avec micabo🧠",
+      "texte": "5 questions chacune, pas de triche",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "luego nos preguntamos con micabo🧠",
+      "texte": "5 preguntas cada una, sin trampas",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sonra micabo ile soru soruyoruz🧠",
+      "texte": "herkese 5 soru, kopya yok",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "25c9c10b-c393-4bf8-93ac-d642fe894213",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d5912809-5e3c-4386-b185-a9e1e1033d3a/11-upscale.jpg?v=1791411190556",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "chacune explique un point à l’autre🗣️",
+      "texte": "la meilleure façon de retenir",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "cada una le explica algo a la otra🗣️",
+      "texte": "la mejor forma de recordar",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "birbirimize bir konu anlatıyoruz🗣️",
+      "texte": "akılda tutmanın en iyi yolu",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "cd49696c-ff8d-48c2-a207-b41fca61c7c5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/33a5294b-af1f-4d7a-af6f-ea45fc3c5393/7.jpg?v=1790607810477",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "et après, on a le droit de papoter☕",
+      "texte": "promis, c’est mérité",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "y después, podemos charlar☕",
+      "texte": "prometido, nos lo merecemos",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sonra sohbet etme hakkımız var☕",
+      "texte": "söz, bunu hak ettik",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "mes règles pour réviser avec une amie sans bavarder"
+ }
+}

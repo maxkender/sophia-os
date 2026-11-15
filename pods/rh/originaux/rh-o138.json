@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o138",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9d04863f-acf0-4a1b-91aa-7fbac1caec4d",
+ "titre": "4 questions d'entretien qui font paniquer tous le monde (et comment y répondre) #entretien #rechercheemploi #emploi #stress #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 14 (parent 9d04863f) : accroche mot pour mot (y compris « tous le monde », gardé tel quel pour le guichet), quatre autres questions que le parent. Réponses vraies. Ligne 15 écartée (fausse contre-offre, interdite). Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6a293ebc",
+   "texte_overlay": "4 questions d'entretien\nqui font paniquer tous le monde\n(et comment y répondre)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8bce4db2",
+   "texte_overlay": "« pourquoi vous êtes restée si peu de temps ? »\nune phrase vraie sur la raison, puis ce que t'y as appris",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8beea57c",
+   "texte_overlay": "« vous avez un exemple de conflit ? »\nla situation, ce que t'as dit, comment ça s'est fini",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8c05443e",
+   "texte_overlay": "« qu'est-ce que vous ne voulez plus faire ? »\nune tâche précise, sans râler, et ce que tu préfères",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6ac64d87",
+   "texte_overlay": "« parlez-moi d'un sujet qui vous passionne »\nprépare-le. perso, je parle de ce que j'apprends 5 minutes par jour",
+   "texte_sophia": "« parlez-moi d'un sujet qui vous passionne »\nprépare-le. perso, je parle de ce que j'apprends 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8c60db5a",
+   "texte_overlay": "le secret : 3 histoires vraies prêtes\nelles répondent à presque tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8c725d70",
+   "texte_overlay": "laquelle te fait le plus peur ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

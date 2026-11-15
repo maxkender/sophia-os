@@ -40,7 +40,7 @@ Deno.test("réglages : tout en test par défaut, une faute ne passe jamais en ac
   assertEquals(lireReglagesFaq(null), {
     mode_slack: "test",
     mode_os: "test",
-    canaux_slack: ["C0BL56RJH7T"],
+    canaux_slack: ["C0CGA81NTDH"],
     message_attente: true,
   });
   const r = lireReglagesFaq({ mode_slack: "ACTIF", mode_os: "on", canaux_slack: ["C0BL56RJH7T", "#questions"] });
@@ -165,7 +165,7 @@ Deno.test("prompt : la frontière de l'IT guy y est mot pour mot, la consigne d�
   assert(os.includes("SITUATION DE LA PERSONNE"));
   assert(os.includes("Warmup: en_cours."));
   assert(os.includes("réponds en português"));
-  assert(os.includes("poster le problème dans #questions"));
+  assert(os.includes("utiliser Help sur son dashboard"));
 });
 
 Deno.test("Slack : une question = un message racine humain d'un canal suivi", () => {

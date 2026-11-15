@@ -1,0 +1,344 @@
+{
+ "id": "yp-037",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "les erreurs que j’ai arrêté de faire en révisant",
+  "es": "los errores que dejé de hacer al estudiar",
+  "tr": "ders çalışırken bıraktığım hatalar"
+ },
+ "legendes": {
+  "fr": "si tu fais encore ça, arrête 🙅‍♀️ #studytok #revisions #thatgirl #conseils #examens",
+  "es": "si todavía haces esto, para 🙅‍♀️ #studytok #estudiar #thatgirl #consejos #examenes",
+  "tr": "hâlâ bunu yapıyorsan bırak 🙅‍♀️ #studytok #ders #thatgirl #tavsiye #sınav"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7495865113889065750"
+ },
+ "fond": {
+  "media_id": "41415d38-7174-4364-b179-5d7ad7bffd6a",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/df57e090-c081-40ac-9c1c-a53c3e91aaa8/6.jpg?v=1792601391701",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « relire au lieu de me tester », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "les erreurs que j’ai",
+     "lignes": [
+      "ARRÊTÉ",
+      "DE FAIRE"
+     ],
+     "taille": 170,
+     "taille_script": 80,
+     "script_bas": "en révisant",
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "los errores que",
+     "lignes": [
+      "DEJÉ",
+      "DE HACER"
+     ],
+     "taille": 170,
+     "taille_script": 80,
+     "script_bas": "al estudiar",
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS ÇALIŞIRKEN",
+      "BIRAKTIĞIM",
+      "HATALAR"
+     ],
+     "taille": 110,
+     "interligne": 1,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "cb80cbb7-1bcd-4d42-8c37-95c3d61d3156",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/97957b41-3e03-4098-a5c0-97514ec39543/3.jpg?v=1791725850143",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "réviser avec mon téléphone à côté📵",
+      "texte": "une notif, et 20 min envolées. maintenant il dort dans une autre pièce.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "estudiar con el móvil al lado📵",
+      "texte": "una notificación y 20 min perdidos. ahora duerme en otra habitación.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "telefonum yanımdayken çalışmak📵",
+      "texte": "bir bildirim ve 20 dakika gitti. artık başka bir odada uyuyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "233e6ab3-8939-4ede-8bb1-e0617834c84e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7683e80e-4390-4392-a48e-367f6a9d295e/2.jpg?v=1789048259198",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 40,
+      "y": 90,
+      "titre": "tout surligner🖍️",
+      "texte": "quand toute la page est jaune, rien ne ressort. une idée par paragraphe, pas plus.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 40,
+      "y": 90,
+      "titre": "subrayarlo todo🖍️",
+      "texte": "si toda la página es amarilla, nada destaca. una idea por párrafo, no más.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 40,
+      "y": 90,
+      "titre": "her şeyin altını çizmek🖍️",
+      "texte": "bütün sayfa sarıysa hiçbir şey öne çıkmaz. paragraf başına bir fikir, fazlası değil.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "21026156-5318-4c0c-9e09-e60f47ad0646",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d8e99424-2b6b-4312-8e3d-19e6b65b43ba/2.jpg?v=1791726384032",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1100,
+      "titre": "relire au lieu de me tester🧠",
+      "texte": "relire donne l’impression de savoir. maintenant je mets mes cours dans micabo et je fais ses quiz : je vois tout de suite ce qui manque.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1100,
+      "titre": "releer en vez de ponerme a prueba🧠",
+      "texte": "releer da la sensación de saberlo. ahora meto mis clases en micabo y hago sus quiz: veo enseguida lo que falta.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1100,
+      "titre": "kendimi test etmek yerine tekrar okumak🧠",
+      "texte": "tekrar okumak biliyormuş hissi verir. artık derslerimi micabo’ya koyup testlerini çözüyorum: eksik olanı hemen görüyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "35520137-b410-45d4-bae4-03f867d83187",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/cadbe12d-873c-4946-8932-7bb7dad2370c/4.jpg?v=1790607208995",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "tout garder pour la veille😵",
+      "texte": "la veille, c’est pour relire. tout se joue les semaines d’avant.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "dejarlo todo para la noche antes😵",
+      "texte": "la noche antes es para repasar. todo se juega las semanas anteriores.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "her şeyi son geceye bırakmak😵",
+      "texte": "son gece tekrar içindir. her şey önceki haftalarda belirlenir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "84c155ba-b3ee-47d6-90d3-f2ef71db9514",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c9b88cb7-24e6-4717-b9ad-7098f344ec28/6.jpg?v=1790680447932",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "sauter les pauses☕",
+      "texte": "après 50 min, ton cerveau décroche. 10 min sans écran, et tu repars.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "saltarme los descansos☕",
+      "texte": "después de 50 min, tu cerebro desconecta. 10 min sin pantallas y vuelves.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "molaları atlamak☕",
+      "texte": "50 dakikadan sonra beynin kopar. 10 dakika ekransız mola ve devam.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "cd93b534-a4e3-4ed9-af3e-6688c1431ac3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/94886991-3d60-455c-83c4-5b44bc2569f6/2.jpg?v=1792926541222",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "réviser au lit🛏️",
+      "texte": "au bout de 20 min, je dormais à moitié. le lit, c’est pour dormir.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "estudiar en la cama🛏️",
+      "texte": "a los 20 min ya estaba medio dormida. la cama es para dormir.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "yatakta ders çalışmak🛏️",
+      "texte": "20 dakika sonra yarı uyuyordum. yatak uyumak içindir.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "les erreurs que j’ai arrêté de faire en révisant"
+ }
+}

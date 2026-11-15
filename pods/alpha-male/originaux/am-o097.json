@@ -1,0 +1,60 @@
+{
+ "source_id": "am-o097",
+ "type_bleo": "full_test",
+ "titre": "The night routine of men who wake up ready #men #routine #discipline #selfimprovement #nightroutine",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7607192688017885974",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 12/11. Full test du jour (3 sur 3, jauge : 3 sur 9). Accroche jamais faite chez nous : aucun « night routine » dans donnees/label.json (« before bed » n'y est que dans des items). Routine concrète, promesse neuve : le soir. Rien de médical (pas de sommeil chiffré ni de supplément). Images de la banque ; slide Sophia : fenêtre sur la neige, sans personne. reference_url : le post source de am-o036 (slides 2 à 7 ; 1 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1cad70d1",
+   "texte_overlay": "The night routine of men\nwho wake up ready",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0e849c5e",
+   "texte_overlay": "1. Lay out tomorrow's clothes\n\nOne decision gone\nbefore the day starts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0370f8ba",
+   "texte_overlay": "2. Phone charges\noutside the bedroom\n\nThe last scroll steals\nthe first hour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "10d9042c",
+   "texte_overlay": "3. Write tomorrow's top 3\n\nOn paper. Wake up knowing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "33162a3d",
+   "texte_overlay": "4. Ten pages of a book\n\nEnd the day with\nsomething that lasts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "34f9f572",
+   "texte_overlay": "5. Clean kitchen before bed\n\nMorning you starts\nwith a clean slate.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "13b9e88d",
+   "texte_overlay": "6. Same lights-out time\n\nEven on Fridays.\nConsistency beats intensity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0c938189",
+   "texte_overlay": "7. Learn one thing\nbefore you sleep\n\nFive minutes.\nWake up a little sharper.",
+   "texte_sophia": "7. Learn one thing\nbefore you sleep\n\nUse a micro-learning app\nlike the Sophia app.\nWake up a little sharper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o090",
+  "type_bleo": "full_test",
+  "titre": "the 10 minutes after class that save me hours before every test #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge passée à 40 % : 3 full tests sur 7). Accroche jamais faite chez nous (le moment « après le cours » n'a pas d'accroche dans le label ; cs-o032 parlait des 5 premières minutes du cours). Accroches écrites : « the 10 minutes after class that save me hours before every test » (retenue : un petit effort, une grosse promesse vraie), « what i do right after every class » (écartée : plate), « stop leaving class and forgetting everything » (écartée : injonction). Gestes vrais : 3 points clés de mémoire, une question à poser, les devoirs notés tout de suite, se tester sur les 3 points le soir (place micabo, slide 5), relier au cours précédent. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c6730b02",
+      "texte_overlay": "the 10 minutes after class\nthat save me hours before every test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c68d1e53",
+      "texte_overlay": "right after class: 3 key points, from memory.\nno notes. just what stuck.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c8709de4",
+      "texte_overlay": "one question i still have.\ni ask it next time, or right away.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "cade325d",
+      "texte_overlay": "homework written down before i leave the room.\nnot \"i'll remember\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1a952b44",
+      "texte_overlay": "that evening, i quiz myself on those 3 points.\n5 minutes. done.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "cadee3a6",
+      "texte_overlay": "i link it to the last lesson in one line.\nthe chapter becomes one story.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "caf7dae4",
+      "texte_overlay": "by test week, i'm reviewing. not discovering.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

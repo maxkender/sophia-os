@@ -1,0 +1,286 @@
+{
+ "id": "yp-036",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7666519706249088278",
+  "vues": 11300,
+  "enregistrements": 344,
+  "publie_le": "2026-07-25",
+  "titre": "how to STAY ON TOP of schoolwork"
+ },
+ "titre": {
+  "fr": "comment ne jamais prendre de retard en cours",
+  "es": "cómo no atrasarte nunca en clase",
+  "tr": "derslerde hiç geride kalmamak"
+ },
+ "legendes": {
+  "fr": "rester à jour sans y passer ta vie 🌸 #studytok #thatgirl #conseils #revisions #productivite",
+  "es": "ir al día sin que se te vaya la vida 🌸 #studytok #thatgirl #consejos #estudiar #productividad",
+  "tr": "hayatını harcamadan derslere yetiş 🌸 #studytok #thatgirl #tavsiye #ders #verimlilik"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7495865113889065750"
+ },
+ "fond": {
+  "media_id": "44228161-2737-40e6-a09d-7258f0de0f93",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/48cfbde2-bcaf-4ea0-8bc5-78bbf63c4967/5.jpg?v=1792925089284",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "remake de « how to STAY ON TOP of schoolwork » (11 k) : notes iOS sur photos. cta B : la mise en scène iPhone micabo (a83da81b) en photo pleine de l’étape « révise tous les jours », micabo dans le texte",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "comment",
+     "lignes": [
+      "NE JAMAIS",
+      "PRENDRE DE",
+      "RETARD"
+     ],
+     "taille": 140,
+     "taille_script": 88,
+     "script_bas": "en cours",
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cómo",
+     "lignes": [
+      "NO",
+      "ATRASARTE",
+      "NUNCA"
+     ],
+     "taille": 150,
+     "taille_script": 88,
+     "script_bas": "en clase",
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "derslerde",
+     "lignes": [
+      "HİÇ",
+      "GERİDE",
+      "KALMAMAK"
+     ],
+     "taille": 150,
+     "taille_script": 88,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1583d559-73a8-4be8-b1c4-f2dcf3e92010",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/95d946a8-a288-42d9-aa72-b7b0d2e23499/6.jpg?v=1791726216947",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "profite du chemin🧸",
+      "texte": "quand tu révises un peu chaque jour au lieu de tout la veille, ça vient tout seul.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "disfruta del proceso🧸",
+      "texte": "cuando estudias un poco cada día en vez de todo la noche antes, sale solo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "süreçten keyif al🧸",
+      "texte": "her şeyi son geceye bırakmak yerine her gün biraz çalışınca kendiliğinden gelir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 150,
+      "titre": "révise tous les jours📚",
+      "texte": "non négociable. devoirs, quiz, relectures : je mets mes cours dans micabo et je fais au moins 10 min de quiz par jour.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 150,
+      "titre": "estudia todos los días📚",
+      "texte": "innegociable. deberes, quiz, repasos: meto mis clases en micabo y hago al menos 10 min de quiz al día.",
+      "grand": true
+     }
+    ],
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 150,
+      "titre": "her gün çalış📚",
+      "texte": "pazarlığı yok. ödev, test, tekrar: derslerimi micabo’ya koyuyorum ve her gün en az 10 dakika test çözüyorum.",
+      "grand": true
+     }
+    ],
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "ca619e83-5163-4a9b-ac40-19cbcd0037ea",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7013b3ec-73b4-4e46-b704-bfb3f94577e4/2.jpg?v=1791725533176",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1050,
+      "titre": "change de lieu🥐",
+      "texte": "fatiguée après les cours ? ne rentre pas tout de suite. va au café ou à la bibliothèque, à plusieurs si tu peux, pour vous motiver.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1050,
+      "titre": "cambia de sitio🥐",
+      "texte": "¿cansada después de clase? no vuelvas a casa todavía. ve a una cafetería o a la biblioteca, con amigas si puedes, para motivaros.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1050,
+      "titre": "yer değiştir🥐",
+      "texte": "dersten sonra yorgun musun? hemen eve gitme. kafeye ya da kütüphaneye git, mümkünse arkadaşlarınla, birbirinizi motive edin.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "78f62b1d-9d80-4af2-9b1c-e70443cd151a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2aa4ab49-49d1-470c-a636-b83532f8f1b6/5.jpg?v=1790608809058",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 200,
+      "titre": "la régularité avant la perfection💪",
+      "texte": "un jour sauté ? pas grave. ne le transforme pas en habitude, et n’abandonne pas pour un jour raté.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 200,
+      "titre": "constancia antes que perfección💪",
+      "texte": "¿te saltaste un día? da igual. que no se vuelva costumbre, y no lo dejes por un día perdido.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 200,
+      "titre": "mükemmellikten önce süreklilik💪",
+      "texte": "bir gün mü atladın? sorun değil. alışkanlık yapma ve kaçan bir gün yüzünden bırakma.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

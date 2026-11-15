@@ -4,33 +4,52 @@ export type LabelFileSlideshow = {
   id?: string;
   slug?: string | null;
   nom?: string | null;
-  ugc_ai_video?: boolean | null;
+  /** Label manuel (UGCV…) : jamais tiré, posé à la main par l'admin (migration 0661). */
+  manuel?: boolean | null;
 };
 
-/** Label UGC AI VIDEO (thématique ou marque système). */
-export function estLabelUgcAiVideo(lab: LabelFileSlideshow): boolean {
-  const slug = (lab.slug ?? "").trim().toLowerCase();
-  const nom = (lab.nom ?? "").trim().toLowerCase().replace(/\s+/g, " ");
-  return Boolean(lab.ugc_ai_video) || slug === "ugc-ai-video" || nom === "ugc ai video";
+/** Label manuel (UGCV…) : aucun tirage ne le pose, seul l'admin le met sur un compte. */
+export function estLabelManuel(lab: LabelFileSlideshow): boolean {
+  return Boolean(lab.manuel);
 }
 
 /**
  * Label que la file Settings / le fallback « moins utilisé » a le droit
- * de poser sur un créateur slideshow. Exclut Hook, la marque `ugc-ai-video`,
- * et tout label coché UGC AI VIDEO (ceux-là = HM vidéo uniquement).
+ * de poser sur un créateur slideshow. Exclut Hook et tout label manuel
+ * (UGCV : l'admin seul le pose).
  */
 export function estLabelFileSlideshow(lab: LabelFileSlideshow): boolean {
-  return !estLabelSysteme(lab) && !estLabelUgcAiVideo(lab);
+  return !estLabelSysteme(lab) && !estLabelManuel(lab);
 }
 
-/** Hook / marque système : jamais sur un compte, même UGC AI VIDEO. */
+/**
+ * Labels proposés pour un compte : les labels slideshow, plus les labels
+ * manuels pour l'admin seul. Rien tant que le compte porte un label manuel
+ * (il est exclusif : on le retire d'abord).
+ */
+export function labelsProposesCompte<T extends LabelFileSlideshow & { id: string }>(
+  tous: readonly T[],
+  actifs: readonly (LabelFileSlideshow & { id: string })[],
+  admin: boolean,
+): T[] {
+  if (actifs.some((l) => estLabelManuel(l))) return [];
+  const pris = new Set(actifs.map((l) => l.id));
+  return tous.filter((l) => !pris.has(l.id) && (estLabelFileSlideshow(l) || (admin && estLabelManuel(l))));
+}
+
+/** Labels du compte après l'ajout de `label` : un label manuel remplace tous les autres. */
+export function labelsApresAjout(ids: readonly string[], label: LabelFileSlideshow & { id: string }): string[] {
+  return estLabelManuel(label) ? [label.id] : [...new Set([...ids, label.id])];
+}
+
+/** Hook : jamais sur un compte. */
 export function estLabelInterditCompte(lab: LabelFileSlideshow): boolean {
   return estLabelSysteme(lab);
 }
 
 /**
  * Tire le premier item dont le label est éligible slideshow.
- * Les entrées UGC vidéo / système / inconnues en tête sont sautées
+ * Les entrées manuelles / système / inconnues en tête sont sautées
  * (retirées de la file, pas assignées).
  */
 export function consommerFileSlideshow<T extends { label_id: string }>(

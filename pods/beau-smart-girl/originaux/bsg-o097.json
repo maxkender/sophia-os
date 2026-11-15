@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o097",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "50954204-e9cd-4103-adda-50bc2bd5a8e3",
+  "titre": "how to be the better person, always #selfimprovement #thatgirl",
+  "inspirations": [
+    "50954204-e9cd-4103-adda-50bc2bd5a8e3"
+  ],
+  "notes": "G1, déclinaison de 50954204 (« how to be the better person, always », génération 0 en anglais ; meilleur passage de 4,1 k vues, r 2,25), en anglais. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni gentillesse quand personne ne regarde, ni responsabilité, ni valeurs, ni disputes pour comprendre, ni autre appli). Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "how to be the better person,\nalways",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. don't repeat what was told to you in confidence\n\neven when it would make a great story.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. give credit out loud\n\n'that was her idea.'\nit costs nothing and people never forget it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "62e25601",
+      "texte_overlay": "3. let people be wrong sometimes\n\nnot every mistake needs your correction.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4c866843",
+      "texte_overlay": "4. apologize without 'but'\n\n'i'm sorry' is a full sentence.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. keep learning, quietly\n\nbefore, i judged what i didn't understand.\nnow i learn one new thing every morning. and i judge a lot less.",
+      "texte_sophia": "5. keep learning, quietly\n\nbefore, i judged what i didn't understand.\nnow i open the Sophia app every morning. and i judge a lot less.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "000d7460",
+      "texte_overlay": "which one is hardest for you?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

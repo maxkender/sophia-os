@@ -22,6 +22,24 @@ import {
 export const CLE_MAJ_SOURCES = "maj_sources_run";
 const JOURNAL_MAX = 80;
 const LEASE_SEC = 8 * 60;
+/** Âge minimal d'un slideshow source pour être enfilé, par défaut (`reglages.bleo.sources.age_min_jours`, 0667). */
+export const AGE_MIN_JOURS_DEFAUT = 7;
+
+/**
+ * L'âge minimal d'un post source à la mise à jour (0667) : ses vues doivent
+ * être faites avant que le score d'import le juge. 0 : désactivé.
+ */
+async function lireReglagesMaj(supabase: Supabase): Promise<{ ageMinJours: number; maxParMaj: number | null }> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle();
+  const sources = (data?.valeur as { sources?: { age_min_jours?: unknown; posts_max_par_maj?: unknown } } | null)?.sources;
+  const age = Number(sources?.age_min_jours);
+  // 0686 : au plus tant de slideshows par source et par mise à jour. Absent ou 0 : pas de plafond.
+  const max = Number(sources?.posts_max_par_maj);
+  return {
+    ageMinJours: Number.isFinite(age) && age >= 0 ? age : AGE_MIN_JOURS_DEFAUT,
+    maxParMaj: Number.isFinite(max) && max > 0 ? Math.floor(max) : null,
+  };
+}
 
 function pousserJournal(
   run: MajSourcesRun,
@@ -100,6 +118,19 @@ async function mesurerFile(supabase: Supabase): Promise<MesureFile> {
     pipeline: pipelines.count ?? 0,
     faits: (scrapesFinis.count ?? 0) + (pipelinesFinis.count ?? 0),
   };
+}
+
+/**
+ * L'échec d'une source se voit dans la file (0698) : la décision de la semaine
+ * garde la raison et la source repart au lot suivant. `null` : l'échec est levé.
+ * Jamais bloquant : la séquence continue même si l'écriture rate.
+ */
+async function noterEchec(supabase: Supabase, compteId: string, message: string | null): Promise<void> {
+  try {
+    await supabase.rpc("maj_sources_echec", { p_compte: compteId, p_message: message });
+  } catch {
+    /* best-effort */
+  }
 }
 
 type Claim =
@@ -234,7 +265,11 @@ export async function tickMajSources(
       const listed = await listerUrlsCompteReference(supabase, compte.id, {
         nouveauxSeulement: true,
         marquerScrape: true,
+        ...(await lireReglagesMaj(supabase)),
       });
+      // 0698 : un profil que personne n'a pu lire est un échec, pas « rien à rattraper ».
+      if (listed.illisible) throw new Error(listed.illisible);
+      await noterEchec(supabase, compte.id, null);
       const r = await enqueueImportUrls(supabase, {
         urls: listed.urls,
         compteReferenceId: compte.id,
@@ -274,10 +309,11 @@ export async function tickMajSources(
           faits: index + 1,
           phase: "import",
         },
-        "warn",
+        "error",
         `${rang} @${compte.handle} — échec (on continue)`,
         (e as Error).message,
       );
+      await noterEchec(supabase, compte.id, (e as Error).message);
       await relacherLease(supabase, run);
       return { more: true, action: "echec", etat: run };
     }

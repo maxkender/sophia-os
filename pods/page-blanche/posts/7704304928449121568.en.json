@@ -1,0 +1,476 @@
+{
+ "post_id": "7704304928449121568",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that are secretly",
+      "destroying your brain"
+     ],
+     "fr": "10/10 habitudes qui te grillent le cerveau en douce",
+     "texte": "10/10 habits that are secretly destroying your brain"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science le prouve)",
+     "texte": "(neuroscience backed)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling on substack"
+     ],
+     "fr": "doomscroller du contenu [[« intelligent »]]",
+     "texte": "doomscrolling [[“smart” content]]"
+    },
+    "T2": {
+     "en": [
+      "short essays, stories, it feels productive because",
+      "you’re reading instead of watching tiktok"
+     ],
+     "fr": "essais courts, histoires, ça fait productif parce que [[tu lis au lieu de regarder tiktok]]",
+     "texte": "short essays, stories, it feels productive because you’re [[reading instead of watching tiktok]]"
+    },
+    "T6": {
+     "en": [
+      "but it still has an",
+      "algorithm built to",
+      "keep you hooked,"
+     ],
+     "fr": "mais y'a quand même [[un algo fait pour te garder]],",
+     "texte": "but it still has [[an algorithm built to keep you hooked]],"
+    },
+    "T7": {
+     "en": [
+      "one post after",
+      "another, just like",
+      "every other app"
+     ],
+     "fr": "post après post, [[comme toutes les applis]]",
+     "texte": "one post after another, [[just like every other app]]"
+    },
+    "T8": {
+     "en": [
+      "you’re still just consuming other people’s ideas and",
+      "doing nothing with them"
+     ],
+     "fr": "au final tu consommes juste les idées des autres et [[t'en fais rien]]",
+     "texte": "you’re still just consuming other people’s ideas and [[doing nothing with them]]"
+    },
+    "T9": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7680975889932225814_3.jpg",
+      "boite": [
+       572,
+       618,
+       298,
+       396
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 43,
+      "y": 206,
+      "l": 679,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 206,
+       "l": 679,
+       "h": 56,
+       "base": 258
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 44,
+      "y": 321,
+      "l": 795,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 45,
+       "y": 321,
+       "l": 794,
+       "h": 39,
+       "base": 349
+      },
+      {
+       "x": 44,
+       "y": 365,
+       "l": 661,
+       "h": 37,
+       "base": 399
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 44,
+      "y": 452,
+      "l": 581,
+      "h": 522
+     }
+    },
+    {
+     "id": "T6",
+     "type": "texte",
+     "boite": {
+      "x": 657,
+      "y": 526,
+      "l": 289,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 660,
+       "y": 526,
+       "l": 263,
+       "h": 35,
+       "base": 553
+      },
+      {
+       "x": 657,
+       "y": 569,
+       "l": 278,
+       "h": 37,
+       "base": 603
+      },
+      {
+       "x": 658,
+       "y": 613,
+       "l": 288,
+       "h": 36,
+       "base": 646
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T7",
+     "type": "texte",
+     "boite": {
+      "x": 657,
+      "y": 699,
+      "l": 267,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 657,
+       "y": 699,
+       "l": 231,
+       "h": 37,
+       "base": 727
+      },
+      {
+       "x": 659,
+       "y": 744,
+       "l": 265,
+       "h": 35,
+       "base": 777
+      },
+      {
+       "x": 657,
+       "y": 788,
+       "l": 261,
+       "h": 35,
+       "base": 821
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T8",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 1009,
+      "l": 821,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 1009,
+       "l": 820,
+       "h": 38,
+       "base": 1036
+      },
+      {
+       "x": 42,
+       "y": 1052,
+       "l": 399,
+       "h": 36,
+       "base": 1086
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T9",
+     "type": "texte",
+     "boite": {
+      "x": 1040,
+      "y": 1302,
+      "l": 40,
+      "h": 40
+     },
+     "lignes": [
+      {
+       "x": 1040,
+       "y": 1302,
+       "l": 40,
+       "h": 40,
+       "base": 1304
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to music all the time"
+     ],
+     "fr": "écouter de la musique [[H24]]",
+     "texte": "listening to music [[all the time]]"
+    },
+    "T2": {
+     "en": [
+      "on the bus, at the gym,",
+      "while studying, falling",
+      "asleep, there’s always",
+      "something playing"
+     ],
+     "fr": "dans le bus, à la salle, en bossant, pour t'endormir, y'a [[toujours un truc qui tourne]]",
+     "texte": "on the bus, at the gym, while studying, falling asleep, there’s always [[something playing]]"
+    },
+    "T3": {
+     "en": [
+      "your brain never gets a",
+      "quiet moment to think for",
+      "itself"
+     ],
+     "fr": "ton cerveau a [[jamais un moment au calme]] pour penser seul",
+     "texte": "your brain [[never gets a quiet moment]] to think for itself"
+    },
+    "T4": {
+     "en": [
+      "that’s why silence feels so uncomfortable now, and",
+      "you struggle to remember anything"
+     ],
+     "fr": "du coup le silence te met [[trop mal à l'aise]], et [[t'arrives plus à rien retenir]]",
+     "texte": "that’s why silence feels [[so uncomfortable]] now, and you [[struggle to remember anything]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "doomscrolling everyday"
+     ],
+     "fr": "doomscroller [[tous les jours]]",
+     "texte": "doomscrolling [[everyday]]"
+    },
+    "T2": {
+     "en": [
+      "you go on tiktok without even realising, then lose hours",
+      "of your day to it. that is frying your attention span"
+     ],
+     "fr": "tu vas sur tiktok [[sans même t'en rendre compte]] et tu perds des heures. ça [[te grille l'attention]]",
+     "texte": "you go on tiktok [[without even realising]], then lose hours of your day to it. that is [[frying your attention span]]"
+    },
+    "T3": {
+     "en": [
+      "don’t become illiterate"
+     ],
+     "fr": "[[oublie pas comment lire]]",
+     "texte": "[[don’t become illiterate]]"
+    },
+    "T4": {
+     "en": [
+      "you can try using willpower",
+      "to stop, but i use a thing",
+      "that blocks tiktok until i read",
+      "a book for 20 minutes"
+     ],
+     "fr": "ce qui marche pour moi : un livre dans le bus, marcher sans musique et [[l'appli Sophia]] quand je prends mon tel",
+     "texte": "what helped me: a book on the bus, walks without music, and [[the Sophia app]] when i’m on my phone anyway"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching productivity videos"
+     ],
+     "fr": "mater des [[vidéos de productivité]]",
+     "texte": "watching [[productivity videos]]"
+    },
+    "T2": {
+     "en": [
+      "study with me, how i plan my week, 5am morning",
+      "routines, you watch other people be productive"
+     ],
+     "fr": "study with me, ma semaine, routines à 5h du mat, tu regardes les autres [[être productifs]]",
+     "texte": "study with me, how i plan my week, 5am morning routines, you watch other people [[be productive]]"
+    },
+    "T3": {
+     "en": [
+      "your brain gets a",
+      "hit of dopamine",
+      "like you’ve actually",
+      "done something"
+     ],
+     "fr": "ton cerveau prend [[sa dose de dopamine]] comme si t'avais bossé",
+     "texte": "your brain gets [[a hit of dopamine]] like you’ve actually done something"
+    },
+    "T4": {
+     "en": [
+      "close the video and do the thing instead"
+     ],
+     "fr": "ferme la vidéo et [[fais-le vraiment]]",
+     "texte": "close the video and [[do the thing]] instead"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "reading book summaries"
+     ],
+     "fr": "lire des [[résumés de livres]]",
+     "texte": "reading [[book summaries]]"
+    },
+    "T2": {
+     "en": [
+      "blinkist, 10 minute youtube recaps, “5 lessons from",
+      "atomic habits” threads, you feel like you’ve read 50",
+      "books this year"
+     ],
+     "fr": "applis de résumés, récaps vidéo de 10 min, threads « 5 leçons de… », t'as l'impression d'avoir [[lu 50 livres cette année]]",
+     "texte": "summary apps, 10-minute video recaps, “5 lessons from” threads, you feel like you’ve [[read 50 books this year]]"
+    },
+    "T3": {
+     "en": [
+      "but you only get the",
+      "conclusions, never the",
+      "thinking that got there"
+     ],
+     "fr": "mais t'as que [[les conclusions]], jamais le raisonnement derrière",
+     "texte": "but you only get [[the conclusions]], never the thinking that got there"
+    },
+    "T4": {
+     "en": [
+      "so a week later you",
+      "remember nothing,",
+      "because your brain",
+      "never did the work"
+     ],
+     "fr": "une semaine après t'as tout oublié, parce que [[ton cerveau a rien fait]]",
+     "texte": "so a week later you remember nothing, because your brain [[never did the work]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

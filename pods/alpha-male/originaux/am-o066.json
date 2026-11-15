@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o066",
+ "type_bleo": "full_test",
+ "titre": "Things your grandfather did better than you #men #respect #oldschool #selfimprovement #discipline",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 8/11. Full test du jour (1 sur 2, jauge : 2 sur 5). Accroche jamais faite chez nous : aucun « grandfather » dans donnees/label.json (« grandparents » n'y est que dans un item). Le respect concret des deux percées (am-o010, am-o002) avec une promesse neuve : la comparaison avec la génération d'avant. Faits généraux, rien de nostalgique sur la société, rien sur les femmes. Format : numéro, geste, deux lignes. Images : la banque et des célébrités (autorisé) ; slide Sophia : terrasse sur le lac, sans personne. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0b34258f",
+   "texte_overlay": "Things your grandfather\ndid better than you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "33162a3d",
+   "texte_overlay": "1. He wrote letters by hand\n\nA few lines on paper\nsaid more than 50 texts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "34f9f572",
+   "texte_overlay": "2. He fixed things\n\nA broken chair got glue,\nnot a new chair.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2299e49d",
+   "texte_overlay": "3. He bought one good pair\nof shoes and kept them\n\nPolished every Sunday.\nThey lasted 20 years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "394f5cb3",
+   "texte_overlay": "4. He knew his neighbors\n\nBy name. By family.\nHe'd help them move\nwithout being asked.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "105dddf3",
+   "texte_overlay": "5. His handshake\nwas a contract\n\nHe said it, he did it.\nNo reminders needed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "18a7046b",
+   "texte_overlay": "6. He kept learning\n\nThe paper every morning.\nA book every night.\nHe always had\nsomething to say.",
+   "texte_sophia": "6. He kept learning\n\nI do it my way:\n5 minutes a day on the Sophia app.\nAlways something to say.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o110",
+  "type_bleo": "full_test",
+  "titre": "les livres que j'aurais aimé lire à 18 ans #lecture #booktok #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 2). Accroche jamais faite chez nous : les livres d'un âge, liste enregistrable. Accroches écrites : « les livres que j'aurais aimé lire à 18 ans » (retenue : regret, conseil d'une grande sœur), « les classiques à lire absolument » (écartée : trop vu), « 5 livres qui changent une vie » (écartée : promesse trop grande). Auteurs courants : Orgueil et préjugés (Austen), L'Étranger (Camus), Les Hauts de Hurlevent (Emily Brontë), Le Petit Prince (Saint-Exupéry), Une chambre à soi (Woolf). Fait vérifié le 8/11 sur https://en.wikipedia.org/wiki/Sense_and_Sensibility : « It was published anonymously: By A Lady appears on the title page » (1811). Routine du 8/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 3 full tests et 5 déclinaisons (lignes 1, 3, 4, 8 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 2 (4d7c5f32, accroche illisible « ge things that make you look while spending lil to no money effortlessly chic », à recopier mot pour mot), 5 (083ac272, 9 hobbies « backed by science », preuves invérifiables), 6 (6211e51e, « other then ») et 7 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "les livres que j'aurais aimé lire\nà 18 ans",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "1. orgueil et préjugés, jane austen\n\nce matin, j'ai appris que jane austen a publié son premier roman sans son nom, signé par une dame.\nje l'ai raconté trois fois dans la journée.",
+      "texte_sophia": "1. orgueil et préjugés, jane austen\n\nce matin, l'appli Sophia m'a appris que jane austen a publié son premier roman sans son nom, signé par une dame.\nje l'ai raconté trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "2. l'étranger, albert camus\n\ncourt, froid, et impossible à oublier.\nparfait pour les premières vraies questions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "06b64a24",
+      "texte_overlay": "3. les hauts de hurlevent, emily brontë\n\nune histoire d'amour qui n'a rien de mignon.\net c'est pour ça qu'on ne la lâche pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41a74286",
+      "texte_overlay": "4. le petit prince, saint-exupéry\n\nà 8 ans, c'est un conte.\nà 18 ans, c'est un livre sur toi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "5. une chambre à soi, virginia woolf\n\npour comprendre pourquoi ton indépendance compte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "lequel tu aurais aimé lire plus tôt ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

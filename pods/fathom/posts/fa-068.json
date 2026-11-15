@@ -1,0 +1,464 @@
+{
+ "id": "fa-068",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8ea05ed7-c64d-497a-9509-8405771a2a50",
+ "titre": {
+  "en": "3 Habits That Pay Off For Life",
+  "fr": "3 habitudes qui rapportent toute la vie",
+  "es": "3 hábitos que te sirven toda la vida",
+  "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen",
+  "it": "3 abitudini che ripagano per tutta la vita",
+  "pt-BR": "3 hábitos que valem a pena para a vida toda",
+  "es-419": "3 hábitos que te sirven toda la vida"
+ },
+ "legendes": {
+  "en": "3 Habits That Pay Off For Life #selfimprovement #learnontiktok #selfmastery",
+  "fr": "3 habitudes qui rapportent toute la vie #développementpersonnel #apprendresurtiktok #habitudes",
+  "es": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos",
+  "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen #selbstverbesserung #lernenmittiktok #gewohnheiten",
+  "it": "3 abitudini che ripagano per tutta la vita #crescitapersonale #imparacontiktok #abitudini",
+  "pt-BR": "3 hábitos que valem a pena para a vida toda #desenvolvimentopessoal #aprendanotiktok #hábitos",
+  "es-419": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
+ },
+ "notes": "cta C. Déclinaison G1 de fa-056 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Habits That Pay Off For Life »), traductions du parent ; autres étapes (course, Sophia, journal), autre CTA, autre son (0671). Sophia à l'étape 2 comme le parent. Langues des comptes du label (7), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABITS",
+       "bronze": true
+      }
+     ],
+     "THAT PAY OFF",
+     [
+      {
+       "t": "FOR LIFE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABITUDES",
+       "bronze": true
+      }
+     ],
+     "QUI RAPPORTENT",
+     [
+      {
+       "t": "TOUTE LA VIE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 HÁBITOS",
+       "bronze": true
+      }
+     ],
+     "QUE TE SIRVEN",
+     [
+      {
+       "t": "TODA LA VIDA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 GEWOHNHEITEN",
+       "bronze": true
+      }
+     ],
+     "DIE SICH EIN LEBEN",
+     [
+      {
+       "t": "LANG AUSZAHLEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABITUDINI",
+       "bronze": true
+      }
+     ],
+     "CHE RIPAGANO",
+     [
+      {
+       "t": "PER TUTTA LA VITA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HÁBITOS",
+       "bronze": true
+      }
+     ],
+     "QUE VALEM A PENA",
+     [
+      {
+       "t": "A VIDA TODA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 HÁBITOS",
+       "bronze": true
+      }
+     ],
+     "QUE TE SIRVEN",
+     [
+      {
+       "t": "TODA LA VIDA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "START",
+     "RUNNING"
+    ],
+    "video": {
+     "id": "kVnyY17VS9Y",
+     "titre": "11 Beginner Run Tips | How To Start Running!",
+     "chaine": "Global Triathlon Network",
+     "vues": "2M views",
+     "date": "6 years ago",
+     "duree": "6:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENCER",
+     "À COURIR"
+    ],
+    "video": {
+     "id": "3r9IwH7AjP4",
+     "titre": "Si je commençais à courir en 2026, voilà ce que je ferais :",
+     "chaine": "Running Addict",
+     "vues": "274 k vues",
+     "date": "il y a 2 mois",
+     "duree": "17:38",
+     "avatar": "https://yt3.ggpht.com/zxJqY61mhOVZk3Mcs4T-hHPbO0KZm3GaOsH4sIAn0TVIYJa35a_pV-Oj1rX1DK_NPzonnvq70Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EMPEZAR",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "73AiHU88spc",
+     "titre": "Cómo EMPEZAR a CORRER Desde CERO | PRINCIPIANTES",
+     "chaine": "RETO Maratón con Fitness Ramos",
+     "vues": "8,4 K visualizaciones",
+     "date": "hace 9 meses",
+     "duree": "11:40",
+     "avatar": "https://yt3.ggpht.com/SguB99f68c4uvH6xnjt8cvLF7TXO0n1mVT-kVHLPE2eT1eI1Hmz_6E4R2pTVUDon5stHdPRciQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MIT DEM LAUFEN",
+     "ANFANGEN"
+    ],
+    "video": {
+     "id": "lhEwMUCPyk0",
+     "titre": "Joggen für Anfänger: So gelingt der Einstieg ins Lauftraining - Tipps, Trainingsplan & Fallstricke",
+     "chaine": "DoktorWeigl",
+     "vues": "203.102 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "INIZIARE",
+     "A CORRERE"
+    ],
+    "video": {
+     "id": "LLL8Q_izTP8",
+     "titre": "Come INIZIARE A CORRERE - Tutto quello che devi sapere",
+     "chaine": "Your Personal Best",
+     "vues": "91K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/fIGTMynqyV9apkB6Hgq6tLgYe5UOLYZbZqZMK46dw7FAEDEAyVlrEdpRLnzTmjLqiTsKskPG=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMEÇAR",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "5FJoqhlszTI",
+     "titre": "Corrida para iniciantes: como começar a correr?",
+     "chaine": "Drauzio Varella",
+     "vues": "185 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/eKO6HupEds-Nnin2SJBUqojJww8qz6k76qWrKVZGJ3wYxBvRmtmjtfhd8UfFTyoYFgL99xr8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EMPEZAR",
+     "A CORRER"
+    ],
+    "video": {
+     "id": "gImHug3sGKI",
+     "titre": "CÓMO EMPEZAR a CORRER sin cansarte | 7 consejos para principiantes",
+     "chaine": "The Saiyan Kiwi",
+     "vues": "2 M de vistas",
+     "date": "hace 3 años",
+     "duree": "17:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYf6yz2VdprFSCb7RwQt2TZm6_7C1k62qtlNVhSAkVWjI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     "WAS LERNEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA",
+     "TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "KEEP A",
+     "JOURNAL"
+    ],
+    "video": {
+     "id": "MXITTbeLDfA",
+     "titre": "JOURNALING FOR BEGINNERS ✨» Easy + Effortless \"How To\" Guide for Starting A Journal Today",
+     "chaine": "Nae's Laugh",
+     "vues": "683K views",
+     "date": "6 years ago",
+     "duree": "9:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBy89UKXylbkVbNAMVGp3uMBS5ikzEWBxJKWqbEYVvSzY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "TENIR UN",
+     "JOURNAL"
+    ],
+    "video": {
+     "id": "jHoUHE32MlE",
+     "titre": "COMMENCER SON BULLET JOURNAL | Tutoriel",
+     "chaine": "L' Olive Savante",
+     "vues": "75 k vues",
+     "date": "il y a 6 ans",
+     "duree": "7:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpN97NMHrlY_hBvr4tEh-qeEprkvRjTq59ifqVSRTOoI0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ESCRIBIR UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "79Hqbzs5GQg",
+     "titre": "Guía para empezar un Journal 📓🌷(tips y consejos + Journaling  juntos)",
+     "chaine": "Mar 🦋",
+     "vues": "200 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/N7hIoxHt57WgVhInZmeBj0RkUvJgwXR5lgL6S-vByQgwZ-K88-yPCnrqKYTKXyPzBbQtNIEH2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "TAGEBUCH",
+     "SCHREIBEN"
+    ],
+    "video": {
+     "id": "0J8XT2-7HbA",
+     "titre": "3 einfach Schritte: So fängst du mit dem Tagebuch Schreiben an",
+     "chaine": "The Journaling Mind",
+     "vues": "21.413 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:54",
+     "avatar": "https://yt3.ggpht.com/1zFwr1JEqr8GlxCZ6jbAg5EFlqo3kxhpncMg5oIYkH1ycL3C48PwujmmzEPywATmmpf7VMXs32I=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "TENERE UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "oCJP_E0kKqg",
+     "titre": "Tengo un *diario personale* da 15 anni. Ecco cosa ho imparato…",
+     "chaine": "EfficaceMente (con Andrea Giuliodori)",
+     "vues": "15K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "11:56",
+     "avatar": "https://yt3.ggpht.com/ixZegPxbLUlAo8YklFToyRu3NK5jNhnVJoagaVRTkLl5AN8hWEUiXc3UC8cSSW5P0HOSsGsdHQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ESCREVER UM",
+     "DIÁRIO"
+    ],
+    "video": {
+     "id": "BQtl0rzcfOc",
+     "titre": "JOURNALING: o melhor HOBBY para 2026 | Psicóloga Explica",
+     "chaine": "Lisa Guerra",
+     "vues": "60 mil visualizações",
+     "date": "há 9 meses",
+     "duree": "8:57",
+     "avatar": "https://yt3.ggpht.com/_Mhdmdvuq2VwaIEdUEMtMa9686u_d3Vyl9uvgDVVx87sG_tNkV9X8ifFZk94OoyECF-sD8CzXQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ESCRIBIR UN",
+     "DIARIO"
+    ],
+    "video": {
+     "id": "JVDok8da-eI",
+     "titre": "Cómo hacer Journaling? Cambia tu vida haciendo Journaling en 2026",
+     "chaine": "Adrià Solà Pastor",
+     "vues": "417 k vistas",
+     "date": "hace 2 años",
+     "duree": "11:53",
+     "avatar": "https://yt3.ggpht.com/teuevM7HuT6ap1FW50v80NmmwmuNJhyKiWhznSEmFleIqPES39v7MksSKi4sLDPTn2C0u87D_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

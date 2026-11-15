@@ -1,0 +1,204 @@
+{
+ "id": "fa-008-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7687989471857462550",
+  "vues": 154000,
+  "accroche": "How To Step Outside Of Your Comfort Zone"
+ },
+ "titre": {
+  "en": "How To Step Outside Of Your Comfort Zone",
+  "de": "Wie du deine Komfortzone verlässt"
+ },
+ "legendes": {
+  "en": "How To Step Outside Of Your Comfort Zone #comfortzone #selfimprovement #learnontiktok",
+  "de": "Wie du deine Komfortzone verlässt #komfortzone #selbstverbesserung #lernenmittiktok"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7435207007541480224"
+ },
+ "notes": "remplace fa-008 (carte UnSwipe retirée). L'étape 2 « STOP DOOMSCROLLING » redevient une étape normale avec sa vraie vidéo YouTube native ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 4). Livré dans les langues où le label a un compte (en, de).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "HOW TO",
+       "bronze": true
+      }
+     ],
+     "STEP OUTSIDE OF",
+     "YOUR COMFORT ZONE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "WIE DU DEINE",
+       "bronze": true
+      }
+     ],
+     "KOMFORTZONE",
+     "VERLÄSST"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TALK TO STRANGERS"
+    ],
+    "video": {
+     "id": "QT1zpWB74yo",
+     "titre": "The Life Changing Effect of Small Talk With Strangers",
+     "chaine": "The School of Life",
+     "vues": "521K views",
+     "date": "3 years ago",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ldJz69qUu_3sEO5c-lO5Cevt7X2gUE2YQ11iWAC-6TZFU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SPRICH FREMDE AN"
+    ],
+    "video": {
+     "id": "Ud1xRjkSJcc",
+     "titre": "Leute ansprechen ist extrem einfach.",
+     "chaine": "extrem einfach.",
+     "vues": "60.371 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "4:52",
+     "avatar": "https://yt3.ggpht.com/tcG4x42OIRF-cI7KSZRCigHnQJY3ZhoFkkkV6leq_ASxmxGWGVcHQF-kMGBmq0pXM6qulhO5DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "STOP DOOMSCROLLING"
+    ],
+    "video": {
+     "id": "Bp0dsuBvw4E",
+     "titre": "How to Stop Doomscrolling (And What to Do Instead!)",
+     "chaine": "Psych2Go",
+     "vues": "404K views",
+     "date": "1 year ago",
+     "duree": "5:17",
+     "avatar": "https://yt3.ggpht.com/PABMv0Tbz1G47ZIdC87y7KgSJ3IyehptRBY9jfp3BZbsP8TRnslVdjFYG0mjtls2U5-1LyeofA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHLUSS MIT",
+     "DOOMSCROLLING"
+    ],
+    "video": {
+     "id": "mxtSd6WBdaw",
+     "titre": "Genug vom Doomscrolling?",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "11:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLO TRAVEL"
+    ],
+    "video": {
+     "id": "Xef6E5jYO9Q",
+     "titre": "solo travel will change your life",
+     "chaine": "Joshua Paine",
+     "vues": "541K views",
+     "date": "4 months ago",
+     "duree": "20:16",
+     "avatar": "https://yt3.ggpht.com/2RGY-6IQzOqgCroUaoQSOc5_jckCxBAHb2tXUeKfDUELxAzP4ZpQhtPPYRM4gk8jiaGymkrYFw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "REISE ALLEIN"
+    ],
+    "video": {
+     "id": "dZ06DoYcYQ0",
+     "titre": "Die Psychologie von Menschen, die alleine reisen | SEKTION PSYCHE",
+     "chaine": "SEKTION PSYCHE",
+     "vues": "144.785 Aufrufe",
+     "date": "vor 7 Monaten",
+     "duree": "4:26",
+     "avatar": "https://yt3.ggpht.com/cJ4iH2q69T5Lp5P6CNWdCCvrKRl58BV3tHclsfsJ25b0fMsjiz8F5edkWCkpGCWdjg1WgQcE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "EXPLORE NEW TOPICS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "ENTDECKE NEUE THEMEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WAKE UP EARLY"
+    ],
+    "video": {
+     "id": "WFtrModTjAo",
+     "titre": "waking up at 4:30am is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "1.2M views",
+     "date": "1 year ago",
+     "duree": "9:56",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "STEH FRÜH AUF"
+    ],
+    "video": {
+     "id": "jDtcrvUonDc",
+     "titre": "Nie wieder SNOOZE drücken und morgens direkt aufstehen",
+     "chaine": "Coach Stef",
+     "vues": "68.154 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

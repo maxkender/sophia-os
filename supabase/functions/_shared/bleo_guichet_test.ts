@@ -1,6 +1,6 @@
 import { assert, assertEquals } from "jsr:@std/assert@1";
 
-import { accrocheDuDeck, accrochesEnAttente, debutJourParis, fullTestsDuJour, lireDeclarationBleo } from "./bleo_guichet.ts";
+import { accrocheDuDeck, accrocheDuTitre, accrochesEnAttente, debutJourParis, fullTestsDuJour, lireDeclarationBleo, lireLanguesDeclarees } from "./bleo_guichet.ts";
 
 Deno.test("guichet BLEO : la déclaration se lit, sa forme est vérifiée", () => {
   assertEquals(lireDeclarationBleo({}), { typeBleo: null, parentContenuId: null });
@@ -31,6 +31,26 @@ Deno.test("guichet BLEO : accroches en attente, sauf la livraison remplacée", (
   assertEquals([...attente.entries()], [["weird advice that works", "a"]]);
 });
 
+Deno.test("guichet BLEO : un livré (voie 2) a pour accroche son titre normalisé, comme 0652", () => {
+  assertEquals(accrocheDuTitre("10/10 Skills You Can Learn In A Day!"), "10 10 skills you can learn in a day");
+  assertEquals(accrocheDuTitre("conseils de grande sœur pour réviser sans stress"), "conseils de grande sœur pour reviser sans stress");
+  assertEquals(accrocheDuTitre("Ab"), null);
+  assertEquals(accrocheDuTitre(null), null);
+});
+
+Deno.test("guichet BLEO : en attente, un livré sans texte de slide compte par son titre", () => {
+  const livraisons = [
+    // Livré : slides en images, pas de texte_overlay.
+    { id: "l", langue_source: "en", titre: "5 Rabbit Holes Worth Going Down", decks: { en: { slides: [{ position: 1 }] } } },
+    // Original : la première slide l'emporte sur le titre (la légende).
+    { id: "o", langue_source: "en", titre: "#fyp #habits", decks: { en: { slides: [{ position: 1, texte_overlay: "Rules as a man" }] } } },
+  ];
+  assertEquals([...accrochesEnAttente(livraisons, null).entries()], [
+    ["5 rabbit holes worth going down", "l"],
+    ["rules as a man", "o"],
+  ]);
+});
+
 Deno.test("guichet BLEO : full tests du jour, au taux de la jauge sur la durée", () => {
   // 3 dépôts par jour, 10 % de full tests : 0,3 par jour, soit 9 sur 30 jours.
   let total = 0;
@@ -52,4 +72,15 @@ Deno.test("guichet BLEO : full tests du jour, au taux de la jauge sur la durée"
 Deno.test("guichet BLEO : minuit à Paris, en hiver et en été", () => {
   assertEquals(debutJourParis("2026-11-03"), "2026-11-02T23:00:00.000Z");
   assertEquals(debutJourParis("2026-07-01"), "2026-06-30T22:00:00.000Z");
+});
+
+Deno.test("guichet BLEO : les langues déclarées par un podz (0654)", () => {
+  assertEquals(lireLanguesDeclarees(undefined), null);
+  assertEquals(lireLanguesDeclarees(["en", "pt-BR", "es-419", "EN".toLowerCase()]), ["en", "pt-BR", "es-419"]);
+  assertEquals(lireLanguesDeclarees([" fr ", "de"]), ["fr", "de"]);
+  // Une liste vide fermerait toutes les langues à l'attribution : refusée.
+  assert("erreur" in (lireLanguesDeclarees([]) as object));
+  assert("erreur" in (lireLanguesDeclarees("fr") as object));
+  assert("erreur" in (lireLanguesDeclarees(["fr", "français"]) as object));
+  assert("erreur" in (lireLanguesDeclarees(["fr", 3]) as object));
 });

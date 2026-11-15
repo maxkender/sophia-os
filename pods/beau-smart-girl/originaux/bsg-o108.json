@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o108",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f3c8dc81-73ce-4e99-b84e-972d8acaf9b9",
+  "titre": "les habitudes chelous que je fais le dimanche pour arriver lundi plus cultivée #dimanche #culture #pourtoi",
+  "inspirations": [
+    "f3c8dc81-73ce-4e99-b84e-972d8acaf9b9"
+  ],
+  "notes": "G1, déclinaison de f3c8dc81 (« les habitudes chelous que je fais le dimanche pour arriver lundi plus cultivée », génération 0 en français ; meilleur passage el 3,8 k vues, r 4,24), en français. cta C (le défi de 7 jours en slide 2). Habitudes neuves (rien de repris du parent : ni journal papier, ni vieux film, ni recette étrangère, ni livre de la semaine). Routine du 7/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 5, 7 et 8 de la boîte). Ligne 6 sautée (5c676138, métiers du droit : treize fiches métier à vérifier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "les habitudes chelous que je fais le dimanche\npour arriver lundi plus cultivée",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. je lis la page wikipédia du jour\n\nl'article mis en avant, quel qu'il soit.\nla semaine dernière : une espèce de champignon.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. j'écoute un album en entier, dans l'ordre\n\nsans rien faire d'autre. comme un film.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "3. je visite un endroit de ma ville où je ne suis jamais allée\n\nune église, une cour, une rue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4c866843",
+      "texte_overlay": "4. j'écris trois choses apprises dans la semaine\n\nsi je n'en trouve pas trois, je sais quoi faire lundi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "205ce864",
+      "texte_overlay": "5. je regarde une œuvre d'art pendant dix minutes\n\nen vrai ou sur un écran.\non voit tout autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "09dd6248",
+      "texte_overlay": "vole-moi une habitude.\nenregistre-le pour dimanche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

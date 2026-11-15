@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o152",
+ "type_bleo": "full_test",
+ "titre": "what every cultured woman knows about ballet #ballet #culture #smartgirl #darkacademia #arthistory",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 4/4 (la jauge en demande 4 sur 13) : accroche jamais faite chez nous (« ballet » absent des accroches de donnees/label.json). Accroches écrites : « what every cultured woman knows about ballet » (retenue : culture, faits vérifiables), « ballet facts you didn't know » (écartée : plus faible), « ballet terms to sound elegant » (écartée : proche des listes de mots). Faits vérifiés : la danse classique se codifie à la cour de Louis XIV, Académie royale de danse en 1661 ; « plié » veut dire « plié » ; Le Lac des cygnes, créé à Moscou en 1877, est d'abord un échec ; une danseuse étoile peut user plusieurs paires de pointes par semaine. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ee1c2f6e",
+   "texte_overlay": "what every cultured woman\nknows about ballet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "82ac50b6",
+   "texte_overlay": "1. it started at the court\nof louis xiv, who founded\na dance academy in 1661",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fb4c004a",
+   "texte_overlay": "2. that's why the terms are french:\nplié, pirouette, arabesque",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9caea8fa",
+   "texte_overlay": "3. swan lake was a flop\nat its 1877 premiere",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "21edfa9e",
+   "texte_overlay": "4. a principal dancer can wear\nout several pairs of pointe\nshoes a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a42f68d9",
+   "texte_overlay": "learn one story like this\ninstead of one scroll.",
+   "texte_sophia": "learn one story like this\ninstead of one scroll, on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f38722a9",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

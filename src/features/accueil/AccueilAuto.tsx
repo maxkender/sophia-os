@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 import { LiaisonsContrats } from "./LiaisonsContrats";
 import {
   amorcerAnnonces,
-  creerAccueil,
+  ecarterAccueil,
   enregistrerAnnonce,
   lireAccueils,
   lireAnnonces,
@@ -26,7 +26,7 @@ import {
   type Accueil,
   type AnnoncePays,
 } from "./api";
-import { estARelier } from "./aRelier";
+import { estARelier, LANGUE_DU_PAYS, questionARelier } from "./aRelier";
 
 const selectClass = "h-8 rounded-md border bg-background px-2 text-sm";
 
@@ -46,121 +46,52 @@ function paysDe(langue: string, choisi: string): string {
   return choisi || paysParDefaut(langue) || "";
 }
 
-/** « Contrats à relier » : la HM (ou l'admin) donne la langue, le pays et la HM. */
-function LigneARelier({ a, hms, admin }: { a: Accueil; hms: { id: string; nom: string }[]; admin: boolean }) {
-  const { t } = useTranslation();
-  const qc = useQueryClient();
-  const [langue, setLangue] = React.useState("");
-  const [pays, setPays] = React.useState("");
-  const [hm, setHm] = React.useState(a.hm_id ?? "");
-  const [retenir, setRetenir] = React.useState(false);
-  const relier = useMutation({
-    mutationFn: () => relierAccueil(a.contrat_id, paysDe(langue, pays), langue, admin ? hm || null : null, retenir),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["accueils"] }),
-  });
-  const pret = Boolean(langue && paysDe(langue, pays));
-  const lieu = [a.freelance_ville, nomPaysIso(a.freelance_pays)].filter(Boolean).join(", ");
-  return (
-    <li className="space-y-2 px-3 py-2" data-a-relier={a.contrat_id}>
-      <p className="text-sm">
-        <span className="font-medium">{[a.prenom, a.nom].filter(Boolean).join(" ") || a.contrat_id}</span>
-        <span className="text-muted-foreground"> · {a.job_titre ?? "—"}</span>
-      </p>
-      {/* 0470 : l'équipe Upwork du contrat, où vit le freelance, la HM du contrat, la raison. */}
-      <p className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground" data-testid="infos-contrat">
-        {a.equipe && (
-          <Badge variant={/^vik studios$/i.test(a.equipe) ? "secondary" : "warning"} data-equipe={a.equipe}>
-            {t("accueil.api.equipe", { nom: a.equipe })}
-            {!/^vik studios$/i.test(a.equipe) && ` · ${t("accueil.api.horsVik")}`}
-          </Badge>
-        )}
-        <span>{lieu ? t("accueil.api.vit", { lieu }) : t("accueil.api.vitInconnu")}</span>
-        {a.hm_upwork_nom && <span>{t("accueil.api.hmContrat", { nom: a.hm_upwork_nom })}</span>}
-        {a.raison && <span>· {a.raison}</span>}
-      </p>
-      {admin && <CreerPourContrat a={a} hms={hms} />}
-      <div className="flex flex-wrap items-end gap-2">
-        <select className={selectClass} value={langue} onChange={(e) => { setLangue(e.target.value); setPays(""); }} aria-label={t("accueil.langue")}>
-          <option value="">{t("accueil.langue")}</option>
-          {LANGUES_CIBLES.map((l) => (
-            <option key={l} value={l}>
-              {nomLangue(l)}
-            </option>
-          ))}
-        </select>
-        {langue && <ChampPaysCompte id={`pays-${a.contrat_id}`} langue={langue} pays={pays} onPays={setPays} />}
-        {admin && (
-          <select className={selectClass} value={hm} onChange={(e) => setHm(e.target.value)} aria-label={t("accueil.hm")}>
-            <option value="">{t("accueil.hm")}</option>
-            {hms.map((h) => (
-              <option key={h.id} value={h.id}>
-                {h.nom}
-              </option>
-            ))}
-          </select>
-        )}
-        <label className="flex items-center gap-1.5 text-xs">
-          <input type="checkbox" checked={retenir} onChange={(e) => setRetenir(e.target.checked)} />
-          {t("accueil.retenir")}
-        </label>
-        <Button size="sm" className="h-8" disabled={!pret || relier.isPending} onClick={() => relier.mutate()}>
-          {t("accueil.relier")}
-        </Button>
-      </div>
-      {relier.isError && <p className="text-xs text-destructive">{(relier.error as Error).message}</p>}
-    </li>
-  );
-}
-
 /**
- * 0470 : la carte « Contract to link » : pays et HM pour ce contrat, sans
- * passer par l'annonce. Un clic : posteur créé, relié au contrat, welcome
- * envoyé, carte fermée ; sinon l'erreur, telle quelle.
+ * 12/11 (Max) : un contrat n'arrive ici que si le pays est introuvable ou fermé.
+ * Une seule question ; la langue vient du pays, la HM de la règle (la moins chargée).
  */
-function CreerPourContrat({ a, hms }: { a: Accueil; hms: { id: string; nom: string }[] }) {
+function LigneARelier({ a }: { a: Accueil }) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const [pays, setPays] = React.useState(a.pays ?? a.freelance_pays ?? "");
-  const [hm, setHm] = React.useState(a.hm_id ?? "");
-  const tous = React.useMemo(() => paysTries(), []);
+  const [pays, setPays] = React.useState("");
   const nom = [a.prenom, a.nom].filter(Boolean).join(" ") || a.contrat_id;
-  const creer = useMutation({
-    mutationFn: () => creerAccueil(a.contrat_id, pays, hm),
-    onSuccess: () => qc.invalidateQueries({ queryKey: ["accueils"] }),
+  const question = questionARelier(a);
+  const choix = React.useMemo(
+    () => paysTries().filter((p) => LANGUE_DU_PAYS[p.code]),
+    [],
+  );
+  const fini = () => qc.invalidateQueries({ queryKey: ["accueils"] });
+  const relier = useMutation({
+    // HM nulle : la règle la choisit au passage suivant ; le pays donné à la main n'est plus « fermé ».
+    mutationFn: (p: string) => relierAccueil(a.contrat_id, p, LANGUE_DU_PAYS[p] ?? a.langue ?? "", null, question === "pays"),
+    onSuccess: fini,
   });
+  const ecarter = useMutation({ mutationFn: () => ecarterAccueil(a.contrat_id, `pays fermé (${a.pays})`), onSuccess: fini });
   return (
-    <div className="flex flex-wrap items-end gap-2" data-testid="creer-pour-contrat">
-      <select className={selectClass} value={pays} onChange={(e) => setPays(e.target.value)} aria-label={t("accueil.api.pays")}>
-        <option value="">{t("accueil.api.pays")}</option>
-        {tous.map((p) => (
-          <option key={p.code} value={p.code}>
-            {p.nom}
-          </option>
-        ))}
-      </select>
-      <select className={selectClass} value={hm} onChange={(e) => setHm(e.target.value)} aria-label={t("accueil.hm")}>
-        <option value="">{t("accueil.hm")}</option>
-        {hms.map((h) => (
-          <option key={h.id} value={h.id}>
-            {h.nom}
-          </option>
-        ))}
-      </select>
-      <Button
-        size="sm"
-        className="h-8"
-        disabled={!pays || !hm || creer.isPending}
-        loading={creer.isPending}
-        onClick={() => {
-          const hmNom = hms.find((h) => h.id === hm)?.nom ?? hm;
-          if (window.confirm(t("accueil.api.confirmer", { nom, pays: nomPaysIso(pays) || pays, hm: hmNom }))) creer.mutate();
-        }}
-      >
-        {t("accueil.api.creer")}
-      </Button>
-      {creer.isError && <p className="w-full text-xs text-destructive" role="alert">{(creer.error as Error).message}</p>}
-      {creer.data && <p className="w-full text-xs text-muted-foreground">{t("accueil.api.cree", { statut: t(`accueil.statuts.${creer.data.statut ?? "cree"}`) })}</p>}
-    </div>
+    <li className="space-y-2 px-3 py-3" data-a-relier={a.contrat_id}>
+      {question === "ferme" ? (
+        <>
+          <p className="text-sm font-medium">{t("accueil.question.ferme", { nom, pays: nomPaysIso(a.pays) || a.pays })}</p>
+          <div className="flex flex-wrap gap-2">
+            <Button size="sm" disabled={relier.isPending || ecarter.isPending} onClick={() => relier.mutate(a.pays!)}>{t("accueil.question.creer")}</Button>
+            <Button size="sm" variant="outline" disabled={relier.isPending || ecarter.isPending} onClick={() => ecarter.mutate()}>{t("accueil.question.ecarter")}</Button>
+          </div>
+        </>
+      ) : (
+        <>
+          <p className="text-sm font-medium">{t("accueil.question.pays", { nom })}</p>
+          <div className="flex flex-wrap items-center gap-2">
+            <select className={selectClass} value={pays} onChange={(e) => setPays(e.target.value)} aria-label={t("accueil.question.choisirPays")}>
+              <option value="">{t("accueil.question.choisirPays")}</option>
+              {choix.map((p) => <option key={p.code} value={p.code}>{p.nom}</option>)}
+            </select>
+            <Button size="sm" className="h-8" disabled={!pays || relier.isPending} onClick={() => relier.mutate(pays)}>{t("accueil.question.valider")}</Button>
+          </div>
+          <p className="text-xs text-muted-foreground">{a.job_titre ?? ""}{a.job_titre ? " · " : ""}{t("accueil.question.aideRegle")}</p>
+        </>
+      )}
+      {(relier.isError || ecarter.isError) && <p className="text-xs text-destructive">{((relier.error ?? ecarter.error) as Error).message}</p>}
+    </li>
   );
 }
 
@@ -287,7 +218,7 @@ export function AccueilAuto({ hmSeulement = false }: { hmSeulement?: boolean }) 
         ) : (
           <ul className="divide-y rounded-lg border">
             {aRelier.map((a) => (
-              <LigneARelier key={a.contrat_id} a={a} hms={hms} admin={admin} />
+              <LigneARelier key={a.contrat_id} a={a} />
             ))}
           </ul>
         )}

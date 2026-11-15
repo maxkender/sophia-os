@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o213",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "703f6120-9c53-420b-83c7-c3b4c601decd",
+ "titre": "habits i wish i knew sooner that made me ultra feminine #feminine #softlife #habits #selfcare #elegance",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "a75d83ce-d4b7-4163-afdb-67f008a8f582"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, a75d83ce). déclinaison G1 de « habits i wish i knew sooner that made me ultra feminine » (parent 703f6120). cta B. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "135a15ad-9a95-48af-aa08-902cac0ed5ea",
+   "texte_overlay": "habits i wish i knew sooner\nthat made me ultra feminine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0a38b984-7d86-4ec4-94dc-ffebc6f422bb",
+   "texte_overlay": "moving slowly\n\ni started doing everything a little slower, like walking, pouring tea, turning a page. slowness gives you a soft, magnetic grace that people notice right away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "209e5202-ee5d-41aa-b212-039fd6a1d3d5",
+   "texte_overlay": "speaking softly\n\ni lowered my voice and stopped rushing my words. people lean in to listen when your energy is calm, and every conversation starts to feel more gentle.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0bf5e88f-6030-4bef-b2f0-c27c00ad5a3c",
+   "texte_overlay": "having unexpected stories\n\ni always have a strange myth or a beautiful fact ready to share. having unexpected stories in conversation makes me feel elegant, curious and interesting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/4.jpg",
+   "texte_sophia": "having unexpected stories\n\ni always have a strange myth or a beautiful fact to share. the Sophia app turns it into one short lesson a day, and having unexpected stories makes me feel so elegant."
+  },
+  {
+   "position": 5,
+   "media_id": "07de6a4b-faca-4f39-a629-10250dff7a15",
+   "texte_overlay": "protecting my peace\n\ni stopped joining every drama and argument around me. nothing feels more feminine to me than calmly choosing peace over chaos, again and again, every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0b903318-b1eb-4fac-a780-4b405b3b7132",
+   "texte_overlay": "little rituals\n\ni turned boring chores into small rituals with candles, music and nice cups. it makes ordinary days feel softer and makes me feel like the main character.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/6.jpg"
+  }
+ ]
+}

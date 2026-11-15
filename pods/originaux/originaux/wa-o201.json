@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o201",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ea4ba00f-25e7-462a-8327-c2542b2ae97f",
+ "titre": "strange mind tricks that work on almost everyone #psychology #mindtricks #socialskills #humanbehavior #selfimprovement",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "648e59e7-f960-4d66-80f9-bf89cd9c897f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 648e59e7). déclinaison G2 de « weird psychology tricks that actually work » (parent ea4ba00f). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "83846b5f-8b1b-4148-9e31-a75e7eaeb618",
+   "texte_overlay": "strange mind tricks that\nwork on almost everyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c4b0d6e8-d411-4847-891b-e1f0e1b03f21",
+   "texte_overlay": "the curious pause\n\nwhen someone finishes talking, wait two seconds before you reply. people very often fill the silence with the most honest part of what they wanted to say.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a02601a7-7fbe-4cd6-993d-b1a8defeadca",
+   "texte_overlay": "the small favour\n\nask someone for a tiny favour, like borrowing a pen. people tend to like you more after they've helped you, because their brain quietly decides you must be worth the effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "798de09c-938a-40fc-a0fd-3e4bd25b9754",
+   "texte_overlay": "the side by side talk\n\nhave difficult conversations while walking side by side, not face to face at a table. moving together makes people more relaxed and much more open with you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "efcf2815-11e2-4cc6-beba-d64b47fe3411",
+   "texte_overlay": "the surprising fact\n\nshare one surprising fact in a conversation and people remember you for days afterwards. 5 minutes a day learning something unexpected keeps you full of them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/5.jpg",
+   "texte_sophia": "the surprising fact\n\nlearn one surprising fact a day, like why the moon looks bigger near the horizon. the Sophia app turns it into one short lesson a day, and people remember whoever surprised them."
+  },
+  {
+   "position": 6,
+   "media_id": "bb561549-aac7-4b5c-a167-8106feae7293",
+   "texte_overlay": "the open palms\n\nshow your palms when you explain something. open hands look honest and relaxed, and people instinctively trust what you say a little more when they can see them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/6.jpg"
+  }
+ ]
+}

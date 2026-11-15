@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o164",
+ "type_bleo": "full_test",
+ "titre": "les 4 questions que je me pose avant d'accepter une nouvelle mission #travail #organisation #charge #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 3. Full test : accroche jamais faite chez nous (trier les missions). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b6ed3f3f",
+   "texte_overlay": "les 4 questions que je me pose\navant d'accepter\nune nouvelle mission",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f4308922",
+   "texte_overlay": "1. qu'est-ce que je lâche pour la faire ?\nil y a toujours quelque chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d01cff6f",
+   "texte_overlay": "2. est-ce que j'y apprends un truc ?\nsi oui, ça vaut souvent le coup",
+   "texte_sophia": "2. est-ce que j'y apprends un truc ?\nsi oui, ça vaut souvent le coup. moi j'apprends déjà 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f437cdf9",
+   "texte_overlay": "3. qui verra le résultat ?\nune mission invisible ne te fait pas avancer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f4bfbaa7",
+   "texte_overlay": "4. pour quand, vraiment ?\n« urgent » veut souvent dire « vendredi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f5a8200c",
+   "texte_overlay": "et après, je réponds\n« oui, si on décale X » ou « pas cette semaine »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f9263626",
+   "texte_overlay": "dire oui à tout, c'est dire non à toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f972d4f7",
+   "texte_overlay": "tu te poses laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

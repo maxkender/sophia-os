@@ -67,7 +67,15 @@ Deno.test("échec d'envoi : erreur rendue, jamais levée", async () => {
 
 function fauxSupabase(profil: Record<string, unknown>) {
   return {
-    from: () => ({ select: () => ({ eq: () => ({ single: () => Promise.resolve({ data: profil, error: null }) }) }) }),
+    from: (table: string) => ({
+      select: () => ({
+        eq: () => ({
+          single: () => Promise.resolve({ data: profil, error: null }),
+          // 0574 : l'email Slack des posteurs du site (hub_posteurs) ; aucun ici.
+          maybeSingle: () => Promise.resolve({ data: table === "hub_posteurs" ? null : profil, error: null }),
+        }),
+      }),
+    }),
     // Le grand interrupteur (0412) est lu avant tout envoi : ici, pas de pause.
     rpc: () => Promise.resolve({ data: false, error: null }),
   };
@@ -90,4 +98,44 @@ Deno.test("ecrireAuPosteur : sans ID Slack, par les emails", async () => {
   const r = await ecrireAuPosteur(fauxSupabase({ slack_user_id: null, email_perso: "x@y.z" }), "p", "Hi", fetchFn);
   assertEquals(r, { statut: "envoye", userId: "U7" });
   assertEquals(appels.map((a) => a.methode), ["users.lookupByEmail", "chat.postMessage"]);
+});
+
+Deno.test("0684 : un posteur qui a dit STOP ne reçoit plus de DM ; la confirmation d'arrêt et la paie passent", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const stop = { slack_user_id: "U0STOP", email: "s@sophia.com", relances_stop_at: "2026-11-12T16:00:00Z" };
+  const a = faux({ "chat.postMessage": [{ ok: true }] });
+  const r = await ecrireAuPosteur(fauxSupabase(stop), "p", "Reminder: start your warm-up", a.fetchFn);
+  assertEquals(r.statut, "erreur");
+  assertEquals(a.appels.length, 0);
+  for (const motif of ["confirmation_arret", "paie"] as const) {
+    const b = faux({ "chat.postMessage": [{ ok: true }] });
+    const ok = await ecrireAuPosteur(fauxSupabase(stop), "p", "We've received your request.", b.fetchFn, undefined, { malgreStop: motif });
+    assertEquals(ok, { statut: "envoye", userId: "U0STOP" });
+  }
+});
+
+Deno.test("0692 : DM Slack aux posteurs en pause → rien ne part, aucune exception", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const a = faux({ "chat.postMessage": [{ ok: true }] });
+  const pause = { slack_user_id: "U0P", email: "p@sophia.com", valeur: "off" };
+  for (const motif of [undefined, "paie", "reponse", "manuel"] as const) {
+    const r = await ecrireAuPosteur(fauxSupabase(pause), "p", "Hi", a.fetchFn, undefined, motif ? { malgreStop: motif } : {});
+    assertEquals(r.statut, "erreur");
+  }
+  assertEquals(a.appels.length, 0);
+});
+
+Deno.test("0692 : la pause ne vise que les posteurs ; l'équipe (Max) reçoit son point du soir", async () => {
+  Deno.env.set("SLACK_HM_BOT_TOKEN", "xoxb-hm");
+  const a = faux({ "chat.postMessage": [{ ok: true }] });
+  const profil = { slack_user_id: "U0MAX", email: "max@os.com", valeur: "off" };
+  const base = fauxSupabase(profil);
+  const db = {
+    ...base,
+    from: (table: string) =>
+      table === "user_roles"
+        ? { select: () => ({ eq: () => Promise.resolve({ data: [{ role: "admin" }], error: null }) }) }
+        : base.from(table),
+  };
+  assertEquals(await ecrireAuPosteur(db, "max", "Bilan du soir", a.fetchFn), { statut: "envoye", userId: "U0MAX" });
 });

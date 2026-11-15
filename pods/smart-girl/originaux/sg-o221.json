@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o221",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "44a66bba-11fd-4e18-b7a7-218a09bd7944",
+ "titre": "10 books you'd actually read as an oxford english major #books #booktok #smartgirl #literature #darkacademia",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 30 de la boîte (parent 44a66bba, langue source en) : accroche du parent mot pour mot. Dix livres classiques neufs face au parent, deux par slide (Jane Eyre, Wuthering Heights, Mrs Dalloway, Great Expectations, Persuasion, Paradise Lost, The Canterbury Tales, Middlemarch déjà fait donc remplacé par North and South, Hamlet, The Waste Land). Images sans couverture lisible. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f7237bbf",
+   "texte_overlay": "10 books you'd actually read as\nan oxford english major",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ac76d6cf",
+   "texte_overlay": "1. jane eyre, charlotte brontë\n2. wuthering heights,\nemily brontë",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6c737efa",
+   "texte_overlay": "3. mrs dalloway, virginia woolf\n4. great expectations,\ncharles dickens",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "65a393d0",
+   "texte_overlay": "know the story behind each\nauthor: the books open up.",
+   "texte_sophia": "know the story behind each\nauthor. i learn it in 5 minutes\na day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "beaf8826",
+   "texte_overlay": "5. persuasion, jane austen\n6. paradise lost, john milton",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6b010b43",
+   "texte_overlay": "7. the canterbury tales,\ngeoffrey chaucer\n8. north and south,\nelizabeth gaskell",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "078d88e1",
+   "texte_overlay": "9. hamlet, shakespeare\n10. the waste land, t.s. eliot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ba756c08",
+   "texte_overlay": "which one have you read?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

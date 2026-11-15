@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o150",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bfc1fbd6-8cb2-40aa-8d9f-4c7ff8be8d53",
+ "titre": "ce que le recruteur dit VS ce qu'il pense vraiment #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 14 (parent bfc1fbd6) : accroche mot pour mot, six autres phrases que le parent et rh-o065. Conseils vrais : on ne ment jamais sur ses autres process. Inspirations : sans les slides 4 et 5 de d9f07ab9 (une vraie entreprise citée, une appli concurrente) ni la 6 de e33deadc (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a5a1e299",
+   "texte_overlay": "ce que le recruteur dit\nVS ce qu'il pense vraiment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c06a094b",
+   "texte_overlay": "« parlez-moi de vous »\nil pense : est-ce qu'elle sait aller à l'essentiel ?\n4 phrases, pas ta vie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c29be24f",
+   "texte_overlay": "« vous êtes mobile ? »\nil pense : le poste bouge peut-être plus qu'annoncé\ndemande à quelle fréquence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c2bb68d3",
+   "texte_overlay": "« on est très famille ici »\nil pense : on compte sur vous en dehors des horaires\ndemande les horaires réels",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9bb3f547",
+   "texte_overlay": "« qu'est-ce que vous aimez faire en dehors ? »\nil pense : est-ce qu'elle est curieuse ?\nun vrai sujet, que t'apprends en ce moment",
+   "texte_sophia": "« qu'est-ce que vous aimez faire en dehors ? »\nil pense : est-ce qu'elle est curieuse ?\nperso, je parle de ce que j'apprends sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c3a9ef74",
+   "texte_overlay": "« le poste est très polyvalent »\nil pense : il y a beaucoup à faire\ndemande les 3 priorités",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c3ba46ba",
+   "texte_overlay": "« on revient vers vous rapidement »\nil pense : on voit encore 2 personnes\ndemande une date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c4a66a5e",
+   "texte_overlay": "laquelle on t'a déjà sortie ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

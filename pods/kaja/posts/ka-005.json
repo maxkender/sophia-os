@@ -1,0 +1,333 @@
+{
+ "id": "ka-005",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7680157267076893974",
+  "vues": 827500,
+  "publie_le": "2026-08-31",
+  "accroche": "10/10 SOCIAL SKILS YOU CAN LEARN"
+ },
+ "titre": {
+  "en": "10/10 social skils you can learn",
+  "fr": "10/10 compétences sociales à apprendre",
+  "de": "10/10 Social Skills zum Lernen"
+ },
+ "legendes": {
+  "en": "10/10 social skils you can learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences sociales à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Social Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7486234767046773546"
+ },
+ "notes": "Remake de son post à 827 k (31/08). Son décor : le corbeau sur une branche qui tire la corde du 10/10 ; on prend la falaise (corde nouée au 10/10, le plus proche). Son accroche mot pour mot (« SOCIAL SKILS »), ses couleurs (rose, brun, beige), ses 3 compétences ; pas de temps sur ses étapes, on n'en met pas. Sophia en étape 3 « HOW TO ALWAYS HAVE SOMETHING TO SAY », à la place de sa slide d'appli de fin : cta C (« what I open » / « instead of scrolling. »), « 5 min a day ». Titres d'étape changés pour ne pas répéter ka-001 et ka-004 dans la même langue : en « HOW TO MASTER SMALL TALK » et « RIZZZ » (son orthographe) ; fr « LANCER UNE CONVERSATION », « AVOIR DE L'AURA » ; de « LEUTE AN », « AUSSTRAHLUNG ». D'autres vraies vidéos que les siennes (Benjamin Seda, Manish Raul, Pierre Dalati) : en Harvard Business Review, Psych2Go, brinyheart. ; fr Laganne, Louis Key, Yann Piette ; de extrem einfach., 3sat NANO, Sebastian.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SOCIAL",
+     "SKILS YOU",
+     "CAN LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "SOCIALES À",
+     "APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SOCIAL",
+     "SKILLS ZUM",
+     "LERNEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MASTER",
+     [
+      {
+       "t": "SMALL TALK",
+       "couleur": "#ea67ab"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IRG-YubP1rw",
+     "titre": "How to Get Good at Small Talk, and Even Enjoy It",
+     "chaine": "Harvard Business Review",
+     "vues": "2.7M views",
+     "date": "3 years ago",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/pLuETMM_cfn5Kdyny-y3YVxgHHsElTOm_k7nh_GGaJ9mSnlDDWIyF_oeYAE7Qabh1zy4mVzI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "LANCER UNE",
+       "couleur": "#ea67ab"
+      }
+     ],
+     [
+      {
+       "t": "CONVERSATION",
+       "couleur": "#ea67ab"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VAJe1uCxQQY",
+     "titre": "Comment Débuter une Conversation avec N'importe Qui",
+     "chaine": "Laganne",
+     "vues": "460 k vues",
+     "date": "il y a 2 ans",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/-ceP61H04EOsy9TFXzTYrBxh3CGsGRVX-rctTgvgZ2QuwuoZBZ88M432hz9Zq8eoZhQEGaX47A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SO SPRICHST DU",
+     [
+      {
+       "t": "LEUTE AN",
+       "couleur": "#ea67ab"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ud1xRjkSJcc",
+     "titre": "Leute ansprechen ist extrem einfach.",
+     "chaine": "extrem einfach.",
+     "vues": "67.821 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "4:52",
+     "avatar": "https://yt3.ggpht.com/tcG4x42OIRF-cI7KSZRCigHnQJY3ZhoFkkkV6leq_ASxmxGWGVcHQF-kMGBmq0pXM6qulhO5DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "RIZZZ",
+       "couleur": "#ac7a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UoajnqWaq_4",
+     "titre": "6 Ways To Be More Charismatic (Yet Still Be YOU)",
+     "chaine": "Psych2Go",
+     "vues": "880K views",
+     "date": "5 years ago",
+     "duree": "6:04",
+     "avatar": "https://yt3.ggpht.com/PABMv0Tbz1G47ZIdC87y7KgSJ3IyehptRBY9jfp3BZbsP8TRnslVdjFYG0mjtls2U5-1LyeofA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "DE L'AURA",
+       "couleur": "#ac7a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "o2RwylOhGkM",
+     "titre": "Comment Avoir de l'AURA",
+     "chaine": "Louis Key",
+     "vues": "729 k vues",
+     "date": "il y a 1 an",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/M9DtzOCDHNgY9T5hnLtic_qnfMkzo5_oQVPlHjcrrJ1kxujCKguvuGHvF0eDne3mnAodheprhg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU",
+     [
+      {
+       "t": "AUSSTRAHLUNG",
+       "couleur": "#ac7a5f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4XG_GZ-mN_k",
+     "titre": "Charisma lernen: Wie du deine Ausstrahlung messbar steigerst | NANO Doku",
+     "chaine": "3sat NANO",
+     "vues": "264.167 Aufrufe",
+     "date": "vor 7 Monaten",
+     "duree": "12:00",
+     "avatar": "https://yt3.ggpht.com/bEvAVf-SfdByKIzvlfDp0MfaoL2kdOCevd6nHuXqcQvm6eNatewnHMTE29MW2ah9QnabB3I9Yn8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO ALWAYS",
+     [
+      {
+       "t": "HAVE SOMETHING",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "TO SAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "TOUJOURS",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "QUOI DIRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU",
+     [
+      {
+       "t": "IMMER WAS",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ZU SAGEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "HOLD A",
+       "couleur": "#ceb797"
+      }
+     ],
+     "CONVERSATION"
+    ],
+    "video": {
+     "id": "e72WoGOhghE",
+     "titre": "How to Never Run Out of Things To Say...",
+     "chaine": "brinyheart.",
+     "vues": "6.3M views",
+     "date": "2 years ago",
+     "duree": "4:38",
+     "avatar": "https://yt3.ggpht.com/m0_qOEKcW-_BFf6_UN0TR3Jhxob-VXldFC9VKDCMQyx5JJ_uiHENTa5Kef3CyTHVK0QEUdMqSw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "TENIR UNE",
+       "couleur": "#ceb797"
+      }
+     ],
+     "CONVERSATION"
+    ],
+    "video": {
+     "id": "DKMfzSdF-eM",
+     "titre": "Avoir plus de conversation que 80% des gens",
+     "chaine": "Yann Piette",
+     "vues": "48 k vues",
+     "date": "il y a 1 an",
+     "duree": "6:36",
+     "avatar": "https://yt3.ggpht.com/6fflfAPLuXOKHeqk5VocKdEbM1AZrzWS9nwd9FhMaRnCKyvlDH54ts52a4eXJEsZRLMtmuSNEg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SO FÜHRST DU",
+     [
+      {
+       "t": "EIN GESPRÄCH",
+       "couleur": "#ceb797"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tRSYtflUENg",
+     "titre": "3 Smalltalk-Tricks für Leute, die Smalltalk hassen",
+     "chaine": "Sebastian",
+     "vues": "46.791 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "2:49",
+     "avatar": "https://yt3.ggpht.com/fqm2NW8YsXAvncRZWLR2CaHMZDZqAsSpYN2BUj6KnWotP4Ca_eFbCiPT5ZFZa40Po3Wznlj3vA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o172",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e85c15b1-9ee3-4bf9-a136-579cbb2915d5",
+ "titre": "ce que je négocie maintenant AVANT de signer (et que j'osais pas demander avant) #negociation #salaire #emploi #carriere #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 13 (parent e85c15b1), 2e : accroche mot pour mot, autres points que rh-o046 et rh-o131. Rien de juridique précis. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cdad7a39",
+   "texte_overlay": "ce que je négocie maintenant\nAVANT de signer\n(et que j'osais pas demander avant)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "12021169",
+   "texte_overlay": "1. les frais de transport\nça se demande. souvent, c'est prévu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "125d05bf",
+   "texte_overlay": "2. le nom de mon futur binôme\npour savoir avec qui je vais apprendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "12fc9cd0",
+   "texte_overlay": "3. un objectif clair pour les 6 premiers mois\nécrit, pas oral",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f61e8346",
+   "texte_overlay": "4. du temps pour me former\nen attendant, je me forme déjà 5 minutes par jour",
+   "texte_sophia": "4. du temps pour me former\nen attendant, je me forme déjà 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "13c083ac",
+   "texte_overlay": "5. la date d'un point salaire\nà 6 ou 12 mois, notée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "14497ba9",
+   "texte_overlay": "6. un horaire de départ réaliste\npas « on reste tant que c'est pas fini »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "154465d6",
+   "texte_overlay": "tu demandes laquelle la prochaine fois ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

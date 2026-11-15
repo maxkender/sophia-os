@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o151",
+ "type_bleo": "full_test",
+ "titre": "things i wish i'd started doing at 20 #20s #lifeadvice #selfimprovement #habits #growth",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "11a08529-28a8-43a4-9975-3af29b13fbfb"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 11a08529). full test BLEO : accroche jamais faite (format « things i wish i'd started »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "90f4b5d8-8224-4879-ab85-74f0d1aad822",
+   "texte_overlay": "things i wish i'd started\ndoing at 20",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661202355362336022/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ae34e7d9-272d-4e6d-bdf4-937225ad6393",
+   "texte_overlay": "saving a little each month\n\ni wish i'd put away a small amount every single month, even when it felt pointless. the habit matters far more than the amount, and time does the rest for you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661202355362336022/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "77a0f82a-b018-4ec9-8b77-f4946cbaa711",
+   "texte_overlay": "reading before bed\n\ni wish i'd swapped my phone for a book every night. ten pages a night is around a dozen books a year, and that quietly changes who you become over the years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661202355362336022/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ceb5c17f-9660-4c03-a228-f28a4b54b8c5",
+   "texte_overlay": "calling my grandparents\n\ni wish i'd called them every week and asked about their lives. their stories are a piece of history you can't find anywhere else, and they don't wait forever.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661202355362336022/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1409a7ef-e210-4dab-a3ef-35b5acf183ce",
+   "texte_overlay": "learning a bit every day\n\ni wish i'd spent 5 minutes a day learning about the world: art, history, science. small daily lessons add up to the kind of mind that makes every conversation easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661202355362336022/5.jpg",
+   "texte_sophia": "learning a bit every day\n\ni wish i'd started earlier, but now i spend 5 minutes a day on one lesson in the Sophia app: art, history, science. small daily lessons add up to a mind that makes conversations easy."
+  },
+  {
+   "position": 6,
+   "media_id": "38647e64-b73f-40bb-89af-8d3f2d73ae4b",
+   "texte_overlay": "moving every day\n\ni wish i'd made daily movement non negotiable, even a short walk. your body in your thirties is built by the habits you keep in your twenties, one day at a time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661202355362336022/6.jpg"
+  }
+ ]
+}

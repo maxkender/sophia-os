@@ -1,0 +1,260 @@
+{
+ "post_id": "original-067",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "extremely disciplined"
+     ],
+     "fr": "",
+     "texte": "cosa fare con le [[mani]] invece di tenere il telefono"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience edition)"
+     ],
+     "fr": "",
+     "texte": "(pausa per i pollici)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get your sleep in order"
+     ],
+     "fr": "",
+     "texte": "leggi [[un libro di carta]]"
+    },
+    "T2": {
+     "en": [
+      "when you're tired, the part of your brain behind",
+      "self-control is the first to slow down"
+     ],
+     "fr": "",
+     "texte": "una pagina non ha notifiche, autoplay o video successivo, quindi [[la tua attenzione resta lì]]"
+    },
+    "T3": {
+     "en": [
+      "that's why it's so",
+      "much harder to say",
+      "no to junk food and",
+      "scrolling after a bad",
+      "night"
+     ],
+     "fr": "",
+     "texte": "le tue mani reggono un libro, quindi non possono reggere il telefono. semplice, ma funziona"
+    },
+    "T4": {
+     "en": [
+      "a lot of the time you're not lazy, you're just tired, so",
+      "fix your sleep first"
+     ],
+     "fr": "",
+     "texte": "inizia con [[10 pagine prima di dormire]], col telefono in carica in un'altra stanza"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "",
+     "texte": "cucina [[un piatto da zero]] ogni settimana"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "",
+     "texte": "tagliare, mescolare, assaggiare: hai le mani piene, quindi [[il telefono resta sul ripiano]]"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "",
+     "texte": "parti da una ricetta facile e rifalla finché non ti serve più leggere la ricetta"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to watch",
+      "something while you eat is destroying your attention",
+      "span"
+     ],
+     "fr": "",
+     "texte": "ci vuole più che ordinare, ed è questo il punto. ti ritrovi [[un pasto vero]], la testa più calma e qualcosa da mostrare"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685736268617059616_6.jpg",
+      "boite": [
+       560,
+       667,
+       471,
+       340
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "riprendi in mano [[carta e penna]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "un diario, una lettera, una lista, appunti con tre evidenziatori. la lentezza è il punto"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[ci pensi prima di ogni singola frase]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "e il telefono resta a faccia in giù. dopo dieci minuti [[hai la testa più leggera]] che dopo un'ora di scroll"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "e poi [[con le penne belle è pure divertente!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn an instrument"
+     ],
+     "fr": "apprends [[un instrument]]",
+     "texte": "suona [[uno strumento]]"
+    },
+    "T2": {
+     "en": [
+      "everyone stops to listen when someone can",
+      "actually play"
+     ],
+     "fr": "tout le monde écoute quand quelqu'un [[sait vraiment jouer]]",
+     "texte": "hai le mani occupate, quindi [[scrollare non è un'opzione]]"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever. you'll be bad",
+      "at it for months, and",
+      "most people quit"
+     ],
+     "fr": "piano, guitare, batterie, peu importe. tu vas [[galérer pendant des mois]], et la plupart abandonnent",
+     "texte": "basta un ukulele economico o una vecchia tastiera. suonerai [[piuttosto male per mesi]]"
+    },
+    "T4": {
+     "en": [
+      "so when you can play, it shows patience and a passion",
+      "of your own, and that's really attractive"
+     ],
+     "fr": "alors quand tu sais jouer, ça montre [[ta patience]] et [[une vraie passion à toi]], et ça c'est [[ultra attirant]]",
+     "texte": "ma 15 minuti al giorno si sommano, e un giorno [[suoni una canzone intera]] senza guardarti le dita"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "ne [[plus lire de livres]]",
+     "texte": "disegna, [[anche male]]"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "si tu consommes surtout des posts courts, des clips et des titres, ton cerveau a rarement à [[tenir sa concentration]]",
+     "texte": "tieni un album da disegno dove di solito lasci il telefono. scarabocchi, facce, la tazza, [[nessuno deve vederlo]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "[[un livre t'oblige à suivre une idée sur des pages]], à retenir le contexte et à résister à l'envie d'autre chose",
+     "texte": "inizi a guardare davvero le cose, e hai le mani [[troppo occupate per uno schermo]]. una pagina al giorno basta"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll, alors tant qu'à être sur mon tel, je fais 5 min de leçon sur [[l'appli Sophia]]",
+     "texte": "cosa ha sostituito il mio scroll: un quaderno, un ukulele, e 5 min di lezione con [[l'app Sophia]] quando prendo il telefono"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

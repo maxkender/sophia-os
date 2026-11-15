@@ -1,0 +1,452 @@
+{
+ "id": "yp-046",
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je rattrape un cours que je n’ai pas compris"
+ },
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je rattrape un cours que je n’ai pas compris",
+  "es": "cómo recupero una clase que no entendí",
+  "tr": "anlamadığım bir dersi nasıl telafi ediyorum"
+ },
+ "legendes": {
+  "fr": "plus jamais perdue en cours 🤍 #cours #revisions #studytok #thatgirl #methode",
+  "es": "nunca más perdida en clase 🤍 #clases #estudiar #studytok #thatgirl #metodo",
+  "tr": "derste bir daha asla kaybolma 🤍 #ders #çalışma #studytok #thatgirl #yöntem"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "9955d119-ab6f-49c0-8823-b2a897dd6577",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ec916a86-710a-41c4-85a0-1235d90e5fad/4.jpg?v=1790611482554",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format photos à petites légendes (yp-002). cta B : la mise en scène iPhone micabo en photo pleine de l’étape « je me teste tout de suite »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "comment je rattrape",
+     "lignes": [
+      "UN COURS",
+      "QUE JE N’AI",
+      "PAS COMPRIS"
+     ],
+     "taille": 140
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "cómo recupero",
+     "lignes": [
+      "UNA CLASE",
+      "QUE NO",
+      "ENTENDÍ"
+     ],
+     "taille": 150
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "lignes": [
+      "ANLAMADIĞIM",
+      "BİR DERSİ NASIL",
+      "TELAFİ EDİYORUM"
+     ],
+     "taille": 110
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5e280ef3-1495-4786-8f4d-f6b12157fb5d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/49f3846f-59d9-4820-89d8-d019d25abb24/5.jpg?v=1791725779210",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je relis juste la partie qui bloque🔍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "pas tout le chapitre"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "releo solo la parte que no entiendo🔍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "no todo el tema"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "sadece takıldığım kısmı okuyorum🔍"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "bütün üniteyi değil"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3fb54b14-c828-4db7-be3e-48039388d22d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e89e4c2f-e705-4f8c-baee-a8a093d6c18b/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je cherche une autre explication📺"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "une vidéo, un manuel, une amie"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "busco otra explicación📺"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "un vídeo, un libro, una amiga"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "başka bir anlatım buluyorum📺"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "bir video, bir kitap, bir arkadaş"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je me teste tout de suite📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "pour voir si c’est vraiment rentré⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "me pongo a prueba enseguida📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "para ver si de verdad lo entendí⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hemen kendimi test ediyorum📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "gerçekten anladım mı diye⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0fae1159-d0c1-40c0-8dfc-a8f72b79f8fa",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/16adc545-27f3-4dbc-aeca-8ab141e4fa75/1.jpg?v=1791726620642",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je pose la question au prof✋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "à la fin du cours, 2 minutes"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "le pregunto al profe✋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "al final de la clase, 2 minutos"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "hocaya soruyorum✋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "ders bitince, 2 dakika"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0d53a61f-686f-4967-9c0a-93876a9ef71b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7dea918f-741c-47fc-8f2c-d862b6020e71/1.jpg?v=1791726214350",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je l’explique à voix haute🗣️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "si je sais l’expliquer, j’ai compris"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "lo explico en voz alta🗣️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "si sé explicarlo, lo entendí"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "yüksek sesle anlatıyorum🗣️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "anlatabiliyorsam anlamışımdır"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "43e87503-a455-4820-825b-6c29d9ebc70d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/31ed426f-6c4b-4302-ae33-b0b7ea6cba98/4.jpg?v=1791726283949",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je le revois 3 jours après🗓️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "pour qu’il reste pour de bon"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "lo repaso 3 días después🗓️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "para que se quede"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "3 gün sonra tekrar ediyorum🗓️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "kalıcı olsun diye"
+     ]
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

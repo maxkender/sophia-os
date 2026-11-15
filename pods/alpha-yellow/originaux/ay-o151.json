@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o151",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a876a21d-5a59-424b-828b-23004aef3b7e",
+ "titre": "Psychologie noire : 4 vérités sur les autres pour ne plus jamais être naïf(ve) #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "a876a21d-5a59-424b-828b-23004aef3b7e"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 3fc8e5ba. déclinaison G1 de la ligne 6 de la boîte (a876a21d, sr 6,3 k r 5,28), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. Angle défensif et bienveillant : se protéger, jamais manipuler. 4 vérités neuves (aucune reprise : absents, succès, demandes soudaines, serveurs), puis Sophia, puis le pourquoi et la conclusion. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3fc8e5ba",
+   "texte_overlay": "Psychologie noire :\n4 vérités sur les autres\npour ne plus jamais\nêtre naïf(ve)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Vérité 1 : Les actes parlent plus fort que les promesses. Quelqu'un qui promet beaucoup et ne fait rien te montre exactement ce qu'il vaut. Juge sur ce qui est fait, pas sur ce qui est dit.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Vérité 2 : La flatterie excessive cache souvent une demande. Un compliment sincère fait du bien. Dix compliments avant une faveur, c'est un signal. Accueille-les, mais garde la tête froide.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Vérité 3 : Les gens montrent qui ils sont quand ils perdent. Un jeu, un débat, une promotion ratée. Observe comment quelqu'un réagit à l'échec : tu sauras comment il te traitera un jour.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Vérité 4 : Le silence après ton refus en dit long. Dis non à une petite demande. Un ami respecte ta réponse. Quelqu'un qui insiste, boude ou culpabilise te montre ses vraies intentions.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Nourris ton jugement. Je fais cinq minutes d'histoire, d'art ou de science par jour, et l'histoire montre que les mêmes comportements humains se répètent depuis des siècles.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. L'histoire montre que les comportements humains se répètent.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Ne deviens pas méfiant pour autant. Ces vérités ne servent pas à soupçonner tout le monde. Elles t'aident à reconnaître les gens fiables et à leur donner encore plus ta confiance.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Garde le cœur ouvert et les yeux ouverts. Être gentil n'est pas être naïf. On peut faire confiance avec générosité tout en remarquant, calmement, qui la mérite vraiment.",
+   "media_id": "3fff1b1f"
+  }
+ ]
+}

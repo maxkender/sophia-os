@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o146",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5ad957da-9bb9-48f6-bae4-84f197e25982",
+ "titre": "6 hobbies that make you surprisingly smarter #hobbies #smarter #smartgirl #learning #selfimprovement",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "1ab301c9-5abd-45b8-8207-637aa49bcf2e"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 8 de la boîte (parent 5ad957da, langue source en) : accroche du parent mot pour mot. Hobbies neufs face au parent (énigmes logiques, un instrument, débattre entre amis, écrire des nouvelles, musées de sciences). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e5294d13",
+   "texte_overlay": "6 hobbies that make you\nsurprisingly smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fbf2f3c5",
+   "texte_overlay": "1. logic puzzles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "73e91afb",
+   "texte_overlay": "2. learning an instrument",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "77cc99e4",
+   "texte_overlay": "3. friendly debates\nover dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f0a08b78",
+   "texte_overlay": "4. writing short stories",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bc365a52",
+   "texte_overlay": "5. science museums",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9d1fc205",
+   "texte_overlay": "6. one lesson a day\n\na painting, a war, a planet.",
+   "texte_sophia": "6. one lesson a day\n\ni use a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ec7ede8f",
+   "texte_overlay": "save this and pick one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7641213732919577887/7.jpg"
+  }
+ ]
+}

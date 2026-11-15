@@ -1,0 +1,254 @@
+{
+ "post_id": "original-070",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things that are rapidly",
+      "destroying your attention span"
+     ],
+     "fr": "10/10 trucs qui grillent ton attention à toute vitesse",
+     "texte": "trucos mentales que sí funcionan, ep. 1: el [[efecto protegido]]"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(enséñalo y no lo olvidas)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "explain what you learn out loud"
+     ],
+     "fr": "explique ce que t'apprends [[à voix haute]]",
+     "texte": "el [[efecto protegido]], explicado"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "simply, you probably don't",
+      "understand it yet"
+     ],
+     "fr": "si tu sais pas expliquer une idée simplement, [[tu l'as pas encore comprise]]",
+     "texte": "recuerdas mucho más lo que [[le explicas a alguien]] que lo que solo lees"
+    },
+    "T3": {
+     "en": [
+      "after reading or studying,",
+      "spend 5 minutes teaching it",
+      "from memory"
+     ],
+     "fr": "après avoir lu ou révisé, prends [[5 minutes]] pour tout réexpliquer de tête",
+     "texte": "quien explica suele acabar [[aprendiendo más que quien escucha]]"
+    },
+    "T4": {
+     "en": [
+      "the gaps become painfully",
+      "obvious very quickly"
+     ],
+     "fr": "les trous te sautent aux yeux direct, et ça pique",
+     "texte": "incluso si tu público [[apenas te escucha]]"
+    },
+    "T5": {
+     "en": [
+      "it's also scientifically proven to be one of the best",
+      "ways to learn!"
+     ],
+     "fr": "et c'est prouvé : c'est une des meilleures façons d'apprendre !",
+     "texte": "lo que te ayuda es el esfuerzo de explicar, [[no quién te escucha]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685340052989398275_5.jpg",
+      "boite": [
+       640,
+       376,
+       361,
+       558
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6. work before you communicate"
+     ],
+     "fr": "6. bosse [[avant]] de répondre",
+     "texte": "cómo usarlo, [[desde esta noche]]"
+    },
+    "T2": {
+     "en": [
+      "give yourself 60–90",
+      "minutes of uninterrupted",
+      "creation before",
+      "becoming available to",
+      "everyone else"
+     ],
+     "fr": "garde-toi 60-90 minutes pour [[créer sans interruption]] avant d'être dispo pour les autres",
+     "texte": "lee algo, ciérralo y explícalo en voz alta a un amigo, a tu mascota o en [[un audio]] para ti"
+    },
+    "T3": {
+     "en": [
+      "your priorities should",
+      "enter your head before",
+      "theirs do"
+     ],
+     "fr": "tes priorités d'abord dans ta tête, celles des autres après",
+     "texte": "sin apuntes, sin mirar. solo tú y [[tus propias palabras]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "use feynmans technique"
+     ],
+     "fr": "et pourquoi [[ça marche]]",
+     "texte": "por qué [[sí funciona]]"
+    },
+    "T2": {
+     "en": [
+      "pick something you learned",
+      "and explain it like you're",
+      "teaching a 12 year old"
+     ],
+     "fr": "il faut d'abord [[le ranger dans ta tête]] pour pouvoir l'expliquer",
+     "texte": "para explicar algo, primero tienes que [[ordenarlo en tu propia cabeza]]"
+    },
+    "T3": {
+     "en": [
+      "when you get stuck, that's",
+      "the part you don't actually",
+      "understand yet"
+     ],
+     "fr": "relire, c'est facile. expliquer, ça t'oblige à [[le sortir de ta mémoire]]",
+     "texte": "releer es fácil. explicar te obliga a [[sacarlo de tu memoria]]"
+    },
+    "T4": {
+     "en": [
+      "go back, relearn it, and try",
+      "again until you can explain it",
+      "simply"
+     ],
+     "fr": "et à chaque fois, [[tu le retrouves plus vite]] la fois d'après",
+     "texte": "y cada vez que lo sacas, [[lo encuentras más rápido]] la próxima vez"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "mi [[ritual de la cena]]"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read",
+      "more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis que [[tu veux apprendre plus]], puis tu [[scrolles toute la journée]]",
+     "texte": "cada noche le explico [[algo nuevo]] a quien esté en la mesa"
+    },
+    "T3": {
+     "en": [
+      "i used to be the same until",
+      "i found readup which",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "[[j'étais pareille]], jusqu'à ce que je remplace mon scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "aprendo algo en 5 minutos, historia, arte o ciencia, y [[lo cuento en la cena]]"
+    },
+    "T4": {
+     "en": [
+      "it builds patience, attention,",
+      "memory, and the ability to",
+      "keep going without constant",
+      "stimulation"
+     ],
+     "fr": "ça muscle ta patience, ton attention, ta mémoire, et tu tiens enfin [[sans stimulation non-stop]]",
+     "texte": "lo que reemplazó mi scroll: un libro, pódcasts al caminar y [[la app Sophia]] cuando cojo el móvil igualmente"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "seeking approval from everyone"
+     ],
+     "fr": "vouloir plaire à tout le monde",
+     "texte": "[[trabarte]] a mitad de explicar"
+    },
+    "T2": {
+     "en": [
+      "if every decision has to make your friends, family,",
+      "or strangers online happy, you’ll slowly build a life",
+      "that doesn’t even feel like yours"
+     ],
+     "fr": "si chaque choix doit plaire à tes potes, ta famille ou [[des inconnus sur internet]], tu vas finir avec une vie [[qui te ressemble même pas]]",
+     "texte": "empiezas a explicar, va genial, y de repente no sabes decir por qué. no es fracasar, es el efecto [[mostrándote justo dónde está el hueco]]"
+    },
+    "T3": {
+     "en": [
+      "learn to",
+      "disappoint",
+      "people",
+      "sometimes"
+     ],
+     "fr": "accepte de [[décevoir des gens]]",
+     "texte": "relee [[solo esa parte]] y reintenta"
+    },
+    "T4": {
+     "en": [
+      "your 20s are for figuring out what you actually",
+      "want, not performing for everyone else"
+     ],
+     "fr": "tes 20 ans, c'est pour savoir [[ce que toi tu veux]], pas pour jouer un rôle devant les autres",
+     "texte": "la segunda vez que lo explicas, [[ya es tuyo]], y no vas a tener que releerlo"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

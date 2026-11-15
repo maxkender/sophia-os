@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o116",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "f86d07f5-0707-4daf-bef9-22f07ccfc9f2",
+  "titre": "how to build more confidence + independence #confidence #thatgirl",
+  "inspirations": [
+    "f86d07f5-0707-4daf-bef9-22f07ccfc9f2"
+  ],
+  "notes": "G1, déclinaison de f86d07f5 (« how to build more confidence + independence », génération 0 en anglais ; meilleur passage en 7,7 k vues, r 12,82), en anglais. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent : ni promesses à soi, ni une chose qui fait peur, ni décisions seule, ni comparaison, ni regard des autres). Fait vérifié le 8/11 sur https://en.wikipedia.org/wiki/Bonjour_Tristesse : « Published in 1954, when the author was only 18, it was an overnight sensation ». Routine du 8/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 3 full tests et 5 déclinaisons (lignes 1, 3, 4, 8 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 2 (4d7c5f32, accroche illisible « ge things that make you look while spending lil to no money effortlessly chic », à recopier mot pour mot), 5 (083ac272, 9 hobbies « backed by science », preuves invérifiables), 6 (6211e51e, « other then ») et 7 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "16a06d13",
+      "texte_overlay": "how to build more confidence\n+ independence",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "414511dc",
+      "texte_overlay": "1. learn to fix small things yourself\n\na button, a flat tyre, a bill.\nevery fix is proof you can handle it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "01c21b76",
+      "texte_overlay": "2. eat out alone once a month\n\nthe first five minutes are awkward.\nthen it's the best hour of your week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02d3e38d",
+      "texte_overlay": "3. don't wait to feel ready\n\nthis morning i learned that françoise sagan was 18 when her first novel came out, and it made her famous.\nshe didn't wait.",
+      "texte_sophia": "3. don't wait to feel ready\n\nthis morning, the Sophia app taught me that françoise sagan was 18 when her first novel came out, and it made her famous.\nshe didn't wait.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3615b305",
+      "texte_overlay": "4. know where your money goes\n\none notebook, every expense.\nindependence starts there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0f057bec",
+      "texte_overlay": "5. have opinions you can explain\n\nread two sides before you choose yours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "which one are you starting this week?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

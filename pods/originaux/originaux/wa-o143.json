@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o143",
+ "type_bleo": "full_test",
+ "titre": "habits of people who never seem stressed #calm #stress #selfimprovement #habits #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "2c65f6e5-0526-47cd-b6eb-9ce50fca245c"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 2c65f6e5). full test BLEO : accroche jamais faite (format « habits of people who »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eb674a9e-fbad-42a4-ae9d-161ebbb04cfd",
+   "texte_overlay": "habits of people who never\nseem stressed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586859266212924685/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e6f55e22-8133-4c93-b76a-1f28cf5760e8",
+   "texte_overlay": "they leave early\n\nthey leave ten minutes earlier than they need to, every time. never rushing removes a huge amount of daily stress that most people think is just normal life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586859266212924685/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0e6721e6-c6f9-4117-90b5-5571182264d9",
+   "texte_overlay": "they say no kindly\n\nthey turn down what they don't have time for, politely and without long excuses. a calendar with real breathing room is the quiet secret behind most calm people you know.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586859266212924685/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c33f26b5-af19-4f6a-b3b3-3af6e2cbec97",
+   "texte_overlay": "they learn for fun\n\nthey spend 5 minutes a day learning something unrelated to work: a myth, the stars, an old painting. a mind with somewhere pleasant to go stays calmer under pressure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586859266212924685/4.jpg",
+   "texte_sophia": "they learn for fun\n\ni spend 5 minutes a day learning something unrelated to work: a myth, the stars, an old painting. i do it with the Sophia app, one lesson a day, and it keeps me calmer under pressure."
+  },
+  {
+   "position": 5,
+   "media_id": "c7ff3fa6-068f-44ef-9396-9ac78ed266c7",
+   "texte_overlay": "they write it down\n\nthey put every task and worry on paper instead of carrying it in their head. a brain that doesn't have to remember everything finally has room to breathe and relax.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586859266212924685/2.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12f9863e-c9f0-4fcd-94d6-7e72fc73595e",
+   "texte_overlay": "they move every day\n\nthey walk, stretch or train every single day, even briefly. moving your body burns off the stress and tension that thinking alone can never fully get rid of.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7586859266212924685/6.jpg"
+  }
+ ]
+}

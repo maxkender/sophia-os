@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o173",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fc3f209a-271a-437f-b107-bde1823fb4fa",
+ "titre": "people will start treating you differently when you master these 7 laws of the dinner table #etiquette #dinner #smartgirl #manners #elegance",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "a657ff06-e205-433f-bdbb-1474b7f9998b"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 12 de la boîte (parent fc3f209a, langue source en) : accroche du parent mot pour mot. Le parent est la version espagnole de notre sg-o075 ou proche ; sept lois neuves face au parent (le pain se rompt, couverts de l'extérieur vers l'intérieur, verre à droite, parler aux deux voisins, finir en même temps, poser ses couverts à 4 h 20, la bonne histoire). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "81e9f51e",
+   "texte_overlay": "people will start treating you\ndifferently when you master\nthese 7 laws of the dinner table",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2f9480e3",
+   "texte_overlay": "1. the law of the bread\n\nbreak it with your hands,\none bite at a time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ecfa46a7",
+   "texte_overlay": "2. the law of the cutlery\n\nstart from the outside\nand work in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "767fab8d",
+   "texte_overlay": "3. the law of the glass\n\nyours is the one on the right.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2f1e9a6",
+   "texte_overlay": "4. the law of both neighbours\n\ntalk to the person on\neach side.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "43bc0138",
+   "texte_overlay": "5. the law of the good story\n\ninteresting people get invited\nback. trade a scroll for a story.",
+   "texte_sophia": "5. the law of the good story\n\ninteresting people get invited\nback. i get mine on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c3bd93dd",
+   "texte_overlay": "6. the law of the pace\n\nfinish around the same\ntime as everyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fb216c86",
+   "texte_overlay": "7. the law of the clock\n\nfork and knife together at\n\"twenty past four\" when done.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "eb2606a6",
+   "texte_overlay": "which one do you already\nfollow?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607063154815749397/4.jpg"
+  }
+ ]
+}

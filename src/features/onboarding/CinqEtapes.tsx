@@ -16,6 +16,7 @@ import {
   jourAnglais,
   premierPostLe,
   premiereSemaineFinie,
+  guideTermine,
   type CleEtape,
   type EtatCinq,
 } from "./cinqEtapes";
@@ -47,7 +48,7 @@ function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
 
 /** Le conseil « TikTok limite les follows » (0498), modifiable dans Settings. */
 export const CONSEIL_FOLLOWS_DEFAUT =
-  "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then tell us in #questions.";
+  "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then click Help on your dashboard and tell us.";
 
 /**
  * La première semaine en 5 étapes, sur l'accueil du posteur (chantier du
@@ -84,6 +85,8 @@ export function CinqEtapes({
     aujourdhui,
   });
   if (premiereSemaineFinie(premierPost, aujourdhui)) return null;
+  // 0544 : 24 h après le 1er post publié avec lien, le guide disparaît.
+  if (guideTermine(profil.data.premierPostLienAt, maintenant)) return null;
   // Refusée par l'équipe : la déclaration ne compte plus.
   const actives = (declarations.data ?? []).filter((d) => d.statut !== "refuse");
   const declares = new Set(actives.map((d) => d.etape));
@@ -95,6 +98,7 @@ export function CinqEtapes({
     aujourdhui,
     pret: monWarmup.data?.pret ?? false,
     declares,
+    premierPostLienAt: profil.data.premierPostLienAt,
   });
   // Déclarée seulement (l'OS ne la voit pas encore) : « we'll check ».
   const enVerification = (cle: CleEtape) =>
@@ -204,6 +208,8 @@ export function CinqEtapes({
           <li>• {t("calendrier.cinq.bonASavoir.absent")}</li>
           <li>• {t("calendrier.cinq.bonASavoir.arreter")}</li>
           <li>• {t("calendrier.cinq.bonASavoir.questions")}</li>
+          <li>• {t("calendrier.cinq.bonASavoir.paie")}</li>
+          <li>• {t("calendrier.cinq.bonASavoir.argent")}</li>
         </ul>
       </div>
     </section>

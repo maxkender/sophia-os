@@ -3,7 +3,8 @@
  * lectures et le jugement en base (`bleo_verifier_depot`, migration 0615) sont
  * dans `pods/index.ts`.
  *
- * Un dépôt d'original de la voie 1 déclare son type :
+ * Un dépôt d'original de la voie 1 déclare son type (depuis 0653, un dépôt
+ * livré de la voie 2 peut le déclarer aussi ; son accroche est son titre) :
  *   - `full_test` : une accroche neuve pour le label, sans parent ;
  *   - `declinaison` : une variante d'une famille gagnante de la boîte, avec son
  *     parent (`parent_contenu_id`). Génération 1 : l'accroche du parent mot pour
@@ -24,6 +25,26 @@ export interface DeclarationBleo {
   parentContenuId: string | null;
 }
 
+/**
+ * Les langues qu'un podz déclare savoir livrer (0654, `LANGUES` de son atelier).
+ * `null` : rien de déclaré dans ce corps (la déclaration en base reste). Une
+ * liste vide ou un code mal formé est refusé : il fermerait des langues à
+ * l'attribution des comptes.
+ */
+export function lireLanguesDeclarees(brut: unknown): string[] | null | { erreur: string } {
+  if (brut === undefined || brut === null) return null;
+  if (!Array.isArray(brut) || brut.length === 0 || brut.length > 40) {
+    return { erreur: "langues : une liste de 1 à 40 codes de langue (« fr », « pt-BR », « es-419 »)" };
+  }
+  const langues: string[] = [];
+  for (const l of brut) {
+    const code = typeof l === "string" ? l.trim() : "";
+    if (!/^[a-z]{2,3}(-[A-Za-z0-9]{2,4})?$/.test(code)) return { erreur: `langues : code invalide « ${String(l)} »` };
+    if (!langues.some((x) => x.toLowerCase() === code.toLowerCase())) langues.push(code);
+  }
+  return langues;
+}
+
 /** Lit `type_bleo` et `parent_contenu_id` du corps ; seule la forme est vérifiée ici. */
 export function lireDeclarationBleo(body: Record<string, unknown>): DeclarationBleo | { erreur: string } {
   const brut = body.type_bleo;
@@ -35,6 +56,14 @@ export function lireDeclarationBleo(body: Record<string, unknown>): DeclarationB
   return { typeBleo, parentContenuId: parent };
 }
 
+/**
+ * L'accroche comparable d'un dépôt livré (voie 2, 0653) : son titre normalisé, le
+ * texte des slides étant dans l'image. Même règle que `bleo_accroches_podz` (0652).
+ */
+export function accrocheDuTitre(titre: string | null | undefined): string | null {
+  return normaliserAccroche(titre ?? null);
+}
+
 /** L'accroche comparable d'un deck : le texte de sa première slide, normalisé. */
 export function accrocheDuDeck(slides: ReadonlyArray<{ position: number; texte_overlay?: string | null }>): string | null {
   const premiere = [...slides].sort((a, b) => Number(a.position) - Number(b.position))[0];
@@ -42,11 +71,12 @@ export function accrocheDuDeck(slides: ReadonlyArray<{ position: number; texte_o
 }
 
 /**
- * Accroches des livraisons d'originaux en attente (première slide de leur deck
- * source), hors la livraison qu'un nouveau dépôt du même `source_id` remplace.
+ * Accroches des livraisons en attente (première slide de leur deck source ; à
+ * défaut, pour un livré dont le texte est dans l'image, son titre), hors la
+ * livraison qu'un nouveau dépôt du même `source_id` remplace.
  */
 export function accrochesEnAttente(
-  livraisons: ReadonlyArray<{ id: string; langue_source?: string | null; decks?: unknown }>,
+  livraisons: ReadonlyArray<{ id: string; langue_source?: string | null; decks?: unknown; titre?: string | null }>,
   sauf: string | null,
 ): Map<string, string> {
   const parAccroche = new Map<string, string>();
@@ -54,7 +84,7 @@ export function accrochesEnAttente(
     if (l.id === sauf) continue;
     const decks = (l.decks ?? {}) as Record<string, { slides?: Array<{ position: number; texte_overlay?: string }> }>;
     const deck = decks[l.langue_source ?? ""] ?? Object.values(decks)[0];
-    const accroche = accrocheDuDeck(deck?.slides ?? []);
+    const accroche = accrocheDuDeck(deck?.slides ?? []) ?? accrocheDuTitre(l.titre);
     if (accroche && !parAccroche.has(accroche)) parAccroche.set(accroche, l.id);
   }
   return parAccroche;

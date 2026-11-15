@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o176",
+ "type_bleo": "full_test",
+ "titre": "the surprising stories behind 5 famous landmarks #history #travel #smartgirl #architecture #funfacts",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 5/5, en remplacement de sg-o164 refusé (theme_gagnant : les listes de mots ont déjà gagné dans le label). Accroche jamais faite chez nous (« landmark » et « monument » absents des accroches de donnees/label.json). Faits vérifiés : la tour Eiffel était détestée de nombreux artistes en 1887 (protestation des artistes) ; Big Ben est le nom de la cloche, pas de la tour (Elizabeth Tower depuis 2012) ; la tour de Pise penche dès la construction, commencée en 1173 ; la statue de la Liberté était d'abord couleur cuivre, devenue verte par oxydation ; le Taj Mahal est un mausolée construit par Shah Jahan pour son épouse Mumtaz Mahal. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5276d16d",
+   "texte_overlay": "the surprising stories behind\n5 famous landmarks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2b83faac",
+   "texte_overlay": "1. the eiffel tower\n\nin 1887, famous artists signed\na protest against it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "20891769",
+   "texte_overlay": "2. big ben\n\nit's the name of the bell,\nnot the tower.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "91371927",
+   "texte_overlay": "3. the leaning tower of pisa\n\nit started leaning while\nit was still being built.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f6af6db4",
+   "texte_overlay": "4. the statue of liberty\n\nshe was copper-brown.\nshe turned green over time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d32c3630",
+   "texte_overlay": "5. the taj mahal\n\na tomb, built by an emperor\nfor his wife.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "74657cee",
+   "texte_overlay": "swap one scroll a day for\na story like this.",
+   "texte_sophia": "swap one scroll a day for a\nstory like this, on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "249b0843",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

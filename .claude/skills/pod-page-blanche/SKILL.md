@@ -4,8 +4,9 @@ description: Agent du pod 1 « Page blanche » (Sophia, label white_bg). À util
 ---
 
 Lis `pods/page-blanche/AGENT.md` en entier avant d'agir : il décrit le rôle,
-les commandes (`npm run sources | geometrie | rendu | livrer | etat` dans
-`pods/page-blanche/`), les demandes types et les règles. Pour toute écriture en
+les commandes (`npm run boite | sources | geometrie | rendu | livrer | etat` dans
+`pods/page-blanche/` ; la routine du matin suit `pods/ROUTINE.md` §5 : posts
+neufs du compte modèle, boîte BLEO, full tests), les demandes types et les règles. Pour toute écriture en
 français, applique `pods/page-blanche/posts/STYLE_FR.md`. Tout ce que tu
 produis passe par la file de validation (Pilotage → Pods) : tu proposes,
 l'humain valide.

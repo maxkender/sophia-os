@@ -1,4 +1,4 @@
-// Usage : npm run livrer -- <id> [--langues en] [--essai <dossier>]
+// Usage : npm run livrer -- <id> [--langues en] [--complement] [--essai <dossier>]
 //
 // Rend le remake posts/<id>.json dans chaque langue écrite et le DÉPOSE dans
 // la file de validation de l'OS (fonction Edge `pods`, action `deposer`).
@@ -14,20 +14,32 @@
 
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
-import { appelPod, LANGUE_SOURCE, LANGUES, POD } from "./api.ts";
+import { appelPod, LANGUE_SOURCE, LANGUES, languesDuLabel, POD } from "./api.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
 import { type ContenuApp, type ContenuCouverture, type ContenuEtape, contenu, estSlideSophia, languesCompletes, lirePost, RACINE, rendreSlide } from "./slides.ts";
 
 const args = process.argv.slice(2);
 const id = args[0];
-if (!id) throw new Error("usage : npm run livrer -- <id> [--langues en] [--essai <dossier>]");
+if (!id) throw new Error("usage : npm run livrer -- <id> [--langues en] [--complement] [--essai <dossier>]");
 const opt = (n: string) => (args.includes(n) ? args[args.indexOf(n) + 1] : undefined);
 const essai = opt("--essai");
 
 const post = lirePost(id);
 const completes = languesCompletes(post);
-const langues = (opt("--langues")?.split(",") ?? [...LANGUES]).filter((l) => completes.includes(l));
-if (!langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} n'est pas complet (titre, légende et chaque slide)`);
+// 0654 : seulement les langues où le label a un compte (l'OS les donne), la
+// langue source toujours pour un post neuf. --complement : un rattrapage (post
+// déjà validé), seulement les langues demandées, sans la langue source.
+const complement = args.includes("--complement");
+const os = await languesDuLabel();
+const utiles = os?.a_livrer ? new Set<string>(os.a_livrer) : null;
+const demandees = opt("--langues")?.split(",").map((l) => l.trim()).filter(Boolean) ?? [...LANGUES];
+const sansCompte = utiles ? demandees.filter((l) => l !== LANGUE_SOURCE && !utiles.has(l)) : [];
+if (sansCompte.length) console.log(`${id} : pas de compte du label en ${sansCompte.join(", ")} : non livré`);
+const voulues = demandees.filter((l) => !sansCompte.includes(l) && !(complement && l === LANGUE_SOURCE));
+const langues = voulues.filter((l) => completes.includes(l));
+if (!completes.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} n'est pas complet (titre, légende et chaque slide)`);
+if (!complement && !langues.includes(LANGUE_SOURCE)) throw new Error(`${id} : le deck ${LANGUE_SOURCE} part toujours avec un post neuf`);
+if (!langues.length) throw new Error(`${id} : aucune langue complète à livrer`);
 const sophia = post.slides.flatMap((s, i) => (estSlideSophia(s) ? [i] : []));
 if (sophia.length !== 1 || sophia[0] === 0) {
   throw new Error(`${id} : une seule slide Sophia, jamais la couverture (trouvé : ${sophia.map((i) => i + 1).join(", ") || "aucune"})`);
@@ -71,22 +83,26 @@ const textes = post.slides
 // Une variante refait un post déjà remaké : l'OS refuse deux contenus de même
 // source_url, on la distingue par « ?variante=<id> » (comme le podz 10).
 const anterieurs = readdirSync(join(RACINE, "posts"))
-  .filter((f) => /^fa-\d+\.json$/.test(f) && f < `${id}.json`)
+  // Un post plus ancien, ou le deck qu'un `<id>-v2` remplace (fa-001 pour fa-001-v2).
+  .filter((f) => /^fa-\d+(-v\d+)?\.json$/.test(f) && f !== `${id}.json` && (f < `${id}.json` || id.startsWith(`${f.slice(0, -5)}-`)))
   .map((f) => JSON.parse(readFileSync(join(RACINE, "posts", f), "utf8")) as { source?: { url?: string } });
-const sourceUrl = anterieurs.some((p) => p.source?.url === post.source.url) ? `${post.source.url}?variante=${id}` : post.source.url;
+const sourceUrl = anterieurs.some((p) => post.source && p.source?.url === post.source.url) ? `${post.source.url}?variante=${id}` : post.source?.url;
 
 const corps = {
   action: "deposer",
   pod: POD,
-  source_url: sourceUrl,
+  // Un full test (accroche neuve) part sans le post modèle : un original en images finies, rang fixe.
+  source_url: post.type_bleo === "full_test" ? null : (sourceUrl ?? null),
   source_id: post.id,
-  source_vues: post.source.vues,
+  source_vues: post.type_bleo === "full_test" ? undefined : post.source?.vues,
   titre: post.titre[LANGUE_SOURCE].slice(0, 160),
   langue_source: LANGUE_SOURCE,
   musique_url: post.musique.url,
   musique_titre: post.musique.titre,
   textes,
   decks,
+  // BLEO (pods/ROUTINE.md §5) : jugé au guichet sur la boîte du label ; refusé avec un code sinon.
+  ...(post.type_bleo ? { type_bleo: post.type_bleo, ...(post.parent_contenu_id ? { parent_contenu_id: post.parent_contenu_id } : {}) } : {}),
 };
 
 if (essai) {

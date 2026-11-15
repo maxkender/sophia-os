@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o120",
+  "type_bleo": "full_test",
+  "titre": "les films qui m'ont donné envie de lire le livre #films #lecture #booktok",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : du film au livre, liste enregistrable. Accroches écrites : « les films qui m'ont donné envie de lire le livre » (retenue : passerelle facile vers la lecture), « les meilleures adaptations de livres » (écartée : trop vu), « lire le livre avant le film ? » (écartée : débat sans liste). Auteurs courants : Les Quatre Filles du docteur March (Louisa May Alcott), Orgueil et préjugés (Jane Austen), Gatsby le magnifique (F. Scott Fitzgerald), Le Nom de la rose (Umberto Eco), L'Âge de l'innocence (Edith Wharton). Routine du 9/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 4 full tests et 4 déclinaisons (lignes 1 en G2, 2, 3 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 4 (4d7c5f32, accroche illisible), 5 (083ac272, hobbies « backed by science »), 6 (837491f7, « enterimarnt »), 7 (6211e51e, « other then »), 8 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "les films qui m'ont donné envie\nde lire le livre",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "057091a3",
+      "texte_overlay": "1. les quatre filles du docteur march\n\nle livre de louisa may alcott\nest encore plus tendre que le film.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. orgueil et préjugés\n\nle film m'a fait rêver.\nle livre de jane austen m'a fait rire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "03d4534a",
+      "texte_overlay": "3. gatsby le magnifique\n\nle roman de fitzgerald est court.\net chaque phrase est une merveille.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "01be1362",
+      "texte_overlay": "4. le nom de la rose\n\nun polar dans une abbaye.\nle livre d'umberto eco est un monde à lui seul.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "5. l'âge de l'innocence\n\nedith wharton écrit les non-dits\nmieux que n'importe quel film.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "lequel tu lis en premier ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

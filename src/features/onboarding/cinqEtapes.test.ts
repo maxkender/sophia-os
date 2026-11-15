@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   CINQ_ETAPES,
+  guideTermine,
   dimancheAvant,
   etatsCinqEtapes,
   followsBloques,
@@ -85,5 +86,21 @@ describe("les 5 étapes (28 oct., G)", () => {
     expect(followsBloques({ ...w, abonnements: 2 }, maintenant)).toBe(false);
     expect(followsBloques({ ...w, existe: null }, maintenant)).toBe(false);
     expect(followsBloques(null, maintenant)).toBe(false);
+  });
+});
+
+describe("0544 : le 1er post publié avec lien", () => {
+  const base = { slackLie: true, warmupStartedAt: "2026-10-27T10:00:00Z", premierPost: "2026-11-02", aujourdhui: "2026-11-06" };
+  it("coche l'étape 5 (et le TikTok, le warm-up)", () => {
+    expect(etatsCinqEtapes(base).post).toBe("en_cours");
+    const e = etatsCinqEtapes({ ...base, premierPostLienAt: "2026-11-02T13:42:00Z" });
+    expect(e.post).toBe("fait");
+    expect(e.warmup).toBe("fait");
+    expect(e.tiktok).toBe("fait");
+  });
+  it("le guide disparaît 24 h après", () => {
+    expect(guideTermine(null, new Date("2026-11-06T10:00:00Z"))).toBe(false);
+    expect(guideTermine("2026-11-05T12:00:00Z", new Date("2026-11-06T10:00:00Z"))).toBe(false);
+    expect(guideTermine("2026-11-05T09:00:00Z", new Date("2026-11-06T10:00:00Z"))).toBe(true);
   });
 });

@@ -1,0 +1,453 @@
+{
+ "id": "yp-052",
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je révise quand je n’ai qu’une heure"
+ },
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je révise quand je n’ai qu’une heure",
+  "es": "cómo estudio cuando solo tengo una hora",
+  "tr": "sadece bir saatim varsa nasıl çalışıyorum"
+ },
+ "legendes": {
+  "fr": "une heure, c’est assez si tu t’organises ⏳ #revisions #studytok #thatgirl #organisation #methode",
+  "es": "una hora es suficiente si te organizas ⏳ #estudiar #studytok #thatgirl #organizacion #metodo",
+  "tr": "plan yaparsan bir saat yeter ⏳ #ders #studytok #thatgirl #planlama #yöntem"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "3653f12f-90f3-46b3-9d35-9a5c560382ee",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5c5cfd06-00b1-4dfe-bc08-1d199aaeb589/3.jpg?v=1791726382157",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format photos à petites légendes (yp-002). cta B : la mise en scène iPhone micabo en photo pleine de l’étape « 20 min : je me teste »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "comment je révise",
+     "lignes": [
+      "QUAND JE",
+      "N’AI QU’UNE",
+      "HEURE"
+     ],
+     "taille": 150
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "cómo estudio",
+     "lignes": [
+      "CUANDO SOLO",
+      "TENGO UNA",
+      "HORA"
+     ],
+     "taille": 124
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "lignes": [
+      "SADECE BİR",
+      "SAATİM VARSA",
+      "NASIL",
+      "ÇALIŞIYORUM"
+     ],
+     "taille": 118
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5e5a6e80-5c0e-4b43-84df-a3269e4fdb93",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f6aeb186-e6bb-4353-9620-c5e6a4450825/2.jpg?v=1791725331542",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je choisis un seul chapitre🎯"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "pas trois, un seul"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "elijo un solo tema🎯"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "no tres, solo uno"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "tek bir ünite seçiyorum🎯"
+     ],
+     "x": 540,
+     "y": 1650,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "üç değil, bir tane"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2c68848a-6425-41d1-84ab-dcd1f9a05d94",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/26b19584-46cc-4229-a08e-f08683abe1c4/5.jpg?v=1791725513691",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je ferme tous les onglets💻"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "juste le cours ouvert"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "cierro todas las pestañas💻"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "solo los apuntes abiertos"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "bütün sekmeleri kapatıyorum💻"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sadece ders notu açık"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "11fe40eb-76a2-4661-86bb-eafc5e65c104",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4211027a-df9f-40d5-b4ed-549199d77a4b/3.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "20 min : je lis et je surligne📖"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "seulement l’essentiel"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "20 min: leo y subrayo📖"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "solo lo esencial"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "20 dk: okuyup altını çiziyorum📖"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sadece önemli kısımlar"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "20 min : je me teste📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "pour voir ce qui bloque⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "20 min: me pongo a prueba📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "para ver lo que falla⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "20 dk: kendimi test ediyorum📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "takıldığım yeri görmek için⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1050d4c0-4740-4724-8b24-059be8593d09",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/883292ed-5a6d-4e40-9ea5-f7349559c811/4-upscale.jpg?v=1785625018722",
+    "cadrage": {
+     "x": 0.3,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "15 min : je refais ce que j’ai raté✍️"
+     ],
+     "x": 540,
+     "y": 1450,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "jusqu’à ce que ce soit clair"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "15 min: repito lo que fallé✍️"
+     ],
+     "x": 540,
+     "y": 1450,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "hasta que quede claro"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "15 dk: yanlışlarımı tekrar çözüyorum✍️"
+     ],
+     "x": 540,
+     "y": 1450,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "netleşene kadar"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1a3573bd-691f-4e3f-b05b-024f0026a52a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/67928145-d056-4797-8b41-855840be1819/5.jpg?v=1791725599240",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "5 min : je note où j’en suis📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "pour reprendre demain sans réfléchir"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "5 min: apunto dónde lo dejé📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "para seguir mañana sin pensar"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "5 dk: nerede kaldığımı yazıyorum📝"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "yarın düşünmeden devam etmek için"
+     ]
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

@@ -1,0 +1,259 @@
+{
+ "post_id": "var-success-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 uncommon habits of",
+      "extremely successful people"
+     ],
+     "texte": "10/10 aşırı başarılı insanların sıra dışı alışkanlıkları"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "texte": "(niş versiyon)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697728269335924001_5.jpg",
+      "boite": [
+       48,
+       453,
+       491,
+       475
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "move your body every day"
+     ],
+     "fr": "bouge [[tous les jours]]",
+     "texte": "düşünmek için [[uzun yürü]]"
+    },
+    "T2": {
+     "en": [
+      "exercise does more than improve your physical health"
+     ],
+     "fr": "le sport fait bien plus que te garder en forme",
+     "texte": "adım saymak için değil, [[en iyi fikirlerin]] orada gelir"
+    },
+    "T3": {
+     "en": [
+      "regular movement",
+      "supports brain health,",
+      "memory, and the",
+      "ability to learn"
+     ],
+     "fr": "bouger souvent booste [[ton cerveau, ta mémoire et ta capacité d'apprendre]]",
+     "texte": "masada çözülmeyen bir sorun, ikinci turda çoğu zaman [[kendiliğinden çözülür]]"
+    },
+    "T4": {
+     "en": [
+      "walk briskly, lift",
+      "weights, or cycle.",
+      "you don't need a",
+      "perfect routine. you",
+      "need one you can",
+      "actually maintain"
+     ],
+     "fr": "marche vite, fais de la muscu ou du vélo. pas besoin d'une routine parfaite, juste d'une que [[tu tiens vraiment]]",
+     "texte": "podcast yok, hedef yok, sadece 30 dakika ve kendi kafan. boşa geçen zaman gibi gelir, [[bir kere deneyene kadar]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "her gün [[yeni bir şey]] öğren, hiç aksatmadan"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "sınav ya da terfi için değil, işlerin nasıl yürüdüğünü bilmek [[her şeyi daha ilginç]] yaptığı için"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "ne kadar çok bilirsen, başkalarının göremediği [[bağlantıları]] o kadar kolay kurarsın"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "kaydırmanın yerini podcast, bulmaca ve zaten telefondayken 5 dakika [[Sophia uygulaması]] aldı"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "merak tıpkı bir kas gibidir, [[kullandıkça güçlenir]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "ask why all the time"
+     ],
+     "fr": "demande [[pourquoi]] H24",
+     "texte": "[[aptalca sorular]] sor"
+    },
+    "T2": {
+     "en": [
+      "most people accept the",
+      "first answer they hear"
+     ],
+     "fr": "la plupart gobent la première réponse venue",
+     "texte": "herkes [[kaybolmuş görünmemek]] için başını sallar"
+    },
+    "T3": {
+     "en": [
+      "kids ask why all day, then",
+      "we just stop"
+     ],
+     "fr": "les gosses font que ça, puis on [[arrête]]",
+     "texte": "odanın yarısı da [[anlamadı]] ama susuyor"
+    },
+    "T4": {
+     "en": [
+      "curiosity is proven to help",
+      "your brain remember",
+      "what you learn"
+     ],
+     "fr": "c'est [[prouvé]] : la curiosité aide ton cerveau à [[retenir ce que t'apprends]]",
+     "texte": "[[5 saniye]] aptal görünürsün, sonra konuyu sonsuza dek anlarsın"
+    },
+    "T5": {
+     "en": [
+      "next time you don't understand something, keep",
+      "asking until you do"
+     ],
+     "fr": "la prochaine fois que tu piges pas un truc, [[redemande jusqu'à piger]]",
+     "texte": "başarılı insanlar [[akıllı görünmektense]] anlamayı tercih eder"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "önemli şeyleri [[elle yaz]]"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "hedefler, fikirler, yapılacaklar. yazmak seni [[gerçekten düşünmen]] için yeterince yavaşlatır"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be comfortable being",
+      "uncomfortable"
+     ],
+     "fr": "apprends à aimer [[l'inconfort]]",
+     "texte": "kasıtlı olarak [[yalnız]] vakit geçir"
+    },
+    "T2": {
+     "en": [
+      "do things that make your",
+      "brain work:"
+     ],
+     "fr": "fais vraiment bosser ton cerveau :",
+     "texte": "insan yok, ekran yok, gürültü yok"
+    },
+    "T3": {
+     "en": [
+      "difficult books, hard",
+      "conversations, learning",
+      "unfamiliar skills, solving",
+      "problems without",
+      "immediately searching",
+      "the answer"
+     ],
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]",
+     "texte": "tek başına bir kahve, boş bir odada sakin bir saat. başkalarının beklediğini değil, [[gerçekten ne istediğini]] orada anlarsın"
+    },
+    "T4": {
+     "en": [
+      "cognitive growth rarely happens while you're",
+      "doing what already feels easy"
+     ],
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]",
+     "texte": "düşüncelerinle hiç baş başa kalmazsan, [[onları asla gerçekten duyamazsın]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

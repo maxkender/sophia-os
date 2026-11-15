@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o186",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8f27867c-fb33-48b6-96e6-623279d26e59",
+ "titre": "unspoken rules of people who seem effortlessly smart #intelligence #rules #selfimprovement #learning #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "e87ee2b6-cb8e-4c71-b109-c2815ada7eac"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, e87ee2b6). déclinaison G1 de « unspoken rules of people who seem effortlessly smart » (parent 8f27867c, famille née de wa-o080). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6c7aa38d-e166-4c34-8a0e-48b2b7dc4882",
+   "texte_overlay": "unspoken rules of people who\nseem effortlessly smart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661659809493667085/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b817e20c-9612-44f4-aa8b-63d21cc238d2",
+   "texte_overlay": "they read every day\n\nthey read something real every day, even just ten pages. a daily habit of reading is the quiet engine behind almost every sharp mind you have ever met.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661659809493667085/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d3e5f36-db7c-457a-8524-4fc32611a870",
+   "texte_overlay": "they think before speaking\n\nthey pause to think before answering hard questions. a short pause leads to a clearer answer, and clear answers always sound smarter than rushed ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661659809493667085/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6ee1cdac-f8ee-4615-914b-6eca6b8770f3",
+   "texte_overlay": "they stay curious\n\nthey ask questions about everything, from how bridges stand up to why people believe things. curiosity is a habit, and it grows stronger the more you use it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661659809493667085/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a2863f23-4398-490b-9ae9-ce5112eb45aa",
+   "texte_overlay": "they learn in small doses\n\nthey spend 5 minutes a day on one lesson in something new: philosophy, astronomy, art. effortless intelligence is really just consistent learning nobody sees.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661659809493667085/5.jpg",
+   "texte_sophia": "they learn in small doses\n\nthey spend 5 minutes a day on one lesson in something new. the Sophia app turns it into one short lesson a day, and effortless intelligence is just consistent learning nobody sees."
+  },
+  {
+   "position": 6,
+   "media_id": "08a5530c-3875-4a1d-83de-7bd50802666f",
+   "texte_overlay": "they admit mistakes\n\nthey say i got that wrong without fuss. owning mistakes quickly is what lets them learn faster than people who are far too proud to ever admit them out loud.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661659809493667085/6.jpg"
+  }
+ ]
+}

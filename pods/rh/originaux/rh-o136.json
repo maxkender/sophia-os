@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o136",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8c3f5b4a-5f4c-44da-b318-97f35756ef27",
+ "titre": "j'ai arrêté de dire désolée dans mes mails pendant un mois, ma manager l'a remarqué en une semaine #travail #mails #confiance #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G1 de la ligne 12 (parent 8c3f5b4a) : accroche mot pour mot, autres formulations et autre déroulé que le parent. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "670630fb",
+   "texte_overlay": "j'ai arrêté de dire désolée dans mes mails pendant un mois,\nma manager l'a remarqué en une semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "838f4420",
+   "texte_overlay": "« désolée pour ce mail long »\nest devenu « voici les 3 points clés »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "83fb1fc6",
+   "texte_overlay": "« désolée de te relancer »\nest devenu « je reviens vers toi sur X »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "841ee1a2",
+   "texte_overlay": "« désolée, c'est sûrement bête »\nest devenu « j'ai une question sur X »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "84268b92",
+   "texte_overlay": "« désolée pour le retard »\nest devenu « merci pour ta patience, voici le document »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "68f477ce",
+   "texte_overlay": "ce que j'ai gagné en vrai\nde l'assurance. et des sujets à moi : 5 minutes par jour à apprendre un truc",
+   "texte_sophia": "ce que j'ai gagné en vrai\nde l'assurance. et des sujets à moi : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8454f14b",
+   "texte_overlay": "garde tes excuses pour les vraies erreurs.\npas pour ton travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "854f2c04",
+   "texte_overlay": "tu dis désolée combien de fois par jour ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

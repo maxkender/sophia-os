@@ -26,7 +26,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
     l'import, un contenu entre dans le pool d'une application si son score
     atteint le seuil le plus exigeant de ses labels, ou s'il entre en tier A
     ou mieux. Réglable dans Pilotage → Labels. Sophia n'a pas de seuil.
-  - Labels système (`hook`, `ugc-ai-video`) : aucune application.
+  - Label système (`hook`) et labels manuels (`labels.manuel`, ex. UGCV, jamais tirés) : aucune application.
   - Démarrer Unswipe = créer des labels **dédiés** cochés Unswipe seul. Ne pas
     retirer Sophia d'un label existant : tous ses comptes passeraient en 100 %
     Unswipe.
@@ -643,7 +643,7 @@ de placement de l'application pour les slideshows de ce label.
   l'angle (casse, accents et ponctuation ignorés) est écartée comme celles qui
   disent « l'appli » (`variantesSansCopieAngle`) ; s'il n'en reste aucune, le
   modèle est relancé.
-- **Où le régler** : Configuration → Angles de placement (`/admin/angles`),
+- **Où le régler** : Configuration → Traduction & placement, onglet Placement (`/admin/chaine?onglet=placement` ; l'ancienne adresse `/admin/angles` y renvoie),
   pour l'application du sélecteur : une carte par label qui la sert, avec son
   angle actif, ses angles en test, et l'ajout (« en test » ou « actif », en
   une transaction). Chaque angle se modifie, s'active, repasse en test ou se

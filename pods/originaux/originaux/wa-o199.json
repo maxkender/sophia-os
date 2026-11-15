@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o199",
+ "type_bleo": "full_test",
+ "titre": "small things that make people trust you instantly #trust #psychology #socialskills #selfimprovement #communication",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "f2859d4a-2767-473f-be8d-7dbbd477b759"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f2859d4a). full test BLEO : accroche jamais faite (format « small things that make people X instantly »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7c6c6409-c294-413e-87e6-b4e8b0b4c0e6",
+   "texte_overlay": "small things that make\npeople trust you instantly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7afe6160-9d1d-43dd-9343-3806b1a5354b",
+   "texte_overlay": "showing your hands\n\npeople trust what they can see. keeping your hands open and visible when you talk is an old signal of honesty that the human brain still reacts to instantly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "410612ec-3410-4bec-86dd-b4101bb23836",
+   "texte_overlay": "knowing a little of everything\n\npeople relax around someone who can talk about anything. curiosity makes you easy to open up to, and it is honestly far simpler to build than most people think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/3.jpg",
+   "texte_sophia": "knowing a little of everything\n\ni used to freeze in new conversations. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and people open up to me so much more easily."
+  },
+  {
+   "position": 4,
+   "media_id": "952a00cb-b391-47b0-93ab-f873497b71ab",
+   "texte_overlay": "admitting small mistakes\n\nsaying i got that wrong without fuss makes everything else you say more believable. people trust someone who is honest about the little things first and foremost.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7913645c-d467-4c80-830c-a451a82d408b",
+   "texte_overlay": "remembering names\n\nuse someone's name early and correctly. it shows you paid attention from the very first moment, and people instantly feel safer with someone who listens.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1922bd44-b037-4af2-8a19-808c36e3c1ef",
+   "texte_overlay": "doing what you said\n\nif you say you'll send it tomorrow, send it tomorrow. small promises kept on time build more trust than any big speech or grand gesture ever really could.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,344 @@
+{
+ "id": "yp-056",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je révise les maths sans pleurer",
+  "es": "cómo estudio mates sin llorar",
+  "tr": "ağlamadan matematik nasıl çalışıyorum"
+ },
+ "legendes": {
+  "fr": "les maths, ça se travaille 📐 #maths #revisions #studytok #thatgirl #lycee",
+  "es": "las mates se trabajan 📐 #matematicas #estudiar #studytok #thatgirl #instituto",
+  "tr": "matematik çalışarak öğrenilir 📐 #matematik #ders #studytok #thatgirl #lise"
+ },
+ "musique": {
+  "titre": "9am in Calabasas",
+  "url": "https://www.tiktok.com/music/9am-in-calabasas-7140431856570206210"
+ },
+ "fond": {
+  "media_id": "12e62149-3d0b-4710-8983-56865bc3512e",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a39cdc84-d0b7-4bcf-8dac-6babbdd396bf/3.jpg?v=1787157905213",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je me teste chaque soir », sans capture. photos jamais livrées depuis 14 jours, son nouveau (consigne du 12/11)",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "comment je révise",
+     "lignes": [
+      "LES MATHS",
+      "SANS",
+      "PLEURER"
+     ],
+     "taille": 160,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cómo estudio",
+     "lignes": [
+      "MATES",
+      "SIN",
+      "LLORAR"
+     ],
+     "taille": 170,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AĞLAMADAN",
+      "MATEMATİK",
+      "NASIL",
+      "ÇALIŞIYORUM"
+     ],
+     "taille": 110,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "81ae6e60-5be8-4d41-a9d7-b48d2157a5ae",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0dd56220-d158-4543-bf36-b173974ce54d/3.jpg?v=1791727486025",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je refais les exos du cours✍️",
+      "texte": "avant de regarder la correction. le jour du contrôle, personne ne me la donne.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "repito los ejercicios de clase✍️",
+      "texte": "antes de mirar la solución. el día del examen nadie me la da.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "dersteki soruları tekrar çözüyorum✍️",
+      "texte": "çözüme bakmadan önce. sınav günü kimse bana çözümü vermiyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3701f0cc-7072-4452-ab51-c3a06e137ed5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c0e083d6-8056-4352-8bab-fb53d9aabc58/2.jpg?v=1792923461264",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une fiche de formules📐",
+      "texte": "une seule page, toujours sous les yeux. à force, je la connais par cœur.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una hoja de fórmulas📐",
+      "texte": "una sola página, siempre a la vista. a fuerza de verla, me la sé.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bir formül kâğıdı📐",
+      "texte": "tek sayfa, hep gözümün önünde. sonunda ezbere biliyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "3827ffe4-4d35-4e16-a8af-6b28502b355f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/6ead724d-fc5f-4ffd-bee7-b23b707c9568/6.jpg?v=1791726907615",
+    "cadrage": {
+     "x": 1,
+     "y": 1
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 20,
+      "y": 120,
+      "titre": "je me teste chaque soir🧠",
+      "texte": "je mets mes cours dans micabo et je fais ses quiz. 10 min, et je sais ce qui coince.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 20,
+      "y": 120,
+      "titre": "me pongo a prueba cada noche🧠",
+      "texte": "meto mis clases en micabo y hago sus quiz. 10 min y sé lo que me falla.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 20,
+      "y": 120,
+      "titre": "her akşam kendimi test ediyorum🧠",
+      "texte": "derslerimi micabo’ya koyup testlerini çözüyorum. 10 dakikada nerede takıldığımı görüyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "791c53be-5f07-4d34-8564-66b62ecbbd56",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a771c44e-38f5-40d5-aa04-3f3c9ea9f4a5/1.jpg?v=1791725278396",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "j’explique la méthode à voix haute🗣️",
+      "texte": "si je bloque en l’expliquant, c’est que je ne l’ai pas comprise.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "explico el método en voz alta🗣️",
+      "texte": "si me trabo al explicarlo, es que no lo entendí.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "yöntemi yüksek sesle anlatıyorum🗣️",
+      "texte": "anlatırken takılıyorsam, anlamamışım demektir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "828a0516-3e69-4c58-8e94-aacbc9bca0cc",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d9f07ab9-5d08-4307-b806-695a3fc1876a/3.jpg?v=1790607280077",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un exo par jour📆",
+      "texte": "même le week-end. 15 min suffisent pour ne rien oublier.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un ejercicio al día📆",
+      "texte": "incluso el fin de semana. 15 min bastan para no olvidar nada.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "günde bir soru📆",
+      "texte": "hafta sonu bile. hiçbir şeyi unutmamak için 15 dakika yeter.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "654d24f1-a49e-423d-a210-1dab9357a26f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/33a5294b-af1f-4d7a-af6f-ea45fc3c5393/3.jpg?v=1790607498250",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je demande dès que je bloque✋",
+      "texte": "au prof ou à une amie. attendre, c’est laisser le retard s’installer.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "pregunto en cuanto me atasco✋",
+      "texte": "al profe o a una amiga. esperar es dejar que el retraso crezca.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "takıldığım an soruyorum✋",
+      "texte": "hocaya ya da bir arkadaşa. beklemek, açığın büyümesine izin vermek.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je révise les maths sans pleurer"
+ }
+}

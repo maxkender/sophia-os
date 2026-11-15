@@ -63,7 +63,8 @@ for (const f of fichiers) {
     type: "original",
     source_id: o.source_id,
     titre: o.titre,
-    langue_source: LANGUE_SOURCE,
+    // Une déclinaison s'écrit dans la langue source de son parent (ROUTINE §4.3) : l'original peut la déclarer.
+    langue_source: (o as { langue_source?: string }).langue_source ?? LANGUE_SOURCE,
     musique_titre: o.musique_titre ?? null,
     musique_url: o.musique_url ?? null,
     inspirations: o.inspirations ?? [],

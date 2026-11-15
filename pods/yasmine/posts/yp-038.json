@@ -1,0 +1,232 @@
+{
+ "id": "yp-038",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7681705402194595095",
+  "vues": 31700,
+  "publie_le": "2026-09-04",
+  "titre": "HOW TO STAY ORGANIZED as a student"
+ },
+ "titre": {
+  "fr": "comment rester organisée en cours",
+  "es": "cómo ser organizada en clase",
+  "tr": "derslerde düzenli kalmak"
+ },
+ "legendes": {
+  "fr": "les 3 applis qui m’organisent 📲 #organisation #studytok #thatgirl #etudiante #productivite",
+  "es": "las 3 apps que me organizan 📲 #organizacion #studytok #thatgirl #estudiante #productividad",
+  "tr": "beni düzenleyen 3 uygulama 📲 #düzen #studytok #thatgirl #öğrenci #verimlilik"
+ },
+ "musique": {
+  "titre": "Long way 2 go",
+  "url": "https://www.tiktok.com/music/long-way-2-go-7300271749518609157"
+ },
+ "fond": {
+  "media_id": "3dd26fae-7f3a-49b9-bbb4-8a5b3ecd3604",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9f0753c8-af66-4cf5-8cb7-125febde54ce/3.jpg?v=1791725619742",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "remake de « HOW TO STAY ORGANIZED as a student » (32 k) : cartes d’applis sur iPad (format yp-003), Notion et Calendrier en concurrents indirects, micabo en carte native au milieu. cta C (carte d’appli)",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "interligne": 0.9,
+     "y": 1560,
+     "script_haut": "comment rester",
+     "lignes": [
+      "organisée",
+      "en cours"
+     ],
+     "taille": 150,
+     "taille_script": 84
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "interligne": 0.9,
+     "y": 1560,
+     "script_haut": "cómo ser",
+     "lignes": [
+      "organizada",
+      "en clase"
+     ],
+     "taille": 140,
+     "taille_script": 84
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "interligne": 0.9,
+     "y": 1560,
+     "lignes": [
+      "DERSLERDE",
+      "DÜZENLİ",
+      "KALMAK"
+     ],
+     "taille": 140
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "Pour suivre mes",
+      "devoirs et mes exams.",
+      "",
+      "Un tableau de bord",
+      "tout-en-un, que je",
+      "personnalise comme",
+      "je veux."
+     ],
+     "taille": 46
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "Para seguir mis",
+      "deberes y exámenes.",
+      "",
+      "Un panel todo",
+      "en uno que",
+      "personalizo",
+      "a mi gusto."
+     ],
+     "taille": 46
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "Notion",
+     "icone": "assets/applis/notion.jpg",
+     "lignes": [
+      "Ödevlerimi ve",
+      "sınavlarımı takip",
+      "etmek için.",
+      "",
+      "Hepsi bir arada,",
+      "istediğim gibi",
+      "düzenlediğim bir panel."
+     ],
+     "taille": 46
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "app": true,
+   "fr": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Pour ne jamais",
+      "prendre de retard.",
+      "",
+      "Je mets chaque cours",
+      "dedans le jour même,",
+      "et je fais ses quiz",
+      "10 min par jour."
+     ],
+     "taille": 46
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Para no atrasarme",
+      "nunca.",
+      "",
+      "Meto cada clase",
+      "el mismo día",
+      "y hago sus quiz",
+      "10 min al día."
+     ],
+     "taille": 46
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "micabo",
+     "icone": "assets/micabo/icone.png",
+     "lignes": [
+      "Hiç geride",
+      "kalmamak için.",
+      "",
+      "Her dersi aynı gün",
+      "içine koyuyorum ve",
+      "günde 10 dakika",
+      "testlerini çözüyorum."
+     ],
+     "taille": 46
+    }
+   }
+  },
+  {
+   "type": "carte",
+   "fr": {
+    "carte": {
+     "nom": "Calendrier",
+     "icone": "assets/applis/calendrier.fr.jpg",
+     "lignes": [
+      "Pour bloquer mes",
+      "créneaux de révision.",
+      "",
+      "Je vois ma semaine",
+      "d’un coup d’œil,",
+      "et je ne rate plus",
+      "une échéance."
+     ],
+     "taille": 46
+    }
+   },
+   "es": {
+    "carte": {
+     "nom": "Calendario",
+     "icone": "assets/applis/calendrier.es.jpg",
+     "lignes": [
+      "Para bloquear mis",
+      "horas de estudio.",
+      "",
+      "Veo mi semana",
+      "de un vistazo",
+      "y no se me pasa",
+      "ninguna fecha."
+     ],
+     "taille": 46
+    }
+   },
+   "tr": {
+    "carte": {
+     "nom": "Takvim",
+     "icone": "assets/applis/calendrier.tr.jpg",
+     "lignes": [
+      "Çalışma saatlerimi",
+      "ayırmak için.",
+      "",
+      "Haftamı bir bakışta",
+      "görüyorum ve hiçbir",
+      "teslim tarihini",
+      "kaçırmıyorum."
+     ],
+     "taille": 46
+    }
+   }
+  }
+ ]
+}

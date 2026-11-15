@@ -1,0 +1,34 @@
+{
+  "source_id": "pl-001",
+  "titre": "There are more things that frighten us than crush us. We suffer more often in imagination than in reality. #stoicism #seneca #anxiety #quotes",
+  "source_phrase": "Seneca, Letters to Lucilius, 13",
+  "type_bleo": "full_test",
+  "musique_titre": "Sleepy Lagoon",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "31362853",
+      "texte_overlay": "There are more things that frighten us",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698186835570199816/2.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4c4d4870",
+      "texte_overlay": "than things that crush us.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694141490905255176/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "e1a81028",
+      "texte_overlay": "We suffer more often in imagination than in reality.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695946028427529490/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "7342a3f3",
+      "texte_overlay": "Seneca, Letters to Lucilius.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692605792867880193/3.jpg",
+      "texte_sophia": "Seneca wrote this 2,000 years ago. I read it this morning on Sophia."
+    }
+  ]
+}

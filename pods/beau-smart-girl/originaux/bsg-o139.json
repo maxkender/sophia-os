@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o139",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "2a0d20aa-33f7-4d9c-96b8-8ea7fa2e312c",
+  "titre": "les comportements qui te rendent 10x plus attirante #confiance #pourtoi",
+  "inspirations": [
+    "2a0d20aa-33f7-4d9c-96b8-8ea7fa2e312c"
+  ],
+  "notes": "G1, déclinaison de 2a0d20aa (« les comportements qui te rendent 10x plus attirante », génération 0 en français ; meilleur passage hr 5,2 k vues, r 3,54), en français. cta C (le défi de 7 jours en slide 2). Comportements neufs (rien de repris du parent : ni regard, ni posture, ni projets, ni autre appli). Attirante au sens du charme, rien sur le physique. Routine du 11/11 sur BLEO : jauge 2 full tests et 6 déclinaisons (lignes 1 à 6 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "les comportements qui te rendent\n10x plus attirante",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. tu écoutes jusqu'au bout\n\nsans préparer ta réponse.\nles gens le sentent tout de suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "414511dc",
+      "texte_overlay": "2. tu ris de toi\n\nla fille qui se prend au sérieux\nest rarement la plus charmante.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "3. tu as un avis\n\net tu changes d'avis quand on te convainc.\nles deux sont rares.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "4. tu parles de ce que tu aimes\n\nles yeux qui brillent,\nça vaut tous les maquillages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0f057bec",
+      "texte_overlay": "5. tu dis merci aux compliments\n\nsans les repousser.\nla confiance, c'est aussi ça.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "tu en fais déjà combien ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

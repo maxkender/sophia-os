@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o164",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "edf7e52f-d28d-4796-a8ef-9062651d2c9e",
+  "titre": "study tips that will actually improve your grades #studytok #studytips",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [
+    "edf7e52f-d28d-4796-a8ef-9062651d2c9e"
+  ],
+  "notes": "G1, déclinaison de edf7e52f (« study tips that will actually improve your grades », génération 0 ; meilleur passage bg 1,5 k vues, r 2,17), en anglais. cta C (le défi de 7 jours en slide 2). Méthodes d'étude courantes (rien de repris de bsg-o107 « study tips » ni du parent). Aucun conseil médical, aucune autre appli. Routine du 14/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 4 full tests. Lignes sautées : 5 (« validé par les neurosciences », preuves à vérifier), 6 (« je notes »), 7 (accroche illisible), 8 (« backed by science »), 9 (« enterimarnt »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "324a37c3",
+      "texte_overlay": "study tips that will actually\nimprove your grades",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "33f0731c",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one thing about the world every morning, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "39026733",
+      "texte_overlay": "1. start the night before the night before\n\nreview a little two days early.\nthe night before is just a recap.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "024d5477",
+      "texte_overlay": "2. do the practice questions first\n\nthen read the chapter.\nyou'll know exactly what to look for.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "13885ed5",
+      "texte_overlay": "3. rewrite your notes in fewer words\n\nhalf a page per lesson.\nif it doesn't fit, you don't get it yet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "123bee25",
+      "texte_overlay": "4. ask one question per class\n\nteachers remember the students who care.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2e5568f4",
+      "texte_overlay": "5. check what you got wrong\n\nyour mistakes on the last test\nare the best study guide you'll ever have.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "4f777c76",
+      "texte_overlay": "save this for your next exam.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

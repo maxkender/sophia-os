@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o062",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "bfb03716-373f-4d1c-b522-e262ee06655e",
+  "titre": "toxic academic habits i refuse to give up #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "bfb03716-373f-4d1c-b522-e262ee06655e"
+  ],
+  "notes": "Déclinaison G1 de bfb03716 (r 3,48 en allemand), ligne 2 de la boîte. Accroche du parent mot pour mot, en anglais. Habitudes neuves, aucune du parent (refaire un test réussi, lire avant le cours, battre son record, supprimer les réseaux, demander pourquoi) : réécrire ses erreurs en rouge, relire chaque commentaire du prof, réciter les définitions à voix haute, se tester le soir de chaque cours (place micabo, slide 5), les devoirs le jour même, se coucher à heure fixe avant un contrôle. Rivalité avec soi-même seulement. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8fcfed36",
+      "texte_overlay": "toxic academic habits\ni refuse to give up",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "90686f12",
+      "texte_overlay": "rewriting every wrong answer in red\nuntil the page looks like a crime scene.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9d40a986",
+      "texte_overlay": "reading EVERY comment on my graded test.\nnot just the number.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "a80f3e5b",
+      "texte_overlay": "reciting definitions out loud in the shower.\nevery. single. day.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "23b38f8b",
+      "texte_overlay": "quizzing myself the evening of every class.\neven on fridays.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a9013573",
+      "texte_overlay": "starting homework the day it's given.\nlast-minute panic is not my personality.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "e40f5f41",
+      "texte_overlay": "same bedtime before every test.\nsleep is when it sticks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

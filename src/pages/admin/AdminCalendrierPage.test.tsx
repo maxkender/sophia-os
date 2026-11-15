@@ -54,7 +54,7 @@ function post(
     sujet_titre: null,
     langue: "tr",
     ugc_ai: false,
-    ugc_ai_video: false,
+    ugcv: false,
     nb_slides: 5,
     nb_media: 5,
     slideshow_vide: false,

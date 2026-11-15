@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o228",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1cd5116b-e16a-4a9e-a7da-0062b13424e8",
+ "titre": "7 ways to become a new man in just six months #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "1cd5116b-e16a-4a9e-a7da-0062b13424e8"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 9b2ff5e0. déclinaison G2 de la ligne 4 de la boîte (1cd5116b, notre ay-o116), 2e déclinaison après ay-o216. Même promesse, autres mots. Items neufs, aucun repris d'ay-o116, o216 ni o020.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9b2ff5e0",
+   "texte_overlay": "7 ways to become a new\nman in just six months",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Fix your sleep before anything else. Same bedtime, dark room, no phone in bed. Six months of good sleep changes your energy, your mood and even your face.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn to cook healthy food you enjoy. Five go-to meals that are quick and good. Your body and your wallet will both look different by spring.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Get stronger every month. Add a little weight or one more rep each week. Small progress, tracked carefully over six months, transforms your body.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Read one book a month. Six books in six months, on topics that matter to you. You'll think, talk and decide very differently by the end of it.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: same habits, same results. After: five minutes a day of history, art or science, and a mind that keeps growing and sharpening every single week.",
+   "texte_sophia": "Before: same habits, same results. After: five minutes a day on a micro-learning app like the Sophia app. Now my mind keeps growing every week.",
+   "media_id": "001d31ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Clean up your money. Track spending, cut useless subscriptions, start saving. Six months of control removes a huge weight from your shoulders.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Spend less time online and more outside. Walks, sports, people. Trading screen hours for real life is the quickest way to feel like a new person.",
+   "media_id": "e1140173"
+  }
+ ]
+}

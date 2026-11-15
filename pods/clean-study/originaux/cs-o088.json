@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o088",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5064fed3-3afe-4c73-860a-2d980e6ad7eb",
+  "titre": "toxic exam season reminders that work a little too well #studytok #studymotivation #exams",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "5064fed3-3afe-4c73-860a-2d980e6ad7eb"
+  ],
+  "notes": "Déclinaison G1 de 5064fed3 (notre cs-o020 : r 4,35 en turc, 6 k vues), ligne 3 de la boîte. Accroche du parent mot pour mot. « Toxic » = rivalité avec soi-même, jamais avec les autres. Rappels neufs, aucun de cs-o020 (date de l'examen, « nul en maths », expliquer sans notes, fatigue, scroll, ce que l'examen vérifie, nuit blanche) : surligner n'est pas apprendre, le sujet de l'an dernier existe, se tester sur l'ancien sujet (place micabo, slide 4), le « je verrai bien » de la veille, la pause qui dure 2 heures, une matière faible ne s'améliore pas toute seule. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ba0b389d",
+      "texte_overlay": "toxic exam season reminders\nthat work a little too well",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ba551803",
+      "texte_overlay": "highlighting isn't learning.\nyour notes are just yellow now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bbdbf9ba",
+      "texte_overlay": "last year's exam exists.\nyou'd be surprised how much repeats.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fed88e01",
+      "texte_overlay": "do last year's exam with a timer. tonight.\nthen you'll KNOW where you stand.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bc2c233c",
+      "texte_overlay": "\"i'll see on the day\" is not a strategy.\nit's a wish.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "bd7ced5e",
+      "texte_overlay": "a 10-minute break is a break.\na 2-hour break is a decision.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "bdf23d1d",
+      "texte_overlay": "your weakest subject won't fix itself.\nstart there. TODAY.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

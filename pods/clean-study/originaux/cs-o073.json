@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o073",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5d4e896d-4d9a-4478-a712-26e73c1aa8b3",
+  "titre": "quotes that finally got me to study instead of procrastinating #studytok #studymotivation #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "5d4e896d-4d9a-4478-a712-26e73c1aa8b3"
+  ],
+  "notes": "Déclinaison G2 de 5d4e896d (notre cs-o039 en G1 : r 13,51 en allemand, 5,5 k vues), ligne 2 de la boîte. Même promesse (des citations qui motivent à étudier au lieu de traîner), autres mots : « quotes that finally got me to study instead of procrastinating ». Citations neuves, sans auteur (aucune attribuée à une personne réelle), aucune de cs-o039. Place micabo : slide 5 (se tester). Slide 5 sans personne. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "48dca5eb",
+      "texte_overlay": "quotes that finally got me to study\ninstead of procrastinating",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4d7ac503",
+      "texte_overlay": "\"you don't need more time. you need to start.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4ed7995b",
+      "texte_overlay": "\"done badly today beats perfect never\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "5563e59f",
+      "texte_overlay": "\"the hard part is the first 5 minutes. that's it.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d2a46b01",
+      "texte_overlay": "\"rereading feels like studying. testing yourself IS studying.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5b79b46e",
+      "texte_overlay": "\"nobody is coming to do this for you\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5ba09e75",
+      "texte_overlay": "\"small steps every day. that's the whole secret.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

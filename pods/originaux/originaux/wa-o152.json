@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o152",
+ "type_bleo": "full_test",
+ "titre": "signs you're smarter than you give yourself credit for #intelligence #selfimprovement #psychology #signs #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "f7bc71bf-69de-4215-8ed0-da999a9248a4"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f7bc71bf). full test BLEO : accroche jamais faite (format « signs », intelligence). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1a9dfb8-b19d-4928-9369-b7fa2fffca8b",
+   "texte_overlay": "signs you're smarter than\nyou give yourself credit for",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659404993954385175/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "67bebbd5-60f2-4b0b-95b5-9f880d3f52f6",
+   "texte_overlay": "you overthink things\n\nyou see every angle of a problem, even the ones nobody else noticed. overthinking is exhausting, but it comes from a mind that simply processes far more than most people's.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659404993954385175/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9c27e182-2730-4012-bd19-1cf0e36860e4",
+   "texte_overlay": "you question everything\n\nyou're never satisfied with the answer because that's how it's always done. needing to understand the reason behind things is the root of real intelligence, not a flaw.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659404993954385175/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4941f1fe-4ab4-48fe-8da7-19feea562d55",
+   "texte_overlay": "you love learning odd things\n\nyou happily spend a few minutes on a random fact: why the sky is blue, how ancient rome got water. a curious mind is the clearest sign of a sharp one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659404993954385175/4.jpg",
+   "texte_sophia": "you love learning odd things\n\ni love spending 5 minutes on one random lesson: why the sky is blue, how ancient rome got water. i do it with the Sophia app, one lesson a day, and a curious mind is a sharp one."
+  },
+  {
+   "position": 5,
+   "media_id": "f0f242ab-e088-4476-a146-466b2e96eccd",
+   "texte_overlay": "you know what you don't know\n\nyou're quick to admit when you're unsure. people who know the limits of their knowledge are usually the ones who keep growing the fastest over time, year after year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659404993954385175/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "947def65-d551-4948-8ebc-47cb3cac5a24",
+   "texte_overlay": "you enjoy being alone\n\nyou can spend hours alone with your thoughts without getting bored. a rich inner world is something many highly intelligent people quietly have in common.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659404993954385175/6.jpg"
+  }
+ ]
+}

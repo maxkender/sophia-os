@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o216",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1cd5116b-e16a-4a9e-a7da-0062b13424e8",
+ "titre": "7 ways to completely transform yourself in half a year #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "1cd5116b-e16a-4a9e-a7da-0062b13424e8"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 6703d7b4. déclinaison G2 de la ligne 6 de la boîte (1cd5116b, notre ay-o116 « 7 ways to be unrecognisable in 6 months »). Même promesse, autres mots. Items neufs, aucun repris d'ay-o116 ni d'ay-o020. Couverture sombre (celle du parent est trop claire pour le texte jaune).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6703d7b4",
+   "texte_overlay": "7 ways to completely transform\nyourself in half a year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Fix your mornings first. Same wake-up time, no phone for the first hour, a real breakfast. Six months of good mornings changes everything that comes after.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn one serious skill. Coding, a language, an instrument, design. Thirty minutes a day for six months is enough to become genuinely good at something.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Cut alcohol down to weekends. Better sleep, clearer skin, more energy and more money. Most men are shocked by how different they feel after a few months.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Train with a plan, not just vibes. Three structured workouts a week, tracking every lift. Progress you can see keeps you motivated for the long run.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your mind on purpose. I do five minutes a day of history, art or science, and half a year of tiny lessons changed how I think and talk.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Half a year of tiny lessons changed how I think and talk.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Upgrade your circle. Spend more time with people who are growing and less with people who drag you down. You slowly become like the people around you.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Document the journey. A photo and a short note every month. Looking back after six months shows how far you've come, even on days it doesn't feel like it.",
+   "media_id": "62463b6a"
+  }
+ ]
+}

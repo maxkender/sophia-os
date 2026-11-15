@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o094",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "77017ee9-b074-4960-9b18-2ab2141bb7df",
+ "titre": "things you didn't know about famous writers #books #writers #smartgirl #booktok #literature",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "e7f3ee20-28ce-4874-add5-2eb99452face"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 6 de la boîte (parent 77017ee9, langue source en) : accroche du parent mot pour mot. Écrivains neufs face au parent (Woolf, Tolkien, Dickinson, Dahl, Hugo). Faits vérifiés : Virginia Woolf écrivait debout à un pupitre haut ; Tolkien a inventé ses langues avant ses histoires ; moins d'une douzaine de poèmes de Dickinson publiés de son vivant, près de 1 800 retrouvés après sa mort ; Roald Dahl pilote de chasse pendant la Seconde Guerre mondiale ; selon sa femme Adèle, Hugo faisait enfermer ses vêtements pour finir Notre-Dame de Paris. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0a0a39fd",
+   "texte_overlay": "things you didn't know\nabout famous writers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "351859dd",
+   "texte_overlay": "1. virginia woolf\n\nwrote standing up,\nat a tall desk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "74f1a8b5",
+   "texte_overlay": "2. j.r.r. tolkien\n\ninvented his languages first.\nthe stories came after.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "098497fd",
+   "texte_overlay": "3. emily dickinson\n\nfewer than a dozen poems\npublished in her lifetime.\nnearly 1,800 found after.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c8f4f2bc",
+   "texte_overlay": "4. roald dahl\n\nwas a fighter pilot\nin world war ii.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "284f4005",
+   "texte_overlay": "5. victor hugo\n\nhad his clothes locked away,\nsays his wife, so he would\nfinish notre-dame de paris.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "96ee3a56",
+   "texte_overlay": "every famous book hides\na story like this. trade one\nscroll a day for one.",
+   "texte_sophia": "every famous book hides\na story like this. i trade\none scroll a day for one,\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "be17c429",
+   "texte_overlay": "which one surprised you?\nsave this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686842232745282837/8.jpg"
+  }
+ ]
+}

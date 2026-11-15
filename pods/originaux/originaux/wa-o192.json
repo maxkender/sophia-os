@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o192",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "26caaa5d-cf59-4637-9a58-a6ff0819fa7f",
+ "titre": "odd little habits that make everyone want to talk to you #charisma #socialskills #magnetic #selfimprovement #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). déclinaison G2 de « 5 bizarre habits to make you the most magnetic person in the room » (parent 26caaa5d). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "35c2e07c-8280-4556-900b-e5c198de24fb",
+   "texte_overlay": "odd little habits that make\neveryone want to talk to you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04de0c13-de85-4e03-9deb-53ed076a1379",
+   "texte_overlay": "using names\n\nuse people's names once or twice in a conversation. hearing their own name makes people feel noticed, and they quietly remember who made them feel that way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e450f62c-6e36-45e3-b4f2-d67546b661c0",
+   "texte_overlay": "laughing easily\n\nlaugh at other people's jokes, even the small ones. people love being around someone who makes them feel funny, and a warm laugh is wonderfully contagious.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5e3255e2-c25e-4d2f-ba77-c22f5306edb1",
+   "texte_overlay": "remembering details\n\nremember one small thing someone told you and ask about it next time: a trip, an exam, a dog. it shows you truly listen, and that is rare enough to be magnetic.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "40ed8926-8b50-4922-88dc-2fdcee943261",
+   "texte_overlay": "sharing odd facts\n\nspend 5 minutes a day learning one odd fact: how bees dance, why the sky is blue. people always drift towards the person with something surprising to share.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg",
+   "texte_sophia": "sharing odd facts\n\nlearn one odd fact a day, like how bees dance. the Sophia app turns it into one short lesson a day, and people always drift towards someone with something surprising to share."
+  },
+  {
+   "position": 6,
+   "media_id": "73566beb-69dc-4260-bbd0-e60bdc49b357",
+   "texte_overlay": "putting the phone away\n\nkeep your phone in your bag when you're with people. full attention has become so rare that people instantly feel how different it is to talk with you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o080",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "d27e21e1-0a9f-40ad-85b6-25b8b3bfe78e",
+  "titre": "simple habits that make you a smarter student and put you ahead of the class #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "d27e21e1-0a9f-40ad-85b6-25b8b3bfe78e"
+  ],
+  "notes": "Déclinaison G2 de d27e21e1 (notre cs-o037 en G1), ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o067 et cs-o072 : « simple habits that make you a smarter student and put you ahead of the class ». Habitudes neuves, aucune de cs-o037, cs-o067 ni cs-o072 : lire la consigne en entier avant de commencer, écrire à la main ce qu'on veut retenir, relier chaque nouvelle leçon à la précédente, se tester sur les cours de la semaine passée le lundi (place micabo, slide 5), regarder ses erreurs avant ses bonnes réponses, finir chaque séance par la question « qu'est-ce que j'ai appris ? ». Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7f353f82",
+      "texte_overlay": "simple habits that make you a smarter student\nand put you ahead of the class",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7f8108b2",
+      "texte_overlay": "read the whole instructions before starting.\nhalf the class skips this.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8049ac3b",
+      "texte_overlay": "write by hand what you want to remember.\nit sticks better than typing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ba22a018",
+      "texte_overlay": "link every new lesson to the last one.\nyour notes turn into one story.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "28cb54ba",
+      "texte_overlay": "every monday, quiz yourself on last week's lessons.\nnothing gets forgotten quietly.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8154453a",
+      "texte_overlay": "look at your mistakes before your right answers.\nthat's where the points are.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "7ebc20ac",
+      "texte_overlay": "end each session with: \"what did i actually learn?\"\none sentence. every time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

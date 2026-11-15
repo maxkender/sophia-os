@@ -102,7 +102,7 @@ Le pilote `originaux/rh-o001.json` est l'exemple complet. Les champs :
 	Ils sont concrets, avec une réplique, et **neufs** : jamais un item de la source recopié.
 - **Slide de fin** : une question qui fait commenter (« laquelle t'oses pas ? ») ou un appel à enregistrer.
 - **Images** : la banque du label (photos de bureau, autoportraits au miroir). Une personne en accroche, et une image différente à chaque slide.
-- **Musique** : celle du schéma (« Blue Lamp Window » sur les gagnants).
+- **Musique** : alterne au moins 5 sons (« Blue Lamp Window » était sur 126 contenus sur 180 au 12/11). Le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`).
 
 ## Les garde-fous propres au label RH
 

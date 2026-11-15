@@ -7,9 +7,18 @@ import {
   type PropositionSlack,
   zonesDe,
 } from "../_shared/ckd.ts";
-import { BOUTONS, libelleBouton, lireLibellesBoutons } from "../_shared/reponses.ts";
+import {
+  AIDE_CALLBACK,
+  BOUTONS,
+  libelleBouton,
+  lireDemandeAide,
+  lireLibellesBoutons,
+  vueAide,
+} from "../_shared/reponses.ts";
+import { depuisAideSlack } from "../_shared/support.ts";
 import { lienMessageSlack, RACCOURCI_ENVOYER_OS } from "../_shared/slack_questions.ts";
-import { json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { lirePhraseBonus, personneSure, raisonBonus, type PersonneProche } from "../_shared/bonus.ts";
+import { json, messageErreur, secretCron, serviceClient } from "../_shared/supabase.ts";
 
 /**
  * Point d'entrée « Interactivity » des deux applis Slack de l'OS :
@@ -48,7 +57,10 @@ Deno.serve(async (request) => {
   if (!valide) return json({ error: "signature Slack invalide" }, 401);
 
   try {
-    const payload = JSON.parse(new URLSearchParams(corps).get("payload") ?? "{}");
+    // 0564 : la commande /bonus (Max, Adrien) : un bonus en une phrase, à valider sur la carte « Bonus de lundi ».
+    const formulaire = new URLSearchParams(corps);
+    if (formulaire.get("command") === "/bonus") return await commandeBonus(formulaire);
+    const payload = JSON.parse(formulaire.get("payload") ?? "{}");
     const action = payload?.actions?.[0];
     // Prompt 13 : le raccourci de message « Send to OS » (une HM, sur le DM d'un posteur).
     if (payload?.type === "message_action" && payload?.callback_id === RACCOURCI_ENVOYER_OS) {
@@ -59,9 +71,15 @@ Deno.serve(async (request) => {
       else await travail;
       return new Response("", { status: 200 });
     }
+    // 6/11 : la fenêtre « I need help » envoyée (un choix, la question, une capture facultative).
+    if (payload?.type === "view_submission" && payload?.view?.callback_id === AIDE_CALLBACK) {
+      return await envoyerAide(payload);
+    }
     if (payload?.type !== "block_actions") return new Response("", { status: 200 });
     if (action?.action_id === "comment_fait") await commentFait(payload, action);
     else if (action?.action_id === "envoi_main_fait") await envoiMainFait(payload, action);
+    // 6/11 : « I need help » ouvre la fenêtre (plus de carte vide) ; sans fenêtre possible, l'ancien clic.
+    else if (action?.action_id === "posteur_aide" && (await ouvrirAide(payload))) return new Response("", { status: 200 });
     else if (action?.action_id && action.action_id in BOUTONS) await boutonPosteur(payload, action);
     else if (action?.action_id === ACTION_DONE) {
       // Plusieurs lectures et deux écritures Slack : on répond d'abord à Slack
@@ -161,6 +179,102 @@ async function boutonPosteur(payload: any, action: any) {
       }),
     }).catch(() => undefined);
   }
+}
+
+/**
+ * 6/11 : « I need help » ouvre une fenêtre Slack : [My post / my images]
+ * [My link] [TikTok] [Login] [Pay] [Other], la question (obligatoire) et une
+ * capture (facultative). Le trigger_id ne vit que 3 s : on l'ouvre avant de
+ * répondre à Slack. false si la fenêtre n'a pas pu s'ouvrir.
+ */
+// deno-lint-ignore no-explicit-any
+async function ouvrirAide(payload: any): Promise<boolean> {
+  const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
+  const trigger = String(payload?.trigger_id ?? "");
+  if (!jeton || !trigger) return false;
+  const vue = vueAide({
+    ts: String(payload?.message?.ts ?? payload?.container?.message_ts ?? ""),
+    canal: payload?.channel?.id ?? payload?.container?.channel_id ?? null,
+    response_url: payload?.response_url ?? null,
+  });
+  try {
+    const r = await fetch("https://slack.com/api/views.open", {
+      method: "POST",
+      headers: { "content-type": "application/json; charset=utf-8", authorization: `Bearer ${jeton}` },
+      body: JSON.stringify({ trigger_id: trigger, view: vue }),
+    });
+    const j = await r.json().catch(() => ({}));
+    if (!j?.ok) console.error("slack-interactions views.open", j?.error ?? r.status);
+    return Boolean(j?.ok);
+  } catch (e) {
+    console.error("slack-interactions views.open", messageErreur(e));
+    return false;
+  }
+}
+
+/**
+ * La fenêtre envoyée : une demande dans Support (0671, page admin « Support »),
+ * question ou problème selon le sujet, avec sa question et le lien de la capture.
+ * La réponse de l'équipe lui revient en message privé et sur Help.
+ */
+// deno-lint-ignore no-explicit-any
+async function envoyerAide(payload: any): Promise<Response> {
+  const demande = lireDemandeAide(payload?.view?.state?.values);
+  if (!demande) {
+    return json({ response_action: "errors", errors: { texte: "Please write your question." } });
+  }
+  const supabase = serviceClient();
+  const userId = String(payload?.user?.id ?? "");
+  const { data: profil } = await supabase.from("profiles").select("id").eq("slack_user_id", userId).maybeSingle();
+  let meta: { ts?: string; canal?: string | null; response_url?: string | null } = {};
+  try {
+    meta = JSON.parse(String(payload?.view?.private_metadata ?? "{}"));
+  } catch {
+    meta = {};
+  }
+  if (!profil?.id) {
+    return json({ response_action: "errors", errors: { texte: "We couldn't find your account. Please click Help on your dashboard." } });
+  }
+  // 11/11 (0671) : la demande arrive dans Support (page admin), plus dans Problèmes.
+  const { type, categorie } = depuisAideSlack(demande.categorie);
+  const { data: ajout, error } = await supabase.rpc("support_ajouter", {
+    p: {
+      poster_id: profil.id, type, categorie, texte: demande.texte, source: "slack_aide", escalader: true,
+      capture: demande.captures.join(" ") || null,
+    },
+  });
+  const idAide = (ajout as { id?: string; fusion?: boolean } | null);
+  if (!error && idAide?.id && idAide.fusion === false) {
+    // 12/11 (Support propre) : le support trie la demande (Adrien, ou Max pour paiement / urgent, avec son alerte).
+    const alerte = fetch(`${Deno.env.get("SUPABASE_URL")}/functions/v1/support`, {
+      method: "POST",
+      headers: { "content-type": "application/json", "x-cron-secret": (await secretCron()) ?? "" },
+      body: JSON.stringify({ action: "trier", id: idAide.id }),
+    }).catch(() => undefined);
+    // deno-lint-ignore no-explicit-any
+    const edgeA = (globalThis as any).EdgeRuntime;
+    if (edgeA?.waitUntil) edgeA.waitUntil(alerte);
+  }
+  if (error) {
+    console.error("slack-interactions aide", messageErreur(error));
+    return json({ response_action: "errors", errors: { texte: "Not sent, please try again." } });
+  }
+  if (meta.response_url) {
+    const marque = fetch(meta.response_url, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        replace_original: false,
+        response_type: "ephemeral",
+        text: "✅ Thanks, your request was sent to the team. You'll get an answer here and on Help in your dashboard.",
+      }),
+    }).catch(() => undefined);
+    // deno-lint-ignore no-explicit-any
+    const edge = (globalThis as any).EdgeRuntime;
+    if (edge?.waitUntil) edge.waitUntil(marque);
+    else await marque;
+  }
+  return new Response("", { status: 200 });
 }
 
 /**
@@ -284,4 +398,37 @@ async function ckdFait(payload: any, action: any) {
 
   const jeton = Deno.env.get("SLACK_HM_BOT_TOKEN");
   if (jeton) await majRecap(supabase, jeton, p.controle_id);
+}
+
+/**
+ * 0564 : « /bonus donne 2 $ de bonus à Martin Befeld lundi, raison test ».
+ * Seulement les comptes Slack de `reglages.bonus_slack_autorises` (Max,
+ * Adrien). La ligne est « à valider » sur la carte « Bonus de lundi » : rien ne
+ * part sans « Tout envoyer ». Réponse visible de l'auteur seul.
+ */
+async function commandeBonus(f: URLSearchParams): Promise<Response> {
+  const repondre = (text: string) => json({ response_type: "ephemeral", text });
+  const supabase = serviceClient();
+  const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "bonus_slack_autorises").maybeSingle();
+  const autorises = Array.isArray(reglage?.valeur) ? (reglage.valeur as unknown[]).map(String) : [];
+  if (!autorises.includes(String(f.get("user_id") ?? ""))) return repondre("Sorry, /bonus is reserved to Max and Adrien.");
+  const texte = String(f.get("text") ?? "").trim();
+  if (!texte) return repondre("Exemple : /bonus donne 2 $ de bonus à Martin Befeld lundi, raison test");
+  const lu = lirePhraseBonus(texte, new Date().getUTCFullYear());
+  if ("erreur" in lu) return repondre(`Pas compris : ${lu.erreur}.`);
+  // 0571 : la personne par ressemblance ; un seul nom exact, sinon on propose les plus proches.
+  const { data: proches, error: errProches } = await supabase.rpc("bonus_personnes_proches", { p_texte: lu.texteNom, p_limite: 5 });
+  if (errProches) return repondre(`Erreur : ${errProches.message}`);
+  const liste = (proches ?? []) as PersonneProche[];
+  const personne = personneSure(liste);
+  if (!personne) {
+    if (liste.length === 0) return repondre(`Personne ne ressemble à « ${lu.nom || lu.texteNom} ». Écris le prénom et le nom.`);
+    return repondre(`Pas de nom exact. Tu voulais dire : ${liste.map((x) => x.nom).join(", ")} ? Renvoie /bonus avec le nom exact.`);
+  }
+  const raison = raisonBonus(lu, personne.nom);
+  const { data, error } = await supabase.rpc("bonus_donner_a", { p_poster: personne.id, p_montant: lu.montant, p_lundi: lu.lundi, p_raison: raison, p_par: null });
+  if (error) return repondre(`Erreur : ${error.message}`);
+  const r = data as { ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string };
+  if (!r.ok) return repondre(`Pas ajouté : ${r.erreur}.`);
+  return repondre(`✅ ${r.montant} $ à ${r.nom} (lundi ${r.lundi}, raison : ${raison}). À valider sur la page Bonus.`);
 }

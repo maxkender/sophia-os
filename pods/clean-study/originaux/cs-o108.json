@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o108",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "28baf772-4036-4909-9848-7f4db0aa1205",
+  "titre": "how i revise for a test in 3 days without cramming #studytok #studytips #exams",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "28baf772-4036-4909-9848-7f4db0aa1205"
+  ],
+  "notes": "Déclinaison G1 de 28baf772 (notre cs-o066 : r 4,99 en allemand, 5,8 k vues), ligne 5 de la boîte. Accroche du parent mot pour mot. Plan neuf, aucun geste de cs-o066 (tout relire et lister, travailler la liste, test du soir, refaire les ratées, rien de neuf la veille) : jour 1 une fiche d'une page par chapitre, jour 2 un ancien sujet en temps limité (place micabo, slide 5 : se tester), jour 2 au soir corriger avec la couleur, jour 3 expliquer à voix haute les points rouges, la veille préparer le sac et dormir. Depuis le 12/11 : images prises dans toute la banque (aucune livrée depuis 14 jours), son alterné parmi 6 sons du label qui ont marché. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "aebf74a3",
+      "texte_overlay": "how i revise for a test in 3 days\nwithout cramming",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c16f8c98",
+      "texte_overlay": "day 1: one page per chapter.\nonly what could be asked.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d7258c3b",
+      "texte_overlay": "day 1, evening: i read the pages once, slowly.\nthat's it for today.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9898f400",
+      "texte_overlay": "day 2: i quiz myself on an old test, timer on.\nnotes closed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "fce2e8fb",
+      "texte_overlay": "day 2, evening: i correct it in red.\nthe red parts are my plan for tomorrow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3cd02ef1",
+      "texte_overlay": "day 3: i explain every red part out loud.\nuntil it sounds easy.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0d58104a",
+      "texte_overlay": "night before: bag packed, phone away, early bed.\ncalm brain, better grade.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

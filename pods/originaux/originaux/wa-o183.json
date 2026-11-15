@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o183",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bac3822b-31fe-42c9-8fa2-082068232bba",
+ "titre": "5 hobbies that make life so full you forget to scroll #doomscrolling #hobbies #selfimprovement #slowliving #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "3d16d29c-d1d9-424c-b8d6-9a94b0ee8dc9"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 3d16d29c). déclinaison G2 de « 5 hobbies to build a life so good u stopped doomscrolling » (parent bac3822b). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ae68c043-9f3c-48d2-b5d8-f262583f9cfc",
+   "texte_overlay": "5 hobbies that make life so\nfull you forget to scroll",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666571001592941838/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f772a96e-09fb-4361-b413-be1471fa5a8b",
+   "texte_overlay": "evening walks\n\nwalk for half an hour every evening after dinner. watching the light change and the streets go quiet is so much more relaxing than any screen will ever be.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666571001592941838/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "897f2ba6-5737-40b8-bfef-c7a61db4fd8f",
+   "texte_overlay": "a weekly class\n\nsign up for one weekly class: pottery, dance, a language. having something you look forward to every week quietly fills the space scrolling used to take.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666571001592941838/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "aea2bb0f-503f-46c0-9f40-63eb732875bc",
+   "texte_overlay": "a lesson before bed\n\nspend 5 minutes before bed learning one calm new thing: a myth, a planet, an artist. it's the gentlest way to end the day without reaching for your feed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666571001592941838/3.jpg",
+   "texte_sophia": "a lesson before bed\n\ni spend 5 minutes before bed on one calm lesson: a myth, a planet, an artist. i do it with the Sophia app, one lesson a day, and it ends my day without reaching for the feed."
+  },
+  {
+   "position": 5,
+   "media_id": "8a92ce47-da44-4908-bee8-9bb72b318d56",
+   "texte_overlay": "cooking new recipes\n\ncook one new recipe every weekend, with music instead of videos. making something real with your hands is deeply satisfying in a way scrolling never is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666571001592941838/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5b31dc2a-c26f-44fc-9a7e-ea8ba28b5ce1",
+   "texte_overlay": "a growing bookshelf\n\nbuy or borrow one good book a month and keep it on your bedside table. when a good book is always within reach, your phone becomes so much less tempting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666571001592941838/6.jpg"
+  }
+ ]
+}

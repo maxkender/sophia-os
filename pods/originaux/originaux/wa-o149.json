@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o149",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "aaf34649-db8a-446d-b56a-886b2114a7df",
+ "titre": "things that will make you disguistingly intelligent #intelligence #selfimprovement #learning #curiosity #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "aaf34649-db8a-446d-b56a-886b2114a7df"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, aaf34649). déclinaison G1 de « things that will make you disguistingly intelligent » (parent aaf34649), accroche reprise mot pour mot avec sa faute. cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ffa303ef-eae8-4bdb-bb0d-7d028af15e56",
+   "texte_overlay": "things that will make you\ndisguistingly intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659062217689664781/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "523440e4-9d47-4dfc-968a-82b9a6abdbfa",
+   "texte_overlay": "reading out of your lane\n\nread one book a month from a section of the bookshop you never visit. the most interesting ideas you'll ever find live where different fields quietly meet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659062217689664781/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0a866f89-083e-4f05-9cb2-77e3bd679103",
+   "texte_overlay": "keeping a question list\n\nwrite down every question that pops into your head during the day. look up three of them each evening, and watch your curiosity turn into real knowledge.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659062217689664781/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "61a5773a-e0a3-47a4-addc-597b9b571513",
+   "texte_overlay": "learning a few words\n\nlearn five words a week in a language you'd love to speak. even a little of a second language changes how you hear your own and keeps your memory sharp.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659062217689664781/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a8b39540-b126-4e26-8df1-442570b2598f",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day on one lesson in something new: philosophy, astronomy, art history. small daily lessons build the wide mind people call disgustingly intelligent.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659062217689664781/5.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day on one lesson in the Sophia app: philosophy, astronomy, art history. small daily lessons build the wide mind people call disgustingly intelligent."
+  },
+  {
+   "position": 6,
+   "media_id": "80d62aa7-4671-4fbf-971b-9750688700e0",
+   "texte_overlay": "arguing the other side\n\nonce a week, argue the opposite of something you believe, out loud. understanding the other side properly makes your own thinking much sharper and more honest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659062217689664781/6.jpg"
+  }
+ ]
+}

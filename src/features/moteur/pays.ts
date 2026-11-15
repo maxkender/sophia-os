@@ -126,6 +126,7 @@ export const PAYS_PAR_DEFAUT_LANGUE: Readonly<Record<string, string>> = Object.f
   lt: "LT",
   lv: "LV",
   ja: "JP",
+  ko: "KR",
 });
 
 export function paysParDefaut(langue: string | null | undefined): string | null {

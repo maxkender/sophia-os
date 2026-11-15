@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o139",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6d5f4147-3aac-42f4-82fe-3929488c6ead",
+ "titre": "hobbies that make discipline feel like an addiction #discipline #selfimprovement #habits #mindset #hobbies",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "1916dac9-be85-4941-a9a0-3931559ee571"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 1916dac9). déclinaison G1 de « hobbies that make discipline feel like an addiction » (parent 6d5f4147). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b6738e42-436e-4183-a942-5240c9ae8893",
+   "texte_overlay": "hobbies that make discipline\nfeel like an addiction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652382675755420941/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1bcc7e56-3765-40e3-8f57-3be6e820b80a",
+   "texte_overlay": "tracking your runs\n\nrun three times a week and log every run in a notebook. watching your times slowly drop is more addictive than any online streak, and it's real progress.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652382675755420941/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6448d984-3ee2-4371-9f7a-736c90250911",
+   "texte_overlay": "learning a song a month\n\nlearn one full song on an instrument every month. the moment you finally play it through without mistakes is a reward that makes you want the next one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652382675755420941/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b1d598e3-320f-43dc-ae8e-c9d7394385c9",
+   "texte_overlay": "a garden from seeds\n\ngrow vegetables from seed on a balcony or in a garden. daily care with a slow harvest teaches your brain that patience pays off in the most satisfying way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652382675755420941/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bb811cfd-1fc0-47bf-b706-09cab257894c",
+   "texte_overlay": "a daily learning streak\n\nlearn something new in 5 minutes every day and never break the chain: a fact, a word, a painting. a streak you're proud of quietly turns discipline into a habit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652382675755420941/5.jpg",
+   "texte_sophia": "a daily learning streak\n\nlearn something new in 5 minutes every day and never break the chain. the Sophia app turns it into one short lesson a day, and a streak you're proud of turns discipline into habit."
+  },
+  {
+   "position": 6,
+   "media_id": "9287070a-1bdd-4091-999d-f0e1a8da0e03",
+   "texte_overlay": "cold morning walks\n\nwalk for twenty minutes every morning before breakfast, even in winter. doing a slightly hard thing first makes every other hard thing that day feel easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652382675755420941/6.jpg"
+  }
+ ]
+}

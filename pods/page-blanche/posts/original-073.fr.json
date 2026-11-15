@@ -1,0 +1,258 @@
+{
+ "post_id": "original-073",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "petites rébellions contre ton algorithme"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(gratuites et ultra satisfaisantes)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself before using AI"
+     ],
+     "fr": "réfléchis [[avant de demander à l'IA]]",
+     "texte": "prends [[un livre au pif]] à la biblio"
+    },
+    "T2": {
+     "en": [
+      "asking AI for every answer feels smart, but your",
+      "brain skips the hard part"
+     ],
+     "fr": "tout demander à l'IA, ça fait intelligent, mais ton cerveau [[zappe la partie dure]]",
+     "texte": "pas de notes, pas d'avis, pas de « pour toi ». juste une couverture [[qui te tente]]"
+    },
+    "T3": {
+     "en": [
+      "try to work it out",
+      "yourself first, then",
+      "use AI to check it or",
+      "find gaps"
+     ],
+     "fr": "[[cherche d'abord par toi-même]], puis vérifie avec l'IA ou repère ce qui manque",
+     "texte": "ton fil te ressert [[ce que t'aimes déjà]]. une étagère, elle, sait pas qui t'es"
+    },
+    "T4": {
+     "en": [
+      "the struggle is what makes you smarter, if AI",
+      "always does it for you, you stop practicing thinking"
+     ],
+     "fr": "c'est galérer qui [[fait progresser ton cerveau]], si l'IA fait tout à ta place, tu [[perds l'habitude de réfléchir]]",
+     "texte": "au pire tu lis 10 pages et tu le reposes. au mieux, [[tu tombes sur un truc qu'aucun fil t'aurait montré]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on long walks without music"
+     ],
+     "fr": "fais [[de longues balades sans musique]]",
+     "texte": "va marcher [[sans destination]]"
+    },
+    "T2": {
+     "en": [
+      "most people fill every walk with podcasts or music",
+      "and think they're being productive"
+     ],
+     "fr": "tout le monde marche avec [[un podcast ou de la musique]] et se croit [[super productif]]",
+     "texte": "pas de carte, pas d'objectif de pas, pas de playlist. tu tournes [[quand ça te chante]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain only",
+      "starts thinking for",
+      "itself when nothing is",
+      "feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le nourrit]]",
+     "texte": "toute la journée, un truc décide de ce que tu vois. là, [[c'est toi qui choisis chaque rue]]"
+    },
+    "T4": {
+     "en": [
+      "walk in silence, let your mind wander, and your best",
+      "ideas will come from walks"
+     ],
+     "fr": "marche en silence, laisse-toi rêvasser, [[tes meilleures idées]] viendront [[en marchant]]",
+     "texte": "tu découvres une boulangerie, une fresque, une rue calme [[à 5 min de chez toi]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become genuinely interested in people"
+     ],
+     "fr": "intéresse-toi [[vraiment aux gens]]",
+     "texte": "demande à un pote [[au lieu de chercher]]"
+    },
+    "T2": {
+     "en": [
+      "most people listen just long enough to figure out what they’re",
+      "going to say next"
+     ],
+     "fr": "la plupart des gens écoutent juste le temps de trouver [[ce qu'ils vont répondre]]",
+     "texte": "besoin d'un livre, d'un film, d'un resto ? tape rien, [[demande à quelqu'un]]"
+    },
+    "T3": {
+     "en": [
+      "ask better questions,",
+      "remember small details,",
+      "and follow up on things",
+      "people told you weeks",
+      "ago"
+     ],
+     "fr": "pose de meilleures questions, retiens les petits détails et [[reviens dessus]] des semaines plus tard",
+     "texte": "un conseil de pote, c'est une histoire, quelqu'un qui te dit [[tu vas adorer]], et de quoi en reparler après"
+    },
+    "T4": {
+     "en": [
+      "making someone feel",
+      "understood is more",
+      "memorable than having",
+      "the best story"
+     ],
+     "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
+     "texte": "et c'est bien la seule reco que [[personne a payé pour mettre sous tes yeux]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "choisis enfin [[ce que t'apprends]]"
+    },
+    "T2": {
+     "en": [
+      "endless scrolling is conditioning your brain to crave",
+      "instant gratification"
+     ],
+     "fr": "le scroll sans fin habitue ton cerveau à vouloir [[tout, tout de suite]]",
+     "texte": "le fil choisit ce qui te retient, [[pas ce que toi t'aurais choisi]]"
+    },
+    "T3": {
+     "en": [
+      "we are entering a literary",
+      "crisis, scrolling tiktok is",
+      "rotting your brain and books",
+      "are being tossed aside"
+     ],
+     "fr": "on entre dans une [[crise de la lecture]], tiktok [[te grille le cerveau]] et les livres finissent au placard",
+     "texte": "alors inverse. choisis d'abord ce qui t'intrigue, la chute de rome, l'impressionnisme, les trous noirs, puis apprends-le"
+    },
+    "T4": {
+     "en": [
+      "my tip: i always said i",
+      "wanted to read but would",
+      "just scroll tiktok, i found this",
+      "thing that blocks apps until i",
+      "read and it changed my life"
+     ],
+     "fr": "mon astuce ? aujourd'hui, mes 5 min sur [[l'appli Sophia]], c'était [[pourquoi Camus imagine Sisyphe heureux]]. mieux qu'une heure de tiktok",
+     "texte": "ce qui a remplacé mon scroll du soir : une carte de bibliothèque, des balades sans but, et [[l'appli Sophia]] quand je prends mon tel quand même"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "scissions": {
+    "T1": 1
+   },
+   "textes": {
+    "T1a": {
+     "en": [
+      "be comfortable with yourself"
+     ],
+     "fr": "sois [[bien dans ta peau]]",
+     "texte": "appelle [[au lieu d'écrire]]"
+    },
+    "T1b": {
+     "en": [
+      "focus on yourself instead of the person in front of you"
+     ],
+     "fr": "plus tu veux impressionner, plus tu penses à [[toi]] et pas à l'autre",
+     "texte": "un petit appel vaut mieux qu'une soirée entière de messages"
+    },
+    "T2": {
+     "en": [
+      "stop performing,",
+      "stop name-dropping,",
+      "stop trying to prove",
+      "how smart you are"
+     ],
+     "fr": "arrête de surjouer, de lâcher des noms, de [[vouloir prouver ton QI]]",
+     "texte": "pas de « vu » à 23 h, pas de ton à deviner. juste une voix que tu connais"
+    },
+    "T3": {
+     "en": [
+      "BE YOURSELF. confidence is being comfortable without",
+      "needing constant approval"
+     ],
+     "fr": "[[SOIS TOI-MÊME.]] la confiance, c'est être [[à l'aise]] sans avoir besoin qu'on te valide",
+     "texte": "et pendant ces 10 minutes, [[personne scrolle]]. ni toi, ni l'autre. c'est ça la victoire"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

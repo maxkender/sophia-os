@@ -1,0 +1,583 @@
+{
+ "id": "fa-063",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fe8fc624-eb70-4209-9b9e-9f3499d60182",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686862943912332566",
+  "vues": 39200,
+  "accroche": "10/10 Skills To Learn Before You Are 30"
+ },
+ "titre": {
+  "en": "10/10 Skills Every Adult Should Master By 30",
+  "fr": "10/10 compétences à maîtriser avant tes 30 ans",
+  "es": "10/10 habilidades que todo adulto debe dominar a los 30",
+  "de": "10/10 Skills für jeden mit 30",
+  "it": "10/10 abilità da avere entro i 30 anni",
+  "pt-BR": "10/10 habilidades para dominar até os 30",
+  "es-419": "10/10 habilidades que debes dominar a los 30"
+ },
+ "legendes": {
+  "en": "10/10 Skills Every Adult Should Master By 30 #selfimprovement #learnontiktok #adulting",
+  "fr": "10/10 compétences à maîtriser avant tes 30 ans #développementpersonnel #apprendresurtiktok #viedadulte",
+  "es": "10/10 habilidades que todo adulto debe dominar a los 30 #desarrollopersonal #aprendeentiktok #vidaadulta",
+  "de": "10/10 Skills für jeden mit 30 #selbstverbesserung #lernenmittiktok #erwachsenwerden",
+  "it": "10/10 abilità da avere entro i 30 anni #crescitapersonale #imparacontiktok #vitadaadulti",
+  "pt-BR": "10/10 habilidades para dominar até os 30 #desenvolvimentopessoal #aprendanotiktok #vidaadulta",
+  "es-419": "10/10 habilidades que debes dominar a los 30 #desarrollopersonal #aprendeentiktok #vidaadulta"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "cta B. Déclinaison G2 de fa-047 (boîte BLEO du 13/11) : même promesse (« les compétences à avoir avant 30 ans »), autres mots ; autres étapes (cuisine, premier investissement, dire non), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS TO MASTER",
+     [
+      {
+       "t": "BY 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES",
+     "À MAÎTRISER",
+     [
+      {
+       "t": "AVANT 30 ANS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     "PARA DOMINAR",
+     [
+      {
+       "t": "A LOS 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS",
+     "FÜR JEDEN",
+     [
+      {
+       "t": "MIT 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ",
+     "DA AVERE",
+     [
+      {
+       "t": "ENTRO I 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     "PARA DOMINAR",
+     [
+      {
+       "t": "ATÉ OS 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     "PARA DOMINAR",
+     [
+      {
+       "t": "A LOS 30",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "COOK 5",
+     "EASY MEALS"
+    ],
+    "video": {
+     "id": "WEDndTCyGgU",
+     "titre": "4 Easy Meals To Start Cooking",
+     "chaine": "Tasty",
+     "vues": "5.2M views",
+     "date": "8 years ago",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/CfYIjL1dN06jrOxVxw4ElFs_0ShkZw9WpFmfkgoEx_-tdmG5Iv6CtlFmi3L-jkTmvTKfBXtMoMw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "CUISINE 5",
+     "PLATS SIMPLES"
+    ],
+    "video": {
+     "id": "ZRoRsQa-02E",
+     "titre": "3 plats délicieux et rapides à faire en semaine avec peu d'ingrédients ⏱",
+     "chaine": "Whoogy ́s",
+     "vues": "739 k vues",
+     "date": "il y a 1 an",
+     "duree": "21:01",
+     "avatar": "https://yt3.ggpht.com/68YhYDSmKS5uD5I4bTxuf22-wLT2VLIdNBL0pXWXiQRVeGxjbSCRN13K1oP8ts22JZgBYgBJjQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "COCINA 5",
+     "PLATOS FÁCILES"
+    ],
+    "video": {
+     "id": "p5nl9zD7_yk",
+     "titre": "11 comidas rapidas y faciles de hacer | Recetas de cocina faciles y rapidas",
+     "chaine": "¡Que Viva La Cocina!",
+     "vues": "1,1 M de visualizaciones",
+     "date": "hace 2 años",
+     "duree": "1:01:28",
+     "avatar": "https://yt3.ggpht.com/HbShqVuRoDLhhrAVh8X-rHb6-XkCkJVahOUk5Lpj6WJn50HaUouzIFCxHZ2zcvNpDiewbuH9K7o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "KOCH 5",
+     "EINFACHE GERICHTE"
+    ],
+    "video": {
+     "id": "BPrjXWyc1_U",
+     "titre": "5 Basic Kochskills die du beherrschen musst! ⭐️",
+     "chaine": "Nelson Müller",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "16:16",
+     "avatar": "https://yt3.ggpht.com/18LnuCG9CVriAcno6BRBzRqKQqeXUEzlHwu7BmE_c3KFTshMTJVzrw3311FD7jOFkEaBKkNp=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CUCINA 5",
+     "PIATTI FACILI"
+    ],
+    "video": {
+     "id": "LbZrobZyz_E",
+     "titre": "La faccio ogni volta che ho poco tempo! Pasta facile e deliziosa con pochi semplici ingredienti!",
+     "chaine": "Ricette Perfette",
+     "vues": "2,7 Mln visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "4:37",
+     "avatar": "https://yt3.ggpht.com/enxIxBuAAKvXq3HHFTzgX_2tQVIIvvvAXp6rlmQTnn103rScbHOfDk67xCd3XmxuV1bXBmaT6Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COZINHE 5",
+     "PRATOS FÁCEIS"
+    ],
+    "video": {
+     "id": "ZfHQ6SpUqB8",
+     "titre": "Aprenda a cozinhar melhor com esses truques!",
+     "chaine": "Paola Carosella",
+     "vues": "1,5 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "41:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjf86gk7mnUBFuyHRocbhWSW0tnhNnuwYPGwoZPgcpxIk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "COCINA 5",
+     "PLATOS FÁCILES"
+    ],
+    "video": {
+     "id": "b1DC4TxeSdE",
+     "titre": "11 comidas rapidas y faciles de hacer ¡Las recetas de cocina más populares DEL MUNDO!",
+     "chaine": "¡Que Viva La Cocina!",
+     "vues": "5 M de vistas",
+     "date": "hace 3 años",
+     "duree": "1:01:17",
+     "avatar": "https://yt3.ggpht.com/HbShqVuRoDLhhrAVh8X-rHb6-XkCkJVahOUk5Lpj6WJn50HaUouzIFCxHZ2zcvNpDiewbuH9K7o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "INVEST YOUR",
+     "FIRST $1,000"
+    ],
+    "video": {
+     "id": "bn2wVSc9pY8",
+     "titre": "How I Would Invest $1000 If I Were In My 20s",
+     "chaine": "Mark Tilbury",
+     "vues": "816K views",
+     "date": "4 years ago",
+     "duree": "15:52",
+     "avatar": "https://yt3.ggpht.com/BPc4IMSLYl66XoO5Ueb4N3Tcd1xYLAISjMEHVdJaPV-QeXpeROududxDnsGLqKuQxKpUnXcGZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "INVESTIS TES",
+     "1 000 PREMIERS EUROS"
+    ],
+    "video": {
+     "id": "ic72P5Lcn9I",
+     "titre": "COMMENT INVESTIR 1000€ ? Les 5 meilleurs investissements",
+     "chaine": "Matthieu Louvet - S'investir",
+     "vues": "470 k vues",
+     "date": "il y a 3 ans",
+     "duree": "10:43",
+     "avatar": "https://yt3.ggpht.com/F1hFe5VWFyd-4zegI31SBX-ajrIUTA5w1qvyBVCC6j_HpqFNiAfBhyUCwiuMNxHqR1beLxnSh24=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "INVIERTE TUS",
+     "PRIMEROS 1.000 €"
+    ],
+    "video": {
+     "id": "vQ0bPheAla4",
+     "titre": "Cómo INVERTIR tus primeros 1000€",
+     "chaine": "Pedro Buerbaum",
+     "vues": "169 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/1HIt4aN0rvl9tckXDTWhSjsHN0CV6ZNQRKm4ZaTc1FVRbthX6GXkY_flfCjbXW-f2jLmHa753A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "INVESTIER DEINE",
+     "ERSTEN 1.000 €"
+    ],
+    "video": {
+     "id": "eTCTGwFO1-Y",
+     "titre": "So fängst du 2026 mit dem Investieren an (in 10 Min!)",
+     "chaine": "Finanzfluss",
+     "vues": "1,5 Mio. Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "10:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "INVESTI I TUOI",
+     "PRIMI 1.000 €"
+    ],
+    "video": {
+     "id": "eWHF_-qLOjE",
+     "titre": "Come Iniziare a INVESTIRE da ZERO nel 2026",
+     "chaine": "Giuseppe Castagna",
+     "vues": "287K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "18:16",
+     "avatar": "https://yt3.ggpht.com/rm_ed4yMgUnupEiKgQJ2ue-pn7jV_RGeeeUKonN2YUgpLCXX_Z8zx9iV_hQmGmq102OE7V0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMECE A",
+     "INVESTIR"
+    ],
+    "video": {
+     "id": "Q6x0xnI0uCg",
+     "titre": "AULA COMPLETA para INICIANTES que NÃO SABEM POR ONDE COMEÇAR a INVESTIR",
+     "chaine": "Primo Pobre",
+     "vues": "3 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "20:21",
+     "avatar": "https://yt3.ggpht.com/Xxvah02LCiiaBuQ04C71Wnypcd3WaVEAZ3LpZOMI2Tlbh7ppcQGQdR1AT5MpzgTHPaTYKx-8Wg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE A",
+     "INVERTIR"
+    ],
+    "video": {
+     "id": "Vg4CL6GmvrU",
+     "titre": "¿Cómo INVERTIR tu DINERO? | Guía Definitiva 2026",
+     "chaine": "Andres Garza",
+     "vues": "2.5 M de vistas",
+     "date": "hace 2 años",
+     "duree": "16:41",
+     "avatar": "https://yt3.ggpht.com/cIr0soR9lJgvp54ZznA6CwRpN9Nd09_OiIMjaAI_F_--5qraoZp-W0aOPEKSdu_noRZD4cUgEA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "KNOW A BIT",
+     "OF EVERYTHING"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SAVOIR UN PEU",
+     "DE TOUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "VON ALLEM",
+     "ETWAS WISSEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SAPERE UN PO'",
+     "DI TUTTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "SABER UM POUCO",
+     "DE TUDO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN TO",
+     "SAY NO"
+    ],
+    "video": {
+     "id": "-O_y4XR4yxg",
+     "titre": "How To Say NO Without Feeling Guilty",
+     "chaine": "Julia Kristina Counselling",
+     "vues": "132K views",
+     "date": "6 years ago",
+     "duree": "16:29",
+     "avatar": "https://yt3.ggpht.com/u9MaVjGGWrVRN4d4qkscfsemEkUm7lzKQgRPY0gXHq406a-hZTkyF5zV_J_5H0IGQ8PJMpTP7A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "APPRENDS À",
+     "DIRE NON"
+    ],
+    "video": {
+     "id": "DUDwXZD8bFg",
+     "titre": "4 phrases pour apprendre à dire NON",
+     "chaine": "Yann Piette",
+     "vues": "160 k vues",
+     "date": "il y a 5 ans",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/6fflfAPLuXOKHeqk5VocKdEbM1AZrzWS9nwd9FhMaRnCKyvlDH54ts52a4eXJEsZRLMtmuSNEg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "APRENDE A",
+     "DECIR NO"
+    ],
+    "video": {
+     "id": "FRyyIL2p25Q",
+     "titre": "¿Cómo aprender a decir \"NO\"?",
+     "chaine": "CuriosaMente",
+     "vues": "317 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN",
+     "NEIN ZU SAGEN"
+    ],
+    "video": {
+     "id": "ZAlviH-bwcQ",
+     "titre": "5 Wege um NEIN sagen zu können: So klappt es selbstbewusst und ohne schlechtes Gewissen!",
+     "chaine": "Biyon",
+     "vues": "78.102 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "14:21",
+     "avatar": "https://yt3.ggpht.com/PyVkhUFOx-duNM6ObKuUQuKIHJD3RkzJjVqKAUS3-C91MpVWqhrCPF5lgljd2YAkTdKLVx7usWI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA A",
+     "DIRE DI NO"
+    ],
+    "video": {
+     "id": "2jQBdahJ4Ts",
+     "titre": "Impara a dire di no | Filippo Ongaro",
+     "chaine": "Dr. Filippo Ongaro",
+     "vues": "69K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "5:54",
+     "avatar": "https://yt3.ggpht.com/h6rUuIJy2Gq35UIFROwcxOtvJOCfAz8aCu2NCOgBpXes4U8lY1NHWYQGshWQtMBFisMSNKkP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA A",
+     "DIZER NÃO"
+    ],
+    "video": {
+     "id": "1kQuE--IisU",
+     "titre": "Aprenda a impor RESPEITO e dizer NÃO",
+     "chaine": "NeuroVox",
+     "vues": "2,7 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "51:29",
+     "avatar": "https://yt3.ggpht.com/hasznWvl5jlIRO9EMpuWMadRMPKCoC2gdL7Qf67WTLwZd4maJVfgYRzISQggarHbQmqs7xmHU4s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE A",
+     "DECIR NO"
+    ],
+    "video": {
+     "id": "OM-YNbquIkw",
+     "titre": "Los límites: cómo decir “NO” sin miedo ni culpa - Bernardo Stamateas",
+     "chaine": "Bernardo Stamateas",
+     "vues": "126 k vistas",
+     "date": "hace 6 años",
+     "duree": "2:35",
+     "avatar": "https://yt3.ggpht.com/KqdudrUAMMWBBAn33wwHtSTpX8jSAFToz0RsPWqFCpHuP-sofDJVWqGKWtctj3zd-pN3ddOSqA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

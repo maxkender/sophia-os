@@ -1,0 +1,238 @@
+{
+ "post_id": "original-066",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "comment avoir [[la répartie facile]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(version punchline)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "fr": "apprends à [[supporter la routine chiante]]",
+     "texte": "lis [[bien au-delà de tes sujets]]"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "fr": "réussir, c'est [[moins excitant]] que ça en a l'air",
+     "texte": "histoire, philo, sciences, des bios au pif"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "fr": "c'est répéter les mêmes trucs utiles [[des mois]], bien après l'effet waouh",
+     "texte": "la répartie, c'est pas la vitesse, c'est [[avoir plus de trucs à relier]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "fr": "[[la régularité]] devient une force quand les autres s'ennuient et lâchent",
+     "texte": "une bonne réplique, c'est [[deux idées qui se rencontrent]] au bon moment"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "5. do your hardest task first"
+     ],
+     "fr": "5. commence par [[le plus dur]]",
+     "texte": "explique les choses [[à voix haute]]"
+    },
+    "T1b": {
+     "en": [
+      "your prefrontal cortex",
+      "handles planning, focus and",
+      "self-control"
+     ],
+     "fr": "ton [[cortex préfrontal]] gère l'organisation, le focus et la volonté",
+     "texte": "dans ta tête tout est clair, jusqu'au moment où tu dois le dire"
+    },
+    "T2": {
+     "en": [
+      "don't waste your freshest",
+      "attention on emails and",
+      "tiny tasks"
+     ],
+     "fr": "[[gâche pas]] ta tête fraîche pour des mails et des bricoles",
+     "texte": "après une vidéo ou un chapitre, [[explique-le à ta chambre vide]]"
+    },
+    "T3": {
+     "en": [
+      "spend the first 60–90",
+      "minutes on the thing",
+      "you're most likely to avoid",
+      "late"
+     ],
+     "fr": "passe [[les 60-90 premières minutes]] sur ce que t'aurais envie d'esquiver",
+     "texte": "tes mots viennent plus vite, et ils sont là [[quand on te prend de court]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 1
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "apprends [[un truc random]] par jour"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "plus tu connais de sujets, [[plus tu fais de liens]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "la moitié des meilleures répliques, c'est juste [[un fait random]] sorti au bon moment"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux. mon sujet pour ce soir"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "joue à des jeux [[où faut réagir vite]]"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "échecs, cartes, jeux de mots, tout avec [[un chrono]] ou un rival"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "tu apprends à [[trancher sans avoir le temps de douter]]"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "au début tu perds souvent\nc'est le but, chaque partie [[aiguise tes réflexes]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "saying yes to everything"
+     ],
+     "fr": "dire oui à [[tout]]",
+     "texte": "[[respire]] avant de répondre"
+    },
+    "T2": {
+     "en": [
+      "you agree to the plan, the",
+      "favor, the extra work. then",
+      "spend the week resenting it."
+     ],
+     "fr": "tu dis oui au plan, au service, au taf en plus. puis [[tu rumines toute la semaine]].",
+     "texte": "ceux qui ont de la répartie parlent pas en premier. ils prennent [[une seconde]]"
+    },
+    "T3": {
+     "en": [
+      "pause before you answer. a",
+      "simple “i can't this time”",
+      "saves you from a promise",
+      "you never wanted to make."
+     ],
+     "fr": "attends un peu avant de répondre. un petit “pas cette fois” t'évite une promesse dont tu voulais pas.",
+     "texte": "deux secondes de silence, ça te paraît long, mais pour les autres [[t'as juste l'air de réfléchir]]"
+    },
+    "T4": {
+     "en": [
+      "every automatic yes is",
+      "time you already gave",
+      "away."
+     ],
+     "fr": "chaque oui par réflexe, c'est [[du temps déjà donné]].",
+     "texte": "une réponse calme [[passe mieux qu'une réponse pressée]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

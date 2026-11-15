@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o212",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "144c3cae-88bf-4ebf-b2b3-f0fd84fe679b",
+ "titre": "hobbies that will make you sharper than everyone around you #intelligence #hobbies #brain #selfimprovement #learning",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "736f3336-6e8a-4f29-80fc-7497725ff488"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 736f3336). déclinaison G1 de « hobbies that will make you sharper than everyone around you » (parent 144c3cae). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "428cdb42-b26d-4dac-bb5b-5afb11ad8dc2",
+   "texte_overlay": "hobbies that will make you\nsharper than everyone around you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "18831e29-0800-4bc0-a2f5-d6e6bee2d963",
+   "texte_overlay": "crosswords with coffee\n\ndo one crossword or word puzzle with your morning coffee. it wakes up your memory and your vocabulary before the busy day ahead has even properly started.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0914a0c1-3ffb-4cce-8664-eb29e6919d52",
+   "texte_overlay": "cooking without measuring\n\ncook one meal a week without weighing anything, adjusting only by taste. it trains your attention, your judgement and your confidence in your own instincts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1d3ea3ca-ae1c-45fd-9437-4f6ab7b2b78f",
+   "texte_overlay": "one lesson a day\n\nspend 5 minutes a day on how the world works: physics, the human body, the planets. understanding a little more each day makes you notice what others miss.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/4.jpg",
+   "texte_sophia": "one lesson a day\n\ni spend 5 minutes a day on how the world works, like physics or the planets. i do it with the Sophia app, one lesson a day, and i notice and understand so much more now."
+  },
+  {
+   "position": 5,
+   "media_id": "01b0bcc0-98c0-43d8-a008-d1fc3d65ee97",
+   "texte_overlay": "arguing the other side\n\nonce a week, pick a topic and defend the opinion you disagree with. understanding the other side properly makes your own thinking clearer and much sharper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1c9d9190-799b-42b8-8c68-3b1aadaf872a",
+   "texte_overlay": "learning birdsong\n\nlearn to recognise the songs of five birds near your home. it trains your ears and your patience, and every walk outside becomes a small puzzle to solve.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/6.jpg"
+  }
+ ]
+}

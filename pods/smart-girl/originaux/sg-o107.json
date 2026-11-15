@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o107",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9cfe8a01-99cb-4972-aeda-bdfa1e0e6403",
+ "titre": "uncomfortable things to do alone that build quiet confidence #confidence #solodate #smartgirl #selfimprovement #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "c464c730-0eff-45bc-a507-c6458343b7a8"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent 9cfe8a01, langue source en) : accroche reformulée (« 10/10 uncomfortable things to do alone (but it gets easier) » → « uncomfortable things to do alone that build quiet confidence »), même promesse. Items neufs face au parent (notre sg-o062) et à sg-o020 : ballet seule, train à la journée, soirée où l'on ne connaît que l'hôte, message à quelqu'un qu'on admire, déjeuner sur un banc, première question d'une conférence. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b8f07659",
+   "texte_overlay": "uncomfortable things to do alone\nthat build quiet confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ee9eda2",
+   "texte_overlay": "1. see a ballet alone.\nno one to whisper to.\njust the music.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bf443248",
+   "texte_overlay": "2. take a day trip by train.\nwindow seat, one book,\nno plan.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "81612faa",
+   "texte_overlay": "3. walk into a party where you\nonly know the host.\nintroduce yourself first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1fcc003b",
+   "texte_overlay": "4. send a message to someone\nyou admire.\nthe worst answer is silence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "363f00bd",
+   "texte_overlay": "5. eat lunch on a park bench.\nno phone. just watch\nthe city move.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "00210582",
+   "texte_overlay": "6. go to a talk and ask\nthe first question.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2d857240",
+   "texte_overlay": "7. spend one evening learning\ninstead of scrolling.\na painting, a war, a planet.",
+   "texte_sophia": "7. spend one evening learning\ninstead of scrolling.\n5 minutes on an app like\nSophia is enough to start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "4700b72b",
+   "texte_overlay": "save this and try one\nthis week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/9.jpg"
+  }
+ ]
+}

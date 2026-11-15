@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o110",
+  "type_bleo": "full_test",
+  "titre": "how i study when i only have 20 minutes before class #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« 20 minutes before » absent du label). Accroches écrites : « how i study when i only have 20 minutes before class » (retenue : un moment réel et très partagé), « last minute studying tips » (écartée : encourage le bachotage), « 20 minute study hack » (écartée : vague). Gestes vrais : choisir ce qui tombe sûrement, relire les titres et le résumé, se tester sur les définitions (place micabo, slide 4), refaire un seul exercice type, écrire les 3 choses à ne pas oublier, respirer en entrant. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2ec64e2c",
+      "texte_overlay": "how i study when i only have\n20 minutes before class",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "301dbdf6",
+      "texte_overlay": "first: what will DEFINITELY be asked?\nthat's the only thing i look at.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "30d05875",
+      "texte_overlay": "titles and the summary box. nothing else.\nthe big picture beats random details.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "76d7bb13",
+      "texte_overlay": "then i quiz myself on the definitions.\nfast questions, fast answers.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "35b7484d",
+      "texte_overlay": "one typical exercise, redone from memory.\njust one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "37f4368e",
+      "texte_overlay": "i write my 3 \"don't forget\" points on a sticky note.\nlast look before i walk in.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "389f6d65",
+      "texte_overlay": "and i breathe. 20 calm minutes\nbeat 20 panicked ones.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o160",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ef405631-e93f-45a3-9954-74b3bfb5d863",
+ "titre": "5 mensonges à dire en entretien d'embauche #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G1 de la ligne 12 (parent ef405631) : accroche mot pour mot. Contenu en recadrage vrai : chaque « mensonge » est une façon de dire la vérité, aucun fait inventé, rien sur un faux salaire ou une fausse offre. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b0b2c33e",
+   "texte_overlay": "5 mensonges à dire\nen entretien d'embauche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ea386751",
+   "texte_overlay": "1. « j'adore les défis »\nau lieu de « j'ai peur ». c'est la même énergie, bien tournée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ea65edfa",
+   "texte_overlay": "2. « je suis en réflexion sur plusieurs pistes »\nseulement si tu cherches vraiment ailleurs. sinon : « je cherche activement »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cc2535f4",
+   "texte_overlay": "3. « je me forme en continu »\nrends-le vrai : 5 minutes par jour à apprendre un truc, c'est déjà ça",
+   "texte_sophia": "3. « je me forme en continu »\nrends-le vrai : 5 minutes par jour sur l'appli Sophia, c'est déjà ça",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ea715590",
+   "texte_overlay": "4. « mon ancien poste m'a beaucoup appris »\nmême s'il était dur. c'est vrai aussi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ea73b049",
+   "texte_overlay": "5. « je suis prête à commencer quand vous voulez »\navec la vraie date de ton préavis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "eac46308",
+   "texte_overlay": "c'est pas mentir.\nc'est choisir tes mots",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "eb3b0355",
+   "texte_overlay": "lequel tu vas utiliser ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

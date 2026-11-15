@@ -1,0 +1,257 @@
+{
+ "post_id": "7707332670765813025",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "10/10 abitudini per riaccendere il cervello"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #4)"
+     ],
+     "fr": "(édition niche #4)",
+     "texte": "(edizione nicchia #4)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699899851747659041_3.jpg",
+      "boite": [
+       58,
+       557,
+       582,
+       389
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start creating",
+      "instead of consuming"
+     ],
+     "fr": "commence à [[créer]] au lieu de consommer",
+     "texte": "inizia a [[creare]] invece di consumare"
+    },
+    "T2": {
+     "en": [
+      "write, draw, make music, edit a video, cook",
+      "something new, whatever you're into"
+     ],
+     "fr": "écris, dessine, fais de la musique, monte une vidéo, teste une recette, ce qui te parle",
+     "texte": "scrivi, disegna, suona, monta un video, cucina qualcosa di nuovo, quello che ti va"
+    },
+    "T3": {
+     "en": [
+      "consuming lets you",
+      "follow someone",
+      "else's ideas,"
+     ],
+     "fr": "consommer, c'est [[suivre les idées des autres]],",
+     "texte": "consumare ti fa [[seguire le idee degli altri]],"
+    },
+    "T4": {
+     "en": [
+      "creating forces",
+      "your brain to come",
+      "up with its own"
+     ],
+     "fr": "créer oblige ton cerveau à [[trouver les siennes]]",
+     "texte": "creare costringe il cervello a [[trovarne di sue]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take long walks",
+      "in the sun"
+     ],
+     "fr": "fais de longues balades [[au soleil]]",
+     "texte": "fai lunghe passeggiate [[al sole]]"
+    },
+    "T2": {
+     "en": [
+      "sunlight is proven to wake your brain up and help",
+      "you sleep better at night"
+     ],
+     "fr": "c'est [[prouvé]] : le soleil réveille ton cerveau et t'aide à [[mieux dormir]] le soir",
+     "texte": "è [[dimostrato]] che la luce del sole sveglia il cervello e ti aiuta a [[dormire meglio]]"
+    },
+    "T3": {
+     "en": [
+      "walking gets more",
+      "blood to your brain"
+     ],
+     "fr": "marcher, ça oxygène ton cerveau",
+     "texte": "camminare porta più sangue al cervello"
+    },
+    "T4": {
+     "en": [
+      "that's when your",
+      "mind wanders and",
+      "connects ideas"
+     ],
+     "fr": "c'est là que ton esprit divague et [[relie les idées]]",
+     "texte": "è lì che la mente vaga e [[collega le idee]]"
+    },
+    "T5": {
+     "en": [
+      "darwin, nietzsche and steve jobs all did their best",
+      "thinking on long walks"
+     ],
+     "fr": "darwin, nietzsche et steve jobs trouvaient leurs [[meilleures idées]] en marchant",
+     "texte": "darwin, nietzsche e steve jobs pensavano [[al meglio]] camminando a lungo"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "leggi libri [[invece di scrollare]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short",
+      "form content, your brain",
+      "rarely has to hold",
+      "attention for long"
+     ],
+     "fr": "si tu regardes que des vidéos courtes, ton cerveau a rarement à [[tenir son attention longtemps]]",
+     "texte": "se guardi solo video brevi, il tuo cervello raramente deve [[mantenere l'attenzione a lungo]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow",
+      "one idea for whole",
+      "chapters, and resist the",
+      "urge for something new"
+     ],
+     "fr": "[[un livre te fait suivre une idée]] pendant des chapitres entiers et résister à l'envie de zapper",
+     "texte": "[[un libro ti costringe a seguire un'idea]] per capitoli interi e a resistere alla voglia di novità"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll, alors j'apprends un truc à la place. ce matin sur [[l'appli Sophia]] : Camus et Sisyphe",
+     "texte": "non riuscivo a smettere di scrollare, ora imparo qualcosa. oggi con [[l'app Sophia]]: perché il viola era dei re"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build relationships with",
+      "people smarter than you"
+     ],
+     "fr": "entoure-toi de [[gens plus intelligents que toi]]",
+     "texte": "circondati di [[persone più intelligenti di te]]"
+    },
+    "T2": {
+     "en": [
+      "if you're always the",
+      "smartest person in the",
+      "room, you stop getting",
+      "better"
+     ],
+     "fr": "si t'es toujours la personne la plus calée de la pièce, tu [[progresses plus]]",
+     "texte": "se sei sempre la persona più intelligente nella stanza, [[smetti di migliorare]]"
+    },
+    "T3": {
+     "en": [
+      "smart people make you",
+      "explain your ideas,",
+      "defend them, and see",
+      "where you're wrong"
+     ],
+     "fr": "les gens brillants te font [[expliquer tes idées]], les défendre et voir où tu te trompes",
+     "texte": "le persone intelligenti ti fanno [[spiegare le tue idee]], difenderle e capire dove sbagli"
+    },
+    "T4": {
+     "en": [
+      "and you slowly start",
+      "picking up how they think"
+     ],
+     "fr": "et petit à petit, tu prends [[leur façon de penser]]",
+     "texte": "e piano piano assorbi [[il loro modo di pensare]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write your thoughts down",
+      "every night"
+     ],
+     "fr": "note ce que t'as en tête [[chaque soir]]",
+     "texte": "scrivi i tuoi pensieri [[ogni sera]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy",
+      "and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "tes pensées paraissent [[floues et en vrac]] jusqu'à ce que tu [[les écrives]]",
+     "texte": "i pensieri sembrano [[confusi e disordinati]] finché non provi a [[scriverli]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to finish a",
+      "thought instead of jumping",
+      "to the next one"
+     ],
+     "fr": "écrire t'oblige à finir une pensée au lieu de sauter à la suivante",
+     "texte": "scrivere ti costringe a finire un pensiero invece di saltare al prossimo"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before bed is",
+      "proven to be enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "même 5 min avant de dormir, c'est [[prouvé]], ça suffit pour [[avoir les idées plus claires]]",
+     "texte": "è [[dimostrato]]: bastano 5 minuti prima di dormire per [[pensare più lucidamente]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o135",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3dd7a9f7-7e0f-4400-a1b8-07b42178c393",
+  "titre": "comment garder ton histoire d'amour sans rater ton année #etudes #couple #pourtoi",
+  "inspirations": [
+    "3dd7a9f7-7e0f-4400-a1b8-07b42178c393"
+  ],
+  "notes": "G2, déclinaison de 3dd7a9f7 (« how to balance love & school », G1 gagnante, génération 1 en français ; meilleur passage tr 4,1 k vues, r 2,45), en français. Accroche reformulée : « comment garder ton histoire d'amour sans rater ton année » (autres mots que bsg-o128). cta B (l'anecdote du jour en item 3). Items neufs (rien de repris de bsg-o091 ni de bsg-o128). Fait vérifié le 8/11 sur https://en.wikipedia.org/wiki/Sense_and_Sensibility : « It was published anonymously: By A Lady appears on the title page ». Routine du 11/11 sur BLEO : jauge 2 full tests et 6 déclinaisons (lignes 1 à 6 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "comment garder ton histoire d'amour\nsans rater ton année",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. fixez vos soirées à l'avance\n\nmercredi et samedi, c'est à vous.\nle reste, c'est pour bosser.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. révisez dans la même bibliothèque\n\nchacun son cours.\nun regard de temps en temps suffit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "3. ayez toujours un truc nouveau à vous raconter\n\nce matin, j'ai appris que jane austen a publié son premier roman sans son nom, signé par une dame.\nje lui ai raconté en premier.",
+      "texte_sophia": "3. ayez toujours un truc nouveau à vous raconter\n\nce matin, l'appli Sophia m'a appris que jane austen a publié son premier roman sans son nom, signé par une dame.\nje lui ai raconté en premier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. pas de dispute la veille d'un partiel\n\non en reparle le lendemain.\nça va beaucoup mieux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "5. fêtez chaque fin d'examens\n\nun dîner, un film, une balade.\nça donne de l'élan pour la suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0f057bec",
+      "texte_overlay": "enregistre-le pour tes partiels.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

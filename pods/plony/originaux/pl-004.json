@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-004",
+  "titre": "People are not disturbed by things, but by the opinions they have about them. #stoicism #epictetus #anxiety #quotes",
+  "source_phrase": "Epictetus, Enchiridion, 5 (Oldfather translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "sleep walk.",
+  "notes": "cta C",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2dc912a3",
+      "texte_overlay": "People are not disturbed by things,",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691418096992652551/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f18087c8",
+      "texte_overlay": "but by the opinions",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683634015647108359/3.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2d18bbf6",
+      "texte_overlay": "they have about them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7685987681335020807/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "18c4b86e",
+      "texte_overlay": "Epictetus, Enchiridion, 5.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694462786792901906/3.jpg",
+      "texte_sophia": "Epictetus was born a slave. I learned it this morning on Sophia."
+    }
+  ]
+}

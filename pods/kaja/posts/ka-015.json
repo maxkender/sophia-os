@@ -1,0 +1,285 @@
+{
+ "id": "ka-015",
+ "titre": {
+  "en": "10/10 skills to train your brain",
+  "de": "10/10 Skills für dein Gehirn"
+ },
+ "legendes": {
+  "en": "10/10 skills to train your brain #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills für dein Gehirn #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 09/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor falaise, en en et de. Des compétences d'apprentissage qu'il n'a pas faites (mémoire, lecture rapide, concentration, langues), proches de ce que promet Sophia. Sophia en étape 3 « HOW TO LEARN SOMETHING NEW » : cta A, « 5 min a day ». Vraies vidéos, aucune d'une appli d'apprentissage : en Sprouts, Ali Abdaal, Daniel Pink, easy, actually ; de Henry Hildebrandt, Quarks, Sprouts Deutschland, Niklas Steenfatt.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO TRAIN",
+     "YOUR BRAIN"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "FÜR DEIN",
+     "GEHIRN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "MEMORIZE",
+       "couleur": "#5176e0"
+      }
+     ],
+     [
+      {
+       "t": "ANYTHING",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "p9IOqd1LpkA",
+     "titre": "The Memory Palace : Can You Do It?",
+     "chaine": "Sprouts",
+     "vues": "704K views",
+     "date": "9 years ago",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSAFsiX7DamIFNxlGd-Xwuw7IXUcwMQB_NhdLjd24_sw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MERKST DU",
+     [
+      {
+       "t": "DIR ALLES",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "neu20Cn3r48",
+     "titre": "Wie du dir ALLES merkst, was du liest (schnell)",
+     "chaine": "Henry Hildebrandt",
+     "vues": "185.789 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "15:36",
+     "avatar": "https://yt3.ggpht.com/jsshGkKONs53QHCb6nOVwRbzzG7EVOIqOHhYPI1omt9WY5iRcXmq6l6pTUo51r5SkPnSOghM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SPEED READ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YNtnP-j3DA8",
+     "titre": "How to SPEED READ",
+     "chaine": "Ali Abdaal",
+     "vues": "581K views",
+     "date": "6 years ago",
+     "duree": "10:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m2xx6mCZwsyjARnkwBKJxEv0FqGxGS2NwWNkjWH__Smw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LIEST DU",
+     [
+      {
+       "t": "SCHNELLER",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wJTdgimaRLE",
+     "titre": "Kann man Schnelllesen trainieren? | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "492.631 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "12:02",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "SOMETHING NEW",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "ETWAS NEUES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "FOCUS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZXHrPfWJcCI",
+     "titre": "How To Fix Your Attention Span (Before It's Too Late)",
+     "chaine": "Daniel Pink",
+     "vues": "4.7M views",
+     "date": "11 months ago",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/5PInKEMXGsnpIwuhgdx15zXdcdl81NBMh5PqYVLsjaqFjJtNUE49xK1PavaCsph_XhbwxMGr-Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KONZENTRIERST",
+     [
+      {
+       "t": "DU DICH",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_CgmMnBjnz0",
+     "titre": "Lernen lernen: 13 Tipps aus der Gehirnforschung",
+     "chaine": "Sprouts Deutschland",
+     "vues": "865.356 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lhrgzfgxCm3vj-32g3qSaL96QHQ-L1g7IargyculzPbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "ANY LANGUAGE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "E6588DlZW-c",
+     "titre": "learning a new language is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "4.2M views",
+     "date": "2 years ago",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "JEDE SPRACHE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lSz8I2JFSCg",
+     "titre": "Wie du schnell jede Sprache lernst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "220.899 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:10",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

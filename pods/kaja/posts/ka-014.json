@@ -1,0 +1,250 @@
+{
+ "id": "ka-014",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7699457307947633942",
+  "vues": 85900,
+  "publie_le": "2026-10-22",
+  "accroche": "10/10 SKILLS TO GET OUT OF YOUR COMFORT ZONE"
+ },
+ "titre": {
+  "en": "10/10 skills to get out of your comfort zone",
+  "de": "10/10 Skills raus aus der Komfortzone"
+ },
+ "legendes": {
+  "en": "10/10 skills to get out of your comfort zone #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills raus aus der Komfortzone #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Duvet - Acoustic",
+  "url": "https://www.tiktok.com/music/duvet-acoustic-7031720036989421570"
+ },
+ "notes": "Remake de son post à 86 k (22/10), décor falaise (le sien), en en et de. Ses 4 compétences en titre court sans « HOW TO », comme lui, dans ses couleurs (brun, bleu nuit, jaune, rouge sombre), sans temps (il n'en met pas). Sophia en étape 3 « LEARN EVERY DAY », à la place de sa slide d'appli de fin : cta C (« what I open » / « instead of scrolling. »), qui répond à son « STOP USING PHONE » ; « 5 min a day ». D'autres vraies vidéos que les siennes (Cru Mahoney, Joshua Paine, Practical Psychology, Chris Williamson) : en easy, actually, Pack Hacker, Improvement Pill, Smart Adjacent ; de laurinspire, Die Techniker, RedeFabrik, Dominik Lebersorger.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS TO GET",
+     "OUT OF YOUR",
+     "COMFORT ZONE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "RAUS AUS DER",
+     "KOMFORTZONE"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "GET UP EARLY",
+       "couleur": "#6a482f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WFtrModTjAo",
+     "titre": "waking up at 4:30am is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "1.3M views",
+     "date": "1 year ago",
+     "duree": "9:56",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FRÜH AUFSTEHEN",
+       "couleur": "#6a482f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W_oiAs1K3T8",
+     "titre": "Wie du um 5 Uhr AUFSTEHEN kannst ohne MÜDE zu sein😳",
+     "chaine": "laurinspire",
+     "vues": "223.435 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "10:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSbqVlvXCxFTwc02NBGqBpgWD0PNxX2T7mlroMgFTv6DI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "SOLO TRAVEL",
+       "couleur": "#2d4068"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1VsqF1yUmbM",
+     "titre": "Intro to Solo Travel: Tips for Your First Time Traveling Alone",
+     "chaine": "Pack Hacker",
+     "vues": "305K views",
+     "date": "5 years ago",
+     "duree": "11:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzXYyRzsH-Ut0U4HE8gt6W__A-eTWUfaTcf6SNFJZs-A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ALLEIN REISEN",
+       "couleur": "#2d4068"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QyfmY-46pG0",
+     "titre": "Alleine reisen – 5 Tipps für deinen ersten Solo-Urlaub",
+     "chaine": "Die Techniker",
+     "vues": "31.450 Aufrufe",
+     "date": "vor 4 Monaten",
+     "duree": "7:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "LEARN EVERY DAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "JEDEN TAG LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "TALK TO STRANGERS",
+       "couleur": "#f9df66"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z4_j1wPy-Ng",
+     "titre": "how I manage to start a conversation with anyone",
+     "chaine": "Improvement Pill",
+     "vues": "1.9M views",
+     "date": "2 years ago",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/K_l2GqyURyY31_GbPpwbBHjpCzyef3_4w0uHZ7S9OH7dmmeJcHxtbKfTZfVX9gB8InOt13Y7PQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FREMDE ANSPRECHEN",
+       "couleur": "#f9df66"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l6Xm5pk4TnM",
+     "titre": "Wie du die Angst überwindest, andere Leute anzusprechen",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "47.736 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "STOP USING PHONE",
+       "couleur": "#960f0b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ptrbG6675JA",
+     "titre": "breaking your phone addiction is easier than you think",
+     "chaine": "Smart Adjacent",
+     "vues": "1M views",
+     "date": "1 year ago",
+     "duree": "8:34",
+     "avatar": "https://yt3.ggpht.com/JL4X-KYD7NgHDhlwObW0AMdq-guqu0yxjFy_pZP-Gkk3nZKFYh_4vpG375LGTRrMj7bn2HJ87w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "WENIGER HANDY",
+       "couleur": "#960f0b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3d7eaSiXnoY",
+     "titre": "Wie du deine Handysucht loswirst und zu leben beginnst",
+     "chaine": "Dominik Lebersorger",
+     "vues": "170.115 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "12:56",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

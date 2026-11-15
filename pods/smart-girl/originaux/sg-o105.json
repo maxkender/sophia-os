@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o105",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9dd33cdd-9e35-4b82-a1d8-31e3c30fff41",
+ "titre": "6 hobbies that make you quietly smarter #hobbies #smarter #smartgirl #selfimprovement #darkacademia",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 8 de la boîte (parent 9dd33cdd, langue source en) : accroche du parent mot pour mot. Hobbies neufs face au parent (étoiles et leurs mythes, calligraphie, visites à pied de sa ville, puzzles de tableaux célèbres, un album entier avec les paroles). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "071ed491",
+   "texte_overlay": "6 hobbies that make you\nquietly smarter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0cfaf676",
+   "texte_overlay": "1. stargazing\n\nlearn five constellations\nand their myths.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "36b61f5d",
+   "texte_overlay": "2. calligraphy\n\nslow hands, quiet mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1b113923",
+   "texte_overlay": "3. free walking tours\nof your own city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1cae5753",
+   "texte_overlay": "4. puzzles of famous paintings\n\nyou'll know every detail.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3431ced2",
+   "texte_overlay": "5. a full album,\nlyrics in hand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3555275f",
+   "texte_overlay": "6. a 5-minute lesson instead\nof one scroll\n\nart, history, science.",
+   "texte_sophia": "6. a 5-minute lesson instead\nof one scroll\n\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7b2a9293",
+   "texte_overlay": "save this and pick one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  }
+ ]
+}

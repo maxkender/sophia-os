@@ -37,6 +37,9 @@ export interface Duel {
   remarque: string | null;
   /** Envoyé aux relecteurs natifs de la langue (0626) ; null : l'admin seul le voit. */
   relecteurs_le: string | null;
+  /** Le lot commun (0627) auquel le duel appartient, et son contenu ; null : duel tiré au hasard depuis Tests. */
+  lot_id: string | null;
+  contenu_id: string | null;
   created_at: string;
 }
 
@@ -102,7 +105,7 @@ export async function listerDuels(langue: string, candidat: string, version: str
   const { data, error } = await supabase
     .from("ab_traduction_duels")
     .select(
-      "id, post_id, langue, candidat, version, statut, erreur, slides_source, slides_actuel, slides_candidat, hashtags_actuel, hashtags_candidat, vues_actuel, gauche, voie_cta, forme_cta, cta_refus, choix, remarque, relecteurs_le, created_at",
+      "id, post_id, langue, candidat, version, statut, erreur, slides_source, slides_actuel, slides_candidat, hashtags_actuel, hashtags_candidat, vues_actuel, gauche, voie_cta, forme_cta, cta_refus, choix, remarque, relecteurs_le, lot_id, contenu_id, created_at",
     )
     .eq("langue", langue)
     .eq("candidat", candidat)
@@ -222,19 +225,46 @@ export interface LotLangue {
   /** Duels attendus dans cette langue : les contenus du lot qui ne sont pas écrits dans cette langue. */
   attendus: number;
   prets: number;
+  /** Duels prêts déjà envoyés aux relecteurs (0629). */
+  envoyes?: number;
   echecs: number;
   votes: number;
   dernier: string | null;
 }
 
 export interface LotEtat {
-  lot: { id: string; numero: number; nom: string; candidat: string; taille: number; statut: "actif" | "clos"; created_at: string };
+  lot: { id: string; numero: number; nom: string; candidat: string; taille: number; statut: "actif" | "clos"; envoi_auto?: boolean; created_at: string };
   contenus: LotContenu[];
   langues: LotLangue[];
   duels: number;
 }
 
 export const TAILLE_LOT = 15;
+/** Clés react-query de la liste des lots et de l'état d'un lot. */
+export const CLE_REQUETE_LOTS = ["ab-traduction", "lots"] as const;
+export const cleLot = (numero: number) => ["ab-traduction", "lot", numero] as const;
+
+/** Un lot, tel que la liste des lots le montre. */
+export interface LotResume {
+  numero: number;
+  nom: string;
+  candidat: string;
+  taille: number;
+  statut: "actif" | "clos";
+  envoi_auto: boolean;
+}
+
+export async function listerLots(): Promise<LotResume[]> {
+  const { data, error } = await supabase.from("ab_lots").select("numero, nom, candidat, taille, statut, envoi_auto").order("numero");
+  if (error) throw error;
+  return (data ?? []) as LotResume[];
+}
+
+/** Envoi automatique des duels du lot aux relecteurs (0629) ; faux : l'admin envoie lui-même. */
+export async function reglerEnvoiAutoLot(numero: number, envoiAuto: boolean): Promise<void> {
+  const { error } = await supabase.from("ab_lots").update({ envoi_auto: envoiAuto, updated_at: new Date().toISOString() }).eq("numero", numero);
+  if (error) throw error;
+}
 
 /** L'état du lot : ses contenus et l'avancement par langue de relecteur. Null tant qu'il n'est pas composé. */
 export async function etatLot(numero = 1): Promise<LotEtat | null> {

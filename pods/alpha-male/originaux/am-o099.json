@@ -1,0 +1,75 @@
+{
+ "source_id": "am-o099",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f45eb54d-d4fa-40bc-a118-debe9916a405",
+ "titre": "11 etiquette tips every man under 25 must know #men #etiquette #gentleman #respect #selfimprovement",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [
+  "f45eb54d-d4fa-40bc-a118-debe9916a405"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Déclinaison G1 de la ligne 3 (parent f45eb54d, langue source en ; meilleur passage pl 3,1 k vues, r 3,55). Accroche du parent mot pour mot (mots de la boîte, casse et ponctuation libres). 11 conseils sur 9 slides (deux slides en portent deux : 10 slides au plus). Conseils neufs, aucun du parent (argent, dettes, retard, plaintes, parler clair, faveurs, disputes d'argent, laisser mieux, tenue, faits, savoir partir). Ligne 2 (« how you can build a healthy brain ») sautée : thème santé, hors garde-fous. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Célébrités en illustration (autorisé) ; slide Sophia : salon de nuit sans personne. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0cd7ada8",
+   "texte_overlay": "11 Etiquette Tips Every Man\nUnder 25 Must Know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "17ce4680",
+   "texte_overlay": "1. Answer invitations within a day.\n\n2. Shake hands firmly\nand look them in the eye.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2520d6ec",
+   "texte_overlay": "3. Introduce yourself first.\n\nDon't wait to be noticed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c249b57",
+   "texte_overlay": "4. Phone off the table at meals.\n\nThe people in front of you\ncome first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1b0920a8",
+   "texte_overlay": "5. Thank staff by name.\n\nThe waiter, the driver, the guard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "150ddebb",
+   "texte_overlay": "6. Have something worth\ntalking about.\n\nRead, ask, learn one\nnew thing a day.",
+   "texte_sophia": "6. Have something worth\ntalking about.\n\nI learn one new thing a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "277de6af",
+   "texte_overlay": "7. Knock before you enter.\n\nEvery door. Every time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "207b2d46",
+   "texte_overlay": "8. Never trash your ex.\n\nIt says more about you\nthan about her.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "07778f14",
+   "texte_overlay": "9. Hold the elevator.\n\nTwo seconds of patience\nsay a lot.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/9.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "2d828aa0",
+   "texte_overlay": "10. Return calls the same day.\n\n11. Never arrive\nempty-handed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7595281061660085516/10.jpg"
+  }
+ ]
+}

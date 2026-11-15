@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o095",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "7ba30aea-bef4-436d-8e66-a523b4c711e8",
+  "titre": "what studying like the nerdy girl from a 2000s show really looks like #studytok #studytips #2000s",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "7ba30aea-bef4-436d-8e66-a523b4c711e8"
+  ],
+  "notes": "Déclinaison G2 de 7ba30aea (notre cs-o049 en G1), ligne 3 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o086 : « what studying like the nerdy girl from a 2000s show really looks like ». Habitudes neuves, aucune de cs-o049 ni de cs-o086 : des fiches bristol partout pour se tester dans la file de la cantine (place micabo, slide 4), une seule couleur de surligneur, une lampe de bureau, la leçon réécrite avec ses mots, les heures de permanence des profs, le journal le matin. Aucun personnage ni actrice nommés. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f1159f33",
+      "texte_overlay": "what studying like the nerdy girl from a 2000s show\nreally looks like",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f4817af8",
+      "texte_overlay": "1. one highlighter color. one.\nonly what could be on the test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f48c653c",
+      "texte_overlay": "2. a desk lamp, always on when she works\nher focus switch.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "61cf576b",
+      "texte_overlay": "3. index cards everywhere\nshe quizzes herself in the lunch line.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f6bc78e5",
+      "texte_overlay": "4. she rewrites the lesson in her own words\nif she can't, she didn't get it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f6d972b7",
+      "texte_overlay": "5. she goes to see teachers after class\nshe's not scared to ask.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f75c5c6d",
+      "texte_overlay": "6. she reads the news in the morning\nshe always has an example ready.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

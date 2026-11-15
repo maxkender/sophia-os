@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o051",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7c174e67-8129-47cf-8a56-b88f28f421b3",
+ "titre": "hard things to do by yourself to become unbreakable #men #confidence #selfimprovement #discipline",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7626992013648448277",
+ "inspirations": [
+  "7c174e67-8129-47cf-8a56-b88f28f421b3"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 5/11. Déclinaison G2 de la ligne 1 (parent 7c174e67 = notre am-o032, langue source en). Même promesse reformulée (« hard things to do by yourself to become unbreakable »). Même format : item en minuscules puis deux lignes. Items neufs, aucun du parent (concert, dire non, dîner, day trip, marche sans musique, apprendre). Images de la banque ; slide Sophia : chambre vide, sans personne ni écran. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "20fdd9cd",
+   "texte_overlay": "hard things to do\nby yourself to become\nunbreakable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "07075b9b",
+   "texte_overlay": "eat at a restaurant alone\n\nno phone on the table.\nyou'll notice everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "23c9d143",
+   "texte_overlay": "hike a trail\nyou've never walked\n\nno group. no guide.\njust you and the next step.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "165a18b5",
+   "texte_overlay": "train when the gym is empty\n\nno one to impress.\nonly the work.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1ff3853e",
+   "texte_overlay": "watch a sunrise alone\n\nno photo. no story.\njust be there for it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d8aeca2",
+   "texte_overlay": "sit with a hard decision\nfor a full day\n\ndon't ask five people.\ntrust your own head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0e52f643",
+   "texte_overlay": "spend 5 minutes a day\nlearning on your own\n\nno class. no teacher.\njust a quiet habit.",
+   "texte_sophia": "i swap my morning scroll\nfor 5 minutes on the Sophia app\n\nno class. no teacher.\njust a quiet habit.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  }
+ ]
+}

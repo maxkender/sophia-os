@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o142",
+ "type_bleo": "full_test",
+ "titre": "les 5 phrases qui m'ont aidée à survivre à une réorganisation #travail #reorganisation #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (la réorganisation). Rien de juridique, aucune entreprise. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "619fb75d",
+   "texte_overlay": "les 5 phrases qui m'ont aidée\nà survivre à une réorganisation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ff76564",
+   "texte_overlay": "« qu'est-ce qui change pour moi, concrètement ? »\nà demander tout de suite, calmement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a165ff0b",
+   "texte_overlay": "« qui sera mon interlocuteur ? »\nsans réponse, on flotte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a20e56e6",
+   "texte_overlay": "« je préfère le savoir tôt, même si c'est une mauvaise nouvelle »\nça rassure les deux côtés",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a67e34bf",
+   "texte_overlay": "« ce que je contrôle, c'est mon travail »\nle reste, je l'observe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8fd86b16",
+   "texte_overlay": "« je garde un truc à moi »\nmes 3 ancres : le sport, mes amis, et 5 minutes par jour à apprendre",
+   "texte_sophia": "« je garde un truc à moi »\nmes 3 ancres : le sport, mes amis, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a701908b",
+   "texte_overlay": "une réorganisation, ce n'est pas un verdict\nc'est un moment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a80de8a5",
+   "texte_overlay": "t'en as déjà vécu une ?\nraconte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

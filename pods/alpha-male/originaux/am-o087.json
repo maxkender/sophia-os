@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o087",
+ "type_bleo": "full_test",
+ "titre": "How to be respected at the gym without lifting heavy #gym #men #respect #discipline #gymtok",
+ "musique_titre": "bipolar (slowed)",
+ "musique_url": "https://www.tiktok.com/music/bipolar-slowed-7391819517150660624",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 11/11. Full test du jour (1 sur 2, jauge : 2 sur 8). Accroche jamais faite chez nous : aucun « at the gym » ni « gym etiquette » dans donnees/label.json. Le respect concret (terrain de nos percées), dans un lieu neuf : la salle. Format : numéro, geste, deux lignes. Rien de médical ni sur les charges. Images : salles de sport de la banque ; slide Sophia : salle vide, sans personne ni écran. reference_url : le post source de am-o042 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "03c0f804",
+   "texte_overlay": "How to be respected at the gym\nwithout lifting heavy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "07071281",
+   "texte_overlay": "1. Wipe the bench\n\nEvery time. Nobody wants\nyour sweat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "058b659e",
+   "texte_overlay": "2. Don't camp on machines\nat rush hour\n\nRest somewhere else.\nLet others work in.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "12812cb9",
+   "texte_overlay": "3. Headphones on means\ndon't interrupt\n\nUnless it's a spot or\nan emergency.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "22228ad9",
+   "texte_overlay": "4. Never film other people\n\nTheir workout isn't\nyour content.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c8c66a3",
+   "texte_overlay": "5. Show up at the same time\nevery week\n\nConsistency is the flex\neveryone notices.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "217c9faf",
+   "texte_overlay": "6. Train your mind too\n\nRest days count.\nFeed your head something good.",
+   "texte_sophia": "6. Train your mind too\n\nOn rest days, I give\n5 minutes to the Sophia app.\nFeed your head something good.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  }
+ ]
+}

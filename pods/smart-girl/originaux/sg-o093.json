@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o093",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4a19a178-3543-4038-9989-ab96625efce2",
+ "titre": "museum etiquette every elegant woman knows #museum #etiquette #smartgirl #art #elegance",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "d175b6b6-554a-4ce6-b18e-977101819d58"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 5 de la boîte (parent 4a19a178, langue source en) : accroche du parent mot pour mot. Règles neuves face au parent (en semaine le matin, grand sac au vestiaire, une histoire avant d'y aller, ne pas bloquer la vue pour les photos, s'asseoir devant une œuvre, finir au café du musée). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "632ac7ed",
+   "texte_overlay": "museum etiquette every\nelegant woman knows",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6b346620",
+   "texte_overlay": "1. go on a weekday morning\n\nthe rooms are quiet and\nthe light is better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "26052f73",
+   "texte_overlay": "2. leave the big bag\nin the cloakroom",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3e9ee9db",
+   "texte_overlay": "3. learn one story\nbefore you go\n\nwho painted it, and why.",
+   "texte_sophia": "3. learn one story\nbefore you go\n\ni read about one painting a day\non a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "822f8e03",
+   "texte_overlay": "4. don't block the view\nfor photos\n\none quick picture,\nthen step aside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2f0d5bc3",
+   "texte_overlay": "5. sit on the bench in front\nof one work\n\nten minutes. you'll see\neverything change.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1d90f4bf",
+   "texte_overlay": "6. end in the museum café\n\nand talk about your favourite.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "57ac1f01",
+   "texte_overlay": "save this for your next\nmuseum visit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634513924544695573/8.jpg"
+  }
+ ]
+}

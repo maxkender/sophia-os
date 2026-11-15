@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o250",
+ "type_bleo": "full_test",
+ "titre": "Habits that make you more disciplined than 90% of men #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : discipline comparative, sans mépris. Accroches écrites : « Habits that make you more disciplined than 90% of men » (retenue), « The daily discipline checklist » (écartée : plat), « Discipline habits nobody talks about » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "11529e17-4e21-4055-8e26-35a408c4af21",
+   "texte_overlay": "Habits that make you more\ndisciplined than 90% of men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Doing the boring task first. The email you avoid, the dishes, the report. Starting with what you don't want to do makes everything after it feel easy.",
+   "media_id": "11787963-e17b-4b45-8fec-4412ec8d752d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Going to bed at a fixed time. Not when the series ends, at your chosen hour. Discipline at night is what creates energy in the morning.",
+   "media_id": "f82a553b-2cb3-4f77-8519-3f3e24c1b460"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Training even when it's raining. Rain, cold, a long day at work. The workout you do on a bad day counts more than ten on perfect days, because it proves you show up no matter what.",
+   "media_id": "faeea4cf-da0c-4f85-8213-4a60410c4077"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keeping promises to yourself. If you said you'd read tonight, you read. Every kept promise makes the next one easier to keep.",
+   "media_id": "3d6e91ed-80ca-44b5-9f21-396559ddaf0e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learning every day without exception. I do five minutes a day of history, art or science, and a small daily habit has trained my discipline more than any big goal.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A small daily habit trained my discipline more than any big goal.",
+   "media_id": "368fa624-bca8-4978-b160-1ba014393e8a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Saying no to the extra drink, the extra episode, the extra scroll. Small refusals add up to a life that's actually under your control.",
+   "media_id": "661726e8-20dd-4e29-a649-3d984e907c89"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Planning tomorrow before you sleep. Three tasks written down. Waking up with a clear plan removes the excuses before they even start, and your morning runs itself.",
+   "media_id": "001db43a-a977-4caf-9c90-eb79bbf8a880"
+  }
+ ]
+}

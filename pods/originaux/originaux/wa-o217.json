@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o217",
+ "type_bleo": "full_test",
+ "titre": "red flags in your own habits you should fix this year #redflags #habits #selfimprovement #growth #mindset",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "b116e4f9-f5fc-4b54-acd9-370ac96459d2"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, b116e4f9). full test BLEO : accroche jamais faite (format « red flags in your own X »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "baea48f9-c793-4f15-b0be-0d486095551e",
+   "texte_overlay": "red flags in your own habits\nyou should fix this year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0b11b87b-ecd0-4bd8-8500-e31135d03e38",
+   "texte_overlay": "checking your phone first\n\nreaching for your phone before your eyes are even open hands your mood to other people. give yourself ten quiet minutes first, and your mornings will change.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "227730b5-01a4-4061-95cc-10cdef55b312",
+   "texte_overlay": "never learning anything new\n\nif you can't remember the last thing you learned just for fun, your mind is running on autopilot. even 5 minutes a day of learning something new wakes it back up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/3.jpg",
+   "texte_sophia": "never learning anything new\n\ni realised i hadn't learned anything new in years. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and i feel awake again."
+  },
+  {
+   "position": 4,
+   "media_id": "334bd1b6-f197-482a-bcaf-0f5f7b7e8a84",
+   "texte_overlay": "saying yes to everything\n\nagreeing to every plan and favour leaves no time for yourself. a kind and simple no is a habit that protects your energy and makes your yes mean more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5f9591eb-62d0-4db5-b0a6-9d697fded4f9",
+   "texte_overlay": "skipping meals then snacking\n\nskipping proper meals and grazing all day leaves you tired and moody. regular, simple meals keep your energy and your focus steady from morning to night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "865b4729-bf61-48df-9f96-6aba6469d6ca",
+   "texte_overlay": "replaying conversations\n\ngoing over old conversations in bed every night keeps you stuck in the past. write the thought down once, close the notebook and let it go until tomorrow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/6.jpg"
+  }
+ ]
+}

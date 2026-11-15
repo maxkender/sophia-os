@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o146",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "83d4753a-e442-4534-8769-9db73186ceaa",
+ "titre": "5 daily habits for a healthier mind #mentalhealth #habits #selfcare #wellness #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "83d4753a-e442-4534-8769-9db73186ceaa"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 83d4753a). déclinaison G1 de « 5 daily habits for a healthier mind » (parent 83d4753a). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "63078256-013d-438d-a564-031ea20245b5",
+   "texte_overlay": "5 daily habits for a\nhealthier mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7597650410928688398/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b7a475e0-1a4e-4dfc-96a2-6a5698f07303",
+   "texte_overlay": "sunlight before screens\n\nget ten minutes of daylight before you look at any screen. morning light sets your body clock, lifts your mood and makes falling asleep easier at night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7597650410928688398/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2b6ba7ee-3d6d-4aea-8063-5225d5edf633",
+   "texte_overlay": "a real conversation\n\nhave one real conversation every day, in person or on the phone. human connection protects your mind in ways no screen, video or podcast can ever fully replace.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7597650410928688398/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "df79a0dc-98d9-47b2-b395-19d9ec770f27",
+   "texte_overlay": "a calm daily lesson\n\nspend 5 minutes a day learning something calm and beautiful: a constellation, a painting, a myth. a mind with gentle things to think about has less room for worry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7597650410928688398/4.jpg",
+   "texte_sophia": "a calm daily lesson\n\ni spend 5 minutes a day learning something calm and beautiful: a constellation, a painting. i do it with the Sophia app, one lesson a day, and my mind has less room for worry."
+  },
+  {
+   "position": 5,
+   "media_id": "9be91a77-5af0-4027-9947-1d4f3aff9fe3",
+   "texte_overlay": "moving your body\n\nwalk, stretch or dance for at least twenty minutes every day. movement is one of the most reliable mood lifters there is, and it works within minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7597650410928688398/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bc6ea6ba-93e4-4873-9e2c-77357961a133",
+   "texte_overlay": "a gentle evening\n\ndim the lights and put your phone away an hour before bed. a slow evening tells your brain the day is over, and better sleep follows almost every time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7597650410928688398/6.jpg"
+  }
+ ]
+}

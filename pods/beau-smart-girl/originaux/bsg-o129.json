@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o129",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8ea7821b-5e6c-47bc-91b8-050800104b9b",
+  "titre": "les habitudes qui m'ont rendue disciplinée sans attendre la motivation #discipline #pourtoi",
+  "inspirations": [
+    "8ea7821b-5e6c-47bc-91b8-050800104b9b"
+  ],
+  "notes": "G2, déclinaison de 8ea7821b (« les habitudes pour devenir dangereusement disciplinée (même sans aucune motivation) », G1 gagnante, génération 1 en français ; meilleur passage ru 3,9 k vues, r 9,5), en français. Accroche reformulée : « les habitudes qui m'ont rendue disciplinée sans attendre la motivation ». cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent bsg-o088 : ni deux minutes, ni négocier, ni espace prêt, ni cases cochées). Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Symphony_No._9_(Beethoven) : « He was almost completely deaf by the time of its composition ». Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "les habitudes qui m'ont rendue disciplinée\nsans attendre la motivation",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. je commence toujours à la même heure\n\n17 h, chaque jour.\nau bout d'un mois, je n'y pense même plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. je garde une seule priorité par jour\n\nsi je ne fais qu'elle, la journée est réussie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. je me rappelle que les génies aussi persévèrent\n\nce matin, j'ai appris que beethoven était presque complètement sourd quand il a composé sa neuvième symphonie.\nje l'ai raconté trois fois dans la journée.",
+      "texte_sophia": "3. je me rappelle que les génies aussi persévèrent\n\nce matin, l'appli Sophia m'a appris que beethoven était presque complètement sourd quand il a composé sa neuvième symphonie.\nje l'ai raconté trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "4. je prépare mes affaires la veille\n\nle matin, je n'ai plus aucune excuse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "5. je ne casse jamais la chaîne deux fois\n\nun jour raté, d'accord.\ndeux jours, jamais.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

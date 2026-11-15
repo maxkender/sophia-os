@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o093",
+  "type_bleo": "full_test",
+  "titre": "ce que je fais dans une nouvelle ville pour la comprendre vraiment #voyage #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : voyager en curieuse, récit « je ». Accroches écrites : « ce que je fais dans une nouvelle ville pour la comprendre vraiment » (retenue : concrète, enregistrable avant un voyage), « comment voyager comme une fille cultivée » (écartée : promesse de façade), « mes rituels de voyage » (écartée : vague). Aucun fait daté. Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "ce que je fais dans une nouvelle ville\npour la comprendre vraiment",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu verras les villes autrement.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu verras les villes autrement.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. je lis l'histoire de la ville la veille\n\ndix minutes suffisent.\nle lendemain, chaque rue raconte quelque chose.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. je marche sans itinéraire une heure\n\nles plus beaux endroits ne sont jamais sur la liste.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4c866843",
+      "texte_overlay": "3. j'entre dans une librairie\n\net je demande au libraire un livre écrit par quelqu'un d'ici.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "62e25601",
+      "texte_overlay": "4. je goûte le plat que personne ne me conseille\n\ncelui que mangent les gens du coin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "205ce864",
+      "texte_overlay": "5. je choisis une seule œuvre au musée\n\nje la regarde dix minutes.\nje m'en souviens encore des années après.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3615b305",
+      "texte_overlay": "c'est quoi, ton rituel en voyage ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

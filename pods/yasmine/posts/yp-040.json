@@ -1,0 +1,453 @@
+{
+ "id": "yp-040",
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "ma méthode pour retenir n’importe quel cours"
+ },
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "ma méthode pour retenir n’importe quel cours",
+  "es": "mi método para recordar cualquier lección",
+  "tr": "her dersi akılda tutma yöntemim"
+ },
+ "legendes": {
+  "fr": "la méthode qui a tout changé pour moi 🧠 #revisions #memoire #studytok #thatgirl #methodedetravail",
+  "es": "el método que lo cambió todo 🧠 #estudiar #memoria #studytok #thatgirl #tecnicasdeestudio",
+  "tr": "her şeyi değiştiren yöntem 🧠 #ders #hafıza #studytok #thatgirl #çalışmayöntemi"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "dbdf7398-6939-45f4-8966-c54907460c19",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a26469cd-9d61-4ef0-9bd8-bf7a22ebf8d3/3.jpg?v=1787157731728",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format photos à petites légendes (yp-002). cta B : la mise en scène iPhone micabo (a83da81b) en photo pleine de l’étape « teste-toi le soir même »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "ma méthode pour",
+     "lignes": [
+      "RETENIR",
+      "N’IMPORTE",
+      "QUEL COURS"
+     ],
+     "taille": 150,
+     "texte_bas": "en 6 étapes📚",
+     "texte_bas_taille": 46,
+     "texte_bas_x": 540
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "mi método para",
+     "lignes": [
+      "RECORDAR",
+      "CUALQUIER",
+      "LECCIÓN"
+     ],
+     "taille": 150,
+     "texte_bas": "en 6 pasos📚",
+     "texte_bas_taille": 46,
+     "texte_bas_x": 540
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "lignes": [
+      "HER DERSİ",
+      "AKILDA",
+      "TUTMA",
+      "YÖNTEMİM"
+     ],
+     "taille": 140,
+     "texte_bas": "6 adımda📚",
+     "texte_bas_taille": 46,
+     "texte_bas_x": 540
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "01ec4ac3-1216-4f63-8c08-9b3f23027f95",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/eba6a948-fc9b-4495-a77e-3cc6c88cca19/4.jpg?v=1787159296450",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "lis le cours une fois📖"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sans surligner, juste pour comprendre"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "lee la lección una vez📖"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sin subrayar, solo para entender"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "dersi bir kez oku📖"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "altını çizmeden, sadece anlamak için"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "312a65e8-9958-4cc7-a1b2-e0b676c23ca0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/2db2f497-45b2-49ec-8faa-559f06aa0780/2-upscale.jpg?v=1793574700926",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "ferme tout et écris ce dont tu te souviens✍️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "cierra todo y escribe lo que recuerdas✍️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "her şeyi kapat, hatırladığını yaz✍️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "teste-toi le soir même📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "10 min de quiz sur ce cours⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "ponte a prueba esa misma noche📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "10 min de quiz de esa lección⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "aynı akşam kendini test et📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "o dersten 10 dk test⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1ceaa113-0983-4854-9d5e-cd339de9f10d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/66caa98a-85c2-444b-97a7-331a6f1f73a8/3.png?v=1785365209288",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "explique-le à voix haute🗣️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "comme si tu étais la prof"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "explícalo en voz alta🗣️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "como si fueras la profe"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "yüksek sesle anlat🗣️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "öğretmenmişsin gibi"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1f80c792-a969-4cbe-8669-37cf574b1e82",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/eda040b7-f4b2-476d-8967-45803578c773/6.jpg?v=1787158624434",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "revois-le dans 3 jours🔁"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "puis dans une semaine"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "repásalo en 3 días🔁"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "y luego en una semana"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "3 gün sonra tekrar et🔁"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sonra bir hafta sonra"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0f89f0c2-de6e-43b9-9614-14994517fb46",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/03a60f5e-78bc-4f8d-99d1-9232fa709140/2.jpg?v=1790612069332",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "dors bien😴"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "c’est la nuit que tout se range"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "duerme bien😴"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "de noche se ordena todo"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "iyi uyu😴"
+     ],
+     "x": 540,
+     "y": 1700,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "her şey gece yerine oturur"
+     ]
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

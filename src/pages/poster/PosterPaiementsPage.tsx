@@ -6,7 +6,6 @@ import { CalendarCheck, ExternalLink, IdCard, MessageCircle, Wallet } from "luci
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { lireCohorteAccueil } from "@/features/moteur/api";
-import { LIEN_RUUL_INSCRIPTION, SALON_COHORTE_RUUL } from "@/features/onboarding/contenu";
 import { useRegles } from "@/features/regles/api";
 import { finPremiereSemaineRuul, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
 
@@ -82,12 +81,7 @@ export function PosterPaiementsPage() {
             {t("paiementsRuul.memeEmail")}
           </p>
           <div className="flex flex-wrap gap-2">
-            <Button asChild>
-              <a href={LIEN_RUUL_INSCRIPTION} target="_blank" rel="noreferrer">
-                <ExternalLink />
-                {t("paiementsRuul.creerCompte")}
-              </a>
-            </Button>
+            {/* 13/11 (Max) : jamais « crée ton compte sur ruul.io » : le compte se crée depuis l'email d'invitation. */}
             <Button asChild variant="outline">
               <a href={LIEN_RUUL} target="_blank" rel="noreferrer">
                 <ExternalLink />
@@ -116,7 +110,7 @@ export function PosterPaiementsPage() {
             <MessageCircle className="size-4 text-primary" />
             {t("paiementsRuul.questionsTitre")}
           </CardTitle>
-          <CardDescription>{t("paiementsRuul.questions", { salon: SALON_COHORTE_RUUL })}</CardDescription>
+          <CardDescription>{t("paiementsRuul.questions")}</CardDescription>
         </CardHeader>
         {slack && (
           <CardContent>

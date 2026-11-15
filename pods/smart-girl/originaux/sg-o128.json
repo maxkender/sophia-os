@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o128",
+ "type_bleo": "full_test",
+ "titre": "how to make a rainy day feel like a novel #rainyday #slowliving #smartgirl #cozy #romanticizeyourlife",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta C. Full test 4/4 : accroche jamais faite chez nous (« rainy day » et « like a novel » n'apparaissent dans aucune accroche de donnees/label.json). Accroches écrites : « how to make a rainy day feel like a novel » (retenue : cosy et culturel), « rainy day rituals » (écartée : proche de sg-o106), « what to do when it rains » (écartée : sans promesse). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8f6bc0df",
+   "texte_overlay": "how to make a rainy day\nfeel like a novel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5549c5ad",
+   "texte_overlay": "1. a window seat and\na long book",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dcc4ac43",
+   "texte_overlay": "2. tea in a real cup,\nnot a mug",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0fc9d4c4",
+   "texte_overlay": "3. classical music, low",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "72cca94d",
+   "texte_overlay": "4. a letter to someone\nfar away",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c800b84e",
+   "texte_overlay": "5. one lesson instead\nof the scroll\n\na painting, a poet, a war.",
+   "texte_sophia": "5. one lesson instead\nof the scroll\n\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ed846bb0",
+   "texte_overlay": "6. soup on the stove\nall afternoon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b86da457",
+   "texte_overlay": "save this for the next\nrainy day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

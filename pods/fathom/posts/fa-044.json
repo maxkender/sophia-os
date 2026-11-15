@@ -8,12 +8,20 @@
  "titre": {
   "en": "5 Rabbit Holes Worth Going Down",
   "de": "5 Rabbit Holes, die sich lohnen",
-  "pt": "5 temas para explorar a fundo"
+  "pt": "5 temas para explorar a fundo",
+  "it": "5 argomenti da approfondire",
+  "es-419": "5 temas que vale la pena explorar",
+  "fr": "5 sujets qui valent le détour",
+  "es": "5 temas que vale la pena explorar"
  },
  "legendes": {
   "en": "5 Rabbit Holes Worth Going Down #learnontiktok #selfmastery #curiosity",
   "de": "5 Rabbit Holes, die sich lohnen #lernenmittiktok #selbstverbesserung #neugier",
-  "pt": "5 temas para explorar a fundo #aprendernotiktok #desenvolvimentopessoal #curiosidade"
+  "pt": "5 temas para explorar a fundo #aprendernotiktok #desenvolvimentopessoal #curiosidade",
+  "it": "5 argomenti da approfondire #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "5 temas que vale la pena explorar #aprendeentiktok #desarrollopersonal #habilidades",
+  "fr": "5 sujets qui valent le détour #apprendresurtiktok #curiosité #culture",
+  "es": "5 temas que vale la pena explorar #aprendeentiktok #curiosidades #cultura"
  },
  "musique": {
   "titre": "audio originale",
@@ -58,6 +66,74 @@
      ],
      "PARA EXPLORAR",
      "A FUNDO"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "5 ARGOMENTI",
+       "bronze": true
+      }
+     ],
+     "CHE VALE LA PENA",
+     [
+      {
+       "t": "APPROFONDIRE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "QUE VALE LA PENA",
+     [
+      {
+       "t": "EXPLORAR",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "5 SUJETS",
+       "bronze": true
+      }
+     ],
+     "QUI VALENT",
+     [
+      {
+       "t": "LE DÉTOUR",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "5 TEMAS",
+       "bronze": true
+      }
+     ],
+     "QUE VALE LA PENA",
+     [
+      {
+       "t": "EXPLORAR",
+       "bronze": true
+      }
+     ]
     ]
    }
   },
@@ -107,6 +183,66 @@
      "duree": "23:19",
      "avatar": "https://yt3.ggpht.com/ewIc1KmBB7XaLh05zasOCWbQO1nOvmM6AvK_vMrKmU7bsonJtGPNb01v0_LvZ9qkuE2y4T9y=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "IL MANOSCRITTO",
+     "VOYNICH"
+    ],
+    "video": {
+     "id": "zvtvKb3hs6w",
+     "titre": "Il libro che nessuno è mai riuscito a decifrare",
+     "chaine": "Nova Lectio",
+     "vues": "627K visualizzazioni",
+     "date": "11 mesi fa",
+     "duree": "31:02",
+     "avatar": "https://yt3.ggpht.com/aDfNHR6b6Q70fuZTgxJYzeryIhrLIK1F-PC4mL1gphiXKuiXrfB2piB6HkHu7-CXPEh5IIxHNGM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL MANUSCRITO",
+     "VOYNICH"
+    ],
+    "video": {
+     "id": "gklcNX9EcW0",
+     "titre": "El Libro Más Misterioso de la Historia | El Manuscrito Voynich",
+     "chaine": "Detrás del Enigma",
+     "vues": "6.5 M de vistas",
+     "date": "hace 1 año",
+     "duree": "18:16",
+     "avatar": "https://yt3.ggpht.com/mqqJqcxHDXVE7ll-4Ky3IpVkxxVnWSFoIroX8woeFXdcFgUc4b_iqgYlYcfD7p1LGlPfYp6G8Ws=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LE MANUSCRIT",
+     "DE VOYNICH"
+    ],
+    "video": {
+     "id": "IHJofAM65Wg",
+     "titre": "Le mystère du manuscrit de Voynich [2011]",
+     "chaine": "l'Horizon des Événements",
+     "vues": "489 k vues",
+     "date": "il y a 13 ans",
+     "duree": "50:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lL8K-e_ZhwfKGkFNoApDOFNpTWBN_EyhdzYzLUWY5Tjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EL MANUSCRITO",
+     "VOYNICH"
+    ],
+    "video": {
+     "id": "PJyK_qmwGGY",
+     "titre": "El Libro Imposible de Leer",
+     "chaine": "Eze Martínez",
+     "vues": "1,2 M de visualizaciones",
+     "date": "hace 1 año",
+     "duree": "21:58",
+     "avatar": "https://yt3.ggpht.com/jKmPIINdkcWaWSNuqW5WAyAmbZZq6tqUO3ii3NRwcCkaGddFITvXcvlj56dZZynRemqwiV6ObaU=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -155,6 +291,66 @@
      "duree": "10:07",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdYOUtp16eJsT8yUlmbU2sDUP8ESohkDlSLW9KDUXwJQI=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "it": {
+    "titre": [
+     "COME SONO NATE",
+     "LE PIRAMIDI"
+    ],
+    "video": {
+     "id": "7rmJaN6GCqA",
+     "titre": "Come costruire una piramide (tratto da Le vie della civiltà)",
+     "chaine": "Zanichelli editore",
+     "vues": "328K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l3ZOHRYorhLJUWP-iKRNwtJHf7Yt-oomnBrfYUXp83Og=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL MISTERIO DE",
+     "LAS PIRÁMIDES"
+    ],
+    "video": {
+     "id": "YESqjxBh_T0",
+     "titre": "El Misterio de las Pirámides Abandonadas | Tesoros Perdidos de Egipto | Nat Geo en Español",
+     "chaine": "Nat Geo en Español",
+     "vues": "6.5 M de vistas",
+     "date": "hace 2 años",
+     "duree": "44:25",
+     "avatar": "https://yt3.ggpht.com/KN4pLsXQGXi6I45Y1DEUGEiiU17Mb-LS0RE5-zjYFqcW6z4g1ANpdBtN_rpWOus7YXJDkTMeOQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ON A BÂTI",
+     "LES PYRAMIDES"
+    ],
+    "video": {
+     "id": "pOznETH5nGY",
+     "titre": "Égyptologie - Construction des pyramides",
+     "chaine": "Naked Science",
+     "vues": "25 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/SkzZfKzI1Rs2DOcRKHEkn0EHM9_VAWuDpG5TmCFJTMY388MtZrcEHENHTuxHdD1RKk1hbxt83x8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÓMO SE HICIERON",
+     "LAS PIRÁMIDES"
+    ],
+    "video": {
+     "id": "jFaKmN2Mkko",
+     "titre": "✅¿Cómo se CONSTRUYERON las PIRÁMIDES de EGIPTO? | La respuesta a la gran incógnita",
+     "chaine": "Memorias de Pez",
+     "vues": "482 K visualizaciones",
+     "date": "hace 1 año",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nM6wSYYyXw-uwi_URvB6vZr6rUr1uvtTghcmCnHyBa2kQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -196,6 +392,58 @@
      "texte": [
       "o que eu abro",
       "em vez de fazer scroll."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SEGUI LA TUA",
+     "CURIOSITÀ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SIGUE TU",
+     "CURIOSIDAD"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SUIS TA",
+     "CURIOSITÉ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "SIGUE TU",
+     "CURIOSIDAD"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en vez de hacer scroll."
      ]
     }
    }
@@ -245,6 +493,66 @@
      "date": "há 10 anos",
      "duree": "2:48",
      "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ IL CIELO",
+     "È BLU"
+    ],
+    "video": {
+     "id": "2TrMBAV_Smw",
+     "titre": "Perché il cielo è blu?",
+     "chaine": "Pillole Di Scienza",
+     "vues": "36K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "1:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPRHeCXXi0BesGugA8O-KG_eT1bGHQphrI5CbGlAx-2g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "POR QUÉ EL CIELO",
+     "ES AZUL"
+    ],
+    "video": {
+     "id": "0t31zWMX8KI",
+     "titre": "¿Por qué el cielo es azul?",
+     "chaine": "CuriosaMente",
+     "vues": "661 k vistas",
+     "date": "hace 9 años",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "POURQUOI LE CIEL",
+     "EST BLEU"
+    ],
+    "video": {
+     "id": "RAYavfn0pJg",
+     "titre": "Pourquoi le ciel est-il bleu ?",
+     "chaine": "Jamy - Epicurieux",
+     "vues": "448 k vues",
+     "date": "il y a 4 mois",
+     "duree": "9:49",
+     "avatar": "https://yt3.ggpht.com/PmI8M3fQcLUOPc9oU6PO86lVIdlqwQPQ5K4T_s5YWOei67zPRJ1Knq6pzKawZNWh2Ls7H4w2Dg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "POR QUÉ EL CIELO",
+     "ES AZUL"
+    ],
+    "video": {
+     "id": "0t31zWMX8KI",
+     "titre": "¿Por qué el cielo es azul?",
+     "chaine": "CuriosaMente",
+     "vues": "661 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

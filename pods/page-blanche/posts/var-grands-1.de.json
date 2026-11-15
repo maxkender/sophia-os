@@ -1,0 +1,276 @@
+{
+ "post_id": "var-grands-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 skills to learn to be",
+      "successful by 25"
+     ],
+     "fr": "10/10 compétences pour percer avant 25 ans",
+     "texte": "was Oma und Opa taten und wir zurückholen sollten"
+    },
+    "T2": {
+     "en": [
+      "(7 figures by 25)"
+     ],
+     "fr": "(millionnaire à 25 ans)",
+     "alignement": "droite",
+     "texte": "(sie hatten recht)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7694778035337235744_3.jpg",
+      "boite": [
+       477,
+       386,
+       539,
+       420
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "ein [[Notizbuch]] für alles"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "Geburtstage, Adressen, Rezepte, [[alles an einem Ort]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "was man von Hand schreibt, [[bleibt im Kopf]], also mussten sie selten etwas nachschauen"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "und 40 Jahre später ist [[das Heft ein Familienschatz]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "ein [[Kreuzworträtsel]] im Wartezimmer"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "Bushaltestelle, Wartezimmer, die 10 Minuten vorm Essen: sie füllten die Lücken mit einem Stift und [[einem Rätsel zum Nachdenken]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "wir [[scrollen]] stattdessen."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "früher hab ich in jeder Schlange [[gedoomscrollt]] und kam mit nichts raus, nicht mal einem Fakt zum Weitererzählen"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "jetzt mach ich am Handy [[eine 5-Min-Lektion in der Sophia-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "sie schlugen [[im Wörterbuch]] nach"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "keine Suchleiste, nur ein dickes Buch im Regal und die Geduld, [[darin zu blättern]]"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[und lasen den nächsten Eintrag mit]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "du suchst ein Wort und gehst mit dreien raus, weil die Seite [[dir alle Nachbarn zeigt]]"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "so blieben sie [[neugierig auf einfach alles]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become good at multiple things"
+     ],
+     "fr": "deviens bonne en [[plein de trucs]]",
+     "texte": "sie haben [[im Kopf gerechnet]]"
+    },
+    "T2": {
+     "en": [
+      "learn to write, communicate, build, sell ideas, analyse,",
+      "and use technology well"
+     ],
+     "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech",
+     "texte": "die Rechnung, das Wechselgeld, der Einkauf: kein Taschenrechner, [[höchstens ein Stift]]"
+    },
+    "T3": {
+     "en": [
+      "you don’t need to be",
+      "world-class at",
+      "everything"
+     ],
+     "fr": "pas besoin d'être la meilleure au monde en tout",
+     "texte": "so blieb ihr Kopf [[an ein bisschen Mühe gewöhnt]]"
+    },
+    "T4": {
+     "en": [
+      "being good across",
+      "several valuable skills",
+      "makes you unusually",
+      "hard to replace"
+     ],
+     "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]",
+     "texte": "probier's beim Einkaufen: [[schätz die Summe]], bevor die Kasse sie anzeigt"
+    },
+    "T5": {
+     "en": [
+      "a jack of all trades is better than a master of one"
+     ],
+     "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]",
+     "texte": "anfangs liegst du daneben, dann [[erstaunlich nah dran]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "keep skipping slides instead of",
+      "reading"
+     ],
+     "texte": "abends ein [[Buch auf dem Nachttisch]]",
+     "fr": "le moment où [[t'essaies de t'endormir]]"
+    },
+    "T1b": {
+     "en": [
+      "why read the actual text when you can just look at",
+      "the headings and swipe?"
+     ],
+     "texte": "das Handy blieb im Flur, das Letzte, was sie abends sahen, [[war eine Seite]]",
+     "fr": "scroll : encore une vidéo, et d'un coup il est 1h40 et [[t'as plus sommeil]]"
+    },
+    "T2": {
+     "en": [
+      "train your brain to",
+      "only read the",
+      "headline and",
+      "move on"
+     ],
+     "texte": "Ergebnis: [[nach 10 Seiten eingeschlafen]], Brille noch auf",
+     "fr": "lecture : [[KO en 10 pages]], la tête dans le bouquin"
+    },
+    "T3": {
+     "en": [
+      "most people won't even read this part, just keep",
+      "reading headlines and being misinformed!"
+     ],
+     "texte": "ein Feed hört nie auf. ein Buch macht dich müde, und [[deine Augen entscheiden]], wann der Tag vorbei ist",
+     "fr": "le scroll, ça s'arrête jamais, c'est à toi de dire stop. un livre [[décide à ta place]] vers la page 12"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 2
+   }
+  }
+ }
+}

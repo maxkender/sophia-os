@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o156",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "9165cbd6-d329-45a0-9ac1-2a3ef8dde240",
+  "titre": "les habitudes insolites que j'ai volées à ma grand-mère pour me cultiver sans m'en rendre compte #grandmere #culture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "9165cbd6-d329-45a0-9ac1-2a3ef8dde240"
+  ],
+  "notes": "G1, déclinaison de 9165cbd6 (« les habitudes insolites que j'ai volées à ma grand-mère pour me cultiver sans m'en rendre compte », génération 0 en français ; meilleur passage tr 31,1 k vues, r 5,69), en français. cta C (le défi de 7 jours en slide 2). Habitudes neuves (rien de repris du parent : ni journal au crayon, ni lettres, ni arbres, ni recettes ; ni de bsg-o100, le grand-père). Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "00332898",
+      "texte_overlay": "les habitudes insolites\nque j'ai volées à ma grand-mère\npour me cultiver sans m'en rendre compte",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4c4b52af",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "09f452a8",
+      "texte_overlay": "1. elle faisait les mots croisés au stylo\n\nsans gomme.\net elle cherchait chaque mot inconnu dans le dictionnaire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "12584a3d",
+      "texte_overlay": "2. elle écoutait la radio en cuisinant\n\nles débats, les concerts, les feuilletons.\nsa cuisine était une salle de classe.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1f519098",
+      "texte_overlay": "3. elle gardait les articles qu'elle aimait\n\ndécoupés, dans une boîte à biscuits.\nune encyclopédie maison.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ca0ca32f",
+      "texte_overlay": "4. elle demandait toujours pourquoi\n\nau médecin, au boulanger, au facteur.\nelle apprenait de tout le monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "425c267f",
+      "texte_overlay": "5. elle racontait une histoire à chaque repas\n\nsa jeunesse, la guerre, ses voyages.\nc'est elle qui m'a donné envie d'apprendre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "e34475b0",
+      "texte_overlay": "vole-lui une habitude.\ntu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

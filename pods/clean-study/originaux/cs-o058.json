@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o058",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c844723b-49f2-4611-a394-81cca573bb36",
+  "titre": "comment devenir une arme académique #studytok #lycée #révisions",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "c844723b-49f2-4611-a394-81cca573bb36"
+  ],
+  "notes": "Déclinaison G1 de c844723b (r 7,89 en espagnol d'Amérique latine), ligne 4 de la boîte. Langue source du parent : français ; la déclinaison s'écrit en français (ROUTINE §4.3), l'OS traduit. Accroche du parent mot pour mot (les accents ne comptent pas). Conseils neufs, aucun du parent (agenda, sac rangé, fiches pendant le cours, déjeuner, UnSwipe, groupes, récompense ; UnSwipe est arrêté, il n'y a plus qu'une place pour micabo) : lire le chapitre avant le cours, refaire les exercices ratés, se tester chaque soir (place micabo, slide 4), poser une question par cours, s'avancer le vendredi, dormir. Slide 4 sans personne. Depuis le 4/11, le label ne sert que micabo (UnSwipe arrêté) : une seule place d'appli par post. Slide micabo : photo d'objet reprise d'un original plus ancien (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "cf1e6ee2",
+      "texte_overlay": "comment devenir une arme académique",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d1eae4c8",
+      "texte_overlay": "lis le chapitre AVANT le cours :\nen classe, tu ne découvres plus, tu comprends.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d7d6a967",
+      "texte_overlay": "refais chaque exercice raté deux jours après,\nsans regarder la correction.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f2f9b014",
+      "texte_overlay": "chaque soir, teste-toi 10 minutes sur les cours du jour,\nnotes fermées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "dc1bcd3a",
+      "texte_overlay": "pose une question par cours.\ntu écoutes autrement quand tu cherches quoi demander.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "dc5df4f7",
+      "texte_overlay": "le vendredi, avance un devoir de la semaine suivante.\nle lundi devient facile.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "dcd5fbe3",
+      "texte_overlay": "et dors. une arme bien reposée, c'est une arme qui retient.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o142",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "014b74b9-17d7-4281-894a-06eb79eb68e0",
+ "titre": "Comment désarmer les attaques verbales sans perdre son calme #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "014b74b9-17d7-4281-894a-06eb79eb68e0"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture efc75180. déclinaison G1 de la ligne 12 de la boîte (014b74b9, fr 4,8 k r 3,39), écrite en français, la langue source du parent (ROUTINE §4.3) : accroche du parent mot pour mot. Items neufs, aucun repris du parent. Respectueux, sans mépris. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "efc75180",
+   "texte_overlay": "Comment désarmer\nles attaques verbales\nsans perdre son calme",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Respire avant de répondre. Une seconde de silence suffit. Celui qui répond tout de suite réagit à l'émotion. Celui qui attend un instant garde le contrôle de la scène.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Baisse la voix au lieu de la monter. Quand l'autre s'emporte, parle plus doucement. Le contraste le calme souvent, et tout le monde voit qui reste maître de lui.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Reformule ce qu'il vient de dire. « Si je comprends bien, tu trouves que j'ai mal géré ce dossier ? » Entendre ses propres mots oblige l'autre à les assumer ou à reculer.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Réponds au fond, pas au ton. Ignore la pique, traite le vrai sujet. « Le délai a glissé, voilà ce que je propose. » On ne peut pas se disputer avec quelqu'un de calme.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Nourris ton calme chaque jour. Je fais cinq minutes d'histoire, d'art ou de science par jour, et une tête curieuse se laisse beaucoup moins déstabiliser.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Une tête curieuse se laisse beaucoup moins déstabiliser.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pose une limite claire. « Je veux bien en parler, mais pas sur ce ton. » Une phrase simple, dite calmement, montre que tu te respectes sans attaquer personne.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Sache partir. Si l'échange ne mène nulle part : « On en reparle quand ce sera plus calme. » Quitter la discussion avec sang-froid vaut mieux que la gagner en criant.",
+   "media_id": "3fff1b1f"
+  }
+ ]
+}

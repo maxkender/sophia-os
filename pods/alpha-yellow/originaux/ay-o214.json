@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o214",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5269fe48-8891-41a3-bfe5-593d8455aeea",
+ "titre": "Mistakes that turn a good first date into the last one #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "5269fe48-8891-41a3-bfe5-593d8455aeea"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture a75b8832. déclinaison G2 de la ligne 3 de la boîte (5269fe48, notre ay-o126 : ru 35,3 k), 3e et dernière déclinaison après ay-o187 et ay-o201. Même promesse, autres mots, sans « stop doing » pour ne pas toucher la ligne 5. Items neufs. Respectueux. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a75b8832",
+   "texte_overlay": "Mistakes that turn a good\nfirst date into the last one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687926438485511431/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Interrogating instead of chatting. Question after question with no stories of your own feels like a job interview. Share a little after every answer.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Showing up distracted. Earphones in, phone buzzing, mind still at work. Give the evening your full attention. Presence is the most attractive thing you can bring.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Bad-mouthing your ex. Even a short joke about them sends a warning sign. Keep the past out of tonight and focus on really getting to know her.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Drinking too fast. Two drinks in the first half hour change your energy. Slow down, sip, and stay the version of you she actually agreed to meet.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Running out of things to talk about. I do five minutes a day of history, art or science, and a good story is always ready when the conversation slows down.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A good story is always ready when the conversation slows down.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Being rude when something goes wrong. A late table or a wrong order is a test. Staying calm and friendly shows her exactly who you really are.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Forgetting to ask a single question about her life. If you leave knowing nothing about her, it wasn't a date, it was a monologue. Curiosity wins.",
+   "media_id": "20b1d0c4"
+  }
+ ]
+}

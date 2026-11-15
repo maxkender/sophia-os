@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o195",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "07ff97fb-bf78-4eb7-9067-7f3140bd1b6f",
+ "titre": "les trucs sur lesquels tu DOIS MENTIR en entretien, partie 4 #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 4 (parent 07ff97fb, notre rh-o043) : accroche mot pour mot, six questions neuves (aucune reprise des parties existantes). Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ee804502",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS MENTIR en entretien\npartie 4",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "72618410",
+   "texte_overlay": "1\n« vous avez déjà raté une deadline ? »\njamais « jamais »\ntu dis « une fois, et j'ai prévenu tôt avec une nouvelle date »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "72a5769c",
+   "texte_overlay": "2\n« vous aimez la routine ? »\njamais « je déteste »\ntu dis « j'aime la routine qui me laisse du temps pour améliorer »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "72b986cb",
+   "texte_overlay": "3\n« vous avez un modèle dans le métier ? »\njamais « non »\ntu cites quelqu'un qui t'inspire, et pourquoi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4f5824bc",
+   "texte_overlay": "4\n« vous apprenez comment ? »\njamais « sur le tas »\ntu dis ta méthode : un peu chaque jour, même 5 minutes",
+   "texte_sophia": "4\n« vous apprenez comment ? »\njamais « sur le tas »\nperso : un peu chaque jour, 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7311bc55",
+   "texte_overlay": "5\n« vous êtes compétitive ? »\njamais « pas du tout »\ntu dis « avec moi-même, oui »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7332bf71",
+   "texte_overlay": "6\n« vous avez autre chose à nous dire ? »\njamais « non »\ntu redis en une phrase pourquoi toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "73cb4993",
+   "texte_overlay": "tu veux une partie 7 ?\nécris ta question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

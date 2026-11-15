@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o193",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bac3822b-31fe-42c9-8fa2-082068232bba",
+ "titre": "hobbies that make real life more fun than your phone #doomscrolling #hobbies #slowliving #selfimprovement #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "4c740b93-4932-4afb-b567-cfaf14073b35"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4c740b93). déclinaison G2 de « 5 hobbies to build a life so good u stopped doomscrolling » (parent bac3822b). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac8d12ff-6b13-44b2-b7e7-b5bcb462a31f",
+   "texte_overlay": "hobbies that make real life\nmore fun than your phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "59bec0c0-6980-4e0a-b551-84bfcb1c2e3f",
+   "texte_overlay": "film photography\n\nbuy a cheap film camera and take one roll of photos a month. waiting to see your pictures makes every shot count, and you start looking at the world more closely.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cc34cf27-8567-4cc8-bdc2-ab46ce822dc5",
+   "texte_overlay": "learning in small doses\n\nlearn one fascinating thing a day: a myth, a planet, a famous painting. real curiosity is so much more satisfying than another hour of scrolling past strangers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/3.jpg",
+   "texte_sophia": "learning in small doses\n\ni used to scroll for hours every night. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and i don't even miss the endless feed anymore."
+  },
+  {
+   "position": 4,
+   "media_id": "8258f5a6-3272-4441-b8e6-bb00601aa312",
+   "texte_overlay": "bouldering\n\ntry a bouldering gym once a week. each wall is a little puzzle for your body, and you're far too busy thinking about your next move to even remember your phone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0c16f9e6-915a-4eff-affe-878d3f197956",
+   "texte_overlay": "cooking for friends\n\ninvite friends over and cook one new recipe together. a messy kitchen full of laughter beats any video of someone else cooking, and the food is even better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fc922b58-1099-4c3c-8981-25569695e128",
+   "texte_overlay": "night walks\n\ntake a slow walk after dinner without headphones. evening streets, warm windows and cool air are a gentle, quiet reset that no screen will ever really give you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659079021883378947/6.jpg"
+  }
+ ]
+}

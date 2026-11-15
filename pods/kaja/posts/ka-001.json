@@ -1,0 +1,334 @@
+{
+ "id": "ka-001",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7688107009597607190",
+  "vues": 2900000,
+  "publie_le": "2026-09-21",
+  "accroche": "10/10 SKILLS YOU CAN LEARN"
+ },
+ "titre": {
+  "en": "10/10 skills you can learn",
+  "fr": "10/10 compétences que tu peux apprendre",
+  "de": "10/10 Skills, die du lernen kannst"
+ },
+ "legendes": {
+  "en": "10/10 skills you can learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences que tu peux apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Pilote. Remake de son post à 2,9 M (21/09), décor falaise. Ses 3 compétences gardées dans son ordre, avec d'autres vraies vidéos que les siennes (Benjamin Seda, Rise Above Reality, Smartish Stuff). Sophia en étape 3 « BE INTERESTING », à la place de sa slide d'appli de fin : cta A (« learn something new » / « every day. »), le temps « 5 min a day ». Le temps sur chaque étape (il ne l'avait que sur la première). Traduit en fr et de le 04/11 (demande d'Adrien) : vraies vidéos natives dans chaque langue (MrDreamax, Lune Delachance, Yann Piette ; RedeFabrik, Logical Lemon, extrem einfach.).",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "YOU CAN",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "QUE TU PEUX",
+     "APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS, DIE",
+     "DU LERNEN",
+     "KANNST"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SMALL TALK",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XPJuiZAxPJo",
+     "titre": "How to make small talk so fun, people want to keep talking to you",
+     "chaine": "Tom Bidgood",
+     "vues": "2.7M views",
+     "date": "4 weeks ago",
+     "duree": "10:52",
+     "avatar": "https://yt3.ggpht.com/qNTTouj4Ul5pzoYZRjgiEZGslDZqjj8B6C5DX0UDfuvkHj5a1wEPY7Bvj06mbjY8Cp8Y8UEbULU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "FAIRE LA CONVERSATION",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HYQ4ZjylHEU",
+     "titre": "Maitrise l'Art de la Conversation : Savoir quoi dire à n'importe qui, n’importe quand",
+     "chaine": "MrDreamax",
+     "vues": "704 k vues",
+     "date": "il y a 2 ans",
+     "duree": "16:55",
+     "avatar": "https://yt3.ggpht.com/dAcUjDwt4qc3R5F4ua8ApHJE9sladB2XDZsZ8-Uh1zN-eWQQ_OfE5q10J5Cu0P0mfk2IN_dzbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT",
+     [
+      {
+       "t": "SMALLTALK",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dccTDpXt3ec",
+     "titre": "Smalltalk: Wie dir nie wieder Themen ausgehen",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "518.414 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "6:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO WIN",
+     [
+      {
+       "t": "ANY ARGUMENT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H-dytlgxW9g",
+     "titre": "winning every argument is kinda easy, actually",
+     "chaine": "Fika",
+     "vues": "886K views",
+     "date": "1 year ago",
+     "duree": "4:23",
+     "avatar": "https://yt3.ggpht.com/llnq42GZooxcMrUxmQroMseQjdj3zcNoP3ogF-mmJKbVtu59xthJ2ipbC49uTG35fYZOcgzL9K4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT GAGNER",
+     [
+      {
+       "t": "N'IMPORTE QUEL DÉBAT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6EYDBkFlQFE",
+     "titre": "Comment Gagner N'importe Quel Débat (Même si vous avez tort)",
+     "chaine": "Lune Delachance 🌟Coach en Prise de parole & voix",
+     "vues": "73 k vues",
+     "date": "il y a 8 mois",
+     "duree": "29:51",
+     "avatar": "https://yt3.ggpht.com/h2aZoEoG1LdY0wC2SWi4SbvULHzKd8Duw3qxOb38rANhSokTrIf4wRLL7Wg9OVYNOc5kq4dKMw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEWINNST DU",
+     [
+      {
+       "t": "JEDE DISKUSSION",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FTjjdH636wY",
+     "titre": "Wie man jede Diskussion gewinnt",
+     "chaine": "Logical Lemon",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BE INTERESTING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "ÊTRE INTÉRESSANT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRST DU",
+     [
+      {
+       "t": "INTERESSANT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "ROAST ANYONE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KmwvNSFe7KM",
+     "titre": "How to Roast Someone",
+     "chaine": "KaioKeigan",
+     "vues": "509K views",
+     "date": "7 years ago",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/BWmryMvzYoq-yVPbCAnYqLq4peO1grM9difg8vguopLQO_tEiFBH6lyXqoG3MPmOfwxxXHovow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "CLASHER N'IMPORTE QUI",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-hXteFbzrvI",
+     "titre": "3 phrases pour répondre à n’importe quelle insulte",
+     "chaine": "Yann Piette",
+     "vues": "1,7 M de vues",
+     "date": "il y a 5 ans",
+     "duree": "5:51",
+     "avatar": "https://yt3.ggpht.com/6fflfAPLuXOKHeqk5VocKdEbM1AZrzWS9nwd9FhMaRnCKyvlDH54ts52a4eXJEsZRLMtmuSNEg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KONTERST DU",
+     [
+      {
+       "t": "JEDEN SPRUCH",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0FxIMbnF8jY",
+     "titre": "Dumme Sprüche kontern ist extrem einfach.",
+     "chaine": "extrem einfach.",
+     "vues": "123.650 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/tcG4x42OIRF-cI7KSZRCigHnQJY3ZhoFkkkV6leq_ASxmxGWGVcHQF-kMGBmq0pXM6qulhO5DA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ]
+}

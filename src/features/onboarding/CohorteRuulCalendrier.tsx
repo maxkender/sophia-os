@@ -143,6 +143,10 @@ export function FriseCohorteRuul({
           />
         )}
       </ol>
+      {/* 13/11 (Max) : la même phrase que l'accueil Upwork et la bienvenue Ruul. */}
+      <p className="border-t pt-3 text-muted-foreground text-xs" data-testid="frise-question-help">
+        {t("calendrier.ruul.frise.questionHelp")}
+      </p>
     </section>
   );
 }

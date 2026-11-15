@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o090",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "9b89ad2c-2227-424d-b215-54fffb9952ba",
+  "titre": "les habitudes étranges que j'ai intégré dans ma vie en tant qu'étudiante à l'ENS #etudiante #pourtoi",
+  "inspirations": [
+    "9b89ad2c-2227-424d-b215-54fffb9952ba"
+  ],
+  "notes": "G1, déclinaison de 9b89ad2c (« les habitudes étranges que j'ai intégré dans ma vie en tant qu'étudiante à l'ens », génération 0 en français ; meilleur passage tr 6,1 k vues, r 3,07), en français. cta C (le défi de 7 jours en slide 2). Accroche recopiée mot pour mot (« intégré » sans accord, comme le parent ; le 2/11, le guichet a refusé une correction d'accord). Items neufs (rien de repris du parent : ni café sans téléphone, ni 48 heures, ni tâche du lendemain, ni autre appli). Routine du 5/11 sur BLEO : jauge 1 full test et 7 déclinaisons ; j'ai fait 2 full tests et 6 déclinaisons (lignes 2 à 7 de la boîte), car les autres lignes ne se déclinent pas proprement : 1 (083ac272, 9 hobbies « validés par la science », des preuves que je ne peux pas vérifier, et le label évite la liste « prouvée par la science » vague), 8 (837491f7, faute de frappe et salaires), 9 (6211e51e, « other then »), 10 (9e0c287f, « je notes… j'ai essayé », fautes à recopier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "les habitudes étranges que j'ai intégré\ndans ma vie en tant qu'étudiante à l'ENS",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "02d3e38d",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "06b64a24",
+      "texte_overlay": "1. j'explique mes cours à voix haute\n\nà ma plante, à mon miroir.\nsi je bloque, c'est que je n'ai pas compris.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "41a74286",
+      "texte_overlay": "2. je travaille à la même heure, même le dimanche\n\npas longtemps.\nmais mon cerveau sait que c'est l'heure.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "3. je garde un carnet de questions\n\ntout ce que je ne comprends pas.\nle vendredi, je cherche les réponses.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "43747ea2",
+      "texte_overlay": "4. je relis mes notes le soir même\n\ncinq minutes.\nle lendemain, tout est encore là.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "62e25601",
+      "texte_overlay": "5. une promenade sans écouteurs après les révisions\n\nc'est là que tout se met en place.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "00ac4de9",
+      "texte_overlay": "laquelle est la plus étrange ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

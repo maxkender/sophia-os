@@ -1,6 +1,6 @@
 /**
- * Relier les posteurs à Slack : email perso d'abord, puis email de connexion,
- * puis nom complet sans accents ni casse ; jamais un lien ambigu, jamais un
+ * Relier les posteurs à Slack : par l'EMAIL seulement (0693), jamais par le
+ * prénom ni le nom ; jamais un lien ambigu, jamais un
  * compte Slack déjà pris, jamais un bot ni un membre supprimé.
  */
 
@@ -47,18 +47,33 @@ Deno.test("email de connexion si l'email perso ne donne rien", () => {
   assertEquals(r.liens[0].par, "email");
 });
 
-Deno.test("nom complet sans accents ni casse", () => {
-  const r = apparier([p("a", "José", "Pérez")], [m("U0000001", "jose perez")], new Set());
-  assertEquals(r.liens, [{ profile_id: "a", slack_user_id: "U0000001", par: "nom" }]);
+Deno.test("0693 : jamais par le nom, même identique", () => {
+  assertEquals(apparier([p("a", "José", "Pérez")], [m("U0000001", "jose perez")], new Set()).liens, []);
+  assertEquals(apparier([p("a", "José", "Pérez")], [m("U0000001", null, null, { nom_affiche: "José Pérez" })], new Set()).liens, []);
 });
 
-Deno.test("nom affiché aussi", () => {
-  const r = apparier([p("a", "José", "Pérez")], [m("U0000001", null, null, { nom_affiche: "José Pérez" })], new Set());
-  assertEquals(r.liens.length, 1);
+Deno.test("0693 : même prénom, emails différents (cas Sandra) : personne n'est relié", () => {
+  const r = apparier([p("a", "Sandra", "Ventura", "sandra.v@mail.com")], [m("U0000001", "Sandra", "sandra.o@mail.com")], new Set());
+  assertEquals(r.liens, []);
 });
 
-Deno.test("deux membres Slack au même nom : personne n'est relié", () => {
-  const r = apparier([p("a", "Ana", "Silva")], [m("U0000001", "Ana Silva"), m("U0000002", "ana silva")], new Set());
+Deno.test("0693 : l'email Ruul ou du site (emails connus) relie", () => {
+  const r = apparier([p("a", "Zeynep", "Daysali", null, { emails: ["yusuf@mail.com"] })], [m("U0000001", "zeynep", "Yusuf@Mail.com")], new Set());
+  assertEquals(r.liens, [{ profile_id: "a", slack_user_id: "U0000001", par: "email" }]);
+});
+
+Deno.test("0693 : un email qui mène à deux fiches (même personne, 2e contrat) : personne, à relier à la main", () => {
+  const r = apparier(
+    [p("a", "Ana", "Silva", "ana@mail.com"), p("b", "Ana", "M Silva", null, { emails: ["ana@mail.com"] })],
+    [m("U0000001", "Ana", "ana@mail.com")],
+    new Set(),
+  );
+  assertEquals(r.liens, []);
+  assertEquals(r.ambigus.sort(), ["a", "b"]);
+});
+
+Deno.test("0693 : une fiche, deux comptes Slack à ses emails : personne", () => {
+  const r = apparier([p("a", "Ana", "Silva", "ana@mail.com", { email: "ana@os.com" })], [m("U0000001", "A", "ana@mail.com"), m("U0000002", "B", "ana@os.com")], new Set());
   assertEquals(r.liens, []);
   assertEquals(r.ambigus, ["a"]);
 });
@@ -103,7 +118,7 @@ Deno.test("un posteur déjà relié n'est pas retouché ; l'email passe avant le
 });
 
 Deno.test("team_join : le motif est forcé", () => {
-  const r = apparier([p("a", "Ana", "Silva")], [m("U0000001", "Ana Silva")], new Set(), "team_join");
+  const r = apparier([p("a", "Ana", "Silva", "ana@mail.com")], [m("U0000001", "Ana Silva", "ana@mail.com")], new Set(), "team_join");
   assertEquals(r.liens[0].par, "team_join");
 });
 

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o211",
+ "type_bleo": "full_test",
+ "titre": "ce qu'un recruteur pense quand tu arrives en retard (et comment rattraper le coup) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le retard à l'entretien). Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0607bdbd",
+   "texte_overlay": "ce qu'un recruteur pense\nquand tu arrives en retard\n(et comment rattraper le coup)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8a807545",
+   "texte_overlay": "5 minutes sans prévenir\nil se demande si tu seras à l'heure le lundi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b158f85b",
+   "texte_overlay": "15 minutes avec un appel avant\nil comprend. un imprévu, ça arrive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b18e0aa2",
+   "texte_overlay": "ce qui rattrape tout\nune excuse courte, sans roman. puis tu passes au sujet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b259f4d2",
+   "texte_overlay": "ce qui aggrave\n3 minutes d'explications sur les transports",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "510c0490",
+   "texte_overlay": "ce qui fait oublier le retard\nune vraie conversation. un sujet à toi, une bonne question",
+   "texte_sophia": "ce qui fait oublier le retard\nune vraie conversation. un sujet à toi, appris en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b3b81753",
+   "texte_overlay": "et la prochaine fois\nprévois 20 minutes de marge. et attends dans un café",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b472bd31",
+   "texte_overlay": "t'es déjà arrivée en retard à un entretien ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

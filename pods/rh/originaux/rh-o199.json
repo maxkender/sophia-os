@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o199",
+ "type_bleo": "full_test",
+ "titre": "comment je prépare un entretien en 30 minutes quand je n'ai pas le temps #entretien #rechercheemploi #organisation #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (préparation express). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f12795b7",
+   "texte_overlay": "comment je prépare un entretien\nen 30 minutes\nquand je n'ai pas le temps",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "78e8acbb",
+   "texte_overlay": "5 minutes : je relis l'offre\net je surligne 3 mots qui reviennent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7c0fc4ad",
+   "texte_overlay": "5 minutes : leur site\nce qu'ils font, leur dernière actualité",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7cd24ee0",
+   "texte_overlay": "10 minutes : mes 3 histoires\nune réussite, un problème réglé, un travail d'équipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "01057092",
+   "texte_overlay": "5 minutes : mon sujet à moi\nun truc appris récemment, que je sais raconter",
+   "texte_sophia": "5 minutes : mon sujet à moi\nun truc appris récemment sur l'appli Sophia, que je sais raconter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7f888a07",
+   "texte_overlay": "5 minutes : 2 questions à poser\nécrites sur une feuille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "830c8e48",
+   "texte_overlay": "30 minutes bien utilisées\nvalent mieux que 3 heures de stress",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "83fb1fc6",
+   "texte_overlay": "t'as un entretien bientôt ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

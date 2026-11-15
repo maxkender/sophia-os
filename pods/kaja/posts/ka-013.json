@@ -1,0 +1,279 @@
+{
+ "id": "ka-013",
+ "titre": {
+  "en": "10/10 skills to learn in your 20s",
+  "de": "10/10 Skills für deine 20er"
+ },
+ "legendes": {
+  "en": "10/10 skills to learn in your 20s #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills für deine 20er #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 08/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor branche2, en en et de. Des compétences de vie qu'il n'a pas faites (épargne, investissement, sommeil, massage cardiaque), des couleurs de sa palette, des temps réalistes. Sophia en étape 3 « HOW TO STAY CURIOUS » : cta B, « 5 min a day ». Vraies vidéos : en This Will Make You Rich, Ali Abdaal, TED, HealthSketch ; de Finanztip, Finanzfluss, Quarks, Die Techniker.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO LEARN IN",
+     "YOUR 20S"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "FÜR DEINE",
+     "20ER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SAVE MONEY",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7ZfxVv4FC5o",
+     "titre": "How to Start Saving Money (Easy & Simple)",
+     "chaine": "This Will Make You Rich",
+     "vues": "112K views",
+     "date": "2 years ago",
+     "duree": "6:09",
+     "avatar": "https://yt3.ggpht.com/8XO4mkWwSFpyMu6wIKSI28yNC7EQ6Y6o-GZPEtGclahtYNTxolR_YgrF3S3GK3RQjIB9bU3XLQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPARST DU",
+     [
+      {
+       "t": "GELD",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZQClivZKwFs",
+     "titre": "Im Alltag Geld sparen: 6 einfache Tipps, die viele übersehen",
+     "chaine": "Finanztip",
+     "vues": "146.521 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "14:55",
+     "avatar": "https://yt3.ggpht.com/s0gDzCwRGYGR_1AgsHa2Xqy7MXeL_Bq74Twa65vIWCpvSf5ViqjwXCryRnXIB9abTRgcBYFTlA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "INVEST",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lNdOtlpmH5U",
+     "titre": "How to Invest for Beginners (2026)",
+     "chaine": "Ali Abdaal",
+     "vues": "3.5M views",
+     "date": "3 years ago",
+     "duree": "20:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m2xx6mCZwsyjARnkwBKJxEv0FqGxGS2NwWNkjWH__Smw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO INVESTIERST",
+     [
+      {
+       "t": "DU RICHTIG",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eTCTGwFO1-Y",
+     "titre": "So fängst du 2026 mit dem Investieren an (in 10 Min!)",
+     "chaine": "Finanzfluss",
+     "vues": "1,5 Mio. Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "10:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "STAY CURIOUS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BLEIBST DU",
+     [
+      {
+       "t": "NEUGIERIG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SLEEP BETTER",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "t0kACis_dJE",
+     "titre": "6 tips for better sleep | Sleeping with Science, a TED series",
+     "chaine": "TED",
+     "vues": "2.8M views",
+     "date": "6 years ago",
+     "duree": "5:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_koIFcCOrvh0KThLNOiazAIDu6hcs8bjkGNwe1f6A_OYm8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHLÄFST DU",
+     [
+      {
+       "t": "BESSER",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l72IHVMcapk",
+     "titre": "Schlaf optimieren? Was geht und was nicht geht! | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "823.767 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "DO CPR",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hizBdM1Ob68",
+     "titre": "Learn How To Do CPR",
+     "chaine": "HealthSketch",
+     "vues": "3.8M views",
+     "date": "10 years ago",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNR6bRmxAipx0fBF3sjtD0giSRwA3XQXyd_zdQUjzERg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT",
+     [
+      {
+       "t": "WIEDERBELEBUNG",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "L_bLsEAy87c",
+     "titre": "Herz-Lungen-Wiederbelebung - so macht ihr es richtig | Dr. Johannes Wimmer",
+     "chaine": "Die Techniker",
+     "vues": "774.910 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "6:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

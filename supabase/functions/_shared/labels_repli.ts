@@ -13,7 +13,7 @@
  * application cochée n'est disponible pour personne (21/10).
  *
  * File : une entrée dont le label ne sert pas l'application de la tranche est
- * sautée et retirée de la File (comme un label système ou UGC AI VIDEO).
+ * sautée et retirée de la File (comme un label système ou manuel).
  *
  * Module à part, importé par manage-users seul : le toucher ne redéploie
  * aucune autre fonction.

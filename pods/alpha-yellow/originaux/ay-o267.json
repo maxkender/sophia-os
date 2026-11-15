@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o267",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "86c14886-4179-4ff7-bf98-e47c396d0923",
+ "titre": "How to get genuinely cultured in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "86c14886-4179-4ff7-bf98-e47c396d0923"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (86c14886, notre ay-o155 : tr 5,2 k r 4,29), 2e déclinaison après ay-o256. Même promesse, autres mots, sans « intelligent » pour ne pas toucher la ligne 9. Items neufs, aucun repris d'ay-o155 ni d'ay-o256.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b9361cab-b773-4ad9-ae48-dfdc1bc9592f",
+   "texte_overlay": "How to get genuinely cultured\nin your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Go to one cultural event a month. A concert, an exhibition, a play, a talk. Twelve new experiences a year give you more to talk about than any series.",
+   "media_id": "57086827-7e87-45cc-a5c4-825f6b10c050"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Learn the story behind the things you love. Your favourite band's influences, your football club's history, your city's origins. Curiosity starts close to home.",
+   "media_id": "575da0ea-98a6-4bf9-9334-59d847ff2eb1"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Travel slowly when you can. Spend three days in one city instead of three cities in three days. You learn a place by walking and talking to locals.",
+   "media_id": "5771b8c6-25ce-4265-8c5f-1a6a672edf90"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Listen to a full album you've never heard, start to finish. Jazz, classical, a band from another country. Your taste grows when you step outside it.",
+   "media_id": "98acd108-befd-4e11-b9ca-21b7732fc28e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Make learning a daily ritual. I do five minutes a day of history, art or science, and over a year that becomes a real, wide general culture.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Over a year that becomes a real, wide general culture.",
+   "media_id": "481d5b81-5369-4e65-aef7-ddf936ffdec0"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Ask older people about their lives. Grandparents, neighbours, older colleagues. Their stories are living history you'll never find in a book.",
+   "media_id": "5a1be853-08a7-401e-ad1c-4ed9b31c59a6"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Cook dishes from other countries. Every recipe has a story, a region and a tradition behind it. Culture is easier to remember when you can taste it.",
+   "media_id": "5aeb4ded-4f58-4f7e-89ec-e40903f63ddd"
+  }
+ ]
+}

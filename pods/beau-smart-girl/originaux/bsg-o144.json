@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o144",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a6049150-b6f2-411f-9780-1950e10b6284",
+  "titre": "mes petits rituels bizarres du dimanche pour commencer la semaine plus curieuse #dimanche #culture #pourtoi",
+  "inspirations": [
+    "a6049150-b6f2-411f-9780-1950e10b6284"
+  ],
+  "notes": "G2, déclinaison de a6049150 (« les habitudes chelous que je fais le dimanche pour arriver lundi plus cultivée », G1 gagnante, génération 1 en français ; meilleur passage de 3,1 k vues, r 2,79), en français. Accroche reformulée : « mes petits rituels bizarres du dimanche pour commencer la semaine plus curieuse ». cta A (avant / après sur le dernier item). Items neufs (rien de repris de bsg-o108 : ni Wikipédia du jour, ni album, ni lieu inconnu, ni trois choses apprises). Routine du 12/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1 à 5 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "mes petits rituels bizarres du dimanche\npour commencer la semaine plus curieuse",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. je lis la page d'un vieux livre au hasard\n\nouverte n'importe où.\nune phrase, et je la garde toute la semaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. je cuisine un plat d'un pays où je ne suis jamais allée\n\net je cherche d'où il vient pendant qu'il cuit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "62e25601",
+      "texte_overlay": "3. j'écris une lettre\n\nà une amie, à ma grand-mère.\nraconter ma semaine m'apprend à bien raconter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "205ce864",
+      "texte_overlay": "4. je choisis le thème de la semaine\n\nles volcans, l'opéra, la renaissance.\nje pioche dedans chaque jour.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. je prépare mon lundi matin\n\navant, le dimanche soir, je scrollais jusqu'à minuit.\nmaintenant, j'apprends un truc sur le monde chaque matin. et lundi ne me fait plus peur.",
+      "texte_sophia": "5. je prépare mon lundi matin\n\navant, le dimanche soir, je scrollais jusqu'à minuit.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et lundi ne me fait plus peur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "vole-moi un rituel.\nenregistre-le pour dimanche.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

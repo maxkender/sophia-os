@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o248",
+ "type_bleo": "full_test",
+ "titre": "How to be more present with the people you love #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : la présence aux proches, ton chaleureux. Accroches écrites : « How to be more present with the people you love » (retenue), « Why you feel distant from your family » (écartée : négatif), « How to stop being distracted at home » (écartée : étroit).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d6e99df-e756-4d58-9ad9-e22587b08d1d",
+   "texte_overlay": "How to be more present\nwith the people you love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Leave your phone in another room during meals. Dinner becomes a real conversation instead of three people scrolling at the same table.",
+   "media_id": "d9eae11e-69b2-4001-8cb4-38e8a3efbf43"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ask better questions than \"How was your day?\" Try \"What made you laugh today?\" or \"What's been on your mind?\" Specific questions open real conversations.",
+   "media_id": "f02bd718-d98d-429d-9530-0f3ef2db557e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Put tasks on hold when someone talks to you. Turn away from the laptop, look at them, listen. Ten seconds of full attention says more than an hour half there.",
+   "media_id": "478bffca-3665-475b-93ad-ad149b975168"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Plan time together that isn't on screens. A walk, a board game, cooking together. Shared activities create memories that a film night rarely does.",
+   "media_id": "ad95736d-899d-4b5f-a5e5-49439ef924e7"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: always in my head, never really there. After: five minutes a day of history, art or science, a calmer mind and real stories to share at dinner.",
+   "texte_sophia": "Before: always in my head, never really there. After: five minutes a day on a micro-learning app like the Sophia app. A calmer mind and stories to share at dinner.",
+   "media_id": "1cd3bdc9-925f-49f2-9e94-949e67282fd1"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Notice the small moments. Your partner's laugh, your dad's old jokes, your friend's new haircut. Being present means paying attention to the little things.",
+   "media_id": "c1f4aefa-98ac-427c-b99f-6e3b7e87975a"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Say what you appreciate out loud. \"I really love these Sunday breakfasts with you.\" People feel closest to you when they know they matter.",
+   "media_id": "59ed9174-fa02-48f1-96f4-436470c47c93"
+  }
+ ]
+}

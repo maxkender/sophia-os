@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o225",
+ "type_bleo": "full_test",
+ "titre": "underrated habits that make you look so put together #puttogether #habits #selfcare #organisation #selfimprovement",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "0fbd8952-b847-4dad-9c8b-f55a4b057f92"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 0fbd8952). full test BLEO : accroche jamais faite (format « underrated habits that make you look X »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0f4378d1-49f1-43c6-8056-efd018447f11",
+   "texte_overlay": "underrated habits that make\nyou look so put together",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0908a757-8b6b-4671-a16a-6284306a01d5",
+   "texte_overlay": "a reset every evening\n\nspend ten minutes each evening putting things back where they belong. waking up to a calm, tidy room makes you feel organised before the day even starts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "04a8a41d-5b3a-4f3f-a014-2c269ce03550",
+   "texte_overlay": "a calendar you trust\n\nwrite every plan and deadline in one place and check it each morning. people who never forget things aren't smarter, they simply stopped trusting their memory.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bbd98aab-034b-4ca0-b788-a973b04915de",
+   "texte_overlay": "arriving five minutes early\n\nbeing a little early to everything makes you look calm and reliable. it also gives you time to breathe instead of rushing in flustered and apologising.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1be1c172-643f-4834-b957-131190ec9c11",
+   "texte_overlay": "being well informed\n\nknowing a little about art, history and science makes you sound composed in any conversation. 5 minutes a day is honestly enough to build it up over time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/5.jpg",
+   "texte_sophia": "being well informed\n\nknow a little about everything, a painting or a moment in history. the Sophia app turns it into one short lesson a day, and it makes you sound composed in any conversation."
+  },
+  {
+   "position": 6,
+   "media_id": "3c6457b2-cf4d-48a6-b411-ec79c96bc998",
+   "texte_overlay": "simple outfits\n\nkeep a few simple outfits that always work together. getting dressed quickly and well every morning saves energy and makes you look effortlessly put together.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o204",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c51f6671-f0d1-4204-819a-c8f19a989e71",
+ "titre": "Things that make you look effortlessly confident in a room #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "c51f6671-f0d1-4204-819a-c8f19a989e71"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 2e21bae8. déclinaison G2 de la ligne 7 de la boîte (c51f6671, « Things that make you quietly confident in any room », it 6 k r 4,6), 3e et dernière déclinaison après ay-o124 et ay-o162. Même promesse, autres mots. Items neufs, aucun repris du parent, d'ay-o124 ni d'ay-o162.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2e21bae8",
+   "texte_overlay": "Things that make you look\neffortlessly confident in a room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Taking your time to choose a seat. Look around, pick a good spot, sit down calmly. Rushing to the nearest chair looks nervous. Choosing looks confident.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Introducing friends to new people. \"Have you met Alex?\" Making connections shows you're at ease and puts you at the centre of the room.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Laughing out loud when something's funny. A real laugh, not a polite smile. People who enjoy themselves openly always look comfortable.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Asking for what you need. \"Could we turn the music down a bit?\" A polite, simple request shows you feel at home, not like a guest who doesn't belong.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Always having something to add. I do five minutes a day of history, art or science, and knowing I'll never run out of things to say keeps me relaxed.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Never running out of things to say keeps me relaxed in any room.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Being fine standing alone for a minute. Sip your drink, look around, enjoy the room. Comfort with your own company is the clearest sign of confidence.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Leaving without a long explanation. \"I'm heading off, great night everyone.\" A short, warm goodbye shows you're secure and happy in your own choices.",
+   "media_id": "62463b6a"
+  }
+ ]
+}

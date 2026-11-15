@@ -1,0 +1,214 @@
+{
+ "id": "fa-012-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7692804200308296982",
+  "vues": 77600,
+  "accroche": "10/10 YouTube Videos To Watch Instead Of Scrolling"
+ },
+ "titre": {
+  "en": "10/10 YouTube Videos To Watch Instead Of Scrolling",
+  "de": "10/10 YouTube-Videos statt Scrollen"
+ },
+ "legendes": {
+  "en": "10/10 YouTube Videos To Watch Instead Of Scrolling #youtube #learnontiktok #screentime",
+  "de": "10/10 YouTube-Videos statt Scrollen #youtube #lernenmittiktok #bildschirmzeit"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "remplace fa-012 (carte UnSwipe retirée). L'étape 2 « BUT FIRST, KILL THE FEED » redevient une étape normale avec sa vraie vidéo YouTube native (Matt D'Avella en anglais, Robin Fübbeker en allemand) ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 4). Livré en en et de, comme les autres reprises du chantier.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE VIDEOS",
+     "TO WATCH INSTEAD",
+     "OF SCROLLING"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE-VIDEOS",
+     "STATT SCROLLEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE BANACH–TARSKI",
+     "PARADOX"
+    ],
+    "video": {
+     "id": "s86-Z-CbaHA",
+     "titre": "The Banach–Tarski Paradox",
+     "chaine": "Vsauce",
+     "vues": "49M views",
+     "date": "11 years ago",
+     "duree": "24:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpYedipdXUXCKkwjQEeFrepFlDHZ0LiczqWeKyG0YmJvA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DAS TIEFSTE",
+     "LOCH DER WELT"
+    ],
+    "video": {
+     "id": "ZU0A3AiJKc4",
+     "titre": "Was verbirgt sich im tiefsten Loch der Welt?",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "826.123 Aufrufe",
+     "date": "vor 10 Monaten",
+     "duree": "13:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BUT FIRST,",
+     "KILL THE FEED"
+    ],
+    "video": {
+     "id": "9z8_YhWoq2o",
+     "titre": "I quit social media for 30 days",
+     "chaine": "Matt D'Avella",
+     "vues": "6.3M views",
+     "date": "8 years ago",
+     "duree": "8:43",
+     "avatar": "https://yt3.ggpht.com/Ldpkcur-En5Qn8rcowaWiU6xbNt_yMrs1mAVcSRBIOdq0tSyTmGGIALRcgfm1a8aGKgYiYDEIQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ABER ZUERST:",
+     "WEG MIT DEM FEED"
+    ],
+    "video": {
+     "id": "9vdcCbFSNC0",
+     "titre": "Wie 365 Tage Ohne Social Media Mich Verändert Haben",
+     "chaine": "Robin Fübbeker",
+     "vues": "978.840 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "9:12",
+     "avatar": "https://yt3.ggpht.com/UM36K7GbLmK5DbcLphrX3ANtu_QNuU35VS-9TPRY9e8auAN791kRu0nyCAb4oxohRHCHgeJ6gQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY WE",
+     "CAN'T FOCUS"
+    ],
+    "video": {
+     "id": "6QltxZ-vPMc",
+     "titre": "Why we can't focus.",
+     "chaine": "Jared Henderson",
+     "vues": "3.3M views",
+     "date": "1 year ago",
+     "duree": "12:45",
+     "avatar": "https://yt3.ggpht.com/hD3OORvL4-7g-In9kHhX9xSR_SjVP2ikCovuHaVqPNZhmhjPxvq1O8AT2yLqrjSVI-F8rNd9zQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GOLDFISCH-",
+     "AUFMERKSAMKEIT?"
+    ],
+    "video": {
+     "id": "3WQod9iu7uY",
+     "titre": "Ab 8 Sekunden ist Schluss: Können wir uns nicht mehr konzentrieren? | Quarks",
+     "chaine": "Quarks",
+     "vues": "66.616 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "21:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4bDvezc36i3vmptDIlmT9_Hc_kYlyVJg3zlJmsjBf1_M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "5 MINUTES",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "5 MINUTEN",
+     "JEDEN TAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HISTORY OF",
+     "THE WORLD"
+    ],
+    "video": {
+     "id": "zohg5rx5ptU",
+     "titre": "The ENTIRE History of The World (NO AI) | 4K Documentary",
+     "chaine": "Beginning To Now",
+     "vues": "1.5M views",
+     "date": "3 months ago",
+     "duree": "4:00:01",
+     "avatar": "https://yt3.ggpht.com/UFc7FoqddJjva4D617MRV8f1ina5aGhqqh2XQPiRnVfdhbHxZoMlTzKIwhfmO3wywmZDsa-RFJs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "4,5 MILLIARDEN JAHRE",
+     "IN EINER STUNDE"
+    ],
+    "video": {
+     "id": "8wQkM-znhjY",
+     "titre": "4,5 Milliarden Jahre in einer Stunde",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "1:03:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

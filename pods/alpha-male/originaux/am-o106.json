@@ -1,0 +1,66 @@
+{
+ "source_id": "am-o106",
+ "type_bleo": "full_test",
+ "titre": "Things every man should own by 30 #men #lifeskills #selfimprovement #adulting #discipline",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7548607095471049478",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Full test du jour (2 sur 3, jauge : 3 sur 10). Accroche jamais faite chez nous : aucun « should own » ni « by 30 » dans donnees/label.json. Liste concrète d'objets utiles, aucune marque, aucun prix, rien à acheter de précis. Format : numéro, objet, deux lignes. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Slide Sophia : ville de nuit vue d'en haut, sans personne. reference_url : le post source de am-o042 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7409beb8",
+   "texte_overlay": "Things every man\nshould own by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "06940d84",
+   "texte_overlay": "1. One sharp kitchen knife\n\nCooking gets easier.\nAnd safer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "360c8920",
+   "texte_overlay": "2. A basic toolkit\n\nHammer, screwdrivers, tape.\nFix it yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b11cca13",
+   "texte_overlay": "3. One suit that fits\n\nWeddings, interviews, funerals.\nAlways ready.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3e3d53c8",
+   "texte_overlay": "4. A first-aid kit\n\nAt home and in the car.\nHope you never need it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fd9b215a",
+   "texte_overlay": "5. A real bed\n\nNot a mattress on the floor.\nYou spend a third of your life there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d2ccc919",
+   "texte_overlay": "6. Books you've read twice\n\nThe ones that changed\nhow you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2bff6cc8",
+   "texte_overlay": "7. A passport with stamps\n\nSee how other people live.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "1fb6a32a",
+   "texte_overlay": "8. A daily learning habit\n\nThe one thing nobody\ncan take from you.",
+   "texte_sophia": "8. A daily learning habit\n\nUse a micro-learning app\nlike the Sophia app.\nNobody can take it from you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  }
+ ]
+}

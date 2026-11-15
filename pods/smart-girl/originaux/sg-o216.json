@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o216",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39b6b6c0-3b28-4296-bb66-f4618f5b6ff3",
+ "titre": "niche things that make you instantly cooler #cool #hobbies #smartgirl #thatgirl #aesthetic",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "39b6b6c0-3b28-4296-bb66-f4618f5b6ff3"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 20 de la boîte (parent 39b6b6c0, langue source en) : accroche du parent mot pour mot. Choses neuves face au parent (une signature de plat, connaître les étoiles, des cartes postales de chaque voyage, siffler un air de jazz, une collection de vieux vinyles, les faits étranges). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c3292032",
+   "texte_overlay": "niche things that make you\ninstantly cooler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b8d4a725",
+   "texte_overlay": "having a signature dish",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "147a2a6d",
+   "texte_overlay": "knowing a few constellations",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "57336742",
+   "texte_overlay": "a postcard from every trip",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "cbca0f5c",
+   "texte_overlay": "a vinyl collection,\neven a tiny one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fff955b1",
+   "texte_overlay": "going to the cinema alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3cbd60dd",
+   "texte_overlay": "knowing strange facts\n\ntrade the scroll for a story:\nart, history, science.",
+   "texte_sophia": "knowing strange facts\n\ntrade the scroll for 5 minutes\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "247832ad",
+   "texte_overlay": "which one are you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7624618438270520589/5.jpg"
+  }
+ ]
+}

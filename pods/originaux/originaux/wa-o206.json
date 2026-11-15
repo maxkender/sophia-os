@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o206",
+ "type_bleo": "full_test",
+ "titre": "questions that make any conversation go deeper #conversation #socialskills #deeptalk #selfimprovement #connection",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "dc65211f-db60-4764-80a1-cc17d64c2c16"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, dc65211f). full test BLEO : accroche jamais faite (format « questions that make any X »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "11529ee2-5df1-4db0-9f87-5c0e9806e325",
+   "texte_overlay": "questions that make any\nconversation go deeper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "045c3f60-e273-4567-bd4f-5d614607a37d",
+   "texte_overlay": "what made you smile today\n\nit's lighter than how are you, and it gets a real answer. people love sharing small happy moments, and it sets a warm and open tone for everything after.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "03a5772c-74b3-4506-9dfb-4ec9000236f8",
+   "texte_overlay": "what are you excited about\n\nthis question lets people talk about what they love. you'll see their whole face change, and the conversation instantly gets more personal and honest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0206cc3f-fa94-4b18-9dc3-10fa60285495",
+   "texte_overlay": "what did you learn recently\n\nasking this invites real stories instead of small talk, and it works even better when you have a fascinating little answer of your own ready to share first.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/4.jpg",
+   "texte_sophia": "what did you learn recently\n\ni always have an answer ready because i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet. sharing it first makes everyone open up with their own."
+  },
+  {
+   "position": 5,
+   "media_id": "0528fade-d664-4e5e-856e-58eab8f010ab",
+   "texte_overlay": "what would you do with a free year\n\ndream questions let people show who they really are. their answer tells you more about their values than an hour of polite small talk and conversation ever could.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "12080b28-4633-4b10-a661-58d2fc914d93",
+   "texte_overlay": "what changed your mind\n\nasking about a moment someone changed their opinion leads to their most honest stories. it shows respect, and it makes people feel truly interesting and heard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/6.jpg"
+  }
+ ]
+}

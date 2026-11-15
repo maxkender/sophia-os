@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o160",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "983faad7-1640-452f-924d-d42cb9ac8853",
+ "titre": "extracurriculars that scream \"i belong in this major\" #university #extracurriculars #smartgirl #studytok #college",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "632d2be2-8d6f-4ec6-8753-1c4a41516421"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 10 de la boîte (parent 983faad7, langue source en) : accroche du parent mot pour mot. Filières neuves face au parent (histoire, lettres, langues, histoire de l'art) avec des activités concrètes. Sophia au milieu, pour toutes les filières (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b3145ad5",
+   "texte_overlay": "extracurriculars that scream\n\"i belong in this major\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "87678048",
+   "texte_overlay": "history\n\n• museum volunteering\n• local history society\n• archive internship",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c9504d2d",
+   "texte_overlay": "literature\n\n• school magazine\n• creative writing club\n• book club",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0f299321",
+   "texte_overlay": "any major\n\n• general knowledge, every day:\nart, history, science",
+   "texte_sophia": "any major\n\n• general knowledge, every day:\n5 minutes on an app\nlike Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "88ffa200",
+   "texte_overlay": "languages\n\n• exchange programme\n• tandem partner\n• translation club",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6a93dfa2",
+   "texte_overlay": "art history\n\n• gallery volunteering\n• sketch club\n• museum guide",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "88b98345",
+   "texte_overlay": "save this for next year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  }
+ ]
+}

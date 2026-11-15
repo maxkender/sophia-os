@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o106",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "db43ee88-b4a8-4ff9-9061-7284f2c814f1",
+  "titre": "refined words that make you sound well read #vocabulary #studytok #english",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "db43ee88-b4a8-4ff9-9061-7284f2c814f1"
+  ],
+  "notes": "Déclinaison G2 de db43ee88 (notre cs-o050 en G1 : r 45,45 en allemand, 41,7 k vues), ligne 3 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o096 et cs-o102 : « refined words that make you sound well read ». Mots neufs, aucun de cs-o050, cs-o096, cs-o102 ni du parent 85dd07fe ; définitions et exemples vérifiés dans leur sens courant : eloquence n'est pas repris (eloquent déjà fait) ; mots : astute, benevolent, concise, nuance, perseverance (place micabo, slide 6 : se tester). Depuis le 12/11 : images prises dans toute la banque (aucune livrée depuis 14 jours), son alterné parmi 6 sons du label qui ont marché. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a2eefb9a",
+      "texte_overlay": "refined words that make you sound well read",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "d384eff7",
+      "texte_overlay": "astute\nadjective — quick to notice and understand things\n\"an astute reader spots the theme in chapter one.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "fe084c05",
+      "texte_overlay": "benevolent\nadjective — kind and wanting to help\n\"our benevolent teacher stayed late to explain it again.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b2b5b067",
+      "texte_overlay": "concise\nadjective — short and clear\n\"keep your answer concise: three sentences.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "568af3d0",
+      "texte_overlay": "nuance\nnoun — a small, subtle difference\n\"a good essay shows the nuance, not just yes or no.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1ef07dc8",
+      "texte_overlay": "perseverance\nnoun — continuing despite difficulty\n\"quizzing yourself every night takes perseverance.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "b6ea5ae4",
+      "texte_overlay": "part 3? 📜",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

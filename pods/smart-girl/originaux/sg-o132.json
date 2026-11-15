@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o132",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9cfe8a01-99cb-4972-aeda-bdfa1e0e6403",
+ "titre": "brave little things to do alone this year #solodate #confidence #smartgirl #selfimprovement #thatgirl",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "c464c730-0eff-45bc-a507-c6458343b7a8"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 4 de la boîte (parent 9cfe8a01, langue source en) : accroche reformulée (« 10/10 uncomfortable things to do alone (but it gets easier) » → « brave little things to do alone this year »), troisième et dernière déclinaison du parent, autre que sg-o107 et sg-o120. Items neufs (une table pour une dans un beau restaurant, une nocturne au musée, un cours de danse, demander un conseil à un inconnu, une randonnée balisée seule). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9cac710d",
+   "texte_overlay": "brave little things to do\nalone this year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2509d077",
+   "texte_overlay": "1. book a table for one\nat a beautiful restaurant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f6819a56",
+   "texte_overlay": "2. go to a museum\nlate opening",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "74b48018",
+   "texte_overlay": "3. take a dance class\nwhere you know no one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8147208e",
+   "texte_overlay": "4. ask a stranger for their\nfavourite book",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d6b201aa",
+   "texte_overlay": "5. walk a marked trail alone,\nphone in your pocket",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d96d58db",
+   "texte_overlay": "6. learn something new\nevery night, just for you",
+   "texte_sophia": "6. learn something new every\nnight, just for me. i use a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "98e8df8d",
+   "texte_overlay": "save this and pick one\nfor this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668403778449607956/8.jpg"
+  }
+ ]
+}

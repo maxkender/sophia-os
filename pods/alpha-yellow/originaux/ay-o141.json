@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o141",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "00c19d40-94b5-4832-b4ce-8f9182839457",
+ "titre": "how to become easier to talk to #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "00c19d40-94b5-4832-b4ce-8f9182839457"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 61a52509. déclinaison G1 de la ligne 11 de la boîte (00c19d40, sv 6,9 k r 2,02) : accroche du parent mot pour mot (minuscules du parent gardées). Items neufs, aucun repris du parent (questions ouvertes, écoute, partager, attention, émotions).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "61a52509",
+   "texte_overlay": "how to become\neasier to talk to",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Smile with your eyes when someone approaches. A warm face before you even speak tells people they're welcome. Most people decide in a second if you're approachable.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Lose the headphones in social places. At the gym, the café, the office kitchen. Headphones say \"don't talk to me,\" even when you'd love a conversation.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "React with your face. Raise your eyebrows at a surprise, laugh at the funny part. Visible reactions show people you're enjoying the chat, and they open up more.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Don't correct small details. Wrong date, wrong name of a film, it doesn't matter. Letting small things go keeps the conversation flowing and people relaxed.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. You'll always have something interesting to add, and people will love talking to you.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. You'll always have something interesting to add.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Admit your own small fails. \"I got lost three times on the way here.\" Little confessions make you human and help others feel comfortable sharing theirs.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Be the same with everyone. Friendly to the intern and the boss, the waiter and the client. People feel safe around someone who treats everyone with the same respect.",
+   "media_id": "9b2ff5e0"
+  }
+ ]
+}

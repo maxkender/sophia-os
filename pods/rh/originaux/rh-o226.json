@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o226",
+ "type_bleo": "full_test",
+ "titre": "les 5 trucs que je ferais si je perdais mon job demain #chomage #emploi #carriere #rechercheemploi #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta A (confession à la 1re personne), slide Sophia en position 5. Full test : accroche jamais faite chez nous (anticiper la perte d'emploi). Rien sur les droits précis : se renseigner. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3e25fa07",
+   "texte_overlay": "les 5 trucs que je ferais\nsi je perdais mon job demain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8302d1a3",
+   "texte_overlay": "1. je garderais mes preuves de travail\nréussites, chiffres, retours positifs. dès aujourd'hui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "87cf707f",
+   "texte_overlay": "2. je me renseignerais sur mes droits\nauprès des bons interlocuteurs, avant de signer quoi que ce soit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8a2564a2",
+   "texte_overlay": "3. j'appellerais 5 personnes de mon réseau\ndans la semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "16be2f21",
+   "texte_overlay": "4. je garderais une routine\nlever, sport, et 5 minutes par jour à apprendre un truc",
+   "texte_sophia": "4. je garderais une routine\nlever, sport, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8b95cdb9",
+   "texte_overlay": "5. je me laisserais une semaine pour souffler\navant de postuler partout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "8e37fac7",
+   "texte_overlay": "perdre un job, ce n'est pas perdre ta valeur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8f98af16",
+   "texte_overlay": "t'as un plan B, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

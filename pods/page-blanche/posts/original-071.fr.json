@@ -1,0 +1,239 @@
+{
+ "post_id": "original-071",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 habits to make you",
+      "dangerously confident"
+     ],
+     "fr": "les endroits les plus sous-cotés pour lire",
+     "texte": "les endroits les plus sous-cotés pour lire"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(y'a pas que ton lit)",
+     "alignement": "droite",
+     "texte": "(y'a pas que ton lit)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7688807102764092705_4.jpg",
+      "boite": [
+       544,
+       467,
+       457,
+       487
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "une [[table au fond]] d'un café"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "un café, un livre, et personne qui attend rien de toi pendant une heure"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "les conversations autour deviennent [[un bruit de fond]] et ta tête se pose"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "et vu que t'as payé ton café, tu lis jusqu'à la dernière gorgée"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "la [[place côté fenêtre]] du train"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "pas de wifi qui marche, nulle part où aller, et le paysage qui défile"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "un long trajet, c'est du temps rien qu'à toi, et tu [[lis 50 pages sans voir le temps passer]]"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "et tu descends du train [[l'esprit plus calme]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "et pour les [[petits creux]] de ta journée"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "salle d'attente, queue, arrêt de bus. trop court pour sortir un livre, assez long pour [[commencer à scroller]]"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "ce qui a remplacé mon scroll : une page de mon livre, un poème que je connais par cœur, et [[l'appli Sophia]] quand je prends mon tel quand même"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "procrastinating all day"
+     ],
+     "fr": "procrastiner [[toute la journée]]",
+     "texte": "sur la plage, [[au soleil]]"
+    },
+    "T2": {
+     "en": [
+      "every time you tell",
+      "yourself you'll do then",
+      "dont, you lose trust in",
+      "yourself"
+     ],
+     "fr": "chaque fois que tu te dis « je le fais » et que non, tu [[perds confiance en toi]]",
+     "texte": "ton tel reste dans le sac à cause du sable et de l'eau, donc [[le livre gagne d'office]]"
+    },
+    "T3": {
+     "en": [
+      "when you think about",
+      "doing something, do it",
+      "instantly"
+     ],
+     "fr": "quand tu penses à faire un truc, [[fais-le direct]]",
+     "texte": "du soleil sur les pages, et [[un roman fini avant ce soir]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "une table tranquille [[à la pause déj]]"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "20 pages avant que ton café refroidisse, et personne remarque rien"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "un livre au boulot, c'est [[un autre monde pendant 15 minutes]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "et tu reviens au bureau [[la tête claire]], pas encore plus cramée"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

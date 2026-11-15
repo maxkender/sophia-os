@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o184",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3a445fd3-6a19-4a16-867d-acd5d4bde48a",
+ "titre": "refined little habits that make you instantly more attractive #elegance #attractive #smartgirl #presence #habits",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "34f68d36-92c7-487d-b087-3fc52239dc32"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 4 de la boîte (parent 3a445fd3, langue source en) : accroche reformulée (« elegant habits that make you look 10x more attractive » → « refined little habits that make you instantly more attractive »), autre que sg-o170. Présence, jamais corps : habitudes neuves (dire merci au chauffeur, rendre ce qu'on emprunte vite, féliciter sincèrement, se souvenir d'une recommandation, parler doucement au téléphone en public). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "981489ea",
+   "texte_overlay": "refined little habits that make\nyou instantly more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3746f6ad",
+   "texte_overlay": "1. thanking the bus driver",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6d3497ac",
+   "texte_overlay": "2. returning what you borrow,\nquickly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1ca45a6f",
+   "texte_overlay": "3. knowing a little about\neverything\n\nart, history, science.",
+   "texte_sophia": "3. knowing a little about\neverything\n\ni learn something every day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "98b85350",
+   "texte_overlay": "4. congratulating people\nand meaning it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e9ec15a4",
+   "texte_overlay": "5. remembering what they\nrecommended to you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b1dff668",
+   "texte_overlay": "6. speaking softly on the phone\nin public",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ba9cf6da",
+   "texte_overlay": "which one starts today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  }
+ ]
+}

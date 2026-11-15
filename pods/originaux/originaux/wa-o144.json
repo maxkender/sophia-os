@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o144",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5ecd25d3-3b28-42f4-b36d-45dd24021d33",
+ "titre": "hobbies that will make you fearlessly self possessed #confidence #selfimprovement #hobbies #mindset #growth",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "7c5141ca-3f7c-4cea-a74e-0fffe3bdc82d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 7c5141ca). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 5ecd25d3). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8c7e98f3-a947-4dc3-b900-534c8e0b8d92",
+   "texte_overlay": "hobbies that will make you\nfearlessly self possessed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664628457627798798/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "533f0028-cbd2-4de4-9e2b-cb14d70545c4",
+   "texte_overlay": "solo museum trips\n\nvisit a museum alone and spend as long as you like in front of one painting. enjoying your own company in a public place is one of the quietest forms of confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664628457627798798/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fbd582f5-2e93-4637-b0eb-552abf5fb80f",
+   "texte_overlay": "open mic nights\n\nsign up to read a poem or tell a short story at an open mic, just once. the fear beforehand is huge, and the pride afterwards lasts much longer than the fear did.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664628457627798798/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "387bc9d2-2490-48af-ba15-0897d0ecbd56",
+   "texte_overlay": "learning to box\n\ntake a beginner boxing class once a week. learning that you can take a hit and keep going changes how you stand in every room, long after you leave the gym.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664628457627798798/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f5418d2a-70a3-473d-8832-19c1367f1d69",
+   "texte_overlay": "curious mornings\n\nspend 5 minutes every morning learning something new: a myth, a planet, a famous painter. walking into the day with something interesting in your head makes you steady.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664628457627798798/5.jpg",
+   "texte_sophia": "curious mornings\n\nspend 5 minutes every morning learning something new: a myth, a planet, a painter. the Sophia app turns it into one short lesson a day, and something interesting in your head keeps you steady."
+  },
+  {
+   "position": 6,
+   "media_id": "55a0aa93-369f-4f07-a43e-f9c4ce9ac5a6",
+   "texte_overlay": "dancing classes\n\njoin a dance class where you have to move in front of strangers. looking a bit silly on purpose is the fastest way to stop being afraid of looking silly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664628457627798798/6.jpg"
+  }
+ ]
+}

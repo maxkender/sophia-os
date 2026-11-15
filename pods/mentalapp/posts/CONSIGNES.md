@@ -24,20 +24,25 @@
   « tier list des / sources de / dopamine », « Tierlist der / Dopamin- /
   quellen », « tier list: / Dopamin / kaynakları ».
 - **Pas de tiret long**, pas de point-virgule.
-- **Jamais** Journey, Mental, « check bio », « lien en bio ».
+- **Jamais** Journey, Mental, UnSwipe, « check bio », « lien en bio ».
 
-## L'élément UnSwipe
+## L'élément Sophia
 
-Fixé par langue dans `atelier/app.ts` (décision du 17/10) :
+Fixé par langue dans `atelier/app.ts` (relance du 15/11). Sophia se nomme
+toujours avec « like / comme » (prompt `placement_sophia`), jamais « the
+Sophia app ». Le test part en anglais seul.
 
 | Langue | Texte | Appli |
 | --- | --- | --- |
-| en | delete short-videos | (UnSwipe app) |
-| fr | supprimer les vidéos courtes | (appli UnSwipe) |
-| de | Kurzvideos löschen | (UnSwipe-App) |
-| es | borrar los vídeos cortos | (app UnSwipe) |
-| it | eliminare i video brevi | (app UnSwipe) |
-| tr | kısa videoları sil | (UnSwipe uygulaması) |
+| en | learn, then scroll | (apps like Sophia) |
+| fr | apprendre, puis scroller | (applis comme Sophia) |
+| de | erst lernen, dann scrollen | (Apps wie Sophia) |
+| es | aprender, luego scrollear | (apps como Sophia) |
+| it | imparare, poi scrollare | (app come Sophia) |
+| tr | önce öğren, sonra kaydır | (Sophia gibi uygulamalar) |
+
+Jusqu'au 4/11 : l'élément UnSwipe, « delete short-videos (UnSwipe app) ».
+Plus jamais UnSwipe dans un rendu.
 
 ## Le pied de slide
 

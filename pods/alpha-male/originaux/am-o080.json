@@ -1,0 +1,60 @@
+{
+ "source_id": "am-o080",
+ "type_bleo": "full_test",
+ "titre": "Rules for being the guest everyone invites back #men #gentleman #respect #manners #selfimprovement",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 10/11. Full test du jour (2 sur 2, jauge : 2 sur 7). Accroche jamais faite chez nous : aucun « guest » dans donnees/label.json. Le savoir-vivre concret (terrain de am-o010 et am-o002, nos percées), promesse neuve : être l'invité qu'on réinvite. Format : numéro, règle, deux lignes. Images : restaurants de la banque et une célébrité (autorisé) ; slide Sophia : salle de restaurant vide, sans personne. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "03a41093",
+   "texte_overlay": "Rules for being the guest\neveryone invites back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "12b4f574",
+   "texte_overlay": "1. Never arrive empty-handed\n\nDessert, flowers, a good bottle\nof something. Anything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3da13e9a",
+   "texte_overlay": "2. Arrive on time,\nnot early\n\nTen minutes early catches\nthe host still getting ready.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "027f7af8",
+   "texte_overlay": "3. Bring good conversation\n\nA story, a question, something\nyou learned this week.",
+   "texte_sophia": "3. Bring good conversation\n\nA story, a question, something\nyou learned this week\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "34f9f572",
+   "texte_overlay": "4. Offer to help\nin the kitchen\n\nThen actually help.\nDishes count.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c04ca4c",
+   "texte_overlay": "5. Phone stays\nin your pocket\n\nYou were invited for you,\nnot your screen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "207ef742",
+   "texte_overlay": "6. Leave before\nthey get tired\n\nThe best guests leave\nthe night wanting more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2fc74eeb",
+   "texte_overlay": "7. Text thanks\nthe next morning\n\nOne line. Name one thing\nyou loved.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  }
+ ]
+}

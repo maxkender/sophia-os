@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o098",
+  "type_bleo": "full_test",
+  "titre": "how i read a book for class and actually remember it for the test #studytok #booktok #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« book for class » absent du label). Accroches écrites : « how i read a book for class and actually remember it for the test » (retenue : un besoin très précis), « reading for english class tips » (écartée : plate), « stop forgetting the books you read for school » (écartée : injonction). Gestes vrais : lire le résumé de la quatrième de couverture, une fiche personnages, une phrase par chapitre, marquer 3 citations, se tester sur les chapitres de la semaine (place micabo, slide 6), en parler à quelqu'un. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "11569323",
+      "texte_overlay": "how i read a book for class\nand actually remember it for the test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "116c92b6",
+      "texte_overlay": "i read the back cover first.\ni know where the story is going.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "12714368",
+      "texte_overlay": "a characters page: name, who they are, one detail.\nno more \"wait, who's that?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "13b5123d",
+      "texte_overlay": "one sentence per chapter, right after i finish it.\nthe whole plot on one page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1477c1a9",
+      "texte_overlay": "i mark 3 quotes i could use in an essay.\nnot 30. three.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "c4495051",
+      "texte_overlay": "every sunday i quiz myself on the week's chapters.\nwhat happened, who, why.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1523bf52",
+      "texte_overlay": "i talk about it with someone.\nexplaining the plot locks it in.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

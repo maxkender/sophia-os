@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o168",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0a23ed6a-21ce-4b62-8894-03d0ce6192ca",
+ "titre": "How To Become Socially Confident Fast #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "0a23ed6a-21ce-4b62-8894-03d0ce6192ca"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 6c64ca97. déclinaison G1 de la ligne 11 de la boîte (0a23ed6a, it 5,4 k r 1,28) : accroche du parent mot pour mot (casse du parent gardée). La ligne 10 (« How To Become Rodiculously Social ») est sautée : faute de frappe dans l'accroche à reprendre mot pour mot. Items neufs, aucun repris du parent (petits refus, posture, débit, approbation, petites victoires). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6c64ca97",
+   "texte_overlay": "How To Become Socially\nConfident Fast",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688481645472664864/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Talk to one new person every day. The cashier, a colleague, a neighbour. Small daily reps make talking to people feel normal instead of terrifying.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Go to events alone sometimes. Without a friend to hide behind, you're forced to talk to new people, and you discover you're much better at it than you think.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Prepare your answer to common questions. \"What do you do?\", \"Where are you from?\" A relaxed, interesting answer ready in advance takes the panic out of small talk.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Say yes to invitations, even when you're tired. Every evening out is practice. Confidence grows from showing up, not from waiting until you feel ready.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: nothing to talk about, so I avoided people. After: five minutes a day of history, art or science, and a head full of topics that makes talking easy.",
+   "texte_sophia": "Before: nothing to talk about, so I avoided people. After: five minutes a day on a micro-learning app like the Sophia app. Now my head is full of topics to share.",
+   "media_id": "5305ee58"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Notice when it goes well. After a good chat, take a second to register it. Remembering your wins is how your brain learns that social moments are safe.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Forgive yourself for awkward moments. Everyone has them. The confident people you admire just stopped replaying them at night. Let them go and try again tomorrow.",
+   "media_id": "38041cfe"
+  }
+ ]
+}

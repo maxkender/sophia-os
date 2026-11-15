@@ -1,0 +1,565 @@
+{
+ "post_id": "original-062",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "ton cerveau : scroll vs livres"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(deux issues)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "keep skipping slides instead of",
+      "reading"
+     ],
+     "texte": "le moment où [[t'essaies de t'endormir]]",
+     "fr": "le moment où [[t'essaies de t'endormir]]"
+    },
+    "T1b": {
+     "en": [
+      "why read the actual text when you can just look at",
+      "the headings and swipe?"
+     ],
+     "texte": "scroll : encore une vidéo, et d'un coup il est 1h40 et [[t'as plus sommeil]]",
+     "fr": "scroll : encore une vidéo, et d'un coup il est 1h40 et [[t'as plus sommeil]]"
+    },
+    "T2": {
+     "en": [
+      "train your brain to",
+      "only read the",
+      "headline and",
+      "move on"
+     ],
+     "texte": "lecture : [[KO en 10 pages]], la tête dans le bouquin",
+     "fr": "lecture : [[KO en 10 pages]], la tête dans le bouquin"
+    },
+    "T3": {
+     "en": [
+      "most people won't even read this part, just keep",
+      "reading headlines and being misinformed!"
+     ],
+     "texte": "le scroll, ça s'arrête jamais, c'est à toi de dire stop. un livre [[décide à ta place]] vers la page 12",
+     "fr": "le scroll, ça s'arrête jamais, c'est à toi de dire stop. un livre [[décide à ta place]] vers la page 12"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 2
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "checking your phone as soon as you",
+      "wake up"
+     ],
+     "fr": "checker ton tel [[dès que t'ouvres les yeux]]",
+     "texte": "[[le lendemain matin]] : même réveil, deux ambiances"
+    },
+    "T2": {
+     "en": [
+      "before you’re even out of bed, you’ve scrolled tiktok,",
+      "checked messages and seen every notification"
+     ],
+     "fr": "avant même de sortir du lit, t'as scrollé tiktok, lu tes messages et vu [[toutes tes notifs]]",
+     "texte": "scroll : tu te réveilles dans le brouillard, tu prends ton tel et tu revois des vidéos [[déjà oubliées]]"
+    },
+    "T3": {
+     "en": [
+      "your brain starts the day",
+      "with a flood of dopamine, so",
+      "everything after it feels",
+      "boring"
+     ],
+     "fr": "ton cerveau démarre la journée avec [[une vague de dopamine]], du coup tout le reste paraît chiant",
+     "texte": "lecture : t'as dormi plus tôt, et au café [[l'histoire te trotte encore dans la tête]]"
+    },
+    "T5": {
+     "en": [
+      "give yourself the first 30",
+      "minutes without your phone"
+     ],
+     "fr": "accorde-toi [[les 30 premières minutes]] sans ton tel",
+     "texte": "un cerveau fait snooze. l'autre [[veut connaître la suite]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 236,
+      "l": 926,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 38,
+       "y": 236,
+       "l": 923,
+       "h": 56,
+       "base": 288
+      },
+      {
+       "x": 35,
+       "y": 305,
+       "l": 215,
+       "h": 54,
+       "base": 356
+      }
+     ],
+     "pas": 68,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 416,
+      "l": 848,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 416,
+       "l": 846,
+       "h": 37,
+       "base": 444
+      },
+      {
+       "x": 40,
+       "y": 460,
+       "l": 767,
+       "h": 36,
+       "base": 494
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 40,
+      "y": 542,
+      "l": 490,
+      "h": 538
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 560,
+      "y": 576,
+      "l": 460,
+      "h": 165
+     },
+     "lignes": [
+      {
+       "x": 560,
+       "y": 576,
+       "l": 396,
+       "h": 34,
+       "base": 602
+      },
+      {
+       "x": 560,
+       "y": 619,
+       "l": 460,
+       "h": 34,
+       "base": 646
+      },
+      {
+       "x": 560,
+       "y": 662,
+       "l": 374,
+       "h": 35,
+       "base": 689
+      },
+      {
+       "x": 561,
+       "y": 706,
+       "l": 99,
+       "h": 35,
+       "base": 733
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 564,
+      "y": 809,
+      "l": 456,
+      "h": 83
+     },
+     "lignes": [
+      {
+       "x": 567,
+       "y": 809,
+       "l": 396,
+       "h": 40,
+       "base": 846
+      },
+      {
+       "x": 564,
+       "y": 856,
+       "l": 456,
+       "h": 36,
+       "base": 890
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never reading a full book"
+     ],
+     "fr": "[[jamais finir]] un livre",
+     "texte": "le [[trajet]], tel en main"
+    },
+    "T2": {
+     "en": [
+      "we are entering a LITERARY CRISIS. less people are",
+      "reading than ever before"
+     ],
+     "fr": "on entre dans une [[CRISE DE LA LECTURE]]. les gens lisent moins que [[jamais]]",
+     "texte": "scroll : 20 minutes de vidéos, et à ton arrêt [[t'es incapable d'en citer une]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea for whole chapters, and",
+      "resist the urge for something",
+      "new"
+     ],
+     "fr": "[[un livre te fait suivre une idée sur des chapitres entiers]] et résister à l'envie de zapper",
+     "texte": "lecture : quelques pages, et [[une idée qui te trotte dans la tête]] toute la journée"
+    },
+    "T4": {
+     "en": [
+      "if you struggle with",
+      "doomscrolling, i recommend",
+      "this thing that blocks tiktok",
+      "until i read a book for 20",
+      "minutes"
+     ],
+     "fr": "si tu [[doomscrolles]], tente une vraie leçon plutôt qu'un résumé. mes 5 min du jour sur [[l'appli Sophia]] : Camus et Sisyphe",
+     "texte": "avant je scrollais à chaque trajet. maintenant, quand je sors mon tel, j'apprends un truc en 5 min sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 43,
+      "y": 224,
+      "l": 625,
+      "h": 57
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 224,
+       "l": 625,
+       "h": 57,
+       "base": 277
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 341,
+      "l": 837,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 341,
+       "l": 837,
+       "h": 37,
+       "base": 375
+      },
+      {
+       "x": 43,
+       "y": 385,
+       "l": 401,
+       "h": 37,
+       "base": 419
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 559,
+      "y": 394,
+      "l": 420,
+      "h": 792
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 478,
+      "y": 1191,
+      "l": 341,
+      "h": 134
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 516,
+      "l": 440,
+      "h": 164
+     },
+     "lignes": [
+      {
+       "x": 38,
+       "y": 516,
+       "l": 440,
+       "h": 37,
+       "base": 550
+      },
+      {
+       "x": 38,
+       "y": 560,
+       "l": 440,
+       "h": 36,
+       "base": 594
+      },
+      {
+       "x": 40,
+       "y": 603,
+       "l": 438,
+       "h": 37,
+       "base": 631
+      },
+      {
+       "x": 40,
+       "y": 654,
+       "l": 67,
+       "h": 26,
+       "base": 675
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 769,
+      "l": 441,
+      "h": 212
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 769,
+       "l": 308,
+       "h": 39,
+       "base": 799
+      },
+      {
+       "x": 37,
+       "y": 815,
+       "l": 439,
+       "h": 37,
+       "base": 849
+      },
+      {
+       "x": 39,
+       "y": 856,
+       "l": 439,
+       "h": 39,
+       "base": 892
+      },
+      {
+       "x": 37,
+       "y": 902,
+       "l": 398,
+       "h": 35,
+       "base": 936
+      },
+      {
+       "x": 38,
+       "y": 946,
+       "l": 131,
+       "h": 35,
+       "base": 980
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "[[une discussion]] au dîner entre potes"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "scroll : [[« t'as vu la vidéo… »]]"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "tu passes 2 minutes à raconter une vidéo, personne l'a vue, et [[le sujet meurt]] direct à table"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "lecture : tu sors [[un truc bizarre que t'as lu]] et d'un coup tout le monde a un avis, et plus personne regarde son tel"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "[[7 jours après]], il reste quoi"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "scroll : des heures de vidéos, et [[t'en retiens pas une seule]]"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "lecture : tu te souviens encore de [[la fin]], d'une phrase que t'as adorée et du nom du chat"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "et tu te surprends à [[y repenser]] sous la douche, sans raison"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "zéro jugement, scroller c'est cool aussi. mais [[y'en a qu'un qui te reste]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7686189452963712288_2.jpg",
+      "boite": [
+       234,
+       452,
+       297,
+       272
+      ]
+     }
+    }
+   }
+  }
+ }
+}

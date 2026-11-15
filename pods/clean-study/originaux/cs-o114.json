@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o114",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a07505e9-f7b3-45eb-aa09-9fff7aab1fe5",
+  "titre": "how i take notes when the teacher talks way too fast #studytok #studytips #notetaking",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "a07505e9-f7b3-45eb-aa09-9fff7aab1fe5"
+  ],
+  "notes": "Déclinaison G1 de a07505e9 (notre cs-o065 : r 4,98 en italien, 6,2 k vues), ligne 4 de la boîte. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o065 (abréviations, mots-clés, ligne vide, compléter le soir, se tester, demander) : une page coupée en deux colonnes, ne noter que ce que le prof écrit ou répète, des flèches au lieu des phrases, la photo du tableau interdite (recopier), relire 2 minutes à la fin du cours, se tester sur la colonne de droite le soir (place micabo, slide 6). Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "69b6683d",
+      "texte_overlay": "how i take notes when the teacher\ntalks way too fast",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8232067a",
+      "texte_overlay": "i split the page in two columns.\nleft: key words. right: the details.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "17d63c3a",
+      "texte_overlay": "i only write what the teacher writes or repeats.\nthe rest is extra.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02df15bd",
+      "texte_overlay": "arrows instead of sentences.\ncause → effect, idea → example.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6fbff747",
+      "texte_overlay": "no photos of the board.\nwriting it is what makes it stick.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "fdcabd2e",
+      "texte_overlay": "that evening, i cover the right column and quiz myself.\nthe left column is my question list.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6197252e",
+      "texte_overlay": "2 minutes at the end of class to reread.\ni fix what i can't read right away.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o159",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "40a23511-45f5-4471-a0d1-d051334ad383",
+ "titre": "7 quiet habits that make people take you more seriously #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "40a23511-45f5-4471-a0d1-d051334ad383"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture e1140173. déclinaison G2 de la ligne 1 de la boîte (40a23511, ay-o103 « 7 subtle behaviors that make people take you seriously »). Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o025. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1140173",
+   "texte_overlay": "7 quiet habits that make\npeople take you more seriously",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Following up in writing. After a call, a two-line email: \"As agreed, I'll send the plan by Tuesday.\" Clear records make you look organised and reliable.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Keeping your phone off the table in meetings. Out of sight, not face down. Your full attention tells people their time and ideas genuinely matter to you.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Speaking about results, not effort. Not \"I worked so hard on this\" but \"This saves the team three hours a week.\" Outcomes earn respect, complaints don't.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Being on time to the minute. Not early by half an hour, not late by five. Punctuality shows you respect other people's time and manage your own very well.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Knowing a little about many things. I do five minutes a day of history, art or science, and having real knowledge makes people trust what I say a bit more each time.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Real knowledge makes people trust what I say a bit more each time.",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Asking one sharp question instead of five vague ones. \"What's the biggest risk here?\" One good question shows you understand more than a long speech.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Dressing one level above what's needed. A clean shirt on a casual day, polished shoes for a simple meeting. People take your words more seriously when you look prepared.",
+   "media_id": "9e66209e"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o143",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "59952cba-1c39-440e-adaa-66b5e1faf211",
+ "titre": "hobbies that make you the most interesting person at dinner #hobbies #interesting #smartgirl #conversation #culture",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 5 de la boîte (parent 59952cba, langue source en) : accroche reformulée (« 6 hobbies that make you surprisingly well rounded » → « hobbies that make you the most interesting person at dinner »), troisième et dernière déclinaison du parent, autre que sg-o123 et sg-o134. Hobbies neufs (histoire de sa ville, vinyles, aquarelle, bridge, marchés d'antiquités). Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e4a7a6a7",
+   "texte_overlay": "hobbies that make you the most\ninteresting person at dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "56b47b34",
+   "texte_overlay": "1. learning the history\nof your city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f29e1084",
+   "texte_overlay": "2. collecting vinyl records",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e19aac22",
+   "texte_overlay": "3. watercolour painting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "31e965fa",
+   "texte_overlay": "4. learning to play bridge",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e5ca12a6",
+   "texte_overlay": "5. antique markets on sunday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "274be13f",
+   "texte_overlay": "6. one small lesson a day\n\na painting, a war, a planet.",
+   "texte_sophia": "6. one small lesson a day\n\ni use a micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0f791832",
+   "texte_overlay": "save this and pick one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  }
+ ]
+}

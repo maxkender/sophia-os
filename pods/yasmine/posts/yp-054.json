@@ -1,0 +1,453 @@
+{
+ "id": "yp-054",
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je prépare un oral sans stresser"
+ },
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je prépare un oral sans stresser",
+  "es": "cómo preparo una exposición sin nervios",
+  "tr": "sözlüye stressiz nasıl hazırlanıyorum"
+ },
+ "legendes": {
+  "fr": "ton prochain oral va bien se passer 🎤 #oral #grandoral #studytok #thatgirl #stress",
+  "es": "tu próxima exposición va a salir bien 🎤 #exposicion #oral #studytok #thatgirl #nervios",
+  "tr": "bir sonraki sözlün iyi geçecek 🎤 #sözlü #sunum #studytok #thatgirl #stres"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "02cc93bc-1d5d-4ed9-bdc7-6f1d205adacb",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7c725ca9-04e2-4354-804e-1024892189b1/1.jpg?v=1787157574845",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format photos à petites légendes (yp-002). cta B : la mise en scène iPhone micabo en photo pleine de l’étape « je me teste sur les questions possibles »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "comment je prépare",
+     "lignes": [
+      "UN ORAL",
+      "SANS",
+      "STRESSER"
+     ],
+     "taille": 160
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "cómo preparo",
+     "lignes": [
+      "UNA",
+      "EXPOSICIÓN",
+      "SIN NERVIOS"
+     ],
+     "taille": 130
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "lignes": [
+      "SÖZLÜYE",
+      "STRESSİZ",
+      "NASIL",
+      "HAZIRLANIYORUM"
+     ],
+     "taille": 96
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "abd08b74-f206-4a8a-b3cb-4f5bbbd6c8b8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0dd56220-d158-4543-bf36-b173974ce54d/1.jpg?v=1791726725024",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "j’écris mon plan sur une fiche🗂️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "pas mon texte en entier"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "escribo mi esquema en una ficha🗂️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "no el texto entero"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "planımı bir karta yazıyorum🗂️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "bütün metni değil"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4357dba1-14b1-4190-b223-920fe8b1abb0",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/03a60f5e-78bc-4f8d-99d1-9232fa709140/7.jpg?v=1790612269874",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je le dis à voix haute 3 fois🗣️"
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "debout, comme le jour J"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "lo digo en voz alta 3 veces🗣️"
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "de pie, como el día D"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "3 kez yüksek sesle söylüyorum🗣️"
+     ],
+     "x": 540,
+     "y": 1500,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "ayakta, sınav günü gibi"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "05bf6435-9dcd-412e-97e1-952a4963e274",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/48412475-8408-49c3-adfa-5d1fa55c30aa/4.jpg?v=1787158151288",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je fais une répétition générale🎬"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "la veille, du début à la fin"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "hago un ensayo general🎬"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "la noche antes, de principio a fin"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "genel prova yapıyorum🎬"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "bir gece önce, baştan sona"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je me teste sur les questions📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "celles que le prof peut poser⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "me pongo a prueba con preguntas📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "las que puede hacer el profe⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "olası soruları çalışıyorum📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "hocanın sorabileceği sorular⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2909a863-79ab-41cc-845b-fbd12d2b9ff5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/521e0531-0a94-491b-a33f-7a47e9225523/2.jpg?v=1790607973423",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je répète devant une amie👯"
+     ],
+     "x": 540,
+     "y": 960,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "ou devant mon miroir"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "lo ensayo delante de una amiga👯"
+     ],
+     "x": 540,
+     "y": 960,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "o delante del espejo"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "arkadaşıma prova yapıyorum👯"
+     ],
+     "x": 540,
+     "y": 960,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "ya da aynanın karşısında"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "397760c3-ffbb-468b-8f11-27cd116606a3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e9948ff4-c6a2-49c4-aa31-ba68ff180103/6.jpg?v=1787136854610",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "je respire avant de commencer🌿"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "4 secondes, 4 secondes"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "respiro antes de empezar🌿"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "4 segundos, 4 segundos"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "başlamadan önce nefes alıyorum🌿"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "4 saniye, 4 saniye"
+     ]
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

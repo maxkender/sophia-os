@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o115",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "df6c2ebb-4fc4-4225-a762-687b075c6256",
+  "titre": "how to improve your memory #memory #studytok",
+  "inspirations": [
+    "df6c2ebb-4fc4-4225-a762-687b075c6256"
+  ],
+  "notes": "G1, déclinaison de df6c2ebb (« how to improve your memory », génération 0 en anglais ; meilleur passage it 1,6 k vues, r 2,23), en anglais. cta A (avant / après sur le dernier item). Méthodes d'étude courantes, aucun conseil médical ni alimentaire (rien de repris du parent : ni sommeil, ni aliments, ni autre appli). Routine du 8/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 3 full tests et 5 déclinaisons (lignes 1, 3, 4, 8 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 2 (4d7c5f32, accroche illisible « ge things that make you look while spending lil to no money effortlessly chic », à recopier mot pour mot), 5 (083ac272, 9 hobbies « backed by science », preuves invérifiables), 6 (6211e51e, « other then ») et 7 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "how to improve your memory",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "057091a3",
+      "texte_overlay": "1. test yourself instead of rereading\n\nclose the book and write what you remember.\nthe struggle is what makes it stick.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "09067fa3",
+      "texte_overlay": "2. space it out\n\nten minutes today, ten tomorrow, ten next week\nbeat two hours the night before.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "03d4534a",
+      "texte_overlay": "3. make it weird\n\nlink a date to a silly picture in your head.\nthe stranger the image, the longer it stays.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01be1362",
+      "texte_overlay": "4. walk around a room you know\n\nput each idea in a different spot of your bedroom.\nthen walk through it in your mind.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. connect new things to what you already know\n\nbefore, facts went in one ear and out the other.\nnow i learn one small thing every morning. and each one hooks onto the last.",
+      "texte_sophia": "5. connect new things to what you already know\n\nbefore, facts went in one ear and out the other.\nnow i open the Sophia app every morning. and each one hooks onto the last.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "save this for your next exam.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

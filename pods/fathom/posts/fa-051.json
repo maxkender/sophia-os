@@ -1,0 +1,468 @@
+{
+ "id": "fa-051",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7688752732458470678",
+  "vues": 24100,
+  "accroche": "S Tier YouTube Videos"
+ },
+ "titre": {
+  "en": "S Tier YouTube Videos",
+  "de": "S-Tier-YouTube-Videos",
+  "pt": "Vídeos do YouTube de nível S",
+  "pt-BR": "Vídeos do YouTube nível S",
+  "it": "Video YouTube di livello S",
+  "es-419": "Videos de YouTube nivel S"
+ },
+ "legendes": {
+  "en": "S Tier YouTube Videos #skills #learnontiktok #selfmastery",
+  "de": "S-Tier-YouTube-Videos #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "Vídeos do YouTube de nível S #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "pt-BR": "Vídeos do YouTube nível S #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "it": "Video YouTube di livello S #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "Videos de YouTube nivel S #aprendeentiktok #desarrollopersonal #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7378160940899994401"
+ },
+ "notes": "cta B. Accroche du manifeste (S Tier) : vidéos nouvelles (rêves, trous noirs, vieillissement), aucune commune avec fa-006 ou fa-021. Sophia à l'étape 3. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE VIDEOS",
+     "YOU NEED TO WATCH"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "YOUTUBE-VIDEOS",
+     "DIE DU SEHEN MUSST"
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "VÍDEOS DO YOUTUBE",
+     "QUE TENS DE VER"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "VÍDEOS DO YOUTUBE",
+     "QUE VOCÊ PRECISA VER"
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "VIDEO YOUTUBE",
+     "DA VEDERE"
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "S TIER",
+       "bronze": true
+      }
+     ],
+     "VIDEOS DE YOUTUBE",
+     "QUE TIENES QUE VER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY DO",
+     "WE DREAM?"
+    ],
+    "video": {
+     "id": "2W85Dwxx218",
+     "titre": "Why do we dream? - Amy Adkins",
+     "chaine": "TED-Ed",
+     "vues": "9.2M views",
+     "date": "10 years ago",
+     "duree": "5:38",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WARUM",
+     "TRÄUMEN WIR?"
+    ],
+    "video": {
+     "id": "S_HB5n-dTdE",
+     "titre": "Warum träumen wir? l WOOZLE GOOZLE",
+     "chaine": "Woozle Goozle",
+     "vues": "177.582 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/xdV1imcf8UU95Zi5X-7G85tjk3SYsLp1FW9gEH3JKk1CFwpFx6GKwxaZ5V1q0X3iMrVJe9G8hg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "PORQUE É QUE",
+     "SONHAMOS?"
+    ],
+    "video": {
+     "id": "usQgeQgeIvQ",
+     "titre": "POR QUE SONHAMOS",
+     "chaine": "Meteoro Brasil",
+     "vues": "74 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "11:08",
+     "avatar": "https://yt3.ggpht.com/QemCKpJUcyWXVSIACKixTigWfJBsdRYp7s2pPe-PIuZWCDqprd5PTMy1vpyQYRdo4nIC2eA1fw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "POR QUE",
+     "SONHAMOS?"
+    ],
+    "video": {
+     "id": "WdXQabecaEs",
+     "titre": "Como você SABE que isso NÃO É um SONHO?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "1,5 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "10:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ",
+     "SOGNIAMO?"
+    ],
+    "video": {
+     "id": "ddHHHndH-6c",
+     "titre": "Cosa accade nel nostro cervello quando sogniamo?",
+     "chaine": "Geopop",
+     "vues": "1,5 Mln visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿POR QUÉ",
+     "SOÑAMOS?"
+    ],
+    "video": {
+     "id": "zBNXZVRVJt8",
+     "titre": "¿Por qué soñamos?",
+     "chaine": "CuriosaMente",
+     "vues": "907 k vistas",
+     "date": "hace 9 años",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BLACK HOLES",
+     "EXPLAINED"
+    ],
+    "video": {
+     "id": "e-P5IFTqB98",
+     "titre": "Black Holes Explained – From Birth to Death",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "29M views",
+     "date": "10 years ago",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHWARZE LÖCHER",
+     "ERKLÄRT"
+    ],
+    "video": {
+     "id": "3IpcM5gqRM4",
+     "titre": "Schwarze Löcher Erklärt - Von der Geburt bis zum Tod",
+     "chaine": "Dinge Erklärt – Kurzgesagt",
+     "vues": "4,8 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lslzPhC1Mi2zV0rzu-6XhXhGTI2I7XFui1fs3z2TD_ug=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "BURACOS NEGROS",
+     "EXPLICADOS"
+    ],
+    "video": {
+     "id": "IECC4pBRUFE",
+     "titre": "BURACOS NEGROS - COMO ELES NASCEM?? E O QUE ACONTECE DENTRO DELES??",
+     "chaine": "Você Sabia?",
+     "vues": "4,1 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "12:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kdYOUtp16eJsT8yUlmbU2sDUP8ESohkDlSLW9KDUXwJQI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "BURACOS NEGROS",
+     "EXPLICADOS"
+    ],
+    "video": {
+     "id": "GbJJRsS6OR4",
+     "titre": "Buracos Negros Explicados",
+     "chaine": "Ciência Todo Dia",
+     "vues": "1,4 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "BUCHI NERI",
+     "SPIEGATI"
+    ],
+    "video": {
+     "id": "DZJ1sHAvsu8",
+     "titre": "Cosa succederebbe se la terra entrasse in un buco nero?",
+     "chaine": "Geopop",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "11 mesi fa",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "AGUJEROS NEGROS",
+     "EXPLICADOS"
+    ],
+    "video": {
+     "id": "TFhRXnE2xck",
+     "titre": "¿Qué pasa si nos caemos en un agujero negro?",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "6.9 M de vistas",
+     "date": "hace 3 años",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "IF YOU ONLY HAVE",
+     "5 MINUTES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "WENN DU NUR",
+     "5 MINUTEN HAST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "SE SÓ TENS",
+     "5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "SE VOCÊ SÓ TEM",
+     "5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "SE HAI SOLO",
+     "5 MINUTI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "SI SOLO TIENES",
+     "5 MINUTOS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY DO",
+     "WE AGE?"
+    ],
+    "video": {
+     "id": "GASaqPv0t0g",
+     "titre": "Why do our bodies age? - Monica Menesini",
+     "chaine": "TED-Ed",
+     "vues": "3.1M views",
+     "date": "10 years ago",
+     "duree": "5:10",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WARUM",
+     "ALTERN WIR?"
+    ],
+    "video": {
+     "id": "v9HfNOC1AJs",
+     "titre": "Warum altern wir?!",
+     "chaine": "Biologie - simpleclub",
+     "vues": "100.942 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "6:00",
+     "avatar": "https://yt3.ggpht.com/vLa7jE7epztQHETM5MR_OpSQMuJy7fJR0QiPp2Df-pB2mEoodJGAEYGOCdFjj3bOWiIZzsd7Uw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "PORQUE É QUE",
+     "ENVELHECEMOS?"
+    ],
+    "video": {
+     "id": "b96ezoF_6Mc",
+     "titre": "AS CAUSAS DO ENVELHECIMENTO QUE UM DIA VAMOS SUPERAR",
+     "chaine": "Olá, Ciência!",
+     "vues": "280 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "11:26",
+     "avatar": "https://yt3.ggpht.com/R9cwkm9eVFIIdqWSxoqBHaIFn5xDP1qKLSLBpsMe1J77sqlU_8KKHDRFNeHbYV-2c-Z0ILPQ9g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "POR QUE",
+     "ENVELHECEMOS?"
+    ],
+    "video": {
+     "id": "33g2qcnawMk",
+     "titre": "Por que Ficamos Velhos?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "424 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "9:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ",
+     "INVECCHIAMO?"
+    ],
+    "video": {
+     "id": "A6858T5Hd4I",
+     "titre": "Perché invecchiamo?",
+     "chaine": "SCIENZIATI subito",
+     "vues": "30K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRD6pSsI73czCTA4ZVwmijHKtWnkzskR_FB-gveMlV2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿POR QUÉ",
+     "ENVEJECEMOS?"
+    ],
+    "video": {
+     "id": "yLcV9STOzyI",
+     "titre": "¿Por qué envejecemos?",
+     "chaine": "CuriosaMente",
+     "vues": "1.3 M de vistas",
+     "date": "hace 4 años",
+     "duree": "8:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

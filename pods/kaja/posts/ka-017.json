@@ -1,0 +1,401 @@
+{
+ "id": "ka-017",
+ "titre": {
+  "en": "10/10 skills to be more confident",
+  "fr": "10/10 compétences pour avoir confiance",
+  "de": "10/10 Skills für mehr Ausstrahlung"
+ },
+ "legendes": {
+  "en": "10/10 skills to be more confident #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences pour avoir confiance #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für mehr Ausstrahlung #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 10/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor falaise, en en, fr et de. Des compétences de confiance qu'il n'a pas faites (langage corporel, regard, posture, style). Sophia en étape 3 « HOW TO BE KNOWLEDGEABLE » : cta B, « 5 min a day ». Vraies vidéos : en Project Better Self, Alexander Lyon, Hybrid Calisthenics, Teachingmensfashion ; fr Charline Caron, Lorenz, Eric Flag, Bonnegueule ; de Dr. Wlodarek, Yvonne de Bark, StrongandFlexTV, Der Stilberater.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO BE MORE",
+     "CONFIDENT"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "POUR AVOIR",
+     "CONFIANCE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS",
+     "FÜR MEHR",
+     "AUSSTRAHLUNG"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO LOOK",
+     [
+      {
+       "t": "CONFIDENT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NRp1ePrFkng",
+     "titre": "CONFIDENT BODY LANGUAGE TIPS - BODY LANGUAGE TIPS FOR MEN AND WOMEN",
+     "chaine": "Project Better Self",
+     "vues": "404K views",
+     "date": "9 years ago",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZn1Br-OTs0VfabwnykWy2W5gZempG_B101kV2ded2ysY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "PARAÎTRE CONFIANT",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kpCThFGgyok",
+     "titre": "Le langage corporel de la confiance en soi (communication non-verbale)",
+     "chaine": "Charline Caron - Madame Charisme",
+     "vues": "19 k vues",
+     "date": "il y a 5 ans",
+     "duree": "7:16",
+     "avatar": "https://yt3.ggpht.com/EMVH3CJqsj7GAUx1nnrAuj8h8TfRLhDHFeFfR0mJWWGzzM-3fuM9_ATUWAk11O0OA_pDG4KN=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TRITTST DU",
+     [
+      {
+       "t": "SELBSTBEWUSST AUF",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ry8aHvwJ1SA",
+     "titre": "Selbstbewusst auftreten – 5 Tipps für mehr Ausstrahlung und Überzeugungskraft!",
+     "chaine": "Dr. Wlodarek Life Coaching",
+     "vues": "76.460 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "11:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kb8Og70NnHbaowWKGQ6nijdAWk-rfSfQ3-edqYEaWiras=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO HOLD",
+     [
+      {
+       "t": "EYE CONTACT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8OGDhlUvSK4",
+     "titre": "Eye Contact Tips for Showing Confidence",
+     "chaine": "Alexander Lyon Communication Coach",
+     "vues": "385K views",
+     "date": "5 years ago",
+     "duree": "6:08",
+     "avatar": "https://yt3.ggpht.com/QtXlJNplGP3Z4r_NSbIJIjFTbipZD7dYoZYcjq5Jr7-SrTFwvzHEQmmCozBeRUOK5vTHt--HlLw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT SOUTENIR",
+     [
+      {
+       "t": "UN REGARD",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JSqJ5rrts58",
+     "titre": "5 astuces de contact visuel si puissantes qu'elles devraient être interdites",
+     "chaine": "Lorenz",
+     "vues": "135 k vues",
+     "date": "il y a 3 mois",
+     "duree": "7:25",
+     "avatar": "https://yt3.ggpht.com/FugjX1bDNzFCTXjVH5-_fuN3_qskV5P6G8HsZhbCr7qR3bZAE04mHI-XoKZoJ3XAAG7bs0yX51o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HÄLTST DU",
+     [
+      {
+       "t": "BLICKKONTAKT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y4hURy3FWzA",
+     "titre": "Lerne Blickkontakt zu halten",
+     "chaine": "Yvonne de Bark",
+     "vues": "40.468 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:44",
+     "avatar": "https://yt3.ggpht.com/83cBax6R6l_KPnjeLPG_A8FGlZ_o3_pT4FbFupLY0tsjutLXFSCz8KComStDvn07XjNq1BhDtSg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO BE",
+     [
+      {
+       "t": "KNOWLEDGEABLE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "DE LA CULTURE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU",
+     [
+      {
+       "t": "ALLGEMEINBILDUNG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO FIX",
+     [
+      {
+       "t": "YOUR POSTURE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cC5pPsiXO7s",
+     "titre": "How to Finally \"Fix\" Your Posture",
+     "chaine": "Hybrid Calisthenics",
+     "vues": "1.8M views",
+     "date": "3 years ago",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHDTeNbNPLCIuChuhtXjCMZ6S6UQ6nPhDKewcrZj5i1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "SE TENIR DROIT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PX1mLdKFD_w",
+     "titre": "Comment Corriger Sa Posture En 10 Minutes ! (POUR TOUJOURS)",
+     "chaine": "Eric Flag",
+     "vues": "1,1 M de vues",
+     "date": "il y a 5 ans",
+     "duree": "13:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mFKowEge6sN0U5TgfDCfXd2uAkgCiEc8mjIXTm7wwbN18=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STEHST DU",
+     [
+      {
+       "t": "GERADE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H6Bt13jzORs",
+     "titre": "Haltung verbessern - DAS musst du wissen + 3 Übungen",
+     "chaine": "StrongandFlexTV",
+     "vues": "82.588 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nLR-HaITJvBivKbAxn5thpnHCXkmgqOXDopHHBvB0gBtI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "DRESS WELL",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nt-8SYbIfs8",
+     "titre": "7 Basics For A Stylish Men's Wardrobe",
+     "chaine": "Teachingmensfashion",
+     "vues": "315K views",
+     "date": "4 years ago",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/gVy1Qjp6vtzqOaIR6rYCqfsyc4tBFm0G9guEmJwVhzze3luAa7dO4xQph4T7jdYjnPgJiC53=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT BIEN",
+     [
+      {
+       "t": "S'HABILLER",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PT8uOh58wew",
+     "titre": "Comment bien s'habiller quand on part de ZÉRO - (Très) Bien Habillé #22",
+     "chaine": "Bonnegueule",
+     "vues": "174 k vues",
+     "date": "il y a 4 ans",
+     "duree": "7:31",
+     "avatar": "https://yt3.ggpht.com/UdECfkFA8IQqNo8kBQDywZ21Rw0HmhL5Rn5C2Vw7oMvTswbAE5JOi0g2SmG1UDlvTcXIUSeVaw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ZIEHST DU",
+     [
+      {
+       "t": "DICH GUT AN",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FaQN8vn85Gw",
+     "titre": "9 Kleidungsstücke, 9 Outfits: Die Basisgarderobe | Stylingtipps für Männer",
+     "chaine": "Der Stilberater | Justus Hansen",
+     "vues": "276.298 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "9:55",
+     "avatar": "https://yt3.ggpht.com/VT3ojCJjwwg5oy3wXLVbYtSMzXbRSMls9MKqR-iq0dMCV3DjJ2L0G4dBuZNbhORUcgXnkiA-IQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

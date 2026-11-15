@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o157",
+  "type_bleo": "full_test",
+  "titre": "les choses que j'aurais aimé savoir avant de commencer la fac #fac #etudiante #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : les conseils de grande sœur avant la fac. Accroches écrites : « les choses que j'aurais aimé savoir avant de commencer la fac » (retenue : regret utile, enregistrable), « conseils pour la fac » (écartée : sèche), « ce que personne ne te dit sur la fac » (écartée : trop vu). Aucun fait daté. Routine du 14/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 4 full tests. Lignes sautées : 5 (« validé par les neurosciences », preuves à vérifier), 6 (« je notes »), 7 (accroche illisible), 8 (« backed by science »), 9 (« enterimarnt »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6d031092",
+      "texte_overlay": "les choses que j'aurais aimé savoir\navant de commencer la fac",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7b612456",
+      "texte_overlay": "1. personne ne connaît personne\n\ntout le monde fait semblant d'être à l'aise.\nparle la première.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8347aad9",
+      "texte_overlay": "2. le premier semestre compte vraiment\n\nles bonnes habitudes se prennent\nles trois premières semaines.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "23f3c332",
+      "texte_overlay": "3. les profs adorent les questions\n\nva les voir après le cours.\nils se souviennent de toi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "14a10638",
+      "texte_overlay": "4. la bibliothèque est le meilleur endroit du campus\n\nsilence, lumière, et personne pour te distraire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "397760c3",
+      "texte_overlay": "5. ta culture générale compte autant que tes cours\n\navant, je ne lisais que mes polycopiés.\nmaintenant, j'apprends un truc sur le monde chaque matin. et ça se voit dans mes copies.",
+      "texte_sophia": "5. ta culture générale compte autant que tes cours\n\navant, je ne lisais que mes polycopiés.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et ça se voit dans mes copies.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "182f1f61",
+      "texte_overlay": "enregistre-le pour ta rentrée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

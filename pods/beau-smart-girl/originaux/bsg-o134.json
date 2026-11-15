@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o134",
+  "type_bleo": "full_test",
+  "titre": "les petits rituels du soir qui m'ont rendue plus cultivée #rituels #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : les rituels du soir, récit « je ». Accroches écrites : « les petits rituels du soir qui m'ont rendue plus cultivée » (retenue : concret, doux, enregistrable), « ma routine du soir » (écartée : trop vue), « le soir au lieu de scroller » (écartée : anti-scroll générique, à éviter). Aucun fait daté. Routine du 11/11 sur BLEO : jauge 2 full tests et 6 déclinaisons (lignes 1 à 6 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9c6df6ff",
+      "texte_overlay": "les petits rituels du soir\nqui m'ont rendue plus cultivée",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. un chapitre avant de dormir\n\njuste un.\nsouvent, j'en lis trois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "06b64a24",
+      "texte_overlay": "2. un mot nouveau dans mon carnet\n\nentendu dans la journée.\nje cherche sa définition au lit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "41a74286",
+      "texte_overlay": "3. une chanson en entier, les yeux fermés\n\nune vieille, que je ne connais pas.\nje cherche son histoire après.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. je raconte ma journée à voix haute\n\nen une minute.\nça m'apprend à bien raconter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "5. je prépare la question de demain\n\nun truc que j'ai envie de savoir.\nje me réveille curieuse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "lequel tu testes ce soir ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

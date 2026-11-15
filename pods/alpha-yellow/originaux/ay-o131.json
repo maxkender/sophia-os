@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o131",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man's home feel instantly welcoming #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "91d8b0a6-0223-489b-ac2e-42d4ed22b054"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 3abf8911. full test. Accroche jamais faite chez nous : l'accueil chez soi, angle concret. Accroches écrites : « Things that make a man's home feel instantly welcoming » (retenue), « How to make your flat look grown up » (écartée : plus déco), « Signs a man has his life together at home » (écartée : sonne jugement).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3abf8911",
+   "texte_overlay": "Things that make a man's home\nfeel instantly welcoming",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A clean bathroom with a fresh towel ready. It's the room every guest uses and judges. Spotless, with a hand towel just for them, and they instantly feel welcome.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Warm lighting instead of one bright ceiling light. Two lamps with soft bulbs change everything. A room lit warmly feels relaxed, cosy and ready for long conversations.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Something to offer straight away. Coffee, tea, a cold drink, a bowl of snacks. Asking \"What can I get you?\" the moment someone arrives makes them feel looked after.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Books and a few personal objects on display. A shelf of real books, photos from trips, a plant you keep alive. They show who you are and start conversations by themselves.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: nothing to talk about when friends came over. After: five minutes a day of history, art or science, and stories that keep the evening going for hours.",
+   "texte_sophia": "Before: nothing to talk about when friends came over. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now evenings go on for hours.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Enough seats for everyone. A couple of extra chairs or floor cushions. Nobody should have to stand awkwardly. Comfort is the first thing guests feel when they walk in.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Music on low before people arrive. A calm playlist playing quietly fills the silence and sets the mood. Walking into a home with music feels like walking into a welcome.",
+   "media_id": "9e66209e"
+  }
+ ]
+}

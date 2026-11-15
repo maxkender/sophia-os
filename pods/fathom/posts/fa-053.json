@@ -1,0 +1,405 @@
+{
+ "id": "fa-053",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7687626392879713539",
+  "vues": 111200,
+  "accroche": "10/10 Skills Rich People Learn Early"
+ },
+ "titre": {
+  "en": "10/10 Skills Rich People Learn Early",
+  "de": "10/10 Skills, die Reiche früh lernen",
+  "pt": "10/10 habilidades que os ricos aprendem cedo",
+  "pt-BR": "10/10 habilidades que os ricos aprendem cedo",
+  "it": "10/10 abilità che i ricchi imparano presto",
+  "es-419": "10/10 habilidades que los ricos aprenden pronto"
+ },
+ "legendes": {
+  "en": "10/10 Skills Rich People Learn Early #skills #learnontiktok #selfmastery",
+  "de": "10/10 Skills, die Reiche früh lernen #skills #lernenmittiktok #selbstverbesserung",
+  "pt": "10/10 habilidades que os ricos aprendem cedo #habilidades #aprendernotiktok #desenvolvimentopessoal",
+  "pt-BR": "10/10 habilidades que os ricos aprendem cedo #habilidades #aprendanotiktok #desenvolvimentopessoal",
+  "it": "10/10 abilità che i ricchi imparano presto #imparacontiktok #crescitapersonale #abilità",
+  "es-419": "10/10 habilidades que los ricos aprenden pronto #aprendeentiktok #desarrollopersonal #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "cta C. Variante de l'accroche de fa-014 : étapes nouvelles (intérêts composés, lecture rapide), Sophia à l'étape 2 au milieu, autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS RICH PEOPLE",
+     [
+      {
+       "t": "LEARN EARLY",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "WAS REICHE",
+     [
+      {
+       "t": "FRÜH LERNEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE",
+     [
+      {
+       "t": "OS RICOS APRENDEM",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE",
+     [
+      {
+       "t": "OS RICOS APRENDEM",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITÀ CHE I RICCHI",
+     [
+      {
+       "t": "IMPARANO PRESTO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES QUE",
+     [
+      {
+       "t": "LOS RICOS APRENDEN",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN COMPOUND",
+     "INTEREST"
+    ],
+    "video": {
+     "id": "wf91rEGw88Q",
+     "titre": "What Is Compound Interest? | Investopedia",
+     "chaine": "Investopedia",
+     "vues": "2.1M views",
+     "date": "13 years ago",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCZDgY285VwOSZiiFRNPUqcFAtA7qXu7QXHvD1YSnzoOU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "VERSTEH DEN",
+     "ZINSESZINS"
+    ],
+    "video": {
+     "id": "kyYguppNaqE",
+     "titre": "Reich durch Zinseszins? Zinseszinseffekt einfach erklärt! | Finanzfluss",
+     "chaine": "Finanzfluss",
+     "vues": "604.186 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "10:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "PERCEBE OS JUROS",
+     "COMPOSTOS"
+    ],
+    "video": {
+     "id": "ZMsieXqXwMg",
+     "titre": "APRENDA JUROS COMPOSTOS EM 8 MINUTOS",
+     "chaine": "Dicasdemat Sandro Curió",
+     "vues": "2,3 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "8:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mRbvYBdE058O7f7q0sdVQpy6yrm9Od-7oM_2zeLLjEs7U=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ENTENDA OS JUROS",
+     "COMPOSTOS"
+    ],
+    "video": {
+     "id": "X652ApXFTJA",
+     "titre": "JUROS COMPOSTOS | MATEMÁTICA FINANCEIRA",
+     "chaine": "Gis com Giz",
+     "vues": "1,1 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "32:49",
+     "avatar": "https://yt3.ggpht.com/ggyLxKNYMMEUicDRVFCH4G9HrzvtPkVNiqWi2oMfgkt6J6Yr8yr7ZAW-DBVQYOzcQVmap2GY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CAPISCI L'INTERESSE",
+     "COMPOSTO"
+    ],
+    "video": {
+     "id": "X8TrEzdVI-M",
+     "titre": "L'interesse composto spiegato facilmente 📊 ft @EliaBombardelli",
+     "chaine": "Investiamo",
+     "vues": "48K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:25",
+     "avatar": "https://yt3.ggpht.com/ym4hdhXJNfwOVakoxSh9EE-6ORy4D_ngKuw7kXRIVKY-dnpDMR5f2LFQcE0jEMjzC-FglYNC2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ENTIENDE EL INTERÉS",
+     "COMPUESTO"
+    ],
+    "video": {
+     "id": "6YiZ5SIMBdY",
+     "titre": "Qué es el Interés Compuesto | Explicado FÁCIL 🎓",
+     "chaine": "Economipedia",
+     "vues": "51 k vistas",
+     "date": "hace 3 años",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/RvRUK0MqXB-H3X0h4mTGmVEE9vE4uiUHyxQkWg8Lz8T3O0eVdX91opQ4EgehxYzZamnsFi9UMQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "LEARN SOMETHING",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "LERN JEDEN TAG",
+     "ETWAS NEUES"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    }
+   },
+   "pt": {
+    "titre": [
+     "APRENDE ALGO",
+     "TODOS OS DIAS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de fazer scroll."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA ALGO",
+     "TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARA QUALCOSA",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "APRENDE ALGO",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lo que abro",
+      "en lugar de scrollear."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ",
+     "FASTER"
+    ],
+    "video": {
+     "id": "xiTK523Ot5U",
+     "titre": "Learn How To Speed Read - Best Speed Reading Techniques",
+     "chaine": "Ron White Memory Expert - Memory Training & Brain Training",
+     "vues": "1.3M views",
+     "date": "10 years ago",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nw8c0VMj8E_xfwYPZdw9reBaHZpBbS0D-bfnjVNKnfnQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES",
+     "SCHNELLER"
+    ],
+    "video": {
+     "id": "wJTdgimaRLE",
+     "titre": "Kann man Schnelllesen trainieren? | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "492.003 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "12:02",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt": {
+    "titre": [
+     "LÊ MAIS",
+     "RÁPIDO"
+    ],
+    "video": {
+     "id": "4M-0255Pe4U",
+     "titre": "Aprenda LEITURA DINÂMICA em 10 minutos",
+     "chaine": "Susane Ribeiro",
+     "vues": "2 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcJZnDpPpRmbcBHm8FQzEWMIrhTjJK5WR3HuL7PCU8bMAW=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "LEIA MAIS",
+     "RÁPIDO"
+    ],
+    "video": {
+     "id": "eTLlzBIHOQU",
+     "titre": "Leitura Dinâmica e Memorização ( Técnica para aprender mais )",
+     "chaine": "Renato Alves Memorização",
+     "vues": "1,6 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LEGGI PIÙ",
+     "VELOCE"
+    ],
+    "video": {
+     "id": "QOhb1bZZ4jQ",
+     "titre": "[LETTURA VELOCE] - 4 Tecniche per leggere un Libro al giorno",
+     "chaine": "Metodo Universitario",
+     "vues": "137K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "2:33",
+     "avatar": "https://yt3.ggpht.com/Pqc4t5zE0OLJ9LNlxB-m9_PDSogTXTaWsiAhyDsxxp6D7IAIvcBQ-e8iS40ld460Y-JwKy5gXvE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "LEE MÁS",
+     "RÁPIDO"
+    ],
+    "video": {
+     "id": "NxHyGzFCpKQ",
+     "titre": "La Mejor Técnica de Lectura Rápida 📖 [Apréndela en 10 minutos]🤩",
+     "chaine": "Fernando Fernández Fernández",
+     "vues": "666 k vistas",
+     "date": "hace 7 años",
+     "duree": "6:47",
+     "avatar": "https://yt3.ggpht.com/CuhDZCLull2nwLiynAaQNX3g3tbb8On9caFcjkhv_vfbVyJgkX7BB1gbO44wNNTwHUYX-8uxcg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

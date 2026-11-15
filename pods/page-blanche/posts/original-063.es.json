@@ -1,0 +1,269 @@
+{
+ "post_id": "original-063",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 habits to ruin your 20s"
+     ],
+     "fr": "top 5 habits to ruin your 20s",
+     "texte": "¿te cuesta pensar? lee esto"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "alignement": "droite",
+     "fr": "(harsh truth)",
+     "texte": "(no pasa nada)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "tu atención solo está [[repartida]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "música en un oído, un podcast en el otro, tres pestañas abiertas y el móvil vibrando: [[tu cerebro se parte en diez]]"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "dale una sola cosa a la vez, aunque sean 20 minutos, y notarás cómo [[vuelve tu concentración]]"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[no hay nada roto, tu cerebro solo está saturado]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become good at multiple things"
+     ],
+     "fr": "deviens bonne en [[plein de trucs]]",
+     "texte": "haz [[una cosa larga]] cada día"
+    },
+    "T2": {
+     "en": [
+      "learn to write, communicate, build, sell ideas, analyse,",
+      "and use technology well"
+     ],
+     "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech",
+     "texte": "un capítulo entero, un disco de principio a fin, una peli sin móvil, un paseo largo"
+    },
+    "T3": {
+     "en": [
+      "you don’t need to be",
+      "world-class at",
+      "everything"
+     ],
+     "fr": "pas besoin d'être la meilleure au monde en tout",
+     "texte": "no hace falta que sea difícil ni productivo"
+    },
+    "T4": {
+     "en": [
+      "being good across",
+      "several valuable skills",
+      "makes you unusually",
+      "hard to replace"
+     ],
+     "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]",
+     "texte": "solo tiene que durar más que un vídeo, para que tu cerebro [[vuelva a saber quedarse]]"
+    },
+    "T5": {
+     "en": [
+      "a jack of all trades is better than a master of one"
+     ],
+     "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]",
+     "texte": "[[la profundidad es un músculo, y vuelve rápido]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "too many small decisions"
+     ],
+     "fr": "trop de [[petites décisions]]",
+     "texte": "arregla tu [[sueño]] primero"
+    },
+    "T2": {
+     "en": [
+      "what to wear, what to eat,",
+      "when to start, every",
+      "choice uses up willpower"
+     ],
+     "fr": "quoi mettre, quoi manger, quand s'y mettre, chaque choix [[grignote ta volonté]]",
+     "texte": "sin dormir bien, tu cerebro va lento, nublado, olvida todo, y [[parece torpeza]]"
+    },
+    "T3": {
+     "en": [
+      "this is called decision",
+      "fatigue"
+     ],
+     "fr": "ça s'appelle la [[fatigue décisionnelle]]",
+     "texte": "no es torpeza, [[es falta de sueño]]"
+    },
+    "T4": {
+     "en": [
+      "plan tomorrow the night",
+      "before, so in the",
+      "morning you just start"
+     ],
+     "fr": "prépare demain dès la veille, et le matin [[tu te lances direct]]",
+     "texte": "el móvil lejos de la cama, misma hora de dormir, y [[dale una semana]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "ouvre un bouquin [[au lieu de scroller]]",
+     "texte": "dale a tu cerebro [[algo real]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold attention, remember",
+      "details, and build the picture in your own head"
+     ],
+     "fr": "lire t'apprend à [[tenir ton attention]], retenir les détails et [[te faire le film]] dans ta tête",
+     "texte": "aunque esté agotado, tu cerebro quiere estímulos y agarra lo más fácil. dale [[una idea de verdad]]"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[un cerveau plus vif]], remplace une partie de ton [[scroll par des livres]]",
+     "texte": "si ya tienes el móvil en la mano, [[aprende una cosa]] en vez de pasar cien vídeos"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant dès que je dégaine mon tel, j'apprends un truc en [[5 min sur l'appli Sophia]]",
+     "texte": "mis 5 min de hoy en [[la app Sophia]]: por qué el cielo es azul. por fin algo que contar en la cena"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "improve your communication",
+      "skills"
+     ],
+     "fr": "apprends à [[bien communiquer]]",
+     "texte": "[[cuéntale a alguien]] lo que aprendes"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "clearly, you probably don't",
+      "understand it deeply",
+      "enough"
+     ],
+     "fr": "si t'arrives pas à expliquer une idée simplement, c'est que [[tu l'as pas vraiment comprise]]",
+     "texte": "habla del capítulo que leíste o de lo que aprendiste hoy, en voz alta, con tus palabras"
+    },
+    "T3": {
+     "en": [
+      "practice writing, speaking,",
+      "storytelling, and teaching"
+     ],
+     "fr": "exerce-toi à écrire, parler, raconter et [[expliquer]]",
+     "texte": "en la cena, en una llamada, en el grupo, [[donde sea]]"
+    },
+    "T4": {
+     "en": [
+      "turning complicated",
+      "thoughts into simple",
+      "language forces your brain",
+      "to organise them properly"
+     ],
+     "fr": "dire un truc compliqué avec des mots simples, ça [[oblige ton cerveau]] à remettre de l'ordre dedans",
+     "texte": "explicar algo obliga a tu cerebro a ordenarlo y guardarlo, y ahí es cuando [[tu cabeza vuelve a despertar]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

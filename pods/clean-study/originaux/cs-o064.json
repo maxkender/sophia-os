@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o064",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "4640686e-a30e-45d5-ab1e-789fe5a364bb",
+  "titre": "how i romanticized studying until i actually started looking forward to it #studytok #studytips #thatgirl",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "4640686e-a30e-45d5-ab1e-789fe5a364bb"
+  ],
+  "notes": "Déclinaison G1 de 4640686e (r 3,81 en français), 4e ligne retenue de la boîte. Lignes 4 à 6 écartées volontairement : 078380ce (attribution à une université réelle invérifiable et astuces douteuses, comme le 5/11), 229228c6 et 360f7583 (journal de bord d'une journée avec des notes et des horaires inventés, contraire aux faits vrais ; format noté « à éviter » dans le playbook). Accroche du parent mot pour mot, en anglais. Gestes neufs, aucun du parent (tenue, café ou bibliothèque, lampe et boisson, commencer tout de suite) : un carnet aimé par matière, une playlist sans paroles réservée aux révisions, des fleurs ou une plante sur le bureau, finir chaque séance en se testant (place micabo, slide 5), la date et un mini-objectif en haut de page, une marche dehors comme récompense. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c6730b02",
+      "texte_overlay": "how i romanticized studying until\ni actually started looking forward to it",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c68d1e53",
+      "texte_overlay": "one notebook i really love for each subject.\nopening it feels like a treat.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d4019843",
+      "texte_overlay": "a playlist with no lyrics that i ONLY play when i study.\nnow it puts me in study mode instantly.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ddfab895",
+      "texte_overlay": "fresh flowers or a little plant on my desk.\nit makes the spot feel like mine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4882610f",
+      "texte_overlay": "i end every session quizzing myself.\nwatching the right answers pile up is the best part.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "de689465",
+      "texte_overlay": "the date and one tiny goal at the top of the page.\nticking it off feels so good.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "decdd6ed",
+      "texte_overlay": "and a walk outside when i'm done.\nthe reward i actually wait for.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

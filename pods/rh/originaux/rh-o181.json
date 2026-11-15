@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o181",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "dfa7492f-252b-4260-834f-84c278ec9946",
+ "titre": "les trucs sur lesquels tu DOIS « mentir » à ton entretien annuel #entretienannuel #travail #carriere #manager #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 2 (parent dfa7492f) : accroche mot pour mot, six autres questions que le parent et rh-o085. Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d4b24a58",
+   "texte_overlay": "les trucs sur lesquels\ntu DOIS « mentir »\nà ton entretien annuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "34b9b6ab",
+   "texte_overlay": "1\n« t'as atteint tes objectifs ? »\njamais un « oui » sans preuve\ntu dis lesquels, avec un chiffre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "34cf1df0",
+   "texte_overlay": "2\n« pourquoi celui-là n'a pas été atteint ? »\njamais « c'est pas ma faute »\ntu dis ce qui a bloqué, et ce que t'as fait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "35520137",
+   "texte_overlay": "3\n« tu t'entends bien avec l'équipe ? »\njamais un règlement de comptes\ntu dis un point fort, et une idée pour mieux travailler ensemble",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1ccdcdd3",
+   "texte_overlay": "4\n« t'as appris quoi cette année ? »\njamais « pas grand-chose »\nune compétence du boulot, et une hors du boulot, que t'apprends chaque jour",
+   "texte_sophia": "4\n« t'as appris quoi cette année ? »\nune compétence du boulot, et une hors du boulot : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "36125a70",
+   "texte_overlay": "5\n« tu te vois où l'an prochain ? »\njamais « je sais pas »\ntu dis un poste, ou une mission",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "367f375b",
+   "texte_overlay": "6\n« quelque chose à ajouter ? »\njamais « non »\ntu demandes un point dans 6 mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "36afaee2",
+   "texte_overlay": "c'est quand ton entretien annuel ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

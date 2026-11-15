@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o094",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cd3911bf-369d-46b6-874d-cb8a51084ab0",
+ "titre": "Lost manners every man should bring back #men #gentleman #respect #manners #selfimprovement",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [
+  "cd3911bf-369d-46b6-874d-cb8a51084ab0"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 12/11. Déclinaison G1 de la ligne 6 (parent cd3911bf = notre full test am-o054, langue source en ; meilleur passage bg 5,7 k vues, r 2,81). Accroche du parent mot pour mot. Même format : numéro, geste, deux lignes. Gestes neufs, ni de am-o054 ni de am-o080 (invité). Rien sur les femmes en particulier. Images : restaurants de la banque et célébrités (autorisé) ; slide Sophia : salle de restaurant vide, sans personne. reference_url de am-o054 vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c7603e9",
+   "texte_overlay": "Lost manners every man\nshould bring back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c04ca4c",
+   "texte_overlay": "1. Cap off at the table\n\nIndoors, at dinner.\nA small sign of respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "00280b6e",
+   "texte_overlay": "2. Answering invitations\n\nYes or no, within a day.\nThen show up if you said yes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3da13e9a",
+   "texte_overlay": "3. Walking guests to the door\n\nNot waving from the couch.\nThe goodbye counts too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2fc74eeb",
+   "texte_overlay": "4. Calling with big news\n\nBirths, losses, good jobs.\nNot a text.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1f80c792",
+   "texte_overlay": "5. Sending condolences\n\nA short message, a card.\nPeople remember who reached out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0b5240ba",
+   "texte_overlay": "6. Asking before\nyou take a photo\n\nNot everyone wants\nto be your content.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "027f7af8",
+   "texte_overlay": "7. Being good company\n\nHave a story, a question,\nsomething new to share.",
+   "texte_sophia": "7. Being good company\n\nI learn one new thing a day\non the Sophia app. Always\nsomething to share.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o180",
+ "type_bleo": "full_test",
+ "titre": "the small daily wins that quietly rebuild your confidence #confidence #habits #selfimprovement #mindset #growth",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "d5877a40-2537-495f-b9bb-18c46793e69e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, d5877a40). full test BLEO : accroche jamais faite (format « small daily wins »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7c6c6409-c294-413e-87e6-b4e8b0b4c0e6",
+   "texte_overlay": "the small daily wins that\nquietly rebuild your confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659520442448760078/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d78b31e0-764c-49b0-8fd4-27ee8237c989",
+   "texte_overlay": "making your bed\n\nmake your bed as soon as you get up. it's the first task you finish each day, and that tiny win tells your brain you're someone who truly follows through.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659520442448760078/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "330f5bdc-3676-42d1-a4bf-e59d71105d7e",
+   "texte_overlay": "keeping one promise\n\nkeep one small promise to yourself every day, like a walk or a glass of water. every kept promise slowly builds real trust in yourself, one ordinary day at a time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659520442448760078/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "801862b7-d5ee-4d8e-8b2f-b9d3a6d7fb33",
+   "texte_overlay": "finishing something\n\nfinish one small task you've been avoiding: an email, a call, a tidy drawer. crossing it off feels so much better than the quiet dread of leaving it there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659520442448760078/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5b3a8bf4-a426-44f5-b76c-4dac3eb7f18f",
+   "texte_overlay": "learning something new\n\nlearn one new thing every day in 5 minutes: a word, a painting, a moment in history. growing a little every day is the most reliable source of quiet confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659520442448760078/5.jpg",
+   "texte_sophia": "learning something new\n\nlearn one new thing every day in 5 minutes: a word, a painting. the Sophia app turns it into one short lesson a day, and growing a little daily is the steadiest source of confidence."
+  },
+  {
+   "position": 6,
+   "media_id": "6a55c48b-300e-48b5-8d81-cf5d26937ea2",
+   "texte_overlay": "moving your body\n\nmove for at least twenty minutes every day: a walk, a stretch, a dance in your kitchen. a body that feels good makes it much easier to feel good about yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659520442448760078/6.jpg"
+  }
+ ]
+}

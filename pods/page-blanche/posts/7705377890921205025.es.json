@@ -1,0 +1,518 @@
+{
+ "post_id": "7705377890921205025",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 things to do instead of",
+      "doomscrolling"
+     ],
+     "fr": "6 trucs à faire au lieu de doomscroller",
+     "texte": "6 cosas para hacer en lugar del doomscroll"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(lo dice la ciencia)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take a long walk without music"
+     ],
+     "fr": "marche longtemps [[sans musique]]",
+     "texte": "da un paseo largo [[sin música]]"
+    },
+    "T2": {
+     "en": [
+      "take a long walk (~1hr), but most people fill every walk",
+      "with podcasts or music and think they're being productive"
+     ],
+     "fr": "une marche d'1h, mais la plupart des gens la remplissent de [[podcasts ou de musique]] en croyant [[gagner du temps]]",
+     "texte": "da un paseo largo (~1h). casi todos lo llenan de [[podcasts o música]] y creen que [[son productivos]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain only starts",
+      "thinking for itself when",
+      "nothing is feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le gave]]",
+     "texte": "pero tu cerebro solo empieza a [[pensar por sí mismo]] cuando [[nada lo alimenta]]"
+    },
+    "T4": {
+     "en": [
+      "your best ideas and",
+      "clearest mind will come",
+      "from walks, only when",
+      "you walk in silence"
+     ],
+     "fr": "tes [[meilleures idées]] et ta tête la plus claire viennent en marchant, [[seulement en silence]]",
+     "texte": "tus [[mejores ideas]] y tu mente más clara llegan paseando, [[solo]] si [[caminas en silencio]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends un [[instrument difficile]]",
+     "texte": "aprende un [[instrumento difícil]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling gives you dopamine for doing nothing, practicing",
+      "gives you dopamine you actually earned"
+     ],
+     "fr": "scroller te file de la dopamine [[à rien faire]], t'entraîner te file une dopamine [[vraiment méritée]]",
+     "texte": "hacer scroll te da dopamina por [[no hacer nada]], practicar te da dopamina [[bien ganada]]"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever"
+     ],
+     "fr": "piano, guitare, batterie, peu importe",
+     "texte": "piano, guitarra, batería, lo que sea"
+    },
+    "T4": {
+     "en": [
+      "every time you get a bit",
+      "better, your brain learns",
+      "that effort pays off"
+     ],
+     "fr": "chaque petit progrès apprend à ton cerveau que [[l'effort paie]]",
+     "texte": "cada pequeña mejora le enseña a tu cerebro que [[el esfuerzo compensa]]"
+    },
+    "T5": {
+     "en": [
+      "a month of practicing and you can play a song.",
+      "a month of scrolling and you have nothing to",
+      "show for it"
+     ],
+     "fr": "un mois à t'entraîner et tu joues une chanson. un mois à scroller et t'as [[rien à montrer au bout]]",
+     "texte": "un mes practicando y tocas una canción. un mes haciendo scroll y [[no tienes nada que enseñar]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a good book"
+     ],
+     "fr": "lis un [[bon livre]]",
+     "texte": "lee un [[buen libro]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te souviens du tiktok vu [[il y a 5 scrolls]] ?",
+     "texte": "¿te acuerdas del tiktok que viste [[hace 5 scrolls]]?"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "[[exacto]]. el contenido corto te está [[friendo la atención]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant c'est un roman dans mon sac, des balades sans musique et 5 min sur [[l'appli Sophia]] quand je prends mon tel",
+     "texte": "antes hacía [[doomscroll]], ahora llevo una novela en la bolsa, paseo sin música y hago 5 min en [[la app Sophia]] cuando saco el móvil"
+    },
+    "T5": {
+     "en": [
+      "fix your attention span"
+     ],
+     "fr": "[[retrouve ta concentration]]",
+     "texte": "[[recupera tu atención]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 229,
+      "l": 446,
+      "h": 55
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 229,
+       "l": 446,
+       "h": 55,
+       "base": 280
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 44,
+      "y": 329,
+      "l": 624,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 45,
+       "y": 329,
+       "l": 623,
+       "h": 36,
+       "base": 356
+      },
+      {
+       "x": 44,
+       "y": 373,
+       "l": 222,
+       "h": 35,
+       "base": 406
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 39,
+      "y": 420,
+      "l": 422,
+      "h": 802
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 207,
+      "y": 1229,
+      "l": 234,
+      "h": 102
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 493,
+      "y": 453,
+      "l": 458,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 493,
+       "y": 453,
+       "l": 441,
+       "h": 37,
+       "base": 487
+      },
+      {
+       "x": 496,
+       "y": 496,
+       "l": 455,
+       "h": 38,
+       "base": 531
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 493,
+      "y": 584,
+      "l": 435,
+      "h": 166
+     },
+     "lignes": [
+      {
+       "x": 496,
+       "y": 584,
+       "l": 390,
+       "h": 36,
+       "base": 618
+      },
+      {
+       "x": 496,
+       "y": 628,
+       "l": 370,
+       "h": 36,
+       "base": 655
+      },
+      {
+       "x": 494,
+       "y": 671,
+       "l": 434,
+       "h": 37,
+       "base": 705
+      },
+      {
+       "x": 493,
+       "y": 715,
+       "l": 238,
+       "h": 35,
+       "base": 749
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 493,
+      "y": 823,
+      "l": 367,
+      "h": 37
+     },
+     "lignes": [
+      {
+       "x": 493,
+       "y": 823,
+       "l": 367,
+       "h": 37,
+       "base": 857
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T6",
+     "type": "texte",
+     "boite": {
+      "x": 1040,
+      "y": 1302,
+      "l": 40,
+      "h": 40
+     },
+     "lignes": [
+      {
+       "x": 1040,
+       "y": 1302,
+       "l": 40,
+       "h": 40,
+       "base": 1304
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "see your friends in real life"
+     ],
+     "fr": "vois tes potes [[en vrai]]",
+     "texte": "ve a tus amigos [[en persona]]"
+    },
+    "T2": {
+     "en": [
+      "most nights you scroll because you're",
+      "bored or lonely, not because it's fun"
+     ],
+     "fr": "la plupart des soirs, tu scrolles par [[ennui ou solitude]], pas parce que c'est fun",
+     "texte": "casi cada noche haces scroll por [[aburrimiento o soledad]], no por diversión"
+    },
+    "T3": {
+     "en": [
+      "watching their stories and",
+      "sending memes isn't the",
+      "same"
+     ],
+     "fr": "liker leurs stories et s'envoyer des memes, [[c'est pas pareil]]",
+     "texte": "ver sus stories y mandarse memes [[no es lo mismo]]"
+    },
+    "T4": {
+     "en": [
+      "make plans, go for food,",
+      "do anything offline",
+      "together"
+     ],
+     "fr": "prévois un truc, un resto, n'importe quoi [[ensemble, sans écran]]",
+     "texte": "haz planes, sal a comer, haz cualquier cosa [[juntos y sin pantallas]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start doing yoga"
+     ],
+     "fr": "mets-toi au [[yoga]]",
+     "texte": "empieza a hacer [[yoga]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling keeps your",
+      "brain overstimulated",
+      "all day"
+     ],
+     "fr": "le scroll laisse ton cerveau [[en surchauffe]] H24",
+     "texte": "el scroll tiene tu cerebro [[sobreestimulado]] todo el día"
+    },
+    "T3": {
+     "en": [
+      "yoga forces you to",
+      "slow down, breathe,",
+      "and stay in one",
+      "moment instead of",
+      "reaching for the next",
+      "thing"
+     ],
+     "fr": "le yoga t'oblige à ralentir, respirer et [[rester dans l'instant]] au lieu de courir après le truc suivant",
+     "texte": "el yoga te obliga a ir más lento, respirar y [[quedarte en el momento]] en vez de buscar lo siguiente"
+    },
+    "T4": {
+     "en": [
+      "you come out calmer than scrolling ever made you!!"
+     ],
+     "fr": "t'en ressors [[plus zen]] que n'importe quel scroll !!",
+     "texte": "terminas con más [[calma]] que con cualquier scroll!!"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a second language"
+     ],
+     "fr": "apprends une [[deuxième langue]]",
+     "texte": "aprende un [[segundo idioma]]"
+    },
+    "T2": {
+     "en": [
+      "swap 20 minutes of tiktok",
+      "for 20 minutes of a",
+      "language every day"
+     ],
+     "fr": "remplace [[20 min de tiktok]] par 20 min de langue chaque jour",
+     "texte": "cambia [[20 minutos de tiktok]] por 20 minutos de un idioma cada día"
+    },
+    "T3": {
+     "en": [
+      "in a year you'll be able to",
+      "hold a real conversation in",
+      "it"
+     ],
+     "fr": "dans un an, tu pourras [[tenir une vraie conversation]]",
+     "texte": "en un año podrás [[tener una conversación real]] en él"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

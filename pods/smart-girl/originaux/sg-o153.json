@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o153",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fc1d22c0-b63a-476d-a67f-7d95a3a3ccad",
+ "titre": "elegant events anyone can attend if they know where to look #culture #travel #smartgirl #art #bucketlist",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "4044eed7-a900-4304-a5d0-2634f5cdd34a"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 1 de la boîte (parent fc1d22c0, langue source en) : accroche reformulée (« high society events you don't need an invitation for » → « elegant events anyone can attend if they know where to look »), même promesse. Le parent est la version hongroise de notre sg-o104 ; événements neufs, sans argent (Nuit blanche à Paris, Fringe d'Édimbourg, Biennale de Venise, opéra aux arènes de Vérone). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "414fff81",
+   "texte_overlay": "elegant events anyone can attend\nif they know where to look",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "912c37d8",
+   "texte_overlay": "nuit blanche, paris\n\none night a year, the city\nturns into a free art museum.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "be989af1",
+   "texte_overlay": "the fringe, edinburgh\n\nthe world's largest arts\nfestival, every august.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5c7a8fa0",
+   "texte_overlay": "the biennale, venice\n\nart from the whole world\nin gardens and old shipyards.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3bcd0908",
+   "texte_overlay": "opera at the arena, verona\n\nsummer opera in a roman\namphitheatre.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b3ea0713",
+   "texte_overlay": "know the story before you go.\nyou'll enjoy it twice as much.",
+   "texte_sophia": "know the story before you go.\ni learn it in 5 minutes on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0def44ba",
+   "texte_overlay": "save this for your\nbucket list",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662478645323189525/7.jpg"
+  }
+ ]
+}

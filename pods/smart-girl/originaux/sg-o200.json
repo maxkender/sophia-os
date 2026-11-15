@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o200",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "73784fb6-8608-4752-93df-308abc3003b0",
+ "titre": "how to travel like a cultured woman #travel #culture #smartgirl #solotravel #elegance",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 4 de la boîte (parent 73784fb6, langue source en) : accroche du parent mot pour mot (le parent est la version portugaise de notre sg-o127). Conseils neufs face au parent (un guide de la ville en papier, aller au marché le matin, un concert local, carnet de voyage, rester deux nuits de plus au même endroit, la culture avant le départ). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5b162270",
+   "texte_overlay": "how to travel like\na cultured woman",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "97ef8804",
+   "texte_overlay": "1. go to the morning market",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d2286bc",
+   "texte_overlay": "2. find one local concert",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f9d9e184",
+   "texte_overlay": "3. keep a travel journal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "94adf04b",
+   "texte_overlay": "4. stay longer in fewer places",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "eda9ae40",
+   "texte_overlay": "5. walk without a map\nfor one afternoon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "55822805",
+   "texte_overlay": "6. learn the history\nbefore you land\n\ntrade a scroll for a story.",
+   "texte_sophia": "6. learn the history\nbefore you land\n\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3d060e67",
+   "texte_overlay": "save this for your next trip",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

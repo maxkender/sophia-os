@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o170",
+ "type_bleo": "full_test",
+ "titre": "Things every man should own by 30 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 4ce88dcf. full test. Accroche jamais faite chez nous : objets utiles et durables, aucune marque citée. Accroches écrites : « Things every man should own by 30 » (retenue), « What a grown man keeps at home » (écartée : vague), « Essentials every man needs » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ce88dcf",
+   "texte_overlay": "Things every man\nshould own by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A good toolbox. Hammer, screwdrivers, a level, a drill. Hanging a shelf or fixing a loose door yourself saves money and gives you a quiet kind of confidence.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "One great coat. Dark, well cut, the right size. A coat that fits makes every outfit underneath look sharper, all winter long, for many years to come.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A set of real kitchen knives. One chef's knife, one bread knife, one small knife. Cooking becomes faster, safer and far more enjoyable with proper tools.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "A first aid kit you know how to use. Plasters, bandages, painkillers, a thermometer. Being ready when a friend gets hurt matters more than any gadget.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "A shelf of books you've actually read. I add five minutes a day of history, art or science, and my mind gets the same care and attention I give my home.",
+   "texte_sophia": "A daily learning habit. I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. My mind gets the same care as my home.",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A decent suit. Navy or charcoal, tailored to you. Weddings, interviews, funerals. Having one ready means you never panic when an important day comes up.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "An emergency fund. Three months of basic costs set aside. It's not exciting, but it turns life's surprises into inconveniences instead of disasters.",
+   "media_id": "38041cfe"
+  }
+ ]
+}

@@ -1,0 +1,269 @@
+{
+ "post_id": "original-063",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 habits to ruin your 20s"
+     ],
+     "fr": "top 5 habits to ruin your 20s",
+     "texte": "tu te sens plus bête ? lis ça"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "alignement": "droite",
+     "fr": "(harsh truth)",
+     "texte": "(c'est faux)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening to something"
+     ],
+     "fr": "arrête d'[[écouter un truc non-stop]]",
+     "texte": "ta concentration est juste [[éparpillée]]"
+    },
+    "T2": {
+     "en": [
+      "music, podcasts, youtube, something constantly playing in",
+      "the background means your brain never gets to rest"
+     ],
+     "fr": "musique, podcasts, youtube : si y'a toujours un truc en fond, [[ton cerveau se repose jamais]]",
+     "texte": "musique dans une oreille, podcast dans l'autre, trois onglets ouverts, le tel qui vibre : [[ton cerveau se coupe en dix]]"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T5": {
+     "en": [
+      "leave parts of",
+      "your day",
+      "completely quiet",
+      "so your brain can",
+      "actually think",
+      "and come up with",
+      "its own ideas"
+     ],
+     "fr": "garde des moments de vrai silence dans ta journée, ton cerveau pourra enfin réfléchir et [[avoir ses idées à lui]]",
+     "texte": "donne-lui une seule chose à la fois, même 20 minutes, et tu vas sentir [[ta concentration revenir]]"
+    },
+    "T6": {
+     "en": [
+      "you don't need music every time you go outside"
+     ],
+     "fr": "[[t'as pas besoin de musique dès que tu sors]]",
+     "texte": "[[rien n'est cassé, ton cerveau est juste saturé]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become good at multiple things"
+     ],
+     "fr": "deviens bonne en [[plein de trucs]]",
+     "texte": "fais [[un truc long]] par jour"
+    },
+    "T2": {
+     "en": [
+      "learn to write, communicate, build, sell ideas, analyse,",
+      "and use technology well"
+     ],
+     "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech",
+     "texte": "un chapitre entier, un album du début à la fin, un film sans le tel, une longue balade"
+    },
+    "T3": {
+     "en": [
+      "you don’t need to be",
+      "world-class at",
+      "everything"
+     ],
+     "fr": "pas besoin d'être la meilleure au monde en tout",
+     "texte": "pas besoin que ce soit dur ou productif"
+    },
+    "T4": {
+     "en": [
+      "being good across",
+      "several valuable skills",
+      "makes you unusually",
+      "hard to replace"
+     ],
+     "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]",
+     "texte": "faut juste que ça dure plus qu'une vidéo, pour que ton cerveau [[réapprenne à rester]]"
+    },
+    "T5": {
+     "en": [
+      "a jack of all trades is better than a master of one"
+     ],
+     "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]",
+     "texte": "[[la profondeur, ça se muscle, et ça revient vite]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "too many small decisions"
+     ],
+     "fr": "trop de [[petites décisions]]",
+     "texte": "règle ton [[sommeil]] d'abord"
+    },
+    "T2": {
+     "en": [
+      "what to wear, what to eat,",
+      "when to start, every",
+      "choice uses up willpower"
+     ],
+     "fr": "quoi mettre, quoi manger, quand s'y mettre, chaque choix [[grignote ta volonté]]",
+     "texte": "sans sommeil, ton cerveau rame, oublie tout, et [[t'as l'impression d'être bête]]"
+    },
+    "T3": {
+     "en": [
+      "this is called decision",
+      "fatigue"
+     ],
+     "fr": "ça s'appelle la [[fatigue décisionnelle]]",
+     "texte": "t'es pas bête, [[t'as mal dormi]]"
+    },
+    "T4": {
+     "en": [
+      "plan tomorrow the night",
+      "before, so in the",
+      "morning you just start"
+     ],
+     "fr": "prépare demain dès la veille, et le matin [[tu te lances direct]]",
+     "texte": "le tel loin du lit, la même heure de coucher, et [[laisse-toi une semaine]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "ouvre un bouquin [[au lieu de scroller]]",
+     "texte": "nourris ton cerveau [[pour de vrai]]"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold attention, remember",
+      "details, and build the picture in your own head"
+     ],
+     "fr": "lire t'apprend à [[tenir ton attention]], retenir les détails et [[te faire le film]] dans ta tête",
+     "texte": "même crevé, ton cerveau veut du contenu et prend le plus facile. donne-lui [[une vraie idée]] à mâcher"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[un cerveau plus vif]], remplace une partie de ton [[scroll par des livres]]",
+     "texte": "quand t'as déjà le tel en main, [[apprends un truc]] au lieu de scroller cent vidéos"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant dès que je dégaine mon tel, j'apprends un truc en [[5 min sur l'appli Sophia]]",
+     "texte": "mes 5 min du jour sur [[l'appli Sophia]] : Camus et le mythe de Sisyphe. enfin un truc à raconter"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "improve your communication",
+      "skills"
+     ],
+     "fr": "apprends à [[bien communiquer]]",
+     "texte": "[[raconte]] tout ce que t'as appris"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "clearly, you probably don't",
+      "understand it deeply",
+      "enough"
+     ],
+     "fr": "si t'arrives pas à expliquer une idée simplement, c'est que [[tu l'as pas vraiment comprise]]",
+     "texte": "parle à quelqu'un du chapitre lu ou du truc appris aujourd'hui, à voix haute, avec tes mots"
+    },
+    "T3": {
+     "en": [
+      "practice writing, speaking,",
+      "storytelling, and teaching"
+     ],
+     "fr": "exerce-toi à écrire, parler, raconter et [[expliquer]]",
+     "texte": "au dîner, en appel, dans le groupe, [[n'importe où]]"
+    },
+    "T4": {
+     "en": [
+      "turning complicated",
+      "thoughts into simple",
+      "language forces your brain",
+      "to organise them properly"
+     ],
+     "fr": "dire un truc compliqué avec des mots simples, ça [[oblige ton cerveau]] à remettre de l'ordre dedans",
+     "texte": "expliquer un truc oblige ton cerveau à le ranger et à le garder, et c'est là que [[ta tête redevient vive]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o186",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ba1aa5e9-0719-428a-8ea2-eb51b51c9fcf",
+ "titre": "5 quantum truths that will change how you see reality #physics #quantum #smartgirl #science #learning",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 6 de la boîte (parent ba1aa5e9, langue source en) : accroche du parent mot pour mot. Le parent mêlait pseudo-science (« le champ répond à tes émotions ») : on garde l'accroche et on ne met que de la vraie physique, vérifiée : superposition, intrication (Nobel 2022), effet tunnel (qui aide le Soleil à fusionner), dualité onde-particule (fentes de Young), principe d'incertitude de Heisenberg. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "661ba49f",
+   "texte_overlay": "5 quantum truths that will\nchange how you see reality",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d4775894",
+   "texte_overlay": "1. superposition\n\na tiny particle can be in\nseveral states at once,\nuntil it's measured.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0966c717",
+   "texte_overlay": "2. entanglement\n\ntwo particles can stay linked\nacross huge distances.\nit won the 2022 nobel prize.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b6255dd8",
+   "texte_overlay": "3. tunnelling\n\nparticles can pass through\nbarriers. it helps the sun shine.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "706444ad",
+   "texte_overlay": "4. wave or particle?\n\nlight behaves like both,\ndepending on how you look.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "804f0d88",
+   "texte_overlay": "5. uncertainty\n\nyou can't know a particle's\nexact position and speed\nat the same time.",
+   "texte_sophia": "5. uncertainty\n\nyou can't know a particle's\nexact position and speed.\ni learn ideas like this on\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "023c9877",
+   "texte_overlay": "which one blew your mind?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

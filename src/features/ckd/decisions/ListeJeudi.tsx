@@ -21,6 +21,7 @@ import { lireEtatsHandle, marquerKillSamedi, phraseStatut } from "./handlesEtat"
 import { LigneHandle } from "./LigneHandle";
 import { BadgesPosteur, StatutCompte } from "./LigneStatut";
 import { lundiDeLaSemaine } from "./logique";
+import { marquerRituelFait, recreerManuel, vuesCompte } from "./rituelsFaits";
 import { evaluerCompte, lireExtras, ordreStatut } from "./statutCompte";
 import {
   attendusJusquIci,
@@ -104,7 +105,8 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
     choix[c.compte_id] ??
     (etats.data?.get(c.compte_id)?.kill_jeudi_at || killPrevu(c) ? "kill_samedi" : deProblemes(c) && c.recreer ? "recreate" : choixJeudiInitial(c));
   const nudges = liste.filter((c) => choixDe(c) === "nudge");
-  const recreates = liste.filter((c) => choixDe(c) === "recreate" && c.recreer);
+  // 5/11 : Recreate n'est jamais grisé ; un compte non recommandé passe après confirmation.
+  const recreates = liste.filter((c) => choixDe(c) === "recreate");
   const visibles = trierComptes(filtrerComptes(liste, filtres), tri).sort((a, b) => ordreStatut(ev(a), ev(b)));
   // « À traiter » d'abord ; les comptes sans problème regroupés en bas, fermés.
   const principaux = visibles.filter((c) => ev(c).statut === "rouge" || ev(c).statut === "orange");
@@ -120,15 +122,21 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
       for (const c of recreates) {
         try {
           if (c.recreer === "ckd" && c.ckd_jeudi_id) await deciderCkd(c.ckd_jeudi_id, "recreer", null);
-          else await recreerShadowban(c.compte_id);
+          else {
+            if (!c.recreer) await recreerManuel(c.compte_id, vuesCompte(c.vues));
+            await recreerShadowban(c.compte_id);
+          }
           recrees++;
         } catch (e) {
           erreurs.push(`@${c.handle ?? "?"} : ${(e as Error).message}`);
         }
       }
+      // 0540 : le jeudi est fait jusqu'au jeudi suivant.
+      await marquerRituelFait("jeudi", lundi, { nudges: r.prepares, recreates: recrees, erreurs: erreurs.length }).catch(() => undefined);
       return { ...r, partis: f?.envoyes ?? 0, attente: f?.upwork_bloque ?? 0, recrees, erreurs };
     },
     onSuccess: (r) => {
+      void qc.invalidateQueries({ queryKey: ["rituels-faits"] });
       setChoix({});
       setBilan(t("autoOnglets.decisions.liste.jeudi.bilan", r) + (r.erreurs.length ? ` · ${r.erreurs.join(" · ")}` : ""));
       void qc.invalidateQueries({ queryKey: ["semaine-comptes"] });
@@ -145,12 +153,12 @@ export function ListeJeudi({ maintenant = new Date() }: { maintenant?: Date }) {
                       valeur={choixDe(c)}
                       options={CHOIX}
                       libelle={(o) => t(`autoOnglets.decisions.liste.jeudi.choix.${o}`)}
-                      desactives={[
-                        ...(c.recreer ? [] : (["recreate"] as const)),
-                        ...(c.nudge_envoye_at || c.nudge_en_file ? (["nudge"] as const) : []),
-                      ]}
+                      desactives={c.nudge_envoye_at || c.nudge_en_file ? ["nudge"] : []}
                       lecture={!admin || killPrevu(c)}
                       onChange={(o) => {
+                        // 5/11 : Recreate non recommandé (le compte fait des vues) : cliquable, avec confirmation.
+                        if (o === "recreate" && !c.recreer
+                            && !window.confirm(t("autoOnglets.decisions.liste.jeudi.recreerQuandMeme", { vues: (vuesCompte(c.vues) ?? 0).toLocaleString() }))) return;
                         const avant = choixDe(c);
                         setChoix((x) => ({ ...x, [c.compte_id]: o }));
                         if (o === "kill_samedi") kill.mutate({ c, marquer: true });

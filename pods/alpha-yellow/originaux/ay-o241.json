@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o241",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "01e22afe-8b6d-4cb5-a695-f13b074356ee",
+ "titre": "Things every man should own by 30 #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "01e22afe-8b6d-4cb5-a695-f13b074356ee"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 5 de la boîte (01e22afe, notre full test ay-o170 qui a gagné : it 6,2 k r 3,88) : accroche du parent mot pour mot. Items neufs, aucun repris d'ay-o170 (outils, manteau, couteaux, trousse de secours, livres, costume, épargne).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "83e9d782-860f-4183-bfda-406dfa9d2958",
+   "texte_overlay": "Things every man\nshould own by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "A good mattress and pillow. You spend a third of your life in bed. Good sleep changes your energy, your mood and your back more than any gadget.",
+   "media_id": "9f8bdc9d-ba29-44f5-bd8b-e6253cdda762"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "One pair of quality leather shoes. Polished, resoled, kept for years. They look sharp with jeans or a suit, and they last far longer than three pairs of cheap ones.",
+   "media_id": "08d6c085-cf91-484c-b5c7-b39e5a078fc0"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A cast iron pan. Heavy, simple, almost indestructible. It cooks a perfect steak, gets better with age, and might outlive you.",
+   "media_id": "4f76257e-e510-4df9-9ff8-9c1d972b8e8d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "A valid passport. Always ready, never expired. Being able to say yes to a last-minute trip or a work opportunity abroad is a quiet kind of freedom.",
+   "media_id": "c6476029-c637-41d2-95dc-71a345403dc3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "A learning habit you keep. I do five minutes a day on history, art or science, and it's the one thing I own that keeps getting more valuable.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It's the one thing I own that keeps getting more valuable.",
+   "media_id": "17348b8b-5d4d-41e5-9f0e-0460760bdc00"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Clean towels and sheets for guests. When a friend needs a place to stay, being ready to host them says you have your life in order and that your friends are always welcome.",
+   "media_id": "59d3dff7-4bd7-42fd-b7cc-5c1ce98ba37f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "A simple, reliable watch. Nothing flashy. Checking the time without picking up your phone keeps you present with people and looks effortlessly classic on any wrist.",
+   "media_id": "034ecea6-f4b4-4560-8259-1da82c5c98a6"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o176",
+ "type_bleo": "full_test",
+ "titre": "ce que je réponds quand on me demande « pourquoi vous voulez partir ? » (et ce que je pense vraiment) #entretien #rechercheemploi #emploi #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Full test : accroche jamais faite chez nous (la raison du départ, dite vs pensée). Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d08df46c",
+   "texte_overlay": "ce que je réponds quand on me demande\n« pourquoi vous voulez partir ? »\n(et ce que je pense vraiment)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "221aebc3",
+   "texte_overlay": "ce que je pense : « je m'ennuie »\nce que je dis : « je veux apprendre X, et ce n'est plus possible là où je suis »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "23052a99",
+   "texte_overlay": "ce que je pense : « ma manager est épuisante »\nce que je dis : « je cherche un management plus présent »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "23d0d06e",
+   "texte_overlay": "ce que je pense : « je suis sous-payée »\nce que je dis : « je cherche un poste qui reconnaisse ce que j'apporte »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "246db26e",
+   "texte_overlay": "ce que je pense : « je veux du sens »\nce que je dis : « vos projets me parlent, et je peux vous dire pourquoi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f8c645c1",
+   "texte_overlay": "ce que je pense : « j'en peux plus »\nce que je dis : « j'ai besoin d'un nouveau défi »\net je m'y prépare déjà en apprenant chaque jour",
+   "texte_sophia": "ce que je pense : « j'en peux plus »\nce que je dis : « j'ai besoin d'un nouveau défi », et je m'y prépare en apprenant 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2526aa4d",
+   "texte_overlay": "rien de faux.\njuste dit pour être entendu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "271d8ff5",
+   "texte_overlay": "et toi, c'est laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

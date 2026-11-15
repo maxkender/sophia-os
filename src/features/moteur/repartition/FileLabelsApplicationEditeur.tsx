@@ -189,7 +189,7 @@ export function FileLabelsApplicationEditeur({
                 )}
                 {horsSlideshow && (
                   <Badge variant="outline" className="shrink-0 text-[10px]">
-                    {t("warmup.fileIgnoreUgcVideo")}
+                    {t("warmup.fileIgnoreManuel")}
                   </Badge>
                 )}
                 {horsApp && !horsSlideshow && (

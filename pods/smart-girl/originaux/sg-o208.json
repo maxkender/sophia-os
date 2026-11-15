@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o208",
+ "type_bleo": "full_test",
+ "titre": "how to start a book club your friends will actually love #bookclub #reading #smartgirl #booktok #friends",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 1/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« book club » absent des accroches de donnees/label.json). Accroches écrites : « how to start a book club your friends will actually love » (retenue : concret, social, enregistrable), « book club ideas » (écartée : vague), « why every woman needs a book club » (écartée : sermon). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "30f50e22",
+   "texte_overlay": "how to start a book club your\nfriends will actually love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d6a14582",
+   "texte_overlay": "1. keep it small\n\nfour to six people is perfect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d1bffa47",
+   "texte_overlay": "2. pick short books first\n\nunder 250 pages. everyone\nfinishes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f3bd54cc",
+   "texte_overlay": "3. rotate who chooses",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f2f5e70c",
+   "texte_overlay": "4. meet at someone's home,\nwith food",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "245d124b",
+   "texte_overlay": "5. bring one question,\nnot a summary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b8d92099",
+   "texte_overlay": "6. know the story behind the book\n\nwho wrote it, and why.",
+   "texte_sophia": "6. know the story behind the book\n\ni learn it in 5 minutes on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7cfed955",
+   "texte_overlay": "send this to your group chat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

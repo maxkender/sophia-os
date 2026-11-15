@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o125",
+ "type_bleo": "full_test",
+ "titre": "4 short poems worth learning by heart #poetry #poems #smartgirl #darkacademia #literature",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 1/4 (la jauge en demande 4 sur 11) : accroche jamais faite chez nous (« poem » et « by heart » n'apparaissent dans aucune accroche de donnees/label.json). Accroches écrites : « 4 short poems worth learning by heart » (retenue : culture, mémoire, extraits libres de droits), « poems every woman should know » (écartée : plus vague), « the most beautiful lines in english poetry » (écartée : invérifiable). Extraits domaine public vérifiés : Dickinson « Hope is the thing with feathers », Shakespeare sonnet 18, Blake « Auguries of Innocence », Christina Rossetti « Remember ». Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9a3a616a",
+   "texte_overlay": "4 short poems worth\nlearning by heart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ddc37072",
+   "texte_overlay": "\"hope\" is the thing with feathers\nthat perches in the soul\n\nemily dickinson",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "21241426",
+   "texte_overlay": "shall i compare thee to\na summer's day?\nthou art more lovely\nand more temperate\n\nshakespeare, sonnet 18",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7d25bce6",
+   "texte_overlay": "to see a world in a grain of sand\nand a heaven in a wild flower\n\nwilliam blake",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "26a47d9f",
+   "texte_overlay": "remember me when i am gone away,\ngone far away into\nthe silent land\n\nchristina rossetti",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cf3100dc",
+   "texte_overlay": "learn one line a day instead\nof one more scroll.\nyour memory will thank you.",
+   "texte_sophia": "learn one line a day instead\nof one more scroll. i find mine\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bbac09f0",
+   "texte_overlay": "which one will you learn\nfirst?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

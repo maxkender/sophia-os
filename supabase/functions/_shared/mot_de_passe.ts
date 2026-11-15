@@ -16,8 +16,12 @@ export function motDePasseRecrue(aleatoire: (n: number) => number = (n) => crypt
   return `${pris(CONSONNES)}${pris(VOYELLES)}${pris(CONSONNES)}${pris(VOYELLES)}${pris(CHIFFRES)}${pris(CHIFFRES)}${pris(CHIFFRES)}${pris(CHIFFRES)}`;
 }
 
-/** Le mot de passe d'une création de posteur : unique si rien n'est donné, « auto », ou l'ancien commun. */
+/**
+ * Le mot de passe d'une création de posteur. 9/11 (Max) : « 12345678 pour
+ * l'instant partout » : rien, « auto » ou l'ancien commun → 12345678 ; un choix
+ * explicite reste.
+ */
 export function motDePasseCreation(demande: string | null | undefined): string {
   const d = String(demande ?? "").trim();
-  return !d || d === "auto" || d === MOT_DE_PASSE_COMMUN ? motDePasseRecrue() : d;
+  return !d || d === "auto" ? MOT_DE_PASSE_COMMUN : d;
 }

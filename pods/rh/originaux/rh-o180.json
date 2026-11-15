@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o180",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8d9f48b2-4ab2-42ce-90ed-8c0d982984f4",
+ "titre": "4 jours après mon entretien, j'ai écrit un seul mail. c'est lui qui m'a fait embaucher #entretien #relance #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G2 de la ligne 1 (parent 8d9f48b2, notre rh-o124) : même promesse, autres mots. Autre angle (ce qu'il ne faut pas écrire, puis ce qu'il faut écrire). Inspirations : sans les slides 4 et 5 de d9f07ab9 (une vraie entreprise citée, une appli concurrente) ni la 6 de e33deadc (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d3828d94",
+   "texte_overlay": "4 jours après mon entretien,\nj'ai écrit un seul mail.\nc'est lui qui m'a fait embaucher",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "30148fe8",
+   "texte_overlay": "ce que je n'ai pas écrit\n« je me permets de revenir vers vous »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3195c188",
+   "texte_overlay": "ce que j'ai écrit à la place\n« depuis notre échange, j'ai repensé à votre projet X »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "31d533cb",
+   "texte_overlay": "ce que j'ai ajouté\nune idée concrète, en 2 lignes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3214ee63",
+   "texte_overlay": "ce que je n'ai pas fait\nappeler le lendemain. ni relancer 3 fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1cc3bac4",
+   "texte_overlay": "ce que j'avais préparé au cas où il rappelle\nun sujet à moi, appris dans la semaine",
+   "texte_sophia": "ce que j'avais préparé au cas où il rappelle\nun sujet à moi, appris en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "32cdf4a0",
+   "texte_overlay": "un seul mail, au bon moment\nça suffit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "338c0377",
+   "texte_overlay": "tu relances au bout de combien de jours ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

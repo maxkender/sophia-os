@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o196",
+ "type_bleo": "full_test",
+ "titre": "things that age your mind faster than anything #brainhealth #psychology #selfimprovement #habits #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "138af0c6-65cb-4715-a9d5-400da16b2621"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 138af0c6). full test BLEO : accroche jamais faite (format « things that age your X faster »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5cf9f75a-c1fd-4757-93ea-1f660c4e803d",
+   "texte_overlay": "things that age your mind\nfaster than anything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9ce5b7d6-a56b-4d4a-9fb4-8cba734e07e5",
+   "texte_overlay": "never learning anything new\n\na brain that stops learning slowly stops growing. people who keep picking up new skills and ideas tend to stay sharper and more curious for many more years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2c2fc0f7-07e3-445b-8f06-fc34d51a18d5",
+   "texte_overlay": "endless scrolling\n\nhours of short videos train your brain to crave quick hits and lose focus. a mind that can't sit with one thing for long starts to feel tired, foggy and restless.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c43aacba-c0d7-4f8b-b1be-d5a70d018b8d",
+   "texte_overlay": "only easy days\n\ndoing only what feels comfortable lets your mind go soft. small daily challenges, like learning one new thing for 5 minutes, keep your brain awake, curious and young.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/4.jpg",
+   "texte_sophia": "only easy days\n\ni stopped challenging myself after school. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and my mind feels younger and much more awake."
+  },
+  {
+   "position": 5,
+   "media_id": "861aa6f7-745a-438b-a541-eb06ce8b5a55",
+   "texte_overlay": "chronic loneliness\n\ngoing weeks without a real conversation is surprisingly hard on your brain. talking, laughing and arguing with people keeps your thinking quick and your memory strong.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "38c13d65-fc73-4f78-b17b-c1f1adb67e85",
+   "texte_overlay": "bad sleep\n\nyour brain cleans itself while you sleep. skipping rest night after night leaves you foggy and forgetful, and no amount of coffee can ever fully make up for it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7666168678752193814/6.jpg"
+  }
+ ]
+}

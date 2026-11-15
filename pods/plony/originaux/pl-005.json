@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-005",
+  "titre": "The best revenge is not to become like the one who wronged you. #stoicism #marcusaurelius #selfrespect #quotes",
+  "source_phrase": "Marcus Aurelius, Meditations, 6.6 (Long translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "Naima",
+  "notes": "cta A",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "9563c52d",
+      "texte_overlay": "The best revenge",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695247025935289608/2.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "69c03d29",
+      "texte_overlay": "is not to become",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704120576398478610/3.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "dde626bd",
+      "texte_overlay": "like the one who wronged you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7693265565615459602/2.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "72795aff",
+      "texte_overlay": "Marcus Aurelius, Meditations.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7697093627524205840/3.jpg",
+      "texte_sophia": "Marcus Aurelius wrote this for himself, not for us. I read it this morning on Sophia."
+    }
+  ]
+}

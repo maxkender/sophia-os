@@ -40,9 +40,9 @@ describe("fileJour", () => {
   });
 
   it("écarte CM et UGC vidéo", () => {
-    expect(estCompteSlideshowAssigne({ type_compte: "perso", ugc_ai_video: false })).toBe(true);
+    expect(estCompteSlideshowAssigne({ type_compte: "perso", ugcv: false })).toBe(true);
     expect(estCompteSlideshowAssigne({ type_compte: "cm" })).toBe(false);
-    expect(estCompteSlideshowAssigne({ ugc_ai_video: true })).toBe(false);
+    expect(estCompteSlideshowAssigne({ ugcv: true })).toBe(false);
   });
 
   it("insère le corps d'une remarque dans le brouillon", () => {

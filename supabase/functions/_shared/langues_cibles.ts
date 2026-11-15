@@ -34,6 +34,7 @@ export const LANGUES_CIBLES = [
   "lt",
   "lv",
   "ja",
+  "ko",
 ] as const;
 
 /**

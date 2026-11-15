@@ -247,7 +247,7 @@ export function ContenusABlancCard() {
             )}
             <p>
               {t("contenusABlanc.anglesLabels")}{" "}
-              <Link to="/admin/angles" className="underline">
+              <Link to="/admin/chaine?onglet=placement" className="underline">
                 {t("contenusABlanc.anglesGerer")}
               </Link>
             </p>

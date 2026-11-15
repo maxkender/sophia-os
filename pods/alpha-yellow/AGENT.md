@@ -77,7 +77,7 @@ Chaque schéma contient :
 - `schema` : le gabarit d'accroche ;
 - `exemples` ;
 - `pourquoi` ;
-- `inspiration_contenus` : les contenus du label d'où prendre images et slides d'inspiration ;
+- `inspiration_contenus` : les contenus du label d'où prendre les slides d'inspiration (les images, elles, viennent de toute la banque : voir « Images ») ;
 - `musiques` ;
 - `preuves` : des posts TikTok (`url`, `vues`, `enregistrements`, `publie_le`, `releve_le`) ou des contenus du label (`contenu_id`, `r_median`, `publies`).
 
@@ -133,13 +133,13 @@ sera ensuite relu dans la PR.
 	- On doit avoir envie de l'**enregistrer**.
 	- Les items sont **neufs** : jamais un item de @stonemag.co recopié, jamais deux fois le même dans tes originaux.
 - **Slide 5 = slide Sophia** : un item sur l'apprentissage (apprendre un peu de tout, avoir quelque chose à dire sur tout). La base est sans appli, la version Sophia dans `texte_sophia`.
-- **Images** : celles des contenus d'inspiration du schéma (banque du label).
+- **Images** : **toute la banque du label** (2 232 images), avec `npm run images -- --cherche "…"`. Plus jamais seulement celles des contenus d'inspiration du schéma : le 12/11, 102 images avaient servi pour 1 488 slides en 14 jours, et les posteurs voyaient les mêmes photos à chaque post. Une image que tu as livrée depuis 14 jours ne t'est plus proposée, et le guichet la refuse (`images_recentes`). Les contenus d'inspiration ne servent qu'aux slides d'inspiration.
 	- La plus forte en accroche.
 	- **Couvertures variées** : pioche largement dans la banque (367 images d'accroche, `npm run couvertures`). Reprendre une accroche ou une couverture est permis (c'est le principe des variantes, `ROUTINE.md` §4.3, §4.7 avant BLEO), mais chaque reprise change quelque chose : items, angle, image ou CTA. `deposer` refuse un post identique à un autre.
 	- Jamais deux fois la même image dans un deck.
 	- **La slide Sophia n'est jamais posée sur le visage reconnaissable d'une star** (prends la mer, une vague, un plongeon, une silhouette de dos). Sinon, la star aurait l'air de recommander l'app.
 - **Slides d'inspiration** : celles d'un post gagnant, position par position. Elles montrent au poster où et comment poser le texte jaune.
-- **Musique** : celle du schéma, ou un son relevé par la veille sur les gagnants du moment.
+- **Musique** : alterne au moins 5 sons relevés par la veille sur les gagnants du moment. Le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`).
 - **Interdits** :
 	- l'amélioration de soi vague en « how you… » ;
 	- le lifestyle contemplatif ;

@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o080",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e49022e8-5e9c-415f-83bd-ca3af7cc2a1f",
+  "titre": "how to actually lock in and become the best version of yourself #lockin #thatgirl",
+  "inspirations": [
+    "e49022e8-5e9c-415f-83bd-ca3af7cc2a1f"
+  ],
+  "notes": "G1, déclinaison de e49022e8 (« how to actually lock in and become the best version of yourself », génération 0 en anglais ; meilleur passage tr 4,2 k vues, r 3,12), en anglais. cta B (l'anecdote du jour en item 2). Items neufs (rien de repris du parent : ni sommeil, ni légumes, ni autre appli). Fait vérifié le 4/11 : https://en.wikipedia.org/wiki/Cleopatra (morte en 30 av. J.-C.) et https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza (« built c. 2600 BC ») ; environ 2 570 ans entre la pyramide et Cléopâtre, environ 2 000 ans entre Cléopâtre et 1969. Routine du 4/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1, 2, 3, 5, 7, 8 et 10 de la boîte). Lignes sautées : 4 (837491f7, faute de frappe dans l'accroche et salaires invérifiables), 6 (6211e51e, « other then », faute à recopier), 9 (9e0c287f, accroche fautive et trop voisine de la ligne 2). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "how to actually lock in\nand become the best version of yourself",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a80cdcb",
+      "texte_overlay": "1. decide what 'better' means for you\n\nnot for tiktok. write three things you want to be true by june.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "2. feed your brain, not just your feed\n\nthis morning i learned that cleopatra lived closer to the moon landing than to the building of the great pyramid.\ni haven't stopped thinking about it.",
+      "texte_sophia": "2. feed your brain, not just your feed\n\nthis morning, the Sophia app taught me that cleopatra lived closer to the moon landing than to the building of the great pyramid.\ni haven't stopped thinking about it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "03d4534a",
+      "texte_overlay": "3. keep promises to yourself, even tiny ones\n\nsay you'll read ten pages, read ten pages.\nthat's how you start trusting yourself.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "057091a3",
+      "texte_overlay": "4. do the hard thing first\n\nthe rest of the day feels lighter\nwhen the worst part is behind you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "09067fa3",
+      "texte_overlay": "5. stop announcing, start doing\n\ntell people after.\nit's a lot more fun.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "01be1362",
+      "texte_overlay": "which one are you starting today?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

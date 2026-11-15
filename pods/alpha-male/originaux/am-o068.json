@@ -1,0 +1,60 @@
+{
+ "source_id": "am-o068",
+ "type_bleo": "full_test",
+ "titre": "How to become the man people call in a crisis #men #protector #respect #selfimprovement #discipline",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 9/11. Full test du jour (1 sur 2, jauge : 2 sur 6). Accroche jamais faite chez nous : aucun « crisis » dans donnees/label.json. Même terrain que la famille protecteur (am-o010, rang S), promesse neuve : être celui qu'on appelle. Rien de médical : suivre une formation de premiers secours, sans geste de soin. Format : numéro, geste, deux lignes. Images de la banque ; slide Sophia : chalet en forêt, sans personne. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c04373c",
+   "texte_overlay": "How to become the man\npeople call in a crisis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1d11b6d9",
+   "texte_overlay": "1. Stay calm first\n\nPanic spreads.\nSo does calm. Be the second.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "12812cb9",
+   "texte_overlay": "2. Take a first-aid course\n\nOne weekend.\nYou'll know what to do\nwhile others freeze.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2d98b7de",
+   "texte_overlay": "3. Pick up at 2 a.m.\n\nYour friends know\nyour phone is on.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "149cecc8",
+   "texte_overlay": "4. Keep a kit in the car\n\nJumper cables. A flashlight.\nA blanket. Water.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2fc74eeb",
+   "texte_overlay": "5. Listen before you fix\n\nAsk what they need.\nSometimes it's just you there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "162e4a6b",
+   "texte_overlay": "6. Check in a week later\n\nEveryone shows up on day one.\nFew show up on day seven.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "537c4997",
+   "texte_overlay": "7. Know useful things\n\nHow things work.\nWhat to do. Who to call.\nLearn a little every day.",
+   "texte_sophia": "7. Know useful things\n\nHow things work. What to do.\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

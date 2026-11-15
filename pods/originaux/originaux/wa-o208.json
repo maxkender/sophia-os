@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o208",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "82fad3bc-c81d-4ab0-94d1-646121d4d435",
+ "titre": "small acts of detachment that brought me peace #detachment #peace #lettinggo #selfimprovement #mindset",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "77ba092a-c1a5-4eb2-81e6-8f50f0b21037"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 77ba092a). déclinaison G2 de « detachment lessons that shifted my entire mindset » (parent 82fad3bc). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0bb0f019-149e-4da6-9924-9fb5dd24d9ae",
+   "texte_overlay": "small acts of detachment\nthat brought me peace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "030d2c77-8766-4c0c-9d38-793a67d6efd2",
+   "texte_overlay": "muting instead of arguing\n\ni stopped arguing with strangers online and simply muted them instead. my mornings became so much quieter, and i didn't miss a single one of those fights.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "03470211-1e4d-4bad-ba40-dfcb09dd1501",
+   "texte_overlay": "changing what i feed my mind\n\ni swapped some of my scrolling for one small lesson a day. giving my mind something calm and interesting made all the noise online feel far less important.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/3.jpg",
+   "texte_sophia": "changing what i feed my mind\n\ni used to fill every quiet minute with scrolling. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a myth, and my mind feels calmer and much less reactive."
+  },
+  {
+   "position": 4,
+   "media_id": "07f4683f-35af-45ee-a6de-ea1d43b5207e",
+   "texte_overlay": "letting people leave\n\nwhen someone drifted away, i stopped chasing them with long messages. the right people stay without being begged, and that single thought quietly set me free.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "16ade35c-22c8-41ab-a378-6d771f67fe13",
+   "texte_overlay": "not explaining myself\n\ni stopped writing long explanations for choices that only affect me. a short and kind no is enough, and it saves hours of worrying about what people think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "18eeaa27-9636-4e30-ad94-b08261e63de5",
+   "texte_overlay": "leaving early\n\ni started leaving parties and places the moment i felt drained. going home early is not rude, it's a quiet way of respecting your own energy and peace.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/6.jpg"
+  }
+ ]
+}

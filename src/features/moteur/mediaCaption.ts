@@ -1,6 +1,5 @@
 /** Slug du label système « Hook » (1ʳᵉ slide d'un slideshow). */
 export const SLUG_HOOK = "hook";
-export const SLUG_UGC_AI_VIDEO = "ugc-ai-video";
 
 export const CAPTION_MAX = 180;
 
@@ -15,19 +14,12 @@ function nomLabel(lab: { nom?: string | null }): string {
   return (lab.nom ?? "").trim().toLowerCase().replace(/\s+/g, " ");
 }
 
-/** Hook (1ʳᵉ slide) et marque « UGC AI VIDEO » — jamais un label de créateur. */
+/** Hook (1ʳᵉ slide) — jamais un label de créateur. */
 export function estLabelSysteme(lab: {
   slug?: string | null;
   nom?: string | null;
 }): boolean {
-  const slug = slugLabel(lab);
-  const nom = nomLabel(lab);
-  return (
-    slug === SLUG_UGC_AI_VIDEO ||
-    slug === SLUG_HOOK ||
-    nom === "hook" ||
-    nom === "ugc ai video"
-  );
+  return estLabelHook(lab);
 }
 
 export function estLabelHook(lab: { slug?: string | null; nom?: string | null }): boolean {

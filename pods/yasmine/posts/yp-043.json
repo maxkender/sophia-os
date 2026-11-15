@@ -1,0 +1,462 @@
+{
+ "id": "yp-043",
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "mon plan pour réviser un exam en 7 jours"
+ },
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "mon plan pour réviser un exam en 7 jours",
+  "es": "mi plan para preparar un examen en 7 días",
+  "tr": "7 günde sınava hazırlanma planım"
+ },
+ "legendes": {
+  "fr": "enregistre-le pour ton prochain exam 📌 #examens #revisions #studytok #thatgirl #planning",
+  "es": "guárdalo para tu próximo examen 📌 #examenes #estudiar #studytok #thatgirl #planificacion",
+  "tr": "bir sonraki sınavın için kaydet 📌 #sınav #ders #studytok #thatgirl #plan"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7230798699515939630"
+ },
+ "fond": {
+  "media_id": "a1876b29-41c2-4c99-8bad-54bdd9699fdb",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/95738e9f-fb6c-4d6d-946a-7e059c764d28/1.jpg?v=1792841219510",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format photos à petites légendes (yp-002). cta B : la mise en scène iPhone micabo en photo pleine des jours 3 et 4",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "mon plan pour",
+     "lignes": [
+      "RÉVISER",
+      "UN EXAM",
+      "EN 7 JOURS"
+     ],
+     "taille": 160,
+     "texte_bas": "sans paniquer📚",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "script_haut": "mi plan para",
+     "lignes": [
+      "PREPARAR",
+      "UN EXAMEN",
+      "EN 7 DÍAS"
+     ],
+     "taille": 150,
+     "texte_bas": "sin agobios📚",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "taille_script": 68,
+     "y": 757,
+     "lignes": [
+      "7 GÜNDE",
+      "SINAVA",
+      "HAZIRLANMA",
+      "PLANIM"
+     ],
+     "taille": 140,
+     "texte_bas": "panik yapmadan📚",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3ff11e0e-12cf-42b5-9e5e-cb83ca35c6cd",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bcf7855a-815f-4d17-ae4b-e3a7a9404311/4.jpg?v=1790607795574",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "jour 1 : je fais le tri📋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "tous les chapitres sur une liste"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "día 1: lo organizo todo📋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "todos los temas en una lista"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "1. gün: düzenliyorum📋"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "bütün üniteler tek listede"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "96eb3407-86a5-4d00-8497-dee1d4368e6f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/da5cc540-ac82-4d07-8ba0-13df8e4002d6/5.jpg?v=1791727092769",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "jour 2 : je relis une fois📖"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "juste pour comprendre"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "día 2: lo leo una vez📖"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "solo para entender"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "2. gün: bir kez okuyorum📖"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sadece anlamak için"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "jours 3 et 4 : quiz, quiz, quiz📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "je repère ce que je ne sais pas⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "días 3 y 4: quiz, quiz, quiz📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "veo lo que no sé⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "3. ve 4. gün: test, test, test📚"
+     ],
+     "x": 540,
+     "y": 190,
+     "taille": 56,
+     "couleur": "brun",
+     "sous": [
+      "bilmediğimi buluyorum⚡"
+     ]
+    },
+    "legende_bas": {
+     "lignes": [
+      "micabo >>"
+     ],
+     "x": 80,
+     "y": 1830,
+     "taille": 46,
+     "couleur": "blanc",
+     "aligne": "gauche"
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 0.5
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "31d533cb-b820-45b6-a91d-f9abe03de022",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c650882c-1815-4518-b418-b3e04d8223db/3.jpg?v=1790608155423",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "jour 5 : je bosse mes points faibles🎯"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "seulement ce que je rate"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "día 5: trabajo mis puntos débiles🎯"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "solo lo que fallo"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "5. gün: zayıf noktalarım🎯"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sadece yanlış yaptıklarım"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9f946c4e-b2cc-4c6e-91c4-575524734ed8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8ebb5041-2b66-463c-8b70-fe4ebe33178c/3.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "jour 6 : une annale chrono en main⏱️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "comme le jour J"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "día 6: examen antiguo, cronometrado⏱️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "como el día D"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "6. gün: süre tutarak çıkmış soru⏱️"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "sınav günü gibi"
+     ]
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3831e2c2-a67c-4e5f-a9b7-c20184041193",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f7521d6c-accc-45ba-93cc-d414fc23a88e/4.jpg?v=1790677061288",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "legende": {
+     "lignes": [
+      "jour 7 : je relis et je dors tôt🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "pas de nouveau chapitre"
+     ]
+    }
+   },
+   "es": {
+    "legende": {
+     "lignes": [
+      "día 7: repaso y a dormir pronto🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "nada de temas nuevos"
+     ]
+    }
+   },
+   "tr": {
+    "legende": {
+     "lignes": [
+      "7. gün: göz atıp erken yatıyorum🌙"
+     ],
+     "x": 540,
+     "y": 300,
+     "taille": 50,
+     "couleur": "jaune",
+     "sous": [
+      "yeni ünite yok"
+     ]
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

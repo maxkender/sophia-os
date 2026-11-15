@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o168",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1de032fb-b91d-4072-8de2-71ae87c3bae7",
+ "titre": "habits that help you think more clearly #clarity #focus #selfimprovement #habits #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "30e01985-3c12-4837-adf0-08c4fdeefc27"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 30e01985). déclinaison G1 de « habits that help you think more clearly » (parent 1de032fb). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "87298d3d-e3df-448d-8114-2b82e0797908",
+   "texte_overlay": "habits that help you\nthink more clearly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370657823214861/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b3a431ff-2e81-4b89-94dc-ea2df7a4e5d7",
+   "texte_overlay": "a walk without input\n\nwalk for twenty minutes with no music or podcast. your mind finally gets space to sort through everything, and clear solutions start to appear on their own.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370657823214861/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "865c8151-52d3-4dcb-b02f-a993cc65faeb",
+   "texte_overlay": "writing before deciding\n\nbefore any big decision, write the problem down in one sentence. if you can't, you don't understand it yet, and that's exactly where you should start thinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370657823214861/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8c7ae065-31d2-42d7-baef-83654ed3bcaa",
+   "texte_overlay": "learning one idea a day\n\nspend 5 minutes a day learning one clear idea: a scientific concept, a moment in history, a principle of art. clear inputs make for clear, calm thinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370657823214861/3.jpg",
+   "texte_sophia": "learning one idea a day\n\ni spend 5 minutes a day on one clear idea: a scientific concept, a moment in history. i do it with the Sophia app, one lesson a day, and clear inputs made for clearer thinking."
+  },
+  {
+   "position": 5,
+   "media_id": "f223bda8-2398-4ed7-8a8c-873ccee0678a",
+   "texte_overlay": "one tab at a time\n\nwork with a single tab open and close it before opening the next. your attention stops splitting in ten directions, and your thoughts become noticeably sharper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370657823214861/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "cf494bf8-effa-4987-8476-c3b2781e347a",
+   "texte_overlay": "going to bed earlier\n\ngo to bed thirty minutes earlier for a week. clear thinking depends far more on sleep than on any trick, and you'll clearly feel the difference within just a few days.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370657823214861/6.jpg"
+  }
+ ]
+}

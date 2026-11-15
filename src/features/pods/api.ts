@@ -187,6 +187,8 @@ export interface PodTableau {
   publies_7j: number;
   mures: number;
   vues_mediane: number | null;
+  /** Vues moyennes des posts mûrs (0717) ; absent avant la migration. */
+  vues_moyenne?: number | null;
   pct_10k: number | null;
   max_vues: number | null;
   r_mediane: number | null;
@@ -368,4 +370,92 @@ export async function enregistrerDemo(langue: string, fichier: File): Promise<vo
     .from("pod_demos")
     .upsert({ application: "sophia", langue: code, video_url: url, video_path: chemin }, { onConflict: "application,langue" });
   if (error) throw error;
+}
+
+/** Verdicts d'un podz de la voie 1 sur 21 jours et changement de rythme proposé (`bleo_rythme_resultats`, 0716). */
+export interface ResultatsPod {
+  verdicts: number;
+  gagnants: number;
+  taux: number | null;
+  taux_flotte: number | null;
+  full_tests_juges: number;
+  full_tests_gagnants: number;
+  declinaisons_jugees: number;
+  declinaisons_gagnantes: number;
+  en_attente: number;
+  file_utilise: number | null;
+  file_capacite: number | null;
+  changement: number;
+  raison: string;
+}
+
+/** La fiche d'un podz actif (`pods_fiches`, 0716). */
+export interface FichePod {
+  slug: string;
+  nom: string;
+  label: string;
+  voie: 1 | 2;
+  cent_podz: boolean;
+  langues_pod: string[] | null;
+  comptes: number;
+  comptes_par_langue: Record<string, number>;
+  publies_15j: number;
+  aujourdhui: { full_test: number; declinaison: number; remake: number; a_valider: number; rejetees: number };
+  boite: { familles: number; semaines: number; part_full_test: number; livre_par_jour: number } | null;
+  resultats: ResultatsPod | null;
+}
+
+export async function lireFichesPods(): Promise<FichePod[]> {
+  const { data, error } = await supabase.rpc("pods_fiches");
+  if (error) throw error;
+  return ((data ?? []) as FichePod[]).map((f) => ({
+    ...f,
+    boite: f.boite
+      ? {
+          familles: Number(f.boite.familles),
+          semaines: Number(f.boite.semaines),
+          part_full_test: Number(f.boite.part_full_test),
+          livre_par_jour: Number(f.boite.livre_par_jour),
+        }
+      : null,
+    resultats: f.resultats
+      ? {
+          ...f.resultats,
+          taux: f.resultats.taux === null ? null : Number(f.resultats.taux),
+          taux_flotte: f.resultats.taux_flotte === null ? null : Number(f.resultats.taux_flotte),
+        }
+      : null,
+  }));
+}
+
+/** « +2 », « −1 », « 0 » : le changement de rythme tel qu'on le lit. */
+export function libelleChangement(n: number): string {
+  if (n > 0) return `+${n}`;
+  if (n < 0) return `−${Math.abs(n)}`;
+  return "0";
+}
+
+/** Les langues des comptes, de la plus remplie à la moins remplie (puis par code). */
+export function languesParComptes(parLangue: Record<string, number>): [string, number][] {
+  return Object.entries(parLangue).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+}
+
+/** Un compte qui porte le label d'un podz (`pods_comptes`, 0717). */
+export interface CompteDuPod {
+  compte_id: string;
+  handle: string | null;
+  langue: string;
+  pays: string | null;
+  cree_le: string;
+  posts_15j: number;
+  mures: number;
+  vues_moyenne: number | null;
+  vues_max: number | null;
+  dernier_post: string | null;
+}
+
+export async function listerComptesPod(pod: string): Promise<CompteDuPod[]> {
+  const { data, error } = await supabase.rpc("pods_comptes", { p_pod: pod });
+  if (error) throw error;
+  return (data ?? []) as CompteDuPod[];
 }

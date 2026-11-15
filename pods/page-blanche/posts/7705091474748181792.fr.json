@@ -1,0 +1,1132 @@
+{
+ "post_id": "7705091474748181792",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 unusual habits to make",
+      "you a genius"
+     ],
+     "fr": "10/10 habitudes insolites pour être un génie",
+     "texte": "10/10 habitudes insolites pour être un génie"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(version niche)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 83,
+      "y": 226,
+      "l": 787,
+      "h": 133
+     },
+     "lignes": [
+      {
+       "x": 84,
+       "y": 226,
+       "l": 786,
+       "h": 54,
+       "base": 273
+      },
+      {
+       "x": 83,
+       "y": 299,
+       "l": 340,
+       "h": 60,
+       "base": 345
+      }
+     ],
+     "pas": 72,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 208,
+      "y": 406,
+      "l": 657,
+      "h": 108
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 83,
+      "y": 407,
+      "l": 97,
+      "h": 107
+     }
+    },
+    {
+     "id": "I3",
+     "type": "image",
+     "boite": {
+      "x": 84,
+      "y": 516,
+      "l": 781,
+      "h": 461
+     }
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 607,
+      "y": 1008,
+      "l": 252,
+      "h": 41
+     },
+     "lignes": [
+      {
+       "x": 607,
+       "y": 1008,
+       "l": 252,
+       "h": 41,
+       "base": 1042
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop binge-watching video essays"
+     ],
+     "fr": "arrête d'enchaîner les [[vidéos essais]]",
+     "texte": "arrête d'enchaîner les [[vidéos essais]]"
+    },
+    "T2": {
+     "en": [
+      "a 2 hour video about history or psychology makes",
+      "you feel like you're learning so much"
+     ],
+     "fr": "une vidéo de 2h sur l'histoire ou la psycho te donne l'impression [[d'apprendre plein de trucs]]",
+     "texte": "une vidéo de 2h sur l'histoire ou la psycho te donne l'impression [[d'apprendre plein de trucs]]"
+    },
+    "T3": {
+     "en": [
+      "but you're just",
+      "passively watching",
+      "someone else think,"
+     ],
+     "fr": "mais tu regardes [[passivement]] quelqu'un réfléchir,",
+     "texte": "mais tu regardes [[passivement]] quelqu'un réfléchir,"
+    },
+    "T4": {
+     "en": [
+      "and your brain",
+      "never has to do the",
+      "work"
+     ],
+     "fr": "et [[ton cerveau]] fait [[jamais le taf]]",
+     "texte": "et [[ton cerveau]] fait [[jamais le taf]]"
+    },
+    "T6": {
+     "en": [
+      "just watching a video essay does not mean you learnt",
+      "anything, you just wasted 2 hours"
+     ],
+     "fr": "regarder une vidéo essai, [[ça veut pas dire que t'as appris un truc]], [[t'as juste perdu 2h]]",
+     "texte": "regarder une vidéo essai, [[ça veut pas dire que t'as appris un truc]], [[t'as juste perdu 2h]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 234,
+      "l": 870,
+      "h": 58
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 234,
+       "l": 870,
+       "h": 58,
+       "base": 279
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 44,
+      "y": 349,
+      "l": 812,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 44,
+       "y": 349,
+       "l": 812,
+       "h": 36,
+       "base": 376
+      },
+      {
+       "x": 44,
+       "y": 392,
+       "l": 589,
+       "h": 37,
+       "base": 420
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 394,
+      "y": 460,
+      "l": 568,
+      "h": 453
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 490,
+      "l": 325,
+      "h": 122
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 490,
+       "l": 227,
+       "h": 37,
+       "base": 517
+      },
+      {
+       "x": 37,
+       "y": 533,
+       "l": 312,
+       "h": 37,
+       "base": 561
+      },
+      {
+       "x": 40,
+       "y": 577,
+       "l": 322,
+       "h": 35,
+       "base": 605
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 37,
+      "y": 707,
+      "l": 319,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 707,
+       "l": 235,
+       "h": 36,
+       "base": 735
+      },
+      {
+       "x": 40,
+       "y": 752,
+       "l": 316,
+       "h": 34,
+       "base": 779
+      },
+      {
+       "x": 37,
+       "y": 795,
+       "l": 83,
+       "h": 35,
+       "base": 822
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 385,
+      "y": 829,
+      "l": 7,
+      "h": 19
+     },
+     "lignes": [
+      {
+       "x": 385,
+       "y": 829,
+       "l": 7,
+       "h": 19,
+       "base": 839
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T6",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 945,
+      "l": 876,
+      "h": 82
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 945,
+       "l": 876,
+       "h": 39,
+       "base": 974
+      },
+      {
+       "x": 40,
+       "y": 990,
+       "l": 551,
+       "h": 37,
+       "base": 1018
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "face your fears instead of running"
+     ],
+     "fr": "affronte tes peurs [[au lieu de fuir]]",
+     "texte": "affronte tes peurs [[au lieu de fuir]]"
+    },
+    "T2": {
+     "en": [
+      "every time you avoid it, the fear gets bigger"
+     ],
+     "fr": "chaque fois que tu l'évites, la peur [[grandit]]",
+     "texte": "chaque fois que tu l'évites, la peur [[grandit]]"
+    },
+    "T3": {
+     "en": [
+      "the conversation",
+      "you keep putting",
+      "off, the class you're",
+      "scared to speak in,"
+     ],
+     "fr": "la discussion que tu repousses, le cours où t'as peur de prendre la parole,",
+     "texte": "la discussion que tu repousses, le cours où t'as peur de prendre la parole,"
+    },
+    "T4": {
+     "en": [
+      "the thing you think",
+      "you'll fail at"
+     ],
+     "fr": "le truc que tu crois [[rater]]",
+     "texte": "le truc que tu crois [[rater]]"
+    },
+    "T5": {
+     "en": [
+      "the more you do things scared, the faster you learn",
+      "and the easier hard things get"
+     ],
+     "fr": "plus tu fonces malgré la peur, [[plus t'apprends vite]] et [[moins le difficile te bloque]]",
+     "texte": "plus tu fonces malgré la peur, [[plus t'apprends vite]] et [[moins le difficile te bloque]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7692093201968090401_6.jpg",
+      "boite": [
+       507,
+       428,
+       485,
+       503
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 41,
+      "y": 232,
+      "l": 854,
+      "h": 60
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 232,
+       "l": 854,
+       "h": 60,
+       "base": 279
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 342,
+      "l": 708,
+      "h": 37
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 342,
+       "l": 708,
+       "h": 37,
+       "base": 370
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 44,
+      "y": 397,
+      "l": 558,
+      "h": 446
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 627,
+      "y": 417,
+      "l": 315,
+      "h": 167
+     },
+     "lignes": [
+      {
+       "x": 627,
+       "y": 417,
+       "l": 271,
+       "h": 36,
+       "base": 445
+      },
+      {
+       "x": 628,
+       "y": 462,
+       "l": 268,
+       "h": 36,
+       "base": 489
+      },
+      {
+       "x": 628,
+       "y": 505,
+       "l": 312,
+       "h": 36,
+       "base": 533
+      },
+      {
+       "x": 629,
+       "y": 549,
+       "l": 301,
+       "h": 35,
+       "base": 576
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 627,
+      "y": 635,
+      "l": 304,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 627,
+       "y": 635,
+       "l": 304,
+       "h": 37,
+       "base": 663
+      },
+      {
+       "x": 627,
+       "y": 679,
+       "l": 181,
+       "h": 36,
+       "base": 707
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 859,
+      "l": 833,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 859,
+       "l": 833,
+       "h": 37,
+       "base": 887
+      },
+      {
+       "x": 36,
+       "y": 903,
+       "l": 489,
+       "h": 37,
+       "base": 931
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis un livre [[au lieu de scroller]]",
+     "texte": "lis un livre [[au lieu de scroller]]"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could",
+      "spend developing your mind"
+     ],
+     "fr": "chaque heure de scroll, c'est une heure de moins pour [[faire grandir ton esprit]]",
+     "texte": "chaque heure de scroll, c'est une heure de moins pour [[faire grandir ton esprit]]"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "[[lis 10 pages par jour]], même quand t'as pas envie"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que tu [[veux lire plus]], mais [[l'algorithme]] te rattrape à chaque fois",
+     "texte": "tu dis que tu [[veux lire plus]], mais [[l'algorithme]] te rattrape à chaque fois"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je scrollais H24, maintenant si je suis sur mon tel, [[j'apprends un truc en 5 min sur l'appli Sophia]]",
+     "texte": "avant je scrollais H24, maintenant si je suis sur mon tel, [[j'apprends un truc en 5 min sur l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 47,
+      "y": 229,
+      "l": 830,
+      "h": 60
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 229,
+       "l": 830,
+       "h": 60,
+       "base": 276
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 335,
+      "l": 833,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 335,
+       "l": 833,
+       "h": 39,
+       "base": 362
+      },
+      {
+       "x": 40,
+       "y": 376,
+       "l": 461,
+       "h": 39,
+       "base": 406
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 555,
+      "y": 380,
+      "l": 431,
+      "h": 822
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 33,
+      "y": 495,
+      "l": 424,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 33,
+       "y": 495,
+       "l": 424,
+       "h": 37,
+       "base": 522
+      },
+      {
+       "x": 35,
+       "y": 538,
+       "l": 411,
+       "h": 36,
+       "base": 566
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 33,
+      "y": 627,
+      "l": 446,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 34,
+       "y": 627,
+       "l": 411,
+       "h": 37,
+       "base": 654
+      },
+      {
+       "x": 33,
+       "y": 670,
+       "l": 446,
+       "h": 37,
+       "base": 698
+      },
+      {
+       "x": 33,
+       "y": 712,
+       "l": 335,
+       "h": 38,
+       "base": 741
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 30,
+      "y": 819,
+      "l": 443,
+      "h": 165
+     },
+     "lignes": [
+      {
+       "x": 33,
+       "y": 819,
+       "l": 440,
+       "h": 36,
+       "base": 846
+      },
+      {
+       "x": 33,
+       "y": 862,
+       "l": 434,
+       "h": 37,
+       "base": 890
+      },
+      {
+       "x": 30,
+       "y": 906,
+       "l": 435,
+       "h": 36,
+       "base": 934
+      },
+      {
+       "x": 30,
+       "y": 949,
+       "l": 239,
+       "h": 35,
+       "base": 977
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 691,
+      "y": 1212,
+      "l": 291,
+      "h": 124
+     }
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "play chess"
+     ],
+     "fr": "joue aux [[échecs]]",
+     "texte": "joue aux [[échecs]]"
+    },
+    "T2": {
+     "en": [
+      "chess forces you to think ahead, spot patterns,",
+      "and constantly ask \"what am i missing?\""
+     ],
+     "fr": "les échecs t'apprennent à [[anticiper]], voir des schémas et te demander « je rate quoi ? »",
+     "texte": "les échecs t'apprennent à [[anticiper]], voir des schémas et te demander « je rate quoi ? »"
+    },
+    "T3": {
+     "en": [
+      "don't just play random",
+      "games, analyse them",
+      "afterwards"
+     ],
+     "fr": "joue pas juste des parties au hasard, [[analyse-les]] après",
+     "texte": "joue pas juste des parties au hasard, [[analyse-les]] après"
+    },
+    "T4": {
+     "en": [
+      "even 20–30 minutes a",
+      "day trains your brain",
+      "to solve problems",
+      "instead of just reacting"
+     ],
+     "fr": "[[20–30 min par jour]] entraînent ton cerveau à [[résoudre]] au lieu de juste réagir",
+     "texte": "[[20–30 min par jour]] entraînent ton cerveau à [[résoudre]] au lieu de juste réagir"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 224,
+      "l": 267,
+      "h": 54
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 224,
+       "l": 267,
+       "h": 54,
+       "base": 266
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 320,
+      "l": 765,
+      "h": 82
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 320,
+       "l": 765,
+       "h": 38,
+       "base": 349
+      },
+      {
+       "x": 41,
+       "y": 365,
+       "l": 651,
+       "h": 37,
+       "base": 393
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 40,
+      "y": 435,
+      "l": 508,
+      "h": 561
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 569,
+      "y": 477,
+      "l": 359,
+      "h": 116
+     },
+     "lignes": [
+      {
+       "x": 570,
+       "y": 478,
+       "l": 357,
+       "h": 34,
+       "base": 504
+      },
+      {
+       "x": 570,
+       "y": 522,
+       "l": 345,
+       "h": 34,
+       "base": 548
+      },
+      {
+       "x": 570,
+       "y": 564,
+       "l": 173,
+       "h": 36,
+       "base": 591
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 565,
+      "y": 672,
+      "l": 371,
+      "h": 167
+     },
+     "lignes": [
+      {
+       "x": 566,
+       "y": 672,
+       "l": 360,
+       "h": 35,
+       "base": 699
+      },
+      {
+       "x": 565,
+       "y": 715,
+       "l": 332,
+       "h": 37,
+       "base": 743
+      },
+      {
+       "x": 566,
+       "y": 759,
+       "l": 290,
+       "h": 36,
+       "base": 787
+      },
+      {
+       "x": 567,
+       "y": 802,
+       "l": 369,
+       "h": 37,
+       "base": 830
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "journal every night"
+     ],
+     "fr": "un journal [[chaque soir]]",
+     "texte": "un journal [[chaque soir]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "tes idées restent [[en vrac et floues]] jusqu'à ce que tu [[les écrives]]",
+     "texte": "tes idées restent [[en vrac et floues]] jusqu'à ce que tu [[les écrives]]"
+    },
+    "T3": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to help",
+      "you think more clearly"
+     ],
+     "fr": "écrire 5 min avant de dormir t'aide à [[y voir plus clair]], c'est [[prouvé]]",
+     "texte": "écrire 5 min avant de dormir t'aide à [[y voir plus clair]], c'est [[prouvé]]"
+    },
+    "T4": {
+     "en": [
+      "and you start noticing",
+      "patterns in your own life",
+      "you'd never see otherwise"
+     ],
+     "fr": "et tu remarques [[des schémas dans ta vie]] que t'aurais jamais vus",
+     "texte": "et tu remarques [[des schémas dans ta vie]] que t'aurais jamais vus"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 35,
+      "y": 239,
+      "l": 470,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 239,
+       "l": 470,
+       "h": 56,
+       "base": 282
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 351,
+      "l": 856,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 351,
+       "l": 855,
+       "h": 37,
+       "base": 379
+      },
+      {
+       "x": 38,
+       "y": 395,
+       "l": 276,
+       "h": 35,
+       "base": 423
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 486,
+      "y": 486,
+      "l": 528,
+      "h": 504
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 536,
+      "l": 363,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 536,
+       "l": 362,
+       "h": 32,
+       "base": 564
+      },
+      {
+       "x": 48,
+       "y": 578,
+       "l": 339,
+       "h": 38,
+       "base": 608
+      },
+      {
+       "x": 45,
+       "y": 624,
+       "l": 360,
+       "h": 36,
+       "base": 651
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 726,
+      "l": 428,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 726,
+       "l": 354,
+       "h": 37,
+       "base": 754
+      },
+      {
+       "x": 40,
+       "y": 770,
+       "l": 392,
+       "h": 36,
+       "base": 798
+      },
+      {
+       "x": 41,
+       "y": 814,
+       "l": 427,
+       "h": 36,
+       "base": 842
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  }
+ }
+}

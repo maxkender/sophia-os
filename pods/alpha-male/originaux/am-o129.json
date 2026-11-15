@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o129",
+ "type_bleo": "full_test",
+ "titre": "Rules for your first real job as a man #men #career #work #respect #selfimprovement",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 15/11. Full test du jour (2 sur 3, jauge : 3 sur 12). Accroche jamais faite chez nous : aucun « first job » dans donnees/label.json. Règles concrètes, rien sur le salaire. Format : numéro, règle, deux lignes. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Slide Sophia : bureau vide face à la mer, sans personne. reference_url : le post source de am-o042 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6f5b4483",
+   "texte_overlay": "Rules for your first\nreal job as a man",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "014dd2cc",
+   "texte_overlay": "1. Be there 10 minutes early\n\nThe first month decides\nyour reputation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0b85e022",
+   "texte_overlay": "2. Write everything down\n\nNever ask the same\nquestion twice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5acb6a39",
+   "texte_overlay": "3. Learn everyone's name\n\nThe receptionist matters\nas much as the boss.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3927f7e9",
+   "texte_overlay": "4. Ask for feedback\nbefore you're asked\n\n\"What can I do better?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1385002b",
+   "texte_overlay": "5. Don't complain\nin the break room\n\nWalls talk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "27ca86d2",
+   "texte_overlay": "6. Keep learning outside work\n\nThe job pays you.\nThe learning pays you more.",
+   "texte_sophia": "6. Keep learning outside work\n\nUse a micro-learning app\nlike the Sophia app.\nThe learning pays you more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  }
+ ]
+}

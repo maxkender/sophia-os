@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o185",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "865833be-efbd-4f04-ba35-690bdc885da3",
+ "titre": "j'ai arrêté 5 habitudes au boulot pendant un mois (et j'ai jamais été aussi efficace) #travail #productivite #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 13 (parent 865833be), 3e et dernière : accroche mot pour mot, autres habitudes que rh-o029, rh-o120 et rh-o173. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "da384662",
+   "texte_overlay": "j'ai arrêté 5 habitudes au boulot pendant un mois\n(et j'ai jamais été aussi efficace)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "425cad9e",
+   "texte_overlay": "arriver sans savoir par quoi commencer\nje choisis la veille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "42aec155",
+   "texte_overlay": "accepter les réunions de 1 heure\nje propose 30 minutes. ça suffit presque toujours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "433bc898",
+   "texte_overlay": "travailler avec mon téléphone à côté\nil est dans mon sac",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1e180a7f",
+   "texte_overlay": "passer mes pauses à lire des mails\nje les passe à apprendre un truc. 5 minutes, et je reviens plus vive",
+   "texte_sophia": "passer mes pauses à lire des mails\nje les passe sur l'appli Sophia. 5 minutes, et je reviens plus vive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "434a3a18",
+   "texte_overlay": "finir la journée sans savoir ce que j'ai fait\n3 lignes, chaque soir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "43ae7125",
+   "texte_overlay": "laquelle tu testes demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -49,3 +49,19 @@ export async function ajouterAuSalon(
   // `not_in_channel` : le bot n'est pas membre du salon (`/invite @bot`).
   return { cas: "erreur", erreur: `invite: ${invite.error}` };
 }
+
+/**
+ * 0592 : un posteur Ruul dont le compte Slack est relié (id connu) : invité dans
+ * un salon (#ruul-posters, #posting-help). Le bot doit être membre du salon.
+ */
+export async function inviterDansSalon(
+  token: string,
+  salon: string,
+  userId: string,
+  fetchFn: Fetch = fetch,
+): Promise<IssueSlack> {
+  const invite = await appelSlack(token, "conversations.invite", { channel: salon, users: userId }, fetchFn);
+  if (invite.ok) return { cas: "ajoute", userId };
+  if (invite.error === "already_in_channel") return { cas: "deja_dedans", userId };
+  return { cas: "erreur", erreur: `invite: ${invite.error}` };
+}

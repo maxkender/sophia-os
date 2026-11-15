@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o134",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bf8eb0b1-1de8-421f-a8ed-dad4fd1201ff",
+ "titre": "7 smooth ways out of awkward moments that feel unfair #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "bf8eb0b1-1de8-421f-a8ed-dad4fd1201ff"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 5792bc29. déclinaison G2 de la ligne 3 de la boîte (bf8eb0b1, « 7 social hacks for awkward moments that feel like cheating », en 9,7 k r 5,31), 2e déclinaison de ce parent après ay-o110. Même promesse, autres mots. Situations neuves, aucune reprise du parent, d'ay-o012 ni d'ay-o110. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5792bc29",
+   "texte_overlay": "7 smooth ways out of awkward\nmoments that feel unfair",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Someone asks how you are and you're having a bad day? Say \"Honestly, a bit rough, but getting better.\" A little honesty feels real and avoids the fake \"I'm great.\"",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You walked into the wrong meeting room? Smile and say \"Well, I clearly wanted to meet you all.\" A light joke turns embarrassment into a moment people enjoy.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Someone tells a joke you don't get? Don't fake a laugh. Say \"Okay, explain that one to me.\" It's honest, often funnier, and people love explaining their jokes.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Forgot a friend's birthday? Don't hide. Call the next day: \"I'm late and I feel terrible, happy birthday.\" Owning it quickly matters more than the date.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: frozen in every awkward moment. After: five minutes a day of history, art or science, and always a light story to change the subject when I need one.",
+   "texte_sophia": "Before: frozen in every awkward moment. After: five minutes a day on a micro-learning app like the Sophia app. Now I've always got a light story to change the subject.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Got someone's job title wrong? \"Sorry, I promoted you there.\" Correct it with a smile and move on. Small mistakes only become awkward when you make them a big deal.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "A group goes silent when you join? Ask a question to the whole circle. \"What are we talking about? I need to catch up.\" It invites everyone back in instantly.",
+   "media_id": "9b2ff5e0"
+  }
+ ]
+}

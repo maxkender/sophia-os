@@ -110,6 +110,7 @@ const LANGUES: Record<string, [string, string]> = {
   lt: ["🇱🇹", "Lituanien"],
   lv: ["🇱🇻", "Letton"],
   ja: ["🇯🇵", "Japonais"],
+  ko: ["🇰🇷", "Coréen"],
 };
 
 export function titreLangue(code: string): string {

@@ -1,6 +1,7 @@
 import { supabase } from "@/lib/supabase/client";
 
 import type { ReglagesBonus } from "../commentMasters/suivi/api";
+import type { PersonneProche } from "../../../supabase/functions/_shared/bonus";
 
 export { lireReglagesBonus, type ReglagesBonus } from "../commentMasters/suivi/api";
 
@@ -80,4 +81,103 @@ export async function lierRecrue(referralId: string, recrueId: string | null): P
     .update({ recrue_id: recrueId, updated_at: new Date().toISOString() })
     .eq("id", referralId);
   if (error) throw error;
+}
+
+/** 0564 : une ligne de la carte « Bonus de lundi ». */
+export interface LigneBonusLundi {
+  id: string;
+  type: "comment_master" | "parrainage" | "manuel";
+  nom: string;
+  detail: string;
+  quantite: number | null;
+  a_verifier: number | null;
+  tarif: number | null;
+  zone: string | null;
+  montant: number;
+  statut: "a_valider" | "a_payer" | "paye" | "retire";
+  erreur: string | null;
+  raison: string | null;
+  periode_debut: string;
+  periode_fin: string;
+  delai_median_min: number | null;
+  part_moins_2h: number | null;
+  contrat_ok: boolean;
+  envoi_at: string | null;
+  paye_at: string | null;
+  /** 0585 : le canal du parrain ; « ruul » = à payer via Ruul (jamais sur Upwork). */
+  canal_paie?: "upwork" | "ruul";
+}
+
+export interface CarteBonusLundi {
+  lundi: string;
+  lignes: LigneBonusLundi[];
+  total: number;
+  paye: number;
+  parrainages_a_confirmer: number;
+  test_valide: boolean;
+}
+
+export async function lireCarteBonus(): Promise<CarteBonusLundi> {
+  const { data, error } = await supabase.rpc("bonus_carte");
+  if (error) throw new Error(error.message);
+  return data as CarteBonusLundi;
+}
+
+/** 0585 : une ligne « à payer via Ruul » ajoutée au paiement Ruul du lundi. */
+export async function payerBonusRuul(id: string, paye = true): Promise<void> {
+  const { error } = await supabase.rpc("bonus_ruul_payer", { p_id: id, p_paye: paye });
+  if (error) throw new Error(error.message);
+}
+
+export async function retirerBonus(id: string, retirer: boolean): Promise<void> {
+  const { error } = await supabase.rpc("bonus_retirer", { p_id: id, p_retirer: retirer });
+  if (error) throw new Error(error.message);
+}
+
+export async function donnerBonus(v: { nom: string; montant: number; lundi: string | null; raison: string }): Promise<{ ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string }> {
+  const { data, error } = await supabase.rpc("bonus_donner", { p_nom: v.nom, p_montant: v.montant, p_lundi: v.lundi, p_raison: v.raison });
+  if (error) throw new Error(error.message);
+  return data as { ok: boolean; erreur?: string };
+}
+
+/** 0571 : les posteurs dont le nom ressemble le plus au texte (orthographe approchée). */
+export async function personnesProches(texte: string): Promise<PersonneProche[]> {
+  const { data, error } = await supabase.rpc("bonus_personnes_proches", { p_texte: texte, p_limite: 5 });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as PersonneProche[];
+}
+
+/** 0571 : la ligne « manuel » à valider pour la personne choisie. */
+export async function donnerBonusA(v: { poster_id: string; montant: number; lundi: string | null; raison: string }): Promise<{ ok: boolean; erreur?: string; nom?: string; montant?: number; lundi?: string }> {
+  const { data, error } = await supabase.rpc("bonus_donner_a", { p_poster: v.poster_id, p_montant: v.montant, p_lundi: v.lundi, p_raison: v.raison });
+  if (error) throw new Error(error.message);
+  return data as { ok: boolean; erreur?: string };
+}
+
+/** « Tout envoyer » : la fonction upwork paie les lignes à valider du lundi (bonus Upwork). */
+export async function envoyerBonus(lundi: string): Promise<{ ok: boolean; payes?: number; echecs?: number; error?: string }> {
+  const { data, error } = await supabase.functions.invoke("upwork", { body: { action: "bonus_envoyer", lundi } });
+  if (error) throw new Error(error.message);
+  return data as { ok: boolean; payes?: number; echecs?: number; error?: string };
+}
+
+/** 0569 : un bonus envoyé (payé ou en échec). */
+export interface BonusEnvoye {
+  id: string;
+  type: "comment_master" | "parrainage" | "manuel";
+  nom: string;
+  detail: string;
+  montant: number;
+  statut: string;
+  lundi: string;
+  envoi_at: string | null;
+  paye_at: string | null;
+  erreur: string | null;
+  facture: string | null;
+}
+
+export async function lireHistoriqueBonus(): Promise<BonusEnvoye[]> {
+  const { data, error } = await supabase.rpc("bonus_historique", { p_limite: 300 });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as BonusEnvoye[];
 }

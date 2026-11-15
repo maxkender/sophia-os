@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o133",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2",
+ "titre": "6 erreurs débiles qui m'ont gardée au chômage pendant 9 mois (et comment je les ai corrigées) #chomage #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 7 (parent 4adc261e) : accroche mot pour mot, autres erreurs que le parent et rh-o014. Aucune appli concurrente, aucun réseau nommé. Rien sur les droits. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a78d6a4",
+   "texte_overlay": "6 erreurs débiles qui m'ont gardée au chômage\npendant 9 mois\n(et comment je les ai corrigées)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7959b572",
+   "texte_overlay": "1. je cherchais toute la journée\nsans pause. je m'épuisais. maintenant : 3 heures, et je m'arrête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "79afd16f",
+   "texte_overlay": "2. je postulais à des postes trop loin de moi\nmaintenant je vise juste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "79f7bbcd",
+   "texte_overlay": "3. je n'appelais jamais\nun coup de fil à un recruteur vaut 10 mails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "40bf3754",
+   "texte_overlay": "4. je ne faisais plus rien d'autre\nmes 3 bouées depuis : le sport, mes amis, et 5 minutes par jour à apprendre",
+   "texte_sophia": "4. je ne faisais plus rien d'autre\nmes 3 bouées depuis : le sport, mes amis, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7ad0dfaa",
+   "texte_overlay": "5. je cachais ma recherche à mes proches\nle jour où j'en ai parlé, on m'a présenté quelqu'un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7b10340d",
+   "texte_overlay": "6. je relisais mes refus le soir\nmaintenant je les classe et je passe à la suite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7c0c6677",
+   "texte_overlay": "t'es pas seule.\ncorrige une erreur cette semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

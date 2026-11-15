@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o059",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f5b0d90c-831a-4411-b9f1-5c81e8f4cb16",
+ "titre": "Strange little habits that make people trust you right away #psychology #men #selfimprovement #mindset #trust",
+ "musique_titre": "bipolar (slowed)",
+ "musique_url": "https://www.tiktok.com/music/bipolar-slowed-7391819517150660624",
+ "inspirations": [
+  "f5b0d90c-831a-4411-b9f1-5c81e8f4cb16"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 7/11. Déclinaison G2 de la ligne 1 (parent f5b0d90c = notre am-o042, langue source en ; meilleur passage el 3,7 k, r 2,11). Même promesse reformulée (« Strange little habits that make people trust you right away »). Même format : « N. habitude » puis une puce. Habitudes neuves, ni de am-o042 ni de am-o017. Rien de manipulateur : des gestes honnêtes. Images de la banque et célébrités (autorisé) ; slide Sophia : terrasse vide, sans personne. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c03cd3e",
+   "texte_overlay": "Strange Little Habits That Make\nPeople Trust You Right Away",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2c9e27cd",
+   "texte_overlay": "1. Remember the small thing\nthey told you last week\n\n• \"How did the interview go?\"\nIt shows you were listening.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "13a656fd",
+   "texte_overlay": "2. Show up 5 minutes early\n\n• Before anyone hears you speak,\nthey know you're dependable.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "442e0411",
+   "texte_overlay": "3. Say their name once\n\n• Not ten times. Once.\nIt makes the moment personal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1f6819d2",
+   "texte_overlay": "4. Let them finish\ntheir sentence\n\n• No interrupting.\nPeople trust who lets them talk.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0bb706fb",
+   "texte_overlay": "5. Lend it and never\nbring it up again\n\n• Generosity with a receipt\nisn't generosity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0a60706f",
+   "texte_overlay": "6. Know a little\nabout a lot\n\n• Read widely, 5 minutes a day.\nPeople trust a curious mind.",
+   "texte_sophia": "6. Know a little\nabout a lot\n\n• Use a micro-learning app like\nthe Sophia app, 5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  }
+ ]
+}

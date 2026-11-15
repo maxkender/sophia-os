@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o107",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "24bfb4e1-cbe0-4d7b-a266-b0fb24ba954f",
+  "titre": "comment étudier chaques matières #studytok #lycée #révisions",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "24bfb4e1-cbe0-4d7b-a266-b0fb24ba954f"
+  ],
+  "notes": "Déclinaison G1 de 24bfb4e1 (r 13,05 en roumain, 31,7 k vues), ligne 4 de la boîte. Langue source du parent : français ; la déclinaison s'écrit en français (ROUTINE §4.3), accroche du parent mot pour mot (« chaques » gardé tel quel, les mots comptent). Les moyennes du parent (« ma moyenne : 19,11 ») ne sont pas reprises : chiffres invérifiables, contraires aux garde-fous du label. Matières neuves, aucune du parent (anglais, maths, histoire-géo, sciences) : français, espagnol, physique-chimie (se tester sur les formules, place micabo, slide 4), philosophie, SES. Depuis le 12/11 : images prises dans toute la banque (aucune livrée depuis 14 jours), son alterné parmi 6 sons du label qui ont marché. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "fe1e0c62",
+      "texte_overlay": "COMMENT ÉTUDIER CHAQUES\nMATIÈRES",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3a4ae2dd",
+      "texte_overlay": "FRANÇAIS\nmon conseil : lis un peu chaque jour, n'importe quoi. pour les textes du bac, une fiche par texte avec 3 citations et ce qu'elles montrent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f7f1ba1e",
+      "texte_overlay": "ESPAGNOL\nmon conseil : apprends le vocabulaire dans des phrases, pas en liste. et parle à voix haute, même seule dans ta chambre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0d01e06b",
+      "texte_overlay": "PHYSIQUE-CHIMIE\nmon conseil : teste-toi chaque soir sur les formules et leurs unités. puis refais un exercice du cours sans regarder la correction.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d0fffaa2",
+      "texte_overlay": "PHILOSOPHIE\nmon conseil : pour chaque notion, trouve un exemple de la vraie vie. c'est lui qui rend ta copie vivante.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "6a568cf2",
+      "texte_overlay": "SES\nmon conseil : apprends les définitions mot pour mot et entraîne-toi sur des documents chiffrés : lire un graphique, ça se travaille.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9ef8bb17",
+      "texte_overlay": "la partie 2 arrive bientôt ✩",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

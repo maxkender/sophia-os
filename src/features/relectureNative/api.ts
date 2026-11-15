@@ -480,3 +480,48 @@ export async function voterDuelRelecteur(duelId: string, vote: VoteDuelRelecteur
   });
   if (error) throw error;
 }
+
+// --- Relecture simple des posts publiés (0631) ---------------------------------
+
+/** Mots au moins dans la remarque d'une relecture simple sans slide réécrite. */
+export const MOTS_MIN_RELECTURE = 30;
+
+export interface SlideRelecture {
+  position: number;
+  texte_overlay: string | null;
+  position_sophia?: boolean;
+}
+
+export interface RelecturePoste {
+  id: string;
+  langue: string;
+  envoye_le: string;
+  label: string | null;
+  slides: SlideRelecture[];
+  statut: "a_faire" | "faite";
+  note: number | null;
+  remarque: string | null;
+  slides_corrigees: Array<{ position: number; texte: string }>;
+  fait_le: string | null;
+}
+
+/** Les posts publiés envoyés au relecteur connecté, à faire d'abord. */
+export async function mesRelectures(): Promise<RelecturePoste[]> {
+  const { data, error } = await supabase.rpc("mes_relectures_relecteur");
+  if (error) throw error;
+  return (data ?? []) as RelecturePoste[];
+}
+
+/** La relecture d'un post : note, remarque, slides réécrites ({position, texte}). */
+export async function relirePost(
+  id: string,
+  relecture: { note: number; remarque: string; slides: Array<{ position: number; texte: string }> },
+): Promise<void> {
+  const { error } = await supabase.rpc("relire_post_relecteur", {
+    p_id: id,
+    p_note: relecture.note,
+    p_remarque: relecture.remarque.trim() || null,
+    p_slides: relecture.slides,
+  });
+  if (error) throw error;
+}

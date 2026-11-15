@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o131",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "b45ff2ef-23cd-4913-abec-214ebc6698f4",
+  "titre": "les phrases que disent souvent les filles cultivées #culture #pourtoi",
+  "inspirations": [
+    "b45ff2ef-23cd-4913-abec-214ebc6698f4"
+  ],
+  "notes": "G1, déclinaison de b45ff2ef (« les phrases que disent souvent les filles cultivées », génération 0 en français ; meilleur passage it 8,9 k vues, r 7,71), en français. cta C (le défi de 7 jours en slide 2). Famille de mon full test bsg-o092, gagnante. Phrases neuves (rien de repris de bsg-o092 : ni « j'ai lu un truc », ni « explique-moi », ni « tu savais », ni « tu me conseilles », ni « ça dépend »). Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "les phrases que disent souvent\nles filles cultivées",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. ça me fait penser à un livre\n\net elle te le prête le lendemain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. j'ai changé d'avis\n\nelle le dit sans honte.\nc'est même sa phrase préférée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "3. d'où vient ce mot ?\n\nelle le cherche.\net la conversation repart.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "4. on y va ensemble ?\n\nl'expo, la conférence, le vieux cinéma.\nla culture, ça se partage.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "09dd6248",
+      "texte_overlay": "5. raconte-moi ton métier\n\nelle apprend de tout le monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "01be1362",
+      "texte_overlay": "c'est laquelle, ta phrase ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

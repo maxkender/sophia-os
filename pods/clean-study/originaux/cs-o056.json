@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o056",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "fd016975-6a16-469c-a015-9eb5c98e72c3",
+  "titre": "how to actually understand different subjects and a few personal tips #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "fd016975-6a16-469c-a015-9eb5c98e72c3"
+  ],
+  "notes": "Déclinaison G1 de fd016975 (r 3,46 en allemand), ligne 2 de la boîte. Accroche du parent mot pour mot, avec ses symboles « ౨*ೃ༄˚.༄౨ˊ » (le guichet compte « ౨ » et « ౨ˊ » comme des chiffres et des lettres). Matières et conseils neufs, aucun du parent (histoire, maths avec micabo, chimie, anglais, documentaires, lire) : physique (dessiner la situation avant le calcul), géographie (une carte vierge à remplir), biologie (expliquer un processus à voix haute), philosophie (un exemple de la vie pour chaque notion), langues (se tester sur le vocabulaire chaque soir, place micabo, slide 6). Slide 6 sans personne. Depuis le 4/11, le label ne sert que micabo (UnSwipe arrêté) : une seule place d'appli par post. Slide micabo : photo d'objet reprise d'un original plus ancien (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "ba551803",
+      "texte_overlay": "how to actually understand different subjects\nand a few personal tips ౨*ೃ༄˚.༄౨ˊ",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "bc2c233c",
+      "texte_overlay": "Physics\ndraw the situation before any calculation. arrows, forces, units.\npersonal tip: if the drawing is right, the formula usually picks itself.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c360ea2c",
+      "texte_overlay": "Geography\nprint a blank map and fill it from memory.\npersonal tip: do it again 2 days later. what you miss is what to review.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c4b6dd89",
+      "texte_overlay": "Biology\nexplain each process out loud, step by step.\npersonal tip: where you hesitate is exactly the step you don't understand yet.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c4fbfb17",
+      "texte_overlay": "Philosophy\nfind one real-life example for every idea.\npersonal tip: the example is what makes your essay stand out.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e2cbe16a",
+      "texte_overlay": "Languages\nquiz yourself on the week's vocabulary every evening.\npersonal tip: 10 minutes a day beat my old 2-hour sunday sessions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

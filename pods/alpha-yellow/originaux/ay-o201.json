@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o201",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5269fe48-8891-41a3-bfe5-593d8455aeea",
+ "titre": "First date moves that kill the mood instantly #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "5269fe48-8891-41a3-bfe5-593d8455aeea"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture a75b8832. déclinaison G2 de la ligne 3 de la boîte (5269fe48, notre ay-o126 qui a gagné : ru 35,3 k), 2e déclinaison après ay-o187. Même promesse, autres mots, sans « stop doing » pour ne pas toucher la ligne 5. Items neufs, aucun repris d'ay-o042, o126 ni o187. Respectueux. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a75b8832",
+   "texte_overlay": "First date moves that\nkill the mood instantly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687926438485511431/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Showing up underdressed. A wrinkled shirt and old trainers say you didn't care. You don't need a suit, just clean, simple clothes that show effort.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Checking your reflection all evening. Windows, phone camera, the back of a spoon. It looks insecure. Check once before you leave home, then forget about it.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Talking over the waiter. Ignoring the staff or being short with them is a big red flag. A simple thank you and a smile say a lot about who you are.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Turning every topic into a debate. A little friendly disagreement is fun, but winning every point feels exhausting. Let her be right sometimes, and enjoy it.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Running out of curiosity. I do five minutes a day of history, art or science, and I've always got a fun question or story to keep the evening light.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I've always got a fun story to keep the evening light.",
+   "media_id": "cabf8dfa"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Planning the whole night without asking. Have an idea, but check in. \"There's a nice bar nearby, or would you prefer a walk?\" Choice feels respectful.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Rushing the goodbye or dragging it out. A warm, simple ending works best. \"I had a really great time tonight, let me know you got home safe.\" Kind and clear.",
+   "media_id": "bdf15e02"
+  }
+ ]
+}

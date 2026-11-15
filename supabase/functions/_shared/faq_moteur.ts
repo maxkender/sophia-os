@@ -16,7 +16,9 @@ import {
   type ReglagesFaq,
   REGLAGES_FAQ_DEFAUT,
   type ReponseFaq,
+  type ReponseOfficielle,
 } from "./faq.ts";
+import { canalActif, type Controle, lireControle, modeAgent } from "./controle.ts";
 import { generateTextFast } from "./gemini.ts";
 import { liensPublics } from "./guide_public.ts";
 import { messageErreur, type serviceClient } from "./supabase.ts";
@@ -24,12 +26,30 @@ import { messageErreur, type serviceClient } from "./supabase.ts";
 type Db = ReturnType<typeof serviceClient>;
 
 export async function chargerReglagesFaq(db: Db): Promise<ReglagesFaq> {
-  const { data, error } = await db.from("reglages").select("valeur").eq("cle", "faq_automatique").maybeSingle();
+  const [{ data, error }, c] = await Promise.all([
+    db.from("reglages").select("valeur").eq("cle", "faq_automatique").maybeSingle(),
+    lireControle(db),
+  ]);
   if (error) {
     console.warn(`[faq] réglages illisibles, mode test : ${messageErreur(error)}`);
     return REGLAGES_FAQ_DEFAUT;
   }
-  return lireReglagesFaq(data?.valeur);
+  return brideParControle(lireReglagesFaq(data?.valeur), c);
+}
+
+/**
+ * 13/11 (page Contrôle) : le STOP général, le cerveau du support hors « agir » ou un canal coupé
+ * font taire l'ancien bot FAQ (Slack : rien ne part ; bulle Help : mode test).
+ */
+export function brideParControle(r: ReglagesFaq, c: Controle): ReglagesFaq {
+  const agent = modeAgent(c, "cerveau_support");
+  const slackOk = agent === "agir" && canalActif(c, "slack");
+  const helpOk = agent === "agir" && canalActif(c, "help");
+  return {
+    ...r,
+    mode_slack: agent === "eteint" ? "eteint" : slackOk ? r.mode_slack : r.mode_slack === "eteint" ? "eteint" : "test",
+    mode_os: helpOk ? r.mode_os : "test",
+  };
 }
 
 export interface BaseChargee {
@@ -43,20 +63,47 @@ export interface BaseChargee {
  * petites tables (une ligne par page Notion, une par réponse validée) : un
  * plafond de 500 lignes est très au-dessus de ce qu'elles contiendront.
  */
-export async function chargerBase(db: Db, role: string): Promise<BaseChargee> {
-  const [pages, notes] = await Promise.all([
-    db.from("guides_notion").select("guide, chemin, texte, ordre").order("ordre", { ascending: true }).limit(500),
-    db.from("chatbot_contexte").select("titre, contenu, audience, updated_at").order("updated_at", { ascending: false })
-      .limit(500),
+export async function chargerBase(db: Db, role: string, plateforme: "ruul" | "upwork" | null = null): Promise<BaseChargee> {
+  // 0671 : une plateforme connue ne lit que les réponses officielles de sa portée (et celles pour tous).
+  let requeteOfficielles = db.from("reponses_officielles").select("question, reponse").eq("actif", true).not("valide_at", "is", null);
+  if (plateforme) requeteOfficielles = requeteOfficielles.in("portee", ["tous", plateforme]);
+  // 0680 : les interrupteurs de Support (on/off, plateforme) valent pour tous les bots, et les
+  // documents et consignes de Support entrent dans la base.
+  let requeteNotes = db.from("chatbot_contexte").select("titre, contenu, audience, updated_at").eq("actif", true);
+  if (plateforme) requeteNotes = requeteNotes.in("portee", ["tous", plateforme]);
+  const [pages, notes, officielles, docs, consMax, consRegles] = await Promise.all([
+    db.from("guides_notion").select("guide, chemin, texte, ordre").eq("bot_actif", true).order("ordre", { ascending: true }).limit(500),
+    requeteNotes.order("updated_at", { ascending: false }).limit(500),
+    // 6/11 : les réponses officielles validées par Max (page « Réponses officielles »).
+    requeteOfficielles.order("ordre", { ascending: true }).limit(200),
+    db.from("support_documents").select("titre, contenu, audience, maj_at").eq("actif", true).order("ordre").limit(200),
+    db.from("support_consignes").select("texte").eq("actif", true).order("cree_at").limit(200),
+    db.from("regles_bots").select("regle").eq("active", true).order("created_at").limit(200),
   ]);
   if (pages.error) throw new Error(`guides_notion : ${messageErreur(pages.error)}`);
   if (notes.error) throw new Error(`chatbot_contexte : ${messageErreur(notes.error)}`);
   // Les liens du Poster Guide recopiés pointent vers app.notion.com : le bot donne le site public.
   const lignes = ((pages.data ?? []) as PageGuide[]).map((p) => (p.guide === "poster" && p.texte ? { ...p, texte: liensPublics(p.texte) } : p));
   return {
-    base: assemblerBase(lignes, (notes.data ?? []) as NoteBase[], role),
+    // Une table illisible (migration pas encore passée) ne fait pas tomber la FAQ.
+    base: assemblerBase(lignes, [...notesSupport(docs.data, consMax.data, consRegles.data), ...((notes.data ?? []) as NoteBase[])], role, {},
+      officielles.error ? [] : (officielles.data ?? []) as ReponseOfficielle[]),
     pages: lignes.length,
   };
+}
+
+/** 0680 : les documents et consignes de Support, au format des notes de la base. Une table illisible donne []. */
+export function notesSupport(
+  docs: { titre: string; contenu: string; audience: string; maj_at?: string }[] | null,
+  consMax: { texte: string }[] | null,
+  consRegles: { regle: string }[] | null,
+): NoteBase[] {
+  const audience = (a: string) => (a === "hm" ? "hiring_manager" : a === "tous" ? "all" : "poster");
+  const consignes = [...(consMax ?? []).map((c) => c.texte), ...(consRegles ?? []).map((c) => c.regle)];
+  return [
+    ...(consignes.length ? [{ titre: "Consignes de Max (à respecter avant tout)", contenu: consignes.map((c) => `- ${c}`).join("\n"), audience: "all" }] : []),
+    ...(docs ?? []).map((d) => ({ titre: d.titre, contenu: d.contenu, audience: audience(d.audience) })),
+  ] as NoteBase[];
 }
 
 /**

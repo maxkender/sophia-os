@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o154",
+ "type_bleo": "full_test",
+ "titre": "les réponses d'entretien que j'ai répétées à voix haute (et ça a tout changé) #entretien #rechercheemploi #confiance #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Full test : accroche jamais faite chez nous (répéter à voix haute). Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aab0039a",
+   "texte_overlay": "les réponses d'entretien\nque j'ai répétées à voix haute\n(et ça a tout changé)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d67c1734",
+   "texte_overlay": "« parlez-moi de vous »\nchronométré. 60 secondes, pas plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d7620059",
+   "texte_overlay": "« un échec ? »\n3 phrases : ce qui s'est passé, ce que j'ai changé, le résultat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d76a6f2c",
+   "texte_overlay": "« pourquoi nous ? »\nune phrase sur eux, une sur moi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c6cdb904",
+   "texte_overlay": "« vous faites quoi en dehors ? »\nun sujet que j'aime raconter. répété, il sonne naturel",
+   "texte_sophia": "« vous faites quoi en dehors ? »\nun sujet que j'aime raconter, appris 5 minutes par jour sur l'appli Sophia. répété, il sonne naturel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d79aa296",
+   "texte_overlay": "« vos prétentions ? »\nma fourchette, dite sans trembler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d7b1b00c",
+   "texte_overlay": "dans ta tête, tout paraît clair.\nà voix haute, tu entends ce qui coince",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d7c7a52b",
+   "texte_overlay": "tu répètes à voix haute, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

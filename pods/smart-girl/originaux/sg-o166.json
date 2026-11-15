@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o166",
+ "type_bleo": "full_test",
+ "titre": "how to make your bedroom feel like an old library #bedroom #darkacademia #smartgirl #cozy #slowliving",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta B. Full test 5/5 (la jauge en demande 5 sur 14) : accroche jamais faite chez nous (« library » absent des accroches de donnees/label.json). Accroches écrites : « how to make your bedroom feel like an old library » (retenue : ambiance dark academia, concret, sans achat cher), « dark academia room ideas » (écartée : déco seule), « how to read more at home » (écartée : sermon). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e81dba3b",
+   "texte_overlay": "how to make your bedroom feel\nlike an old library",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f9ffe8e1",
+   "texte_overlay": "1. a warm lamp, never\nthe ceiling light",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "fe9f0043",
+   "texte_overlay": "2. books on every surface",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "de62b7db",
+   "texte_overlay": "3. a reading chair by\nthe window",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a7dbeb46",
+   "texte_overlay": "4. one lesson a night\ninstead of the scroll\n\na painting, a war, a planet.",
+   "texte_sophia": "4. one lesson a night\ninstead of the scroll\n\n5 minutes on an app like\nSophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f9dd96ac",
+   "texte_overlay": "5. a candle and\na blanket",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "79db4bcb",
+   "texte_overlay": "6. classical music, low",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d81a10af",
+   "texte_overlay": "save this and start tonight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o197",
+ "type_bleo": "full_test",
+ "titre": "how to be the calmest person in any room #calm #confidence #selfimprovement #psychology #howto",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "da70114b-74bd-44be-8143-ec505fcdf407"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, da70114b). full test BLEO : accroche jamais faite (format « how to be the X person in any room »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a4f5f12-0d07-4ad9-81c5-ea296e5425d4",
+   "texte_overlay": "how to be the calmest\nperson in any room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661660586173893910/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4e5dc973-f35f-45f0-8255-49a3e1d2b6ca",
+   "texte_overlay": "breathe out longer\n\nwhen tension rises, make each breath out longer than the breath in. it slows your heart rate in seconds, and everyone around you can sense that steadiness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661660586173893910/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "201eb7e0-e00d-4fd2-b86a-e814e6a5a4d2",
+   "texte_overlay": "speak a little slower\n\ncalm people never rush their words. speaking slowly and pausing between sentences makes you sound sure of yourself, even when you're actually quite nervous inside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661660586173893910/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "276f24ad-f44d-414d-9a9e-cd0565d16008",
+   "texte_overlay": "have something to say\n\ncalm often comes from feeling prepared. knowing a little about many things means you never panic about having nothing interesting to add to a conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661660586173893910/4.jpg",
+   "texte_sophia": "have something to say\n\ni used to panic about having nothing to say. now i spend 5 minutes a day learning one thing in the Sophia app, a myth or a planet, and i walk into every room much calmer."
+  },
+  {
+   "position": 5,
+   "media_id": "8eb594bb-aa55-4b89-8165-89316212e6a4",
+   "texte_overlay": "don't fill every silence\n\nlet quiet moments stay quiet. people who are comfortable with silence look relaxed and in control, while rushing to fill it shows how nervous you really feel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661660586173893910/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "42912be4-7547-4d9e-9623-31448362e40c",
+   "texte_overlay": "keep your hands still\n\nfidgeting hands give away stress before your face does. rest them gently on the table or in your lap, and your whole body will follow and slowly relax too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661660586173893910/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,359 @@
+{
+ "id": "yp-050",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670179482493308182",
+  "vues": 72700,
+  "enregistrements": 3531,
+  "publie_le": "2026-08-04",
+  "titre": "a guide to a DIGITAL DECLUTTER"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8d8a2ff2-9c56-4e5f-8d35-7aa32ea39568",
+ "titre": {
+  "fr": "tout ce que j’ai appris en révisant à la bibli",
+  "es": "todo lo que aprendí estudiando en la biblio",
+  "tr": "kütüphanede çalışırken öğrendiklerim"
+ },
+ "legendes": {
+  "fr": "à tester dès ta prochaine session 📚 #bibliotheque #revisions #studytok #thatgirl #etudiante",
+  "es": "pruébalo en tu próxima sesión 📚 #biblioteca #estudiar #studytok #thatgirl #universidad",
+  "tr": "bir sonraki çalışmanda dene 📚 #kütüphane #ders #studytok #thatgirl #üniversite"
+ },
+ "musique": {
+  "titre": "domestic wolves",
+  "url": "https://www.tiktok.com/music/domestic-wolves-6852003840028313601"
+ },
+ "fond": {
+  "media_id": "0cb3c4a2-05ed-4921-a9d3-889604e09819",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/60ad5cf8-b17b-4265-8145-813ce203a560/6.jpg",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-019 (« petit guide pour réviser à la bibliothèque », gagnante : 2,3 k en tr, r 2,72), 3e sur 3 : même promesse reformulée, même format guide en notes iOS, autres règles et autres photos. cta B : la mise en scène iPhone micabo en photo pleine de la règle « mini-quiz entre deux livres »",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "tout ce que j’ai appris",
+     "lignes": [
+      "EN RÉVISANT",
+      "À LA BIBLI"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "taille_script": 76,
+     "y": 770
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "todo lo que aprendí",
+     "lignes": [
+      "ESTUDIANDO",
+      "EN LA BIBLIO"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 76,
+     "y": 770
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "KÜTÜPHANEDE",
+      "ÇALIŞIRKEN",
+      "ÖĞRENDİKLERİM"
+     ],
+     "taille": 104,
+     "interligne": 1,
+     "y": 770
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b95bd3e5-5254-4d57-b293-c6a3f8c04f9c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c13058e0-0d3d-4523-9c7b-53370d9d590d/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "change de place à chaque matière.",
+     "texte": "un coin pour chaque cours : ton cerveau range mieux les infos.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "cambia de sitio con cada asignatura.",
+     "texte": "un rincón para cada materia: tu cerebro ordena mejor la información.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "her derste yer değiştir.",
+     "texte": "her ders için ayrı bir köşe: beynin bilgileri daha iyi yerleştirir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0de9a753-57bc-468d-84a2-123663ee6ab9",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ddd9bf21-4390-4276-a841-53b85d64b5f9/7.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "laisse ton ordi à la maison si tu peux.",
+     "texte": "sur papier, impossible d’ouvrir un onglet « juste 2 minutes ».",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "deja el portátil en casa si puedes.",
+     "texte": "en papel no hay pestaña «solo 2 minutos» que abrir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mümkünse bilgisayarını evde bırak.",
+     "texte": "kâğıt üzerinde «sadece 2 dakika» diye sekme açamazsın.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "a83da81b-2434-485c-8069-f4db3b953794",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/fr/parcours-iphone-a83da81b.png",
+    "mise_en_scene": "a83da81b-2434-485c-8069-f4db3b953794",
+    "cadrage": {
+     "x": 0.45,
+     "y": 1,
+     "zoom": 1
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "fais des mini-quiz entre deux livres.",
+     "texte": "je mets le chapitre dans micabo et je me teste. 5 min, puis je passe au suivant.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "haz mini quiz entre libro y libro.",
+     "texte": "meto el tema en micabo y me pongo a prueba. 5 min y paso al siguiente.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/es/parcours-iphone-42eefd6b.png",
+     "mise_en_scene": "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "iki kitap arasında mini test çöz.",
+     "texte": "üniteyi micabo’ya koyup kendimi test ediyorum. 5 dakika, sonra sıradakine geçiyorum.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/tr/parcours-iphone-6dcb1c35.png",
+     "mise_en_scene": "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "0531b483-ce83-4b82-9f4b-e6e699245b1e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/206cd850-41f6-4834-b11b-caf1231bb6a3/3.jpg?v=1792923591399",
+    "cadrage": {
+     "x": 0.3,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "viens avec une amie, mais en silence.",
+     "texte": "vous vous surveillez sans parler. personne n’ose sortir son téléphone.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ve con una amiga, pero en silencio.",
+     "texte": "os vigiláis sin hablar. nadie se atreve a sacar el móvil.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "bir arkadaşınla git ama sessizce.",
+     "texte": "konuşmadan birbirinizi kollarsınız. kimse telefonunu çıkarmaya cesaret edemez.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "d23ba6e7-a0c5-4c0c-8155-c223d0d0935d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d999e487-267a-4424-8cf2-fa3f1a8422b3/3-upscale.jpg?v=1785580018284",
+    "cadrage": {
+     "x": 0.4,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "profite des livres de la bibli.",
+     "texte": "un autre manuel explique souvent mieux que ton cours.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "aprovecha los libros de la biblio.",
+     "texte": "otro manual suele explicarlo mejor que tus apuntes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "kütüphanenin kitaplarından yararlan.",
+     "texte": "başka bir kitap çoğu zaman dersini daha iyi anlatır.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ],
+ "mises_en_scene_notees": [
+  "a83da81b-2434-485c-8069-f4db3b953794",
+  "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+ ]
+}

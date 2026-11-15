@@ -1,0 +1,328 @@
+{
+ "id": "ka-032",
+ "titre": {
+  "en": "10/10 fun skills to learn",
+  "fr": "10/10 skills fun à tester",
+  "de": "10/10 Skills, die Spaß machen"
+ },
+ "legendes": {
+  "en": "10/10 fun skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills fun à tester #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die Spaß machen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7683367490465975070"
+ },
+ "notes": "Full test (BLEO, 15/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (« fun skills »). Prévu en 2e déclinaison G1 de ka-001, refusé par le guichet (une déclinaison par famille et par jour), donc refait en full test avec un titre neuf. Décor branche, des compétences jamais faites chez nous (moonwalk, roue, ukulélé), cta B, son (« original sound » 7683367490465975070 de son manifeste). Sophia en étape 3 « HOW TO NEVER STOP LEARNING » : « 5 min a day ». Vraies vidéos : en MihranTV, OneHowto, Andy Guitar ; fr Super Mylo, Cha Stas, Ben au Ukulélé ; de philippjackson10, caro.upsidedown, Guitarschool.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "FUN SKILLS",
+     "TO LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS",
+     "FUN À",
+     "TESTER"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS,",
+     "DIE SPASS",
+     "MACHEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "MOONWALK",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QGm6v9-1ZBU",
+     "titre": "How to Moonwalk (Dance Moves Tutorial) | Mihran Kirakosian",
+     "chaine": "MihranTV",
+     "vues": "15M views",
+     "date": "9 years ago",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh2ooSofRqRR5dqOeSdIZo_JGB3y15N-Gz2NoxMz1dXkw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "LE MOONWALK",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6j9ordx8ZOw",
+     "titre": "Comment faire le moonwalk / Tuto danse MOONWALK en 5 minutes",
+     "chaine": "Super Mylo",
+     "vues": "527 k vues",
+     "date": "il y a 7 ans",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/Hc21e6TfjtWw3WO4-Yic6J0e8s0f7qRGKKCTfcCRSgQpQDveySq0EKdGnsbuCvUAwNBsChBV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "DEN MOONWALK",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wK-QmbbBAIE",
+     "titre": "Moonwalk lernen für Anfänger, auf deutsch [Full-HD]",
+     "chaine": "philippjackson10",
+     "vues": "670.235 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpwl-3evc9K9p0ABfBI_juAcGVNutnvC_sAAjDUz-wZQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Tage"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "A CARTWHEEL",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lNv81HTt6nE",
+     "titre": "How to Do a Cartwheel for Beginners",
+     "chaine": "OneHowto",
+     "vues": "262K views",
+     "date": "8 years ago",
+     "duree": "1:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nf_ygOlfCW-Tgi1nxqFXTyR_7LSH_aPwe1vp46VXzjwHU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "LA ROUE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hr-ZuS_HfSc",
+     "titre": "APPRENDRE LA ROUE | FACILE ET RAPIDE",
+     "chaine": "Cha Stas",
+     "vues": "590 k vues",
+     "date": "il y a 5 ans",
+     "duree": "10:01",
+     "avatar": "https://yt3.ggpht.com/RHLn5UENEchMwTvQ2TzNLfKpLNoAK7Ic4ze0SvVmVv6jmRAH20PfjH145b6dlmk857vKN0BrFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHLÄGST DU",
+     [
+      {
+       "t": "EIN RAD",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yPYn02yipYM",
+     "titre": "Rad schlagen lernen | SO leicht kannst du ein Rad schlagen! | Anfänger Tutorial",
+     "chaine": "caro.upsidedown",
+     "vues": "401.871 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:37",
+     "avatar": "https://yt3.ggpht.com/3GA1OGL6bAdM5Lc9Ea52oF3cMlgOX6yAW-5QByXjJsz92sik1SdZ5pF8JSl0-EFgUCVCYII68w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Tage"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO NEVER",
+     [
+      {
+       "t": "STOP LEARNING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NE JAMAIS",
+     [
+      {
+       "t": "ARRÊTER D'APPRENDRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HÖRST DU NIE AUF",
+     [
+      {
+       "t": "ZU LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO PLAY",
+     [
+      {
+       "t": "UKULELE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5bTE5fbxDsc",
+     "titre": "Ukulele Lesson 1 -  Absolute Beginner? Start Here! [Free 10 Day Course]",
+     "chaine": "Andy Guitar",
+     "vues": "14M views",
+     "date": "8 years ago",
+     "duree": "18:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU3JrPpx35JfjrJ7I1Ta4Il7w7eLhwwIqpGFPKxz9jkrhy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT JOUER",
+     [
+      {
+       "t": "DU UKULÉLÉ",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "98dizc1ZNFw",
+     "titre": "DÉBUTANTS UKULÉLÉ Commencez ici !! Premier cours - Facile (français)",
+     "chaine": "Ben au Ukulélé",
+     "vues": "1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "21:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k495w7KBOFEIj-5ROtkyuZyi5y238GoKz5nNc_F85nLA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPIELST DU",
+     [
+      {
+       "t": "UKULELE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kt-yfHV4rZI",
+     "titre": "Ukulele lernen für Anfänger | die ersten Schritte und Akkorde in 5 Minuten | Ukulele tutorial",
+     "chaine": "Guitarschool - Gitarre lernen",
+     "vues": "222.703 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/1TYN5YS7lihDbhdmZZQ1tfg5n-TZtskFHtz2bdxeUfJDSCkhbU0mq9F1TZ87mXJZDj3VXPtwDQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

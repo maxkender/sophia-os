@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o175",
+ "type_bleo": "full_test",
+ "titre": "les petites phrases qui font qu'on t'invite dans les projets importants #travail #carriere #reseau #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 4. Full test : accroche jamais faite chez nous (être invitée dans les projets). Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cff6f9d8",
+   "texte_overlay": "les petites phrases\nqui font qu'on t'invite\ndans les projets importants",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1af604bc",
+   "texte_overlay": "« je peux t'aider sur la partie X »\nprécis. pas « si t'as besoin »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1b105e56",
+   "texte_overlay": "« j'ai vu ton projet, bravo pour Y »\nles gens se souviennent de qui les a remarqués",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f8174f78",
+   "texte_overlay": "« j'ai lu un truc qui pourrait t'intéresser »\nperso, ça vient souvent de ce que j'apprends chaque jour",
+   "texte_sophia": "« j'ai lu un truc qui pourrait t'intéresser »\nperso, ça vient souvent de ce que j'apprends 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1bb42c25",
+   "texte_overlay": "« c'est réglé, voilà ce que j'ai fait »\nplutôt que « j'ai un souci »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1be3db16",
+   "texte_overlay": "« qu'est-ce qui t'aiderait le plus ? »\nla question que personne ne pose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1c8f0e7f",
+   "texte_overlay": "on n'invite pas les meilleurs.\non invite ceux qu'on a envie d'avoir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2094aba8",
+   "texte_overlay": "tu dis laquelle cette semaine ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

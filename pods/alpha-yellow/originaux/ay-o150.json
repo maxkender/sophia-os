@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o150",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6ffbc208-4cc1-4373-b7ea-01766cc96e62",
+ "titre": "Things that make you surprisingly easy to talk to #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "6ffbc208-4cc1-4373-b7ea-01766cc96e62"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 6ef6edb6. déclinaison G1 de la ligne 5 de la boîte (6ffbc208, es 10,7 k r 1,94) : accroche du parent mot pour mot. Items neufs, aucun repris du parent ni d'ay-o141. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6ef6edb6",
+   "texte_overlay": "Things that make you\nsurprisingly easy to talk to",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Turning towards people when they speak. Shoulders, feet and face pointed at them. Your body says \"I'm listening\" before you've said a single word.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Repeating a key word they used. \"Wait, you quit your job to sail?\" Picking up their words shows you're following and invites them to tell you more.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Sharing a small embarrassing story. \"I once called my boss mum.\" A little self-mockery tells people you're relaxed, and it makes them relax and open up too.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Never checking your phone mid-conversation. Not even a glance at a notification. Full attention is rare today, and people feel it and appreciate it straight away.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Always having a fresh topic. I do five minutes a day of history, art or science, and a curious mind makes every conversation easy to start and easy to keep going.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A curious mind makes conversations easy to start and to keep going.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Laughing at their jokes when they're actually funny. A real laugh is a gift. People love talking to someone who genuinely enjoys what they say, and they come back for more.",
+   "media_id": "74b0526b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Being honest when you don't understand. \"I'm lost, explain that to me.\" Genuine interest is far more comfortable to be around than someone pretending.",
+   "media_id": "9b2ff5e0"
+  }
+ ]
+}

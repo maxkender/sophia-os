@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o169",
+ "type_bleo": "full_test",
+ "titre": "the 1% habits that make a huge difference by 30 #habits #selfimprovement #30s #growth #lifeadvice",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "ac3be917-b15c-42e8-9d6b-8e3c4857af6f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, ac3be917). full test BLEO : accroche jamais faite (format « 1% habits »). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "036f807f-9f66-49e2-bb96-87839c8df345",
+   "texte_overlay": "the 1% habits that make\na huge difference by 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7587972452525935927/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6340b895-be17-4cff-b371-069e132e9e28",
+   "texte_overlay": "one page a day\n\nread just one page of a book every single day. it sounds tiny, but most days one page turns into ten, and by thirty you'll have read hundreds of books.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7587972452525935927/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "59ad5904-ed34-4294-8fda-c7f7265e2f93",
+   "texte_overlay": "a glass of water first\n\ndrink a glass of water before anything else each morning. it's the smallest habit there is, and it quietly improves your energy, skin and focus over the years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7587972452525935927/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5db892f3-d4dd-41da-95f1-5cfb1cd79f4d",
+   "texte_overlay": "a five minute tidy\n\ntidy up for five minutes before bed every single night. waking up to a calm space every day for ten years changes how your whole life feels from the inside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7587972452525935927/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e07e5f15-7a00-497a-a144-634e784ce186",
+   "texte_overlay": "one small lesson\n\nlearn one small thing every day in 5 minutes: a word, a painting, a moment in history. ten years of tiny lessons builds a mind most people only dream of having.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7587972452525935927/5.jpg",
+   "texte_sophia": "one small lesson\n\ni learn one small thing every day in 5 minutes: a word, a painting, a moment in history. it's one short lesson in the Sophia app, and ten years of that builds a remarkable mind."
+  },
+  {
+   "position": 6,
+   "media_id": "d5deac97-c25a-4544-b9b7-5091a99c9c67",
+   "texte_overlay": "a daily walk\n\nwalk for twenty minutes every day, rain or shine. the health, clarity and calm it builds over a decade are worth more than almost any other habit you could start.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7587972452525935927/6.jpg"
+  }
+ ]
+}

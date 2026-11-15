@@ -1,0 +1,406 @@
+{
+ "id": "ka-006",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7687731339235216662",
+  "vues": 582600,
+  "publie_le": "2026-09-20",
+  "accroche": "10/10 SKILLS NOBODY TEACHES"
+ },
+ "titre": {
+  "en": "10/10 skills nobody teaches",
+  "fr": "10/10 compétences que personne n'enseigne",
+  "de": "10/10 Skills, die dir niemand beibringt"
+ },
+ "legendes": {
+  "en": "10/10 skills nobody teaches #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences que personne n'enseigne #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die dir niemand beibringt #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Remake de son post à 583 k (20/09), décor falaise (le sien). Ses 4 compétences, ses couleurs (rouge, vert, rouge, vieux rose) et son temps « 20-30 min ». Sa première étape « RIZZ » devient « BE CHARMING » (ka-004 a déjà « HOW TO RIZZ » en anglais). Sophia en étape 3 « HOW TO SOUND SMART », à la place de sa slide d'appli de fin : cta B (« know a bit » / « about everything. »), « 5 min a day ». D'autres vraies vidéos que les siennes (Benjamin Seda, LITTLE BIT BETTER, Afterschool Psychology, The School of Life) : en PsychToons, EverythingProfessor, Seeker, Jefferson Fisher ; fr Les Philogynes, Katana, Talks with a Spy, Emilio ; de Quarks, Jack Nasher, Martin Wehrle, Dr. Wlodarek. En allemand, pas de vraie vidéo pour « mentir » et « speak up » : « SO ERKENNST DU LÜGNER » et « SO SAGST DU NEIN », au plus près.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "NOBODY",
+     "TEACHES"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "QUE PERSONNE",
+     "N'ENSEIGNE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS, DIE",
+     "DIR NIEMAND",
+     "BEIBRINGT"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BE CHARMING",
+       "couleur": "#a4071a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uw61C_qbgNg",
+     "titre": "Psychology of Charisma: How To Actually Make People Like You",
+     "chaine": "PsychToons",
+     "vues": "780K views",
+     "date": "2 months ago",
+     "duree": "15:22",
+     "avatar": "https://yt3.ggpht.com/gDIO47y_Vrz9DUEry9ca8HlTSHxxD_a93SRk4IhcrEKgqq13jLFuBrwUhOtI5584xyoDXI6Y6A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "ÊTRE CHARMANT",
+       "couleur": "#a4071a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "beSK-Eva4xM",
+     "titre": "Comment être un homme charmant?",
+     "chaine": "Les Philogynes",
+     "vues": "75 k vues",
+     "date": "il y a 2 ans",
+     "duree": "23:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_na9TWipIddrysG_cYO57r92wShZNEXPP3g4_aHAy_DlFs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BIST DU",
+     [
+      {
+       "t": "CHARMANT",
+       "couleur": "#a4071a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gYitvE-TGPk",
+     "titre": "Charisma: Kann ich wirklich lernen, charismatisch zu sein? | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "226.512 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "10:14",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "NEGOTIATE",
+       "couleur": "#107e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "90svIa07ilQ",
+     "titre": "Every Negotiation Tactic & How To Use Them Yourself, Explained",
+     "chaine": "EverythingProfessor",
+     "vues": "782K views",
+     "date": "7 months ago",
+     "duree": "15:05",
+     "avatar": "https://yt3.ggpht.com/PVwMkne1VXtCkmz8p-yHAxfLWi1TPu9lXeInYatfa6sr_nN5Q4gnIQSteRjMn4VrrSMalZcF=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "NÉGOCIER",
+       "couleur": "#107e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aGI7puAXf6w",
+     "titre": "Négociation : 10 techniques d'Expert et leurs parades (source: Harvard, FBI, GIGN)",
+     "chaine": "Katana - Quentin Despas",
+     "vues": "502 k vues",
+     "date": "il y a 1 an",
+     "duree": "28:17",
+     "avatar": "https://yt3.ggpht.com/FybRoEE6gXK52RxFfR_6hq3vCxOJDeFCAz9jxCgEELFRQSBNMxzpBpDkxQxCDaItGBrDuh2l=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT",
+     [
+      {
+       "t": "VERHANDELN",
+       "couleur": "#107e4d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "e2HOjBJpmIQ",
+     "titre": "Die 5 SCHRITTE jeder VERHANDLUNG - So gehen wir beim NASHER Verhandlungsinstitut vor | NASHER",
+     "chaine": "Jack Nasher",
+     "vues": "308.874 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzK3M6hew3BuZK_cqdWt4Jm4HJJwY8WE1gYf79dCAye-o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SOUND SMART",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "L'AIR CULTIVÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KLINGST DU",
+     [
+      {
+       "t": "KLUG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "LIE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OleMXfAzrJQ",
+     "titre": "How To Tell The Perfect Lie",
+     "chaine": "Seeker",
+     "vues": "644K views",
+     "date": "13 years ago",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/ISrwFFrNnE6f33anVJpM3pKDA9CpPMAXLFW81j8oyTCtUdfdWAqVm8OmIslNDZ3rMNLIw5pp_0Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "MENTIR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gwIHchODo68",
+     "titre": "Comment bien mentir ?",
+     "chaine": "Talks with a Spy",
+     "vues": "215 k vues",
+     "date": "il y a 7 ans",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/W_HBs_Chf07hV-Px2PxMiPJFHP08XFjB2mazW39299a9MSk9hueOwSDroQry0l4KCkpHAc9Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ERKENNST DU",
+     [
+      {
+       "t": "LÜGNER",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S4pzjpFxgpk",
+     "titre": "14 Dinge, die NUR Lügner tun (Lügen erkennen)",
+     "chaine": "Martin Wehrle: Coaching- und Karrieretipps",
+     "vues": "364.078 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtlnlfI1W_yE6cXg8lQLL6lDo9FGdnfUlOg_23Ws82rcY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SPEAK UP",
+       "couleur": "#c95965"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Dnia_m898K4",
+     "titre": "How to Stand Up for Yourself and Speak with Confidence",
+     "chaine": "Jefferson Fisher",
+     "vues": "381K views",
+     "date": "2 years ago",
+     "duree": "13:04",
+     "avatar": "https://yt3.ggpht.com/k5JDmWBnSsSBglUpj_WpeL_LZIFj966A3k8g_8e9WPw65AkieJDgemFUmZRGss0Xhbhmrv_Ev5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "S'AFFIRMER",
+       "couleur": "#c95965"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l_ELHgvyJkM",
+     "titre": "COMMENT SE FAIRE RESPECTER (et s'affirmer face aux autres)",
+     "chaine": "Emilio",
+     "vues": "1,1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "12:15",
+     "avatar": "https://yt3.ggpht.com/NKv2f_MdR9cZPEeTwmr9M7kCB-w6SN4Zq9ENKN0yPk-AisjMvMkuhBG2kr7ZQ3Vng5Oil3A-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SAGST DU",
+     [
+      {
+       "t": "NEIN",
+       "couleur": "#c95965"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WGdR6Y-xIg4",
+     "titre": "Diplomatisch Nein sagen – Grenzen setzen, ohne zu kränken",
+     "chaine": "Dr. Wlodarek Life Coaching",
+     "vues": "264.516 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kb8Og70NnHbaowWKGQ6nijdAWk-rfSfQ3-edqYEaWiras=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20-30 Min."
+    ]
+   }
+  }
+ ]
+}

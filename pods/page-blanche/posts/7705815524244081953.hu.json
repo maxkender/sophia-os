@@ -1,0 +1,620 @@
+{
+ "post_id": "7705815524244081953",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "disgustingly educated"
+     ],
+     "fr": "10/10 habitudes pour avoir une culture indécente",
+     "texte": "10/10 szokás, hogy undorítóan művelt legyél"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "texte": "(az idegtudomány szerint)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be mindful what content you consume"
+     ],
+     "fr": "fais gaffe [[à ce que tu consommes]]",
+     "texte": "figyeld, [[mit fogyasztasz]]"
+    },
+    "T2": {
+     "en": [
+      "your feed decides what you think about all day,",
+      "so choose it on purpose"
+     ],
+     "fr": "ton feed décide [[à quoi tu penses]] toute la journée, alors [[choisis-le bien]]",
+     "texte": "a feeded dönti el, [[mire gondolsz]] egész nap, szóval [[válaszd tudatosan]]"
+    },
+    "T3": {
+     "en": [
+      "most people spend",
+      "hours on things they",
+      "won't remember",
+      "tomorrow"
+     ],
+     "fr": "on passe des heures sur des trucs [[qu'on aura oubliés demain]]",
+     "texte": "a legtöbben órákat szánnak arra, [[amit holnapra elfelejtenek]]"
+    },
+    "T4": {
+     "en": [
+      "follow people who teach you something and",
+      "unfollow anything that just wastes your time"
+     ],
+     "fr": "suis des gens qui [[t'apprennent un truc]] et unfollow tout ce qui [[te fait perdre ton temps]]",
+     "texte": "kövesd, aki [[tanít valamit]], és dobj ki mindent, ami [[csak rabolja az idődet]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7694778035337235744_2.jpg",
+      "boite": [
+       38,
+       502,
+       618,
+       419
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "make a mandala chart"
+     ],
+     "fr": "fais [[une grille mandala]]",
+     "texte": "készíts [[mandala táblázatot]]"
+    },
+    "T2": {
+     "en": [
+      "a japanese method where you write one big goal in the",
+      "middle of a 3×3 grid, and the 8 things it takes around it"
+     ],
+     "fr": "une méthode japonaise : [[un gros objectif]] au centre d'une grille 3×3, et les 8 étapes pour y arriver autour",
+     "texte": "japán módszer: egy 3×3-as rács közepére írod [[a nagy célodat]], köré pedig a 8 dolgot, ami kell hozzá"
+    },
+    "T3": {
+     "en": [
+      "then each of those",
+      "8 gets its own grid,"
+     ],
+     "fr": "puis chacune des 8 a [[sa propre grille]],",
+     "texte": "aztán a 8 mindegyike [[saját rácsot kap]],"
+    },
+    "T4": {
+     "en": [
+      "so you end up with",
+      "64 small actions",
+      "you can actually do"
+     ],
+     "fr": "du coup t'as [[64 petites actions]] vraiment faisables",
+     "texte": "így lesz [[64 apró lépésed]], ami tényleg kivitelezhető"
+    },
+    "T5": {
+     "en": [
+      "one of the best baseball players in the world made one",
+      "in high school. put what you want to learn in the middle",
+      "and you'll know exactly where to start"
+     ],
+     "fr": "un des meilleurs joueurs de baseball au monde [[en a fait une au lycée]]. mets ce que tu veux apprendre au centre et [[tu sauras exactement par où commencer]]",
+     "texte": "a világ egyik legjobb baseballjátékosa [[gimiben csinált egyet]]. írd középre, amit tanulni akarsz, és [[pontosan tudni fogod, hol kezdd]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 44,
+      "y": 237,
+      "l": 560,
+      "h": 52
+     },
+     "lignes": [
+      {
+       "x": 44,
+       "y": 237,
+       "l": 560,
+       "h": 52,
+       "base": 278
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 41,
+      "y": 342,
+      "l": 894,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 342,
+       "l": 893,
+       "h": 36,
+       "base": 375
+      },
+      {
+       "x": 42,
+       "y": 385,
+       "l": 893,
+       "h": 37,
+       "base": 413
+      }
+     ],
+     "pas": 38,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 384,
+      "y": 441,
+      "l": 552,
+      "h": 483
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 493,
+      "l": 308,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 493,
+       "l": 308,
+       "h": 30,
+       "base": 521
+      },
+      {
+       "x": 43,
+       "y": 537,
+       "l": 306,
+       "h": 37,
+       "base": 571
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 41,
+      "y": 624,
+      "l": 315,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 624,
+       "l": 306,
+       "h": 36,
+       "base": 652
+      },
+      {
+       "x": 41,
+       "y": 664,
+       "l": 266,
+       "h": 39,
+       "base": 702
+      },
+      {
+       "x": 41,
+       "y": 712,
+       "l": 315,
+       "h": 35,
+       "base": 739
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 33,
+      "y": 930,
+      "l": 900,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 930,
+       "l": 894,
+       "h": 37,
+       "base": 958
+      },
+      {
+       "x": 33,
+       "y": 974,
+       "l": 900,
+       "h": 37,
+       "base": 1008
+      },
+      {
+       "x": 35,
+       "y": 1016,
+       "l": 617,
+       "h": 38,
+       "base": 1051
+      }
+     ],
+     "pas": 50,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "pick a book and read everyday"
+     ],
+     "fr": "un livre, [[un peu chaque jour]]",
+     "texte": "olvass [[minden nap]] egy könyvből"
+    },
+    "T5": {
+     "en": [
+      "every hour you spend scrolling is an hour you could",
+      "spend developing your mind"
+     ],
+     "fr": "chaque heure à scroller, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "minden óra görgetés egy óra, amit [[az elméd fejlesztésére]] fordíthatnál"
+    },
+    "T2": {
+     "en": [
+      "pick one book and read 10",
+      "pages a day, even when you",
+      "don't feel like it"
+     ],
+     "fr": "prends un livre et [[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "válassz egy könyvet, és [[olvass napi 10 oldalt]], akkor is, ha nincs kedved"
+    },
+    "T3": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que [[tu veux lire plus]], mais [[l'algo]] te rattrape à chaque fois",
+     "texte": "azt mondod, [[többet akarsz olvasni]], de mindig [[elkap az algoritmus]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui m'a fait lâcher le scroll : 10 pages le soir, un carnet, et [[5 min sur l'appli Sophia]] quand je finis quand même sur mon tel",
+     "texte": "ami leszoktatott a görgetésről: esti 10 oldal, egy napló, és [[5 perc a Sophia appban]], ha úgyis telefonozom"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 47,
+      "y": 231,
+      "l": 833,
+      "h": 55
+     },
+     "lignes": [
+      {
+       "x": 47,
+       "y": 231,
+       "l": 833,
+       "h": 55,
+       "base": 274
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 336,
+      "l": 831,
+      "h": 77
+     },
+     "lignes": [
+      {
+       "x": 40,
+       "y": 336,
+       "l": 831,
+       "h": 34,
+       "base": 361
+      },
+      {
+       "x": 41,
+       "y": 379,
+       "l": 459,
+       "h": 34,
+       "base": 405
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 552,
+      "y": 382,
+      "l": 440,
+      "h": 830
+     }
+    },
+    {
+     "id": "I2",
+     "type": "image",
+     "boite": {
+      "x": 690,
+      "y": 1211,
+      "l": 293,
+      "h": 125
+     }
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 34,
+      "y": 494,
+      "l": 461,
+      "h": 119
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 494,
+       "l": 430,
+       "h": 37,
+       "base": 528
+      },
+      {
+       "x": 34,
+       "y": 539,
+       "l": 461,
+       "h": 36,
+       "base": 572
+      },
+      {
+       "x": 35,
+       "y": 581,
+       "l": 243,
+       "h": 32,
+       "base": 609
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 33,
+      "y": 662,
+      "l": 446,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 35,
+       "y": 662,
+       "l": 410,
+       "h": 36,
+       "base": 695
+      },
+      {
+       "x": 34,
+       "y": 704,
+       "l": 445,
+       "h": 38,
+       "base": 739
+      },
+      {
+       "x": 33,
+       "y": 749,
+       "l": 335,
+       "h": 36,
+       "base": 782
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 30,
+      "y": 849,
+      "l": 424,
+      "h": 168
+     },
+     "lignes": [
+      {
+       "x": 33,
+       "y": 849,
+       "l": 400,
+       "h": 39,
+       "base": 879
+      },
+      {
+       "x": 33,
+       "y": 895,
+       "l": 406,
+       "h": 37,
+       "base": 923
+      },
+      {
+       "x": 32,
+       "y": 936,
+       "l": 422,
+       "h": 39,
+       "base": 972
+      },
+      {
+       "x": 30,
+       "y": 982,
+       "l": 417,
+       "h": 35,
+       "base": 1016
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "research your dream life"
+     ],
+     "fr": "potasse [[ta vie de rêve]]",
+     "texte": "kutasd fel [[az áloméleted]]"
+    },
+    "T2": {
+     "en": [
+      "most people know what they want but never look up",
+      "how to get it"
+     ],
+     "fr": "tout le monde sait [[ce qu'il veut]], personne cherche comment l'avoir",
+     "texte": "mindenki tudja, [[mit akar]], de senki nem néz utána, hogyan érje el"
+    },
+    "T3": {
+     "en": [
+      "the job, the city, the skills,",
+      "whatever. look up exactly",
+      "what it takes and who's",
+      "already done it"
+     ],
+     "fr": "le job, la ville, les compétences, peu importe. cherche [[exactement ce qu'il faut]] et qui l'a déjà fait",
+     "texte": "a munka, a város, a skillek, bármi. nézz utána, [[pontosan mi kell hozzá]], és ki csinálta már meg"
+    },
+    "T4": {
+     "en": [
+      "it turns a vague dream",
+      "into a list of things to",
+      "learn"
+     ],
+     "fr": "ton rêve flou devient [[une liste de trucs à apprendre]]",
+     "texte": "egy homályos álomból [[tanulnivalók listája]] lesz"
+    },
+    "T5": {
+     "en": [
+      "and learning stops feeling like school when it's for your",
+      "own life"
+     ],
+     "fr": "et apprendre, ça fait plus école quand [[c'est pour ta vie à toi]]",
+     "texte": "és a tanulás nem suli többé, ha [[a saját életedről szól]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start journalling"
+     ],
+     "fr": "tiens [[un journal]]",
+     "texte": "kezdj el [[naplót írni]]"
+    },
+    "T2": {
+     "en": [
+      "write down what you learned today, what you're",
+      "thinking about, and what you don't understand yet"
+     ],
+     "fr": "note ce que t'as appris aujourd'hui, ce qui te trotte dans la tête, et [[ce que tu captes pas encore]]",
+     "texte": "írd le, mit tanultál ma, mi jár a fejedben, és [[mit nem értesz még igazán]]"
+    },
+    "T3": {
+     "en": [
+      "your thoughts feel",
+      "messy and unclear until",
+      "you try to write them",
+      "down"
+     ],
+     "fr": "tes pensées paraissent [[floues et en vrac]] jusqu'à ce que tu [[les écrives]]",
+     "texte": "a gondolataid [[kuszák és homályosak]], amíg meg nem próbálod [[leírni őket]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start thinking",
+      "more clearly"
+     ],
+     "fr": "c'est [[prouvé]] : même 5 minutes avant de dormir suffisent pour [[y voir plus clair]]",
+     "texte": "már 5 perc lefekvés előtt is [[bizonyítottan]] elég ahhoz, hogy [[tisztábban gondolkodj]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_5.jpg",
+      "boite": [
+       519,
+       399,
+       503,
+       417
+      ]
+     }
+    }
+   }
+  }
+ }
+}

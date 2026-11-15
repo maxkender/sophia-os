@@ -1,0 +1,57 @@
+{
+  "source_id": "cs-o112",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "632bf2af-4605-4917-a14e-313a77037323",
+  "titre": "comment devenir la meilleure version de toi-même cette année scolaire #studytok #lycée #thatgirl",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "632bf2af-4605-4917-a14e-313a77037323"
+  ],
+  "notes": "Déclinaison G1 de 632bf2af (r 2,38 en français, 3,7 k vues), ligne 2 de la boîte. Langue source du parent : français ; la déclinaison s'écrit en français, accroche du parent mot pour mot. Le parent parlait coiffure, soins de peau et maquillage ; ici, uniquement l'école et la santé générale (garde-fous du label, rien sur l'apparence). Items neufs : un agenda tenu chaque semaine, se tester le soir sur la journée (place micabo, slide 4), lire 10 pages par jour, dormir à heure fixe, bouger chaque jour, demander de l'aide tôt. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "50c1af32",
+      "texte_overlay": "Comment devenir la meilleure version de toi-même cette année scolaire",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7914368d",
+      "texte_overlay": "tiens un agenda et regarde-le chaque dimanche :\nplus de devoir oublié.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7947ec36",
+      "texte_overlay": "commence tes devoirs le jour même.\ntout est encore frais.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6be4a7ed",
+      "texte_overlay": "chaque soir, teste-toi 10 minutes sur les cours du jour,\ncahier fermé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "870e38c8",
+      "texte_overlay": "lis 10 pages par jour, n'importe quel livre.\nton vocabulaire te remerciera.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9111e470",
+      "texte_overlay": "couche-toi à la même heure les soirs de cours.\nun cerveau reposé retient mieux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "9f09f659",
+      "texte_overlay": "pose tes questions dès que tu bloques.\npas la veille du contrôle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

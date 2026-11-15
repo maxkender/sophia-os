@@ -1,0 +1,345 @@
+{
+ "id": "ka-025",
+ "titre": {
+  "en": "10/10 skills to fix anything at home",
+  "fr": "10/10 skills pour tout réparer",
+  "de": "10/10 Skills zum Heimwerken"
+ },
+ "legendes": {
+  "en": "10/10 skills to fix anything at home #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour tout réparer #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills zum Heimwerken #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Seventh Heaven",
+  "url": "https://www.tiktok.com/music/seventh-heaven-7359926862746355729"
+ },
+ "notes": "Full test (BLEO, 14/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous. Décor branche, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : déboucher un évier, réparer un robinet, utiliser une perceuse. Musique : « Seventh Heaven », un de ses sons, pour alterner. Sophia en étape 3 « HOW TO KNOW HOW THINGS WORK » : cta A, « 5 min a day ». Couverture fr en « SKILLS » (colonne de la branche). Vraies vidéos : en Pan The Organizer, The Home Depot, Georgina Bisby DIY ; fr La Compagnie des Déboucheurs, Bricomarché, Castorama ; de Basti HW, ToolTown, Andreas Kalt.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS TO",
+     "FIX ANYTHING",
+     "AT HOME"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "TOUT RÉPARER"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS ZUM",
+     "HEIMWERKEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "UNCLOG A SINK",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4u0sMRKb0NY",
+     "titre": "How To Unclog a Kitchen Sink With Baking Soda & Vinegar (Works Fast!)",
+     "chaine": "Pan The Organizer",
+     "vues": "4.3M views",
+     "date": "9 years ago",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liLL4meflRjQhiawBwmxvl-VlONutQU6T1w-yvsuW-09Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "DÉBOUCHER UN ÉVIER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rYC6-2lFbB0",
+     "titre": "Comment déboucher un évier ?",
+     "chaine": "La Compagnie des Déboucheurs",
+     "vues": "186 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:45",
+     "avatar": "https://yt3.ggpht.com/HyAWc_bIow5voQ61GUGOS8b46UyqZrBtuq-xyr4Hxsuw0969glWFcdQVoAkizsxuv71t3MVHHy0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "DEN ABFLUSS FREI",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JuC7E8BT6-Q",
+     "titre": "Waschbecken Abfluss verstopft? Siphon aufschrauben und richtig reinigen. (Anleitung)",
+     "chaine": "Basti HW",
+     "vues": "86.007 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kQc0I5h-WrBEDO1QaZ1oHQkthVGU_E8xjRmV8VgdgDPQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO FIX",
+     [
+      {
+       "t": "A LEAKY FAUCET",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SYPFon69vKs",
+     "titre": "How to Fix a Leaky Faucet | The Home Depot",
+     "chaine": "The Home Depot",
+     "vues": "1.7M views",
+     "date": "8 years ago",
+     "duree": "1:45",
+     "avatar": "https://yt3.ggpht.com/zb-CeccQq1pm8B_zvan3SZ5LGJ1EATwU6EeLye35F8wjG3nClyIzhNPA53xoUjGA4BEk6mYLmRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RÉPARER",
+     [
+      {
+       "t": "UN ROBINET",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "foIo9dMTY7I",
+     "titre": "Comment réparer un robinet qui fuit ? I Bricomarché",
+     "chaine": "Bricomarché",
+     "vues": "462 k vues",
+     "date": "il y a 8 ans",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/QgI72oSysB0P7O_ldOAAfpM28RQSXdTBUtW7unRMK81X4RzxEm2117PO1_irIKvXkykgJZr-jg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO REPARIERST DU",
+     [
+      {
+       "t": "DEN WASSERHAHN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hA_GtpurrWM",
+     "titre": "Tipps gegen tropfenden Wasserhahn | ToolTown Heimwerken",
+     "chaine": "ToolTown - Home of Heimwerken",
+     "vues": "301.084 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKBPxEgR34Phezhbu_lUO-xO7wlMbq2h9qOF2hpaBNFQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO KNOW",
+     [
+      {
+       "t": "HOW THINGS",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "WORK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT SAVOIR",
+     [
+      {
+       "t": "COMMENT TOUT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "MARCHE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO VERSTEHST DU,",
+     [
+      {
+       "t": "WIE ALLES",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FUNKTIONIERT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "USE A DRILL",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "v-B9aT-4-aA",
+     "titre": "How to Use a Drill (Absolute Beginner's Guide)",
+     "chaine": "Georgina Bisby DIY",
+     "vues": "734K views",
+     "date": "3 years ago",
+     "duree": "16:13",
+     "avatar": "https://yt3.ggpht.com/Zl-o0FlPR4oaRN4SRKdHhxvTV1EHygHO8xSj_wvQliBX9kZEnOgN8XFrZA36uxC7-Z3XcRp5YA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT UTILISER",
+     [
+      {
+       "t": "UNE PERCEUSE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wdbiIUhXLdc",
+     "titre": "Comment utiliser une perceuse-visseuse ? | Castorama",
+     "chaine": "Castorama",
+     "vues": "269 k vues",
+     "date": "il y a 8 ans",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/NMYtC6wMM5kzyyy_Tr7dF_tkZDK6niFmuIk38lvNCQ8qk-pGKfDk0KrPyeqJDZ9f8WrN6NCm55k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BENUTZT DU",
+     [
+      {
+       "t": "EINEN AKKUSCHRAUBER",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UiP3QCRmPzI",
+     "titre": "Benutzung und Funktionen eines Akku-Schraubers",
+     "chaine": "Andreas Kalt – Erklärvideos",
+     "vues": "180.304 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "5:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQiFD5uzojFzFGupRt7V9Aa7dDK9yxC9fp-jUPyr_OhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

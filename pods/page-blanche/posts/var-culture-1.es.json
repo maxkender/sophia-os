@@ -1,0 +1,234 @@
+{
+ "post_id": "var-culture-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "disgustingly educated"
+     ],
+     "fr": "10/10 habitudes pour avoir une culture indécente",
+     "texte": "10/10 hábitos para tener una cultura brutal"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "texte": "(lo dice la neurociencia)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7680975889932225814_1.jpg",
+      "boite": [
+       124,
+       576,
+       520,
+       384
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. Stop taking your phone",
+      "everywhere with you"
+     ],
+     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
+     "alignement": "gauche",
+     "texte": "búscalo [[en el momento en que te surja la duda]]"
+    },
+    "T2": {
+     "en": [
+      "You don't need your",
+      "phone to go",
+      "to the bathroom,",
+      "stop taking it with",
+      "you everywhere!!"
+     ],
+     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
+     "texte": "la curiosidad ayuda a tu cerebro a recordar, así que sigue la pregunta ya"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête [[la musique non-stop]]",
+     "texte": "descansa [[después de aprender]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[le moindre blanc]] avec podcasts, musique, youtube ou scroll",
+     "texte": "después de una clase, un capítulo o un video, no vayas directo al teléfono"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour faire des liens, digérer les infos et [[vraiment avoir ses propres idées]]",
+     "texte": "hay estudios que muestran que unos minutos de calma justo después ayudan a tu cerebro a [[guardarlo de verdad]]"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celles des autres]]",
+     "texte": "en vez de [[enterrarlo]] bajo 50 videos nuevos"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "explícalo [[como si fuera a un niño de 10 años]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "si no puedes decirlo de forma simple, es que todavía no lo entiendes"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "después de un capítulo o un documental, cuéntalo en voz alta a una amiga, a tu madre o al espejo"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "los huecos [[saltan a la vista]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "ouvre un bouquin [[au lieu de scroller]]",
+     "texte": "aprende [[algo nuevo]] cada día"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold attention, remember",
+      "details, and build the picture in your own head"
+     ],
+     "fr": "lire t'apprend à [[tenir ton attention]], retenir les détails et [[te faire le film]] dans ta tête",
+     "texte": "un poco cada día funciona mejor que estudiar todo de golpe, tu cerebro [[retiene más]]"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[un cerveau plus vif]], remplace une partie de ton [[scroll par des livres]]",
+     "texte": "y los ratos en que ya estás con el teléfono son [[el hueco más fácil]] para meterlo"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant dès que je dégaine mon tel, j'apprends un truc en [[5 min sur l'appli Sophia]]",
+     "texte": "antes hacía doomscroll sin parar, ahora en el teléfono hago [[una lección de 5 min en la app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching everything",
+      "at 2x speed"
+     ],
+     "fr": "arrête de tout regarder [[en vitesse x2]]",
+     "texte": "suelta el teléfono [[y vete a dormir]]"
+    },
+    "T2": {
+     "en": [
+      "you watch everything at 2x",
+      "and feel like you're learning",
+      "so much"
+     ],
+     "fr": "tu regardes tout en x2 et t'as l'impression [[d'apprendre plein de trucs]]",
+     "texte": "scrolleas en la cama hasta las 2 y luego [[no se te queda nada]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain never gets",
+      "time to actually think"
+     ],
+     "fr": "mais ton cerveau a jamais le temps de [[vraiment réfléchir]]",
+     "texte": "es durmiendo cuando tu cerebro [[guarda lo que aprendiste]]"
+    },
+    "T4": {
+     "en": [
+      "and normal speed starts to",
+      "feel boring. why are you",
+      "rushing to finish a tiktok?"
+     ],
+     "fr": "et la vitesse normale [[te saoule]]. [[pourquoi tu te presses de finir un tiktok ?]]",
+     "texte": "menos sueño, menos memoria. [[el hábito más culto de todos es irse a dormir]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

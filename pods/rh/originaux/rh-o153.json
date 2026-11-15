@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o153",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai dit non à une promotion (et pourquoi je ne le regrette pas) #travail #promotion #carriere #santementale #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous (refuser une promotion). Récit inventé, aucune entreprise. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a99c1ef3",
+   "texte_overlay": "comment j'ai dit non à une promotion\n(et pourquoi je ne le regrette pas)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d4ff7cf4",
+   "texte_overlay": "le poste, c'était manager 8 personnes\navec 2 heures de trajet en plus par jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d514188b",
+   "texte_overlay": "j'ai demandé 48 h pour réfléchir\nune bonne boîte te les donne",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d53b6d55",
+   "texte_overlay": "j'ai listé ce que je gagnais et ce que je perdais\nsur papier, honnêtement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c58a68fe",
+   "texte_overlay": "je me suis demandé ce que j'aimais vraiment\napprendre. chaque jour. le nouveau poste m'en laissait zéro temps",
+   "texte_sophia": "je me suis demandé ce que j'aimais vraiment\napprendre. 5 minutes par jour sur l'appli Sophia. le nouveau poste m'en laissait zéro temps",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d53e1ca0",
+   "texte_overlay": "j'ai dit non, avec une proposition\n« pas maintenant. dans un an, avec ces conditions »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d5bee5f0",
+   "texte_overlay": "un an plus tard, on me l'a reproposé\nmieux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d5dff13c",
+   "texte_overlay": "t'as déjà refusé une promotion ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

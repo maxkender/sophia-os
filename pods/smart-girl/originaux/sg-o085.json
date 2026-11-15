@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o085",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ce21309b-2713-49d4-9101-b836eeb46d84",
+ "titre": "habits i stole from the most attractive women i know #attractive #thatgirl #smartgirl #elegance #habits",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "bf377b0e-bd47-4530-9c2a-1e63a6b6fbf9"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 6 de la boîte (parent ce21309b, langue source en) : accroche du parent mot pour mot. Habitudes neuves face au parent et à sg-o084 (dire « je ne sais pas », marcher lentement, mots de remerciement, présenter les gens, laisser finir les histoires). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "508d676d",
+   "texte_overlay": "habits i stole from the most\nattractive women i know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "42765de6",
+   "texte_overlay": "1. they say \"i don't know\"\nwithout panic.\nthen they ask.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9e58bc91",
+   "texte_overlay": "2. they walk slowly.\nno rushing, ever.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0b6cb537",
+   "texte_overlay": "3. they always have something\nnew to talk about\n\na painting, a city,\na strange fact.",
+   "texte_sophia": "3. they always have something\nnew to talk about\n\nmy version: 5 minutes a day\non a micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "218012f0",
+   "texte_overlay": "4. they write thank-you notes.\nby hand, three lines.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "41ab60d0",
+   "texte_overlay": "5. they introduce people\nto each other\n\nand give them something\nin common to start with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0535f59a",
+   "texte_overlay": "6. they let you finish\nyour story.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3414f230",
+   "texte_overlay": "which one are you\nstealing first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7623613615672691988/5.jpg"
+  }
+ ]
+}

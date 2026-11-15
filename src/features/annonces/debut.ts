@@ -29,7 +29,7 @@ export const TEXTES_DEBUT: Record<string, string> = {
   debut_popup_posts: "you posted during the warm-up: delete those posts and don't post before your start date",
   // 0498 : 0 follow plus de 24 h après Start warmup (remonté le 1er nov.) : un paragraphe à part.
   debut_popup_follows_bloque:
-    "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then tell us in #questions.",
+    "TikTok sometimes limits new accounts. Fill in your profile (photo, name, birthday), verify your phone in TikTok settings, watch videos on the For You page for 10–15 minutes, then follow accounts one by one (not too fast). If it still doesn't work, wait a few hours and try again, then click Help on your dashboard and tell us.",
 };
 
 /** TikTok bloque les follows : compte trouvé, 0 follow, Start warmup il y a plus de 24 h. */

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o091",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8b69509d-644f-4b86-940a-97cdfa03612e",
+ "titre": "5 elegant words to add to your vocabulary this week #vocabulary #words #smartgirl #englishvocabulary #wordoftheday",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "2747e20a-fdc8-463e-853b-cf96f914ef57"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 3 de la boîte (parent 8b69509d, langue source en) : accroche reformulée (« 5 words that will instantly expand your vocabulary » → « 5 elegant words to add to your vocabulary this week »), troisième et dernière déclinaison du parent. Cinq mots absents de nos originaux (reverie, ephemeral, solace, vivacious, quintessential). Sophia en cta C (à la place du scroll). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c947dba",
+   "texte_overlay": "5 elegant words to add to\nyour vocabulary this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "040accaf",
+   "texte_overlay": "reverie\n\na pleasant daydream.\n\n\"lost in a reverie\nby the window.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "21e7bb23",
+   "texte_overlay": "ephemeral\n\nlasting a very short time.\n\n\"the ephemeral beauty\nof cherry blossoms.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4b616e8e",
+   "texte_overlay": "solace\n\ncomfort in a sad moment.\n\n\"she found solace\nin music.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "00c2ca63",
+   "texte_overlay": "vivacious\n\nlively and full of energy.\n\n\"her vivacious laugh\nfilled the room.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "03738636",
+   "texte_overlay": "quintessential\n\nthe most perfect example\nof something.\n\n\"the quintessential\nparisian café.\"",
+   "texte_sophia": "quintessential\n\nthe perfect example of\nsomething. i learn words like\nthis instead of scrolling,\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "034a553a",
+   "texte_overlay": "which one will you use\nthis week?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  }
+ ]
+}

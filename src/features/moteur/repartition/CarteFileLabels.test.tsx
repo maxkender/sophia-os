@@ -50,7 +50,7 @@ const APPS = [
 ];
 
 /** `mentalmaxxing` ne sert qu'Unswipe, comme en prod. */
-const MENTAL = { id: "l-mental", nom: "mentalmaxxing", slug: "mentalmaxxing", ugc_ai_video: false };
+const MENTAL = { id: "l-mental", nom: "mentalmaxxing", slug: "mentalmaxxing", manuel: false };
 const LIENS = [{ label_id: MENTAL.id, application_id: ID_UNSWIPE }];
 
 function reglages(file: unknown) {

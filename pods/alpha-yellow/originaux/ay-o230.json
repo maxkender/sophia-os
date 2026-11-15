@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o230",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "20028ff5-1966-4820-b4e2-a9cc67733ca4",
+ "titre": "habits that make you the most articulate man in the room #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "20028ff5-1966-4820-b4e2-a9cc67733ca4"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 89524350. déclinaison G1 de la ligne 8 de la boîte (20028ff5, de 5,6 k r 5,14) : accroche du parent mot pour mot (minuscules du parent gardées). Les lignes 6, 7 et 9 sont sautées : faute de frappe dans l'accroche à reprendre mot pour mot (« rodiculously », « habbits »). Items neufs, aucun repris du parent (lecture à voix haute, enregistrement, écoute, vocabulaire) ni d'ay-o051, o060, o066, o138. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "89524350",
+   "texte_overlay": "habits that make you\nthe most articulate\nman in the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Think in threes. \"There are three reasons...\" Structuring your answer in three clear points makes you sound organised, confident and easy to follow.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Use short sentences when it matters. Long, winding sentences lose people. Say the important part in eight words or fewer, then explain the rest.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Replace filler words with pauses. Every \"um\" and \"like\" becomes a one-second silence. Pauses sound thoughtful and calm, fillers sound unsure.",
+   "media_id": "fd95743f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learn to tell one great story. Practise it until it's smooth, with a clear start, middle and end. A man who tells stories well always holds the room.",
+   "media_id": "97b27cf0"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your vocabulary daily. I do five minutes a day of history, art or science, and new words and ideas slowly make their way into how I speak.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. New words and ideas slowly make their way into how I speak.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Match your words to your listener. Simple with kids, precise with experts, warm with friends. Truly articulate men adapt, they don't show off.",
+   "media_id": "20b1d0c4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "End with a clear sentence. \"So my answer is yes.\" Finishing strong tells people you knew exactly where you were going all along, and they remember your point.",
+   "media_id": "74b0526b"
+  }
+ ]
+}

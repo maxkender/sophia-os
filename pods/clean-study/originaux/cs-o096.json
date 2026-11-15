@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o096",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "db43ee88-b4a8-4ff9-9061-7284f2c814f1",
+  "titre": "beautiful words that make your vocabulary sound instantly smarter #vocabulary #studytok #english",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "db43ee88-b4a8-4ff9-9061-7284f2c814f1"
+  ],
+  "notes": "Déclinaison G2 de db43ee88 (notre cs-o050 en G1 : r 45,45 en allemand, 41,7 k vues), ligne 4 de la boîte. Même promesse (de beaux mots à ajouter à son vocabulaire), autres mots : « beautiful words that make your vocabulary sound instantly smarter ». Mots neufs, aucun de cs-o050 (ephemeral, meticulous, eloquent, consolidate, procrastinate) ni du parent 85dd07fe (alleviate, quintessential, cajole, efficient) ; définitions et exemples vérifiés dans leur sens courant : serendipity, resilient, articulate, diligent (place micabo, slide 5 : se tester chaque soir), ubiquitous. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f76eb4ce",
+      "texte_overlay": "beautiful words that make your vocabulary\nsound instantly smarter",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f7a5a106",
+      "texte_overlay": "serendipity\nnoun — finding something good by chance\n\"meeting my study partner was pure serendipity.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ffe7a884",
+      "texte_overlay": "resilient\nadjective — able to recover quickly from difficulties\n\"one bad grade didn't stop her. she's resilient.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0700beb0",
+      "texte_overlay": "articulate\nadjective — able to express ideas clearly\n\"he gave the most articulate answer in class.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cb5d0819",
+      "texte_overlay": "diligent\nadjective — careful and hardworking\n\"she's diligent: she quizzes herself every evening.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "02f95a37",
+      "texte_overlay": "ubiquitous\nadjective — found everywhere\n\"phones are ubiquitous, even at study tables.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "04272416",
+      "texte_overlay": "part 3? 📜",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

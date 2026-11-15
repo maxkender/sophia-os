@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o102",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d1470c4b-0efc-484f-a6d9-55b93afe9746",
+ "titre": "5 life lessons from men to men #men #lifelessons #selfimprovement #mindset #advice",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "d1470c4b-0efc-484f-a6d9-55b93afe9746"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Déclinaison G1 de la ligne 6 (parent d1470c4b, langue source en ; meilleur passage cs 8,3 k vues, r 5,69). Accroche du parent mot pour mot (mots de la boîte). Format du parent : « N. LESSON » puis « Between us men: » et la leçon. Leçons neuves, aucune du parent (coiffeur, argent, photos avec les parents, conversation, l'homme à qui tout est égal). Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Célébrités en illustration (autorisé) ; slide Sophia : salon sur la ville, sans personne. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "251ffe5b",
+   "texte_overlay": "5 life lessons from\nmen to men",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683656295148211478/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "096ad475",
+   "texte_overlay": "1. LESSON\n\nBetween us men:\nAlways have one clean white shirt\nready, and know how to iron it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683656295148211478/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2d8b2ed5",
+   "texte_overlay": "2. LESSON\n\nCall your mother early\non her birthday.\nBe the first call, not the last.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683656295148211478/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "324b4106",
+   "texte_overlay": "3. LESSON\n\nNever walk into an interview\nwithout reading about the company.\nThey can tell.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683656295148211478/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2e15aecf",
+   "texte_overlay": "4. LESSON\n\nCarry a small notebook.\nThe man who writes things down\nnever forgets a promise.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683656295148211478/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "07c01365",
+   "texte_overlay": "5. LESSON\n\nLearn about one new subject\nevery week. You'll never run out\nof things to say.",
+   "texte_sophia": "5. LESSON\n\nUse a micro-learning app\nlike the Sophia app.\nOne new subject a week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683656295148211478/6.jpg"
+  }
+ ]
+}

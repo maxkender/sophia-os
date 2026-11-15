@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o076",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "10969cd5-4e6f-404f-91c6-79aee4b49dc0",
+  "titre": "toxic study motivation that works a little too well #studytok #studymotivation #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "10969cd5-4e6f-404f-91c6-79aee4b49dc0"
+  ],
+  "notes": "Déclinaison G1 de 10969cd5 (r 12,15 en espagnol d'Amérique latine), ligne 5 de la boîte. Accroche du parent mot pour mot. « Toxic » = rivalité avec soi-même, jamais avec les autres. Phrases neuves, aucune du parent ni de nos toxic (cs-o031, cs-o061) : la note qui ne sait pas ce que tu as ressenti, l'excuse qui ne rapporte aucun point, le cerveau qui proteste mais apprend, se tester jusqu'à avoir juste (place micabo, slide 5), aujourd'hui on fait, demain on a déjà fait, la fierté du soir. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8fcbb1c1",
+      "texte_overlay": "toxic study motivation\nthat works a little too well",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9e6e47c4",
+      "texte_overlay": "your excuses don't come with bonus points.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a6365362",
+      "texte_overlay": "your brain complaining is just your brain learning.\nKEEP GOING.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "aede46b6",
+      "texte_overlay": "\"i'll remember it\" is what you said last time.\nyou didn't.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c448cc40",
+      "texte_overlay": "quiz yourself until you get it right.\nnot until you're bored.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "bc7cc8c5",
+      "texte_overlay": "do it today and tomorrow-you gets to say \"already done\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "b5cd4c8e",
+      "texte_overlay": "imagine tonight: everything done, phone in hand, zero guilt.\nEARN IT.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

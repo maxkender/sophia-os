@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o161",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bf8eb0b1-1de8-421f-a8ed-dad4fd1201ff",
+ "titre": "7 clever moves for awkward moments that feel like a cheat #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "bf8eb0b1-1de8-421f-a8ed-dad4fd1201ff"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 5792bc29. déclinaison G2 de la ligne 3 de la boîte (bf8eb0b1, « 7 social hacks for awkward moments that feel like cheating », en 9,7 k r 5,31), 3e et dernière déclinaison de ce parent après ay-o110 et ay-o134. Même promesse, autres mots. Situations neuves. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5792bc29",
+   "texte_overlay": "7 clever moves for awkward\nmoments that feel like a cheat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Someone you vaguely know says \"Hey!\" and you can't place them? Say \"Hey! Remind me, where did we last see each other?\" It sounds friendly, not forgetful.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You tripped in front of everyone? Bow slightly and say \"Thank you, I'll be here all week.\" A little theatre turns a clumsy moment into a laugh everyone enjoys.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Someone asks your opinion on something you know nothing about? \"No idea, but I'd love to hear yours.\" Honest and curious beats a fake answer every time.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Your card gets declined at the counter? Smile and say \"Let's try the backup.\" Calm and light. The cashier has seen it a thousand times, and nobody cares.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A good story in your pocket is the best way out of any awkward silence or moment.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A good story is the best way out of any awkward silence.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You laughed at something serious by mistake? Apologise simply: \"Sorry, nervous laugh, I didn't mean that.\" Owning it right away clears the air instantly.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Two friends start arguing in front of you? \"Okay, I'm getting more snacks, nobody move.\" A little humour gives everyone a pause to cool down and smile again.",
+   "media_id": "d0802c6e"
+  }
+ ]
+}

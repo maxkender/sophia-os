@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o112",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c2f757ef-c8db-4b36-8ae7-24720ef40073",
+ "titre": "5 history facts that sound fake but are true #history #funfacts #smartgirl #darkacademia #learning",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 7 de la boîte (parent c2f757ef, langue source en) : accroche du parent mot pour mot (le parent est notre sg-o060). Faits neufs vérifiés : Cléopâtre (vers 30 av. J.-C.) plus proche des premiers pas sur la Lune que de la grande pyramide (vers 2560 av. J.-C.) ; guerre anglo-zanzibarite de 1896, moins d'une heure ; le ketchup vendu comme remède dans les années 1830 ; la tour Eiffel autorisée pour 20 ans ; l'Empire ottoman existait encore au premier vol motorisé (1903). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dea0a5d1",
+   "texte_overlay": "5 history facts that sound\nfake but are true",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5093f75d",
+   "texte_overlay": "1. cleopatra lived closer to the\nmoon landing than to the\nbuilding of the great pyramid.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c3f39388",
+   "texte_overlay": "2. the shortest war in history\nlasted under an hour:\nbritain vs zanzibar, 1896.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fc8c1240",
+   "texte_overlay": "every era hides a story\nlike this. learn one a day.",
+   "texte_sophia": "every era hides a story\nlike this. i learn one a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8c1383cb",
+   "texte_overlay": "3. in the 1830s, ketchup was\nsold as a medicine.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1cc9d3c9",
+   "texte_overlay": "4. the eiffel tower was only\nmeant to stand for 20 years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "44fd86c5",
+   "texte_overlay": "5. the ottoman empire still\nexisted when the first\nplanes flew.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "928282f4",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

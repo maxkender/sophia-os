@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o146",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "647dbb39-8006-4255-b8bc-0674e2f2f0d5",
+ "titre": "Social habits that make people remember you for years #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "647dbb39-8006-4255-b8bc-0674e2f2f0d5"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 3b3e64e6. déclinaison G2 de la ligne 1 de la boîte (647dbb39, en 48,3 k r 6,87), 3e et dernière déclinaison de ce parent après ay-o097 et ay-o122. Même promesse (inoubliable), autres mots. Items neufs, aucun repris du parent, d'ay-o097 ni d'ay-o122.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3b3e64e6",
+   "texte_overlay": "Social habits that make\npeople remember you for years",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Sending a message on the hard days. A friend's exam, a funeral, a breakup. \"Thinking of you today\" takes ten seconds, and people remember it for the rest of their lives.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Celebrating small wins. Someone passed their driving test or got a new flat? Make a fuss. Being the person who gets excited for others is rare and unforgettable.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Asking for their opinion. \"You know about this, what would you do?\" People never forget the person who made them feel smart and valued in front of others.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Bringing new ideas into old friendships. I do five minutes a day of history, art or science, and I always have something surprising to share when we meet.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have something surprising to share with my friends.",
+   "media_id": "2e21bae8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Remembering the first time you met. \"I still remember you showing up soaked at that party.\" Shared memories told with warmth make people feel truly important.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Being generous with your time. Helping someone move, listening for an hour, driving them to the airport. Time is the gift people remember long after any present.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Ending every meeting with a plan to meet again. \"Same time next month?\" A simple invitation turns a good evening into a friendship that keeps going for years.",
+   "media_id": "fd95743f"
+  }
+ ]
+}

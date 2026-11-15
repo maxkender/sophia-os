@@ -1,0 +1,354 @@
+{
+ "id": "ka-027",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7688107009597607190",
+  "vues": 2900000,
+  "publie_le": "2026-09-21",
+  "accroche": "10/10 SKILLS YOU CAN LEARN"
+ },
+ "titre": {
+  "en": "10/10 skills you can learn",
+  "fr": "10/10 compétences que tu peux apprendre",
+  "de": "10/10 Skills, die du lernen kannst"
+ },
+ "legendes": {
+  "en": "10/10 skills you can learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 compétences que tu peux apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7663314321833364245"
+ },
+ "notes": "Déclinaison G1 de ka-001 (boîte BLEO du 15/11, famille « 10/10 skills you can learn », parent 872e2359) : son titre mot pour mot, son décor falaise, d'autres compétences (ollie, poirier, chant), d'autres vidéos, une autre CTA (cta C au lieu de cta A) et un autre son (« sonido original » de son post à 2,5 M). Sophia en étape 3 « HOW TO HAVE SOMETHING TO TALK ABOUT » : « 5 min a day ». Vraies vidéos : en CCS, GymnasticsHQ, Ramsey Voice Studio ; fr Braille Skateboarding France, Cha Stas, Elena Hurstel ; de FRIIDON'T, caro.upsidedown, singDu.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "YOU CAN",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "COMPÉTENCES",
+     "QUE TU PEUX",
+     "APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS, DIE",
+     "DU LERNEN",
+     "KANNST"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "OLLIE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KJnZvKwgZaA",
+     "titre": "How To Ollie In Under 4 Minutes",
+     "chaine": "CCS",
+     "vues": "2.2M views",
+     "date": "6 years ago",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lckttCDt0kplTThREvOh11BLbGxGlvijM75lF_OkHTY-w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN OLLIE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VZPr1zMXJ0o",
+     "titre": "COMMENT FAIRE UN OLLIE - LE TUTO FACILE",
+     "chaine": "Braille Skateboarding France",
+     "vues": "1,4 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "5:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ne4Ju7Sr-yDQrn9dfgprOioYy97JwXrCeBUszD3Lg-6Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "DEN OLLIE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NYqdWiM-5gc",
+     "titre": "Der Einfachste Weg den Ollie zu lernen! | Skate Tutorial | FriiDon",
+     "chaine": "FRIIDON'T",
+     "vues": "543.444 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/Y1uspcUbR2rQGHfWOPHqS6rZMrll594dNx_GvmdxX5imYEoCaKjzRbVnIYJb8aB1sdYBOmL3jg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "A HANDSTAND",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F3EH9pxNSGs",
+     "titre": "How to do a Handstand for Beginners",
+     "chaine": "GymnasticsHQ",
+     "vues": "2.9M views",
+     "date": "4 years ago",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/8Fn_QWcMcdc-FQkE73-ic06xW1Ne41xTeRpXuLDJnkrWv2DgRgWLfq3vGzQM4jxlbhxGYKULLQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "LE POIRIER",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CKvOf6V6jSk",
+     "titre": "TUTORIEL HANDSTAND SANS MUR",
+     "chaine": "Cha Stas",
+     "vues": "583 k vues",
+     "date": "il y a 4 ans",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/RHLn5UENEchMwTvQ2TzNLfKpLNoAK7Ic4ze0SvVmVv6jmRAH20PfjH145b6dlmk857vKN0BrFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "DEN HANDSTAND",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V9fDp3-NsWc",
+     "titre": "Handstand lernen in 5 einfachen Schritten!",
+     "chaine": "caro.upsidedown",
+     "vues": "251.123 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/3GA1OGL6bAdM5Lc9Ea52oF3cMlgOX6yAW-5QByXjJsz92sik1SdZ5pF8JSl0-EFgUCVCYII68w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO ALWAYS",
+     [
+      {
+       "t": "HAVE SOMETHING",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "TO TALK ABOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "TOUJOURS",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "UN SUJET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU",
+     [
+      {
+       "t": "IMMER EIN",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "THEMA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SING",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jog-nfLldRI",
+     "titre": "Your FIRST Singing Lesson (Beginner Lesson from a REAL Vocal Coach)",
+     "chaine": "Ramsey Voice Studio",
+     "vues": "3.8M views",
+     "date": "4 years ago",
+     "duree": "11:06",
+     "avatar": "https://yt3.ggpht.com/nGsh720GwAaYxrrWiE8vHC1-462uhIRlmTntEPuITZh6MUWXtNV4iYa8X1yh605PYD6sYdZUkQI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "CHANTER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HCU-JCOnh0I",
+     "titre": "Apprendre à chanter en 5min TOP CHRONO ! (Exercices de chant pour débutants)",
+     "chaine": "Elena Hurstel - Mentor et Coach Vocal",
+     "vues": "337 k vues",
+     "date": "il y a 5 ans",
+     "duree": "12:27",
+     "avatar": "https://yt3.ggpht.com/AES6WNyU6hhyvGyXrQLal2wUovpORrQ3rqJk1qnrOFqTLUlg0Mx-IMzx_twKBNc-dE0krgtisg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SINGEN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LCx3g9Q9YUY",
+     "titre": "Sing mit! Der 1. Gesangsunterricht zum Mitmachen - singen lernen für Anfänger | singdu.de",
+     "chaine": "singDu",
+     "vues": "404.055 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "11:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ncihqViJ8SZ3PvDg1mx46Nvmaz4YgllQtjDnsznBiZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "872e2359-fe50-4971-baf6-685a251276c0"
+}

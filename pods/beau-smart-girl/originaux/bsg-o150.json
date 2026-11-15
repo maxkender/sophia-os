@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o150",
+  "type_bleo": "full_test",
+  "titre": "comment je me suis remise à apprendre une langue à 20 ans #langues #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : reprendre une langue, récit « je ». Accroches écrites : « comment je me suis remise à apprendre une langue à 20 ans » (retenue : âge précis, récit crédible), « apprendre l'italien seule » (écartée : trop étroit), « parler une langue en 3 mois » (écartée : promesse intenable). Aucun fait daté, aucune autre appli citée. Routine du 13/11 sur BLEO, première avec la règle 0671 (pas d'image livrée depuis 14 jours, son alterné) : images neuves choisies dans toute la banque par `--cherche` et vérifiées sur planche, son en rotation (Probe, Touch, effycore, martin, une barque sur l'océan, the path less travelled). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1, 2 et 4 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (5c8ea93e, « validé par les neurosciences » : preuves à vérifier une à une), 5 (« je notes »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e2b0abcb",
+      "texte_overlay": "comment je me suis remise\nà apprendre une langue\nà 20 ans",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "59d0d4c8",
+      "texte_overlay": "1. j'ai choisi une langue que j'aime entendre\n\npas la plus utile.\ncelle qui me donne envie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f12f02f9",
+      "texte_overlay": "2. une série que je connais par cœur, dans cette langue\n\nje connais l'histoire,\nalors je comprends les mots.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "06312d58",
+      "texte_overlay": "3. dix mots par jour, sur un carnet\n\npas plus.\nen un mois, c'est trois cents mots.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2e5bf7ef",
+      "texte_overlay": "4. je parle toute seule en cuisinant\n\nridicule, oui.\nmais ma bouche s'habitue.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "24e66db8",
+      "texte_overlay": "5. j'apprends aussi la culture qui va avec\n\navant, je ne voyais que la grammaire.\nmaintenant, j'apprends un truc sur le monde chaque matin. et la langue a enfin du sens.",
+      "texte_sophia": "5. j'apprends aussi la culture qui va avec\n\navant, je ne voyais que la grammaire.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et la langue a enfin du sens.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "070d9d6c",
+      "texte_overlay": "tu apprends quelle langue, toi ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

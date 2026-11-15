@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o204",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "98b71b08-da03-41e2-ac0d-dd3e6d75755c",
+ "titre": "daily habits that make your confidence unshakeable #confidence #habits #selfimprovement #mindset #selfesteem",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "2f705994-b700-44cd-877c-87ad1e88040f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 2f705994). déclinaison G2 de « habits that will make you disgustingly confident » (parent 98b71b08). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "980faf11-8650-4ca0-b757-5839a2854faa",
+   "texte_overlay": "daily habits that make your\nconfidence unshakeable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "15903de5-fdb3-416e-b6d3-815701e3c6b4",
+   "texte_overlay": "speak up early\n\nsay something in the first five minutes of every class or meeting. the longer you wait, the harder it gets, so speaking up first takes all the pressure off you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "24d77efd-4883-45a8-b0af-0d664ce73843",
+   "texte_overlay": "walk without headphones\n\nonce a day, walk through a busy place with no headphones. simply being present without hiding behind music quietly trains a calm, steady kind of confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d33afeb2-787c-4387-85ae-f115676c76a0",
+   "texte_overlay": "send the message\n\nstop rewriting that message for an hour and just send it. confident people aren't fearless, they simply don't let overthinking make decisions for them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "22cadfd0-9ebe-4df6-aec0-52f43108b08d",
+   "texte_overlay": "learn something daily\n\nspend 5 minutes a day on something new: a myth, a planet, a painting. knowing you're always growing gives you a steady confidence that people can feel.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/5.jpg",
+   "texte_sophia": "learn something daily\n\nspend 5 minutes a day on something new, a myth or a planet. the Sophia app turns it into one short lesson a day, and growing a little daily gives you a confidence people feel."
+  },
+  {
+   "position": 6,
+   "media_id": "e33e7540-3c24-45aa-8c02-405363daba66",
+   "texte_overlay": "dress for yourself\n\nwear your favourite outfit on an ordinary day. choosing clothes just for yourself is a small, daily way of saying other people's opinions don't run your life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660559811565686038/6.jpg"
+  }
+ ]
+}

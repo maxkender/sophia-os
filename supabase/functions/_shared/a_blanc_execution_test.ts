@@ -59,7 +59,7 @@ function baseEssai(args: { n?: number; compte?: Record<string, unknown>; langues
       is_active: true,
       type_compte: "poster",
       ugc_ai: Boolean(args.ugc),
-      ugc_ai_video: false,
+      ugcv: false,
       ugc_persona_id: args.ugc ? "persona-1" : null,
       videos_uniquement: false,
       warmup_ends_at: "2026-01-01T00:00:00Z",

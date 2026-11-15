@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o133",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "91d8b0a6-0223-489b-ac2e-42d4ed22b054",
+ "titre": "Timeless manners that make you impossible to forget #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "91d8b0a6-0223-489b-ac2e-42d4ed22b054"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture 40967f7f. déclinaison G2 de la ligne 2 de la boîte (91d8b0a6, « Old school skills that will make you unforgettable », pt-BR 6,6 k r 3,62), 2e déclinaison de ce parent après ay-o109. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o109.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "40967f7f",
+   "texte_overlay": "Timeless manners that make\nyou impossible to forget",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Replying to invitations quickly. Yes or no within a day, never a vague \"maybe.\" Hosts remember the guest who made planning easy, and they invite him again.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Bringing the conversation back to the quiet person. \"Lena, you went there last year, right?\" Including people who struggle to speak up is a mark of real class.",
+   "media_id": "62463b6a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Arriving with something for the host. Flowers, a dessert, a good bottle. Never arrive empty-handed. It's a simple tradition that people still deeply appreciate.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Knowing a little about the world. I do five minutes a day of history, art or science, and being able to talk about many things is an old-fashioned charm people love.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Being able to talk about many things is a charm people still love.",
+   "media_id": "5603a5ff"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Offering your seat. On the bus, in a waiting room, at a crowded bar. Giving up your seat without a fuss is old school kindness that people remember for a long time.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Asking before you take the last of anything. The last slice of pizza, the last drink. \"Does anyone want this?\" shows you think of others first, even in small things.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Thanking people by name and in person. Not just in a text. Looking someone in the eye and saying \"Thank you, Sarah, that meant a lot\" is something they keep.",
+   "media_id": "d0802c6e"
+  }
+ ]
+}

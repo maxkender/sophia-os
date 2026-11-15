@@ -1,0 +1,254 @@
+{
+ "post_id": "var-repartie-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "cómo tener [[respuesta para todo]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition #2)"
+     ],
+     "fr": "(version niche #2)",
+     "alignement": "droite",
+     "texte": "(edición réplica)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701398929807641888_1.jpg",
+      "boite": [
+       88,
+       413,
+       813,
+       547
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on walks without",
+      "listening to anything"
+     ],
+     "fr": "va marcher sans rien dans les oreilles",
+     "texte": "dale charla a [[absolutamente todo el mundo]]"
+    },
+    "T2": {
+     "en": [
+      "you do not need podcast",
+      "or music every time you",
+      "leave the house"
+     ],
+     "fr": "pas besoin d'un podcast ou de musique dès que tu sors",
+     "texte": "al barista, a tu vecina, a quien tienes delante en la fila"
+    },
+    "T3": {
+     "en": [
+      "a Stanford study found",
+      "that walking increased",
+      "people's creative output by",
+      "an average of 60%"
+     ],
+     "fr": "une étude de Stanford a montré que marcher boostait la créativité des gens de 60 % en moyenne",
+     "texte": "cada charlita es una repetición. aprendes a [[responder sin guion]] cuando no hay nada planeado"
+    },
+    "T4": {
+     "en": [
+      "sometimes the smartest",
+      "thing you can listen to is",
+      "your own thoughts"
+     ],
+     "fr": "parfois, [[le plus intelligent à écouter, c'est tes propres pensées]]",
+     "texte": "la respuesta rápida se entrena, y [[los desconocidos son práctica gratis]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Never scroll in bed"
+     ],
+     "fr": "Jamais de scroll au lit",
+     "texte": "ten [[de qué hablar]]"
+    },
+    "T2": {
+     "en": [
+      "4."
+     ],
+     "fr": "4.",
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "I read a book instead, i've been",
+      "trying ReadUp to block my",
+      "apps until I read for 30 minutes",
+      "and it's helped me so far. But",
+      "you can use anything that just",
+      "isn't your phone"
+     ],
+     "fr": "Je lis un livre à la place, et j'ai remplacé mon scroll du soir par 5 min sur l'appli Sophia, un truc nouveau par jour. Mais tout marche, sauf ton tel",
+     "texte": "antes me pasaba el día scrolleando y no tenía nada que aportar cuando se hablaba de historia o ciencia. ahora, si igual estoy con el teléfono, hago [[una lección de 5 min en la app Sophia]]"
+    }
+   },
+   "images": {
+    "I3": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T5",
+      "T6",
+      "T7",
+      "I2",
+      "T8"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "la regla del impro: [[sí, y]]"
+    },
+    "T2": {
+     "en": [
+      "you can't shortcut being bad at piano, guitar,",
+      "drums, whatever"
+     ],
+     "fr": "piano, guitare, batterie : au début t'es nulle, [[y'a pas de raccourci]]",
+     "texte": "en impro nadie bloquea lo que dice el otro, se construye encima"
+    },
+    "T3": {
+     "en": [
+      "progress comes from",
+      "repeating boring",
+      "fundamentals until they",
+      "finally become automatic"
+     ],
+     "fr": "tu progresses en [[répétant les bases ennuyeuses]] jusqu'à ce que ça devienne automatique",
+     "texte": "toma lo que te lance la otra persona, acéptalo y [[llévalo un paso más allá]]"
+    },
+    "T4": {
+     "en": [
+      "it teaches patience, consistency, and delayed",
+      "gratification better than most productivity advice"
+     ],
+     "fr": "ça t'apprend [[la patience, la régularité et à savoir attendre]] mieux que n'importe quel conseil productivité",
+     "texte": "es lo que hacen los músicos cuando improvisan juntos, y así [[un silencio se vuelve un chiste interno]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop eating junk food"
+     ],
+     "texte": "observa [[a los graciosos]]"
+    },
+    "T2": {
+     "en": [
+      "junk food is made to hit your dopamine the same way",
+      "scrolling does"
+     ],
+     "texte": "la próxima vez no solo te rías, fíjate en [[cómo respondieron]]"
+    },
+    "T3": {
+     "en": [
+      "the more you eat, the",
+      "more your brain starts",
+      "craving it"
+     ],
+     "texte": "casi todo es timing y [[un giro]] sobre lo que se acaba de decir"
+    },
+    "T4": {
+     "en": [
+      "every time you say no,",
+      "you practice",
+      "self-control, and that",
+      "gets easier too"
+     ],
+     "texte": "no vas a copiar sus chistes, pero empezarás a ver [[las mismas oportunidades]] que ellos"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "spend every paycheck"
+     ],
+     "texte": "no [[ensayes respuestas]]"
+    },
+    "T2": {
+     "en": [
+      "you only live once, so buy the clothes, the takeaway, the",
+      "new phone"
+     ],
+     "texte": "escribir la respuesta perfecta en tu cabeza dos horas después de la charla"
+    },
+    "T3": {
+     "en": [
+      "saving is for boring people, future",
+      "you can deal with it"
+     ],
+     "texte": "la frase perfecta nunca llega a tiempo, [[una buena sí]]"
+    },
+    "T4": {
+     "en": [
+      "the money you waste in your 20s",
+      "is the money that could give you",
+      "freedom in your 30s"
+     ],
+     "texte": "di lo primero decente que se te ocurra. [[hecho es mejor que perfecto]], también al hablar"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

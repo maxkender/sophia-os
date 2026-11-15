@@ -135,13 +135,27 @@ export function AdminBleoPage() {
           {rapport && (
             <CardContent className="space-y-3">
               <Portes rapport={rapport} />
-              <p className="text-xs text-muted-foreground">
-                {t("bleo.vue.rapportValeur", {
-                  plan: formaterNombre(rapport.valeur_plan, 0),
-                  reel: formaterNombre(rapport.valeur_reel, 0),
-                  identiques: rapport.couples_identiques ?? 0,
-                })}
-              </p>
+              {rapport.execution ? (
+                <p className="text-xs text-muted-foreground" data-testid="rapport-execution">
+                  {t("bleo.vue.rapportExecution", {
+                    plan: rapport.execution.creneaux_plan ?? 0,
+                    auPlan: rapport.execution.servis_au_plan ?? 0,
+                    remplaces: rapport.execution.remplaces_bleo ?? 0,
+                    tierlist: rapport.execution.tierlist ?? 0,
+                    nonServis: rapport.execution.non_servis ?? 0,
+                    publies: rapport.execution.publies ?? 0,
+                    posts: rapport.execution.posts ?? 0,
+                  })}
+                </p>
+              ) : (
+                <p className="text-xs text-muted-foreground">
+                  {t("bleo.vue.rapportValeur", {
+                    plan: formaterNombre(rapport.valeur_plan, 0),
+                    reel: formaterNombre(rapport.valeur_reel, 0),
+                    identiques: rapport.couples_identiques ?? 0,
+                  })}
+                </p>
+              )}
             </CardContent>
           )}
         </Card>

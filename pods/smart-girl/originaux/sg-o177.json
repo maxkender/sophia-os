@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o177",
+ "type_bleo": "full_test",
+ "titre": "constellations every woman should be able to find #stars #astronomy #smartgirl #nightsky #learning",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 1/4 (la jauge en demande 4 sur 15) : accroche jamais faite chez nous (« constellation » absent des accroches de donnees/label.json). Accroches écrites : « constellations every woman should be able to find » (retenue : savoir concret, romantique, vérifiable), « how to read the night sky » (écartée : plus vague), « star facts you didn't know » (écartée : faible). Faits vérifiés : la ceinture d'Orion (trois étoiles alignées) ; la Grande Ourse et ses deux étoiles qui pointent vers l'étoile polaire ; Cassiopée en W ; les Pléiades, « sept sœurs » ; Antarès, l'étoile rouge du Scorpion. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "abaf2f42",
+   "texte_overlay": "constellations every woman\nshould be able to find",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8b250441",
+   "texte_overlay": "1. orion\n\nlook for three bright stars\nin a row: his belt.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "69a50bee",
+   "texte_overlay": "2. the big dipper\n\nits last two stars point\nto the north star.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b2af6cb0",
+   "texte_overlay": "3. cassiopeia\n\na bright \"w\" in the sky.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8389b079",
+   "texte_overlay": "4. the pleiades\n\na tiny cluster called\nthe seven sisters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "73df45dc",
+   "texte_overlay": "5. scorpius\n\nfind its red heart, antares.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "83e7b475",
+   "texte_overlay": "every star has a myth.\nlearn one tonight.",
+   "texte_sophia": "every star has a myth.\ni learn one a night on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "927f3b65",
+   "texte_overlay": "save this for your\nnext clear night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

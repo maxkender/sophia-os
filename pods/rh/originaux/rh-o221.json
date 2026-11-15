@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o221",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b28bd0de-25d7-4c48-8311-267c37c08288",
+ "titre": "6 fois où j'ai « MENTI » à ma manager… et elle m'a remerciée #travail #manager #carriere #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 12/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G1 de la ligne 13 (parent b28bd0de), 3e et dernière : accroche mot pour mot, six autres situations que rh-o057, rh-o194 et rh-o209. Ligne 14 écartée (accroche voisine). Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15c57cc0",
+   "texte_overlay": "6 fois où j'ai « MENTI » à ma manager…\net elle m'a remerciée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d53b6d55",
+   "texte_overlay": "« tu peux être là samedi ? »\nj'ai dit « le matin, oui. l'après-midi, non »\nla vérité : je voulais dire non",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d53e1ca0",
+   "texte_overlay": "« t'as relu le contrat ? »\nj'ai dit « je finis d'ici 15 h »\nla vérité : j'avais lu la moitié",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b3ef2f24",
+   "texte_overlay": "« t'as une idée pour ce projet ? »\nj'ai dit « une, et je te l'écris ce soir »\nla vérité : je l'avais eue en apprenant un truc le matin",
+   "texte_sophia": "« t'as une idée pour ce projet ? »\nj'ai dit « une, et je te l'écris ce soir ». la vérité : je l'avais eue le matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d5bee5f0",
+   "texte_overlay": "« ça va avec la nouvelle ? »\nj'ai dit « elle apprend vite, je l'aide sur X »\nla vérité : c'était dur au début",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d5dff13c",
+   "texte_overlay": "« tu veux la prime ou une formation ? »\nj'ai dit « la formation »\nla vérité : les deux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d67c1734",
+   "texte_overlay": "« on peut compter sur toi ? »\nj'ai dit « oui, et je te préviens si ça coince »\nla vérité : c'était la bonne réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d7620059",
+   "texte_overlay": "ta phrase à toi, c'est laquelle ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

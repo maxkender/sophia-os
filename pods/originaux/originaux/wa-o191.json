@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o191",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "09fb001b-2df4-4ce1-baf7-4d9cca24152a",
+ "titre": "tiny daily rituals that keep your mental health strong #mentalhealth #rituals #selfcare #wellness #habits",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "712c8c6e-14dd-41a5-b65a-0a8bc303376a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 712c8c6e). déclinaison G2 de « 5 small habits that can improve your mental health » (parent 09fb001b). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d0ad2426-5eef-40d3-ba69-b9f3da312fcb",
+   "texte_overlay": "tiny daily rituals that keep\nyour mental health strong",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660821309860973826/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d26b5e8e-2fa7-4740-94b6-67714845cc94",
+   "texte_overlay": "a sunlight break\n\nstep outside within an hour of waking and let daylight reach your eyes for a few minutes. it sets your body clock and gently lifts your mood for the rest of the day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660821309860973826/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "650ff4c5-b705-4611-b352-a1f5ca151ab3",
+   "texte_overlay": "a one line diary\n\nwrite one sentence about your day every evening. it takes thirty seconds, and over time it shows you how much you've grown and how many good days you actually had.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660821309860973826/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e4823a67-db10-4c82-b323-d4fd557ffddc",
+   "texte_overlay": "a small lesson\n\nlearn one small and beautiful thing a day: a star, a painting, a word. a curious mind has something better to think about than the same worries on repeat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660821309860973826/4.jpg",
+   "texte_sophia": "a small lesson\n\ni learn one small and beautiful thing a day, like a star or a painting. i do it with the Sophia app, 5 minutes a day, and my mind has better things to think about than worries."
+  },
+  {
+   "position": 5,
+   "media_id": "237482bd-a0fa-4a72-9267-d8b32b2eef11",
+   "texte_overlay": "a kind message\n\nsend one kind message a day to a friend or a family member. small, real connections are one of the strongest protections your mental health will ever have.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660821309860973826/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "89a830d2-185b-4a33-8668-e09f739c0c05",
+   "texte_overlay": "a slow evening\n\ndim the lights and put your phone away an hour before bed. a slow, quiet evening tells your body it's safe to rest, and good sleep makes every hard day lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660821309860973826/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o203",
+ "type_bleo": "full_test",
+ "titre": "les signes qu'une offre d'emploi est trop belle pour être vraie #rechercheemploi #offredemploi #arnaque #emploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 11/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (offres trop belles). Conseils généraux de prudence, aucune entreprise ni site cité. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f5ee806e",
+   "texte_overlay": "les signes qu'une offre d'emploi\nest trop belle pour être vraie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8e73cbcd",
+   "texte_overlay": "un salaire très au-dessus du marché\npour un poste sans expérience",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8fd86b16",
+   "texte_overlay": "un entretien uniquement par messagerie\nsans appel, sans visage",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "900e7372",
+   "texte_overlay": "on te demande de payer quelque chose\nune formation, du matériel. jamais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "904bbebe",
+   "texte_overlay": "on veut tes coordonnées bancaires avant le contrat\nnon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7dacccb9",
+   "texte_overlay": "le nom de l'entreprise est introuvable\nrenseigne-toi toujours. prends 5 minutes",
+   "texte_sophia": "le nom de l'entreprise est introuvable\nrenseigne-toi toujours. perso, je garde 5 minutes par jour sur l'appli Sophia pour mieux comprendre le monde du travail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "912a4499",
+   "texte_overlay": "si c'est trop beau, prends le temps de vérifier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "91eecf2f",
+   "texte_overlay": "t'en as déjà vu une ?\nraconte pour prévenir les autres",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

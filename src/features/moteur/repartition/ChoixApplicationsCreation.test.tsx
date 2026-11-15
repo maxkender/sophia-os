@@ -40,8 +40,8 @@ const APPS = [
   { id: ID_UNSWIPE, slug: "unswipe", nom: "Unswipe", created_at: "", langues: ["fr", "de"], actif: true },
   { id: ID_ZEN, slug: "zen", nom: "Zen", created_at: "", langues: null, actif: false },
 ];
-const SMART = { id: "l-smart", slug: "smart_girl", nom: "Smart Girl", ugc_ai_video: false };
-const CLASSIC = { id: "l-classic", slug: "classic-study", nom: "Classic Study", ugc_ai_video: false };
+const SMART = { id: "l-smart", slug: "smart_girl", nom: "Smart Girl", manuel: false };
+const CLASSIC = { id: "l-classic", slug: "classic-study", nom: "Classic Study", manuel: false };
 const LIENS = [{ label_id: CLASSIC.id, application_id: ID_UNSWIPE }];
 
 const CORPS_AVANT = {

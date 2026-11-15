@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o092",
+  "type_bleo": "full_test",
+  "titre": "les phrases que disent souvent les filles cultivées #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : les phrases, un format court et enregistrable. Accroches écrites : « les phrases que disent souvent les filles cultivées » (retenue : liste concrète, on s'y reconnaît), « comment parler comme une fille cultivée » (écartée : promesse de façade), « les mots qui trahissent une fille cultivée » (écartée : trop proche des listes de mots du 2/11). Fait vérifié le 5/11 sur https://en.wikipedia.org/wiki/Anglo-Zanzibar_War : 27 août 1896, « between 38 and 45 minutes, marking it as the shortest recorded war in history ». Routine du 5/11 sur BLEO : jauge 1 full test et 7 déclinaisons ; j'ai fait 2 full tests et 6 déclinaisons (lignes 2 à 7 de la boîte), car les autres lignes ne se déclinent pas proprement : 1 (083ac272, 9 hobbies « validés par la science », des preuves que je ne peux pas vérifier, et le label évite la liste « prouvée par la science » vague), 8 (837491f7, faute de frappe et salaires), 9 (6211e51e, « other then »), 10 (9e0c287f, « je notes… j'ai essayé », fautes à recopier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "000d7460",
+      "texte_overlay": "les phrases que disent souvent\nles filles cultivées",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0f057bec",
+      "texte_overlay": "1. j'ai lu un truc là-dessus\n\net elle te raconte. sans jamais faire la leçon.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "01c21b76",
+      "texte_overlay": "2. je ne sais pas, explique-moi\n\nla curiosité avant l'ego.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02d3e38d",
+      "texte_overlay": "3. tu savais que… ?\n\nce matin, j'ai appris que la guerre la plus courte de l'histoire a duré moins d'une heure, en 1896.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. tu savais que… ?\n\nce matin, l'appli Sophia m'a appris que la guerre la plus courte de l'histoire a duré moins d'une heure, en 1896.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "16a06d13",
+      "texte_overlay": "4. tu me conseilles quoi ?\n\nun livre, un film, un musée.\nelle note tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "414511dc",
+      "texte_overlay": "5. ça dépend du contexte\n\nelle nuance. toujours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "c'est laquelle, ta phrase ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

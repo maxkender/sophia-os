@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o143",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f075e4ee-1996-422b-918e-7dbe47706319",
+ "titre": "mes réponses d'entretien « retouchées »… et le contrat signé deux jours après #entretien #rechercheemploi #emploi #cdi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 6/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne 1 (parent f075e4ee), 3e et dernière : même promesse, autres mots que rh-o106 et rh-o130. Autres questions, recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7ffa9ca5",
+   "texte_overlay": "mes réponses d'entretien « retouchées »…\net le contrat signé\ndeux jours après",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a99be253",
+   "texte_overlay": "« vous avez déjà formé quelqu'un ? »\nj'ai dit « j'ai accueilli deux stagiaires »\nla vérité : je leur avais montré les outils. c'est former",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "aa085c0c",
+   "texte_overlay": "« vous connaissez notre client principal ? »\nj'ai dit « j'ai lu ce que vous faites pour lui »\nla vérité : 10 minutes le matin même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "904bbebe",
+   "texte_overlay": "« vous lisez quoi ? »\nj'ai dit « un peu d'histoire, chaque jour »\nla vérité : 5 minutes. mais chaque jour",
+   "texte_sophia": "« vous lisez quoi ? »\nj'ai dit « un peu d'histoire, chaque jour »\nla vérité : 5 minutes sur l'appli Sophia. mais chaque jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "aa68c3b0",
+   "texte_overlay": "« vous gérez bien les urgences ? »\nj'ai dit « je trie d'abord, puis j'agis »\nla vérité : j'avais appris à la dure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "aaf8adcb",
+   "texte_overlay": "« vous voulez évoluer vite ? »\nj'ai dit « je veux d'abord être solide ici »\nla vérité : les deux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "abb99871",
+   "texte_overlay": "« une dernière chose ? »\nj'ai dit pourquoi je voulais ce poste, en une phrase\nla vérité : je l'avais répétée 20 fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ae5bd7dc",
+   "texte_overlay": "aucun mensonge.\njuste les bons mots. et toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o226",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9c858631-c5b5-41f6-99cc-6ac6436f1f6d",
+ "titre": "subtle habits of people who are quietly self assured #confidence #selfassured #psychology #habits #selfimprovement",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "ed8b88ee-49fc-42e9-8fed-99228b32ac7a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ed8b88ee). déclinaison G2 de « bizarre things confident people do that nobody notices » (parent 9c858631). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "18ba2088-aa8b-4349-aea6-151ecf054613",
+   "texte_overlay": "subtle habits of people\nwho are quietly self assured",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0c479971-2107-4c28-8c4b-32811b8e988a",
+   "texte_overlay": "they take the middle seat\n\nthey choose a seat in the middle of the room, not the corner. picking a visible spot without thinking about it is a subtle but very clear sign of real comfort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "40705ba8-8a58-4c0f-998d-3f6c2fd108d3",
+   "texte_overlay": "they eat at their own pace\n\nthey eat slowly, even when everyone else is rushing. not matching other people's speed shows they're completely at ease with their own natural rhythm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d057cace-0749-4177-828e-48beafdf25cf",
+   "texte_overlay": "they keep learning\n\nself assured people stay curious about everything. learning one small thing every day, a strange fact or a painting, keeps their confidence quietly steady.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/4.jpg",
+   "texte_sophia": "they keep learning\n\ni spend 5 minutes a day learning something new, a strange fact or a famous painting. i do it with the Sophia app, one lesson a day, and it keeps my confidence quietly steady."
+  },
+  {
+   "position": 5,
+   "media_id": "1d0473ba-2b98-43f3-b493-86b0a7b82b8a",
+   "texte_overlay": "they let silence sit\n\na few seconds of quiet after they speak doesn't bother them. they don't rush to fill it, and that calm makes their words land with so much more weight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "43052a7b-b61c-4231-bca1-e5450d97aa47",
+   "texte_overlay": "they ask for clarity\n\nthey say sorry, what do you mean, without any embarrassment. asking someone to explain instead of nodding along is something only truly secure people really do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/6.jpg"
+  }
+ ]
+}

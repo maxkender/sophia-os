@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o061",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3c5e67e9-9d6d-4f65-a59d-57cddea94015",
+  "titre": "toxic reminders for when you want to skip studying today #studytok #studymotivation #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "3c5e67e9-9d6d-4f65-a59d-57cddea94015"
+  ],
+  "notes": "Déclinaison G1 de 3c5e67e9 (r 7,8 en espagnol d'Amérique latine), ligne 1 de la boîte. Accroche du parent mot pour mot, en anglais (langue du titre du parent). « Toxic » = rivalité avec soi-même, jamais avec les autres. Rappels neufs, aucun du parent (« demain le double », pas besoin d'envie, 10 minutes de test, la note à expliquer, la fille du semestre prochain, ouvrir les notes) : l'heure promise dépassée, la date du contrôle qui ne bouge pas, la playlist parfaite, une page maintenant ou trois dimanche, expliquer le cours sans notes (place micabo, slide 5), les notes déjà écrites, sauter = une habitude. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "626615e2",
+      "texte_overlay": "toxic reminders for when\nyou want to skip studying today",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6636eef7",
+      "texte_overlay": "you said \"i'll start at 5\".\ncheck the time. START.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "68c98e32",
+      "texte_overlay": "the test date didn't move because you're tired.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6ba7007d",
+      "texte_overlay": "you don't need the perfect playlist.\nyou need the first question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7451ce88",
+      "texte_overlay": "can you explain today's lesson without your notes?\nno? then you're not done.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "e2e431c7",
+      "texte_overlay": "one page of exercises now\nor three pages of panic on sunday. CHOOSE.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "830a64c1",
+      "texte_overlay": "your past self already wrote the notes.\nthe least you can do is USE them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "8636a665",
+      "texte_overlay": "skipping isn't a day off. it's a habit.\ndon't train it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

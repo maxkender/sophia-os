@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o101",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2e722484-41cc-4f38-93b7-3445a9b5bc1b",
+ "titre": "5 social psychology facts i'll never forget #psychology #socialpsychology #smartgirl #funfacts #learning",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "2e722484-41cc-4f38-93b7-3445a9b5bc1b"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 4 de la boîte (parent 2e722484, langue source en) : accroche du parent mot pour mot. Cinq effets neufs face au parent : projecteur (Gilovich, 2000), pratfall (Aronson, 1966), témoin (Darley et Latané, 1968), halo (Thorndike, 1920), Zeigarnik (1927). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5221d99b",
+   "texte_overlay": "5 social psychology facts\ni'll never forget",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2035a6a1",
+   "texte_overlay": "1. the spotlight effect\n\npeople notice your mistakes\nfar less than you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "30686f1e",
+   "texte_overlay": "2. the pratfall effect\n\na competent person becomes\nmore likeable after a\nsmall slip.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0fb89a4a",
+   "texte_overlay": "every fact like this changes\nhow you see people.\nlearn one a day.",
+   "texte_sophia": "every fact like this changes\nhow you see people. i learn\none a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "22c2ac38",
+   "texte_overlay": "3. the bystander effect\n\nthe more people watch, the less\nlikely anyone helps.\nso be the one who does.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "39a9cf8c",
+   "texte_overlay": "4. the halo effect\n\none good trait colours how\nwe judge everything else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3185f873",
+   "texte_overlay": "5. the zeigarnik effect\n\nwe remember unfinished tasks\nbetter than finished ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "897396bd",
+   "texte_overlay": "which one surprised you?\nsave this.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7678685783255207189/7.jpg"
+  }
+ ]
+}

@@ -56,7 +56,9 @@
  *      ou pays) passe d'abord ; puis le plus en retard (le plus petit des deux
  *      retards), puis la flotte, puis le poids, puis l'identifiant (stable).
  *
- * LABEL 100 % POD (0352). Son stock suit les comptes (le pod produit pour eux) :
+ * LABEL 100 % POD (0352). Un seul podz le nourrit, aucune source : la
+ * définition unique de l'OS, vue `labels_100_podz` (0650), lue par
+ * `stats_choix_label`. Son stock suit les comptes (le pod produit pour eux) :
  * sans compte il ne produit pas, et la règle de réserve l'enfermait dehors.
  * Pour lui, la réserve ne compte plus (capacité 1, pas de « réserve basse ») ;
  * il ne va que dans une langue que son pod sert (sinon « à sec ») et se
@@ -106,12 +108,13 @@ export interface StatLabelCreation {
   /** Récence dans le pays, même échelle. */
   recence_pays: number;
   /**
-   * Label 100 % pod (0352) : tous ses contenus validés sont livrés par un pod.
-   * Son stock suit les comptes (le pod produit pour eux) : la réserve ne le
-   * juge pas, il se remplit langue par langue.
+   * Label 100 % podz (0352 ; définition unique depuis 0650, vue
+   * `labels_100_podz`) : un seul podz le nourrit, aucune source. Son stock suit
+   * les comptes (le pod produit pour eux) : la réserve ne le juge pas, il se
+   * remplit langue par langue.
    */
   pod_seul?: boolean;
-  /** Le pod sert la langue du compte (vrai sans langue). */
+  /** Le pod sert la langue du compte (vrai sans langue, vrai partout pour un podz d'originaux). */
   livre_langue?: boolean;
   /**
    * Comptes du label dans sa langue la moins remplie, parmi les AUTRES langues
@@ -402,6 +405,18 @@ export function testPodPlein(s: StatLabelCreation, r: ReglagesChoixLabel, applic
   return enTestPod(s, r, applicationId) && s.comptes_total >= r.testPodComptes;
 }
 
+/**
+ * DÉMARRAGE D'UN PODZ (0716, décision d'Adrien du 14/11) : un label en test
+ * qui n'a pas encore ses `testPodComptes` comptes, dans une langue où il n'en
+ * a aucun (et que son podz sert), passe AVANT les autres. Ses comptes de test
+ * arrivent donc d'office, chacun dans une langue différente ; il est jugé à
+ * `testPodPosts` posts, comme avant. Seul « à sec » passe avant lui.
+ */
+export function demarragePod(s: StatLabelCreation, r: ReglagesChoixLabel, applicationId: string): boolean {
+  return enTestPod(s, r, applicationId) && s.comptes_total < r.testPodComptes && s.comptes_langue === 0 &&
+    s.livre_langue !== false;
+}
+
 /** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabelCreation,
@@ -436,7 +451,11 @@ export function estASec(
   s: StatLabelCreation,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): boolean {
-  if (estPodSeul(s)) return s.livre_langue === false;
+  // 15/11 : un label 100 % podz qui a déjà un compte dans cette langue n'empile
+  // qu'en dernier recours (après tous les autres labels) : on étale d'abord,
+  // la soupape (0722) lui ouvre des langues neuves. Kaja avait reçu un 2e
+  // compte allemand (paul.bildung326) parce que ses 3 langues étaient servies.
+  if (estPodSeul(s)) return s.livre_langue === false || s.comptes_langue >= 1;
   return joursApresCompte(s, r) < JOURS_A_SEC;
 }
 
@@ -491,6 +510,8 @@ export interface LabelClasse {
   saturePays: boolean;
   /** Moins de `reserveMinJours` de réserve avec ce compte en plus. */
   suspendu: boolean;
+  /** Label de podz en démarrage, absent de cette langue : passe avant les autres (0716). */
+  demarrage: boolean;
   /** Moins de `JOURS_A_SEC` de réserve avec ce compte en plus. */
   aSec: boolean;
 }
@@ -535,10 +556,13 @@ export function classerLabels(
     saturePays: estSaturePays(s, nPays, r),
     suspendu: estSuspendu(s, r),
     aSec: estASec(s, r),
+    demarrage: demarragePod(s, r, app),
   }));
   // Un écart ne joue que s'il ne frappe pas tous les candidats.
   const regles: Array<(c: LabelClasse) => boolean> = [
     (c) => c.aSec,
+    // Démarrage d'un podz (0716) : ses comptes de test d'abord, une langue chacun.
+    (c) => !c.demarrage,
     (c) => c.rafaleLangue,
     // L'ÉLÉMENT CENTRAL (0354) : un label qui tient déjà plus de la moitié d'un
     // pays n'y reçoit plus de compte, quels que soient sa réserve et sa perf.

@@ -1,0 +1,60 @@
+{
+ "source_id": "am-o067",
+ "type_bleo": "full_test",
+ "titre": "Small things that make a man look expensive #men #style #gentleman #selfimprovement #grooming",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 8/11. Full test du jour (2 sur 2, jauge : 2 sur 5). Accroche jamais faite chez nous : aucun « look expensive » dans donnees/label.json. Le style par les détails, pas par l'argent : rien à acheter de précis, aucun prix, aucune marque. Format : numéro, détail, deux lignes. Images : célébrités (autorisé) et la banque ; slide Sophia : terrasse de restaurant vide, sans personne. reference_url : le post source de am-o034 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "271544e2",
+   "texte_overlay": "Small things that make\na man look expensive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "35c46a45",
+   "texte_overlay": "1. Clean shoes\n\nPeople look down\nbefore they look up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "309fc180",
+   "texte_overlay": "2. A fresh haircut\n\nEvery 3 to 4 weeks.\nNever let it grow out\nby accident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "339114f1",
+   "texte_overlay": "3. Clothes that fit\n\nA cheap shirt that fits\nbeats an expensive one\nthat doesn't.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0bb0d621",
+   "texte_overlay": "4. Knowing a little\nabout a lot\n\nArt, history, the world.\nConversation is the\nbest accessory.",
+   "texte_sophia": "4. Knowing a little\nabout a lot\n\nArt, history, the world.\nI learn one thing a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "105dddf3",
+   "texte_overlay": "5. Good posture\n\nChin level. Shoulders back.\nIt costs nothing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0367561a",
+   "texte_overlay": "6. Speaking slowly\n\nNo rush to fill the silence.\nCalm sounds confident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "26c4d427",
+   "texte_overlay": "7. A clean car\n\nInside and out.\nIt says how you treat\neverything else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  }
+ ]
+}

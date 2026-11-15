@@ -1,0 +1,62 @@
+{
+ "source_id": "rh-o189",
+ "type_bleo": "full_test",
+ "titre": "les 3 premiers jours après un licenciement : ce que j'aurais voulu savoir #licenciement #chomage #emploi #santementale #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (les jours qui suivent un licenciement). Rien de juridique précis : se renseigner auprès d'un juriste, d'un syndicat ou des organismes compétents. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e0b36e8c",
+   "texte_overlay": "les 3 premiers jours après un licenciement :\nce que j'aurais voulu savoir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "54b3bd07",
+   "texte_overlay": "jour 1 : tu n'as rien à décider\nrespire. rentre. appelle quelqu'un",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "55cf37f8",
+   "texte_overlay": "jour 1 : ne signe rien dans l'urgence\nlis, et fais-toi conseiller par quelqu'un qui connaît le droit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "55e86b2f",
+   "texte_overlay": "jour 2 : note tout ce qu'on t'a dit\nles dates, les noms, les documents reçus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5626098d",
+   "texte_overlay": "jour 2 : renseigne-toi sur tes démarches\nauprès des bons interlocuteurs. chaque situation est différente",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "467df7e7",
+   "texte_overlay": "jour 3 : fais une chose pour toi\nune marche, une amie, 5 minutes à apprendre autre chose",
+   "texte_sophia": "jour 3 : fais une chose pour toi\nune marche, une amie, et 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "56fc0988",
+   "texte_overlay": "un licenciement, c'est une décision sur un poste.\npas sur ta valeur",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5b5333f7",
+   "texte_overlay": "envoie ça à quelqu'un qui en a besoin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

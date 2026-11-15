@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o080",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "852eccee-3c90-4057-97c7-01d9dd34e98d",
+ "titre": "replace these lazy words and sound instantly more articulate #vocabulary #wellspoken #smartgirl #englishwords #eloquence",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "229c66cb-15c6-4195-868e-9e7b53a3006a"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent 852eccee, langue source en) : accroche reformulée (« stop saying very: words that make you sound dangerously well spoken » → « replace these lazy words and sound instantly more articulate »), même promesse, autre que la G2 d'hier (sg-o070). Remplacements neufs (nice, a lot, stuff, really good, bad, boring). Sophia en cta C (un scroll remplacé par l'appli). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2b791b10",
+   "texte_overlay": "replace these lazy words and\nsound instantly more articulate",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0d4e0257",
+   "texte_overlay": "\"nice\" → lovely, gracious,\nthoughtful",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "29f86fe8",
+   "texte_overlay": "\"a lot\" → plenty, countless,\nan abundance of",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "382b21ad",
+   "texte_overlay": "\"stuff\" → belongings,\nmaterial, matters",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2477098b",
+   "texte_overlay": "\"really good\" → superb,\noutstanding",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0fa6462d",
+   "texte_overlay": "\"bad\" → dreadful, dismal,\nunfortunate",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0dda41f9",
+   "texte_overlay": "\"boring\" → tedious, dull\n\ntip: swap one scroll a day\nfor something you'll want\nto talk about.",
+   "texte_sophia": "\"boring\" → tedious, dull\n\ntip: swap one scroll a day\nfor 5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "25c53c2a",
+   "texte_overlay": "which lazy word do you\nuse the most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  }
+ ]
+}

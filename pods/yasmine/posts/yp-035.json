@@ -1,0 +1,383 @@
+{
+ "id": "yp-035",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7669427963196116246",
+  "vues": 26000,
+  "enregistrements": 725,
+  "publie_le": "2026-08-02",
+  "titre": "how I make school easier"
+ },
+ "titre": {
+  "fr": "comment je rends les cours plus faciles",
+  "es": "cómo hago las clases más fáciles",
+  "tr": "okulu nasıl daha kolay hale getiriyorum"
+ },
+ "legendes": {
+  "fr": "tout ce qui me simplifie l’année 🤍 #studytok #thatgirl #conseils #revisions #productivite",
+  "es": "todo lo que me facilita el curso 🤍 #studytok #thatgirl #consejos #estudiar #productividad",
+  "tr": "yılımı kolaylaştıran her şey 🤍 #studytok #thatgirl #tavsiye #ders #verimlilik"
+ },
+ "musique": {
+  "titre": "hospital beach",
+  "url": "https://www.tiktok.com/music/hospital-beach-7129708623646689281"
+ },
+ "fond": {
+  "media_id": "81969c00-36e4-4f59-9a95-0a15801364c6",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0bfceb56-f866-4b11-a45d-9ae48dfa2192/3.jpg?v=1791725860899",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "remake de « how I make school easier » (26 k) : notes iOS sur photos, une astuce par slide. cta A : micabo dans le texte de la note « révise un peu chaque jour », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "comment je rends",
+     "lignes": [
+      "les cours",
+      "plus faciles"
+     ],
+     "taille": 150,
+     "taille_script": 88,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cómo hago",
+     "lignes": [
+      "las clases",
+      "más fáciles"
+     ],
+     "taille": 150,
+     "taille_script": 88,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "okulu",
+     "lignes": [
+      "NASIL",
+      "KOLAYLAŞTIRIYORUM"
+     ],
+     "taille": 84,
+     "taille_script": 88,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "11a8d263-901c-418e-b1bf-429d67291cde",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3f446700-5237-4c27-a958-9f7194067bff/4.jpg?v=1791727154863",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "pas de réseaux en semaine📵",
+      "texte": "sérieusement, ça te mange le cerveau. supprime-les du lundi au vendredi, fais-le pour toi.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "nada de redes entre semana📵",
+      "texte": "en serio, te comen el cerebro. bórralas de lunes a viernes, hazlo por ti.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hafta içi sosyal medya yok📵",
+      "texte": "cidden, beynini yiyor. pazartesiden cumaya sil, kendin için yap.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "14955374-0e86-40fd-a51b-b90b48f71fb6",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d5146e07-4e48-46ec-9b2b-782bdbd1f2bc/5.jpg?v=1790611517313",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1100,
+      "titre": "prépare ta tenue la veille👚",
+      "texte": "plus de panique le matin parce que ton haut préféré est au sale.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1100,
+      "titre": "prepara la ropa la noche antes👚",
+      "texte": "se acabó el caos por la mañana porque tu camiseta favorita está sucia.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1100,
+      "titre": "kıyafetini bir gece önceden seç👚",
+      "texte": "en sevdiğin üst kirli diye sabah paniği yok.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4ee9ff99-ede5-4c1b-86c6-e296bc76b21f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5276a285-0b0f-4d96-8d7e-6a9d86139625/5.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "prépare ton sac la veille🎒",
+      "texte": "même principe. tu gagnes 10 min le matin et tu n’oublies plus ta calculatrice.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "prepara la mochila la noche antes🎒",
+      "texte": "lo mismo. ganas 10 min por la mañana y ya no olvidas la calculadora.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "çantanı bir gece önceden hazırla🎒",
+      "texte": "aynı mantık. sabah 10 dakika kazanırsın, hesap makineni de unutmazsın.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "e1b34ca4-1307-41e2-ba35-f5f42fe77c3e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c1694fb0-62c7-465d-b896-031551f62e9e/3.jpg?v=1791726977109",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "révise un peu chaque jour📚",
+      "texte": "pas besoin de 3 h. je mets mes cours dans micabo et je fais 10 min de quiz le soir. rien ne s’empile avant les contrôles.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "repasa un poco cada día📚",
+      "texte": "no hacen falta 3 h. meto mis clases en micabo y hago 10 min de quiz por la noche. nada se acumula antes de los exámenes.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "her gün biraz tekrar et📚",
+      "texte": "3 saate gerek yok. derslerimi micabo’ya koyup akşamları 10 dakika test çözüyorum. sınavlardan önce hiçbir şey birikmiyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "03271551-eaa5-484f-a0d2-41f5a75f98f4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4d1df318-f28f-4e5c-b095-2efdb0f72b00/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 200,
+      "titre": "un agenda, n’importe lequel🗓️",
+      "texte": "papier, iPad ou téléphone, peu importe. note tout dedans, ta tête est faite pour apprendre.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 200,
+      "titre": "una agenda, la que sea🗓️",
+      "texte": "papel, iPad o móvil, da igual. apúntalo todo, tu cabeza es para aprender.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 200,
+      "titre": "bir ajanda, hangisi olursa🗓️",
+      "texte": "kâğıt, iPad ya da telefon, fark etmez. her şeyi yaz, kafan öğrenmek için.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "248a7660-5ff4-49ab-99bb-aec27b322974",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8a43b55b-54f8-46e9-8bc6-e2555acb82a8/5.jpg?v=1791726161494",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "commence par le plus dur🧠",
+      "texte": "sinon tu passes ta journée à le redouter.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "empieza por lo más difícil🧠",
+      "texte": "si no, te pasas el día temiéndolo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "en zorla başla🧠",
+      "texte": "yoksa bütün gün ondan korkarak geçer.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "83514421-b718-4fec-a297-ed10f1691b8f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bf49b37f-8796-4620-b756-6e72ff8a68fe/6.jpg?v=1790608913161",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 800,
+      "texte": "d’autres astuces dans mes autres posts🫶",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 800,
+      "texte": "más trucos en mis otros posts🫶",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 208,
+      "y": 800,
+      "texte": "diğer gönderilerimde daha fazla taktik var🫶",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o209",
+ "type_bleo": "full_test",
+ "titre": "habits of women who read 50 books a year #reading #books #smartgirl #booktok #readinghabits",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 2/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« books a year » absent des accroches de donnees/label.json). Accroches écrites : « habits of women who read 50 books a year » (retenue : aspiration concrète, chiffre précis), « how to read more » (écartée : vague), « reading challenge tips » (écartée : faible). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "364988a8",
+   "texte_overlay": "habits of women who read\n50 books a year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9045367f",
+   "texte_overlay": "1. they always carry a book",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5ae8d2ff",
+   "texte_overlay": "2. they read before bed,\nnot their phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e5482a5a",
+   "texte_overlay": "3. they learn a little about\neverything, so every book\nfeels familiar.",
+   "texte_sophia": "3. they learn a little about\neverything. my version:\n5 minutes a day on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2b3942d",
+   "texte_overlay": "4. they quit books they don't love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "285da51f",
+   "texte_overlay": "5. they mix audiobooks\nand paper",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "59157958",
+   "texte_overlay": "6. they read 20 pages a day.\nthat's 50 books a year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6137bde6",
+   "texte_overlay": "which one will you start?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

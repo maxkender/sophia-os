@@ -1,0 +1,542 @@
+{
+  "langue": "en",
+  "voix": {
+    "id": "nPczCjzI2devNBz1zQrb",
+    "nom": "Brian",
+    "modele": "eleven_multilingual_v2",
+    "reglages": {
+      "stability": 0.55,
+      "similarity_boost": 0.8,
+      "style": 0.25,
+      "use_speaker_boost": true,
+      "speed": 1.06
+    }
+  },
+  "scenes": [
+    {
+      "id": "S1",
+      "texte": "Why is a tiny country like Panama so important?",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -80,
+            12
+          ],
+          "zoom": 2.4
+        },
+        "vers": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 3,
+          "au": "Panama"
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "jaune",
+            "au": "Panama"
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "Panama",
+            "lieu": [
+              -80.1,
+              7.2
+            ],
+            "style": "titre",
+            "au": "Panama"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S2",
+      "texte": "Before 1914, a ship from New York to San Francisco had to sail all the way around South America.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -80,
+            -8
+          ],
+          "zoom": 2.1
+        },
+        "points": [],
+        "fleches": [
+          {
+            "de": [
+              -74.0,
+              40.7
+            ],
+            "a": [
+              -67.3,
+              -56.0
+            ],
+            "couleur": "turquoise",
+            "au": "sail",
+            "par": [
+              [
+                -66,
+                25
+              ],
+              [
+                -50,
+                8
+              ],
+              [
+                -34,
+                -8
+              ],
+              [
+                -45,
+                -30
+              ],
+              [
+                -60,
+                -48
+              ]
+            ]
+          },
+          {
+            "de": [
+              -67.3,
+              -56.0
+            ],
+            "a": [
+              -122.4,
+              37.8
+            ],
+            "couleur": "turquoise",
+            "au": "South",
+            "par": [
+              [
+                -76,
+                -50
+              ],
+              [
+                -78,
+                -25
+              ],
+              [
+                -84,
+                -2
+              ],
+              [
+                -105,
+                15
+              ],
+              [
+                -118,
+                28
+              ]
+            ]
+          }
+        ],
+        "garde": false,
+        "etiquettes": [
+          {
+            "texte": "New York",
+            "lieu": [
+              -74.0,
+              40.7
+            ],
+            "style": "pastille",
+            "au": "York"
+          },
+          {
+            "texte": "San Francisco",
+            "lieu": [
+              -122.4,
+              37.8
+            ],
+            "style": "pastille",
+            "au": "Francisco",
+            "cote": "bas"
+          },
+          {
+            "texte": "South America",
+            "lieu": [
+              -60,
+              -12
+            ],
+            "style": "titre",
+            "au": "South"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S3",
+      "texte": "That's more than twenty thousand kilometers, through the storms of Cape Horn.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -68,
+            -52
+          ],
+          "zoom": 7
+        },
+        "zones": [
+          {
+            "centre": [
+              -67.3,
+              -56.0
+            ],
+            "rayon_km": 350,
+            "couleur": "bleu",
+            "au": "storms"
+          }
+        ],
+        "points": [
+          {
+            "lieu": [
+              -66,
+              -57.5
+            ],
+            "icone": "bateau",
+            "couleur": "rouge",
+            "au": "Horn."
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "20,000+ km",
+            "lieu": [
+              -66,
+              -48
+            ],
+            "style": "chiffre",
+            "au": "twenty"
+          },
+          {
+            "texte": "Cape Horn",
+            "lieu": [
+              -67.3,
+              -53.2
+            ],
+            "style": "titre",
+            "au": "Horn."
+          }
+        ]
+      }
+    },
+    {
+      "id": "S4",
+      "texte": "Then the Panama Canal opened. Just eighty kilometers, saving about thirteen thousand kilometers of sailing.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 1.6
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "jaune"
+          }
+        ],
+        "fleches": [
+          {
+            "de": [
+              -79.9,
+              9.35
+            ],
+            "a": [
+              -79.5,
+              8.95
+            ],
+            "couleur": "turquoise",
+            "courbe": 0.35,
+            "au": "Canal"
+          }
+        ],
+        "points": [
+          {
+            "lieu": [
+              -79.75,
+              9.2
+            ],
+            "icone": "bateau",
+            "couleur": "vert",
+            "au": "saving"
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "82 km",
+            "lieu": [
+              -79.0,
+              10.3
+            ],
+            "style": "chiffre",
+            "au": "eighty"
+          },
+          {
+            "texte": "-13,000 km",
+            "lieu": [
+              -80.6,
+              6.7
+            ],
+            "style": "chiffre",
+            "couleur": "turquoise",
+            "au": "thirteen"
+          }
+        ]
+      }
+    },
+    {
+      "id": "S5",
+      "texte": "Today, more than ten thousand ships cross it every year, between the Atlantic and the Pacific.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "centre": [
+            -82,
+            14
+          ],
+          "zoom": 3
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "jaune"
+          }
+        ],
+        "fleches": [
+          {
+            "de": [
+              -62,
+              24
+            ],
+            "a": [
+              -79.9,
+              9.35
+            ],
+            "couleur": "turquoise",
+            "courbe": 0.2,
+            "au": "ships"
+          },
+          {
+            "de": [
+              -79.5,
+              8.95
+            ],
+            "a": [
+              -108,
+              2
+            ],
+            "couleur": "turquoise",
+            "courbe": 0.2,
+            "au": "Atlantic"
+          },
+          {
+            "de": [
+              -60,
+              14
+            ],
+            "a": [
+              -79.9,
+              9.35
+            ],
+            "couleur": "turquoise",
+            "courbe": -0.2,
+            "au": "Pacific."
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "10,000+ ships / year",
+            "lieu": [
+              -92,
+              25
+            ],
+            "style": "chiffre",
+            "au": "ten"
+          },
+          {
+            "texte": "Atlantic",
+            "lieu": [
+              -60,
+              17
+            ],
+            "style": "titre",
+            "au": "Atlantic"
+          },
+          {
+            "texte": "Pacific",
+            "lieu": [
+              -102,
+              3
+            ],
+            "style": "titre",
+            "au": "Pacific."
+          }
+        ]
+      }
+    },
+    {
+      "id": "S6",
+      "texte": "Whoever controls this narrow strip controls a crossroads of world trade. And since 1999, that's Panama.",
+      "reperes": [],
+      "carte": {
+        "vue": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 2.2
+        },
+        "vers": {
+          "pays": [
+            "Panama"
+          ],
+          "marge": 1.4,
+          "au": "1999,"
+        },
+        "pays": [
+          {
+            "noms": [
+              "Panama"
+            ],
+            "couleur": "vert",
+            "au": "controls"
+          }
+        ],
+        "points": [
+          {
+            "lieu": [
+              -80.2,
+              8.5
+            ],
+            "icone": "drapeau",
+            "couleur": "rouge",
+            "au": "Panama."
+          }
+        ],
+        "etiquettes": [
+          {
+            "texte": "Since 1999",
+            "lieu": [
+              -79.7,
+              7.3
+            ],
+            "style": "chiffre",
+            "au": "1999,"
+          },
+          {
+            "texte": "Panama City",
+            "lieu": [
+              -79.52,
+              8.98
+            ],
+            "style": "pastille",
+            "au": "Panama."
+          }
+        ]
+      }
+    }
+  ],
+  "outro": {
+    "texte": "Get answers to all these questions and many more on the Sophia app, then put your knowledge to the test with quizzes."
+  },
+  "legende": "Why is a tiny country like Panama so important? 🌎 #geography #panama #history #maps #learnontiktok",
+  "appli": {
+    "categorie": "GEOGRAPHY",
+    "lectures": "60 k reads",
+    "jours": "DAYS",
+    "commencer": "Start",
+    "onglets": [
+      "Home",
+      "Library",
+      "Path",
+      "Practice",
+      "Profile"
+    ],
+    "titre": "Why is Panama so important?",
+    "description": "Eighty kilometers of water that changed world trade.",
+    "lecon": {
+      "sousTitre": "A shortcut between two oceans.",
+      "paragraphes": [
+        [
+          {
+            "t": "Before the canal, ships between New York and San Francisco sailed around Cape Horn, "
+          },
+          {
+            "m": "more than 20,000 km"
+          },
+          {
+            "t": " of rough seas."
+          }
+        ],
+        [
+          {
+            "t": "Opened in 1914, the canal is about 80 km long and "
+          },
+          {
+            "m": "saves around 13,000 km"
+          },
+          {
+            "t": " on that trip. Panama has run it "
+          },
+          {
+            "m": "since 1999"
+          },
+          {
+            "t": "."
+          }
+        ]
+      ],
+      "continuer": "Continue"
+    },
+    "quiz": {
+      "etiquette": "QUIZ · {n} OF 2",
+      "bravo": "Correct!",
+      "questions": [
+        {
+          "q": "When did the Panama Canal open?",
+          "options": [
+            "1869",
+            "1914",
+            "1945",
+            "1999"
+          ],
+          "bonne": 1,
+          "fait": "In 1914."
+        },
+        {
+          "q": "Since when has Panama run the canal?",
+          "options": [
+            "1914",
+            "1999",
+            "1977",
+            "2016"
+          ],
+          "bonne": 1,
+          "fait": "Since 1999."
+        }
+      ]
+    },
+    "fin": {
+      "titre": "Lesson complete!",
+      "score": "2/2 correct answers",
+      "serie": "DAYS STREAK",
+      "xp": "XP EARNED",
+      "suivant": "UP NEXT",
+      "suivantTitre": "What would happen if a supervolcano woke up?",
+      "bouton": "Next lesson"
+    },
+    "recouvrir": true
+  },
+  "rendu": "realiste"
+}

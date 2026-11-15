@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o108",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "caf0fca9-b69d-48e0-80b6-d8b3cf8e2479",
+ "titre": "words you use every day with the strangest origin stories #etymology #words #smartgirl #vocabulary #funfacts",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "2747e20a-fdc8-463e-853b-cf96f914ef57"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 2 de la boîte (parent caf0fca9, langue source en) : accroche reformulée (« 6 everyday words with surprising origins » → « words you use every day with the strangest origin stories »), autre que sg-o098. Mots neufs (breakfast, panic, cereal, jovial, berserk, sarcasm). Étymologies vérifiées : breakfast, rompre le jeûne ; panic < Pan ; cereal < Cérès ; jovial < Jupiter/Jove ; berserk < vieux norrois « chemise d'ours » ; sarcasm < grec sarkazein, déchirer la chair. Sophia sur le dernier mot à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0216f865",
+   "texte_overlay": "words you use every day with\nthe strangest origin stories",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "08ccc76d",
+   "texte_overlay": "breakfast\n\nliterally \"breaking the fast\"\nof the night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "31abf241",
+   "texte_overlay": "panic\n\nfrom pan, the greek god whose\nshout could terrify a crowd.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "58854e80",
+   "texte_overlay": "cereal\n\nfrom ceres, the roman goddess\nof grain and harvest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "99ed6a87",
+   "texte_overlay": "jovial\n\nborn under jupiter, or jove,\nthe planet said to bring joy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0bc716ff",
+   "texte_overlay": "berserk\n\nfrom old norse \"bear shirt\":\nwarriors who fought\nin a frenzy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bfb4a27e",
+   "texte_overlay": "sarcasm\n\nfrom greek \"sarkazein\":\nto tear flesh. ouch.",
+   "texte_sophia": "sarcasm\n\nfrom greek: to tear flesh.\ni collect stories like this\nwith a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "08d40052",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7592736524744035606/7.jpg"
+  }
+ ]
+}

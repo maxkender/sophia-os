@@ -1,0 +1,313 @@
+{
+ "post_id": "var-dates-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "phone-free date ideas that are [[actually fun]]"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(no dead silence)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7692093201968090401_1.jpg",
+      "boite": [
+       99,
+       384,
+       696,
+       514
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "[[lâche youtube]] pendant les repas",
+     "texte": "dinner with the [[phone stack]] rule"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
+     "texte": "both phones go face down in the middle of the table. [[first one to touch theirs pays the bill]]"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
+     "texte": "sounds dramatic, but you'll notice how often your hand [[reaches for it]]"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to",
+      "watch something while you eat is destroying your",
+      "attention span"
+     ],
+     "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
+     "texte": "by dessert you're really listening to each other, and someone is [[sweating over the bill]]. (never the one who suggested it)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "a quiz duel, [[just the two of you]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "each of you writes [[5 questions]] on scraps of paper"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "only stuff you learned this week. wrong answer = [[you do the dishes]]. mine always come from the same 3 places:"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "what replaced my scrolling: a book, podcasts on walks, and [[the Sophia app]] when i grab my phone anyway"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends un [[instrument difficile]]",
+     "texte": "[[teach each other]] a skill"
+    },
+    "T2": {
+     "en": [
+      "scrolling gives you dopamine for doing nothing, practicing",
+      "gives you dopamine you actually earned"
+     ],
+     "fr": "scroller te file de la dopamine [[à rien faire]], t'entraîner te file une dopamine [[vraiment méritée]]",
+     "texte": "you each pick one thing you're good at and get 30 minutes to teach it. [[no phones, no tutorials]]"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever"
+     ],
+     "fr": "piano, guitare, batterie, peu importe",
+     "texte": "a violin scale, a card trick"
+    },
+    "T4": {
+     "en": [
+      "every time you get a bit",
+      "better, your brain learns",
+      "that effort pays off"
+     ],
+     "fr": "chaque petit progrès apprend à ton cerveau que [[l'effort paie]]",
+     "texte": "watching someone you like be [[terrible at your thing]] is weirdly cute"
+    },
+    "T5": {
+     "en": [
+      "a month of practicing and you can play a song.",
+      "a month of scrolling and you have nothing to",
+      "show for it"
+     ],
+     "fr": "un mois à t'entraîner et tu joues une chanson. un mois à scroller et t'as [[rien à montrer au bout]]",
+     "texte": "by the end you both play one wobbly song. [[nobody asks for an encore]], but you laugh the whole time"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702412215902571809_6.jpg",
+      "boite": [
+       507,
+       467,
+       522,
+       377
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start doing yoga"
+     ],
+     "fr": "mets-toi au [[yoga]]",
+     "texte": "a [[beginner class]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling keeps your",
+      "brain overstimulated",
+      "all day"
+     ],
+     "fr": "le scroll laisse ton cerveau [[en surchauffe]] H24",
+     "texte": "climbing, pottery, salsa, anything you've [[never done]]"
+    },
+    "T3": {
+     "en": [
+      "yoga forces you to",
+      "slow down, breathe,",
+      "and stay in one",
+      "moment instead of",
+      "reaching for the next",
+      "thing"
+     ],
+     "fr": "le yoga t'oblige à ralentir, respirer et [[rester dans l'instant]] au lieu de courir après le truc suivant",
+     "texte": "being equally bad at something new, side by side, [[brings you closer]] than any fancy dinner could"
+    },
+    "T4": {
+     "en": [
+      "you come out calmer than scrolling ever made you!!"
+     ],
+     "fr": "t'en ressors [[plus zen]] que n'importe quel scroll !!",
+     "texte": "you come out laughing at [[how bad you both were]]!!"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701398929807641888_5.jpg",
+      "boite": [
+       503,
+       404,
+       499,
+       552
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take a long walk without music"
+     ],
+     "fr": "marche longtemps [[sans musique]]",
+     "texte": "chase the [[sunset]] somewhere new"
+    },
+    "T2": {
+     "en": [
+      "take a long walk (~1hr), but most people fill every walk",
+      "with podcasts or music and think they're being productive"
+     ],
+     "fr": "une marche d'1h, mais la plupart des gens la remplissent de [[podcasts ou de musique]] en croyant [[gagner du temps]]",
+     "texte": "find a high spot in your city you've never been to, bring a blanket and something warm, and [[get there early]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain only starts",
+      "thinking for itself when",
+      "nothing is feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le gave]]",
+     "texte": "one rule: [[no photos]]. somehow the sky looks better when nobody's filming it"
+    },
+    "T4": {
+     "en": [
+      "your best ideas and",
+      "clearest mind will come",
+      "from walks, only when",
+      "you walk in silence"
+     ],
+     "fr": "tes [[meilleures idées]] et ta tête la plus claire viennent en marchant, [[seulement en silence]]",
+     "texte": "you'll talk about everything and nothing, and [[forget your phone is even in your bag]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7680975889932225814_4.jpg",
+      "boite": [
+       180,
+       575,
+       270,
+       215
+      ]
+     }
+    }
+   }
+  }
+ }
+}

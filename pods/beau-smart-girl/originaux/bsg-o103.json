@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o103",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c22b2261-f3e9-432d-9694-bf536aab4194",
+  "titre": "je note toutes les choses les plus folles que j'ai faites pour arrêter de scroller #scroll #pourtoi",
+  "inspirations": [
+    "c22b2261-f3e9-432d-9694-bf536aab4194"
+  ],
+  "notes": "G1, déclinaison de c22b2261 (« je note toutes les choses les plus folles que j'ai faites pour arrêter de scroller », génération 0 en français ; meilleur passage de 6,4 k vues, r 5,78), en français. cta A (avant / après sur le dernier item). Essais neufs (rien de repris du parent ni de bsg-o065 : ni colocataire, ni élastique, ni fond d'écran, ni téléphone dans le couloir, ni italien, ni réveil à aiguilles, ni chargeur caché, ni livre dans chaque pièce, ni autre appli). Routine du 7/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 5, 7 et 8 de la boîte). Ligne 6 sautée (5c676138, métiers du droit : treize fiches métier à vérifier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "je note toutes les choses\nles plus folles que j'ai faites\npour arrêter de scroller",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. ranger mes applis dans un dossier à la dernière page\n\n3/10\nmon pouce connaît le chemin par cœur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. payer un euro à ma sœur à chaque ouverture d'appli\n\n7/10\nelle s'est acheté un livre avec. moi aussi, par vengeance.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0f057bec",
+      "texte_overlay": "3. commencer un puzzle de mille pièces\n\n8/10\nmes mains étaient occupées. trois soirées sans téléphone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "09dd6248",
+      "texte_overlay": "4. écrire une lettre à quelqu'un chaque dimanche\n\n9/10\nma grand-mère m'a répondu. j'ai pleuré.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "5. remplacer le scroll du matin\n\n10/10\navant, je scrollais avant même d'ouvrir les yeux.\nmaintenant, j'apprends un truc sur le monde chaque matin. et c'est moi qui raconte.",
+      "texte_sophia": "5. remplacer le scroll du matin\n\n10/10\navant, je scrollais avant même d'ouvrir les yeux.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et c'est moi qui raconte.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "d0719620",
+      "texte_overlay": "et toi, c'est quoi le truc le plus fou que t'as essayé ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

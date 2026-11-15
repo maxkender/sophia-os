@@ -12,9 +12,22 @@ export const DEPUIS = "2026-09-16";
 /** D'abord les posts à 20 k vues ou plus, puis les autres (décision du 17/10). */
 export const VUES_MIN_DEPART = 20_000;
 export const LANGUE_SOURCE = "en";
-/** Les langues d'UnSwipe (Pilotage → Applications), l'anglais d'abord. */
-export const LANGUES = ["en", "fr", "de", "es", "it", "tr"] as const;
-export type Langue = (typeof LANGUES)[number];
+/** Les langues dont les textes existent (celles d'UnSwipe jusqu'au 4/11), l'anglais d'abord. */
+export const TOUTES_LANGUES = ["en", "fr", "de", "es", "it", "tr"] as const;
+export type Langue = (typeof TOUTES_LANGUES)[number];
+/**
+ * Les langues livrées : l'anglais seul pour le test Sophia (relance du 15/11,
+ * comme Kaja). `--langues` pour rendre les autres.
+ */
+export const LANGUES: readonly Langue[] = ["en"];
+
+/**
+ * Les versions Sophia (relance du 15/11) se déposent sous un autre id que
+ * les versions UnSwipe : redéposer un id déjà validé ajouterait ses langues au
+ * contenu UnSwipe, rejeté par 0723. `7688…474` → `7688…474-s`, `mm-o021` →
+ * `mm-o021-s`.
+ */
+export const idDepot = (id: string) => `${id}-s`;
 
 const URL_DEFAUT = "https://mbikecieskoobeizixig.supabase.co";
 

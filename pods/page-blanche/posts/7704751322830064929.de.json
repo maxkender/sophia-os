@@ -1,0 +1,254 @@
+{
+ "post_id": "7704751322830064929",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "extremely intelligent"
+     ],
+     "fr": "10/10 hobbies pour te faire un cerveau en béton",
+     "texte": "10/10 Hobbys, die dich extrem intelligent machen"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(laut Hirnforschung)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop doomscrolling pinterest"
+     ],
+     "fr": "arrête de doomscroller [[les tableaux d'inspi]]",
+     "texte": "kein Doomscrolling auf [[Inspo-Boards]]"
+    },
+    "T2": {
+     "en": [
+      "it feels better than tiktok because you're saving",
+      "outfits, recipes, and room ideas"
+     ],
+     "fr": "ça a l'air mieux que tiktok, tu sauvegardes [[des tenues, des recettes, des idées déco]]",
+     "texte": "es fühlt sich besser an als TikTok, weil du [[Outfits, Rezepte und Deko-Ideen]] speicherst"
+    },
+    "T3": {
+     "en": [
+      "but it still has an",
+      "algorithm built to keep",
+      "you hooked, just like",
+      "every other app"
+     ],
+     "fr": "mais y'a quand même [[un algo conçu pour te rendre accro]], comme sur toutes les applis",
+     "texte": "aber auch da steckt [[ein Algorithmus, der dich festhalten soll]], wie in jeder App"
+    },
+    "T4": {
+     "en": [
+      "you end up with hundreds of saved pins you never",
+      "actually make, just consuming other people's ideas",
+      "instead of having your own"
+     ],
+     "fr": "au final t'as [[des centaines de posts enregistrés]] que tu fais jamais, tu [[consommes les idées des autres]] au lieu d'avoir les tiennes",
+     "texte": "am Ende hast du [[Hunderte gespeicherte Posts]], die du nie umsetzt, und [[konsumierst nur fremde Ideen]] statt eigene zu haben"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7696836327026724128_1.jpg",
+      "boite": [
+       96,
+       390,
+       775,
+       538
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on long walks without music"
+     ],
+     "fr": "fais [[de longues balades sans musique]]",
+     "texte": "mach [[lange Spaziergänge ohne Musik]]"
+    },
+    "T2": {
+     "en": [
+      "most people fill every walk with podcasts or music",
+      "and think they're being productive"
+     ],
+     "fr": "tout le monde marche avec [[un podcast ou de la musique]] et se croit [[super productif]]",
+     "texte": "die meisten hören beim Gehen immer [[Podcasts oder Musik]] und halten sich für [[produktiv]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain only",
+      "starts thinking for",
+      "itself when nothing is",
+      "feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le nourrit]]",
+     "texte": "aber dein Gehirn fängt erst an, [[selbst zu denken]], wenn [[nichts mehr reinkommt]]"
+    },
+    "T4": {
+     "en": [
+      "walk in silence, let your mind wander, and your best",
+      "ideas will come from walks"
+     ],
+     "fr": "marche en silence, laisse-toi rêvasser, [[tes meilleures idées]] viendront [[en marchant]]",
+     "texte": "geh in Stille, lass die Gedanken schweifen, und [[deine besten Ideen]] kommen [[beim Gehen]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[tous les jours]]",
+     "texte": "lies [[jeden Tag]] ein Buch"
+    },
+    "T2": {
+     "en": [
+      "you say you want to read more, then find yourself",
+      "scrolling all day"
+     ],
+     "fr": "tu dis que [[tu veux lire plus]], puis tu passes [[ta journée à scroller]]",
+     "texte": "du sagst, [[du willst mehr lesen]], und dann [[scrollst du den ganzen Tag]]"
+    },
+    "T3": {
+     "en": [
+      "you can try using willpower",
+      "to stop, but i use a thing",
+      "that blocks tiktok until i",
+      "read a book for 20 minutes"
+     ],
+     "fr": "au lieu de scroller, je vais au bout d'une idée en 5 min sur [[l'appli Sophia]]. aujourd'hui : [[le Sisyphe heureux de Camus]]",
+     "texte": "statt zu scrollen, ziehe ich 5 Min lang eine Idee durch, in [[der Sophia-App]]. heute: [[was der Urknall wirklich war]]"
+    },
+    "T4": {
+     "en": [
+      "books are proven to build",
+      "your vocabulary, memory,",
+      "and the ability to follow",
+      "complex ideas"
+     ],
+     "fr": "c'est [[prouvé]] : lire muscle ton vocabulaire, ta mémoire et ta capacité à [[suivre des idées complexes]]",
+     "texte": "Lesen [[stärkt nachweislich]] Wortschatz, Gedächtnis und die Fähigkeit, [[komplexen Ideen zu folgen]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a second language"
+     ],
+     "fr": "apprends [[une deuxième langue]]",
+     "texte": "lern [[eine zweite Sprache]]"
+    },
+    "T2": {
+     "en": [
+      "you have to remember thousands of words, switch",
+      "between two ways of thinking, and keep going",
+      "when you sound stupid"
+     ],
+     "fr": "tu dois [[retenir des milliers de mots]], jongler entre deux façons de penser et continuer même quand [[t'as l'air bête]]",
+     "texte": "du musst [[dir Tausende Wörter merken]], zwischen zwei Denkweisen wechseln und weitermachen, wenn du [[dich dumm anhörst]]"
+    },
+    "T3": {
+     "en": [
+      "switching languages",
+      "trains your brain to",
+      "focus and filter",
+      "information"
+     ],
+     "fr": "changer de langue entraîne ton cerveau à [[se concentrer et trier]] l'info",
+     "texte": "Sprachwechsel trainiert dein Gehirn, [[zu fokussieren und zu filtern]]"
+    },
+    "T4": {
+     "en": [
+      "and studies show",
+      "bilingual people get",
+      "dementia years later"
+     ],
+     "fr": "et des études associent le bilinguisme à [[un cerveau qui vieillit mieux]]",
+     "texte": "und Studien verbinden Zweisprachigkeit mit [[langsamerem Hirnaltern]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7698667830635400470_2.jpg",
+      "boite": [
+       518,
+       431,
+       512,
+       444
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "think for yourself before using AI"
+     ],
+     "fr": "réfléchis [[avant de demander à l'IA]]",
+     "texte": "denk selbst, [[bevor du KI fragst]]"
+    },
+    "T2": {
+     "en": [
+      "asking AI for every answer feels smart, but your",
+      "brain skips the hard part"
+     ],
+     "fr": "tout demander à l'IA, ça fait intelligent, mais ton cerveau [[zappe la partie dure]]",
+     "texte": "KI alles zu fragen wirkt klug, aber dein Gehirn [[überspringt den harten Teil]]"
+    },
+    "T3": {
+     "en": [
+      "try to work it out",
+      "yourself first, then",
+      "use AI to check it or",
+      "find gaps"
+     ],
+     "fr": "[[cherche d'abord par toi-même]], puis vérifie avec l'IA ou repère ce qui manque",
+     "texte": "versuch es [[erst selbst]], dann nutz KI zum Prüfen oder um Lücken zu finden"
+    },
+    "T4": {
+     "en": [
+      "the struggle is what makes you smarter, if AI",
+      "always does it for you, you stop practicing thinking"
+     ],
+     "fr": "c'est galérer qui [[fait progresser ton cerveau]], si l'IA fait tout à ta place, tu [[perds l'habitude de réfléchir]]",
+     "texte": "die Mühe ist [[das, was dich klüger macht]]. wenn KI immer alles macht, [[verlernst du das Denken]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

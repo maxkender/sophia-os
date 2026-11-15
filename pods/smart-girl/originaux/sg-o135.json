@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o135",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "025ef888-5516-4c3b-9c83-c8bd9cd08324",
+ "titre": "the 80/20 rule: keep only these 6 things #8020rule #selfimprovement #smartgirl #focus #discipline",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "b053325f-c2e0-4f25-bfd4-6bd09358eddc"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 7 de la boîte (parent 025ef888, langue source en) : accroche du parent mot pour mot. Six choses, sans argent ni corps (le parent parlait de finances : retiré) : une heure sans téléphone le matin, bouger avec plaisir, son cercle proche, un bloc de concentration, le sommeil, apprendre chaque jour. Sophia sur la sixième à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e31fbae1",
+   "texte_overlay": "the 80/20 rule:\nkeep only these 6 things",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3eeefc17",
+   "texte_overlay": "1. the first hour\n\nno phone. water, light,\na few pages.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c06a58a0",
+   "texte_overlay": "2. movement you enjoy\n\na walk, a dance class,\na swim.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e8cd3307",
+   "texte_overlay": "3. your core circle\n\nfive people, not five hundred.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d2c9bb5f",
+   "texte_overlay": "4. one deep-focus block\n\n90 minutes, no notifications.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d19be159",
+   "texte_overlay": "5. sleep\n\nthe most underrated\nupgrade there is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bfec1228",
+   "texte_overlay": "6. daily knowledge\n\nfeed your mind every day:\na painting, a war, a planet.",
+   "texte_sophia": "6. daily knowledge\n\ni spend 5 minutes a day on\na micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "85f63c26",
+   "texte_overlay": "save this and keep\nwhat matters",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  }
+ ]
+}

@@ -94,6 +94,8 @@ export async function majScoresDepuisPassages(
         .from("passages")
         .select("id, contenu_id, compte_id")
         .eq("statut", "publie")
+        // Post vidéo UGCV (0662) : pas de contenu à scorer.
+        .not("contenu_id", "is", null)
         .not("vues", "is", null)
         .gte("stats_maj_at", depuis);
       if (opts.compteId) q = q.eq("compte_id", opts.compteId);

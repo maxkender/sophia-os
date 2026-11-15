@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o215",
+ "type_bleo": "full_test",
+ "titre": "small things that instantly lift a bad mood #mood #mentalhealth #selfcare #wellness #habits",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "4d79f4a2-fc0a-4486-b187-f66df926aaac"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4d79f4a2). full test BLEO : accroche jamais faite (format « small things that instantly X »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7bfa171e-e56f-47d2-a836-1d3c1954e497",
+   "texte_overlay": "small things that instantly\nlift a bad mood",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "023823bf-04c2-4bfc-b409-b28282cc240b",
+   "texte_overlay": "cold water on your face\n\nsplash cold water on your face for thirty seconds. it slows your heart rate and resets your nervous system, and the heavy feeling often softens straight away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1f5bfe36-ac31-41db-818d-4844d53317f2",
+   "texte_overlay": "one song, full volume\n\nplay one song you love loudly and move to it, even badly. music and movement together are one of the fastest and simplest ways to shake off a gloomy mood.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2b392ac8-60fd-4657-99f5-4c977977fa8c",
+   "texte_overlay": "learning something beautiful\n\ngive your mind something beautiful to think about instead of the bad mood: a constellation, a painting, a strange myth. curiosity is a wonderful way out of your head.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/4.jpg",
+   "texte_sophia": "learning something beautiful\n\nwhen my mood drops, i spend 5 minutes on one lesson in the Sophia app, a constellation or a painting. thinking about something beautiful pulls me out of my head."
+  },
+  {
+   "position": 5,
+   "media_id": "4bd0ad2e-50f2-4477-9d69-7a36c97f750f",
+   "texte_overlay": "a tiny tidy\n\nclear one small surface, like your desk or your bedside table. finishing one tiny task gives your brain a quick win and makes the whole room feel lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "8a5d5b6a-7a16-4966-9c83-38f706a6455b",
+   "texte_overlay": "stepping outside\n\ngo outside for five minutes, even if it's grey. daylight, fresh air and a change of scene remind your brain that the world is bigger than this one feeling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/6.jpg"
+  }
+ ]
+}

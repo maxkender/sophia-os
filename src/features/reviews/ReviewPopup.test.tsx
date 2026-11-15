@@ -16,6 +16,8 @@ vi.mock("@/features/moteur/api", () => ({
   resoudreTiktok: vi.fn().mockResolvedValue({ url: "", id: null, thumbnail: null }),
 }));
 
+import { SectionSure } from "@/components/erreurs/SectionSure";
+import { protegerContreTraduction } from "@/lib/traductionNavigateur";
 import { ReviewPopup } from "./ReviewPopup";
 
 const REVIEW = {
@@ -124,6 +126,62 @@ describe("ReviewPopup", () => {
     expect(marquerReviewVue).not.toHaveBeenCalled();
     fireEvent.click(screen.getByRole("button", { name: /Compris, merci|Got it, thanks/ }));
     await waitFor(() => expect(marquerReviewVue).toHaveBeenCalledWith("rev-1"));
+  });
+
+  describe("traduit par le navigateur (Leidy, 4, 7 et 11/11)", () => {
+    /** Comme Chrome « Traduire » : chaque texte devient <font><font>…</font></font>, dans le dos de React. */
+    function traduireLaPage() {
+      const marcheur = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const textes: Text[] = [];
+      while (marcheur.nextNode()) textes.push(marcheur.currentNode as Text);
+      for (const texte of textes) {
+        if (!texte.nodeValue?.trim() || !texte.parentNode) continue;
+        const exterieur = document.createElement("font");
+        const interieur = exterieur.appendChild(document.createElement("font"));
+        interieur.textContent = `ES ${texte.nodeValue}`;
+        texte.parentNode.replaceChild(exterieur, texte);
+      }
+    }
+
+    let retirer: (() => void) | null = null;
+    afterEach(() => {
+      retirer?.();
+      retirer = null;
+    });
+
+    it("le retour s'ouvre et se ferme quand même : plus de page blanche", async () => {
+      vi.spyOn(console, "warn").mockImplementation(() => {});
+      retirer = protegerContreTraduction();
+      mesReviewsNonVues.mockResolvedValue([REVIEW]);
+      renderPopup();
+      const voir = await screen.findByRole("button", { name: /Voir le retour|See the feedback/ });
+      traduireLaPage();
+      fireEvent.click(voir);
+      expect(screen.getByText("The hook is too slow.")).toBeInTheDocument();
+      fireEvent.click(await screen.findByRole("button", { name: /Compris, merci|Got it, thanks/ }));
+      await waitFor(() => expect(marquerReviewVue).toHaveBeenCalledWith("rev-1"));
+    });
+
+    it("même s'il plante, le pop-up n'emporte plus la page : le calendrier reste là", async () => {
+      vi.spyOn(console, "error").mockImplementation(() => {});
+      mesReviewsNonVues.mockResolvedValue([REVIEW]);
+      const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
+      render(
+        <QueryClientProvider client={client}>
+          <SectionSure nom="Feedback">
+            <ReviewPopup />
+          </SectionSure>
+          <p>Calendar</p>
+        </QueryClientProvider>,
+      );
+      const voir = await screen.findByRole("button", { name: /Voir le retour|See the feedback/ });
+      traduireLaPage();
+      // Sans la protection, React lève NotFoundError : la SectionSure le garde pour elle.
+      fireEvent.click(voir);
+      expect(await screen.findByTestId("section-erreur")).toHaveTextContent(/Feedback/);
+      expect(screen.getByText(/Calendar/)).toBeInTheDocument();
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    });
   });
 
   it("annonce les retours qui suivent", async () => {

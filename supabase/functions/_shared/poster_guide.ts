@@ -259,6 +259,7 @@ const ZONE_B = new Set([
   "coree",
   "coree du sud",
   "korean",
+  "ko",
   "ae",
   "uae",
   "united arab emirates",

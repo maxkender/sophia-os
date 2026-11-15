@@ -106,17 +106,33 @@ export async function avecRetry<T>(
   const dormir = o.dormir ?? ((ms: number) => new Promise((r) => setTimeout(r, ms)));
   let attente = o.attenteMs ?? 1000;
   let dernier: { statut: number | null; valeur: T; retryAfter?: string | null } | null = null;
-  for (let i = 1; i <= essais; i++) {
+  let n429 = 0;
+  for (let i = 1; ; i++) {
     dernier = await appel();
     if (!erreurPassagere(dernier.statut)) return { statut: dernier.statut, valeur: dernier.valeur, essais: i };
-    if (i < essais) {
-      const demande = dernier.statut === 429 ? attenteRetryAfter(dernier.retryAfter) : null;
-      await dormir(demande ?? attente);
-      attente *= 2;
+    // 10/11 : un 429 (trop d'appels) : 3 nouveaux essais, avec un délai qui augmente (Retry-After s'il est plus long).
+    if (dernier.statut === 429) {
+      if (n429 >= ATTENTES_429_MS.length) return { statut: dernier.statut, valeur: dernier.valeur, essais: i };
+      await dormir(attente429(n429++, dernier.retryAfter));
+      continue;
     }
+    if (i >= essais) return { statut: dernier.statut, valeur: dernier.valeur, essais: i };
+    await dormir(attente);
+    attente *= 2;
   }
-  return { statut: dernier!.statut, valeur: dernier!.valeur, essais };
 }
+
+/** 10/11 : les délais avant chaque nouvel essai après un 429 (3 essais de plus). */
+export const ATTENTES_429_MS = [5_000, 10_000, 20_000] as const;
+
+/** 10/11 : l'attente avant le n-ième nouvel essai (0, 1, 2) après un 429 : le délai prévu, ou Retry-After s'il est plus long. */
+export function attente429(n: number, retryAfter?: string | null): number {
+  const prevu = ATTENTES_429_MS[Math.min(n, ATTENTES_429_MS.length - 1)];
+  return Math.max(prevu, attenteRetryAfter(retryAfter) ?? 0);
+}
+
+/** 10/11 : au moins 2 secondes entre deux envois de message Upwork. */
+export const ESPACEMENT_MESSAGES_MS = 2_000;
 
 /** La requête d'introspection standard de GraphQL (les noms exacts de l'API). */
 export const INTROSPECTION = `query Introspection {

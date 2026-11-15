@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o131",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ccd0e58e-159b-42f4-8bd3-fd6724769cf4",
+ "titre": "the easiest languages to pick up as an adult #languages #languagelearning #smartgirl #polyglot #learning",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "9b8afb1c-e7bf-4ee2-8c5c-5b68e9fe96ad"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 3 de la boîte (parent ccd0e58e, langue source en) : accroche reformulée (« 5 languages that are easier to learn than you think » → « the easiest languages to pick up as an adult »), autre que sg-o119. Langues neuves (danois, créole haïtien, maltais, espagnol). Faits vérifiés : en danois le verbe ne change pas selon la personne (jeg er, du er) ; le créole haïtien ne conjugue pas et tire l'essentiel de son vocabulaire du français ; le maltais, langue sémitique, s'écrit en alphabet latin avec beaucoup de mots italiens et anglais ; l'espagnol s'écrit comme il se prononce. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f4d40c45",
+   "texte_overlay": "the easiest languages to\npick up as an adult",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9d6589d9",
+   "texte_overlay": "1. danish\n\nverbs stay the same:\n\"jeg er, du er\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c901bc5b",
+   "texte_overlay": "2. haitian creole\n\nno conjugations, and most\nwords come from french.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "74198d0e",
+   "texte_overlay": "3. maltese\n\nlatin alphabet, and full of\nitalian and english words.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "29d3fad2",
+   "texte_overlay": "4. spanish\n\nwritten the way it sounds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e289c0b5",
+   "texte_overlay": "the secret? swap one scroll a day\nfor 10 new words and a bit\nof history.",
+   "texte_sophia": "the secret? swap one scroll a day\nfor 5 minutes of culture on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1bfc62f6",
+   "texte_overlay": "which one would you start?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7676124380719549718/7.jpg"
+  }
+ ]
+}

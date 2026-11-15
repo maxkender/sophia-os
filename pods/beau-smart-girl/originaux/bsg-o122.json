@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o122",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "1f1f67a3-167c-4632-baf3-2bcbed467ccb",
+  "titre": "je note tous les trucs bizarres que j'ai essayés pour avoir toujours une histoire à raconter #culture #pourtoi",
+  "inspirations": [
+    "1f1f67a3-167c-4632-baf3-2bcbed467ccb"
+  ],
+  "notes": "G1, déclinaison de 1f1f67a3 (« je note tous les trucs bizarres que j'ai essayés pour avoir toujours une histoire à raconter », génération 0 en français ; meilleur passage tr 4,1 k vues, r 2,57), en français. cta B (l'anecdote du jour en item 3). Essais neufs (rien de repris du parent : ni blagues, ni actualité étrangère, ni questions notées, ni grands-parents). Fait vérifié le 9/11 sur https://en.wikipedia.org/wiki/R.U.R. : « R.U.R. is a 1920 science fiction play », « The play introduced the word robot ». Routine du 9/11 sur BLEO : jauge 2 full tests et 6 déclinaisons ; j'ai fait 4 full tests et 4 déclinaisons (lignes 1 en G2, 2, 3 et 9 de la boîte), car les autres lignes ne se déclinent pas proprement : 4 (4d7c5f32, accroche illisible), 5 (083ac272, hobbies « backed by science »), 6 (837491f7, « enterimarnt »), 7 (6211e51e, « other then »), 8 (9e0c287f, « je notes… j'ai essayé »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "je note tous les trucs bizarres\nque j'ai essayés pour avoir toujours\nune histoire à raconter",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. lire les faits divers de 1900\n\n6/10\nhilarants. mais personne ne me croit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. demander à chaque personne son plus beau voyage\n\n9/10\nj'ai maintenant une carte du monde dans la tête.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02d3e38d",
+      "texte_overlay": "3. chercher l'origine d'un mot par jour\n\n10/10\nce matin, j'ai appris que le mot robot vient d'une pièce de théâtre tchèque de 1920.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. chercher l'origine d'un mot par jour\n\n10/10\nce matin, l'appli Sophia m'a appris que le mot robot vient d'une pièce de théâtre tchèque de 1920.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "4. tenir un carnet des phrases entendues dans le bus\n\n7/10\nles inconnus disent des choses incroyables.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "205ce864",
+      "texte_overlay": "5. essayer un loisir par mois\n\n8/10\npoterie, escalade, chorale.\nchaque mois, une nouvelle histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "et toi, ton truc pour avoir toujours une histoire ?\nje le teste et je le note.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

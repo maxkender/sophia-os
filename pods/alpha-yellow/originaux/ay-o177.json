@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o177",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ac3509a6-ce02-4c78-944c-5d78818c21fe",
+ "titre": "how to rewire your mindset for a radical rebirth #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "ac3509a6-ce02-4c78-944c-5d78818c21fe"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 42c60871. déclinaison G1 de la ligne 5 de la boîte (ac3509a6, es-419 4 k r 8,53) : accroche du parent mot pour mot (minuscules du parent gardées). Items neufs, aucun repris du parent (permission, croyances, communication, identité). Couverture sombre (celle du parent est trop claire pour le texte jaune).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "42c60871",
+   "texte_overlay": "how to rewire your mindset\nfor a radical rebirth",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Change your inputs first. The accounts you follow, the shows you watch, the people you see most. Your mind is built from what you feed it every day.",
+   "media_id": "6ef6edb6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Write the story of the man you want to be. One page, in the present tense. \"I train four times a week. I'm calm under pressure.\" Read it every morning.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Break one old habit and replace it the same day. Phone in bed becomes a book. Snacks at night become a walk. Change sticks when the empty space is filled.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Talk to yourself like you'd talk to a friend. Not \"I'm useless\" but \"That went badly, what can I learn?\" How you speak to yourself shapes who you become.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Learning something new every day is the simplest way to feel like a new person.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning every day is how you feel like a new person.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Spend time with people already where you want to be. Fit friends, calm friends, ambitious friends. You slowly become the average of the people around you.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Celebrate tiny wins out loud. One workout, one early night, one hard conversation. Noticing progress is what convinces your brain that the new you is real.",
+   "media_id": "5792bc29"
+  }
+ ]
+}

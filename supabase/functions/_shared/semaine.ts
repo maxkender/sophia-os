@@ -14,6 +14,7 @@
  */
 import { ajouterJours, partiesLocales } from "./relances.ts";
 import { dateAnglaise, type EtatAccueil, texteCeQuiManque } from "./etapes.ts";
+import { avecPiedHelp } from "./relance_jour.ts";
 
 export interface TextesLundi {
   tous: string;
@@ -130,11 +131,12 @@ export function texteLundi(
 }
 
 export function texteJeudi(modele: string, o: { prenom: string | null; faits: number; attendus: number }): string {
-  return remplir(modele, {
+  // 12/11 : le nudge du jeudi se termine par le renvoi vers Help.
+  return avecPiedHelp(remplir(modele, {
     prenom: (o.prenom ?? "").trim() || "there",
     faits: String(o.faits),
     attendus: String(o.attendus),
-  });
+  }));
 }
 
 /** C7 : « Hi {prenom}, you start on Monday {date} only if … Still missing: {ce_qui_manque}. » */
@@ -142,11 +144,11 @@ export function texteJeudiRecrue(
   modele: string,
   o: { prenom: string | null; cohorte_lundi: string; ceQuiManque: string },
 ): string {
-  return remplir(modele, {
+  return avecPiedHelp(remplir(modele, {
     prenom: (o.prenom ?? "").trim() || "there",
     date: dateAnglaise(o.cohorte_lundi),
     ce_qui_manque: o.ceQuiManque,
-  });
+  }));
 }
 
 // ---------------------------------------------------------------------------

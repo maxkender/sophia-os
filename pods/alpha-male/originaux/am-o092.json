@@ -1,0 +1,63 @@
+{
+ "source_id": "am-o092",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "882c1f0a-d3d1-4eb6-8bcc-14e9f8afd842",
+ "titre": "Habits of men who are quietly respected everywhere #men #respect #discipline #selfimprovement #mindset",
+ "musique_titre": "ominous (slowed + reverb)",
+ "musique_url": "https://www.tiktok.com/music/ominous-slowed-reverb-7520047082217113616",
+ "inspirations": [
+  "882c1f0a-d3d1-4eb6-8bcc-14e9f8afd842"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 12/11. Déclinaison G1 de la ligne 4 (parent 882c1f0a = notre full test am-o062, langue source en ; meilleur passage ro 6 k vues, r 3,24). Accroche du parent mot pour mot. Même format : « N. He… » puis deux lignes. Habitudes neuves, aucune de am-o062 (à l'heure, serveur comme patron, argent, petites promesses, écouter, apprendre). Images : la banque et des célébrités (autorisé) ; slide Sophia : maison vitrée et piscine, sans personne. reference_url de am-o062 vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5868edb2",
+   "texte_overlay": "Habits of men who are\nquietly respected everywhere",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2de2e4cf",
+   "texte_overlay": "1. He remembers birthdays\n\nNo app reminder needed.\nPeople feel it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0e894bee",
+   "texte_overlay": "2. He leaves places cleaner\n\nThe table, the car,\nthe hotel room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "13e7d812",
+   "texte_overlay": "3. He doesn't gossip\n\nIf he talks about others,\nit's to defend them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "07075b9b",
+   "texte_overlay": "4. He pays back fast\n\nThe dinner, the favor.\nNever twice reminded.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "26c4d427",
+   "texte_overlay": "5. He stays calm in traffic\n\nNo horn. No rage.\nThe road shows a man's temper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "46fda56c",
+   "texte_overlay": "6. He asks the second question\n\n\"And how did that go?\"\nInterest is respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1d6e5f11",
+   "texte_overlay": "7. He knows a little\nabout a lot\n\nAny topic, any table.\nA little learning every day.",
+   "texte_sophia": "7. He knows a little\nabout a lot\n\nUse a micro-learning app\nlike the Sophia app.\n5 minutes every day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

@@ -1,0 +1,61 @@
+{
+  "source_id": "bsg-o099",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "acd62e6b-312c-449b-a71b-560133a88308",
+  "titre": "les passe-temps qui te cultiveront et te donneront envie d'apprendre #passetemps #culture #pourtoi",
+  "inspirations": [
+    "acd62e6b-312c-449b-a71b-560133a88308"
+  ],
+  "notes": "G1, déclinaison de acd62e6b (« les passe-temps qui te cultiveront et te donneront envie d'apprendre », génération 0 en français ; meilleur passage tr 3,2 k vues, r 1,27), en français. cta C (le défi de 7 jours en slide 2). Passe-temps neufs (rien de repris du parent : ni mots croisés, ni échecs, ni écrire ses pensées, ni puzzles). Routine du 6/11 sur BLEO : jauge 1 full test et 7 déclinaisons (lignes 1 à 4 et 6 à 8 de la boîte). Ligne 5 sautée (5c676138, métiers du droit et de la criminologie : treize fiches métier à vérifier une à une). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "03d4534a",
+      "texte_overlay": "les passe-temps qui te cultiveront\net te donneront envie d'apprendre",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "114ca47c",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0f057bec",
+      "texte_overlay": "1. tenir un carnet de films\n\nle titre, l'année, une phrase sur ce que tu en as pensé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "16a06d13",
+      "texte_overlay": "2. apprendre les étoiles\n\nune constellation par mois.\nles nuits d'été ne sont plus jamais pareilles.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "414511dc",
+      "texte_overlay": "3. dessiner dans les musées\n\nmême mal.\ntu regardes une œuvre dix fois mieux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. collectionner les cartes postales anciennes\n\nchaque carte est un morceau d'histoire à trois euros.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3615b305",
+      "texte_overlay": "5. écouter un opéra en entier\n\nen lisant l'histoire avant.\nça change tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "enregistre-le et choisis-en un ce week-end.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

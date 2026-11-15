@@ -112,7 +112,7 @@ Le pilote `originaux/sg-o001.json` est l'exemple complet. Les champs :
 	- Les captures de *Gilmore Girls* font le style de @gilmoreobssesed : tu peux les utiliser comme ses gagnants.
 	- **Jamais sur la slide Sophia** : on ne prête pas une recommandation d'appli à une personne réelle. Pour la slide Sophia, prends une image sans personne reconnaissable (livres, bureau, café, bibliothèque).
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
-- **Musique** : celle du schéma.
+- **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label
 

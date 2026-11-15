@@ -1,0 +1,62 @@
+{
+  "source_id": "cs-o051",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "b11c27a0-4a87-43ed-85b4-aca3ab4ddb5b",
+  "titre": "spending the whole weekend half studying half feeling guilty for not studying enough #studytok #studytips #weekend",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "b11c27a0-4a87-43ed-85b4-aca3ab4ddb5b"
+  ],
+  "notes": "Déclinaison G1 de b11c27a0 (notre cs-o010 : r 22,54 en espagnol d'Amérique latine, 7,2 k vues), ligne 3 de la boîte. Accroche du parent mot pour mot (la virgule de cs-o010 tombe, les mots restent). Items neufs, aucun de cs-o010 (2 blocs fixes, tâche écrite la veille, 15 minutes de test le dimanche soir, temps libre vraiment libre, heure de fin) : décider le vendredi ce qui compte vraiment, la règle du « une seule matière par bloc », le samedi matin avant le reste de la maison, la fin de bloc par un mini-test (place micabo, slide 5), les applis de réseaux hors de l'écran d'accueil le week-end de révision (place UnSwipe, slide 6), une récompense prévue. Slides 5 et 6 sans personne. Slides d'appli : photos d'objets reprises d'originaux de plus d'une semaine (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "a924287d",
+      "texte_overlay": "spending the whole weekend half studying half feeling guilty for not studying enough",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a9779da7",
+      "texte_overlay": "what finally worked for me:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a9e565d2",
+      "texte_overlay": "on friday i decide the ONE thing that really matters this weekend.\nnot ten. one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ab2dee4b",
+      "texte_overlay": "one subject per study block.\nswitching back and forth was half my wasted time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "6006ae42",
+      "texte_overlay": "saturday morning, before the house wakes up.\nthe quietest 2 hours of my week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "ba5f8522",
+      "texte_overlay": "every block ends with a 5-question mini-test.\nif i pass it, i'm done. no guilt.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "afaa935a",
+      "texte_overlay": "social apps off my home screen for the weekend.\nfewer \"quick checks\", way more done.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "afb4613b",
+      "texte_overlay": "and a plan for the fun part too.\nguilt-free, because it's planned.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o182",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b4f80997-9971-42a3-995b-845842dd96af",
+ "titre": "les phrases pour poser une limite en télétravail sans te griller #teletravail #travail #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 9/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G1 de la ligne 10 (parent b4f80997), 2e : accroche mot pour mot, six autres situations que rh-o088 et rh-o167. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d548da50",
+   "texte_overlay": "les phrases pour poser une limite\nen télétravail\nsans te griller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "36cbb533",
+   "texte_overlay": "1. quand on te demande « t'es là ? » toutes les heures\n« je te fais un point à 12 h et 17 h »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "36ceabae",
+   "texte_overlay": "2. quand on te rajoute à toutes les visios\n« j'ai besoin d'y être, ou un résumé suffit ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "37b240ad",
+   "texte_overlay": "3. quand on t'écrit pendant ton rendez-vous médical\nrien. après : « j'étais absente, je regarde »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "38321972",
+   "texte_overlay": "4. quand on pense que tu bosses moins\n« voilà ce que j'ai livré cette semaine »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d99efaa",
+   "texte_overlay": "5. quand ta pause déjeuner disparaît\n« je déjeune de 12 h 30 à 13 h 15 »\net je prends 5 minutes pour apprendre autre chose",
+   "texte_sophia": "5. quand ta pause déjeuner disparaît\n« je déjeune de 12 h 30 à 13 h 15 ». et je prends 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3879ecc0",
+   "texte_overlay": "6. quand les messages arrivent à 21 h\nrien. le lendemain matin, une réponse claire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "38b9ad92",
+   "texte_overlay": "tu télétravailles combien de jours ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

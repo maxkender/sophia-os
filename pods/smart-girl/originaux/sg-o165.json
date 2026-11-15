@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o165",
+ "type_bleo": "full_test",
+ "titre": "how to become a regular at your favourite café #cafe #slowliving #smartgirl #romanticizeyourlife #thatgirl",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta A. Full test 4/5 (la jauge en demande 5 sur 14) : accroche jamais faite chez nous (« café » absent des accroches de donnees/label.json). Accroches écrites : « how to become a regular at your favourite café » (retenue : rituel, appartenance, élégance du quotidien), « café habits of a cultured woman » (écartée : plus abstraite), « how to spend a morning in a café » (écartée : sans promesse). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aab63643",
+   "texte_overlay": "how to become a regular at\nyour favourite café",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6b5028e4",
+   "texte_overlay": "1. same day, same time,\nevery week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8331fccc",
+   "texte_overlay": "2. learn the barista's name,\nand use it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f126cb48",
+   "texte_overlay": "3. sit at the counter,\nnot in the corner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e5c882c1",
+   "texte_overlay": "4. bring a real book",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7e9980c4",
+   "texte_overlay": "5. leave your phone\nin your bag",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3c66f90f",
+   "texte_overlay": "6. have something to talk about\n\na painting, a city, a strange fact.",
+   "texte_sophia": "6. have something to talk about\n\ni learn one thing every morning\non a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e78b860b",
+   "texte_overlay": "save this and pick your café",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

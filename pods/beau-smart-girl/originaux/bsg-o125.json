@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o125",
+  "type_bleo": "full_test",
+  "titre": "comment je retiens enfin ce que je lis #lecture #pourtoi #booktok",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : retenir ses lectures, méthode « je ». Accroches écrites : « comment je retiens enfin ce que je lis » (retenue : douleur commune, promesse claire), « j'oublie tout ce que je lis » (écartée : sans solution), « lire mieux » (écartée : vague). Aucun fait daté. Routine du 10/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1, 2, 3 en G2 et 5, 6 en G1). Lignes sautées : 4 (5648866b, « je notes… », faute à recopier), 7 (4d7c5f32, accroche illisible), 8 (083ac272, « backed by science »). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0f057bec",
+      "texte_overlay": "comment je retiens enfin\nce que je lis",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2b6e7780",
+      "texte_overlay": "1. je lis avec un crayon\n\nune phrase soulignée, un mot dans la marge.\nje lis deux fois plus lentement, et je retiens tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "43747ea2",
+      "texte_overlay": "2. je raconte le chapitre le soir même\n\nà ma sœur, à une amie, à mon chat.\nexpliquer, c'est retenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "62e25601",
+      "texte_overlay": "3. j'écris trois lignes à la fin du livre\n\nde quoi ça parle, ce que j'ai aimé, une phrase à garder.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4c866843",
+      "texte_overlay": "4. je relis mes notes un mois après\n\ncinq minutes.\ntout le livre revient d'un coup.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "205ce864",
+      "texte_overlay": "5. je lis des livres qui se répondent\n\nun roman, puis l'époque où il se passe.\nchaque livre aide à retenir l'autre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "3615b305",
+      "texte_overlay": "enregistre-le pour ton prochain livre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o167",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b4f80997-9971-42a3-995b-845842dd96af",
+ "titre": "les phrases pour poser une limite en télétravail sans te griller #teletravail #travail #santementale #carriere #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 8/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G1 de la ligne 1 (parent b4f80997, notre rh-o088) : accroche mot pour mot, six autres situations. Inspirations : sans la slide 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bc379b45",
+   "texte_overlay": "les phrases pour poser une limite\nen télétravail\nsans te griller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01057092",
+   "texte_overlay": "1. quand on t'écrit le dimanche\nrien le dimanche. lundi 9 h : « vu ton message, je m'en occupe »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "012ed24e",
+   "texte_overlay": "2. quand on te demande de répondre pendant ta pause\n« je reviens vers toi à 13 h 30 »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "03193bd4",
+   "texte_overlay": "3. quand on te rajoute une visio de dernière minute\n« je peux à 16 h, sinon je lis le compte rendu »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "03349b82",
+   "texte_overlay": "4. quand on pense que t'es toujours dispo\n« mes horaires sont 9 h à 18 h, en dehors je ne vois pas les messages »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f49d6042",
+   "texte_overlay": "5. quand la journée déborde sur la soirée\n« je coupe, et je finis demain matin »\npuis 5 minutes à apprendre un truc, pour vraiment décrocher",
+   "texte_sophia": "5. quand la journée déborde sur la soirée\n« je coupe, et je finis demain matin ». puis 5 minutes sur l'appli Sophia, pour vraiment décrocher",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "03d2dd1c",
+   "texte_overlay": "6. quand on te demande de partager ton écran tout le temps\n« je t'envoie le document, ce sera plus simple »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "04164759",
+   "texte_overlay": "laquelle tu dis demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

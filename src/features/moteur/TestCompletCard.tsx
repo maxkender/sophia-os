@@ -182,7 +182,7 @@ export function TestCompletCard() {
           {(type === "nouveau" || type === "remanie" || type === "recycle") && (
             <button
               type="button"
-              onClick={() => navigate("/admin/prompts")}
+              onClick={() => navigate("/admin/chaine")}
               className="text-xs font-medium text-primary underline underline-offset-2"
             >
               {t("test.editerConsignes")}

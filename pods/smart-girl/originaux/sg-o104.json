@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o104",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "95670b8c-b3fc-4ba4-85a8-c09aedd4fdb2",
+ "titre": "high society events you don't need an invitation for #travel #culture #smartgirl #opera #bucketlist",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "95670b8c-b3fc-4ba4-85a8-c09aedd4fdb2"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 7 de la boîte (parent 95670b8c, langue source en) : accroche du parent mot pour mot. Événements neufs face au parent et ouverts au public, sans parler d'argent (carnaval de Venise, Wimbledon et sa file du jour, les Proms au Royal Albert Hall, festival de Salzbourg, Chelsea Flower Show). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "03b2a9de",
+   "texte_overlay": "high society events you\ndon't need an invitation for",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a254621d",
+   "texte_overlay": "venice carnival, italy\n\nmasks, costumes and centuries\nof tradition in the streets.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "24735016",
+   "texte_overlay": "wimbledon, london\n\njoin \"the queue\" in the morning\nfor same-day tickets.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "20448cdf",
+   "texte_overlay": "the proms, london\n\na summer of classical music\nat the royal albert hall.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6598e123",
+   "texte_overlay": "know the story before you go:\nwho started it, and why.\nyou'll enjoy it twice as much.",
+   "texte_sophia": "know the story before you go.\ni learn it in 5 minutes on\na micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1954c375",
+   "texte_overlay": "salzburg festival, austria\n\nopera and concerts in\nmozart's city, every summer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2a237f00",
+   "texte_overlay": "chelsea flower show, london\n\nthe most elegant garden\nshow in the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "400c03c3",
+   "texte_overlay": "save this for your\nbucket list",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7654892831701519637/8.jpg"
+  }
+ ]
+}

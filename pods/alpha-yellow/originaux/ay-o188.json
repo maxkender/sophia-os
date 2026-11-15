@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o188",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ddbd1c05-81c0-42d0-8b78-646eee151105",
+ "titre": "5 body habits that drain your presence in a crowd #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "ddbd1c05-81c0-42d0-8b78-646eee151105"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 7, sur une image sans visage. Couverture 248c9de7. déclinaison G2 de la ligne 3 de la boîte (ddbd1c05, notre ay-o111 « 5 posture mistakes that kill your charisma in public » qui a gagné : fr 8,3 k r 4,73). Même promesse, autres mots. Items neufs, aucun repris des decks posture (ay-o050, o062, o068, o111, o128, o137). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "248c9de7",
+   "texte_overlay": "5 body habits that drain\nyour presence in a crowd",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679890123126885665/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Habit 1: standing at the edge of the room. Hugging the wall makes you look like you want to disappear. Step a few metres in, closer to where people actually talk.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Habit 2: hiding behind your drink. Taking a sip every time there's a pause looks nervous. Hold it low, and let a short silence be just that, a pause.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Habit 3: tense, raised shoulders. Stress pulls them up toward your ears. Take a breath and drop them down. Relaxed shoulders change your whole silhouette.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Habit 4: talking to the floor. When you're unsure, your eyes drop. Look at faces instead, even briefly. Eye contact makes your words land with more weight.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Habit 5: moving too much. Swaying, fidgeting, shifting from foot to foot. Stillness looks calm, and calm is the core of real presence. Plant your feet and let your body rest.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A busy, curious mind relaxes the body, and you'll stand taller in any crowd you walk into.",
+   "texte_sophia": "Try this for 30 days: five minutes a day on a micro-learning app like the Sophia app. History, art, science. A curious mind relaxes the body in any crowd.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "The fix: pick one habit per event. Notice it once, correct it, enjoy the rest of the evening. Small fixes, repeated, build a strong presence over a few weeks.",
+   "media_id": "26e760de"
+  }
+ ]
+}

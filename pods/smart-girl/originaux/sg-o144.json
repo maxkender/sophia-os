@@ -1,0 +1,51 @@
+{
+ "source_id": "sg-o144",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "44328d4c-866f-4034-9cd8-10db7e3c2eec",
+ "titre": "you'll stay average forever until you master these 4 powerful time rules #timemanagement #productivity #smartgirl #discipline #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "b053325f-c2e0-4f25-bfd4-6bd09358eddc"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 6 de la boîte (parent 44328d4c, langue source en) : accroche du parent mot pour mot. Règles neuves face au parent : la règle des 2 minutes (David Allen), « eat the frog » (la tâche la plus dure d'abord), le rythme 52/17, le temps mort pour apprendre. Sophia au milieu, sur le temps mort (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8e1ad601",
+   "texte_overlay": "you'll stay average forever until\nyou master these 4 powerful\ntime rules",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8f08dfbe",
+   "texte_overlay": "1. the 2-minute rule\n\nif it takes less than\n2 minutes, do it now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a6ec2cae",
+   "texte_overlay": "2. eat the frog\n\nthe hardest task first,\nbefore anything else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a76ba18d",
+   "texte_overlay": "3. the dead-time rule\n\nqueues, trains, waiting rooms:\nlearn something short.",
+   "texte_sophia": "3. the dead-time rule\n\nqueues, trains, waiting rooms:\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fce45c26",
+   "texte_overlay": "4. the 52/17 rhythm\n\n52 minutes of focus,\n17 minutes of real rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "506ec175",
+   "texte_overlay": "save this and pick one\nfor tomorrow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  }
+ ]
+}

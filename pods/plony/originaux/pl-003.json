@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-003",
+  "titre": "I can show you a love potion, made without drugs, herbs or any witch's spell: if you would be loved, love. #love #relationships #stoicism #quotes",
+  "source_phrase": "Hecato, quoted by Seneca, Letters to Lucilius, 9 (Gummere translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "Moment to Moment",
+  "notes": "cta B",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2e49f77e",
+      "texte_overlay": "I can show you a love potion",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688539332520545554/3.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4109ca84",
+      "texte_overlay": "made without drugs, herbs or any witch's spell:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690403613822291218/3.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f5122151",
+      "texte_overlay": "if you would be loved, love.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7702256294937300242/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4ae8f6a4",
+      "texte_overlay": "Hecato, quoted by Seneca, Letters to Lucilius.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7702256294937300242/2.jpg",
+      "texte_sophia": "Today's 5 minutes on Sophia: a 2,000-year-old love potion."
+    }
+  ]
+}

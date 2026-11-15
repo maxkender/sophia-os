@@ -1,0 +1,259 @@
+{
+ "post_id": "var-success-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 uncommon habits of",
+      "extremely successful people"
+     ],
+     "texte": "10/10 uncommon habits of extremely successful people"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "texte": "(niche edition)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697728269335924001_5.jpg",
+      "boite": [
+       48,
+       453,
+       491,
+       475
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "move your body every day"
+     ],
+     "fr": "bouge [[tous les jours]]",
+     "texte": "take [[long walks]] to think"
+    },
+    "T2": {
+     "en": [
+      "exercise does more than improve your physical health"
+     ],
+     "fr": "le sport fait bien plus que te garder en forme",
+     "texte": "not for the steps, it's where [[your best ideas]] show up"
+    },
+    "T3": {
+     "en": [
+      "regular movement",
+      "supports brain health,",
+      "memory, and the",
+      "ability to learn"
+     ],
+     "fr": "bouger souvent booste [[ton cerveau, ta mémoire et ta capacité d'apprendre]]",
+     "texte": "a problem stuck at the desk often [[untangles itself]] on the second lap"
+    },
+    "T4": {
+     "en": [
+      "walk briskly, lift",
+      "weights, or cycle.",
+      "you don't need a",
+      "perfect routine. you",
+      "need one you can",
+      "actually maintain"
+     ],
+     "fr": "marche vite, fais de la muscu ou du vélo. pas besoin d'une routine parfaite, juste d'une que [[tu tiens vraiment]]",
+     "texte": "no podcast, no destination, just 30 minutes and your own head. it feels like wasted time until [[you try it once]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "learn [[something new]] every day, no exceptions"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "not for a test or a promotion, just because knowing how things work makes [[everything more interesting]]"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "and the more you know, the easier it gets to [[connect ideas]] nobody else connects"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "i swapped scrolling for podcasts, crosswords, and 5 min on [[the Sophia app]] when i'm on my phone anyway"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "curiosity is like a muscle, it [[grows when you use it]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "ask why all the time"
+     ],
+     "fr": "demande [[pourquoi]] H24",
+     "texte": "ask [[stupid questions]]"
+    },
+    "T2": {
+     "en": [
+      "most people accept the",
+      "first answer they hear"
+     ],
+     "fr": "la plupart gobent la première réponse venue",
+     "texte": "everyone else nods along so they [[don't look lost]]"
+    },
+    "T3": {
+     "en": [
+      "kids ask why all day, then",
+      "we just stop"
+     ],
+     "fr": "les gosses font que ça, puis on [[arrête]]",
+     "texte": "half the room [[is lost too]], nobody says it"
+    },
+    "T4": {
+     "en": [
+      "curiosity is proven to help",
+      "your brain remember",
+      "what you learn"
+     ],
+     "fr": "c'est [[prouvé]] : la curiosité aide ton cerveau à [[retenir ce que t'apprends]]",
+     "texte": "you look dumb for [[5 seconds]] and understand it for good"
+    },
+    "T5": {
+     "en": [
+      "next time you don't understand something, keep",
+      "asking until you do"
+     ],
+     "fr": "la prochaine fois que tu piges pas un truc, [[redemande jusqu'à piger]]",
+     "texte": "successful people care more about getting it than [[looking smart]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "write things [[by hand]]"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "goals, ideas, to-do lists. writing slows you down just enough to [[actually think]] about them"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be comfortable being",
+      "uncomfortable"
+     ],
+     "fr": "apprends à aimer [[l'inconfort]]",
+     "texte": "spend real time [[alone]] on purpose"
+    },
+    "T2": {
+     "en": [
+      "do things that make your",
+      "brain work:"
+     ],
+     "fr": "fais vraiment bosser ton cerveau :",
+     "texte": "no people, no screen, no noise. just you"
+    },
+    "T3": {
+     "en": [
+      "difficult books, hard",
+      "conversations, learning",
+      "unfamiliar skills, solving",
+      "problems without",
+      "immediately searching",
+      "the answer"
+     ],
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]",
+     "texte": "a coffee alone, a quiet hour in an empty room. it's where you figure out [[what you actually want]], not what everyone expects"
+    },
+    "T4": {
+     "en": [
+      "cognitive growth rarely happens while you're",
+      "doing what already feels easy"
+     ],
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]",
+     "texte": "if you're never alone with your own thoughts, [[you never really hear them]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

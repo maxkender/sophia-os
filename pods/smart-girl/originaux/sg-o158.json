@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o158",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e9400602-36e5-4812-88cb-701c8b68a5bd",
+ "titre": "43 unspoken laws of etiquette that cultivate grace, confidence and quiet power #etiquette #elegance #smartgirl #oldmoney #manners",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 6 de la boîte (parent e9400602, langue source en) : accroche du parent mot pour mot. 43 règles courtes, sept par slide, en partie neuves face au parent (présence, table, conversation, numérique, invitée et hôtesse, intégrité). Sophia en cta C sur la dernière règle. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "637d2ed8",
+   "texte_overlay": "43 unspoken laws of etiquette\nthat cultivate grace, confidence\nand quiet power",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cea45657",
+   "texte_overlay": "presence\n1. walk slowly\n2. sit up straight\n3. speak a little lower\n4. hold eye contact\n5. no rushing, ever\n6. dress for the room\n7. smile with your eyes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "14165ea4",
+   "texte_overlay": "at the table\n8. napkin on your lap\n9. wait for everyone\n10. phone in your bag\n11. taste before salting\n12. small bites\n13. thank the cook\n14. never reach across",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "362c7f51",
+   "texte_overlay": "conversation\n15. remember names\n16. ask a second question\n17. never interrupt\n18. no gossip\n19. praise in public\n20. disagree softly\n21. know when to stop",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fcb92183",
+   "texte_overlay": "online\n22. reply kindly, not fast\n23. no voice notes to strangers\n24. no group chat drama\n25. ask before posting others\n26. keep some things private\n27. thank people by name\n28. log off at dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d4fed4a7",
+   "texte_overlay": "guest and host\n29. arrive five minutes late\n30. never empty-handed\n31. offer help once\n32. leave while it's still fun\n33. write a thank-you note\n34. introduce everyone\n35. refill glasses first",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9b22ed3b",
+   "texte_overlay": "integrity\n36. be on time\n37. keep your word\n38. return what you borrow\n39. apologise without \"but\"\n40. keep secrets\n41. be kind to waiters\n42. stay calm under pressure\n43. keep learning, every day",
+   "texte_sophia": "integrity\n36. be on time\n37. keep your word\n38. return what you borrow\n39. apologise without \"but\"\n40. keep secrets\n41. be kind to waiters\n42. stay calm under pressure\n43. keep learning: 5 minutes\na day on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "8a8f744d",
+   "texte_overlay": "save this and pick one\nfor this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/8.jpg"
+  }
+ ]
+}

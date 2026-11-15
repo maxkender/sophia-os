@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o232",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ebe4b667-6279-4cf0-be56-41b8b876ffda",
+ "titre": "6 fois où j'ai « MENTI » à mon entretien de stage… et ils m'ont rappelée #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 13/11 (4 full tests + 8 déclinaisons, images de moins de 14 jours exclues, sons variés). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G1 de la ligne 13 (parent ebe4b667), 3e et dernière : accroche mot pour mot, six autres questions que rh-o056, rh-o123 et rh-o198. Recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "576ce7fb",
+   "texte_overlay": "6 fois où j'ai « MENTI »\nà mon entretien de stage…\net ils m'ont rappelée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "59d6d36a",
+   "texte_overlay": "« vous savez ce qu'on fait ? »\nj'ai dit « je suis allée voir vos derniers projets »\nla vérité : la veille, mais tous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5a1f4cf0",
+   "texte_overlay": "« vous êtes organisée ? »\nj'ai dit « j'ai un planning pour mes partiels »\nla vérité : depuis cette année",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5b406ec9",
+   "texte_overlay": "« vous avez une passion ? »\nj'ai dit « l'histoire, un peu chaque jour »\nla vérité : 5 minutes. mais chaque jour",
+   "texte_sophia": "« vous avez une passion ? »\nj'ai dit « l'histoire, un peu chaque jour »\nla vérité : 5 minutes sur l'appli Sophia. mais chaque jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5b66584e",
+   "texte_overlay": "« vous aimez le travail d'équipe ? »\nj'ai dit « oui, j'ai mené un projet de groupe »\nla vérité : j'avais tout porté. c'était vrai quand même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5bbdf998",
+   "texte_overlay": "« pourquoi ce stage ? »\nj'ai dit « pour apprendre X »\nla vérité : aussi parce que c'était près de chez moi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6a71eaa7",
+   "texte_overlay": "« vous seriez prête quand ? »\nj'ai dit la vraie date\nla vérité : aucun arrangement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6a732198",
+   "texte_overlay": "tu cherches un stage pour quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

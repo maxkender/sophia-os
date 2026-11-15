@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o134",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "59952cba-1c39-440e-adaa-66b5e1faf211",
+ "titre": "hobbies that make you better at conversation #hobbies #conversation #smartgirl #socialskills #selfimprovement",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 6 de la boîte (parent 59952cba, langue source en) : accroche reformulée (« 6 hobbies that make you surprisingly well rounded » → « hobbies that make you better at conversation »), autre que sg-o123. Hobbies neufs (théâtre d'improvisation, club de lecture, carnet de voyage, quelques phrases dans plusieurs langues, quiz entre amis). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "22f3ec3c",
+   "texte_overlay": "hobbies that make you better\nat conversation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6469e000",
+   "texte_overlay": "1. an improv class\n\nyou learn to say yes\nand keep going.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "558daa61",
+   "texte_overlay": "2. a book club\n\nyou practise defending\nan opinion, kindly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "aa747013",
+   "texte_overlay": "3. a travel journal\n\nstories you'll actually\nremember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0e14466e",
+   "texte_overlay": "4. a few phrases in many\nlanguages",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "11b69fcc",
+   "texte_overlay": "5. quiz nights with friends",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f8b73bd3",
+   "texte_overlay": "6. one lesson instead of\none scroll\n\nart, history, science:\nfresh things to talk about.",
+   "texte_sophia": "6. one lesson instead of\none scroll\n\n5 minutes on an app like\nSophia: fresh things to\ntalk about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "acf7d24c",
+   "texte_overlay": "save this and pick one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,214 @@
+{
+ "id": "fa-010-v2",
+ "source": {
+  "url": "https://www.tiktok.com/@fathom0g/video/7686070623206280470",
+  "vues": 97100,
+  "accroche": "5 Ways to Build Peak Intelligence"
+ },
+ "titre": {
+  "en": "5 Ways to Build Peak Intelligence",
+  "de": "5 Wege zu maximaler Intelligenz"
+ },
+ "legendes": {
+  "en": "5 Ways to Build Peak Intelligence #intelligence #learnontiktok #selfimprovement",
+  "de": "5 Wege zu maximaler Intelligenz #intelligenz #lernenmittiktok #selbstverbesserung"
+ },
+ "musique": {
+  "titre": "audio originale",
+  "url": "https://www.tiktok.com/music/audio-originale-7637183379980471062"
+ },
+ "notes": "remplace fa-010 (carte UnSwipe retirée). L'étape 2 « PROTECT YOUR ATTENTION » redevient une étape normale avec sa vraie vidéo YouTube native (TED-Ed en anglais, Quarks en allemand) ; le reste du deck est inchangé (accroche, vidéos, carte Sophia à l'étape 4). Livré en en et de, comme les autres reprises du chantier.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "5 WAYS",
+       "bronze": true
+      }
+     ],
+     "TO BUILD PEAK",
+     "INTELLIGENCE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "5 WEGE",
+       "bronze": true
+      }
+     ],
+     "ZU MAXIMALER",
+     "INTELLIGENZ"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN",
+     "SOMETHING",
+     "HARD"
+    ],
+    "video": {
+     "id": "bNv8asxZc6U",
+     "titre": "Week 32 - How to Learn Really Hard Subjects",
+     "chaine": "Scott Young",
+     "vues": "1.6M views",
+     "date": "14 years ago",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLsnkSphcfZZrlfsYvxQ1WvGekCnnQV1AqWn30qnw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LERNE ETWAS",
+     "SCHWIERIGES"
+    ],
+    "video": {
+     "id": "ge6u-u-22OM",
+     "titre": "Wie Du Alles Verstehen Kannst (Feynman Methode)",
+     "chaine": "Logical Lemon",
+     "vues": "2,7 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PROTECT YOUR",
+     "ATTENTION"
+    ],
+    "video": {
+     "id": "N2uQWfV6Jr4",
+     "titre": "4 ways to fix your attention span - Shannon Odell",
+     "chaine": "TED-Ed",
+     "vues": "4.6M views",
+     "date": "1 month ago",
+     "duree": "5:26",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHÜTZE DEINE",
+     "AUFMERKSAMKEIT"
+    ],
+    "video": {
+     "id": "pdE9qwvmatU",
+     "titre": "Wird unsere Aufmerksamkeit immer schlechter? | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "487.632 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "13:40",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "READ",
+     "DIFFICULT BOOKS"
+    ],
+    "video": {
+     "id": "L28OLYtxXjs",
+     "titre": "How To Read Difficult Books",
+     "chaine": "Philosophy Tube",
+     "vues": "179K views",
+     "date": "9 years ago",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/s5g3Zjsm4yoWa39CucvIq7GtV_BNCOMyNR4xSPPvlv7vf1LVd40_XqdWhnEwPXSpgMEGizDAeJo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "LIES",
+     "SCHWIERIGE BÜCHER"
+    ],
+    "video": {
+     "id": "wNpQl6qVOZU",
+     "titre": "Schwierige Texte lesen und verstehen mit der mächtigen PQ5R-Methode 📚",
+     "chaine": "shribe! - master your studies",
+     "vues": "76.039 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "9:11",
+     "avatar": "https://yt3.ggpht.com/VxDvZppAf1oq-LhGfyaTSL2_mGksOgZae7QVSrBjLk6GVI8Yt-acFjFfzLmYdc74vbRkk2ruVw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "FEED YOUR",
+     "CURIOSITY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "FÜTTERE DEINE",
+     "NEUGIER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PRIORITISE",
+     "DEEP SLEEP"
+    ],
+    "video": {
+     "id": "t0kACis_dJE",
+     "titre": "6 tips for better sleep | Sleeping with Science, a TED series",
+     "chaine": "TED",
+     "vues": "2.8M views",
+     "date": "6 years ago",
+     "duree": "5:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_koIFcCOrvh0KThLNOiazAIDu6hcs8bjkGNwe1f6A_OYm8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHLAF HAT",
+     "VORRANG"
+    ],
+    "video": {
+     "id": "l72IHVMcapk",
+     "titre": "Schlaf optimieren? Was geht und was nicht geht! | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "813.326 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

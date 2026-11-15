@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o156",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c83534a9-8db5-47bf-8223-340b6fc6e7ed",
+ "titre": "le mail de refus qui m'a détruite (et ce que j'ai fait après) #rechercheemploi #refus #santementale #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "4adc261e-6c81-4b3a-b8da-485c6bc2c4c2"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G1 de la ligne 8 (parent c83534a9) : accroche mot pour mot, autre récit que le parent. Récit inventé, aucune entreprise. Inspirations : sans les slides 4 et 5 de la source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "abe8518b",
+   "texte_overlay": "le mail de refus qui m'a détruite\n(et ce que j'ai fait après)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "dbfac0ce",
+   "texte_overlay": "4 entretiens. un mois d'attente\net 2 lignes un vendredi à 18 h",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dd09693b",
+   "texte_overlay": "j'ai fermé l'ordinateur\net je me suis autorisée une soirée triste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "de89dade",
+   "texte_overlay": "le samedi, j'ai répondu au mail\npour demander ce qui m'avait manqué. poliment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/6.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c954e3c1",
+   "texte_overlay": "le dimanche, j'ai fait autre chose\nune marche, une amie, 5 minutes à apprendre un truc",
+   "texte_sophia": "le dimanche, j'ai fait autre chose\nune marche, une amie, et 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/7.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "de9bcf4e",
+   "texte_overlay": "le lundi, j'ai eu la réponse\n« un autre profil avait l'expérience d'un outil précis »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "df7d7763",
+   "texte_overlay": "ce n'était pas moi. c'était un outil.\net je l'ai appris en 3 semaines",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dfaf8473",
+   "texte_overlay": "un refus, c'est une info.\npas un verdict",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7600348084018679062/8.jpg"
+  }
+ ]
+}

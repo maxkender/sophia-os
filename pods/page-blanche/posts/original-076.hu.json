@@ -1,0 +1,286 @@
+{
+ "post_id": "original-076",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour réveiller ton cerveau",
+     "texte": "hogyan szeress bele újra a tanulásba"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(approuvé par la science)",
+     "texte": "(miután a suli elrontotta)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702412215902571809_1.jpg",
+      "boite": [
+       96,
+       413,
+       739,
+       543
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things by hand"
+     ],
+     "fr": "écris tout [[à la main]]",
+     "texte": "tanulj [[jegyek nélkül]]"
+    },
+    "T2": {
+     "en": [
+      "typing your notes feels faster, but your brain",
+      "barely has to work"
+     ],
+     "fr": "taper tes notes, ça va plus vite, mais [[ton cerveau bosse à peine]]",
+     "texte": "a suliban a tanulás mindig dolgozattal, jeggyel és [[piros tollal]] végződött"
+    },
+    "T3": {
+     "en": [
+      "writing by hand makes",
+      "you slow down and",
+      "process every idea",
+      "before it hits the page"
+     ],
+     "fr": "écrire à la main te force à [[ralentir et assimiler]] chaque idée avant de la poser",
+     "texte": "válassz valamit, csak mert kíváncsi vagy rá, és tölts meg egy füzetet, [[amit senki sem javít ki]]"
+    },
+    "T4": {
+     "en": [
+      "it's proven to help you remember more and understand",
+      "things better than typing"
+     ],
+     "fr": "c'est [[prouvé]], tu [[retiens plus]] et tu comprends mieux qu'au clavier",
+     "texte": "nincs határidő, nincs vizsga, nincs rossz válasz, és [[az öröm magától visszajön]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703619977630190881_5.jpg",
+      "boite": [
+       57,
+       506,
+       574,
+       383
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "kövess [[egy kérdést]] a végéig"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "kezdd egy apró kérdéssel, például hogy miért sós a tenger, és ugrálj válaszról válaszra, [[ahogy gyerekként]] csináltad"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "egy óra múlva [[még mindig benne vagy]], és nem tűnik munkának"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "nincs tanterv, nincs dolgozat a végén, csak [[a saját kíváncsiságod]] mutatja az utat"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "egy lecke, [[mint egy jó sztori]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "a házi azért volt nyűg, mert [[nem volt választásod]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "egy jó sztorinál tudni akarod a folytatást, és erőlködés nélkül megjegyzed az elejét"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "még mindig [[túl gyakran]] nyúlok a telefonomért"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "mai 5 perc: miért Olaszországban kezdődött a reneszánsz, [[a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "see your friends in real life"
+     ],
+     "fr": "vois tes potes [[en vrai]]",
+     "texte": "tanulj valamit [[egy baráttal]]"
+    },
+    "T2": {
+     "en": [
+      "most nights you scroll because you're",
+      "bored or lonely, not because it's fun"
+     ],
+     "fr": "la plupart des soirs, tu scrolles par [[ennui ou solitude]], pas parce que c'est fun",
+     "texte": "emlékszel a legjobb órákra? sosem a tantárgy miatt, hanem [[aki melletted ült]]"
+    },
+    "T3": {
+     "en": [
+      "watching their stories and",
+      "sending memes isn't the",
+      "same"
+     ],
+     "fr": "liker leurs stories et s'envoyer des memes, [[c'est pas pareil]]",
+     "texte": "válasszatok témát, és [[meséljétek el, mit találtatok]]"
+    },
+    "T4": {
+     "en": [
+      "make plans, go for food,",
+      "do anything offline",
+      "together"
+     ],
+     "fr": "prévois un truc, un resto, n'importe quoi [[ensemble, sans écran]]",
+     "texte": "egy múzeum, egy doku, [[egy hosszú beszélgetés kávé mellett]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699118764788321558_1.jpg",
+      "boite": [
+       92,
+       417,
+       793,
+       579
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to juggle"
+     ],
+     "fr": "apprends à [[jongler]]",
+     "texte": "[[haszontalan]] téma"
+    },
+    "T2": {
+     "en": [
+      "scientists found that people who learned to juggle",
+      "grew more grey matter in just a few months"
+     ],
+     "fr": "des chercheurs ont montré qu'apprendre à jongler [[augmente la matière grise]] en quelques mois",
+     "texte": "hogyan gondolkodik a polip, miért dorombol a macska, honnan jönnek a szavak: ez sosem lesz dolgozatban"
+    },
+    "T3": {
+     "en": [
+      "your brain physically",
+      "changes when you",
+      "learn a new skill"
+     ],
+     "fr": "ton cerveau [[change physiquement]] quand t'apprends un truc",
+     "texte": "épp ezért egyszerű és jó: [[semmi sem forog kockán]]"
+    },
+    "T4": {
+     "en": [
+      "and it's a fun one to",
+      "practice with friends!!"
+     ],
+     "fr": "et en plus c'est fun à faire [[entre potes]] !!",
+     "texte": "és a tanulás öröme [[csendben visszalopózik]]!!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_1.jpg",
+      "boite": [
+       92,
+       387,
+       752,
+       531
+      ]
+     }
+    }
+   }
+  }
+ }
+}

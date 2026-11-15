@@ -1,0 +1,342 @@
+{
+ "id": "yp-053",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "mes habitudes du soir pour mieux réviser le lendemain",
+  "es": "mis hábitos de noche para estudiar mejor al día siguiente",
+  "tr": "ertesi gün daha iyi çalışmak için akşam alışkanlıklarım"
+ },
+ "legendes": {
+  "fr": "tout se joue la veille 🌙 #routinedusoir #revisions #studytok #thatgirl #habitudes",
+  "es": "todo se decide la noche antes 🌙 #rutinadenoche #estudiar #studytok #thatgirl #habitos",
+  "tr": "her şey bir gece önceden başlar 🌙 #akşamrutini #ders #studytok #thatgirl #alışkanlık"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7495865113889065750"
+ },
+ "fond": {
+  "media_id": "0d7a42d3-8174-457c-8187-cabc2aa1ba6f",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/6f5506cf-316a-4030-a8d5-bb5d713a08ba/4.png",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « un quiz rapide sur le cours du jour », sans capture",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mes habitudes du soir pour",
+     "lignes": [
+      "MIEUX RÉVISER",
+      "LE LENDEMAIN"
+     ],
+     "taille": 116,
+     "taille_script": 70,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mis hábitos de noche para",
+     "lignes": [
+      "ESTUDIAR MEJOR",
+      "AL DÍA SIGUIENTE"
+     ],
+     "taille": 100,
+     "taille_script": 70,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ERTESİ GÜN",
+      "DAHA İYİ ÇALIŞMAK",
+      "İÇİN AKŞAM",
+      "ALIŞKANLIKLARIM"
+     ],
+     "taille": 96,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1adf2053-54e0-4a05-b523-e800a81e40ac",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9179b83d-20d7-480d-89c3-3de31916ea98/4.jpg?v=1790607880445",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je fais le point sur ma journée📓",
+      "texte": "3 lignes : ce que j’ai fini, ce qui reste pour demain.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hago balance del día📓",
+      "texte": "3 líneas: lo que terminé y lo que queda para mañana.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "günümün özetini çıkarıyorum📓",
+      "texte": "3 satır: bitirdiklerim ve yarına kalanlar.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9c45b66c-ca6b-444a-bcb1-4b17784c5ccd",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/02d0ec16-66c0-48f8-b035-b63945b6956b/1.jpg?v=1791725772556",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je prépare mon bureau🧹",
+      "texte": "le cours du matin ouvert, tout le reste rangé.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "preparo mi escritorio🧹",
+      "texte": "los apuntes de mañana abiertos y todo lo demás recogido.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "masamı hazırlıyorum🧹",
+      "texte": "sabahın ders notu açık, geri kalan her şey toplu.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "6a307e69-4080-4bd7-85e2-8ee2ec737c4a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/31f0e300-bc4d-4665-b990-66ada5f67cf8/6.jpg?v=1791725527151",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un quiz rapide sur le cours du jour🧠",
+      "texte": "10 min sur micabo. le soir, c’est le meilleur moment pour fixer ce que j’ai appris.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un quiz rápido de la clase del día🧠",
+      "texte": "10 min en micabo. por la noche es el mejor momento para fijar lo aprendido.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "günün dersinden hızlı bir test🧠",
+      "texte": "micabo’da 10 dakika. öğrendiklerini pekiştirmenin en iyi zamanı akşam.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "1c15a9ed-4c59-4c94-9efe-f1c4997cf23f",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/795eb4c1-bb2d-47e7-a8d0-7edaa8007609/3.jpg?v=1787140861376",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mon téléphone dort hors de ma chambre📵",
+      "texte": "un vrai réveil, et plus de scroll avant de dormir.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mi móvil duerme fuera de mi cuarto📵",
+      "texte": "un despertador de verdad y nada de scroll antes de dormir.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "telefonum odamın dışında uyuyor📵",
+      "texte": "gerçek bir çalar saat ve uyumadan önce kaydırma yok.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "04ae1908-9514-4726-a479-c32df5e2af90",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/0bbe31f2-4027-4277-93c2-a28dbd097681/5.png?v=1790688163385",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je lis 10 pages d’un livre📖",
+      "texte": "rien à voir avec les cours. mon cerveau décompresse.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "leo 10 páginas de un libro📖",
+      "texte": "nada que ver con clase. mi cerebro desconecta.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bir kitaptan 10 sayfa okuyorum📖",
+      "texte": "derslerle ilgisi yok. beynim rahatlıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "636ff2aa-062d-4a30-8391-88a62a718bcd",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06d43b23-cf07-4d7f-a536-a089fa30062a/2.jpg?v=1790677266845",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je me couche à heure fixe🌙",
+      "texte": "même le week-end, ou presque. le matin devient facile.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "me acuesto siempre a la misma hora🌙",
+      "texte": "incluso el fin de semana, o casi. las mañanas se vuelven fáciles.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hep aynı saatte yatıyorum🌙",
+      "texte": "hafta sonu bile, neredeyse. sabahlar kolaylaşıyor.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "mes habitudes du soir pour mieux réviser le lendemain"
+ }
+}

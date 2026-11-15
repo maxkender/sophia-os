@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o203",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "28dc8de8-0858-4666-a11f-658e3f75d29c",
+ "titre": "job choices for people who don't like school #careers #jobs #smartgirl #future #creative",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "28dc8de8-0858-4666-a11f-658e3f75d29c"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 18 de la boîte (parent 28dc8de8, langue source en) : accroche du parent mot pour mot, symboles ୨୧ de tête gardés. Métiers neufs face au parent et à sg-o159, sans salaires (photographe, fleuriste, guide touristique, pâtissière, décoratrice de théâtre, restauratrice de meubles, journaliste). Sophia en cta C sur journaliste. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "09777faa",
+   "texte_overlay": "୨୧ job choices for people who\ndon't like school",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c9605850",
+   "texte_overlay": "photographer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cd93b534",
+   "texte_overlay": "florist",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d9e79eca",
+   "texte_overlay": "tour guide",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2ae9cd0",
+   "texte_overlay": "pastry chef",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b93ec4d6",
+   "texte_overlay": "set designer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b1e894c9",
+   "texte_overlay": "journalist\n\ncurious about everything.",
+   "texte_sophia": "journalist\n\ncurious about everything:\n5 minutes a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "36d7f4c8",
+   "texte_overlay": "which one is you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  }
+ ]
+}

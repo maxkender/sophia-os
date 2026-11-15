@@ -1,0 +1,573 @@
+{
+ "id": "fa-069",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d5b6bade-cd1d-45db-b14b-16a387d0f02b",
+ "titre": {
+  "en": "3 Questions That Will Blow Your Mind",
+  "fr": "3 questions qui vont te retourner le cerveau",
+  "es": "3 preguntas que te volarán la cabeza",
+  "de": "3 Fragen, die dich umhauen",
+  "it": "3 domande che ti apriranno la mente",
+  "pt-BR": "3 perguntas que vão explodir sua mente",
+  "es-419": "3 preguntas que te volarán la cabeza"
+ },
+ "legendes": {
+  "en": "3 Questions That Will Blow Your Mind #science #learnontiktok #curiosity",
+  "fr": "3 questions qui vont te retourner le cerveau #science #apprendresurtiktok #curiosité",
+  "es": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades",
+  "de": "3 Fragen, die dich umhauen #wissenschaft #lernenmittiktok #neugier",
+  "it": "3 domande che ti apriranno la mente #scienza #imparacontiktok #curiosità",
+  "pt-BR": "3 perguntas que vão explodir sua mente #ciência #aprendanotiktok #curiosidades",
+  "es-419": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
+ },
+ "notes": "cta B. Déclinaison G1 de fa-058 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Questions That Will Blow Your Mind »), traductions du parent ; autres questions (bâillement, nuit noire, temps ; en allemand, ciel bleu à la place du bâillement : pas de vidéo native propre), autre CTA, autre son (0671). Sophia à l'étape 3 comme le parent. Langues des comptes du label (7), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 QUESTIONS",
+       "bronze": true
+      }
+     ],
+     "THAT WILL",
+     [
+      {
+       "t": "BLOW YOUR MIND",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 QUESTIONS",
+       "bronze": true
+      }
+     ],
+     "QUI VONT TE",
+     "RETOURNER",
+     [
+      {
+       "t": "LE CERVEAU",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 PREGUNTAS",
+       "bronze": true
+      }
+     ],
+     "QUE TE VOLARÁN",
+     [
+      {
+       "t": "LA CABEZA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 FRAGEN",
+       "bronze": true
+      }
+     ],
+     "DIE DICH",
+     [
+      {
+       "t": "UMHAUEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 DOMANDE",
+       "bronze": true
+      }
+     ],
+     "CHE TI APRIRANNO",
+     [
+      {
+       "t": "LA MENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 PERGUNTAS",
+       "bronze": true
+      }
+     ],
+     "QUE VÃO EXPLODIR",
+     [
+      {
+       "t": "SUA MENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 PREGUNTAS",
+       "bronze": true
+      }
+     ],
+     "QUE TE VOLARÁN",
+     [
+      {
+       "t": "LA CABEZA",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY DO",
+     "WE YAWN?"
+    ],
+    "video": {
+     "id": "I0dQx4SNSwE",
+     "titre": "Why Do We Yawn?",
+     "chaine": "AsapSCIENCE",
+     "vues": "4.6M views",
+     "date": "12 years ago",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNsIkKkqyNZp2IEAcBxbULIIHDDBi49kvEk2mRmOHwjF0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "POURQUOI",
+     "BÂILLE-T-ON ?"
+    ],
+    "video": {
+     "id": "iZRJ6XufF4Q",
+     "titre": "Pourquoi bâille-t-on? | Sciences | Alloprof",
+     "chaine": "Alloprof",
+     "vues": "24 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mNM0KC6ORS3FNYu5_1WjLOfLFFdp9n_FdqX8HJkoZdfQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿POR QUÉ",
+     "BOSTEZAMOS?"
+    ],
+    "video": {
+     "id": "JeZBLtk1WiQ",
+     "titre": "¿POR QUÉ BOSTEZAMOS? | Draw My Life con Glóbulo Azul",
+     "chaine": "TikTak Draw",
+     "vues": "343 K visualizaciones",
+     "date": "hace 8 años",
+     "duree": "5:48",
+     "avatar": "https://yt3.ggpht.com/nehTFfi2o1UAld9fmPEbhuut8yTBNFsFUENdRm_eGGRA0kbnodhcBb5PwjfaCKaZdtU8W3OxjU0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WARUM IST DER",
+     "HIMMEL BLAU?"
+    ],
+    "video": {
+     "id": "oZ7j-_IZBaw",
+     "titre": "Warum ist der Himmel blau? (Oder rot?)",
+     "chaine": "Physik - simpleclub",
+     "vues": "108.648 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/MxwaLg6VCMgcO2tIDH23QJyTwAEbiDI7P416b4SNkgAqVZcR3PP6WhxsxXGj8LLeHCRA5FjT=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ",
+     "SBADIGLIAMO?"
+    ],
+    "video": {
+     "id": "U_Q9ZS1Sxmo",
+     "titre": "Perché sbadigliamo?",
+     "chaine": "SCIENZIATI subito",
+     "vues": "58K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRD6pSsI73czCTA4ZVwmijHKtWnkzskR_FB-gveMlV2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "POR QUE",
+     "BOCEJAMOS?"
+    ],
+    "video": {
+     "id": "pU3XRg5nxB4",
+     "titre": "Por que o bocejo é contagiante? #DúvidaCruel 14",
+     "chaine": "Manual do Mundo",
+     "vues": "753 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿POR QUÉ",
+     "BOSTEZAMOS?"
+    ],
+    "video": {
+     "id": "JeZBLtk1WiQ",
+     "titre": "¿POR QUÉ BOSTEZAMOS? | Draw My Life con Glóbulo Azul",
+     "chaine": "TikTak Draw",
+     "vues": "343 k vistas",
+     "date": "hace 8 años",
+     "duree": "5:48",
+     "avatar": "https://yt3.ggpht.com/nehTFfi2o1UAld9fmPEbhuut8yTBNFsFUENdRm_eGGRA0kbnodhcBb5PwjfaCKaZdtU8W3OxjU0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHY IS IT",
+     "DARK AT NIGHT?"
+    ],
+    "video": {
+     "id": "gxJ4M7tyLRE",
+     "titre": "Why is it Dark at Night?",
+     "chaine": "minutephysics",
+     "vues": "4.7M views",
+     "date": "14 years ago",
+     "duree": "3:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mNlRy8Ablr-4VtAT6eDe7ED-3tfNFZ0FwhEYdtc6B_oQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "POURQUOI LA NUIT",
+     "EST-ELLE NOIRE ?"
+    ],
+    "video": {
+     "id": "9hXNoTlvrPc",
+     "titre": "La NUIT n’est PAS NOIRE : la PREUVE cosmologique",
+     "chaine": "Christophe Pauly",
+     "vues": "386 k vues",
+     "date": "il y a 7 mois",
+     "duree": "26:20",
+     "avatar": "https://yt3.ggpht.com/u5Ez-5VdUz-lkTx9O7w7zD1B3n8eAwchtBTyztE74O9RoyD353RiCy73Lsy1lgWtlaq2D1C51A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿POR QUÉ LA NOCHE",
+     "ES OSCURA?"
+    ],
+    "video": {
+     "id": "mIwH-1484hI",
+     "titre": "¿Por qué el Cielo Nocturno es Oscuro? | La Paradoja de Olbers",
+     "chaine": "QuantumFracture",
+     "vues": "1,3 M de visualizaciones",
+     "date": "hace 8 años",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJpHTSZBbl8uWZMuctVo5UG_Xj7H_haXqIZL2yDsmFkUY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WARUM IST ES",
+     "NACHTS DUNKEL?"
+    ],
+    "video": {
+     "id": "Hkvp1pBp1_8",
+     "titre": "Olberssches Paradoxon",
+     "chaine": "100SekundenPhysik",
+     "vues": "1,2 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "2:11",
+     "avatar": "https://yt3.ggpht.com/-22pEoXqSWx744ZKShipOY6mum_4xhLj5VjlQQrpu2aOj-rjtXTmwXLHA1J208_6PftQfsIXfg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ DI NOTTE",
+     "È BUIO?"
+    ],
+    "video": {
+     "id": "P8RrEnO9DQY",
+     "titre": "Perché il cielo di notte è buio?",
+     "chaine": "Amedeo Balbi",
+     "vues": "278K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "9:49",
+     "avatar": "https://yt3.ggpht.com/Z2v5j5iYpUfFDi46pHS-SG26aWl656TeqHfKdyNMmZlPJHMWintcLOjHpOQqcZyR_wktWRK8pA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "POR QUE A NOITE",
+     "É ESCURA?"
+    ],
+    "video": {
+     "id": "vDRBlfKo83I",
+     "titre": "O PARADOXO DO CÉU ESCURO",
+     "chaine": "Ciência Todo Dia",
+     "vues": "839 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "9:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿POR QUÉ LA NOCHE",
+     "ES OSCURA?"
+    ],
+    "video": {
+     "id": "-LjInpPOD14",
+     "titre": "LA PARADOJA DE OLBERS ☀️ | El Misterio de la Noche Estrellada: ¿por qué el cielo nocturno es oscuro?",
+     "chaine": "Pol Bertran",
+     "vues": "259 k vistas",
+     "date": "hace 3 años",
+     "duree": "32:54",
+     "avatar": "https://yt3.ggpht.com/9qR665_6QZwyQprE_CPsAvz6teqiVBt3HaTyIXniYF1r1zPGYNhfRA9D0tTN5gt_dIpuYi2O=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ONE QUESTION",
+     "A DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UNE QUESTION",
+     "PAR JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "UNA PREGUNTA",
+     "AL DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "EINE FRAGE",
+     "AM TAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UNA DOMANDA",
+     "AL GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "UMA PERGUNTA",
+     "POR DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UNA PREGUNTA",
+     "AL DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "WHAT IS",
+     "TIME?"
+    ],
+    "video": {
+     "id": "7P3Ous2IjiQ",
+     "titre": "What is Time?",
+     "chaine": "Aperture",
+     "vues": "1.7M views",
+     "date": "8 years ago",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/Ntwtc-3AiEfMkBlYmnS-FBnTpaNmUDpEMfMnPgjyOd_q4VVhVAarDGCgB3lx4kofkQyjyDNeTw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "C'EST QUOI",
+     "LE TEMPS ?"
+    ],
+    "video": {
+     "id": "-ZKTSfVxizY",
+     "titre": "Qu'est-ce que le TEMPS ?",
+     "chaine": "Livres et Science",
+     "vues": "174 k vues",
+     "date": "il y a 2 ans",
+     "duree": "22:48",
+     "avatar": "https://yt3.ggpht.com/Enj9lY-NQ4uqSq48yUejHBBVmJbY9ZAF4Lp9je5YDz-zvFf__863rVf6N9z__6QhppAtkdcEAw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿QUÉ ES",
+     "EL TIEMPO?"
+    ],
+    "video": {
+     "id": "fkEY_mUTBDI",
+     "titre": "HOY SÍ que vas a entender el TIEMPO",
+     "chaine": "Date un Vlog",
+     "vues": "1,3 M de visualizaciones",
+     "date": "hace 5 años",
+     "duree": "23:09",
+     "avatar": "https://yt3.ggpht.com/SSwjoANvuIj6vwUl8KDoeZ13WJTkqPbg2dmaVjurBwbcsWWyaBeupnNWaZk6owVkLnJ31gU1Cw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WAS IST",
+     "ZEIT?"
+    ],
+    "video": {
+     "id": "_z82heJ2bIA",
+     "titre": "Was ist Zeit? ⏰ l WOOZLE GOOZLE",
+     "chaine": "Woozle Goozle",
+     "vues": "138.049 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:09",
+     "avatar": "https://yt3.ggpht.com/xdV1imcf8UU95Zi5X-7G85tjk3SYsLp1FW9gEH3JKk1CFwpFx6GKwxaZ5V1q0X3iMrVJe9G8hg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "CHE COS'È",
+     "IL TEMPO?"
+    ],
+    "video": {
+     "id": "dxUCNtYiO4w",
+     "titre": "L'Origine del Tempo - Il Tempo Esiste?#01 - CURIUSS",
+     "chaine": "CURIUSS",
+     "vues": "584K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "26:07",
+     "avatar": "https://yt3.ggpht.com/XVGr8RDWbOdAE-O9NeULHJYTMJNuVwrulXUEz_j7NL48lBgAF68zPah4vm3Rf2zmgcZLmc56Tyw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O QUE É",
+     "O TEMPO?"
+    ],
+    "video": {
+     "id": "2ZdCJ9tONL4",
+     "titre": "A Ilusão do Tempo",
+     "chaine": "Ciência Todo Dia",
+     "vues": "2,8 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "14:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "¿QUÉ ES",
+     "EL TIEMPO?"
+    ],
+    "video": {
+     "id": "mTh7PbyyA0I",
+     "titre": "Este vídeo SÍ te va a volar la cabeza: ¿Qué es el TIEMPO?",
+     "chaine": "Date un Vlog",
+     "vues": "2.4 M de vistas",
+     "date": "hace 7 años",
+     "duree": "14:03",
+     "avatar": "https://yt3.ggpht.com/SSwjoANvuIj6vwUl8KDoeZ13WJTkqPbg2dmaVjurBwbcsWWyaBeupnNWaZk6owVkLnJ31gU1Cw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

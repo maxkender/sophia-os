@@ -72,6 +72,11 @@
  *       vues des contenus en ligne (avec le r de chaque passage mûr), comptes
  *       du label par langue.
  *
+ *   { action: "langues", pod, langues? }   — agent du pod (0654, remakes) :
+ *       déclare les langues que le podz sait livrer (`LANGUES` de son
+ *       atelier ; l'attribution des comptes les lit) et rend ses langues à
+ *       livrer : les déclarées où son label a un compte actif.
+ *
  * Redéposer un post en attente remplace ses langues redéposées. Déposer une
  * langue pour un post déjà validé crée une livraison « langues » (à valider)
  * qui l'ajoutera au contenu existant.
@@ -84,7 +89,9 @@ import { genererHashtagsSlideshow, scoreRelevance } from "../_shared/gemini.ts";
 import { eloParLangue, lireScoring } from "../_shared/import_contenu.ts";
 import {
   applicationsHorsSophia,
+  BANQUE_PODZ,
   CHEMIN_POD,
+  controlerImageBanque,
   decksApplicationDepuisBase,
   livraisonsAutoValidables,
   type LivraisonEnAttente,
@@ -118,12 +125,21 @@ import {
 import { applicationsDuLabel, ID_SOPHIA } from "../_shared/multi_app.ts";
 import {
   accrocheDuDeck,
+  accrocheDuTitre,
   accrochesEnAttente,
   debutJourParis,
   fullTestsDuJour,
   lireDeclarationBleo,
+  lireLanguesDeclarees,
 } from "../_shared/bleo_guichet.ts";
 import { lireParLots, lireTout } from "../_shared/lots.ts";
+import {
+  cleMusique,
+  compterMemeMusique,
+  imagesDesDecks,
+  lireReglesRepetition,
+  type ReglesRepetition,
+} from "../_shared/pods_repetition.ts";
 import { assertRole, aujourdhuiParis, chargerPrompt, corsHeaders, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 import { passagesPourTier, tierImport } from "../_shared/tierlist.ts";
 
@@ -166,8 +182,10 @@ Deno.serve(async (request) => {
     if (body?.action === "deposer") return await deposer(request, supabase, body);
     if (body?.action === "etat") return await etat(request, supabase, String(body.pod ?? ""));
     if (body?.action === "boite") return await boite(request, supabase, body);
+    if (body?.action === "langues") return await languesDuPod(request, supabase, body);
     if (body?.action === "label") return await contenusDuLabel(request, supabase, body);
     if (body?.action === "images") return await imagesDuLabel(request, supabase, String(body.pod ?? ""));
+    if (body?.action === "ajouter_image") return await ajouterImageBanque(request, supabase, body);
     if (body?.action === "photos") return await photosDeLaBanque(request, supabase, body);
     if (body?.action === "top_posts") return await topPosts(request, supabase, body);
     if (body?.action === "auto_valider" || body?.action === "ouvrir_applications_originaux") {
@@ -186,7 +204,7 @@ Deno.serve(async (request) => {
         ? await valider(supabase, String(body.id ?? ""), userId, tierForce)
         : await rejeter(supabase, String(body.id ?? ""), userId, body.motif ? String(body.motif) : null);
     }
-    return json({ ok: false, error: "action inconnue (deposer | etat | boite | label | images | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
+    return json({ ok: false, error: "action inconnue (deposer | etat | boite | label | images | ajouter_image | photos | top_posts | upload_url | persona | comptes | valider | rejeter | auto_valider | ouvrir_applications_originaux | valider_persona | rejeter_persona)" }, 400);
   } catch (e) {
     return json({ ok: false, error: messageErreur(e) }, 500);
   }
@@ -317,6 +335,26 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     ? []
     : verifierDepot(decks, existante ? Object.keys(decks)[0] : langueSource, appLabel ? "application" : "sophia");
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  // BLEO (0653, voie 2) : un remake peut déclarer `type_bleo` comme un original
+  // (déclinaison d'une famille de la boîte, avec son parent, ou full test). Son
+  // accroche est son titre, le texte étant dans l'image. Jugé au premier dépôt
+  // du post (et quand une livraison en attente est redéposée), jamais sur un
+  // ajout de langues. Sans déclaration : un remake, comme avant.
+  const declaration = lireDeclarationBleo(body);
+  if ("erreur" in declaration) return json({ ok: false, code: "declaration_invalide", error: declaration.erreur }, 400);
+  let bleo: Record<string, unknown> | null = null;
+  if (declaration.typeBleo && !complement) {
+    const jugement = await jugerDepotBleo(
+      supabase,
+      { slug, label_id: pod.label_id },
+      declaration,
+      accrocheDuTitre(body.titre ? String(body.titre) : null),
+      existante?.id ?? null,
+    );
+    if (!jugement.ok) return json({ ok: false, code: jugement.code, error: `${jugement.code} : ${jugement.message}` }, 409);
+    bleo = jugement.bleo;
+  }
 
   // Livraison « langues » de ce post (complément), lue avant les contrôles :
   // ses decks en attente comptent comme decks Sophia.
@@ -561,10 +599,16 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     decks: { ...((existante?.decks as Record<string, unknown>) ?? {}), ...sortie },
     // Colonne écrite seulement quand le dépôt en porte (0276 peut manquer).
     ...(decksAppsFinal ? { decks_applications: decksAppsFinal } : {}),
-    transcription: { textes: Array.isArray(body.textes) ? body.textes.map(String) : [] },
+    transcription: {
+      textes: Array.isArray(body.textes) ? body.textes.map(String) : [],
+      ...(bleo ? { bleo } : {}),
+    },
     statut: "a_valider",
     depose_le: new Date().toISOString(),
     auto_erreur: null,
+    // 0653 : la déclaration BLEO (null : un remake). Un redépôt la remplace.
+    type_bleo: declaration.typeBleo,
+    parent_contenu_id: declaration.parentContenuId,
   };
   const { data: livraison, error } = await supabase
     .from("pod_livraisons")
@@ -578,6 +622,7 @@ async function deposer(request: Request, supabase: Supabase, body: Record<string
     type: "nouveau",
     langues: Object.keys(ligne.decks),
     applications: resumeDecksApps(decksAppsFinal ?? existante?.decks_applications ?? null),
+    ...(bleo ? { bleo } : {}),
   });
 }
 
@@ -783,7 +828,12 @@ async function valider(
     .eq("statut", "a_valider")
     .select("id");
   if (!decidee?.length) return await defaireApresDecision(supabase, contenu.id);
-  return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier, note });
+  // BLEO (0653) : une déclinaison livrée rejoint la famille de son parent dès la
+  // validation, comme un original déclaré (sinon le rattachement de la nuit).
+  const rattachement = l.type_bleo === "declinaison" && l.parent_contenu_id
+    ? await rattacherDeclinaison(supabase, contenu.id, l.parent_contenu_id)
+    : null;
+  return json({ ok: true, statut: "validee", contenu_id: contenu.id, tier, note, ...(rattachement ? { bleo_rattachement: rattachement } : {}) });
 }
 
 async function rejeter(supabase: Supabase, id: string, userId: string | null, motif: string | null) {
@@ -923,6 +973,76 @@ async function verifierImagesDuLabel(supabase: Supabase, labelId: string, ids: s
   return erreurs;
 }
 
+/** Les règles de répétition des podz (`reglages.bleo.podz.repetition`, 0671). */
+async function reglesRepetition(supabase: Supabase): Promise<ReglesRepetition> {
+  const { data } = await supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle();
+  return lireReglesRepetition(data?.valeur?.podz?.repetition);
+}
+
+/** Images livrées par ce podz depuis `jours` jours (livraisons non rejetées), hors `sauf`. */
+async function imagesRecentesDuPod(supabase: Supabase, slug: string, jours: number, sauf?: string): Promise<Set<string>> {
+  if (jours <= 0) return new Set();
+  const depuis = new Date(Date.now() - jours * 86_400_000).toISOString();
+  const { data, error } = await supabase
+    .from("pod_livraisons")
+    .select("source_id, decks")
+    .eq("pod", slug)
+    .neq("statut", "rejetee")
+    .gte("depose_le", depuis)
+    .limit(2000);
+  if (error) throw new Error(`images récentes : ${messageErreur(error)}`);
+  const ids = new Set<string>();
+  for (const l of (data ?? []) as Array<{ source_id: string; decks: unknown }>) {
+    if (sauf && l.source_id === sauf) continue;
+    for (const id of imagesDesDecks(l.decks)) ids.add(id);
+  }
+  return ids;
+}
+
+/**
+ * 0671 (12/11) : refuse un original qui reprend une image livrée par le podz
+ * depuis `imagesJours` jours, ou un son déjà sur `musiqueMax` de ses
+ * `musiqueFenetre` dernières livraisons. `null` : rien à redire.
+ */
+async function refusRepetition(
+  supabase: Supabase,
+  slug: string,
+  sourceId: string,
+  mediaIds: string[],
+  musique: { url: unknown; titre: unknown },
+): Promise<{ code: string; message: string } | null> {
+  const regles = await reglesRepetition(supabase);
+  const recentes = await imagesRecentesDuPod(supabase, slug, regles.imagesJours, sourceId);
+  const reprises = [...new Set(mediaIds)].filter((id) => recentes.has(id));
+  if (reprises.length) {
+    return {
+      code: "images_recentes",
+      message: `${reprises.length} image(s) déjà livrée(s) depuis ${regles.imagesJours} jours (${reprises.map((id) => id.slice(0, 8)).join(", ")}) : prends-en d'autres dans la banque (npm run images)`,
+    };
+  }
+  const cle = cleMusique(musique.url, musique.titre);
+  if (cle) {
+    const { data, error } = await supabase
+      .from("pod_livraisons")
+      .select("source_id, musique_url, musique_titre")
+      .eq("pod", slug)
+      .neq("statut", "rejetee")
+      .order("depose_le", { ascending: false })
+      .limit(regles.musiqueFenetre + 1);
+    if (error) throw new Error(`sons récents : ${messageErreur(error)}`);
+    const lignes = (data ?? []) as Array<{ source_id: string; musique_url: string | null; musique_titre: string | null }>;
+    const fenetre = lignes.filter((l) => l.source_id !== sourceId).slice(0, regles.musiqueFenetre);
+    const n = compterMemeMusique(cle, fenetre);
+    if (n >= regles.musiqueMax) {
+      return {
+        code: "musique_repetee",
+        message: `ce son est déjà sur ${n} de tes ${fenetre.length} dernières livraisons (au plus ${regles.musiqueMax - 1}) : prends un autre son qui marche en ce moment`,
+      };
+    }
+  }
+  return null;
+}
+
 async function deposerOriginal(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
@@ -938,6 +1058,14 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   const erreurs = verifierOriginal(slides, { sophia });
   if (!erreurs.length) erreurs.push(...(await verifierImagesDuLabel(supabase, pod.label_id, slides.map((s) => s.media_id))));
   if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+  const repetition = await refusRepetition(
+    supabase,
+    pod.slug,
+    sourceId,
+    slides.map((s) => s.media_id),
+    { url: body.musique_url, titre: body.musique_titre },
+  );
+  if (repetition) return json({ ok: false, code: repetition.code, error: `${repetition.code} : ${repetition.message}` }, 409);
 
   const { data: existante } = await supabase
     .from("pod_livraisons")
@@ -957,7 +1085,7 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   let bleo: Record<string, unknown> | null = null;
   let preuve: Record<string, unknown> | null = null;
   if (declaration.typeBleo) {
-    const jugement = await jugerDepotBleo(supabase, pod, declaration, slides, existante?.id ?? null);
+    const jugement = await jugerDepotBleo(supabase, pod, declaration, accrocheDuDeck(slides), existante?.id ?? null);
     if (!jugement.ok) return json({ ok: false, code: jugement.code, error: `${jugement.code} : ${jugement.message}` }, 409);
     bleo = jugement.bleo;
   } else {
@@ -1026,7 +1154,11 @@ async function deposerOriginal(request: Request, supabase: Supabase, body: Recor
   return json({ ok: true, id: l.id, type: "original", ...(preuve ? { preuve } : {}), ...(bleo ? { bleo } : {}) });
 }
 
-/** Vrai quand la voie 1 doit déclarer `type_bleo` (`reglages.bleo.podz.type_obligatoire`). */
+/**
+ * Vrai quand la voie 1 doit déclarer `type_bleo` (`reglages.bleo.podz.type_obligatoire`).
+ * `voie` n'est plus une colonne tenue à la main : c'est la colonne calculée
+ * `voie(labels)` (0650), tirée de la vue `labels_100_podz`.
+ */
 async function typeBleoObligatoire(supabase: Supabase, labelId: string): Promise<boolean> {
   const [{ data: reglage }, { data: label }] = await Promise.all([
     supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle(),
@@ -1040,16 +1172,16 @@ async function typeBleoObligatoire(supabase: Supabase, labelId: string): Promise
  * 0615 : famille gagnante et ouverte, génération, quota du parent, accroche
  * identique en génération 1 et reformulée en génération 2, accroche déjà dans
  * le label), puis, pour un full test, les accroches des livraisons en attente
- * des podz du label (D15).
+ * des podz du label (D15). `accroche` : la première slide d'un original, le
+ * titre d'un livré (0653).
  */
 async function jugerDepotBleo(
   supabase: Supabase,
   pod: { slug: string; label_id: string | null },
   declaration: { typeBleo: string | null; parentContenuId: string | null },
-  slides: SlideOriginale[],
+  accroche: string | null,
   remplacee: string | null,
 ): Promise<{ ok: true; bleo: Record<string, unknown> } | { ok: false; code: string; message: string }> {
-  const accroche = accrocheDuDeck(slides);
   const { data: verdict, error } = await supabase.rpc("bleo_verifier_depot", {
     p_label_id: pod.label_id,
     p_type_bleo: declaration.typeBleo,
@@ -1064,8 +1196,8 @@ async function jugerDepotBleo(
     const slugs = (podsDuLabel ?? []).map((p: { slug: string }) => p.slug);
     const { data: attente } = await supabase
       .from("pod_livraisons")
-      .select("id, pod, langue_source, decks")
-      .eq("type", "original")
+      .select("id, pod, langue_source, decks, titre")
+      .in("type", ["original", "nouveau"])
       .eq("statut", "a_valider")
       .in("pod", slugs.length ? slugs : [pod.slug])
       .limit(500);
@@ -1129,14 +1261,34 @@ async function rattacherDeclinaison(supabase: Supabase, contenuId: string, paren
  * Action `boite` (L4, P1) : la boîte du label du podz, dans l'ordre (le post
  * parent complet, D37), avec la jauge et le nombre de full tests du jour.
  * `par_jour` : celui de `pods/rythme.json` (sinon le rythme mesuré sur 7 jours).
+ *
+ * Voie 2 (0653, remakes) : une boîte vide ne fait pas une journée de full
+ * tests, les remakes des posts neufs du compte modèle passent avant. Les full
+ * tests du jour sont la part de la jauge, même boîte vide.
+ *
+ * Voie 2 (0655, lot 4) : `par_jour` est le rythme calculé sur les comptes du
+ * label (`bleo_rythme_remakes`), pas celui de `pods/rythme.json` ; les
+ * rattrapages du jour s'y ajoutent. Sans calcul (fonction absente), comme avant.
  */
 async function boite(request: Request, supabase: Supabase, body: Record<string, unknown>) {
   const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
   if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
   if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  const declaration = await declarerLangues(supabase, pod.slug, body.langues);
+  if (declaration) return json({ ok: false, code: "langues_invalides", error: declaration }, 400);
   const limite = Math.max(1, Math.min(Number(body.limite ?? 30) || 30, 100));
   const jour = aujourdhuiParis();
-  const [{ data: lignes, error }, { data: jauge }, { data: reglage }, { data: deposes }] = await Promise.all([
+  const [
+    { data: lignes, error },
+    { data: jauge },
+    { data: reglage },
+    { data: deposes },
+    { data: label },
+    { data: langues },
+    { data: rattrapage },
+    { count: rattrapagesDeposes },
+    { data: rythmes },
+  ] = await Promise.all([
     supabase.rpc("bleo_boite_posts", { p_label_id: pod.label_id, p_limite: limite }),
     supabase.from("bleo_jauge").select("familles_en_boite, par_jour, semaines, part_full_test").eq("pod", pod.slug).maybeSingle(),
     supabase.from("reglages").select("valeur").eq("cle", "bleo").maybeSingle(),
@@ -1144,17 +1296,45 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
       .from("pod_livraisons")
       .select("type_bleo")
       .eq("pod", pod.slug)
-      .eq("type", "original")
+      .in("type", ["original", "nouveau"])
       .gte("depose_le", debutJourParis(jour))
       .limit(100),
+    supabase.from("labels").select("voie").eq("id", pod.label_id).maybeSingle(),
+    supabase.rpc("pod_langues", { p_pod: pod.slug }),
+    supabase.rpc("bleo_rattrapage_du_pod", { p_pod: pod.slug }),
+    // Rattrapages déposés aujourd'hui : les livraisons « nouvelles langues ».
+    supabase
+      .from("pod_livraisons")
+      .select("id", { count: "exact", head: true })
+      .eq("pod", pod.slug)
+      .eq("type", "langues")
+      .gte("depose_le", debutJourParis(jour)),
+    // 0655 : le rythme d'un podz de remakes (aucune ligne pour la voie 1).
+    supabase.rpc("bleo_rythme_remakes", { p_pod: pod.slug }),
   ]);
   if (error) throw new Error(`bleo_boite_posts : ${messageErreur(error)}`);
+  const voie = Number(label?.voie) === 2 ? 2 : 1;
   const parts = (reglage?.valeur?.jauge?.parts ?? [0.1, 0.2, 0.3, 0.4]) as number[];
   const enBoite = Number(jauge?.familles_en_boite ?? 0);
-  const part = jauge?.part_full_test == null ? (enBoite === 0 ? 1 : parts[1]) : Number(jauge.part_full_test);
+  const part = jauge?.part_full_test != null
+    ? Number(jauge.part_full_test)
+    : enBoite === 0 ? (voie === 2 ? parts[parts.length - 1] : 1) : parts[1];
+  const rythme = voie === 2 && Array.isArray(rythmes) && rythmes.length
+    ? (rythmes[0] as Record<string, unknown> & { par_jour: number; rattrapage_du_jour: number })
+    : null;
   const parJourDemande = Number(body.par_jour);
-  const parJour = Number.isFinite(parJourDemande) && parJourDemande > 0 ? parJourDemande : Number(jauge?.par_jour ?? 0);
-  const aujourdhui = { full_test: 0, declinaison: 0, sans_type: 0 };
+  const parJour = rythme
+    ? Number(rythme.par_jour)
+    : Number.isFinite(parJourDemande) && parJourDemande > 0 ? parJourDemande : Number(jauge?.par_jour ?? 0);
+  const aujourdhui = { full_test: 0, declinaison: 0, sans_type: 0, rattrapage: rattrapagesDeposes ?? 0 };
+  // 0654 : les commandes de rattrapage passent d'abord ; 0655 : autant que le
+  // rythme calculé en demande, en plus du jour (sinon au plus la moitié du jour).
+  const commandes = (Array.isArray(rattrapage) ? rattrapage : []) as Array<{ en_attente?: boolean }>;
+  const aFaire = commandes.filter((c) => !c.en_attente).length;
+  const rattrapagesDuJour = Math.min(
+    aFaire + aujourdhui.rattrapage,
+    rythme ? Number(rythme.rattrapage_du_jour) : Math.ceil(parJour / 2),
+  );
   for (const d of deposes ?? []) {
     const t = (d as { type_bleo: string | null }).type_bleo;
     if (t === "full_test" || t === "declinaison") aujourdhui[t] += 1;
@@ -1164,6 +1344,8 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
     ok: true,
     pod: pod.slug,
     jour,
+    // 1 : originaux (ROUTINE.md §4) ; 2 : remakes (ROUTINE.md §5).
+    voie,
     // Bascule des podz (ROUTINE.md) : vrai, la voie 1 suit la boîte ; faux, la routine d'avant.
     podz_bleo: reglage?.valeur?.podz?.type_obligatoire === true,
     jauge: {
@@ -1171,11 +1353,47 @@ async function boite(request: Request, supabase: Supabase, body: Record<string, 
       semaines: jauge?.semaines ?? null,
       part_full_test: part,
       par_jour: parJour,
-      full_tests_du_jour: fullTestsDuJour(parJour, part, jour, enBoite === 0),
+      full_tests_du_jour: fullTestsDuJour(parJour, part, jour, voie === 1 && enBoite === 0),
     },
+    // 0654 (remakes) : langues déclarées, comptes du label par langue, langues
+    // à livrer ; et les commandes de rattrapage, dans l'ordre où les faire.
+    langues: langues ?? null,
+    rattrapage: { du_jour: rattrapagesDuJour, en_plus: rythme !== null, commandes },
+    // 0655 (remakes) : d'où vient `par_jour` (consommation des comptes, stock du
+    // compte le plus juste, tests de la file à juger) ; null : rythme.json.
+    rythme,
     deposes_aujourdhui: aujourdhui,
     boite: lignes ?? [],
   });
+}
+
+/**
+ * 0654 : enregistre les langues que le podz déclare (`pods.langues`), si le
+ * corps en porte et qu'elles changent. Rend un message d'erreur, ou `null`.
+ */
+async function declarerLangues(supabase: Supabase, slug: string, brut: unknown): Promise<string | null> {
+  const langues = lireLanguesDeclarees(brut);
+  if (langues === null) return null;
+  if ("erreur" in langues) return langues.erreur;
+  const { data: actuel } = await supabase.from("pods").select("langues").eq("slug", slug).maybeSingle();
+  const avant = ((actuel?.langues ?? null) as string[] | null)?.join(",") ?? null;
+  if (avant === langues.join(",")) return null;
+  const { error } = await supabase.from("pods").update({ langues }).eq("slug", slug);
+  return error ? `langues : ${messageErreur(error)}` : null;
+}
+
+/**
+ * Action `langues` (0654) : déclare les langues du podz (facultatif) et rend
+ * ses langues : déclarées, comptes actifs du label par langue, à livrer.
+ */
+async function languesDuPod(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  const declaration = await declarerLangues(supabase, pod.slug, body.langues);
+  if (declaration) return json({ ok: false, code: "langues_invalides", error: declaration }, 400);
+  const { data, error } = await supabase.rpc("pod_langues", { p_pod: pod.slug });
+  if (error) throw new Error(`pod_langues : ${messageErreur(error)}`);
+  return json({ ok: true, pod: pod.slug, ...(data as Record<string, unknown>) });
 }
 
 /**
@@ -1583,10 +1801,19 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
       .in("id", lot)
       .limit(lot.length)
   );
+  // 0671 : les images que le podz a livrées depuis `images_jours` jours ne lui
+  // sont plus proposées (elles reviendraient sur les mêmes comptes).
+  const regles = await reglesRepetition(supabase);
+  const recentes = await imagesRecentesDuPod(supabase, pod.slug, regles.imagesJours);
   const images = [];
+  let exclues = 0;
   // deno-lint-ignore no-explicit-any
   for (const m of medias as any[]) {
     if (!String(m.storage_path).startsWith("propre/") || m.texte_restant) continue;
+    if (recentes.has(m.id)) {
+      exclues += 1;
+      continue;
+    }
     // `legende` : la description de l'image (en anglais, D38), pour `images --cherche`.
     images.push({
       id: m.id,
@@ -1597,7 +1824,79 @@ async function imagesDuLabel(request: Request, supabase: Supabase, slug: string)
       legende: m.caption ?? null,
     });
   }
-  return json({ ok: true, total: images.length, images });
+  return json({ ok: true, total: images.length, exclues_recentes: exclues, images });
+}
+
+/**
+ * Ajoute une image du podz (Seedream du podz Plony, demande d'Adrien du 13/11)
+ * à la banque propre de son label. L'image est un JPEG vertical, sans
+ * métadonnées (le podz la réencode), avec sa légende en anglais
+ * (`controlerImageBanque`).
+ *
+ * Elle est rangée sous `propre/podz/<pod>/` (source `genere_ia`, sans texte) et
+ * rattachée au label du podz. Le dépôt d'un original l'accepte ensuite comme une
+ * image d'import nettoyée (`verifierImagesDuLabel`). `photosDeLaBanque`
+ * l'écarte : elle n'est pas proposée aux autres podz. Au plus
+ * `BANQUE_PODZ.parJour` images par podz sur 24 h.
+ *
+ *   { action: "ajouter_image", pod, jpeg_base64, legende } → { id, url }
+ */
+async function ajouterImageBanque(request: Request, supabase: Supabase, body: Record<string, unknown>) {
+  const pod = await podDuJeton(request, supabase, String(body.pod ?? ""));
+  if (!pod) return json({ ok: false, error: "unauthorized" }, 401);
+  if (!pod.label_id) return json({ ok: false, error: "le pod n'a pas de label" }, 409);
+  let octets: Uint8Array;
+  try {
+    octets = Uint8Array.from(atob(String(body.jpeg_base64 ?? "")), (c) => c.charCodeAt(0));
+  } catch {
+    return json({ ok: false, error: "jpeg_base64 invalide" }, 400);
+  }
+  const legende = String(body.legende ?? "").trim();
+  const erreurs = controlerImageBanque(octets, legende);
+  if (erreurs.length) return json({ ok: false, error: erreurs.join(" · ") }, 400);
+
+  const prefixe = `propre/podz/${pod.slug}/`;
+  const { count, error: errCompte } = await supabase
+    .from("media_library")
+    .select("id", { count: "exact", head: true })
+    .like("storage_path", `${prefixe}%`)
+    .gte("created_at", new Date(Date.now() - 86_400_000).toISOString());
+  if (errCompte) throw new Error(`images du jour : ${messageErreur(errCompte)}`);
+  if ((count ?? 0) >= BANQUE_PODZ.parJour) {
+    return json({ ok: false, code: "quota_images", error: `quota_images : ${BANQUE_PODZ.parJour} images ajoutées en 24 h au plus` }, 429);
+  }
+  const { data: label } = await supabase.from("labels").select("application_id").eq("id", pod.label_id).maybeSingle();
+
+  const chemin = `${prefixe}${crypto.randomUUID()}.jpg`;
+  const { error: upErr } = await supabase.storage.from(BUCKET).upload(chemin, octets, { contentType: "image/jpeg", upsert: false });
+  if (upErr) throw new Error(`stockage ${chemin} : ${messageErreur(upErr)}`);
+  const url = supabase.storage.from(BUCKET).getPublicUrl(chemin).data.publicUrl as string;
+  const { data: media, error: mErr } = await supabase
+    .from("media_library")
+    .insert({
+      storage_path: chemin,
+      url,
+      source: "genere_ia",
+      texte_restant: false,
+      caption: legende,
+      caption_statut: "ok",
+      caption_modele: "podz",
+      caption_le: new Date().toISOString(),
+      ...(label?.application_id ? { application_id: label.application_id } : {}),
+    })
+    .select("id")
+    .single();
+  if (mErr || !media) {
+    await supabase.storage.from(BUCKET).remove([chemin]);
+    throw new Error(`média ${chemin} : ${messageErreur(mErr)}`);
+  }
+  const { error: lienErr } = await supabase.from("media_labels").insert({ media_id: media.id, label_id: pod.label_id });
+  if (lienErr) {
+    await supabase.from("media_library").delete().eq("id", media.id);
+    await supabase.storage.from(BUCKET).remove([chemin]);
+    throw new Error(`banque du label : ${messageErreur(lienErr)}`);
+  }
+  return json({ ok: true, id: media.id, url });
 }
 
 /**
@@ -1618,6 +1917,8 @@ async function photosDeLaBanque(request: Request, supabase: Supabase, body: Reco
     .from("media_library")
     .select("id, url, caption, used_count")
     .like("storage_path", "propre/%")
+    // Les images ajoutées par un podz (Seedream…) restent à la banque de son label.
+    .neq("source", "genere_ia")
     .not("caption", "imatch", LEGENDE_A_ECARTER)
     .not("visage_identifiable", "is", true)
     .not("visage_premier_plan", "is", true)

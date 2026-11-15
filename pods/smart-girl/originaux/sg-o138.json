@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o138",
+ "type_bleo": "full_test",
+ "titre": "the hidden history of objects you use every day #history #funfacts #smartgirl #learning #didyouknow",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 3/3 : accroche jamais faite chez nous (« history of » absent des accroches de donnees/label.json). Accroches écrites : « the hidden history of objects you use every day » (retenue : curiosité, faits vérifiables), « everyday things older than you think » (écartée : proche de « history facts that sound fake »), « who invented your morning routine » (écartée : floue). Faits vérifiés : brosse à dents à poils en Chine sous les Ming (1498) ; Jonas Hanway popularise le parapluie à Londres au XVIIIe siècle ; graphite de Borrowdale découvert vers 1560, à l'origine des crayons ; sandwich nommé d'après le 4e comte de Sandwich ; la fourchette se répand en Europe depuis l'Italie. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "31e9186c",
+   "texte_overlay": "the hidden history of objects\nyou use every day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c0c5fee5",
+   "texte_overlay": "1. the toothbrush\n\nbristle toothbrushes appear\nin china in 1498.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "31979f64",
+   "texte_overlay": "2. the umbrella\n\nlondoners laughed at jonas\nhanway for carrying one\nin the 1750s.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b1eca698",
+   "texte_overlay": "every object hides a story\nlike this. learn one a day.",
+   "texte_sophia": "every object hides a story.\ni learn one a day on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "82c9577f",
+   "texte_overlay": "3. the pencil\n\nit began with a graphite mine\nfound in england around 1560.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d4848c71",
+   "texte_overlay": "4. the sandwich\n\nnamed after the 4th earl\nof sandwich.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9244db65",
+   "texte_overlay": "5. the fork\n\nitaly used it long before\nthe rest of europe.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e17db8dd",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

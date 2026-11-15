@@ -51,8 +51,9 @@ arrondi au plus haut), STAR à ≥ 5 (90 %).
 on ne juge pas un compte neuf sur son premier créneau raté.
 
 **Comptes couverts** : ceux qui passent par `passages` (slideshow, UGC AI photo).
-Les comptes **CM** (vidéo papier → `papier_posts`) et **UGC AI VIDEO**
-(→ `ugc_video_posts`) ont leurs propres tables de posts et restent hors classement.
+Les comptes **CM** (vidéo papier → `papier_posts`) ont leur propre table de
+posts et les comptes **UGCV** (`comptes.ugcv`, posts vidéo posés à la main par
+l'admin, 0661) ne reçoivent pas de slideshows : les deux restent hors classement.
 
 ## Quand ça tourne
 

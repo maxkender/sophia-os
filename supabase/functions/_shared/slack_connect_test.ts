@@ -34,12 +34,15 @@ Deno.test("le texte du DM et le lien personnel", () => {
   assertEquals(modeLienDm("on"), "on");
 });
 
-function db(mode: string) {
+function db(mode: string, dm = "on") {
   const maj: unknown[] = [];
   return {
     maj,
     from: (t: string) => ({
-      select: () => ({ in: () => Promise.resolve({ data: t === "reglages" ? [{ cle: "slack_lien_dm_auto", valeur: mode }] : [] }) }),
+      select: () => ({
+        in: () => Promise.resolve({ data: t === "reglages" ? [{ cle: "slack_lien_dm_auto", valeur: mode }] : [] }),
+        eq: () => ({ maybeSingle: () => Promise.resolve({ data: { valeur: dm }, error: null }) }),
+      }),
       update: (v: unknown) => ({ eq: () => Promise.resolve((maj.push(v), { error: null })) }),
     }),
     rpc: () => Promise.resolve({ data: "jeton1", error: null }),
@@ -55,4 +58,11 @@ Deno.test("off : rien ; test : le lien est créé, rien ne part ; on : le DM par
   const d = db("on");
   assertEquals((await proposerLienSlack(d, "U1", { osUrl: "https://os.app", ecriture: "t", fetchFn: f })).statut, "envoye");
   assertEquals(posts, 1);
+});
+
+Deno.test("0692 : DM Slack aux posteurs en pause → rien ne part, même sur on", async () => {
+  let posts = 0;
+  const f = (() => { posts++; return Promise.resolve(new Response(JSON.stringify({ ok: true }))); }) as unknown as typeof fetch;
+  assertEquals((await proposerLienSlack(db("on", "off"), "U1", { osUrl: "https://os", ecriture: "x", fetchFn: f })).statut, "off");
+  assertEquals(posts, 0);
 });

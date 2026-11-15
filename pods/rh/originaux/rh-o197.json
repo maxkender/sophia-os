@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o197",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d55d375e-1f6e-4015-9c65-5c906cb31f3d",
+ "titre": "6 questions à poser quand le recruteur dit « vous avez des questions ? » #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 13 (parent d55d375e), 2e : accroche mot pour mot, six autres questions que rh-o006, rh-o111, rh-o122 et rh-o137. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ef994503",
+   "texte_overlay": "6 questions à poser\nquand le recruteur dit\n« vous avez des questions ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7638b468",
+   "texte_overlay": "1. « à quoi ressemble votre meilleur collaborateur ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7644da7f",
+   "texte_overlay": "2. « qu'est-ce qui fait rester les gens ici ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "767bf211",
+   "texte_overlay": "3. « quels sont les projets prévus pour l'année ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4fdb0056",
+   "texte_overlay": "4. « comment vous accompagnez quelqu'un qui veut apprendre ? »\nmoi j'apprends déjà un peu chaque jour",
+   "texte_sophia": "4. « comment vous accompagnez quelqu'un qui veut apprendre ? »\nmoi j'apprends déjà 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "76cdfc49",
+   "texte_overlay": "5. « qu'est-ce qui vous a fait choisir mon profil pour cet entretien ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "77a8c1dc",
+   "texte_overlay": "6. « quand est-ce que je peux attendre une réponse ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "02b9abc1",
+   "texte_overlay": "laquelle t'oses poser ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

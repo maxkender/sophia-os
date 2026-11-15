@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o109",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c741dc40-3d16-4c63-9a93-e6b58e802c82",
+ "titre": "the skills that make a woman quietly unforgettable #skills #elegance #smartgirl #thatgirl #selfrespect",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "163b346f-ca7f-46bf-b5a7-cefb39b88984"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 3 de la boîte (parent c741dc40, langue source en) : accroche reformulée (« skills of a dangerous woman nobody wants to know » → « the skills that make a woman quietly unforgettable »), troisième et dernière déclinaison du parent, autre que sg-o089 et sg-o099. Savoir-faire neufs (un plat parfait, le nom des fleurs, bien raconter, danser aux mariages, savoir être là, garder un secret). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "631a36d4",
+   "texte_overlay": "the skills that make a woman\nquietly unforgettable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "16c2a12b",
+   "texte_overlay": "1. she cooks one dish\nperfectly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9da81664",
+   "texte_overlay": "2. she knows the names\nof flowers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "012967ce",
+   "texte_overlay": "3. she tells a story well\n\npause, detail, ending.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "07dc9327",
+   "texte_overlay": "4. she knows a little about\neverything\n\nart, history, science.",
+   "texte_sophia": "4. she knows a little about\neverything\n\nmy secret: 5 minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a831ef0b",
+   "texte_overlay": "5. she dances at weddings\nwithout fear",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "114ec4e7",
+   "texte_overlay": "6. she knows what to do\nwhen someone is sad\n\nusually: just stay.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "329e0188",
+   "texte_overlay": "7. she keeps secrets.\nalways.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "51ae7216",
+   "texte_overlay": "which one do you have?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7668652442170445077/9.jpg"
+  }
+ ]
+}

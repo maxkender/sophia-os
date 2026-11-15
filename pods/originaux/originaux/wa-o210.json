@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o210",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "98b71b08-da03-41e2-ac0d-dd3e6d75755c",
+ "titre": "habits that make you quietly self assured #confidence #selfassured #habits #selfimprovement #mindset",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "d44988d2-cdb3-45fa-86f0-7f140e11af99"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d44988d2). déclinaison G2 de « habits that will make you disgustingly confident » (parent 98b71b08). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "375781da-5881-4f91-8100-f7eeef0f89de",
+   "texte_overlay": "habits that make you\nquietly self assured",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "081ce96c-31c4-491f-b961-78009d2871a7",
+   "texte_overlay": "keeping eye contact\n\nhold eye contact for one extra second when you greet someone. it feels small, but it tells people you're comfortable being seen, and you start to believe it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0f388200-731b-4422-8ea6-dc9258096c87",
+   "texte_overlay": "eating alone in public\n\nhave lunch alone at a café once a week without your phone. enjoying your own company in public is one of the quickest ways to stop caring what people think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1b48115d-16f2-434a-9919-5304d4c799e7",
+   "texte_overlay": "taking up space\n\nsit back in your chair and let your shoulders relax instead of folding in. your body tells your mind how safe you feel, so open posture slowly builds real confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "08557787-485c-4f97-b5ea-c60927a40859",
+   "texte_overlay": "growing a little daily\n\nspend 5 minutes a day learning something new: a planet, a painting, a myth. knowing you grow a little every day gives you a calm and very steady kind of inner confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/5.jpg",
+   "texte_sophia": "growing a little daily\n\nspend 5 minutes a day learning something new, a planet or a myth. the Sophia app turns it into one short lesson a day, and growing daily gives you a calm, steady confidence."
+  },
+  {
+   "position": 6,
+   "media_id": "195897a4-ce0b-47a8-8cce-f5852b8c75d5",
+   "texte_overlay": "finishing what you start\n\nfinish the small things you start, even a book or a short walk. every finished task quietly proves to you that you're someone who always follows through.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656200260305341718/6.jpg"
+  }
+ ]
+}

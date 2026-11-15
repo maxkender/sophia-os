@@ -52,6 +52,9 @@ import {
   idPostTiktok,
   maxIdTiktok,
   normaliserCreateTime,
+  plafondEnfilage,
+  profilIllisible,
+  separerTropRecents,
   urlsManquantes,
 } from "./import_nouveaux.ts";
 import {
@@ -74,6 +77,7 @@ import {
   type PertinencesRapport,
   type PlacementSophia,
 } from "./pertinence_apps.ts";
+import { chargerBlocCorrectionsNatives, correctionsPlacementNatives } from "./corrections_natives.ts";
 import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { lireParLots, lireTout } from "./lots.ts";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
@@ -1062,6 +1066,12 @@ export interface ListingCompte {
   source: "page" | "apify" | "mixte" | "aucune";
   /** Pourquoi la découverte a donné ça — remonté tel quel dans les logs UI. */
   diagnostic: string[];
+  /** Manquants laissés pour la mise à jour suivante : publiés depuis moins de `ageMinJours`. */
+  tropRecents?: number;
+  /** Manquants laissés pour la suite par le plafond (essai de la source, tranche par mise à jour ; 0686). */
+  reportes?: number;
+  /** Le profil n'a pas pu être lu (0698) : la raison. Absent : lu, même vide. */
+  illisible?: string;
 }
 
 /**
@@ -1076,11 +1086,26 @@ export interface ListingCompte {
 export async function listerUrlsCompteReference(
   supabase: Supabase,
   compteReferenceId: string,
-  opts: { nouveauxSeulement?: boolean; marquerScrape?: boolean } = {},
+  opts: {
+    nouveauxSeulement?: boolean;
+    marquerScrape?: boolean;
+    /**
+     * Avec `nouveauxSeulement` : un slideshow publié depuis moins de ce nombre
+     * de jours n'est pas enfilé (ses vues ne sont pas faites, le score d'import
+     * le refuserait pour toujours) ; il reste manquant pour la fois suivante.
+     */
+    ageMinJours?: number;
+    /**
+     * Avec `nouveauxSeulement` (0686) : au plus ce nombre de slideshows par
+     * mise à jour, les plus vus d'abord. L'essai de la source
+     * (`comptes_reference.essai_max`) s'applique en plus, lu ici.
+     */
+    maxParMaj?: number | null;
+  } = {},
 ): Promise<ListingCompte> {
   const { data: ref } = await supabase
     .from("comptes_reference")
-    .select("id, handle_tiktok, dernier_scrape_at")
+    .select("id, handle_tiktok, dernier_scrape_at, essai_max")
     .eq("id", compteReferenceId)
     .single();
   if (!ref) throw new Error("Compte de référence introuvable");
@@ -1100,6 +1125,7 @@ export async function listerUrlsCompteReference(
   const diagnostic: string[] = [];
   let viaPage = 0;
   let viaApify = 0;
+  let apifyErreur: string | null = null;
 
   // 1) Page publique TikTok (gratuit, rapide) — IDs photo uniquement.
   try {
@@ -1138,7 +1164,8 @@ export async function listerUrlsCompteReference(
       );
     }
   } catch (error) {
-    diagnostic.push(`Apify indisponible: ${messageErreur(error)}`);
+    apifyErreur = messageErreur(error);
+    diagnostic.push(`Apify indisponible: ${apifyErreur}`);
   }
 
   const source: ListingCompte["source"] =
@@ -1163,7 +1190,30 @@ export async function listerUrlsCompteReference(
       maxIdConnu,
     }),
   ).length;
-  const urls = opts.nouveauxSeulement ? manquantes : toutes;
+  const { murs, tropRecents } = opts.nouveauxSeulement && (opts.ageMinJours ?? 0) > 0
+    ? separerTropRecents(manquantes, createTimeParId, Math.floor(Date.now() / 1000), opts.ageMinJours ?? 0)
+    : { murs: manquantes, tropRecents: [] as string[] };
+  if (tropRecents.length > 0) {
+    diagnostic.push(
+      `trop récents (moins de ${opts.ageMinJours} j) : ${tropRecents.length}, repris à la mise à jour suivante`,
+    );
+  }
+  // 0686 : l'essai de la source et la tranche par mise à jour. `murs` est trié
+  // par vues, on garde donc les meilleurs ; le reste attend la fois suivante.
+  const essaiMax = (ref as { essai_max?: number | null }).essai_max ?? null;
+  const plafond = opts.nouveauxSeulement
+    ? plafondEnfilage({ essaiMax, dejaDeLaSource: deCetteSource.length, maxParMaj: opts.maxParMaj ?? null })
+    : null;
+  const retenus = plafond === null ? murs : murs.slice(0, plafond);
+  const reportes = murs.length - retenus.length;
+  if (reportes > 0) {
+    diagnostic.push(
+      essaiMax !== null
+        ? `essai de la source (${essaiMax} posts, ${deCetteSource.length} déjà en stock) : ${reportes} laissé(s) pour après l'essai`
+        : `plafond de ${plafond} par mise à jour : ${reportes} laissé(s) pour la mise à jour suivante`,
+    );
+  }
+  const urls = opts.nouveauxSeulement ? retenus : toutes;
 
   // Ne dater le scrape que s'il a réellement vu le profil : sinon un listing
   // en échec marquait le compte « à jour » et gelait les updates suivants.
@@ -1183,6 +1233,9 @@ export async function listerUrlsCompteReference(
     nouveaux,
     source,
     diagnostic,
+    tropRecents: tropRecents.length,
+    reportes,
+    illisible: profilIllisible({ vus: toutes.length, apifyErreur }) ?? undefined,
   };
 }
 
@@ -1266,6 +1319,35 @@ export interface AvancerImportResultat {
   nettoyage?: NettoyageRapport;
   /** Présent sur l'étape caption. */
   captions?: CaptionRapport;
+  /** Passages stériles de suite après ce passage (0 s'il a avancé) : `import_tentatives`. */
+  echecsDeSuite?: number;
+}
+
+/**
+ * Échecs de suite au-delà desquels les workers ne reprennent plus un contenu.
+ * `import_tentatives` compte les passages stériles DE SUITE (remis à 0 dès
+ * qu'un pas avance). Sans plafond, un diaporama qu'une étape ne peut pas
+ * traiter était repris sans fin dès que la file se vidait : le 13/11, un post
+ * de @_plony_ dont Gemini refusait l'image a été retenté 670 fois en 1 h 30,
+ * en occupant un des deux workers. Le contenu reste `failed` avec son erreur ;
+ * un pas ciblé (`contenuId`, relance à la main) le reprend toujours.
+ */
+export const MAX_ECHECS_CONTENU = 8;
+
+/**
+ * Bail posé sur un contenu après un passage : aucun s'il a avancé ; sinon une
+ * attente qui double à chaque échec de suite (1, 2, 4… minutes, 60 au plus),
+ * pour qu'une panne passagère (Gemini, fal) ne brûle pas les essais en
+ * quelques minutes. Les 8 échecs de suite couvrent ainsi environ 2 h.
+ */
+export function bailApresPassage(
+  echecsDeSuite: number,
+  progres: boolean,
+  maintenant = Date.now(),
+): string | null {
+  if (progres || !(echecsDeSuite > 0)) return null;
+  const minutes = Math.min(2 ** (echecsDeSuite - 1), 60);
+  return new Date(maintenant + minutes * 60_000).toISOString();
 }
 
 /** Ligne `contenus` telle que renvoyée par le claim (colonnes non typées). */
@@ -1281,14 +1363,15 @@ export async function avancerImport(
 ): Promise<AvancerImportResultat> {
   const r = await executerPasImport(supabase, contenu);
   const tentatives = Number(contenu.import_tentatives ?? 0);
+  const echecsDeSuite = r.progres ? 0 : tentatives + 1;
   try {
     await marquer(supabase, contenu.id, {
-      import_tentatives: r.progres ? 0 : tentatives + 1,
+      import_tentatives: echecsDeSuite,
     });
   } catch {
     // Bookkeeping de priorité : ne doit jamais faire échouer le passage.
   }
-  return r;
+  return { ...r, echecsDeSuite };
 }
 
 /**
@@ -1941,12 +2024,18 @@ async function placerSophiaSurDeck(
   // Angle du label du contenu pour Sophia (angle_placement.ts) : vide tant
   // qu'aucun n'est saisi, et le prompt reste alors octet pour octet le même.
   const angle = await chargerAnglePlacement(supabase, contenu.id, ID_SOPHIA);
+  // Boucle de correction (0630) : les corrections de placement retenues des
+  // relecteurs natifs de la langue passent en premiers exemples.
+  const natives = await correctionsPlacementNatives(supabase, langue);
   const placement = await integrateSophia({
     masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
-    corrections: (corrections ?? []).map((c) => ({
-      original_text: c.texte_origine,
-      corrected_text: c.texte_corrige,
-    })),
+    corrections: [
+      ...natives,
+      ...(corrections ?? []).map((c) => ({
+        original_text: c.texte_origine,
+        corrected_text: c.texte_corrige,
+      })),
+    ],
     slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
     caption: contenu.titre ?? "",
     langue,
@@ -2068,7 +2157,10 @@ export async function traduireBaseDeck(
   const base =
     dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
   const scolaire = await regleLocalisationScolaire(supabase, langue);
-  const regles = [base, scolaire, voix ? `Voix propre à cette source :\n${voix}` : null]
+  // Boucle de correction (0630) : les corrections retenues des relecteurs
+  // natifs de la langue, en dernier pour peser sur le reste.
+  const retours = await chargerBlocCorrectionsNatives(supabase, langue);
+  const regles = [base, scolaire, voix ? `Voix propre à cette source :\n${voix}` : null, retours]
     .filter(Boolean)
     .join("\n\n");
 
@@ -2592,6 +2684,7 @@ export async function prochainContenu(
   if (contenuId) query = query.eq("id", contenuId);
   else {
     query = query
+      .lt("import_tentatives", MAX_ECHECS_CONTENU)
       .order("import_tentatives", { ascending: true })
       .order("pertinence_score", { ascending: true, nullsFirst: true })
       .order("created_at");
@@ -2609,7 +2702,8 @@ const LEASE_MS = 8 * 60_000;
  *
  * `import_tentatives` en premier critère : un diaporama qui enchaîne les
  * passages stériles passe derrière les imports frais au lieu d'aspirer tous
- * les workers.
+ * les workers. Au-delà de `MAX_ECHECS_CONTENU` échecs de suite, il n'est plus
+ * pris du tout.
  */
 export async function claimContenu(
   supabase: Supabase,
@@ -2621,6 +2715,7 @@ export async function claimContenu(
     .from("contenus")
     .select("id")
     .in("import_statut", ["pending", "running", "failed"])
+    .lt("import_tentatives", MAX_ECHECS_CONTENU)
     .or(libre)
     .order("import_tentatives", { ascending: true })
     .order("pertinence_score", { ascending: true, nullsFirst: true })
@@ -2637,6 +2732,7 @@ export async function claimContenu(
       })
       .eq("id", c.id)
       .in("import_statut", ["pending", "running", "failed"])
+      .lt("import_tentatives", MAX_ECHECS_CONTENU)
       .or(libre)
       .select("*")
       .maybeSingle();

@@ -27,6 +27,7 @@ Une fois par session : `npm install`.
 | `npm run rendu -- sources posts/<id>.<langue>.json <sortie> <langue>` | rend un post dans une langue ; rapport des débordements |
 | `npm run livrer -- sources <id\|all> --langues <l1,l2>` | rend et DÉPOSE dans la file de validation de l'OS |
 | `npm run etat` | état du pod côté OS : file, rangs, vues, comptes du label par langue |
+| `npm run boite` | la journée BLEO (`pods/ROUTINE.md` §5) : full tests du jour, puis familles gagnantes à décliner, dans l'ordre, avec le parent et son `parent_contenu_id` |
 
 `livrer` et `etat` demandent la variable `POD_JETON` (le jeton du pod, fourni
 dans tes instructions de session). **Ne l'écris jamais** dans un fichier, un
@@ -44,7 +45,7 @@ regarde-la avec l'outil Read. Ne déclare jamais un post prêt sans l'avoir rega
 - `STYLE_FR.md` : la voix française (obligatoire pour toute écriture en français).
 - `CONSIGNES.md` : format, soulignés `[[ ]]`, zones, scissions, `garder`.
 - `CTA.md` : les 3 versions de la phrase d'appli, à alterner.
-- `UNSWIPE.md` : la slide UnSwipe des variantes `<id>.unswipe.<langue>.json` (à lire avant d'en écrire une).
+- `UNSWIPE.md` : historique. UnSwipe est arrêté depuis le 4/11 : n'écris plus de variante `<id>.unswipe.<langue>.json`.
 
 **Versions** : avant de réécrire un fichier qui existe déjà, commite l'état
 actuel. On ne repart jamais de zéro et on ne perd jamais une version.
@@ -101,16 +102,34 @@ Propose la suite, par exemple traduire dans une langue où le label a des compte
 ## La routine du matin
 
 Chaque matin, une tâche planifiée lance ta routine : suis `pods/ROUTINE.md`
-(combien livrer, dans quel ordre). Ta livraison normale : un post neuf de
-@amayareading repris (« Reprends les nouveaux posts »), sinon un post existant
-traduit dans une langue du label `white_bg` qui en manque (`npm run etat`).
+§5 (combien livrer, dans quel ordre). Depuis le 5/11, ton label `white_bg` a
+sa boîte BLEO : `npm run boite` donne les langues à livrer, le rattrapage,
+les full tests du jour et les familles gagnantes à décliner. Ta journée : le
+rattrapage (des posts gagnants à traduire dans une langue du label qui en
+manque, comme le hongrois au 5/11), puis les full tests de la jauge, puis un
+post neuf de @amayareading repris (« Reprends les nouveaux posts »), puis les
+déclinaisons de la boîte dans l'ordre.
 
-Deux règles de `pods/ROUTINE.md` (§4.5 et §4.6) :
-- **Accroches** : sur les livraisons normales du jour, au plus 1 dans une
-  famille déjà livrée 3 fois ou plus sur 7 jours. Aujourd'hui ce sont
-  « top 5 pour gâcher / foirer… (ça pique) » et « 10/10 trucs / habitudes… ».
-  Les autres : posts neufs d'amaya sur un schéma jamais fait, sinon un autre
-  compte au même format. Les variantes des percées sont en plus.
+- **Langues (5/11, 0654)** : tu livres le français (langue source) et les
+  langues où `white_bg` a un compte ; sans `--langues`, `npm run livrer` les
+  prend toutes, et il laisse de côté celles sans compte. Tes langues
+  possibles sont `LANGUES` de `atelier/api.ts` (ta déclaration, lue par
+  l'attribution des comptes) : fr, en, es, de, it, tr et hu. « es » sert aussi
+  les comptes es-419. Pour le hongrois, les captures de l'appli prennent
+  l'anglais tant que `assets/sophia/hu/` n'existe pas : dis-le dans ton compte
+  rendu.
+- **Rattrapage** (ROUTINE §5.5) : traduis `posts/<id>.<langue>.json` comme
+  d'habitude, puis `npm run livrer -- sources <id> --langues hu` (seulement
+  les langues de la commande : le post est déjà en ligne).
+
+- **Ton accroche** est le texte de ta slide 1, dans la langue source du dépôt
+  (la première de `--langues`). Une déclinaison G1 reprend celle du parent mot
+  pour mot, dans la langue du titre du parent : livre-la avec cette langue en
+  premier.
+- **Déclarer** (ROUTINE §5.3 et §5.4) : dans l'entrée du post de
+  `posts/manifeste.json`, `"type_bleo": "declinaison"` et
+  `"parent_contenu_id": "<id complet de la boîte>"`, ou `"type_bleo":
+  "full_test"` (déposé sans `url`). Un post neuf d'amaya ne déclare rien.
 - **CTA** : alterne les 3 versions de `posts/CTA.md` et note `cta A/B/C`.
 
 ## Règles

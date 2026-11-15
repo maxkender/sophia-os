@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o148",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f2cd0072-9de2-4650-9f30-e20b28741409",
+ "titre": "hobbies that will unrot your brain #brainrot #selfimprovement #focus #hobbies #mindset",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "f6b60898-e7bf-4b0f-a6ed-982b28dd76b7"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, f6b60898). déclinaison G1 de « hobbies that will unrot your brain » (parent f2cd0072). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d9aa96b6-0051-45d3-bf05-505d0a81f98b",
+   "texte_overlay": "hobbies that will unrot\nyour brain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658036154486246670/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e4cb4cd5-3a7f-4164-a324-aa1f7cef4daa",
+   "texte_overlay": "building model kits\n\nbuild a model plane, ship or city with your hands, one small piece at a time. slow, detailed work rebuilds the patience that endless short videos wore away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658036154486246670/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5ea2c9d7-6c35-4b04-801b-f512050069cc",
+   "texte_overlay": "reading paper newspapers\n\nbuy a paper newspaper on sunday and read it slowly with breakfast. a finite set of stories, read properly and slowly, is the exact opposite of an endless feed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658036154486246670/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1060ad63-3dba-460b-b789-8a003ab04af4",
+   "texte_overlay": "one real lesson a day\n\nspend 5 minutes a day on one lesson about something real: how volcanoes work, a famous artist, an ancient empire. real knowledge is the best cure for brain rot.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658036154486246670/3.jpg",
+   "texte_sophia": "one real lesson a day\n\ni spend 5 minutes a day on one real lesson: how volcanoes work, a famous artist. i do it with the Sophia app, one lesson a day, and real knowledge is the best cure for brain rot."
+  },
+  {
+   "position": 5,
+   "media_id": "005f8e24-9c1d-4ecd-8933-1a538182f6f6",
+   "texte_overlay": "learning chess\n\nplay one slow game of chess a day, online or in person. thinking several moves ahead trains the deep, patient attention that short clips quietly destroy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658036154486246670/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "27e12a1a-e639-44ad-b7d2-98f6d833eac7",
+   "texte_overlay": "writing letters\n\nwrite one handwritten letter a week to someone you love. choosing words slowly and carefully brings back a kind of focus most of us have forgotten we had.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658036154486246670/6.jpg"
+  }
+ ]
+}

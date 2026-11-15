@@ -21,7 +21,7 @@ Les décisions d'Adrien des 29 et 30/10 l'emportent sur le reste du document. Le
 | Podz | Preuve retirée en phase 3 ; CTA A/B/C jusqu'à la phase 5 | Preuve retirée à la bascule ; images cherchées par leur légende (toutes légendées le 30/10) ; CTA A/B/C gardés pour varier, plus jamais remplacés d'après leurs vues | P1, P2, P3 |
 | Garde-fous du tirage | Exclusion stricte | Exclusion, puis relâche plutôt qu'un créneau vide, chaque relâche comptée au rapport (proposition de D5, appliquée par défaut) ; puis un contenu à juger au-delà de la capacité (`hors_file`), et seulement en dernier le même contenu à moins de 14 jours (`tout`, jamais le même jour ; ordre de 0645, D51) | A7, A8 |
 
-**Encore à construire** (voir « Lots de travail ») : L0 (enregistrements, modèle des decks, garde des colonnes), L3 (`bleo-lundi`, règle des sources), L7 (decks l'après-midi, validation automatique à 6 h), D39 (G1 du hit à la place du repost J+7), L8 (fin de la tierlist), et la mise en production de la réécriture native.
+**Encore à construire** (voir « Lots de travail ») : L0 (enregistrements, modèle des decks, garde des colonnes), L3 (`bleo-lundi`, règle des sources), L7 (decks l'après-midi, validation automatique à 6 h), L8 (fin de la tierlist), et la mise en production de la réécriture native. D39 (G1 du hit à la place du repost J+7) est abandonnée le 4/11 : les rappels J+7 restent.
 
 ## Mode d'emploi
 
@@ -75,7 +75,8 @@ Chaque terme a une seule définition, utilisée partout dans le code et les rapp
 | File valeur | Les autres créneaux, tirés au prorata du cube de la valeur attendue |
 | Récolte | Un passage d'un contenu gagnant dans une langue neuve |
 | Voie 1 | Labels mixtes : imports et podz d'originaux |
-| Voie 2 | Labels 100 % podz (white\_bg, mentalmaxxing, that\_girl\_study, Fathomly) : remakes livrés |
+| Label 100 % podz | *5/11 (0650) :* un label fourni **uniquement** par son podz : un seul podz le nourrit, tous ses contenus validés viennent de lui, aucune source active. Une seule définition pour tout l'OS : la vue `labels_100_podz` |
+| Voie 2 | Labels 100 % podz dont le podz livre des slides finies (remakes livrés : white\_bg, Fathomly, that\_girl\_study, Kaja au 5/11 ; mentalmaxxing fermé le 5/11). *Depuis 0650 :* calculée (`voie(labels)`, colonne `voie` de `labels_100_podz`), plus tenue à la main |
 | Livré | Contenu dont les slides finies sont fournies par langue (`contenus.livre = true`) : pas de deck à fabriquer |
 | Circuit | Qui a écrit le deck d'un passage : `agent`, `gemini` ou `livre` |
 | Voie de CTA | Comment l'appli est placée : `reprise` (CTA de l'original), `prouvee` (forme de la fiche label), `essai`, `marquee` (slide marquée par le podz), `concurrent` (notre appli à la place d'un concurrent) |
@@ -94,7 +95,7 @@ BLEO se branche sur un système qui tourne : voici ce qu'il faut lire avant d'é
 | Tierlist | `F/_shared/tierlist.ts`, M/0237, M/0270 | Rangs sur `contenus.tier`, `passages_prevus`, `tier_cycle` (Sophia) et table `contenu_tiers_application` (autres applis). Vues `contenu_tier_etat`, `contenu_application_tier_etat`. Requalification par `deciderRequalif` / `requalifier` |
 | Bandes de tirage | `bandesDeTirage` (tierlist.ts) | 6 bandes ; tirage uniforme dans les bandes 1 à 4 (`tirerAuHasard`) ; bandes 5-6 : les plus anciens d'abord. Un rang D (0 passage) n'est atteint que par le repêchage `repecherContenuD` |
 | Anti-répétition | `choisirContenu` + `F/_shared/doublons.ts` | Aujourd'hui elle **déclasse** (vers les bandes de dernier recours) sans exclure : même contenu sur le compte à moins de 14 jours, même `accroche_norm` ou couverture à 8 bits près à moins de 10 jours |
-| Comptes ignorés | `listerComptesSousQuota` | Inactifs, `type_compte = 'cm'`, `ugc_ai_video`, `videos_uniquement` (podz 3), warm-up pas fini |
+| Comptes ignorés | `listerComptesSousQuota` | Inactifs, `type_compte = 'cm'`, `ugcv` (posts vidéo à la main, 0661), `videos_uniquement` (podz 3), warm-up pas fini |
 | Quota | `assignerCompteJour` | `posts_par_jour` borné 1 à 3 (2 pour les 358 comptes actifs le 28/10). `baisserQuotaSiBesoin` **baisse le quota pour de bon** quand le pool est trop mince |
 | Pool | `poolContenusPrets`, règle d'appli (AC:1765), `contenusLivresHorsLangue` (`F/_shared/pods.ts`) | Contenus `valide` + `import_statut = done` des labels du compte ; un livré sans deck dans la langue du compte est exclu ; `contenu_pertinences.eligible` filtre les applis |
 | Rappels J+7 | `programmerRappelsJ7` | Passage ≥ 50 k vues, 3 rappels au plus, `est_rappel = true`. Ils prennent un créneau du quota |
@@ -115,7 +116,7 @@ BLEO se branche sur un système qui tourne : voici ce qu'il faut lire avant d'é
 - **Aucun cron ne met à jour les sources** : c'est un bouton (`MajSourcesPanel.tsx`, RPC `maj_sources_demarrer`, `F/_shared/maj_sources.ts`). Les ticks passent par les drains `import-contenu-drain-N`.
 - Piège : sans `nouveauxSeulement`, `listerUrlsCompteReference` renvoie aussi les URL déjà connues, et ré-importer une URL connue **remet le contenu à zéro** (vues, pertinence, statut, decks). La mise à jour du lundi doit toujours passer `nouveauxSeulement: true`.
 - Étapes : OCR de l'accroche (règle des stickers), pertinence par appli, OCR du reste, score d'import (ELO, seuil 63, forcé si la source a 40 000 vues ou plus), nettoyage, légende visuelle, validation.
-- `accroche_norm` et `couverture_empreinte` sont calculées par la fonction `empreintes` (cron toutes les 10 min), après la validation. Les labels 100 % podz n'en ont pas.
+- `accroche_norm` et `couverture_empreinte` sont calculées par la fonction `empreintes` (cron toutes les 10 min), après la validation. Les labels 100 % podz n'en ont pas. *5/11 (0652) :* ils ont une accroche, leur titre normalisé (`bleo_normaliser_accroche`, miroir SQL de `normaliserAccroche`), posée au rattachement ; toujours pas d'empreinte de couverture.
 
 ### Les decks aujourd'hui
 
@@ -144,7 +145,7 @@ Tout s'ajoute à côté de l'existant, par migrations numérotées à la suite d
 
 | Table | Colonne | Type | Rôle |
 | --- | --- | --- | --- |
-| `labels` | `voie` | smallint, défaut 1 | 2 pour white\_bg, mentalmaxxing, that\_girl\_study, Fathomly |
+| `labels` | `voie` | smallint, défaut 1 | 2 pour white\_bg, mentalmaxxing, that\_girl\_study, Fathomly. *5/11 (0650) :* colonne supprimée, remplacée par la colonne calculée `voie(labels)`, tirée de `labels_100_podz` |
 | `contenus` | `famille_id` | uuid → `bleo_familles` | Sa famille d'accroche (A2) |
 | `contenus` | `generation` | smallint 0 à 2 | A2 |
 | `contenus` | `parent_bleo_id` | uuid → `contenus` | Le contenu décliné. Ne pas réutiliser `parent_id`, pris par les variations |
@@ -178,7 +179,7 @@ Tout s'ajoute à côté de l'existant, par migrations numérotées à la suite d
 | `bleo_runs` | `id` | `jour_vise`, `mode` (`ombre`, `ab`, `actif`), `demarre_le`, `fini_le`, `resume` jsonb, `erreur` | Un tirage de 14 h |
 | `bleo_ombre_passages` | `id` | `run_id`, `compte_id`, `contenu_id`, `langue`, `application_id`, `file_bleo`, `valeur_tirage`, `creneau` | Ce que BLEO aurait assigné, pendant l'à blanc |
 | `bleo_sources_decisions` | (`semaine`, `compte_reference_id`) | `posts`, `r_mediane`, `r_vs_label`, `decision` (`maj`, `pas_maj`, `peu_de_mesures`), `urls_ajoutees` | A11 |
-| `bleo_commandes_langue` | `id` | `contenu_id`, `pod`, `langues` text\[\], `statut` (`a_faire`, `livree`, `annulee`), `cree_le`, `livree_le` | Voie 2 : un remake gagnant à refaire dans d'autres langues |
+| `bleo_commandes_langue` | `id` | `contenu_id`, `pod`, `langues` text\[\], `statut` (`a_faire`, `livree`, `annulee`), `cree_le`, `livree_le` | Voie 2 : un remake gagnant à refaire dans d'autres langues. *0654 :* remplie chaque nuit (`bleo_commandes_rattrapage`, 5 h 55), une seule ouverte par contenu |
 | `bleo_decks_file` | `id` ; unique (`contenu_id`, `langue`, `application_id`, `jour_vise`) | `voie_cta`, `slide_appli`, `statut` (`a_faire`, `en_cours`, `pret`, `echec`, `secours`), `circuit`, `essais`, `modele`, `controles`, `cree_le`, `fini_le` | Les commandes de decks du lendemain |
 | `bleo_relectures` | `id` | `langue`, `label_id`, `application_id`, `contenu_id`, `slide_position`, `tache` (`ab_aveugle`, `correction`, `ecriture`), `version_agent`, `version_gemini`, `version_native`, `choix`, `type_erreur`, `relecteur_id`, `payee_le`, `created_at` | Les micro-tâches des natifs |
 | `bleo_banque` | `id` | `langue`, `label_id`, `application_id`, `sorte` (`ecrit`, `corrige`, `valide`), `jeu` (`exemple` ou `test`), `slide_source`, `version_agent`, `version_finale`, `type_erreur`, `contenu_id`, `created_at` | La banque d'exemples de chaque langue |
@@ -191,13 +192,13 @@ Tout s'ajoute à côté de l'existant, par migrations numérotées à la suite d
 | Vue | Colonnes | Rôle |
 | --- | --- | --- |
 | `bleo_mediane_compte` | `compte_id`, `mediane`, `n` | La médiane du glossaire, pour A1 et les rapports |
-| `bleo_boite` | `label_id`, `famille_id`, `accroche`, `sorte` (`g1` ou `g2`), `parent_contenu_id`, `faites`, `verdict_le`, `au_budget` | A9, dans l'ordre de la boîte |
-| `bleo_jauge` | `label_id`, `pod`, `familles_en_boite`, `par_jour`, `semaines`, `part_full_test` | A10 |
+| `bleo_boite` | `label_id`, `famille_id`, `accroche`, `sorte` (`g1` ou `g2`), `parent_contenu_id`, `faites`, `verdict_le`, `au_budget` | A9, dans l'ordre de la boîte ; tous les labels depuis 0653 (voie 2 comprise) |
+| `bleo_jauge` | `label_id`, `pod`, `familles_en_boite`, `par_jour`, `semaines`, `part_full_test` | A10 ; tous les podz actifs depuis 0653, `par_jour` mesuré sur les originaux et les livrés (`nouveau`) |
 | `bleo_mix` | `jour`, `label_id`, `bras`, `file_bleo`, `categorie` (juger, recolte, gagnant\_servi, non\_gagnant\_neuve, non\_gagnant\_servie), `passages` | Le mélange réel, pour les rapports et l'A/B |
 
 ### Remplir l'existant (une fois, à l'installation)
 
-1. `labels.voie = 2` pour les 4 labels 100 % podz.
+1. `labels.voie = 2` pour les 4 labels 100 % podz. *(Depuis 0650, la voie se calcule : rien à poser.)*
 2. Familles : regrouper les contenus valides par (label, `accroche_norm`), la racine = le plus ancien ; un contenu sans accroche = sa propre famille. Pour les originaux de podz, lire les `notes` des fichiers `pods/*/originaux/*.json` (« variante de X ») pour remplir `parent_bleo_id` et `generation` ; sans note, génération 0.
 3. `type_bleo` : `historique` pour tout contenu validé avant BLEO, sauf les livrés (`remake`).
 4. `etat_bleo` : `juge` si le contenu a au moins 2 passages mûrs ; sinon `a_juger`.
@@ -228,7 +229,7 @@ La famille est propre à un label : la même accroche dans deux labels fait deux
 | Autre import | Nouvelle, dont il est la racine | 0 | `import` |
 | Full test déposé par un podz | Nouvelle. Refusé au guichet si l'accroche existe déjà dans le label | 0 | `full_test` |
 | Déclinaison déposée par un podz | Celle du parent déclaré au dépôt | parent + 1 | `declinaison` |
-| Livré (voie 2) | Comme un import ; sans `accroche_norm`, une famille propre | 0 | `remake` |
+| Livré (voie 2) | Comme un import ; sans `accroche_norm`, une famille propre. *5/11 (0652) :* l'accroche est le titre ; même accroche, ou même post du compte modèle (variante), = même famille | 0 (même accroche) ou 1 (variante) | `remake`, ou `declinaison` pour une variante. *0653 :* une déclinaison déclarée au dépôt rejoint la famille de son parent dès la validation ; un full test déclaré garde `remake` et la classe `livre` (sa déclaration reste dans `pod_livraisons.type_bleo`) |
 
 Un dépôt de déclinaison est refusé si : la famille n'est pas gagnante, la famille est close, le parent est de génération 2, ou le quota de **3** déclinaisons du parent est atteint (A9).
 
@@ -351,9 +352,12 @@ Pour chaque source active (`comptes_reference.is_active`), lire `source_performa
 
 - moins de **5** posts mesurés, ou source listée dans sources.toujours → mise à jour ;
 - `r_mediane > 1` ou `r_vs_label > 1` → mise à jour ;
+- *10/11 (0667) :* un post de la source chez nous à **100 000 vues** ou plus (publié il y a 3 à 30 jours, hors rappels) → mise à jour ;
 - sinon → pas de mise à jour cette semaine. La source reste active, ses contenus aussi.
 
-Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le circuit d'import actuel. Chaque décision est écrite dans `bleo_sources_decisions`. Au 28/10, 23 sources sur 46 passent.
+Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le circuit d'import actuel. Chaque décision est écrite dans `bleo_sources_decisions`, avec sa raison. Au 28/10, 23 sources sur 46 passent ; au 10/11, 29 sur 49 (dont 7 par la règle des 100 000 vues).
+
+*10/11 (0667) :* les sources retenues partent **par lots de 6 par jour** (`bleo_sources_lot`, le lundi juste après les décisions, puis à 6 h 37 tant qu'il en reste, seulement si le lot d'avant est fini), une source à la fois dans un lot, la file d'import vidée entre chaque. Seuils : `reglages.bleo.sources`. Compte rendu : `bleo_sources_semaine_ui`, panneau de la page Sources.
 
 ## L'agent de langue
 
@@ -462,7 +466,7 @@ Le détail des prompts et le choix du modèle appartiennent à l'autre agent ; c
 
 ## Les podz
 
-Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher des preuves, ils déclarent le type et le parent de chaque dépôt, et leur part de full test suit la jauge. La voie 2 garde son fonctionnement et reçoit des commandes de langue.
+Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher des preuves, ils déclarent le type et le parent de chaque dépôt, et leur part de full test suit la jauge. La voie 2 garde son fonctionnement et reçoit des commandes de langue. *5/11 (0653) :* la voie 2 a aussi sa boîte, sa jauge et ses full tests (P4).
 
 > **30/10.** La bascule des podz est un réglage : `bleo.podz.type_obligatoire` (faux, puis vrai le dimanche 1/11 au soir). Tant qu'il est faux, `npm run boite` affiche « pas encore » et la voie 1 suit `pods/ROUTINE-avant-bleo.md` (sauf la répétition des podz 8 et 9 les 31/10 et 1/11). Ce qui a été construit (L4) : l'action `boite`, le dépôt déclaré et ses codes de refus, la recherche d'images par légende (`npm run images -- --cherche`), la routine en deux voies, le chef sur la jauge. Pas encore : `etat` et `label` sur r et `bleo_valeurs`, les commandes de langue de la voie 2, `slide_appli`, la validation à 6 h (L7). Les consignes des routines des podz ne se changent que depuis la conversation de chaque podz : la routine commune (`pods/ROUTINE.md`) prime sur elles.
 
@@ -470,12 +474,13 @@ Les podz changent sur trois points : ils lisent leur boîte au lieu de chercher 
 
 | Action | Changement |
 | --- | --- |
-| `boite` (neuve, jeton du podz) | Rend `bleo_boite` pour le label du podz, dans l'ordre, avec la jauge (`bleo_jauge`) : semaines, part de full test, nombre de full tests du jour, familles au budget |
+| `boite` (neuve, jeton du podz) | Rend `bleo_boite` pour le label du podz, dans l'ordre, avec la jauge (`bleo_jauge`) : semaines, part de full test, nombre de full tests du jour, familles au budget. *0653 :* aussi la voie (`voie`) et, pour chaque parent, son id chez le podz (`source_id`) ; en voie 2, les full tests du jour sont la part de la jauge même boîte vide (les posts neufs du compte modèle passent avant) |
+| `deposer`, `type: "nouveau"` (voie 2, 0653) | `type_bleo` facultatif. Déclaré, le dépôt est jugé comme un original, sur son titre normalisé (`accrocheDuTitre`) ; sans déclaration, c'est un remake, pas jugé. À la validation, une déclinaison rejoint la famille de son parent |
 | `deposer`, `type: "original"` | Deux champs obligatoires : `type_bleo` (`full_test` ou `declinaison`) et, pour une déclinaison, `parent_contenu_id`. Refus avec un code clair dans les cas de A2 (`famille_non_gagnante`, `famille_close`, `generation_max`, `quota_atteint`, `accroche_existante` pour un full test dont l'accroche existe déjà dans le label) |
 | `deposer`, preuve | La preuve (`verifierPreuve`) n'est plus exigée pour les dépôts BLEO : la boîte la remplace |
 | `deposer`, slide d'appli | Phase 5 : `slide_appli` (une position, jamais 1) remplace `texte_sophia`. `verifierOriginal` accepte l'un ou l'autre tant que `bleo.slide_marquee` est faux, puis exige `slide_appli` |
 | `etat`, `label` | Lisent `passages.r`, `etat_bleo`, `verdict` et la valeur moyenne dans `bleo_valeurs`, au lieu de `tier` et `restants`. Même r que partout (glossaire) : `statsPassages` est à aligner |
-| `commandes` (neuve, voie 2) | Rend les `bleo_commandes_langue` à faire du podz |
+| `commandes` (neuve, voie 2) | Rend les `bleo_commandes_langue` à faire du podz. *0654 :* pas d'action à part : `boite` rend `rattrapage` (`bleo_rattrapage_du_pod`, dans l'ordre, avec ce qui manque encore) et `langues` (`pod_langues`) ; l'action `langues` déclare les langues du podz (`pods.langues`) et rend celles à livrer |
 | `validerOriginal` | Écrit en plus `famille_id`, `generation`, `parent_bleo_id`, `type_bleo`, `classe_defaut`, `etat_bleo`, `slide_appli` (A2, A4). Le rang B reste écrit tant que la tierlist vit |
 | Validation automatique | `auto_validation_heures` passe à **6** pour tous les podz, et `auto_validation` est activée pour eux (phase 3) |
 
@@ -496,13 +501,24 @@ Règles supprimées : « 3 variantes en plus » après une percée à 30 k, l'es
 ### P3 · Le chef des podz (`pods/chef/AGENT.md`)
 
 - Voie 1 : il lit `bleo_jauge`. Il monte `par_jour` de 1 quand la boîte a plus de 6 semaines et que la file à juger du label a de la place (moins de 90 % de ses créneaux utilisés sur 7 jours). Il le baisse de 1 quand la jauge reste sous 1 semaine pendant 14 jours. « Le rythme ne baisse jamais » disparaît.
-- Voie 2 : règle actuelle des jours de stock (moins de 7 jours par compte et par langue : +1 par jour), plus les commandes de langue en attente.
+- Voie 2 : règle actuelle des jours de stock (moins de 7 jours par compte et par langue : +1 par jour), plus les commandes de langue en attente. *5/11 (0653) :* il lit aussi leur jauge pour son point, sans en tirer le rythme (lot 4). *0654 :* une langue qui a des commandes de rattrapage ouvertes n'appelle pas une livraison de plus. *0655 :* leur rythme est calculé par l'OS (P4) ; le chef ne le tient plus, il le rapporte.
 - Son point du matin ajoute : la jauge de chaque podz, la part de full test tenue, les familles closes, les générations 2 ouvertes.
 
 ### P4 · La voie 2 (podz 1, 6, 10, 11)
 
 - Les remakes suivent la liste du compte modèle, comme aujourd'hui. Pas de boîte, de jauge ni de full test.
+- *5/11 (0653, lot 2, décision d'Adrien) :* boîte, jauge et full tests comme en voie 1 (podz 1, 10, 11 et 13 ; le 6 est arrêté). Le jour d'un podz de remakes (`pods/ROUTINE.md` §5) : les full tests que demande la jauge, puis les posts neufs du compte modèle (sans déclaration), puis les déclinaisons dans l'ordre de la boîte, puis (podz 1) une langue du label en manque, puis des full tests en plus. L'accroche est le titre ; la vérification « accroche voisine du jour » du guichet lit le titre d'une livraison sans texte de slide. Un full test livré part sans post source (rang B). `npm run boite` dans les quatre ateliers ; `type_bleo` et `parent_contenu_id` dans `posts/<id>.json` (podz 10, 11, 13) ou `posts/manifeste.json` (podz 1). Le rythme ne change pas (lot 4).
 - **Commandes de langue** : chaque nuit, après A3, chaque livré dont le verdict est `gagnant` et qui manque dans une langue des comptes actifs de son label reçoit une ligne `bleo_commandes_langue`. Le podz la lit par l'action `commandes` et livre par le circuit `~langues` existant ; à la validation, la commande passe `livree`.
+- *5/11 (0654, lot 3, décisions d'Adrien) :*
+  - **Déclaration** : chaque podz de remakes déclare les langues qu'il sait faire (`pods.langues`, la liste `LANGUES` de son atelier, envoyée par `npm run boite` et `npm run livrer`).
+  - **Attribution** : le choix de label (`stats_choix_label`, `simulation_repartition`) lit ces langues (`langues_declarees_podz`, variantes de compte comprises) au lieu de celles déjà livrées, pour un label qui a une réserve dans l'application. Au 5/11, seul change white_bg en hongrois.
+  - **Livraison** : le podz ne livre que les langues déclarées où son label a un compte actif (`pod_langues`), la langue source toujours pour un post neuf. Au 5/11 : Fathomly en, de, it, pt-BR, es-419 (plus fr, es, pt) ; that_girl_study fr, es, tr (plus en, de, it, pt).
+  - **Rattrapage** : chaque nuit à 5 h 55 (`bleo_commandes_rattrapage`), un contenu valide d'une famille **gagnante** qui manque dans une de ces langues reçoit une commande (un deck sert sa langue et les variantes de compte de sa langue de base). Ordre : le meilleur contenu de chaque famille d'abord, les familles qui ont fait le plus de vues d'abord. Le podz les fait en premier, par le circuit « nouvelles langues » (`--complement`) ; depuis 0655, en plus de son rythme du jour, autant que `rattrapage_du_jour`. Une commande se ferme quand ses langues ont un deck validé, s'annule si sa langue n'a plus de compte. Au 5/11 : 32 page blanche (hu, et tr pour 10), 12 Fathomly (it, es-419).
+- *5/11 (0655, lot 4, décisions d'Adrien) :* **le rythme des podz de remakes est calculé** (`bleo_rythme_remakes`), à la place de `pods/rythme.json` et des règles du chef (2, 5, 6, 8) :
+  - **Consommation** : un post livré sert toutes les langues ; chaque compte du label en poste p par jour (`posts_par_jour` partagés entre ses labels). Il faut p posts neufs par jour.
+  - **Stock** : pour chaque compte, les posts du label jamais publiés, servis dans sa langue (commandes de rattrapage comprises), en jours. Le compte le plus juste décide.
+  - **Règle** : sous la cible (10 jours), p + écart × p / 7 ; au-dessus, on descend jusqu'à p / 2 à deux fois la cible ; jamais moins que les tests de la file à juger quand elle a moins de 7 jours d'avance ; entre 1 et 12. Rattrapage du jour en plus : p + écart / 7 des comptes à rattraper, au plus les commandes ouvertes. Réglages : `reglages.bleo.rythme_remakes`.
+  - **Au 5/11** : page blanche 2 + 3 rattrapages (12 avant), Fathomly 2 + 3 (9), yasmine 3 (6), Kaja 5 (2 : ses comptes n'avaient que 2 jours de posts). Les comptes postent 2 fois par jour ; la file à juger teste 0,3 à 2,4 accroches neuves par jour, 40 à 65 contenus attendaient leur test.
 - Le tirage est celui de la voie 1, dans les pools de leurs labels. Petit label sans compte qui ait une médiane (Fathomly : 3 comptes, that\_girl\_study : 1) : les tests vont à n'importe quel compte du label, et le verdict ne lit que les 10 000 vues.
 
 ## Le planning des tâches
@@ -642,7 +658,7 @@ Onze lots, chacun livrable seul, par une PR sur `main` avec ses tests. Un lot ne
 | L0 | Modèle de données fait (0600). Pas encore : `enregistrements` (0 sur 3 290 posts publiés en 7 jours), `modele` et `cuit_le` des decks, garde des colonnes BLEO de `passages` (D10) |
 | L1 | Fait (0601) |
 | L2 | Fait (0602, 0604, 0608, 0612, 0616), en fonction SQL |
-| L3 | Pas commencé (`bleo-lundi`, A11, `bleo_classes` recalculé, alertes de jauge) |
+| L3 | *12/11 (0686) : une source neuve passe par un essai (30 meilleurs posts, verdict le lundi avec 10 posts mesurés), une mise à jour n'enfile jamais plus de 100 posts par source, et les sources neuves partent à 2 par jour derrière les mises à jour (`sources_file()`, panneau « File d'import des sources »).* A11 fait (0667, 10/11) : `bleo_lundi_sources` le lundi à 6 h 07 (décisions, plus la règle des 100 k), `bleo_sources_lot` (6 sources par jour), compte rendu `bleo_sources_semaine_ui` (page Sources). Pas commencé : `bleo_classes` recalculé, alertes de jauge |
 | L4 | Fait (0615, 0628, guichet, outils des 7 podz, routines, chef, légendes) ; bascule le 1/11 au soir |
 | L5 | Fait (0603, 0614), en fonction SQL ; rapports quotidiens |
 | L6 | Abandonné (pas d'A/B) ; remplacé par le suivi plan à minuit (bascule) et le suivi avant/après (0617) |

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o163",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "76885886-310a-484b-b1ee-30200138bb89",
+ "titre": "hobbies to become frighteningly well read #intelligence #books #selfimprovement #hobbies #learning",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "9414988d-d742-41f4-bdec-010bd0da0d66"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mindcarefiles, 9414988d). déclinaison G2 de « hobbies to be disgustingly intelligent » (parent 76885886). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e62afbf-cf1c-488c-a651-d39af3065e4a",
+   "texte_overlay": "hobbies to become\nfrighteningly well read",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667684262006492429/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6d3b13a0-9fb7-404a-acc6-8169ada36531",
+   "texte_overlay": "a book club of two\n\nread the same book as one friend each month and meet to talk about it. explaining what you thought out loud roughly doubles how much of a book you remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667684262006492429/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5a559e30-48cf-4e5f-a006-4fd9d0e48a88",
+   "texte_overlay": "reading the classics\n\nread one classic a season, slowly, a few pages every night. old books stretch your attention and your vocabulary in ways that modern ones very rarely do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667684262006492429/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "efe0a96c-5f5e-48c8-9bc5-e5fa7f6daddd",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day on one lesson about a new subject: art history, philosophy, astronomy. small daily doses build a mind that connects ideas effortlessly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667684262006492429/3.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day on one lesson about something new: art history, philosophy, astronomy. i do it with the Sophia app, one lesson a day, and my mind connects ideas easily."
+  },
+  {
+   "position": 5,
+   "media_id": "2ba9aab1-71c2-4a28-b705-4c8ca8a133b8",
+   "texte_overlay": "visiting second hand bookshops\n\nbrowse a second hand bookshop once a month and buy one book you'd never normally pick. surprising books lead to surprising thoughts, and those thoughts are what make people interesting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667684262006492429/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "50d1c0f5-513f-4db2-a7a5-a1cbe752a3b0",
+   "texte_overlay": "writing in notebooks\n\nkeep a notebook for ideas, quotes and questions from everything you read. writing things down turns reading into thinking, and thinking into real intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667684262006492429/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o224",
+ "type_bleo": "full_test",
+ "titre": "Signs you're finally becoming disciplined #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 50a4e1a0. full test. Accroche jamais faite chez nous : signes de discipline, angle rassurant. Accroches écrites : « Signs you're finally becoming disciplined » (retenue), « You're more disciplined than you think if… » (écartée : long), « Proof your habits are working » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "50a4e1a0",
+   "texte_overlay": "Signs you're finally\nbecoming disciplined",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "You do things without negotiating with yourself. The alarm rings, you get up. The gym slot arrives, you go. The daily debate in your head is gone.",
+   "media_id": "9b2ff5e0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You feel strange when you skip a habit. Missing a workout or a reading session now feels off. That discomfort means the habit has become part of you.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You choose long-term over instant. The extra hour of sleep over the late scroll, the home meal over the delivery. Small choices show who's in charge.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You finish what you start. Books, courses, projects. Starting is easy. Finishing quietly is one of the clearest signs of real, lasting discipline.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I gave up on every habit after a week. After: five minutes a day of history, art or science, and a daily streak I've now kept for months.",
+   "texte_sophia": "Before: I gave up on every habit after a week. After: five minutes a day on a micro-learning app like the Sophia app. A streak I've kept for months.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You stop needing people to watch. You train hard alone, work well without a boss nearby. Discipline is what you do when nobody at all is checking.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "You stay calm when plans break. A missed day doesn't ruin your week anymore. You simply adjust and keep going, because the habit is stronger than the setback.",
+   "media_id": "3be6dd87"
+  }
+ ]
+}

@@ -15,6 +15,7 @@ demande de bout en bout, puis tu rends compte.
 >   **variantes** (à r ≥ 2 ou à 30 k), d'**essai** une fois sur cinq ou de
 >   limite par famille ne s'applique plus : la boîte et la jauge le remplacent ;
 > - une G1 reprend aussi les symboles de l'accroche du parent qui sont des lettres ou des chiffres (« θ९ », « ૮૩ ») : le guichet les compte comme des mots (`accroche_differente` sinon) ; seuls les vrais symboles (♡, 𓆩, ✦) peuvent tomber ;
+> - une G1 n'ajoute aucun mot non plus : « part 2 » ou « (part 2) » fait refuser le dépôt (`accroche_differente`, cs-o069 le 7/11) ;
 > - le reste vaut toujours : le ton, le format, la recette, les images, les
 >   applis concurrentes et les personnes réelles, le playbook comme mémoire
 >   (`npm run playbook -- --mesurer`).
@@ -28,12 +29,12 @@ que personne ne rejette est validée toute seule 5 h après son dépôt.
 - **Label** : `clean_study`.
 	- Thème : la fille qui étudie bien. Méthodes de travail, année scolaire, motivation, focus, bureaux et bibliothèques.
 	- Format : une liste, un conseil ou une méthode par slide, texte court sur des photos d'étude (bureaux, cahiers, ordinateurs, cafés, filles de dos).
-	- 9 comptes actifs : 6 micabo (4 en turc, 1 en allemand, 1 en français) et 3 UnSwipe (espagnol, espagnol d'Amérique latine, italien).
+	- Comptes actifs : tous sur micabo depuis le 4/11 (les comptes UnSwipe sont passés à micabo quand UnSwipe a été arrêté).
 	- Résultats : 754 vues médianes, 4 % des posts à 5 k vues ou plus.
 	- La réserve micabo tient environ une journée : tu sers **le volume autant que la qualité**.
-- **Le label ne sert pas Sophia : il sert micabo et UnSwipe.**
+- **Le label ne sert pas Sophia : il sert micabo** (et plus UnSwipe, arrêté le 4/11).
 	- Tu écris **un seul texte, sans aucune appli**.
-	- L'OS le traduit pour chaque compte et y place l'appli du compte : **micabo** (révision : il transforme les cours en flashcards et en quiz, 10 minutes par jour jusqu'à l'examen) ou **UnSwipe** (les réseaux sans les Reels ni les vidéos courtes).
+	- L'OS le traduit pour chaque compte et y place l'appli du compte : **micabo** (révision : il transforme les cours en flashcards et en quiz, 10 minutes par jour jusqu'à l'examen).
 	- Pas de `texte_sophia` : l'OS refuse le dépôt.
 - **Modèles**, en anglais :
 	- [@studyy.hackz](https://www.tiktok.com/@studyy.hackz) : « “I don't know what study methods to use for each subject” », la même accroche cinq fois, de 277 k à 1,7 M vues.
@@ -50,7 +51,7 @@ que personne ne rejette est validée toute seule 5 h après son dépôt.
 - **Le label est jeune** : aucun de ses contenus n'est encore à r ≥ 2.
 	- Les schémas actifs le sont par la niche : `methods-per-subject` jusqu'au 5/11, `study-hacks-earlier` jusqu'au 28/10.
 	- Lance `npm run playbook -- --mesurer` chaque jour : un schéma du label s'active tout seul quand son r passe 2.
-- **Validé**, un original devient un contenu au **rang B** pour micabo et UnSwipe :
+- **Validé**, un original devient un contenu au **rang B** pour micabo :
 	- images SANS texte et texte à part ;
 	- l'OS traduit et place l'appli de chaque compte ;
 	- il n'a pas de rang Sophia.
@@ -92,7 +93,6 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 - `texte_overlay` : le texte en anglais, **sans aucune appli**. C'est lui que l'OS traduit.
 - **Une place pour chaque appli**, sans la nommer :
 	- un item où l'on se teste sur ses cours, revoit ses notes ou prépare un examen : l'OS y place micabo ;
-	- un item sur le téléphone, le scroll, les Reels ou la concentration : l'OS y place UnSwipe.
 	
 	Un post sans l'une de ces places sert une seule des deux applis : dis-le dans `notes`.
 - `media_id` et `reference_url` : prends-les avec `npm run label -- --slides <id8>` sur un contenu d'inspiration, ou avec `npm run images`.
@@ -123,7 +123,7 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	- **Jamais de personne réelle sur les slides où l'OS place micabo ou UnSwipe** : on ne prête pas une appli à une personne réelle (voir ci-dessous : une image sans personne).
 	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
 	- Jamais une image qui montre une appli, un écran lisible ou un texte.
-- **Musique** : celle du schéma.
+- **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label
 

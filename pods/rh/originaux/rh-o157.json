@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o157",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+ "titre": "quand j'étais rh, voilà ce qu'on faisait de vos candidatures (j'en suis pas fière...) #recrutement #candidature #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Déclinaison G1 de la ligne 9 (parent d3d9cd2f) : accroche mot pour mot, autres coulisses que le parent et rh-o005. Aucune entreprise, aucun outil nommé. Inspirations : sans la slide 6 de d3d9cd2f ni les 5 et 7 de b80c0573 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ac5a9eb5",
+   "texte_overlay": "quand j'étais rh,\nvoilà ce qu'on faisait de vos candidatures\n(j'en suis pas fière...)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e0389a06",
+   "texte_overlay": "les cv de 3 pages\non lisait la première. parfois moins",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e1516966",
+   "texte_overlay": "les lettres copiées-collées\non les repérait au premier paragraphe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e1d529e3",
+   "texte_overlay": "les candidatures envoyées à minuit\non ne les jugeait pas. mais on les lisait fatigués",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "008c05fe",
+   "texte_overlay": "les centres d'intérêt\non les lisait en dernier. et c'est souvent là qu'on se souvenait de toi",
+   "texte_sophia": "les centres d'intérêt\non les lisait en dernier. le mien : 5 minutes d'histoire par jour sur l'appli Sophia. c'est souvent là qu'on se souvient de toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e2427126",
+   "texte_overlay": "les relances\nune seule nous faisait ressortir ton dossier. trois, on le reposait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e2a6ed0a",
+   "texte_overlay": "maintenant tu sais.\nfais le tri avant nous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e33bbcef",
+   "texte_overlay": "laquelle t'as déjà faite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

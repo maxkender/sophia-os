@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o110",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "268a17fb-3cc8-45c3-b085-3c4bba06f652",
+ "titre": "trends i'm quietly skipping this year (and why) #trends #slowliving #smartgirl #intentionalliving #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "07dfb7c9-bb71-42ef-bab3-6c26b29b989f"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 4 de la boîte (parent 268a17fb, langue source en) : accroche reformulée (« trends i refuse to do in 2026 and the quiet reasons why » → « trends i'm quietly skipping this year (and why) »), même promesse. Le parent est notre sg-o067 ; tendances neuves (un agenda neuf chaque janvier, poster chaque repas, être débordée comme personnalité, répondre en secondes, changer de hobby chaque semaine, scroller la nuit). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2ddcd140",
+   "texte_overlay": "trends i'm quietly skipping\nthis year (and why)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "00525728",
+   "texte_overlay": "1. a new planner every january\none notebook, used to\nthe last page.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2d73d7af",
+   "texte_overlay": "2. posting every meal\nthe best dinners stay between\nthe people who were there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5d03753e",
+   "texte_overlay": "3. being busy as a personality\ncalm is more impressive.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "160eb825",
+   "texte_overlay": "4. replying in seconds\nreplying kindly beats\nreplying fast.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7205c14f",
+   "texte_overlay": "5. a new hobby every week\none hobby for years beats\nten for a week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "220f4bff",
+   "texte_overlay": "6. scrolling in bed at night\ninstead: a book, a painting,\na story from history.",
+   "texte_sophia": "6. scrolling in bed at night\ninstead: 5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "543c5493",
+   "texte_overlay": "save this if you're\nskipping them too",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7651210949306764565/8.jpg"
+  }
+ ]
+}

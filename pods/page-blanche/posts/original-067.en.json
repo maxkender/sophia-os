@@ -1,0 +1,260 @@
+{
+ "post_id": "original-067",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "extremely disciplined"
+     ],
+     "fr": "",
+     "texte": "what to do with your [[hands]] instead of your phone"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience edition)"
+     ],
+     "fr": "",
+     "texte": "(give your thumbs a rest)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get your sleep in order"
+     ],
+     "fr": "",
+     "texte": "read [[an actual paper book]]"
+    },
+    "T2": {
+     "en": [
+      "when you're tired, the part of your brain behind",
+      "self-control is the first to slow down"
+     ],
+     "fr": "",
+     "texte": "a page has no notifications, no autoplay and no next video, so [[your attention stays put]]"
+    },
+    "T3": {
+     "en": [
+      "that's why it's so",
+      "much harder to say",
+      "no to junk food and",
+      "scrolling after a bad",
+      "night"
+     ],
+     "fr": "",
+     "texte": "your hands are holding a book, so they can't hold your phone. simple, but it works"
+    },
+    "T4": {
+     "en": [
+      "a lot of the time you're not lazy, you're just tired, so",
+      "fix your sleep first"
+     ],
+     "fr": "",
+     "texte": "start with [[10 pages before bed]], with your phone charging in another room"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "",
+     "texte": "cook [[one meal from scratch]] a week"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "",
+     "texte": "chopping, stirring, tasting: your hands are full, so [[the phone stays on the counter]]"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "",
+     "texte": "start with one easy recipe and redo it until you don't need the recipe anymore"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to watch",
+      "something while you eat is destroying your attention",
+      "span"
+     ],
+     "fr": "",
+     "texte": "it's slower than ordering, and that's the point. you get a [[real meal]], a calmer head and some pride"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685736268617059616_6.jpg",
+      "boite": [
+       560,
+       667,
+       471,
+       340
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "write things down [[on paper]] again"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "a journal, a letter, a to-do list, notes with three highlighters. slow is the whole point"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[you think before every sentence]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "and your phone stays face down. after ten minutes, [[your head feels lighter]] than after an hour of scrolling"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "also, [[nice pens make it weirdly fun!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn an instrument"
+     ],
+     "fr": "apprends [[un instrument]]",
+     "texte": "play [[an instrument]]"
+    },
+    "T2": {
+     "en": [
+      "everyone stops to listen when someone can",
+      "actually play"
+     ],
+     "fr": "tout le monde écoute quand quelqu'un [[sait vraiment jouer]]",
+     "texte": "both hands are taken, so [[scrolling isn't even an option]]"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever. you'll be bad",
+      "at it for months, and",
+      "most people quit"
+     ],
+     "fr": "piano, guitare, batterie, peu importe. tu vas [[galérer pendant des mois]], et la plupart abandonnent",
+     "texte": "a cheap ukulele or an old keyboard is enough. you'll sound [[pretty bad for months]]"
+    },
+    "T4": {
+     "en": [
+      "so when you can play, it shows patience and a passion",
+      "of your own, and that's really attractive"
+     ],
+     "fr": "alors quand tu sais jouer, ça montre [[ta patience]] et [[une vraie passion à toi]], et ça c'est [[ultra attirant]]",
+     "texte": "but 15 minutes a day adds up, and one day [[you play a whole song]] without looking at your fingers"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "ne [[plus lire de livres]]",
+     "texte": "draw, [[even badly]]"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "si tu consommes surtout des posts courts, des clips et des titres, ton cerveau a rarement à [[tenir sa concentration]]",
+     "texte": "keep a sketchbook where your phone usually sits. doodles, faces, the mug in front of you, [[nobody has to see it]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "[[un livre t'oblige à suivre une idée sur des pages]], à retenir le contexte et à résister à l'envie d'autre chose",
+     "texte": "you start really looking at things, and your hands are [[too busy to reach for a screen]]. one page a day is plenty"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll, alors tant qu'à être sur mon tel, je fais 5 min de leçon sur [[l'appli Sophia]]",
+     "texte": "what replaced my scrolling: a sketchbook, a ukulele, and a 5-min lesson on [[the Sophia app]] when i grab my phone anyway"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

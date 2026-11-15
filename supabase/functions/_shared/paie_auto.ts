@@ -175,7 +175,7 @@ export function ecartsCanari(plan: PlanPaiement, jalonFinance: string | null, ja
   return ecarts;
 }
 
-export type TypeErreur = "soumission" | "carte" | "pause_contrat" | "technique" | "autre";
+export type TypeErreur = "soumission" | "carte" | "pause_contrat" | "technique" | "plafond" | "autre";
 
 /**
  * P1 : la nature d'une erreur Upwork. « soumission » : milestone pas soumise
@@ -184,6 +184,8 @@ export type TypeErreur = "soumission" | "carte" | "pause_contrat" | "technique" 
  */
 export function classerErreur(erreur: string | null): TypeErreur {
   const e = String(erreur ?? "");
+  // 9/11 : le plafond du jour (5 000 $) : reprogrammé au lendemain, jamais laissé sans prochain essai.
+  if (/plafond du jour/i.test(e)) return "plafond";
   if (/submit/i.test(e)) return "soumission";
   if (/card|payment method|billing|declin|insufficient|funds/i.test(e)) return "carte";
   if (/paus|suspend|on hold|hold/i.test(e)) return "pause_contrat";
@@ -196,6 +198,32 @@ export function classerErreur(erreur: string | null): TypeErreur {
 /** P1 : réessayée toutes les heures le lundi et le mardi (pas les refus des garde-fous). */
 export function aReessayer(type: TypeErreur): boolean {
   return type !== "autre";
+}
+
+/**
+ * Le prochain essai : le plafond du jour se libère à minuit (Paris), donc le
+ * lendemain 0 h 05 ; tout le reste dans 1 h.
+ */
+export function prochainEssai(type: TypeErreur, d = new Date()): string {
+  if (type !== "plafond") return new Date(d.getTime() + 3_600_000).toISOString();
+  const p = maintenantParis(d);
+  const demain = ajouterJours(p.jour, 1);
+  // Minuit à Paris = 23 h ou 22 h UTC la veille ; on vise 0 h 05 Paris (heure d'hiver, au pire 1 h 05 l'été).
+  return new Date(`${demain}T00:05:00+01:00`).toISOString();
+}
+
+/**
+ * Un essai réessayable n'est jamais abandonné pour un plafond ; les autres
+ * s'arrêtent le mardi à 20 h (Paris).
+ */
+export function reessaiPossible(type: TypeErreur, d: Date, semaine: string): boolean {
+  return aReessayer(type) && (type === "plafond" || !reessaisFinis(d, semaine));
+}
+
+/** Lundi ou mardi (Paris) : les jours de la paie automatique. */
+export function jourDePaie(d = new Date()): boolean {
+  const j = maintenantParis(d).isoJour;
+  return j === 1 || j === 2;
 }
 
 /** La semaine que la paie du jour règle : le lundi précédent (heure de Paris). */

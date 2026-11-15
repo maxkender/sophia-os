@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o156",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "02c284f5-366d-4e1e-b495-f495a5ea5278",
+ "titre": "the unbothered woman's rulebook #unbothered #peace #smartgirl #selfrespect #detachment",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "0e662ce8-fe35-4620-bb02-0e39daa361e8"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 4 de la boîte (parent 02c284f5, langue source en) : accroche reformulée (« laws of magnetic detachment (the rules unbothered people live by) » → « the unbothered woman's rulebook »), autre que sg-o142. Règles neuves, jamais manipulatrices (pas de réponse obligatoire le jour même, le silence comme réponse, pas de dispute en commentaires, une vie pleine, partir poliment d'un drame). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1fd844e7",
+   "texte_overlay": "the unbothered woman's\nrulebook",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d4f07cbb",
+   "texte_overlay": "1. not every message needs\nan answer today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e8840eaf",
+   "texte_overlay": "2. silence is a complete answer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "540413b1",
+   "texte_overlay": "3. never argue in the comments",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8caad3c9",
+   "texte_overlay": "4. build a life so full you don't\nnotice who left",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4ea3fae1",
+   "texte_overlay": "5. leave the drama politely,\nand early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ab703908",
+   "texte_overlay": "6. keep learning\n\na curious mind has no time\nfor gossip.",
+   "texte_sophia": "6. keep learning\n\ni spend 5 minutes a day on\na micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "70415997",
+   "texte_overlay": "which rule do you need most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602024166073715998/5.jpg"
+  }
+ ]
+}

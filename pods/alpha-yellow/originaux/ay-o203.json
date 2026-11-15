@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o203",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8a6227c5-b0b3-40db-a9f4-dadb2f34b0d4",
+ "titre": "How to command respect with a calm voice #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "8a6227c5-b0b3-40db-a9f4-dadb2f34b0d4"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Couverture 9b2ff5e0. déclinaison G2 de la ligne 6 de la boîte (8a6227c5, notre ay-o101 qui a gagné : sr 3,2 k r 2,98), 3e et dernière déclinaison après ay-o174 et ay-o191. Même promesse, autres mots. Items neufs, aucun repris d'ay-o101, o174 ni o191.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9b2ff5e0",
+   "texte_overlay": "How to command respect\nwith a calm voice",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Speak from your chest, not your throat. A lower, relaxed voice carries authority. Take a breath before you speak and let your words come out slowly.",
+   "media_id": "a75b8832"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Say people's names when you disagree. \"Mark, I see it differently.\" Using a name keeps the tone personal and respectful, and it makes people listen.",
+   "media_id": "9e66209e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Never repeat yourself louder. If you're not heard, say it again at the same calm volume. Raising your voice signals to everyone that you've lost control.",
+   "media_id": "2979667b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep your sentences short in tense moments. Long speeches sound defensive. \"That's not okay. Let's fix it.\" Few words, calmly said, carry real weight.",
+   "media_id": "c7b88a0b"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I lost every heated discussion. After: five minutes a day of history, art or science, and a calmer, clearer head that keeps my voice steady.",
+   "texte_sophia": "Before: I lost every heated discussion. After: five minutes a day on a micro-learning app like the Sophia app. A calmer head keeps my voice steady.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Hold eye contact at the end of your point. Don't look away the second you stop talking. A steady look tells people you mean every word you just said.",
+   "media_id": "3be6dd87"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Smile when it's over. Once the issue is solved, move on warmly. Calm authority with no grudges is what makes people respect you in the long run.",
+   "media_id": "f4bd619d"
+  }
+ ]
+}

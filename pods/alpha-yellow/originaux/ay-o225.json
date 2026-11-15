@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o225",
+ "type_bleo": "full_test",
+ "titre": "How to be the guest everyone wants to invite back #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "91d8b0a6-0223-489b-ac2e-42d4ed22b054"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 5bd9baa8. full test. Accroche jamais faite chez nous : être un bon invité, social et concret. Ajouté parce que la boîte n'a que 8 lignes déclinables aujourd'hui (§4.2). Accroches écrites : « How to be the guest everyone wants to invite back » (retenue), « Dinner party manners every man needs » (écartée : plus étroit), « How to never be a bad guest » (écartée : négatif).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5bd9baa8",
+   "texte_overlay": "How to be the guest\neveryone wants to invite back",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Reply to the invitation quickly. A clear yes or no within a day. Hosts plan food and seats, and the guest who answers fast is already their favourite.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Bring something thoughtful. Flowers, a dessert, a good bottle, or something from your trip. Never arrive empty-handed, even to a casual evening.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Offer to help, then follow the host's lead. \"Can I do anything?\" If they say no, relax and enjoy. If they say yes, do it well and without any fuss.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Talk to people you don't know. Introduce yourself to the other guests, especially the quiet ones. Good guests make the whole party easier for the host.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bring good conversation. I do five minutes a day of history, art or science, and there's always a fun story ready when the dinner table goes quiet.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. There's always a fun story ready when the table goes quiet.",
+   "media_id": "da95147f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Know when to leave. Watch the host's energy. Leaving while things are still lively is better than being the last guest still talking at 2am.",
+   "media_id": "26e760de"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Send a thank-you message the next day. \"Thanks for a great evening, the lasagne was incredible.\" Small, specific thanks guarantee the next invitation.",
+   "media_id": "62463b6a"
+  }
+ ]
+}

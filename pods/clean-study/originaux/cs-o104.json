@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o104",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e76a5a8f-60c9-4f6e-ac57-86cc094e0e40",
+  "titre": "toxic reminders for every time you think about skipping your study session #studytok #studymotivation",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "e76a5a8f-60c9-4f6e-ac57-86cc094e0e40"
+  ],
+  "notes": "Déclinaison G2 de e76a5a8f (notre cs-o061 en G1 : r 8,02 en italien), ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o093 et cs-o099 : « toxic reminders for every time you think about skipping your study session ». « Toxic » = rivalité avec soi-même. Rappels neufs, aucun de cs-o061, cs-o093, cs-o099 ni du parent 3c5e67e9 : la version de soi qui révise, sauter c'est emprunter, le canapé ne passe pas l'examen, 3 questions sur la leçon (place micabo, slide 5), la promesse faite à soi-même, le plus dur c'est s'asseoir. Depuis le 12/11 : images prises dans toute la banque (aucune livrée depuis 14 jours), son alterné parmi 6 sons du label qui ont marché. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "088496ae",
+      "texte_overlay": "toxic reminders for every time you think\nabout skipping your study session",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0b0770fb",
+      "texte_overlay": "skipping today isn't free.\nyou're borrowing time from a very stressed future you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "50dd6b17",
+      "texte_overlay": "your couch won't take the test for you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b1bde5ee",
+      "texte_overlay": "you promised yourself. that counts too.\nkeep it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "40e230d0",
+      "texte_overlay": "3 questions on today's lesson. right now.\nyou'll keep going, i promise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9eed0755",
+      "texte_overlay": "the hardest part is sitting down.\nyou've done harder things today.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "c35780e8",
+      "texte_overlay": "be the girl who did it anyway.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

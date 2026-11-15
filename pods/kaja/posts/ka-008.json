@@ -1,0 +1,283 @@
+{
+ "id": "ka-008",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7696107863982296342",
+  "vues": 415600,
+  "publie_le": "2026-10-13",
+  "accroche": "10/10 SKILLS TO GET GIRLS"
+ },
+ "titre": {
+  "en": "10/10 skills to get girls",
+  "de": "10/10 Skills, die Frauen lieben"
+ },
+ "legendes": {
+  "en": "10/10 skills to get girls #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills, die Frauen lieben #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Remake de son post à 416 k (13/10), décor falaise (le sien), en en et de (les langues du label depuis le 7/11). Ses 4 compétences, ses couleurs (rose, brun, vert, or) et son temps « 10-20 min ». Sa première étape « SMALL TALK » devient « TALK TO GIRLS » (en) et « SO SPRICHST DU FRAUEN AN » (de) : ka-001 et ka-005 ont déjà le small talk. « STOP BEING BORING » devient en allemand « SO WIRST DU SPANNENDER » (« INTERESSANT » est déjà dans ka-001). Sophia en étape 3 « HOW TO BE CULTURED », à la place de sa slide d'appli de fin : cta A, « 5 min a day ». D'autres vraies vidéos que les siennes (Benjamin Seda, Jaye Alexander, ThatGuy, Fits By Stick) : en Beyond Attraction, Groomify, The School of Life, Legendary Luke ; de TAMARA, Dominik Lebersorger, Logical Lemon, Der Stilberater.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "TO GET GIRLS"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS, DIE",
+     "FRAUEN",
+     "LIEBEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "TALK TO GIRLS",
+       "couleur": "#e65ca7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JJY8jw2hVts",
+     "titre": "Master The Art of Conversation With Women",
+     "chaine": "Beyond Attraction",
+     "vues": "1.2M views",
+     "date": "9 months ago",
+     "duree": "13:19",
+     "avatar": "https://yt3.ggpht.com/nM5o4sTssjILXEAVOj_Su4612IHELzPc_Ch7qnauDguZzHSUgStBZUAc7Uegi0GQdcsDBgIxYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPRICHST DU",
+     [
+      {
+       "t": "FRAUEN AN",
+       "couleur": "#e65ca7"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HB_L9s-D5S0",
+     "titre": "Die besten Sätze für den lockeren Gesprächseinstieg mit jeder Frau",
+     "chaine": "TAMARA",
+     "vues": "160.027 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "9:52",
+     "avatar": "https://yt3.ggpht.com/tQd3YiOMF4a8RVNqPamjtVfWkEj-Xn8Ed1pfmW2Eye2UVHB07w_ipYR1e9uT85vexjk3o4kM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "GLOW UP",
+       "couleur": "#6f422b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u1HezCJtCfI",
+     "titre": "36 Glow-Up Tips In 4 minutes | Every Man Should Know",
+     "chaine": "Groomify",
+     "vues": "364K views",
+     "date": "7 months ago",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/i1-t0MwK-c-4FZaSTApuML8UVhy0ygjR0sYbaUsKNbOs3xaM8lDEulAihx-MY2WX-QXyF6bM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KLAPPT",
+     [
+      {
+       "t": "DEIN GLOW UP",
+       "couleur": "#6f422b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zFhQatz5snY",
+     "titre": "30 Tage Glow Up | Selbstexperiment",
+     "chaine": "Dominik Lebersorger",
+     "vues": "194.776 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "9:28",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BE CULTURED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRST DU",
+     [
+      {
+       "t": "GEBILDET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "STOP BEING BORING",
+       "couleur": "#33e52f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "M9i2HAE-ZSw",
+     "titre": "How Not to be Boring",
+     "chaine": "The School of Life",
+     "vues": "5.6M views",
+     "date": "9 years ago",
+     "duree": "6:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ldJz69qUu_3sEO5c-lO5Cevt7X2gUE2YQ11iWAC-6TZFU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRST DU",
+     [
+      {
+       "t": "SPANNENDER",
+       "couleur": "#33e52f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "21EmgH27O6U",
+     "titre": "So wirst Du Interessanter (3 Tipps, die sofort wirken)",
+     "chaine": "Logical Lemon",
+     "vues": "850.740 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SMELL GOOD",
+       "couleur": "#ca9b03"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vyHhsF6CLT8",
+     "titre": "How To Always Smell Good As A Man",
+     "chaine": "Legendary Luke",
+     "vues": "775K views",
+     "date": "7 months ago",
+     "duree": "9:31",
+     "avatar": "https://yt3.ggpht.com/6jCuNDPzbDJunJ-hkDnL17lALND9PwT3n3Zf7fhDnnbO7NUwi88du9Yow5u3ZMhBmGWwaXzAWow=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO RIECHST DU",
+     [
+      {
+       "t": "IMMER GUT",
+       "couleur": "#ca9b03"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vmIRkDV9GOM",
+     "titre": "Gut riechen als Mann: Der komplette Parfum-Guide für Einsteiger",
+     "chaine": "Der Stilberater | Justus Hansen",
+     "vues": "244.603 Aufrufe",
+     "date": "vor 2 Monaten",
+     "duree": "15:23",
+     "avatar": "https://yt3.ggpht.com/VT3ojCJjwwg5oy3wXLVbYtSMzXbRSMls9MKqR-iq0dMCV3DjJ2L0G4dBuZNbhORUcgXnkiA-IQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  }
+ ]
+}

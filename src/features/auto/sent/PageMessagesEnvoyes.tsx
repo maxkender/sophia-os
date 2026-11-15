@@ -8,6 +8,7 @@ import { CompteursHm } from "@/features/envoisMain/CompteursHm";
 import { OngletsAuto, PanneauOnglet } from "../OngletsAuto";
 import { useOnglet } from "../useOnglet";
 import { ApercuMessages } from "./Attente";
+import { IncomprisTextes } from "./IncomprisTextes";
 import { JournalMessages } from "./JournalMessages";
 import { TextesMessages } from "./TextesMessages";
 import { TimingMessages } from "./TimingMessages";
@@ -51,6 +52,8 @@ export function PageMessagesEnvoyes() {
           <ApercuMessages />
         ) : onglet === "textes" ? (
           <>
+            {/* 6/11 : tous les textes automatiques avec les « What does it mean » reçus après chacun. */}
+            <IncomprisTextes />
             <TextesMessages />
             {/* Les règles dites aux posteurs sur leur tableau de bord (lien le jour même, warm-up, bienvenue). */}
             <ReglagesRegles />

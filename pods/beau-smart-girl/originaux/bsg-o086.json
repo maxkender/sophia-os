@@ -1,0 +1,55 @@
+{
+  "source_id": "bsg-o086",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "4b50f215-5ebc-4653-b28c-450a8e3fb83d",
+  "titre": "how to make waking up easier #morningroutine #thatgirl",
+  "inspirations": [
+    "4b50f215-5ebc-4653-b28c-450a8e3fb83d"
+  ],
+  "notes": "G1, déclinaison de 4b50f215 (« how to make waking up easier », génération 0 en anglais ; meilleur passage de 4,5 k vues, r 2,42), en anglais. cta B (l'anecdote du jour en item 3). Items neufs (rien de repris du parent : ni heure de coucher, ni sortir dehors, ni eau froide, ni autre appli). Aucun conseil médical. Fait vérifié le 5/11 sur https://en.wikipedia.org/wiki/Napoleon_complex : environ 1,67 m, « the period's average adult male height » ; le mythe vient des caricatures de Gillray. Routine du 5/11 sur BLEO : jauge 1 full test et 7 déclinaisons ; j'ai fait 2 full tests et 6 déclinaisons (lignes 2 à 7 de la boîte), car les autres lignes ne se déclinent pas proprement : 1 (083ac272, 9 hobbies « validés par la science », des preuves que je ne peux pas vérifier, et le label évite la liste « prouvée par la science » vague), 8 (837491f7, faute de frappe et salaires), 9 (6211e51e, « other then »), 10 (9e0c287f, « je notes… j'ai essayé », fautes à recopier). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "05aa354b",
+      "texte_overlay": "how to make waking up easier",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0f057bec",
+      "texte_overlay": "1. lay out tomorrow the night before\n\nclothes, bag, breakfast.\nfewer decisions, easier mornings.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4c866843",
+      "texte_overlay": "2. pick a song you only play when you wake up\n\nafter a week, it feels like a start signal.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "114ca47c",
+      "texte_overlay": "3. give your brain something fun first\n\nthis morning i learned that napoleon wasn't actually short. he was about average height for his time.\ni woke up arguing with history.",
+      "texte_sophia": "3. give your brain something fun first\n\nthis morning, the Sophia app taught me that napoleon wasn't actually short. he was about average height for his time.\ni woke up arguing with history.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "414511dc",
+      "texte_overlay": "4. make your bed with you still in it\n\npull the covers up, roll out.\nnow going back is too much effort.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "01c21b76",
+      "texte_overlay": "5. have something to look forward to\n\na good coffee, a new chapter,\na walk before class.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0ac9fed0",
+      "texte_overlay": "save this for tomorrow morning.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

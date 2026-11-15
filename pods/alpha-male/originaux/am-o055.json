@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o055",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7c174e67-8129-47cf-8a56-b88f28f421b3",
+ "titre": "things to do on your own that make you mentally bulletproof #men #confidence #selfimprovement #discipline",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7626992013648448277",
+ "inspirations": [
+  "7c174e67-8129-47cf-8a56-b88f28f421b3"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 6/11. Déclinaison G2 de la ligne 1 (parent 7c174e67 = notre am-o032, langue source en ; 2e déclinaison après am-o051 du 5/11). Même promesse reformulée autrement qu'hier (« things to do on your own that make you mentally bulletproof »). Même format : item en minuscules puis deux lignes. Items neufs, ni du parent ni de am-o051. Images de la banque ; slide Sophia : salon vide, sans personne, sans écran ni tableau. reference_url du parent vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3a40f5d6",
+   "texte_overlay": "things to do on your own\nthat make you\nmentally bulletproof",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2d98b7de",
+   "texte_overlay": "go to the movies alone\n\npick the film you want.\nno one to agree with.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "33162a3d",
+   "texte_overlay": "walk through a museum alone\n\nstay as long as you like\nin front of one piece.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "306c86af",
+   "texte_overlay": "ask a stranger for directions\n\nyes, even with a phone.\nthe fear is smaller than you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0c58ad90",
+   "texte_overlay": "join a class where\nyou know no one\n\nbe the beginner in the room.\nit stops feeling strange fast.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4155671a",
+   "texte_overlay": "spend a saturday offline\n\nno feed. no updates.\nyou'll find out what you actually like.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "021a527d",
+   "texte_overlay": "learn something every day,\neven when no one's watching\n\nfive quiet minutes.\nthat's how it starts.",
+   "texte_sophia": "learn something every day,\neven when no one's watching\n\nuse a micro-learning app\nlike the Sophia app. 5 minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672548117622918422/2.jpg"
+  }
+ ]
+}

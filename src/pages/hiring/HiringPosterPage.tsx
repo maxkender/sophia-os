@@ -152,7 +152,7 @@ function LignePoster({
   createurs: PosterProfil[];
 }) {
   const { t } = useTranslation();
-  const { role, profil } = useAuth();
+  const { role } = useAuth();
   // Prompt 15, point 1 et prompt 21, A5 : la HM et le DM n'ajoutent pas de compte et ne réactivent pas.
   const bloqueCommeHm = role === "hiring_manager" || role === "directing_manager";
   const queryClient = useQueryClient();
@@ -360,7 +360,7 @@ function LignePoster({
         <FormulaireAjouterCompte
           posterId={p.id}
           languesProposees={langues.data ?? []}
-          choixApplications={peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video}
+          choixApplications={peutChoisirApplicationsCompte(role)}
         />
       )}
     </div>
@@ -380,7 +380,7 @@ export function HiringPosterPage() {
 
 function FormulairePosteurs() {
   const { t } = useTranslation();
-  const { role, profil } = useAuth();
+  const { role } = useAuth();
   // Prompt 15, point 1 et prompt 21, A5 : la HM et le DM n'ajoutent pas de compte et ne réactivent pas.
   const bloqueCommeHm = role === "hiring_manager" || role === "directing_manager";
   const queryClient = useQueryClient();
@@ -432,7 +432,7 @@ function FormulairePosteurs() {
   // créateurs suivent ses labels vidéo). Rien de coché d'avance : il faut
   // cliquer ; Sophia = corps d'avant.
   const choixApps = useChoixApplicationsCreation(
-    peutChoisirApplicationsCompte(role) && !profil?.hm_ugc_ai_video && premierCompte === "perso",
+    peutChoisirApplicationsCompte(role) && premierCompte === "perso",
     langue,
   );
 

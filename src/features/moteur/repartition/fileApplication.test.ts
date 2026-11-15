@@ -23,7 +23,7 @@ const ID_MICABO = "00000000-0000-4000-8000-000000000005";
 const SMART = { id: "l-smart", slug: "smart_girl", nom: "Smart Girl" };
 const CLASSIC = { id: "l-classic", slug: "classic-study", nom: "Classic Study" };
 const MEDICAL = { id: "l-medical", slug: "medical-study", nom: "Medical Study" };
-const UGC = { id: "l-ugc", slug: "ugc-x", nom: "UGC X", ugc_ai_video: true };
+const UGC = { id: "l-ugc", slug: "ugcv", nom: "UGCV", manuel: true };
 const LABELS = [SMART, CLASSIC, MEDICAL, UGC];
 const LIENS = [
   { label_id: SMART.id, application_id: ID_SOPHIA },

@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o191",
+ "type_bleo": "full_test",
+ "titre": "les 5 avantages que j'ai compris trop tard (et qui valaient plus qu'une augmentation) #travail #salaire #carriere #emploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "1fd9d1f3-71b5-423b-aadc-d27c2a00601b",
+  "bbe75cf0-48c8-4181-b88b-19bd7b8e13a3"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Full test : accroche jamais faite chez nous. Avantages généraux, aucun chiffre inventé, rien de juridique. Inspirations : sans la slide 4 de 1fd9d1f3 ni la 5 de bbe75cf0 (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e1d47a57",
+   "texte_overlay": "les 5 avantages que j'ai compris trop tard\n(et qui valaient plus qu'une augmentation)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6009907d",
+   "texte_overlay": "un manager qui te forme\nça vaut des années de salaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6138b39a",
+   "texte_overlay": "des horaires qui te laissent une vie\nle soir, le week-end, à toi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "617ad328",
+   "texte_overlay": "une équipe qui partage ce qu'elle sait\nchacun apprend plus vite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "494f2b36",
+   "texte_overlay": "du temps pour apprendre\nmoi je prends 5 minutes par jour. une boîte qui en donne plus, c'est rare",
+   "texte_sophia": "du temps pour apprendre\nmoi je prends 5 minutes par jour sur l'appli Sophia. une boîte qui en donne plus, c'est rare",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "61863c72",
+   "texte_overlay": "un trajet court\n1 heure de moins par jour, c'est 200 heures par an",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665727303070076192/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "61b04d98",
+   "texte_overlay": "le salaire compte.\nmais pas tout seul",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6276e043",
+   "texte_overlay": "lequel compte le plus pour toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661298561363086624/7.jpg"
+  }
+ ]
+}

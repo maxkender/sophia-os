@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o086",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0d7afc97-7fc8-4f4d-a814-41a29031d1e0",
+ "titre": "my study tips as a straight a student pt 2 #studytips #straighta #smartgirl #studytok #studymotivation",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "632d2be2-8d6f-4ec6-8753-1c4a41516421"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 10 de la boîte (parent 0d7afc97, langue source en) : accroche du parent mot pour mot. Lignes 7 à 9 écartées (autres applis citées, faute « dangerously confidence », nom de compte dans l'accroche). Conseils par matière neufs face au parent (histoire, littérature, langues, maths, biologie, culture générale). Sophia en cta C (entre les cours au lieu de scroller). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2268dc5b",
+   "texte_overlay": "my study tips as a straight a\nstudent pt 2",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "311b5f00",
+   "texte_overlay": "history:\n\ndraw one timeline per chapter.\ndates make sense once you\nsee them in order.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "42a63988",
+   "texte_overlay": "literature:\n\nannotate in the margins.\nthree colours: themes,\nquotes, questions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c5bda82a",
+   "texte_overlay": "languages:\n\n10 new words a day,\nsaid out loud.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "19dbf056",
+   "texte_overlay": "maths:\n\nredo every mistake until\nyou can explain it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e1434e4d",
+   "texte_overlay": "biology:\n\ndraw the diagram from memory,\nthen check it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "38e1c733",
+   "texte_overlay": "general knowledge:\n\ninstead of scrolling between\nclasses, learn one short thing:\na painting, a war, a planet.",
+   "texte_sophia": "general knowledge:\n\ninstead of scrolling between\nclasses, i do 5 minutes on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0cc4cdaf",
+   "texte_overlay": "save this for exam season",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  }
+ ]
+}

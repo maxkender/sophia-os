@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o134",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5073d26c-6068-4bf0-a363-185958bc8899",
+ "titre": "5 trucs à faire pendant ta période d'essai pour qu'on te garde #periodedessai #nouveaujob #travail #carriere #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 5/11 (3 full tests + 9 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne 8 (parent 5073d26c) : accroche mot pour mot, autres conseils que le parent et rh-o082. Aucune entreprise citée. Inspirations : sans les slides 5 des deux sources (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6109bb8c",
+   "texte_overlay": "5 trucs à faire pendant ta période d'essai\npour qu'on te garde",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7c0fc4ad",
+   "texte_overlay": "1. apprends le vocabulaire de la maison\nchaque boîte a ses sigles. note-les le premier jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7cd24ee0",
+   "texte_overlay": "2. tiens tes petites promesses\n« je t'envoie ça demain » et tu l'envoies",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7dacccb9",
+   "texte_overlay": "3. propose ton aide sur un truc précis\npas « si t'as besoin ». « je peux faire la mise en page ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5bdfdd29",
+   "texte_overlay": "4. aie des choses à dire à la pause\nperso, 5 minutes par jour à apprendre un truc, et t'es jamais à court",
+   "texte_sophia": "4. aie des choses à dire à la pause\nperso, 5 minutes par jour sur l'appli Sophia, et t'es jamais à court",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7f888a07",
+   "texte_overlay": "5. demande « qu'est-ce que je dois améliorer ? » à mi-parcours\npas à la fin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "806a8a28",
+   "texte_overlay": "la période d'essai, c'est une audition.\nl'attitude compte autant que le talent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

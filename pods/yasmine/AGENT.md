@@ -15,7 +15,7 @@ rejette est validée toute seule 5 h après son dépôt.
 	- `ANALYSE.md` donne le détail, `sources/manifeste.json` la liste de ses posts et l'ordre de travail.
 - **L'appli** : **micabo**, une appli de révision. On y dépose ses cours ou ses notes, elle en fait des quiz et des flashcards, 10 minutes par jour jusqu'à l'examen. Écris toujours « micabo » en minuscules.
 - **Le label** : `that_girl_study`, qui sert **micabo seul**. Aucun compte n'y est rattaché pour l'instant : Adrien et Max choisissent les comptes.
-- **Langues** : chaque post dans les grandes langues : fr, en, es, de, it, pt, tr (décision d'Adrien du 24/10, tous les posts, même déjà validés). Une slide avec une capture de micabo prend la version traduite de la mise en scène (`photo` dans la langue) ; tant qu'elle n'est pas servie et juste à l'écran, la langue attend. Dépose par lots de 2 ou 3 langues (`--langues es,de`) : au-delà, la fonction tombe en WORKER_LIMIT (HTTP 546).
+- **Langues (5/11, 0654)** : chaque post part en français (langue source, toujours) et dans les langues où that_girl_study a un compte actif ; `npm run livrer` les demande à l'OS (aujourd'hui es et tr) et laisse les autres de côté. Tes langues possibles restent fr, en, es, de, it, pt, tr (`LANGUES`, décision d'Adrien du 24/10) : c'est ta déclaration, lue par l'attribution des comptes ; un compte qui s'ouvre dans l'une d'elles reçoit les posts gagnants en rattrapage (`npm run boite`, `pods/ROUTINE.md` §5.5 : `npm run livrer -- <id> --langues <langues> --complement`). Une slide avec une capture de micabo prend la version traduite de la mise en scène (`photo` dans la langue) ; tant qu'elle n'est pas servie et juste à l'écran, la langue attend. Dépose par lots de 2 ou 3 langues (`--langues es,de`) : au-delà, la fonction tombe en WORKER_LIMIT (HTTP 546).
 	- La police d'écriture fine (Nothing You Could Do) n'a pas ğ, ı, ş, İ : en turc, choisis un mot sans ces lettres pour elle.
 - **Parfait ou rien** (décision du 23/10). Un remake part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
@@ -63,7 +63,8 @@ rejette est validée toute seule 5 h après son dépôt.
 - **CTA** : A = conseil à la 1re personne dans le texte, sans image ; B = mise en scène micabo en photo pleine d'une étape ; C = mise en scène micabo en moitié de collage, sous une légende de conseil.
 - **Notes iOS sur photo** (« things i do to SMASH EVERY EXAM ») : slide `photo` avec `note` (`x` 108 ou 308, `y`, `titre`, `texte`), barre d'état et boutons de l'app Notes, Inter Medium 41/37 px. micabo y entre dans le texte d'un conseil, jamais en capture.
 - **Cartes d'applis** (« my favorite productivity apps ») : `type: "carte"`, l'iPad blanc plus petit (`IPAD_CARTE`), icône 168 px, nom et texte en Inter Medium `#323232`. Icônes dans `assets/applis/` (App Store ; Calendrier repeint en français).
-- **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), l'écran d'accueil d'iPhone (« organise my phone »).
+- **Écrans d'iPhone** (« organise my phone ») : `npm run ios -- <nom>` dessine 5 écrans iOS (verrouillage, accueil à widgets, vue Aujourd'hui, centre de contrôle, concentration) depuis `ios/<nom>.json` (fond d'écran, textes par langue) dans `assets/ios/<nom>/<langue>/` ; chaque slide photo les pose avec `capture` et `iphone: {haut: 250, largeur: 700}`. micabo y est en widget (slide de l'accueil = slide de l'appli).
+- **Pas encore dans l'atelier** : les cartes « Notes » blanches (« school tips », « digital declutter »), les pages d'agenda iPad (« THAT GIRL GUIDE to planning »).
 	- Ajoute-les dans `atelier/` en les mesurant sur ses slides (`npm run veille` les met en cache dans `donnees/cache/`).
 	- Garde le même soin que le reste.
 
@@ -81,6 +82,7 @@ Lance `npm install` une fois par session. `livrer`, `etat` et `photos` demandent
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/fr/<n>.jpg`) et la planche `sortie/apercus/<id>.fr.jpg`. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle la slide micabo (une seule, pas la couverture). Une variante (même `source.url` qu'un remake plus ancien) part avec `?variante=<id>` : l'OS refuse deux contenus de même source. |
 | `npm run etat` | Montre la file, le rang micabo, puis les vues et le r de chaque remake en ligne. |
+| `npm run boite` | La journée BLEO (`pods/ROUTINE.md` §5) : les full tests du jour, puis les familles gagnantes à décliner, dans l'ordre, avec le parent (`yp-003`) et son `parent_contenu_id`. |
 
 Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'outil Read, avant de livrer.
 
@@ -91,6 +93,7 @@ Le pilote `posts/yp-001.json` est l'exemple complet. Les ids : `yp-001`, `yp-002
 - `titre.fr` : l'accroche, lue par l'OS comme le hook.
 - `legendes.fr` : la légende TikTok, 4 ou 5 hashtags.
 - `musique` : la sienne.
+- `type_bleo` et `parent_contenu_id` (BLEO, `pods/ROUTINE.md` §5.3 et §5.4) : `"declinaison"` avec l'id complet de la boîte, ou `"full_test"` (une accroche neuve, déposée sans `source`). Absents pour le remake d'un post du compte modèle.
 - `fond` : `media_id`, `url` et `cadrage` (`x`, `y` de 0 à 1, `zoom`) de la photo.
 - `slides` : une entrée par slide, son contenu sous la clé `fr`.
 	- `couverture` : `{ "couverture": { "script_haut", "lignes", "decalages", "script_bas", "y" } }`.
@@ -107,10 +110,12 @@ Le pilote `posts/yp-001.json` est l'exemple complet. Les ids : `yp-001`, `yp-002
 1. **Les posts du manifeste au statut `a_faire`**, dans l'ordre de leur `motif` : « organise my phone », puis « after school routine », « school tips », « digital declutter », « sunday reset ».
 	- « organise my phone » attend l'icône de micabo en fichier (`assets/micabo/icone.png`). Si elle manque, passe au suivant et dis-le dans ton compte rendu.
 	- Un post livré passe à `fait`, avec l'id et la livraison dans `motif`.
-2. **Puis des variantes** des formats déjà rendus : même structure, autre sujet ou autre angle (« comment je révise chaque matière », « comment je fais mes fiches »).
+2. **Puis les déclinaisons de ta boîte** (`npm run boite`, dans l'ordre) : même structure, autre contenu ; une G2 reformule l'accroche (« comment je révise chaque matière », « comment je fais mes fiches »). Les full tests de la jauge passent avant (`pods/ROUTINE.md` §5.2).
 3. **Jamais** un post exclu (`exclu` : sans angle études, ou une autre appli au cœur du post).
 
 ## Règles
+
+- **UnSwipe est arrêté depuis le 4/11** : ne le montre plus nulle part (ni carte, ni icône, ni écran).
 
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.
 - **Budget Apify : 1 $ par semaine glissante.** Au-delà, demande l'accord de l'humain avant `--hors-budget`.

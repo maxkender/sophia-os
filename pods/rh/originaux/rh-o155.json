@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o155",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39b4b04c-a132-45bc-b7bf-71eb613bdeb0",
+ "titre": "6 vérités que j'ai « maquillées » en entretien… et le recruteur a adoré #entretien #rechercheemploi #emploi #cv #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 7/11 (4 full tests + 8 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne 1 (parent 39b4b04c, 68 k vues en el), 3e et dernière : même promesse, autres mots que rh-o094 et rh-o118. Autres questions, recadrage vrai. Inspirations : sans la slide 5 de chaque source (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "abc0a236",
+   "texte_overlay": "6 vérités que j'ai « maquillées »\nen entretien…\net le recruteur a adoré",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d7f3f4b8",
+   "texte_overlay": "« vous avez déjà travaillé sous pression ? »\nj'ai dit « en période de fêtes, en boutique »\nla vérité : c'était un job étudiant. ça compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d8473324",
+   "texte_overlay": "« vous savez présenter ? »\nj'ai dit « j'ai présenté mon mémoire devant un jury »\nla vérité : j'avais les mains moites",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c92b00d5",
+   "texte_overlay": "« qu'est-ce qui vous intéresse en ce moment ? »\nj'ai dit « l'histoire de l'art »\nla vérité : 5 minutes par jour. mais vrai",
+   "texte_sophia": "« qu'est-ce qui vous intéresse en ce moment ? »\nj'ai dit « l'histoire de l'art »\nla vérité : 5 minutes par jour sur l'appli Sophia. mais vrai",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d8b94a64",
+   "texte_overlay": "« vous connaissez nos valeurs ? »\nj'ai dit « j'ai retenu X, et ça me parle »\nla vérité : je les avais lues dans le métro",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d924eba0",
+   "texte_overlay": "« vous êtes ponctuelle ? »\nj'ai dit « je suis toujours 5 minutes en avance »\nla vérité : depuis cet entretien, oui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d9f50770",
+   "texte_overlay": "« vous avez une question ? »\nj'ai dit « qu'est-ce qui fait qu'on reste ici ? »\nla vérité : je l'avais préparée la veille",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dab1107b",
+   "texte_overlay": "je n'ai rien inventé.\nj'ai juste bien emballé la vérité",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

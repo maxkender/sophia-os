@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o192",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8d9f48b2-4ab2-42ce-90ed-8c0d982984f4",
+ "titre": "le mail que j'ai envoyé 4 jours après mon entretien a fait toute la différence (le recruteur me l'a dit) #entretien #relance #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Blue Lamp Window",
+ "musique_url": "https://www.tiktok.com/music/blue-lamp-window-7673268095087298611",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 10/11 (5 full tests + 7 déclinaisons). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne 1 (parent 8d9f48b2), 2e : même promesse, autres mots que rh-o180. Autre angle : le mail mot à mot, avec les crochets à remplir. Inspirations : sans les slides 4 et 5 de d9f07ab9 (une vraie entreprise citée, une appli concurrente) ni la 6 de e33deadc (appli concurrente). On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e64c015a",
+   "texte_overlay": "le mail que j'ai envoyé 4 jours après mon entretien\na fait toute la différence\n(le recruteur me l'a dit)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "65198142",
+   "texte_overlay": "objet\n« notre échange de mardi, poste [X] »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "654d24f1",
+   "texte_overlay": "ligne 1\n« merci encore pour le temps passé à me présenter [le projet] »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "66b33650",
+   "texte_overlay": "ligne 2\n« depuis, j'ai repensé à [le point clé], et voici une idée »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "66b8a36a",
+   "texte_overlay": "ligne 3\nl'idée, en 2 phrases. simple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4ad09ffc",
+   "texte_overlay": "ligne 4\n« je reste très motivée et disponible pour en parler »\net un sujet à moi prêt, au cas où il rappelle",
+   "texte_sophia": "ligne 4\n« je reste très motivée et disponible ». et un sujet à moi prêt, appris sur l'appli Sophia, au cas où il rappelle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6809de87",
+   "texte_overlay": "c'est tout. 4 lignes.\net le bon moment : 3 à 5 jours après",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "68f477ce",
+   "texte_overlay": "copie-le dans tes notes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

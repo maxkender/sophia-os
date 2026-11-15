@@ -1,0 +1,261 @@
+{
+ "post_id": "var-success-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 uncommon habits of",
+      "extremely successful people"
+     ],
+     "fr": "10/10 habitudes rares des gens qui ont ultra réussi",
+     "texte": "10/10 ritka szokás az extrém sikeres emberektől"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(niche kiadás)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697728269335924001_5.jpg",
+      "boite": [
+       48,
+       453,
+       491,
+       475
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "move your body every day"
+     ],
+     "fr": "bouge [[tous les jours]]",
+     "texte": "sétálj, [[hogy gondolkodj]]"
+    },
+    "T2": {
+     "en": [
+      "exercise does more than improve your physical health"
+     ],
+     "fr": "le sport fait bien plus que te garder en forme",
+     "texte": "nem a lépésszám miatt, ott jönnek [[a legjobb ötleteid]]"
+    },
+    "T3": {
+     "en": [
+      "regular movement",
+      "supports brain health,",
+      "memory, and the",
+      "ability to learn"
+     ],
+     "fr": "bouger souvent booste [[ton cerveau, ta mémoire et ta capacité d'apprendre]]",
+     "texte": "ami az asztalnál elakad, az a második körben [[sokszor magától megoldódik]]"
+    },
+    "T4": {
+     "en": [
+      "walk briskly, lift",
+      "weights, or cycle.",
+      "you don't need a",
+      "perfect routine. you",
+      "need one you can",
+      "actually maintain"
+     ],
+     "fr": "marche vite, fais de la muscu ou du vélo. pas besoin d'une routine parfaite, juste d'une que [[tu tiens vraiment]]",
+     "texte": "se podcast, se cél, csak 30 perc és a saját fejed. elvesztegetett időnek tűnik, [[amíg egyszer ki nem próbálod]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you can't read a book without",
+      "getting bored"
+     ],
+     "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
+     "texte": "tanulj meg [[minden áldott nap]] egy új dolgot"
+    },
+    "T2": {
+     "en": [
+      "if the idea of reading 20 pages seems daunting but",
+      "watching 100 tiktoks is easy, that's a serious issue"
+     ],
+     "fr": "si lire [[20 pages]] te paraît insurmontable mais que [[100 tiktoks]] passent tout seuls, y'a un [[vrai souci]]",
+     "texte": "nem egy vizsga vagy előléptetés miatt, hanem mert ha érted, hogyan működnek a dolgok, [[minden érdekesebb lesz]]"
+    },
+    "T3": {
+     "en": [
+      "this is because your attention",
+      "span is damaged from all the",
+      "short-form content"
+     ],
+     "fr": "c'est parce que ta [[concentration est cramée]] par tous ces formats courts",
+     "texte": "minél többet tudsz, annál könnyebben [[kötsz össze ötleteket]], amiket senki más"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for 20",
+      "minutes, it keeps me",
+      "consistent"
+     ],
+     "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
+     "texte": "a görgetés helyére podcastok, keresztrejtvény és [[a Sophia app]] került, ha úgyis telefonozom"
+    },
+    "T5": {
+     "en": [
+      "you can also try moving your",
+      "phone in a different room"
+     ],
+     "fr": "sinon, laisse ton tel dans une autre pièce",
+     "texte": "a kíváncsiság olyan, mint egy izom, [[használattal nő]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "ask why all the time"
+     ],
+     "fr": "demande [[pourquoi]] H24",
+     "texte": "kérdezz [[butaságokat]]"
+    },
+    "T2": {
+     "en": [
+      "most people accept the",
+      "first answer they hear"
+     ],
+     "fr": "la plupart gobent la première réponse venue",
+     "texte": "a többiek bólogatnak, hogy [[ne tűnjenek elveszettnek]]"
+    },
+    "T3": {
+     "en": [
+      "kids ask why all day, then",
+      "we just stop"
+     ],
+     "fr": "les gosses font que ça, puis on [[arrête]]",
+     "texte": "a terem fele [[sem érti]], csak hallgat"
+    },
+    "T4": {
+     "en": [
+      "curiosity is proven to help",
+      "your brain remember",
+      "what you learn"
+     ],
+     "fr": "c'est [[prouvé]] : la curiosité aide ton cerveau à [[retenir ce que t'apprends]]",
+     "texte": "[[5 másodpercig]] butának tűnsz, utána viszont örökre megérted"
+    },
+    "T5": {
+     "en": [
+      "next time you don't understand something, keep",
+      "asking until you do"
+     ],
+     "fr": "la prochaine fois que tu piges pas un truc, [[redemande jusqu'à piger]]",
+     "texte": "a sikeres emberek inkább megértenek valamit, mint hogy [[okosnak tűnjenek]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "Turn off notifications"
+     ],
+     "fr": "Coupe tes notifications",
+     "texte": "írj le mindent [[kézzel]]"
+    },
+    "T2": {
+     "en": [
+      "5."
+     ],
+     "fr": "5.",
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      "Don't have",
+      "notifications on for",
+      "every event in every",
+      "app, you don't need to",
+      "respond instantly"
+     ],
+     "fr": "T'as pas besoin de notifs pour le moindre truc dans chaque appli, ni de répondre direct",
+     "texte": "célok, ötletek, teendők. az írás épp annyira lelassít, hogy [[tényleg végiggondold]] őket"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "be comfortable being",
+      "uncomfortable"
+     ],
+     "fr": "apprends à aimer [[l'inconfort]]",
+     "texte": "tölts időt [[egyedül]], szándékosan"
+    },
+    "T2": {
+     "en": [
+      "do things that make your",
+      "brain work:"
+     ],
+     "fr": "fais vraiment bosser ton cerveau :",
+     "texte": "se emberek, se képernyő, se zaj"
+    },
+    "T3": {
+     "en": [
+      "difficult books, hard",
+      "conversations, learning",
+      "unfamiliar skills, solving",
+      "problems without",
+      "immediately searching",
+      "the answer"
+     ],
+     "fr": "des livres costauds, des discussions difficiles, des compétences nouvelles, des problèmes à résoudre [[sans chercher direct la réponse]]",
+     "texte": "egy kávé egyedül, egy csendes óra egy üres szobában. ott jössz rá, [[mit akarsz igazán]], nem arra, amit mások várnak"
+    },
+    "T4": {
+     "en": [
+      "cognitive growth rarely happens while you're",
+      "doing what already feels easy"
+     ],
+     "fr": "ton [[cerveau progresse]] rarement quand tu fais ce qui te [[paraît déjà facile]]",
+     "texte": "ha sosem maradsz egyedül a gondolataiddal, [[sosem hallod őket igazán]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

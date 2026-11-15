@@ -131,7 +131,7 @@ ou de déposer.
 - **Images et inspiration** : les images ET les slides d'inspiration d'un même
   post du top (position par position). Un post d'inspiration différent pour
   chaque original.
-- **Musique** : celle du top (« Ballad to a Mexican Desert »).
+- **Musique** : plus toujours « Ballad to a Mexican Desert » (132 contenus sur 132 au 12/11, les posteurs l'ont remarqué). Alterne au moins 5 sons qui marchent en ce moment chez @mentoridaily et dans la niche. Le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`).
 
 ## Demandes types
 

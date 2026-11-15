@@ -248,7 +248,7 @@ export async function fermerLabelsEtReaffecter(
   let r = lireReglagesChoixLabel(brut);
 
   const [labelsLus, liensLus, appsLues] = await Promise.all([
-    supabase.from("labels").select("id, slug, nom, ugc_ai_video"),
+    supabase.from("labels").select("id, slug, nom, manuel"),
     supabase.from("label_applications").select("label_id, application_id"),
     supabase.from("applications").select("id, slug, actif"),
   ]);
@@ -310,7 +310,7 @@ export async function fermerLabelsEtReaffecter(
   const [comptesLus, liensComptes] = await Promise.all([
     supabase
       .from("comptes")
-      .select("id, handle_tiktok, langue, pays, ugc_ai, ugc_ai_video, videos_uniquement, type_compte, is_active, parts_applications")
+      .select("id, handle_tiktok, langue, pays, ugc_ai, ugcv, videos_uniquement, type_compte, is_active, parts_applications")
       .in("id", idsComptes),
     supabase.from("compte_labels").select("compte_id, label_id").in("compte_id", idsComptes),
   ]);
@@ -324,7 +324,7 @@ export async function fermerLabelsEtReaffecter(
   }
   // Même périmètre que l'assignation slideshow : ni CM, ni UGC vidéo, ni vidéo seule.
   const comptes: CompteLabels[] = (comptesLus.data ?? [])
-    .filter((c) => c.is_active && c.type_compte !== "cm" && !c.ugc_ai_video && !c.videos_uniquement)
+    .filter((c) => c.is_active && c.type_compte !== "cm" && !c.ugcv && !c.videos_uniquement)
     .map((c) => ({
       id: c.id as string,
       handle: (c.handle_tiktok as string | null) ?? null,

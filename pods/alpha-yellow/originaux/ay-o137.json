@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o137",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b5aa34a8-f502-4e8f-915a-8c31d9b776c8",
+ "titre": "5 posture mistakes that make you look nervous #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "b5aa34a8-f502-4e8f-915a-8c31d9b776c8"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 69908185. déclinaison G1 de la ligne 6 de la boîte (b5aa34a8, hr 4 k r 2,92) : accroche du parent mot pour mot. Erreurs neuves, aucune reprise du parent (ay-o068) ni d'ay-o111 et o128. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "69908185",
+   "texte_overlay": "5 posture mistakes that\nmake you look nervous",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679890123126885665/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Mistake 1: hunching over your phone in public. Your shoulders curl and your head drops. Lift the phone to eye level or put it away, and you instantly look more at ease.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Mistake 2: clenching your jaw. Stress sits in your face, and people read it as tension. Let your jaw drop slightly and relax your forehead. You'll look calm.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Mistake 3: keeping your hands hidden. Hands deep in pockets or behind your back look like you're hiding something. Let them hang loosely or rest them on the table.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Mistake 4: tapping your foot. Under the table, at the bar, in meetings. It broadcasts impatience. Plant both feet flat on the floor and keep them still.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: tense in every crowded room. After: five minutes a day of history, art or science, and a calmer head that makes my body finally relax around people.",
+   "texte_sophia": "Before: tense in every crowded room. After: five minutes a day on a micro-learning app like the Sophia app. History, art, science. Now my body relaxes around people.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Mistake 5: touching your collar and tie. Constant adjusting looks insecure. Check yourself once in the mirror before you leave, then forget about your clothes.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "The fix: three deep breaths before you walk in. Shoulders down, chin level, slow exhale. It takes ten seconds and changes how you carry yourself for the whole evening.",
+   "media_id": "fd95743f"
+  }
+ ]
+}

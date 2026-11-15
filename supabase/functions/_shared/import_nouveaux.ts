@@ -54,3 +54,81 @@ export function estNouveauDepuisImport(opts: {
 
   return false;
 }
+
+/**
+ * Instant de publication d'un post TikTok, en secondes : son `createTime`, sinon
+ * les 32 bits hauts de son identifiant (TikTok y range l'heure de création).
+ * `null` : inconnu.
+ */
+export function instantPostTiktok(url: string, createTime?: number | null): number | null {
+  const ct = normaliserCreateTime(createTime ?? null);
+  if (ct !== null) return ct;
+  const id = idPostTiktok(url);
+  if (!/^\d{10,}$/.test(id)) return null;
+  const sec = Number(BigInt(id) >> 32n);
+  return sec > 1_400_000_000 ? sec : null;
+}
+
+/**
+ * La mise à jour des sources (0667, 10/11) n'enfile pas un slideshow publié il
+ * y a moins de `ageMinJours` : ses vues ne sont pas encore faites, le score
+ * d'import le refuserait, et une URL connue n'est jamais reprise (même
+ * rejetée). Il reste « manquant » et part à la mise à jour suivante. Âge
+ * inconnu : enfilé, comme avant.
+ */
+export function separerTropRecents(
+  urls: readonly string[],
+  createTimes: ReadonlyMap<string, number>,
+  maintenantSec: number,
+  ageMinJours: number,
+): { murs: string[]; tropRecents: string[] } {
+  const murs: string[] = [];
+  const tropRecents: string[] = [];
+  const limite = maintenantSec - ageMinJours * 86_400;
+  for (const url of urls) {
+    const instant = instantPostTiktok(url, createTimes.get(idPostTiktok(url)) ?? null);
+    if (ageMinJours > 0 && instant !== null && instant > limite) tropRecents.push(url);
+    else murs.push(url);
+  }
+  return { murs, tropRecents };
+}
+
+/**
+ * Combien de slideshows une mise à jour peut enfiler pour une source (0686).
+ *
+ * Deux plafonds, le plus petit gagne :
+ *   - l'essai : une source neuve n'importe d'abord que ses `essaiMax`
+ *     meilleurs posts ; tant que l'essai n'est pas levé, ce qu'elle a déjà en
+ *     stock est décompté ;
+ *   - la tranche : une mise à jour n'enfile jamais plus de `maxParMaj` posts,
+ *     pour qu'un gros catalogue s'étale sur plusieurs semaines.
+ * Les URLs arrivent triées par vues : ce sont donc les meilleurs qui passent,
+ * les autres restent « manquants » pour la mise à jour suivante. `null` : pas
+ * de plafond.
+ */
+export function plafondEnfilage(o: {
+  essaiMax: number | null;
+  dejaDeLaSource: number;
+  maxParMaj: number | null;
+}): number | null {
+  const essai = o.essaiMax !== null && o.essaiMax >= 0 ? Math.max(0, o.essaiMax - o.dejaDeLaSource) : null;
+  const tranche = o.maxParMaj !== null && o.maxParMaj > 0 ? o.maxParMaj : null;
+  if (essai === null) return tranche;
+  if (tranche === null) return essai;
+  return Math.min(essai, tranche);
+}
+
+/**
+ * Un profil que personne n'a pu lire n'est pas un profil vide (0698). Le 13/11,
+ * la clé Apify de l'OS était refusée : chaque source rendait « rien à
+ * rattraper » et la mise à jour passait pour réussie. Si aucun slideshow n'a
+ * été vu ET qu'Apify a répondu par une erreur, c'est un échec, à dire tel quel.
+ * `null` : le profil a été lu (même vide).
+ */
+export function profilIllisible(o: { vus: number; apifyErreur: string | null }): string | null {
+  if (o.vus > 0 || !o.apifyErreur) return null;
+  const cle = /\b40[13]\b|token|unauthori[sz]ed/i.test(o.apifyErreur);
+  return cle
+    ? `clé Apify refusée, le profil n'a pas été lu (${o.apifyErreur.replace(/\s+/g, " ").slice(0, 160)})`
+    : `profil illisible, Apify en erreur (${o.apifyErreur.replace(/\s+/g, " ").slice(0, 160)})`;
+}

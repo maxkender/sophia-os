@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o174",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "af899b8b-ff71-4103-a1c6-1660020ab802",
+ "titre": "5 words that will make you sound effortlessly well read #vocabulary #wellread #smartgirl #englishwords #eloquence",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "e75f82b0-87b7-41e6-bea5-e99764f2f7ed"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 13 de la boîte (parent af899b8b, langue source en) : accroche du parent mot pour mot. Cinq mots absents de nos originaux (sagacious, mellifluous, loquacious, magnanimous, fastidious). Sophia sur le dernier mot à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fb479a02",
+   "texte_overlay": "5 words that will make you\nsound effortlessly well read",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594561855947951382/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ee10c6ac",
+   "texte_overlay": "sagacious\n\nwise, with good judgement.\n\n\"a sagacious decision.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594561855947951382/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "80440d0a",
+   "texte_overlay": "mellifluous\n\nsweet and smooth to hear.\n\n\"her mellifluous voice.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594561855947951382/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c6613782",
+   "texte_overlay": "loquacious\n\ntalkative.\n\n\"a loquacious dinner guest.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594561855947951382/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "64939417",
+   "texte_overlay": "magnanimous\n\ngenerous, especially to\na rival.\n\n\"magnanimous in victory.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594561855947951382/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b4f6fd33",
+   "texte_overlay": "fastidious\n\nvery attentive to detail.\n\n\"a fastidious editor.\"",
+   "texte_sophia": "fastidious\n\nvery attentive to detail.\ni learn words like this on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594561855947951382/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "981deaa6",
+   "texte_overlay": "which one will you use first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7594561855947951382/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o083",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8eb80645-e2df-4971-afa7-5f8a162dd196",
+  "titre": "what the BEST student in class does the night before a test #studytok #studytips #exams",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "8eb80645-e2df-4971-afa7-5f8a162dd196"
+  ],
+  "notes": "Déclinaison G1 de 8eb80645 (notre cs-o027 : r 3,84 en allemand, 5,7 k vues), ligne 4 de la boîte. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o027 (rien de neuf, points faibles, la page de résumé, le sac, le téléphone, l'heure de coucher) : elle vérifie le format du contrôle, elle écrit les formules et les dates clés de mémoire une fois, une question d'entraînement par chapitre (place micabo, slide 4), un vrai dîner, elle prévoit de commencer par la question la plus facile, deux réveils. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "aca05fa0",
+      "texte_overlay": "what the BEST student in class\ndoes the night before a test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "afaa935a",
+      "texte_overlay": "she checks the format.\nwhich chapters, how long, what kind of questions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "afb4613b",
+      "texte_overlay": "she writes the key formulas and dates from memory. once.\nthen checks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "038e8184",
+      "texte_overlay": "one practice question per chapter.\njust enough to know it's there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b4944950",
+      "texte_overlay": "she eats a real dinner.\nnot chips over her notes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b696960e",
+      "texte_overlay": "she already knows her plan for tomorrow:\nstart with the easiest question.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "b747a513",
+      "texte_overlay": "two alarms. zero stress about waking up late.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

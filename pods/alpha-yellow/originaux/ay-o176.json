@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o176",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "799c57f9-694e-41c1-92df-8ffcc2fb56ea",
+ "titre": "How to become ridiculously social in a new city #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "799c57f9-694e-41c1-92df-8ffcc2fb56ea"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture 5a171e9b. déclinaison G1 de la ligne 4 de la boîte (799c57f9, notre ay-o083 qui a gagné : el 10,7 k r 2,15) : accroche du parent mot pour mot. Items neufs, aucun repris d'ay-o083.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a171e9b",
+   "texte_overlay": "How to become ridiculously\nsocial in a new city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688481645472664864/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Download nothing, walk everywhere. Explore your new neighbourhood on foot for the first month. You'll find the cafés, bars and parks where locals actually spend their time.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Volunteer once a month. A food bank, a park clean-up, a local event. Volunteering puts you next to kind people with a shared purpose, and friendships form fast.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Take a class in something hands-on. Pottery, cooking, salsa. Classes put you with the same people every week and give you something to laugh about together.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Join your colleagues for every lunch in the first months. Work friends are often the first friends in a new city, and they know all the best local spots.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: weekends alone in a city full of strangers. After: five minutes a day of history, art or science, and a story about every street that gets people talking.",
+   "texte_sophia": "Before: weekends alone in a city full of strangers. After: five minutes a day on a micro-learning app like the Sophia app. Now every street gives me a story to share.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Find the expat or newcomer meetups. Everyone there is in the same situation and wants to make friends. It's the easiest room in the city to start a conversation.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Say yes to the second plan someone suggests. The first coffee is polite, the second one is a friendship starting. Show up twice and people start inviting you back.",
+   "media_id": "26e760de"
+  }
+ ]
+}

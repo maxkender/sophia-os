@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o154",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "36aef349-b10a-4ceb-8a81-c92f0977a1a1",
+ "titre": "hobbies that will make you quietly self assured #confidence #selfimprovement #hobbies #mindset #calm",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "819372dc-f283-4b13-ae84-6f88406cab4d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 819372dc). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 36aef349). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aad313f9-4588-4956-a56d-8a5c45b49b22",
+   "texte_overlay": "hobbies that will make you\nquietly self assured",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661004742176361742/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "679ebf40-ee6b-4994-9623-2fff98e8375d",
+   "texte_overlay": "rock climbing\n\nclimb at an indoor wall once a week. every route is a small fear you face with your own body, and that courage quietly follows you out into everyday life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661004742176361742/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "23f0105e-3b32-4fa0-8df3-0d290d1a8845",
+   "texte_overlay": "choir singing\n\njoin a local choir, even if you think you can't sing. using your voice out loud among other people is a gentle way to stop being afraid of being heard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661004742176361742/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9a733459-8034-4826-8f29-ab5c46e204dc",
+   "texte_overlay": "a daily lesson\n\nspend 5 minutes a day learning something new: a strange animal, a lost empire, a famous painting. knowing interesting things makes walking into any room easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661004742176361742/3.jpg",
+   "texte_sophia": "a daily lesson\n\ni spend 5 minutes a day learning something new: a strange animal, a lost empire. i do it with the Sophia app, one lesson a day, and walking into any room got easier."
+  },
+  {
+   "position": 5,
+   "media_id": "c6f96c81-df04-4d9c-b6b6-f9ca333abe97",
+   "texte_overlay": "volunteering\n\nhelp at a food bank or shelter once a month. being useful to people who need it gives you a steady kind of confidence that doesn't depend on anyone's approval.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661004742176361742/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bdc8877e-b615-4b51-b3c2-3cce878ef34a",
+   "texte_overlay": "long solo walks\n\nwalk alone for an hour every weekend, with no music. truly learning to enjoy your own company is the quiet base every other kind of confidence is built on.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661004742176361742/6.jpg"
+  }
+ ]
+}

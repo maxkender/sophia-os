@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o143",
+  "type_bleo": "full_test",
+  "titre": "les petites choses que je fais pour mieux connaître ma propre ville #ville #culture #pourtoi",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7170306404024765186",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : être touriste chez soi, récit « je ». Accroches écrites : « les petites choses que je fais pour mieux connaître ma propre ville » (retenue : concret, faisable ce week-end), « visiter ta ville comme une touriste » (écartée : trop vu), « ma ville secrète » (écartée : vague). Le nouveau voyage (bsg-o093) parlait d'une ville inconnue ; ici, c'est la sienne. Fait vérifié le 12/11 sur https://en.wikipedia.org/wiki/Pont_Neuf : « the oldest standing bridge across the river Seine in Paris ». Routine du 12/11 sur BLEO : jauge 3 full tests et 5 déclinaisons (lignes 1 à 5 de la boîte, dans l'ordre). Images de la banque ; aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4c866843",
+      "texte_overlay": "les petites choses que je fais\npour mieux connaître ma propre ville",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "16a06d13",
+      "texte_overlay": "1. je lis les plaques des rues\n\nchaque nom a une histoire.\nje la cherche le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "414511dc",
+      "texte_overlay": "2. je prends un bus jusqu'au terminus\n\ndes quartiers où je ne serais jamais allée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0acb5ff4",
+      "texte_overlay": "3. je cherche l'histoire des monuments que je croise\n\nce matin, j'ai appris que le pont-neuf, malgré son nom, est le plus vieux pont de paris sur la seine.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. je cherche l'histoire des monuments que je croise\n\nce matin, l'appli Sophia m'a appris que le pont-neuf, malgré son nom, est le plus vieux pont de paris sur la seine.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "01c21b76",
+      "texte_overlay": "4. je vais aux journées portes ouvertes\n\nmairies, théâtres, vieux hôtels.\nune fois par an, tout s'ouvre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3615b305",
+      "texte_overlay": "5. je demande aux anciens du quartier\n\nils savent tout ce que les guides ne disent pas.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "0f057bec",
+      "texte_overlay": "enregistre-le pour ce week-end.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

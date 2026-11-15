@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o165",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c96cfebb-8e15-4d0a-9348-1827dcef66d5",
+ "titre": "how to become the most unshakeable person you know #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "c96cfebb-8e15-4d0a-9348-1827dcef66d5"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Couverture 3c7793bd. déclinaison G1 de la ligne 7 de la boîte (c96cfebb) : accroche du parent mot pour mot (minuscules du parent gardées). Items neufs, aucun repris du parent (systèmes, validation, clarté, dialogue intérieur). Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3c7793bd",
+   "texte_overlay": "how to become the most\nunshakeable person you know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Decide your values before life tests them. Honesty, loyalty, effort. Write them down. When pressure comes, you don't have to think. You already know what you'll do.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Separate what you control from what you don't. Your effort, your words, your reactions: yours. The weather, other people's moods, the economy: not yours. Focus only on the first list.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Get comfortable with discomfort on purpose. Cold showers, hard workouts, difficult conversations. Choosing small hardships makes the big unexpected ones far less scary.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep a short list of what's going well. Three things every night. On hard days, it reminds you that one bad moment never cancels everything good in your life.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Build a mind that's hard to shake. I do five minutes a day of history, art or science, and history shows how people survived far worse than my bad days.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. History shows how people survived far worse than my bad days.",
+   "media_id": "4446546e"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Have a few people you can always call. A friend, a brother, a mentor. Unshakeable people aren't alone. They know exactly who to talk to when life gets heavy.",
+   "media_id": "9879c45f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Respond slowly to big news. Good or bad, wait a day before making major decisions. A night's sleep turns most panic into a clear, calm and realistic plan.",
+   "media_id": "fd95743f"
+  }
+ ]
+}

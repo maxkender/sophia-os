@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o205",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "67af419e-74ec-43c0-b983-bbb197ab9c8e",
+ "titre": "Deviens intouchable : 4 règles pour cultiver ton mystère #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "67af419e-74ec-43c0-b983-bbb197ab9c8e"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Couverture cf1f6e1e. déclinaison G1 de la ligne 8 de la boîte (67af419e, fr, es-419 2,6 k r 4,98), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot. 4 règles neuves (aucune reprise : projets, émotions, justification, apparitions), puis Sophia, puis le pourquoi et la conclusion. Ton bienveillant, sans manipulation. Couverture du parent gardée.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "cf1f6e1e",
+   "texte_overlay": "Deviens intouchable :\n4 règles pour cultiver\nton mystère",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Règle 1 : Écoute plus que tu ne parles. Pose des questions, laisse les autres se raconter. Les gens repartent avec l'envie d'en savoir plus sur toi, parce que tu as gardé une part de ton histoire.",
+   "media_id": "215bd88e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Règle 2 : Garde une passion à toi. Un sport, un instrument, un art que peu de gens connaissent. Avoir un monde intérieur riche rend quelqu'un fascinant sans qu'il ait besoin d'en parler.",
+   "media_id": "bdf15e02"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Règle 3 : Ne publie pas toute ta vie. Pas chaque repas, chaque sortie, chaque humeur. Ce que tu gardes pour toi a plus de valeur que ce que tu montres à tout le monde.",
+   "media_id": "d0802c6e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Règle 4 : Reste calme quand les autres s'agitent. Une voix posée, des gestes lents, aucun drame. Le calme intrigue, parce que les gens se demandent ce qui se passe dans ta tête.",
+   "media_id": "38041cfe"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Nourris ton monde intérieur. Je fais cinq minutes d'histoire, d'art ou de science par jour, et une tête pleine d'idées rend chaque conversation plus intrigante.",
+   "texte_sophia": "Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Une tête pleine d'idées rend chaque échange intrigant.",
+   "media_id": "5a171e9b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Pourquoi ça marche : le mystère ne vient pas du silence ou de la distance. Il vient d'une personne riche à l'intérieur, qui n'a pas besoin de tout prouver aux autres.",
+   "media_id": "5792bc29"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Reste sincère et chaleureux. Être intouchable ne veut pas dire être froid. Sois gentil, présent, attentif, et garde simplement un jardin secret qui n'appartient qu'à toi.",
+   "media_id": "9879c45f"
+  }
+ ]
+}

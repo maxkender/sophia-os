@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o164",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "98b71b08-da03-41e2-ac0d-dd3e6d75755c",
+ "titre": "habits that will make you fiercely self confident #confidence #selfimprovement #habits #mindset #psychology",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "417bef18-6b3a-4c40-ab5f-735ce8546603"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@katsreset, 417bef18). déclinaison G2 de « habits that will make you disgustingly confident » (parent 98b71b08). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ddb26f47-02bd-43b7-a867-a2891c921e2b",
+   "texte_overlay": "habits that will make you\nfiercely self confident",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581594607104888119/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7b83291f-b369-4511-95e4-62c2d8a125da",
+   "texte_overlay": "making eye contact first\n\nbe the first to make eye contact and smile when you walk into a room. it takes one second, and it quietly sets the tone for every conversation that follows.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581594607104888119/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4e13df29-9c6f-47da-a5ae-ae76b8f758b4",
+   "texte_overlay": "keeping your word to yourself\n\ndo the small thing you promised yourself, even when nobody would know. self trust is built from tiny kept promises, and it's the root of real confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581594607104888119/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "abd94cb1-db06-415c-9030-1aacd5f64766",
+   "texte_overlay": "saying no without excuses\n\npractise saying no in one short sentence, with no long explanation. the less you justify yourself, the more people respect your time and your choices.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581594607104888119/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "01e5edfe-cc34-44ee-b80f-a1d78dbd0638",
+   "texte_overlay": "learning something daily\n\nspend 5 minutes a day learning one interesting thing: a strange animal, a lost city, a famous painting. having things to talk about makes every room less scary.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581594607104888119/3.jpg",
+   "texte_sophia": "learning something daily\n\ni spend 5 minutes a day on one lesson in the Sophia app: a strange animal, a lost city, a painting. having things to talk about made every room feel less scary to me."
+  },
+  {
+   "position": 6,
+   "media_id": "eff155b9-1624-4cb1-9c62-de3b968a60f2",
+   "texte_overlay": "standing tall\n\ncheck your posture three times a day: shoulders back, chin level. your body sends confidence signals to your own brain long before anyone else notices them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7581594607104888119/6.jpg"
+  }
+ ]
+}

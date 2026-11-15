@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o071",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5712b5ed-b46d-47ea-b8b3-ccbe09f5dece",
+ "titre": "6 ways to be a man people respect for life #men #respect #selfimprovement #discipline #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7607192688017885974",
+ "inspirations": [
+  "5712b5ed-b46d-47ea-b8b3-ccbe09f5dece"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 9/11. Déclinaison G2 de la ligne 2 (parent 5712b5ed = notre am-o036, langue source en ; 2e déclinaison après am-o064). Même promesse, autre reformulation (« 6 ways to be a man people respect for life »). Même format : « N. Titre: » puis trois lignes. Gestes neufs, ni de am-o036 ni de am-o064. Images de la banque et une célébrité (autorisé) ; slide Sophia : terrasse sur le lac, sans personne. reference_url du parent (slide 1 manquante : 400, slide 2 à la place), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0e7fb5ac",
+   "texte_overlay": "6 ways to be a man\npeople respect for life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2c9e27cd",
+   "texte_overlay": "1. Send The Thank-You:\n\nAfter the dinner. After the favor.\nOne line is enough.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "306c86af",
+   "texte_overlay": "2. Give Up Your Seat:\n\nOn the bus. At the bar.\nNo speech needed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0b34258f",
+   "texte_overlay": "3. Teach Someone Younger:\n\nHow to fish. How to fix.\nHow to stand up straight.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3871d5dc",
+   "texte_overlay": "4. Carry The Heavy Bags:\n\nBefore anyone asks.\nThen say nothing about it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "34f9f572",
+   "texte_overlay": "5. Own Real Tools:\n\nAnd know how to use them.\nBe the man who fixes it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0a60706f",
+   "texte_overlay": "6. Never Stop Learning:\n\nHistory. Science. Art.\nFive minutes a day\nkeeps a man sharp.",
+   "texte_sophia": "6. Never Stop Learning:\n\nUse a micro-learning app\nlike the Sophia app.\nFive minutes a day\nkeeps a man sharp.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

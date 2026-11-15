@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o091",
+  "type_bleo": "full_test",
+  "titre": "how i study with friends without it turning into a hangout #studytok #studytips #school",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 11/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« study group » absent du label). Accroches écrites : « how i study with friends without it turning into a hangout » (retenue : une galère très partagée, un plan simple), « group study rules that actually work » (écartée : plate), « why studying with friends never works » (écartée : faux). Gestes vrais : un objectif écrit avant de commencer, chacun prépare sa partie, 45 minutes de travail puis la pause pour discuter, s'expliquer les leçons à tour de rôle, se poser des questions les uns aux autres (place micabo, slide 6), les téléphones dans un panier. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne. La banque n'a plus de photos libres : les images sont reprises d'originaux de plus d'une semaine, les moins utilisées d'abord (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1a55fc54",
+      "texte_overlay": "how i study with friends\nwithout it turning into a hangout",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "aa1803bc",
+      "texte_overlay": "we write the goal before we start.\n\"chapter 3 + 10 exercises\". on paper.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "bf7a74cf",
+      "texte_overlay": "everyone prepares their part at home.\nwe meet to check, not to start from zero.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "cc0de45d",
+      "texte_overlay": "45 minutes of work, then the break.\nthe gossip waits for the break.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cdfaf7b8",
+      "texte_overlay": "we take turns explaining a lesson.\nif you can teach it, you know it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9c5eb8e4",
+      "texte_overlay": "then we quiz each other.\nno notes, real questions, a little competition.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cf1e6ee2",
+      "texte_overlay": "phones go in a basket in the middle.\nfirst one to grab theirs buys snacks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

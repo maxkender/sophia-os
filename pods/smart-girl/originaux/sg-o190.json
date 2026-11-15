@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o190",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "229c66cb-15c6-4195-868e-9e7b53a3006a",
+ "titre": "words that make you sound dangerously well spoken #vocabulary #wellspoken #smartgirl #eloquence #communication",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "229c66cb-15c6-4195-868e-9e7b53a3006a"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 21 de la boîte (parent 229c66cb, langue source en) : accroche du parent mot pour mot. Remplacements neufs face au parent (« i think » → « i'd argue », « basically » → « essentially », « like » → rien, « a lot » → « considerably », « i'm not sure » → « let me check », « sorry to bother you » → « do you have a moment? »). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f870596f",
+   "texte_overlay": "words that make you sound\ndangerously well spoken",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1587c202",
+   "texte_overlay": "instead of \"i think\"\nsay \"i'd argue\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b34b7327",
+   "texte_overlay": "instead of \"basically\"\nsay \"essentially\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5b368691",
+   "texte_overlay": "eloquence isn't enough:\nyou need something to say.\nread a little every day.",
+   "texte_sophia": "eloquence isn't enough:\nyou need something to say.\ni learn a little every day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "da1a926e",
+   "texte_overlay": "instead of \"a lot\"\nsay \"considerably\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a66aace2",
+   "texte_overlay": "instead of \"i'm not sure\"\nsay \"let me check\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0e9d8976",
+   "texte_overlay": "instead of \"sorry to bother you\"\nsay \"do you have a moment?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fa23108e",
+   "texte_overlay": "save this and try one today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622220424985824532/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o088",
+ "type_bleo": "full_test",
+ "titre": "things to do on a sunday that make you smarter by monday #sundayreset #smartgirl #selfimprovement #learning #slowliving",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test (la jauge en demande 1 sur 9) : accroche jamais faite chez nous (« smarter by monday » n'apparaît nulle part dans donnees/label.json, « sunday » seulement en passant). Accroches écrites : « things to do on a sunday that make you smarter by monday » (retenue : promesse concrète et datée, rituel du week-end), « a sunday routine for curious girls » (écartée : routine, plus faible chez nous), « how to spend a sunday like an intellectual » (écartée : proche du « level up » générique). Sophia en cta C (à la place du scroll du dimanche soir). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "087a2a63",
+   "texte_overlay": "things to do on a sunday that\nmake you smarter by monday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "489388be",
+   "texte_overlay": "1. a slow morning walk\nwithout headphones\n\nyour best ideas need silence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "099f54f4",
+   "texte_overlay": "2. one long article\nwith your coffee\n\nnot ten headlines.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5ea0d7bd",
+   "texte_overlay": "3. one hour in a museum\n\npick one room,\nnot the whole building.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "377aeb07",
+   "texte_overlay": "4. cook a recipe from a country\nyou've never visited",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "05406b17",
+   "texte_overlay": "5. call someone older than you\n\nask what the world was like\nat your age.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "408e5017",
+   "texte_overlay": "6. swap the sunday-night scroll\nfor one real lesson\n\na painting, a war, a planet.",
+   "texte_sophia": "6. swap the sunday-night scroll\nfor 5 minutes on an app\nlike Sophia: art, history,\nscience.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1b755d6f",
+   "texte_overlay": "7. write down three things\nyou want to learn this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "082106cd",
+   "texte_overlay": "save this for sunday",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/9.jpg"
+  }
+ ]
+}

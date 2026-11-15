@@ -32,6 +32,11 @@ describe("LANGUES_CIBLES", () => {
     }
   });
 
+  it("inclut le coréen (Corée du Sud)", () => {
+    expect(LANGUES_CIBLES).toContain("ko");
+    expect(nomPays("ko")).toBe("Corée du Sud");
+  });
+
   it("a un pays OS pour chaque code", () => {
     expect(nomPays("ar")).toBe("Égypte");
     expect(nomPays("he")).toBe("Israël");

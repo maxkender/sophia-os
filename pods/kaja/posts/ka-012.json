@@ -1,0 +1,302 @@
+{
+ "id": "ka-012",
+ "source": {
+  "url": "https://www.tiktok.com/@kaja.learn/video/7671587006027205910",
+  "vues": 147800,
+  "publie_le": "2026-08-08",
+  "accroche": "10/10 SKILLS YOU CAN LEARN NOW"
+ },
+ "titre": {
+  "en": "10/10 skills you can learn now",
+  "de": "10/10 Skills zum sofort Lernen"
+ },
+ "legendes": {
+  "en": "10/10 skills you can learn now #skills #selfimprovement #learnontiktok",
+  "de": "10/10 Skills zum sofort Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "Remake de son post à 148 k (08/08), décor falaise (le sien), en en et de. Il n'a pas de slide d'appli : Sophia remplace sa compétence qui colle le moins (« MAKE A FISHING SPEAR »), en étape 3 au milieu « HOW TO KNOW A BIT OF EVERYTHING », cta C, « 5 min a day ». Ses titres (« BASICS OF VIDEO EDITING », « THE SECRET OF PUBLIC SPEAKING », « LEARN HOW TO COOK »), ses couleurs (lavande, rouge) et ses temps. D'autres vraies vidéos que les siennes (Think Media, Insider Tech, TEDx, Nick DiGiovanni) : en Gavin Herman, Mr Chops, Alexander Lyon, Epicurious ; de Nilson1489, Tomary, RedeFabrik, FOODBOOM.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS",
+     "YOU CAN",
+     "LEARN NOW"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS ZUM",
+     "SOFORT",
+     "LERNEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "BASICS",
+     [
+      {
+       "t": "OF VIDEO",
+       "couleur": "#a49ec4"
+      }
+     ],
+     "EDITING"
+    ],
+    "video": {
+     "id": "954L0eVIdaE",
+     "titre": "How I Would Learn Video Editing (If I Could Start Over)",
+     "chaine": "Gavin Herman",
+     "vues": "2.2M views",
+     "date": "1 year ago",
+     "duree": "13:32",
+     "avatar": "https://yt3.ggpht.com/VuQKP9w_iI2fZ-LvqTnfmFg4_gSF4xYeZo8J4bi1QIpLe_EEvzPRp5tTXsWjZvEzJjLm_4V7g0I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours"
+    ],
+    "tailles": [
+     150,
+     150,
+     150
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHNEIDEST DU",
+     [
+      {
+       "t": "VIDEOS",
+       "couleur": "#a49ec4"
+      }
+     ]
+    ],
+    "video": {
+     "id": "M3M832ti79A",
+     "titre": "VIDEOS SCHNEIDEN für ANFÄNGER mit DaVinci Resolve (KOSTENLOS)",
+     "chaine": "Nilson1489",
+     "vues": "181.914 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:42",
+     "avatar": "https://yt3.ggpht.com/vWEXvQiC3NCbD4TRSFKzUFM1UrxOG3I1p34mPqMC8v4uI0tydk-X7TsCPsETdjU1PdGNnER7AQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SPEED TYPE",
+       "couleur": "#dc1720"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QAb3ATOpBpE",
+     "titre": "How To Type Faster (Tips for every stage 0  - 50 - 100 - 150 WPM)",
+     "chaine": "Mr Chops",
+     "vues": "3.8M views",
+     "date": "3 years ago",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/KUH-ABz1GGHM2AE4B4z5fwmBtP3I1zpx0dZAWoh8eWHuOv8GX9S0w66mbK2qg-B5-mS6LfKr7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TIPPST DU",
+     [
+      {
+       "t": "SCHNELLER",
+       "couleur": "#dc1720"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rf-0prKREVY",
+     "titre": "2x so schnell Tippen in 1 Woche (471 apm) | Selbstexperiment",
+     "chaine": "Tomary",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:12",
+     "avatar": "https://yt3.ggpht.com/gxG8Y9l8Dfg0hOL42zFA2g2c2NsmvFHun4_DpPjAHMGT7uKHRC2meCAM0EhEYPgucJPB8V70cvk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO KNOW",
+     [
+      {
+       "t": "A BIT OF",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "EVERYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WEISST DU",
+     [
+      {
+       "t": "VON ALLEM",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "EIN BISSCHEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE SECRET",
+     [
+      {
+       "t": "OF PUBLIC SPEAKING",
+       "couleur": "#dc1720"
+      }
+     ]
+    ],
+    "video": {
+     "id": "83wYDzO3CzI",
+     "titre": "Public Speaking Anxiety Tips: 6 Mindset Tips",
+     "chaine": "Alexander Lyon Communication Coach",
+     "vues": "1.1M views",
+     "date": "5 years ago",
+     "duree": "6:52",
+     "avatar": "https://yt3.ggpht.com/QtXlJNplGP3Z4r_NSbIJIjFTbipZD7dYoZYcjq5Jr7-SrTFwvzHEQmmCozBeRUOK5vTHt--HlLw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO REDEST DU",
+     [
+      {
+       "t": "FREI",
+       "couleur": "#dc1720"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UGbo8X-rXqo",
+     "titre": "Frei sprechen lernen - Übungen, um unendlich lange am Stück locker reden zu können",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "229.004 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "11:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "LEARN HOW",
+     [
+      {
+       "t": "TO COOK",
+       "couleur": "#dc1720"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aopS3q6f1GY",
+     "titre": "Cooking Tips For Kitchen Beginners | Epicurious 101",
+     "chaine": "Epicurious",
+     "vues": "1.9M views",
+     "date": "3 years ago",
+     "duree": "8:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZx80-3cTYmxKt9xeXzUUkAP9RuDcDT6J0u_5RSRBYHQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "KOCHEN",
+       "couleur": "#dc1720"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rvXf_UFkBLE",
+     "titre": "Küchen-Basics – Hannes zeigt euch, was ihr braucht",
+     "chaine": "FOODBOOM",
+     "vues": "105.608 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfIJ5K_n0sv2KrUxznNViMBPAqHk1pFF61tdXYkOXBUgk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden"
+    ]
+   }
+  }
+ ]
+}

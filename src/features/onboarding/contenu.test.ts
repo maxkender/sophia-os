@@ -1,23 +1,24 @@
 import { describe, expect, it } from "vitest";
 
-import { ECRANS, QUESTIONS, QUESTIONS_PAIE, SALON_COHORTE_RUUL, ecransPour, questionsPour } from "./contenu";
+import { ECRANS, QUESTIONS, REGLE_ARGENT, REGLE_HELP, ecransPour, questionsPour } from "./contenu";
 
 function texte(ecrans: ReturnType<typeof ecransPour>, cle: string): string {
   return JSON.stringify(ecrans.find((e) => e.cle === cle)?.blocs ?? []);
 }
 
 describe("ecransPour", () => {
-  it("garde l'accueil standard pour un poster recruté par un HM", () => {
-    expect(ecransPour(null)).toBe(ECRANS);
-    expect(ecransPour({ cohorteRuul: false, emailRuul: null })).toBe(ECRANS);
+  it("garde l'accueil standard pour un poster recruté par un HM (seule la 1re semaine est personnelle)", () => {
+    const ecrans = ecransPour({ cohorteRuul: false, emailRuul: null });
+    expect(ecrans.map((e) => e.cle)).toEqual(ECRANS.map((e) => e.cle));
+    expect(ecrans.filter((e, i) => e !== ECRANS[i]).map((e) => e.cle)).toEqual(["compte"]);
   });
 
-  it("cohorte Ruul : mêmes écrans, dans le même ordre, deux seulement remplacés", () => {
+  it("cohorte Ruul : mêmes écrans, dans le même ordre ; Slack, Payments et la 1re semaine remplacés", () => {
     const ecrans = ecransPour({ cohorteRuul: true, emailRuul: "ana@example.com" });
     // La reprise et le compteur d'étapes s'appuient sur ECRANS.length.
     expect(ecrans.map((e) => e.cle)).toEqual(ECRANS.map((e) => e.cle));
     const changes = ecrans.filter((e, i) => e !== ECRANS[i]).map((e) => e.cle);
-    expect(changes).toEqual(["slack", "paiements"]);
+    expect(changes).toEqual(["slack", "paiements", "compte"]);
   });
 
   it("cohorte Ruul : paie par Ruul avec l'adresse du site, plus de HM ni d'Upwork", () => {
@@ -26,9 +27,16 @@ describe("ecransPour", () => {
     expect(paie).toContain("Ruul");
     expect(paie).toContain("ana@example.com");
     expect(paie).not.toMatch(/hiring manager|upwork/i);
-    expect(paie).toContain("https://app.ruul.io/register");
-    expect(texte(ecrans, "slack")).toContain("#ruul-questions");
-    expect(texte(ecrans, "slack")).toContain("#welcome");
+    // 13/11 (Max) : jamais « crée ton compte sur ruul.io » : depuis l'email d'invitation.
+    expect(paie).not.toMatch(/ruul\.io/i);
+    expect(paie).toContain("invitation email from Ruul");
+    expect(paie).toContain("FROM that email");
+    expect(paie).toContain("It's done");
+    expect(paie).toContain(REGLE_ARGENT);
+    const slack = texte(ecrans, "slack");
+    expect(slack).toContain("#ruul-posters");
+    expect(slack).toContain("#posting-help");
+    expect(slack).not.toMatch(/#ruul-questions|#questions|Lucia/);
   });
 
   it("cohorte Ruul : l'écran Payments demande le nom de la pièce d'identité, l'accueil standard jamais", () => {
@@ -53,14 +61,24 @@ describe("accueil standard", () => {
     expect(cles).not.toContain("mission");
   });
 
-  it("Slack d'abord, recommandé (28 oct.) : « Join Slack » et la phrase sur le nom complet", () => {
+  it("13/11 : l'écran Slack porte la règle unique (Help, puis Slack dans le bon salon, puis l'argent)", () => {
     expect(cles[1]).toBe("slack");
-    expect(texte(ECRANS, "slack")).toContain("1. JOIN SLACK (RECOMMENDED)");
-    expect(texte(ECRANS, "slack")).toContain("Join with your **full name**: that's where you get news and answers to your questions.");
+    const t = texte(ECRANS, "slack");
+    expect(t).toContain(REGLE_HELP.replace(/"/g, '\\"'));
+    expect(t).toContain("#posting-help");
+    expect(t).toContain("#upwork-posters");
+    expect(t).toContain("Please make sure you join Slack");
+    expect(t).toContain("Maximilien Kender");
+    expect(t).not.toMatch(/#questions|Lucia|ask all your questions/);
     expect(ECRANS.find((e) => e.cle === "slack")!.blocs.some((b) => b.type === "rejoindreSlack")).toBe(true);
   });
 
-  it("28 oct., G : la 1re semaine en 5 étapes, dans l'ordre, avec les règles du warm-up et du lien", () => {
+  it("13/11 : plus jamais #questions, #ruul-questions ni Lucia dans l'accueil et le quiz", () => {
+    const tout = JSON.stringify([ECRANS, ecransPour({ cohorteRuul: true, emailRuul: null }), QUESTIONS]);
+    expect(tout).not.toMatch(/#questions|#ruul-questions|Lucia|ask all your questions/);
+  });
+
+  it("la 1re semaine, dans l'ordre, jusqu'au 1er paiement (Upwork : par milestone)", () => {
     const compte = ECRANS.find((e) => e.cle === "compte")!;
     expect(compte.blocs.map((b) => b.type)).toEqual(["frise", "regle", "regle", "alerte"]);
     const frise = compte.blocs[0] as Extract<(typeof compte.blocs)[number], { type: "frise" }>;
@@ -70,10 +88,30 @@ describe("accueil standard", () => {
       "3. Create your TikTok account",
       "4. Start warmup + follow 5 accounts",
       "5. Your first post",
+      "6. Your first payment: the Monday after your first week, via your Upwork milestone",
     ]);
     expect(frise.items[3]!.quand).toBe("Before Sunday midnight");
     expect(compte.blocs).toContainEqual({ type: "regle", regle: "warmup" });
     expect(compte.blocs).toContainEqual({ type: "regle", regle: "lien" });
+  });
+
+  it("13/11 : Ruul, l'étape « Prepare your Ruul account » et le 1er paiement avec SON montant", () => {
+    const ecrans = ecransPour({ cohorteRuul: true, emailRuul: null, handle: "ana.studies", premierPost: "Monday 16 November", premierPaiement: "Monday 23 November", montantSemaine: 10 });
+    const compte = ecrans.find((e) => e.cle === "compte")!;
+    const frise = compte.blocs[0] as Extract<(typeof compte.blocs)[number], { type: "frise" }>;
+    expect(frise.items.map((i) => i.titre)).toEqual([
+      "1. Log in",
+      "2. Join Slack",
+      "3. Create your TikTok account @ana.studies",
+      "4. Start warmup + follow 5 accounts",
+      "5. Prepare your Ruul account",
+      "6. Your first post",
+      "7. Your first payment: Monday 23 November, 10 $ for your first week",
+    ]);
+    expect(frise.items[4]!.texte).toContain("Invitation email from Ruul");
+    // Montant inconnu : pas de montant inventé.
+    const sans = ecransPour({ cohorteRuul: true, emailRuul: null, premierPaiement: "Monday 23 November" });
+    expect(texte(sans, "compte")).toContain("7. Your first payment: Monday 23 November\"");
   });
 
   it("28 oct., G : le @ et le lundi du posteur quand on les connaît", () => {
@@ -143,26 +181,21 @@ describe("quiz", () => {
   it("sept questions, dont la paie sans warm-up, les questions et les paiements", () => {
     expect(QUESTIONS).toHaveLength(7);
     expect(q("paye-sans-warmup").options[q("paye-sans-warmup").bonne]).toBe("No");
-    expect(q("question").options[q("question").bonne]).toContain("#questions");
+    expect(q("question").options).toEqual(["I DM the CEO", "I ask Help in the Sophia OS", "I ask anybody"]);
+    expect(q("question").options[q("question").bonne]).toBe("I ask Help in the Sophia OS");
     const paie = q("paiement").options[q("paiement").bonne]!;
-    expect(paie).toContain("#questions");
-    expect(paie).toContain("Upwork");
+    expect(paie).toBe("I ask Help in the OS; if it's really a problem, I DM Maximilien Kender on Slack");
     expect(paie).not.toMatch(/hiring manager/i);
   });
 
   it("chaque réponse attendue se lit sur l'écran où le quiz renvoie", () => {
-    expect(texte(ECRANS, "slack")).toContain("#questions");
-    expect(texte(ECRANS, "paiements")).toContain(QUESTIONS_PAIE);
-    expect(QUESTIONS_PAIE).toBe("Questions? Ask in #questions on Slack, or reply to our message on Upwork.");
+    expect(texte(ECRANS, "slack")).toContain("Click **Help**");
+    expect(texte(ECRANS, "paiements")).toContain(REGLE_ARGENT);
+    expect(texte(ecransPour({ cohorteRuul: true, emailRuul: null }), "paiements")).toContain(REGLE_ARGENT);
   });
 
-  it("cohorte Ruul : questions dans son salon, paie sans HM", () => {
-    const ruul = questionsPour({ cohorteRuul: true, emailRuul: null });
-    expect(ruul.map((x) => x.cle)).toEqual(QUESTIONS.map((x) => x.cle));
-    expect(q("question", ruul).options[q("question", ruul).bonne]).toContain(SALON_COHORTE_RUUL);
-    const paie = q("paiement", ruul).options[q("paiement", ruul).bonne]!;
-    expect(paie).not.toMatch(/hiring manager/i);
-    expect(paie).toContain("Lucia De Mojà or Maximilien Kender");
+  it("13/11 : mêmes questions pour Ruul et Upwork", () => {
+    expect(questionsPour({ cohorteRuul: true, emailRuul: null })).toBe(QUESTIONS);
     expect(questionsPour(null)).toBe(QUESTIONS);
   });
 });

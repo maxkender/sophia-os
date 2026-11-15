@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o198",
+ "type_bleo": "full_test",
+ "titre": "lessons from history that still apply to your life #history #lifelessons #wisdom #selfimprovement #learning",
+ "musique_titre": "Ballad to a Mexican Desert",
+ "musique_url": "https://www.tiktok.com/music/ballad-to-a-mexican-desert-7209138244645373953",
+ "inspirations": [
+  "21ae6cc4-14d9-4820-b2ef-83e9d498d552"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 21ae6cc4). full test BLEO : accroche jamais faite (format « lessons from history that apply to you »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5106dbab-9f90-46a8-9480-4366f06714d1",
+   "texte_overlay": "lessons from history that\nstill apply to your life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655025432755997974/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "68b408ad-8d71-48f5-9c39-8680ef617e67",
+   "texte_overlay": "empires fall slowly\n\nrome didn't collapse in a day. it declined through small habits nobody noticed. your life works the same way, so the little things you repeat matter most.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655025432755997974/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "22837502-ddd4-4fb6-b30d-9efbf38f97e9",
+   "texte_overlay": "the stoics were right\n\nmarcus aurelius wrote that we suffer more in imagination than in reality. most of the things you worry about tonight will never actually happen at all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655025432755997974/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "efcf2815-11e2-4cc6-beba-d64b47fe3411",
+   "texte_overlay": "copying works\n\nrenaissance painters learned by copying the masters for years. copying people you admire isn't cheating, it's how almost every great skill has always begun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655025432755997974/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3fbf59af-9bbf-4062-849a-07a60cffc97d",
+   "texte_overlay": "small daily study\n\nmany great thinkers in history set aside a little time every day to learn. 5 minutes of daily learning, kept up for years, quietly turns ordinary people into brilliant ones.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655025432755997974/5.jpg",
+   "texte_sophia": "small daily study\n\ngreat thinkers studied a little every day. the Sophia app turns it into one short lesson a day, 5 minutes on a myth or a planet, and over the years it quietly makes you brilliant."
+  },
+  {
+   "position": 6,
+   "media_id": "dddd5ecb-e7d2-4b9f-9c9d-48d517b9aa1b",
+   "texte_overlay": "plans always change\n\nno battle plan survives first contact, as the old saying goes. make plans anyway, but hold them loosely, because the people who adapt fastest usually win.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655025432755997974/6.jpg"
+  }
+ ]
+}

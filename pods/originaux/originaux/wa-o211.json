@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o211",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "bac3822b-31fe-42c9-8fa2-082068232bba",
+ "titre": "hobbies that make your evenings better than any screen #hobbies #doomscrolling #slowliving #selfimprovement #evening",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "adcb68de-e32c-4b29-b78e-1181e7bf8a56"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, adcb68de). déclinaison G2 de « 5 hobbies to build a life so good u stopped doomscrolling » (parent bac3822b). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "294bc4e1-b127-4259-9344-134b122343b0",
+   "texte_overlay": "hobbies that make your\nevenings better than any screen",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "08524022-9b28-4927-ae29-9e6cf30bc5ff",
+   "texte_overlay": "evening sketching\n\nkeep a small sketchbook by the sofa and draw one object from your day. your drawings won't be perfect, but an hour with a pencil feels calmer than any feed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1d96ba9b-8c2d-46ee-afd6-c75effb27c02",
+   "texte_overlay": "slow cooking\n\ncook one new recipe on a weeknight with music on and no rush. chopping, tasting and stirring slowly is a gentle and lovely way to let the whole working day go.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0b379aa3-927b-4065-8226-c2ac06258a9d",
+   "texte_overlay": "learning by lamplight\n\nspend 5 minutes each evening learning one beautiful thing: a myth, a planet, a painting. it's far more satisfying than an hour of scrolling past strangers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/4.jpg",
+   "texte_sophia": "learning by lamplight\n\ni used to scroll until midnight. now i spend 5 minutes each evening on one lesson in the Sophia app, a myth or a planet, and my evenings finally feel like they're mine."
+  },
+  {
+   "position": 5,
+   "media_id": "08fd29c1-8cfa-4086-a363-af283c3dfb14",
+   "texte_overlay": "puzzles\n\nkeep a jigsaw puzzle on a table and add a few pieces every night. it gives your hands and mind something quiet to do, and finishing it feels so satisfying.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0ff745fa-1cdf-475b-912e-34f2ab4a692f",
+   "texte_overlay": "evening walks\n\nwalk around your neighbourhood after dinner, just as the lights come on. cool air and quiet streets help you sleep better than any late night scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/6.jpg"
+  }
+ ]
+}

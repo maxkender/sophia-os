@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o069",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0abce757-ce94-486c-813f-30ea570efef6",
+  "titre": "study habits that are boring but actually work #studytok #studytips #school #studymethod",
+  "musique_titre": "original sound",
+  "musique_url": "https://www.tiktok.com/music/original-sound-7460550495862573866",
+  "inspirations": [
+    "0abce757-ce94-486c-813f-30ea570efef6"
+  ],
+  "notes": "Déclinaison G1 de 0abce757 (notre cs-o035 : r 22,25 en espagnol d'Amérique latine, 7,7 k vues), ligne 3 de la boîte. Accroche du parent mot pour mot (un premier dépôt avec « part 2 » en plus a été refusé : accroche_differente). Habitudes neuves, aucune de cs-o035 (même heure, refaire les exercices, 10 minutes de test, relire la question, bureau rangé, téléphone ailleurs) : la liste du lendemain écrite le soir, 5 minutes sur les notes de la veille avant d'attaquer, la matière la plus dure en premier, des exercices plutôt que relire le chapitre (place micabo, slide 5), une pause de 5 minutes toutes les 25 minutes, le même endroit pour travailler. Depuis le 4/11, le label ne sert que micabo : une seule place d'appli par post, sur une photo d'objet sans personne (reprise d'un original de plus d'une semaine : la banque n'en a plus de propres). Slides de personnes : les 13 dernières photos libres, puis des photos les moins utilisées d'originaux de plus d'une semaine (reprise permise, le texte change).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "116c92b6",
+      "texte_overlay": "study habits that are boring\nbut actually work",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "12714368",
+      "texte_overlay": "writing tomorrow's to-do list tonight.\ni sit down and already know what to do.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1477c1a9",
+      "texte_overlay": "5 minutes on yesterday's notes before anything new.\nso nothing slips away.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "1543209f",
+      "texte_overlay": "the hardest subject first.\nwhile my brain is still fresh.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "489692c7",
+      "texte_overlay": "practice questions instead of reading the chapter again.\nboring. effective.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1693f654",
+      "texte_overlay": "a 5-minute break every 25 minutes.\nstanding up, not scrolling.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "424a6b53",
+      "texte_overlay": "the same study spot every day.\nmy brain knows what happens there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

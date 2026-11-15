@@ -394,6 +394,8 @@ async function lancerReleves(ctx: Contexte): Promise<{ lots: number; liens: numb
     .from("passages")
     .select("id, compte_id, publie_url, publie_at, tiktok_publie_at, comptes!inner(langue, pays)")
     .eq("statut", "publie")
+    // Les comment masters commentent des slideshows : pas les posts vidéo UGCV (0662).
+    .not("contenu_id", "is", null)
     .not("publie_url", "is", null)
     .gte("publie_at", depuis)
     .in("comptes.langue", config.regions.map((r) => r.langue));
@@ -769,6 +771,7 @@ async function apercuCommentaires(supabase: Supabase, n: number, modele: string,
       "id, application_id, publie_url, vues, slides, hashtags, comptes!inner(handle_tiktok, langue, pays, application_id)",
     )
     .eq("statut", "publie")
+    .not("contenu_id", "is", null)
     .gte("vues", Math.min(...seuils.values()))
     .in("comptes.langue", langues)
     .order("publie_at", { ascending: false })

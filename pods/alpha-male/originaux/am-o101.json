@@ -1,0 +1,69 @@
+{
+ "source_id": "am-o101",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f1cd9987-6a14-49bb-adba-68a5bab1d361",
+ "titre": "How social media destroys your perception of success #success #mindset #men #selfgrowth #discipline",
+ "musique_titre": "even the sky doesn't answer",
+ "musique_url": "https://www.tiktok.com/music/even-the-sky-doesn-t-answer-7395531748757293072",
+ "inspirations": [
+  "f1cd9987-6a14-49bb-adba-68a5bab1d361"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 13/11. Déclinaison G1 de la ligne 5 (parent f1cd9987, langue source en ; meilleur passage es 3,3 k vues, r 2,28). Accroche du parent mot pour mot (mots de la boîte). Format du parent : « citation » puis la réponse. Citations neuves, aucune du parent (liberté, process, travail dur, ça viendra, l'argent change les gens, positif, croire en soi, éxito solitario). Rien de chiffré sur l'argent. Images neuves (aucune livrée depuis 14 jours, règle du 12/11), prises dans toute la banque avec --cherche. Slide Sophia : chambre bleue sur la ville, sans personne. reference_url : slides présentes du parent (3 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1b46c0a9",
+   "texte_overlay": "How Social Media Destroys\nYour Perception of Success",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0b3cebb1",
+   "texte_overlay": "\"Overnight success.\"\n\nIt took years nobody filmed.\nYou only saw the last night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1570a152",
+   "texte_overlay": "\"Quit your job and be free.\"\n\nLeaving without a plan\nisn't freedom. It's pressure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "260591e7",
+   "texte_overlay": "\"Rich by 25 or you failed.\"\n\nMost men build their best\nyears after 30. Relax.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0cb8eb52",
+   "texte_overlay": "\"Success looks like cars\nand watches.\"\n\nThat's spending.\nSuccess is what you keep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "16801fc6",
+   "texte_overlay": "\"Everyone else has it\nfigured out.\"\n\nYou're comparing your behind\nthe scenes to their highlights.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "202f1df3",
+   "texte_overlay": "\"More followers, more value.\"\n\nReach isn't respect.\nAsk the people who know you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/8.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "249158b9",
+   "texte_overlay": "\"Hustle 24/7.\"\n\nTired men make bad decisions.\nRest is part of the work.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/9.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "2a74e9da",
+   "texte_overlay": "\"Smart people just know things.\"\n\nNo. They learn a little\nevery single day.",
+   "texte_sophia": "\"Smart people just know things.\"\n\nNo. They learn a little every day.\nI do 5 minutes on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7552284922656967948/1.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o155",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "075b510f-eef7-4387-9ed4-adf81d3ee727",
+ "titre": "How You Become Extremely Educated In Your 20s. #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "075b510f-eef7-4387-9ed4-adf81d3ee727"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 5, sur une image sans visage. Couverture e5353a82. déclinaison G1 de la ligne 11 de la boîte (075b510f, es 25,5 k r 6,22) : accroche du parent mot pour mot (casse et point du parent gardés). Items neufs, aucun repris du parent (lire ce que les autres ignorent, temps mort, notes).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e5353a82",
+   "texte_overlay": "How You Become Extremely\nEducated In Your 20s.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Read one classic a month. Not just new releases. The books people still read after a hundred years have survived for a reason, and they change how you think.",
+   "media_id": "f4bd619d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Visit museums alone. No rush, no group, just you and the pieces that catch your eye. Reading every label of one room teaches more than running through ten.",
+   "media_id": "3fff1b1f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Learn the basics of a second language. Thirty minutes a day for a year gets you real conversations, and every language opens a new way of seeing the world.",
+   "media_id": "4ee6e05d"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Make learning a daily habit. I do five minutes a day of history, art or science, and a year of tiny lessons adds up to more knowledge than most people gain in a decade.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A year of tiny lessons adds up to more than most people learn in a decade.",
+   "media_id": "c33370a3"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Talk to people who know more than you. Ask your grandparents about history, ask a nurse about the body, ask a carpenter about wood. Everyone is an expert in something.",
+   "media_id": "e1140173"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Watch documentaries instead of reality shows. Same couch, same hour, but you go to bed knowing how volcanoes work, why Rome fell or how the pyramids were built.",
+   "media_id": "79e0e876"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Teach what you learn. Explain a new idea to a friend the same week you learn it. Teaching is the fastest way to remember something for good, and your friends learn too.",
+   "media_id": "26e760de"
+  }
+ ]
+}

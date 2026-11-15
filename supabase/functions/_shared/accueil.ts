@@ -92,6 +92,8 @@ export interface PosteurExistant {
   pays: string | null;
   is_active: boolean;
   upwork_contract_id: string | null;
+  /** 12/11 : sa plateforme de paie (« ruul » : jamais relié à un contrat Upwork). */
+  canal_paie?: string | null;
 }
 
 /** Ce qu'on sait déjà du contrat (accueils), pays choisi à la main compris. */
@@ -113,7 +115,44 @@ export interface InfosApi {
   hm_id: string | null;
   /** Le nom de la HM du contrat sur Upwork (pour la raison). */
   hm_nom: string | null;
+  /**
+   * 12/11 (Max) : les HM de l'OS qui peuvent recevoir une recrue, pour la règle
+   * « HM inconnue » (pays couverts, langues, posteurs actifs). Absent : pas de règle.
+   */
+  hms_regle?: HmRegle[];
+  /** 12/11 : les pays fermés au recrutement (Portugal, Indonésie…). */
+  pays_fermes?: string[];
+  /** 12/11 : la langue d'un pays (pour un pays lu dans le titre de l'annonce). */
+  langue_de?: (pays: string) => string | null;
 }
+
+/** 12/11 : une HM de l'OS pour la règle automatique. */
+export interface HmRegle {
+  id: string;
+  langues: string[];
+  pays: string[];
+  actifs: number;
+}
+
+/**
+ * 12/11 (Max) : la HM d'un contrat dont la HM n'est pas une vraie HM de l'OS :
+ * une HM qui couvre le pays (hm_pays) ou la langue, celle qui a le moins de
+ * posteurs actifs. null si aucune.
+ */
+export function hmParRegle(pays: string | null, langue: string | null, hms: readonly HmRegle[]): string | null {
+  const ok = hms.filter((h) => (pays && h.pays.includes(pays)) || (langue && h.langues.includes(langue)));
+  return [...ok].sort((a, b) => a.actifs - b.actifs || a.id.localeCompare(b.id))[0]?.id ?? null;
+}
+
+/** 12/11 : la langue principale d'un pays, quand aucun compte de ce pays n'existe encore. */
+export const LANGUE_DU_PAYS: Readonly<Record<string, string>> = {
+  FR: "fr", BE: "fr", DE: "de", AT: "de", CH: "de", IT: "it", ES: "es", PT: "pt", BR: "pt-BR", CZ: "cs", NL: "nl", GR: "el",
+  HU: "hu", PL: "pl", RO: "ro", SE: "sv", TR: "tr", DK: "da", NO: "no", HR: "hr", SI: "sl", SK: "sk", RS: "sr", IL: "he",
+  FI: "fi", EE: "et", BG: "bg", LT: "lt", LV: "lv", JP: "ja", KR: "ko",
+};
+
+/** 12/11 : la raison d'un contrat dans un pays fermé (la carte pose une seule question). */
+export const RAISON_PAYS_FERME = "pays fermé";
 
 export interface PlanAccueil {
   statut: "a_relier" | "doublon" | "a_creer";
@@ -156,6 +195,9 @@ export function planAccueil(
   const main = (connu?.statut === "a_creer" || Boolean(connu?.relie_at)) && connu?.pays && connu.langue ? connu : null;
   const annonceOk = annonce && !annonce.generique && annonce.pays && annonce.langue ? annonce : null;
   const freelanceOk = api?.freelance_pays && api.freelance_langue ? api : null;
+  // 12/11 : le pays écrit dans le titre de l'annonce (« … — ISRAEL », « - Lithuania »).
+  const paysTitre = api && !main && !annonceOk && !freelanceOk ? paysDansTexte(d.job_titre) : null;
+  const langueTitre = paysTitre ? (api?.langue_de?.(paysTitre) ?? LANGUE_DU_PAYS[paysTitre] ?? null) : null;
   const hmApi = api ? api.hm_id : undefined;
   const choisi: Omit<PlanAccueil, "statut" | "raison"> | null = main
     ? { pays: main.pays, langue: main.langue, hm_id: main.hm_id ?? hmApi ?? annonce?.hm_id ?? null, tarif: annonce?.tarif ?? null, source: "main" }
@@ -163,6 +205,8 @@ export function planAccueil(
     ? { pays: annonceOk.pays, langue: annonceOk.langue, hm_id: hmApi === undefined ? annonceOk.hm_id : hmApi, tarif: annonceOk.tarif, source: "annonce" }
     : freelanceOk
     ? { pays: freelanceOk.freelance_pays, langue: freelanceOk.freelance_langue, hm_id: freelanceOk.hm_id, tarif: annonce?.tarif ?? null, source: "freelance" }
+    : paysTitre && langueTitre
+    ? { pays: paysTitre, langue: langueTitre, hm_id: hmApi ?? annonce?.hm_id ?? null, tarif: annonce?.tarif ?? null, source: "annonce" }
     : null;
   if (!choisi) {
     return {
@@ -183,13 +227,24 @@ export function planAccueil(
   if (choisi.source === "annonce" && api?.freelance_pays && api.freelance_pays !== choisi.pays) {
     choisi.ecart = { vit: api.freelance_pays, annonce: choisi.pays as string };
   }
-  // La HM du contrat n'est pas dans l'OS (ni choisie à la main) : la carte, pour la choisir.
+  // 12/11 (Max) : un pays fermé (Portugal, Indonésie…) : une question à Max (sauf s'il a déjà dit « créer »).
+  if (choisi.source !== "main" && choisi.pays && api?.pays_fermes?.includes(choisi.pays)) {
+    return { statut: "a_relier", raison: `${RAISON_PAYS_FERME} (${choisi.pays})`, ...choisi };
+  }
+  // La HM du contrat n'est pas dans l'OS (ni choisie à la main) : 12/11, la règle choisit
+  // une HM qui couvre ce pays ou cette langue, la moins chargée. Sans règle : la carte.
   if (api && !choisi.hm_id) {
-    return {
-      statut: "a_relier",
-      raison: `HM du contrat (${api.hm_nom ?? "inconnue"}) pas dans l'OS : choisis la HM`,
-      ...choisi,
-    };
+    const hm = api.hms_regle ? hmParRegle(choisi.pays, choisi.langue, api.hms_regle) : null;
+    if (!hm) {
+      return {
+        statut: "a_relier",
+        raison: api.hms_regle
+          ? `aucune HM de l'OS ne couvre ce pays ni cette langue (${choisi.pays}, ${choisi.langue})`
+          : `HM du contrat (${api.hm_nom ?? "inconnue"}) pas dans l'OS : choisis la HM`,
+        ...choisi,
+      };
+    }
+    choisi.hm_id = hm;
   }
   const meme = posteurs.find((p) =>
     p.is_active &&
@@ -197,6 +252,10 @@ export function planAccueil(
     normaliserNom(p.nom) === normaliserNom(d.nom) &&
     (p.pays ?? "") === choisi.pays
   );
+  // 12/11 : le même posteur payé par Ruul : jamais relié à un contrat Upwork, rien n'est envoyé.
+  if (meme && meme.canal_paie === "ruul") {
+    return { statut: "doublon", raison: "même nom et même pays qu'un posteur Ruul : rien créé ni envoyé", ...choisi };
+  }
   if (meme) {
     return { statut: "doublon", raison: "même nom et même pays qu'un posteur actif", ...choisi, poster_id: meme.id };
   }

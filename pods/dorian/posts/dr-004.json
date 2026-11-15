@@ -1,0 +1,368 @@
+{
+ "id": "dr-004",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of gifted kid hobbies",
+  "de": "Der Eisberg der Hochbegabten-Hobbys",
+  "it": "Iceberg degli hobby da plusdotati",
+  "pt-BR": "Iceberg de hobbies de superdotado"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #giftedkid #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #hochbegabt #selbstverbesserung",
+  "it": "#iceberg #hobby #plusdotati #crescitapersonale",
+  "pt-BR": "#iceberg #hobbies #superdotado #autoconhecimento"
+ },
+ "musique": {
+  "titre": "original sound - 432pa.hp",
+  "url": "https://www.tiktok.com/music/original-sound-7603872322981874462"
+ },
+ "notes": "Original sur son iceberg à 1,1 M (« Iceberg of ADHD hobbies ») : même format, sujet « gifted kid ». 5 étages (4, 4, 4, 3, 1), Sophia au 2e étage (« daily sophia lessons », icône). Objets détourés Seedream. En, de, it, pt-BR.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "gifted kid hobbies"
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Hochbegabten-Hobbys"
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da plusdotati"
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de superdotado"
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "sketching",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "documentaries",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "debate club",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "greek mythology",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "coding",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "astronomy",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "writing poetry",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "medieval history",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "philosophy at 3am",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "reading encyclopedias",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "unfinished projects",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "bücher lesen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "zeichnen",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "klavier",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "dokus",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "schach",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "debattieren",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "griechische mythologie",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "coden",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "astronomie",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "latein lernen",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "gedichte schreiben",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "mittelalter",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "philosophie um 3 uhr",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "lexikon lesen",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "unfertige projekte",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "leggere libri",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "disegnare",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "pianoforte",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "documentari",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "scacchi",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "dibattito",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "10 min di sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "mitologia greca",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "programmare",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "latino",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "scrivere poesie",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "storia medievale",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "filosofia alle 3",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "leggere enciclopedie",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "progetti mai finiti",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "ler livros",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "desenhar",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "documentários",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "xadrez",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "debate",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "10 min de sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "mitologia grega",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "programar",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "aprender latim",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "escrever poesia",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "história medieval",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "filosofia às 3h",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "ler enciclopédias",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "projetos inacabados",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   }
+  }
+ ]
+}

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "description": "Podz 16 — originaux au style de @dorian.frog pour Sophia, en anglais : icebergs de hobbies et listes « 5 niche… » (fond blanc, Inter fine, tableaux du domaine public et images Seedream), Sophia en item de la liste ou en hobby de l'iceberg.",
+  "description": "Podz 16 — originaux au style de @dorian.frog pour Sophia, en en, de, it et pt-BR : icebergs de hobbies et listes « 5 niche… » (fond blanc, Inter fine, tableaux du domaine public et images Seedream), Sophia en item de la liste ou en hobby de l'iceberg.",
   "dependencies": {
     "@napi-rs/canvas": "^0.1.65"
   },

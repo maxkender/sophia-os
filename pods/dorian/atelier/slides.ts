@@ -105,7 +105,7 @@ export const estSlideSophia = (s: Slide) => s.app === "sophia" && s.type !== "co
 export function textesSlide(s: Slide, langue: string): string {
   const c = contenu<Record<string, unknown>>(s, langue);
   if (s.type === "couverture") return `${c.titre} ${c.legende ?? ""}`.trim();
-  if (s.type === "item") return [c.titre, c.difficulte ? `difficulty: ${c.difficulte}` : "", c.citation ?? "", c.texte].filter(Boolean).join(" — ");
+  if (s.type === "item") return [c.titre, c.difficulte ? `${DIFFICULTE[langue] ?? DIFFICULTE.en}: ${c.difficulte}` : "", c.citation ?? "", c.texte].filter(Boolean).join(" — ");
   if (s.type === "iceberg_couverture") return `${c.haut} ${c.bas}`;
   return (c as Iceberg).etages.map((e, i) => `${i + 1}. ${e.map((h) => h.t).join(", ")}`).join(" ; ");
 }
@@ -204,13 +204,26 @@ async function couvertureListe(ctx: Ctx, c: CouvertureListe) {
   ctx.drawImage(await image("assets/grenouille.png"), 320, 1170);
 }
 
-async function item(ctx: Ctx, c: Item) {
+/** « difficulty: » dans la langue du deck. */
+const DIFFICULTE: Record<string, string> = { en: "difficulty", de: "schwierigkeit", it: "difficoltà", "pt-BR": "dificuldade" };
+
+/**
+ * L'écran de Sophia dans la langue du deck : `assets/sophia/<langue>/telephone-<écran>.jpg`
+ * (captures de l'appli dans cette langue, celles du podz 1 mises dans un téléphone),
+ * sinon l'accueil dans cette langue, sinon l'écran anglais (`assets/sophia/`).
+ */
+export function cheminTelephone(ecran: string, langue: string): string {
+  for (const f of [`assets/sophia/${langue}/telephone-${ecran}.jpg`, `assets/sophia/${langue}/telephone-accueil.jpg`]) if (langue !== "en" && existsSync(join(RACINE, f))) return f;
+  return `assets/sophia/telephone-${ecran}.jpg`;
+}
+
+async function item(ctx: Ctx, c: Item, langue = "en") {
   let base = paragraphe(ctx, c.titre, { x: ITEM.x, base: ITEM.base, police: POLICE.titre, taille: ITEM.taille, pas: ITEM.pas, largeur: ITEM.largeur });
-  if (c.difficulte) base = paragraphe(ctx, `difficulty: ${c.difficulte}`, { x: ITEM.x + 4, base: base + 78, police: POLICE.texte, taille: 40, pas: 58, largeur: ITEM.largeur });
+  if (c.difficulte) base = paragraphe(ctx, `${DIFFICULTE[langue] ?? DIFFICULTE.en}: ${c.difficulte}`, { x: ITEM.x + 4, base: base + 78, police: POLICE.texte, taille: 40, pas: 58, largeur: ITEM.largeur });
   if (c.citation) base = paragraphe(ctx, c.citation, { x: ITEM.x + 6, base: base + (c.difficulte ? 157 : 130), police: POLICE.texte, taille: 40, pas: 58, largeur: ITEM.colonne, couleur: COULEUR.citation });
   paragraphe(ctx, c.texte, { x: ITEM.x + 2, base: base + (c.citation ? 100 : c.difficulte ? 150 : 120), police: POLICE.texte, taille: 42, pas: 59, largeur: ITEM.colonne });
   if (c.telephone) {
-    const t = await image(`assets/sophia/telephone-${c.telephone}.jpg`);
+    const t = await image(cheminTelephone(c.telephone, langue));
     const w = ITEM.telephone.l;
     ctx.drawImage(t, ITEM.telephone.x, c.imageY ?? ITEM.telephone.y, w, (t.height * w) / t.width);
   } else if (c.image) {
@@ -328,7 +341,7 @@ export async function rendreSlide(_post: Post, s: Slide, langue: string): Promis
   const c = contenu<unknown>(s, langue);
   if (!c) throw new Error(`slide ${s.type} : rien en ${langue}`);
   if (s.type === "couverture") await couvertureListe(ctx, c as CouvertureListe);
-  else if (s.type === "item") await item(ctx, c as Item);
+  else if (s.type === "item") await item(ctx, c as Item, langue);
   else if (s.type === "iceberg_couverture") await icebergCouverture(ctx, c as CouvertureIceberg);
   else await iceberg(ctx, c as Iceberg);
   return retirerMetadonnees(canvas.toBuffer("image/jpeg", 93));

@@ -1,6 +1,6 @@
 // Usage : npm run livrer -- <id> [--langues fr] [--complement] [--essai <dossier>]
 //
-// Rend le remake posts/<id>.json dans les langues du podz (`LANGUES` : fr, en, de, it, pt-BR)
+// Rend le remake posts/<id>.json dans les langues du podz (`LANGUES` : fr, en, de, it, pt-BR, tr, ro, cs)
 // et le DÉPOSE dans la file de validation de l'OS (fonction Edge `pods`,
 // action `deposer`). Un deck incomplet arrête la livraison : chaque compte du
 // label poste dans une seule langue, un post sans la sienne le laisserait à sec.
@@ -26,21 +26,16 @@ const essai = opt("--essai");
 
 const post = lirePost(id);
 const completes = languesCompletes(post);
-// 0654 : seulement les langues où le label a un compte (l'OS les donne), la
-// langue source toujours pour un post neuf. --complement : un rattrapage (post
+// La langue source part toujours avec un post neuf. --complement : un rattrapage (post
 // déjà validé), seulement les langues demandées, sans la langue source.
 const complement = args.includes("--complement");
 const os = await languesDuLabel();
-// Stock (décision d'Adrien du 15/11) : tant que le label n'a AUCUN compte, on
-// livre toutes les langues de LANGUES ; ses 5 comptes (un par langue) ne
-// basculent que quand chaque langue a au moins 4 contenus validés.
-const stock = os?.a_livrer?.length === 0;
-if (stock) console.log(`${id} : aucun compte sur le label, livraison en stock dans ${LANGUES.join(", ")}`);
-const utiles = os?.a_livrer && !stock ? new Set<string>(os.a_livrer) : null;
+// Chaque remake part dans TOUTES les langues de LANGUES (session BLEO, 15/11) :
+// les comptes du label arrivent langue par langue, et chacun doit trouver du
+// stock. L'OS dit seulement où le label a déjà des comptes.
+if (os?.a_livrer) console.log(`${id} : comptes du label en ${os.a_livrer.join(", ") || "aucune langue"} ; livraison dans ${LANGUES.join(", ")}`);
 const demandees = opt("--langues")?.split(",").map((l) => l.trim()).filter(Boolean) ?? [...LANGUES];
-const sansCompte = utiles ? demandees.filter((l) => l !== LANGUE_SOURCE && !utiles.has(l)) : [];
-if (sansCompte.length) console.log(`${id} : pas de compte du label en ${sansCompte.join(", ")} : non livré`);
-const voulues = demandees.filter((l) => !sansCompte.includes(l) && !(complement && l === LANGUE_SOURCE));
+const voulues = demandees.filter((l) => !(complement && l === LANGUE_SOURCE));
 const langues = voulues;
 const incompletes = langues.filter((l) => !completes.includes(l));
 if (incompletes.length) {

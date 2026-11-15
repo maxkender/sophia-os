@@ -5,8 +5,8 @@
 export const POD = "remakes_sagace";
 /** Le compte refait : @sagace.fr, ses listes « 10/10 » en français (« Compétence 10/10 à apprendre avant 20 ans »). */
 export const COMPTE_SOURCE = "sagace.fr";
-/** Les langues livrées : le français (celle du compte), l'anglais, l'allemand, l'italien et le portugais du Brésil (décision d'Adrien du 15/11). Déclarées à l'OS (0654) : l'attribution des comptes les lit, n'y mets que ce que tu sais vraiment faire. */
-export const LANGUES = ["fr", "en", "de", "it", "pt-BR"] as const;
+/** Les langues livrées : le français (celle du compte), l'anglais, l'allemand, l'italien, le portugais du Brésil (décision d'Adrien du 15/11), puis le turc, le roumain et le tchèque (session BLEO, 15/11 au soir). Déclarées à l'OS (0654) : l'attribution des comptes les lit, n'y mets que ce que tu sais vraiment faire. */
+export const LANGUES = ["fr", "en", "de", "it", "pt-BR", "tr", "ro", "cs"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "fr";
 

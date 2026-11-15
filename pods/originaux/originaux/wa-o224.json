@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o224",
+ "type_bleo": "full_test",
+ "titre": "signs you're more mature than people your age #maturity #psychology #selfgrowth #selfimprovement #mindset",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "e43b547d-c9c4-4b40-a356-6e0362b01caf"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, e43b547d). full test BLEO : accroche jamais faite (format « signs you're more X than people your age »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "07e25b23-2187-4621-bc7b-24b6fa6da5d0",
+   "texte_overlay": "signs you're more mature\nthan people your age",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "031cf3bc-2b0f-4aa8-b5ae-582e8d71f5c2",
+   "texte_overlay": "you apologise properly\n\nyou say sorry without adding but or making excuses. owning your mistakes cleanly is rare at any age, and it's one of the clearest signs of real maturity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "349bd31b-2598-4252-aa15-2f34ce858db6",
+   "texte_overlay": "you enjoy quiet nights\n\na night in with a book or a film sounds like a treat, not a punishment. you don't need constant noise and plans to feel like your life is interesting.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a0330e40-aa7e-40cc-a2a4-61f225e0724f",
+   "texte_overlay": "you keep learning on purpose\n\nyou choose to learn things nobody is testing you on, simply because you're curious about the world. growing on purpose, long after school, is a real sign of maturity.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/4.jpg",
+   "texte_sophia": "you keep learning on purpose\n\ni learn things nobody tests me on, just because i'm curious. 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and i keep growing outside school."
+  },
+  {
+   "position": 5,
+   "media_id": "18f7e218-ba94-496c-a9b1-5b220519a040",
+   "texte_overlay": "you don't need to win\n\nyou can let someone be wrong in a small argument without correcting them. knowing which battles matter saves your energy and keeps your relationships calm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3727c2e4-7686-47b0-b219-a5dfc6fa37ed",
+   "texte_overlay": "you plan for future you\n\nyou save a little money, go to bed on time and drink water. looking after the person you'll be next year is a quiet sign you think far beyond just today.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/6.jpg"
+  }
+ ]
+}

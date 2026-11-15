@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o231",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "768aa56a-1faa-4c4a-bd4f-7b6a2677e5d9",
+ "titre": "things confident people do without noticing #confidence #psychology #habits #selfimprovement #mindset",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "b116e4f9-f5fc-4b54-acd9-370ac96459d2"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, b116e4f9). déclinaison G1 de « things confident people do without noticing » (parent 768aa56a). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2ad5de65-a30c-4cef-87db-1f19cc852505",
+   "texte_overlay": "things confident people do\nwithout noticing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "280217e7-4a33-4b72-93b2-c325e2aac85b",
+   "texte_overlay": "disagreeing calmly\n\nthey can disagree with someone without immediately taking it back to avoid an argument. they say what they think, kindly, and then they calmly let it stand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8f150b5a-46f9-4faa-9ff9-f0f906c9bdd1",
+   "texte_overlay": "handling silences\n\nthey let pauses happen in a conversation instead of rushing to fill every gap. silence doesn't scare them, and that calm makes them easy to be around.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "051f2c1d-f3ae-4751-be83-924a72a67e27",
+   "texte_overlay": "finishing their sentences\n\nthey end their thoughts clearly instead of trailing off with you know or whatever. finishing a sentence properly makes everything they say sound sure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "315ab3ee-e3de-4d1d-bef5-3d092d921418",
+   "texte_overlay": "having unexpected topics\n\nthey don't only talk about the weather or work. they always have one strange story or surprising fact ready that makes the whole conversation come alive.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/5.jpg",
+   "texte_sophia": "having unexpected topics\n\nthey always have an unexpected topic ready. the Sophia app turns it into one short lesson a day, a myth or an odd fact, and suddenly every conversation comes alive."
+  },
+  {
+   "position": 6,
+   "media_id": "320d8f2a-39b7-4ca3-b7a7-a357f5407ab8",
+   "texte_overlay": "not announcing their nerves\n\nthey don't tell everyone how anxious they are before doing something. they feel the nerves, and then they simply do it anyway without making any scene.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665038986678652182/6.jpg"
+  }
+ ]
+}

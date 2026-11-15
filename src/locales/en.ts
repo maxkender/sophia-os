@@ -3744,6 +3744,11 @@ export const en = {
       vuesDesc:
         "Views of the posts published each day, all accounts, tests excluded. Each post counts for its own day, with its views read up to 3 days later.",
       vuesSerie: "Views",
+      vuesSerieJalon: "Views at {{age}}",
+      vuesDescJalon:
+        "Views of the posts published each day, frozen {{age}} after publishing: each day compares with the others. Only days where at least 80% of posts were captured at that age are shown (captures since 11/1).",
+      mesure: { vues: "Current", j1: "D+1", j3: "D+3", j7: "D+7" },
+      mesureAria: "Current or frozen views",
       vuesMoyenne: "7-day average",
       vuesProvisoire: "still growing",
       vuesProvisoireLegende: "Yesterday and the day before: still being read",

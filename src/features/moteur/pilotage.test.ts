@@ -60,6 +60,29 @@ describe("serieVuesParJour", () => {
     expect(serieVuesParJour([], "2026-11-02")).toEqual([]);
   });
 
+  it("donne les vues figées à J+1/J+3/J+7, sauf quand trop peu de posts ont été photographiés", () => {
+    const serie = serieVuesParJour(
+      [
+        {
+          jour: "2026-11-07",
+          vues: 4_000_000,
+          posts_mesures: 500,
+          nb_comptes: 300,
+          vues_j1: "1502890",
+          vues_j3: 3890919,
+          vues_j7: 612319,
+          posts_j1: 498,
+          posts_j3: 500,
+          posts_j7: 89,
+        },
+        { jour: "2026-11-08", vues: 10, posts_mesures: 1, nb_comptes: 1 },
+      ],
+      "2026-11-08",
+    );
+    expect([serie[0]!.j1, serie[0]!.j3, serie[0]!.j7]).toEqual([1502890, 3890919, null]);
+    expect([serie[1]!.j1, serie[1]!.j3, serie[1]!.j7]).toEqual([null, null, null]);
+  });
+
   it("traverse un changement de mois et d'heure", () => {
     const serie = serieVuesParJour([{ jour: "2026-10-24", vues: 5, posts_mesures: 1, nb_comptes: 1 }], "2026-10-27");
     expect(serie.map((s) => s.jour)).toEqual(["2026-10-24", "2026-10-25", "2026-10-26", "2026-10-27"]);

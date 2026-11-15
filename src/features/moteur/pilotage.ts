@@ -23,10 +23,37 @@ function plusJours(jour: string, n: number): string {
 /**
  * La série du graphique « Vues par jour », jour par jour du premier jour lu
  * jusqu'à `veille` : un jour absent de la vue (aucun post publié) devient un
- * trou ; hier et avant-hier sont provisoires.
+ * trou ; hier et avant-hier sont provisoires. `j1`, `j3`, `j7` : les vues
+ * figées à 1, 3 et 7 jours (photos de la nuit), comparables d'un jour à l'autre.
  */
+/** Part minimale des posts d'un jour photographiés à un âge pour montrer ce jour à cet âge. */
+export const COUVERTURE_JALON = 0.8;
+
+type LigneVues = {
+  jour: unknown;
+  vues: unknown;
+  posts_mesures: unknown;
+  nb_comptes: unknown;
+  vues_j1?: unknown;
+  vues_j3?: unknown;
+  vues_j7?: unknown;
+  posts_j1?: unknown;
+  posts_j3?: unknown;
+  posts_j7?: unknown;
+};
+
+/** Les vues d'un jour à un âge (0731), ou `null` si trop peu de ses posts ont été photographiés à cet âge. */
+function vuesJalon(l: LigneVues | undefined, age: 1 | 3 | 7): number | null {
+  if (!l) return null;
+  const vues = l[`vues_j${age}`];
+  const n = Number(l[`posts_j${age}`] ?? 0);
+  const mesures = Number(l.posts_mesures ?? 0);
+  if (vues == null || n === 0 || mesures === 0 || n < COUVERTURE_JALON * mesures) return null;
+  return Number(vues);
+}
+
 export function serieVuesParJour(
-  lignes: ReadonlyArray<{ jour: unknown; vues: unknown; posts_mesures: unknown; nb_comptes: unknown }>,
+  lignes: ReadonlyArray<LigneVues>,
   veille: string,
 ): PilotageDashboard["vuesSerie"] {
   const parJour = new Map(lignes.map((l) => [String(l.jour), l]));
@@ -42,6 +69,9 @@ export function serieVuesParJour(
       posts: Number(l?.posts_mesures ?? 0),
       comptes: Number(l?.nb_comptes ?? 0),
       provisoire: j >= debutProvisoire,
+      j1: vuesJalon(l, 1),
+      j3: vuesJalon(l, 3),
+      j7: vuesJalon(l, 7),
     });
   }
   return out;

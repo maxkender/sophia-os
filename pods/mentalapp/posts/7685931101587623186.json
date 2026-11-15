@@ -8,7 +8,10 @@
   "de": "falsche Gesundheit vs wirklich gesund, auf welcher Seite bist du? #mentalmaxxing #dopamin #selbstverbesserung",
   "es": "falsa salud vs realmente sano, ¿de qué lado estás? #mentalmaxxing #dopamina #superacionpersonal",
   "it": "falsa salute vs davvero sano, tu da che parte stai? #mentalmaxxing #dopamina #crescitapersonale",
-  "tr": "sahte sağlık vs gerçekten sağlıklı, sen hangi taraftasın? #mentalmaxxing #dopamin #kişiselgelişim"
+  "tr": "sahte sağlık vs gerçekten sağlıklı, sen hangi taraftasın? #mentalmaxxing #dopamin #kişiselgelişim",
+  "pt-BR": "saúde fake vs saudável de verdade, de que lado você tá? #mentalmaxxing #dopamine #desenvolvimentopessoal",
+  "pl": "pseudo zdrowie vs naprawdę zdrowe, po której jesteś stronie? #mentalmaxxing #dopamina #rozwojosobisty",
+  "hu": "kamu egészség vs tényleg egészséges, te melyik oldalon állsz? #mentalmaxxing #dopamin #önfejlesztés"
  },
  "app": {
   "position": 2,
@@ -431,6 +434,15 @@
       ],
       "tr": [
        "Gerçekten sağlıklı"
+      ],
+      "pt-BR": [
+       "Saudável de verdade"
+      ],
+      "pl": [
+       "Naprawdę zdrowe"
+      ],
+      "hu": [
+       "Tényleg egészséges"
       ]
      },
      "graisse": 200
@@ -485,6 +497,15 @@
       ],
       "tr": [
        "Sahte “sağlık”"
+      ],
+      "pt-BR": [
+       "Falsa “saúde”"
+      ],
+      "pl": [
+       "Fałszywe „zdrowie”"
+      ],
+      "hu": [
+       "Kamu „egészség”"
       ]
      },
      "couleur": "#000400",
@@ -856,6 +877,18 @@
       "tr": [
        "az ekran",
        "süresi"
+      ],
+      "pt-BR": [
+       "pouco",
+       "tempo de tela"
+      ],
+      "pl": [
+       "mało",
+       "ekranu"
+      ],
+      "hu": [
+       "kevés",
+       "képernyőidő"
       ]
      }
     },
@@ -902,6 +935,15 @@
       ],
       "tr": [
        "espresso"
+      ],
+      "pt-BR": [
+       "expresso"
+      ],
+      "pl": [
+       "espresso"
+      ],
+      "hu": [
+       "eszpresszó"
       ]
      }
     },
@@ -960,6 +1002,18 @@
       "tr": [
        "kontrast",
        "duş"
+      ],
+      "pt-BR": [
+       "banho",
+       "quente e frio"
+      ],
+      "pl": [
+       "prysznic",
+       "naprzemienny"
+      ],
+      "hu": [
+       "váltott",
+       "zuhany"
       ]
      }
     },
@@ -1034,6 +1088,15 @@
       ],
       "tr": [
        "magnezyum"
+      ],
+      "pt-BR": [
+       "magnésio"
+      ],
+      "pl": [
+       "magnez"
+      ],
+      "hu": [
+       "magnézium"
       ]
      }
     },
@@ -1220,6 +1283,15 @@
       ],
       "tr": [
        "10k adım"
+      ],
+      "pt-BR": [
+       "10k passos"
+      ],
+      "pl": [
+       "10k kroków"
+      ],
+      "hu": [
+       "10k lépés"
       ]
      }
     },
@@ -1427,6 +1499,18 @@
       "tr": [
        "düzenli",
        "antrenman"
+      ],
+      "pt-BR": [
+       "treinar com",
+       "constância"
+      ],
+      "pl": [
+       "regularny",
+       "trening"
+      ],
+      "hu": [
+       "rendszeres",
+       "edzés"
       ]
      }
     },
@@ -1473,6 +1557,16 @@
       ],
       "tr": [
        "gerçek yemek"
+      ],
+      "pt-BR": [
+       "comida",
+       "de verdade"
+      ],
+      "pl": [
+       "prawdziwe jedzenie"
+      ],
+      "hu": [
+       "igazi kaja"
       ]
      }
     },
@@ -1547,6 +1641,15 @@
       ],
       "tr": [
        "2l+ su"
+      ],
+      "pt-BR": [
+       "2l+ de água"
+      ],
+      "pl": [
+       "2l+ wody"
+      ],
+      "hu": [
+       "2l+ víz"
       ]
      }
     },
@@ -1593,6 +1696,15 @@
       ],
       "tr": [
        "7s+ uyku"
+      ],
+      "pt-BR": [
+       "7h+ de sono"
+      ],
+      "pl": [
+       "7h+ snu"
+      ],
+      "hu": [
+       "7+ óra alvás"
       ]
      }
     },
@@ -1965,6 +2077,18 @@
       "tr": [
        "asla",
        "stres"
+      ],
+      "pt-BR": [
+       "zero",
+       "estresse"
+      ],
+      "pl": [
+       "zero",
+       "stresu"
+      ],
+      "hu": [
+       "sosincs",
+       "stressz"
       ]
      }
     },
@@ -2067,6 +2191,15 @@
       ],
       "tr": [
        "bol hareket"
+      ],
+      "pt-BR": [
+       "muito ativo"
+      ],
+      "pl": [
+       "dużo ruchu"
+      ],
+      "hu": [
+       "sok mozgás"
       ]
      }
     },
@@ -2113,6 +2246,15 @@
       ],
       "tr": [
        "Gerçekten sağlıklı"
+      ],
+      "pt-BR": [
+       "Saudável de verdade"
+      ],
+      "pl": [
+       "Naprawdę zdrowe"
+      ],
+      "hu": [
+       "Tényleg egészséges"
       ]
      },
      "graisse": 200
@@ -2160,6 +2302,16 @@
       ],
       "tr": [
        "tohum yağı yok"
+      ],
+      "pt-BR": [
+       "sem óleo",
+       "de semente"
+      ],
+      "pl": [
+       "zero olejów z nasion"
+      ],
+      "hu": [
+       "nulla magolaj"
       ]
      }
     },
@@ -2206,6 +2358,15 @@
       ],
       "tr": [
        "sohbetler"
+      ],
+      "pt-BR": [
+       "conversas"
+      ],
+      "pl": [
+       "rozmowy"
+      ],
+      "hu": [
+       "beszélgetések"
       ]
      }
     },
@@ -2388,6 +2549,18 @@
       "tr": [
        "sentetik",
        "protein"
+      ],
+      "pt-BR": [
+       "proteína",
+       "sintética"
+      ],
+      "pl": [
+       "syntetyczne",
+       "białko"
+      ],
+      "hu": [
+       "szintetikus",
+       "fehérje"
       ]
      }
     },
@@ -2698,6 +2871,18 @@
       "tr": [
        "Sahte",
        "“sağlık”"
+      ],
+      "pt-BR": [
+       "Falsa",
+       "“saúde”"
+      ],
+      "pl": [
+       "Fałszywe",
+       "„zdrowie”"
+      ],
+      "hu": [
+       "Kamu",
+       "„egészség”"
       ]
      }
     },
@@ -2772,6 +2957,15 @@
       ],
       "tr": [
        "ağız bantlama"
+      ],
+      "pt-BR": [
+       "fita na boca"
+      ],
+      "pl": [
+       "zaklejanie ust"
+      ],
+      "hu": [
+       "leragasztott száj"
       ]
      }
     },
@@ -2818,6 +3012,15 @@
       ],
       "tr": [
        "oruç"
+      ],
+      "pt-BR": [
+       "jejum"
+      ],
+      "pl": [
+       "post"
+      ],
+      "hu": [
+       "böjt"
       ]
      }
     },
@@ -2876,6 +3079,18 @@
       "tr": [
        "REM",
        "optimizasyonu"
+      ],
+      "pt-BR": [
+       "otimizar",
+       "o REM"
+      ],
+      "pl": [
+       "optymalizacja",
+       "REM"
+      ],
+      "hu": [
+       "REM",
+       "optimalizálás"
       ]
      }
     },
@@ -2978,6 +3193,15 @@
       ],
       "tr": [
        "buz banyosu"
+      ],
+      "pt-BR": [
+       "banho frio"
+      ],
+      "pl": [
+       "morsowanie"
+      ],
+      "hu": [
+       "jeges fürdő"
       ]
      }
     },
@@ -3009,6 +3233,18 @@
       "tr": [
        "sabah",
        "güneşi"
+      ],
+      "pt-BR": [
+       "sol",
+       "da manhã"
+      ],
+      "pl": [
+       "poranne",
+       "słońce"
+      ],
+      "hu": [
+       "reggeli",
+       "napfény"
       ]
      },
      "couleur": "#0b0e07",
@@ -3061,6 +3297,15 @@
       ],
       "tr": [
        "bildirim yok"
+      ],
+      "pt-BR": [
+       "zero distração"
+      ],
+      "pl": [
+       "zero rozpraszaczy"
+      ],
+      "hu": [
+       "semmi zavarás"
       ]
      },
      "couleur": "#070c06",
@@ -3113,6 +3358,18 @@
       "tr": [
        "“ama en azından",
        "mutluyum”"
+      ],
+      "pt-BR": [
+       "“mas pelo menos",
+       "sou feliz”"
+      ],
+      "pl": [
+       "„ale przynajmniej",
+       "jestem szczęśliwy”"
+      ],
+      "hu": [
+       "„de legalább",
+       "boldog vagyok”"
       ]
      },
      "couleur": "#050b04",
@@ -3171,6 +3428,18 @@
       "tr": [
        "spor",
        "hileleri"
+      ],
+      "pt-BR": [
+       "cheat codes",
+       "de academia"
+      ],
+      "pl": [
+       "cheat codes",
+       "na siłkę"
+      ],
+      "hu": [
+       "edzős",
+       "cheat codeok"
       ]
      },
      "couleur": "#070c05",

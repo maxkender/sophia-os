@@ -8,65 +8,649 @@
   "de": "Dopamin-Detox im Ranking #dopamindetox #mentalmaxxing #tierlist #selbstverbesserung",
   "es": "détox de dopamina, en ranking #detoxdopamina #mentalmaxxing #tierlist #superacionpersonal",
   "it": "detox da dopamina, in classifica #detoxdopamina #mentalmaxxing #tierlist #crescitapersonale",
-  "tr": "dopamin detoksu sıralaması #dopamindetoks #mentalmaxxing #tierlist #kişiselgelişim"
+  "tr": "dopamin detoksu sıralaması #dopamindetoks #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "detox de dopamina, classificado #detoxdedopamina #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "detoks dopaminowy, ranking #detoksdopaminowy #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "dopamin detox lépések, rangsorolva #dopamindetox #mentalmaxxing #tierlist #önfejlesztés"
  },
  "couverture": {
-  "image": { "src": "7696594173863955730/1", "boite": [190, 320, 710, 525] },
-  "haut": { "en": "tier list of", "fr": "tier list :", "de": "Tierlist:", "es": "tier list:", "it": "tier list:", "tr": "tier list:" },
-  "gros": { "en": "Dopamine", "fr": "détox", "de": "Dopamin-", "es": "détox", "it": "detox", "tr": "dopamin" },
-  "bas": { "en": "detox moves", "fr": "dopamine", "de": "Detox", "es": "de dopamina", "it": "da dopamina", "tr": "detoksu" }
+  "image": {
+   "src": "7696594173863955730/1",
+   "boite": [
+    190,
+    320,
+    710,
+    525
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list :",
+   "de": "Tierlist:",
+   "es": "tier list:",
+   "it": "tier list:",
+   "tr": "tier list:",
+   "pt-BR": "tier list:",
+   "pl": "tier list:",
+   "hu": "tier list:"
+  },
+  "gros": {
+   "en": "Dopamine",
+   "fr": "détox",
+   "de": "Dopamin-",
+   "es": "détox",
+   "it": "detox",
+   "tr": "dopamin",
+   "pt-BR": "detox",
+   "pl": "detoks",
+   "hu": "dopamin"
+  },
+  "bas": {
+   "en": "detox moves",
+   "fr": "dopamine",
+   "de": "Detox",
+   "es": "de dopamina",
+   "it": "da dopamina",
+   "tr": "detoksu",
+   "pt-BR": "de dopamina",
+   "pl": "dopaminowy",
+   "hu": "detox lépések"
+  }
  },
- "titre_tableau": { "en": "tell me i’m wrong", "fr": "dis-moi que j’ai tort", "de": "sag mir, dass ich falschliege", "es": "dime que me equivoco", "it": "dimmi che sbaglio", "tr": "yanıldığımı söyle" },
- "pied": { "en": "what’s your longest detox?", "fr": "ta plus longue détox ?", "de": "dein längster Detox?", "es": "¿tu détox más largo?", "it": "il tuo detox più lungo?", "tr": "en uzun detoksun ne kadar?" },
+ "titre_tableau": {
+  "en": "tell me i’m wrong",
+  "fr": "dis-moi que j’ai tort",
+  "de": "sag mir, dass ich falschliege",
+  "es": "dime que me equivoco",
+  "it": "dimmi che sbaglio",
+  "tr": "yanıldığımı söyle",
+  "pt-BR": "diz que eu tô errado",
+  "pl": "powiedz, że się mylę",
+  "hu": "mondd, hogy tévedek"
+ },
+ "pied": {
+  "en": "what’s your longest detox?",
+  "fr": "ta plus longue détox ?",
+  "de": "dein längster Detox?",
+  "es": "¿tu détox más largo?",
+  "it": "il tuo detox più lungo?",
+  "tr": "en uzun detoksun ne kadar?",
+  "pt-BR": "qual seu detox mais longo?",
+  "pl": "twój najdłuższy detoks?",
+  "hu": "mi volt a leghosszabb detoxod?"
+ },
  "rangs": [
-  { "lettre": "S+", "fond": "#fb0200", "texte": "#890000",
-    "sous": { "en": "resets you", "fr": "te remet à zéro", "de": "setzt dich zurück", "es": "te resetea", "it": "ti resetta", "tr": "sıfırlar" },
-    "cases": [
-     { "app": true },
-     { "src": "7689665265591799048/2", "boite": [608, 400, 96, 100], "t": { "en": "phone-free|mornings", "fr": "matins|sans téléphone", "de": "Morgen|ohne Handy", "es": "mañanas|sin móvil", "it": "mattine|senza telefono", "tr": "telefonsuz|sabahlar" } },
-     { "src": "7689665265591799048/2", "boite": [776, 552, 104, 99], "t": { "en": "doing nothing", "fr": "ne rien faire", "de": "nichts tun", "es": "no hacer nada", "it": "non fare niente", "tr": "hiçbir şey yapmamak" } },
-     { "src": "7692811167261248775/2", "boite": [596, 552, 92, 96], "t": { "en": "time in nature", "fr": "la nature", "de": "Zeit in der Natur", "es": "naturaleza", "it": "natura", "tr": "doğada vakit" } }
-    ] },
-  { "lettre": "A", "fond": "#ff9f40", "texte": "#6f2900",
-    "sous": { "en": "real reset", "fr": "vrai reset", "de": "echter Reset", "es": "reset real", "it": "reset vero", "tr": "gerçek reset" },
-    "cases": [
-     { "src": "7689665265591799048/2", "boite": [289, 393, 79, 107], "t": { "en": "cold shower", "fr": "douche froide", "de": "kalte Dusche", "es": "ducha fría", "it": "doccia fredda", "tr": "soğuk duş" } },
-     { "src": "7692811167261248775/2", "boite": [760, 258, 115, 92], "t": { "en": "early night", "fr": "coucher tôt", "de": "früh ins Bett", "es": "dormir temprano", "it": "a letto presto", "tr": "erken yatmak" } },
-     { "src": "7689665265591799048/2", "boite": [439, 550, 100, 84], "t": { "en": "time with|a pet", "fr": "temps avec|un animal", "de": "Zeit mit|einem Haustier", "es": "tiempo con|tu mascota", "it": "tempo con|un animale", "tr": "evcil hayvanla|vakit" } },
-     { "src": "7689665265591799048/2", "boite": [424, 696, 119, 85], "t": { "en": "cooking", "fr": "cuisiner", "de": "Kochen", "es": "cocinar", "it": "cucinare", "tr": "aşçılık" } }
-    ] },
-  { "lettre": "B", "fond": "#fadc7c", "texte": "#6b530d",
-    "sous": { "en": "solid", "fr": "solide", "de": "solide", "es": "sólido", "it": "solido", "tr": "sağlam" },
-    "cases": [
-     { "src": "7689665265591799048/2", "boite": [265, 551, 102, 98], "t": { "en": "real food", "fr": "vraie bouffe", "de": "echtes Essen", "es": "comida real", "it": "cibo vero", "tr": "gerçek yemek" } },
-     { "src": "7692811167261248775/2", "boite": [430, 727, 114, 73], "t": { "en": "one album,|no skips", "fr": "un album,|sans zapper", "de": "ein Album,|ohne Skippen", "es": "un álbum,|sin saltar", "it": "un album,|senza skip", "tr": "tek albüm,|atlamadan" } },
-     { "src": "7692811167261248775/2", "boite": [613, 701, 75, 106], "t": { "en": "board games", "fr": "jeux de société", "de": "Brettspiele", "es": "juegos de mesa", "it": "giochi da tavolo", "tr": "kutu oyunları" } },
-     { "src": "7689665265591799048/2", "boite": [273, 691, 62, 114], "t": { "en": "solo drive", "fr": "rouler seul", "de": "allein fahren", "es": "conducir solo", "it": "guidare da solo", "tr": "tek başına sürüş" } }
-    ] },
-  { "lettre": "C", "fond": "#fffd68", "texte": "#565300",
-    "sous": { "en": "meh", "fr": "bof", "de": "naja", "es": "meh", "it": "mah", "tr": "idare eder" },
-    "cases": [
-     { "src": "7689665265591799048/2", "boite": [756, 697, 104, 107], "t": { "en": "lofi playlists", "fr": "playlists lofi", "de": "Lofi-Playlists", "es": "playlists lofi", "it": "playlist lofi", "tr": "lofi listeler" } },
-     { "src": "7689665265591799048/2", "boite": [769, 401, 111, 102], "t": { "en": "one movie", "fr": "un seul film", "de": "ein Film", "es": "una peli", "it": "un film", "tr": "tek film" } },
-     { "src": "7689665265591799048/2", "boite": [569, 849, 99, 106], "t": { "en": "sleeping in", "fr": "grasse mat’", "de": "ausschlafen", "es": "dormir de más", "it": "dormire tanto", "tr": "geç kalkmak" } },
-     { "src": "7692811167261248775/2", "boite": [266, 247, 117, 104], "t": { "en": "making a plan", "fr": "faire un plan", "de": "einen Plan machen", "es": "hacer un plan", "it": "fare un piano", "tr": "plan yapmak" } }
-    ] },
-  { "lettre": "D", "fond": "#bdfd85", "texte": "#366b0d",
-    "sous": { "en": "fake detox", "fr": "fausse détox", "de": "Fake-Detox", "es": "falso détox", "it": "finto detox", "tr": "sahte detoks" },
-    "cases": [
-     { "src": "7692811167261248775/2", "boite": [272, 853, 90, 94], "t": { "en": "deleting insta|for a day", "fr": "virer insta|un jour", "de": "Insta einen|Tag löschen", "es": "borrar insta|un día", "it": "togliere insta|per un giorno", "tr": "insta’yı bir|günlük silmek" } },
-     { "src": "7689665265591799048/2", "boite": [421, 863, 91, 84], "t": { "en": "“just one reel”", "fr": "« juste un reel »", "de": "„nur ein Reel“", "es": "“solo un reel”", "it": "“solo un reel”", "tr": "“sadece bir reel”" } },
-     { "src": "7692811167261248775/2", "boite": [601, 847, 99, 106], "t": { "en": "sugar", "fr": "sucre", "de": "Zucker", "es": "azúcar", "it": "zucchero", "tr": "şeker" } },
-     { "src": "7692811167261248775/2", "boite": [759, 856, 120, 96], "t": { "en": "gaming|“to relax”", "fr": "gaming « pour|se détendre »", "de": "Gaming „zum|Entspannen“", "es": "gaming “para|relajarse”", "it": "gaming “per|rilassarsi”", "tr": "“rahatlamak|için” oyun" } }
-    ] }
- ],
- "f": { "lettre": "F", "fond": "#8685ed", "texte": "#2c2d7c",
-   "sous": { "en": "relapse", "fr": "rechute", "de": "Rückfall", "es": "recaída", "it": "ricaduta", "tr": "nüks" },
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "resets you",
+    "fr": "te remet à zéro",
+    "de": "setzt dich zurück",
+    "es": "te resetea",
+    "it": "ti resetta",
+    "tr": "sıfırlar",
+    "pt-BR": "te reseta",
+    "pl": "resetuje cię",
+    "hu": "lenulláz"
+   },
    "cases": [
-     { "src": "7689665265591799048/2", "boite": [585, 1077, 98, 91], "t": { "en": "3am scrolling", "fr": "scroller à 3h", "de": "Scrollen um 3", "es": "scroll a las 3", "it": "scrollare alle 3", "tr": "gece 3’te scroll" } },
-     { "src": "7689665265591799048/2", "boite": [401, 1089, 121, 75], "t": { "en": "ranked games", "fr": "parties classées", "de": "Ranked-Spiele", "es": "partidas ranked", "it": "partite ranked", "tr": "dereceli maçlar" } },
-     { "src": "7692811167261248775/2", "boite": [258, 1067, 100, 109], "t": { "en": "betting apps", "fr": "applis de paris", "de": "Wett-Apps", "es": "apps de apuestas", "it": "app di scommesse", "tr": "bahis uygulamaları" } },
-     { "src": "7689665265591799048/2", "boite": [797, 1067, 52, 93], "t": { "en": "your option|(comment)", "fr": "ton choix|(commente)", "de": "deine Wahl|(kommentiere)", "es": "tu opción|(comenta)", "it": "la tua scelta|(commenta)", "tr": "senin seçimin|(yorum yap)" } }
-   ] },
+    {
+     "app": true
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      608,
+      400,
+      96,
+      100
+     ],
+     "t": {
+      "en": "phone-free|mornings",
+      "fr": "matins|sans téléphone",
+      "de": "Morgen|ohne Handy",
+      "es": "mañanas|sin móvil",
+      "it": "mattine|senza telefono",
+      "tr": "telefonsuz|sabahlar",
+      "pt-BR": "manhãs|sem celular",
+      "pl": "poranki|bez telefonu",
+      "hu": "reggelek|telefon nélkül"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "doing nothing",
+      "fr": "ne rien faire",
+      "de": "nichts tun",
+      "es": "no hacer nada",
+      "it": "non fare niente",
+      "tr": "hiçbir şey yapmamak",
+      "pt-BR": "não fazer nada",
+      "pl": "nicnierobienie",
+      "hu": "semmittevés"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "time in nature",
+      "fr": "la nature",
+      "de": "Zeit in der Natur",
+      "es": "naturaleza",
+      "it": "natura",
+      "tr": "doğada vakit",
+      "pt-BR": "natureza",
+      "pl": "czas w naturze",
+      "hu": "idő a természetben"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "real reset",
+    "fr": "vrai reset",
+    "de": "echter Reset",
+    "es": "reset real",
+    "it": "reset vero",
+    "tr": "gerçek reset",
+    "pt-BR": "reset real",
+    "pl": "prawdziwy reset",
+    "hu": "igazi reset"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş",
+      "pt-BR": "banho gelado",
+      "pl": "zimny prysznic",
+      "hu": "hideg zuhany"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "early night",
+      "fr": "coucher tôt",
+      "de": "früh ins Bett",
+      "es": "dormir temprano",
+      "it": "a letto presto",
+      "tr": "erken yatmak",
+      "pt-BR": "dormir cedo",
+      "pl": "wcześnie spać",
+      "hu": "korai lefekvés"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "time with|a pet",
+      "fr": "temps avec|un animal",
+      "de": "Zeit mit|einem Haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|un animale",
+      "tr": "evcil hayvanla|vakit",
+      "pt-BR": "tempo com|um pet",
+      "pl": "czas|ze zwierzakiem",
+      "hu": "idő a|háziállattal"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      424,
+      696,
+      119,
+      85
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "Kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "aşçılık",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam",
+    "pt-BR": "sólido",
+    "pl": "solidne",
+    "hu": "stabil"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "real food",
+      "fr": "vraie bouffe",
+      "de": "echtes Essen",
+      "es": "comida real",
+      "it": "cibo vero",
+      "tr": "gerçek yemek",
+      "pt-BR": "comida|de verdade",
+      "pl": "prawdziwe jedzenie",
+      "hu": "igazi kaja"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "one album,|no skips",
+      "fr": "un album,|sans zapper",
+      "de": "ein Album,|ohne Skippen",
+      "es": "un álbum,|sin saltar",
+      "it": "un album,|senza skip",
+      "tr": "tek albüm,|atlamadan",
+      "pt-BR": "um álbum,|sem pular",
+      "pl": "album|bez skipów",
+      "hu": "egy album,|skip nélkül"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "board games",
+      "fr": "jeux de société",
+      "de": "Brettspiele",
+      "es": "juegos de mesa",
+      "it": "giochi da tavolo",
+      "tr": "kutu oyunları",
+      "pt-BR": "jogos de|tabuleiro",
+      "pl": "planszówki",
+      "hu": "társasjátékok"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      273,
+      691,
+      62,
+      114
+     ],
+     "t": {
+      "en": "solo drive",
+      "fr": "rouler seul",
+      "de": "allein fahren",
+      "es": "conducir solo",
+      "it": "guidare da solo",
+      "tr": "tek başına sürüş",
+      "pt-BR": "dirigir|sozinho",
+      "pl": "jazda solo",
+      "hu": "egyedül vezetni"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "meh",
+    "fr": "bof",
+    "de": "naja",
+    "es": "meh",
+    "it": "mah",
+    "tr": "idare eder",
+    "pt-BR": "meh",
+    "pl": "meh",
+    "hu": "meh"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "lofi playlists",
+      "fr": "playlists lofi",
+      "de": "Lofi-Playlists",
+      "es": "playlists lofi",
+      "it": "playlist lofi",
+      "tr": "lofi listeler",
+      "pt-BR": "playlists lofi",
+      "pl": "playlisty lofi",
+      "hu": "lofi playlistek"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "one movie",
+      "fr": "un seul film",
+      "de": "ein Film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "tek film",
+      "pt-BR": "um filme só",
+      "pl": "jeden film",
+      "hu": "egy film"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "sleeping in",
+      "fr": "grasse mat’",
+      "de": "ausschlafen",
+      "es": "dormir de más",
+      "it": "dormire tanto",
+      "tr": "geç kalkmak",
+      "pt-BR": "dormir|até tarde",
+      "pl": "odsypianie",
+      "hu": "sokáig alvás"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "making a plan",
+      "fr": "faire un plan",
+      "de": "einen Plan machen",
+      "es": "hacer un plan",
+      "it": "fare un piano",
+      "tr": "plan yapmak",
+      "pt-BR": "fazer um plano",
+      "pl": "robienie planu",
+      "hu": "tervet írni"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "fake detox",
+    "fr": "fausse détox",
+    "de": "Fake-Detox",
+    "es": "falso détox",
+    "it": "finto detox",
+    "tr": "sahte detoks",
+    "pt-BR": "detox fake",
+    "pl": "fake detoks",
+    "hu": "kamu detox"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "deleting insta|for a day",
+      "fr": "virer insta|un jour",
+      "de": "Insta einen|Tag löschen",
+      "es": "borrar insta|un día",
+      "it": "togliere insta|per un giorno",
+      "tr": "insta’yı bir|günlük silmek",
+      "pt-BR": "apagar o insta|por um dia",
+      "pl": "insta usunięte|na dzień",
+      "hu": "insta törlése|egy napra"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      421,
+      863,
+      91,
+      84
+     ],
+     "t": {
+      "en": "“just one reel”",
+      "fr": "« juste un reel »",
+      "de": "„nur ein Reel“",
+      "es": "“solo un reel”",
+      "it": "“solo un reel”",
+      "tr": "“sadece bir reel”",
+      "pt-BR": "“só um reel”",
+      "pl": "„tylko jeden reel”",
+      "hu": "„csak egy reel”"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "sugar",
+      "fr": "sucre",
+      "de": "Zucker",
+      "es": "azúcar",
+      "it": "zucchero",
+      "tr": "şeker",
+      "pt-BR": "açúcar",
+      "pl": "cukier",
+      "hu": "cukor"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "gaming|“to relax”",
+      "fr": "gaming « pour|se détendre »",
+      "de": "Gaming „zum|Entspannen“",
+      "es": "gaming “para|relajarse”",
+      "it": "gaming “per|rilassarsi”",
+      "tr": "“rahatlamak|için” oyun",
+      "pt-BR": "games|“pra relaxar”",
+      "pl": "granie|„na relaks”",
+      "hu": "gaming|„lazításként”"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "relapse",
+   "fr": "rechute",
+   "de": "Rückfall",
+   "es": "recaída",
+   "it": "ricaduta",
+   "tr": "nüks",
+   "pt-BR": "recaída",
+   "pl": "nawrót",
+   "hu": "visszaesés"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "3am scrolling",
+     "fr": "scroller à 3h",
+     "de": "Scrollen um 3",
+     "es": "scroll a las 3",
+     "it": "scrollare alle 3",
+     "tr": "gece 3’te scroll",
+     "pt-BR": "scroll às 3h",
+     "pl": "scroll|o 3 w nocy",
+     "hu": "scrollozás|hajnali 3-kor"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     401,
+     1089,
+     121,
+     75
+    ],
+    "t": {
+     "en": "ranked games",
+     "fr": "parties classées",
+     "de": "Ranked-Spiele",
+     "es": "partidas ranked",
+     "it": "partite ranked",
+     "tr": "dereceli maçlar",
+     "pt-BR": "partidas|ranqueadas",
+     "pl": "rankedy",
+     "hu": "ranked meccsek"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları",
+     "pt-BR": "apps de aposta",
+     "pl": "bukmacherka",
+     "hu": "fogadási appok"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     797,
+     1067,
+     52,
+     93
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój typ|(skomentuj)",
+     "hu": "a te tipped|(kommenteld)"
+    }
+   }
+  ]
+ },
  "notes": "routine du 21/10, liste finie : original sur le schéma de mm-o001 (tier list 2 slides), sujet dopamine detox (le thème dopamine porte les remakes à 1 M et 287 k). Slide de l'app sans aucune personne réelle (pictos et objets seulement, garde-fou de ROUTINE.md) ; couverture : cerveau scotché de la banque."
 }

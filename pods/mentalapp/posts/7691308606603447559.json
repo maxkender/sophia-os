@@ -8,7 +8,10 @@
   "de": "Happymaxxing Tierlist, beweis mir das Gegenteil #mentalmaxxing #dopamin #tierlist #selbstverbesserung",
   "es": "tier list de happymaxxing, demuéstrame lo contrario #mentalmaxxing #dopamina #tierlist #superacionpersonal",
   "it": "tier list happymaxxing, dimostrami il contrario #mentalmaxxing #dopamina #tierlist #crescitapersonale",
-  "tr": "happymaxxing tier list, aksini kanıtla #mentalmaxxing #dopamin #tierlist #kişiselgelişim"
+  "tr": "happymaxxing tier list, aksini kanıtla #mentalmaxxing #dopamin #tierlist #kişiselgelişim",
+  "pt-BR": "tier list happymaxxing, me prova o contrário #mentalmaxxing #dopamine #tierlist #desenvolvimentopessoal",
+  "pl": "tier list happymaxxing, udowodnij, że się mylę #mentalmaxxing #dopamina #tierlist #rozwojosobisty",
+  "hu": "happymaxxing tier list, cáfolj meg #mentalmaxxing #dopamin #tierlist #önfejlesztés"
  },
  "app": {
   "position": 2,
@@ -66,6 +69,15 @@
        "tier list:"
       ],
       "tr": [
+       "tier list:"
+      ],
+      "pt-BR": [
+       "tier list:"
+      ],
+      "pl": [
+       "tier list:"
+      ],
+      "hu": [
        "tier list:"
       ]
      }
@@ -209,6 +221,18 @@
       "tr": [
        "Happymaxxing",
        "şeyleri"
+      ],
+      "pt-BR": [
+       "Happymaxxing",
+       "o essencial"
+      ],
+      "pl": [
+       "Happymaxxing",
+       "podstawy"
+      ],
+      "hu": [
+       "Happymaxxing",
+       "dolgok"
       ]
      }
     },
@@ -574,6 +598,15 @@
       ],
       "tr": [
        "aksini kanıtla"
+      ],
+      "pt-BR": [
+       "me prova o contrário"
+      ],
+      "pl": [
+       "udowodnij, że się mylę"
+      ],
+      "hu": [
+       "cáfolj meg"
       ]
      }
     },
@@ -909,6 +942,15 @@
       ],
       "tr": [
        "yakın arkadaşlar"
+      ],
+      "pt-BR": [
+       "amigos de verdade"
+      ],
+      "pl": [
+       "prawdziwi kumple"
+      ],
+      "hu": [
+       "igaz barátok"
       ]
      }
     },
@@ -955,6 +997,15 @@
       ],
       "tr": [
        "uyku"
+      ],
+      "pt-BR": [
+       "dormir"
+      ],
+      "pl": [
+       "sen"
+      ],
+      "hu": [
+       "alvás"
       ]
      }
     },
@@ -1001,6 +1052,15 @@
       ],
       "tr": [
        "amaç"
+      ],
+      "pt-BR": [
+       "propósito"
+      ],
+      "pl": [
+       "cel w życiu"
+      ],
+      "hu": [
+       "egy cél"
       ]
      }
     },
@@ -1047,6 +1107,15 @@
       ],
       "tr": [
        "kazanmak"
+      ],
+      "pt-BR": [
+       "ganhar"
+      ],
+      "pl": [
+       "wygrywanie"
+      ],
+      "hu": [
+       "nyerni"
       ]
      }
     },
@@ -1289,6 +1358,15 @@
       ],
       "tr": [
        "lezzetli yemek"
+      ],
+      "pt-BR": [
+       "comida boa"
+      ],
+      "pl": [
+       "dobre żarcie"
+      ],
+      "hu": [
+       "finom kaja"
       ]
      }
     },
@@ -1335,6 +1413,15 @@
       ],
       "tr": [
        "seyahat"
+      ],
+      "pt-BR": [
+       "viajar"
+      ],
+      "pl": [
+       "podróże"
+      ],
+      "hu": [
+       "utazás"
       ]
      }
     },
@@ -1381,6 +1468,15 @@
       ],
       "tr": [
        "evcil hayvan"
+      ],
+      "pt-BR": [
+       "pet"
+      ],
+      "pl": [
+       "zwierzak"
+      ],
+      "hu": [
+       "háziállat"
       ]
      }
     },
@@ -1427,6 +1523,15 @@
       ],
       "tr": [
        "güçlü, hak edilmiş"
+      ],
+      "pt-BR": [
+       "forte, ainda merecido"
+      ],
+      "pl": [
+       "mocne, nadal zasłużone"
+      ],
+      "hu": [
+       "erős, még kiérdemelt"
       ]
      }
     },
@@ -1473,6 +1578,15 @@
       ],
       "tr": [
        "para"
+      ],
+      "pt-BR": [
+       "dinheiro"
+      ],
+      "pl": [
+       "kasa"
+      ],
+      "hu": [
+       "pénz"
       ]
      }
     },
@@ -1743,6 +1857,15 @@
       ],
       "tr": [
        "hobiler"
+      ],
+      "pt-BR": [
+       "hobbies"
+      ],
+      "pl": [
+       "pasje"
+      ],
+      "hu": [
+       "hobbik"
       ]
      }
     },
@@ -1789,6 +1912,15 @@
       ],
       "tr": [
        "ilişkiler"
+      ],
+      "pt-BR": [
+       "relações"
+      ],
+      "pl": [
+       "relacje"
+      ],
+      "hu": [
+       "kapcsolatok"
       ]
      }
     },
@@ -1835,6 +1967,15 @@
       ],
       "tr": [
        "egzersiz"
+      ],
+      "pt-BR": [
+       "exercício"
+      ],
+      "pl": [
+       "ruch"
+      ],
+      "hu": [
+       "mozgás"
       ]
      }
     },
@@ -1881,6 +2022,15 @@
       ],
       "tr": [
        "doğa"
+      ],
+      "pt-BR": [
+       "natureza"
+      ],
+      "pl": [
+       "natura"
+      ],
+      "hu": [
+       "természet"
       ]
      }
     },
@@ -1927,6 +2077,15 @@
       ],
       "tr": [
        "sağlam, hafif"
+      ],
+      "pt-BR": [
+       "sólido, leve"
+      ],
+      "pl": [
+       "solidne, łagodne"
+      ],
+      "hu": [
+       "stabil, enyhe"
       ]
      }
     },
@@ -2231,6 +2390,15 @@
       ],
       "tr": [
        "yemek yapmak"
+      ],
+      "pt-BR": [
+       "cozinhar"
+      ],
+      "pl": [
+       "gotowanie"
+      ],
+      "hu": [
+       "főzés"
       ]
      }
     },
@@ -2277,6 +2445,15 @@
       ],
       "tr": [
        "güzel hava"
+      ],
+      "pt-BR": [
+       "dia bonito"
+      ],
+      "pl": [
+       "ładna pogoda"
+      ],
+      "hu": [
+       "jó idő"
       ]
      }
     },
@@ -2323,6 +2500,15 @@
       ],
       "tr": [
        "yeni kıyafet"
+      ],
+      "pt-BR": [
+       "roupa nova"
+      ],
+      "pl": [
+       "nowy outfit"
+      ],
+      "hu": [
+       "új szett"
       ]
      }
     },
@@ -2369,6 +2555,15 @@
       ],
       "tr": [
        "müzik"
+      ],
+      "pt-BR": [
+       "música"
+      ],
+      "pl": [
+       "muzyka"
+      ],
+      "hu": [
+       "zene"
       ]
      }
     },
@@ -2415,6 +2610,15 @@
       ],
       "tr": [
        "nötr, idare eder"
+      ],
+      "pt-BR": [
+       "neutro, ok"
+      ],
+      "pl": [
+       "neutralne, ok"
+      ],
+      "hu": [
+       "semleges, oké"
       ]
      }
     },
@@ -2517,6 +2721,15 @@
       ],
       "tr": [
        "doomscroll"
+      ],
+      "pt-BR": [
+       "doomscrolling"
+      ],
+      "pl": [
+       "doomscrolling"
+      ],
+      "hu": [
+       "doomscrolling"
       ]
      }
     },
@@ -2563,6 +2776,15 @@
       ],
       "tr": [
        "abur cubur"
+      ],
+      "pt-BR": [
+       "junk food"
+      ],
+      "pl": [
+       "śmieciowe żarcie"
+      ],
+      "hu": [
+       "szemétkaja"
       ]
      }
     },
@@ -2609,6 +2831,15 @@
       ],
       "tr": [
        "oyun"
+      ],
+      "pt-BR": [
+       "games"
+      ],
+      "pl": [
+       "granie"
+      ],
+      "hu": [
+       "gaming"
       ]
      }
     },
@@ -2655,6 +2886,15 @@
       ],
       "tr": [
        "dizi maratonu"
+      ],
+      "pt-BR": [
+       "maratonar séries"
+      ],
+      "pl": [
+       "seriale ciągiem"
+      ],
+      "hu": [
+       "sorozatdarálás"
       ]
      }
     },
@@ -2701,6 +2941,15 @@
       ],
       "tr": [
        "ucuz dopamin"
+      ],
+      "pt-BR": [
+       "dopamina barata"
+      ],
+      "pl": [
+       "tania dopamina"
+      ],
+      "hu": [
+       "olcsó dopamin"
       ]
      }
     },
@@ -3089,6 +3338,15 @@
       ],
       "tr": [
        "bağımlılıklar"
+      ],
+      "pt-BR": [
+       "vícios"
+      ],
+      "pl": [
+       "nałogi"
+      ],
+      "hu": [
+       "függőségek"
       ]
      }
     },
@@ -3135,6 +3393,15 @@
       ],
       "tr": [
        "tuzak"
+      ],
+      "pt-BR": [
+       "golpe"
+      ],
+      "pl": [
+       "ściema"
+      ],
+      "hu": [
+       "átverés"
       ]
      }
     },
@@ -3181,6 +3448,16 @@
       ],
       "tr": [
        "aşırı alışveriş"
+      ],
+      "pt-BR": [
+       "compra por",
+       "impulso"
+      ],
+      "pl": [
+       "zakupoholizm"
+      ],
+      "hu": [
+       "kényszervásárlás"
       ]
      }
     },
@@ -3227,6 +3504,15 @@
       ],
       "tr": [
        "kumar"
+      ],
+      "pt-BR": [
+       "apostas"
+      ],
+      "pl": [
+       "hazard"
+      ],
+      "hu": [
+       "szerencsejáték"
       ]
      }
     },
@@ -3276,6 +3562,15 @@
       ],
       "en": [
        "where would you put sleep?"
+      ],
+      "pt-BR": [
+       "onde você colocaria o sono?"
+      ],
+      "pl": [
+       "gdzie dajesz sen?"
+      ],
+      "hu": [
+       "hova tennéd az alvást?"
       ]
      }
     },
@@ -3329,6 +3624,15 @@
       ],
       "tr": [
        "gerçek mutluluk"
+      ],
+      "pt-BR": [
+       "felicidade real"
+      ],
+      "pl": [
+       "prawdziwe szczęście"
+      ],
+      "hu": [
+       "valódi boldogság"
       ]
      },
      "couleur": "#870000",
@@ -3381,6 +3685,18 @@
       "tr": [
        "senin seçimin",
        "(yorum yap)"
+      ],
+      "pt-BR": [
+       "sua opção",
+       "(comenta)"
+      ],
+      "pl": [
+       "twój typ",
+       "(skomentuj)"
+      ],
+      "hu": [
+       "a te tipped",
+       "(kommenteld)"
       ]
      },
      "couleur": "#151a13",
@@ -3433,6 +3749,15 @@
       ],
       "tr": [
        "süper taktik"
+      ],
+      "pt-BR": [
+       "hack absurdo"
+      ],
+      "pl": [
+       "absolutny hack"
+      ],
+      "hu": [
+       "abszolút hack"
       ]
      },
      "couleur": "#532d2d",

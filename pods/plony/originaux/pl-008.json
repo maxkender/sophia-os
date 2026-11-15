@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-008",
+  "titre": "Hatred is never appeased by hatred. By non-hatred alone is hatred appeased. #buddhism #forgiveness #peace #quotes",
+  "source_phrase": "Dhammapada, verse 5 (Buddharakkhita translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "sleep walk.",
+  "notes": "cta B",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2249190a",
+      "texte_overlay": "Hatred is never appeased by hatred.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694141490905255176/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6b954579",
+      "texte_overlay": "By non-hatred alone",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7701513819851377938/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "70758ca3",
+      "texte_overlay": "is hatred appeased.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695980428112514312/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fd4368a6",
+      "texte_overlay": "The Dhammapada, verse 5.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696302485417381138/3.jpg",
+      "texte_sophia": "Today's 5 minutes on Sophia: the Dhammapada, one of the oldest Buddhist texts."
+    }
+  ]
+}

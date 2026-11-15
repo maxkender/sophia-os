@@ -73,6 +73,7 @@ import {
   definirRole,
   demarrerWarmup,
   skipWarmup,
+  comptesDuLabel,
   labelsDesComptes,
   listerComptesAvecDormants,
   listerLabels,
@@ -766,11 +767,20 @@ export function AdminPostersPage() {
   // Pays du compte (ISO-3166), ou CLE_SANS_PAYS pour « à renseigner ».
   const [filtrePays, setFiltrePays] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
+  // 15/11 : le filtre Label lit directement les comptes du label choisi.
+  const comptesLabelFiltre = useQuery({
+    queryKey: ["comptes-du-label", filtreLabel],
+    queryFn: () => comptesDuLabel(filtreLabel),
+    enabled: Boolean(filtreLabel),
+  });
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
   const [filtreRuul, setFiltreRuul] = React.useState(false);
   // 28 oct. (partie E) : les inactifs (0385), plus dans le menu, se filtrent ici.
   const [filtreInactifs, setFiltreInactifs] = React.useState(false);
+  // 15/11 (Adrien) : tous les comptes par défaut, recrues et warmup compris ;
+  // la case « seulement ceux qui ont posté » rend l'affichage du prompt 25 v4.
+  const [seulementPostes, setSeulementPostes] = React.useState(false);
   const inactifs = useQuery({ queryKey: ["posters", "inactifs"], queryFn: lireInactifs, enabled: filtreInactifs });
   // Prompt 25 v4 : Posters ne montre que les posteurs qui ont publié (1er post avec lien) ;
   // les recrues sont sur Recruitment Automation → Onboarding posters.
@@ -1396,8 +1406,13 @@ export function AdminPostersPage() {
       if (!correspond) return false;
     }
     if (filtreLabel) {
-      const labs = liste.flatMap((c) => labelsComptes.data?.get(c.id) ?? []);
-      if (!labs.some((l) => l.id === filtreLabel)) return false;
+      const duLabel = comptesLabelFiltre.data;
+      if (duLabel) {
+        if (!liste.some((c) => duLabel.has(c.id))) return false;
+      } else {
+        const labs = liste.flatMap((c) => labelsComptes.data?.get(c.id) ?? []);
+        if (!labs.some((l) => l.id === filtreLabel)) return false;
+      }
     }
     if (filtreApp && filtreApp !== "tous") {
       // Ce que ses comptes PROMEUVENT (leur badge), pas ce que leurs labels
@@ -1665,6 +1680,15 @@ export function AdminPostersPage() {
         {t("posters.filtreInactifs")}
         {filtreInactifs && inactifs.data && <span className="text-muted-foreground">· {inactifs.data.length}</span>}
       </label>
+      <label className="flex items-center gap-2 text-sm sm:col-span-2 lg:col-span-6">
+        <input
+          type="checkbox"
+          className="size-4 accent-[var(--color-primary)]"
+          checked={seulementPostes}
+          onChange={(e) => setSeulementPostes(e.target.checked)}
+        />
+        {t("posters.seulementPostes")}
+      </label>
     </div>
   );
 
@@ -1676,7 +1700,8 @@ export function AdminPostersPage() {
   // par HM, fermée par défaut.
   const { actifs: createursEnPlace, archive } = repartirArchive(tousCreateurs, comptes.data);
   // Prompt 25 v4 : sans la liste (pas encore lue, ou vide), personne n'est caché.
-  const createursActifs = ayantPoste.data?.size ? createursEnPlace.filter((p) => ayantPoste.data.has(p.id)) : createursEnPlace;
+  const createursActifs =
+    seulementPostes && ayantPoste.data?.size ? createursEnPlace.filter((p) => ayantPoste.data.has(p.id)) : createursEnPlace;
   const idsCreateursActifs = new Set(createursActifs.map((p) => p.id));
   const tousHorsArchive = tous.filter((p) => p.role !== "poster" || idsCreateursActifs.has(p.id));
   // Filtrer sur Dormant ou Stopped va chercher dans l'Archive.
@@ -2188,7 +2213,7 @@ export function AdminPostersPage() {
 
   return (
     <div className="space-y-6">
-      {ayantPoste.data?.size ? (
+      {seulementPostes && ayantPoste.data?.size ? (
         <p className="text-sm text-muted-foreground" data-testid="posters-onboarding">
           {t("posters.seulementActifs", { n: createursEnPlace.length - createursActifs.length })}{" "}
           <Link className="underline" to="/admin/auto/recruits">

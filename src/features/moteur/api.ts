@@ -2795,6 +2795,10 @@ export type PilotageDashboard = {
     comptes: number;
     /** Encore relu par le rattrapage de minuit : le chiffre monte encore. */
     provisoire: boolean;
+    /** Vues médianes par post (0732) ; `null` avant 0732 ou sans post mesuré. */
+    mediane: number | null;
+    /** Vues figées à J+1, J+3, J+7 (photos de la nuit, 0731/0732). */
+    jalons: Record<"j1" | "j3" | "j7", { total: number | null; posts: number; mediane: number | null }>;
   }>;
   recruteurs: Array<{
     id: string;
@@ -2855,6 +2859,31 @@ export type PilotageDashboard = {
 /** Combien de jours de posts le Pilotage remonte pour « publiés / prévus ». */
 const JOURS_POSTS_PILOTAGE = 14;
 
+/**
+ * Les vues par jour de publication, avec les vues figées à J+1/J+3/J+7 (0731)
+ * et les médianes (0732). Tant qu'une migration n'est pas appliquée, la vue
+ * n'a pas ses colonnes : on relit sans elles.
+ */
+async function lireVuesParJour(du: string, au: string) {
+  const lire = (colonnes: string) =>
+    supabase
+      .from("vues_par_jour_publication")
+      .select(colonnes)
+      .gte("jour", du)
+      .lte("jour", au)
+      .order("jour", { ascending: true })
+      .returns<Array<{ jour: string; vues: number | null; posts_mesures: number; nb_comptes: number } & Record<string, unknown>>>();
+  // Du plus complet (0732 : médianes) au plus simple (avant 0731).
+  const base = "jour, vues, posts_mesures, nb_comptes";
+  const jalons = "vues_j1, vues_j3, vues_j7, posts_j1, posts_j3, posts_j7";
+  const medianes = "med, med_j1, med_j3, med_j7";
+  const complet = await lire(`${base}, ${jalons}, ${medianes}`);
+  if (!complet.error) return complet;
+  const sansMedianes = await lire(`${base}, ${jalons}`);
+  if (!sansMedianes.error) return sansMedianes;
+  return lire(base);
+}
+
 /** Données Pilotage : courbe vues, classements ELO / recruteurs, alertes posts. */
 export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   // Fuseau Paris (comme minuit / assignation) — pas l'heure locale du navigateur.
@@ -2869,12 +2898,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     { data: postsVeille, error: errPosts },
   ] = await Promise.all([
     // Les 90 derniers jours jusqu'à hier : aujourd'hui n'a pas encore de vues.
-    supabase
-      .from("vues_par_jour_publication")
-      .select("jour, vues, posts_mesures, nb_comptes")
-      .gte("jour", ajouterJoursParisCalendaire(auj, -JOURS_VUES_PILOTAGE))
-      .lte("jour", veille)
-      .order("jour", { ascending: true }),
+    lireVuesParJour(ajouterJoursParisCalendaire(auj, -JOURS_VUES_PILOTAGE), veille),
     supabase
       .from("comptes")
       .select(
@@ -6968,12 +6992,20 @@ export async function labelsDesComptes(
 ): Promise<Map<string, Label[]>> {
   const out = new Map<string, Label[]>();
   if (compteIds.length === 0) return out;
-  const { data, error } = await supabase
-    .from("compte_labels")
-    .select("compte_id, labels(*)")
-    .in("compte_id", compteIds);
-  if (error) throw error;
-  for (const row of data ?? []) {
+  // 15/11 : par paquets. 800 identifiants dans un seul `in` dépassaient la
+  // longueur d'URL admise : la requête échouait et la page Posteurs ne
+  // trouvait aucun compte par label (Plony, psychologiefaits).
+  const PAQUET = 150;
+  const data: unknown[] = [];
+  for (let i = 0; i < compteIds.length; i += PAQUET) {
+    const { data: lot, error } = await supabase
+      .from("compte_labels")
+      .select("compte_id, labels(*)")
+      .in("compte_id", compteIds.slice(i, i + PAQUET));
+    if (error) throw error;
+    data.push(...(lot ?? []));
+  }
+  for (const row of data) {
     const r = row as unknown as { compte_id: string; labels: Label | null };
     if (!r.labels) continue;
     const list = out.get(r.compte_id) ?? [];
@@ -8077,4 +8109,15 @@ export async function aDejaPublie(): Promise<boolean> {
     .limit(1);
   if (error) throw error;
   return (data ?? []).length > 0;
+}
+
+/**
+ * Les comptes qui portent un label (15/11) : une petite requête par label,
+ * pour le filtre « Label » de la page Posteurs, sans dépendre du chargement
+ * des labels de tous les comptes.
+ */
+export async function comptesDuLabel(labelId: string): Promise<Set<string>> {
+  const { data, error } = await supabase.from("compte_labels").select("compte_id").eq("label_id", labelId);
+  if (error) throw error;
+  return new Set((data ?? []).map((r) => (r as { compte_id: string }).compte_id));
 }

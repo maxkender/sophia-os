@@ -3744,6 +3744,16 @@ export const en = {
       vuesDesc:
         "Views of the posts published each day, all accounts, tests excluded. Each post counts for its own day, with its views read up to 3 days later.",
       vuesSerie: "Views",
+      vuesDescJ7:
+        "Views of the posts published each day, frozen 7 days later. The D+7 capture only takes posts still being read (about half): no total, but average, median and number of captured posts. Days with at least 30 captured posts.",
+      calcul: { total: "Total", moyenne: "Average", mediane: "Median", posts: "Posts" },
+      calculAria: "Calculation",
+      totalJ7Impossible: "No total at D+7: the capture only takes part of the posts.",
+      vuesDetailCalculs: "Total {{total}} · average {{moyenne}} · median {{mediane}} · {{posts}} posts",
+      vuesDescJalon:
+        "Views of the posts published each day, frozen {{age}} after publishing: each day compares with the others. Only days where at least 80% of posts were captured at that age are shown (captures since 11/1).",
+      mesure: { vues: "Current", j1: "D+1", j3: "D+3", j7: "D+7" },
+      mesureAria: "Current or frozen views",
       vuesMoyenne: "7-day average",
       vuesProvisoire: "still growing",
       vuesProvisoireLegende: "Yesterday and the day before: still being read",
@@ -4265,6 +4275,7 @@ export const en = {
       },
       seulementActifs: "Only posters who have posted (first post with a link). {{n}} recruits not posting yet:",
       voirOnboarding: "Onboarding posters",
+      seulementPostes: "Only posters who have already posted (first post with a link)",
       title: "Posters",
       subtitle: "Creators (logins) and their TikTok accounts.",
       creerPosterDesc:
@@ -7107,6 +7118,17 @@ export const en = {
     },
     pods: {
       title: "Pods",
+      series: {
+        titre: "Views per day, per pod",
+        description: "Average views of the posts published each day, at the same age for every day (D+1, D+3 or D+7: comparable from one day to the next). The line: the same average for all pods. A bar falling day after day below the line: the pod is wearing out.",
+        choisir: "Pod",
+        serie: "Average views at {{age}}",
+        age: "Age",
+        flotte: "All pods",
+        enCours: "Day in progress",
+        detail: "{{posts}} posts · {{moy}} average views today · {{p10k}} at 10k or more",
+        erreur: "Charts unavailable: {{message}}",
+      },
       comptesPod: {
         titre: "Accounts of the {{label}} label",
         vide: "No active account carries this label.",

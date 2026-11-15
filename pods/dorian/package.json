@@ -1,0 +1,25 @@
+{
+  "name": "pod-dorian",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 16 — originaux au style de @dorian.frog pour Sophia, en en, de, it, pt-BR, tr, sv et nl : icebergs de hobbies et listes « 5 niche… » (fond blanc, Inter fine, tableaux du domaine public et images Seedream), Sophia en item de la liste ou en hobby de l'iceberg.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts",
+    "tableau": "NODE_USE_ENV_PROXY=1 node atelier/cli-tableau.ts"
+  }
+}

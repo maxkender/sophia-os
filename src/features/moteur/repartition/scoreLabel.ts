@@ -357,7 +357,11 @@ export function estASec(
   s: StatLabel,
   r: ReglagesChoixLabel = REGLAGES_CHOIX_LABEL_DEFAUT,
 ): boolean {
-  if (estPodSeul(s)) return s.livre_langue === false;
+  // 15/11 : un label 100 % podz qui a déjà un compte dans cette langue n'empile
+  // qu'en dernier recours (après tous les autres labels) : on étale d'abord,
+  // la soupape (0722) lui ouvre des langues neuves. Kaja avait reçu un 2e
+  // compte allemand (paul.bildung326) parce que ses 3 langues étaient servies.
+  if (estPodSeul(s)) return s.livre_langue === false || s.comptes_langue >= 1;
   return joursApresCompte(s, r) < JOURS_A_SEC;
 }
 

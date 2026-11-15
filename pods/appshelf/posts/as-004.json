@@ -1,0 +1,212 @@
+{
+ "id": "as-004",
+ "style": "carte",
+ "fond": "images/c4-couv.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7686202283851320589",
+  "vues": 49500,
+  "publie_le": "2026-09-16",
+  "accroche": "five apps for your fall rebrand"
+ },
+ "titre": {
+  "en": "five apps for your fall rebrand",
+  "es": "cinco apps para tu reset otoñal",
+  "it": "cinque app per un autunno nuovo",
+  "pt-BR": "cinco apps pra fechar o ano"
+ },
+ "legendes": {
+  "en": "cozy season = new routines that actually stick 🍂 #fallreset #apprecommendations #habittracker #productivity",
+  "es": "temporada cozy = rutinas nuevas que por fin se quedan 🍂 #resetdeotoño #appsrecomendadas #habitos #productividad",
+  "it": "stagione cozy = nuove routine che durano davvero 🍂 #resetautunnale #appconsigliate #abitudini #produttività",
+  "pt-BR": "fim de ano = rotinas novas que finalmente pegam ✨ #resetdefimdeano #dicasdeapps #habitos #produtividade"
+ },
+ "musique": {
+  "titre": "original sound - gilmoregirlstok",
+  "url": "https://www.tiktok.com/music/original-7146664244459735814"
+ },
+ "notes": "Lancement 4 langues (15/11). Preuve : « five apps / for your fall rebrand » (50 k, 16/09), style carte. pt-BR : novembre = printemps au Brésil, l'accroche devient « pra fechar o ano ». Applis vérifiées us, es, it, br : Productive, stoic., Sophia (3e, cta A), Nike Training Club, Sleep Cycle. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c4-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "for your fall rebrand"
+   },
+   "es": {
+    "photos": [
+     "images/c4-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para tu reset otoñal"
+   },
+   "it": {
+    "photos": [
+     "images/c4-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per un autunno nuovo"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c4-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra fechar o ano"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Productive",
+    "dossier": "images/applis/productive",
+    "note": "A habit tracker that makes new routines stick: pick a goal, check off your habits and watch your streaks grow",
+    "fond": "images/c4-bougie.jpg"
+   },
+   "es": {
+    "nom": "Productive",
+    "dossier": "images/applis/productive",
+    "note": "Un tracker de hábitos para que las rutinas nuevas se queden: eliges un objetivo, marcas tus hábitos y ves crecer tus rachas",
+    "fond": "images/c4-bougie.jpg"
+   },
+   "it": {
+    "nom": "Productive",
+    "dossier": "images/applis/productive",
+    "note": "Un habit tracker che fa durare le nuove routine: scegli un obiettivo, spunti le abitudini e guardi crescere le serie",
+    "fond": "images/c4-bougie.jpg"
+   },
+   "pt-BR": {
+    "nom": "Productive",
+    "dossier": "images/applis/productive",
+    "note": "Um app de hábitos que faz a rotina nova pegar: escolha uma meta, marque seus hábitos e veja suas sequências crescerem",
+    "fond": "images/c4-bougie.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "stoic.",
+    "dossier": "images/applis/stoic",
+    "note": "A morning and evening journal with gentle prompts, so you start the day calm and end it with a clear head",
+    "fond": "images/c4-parc.jpg"
+   },
+   "es": {
+    "nom": "stoic.",
+    "dossier": "images/applis/stoic",
+    "note": "Un diario de mañana y de noche con preguntas guiadas, para empezar el día tranquila y acabarlo con la mente clara",
+    "fond": "images/c4-parc.jpg"
+   },
+   "it": {
+    "nom": "stoic.",
+    "dossier": "images/applis/stoic",
+    "note": "Un diario del mattino e della sera con domande guida, per iniziare la giornata calma e chiuderla con la mente libera",
+    "fond": "images/c4-parc.jpg"
+   },
+   "pt-BR": {
+    "nom": "stoic.",
+    "dossier": "images/applis/stoic",
+    "note": "Um diário de manhã e de noite com perguntas guiadas, pra começar o dia calma e terminar com a cabeça leve",
+    "fond": "images/c4-parc.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day",
+    "fond": "images/c4-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día",
+    "fond": "images/c4-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno",
+    "fond": "images/c4-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia",
+    "fond": "images/c4-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Nike Training Club",
+    "dossier": "images/applis/nike-training-club",
+    "note": "Hundreds of workouts, from 10-minute yoga to strength, guided by Nike trainers. Perfect for cold mornings at home",
+    "fond": "images/c4-yoga.jpg"
+   },
+   "es": {
+    "nom": "Nike Training Club",
+    "dossier": "images/applis/nike-training-club",
+    "note": "Cientos de entrenamientos, del yoga de 10 minutos a la fuerza, con entrenadores de Nike. Perfecto para las mañanas frías en casa",
+    "fond": "images/c4-yoga.jpg"
+   },
+   "it": {
+    "nom": "Nike Training Club",
+    "dossier": "images/applis/nike-training-club",
+    "note": "Centinaia di allenamenti, dallo yoga di 10 minuti alla forza, con i trainer Nike. Perfetto per le mattine fredde a casa",
+    "fond": "images/c4-yoga.jpg"
+   },
+   "pt-BR": {
+    "nom": "Nike Training Club",
+    "dossier": "images/applis/nike-training-club",
+    "note": "Centenas de treinos, de yoga de 10 minutos a musculação, com treinadores da Nike. Perfeito pra treinar em casa",
+    "fond": "images/c4-yoga.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Sleep Cycle",
+    "dossier": "images/applis/sleep-cycle",
+    "note": "Tracks your sleep and wakes you up gently in your lightest sleep phase, so mornings feel less brutal",
+    "fond": "images/c4-nuit.jpg"
+   },
+   "es": {
+    "nom": "Sleep Cycle",
+    "dossier": "images/applis/sleep-cycle",
+    "note": "Analiza tu sueño y te despierta suave en tu fase más ligera, para que las mañanas cuesten menos",
+    "fond": "images/c4-nuit.jpg"
+   },
+   "it": {
+    "nom": "Sleep Cycle",
+    "dossier": "images/applis/sleep-cycle",
+    "note": "Analizza il sonno e ti sveglia dolcemente nella fase più leggera, così le mattine sono meno traumatiche",
+    "fond": "images/c4-nuit.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sleep Cycle",
+    "dossier": "images/applis/sleep-cycle",
+    "note": "Monitora seu sono e te acorda de leve na fase mais leve, pra manhã ser menos sofrida",
+    "fond": "images/c4-nuit.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

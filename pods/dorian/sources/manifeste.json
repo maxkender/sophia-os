@@ -1,0 +1,362 @@
+{
+ "compte": "dorian.frog",
+ "maj_le": "2026-11-15",
+ "note": "Ses 25 meilleurs diaporamas sur 53 relevés (18/09 → 03/11), du plus vu au moins vu. `format`, `accroche` et `contenu` : lus sur ses slides pour les 10 premiers ; pour les autres, lis-les sur la planche de `npm run veille`. C'est la PREUVE de tes originaux : un format et un sujet qui ont marché chez lui, jamais son texte recopié.",
+ "posts": [
+  {
+   "id": "7698126851037875477",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+   "publie_le": "2026-10-18",
+   "vues": 2000000,
+   "enregistrements": 10400,
+   "slides": 2,
+   "hashtags": "#autismtok #iceberg #hobbies #lockedin #selfimprovement",
+   "musique": {
+    "titre": "оригинальный звук - исма америкоша",
+    "id": "7695439871377722133"
+   },
+   "format": "iceberg",
+   "accroche": "Iceberg of Autistic hobbies",
+   "contenu": "video games, LEGOs, sketching, instruments / crocheting, literature, rock collecting, listening to music / learning languages, bird watching, puzzles, world building / taxidermy, wikipedia rabbit holes, miniature painting / geocaching"
+  },
+  {
+   "id": "7694034602935012628",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+   "publie_le": "2026-10-07",
+   "vues": 1200000,
+   "enregistrements": 41175,
+   "slides": 10,
+   "hashtags": "#niche #coding #computerscience #lockedin #college",
+   "musique": {
+    "titre": "original sound - Spëāķèř",
+    "id": "7667487181728631574"
+   },
+   "format": "liste",
+   "accroche": "8 coding projects that are genuinely f*cking difficult",
+   "contenu": "programming language, git, database, compiler, web browser, OS kernel, CPU, chip ; « difficulty: 27/50 », phrase en bleu-vert, « what you'll learn: … » ; Wondering en dernière slide"
+  },
+  {
+   "id": "7696990065343532309",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+   "publie_le": "2026-10-15",
+   "vues": 1100000,
+   "enregistrements": 18723,
+   "slides": 2,
+   "hashtags": "#lockedin #adhdtiktok #hobbies #selfimprovement #iceberg",
+   "musique": {
+    "titre": "original sound - 432pa.hp",
+    "id": "7603872322981874462"
+   },
+   "format": "iceberg",
+   "accroche": "Iceberg of ADHD hobbies",
+   "contenu": "reading books, painting, documentaries, learning japanese / mental math, an instrument, coding, literature / rabbit holing, speedcubing, politics, memory techniques / physics, stoic philosophy, chess / polymathy"
+  },
+  {
+   "id": "7698306039745187073",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+   "publie_le": "2026-10-19",
+   "vues": 568900,
+   "enregistrements": 41007,
+   "slides": 6,
+   "hashtags": "#niche #criticalthinking #lockedin #selfimprovement",
+   "musique": {
+    "titre": "A Song of Ice and Fire - Ramin Djawadi",
+    "id": "6723045131219372033"
+   },
+   "format": "liste",
+   "accroche": "5 niche ways to disgustingly improve your critical thinking",
+   "contenu": "second-order thinking, inversion, steelmanning, falsification, bayesian thinking ; tableaux, pas d'appli"
+  },
+  {
+   "id": "7697385698168524053",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7697385698168524053",
+   "publie_le": "2026-10-16",
+   "vues": 417400,
+   "enregistrements": 5042,
+   "slides": 2,
+   "hashtags": "y'all asked for it #iceberg #selfimprovement #hobbies #adhdtiktok #lockedin",
+   "musique": {
+    "titre": "Retake (Slowed) - gabriawll",
+    "id": "7626391140129589249"
+   },
+   "format": "iceberg",
+   "accroche": "Iceberg of ADHD hobbies (*requested update)",
+   "contenu": "photography, hiking, chess, dancing / surfing, boxing, skateboarding, bird watching / comedy, language learning, sudoku, martial arts / game dev, origami, speedcubing / rock collecting"
+  },
+  {
+   "id": "7696252759917481236",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7696252759917481236",
+   "publie_le": "2026-10-13",
+   "vues": 382200,
+   "enregistrements": 19025,
+   "slides": 6,
+   "hashtags": "#niche #selfimprovement #adhdtiktok",
+   "musique": {
+    "titre": "nhạc nền - 𝘿𝙪𝙘𝘿𝙪𝙮   🎧🎶 - Gia Đình Huấn Hoa Hồng",
+    "id": "7505339122241424145"
+   },
+   "format": "liste",
+   "accroche": "10/10 skills to learn if you have ADHD",
+   "contenu": "speedcubing, sign language, mental math, memory techniques ; « btw wondering can teach you all that »"
+  },
+  {
+   "id": "7693311352689118485",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7693311352689118485",
+   "publie_le": "2026-10-05",
+   "vues": 293200,
+   "enregistrements": 10436,
+   "slides": 6,
+   "hashtags": "#superintelligence #niche #lockedin #selfimprovement",
+   "musique": {
+    "titre": "WISTED - Slowed - UdieNnx & HXVSAGE & DXNOHU",
+    "id": "7498688645760944129"
+   },
+   "format": "liste",
+   "accroche": "5 niche habits of superintelligent people",
+   "contenu": "internal arguments, stress-testing, mind fluidity, a « stupid questions » list, rabbit holing"
+  },
+  {
+   "id": "7694420862384016660",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7694420862384016660",
+   "publie_le": "2026-10-08",
+   "vues": 205800,
+   "enregistrements": 9756,
+   "slides": 7,
+   "hashtags": "#niche #superioritycomplex #lockedin",
+   "musique": {
+    "titre": "original sound - mel - mel",
+    "id": "7430692417982057249"
+   },
+   "format": "liste",
+   "accroche": "5 niche skills that'll boost your superiority complex",
+   "contenu": "speed reading, mental math, speedcubing, staying calm, chess (difficulty /50) ; Wondering en dernière slide"
+  },
+  {
+   "id": "7693273755929398548",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7693273755929398548",
+   "publie_le": "2026-10-05",
+   "vues": 200100,
+   "enregistrements": 18214,
+   "slides": 7,
+   "hashtags": "#coding #niche #lockedin #computerscience",
+   "musique": {
+    "titre": "original sound - Neopatrickharris",
+    "id": "7687733674313288461"
+   },
+   "format": "liste",
+   "accroche": "5 niche projects that will make you disgustingly good at coding",
+   "contenu": "url shortener, local google docs, multiplayer game, password manager, programming language (difficulty /20)"
+  },
+  {
+   "id": "7699618669411831061",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7699618669411831061",
+   "publie_le": "2026-10-22",
+   "vues": 123700,
+   "enregistrements": 7229,
+   "slides": 6,
+   "hashtags": "#physics #niche #smarttok #college #wonderingapp",
+   "musique": {
+    "titre": "original sound - 𝙆𝙍𝙄𝙎 - 𝙆𝙍𝙄𝙎",
+    "id": "7697351034850560771"
+   },
+   "format": "liste",
+   "accroche": "5 niche ways to become scary good at physics",
+   "contenu": "thought exercises, derive the formulas, test physics in real life, draw the forces, « use wondering » en 5e item (téléphone)"
+  },
+  {
+   "id": "7694779937584205076",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7694779937584205076",
+   "publie_le": "2026-10-09",
+   "vues": 76800,
+   "enregistrements": 3424,
+   "slides": 7,
+   "hashtags": "switch to linux mint #niche #computerscience #lockedin #coding",
+   "musique": {
+    "titre": "son original - leonardo®",
+    "id": "7086074390672149254"
+   }
+  },
+  {
+   "id": "7704076567672163604",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7704076567672163604",
+   "publie_le": "2026-11-03",
+   "vues": 71400,
+   "enregistrements": 3275,
+   "slides": 7,
+   "hashtags": "#debate #logicalfallacy #selfimprovement #logic",
+   "musique": {
+    "titre": "оригинальный звук - butazer",
+    "id": "7648276161688062742"
+   }
+  },
+  {
+   "id": "7696199827796872469",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7696199827796872469",
+   "publie_le": "2026-10-13",
+   "vues": 66100,
+   "enregistrements": 684,
+   "slides": 2,
+   "hashtags": "is Typescript a real thing? #tierlist #coding #typescript #computerscience",
+   "musique": {
+    "titre": "Retake (Remix) - gabriawll",
+    "id": "7626391158171633665"
+   }
+  },
+  {
+   "id": "7699996073984658709",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7699996073984658709",
+   "publie_le": "2026-10-23",
+   "vues": 58700,
+   "enregistrements": 3162,
+   "slides": 7,
+   "hashtags": "#math #wonderingapp #smarttok #college",
+   "musique": {
+    "titre": "interruptor - Slowed - zero pill",
+    "id": "7688046509887293456"
+   }
+  },
+  {
+   "id": "7700735269833608454",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7700735269833608454",
+   "publie_le": "2026-10-25",
+   "vues": 48800,
+   "enregistrements": 410,
+   "slides": 2,
+   "hashtags": "all hail linux mint #linux #linuxmint #computerscience #tierlist",
+   "musique": {
+    "titre": "original sound - 𝐬𝐩𝐥𝐞𝐱𝐞𝐝𝐢𝐭𝐬𝐬",
+    "id": "7670769300528958239"
+   }
+  },
+  {
+   "id": "7695896376005184789",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7695896376005184789",
+   "publie_le": "2026-10-12",
+   "vues": 43600,
+   "enregistrements": 2186,
+   "slides": 8,
+   "hashtags": "#superintelligence #lockedin #niche #selfimprovement",
+   "musique": {
+    "titre": "QUANTUM (Slowed) - PHNKR & dnvn & Phonk King",
+    "id": "7550638068775438337"
+   }
+  },
+  {
+   "id": "7695859871375232308",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7695859871375232308",
+   "publie_le": "2026-10-12",
+   "vues": 43300,
+   "enregistrements": 1001,
+   "slides": 6,
+   "hashtags": "#niche #coding #lockedin #computerscience",
+   "musique": {
+    "titre": "Loving machine slowed instrumental - ew, gif",
+    "id": "7277055046490032942"
+   }
+  },
+  {
+   "id": "7701790073112546580",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7701790073112546580",
+   "publie_le": "2026-10-28",
+   "vues": 34600,
+   "enregistrements": 2490,
+   "slides": 6,
+   "hashtags": "#chemistry #smarttok #college #lockedin",
+   "musique": {
+    "titre": "three tabs by chromas - thisischromas",
+    "id": "7370815708128496416"
+   }
+  },
+  {
+   "id": "7695530391448472853",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7695530391448472853",
+   "publie_le": "2026-10-11",
+   "vues": 32000,
+   "enregistrements": 1892,
+   "slides": 7,
+   "hashtags": "#notniche #ai #selfimprovement #lockedin #computerscience",
+   "musique": {
+    "titre": "QUANTUM - PHNKR & dnvn & Phonk King",
+    "id": "7550638270103996417"
+   }
+  },
+  {
+   "id": "7696933240484990229",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7696933240484990229",
+   "publie_le": "2026-10-15",
+   "vues": 29600,
+   "enregistrements": 639,
+   "slides": 9,
+   "hashtags": "#computerscience #coding #systemsdesign",
+   "musique": {
+    "titre": "orijinal ses - mr.soytari",
+    "id": "7678073315572189973"
+   }
+  },
+  {
+   "id": "7697733839241694485",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7697733839241694485",
+   "publie_le": "2026-10-17",
+   "vues": 26500,
+   "enregistrements": 1099,
+   "slides": 6,
+   "hashtags": "#physics #lockedin #college #apple",
+   "musique": {
+    "titre": "original sound - childhoodminecraft",
+    "id": "7058179662219987717"
+   }
+  },
+  {
+   "id": "7701499750318820628",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7701499750318820628",
+   "publie_le": "2026-10-27",
+   "vues": 26200,
+   "enregistrements": 1068,
+   "slides": 6,
+   "hashtags": "#debate #logic #selfimprovement #logicalfallacy #lockedin",
+   "musique": {
+    "titre": "original sound - ale",
+    "id": "7644418890860202765"
+   }
+  },
+  {
+   "id": "7703596383089069333",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7703596383089069333",
+   "publie_le": "2026-11-02",
+   "vues": 24400,
+   "enregistrements": 1196,
+   "slides": 6,
+   "hashtags": "#lockedin #billionaire #selfimprovement #niche",
+   "musique": {
+    "titre": "Room Full of Strangers - Danny Bluestone",
+    "id": "7689207966263953459"
+   }
+  },
+  {
+   "id": "7701099928365387028",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7701099928365387028",
+   "publie_le": "2026-10-26",
+   "vues": 21300,
+   "enregistrements": 423,
+   "slides": 6,
+   "hashtags": "catch em #debate #logic #logicalfallacy #selfimprovement",
+   "musique": {
+    "titre": "Ashes and Embers - WATIWO LIA",
+    "id": "7569882137836849153"
+   }
+  },
+  {
+   "id": "7693684060786347284",
+   "url": "https://www.tiktok.com/@dorian.frog/photo/7693684060786347284",
+   "publie_le": "2026-10-06",
+   "vues": 20700,
+   "enregistrements": 824,
+   "slides": 6,
+   "hashtags": "#niche #lockedin #selfimprovement #superintelligence",
+   "musique": {
+    "titre": "original sound - 𝕷𝖆𝖓𝖌𝖚𝕱𝖎𝖑𝖒𝖘 - 𝙇𝙖𝙣𝙜𝙪𝙁𝙞𝙡𝙢𝙨",
+    "id": "7291278974100622112"
+   }
+  }
+ ]
+}

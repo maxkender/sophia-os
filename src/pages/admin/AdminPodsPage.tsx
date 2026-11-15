@@ -46,6 +46,7 @@ import {
   type PreuveOriginal,
   type StatutLivraison,
 } from "@/features/pods/api";
+import { CarteSeriesPods } from "@/features/pods/CarteSeriesPods";
 import { ComptesDuPod } from "@/features/pods/ComptesDuPod";
 import { FichePodz } from "@/features/pods/FichePodz";
 import { lignesPods, OBJECTIF_PART_PODS, resumePods, type ResumePods } from "@/features/pods/resume";
@@ -773,6 +774,7 @@ function TableauDeBord() {
         <CartePercees percees={data.percees} nomPod={nomPod} />
       </div>
       <CarteTableauPods lignes={lignesPods(data.pods)} />
+      <CarteSeriesPods pods={lignesPods(data.pods).map((p) => ({ slug: p.slug, nom: p.nom }))} />
     </>
   );
 }

@@ -35,6 +35,10 @@ import {
   SEUIL_STOCK_JOURS,
   tauxPublication,
   type LigneStock,
+  type CalculVues,
+  type MesureVues,
+  totalPossible,
+  valeurVuesJour,
 } from "@/features/moteur/pilotage";
 // Les briques de la page Allocation, pour que les deux pages se lisent pareil :
 // le tableau (titres en petites capitales, ligne dépliable), la barre
@@ -49,6 +53,17 @@ import { localeDate } from "@/locales/localeDate";
 
 const PERIODES = [7, 30, 90] as const;
 type Periode = (typeof PERIODES)[number];
+
+/**
+ * « Vues par jour » : quelles vues (actuelles, ou figées à J+1/J+3/J+7, 0731)
+ * et quel calcul (total, moyenne et médiane par post, nombre de posts, 0732).
+ */
+const MESURES_VUES: readonly MesureVues[] = ["vues", "j1", "j3", "j7"];
+const CALCULS_VUES: readonly CalculVues[] = ["total", "moyenne", "mediane", "posts"];
+type JourVues = PilotageDashboard["vuesSerie"][number];
+
+// À J+n, un jour est figé : jamais « provisoire ».
+const provisoireVues = (s: JourVues, m: MesureVues) => m === "vues" && s.provisoire;
 
 /** Format d'un nombre à virgule, dans la langue de l'interface. */
 function decimal(n: number, langue: string, chiffres = 1): string {
@@ -116,6 +131,13 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
   const { t, i18n } = useTranslation();
   const langue = i18n.language;
   const [periode, setPeriode] = React.useState<Periode>(30);
+  const [mesure, setMesure] = React.useState<MesureVues>("vues");
+  const [calculChoisi, setCalcul] = React.useState<CalculVues>("total");
+  // À J+7, pas de total (photo partielle) : on passe à la moyenne.
+  const calcul: CalculVues = calculChoisi === "total" && !totalPossible(mesure) ? "moyenne" : calculChoisi;
+  const actuelles = mesure === "vues";
+  const valeur = (s: JourVues) => valeurVuesJour(s, mesure, calcul);
+  const libelleSerie = t(`pilotage.calcul.${calcul}`) + (actuelles ? "" : ` · ${t(`pilotage.mesure.${mesure}`)}`);
 
   // Moyenne calculée sur toute la série puis coupée : le premier jour affiché
   // a lui aussi sa fenêtre complète. Les jours provisoires (vues qui montent
@@ -123,33 +145,76 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
   const moyenne = React.useMemo(
     () =>
       moyenneGlissante(
-        serie.map((s) => (s.provisoire ? null : s.vues)),
+        serie.map((s) => (provisoireVues(s, mesure) ? null : valeurVuesJour(s, mesure, calcul))),
         7,
-      ).map((m, i) => (serie[i]!.provisoire ? null : m)),
-    [serie],
+      ).map((m, i) => (provisoireVues(serie[i]!, mesure) ? null : m)),
+    [serie, mesure, calcul],
   );
   const debut = Math.max(0, serie.length - periode);
-  const points: PointBarre[] = serie.slice(debut).map((s) => ({
-    key: s.jour,
-    axisLabel: jourCourt(s.jour, langue),
-    tooltipTitle: jourLong(s.jour, langue),
-    value: s.vues,
-    provisional: s.provisoire,
-    detail:
-      s.vues !== null && s.posts > 0
-        ? t("pilotage.vuesDetail", {
-            posts: exact(s.posts, langue),
-            parPost: exact(Math.round(s.vues / s.posts), langue),
-          })
-        : undefined,
-  }));
+  const points: PointBarre[] = serie.slice(debut).map((s) => {
+    const v = valeur(s);
+    const autre = (c: CalculVues) => {
+      const x = valeurVuesJour(s, mesure, c);
+      return x === null ? "—" : exact(x, langue);
+    };
+    return {
+      key: s.jour,
+      axisLabel: jourCourt(s.jour, langue),
+      tooltipTitle: jourLong(s.jour, langue),
+      value: v,
+      provisional: provisoireVues(s, mesure),
+      detail:
+        v !== null
+          ? t("pilotage.vuesDetailCalculs", {
+              total: autre("total"),
+              moyenne: autre("moyenne"),
+              mediane: autre("mediane"),
+              posts: autre("posts"),
+            })
+          : undefined,
+    };
+  });
 
   return (
     <Card>
       <CardHeader>
         <CardTitle>{t("pilotage.vuesTitre")}</CardTitle>
-        <CardDescription>{t("pilotage.vuesDesc")}</CardDescription>
-        <CardAction>
+        <CardDescription>
+          {actuelles
+            ? t("pilotage.vuesDesc")
+            : mesure === "j7"
+              ? t("pilotage.vuesDescJ7")
+              : t("pilotage.vuesDescJalon", { age: t(`pilotage.mesure.${mesure}`) })}
+        </CardDescription>
+        <CardAction className="flex flex-wrap items-center justify-end gap-2">
+          <div className="inline-flex gap-1" role="group" aria-label={t("pilotage.mesureAria")}>
+            {MESURES_VUES.map((m) => (
+              <Button
+                key={m}
+                size="xs"
+                variant={m === mesure ? "secondary" : "ghost"}
+                aria-pressed={m === mesure}
+                onClick={() => setMesure(m)}
+              >
+                {t(`pilotage.mesure.${m}`)}
+              </Button>
+            ))}
+          </div>
+          <div className="inline-flex gap-1" role="group" aria-label={t("pilotage.calculAria")}>
+            {CALCULS_VUES.map((c) => (
+              <Button
+                key={c}
+                size="xs"
+                variant={c === calcul ? "secondary" : "ghost"}
+                aria-pressed={c === calcul}
+                disabled={c === "total" && !totalPossible(mesure)}
+                title={c === "total" && !totalPossible(mesure) ? t("pilotage.totalJ7Impossible") : undefined}
+                onClick={() => setCalcul(c)}
+              >
+                {t(`pilotage.calcul.${c}`)}
+              </Button>
+            ))}
+          </div>
           <div className="inline-flex gap-1" role="group" aria-label={t("pilotage.periodeAria")}>
             {PERIODES.map((p) => (
               <Button
@@ -173,12 +238,14 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
             <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
               <span className="inline-flex items-center gap-1.5">
                 <span className="size-2.5 rounded-[3px] bg-muted-foreground/30" aria-hidden />
-                {t("pilotage.vuesSerie")}
+                {libelleSerie}
               </span>
-              <span className="inline-flex items-center gap-1.5">
-                <span className="size-2.5 rounded-[3px] border border-dashed border-muted-foreground/60 bg-muted-foreground/10" aria-hidden />
-                {t("pilotage.vuesProvisoireLegende")}
-              </span>
+              {actuelles && (
+                <span className="inline-flex items-center gap-1.5">
+                  <span className="size-2.5 rounded-[3px] border border-dashed border-muted-foreground/60 bg-muted-foreground/10" aria-hidden />
+                  {t("pilotage.vuesProvisoireLegende")}
+                </span>
+              )}
               <span className="inline-flex items-center gap-1.5">
                 <span className="h-0.5 w-3.5 rounded-full bg-foreground" aria-hidden />
                 {t("pilotage.vuesMoyenne")}
@@ -188,7 +255,7 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
               points={points}
               average={moyenne.slice(debut)}
               averageLabel={t("pilotage.vuesMoyenne")}
-              valueLabel={t("pilotage.vuesSerie")}
+              valueLabel={libelleSerie}
               provisionalLabel={t("pilotage.vuesProvisoire")}
               formatTick={(n) => abrege(n, langue)}
               formatValue={(n) => exact(n, langue)}

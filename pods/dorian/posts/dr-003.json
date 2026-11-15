@@ -1,0 +1,386 @@
+{
+ "id": "dr-003",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 books that are genuinely f*cking difficult",
+  "de": "5 bücher, die wirklich verdammt schwer sind",
+  "it": "5 libri difficili da c*zzo",
+  "pt-BR": "5 livros difíceis pra c*ralho",
+  "tr": "gerçekten aşırı zor 5 kitap",
+  "sv": "5 böcker som är sjukt jävla svåra",
+  "nl": "5 boeken die echt verdomd moeilijk zijn"
+ },
+ "legendes": {
+  "en": "#niche #booktok #books #lockedin #selfimprovement",
+  "de": "#booktok #bücher #klassiker #lesen",
+  "it": "#booktok #libri #classici #lettura",
+  "pt-BR": "#booktok #livros #clássicos #leitura",
+  "tr": "#booktok #kitap #klasikler #okuma",
+  "sv": "#booktok #böcker #klassiker #läsning",
+  "nl": "#booktok #boeken #klassiekers #lezen"
+ },
+ "musique": {
+  "titre": "original sound - Spëāķèř",
+  "url": "https://www.tiktok.com/music/original-sound-7667487181728631574"
+ },
+ "notes": "Original sur sa liste à 1,2 M (« 8 coding projects that are genuinely f*cking difficult ») : même structure (difficulté /50, phrase en bleu-vert), des classiques difficiles. Faits vérifiés (Guerre et Paix : plus de 1 200 pages, ~580 personnages ; GEB : Pulitzer 1980, dialogues Achille et la Tortue, 777 pages ; Ulysses : 16/06/1904, Bloomsday, dernier chapitre en huit phrases). Tableaux AIC (domaine public) : Bellangé (scène de bataille), « Two Monks in a Landscape », Manet (« Philosopher »), Renoir (« Seascape ») ; escalier impossible Seedream ; couverture Seedream. Sophia en item 3 sur 6 (cta B), écran « cours » (en, pt-BR) ou accueil traduit (de, it).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 books that are genuinely f*cking difficult",
+    "image": "images/livres-empiles.jpg",
+    "legende": "(good luck)"
+   },
+   "de": {
+    "titre": "5 bücher, die wirklich verdammt schwer sind",
+    "image": "images/livres-empiles.jpg",
+    "legende": "(viel glück)"
+   },
+   "it": {
+    "titre": "5 libri difficili da c*zzo",
+    "image": "images/livres-empiles.jpg",
+    "legende": "(buona fortuna)"
+   },
+   "pt-BR": {
+    "titre": "5 livros difíceis pra c*ralho",
+    "image": "images/livres-empiles.jpg",
+    "legende": "(boa sorte)"
+   },
+   "tr": {
+    "titre": "gerçekten aşırı zor 5 kitap",
+    "image": "images/livres-empiles.jpg",
+    "legende": "(bol şans)"
+   },
+   "sv": {
+    "titre": "5 böcker som är sjukt jävla svåra",
+    "image": "images/livres-empiles.jpg",
+    "legende": "(lycka till)"
+   },
+   "nl": {
+    "titre": "5 boeken die echt verdomd moeilijk zijn",
+    "image": "images/livres-empiles.jpg",
+    "legende": "(succes)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "War and Peace",
+    "difficulte": "22/50",
+    "citation": "500+ characters. most have three names.",
+    "texte": "tolstoy follows five families through napoleon's invasion of russia. 1,200+ pages, and every character has a first name, a patronymic and a nickname. keep a list",
+    "image": "images/champ-bataille.jpg"
+   },
+   "de": {
+    "titre": "Krieg und Frieden",
+    "difficulte": "22/50",
+    "citation": "über 500 figuren. die meisten haben drei namen.",
+    "texte": "tolstoi begleitet fünf familien durch napoleons russlandfeldzug. über 1.200 seiten, und jede figur hat vorname, vatersname und spitzname. führ eine liste",
+    "image": "images/champ-bataille.jpg"
+   },
+   "it": {
+    "titre": "Guerra e pace",
+    "difficulte": "22/50",
+    "citation": "più di 500 personaggi. quasi tutti con tre nomi.",
+    "texte": "tolstoj segue cinque famiglie durante l'invasione napoleonica della russia. oltre 1.200 pagine, e ogni personaggio ha nome, patronimico e soprannome. fatti una lista",
+    "image": "images/champ-bataille.jpg"
+   },
+   "pt-BR": {
+    "titre": "Guerra e Paz",
+    "difficulte": "22/50",
+    "citation": "mais de 500 personagens. quase todos com três nomes.",
+    "texte": "tolstói acompanha cinco famílias durante a invasão da rússia por napoleão. mais de 1.200 páginas, e cada personagem tem nome, patronímico e apelido. faça uma lista",
+    "image": "images/champ-bataille.jpg"
+   },
+   "tr": {
+    "titre": "Savaş ve Barış",
+    "difficulte": "22/50",
+    "citation": "500'den fazla karakter. çoğunun üç adı var.",
+    "texte": "tolstoy, napolyon'un rusya seferi boyunca beş aileyi anlatır. 1.200'den fazla sayfa ve her karakterin bir adı, baba adı ve lakabı var. bir liste tut",
+    "image": "images/champ-bataille.jpg"
+   },
+   "sv": {
+    "titre": "Krig och fred",
+    "difficulte": "22/50",
+    "citation": "över 500 karaktärer. de flesta har tre namn.",
+    "texte": "tolstoj följer fem familjer genom napoleons fälttåg mot ryssland. över 1 200 sidor, och varje karaktär har förnamn, fadersnamn och smeknamn. för en lista",
+    "image": "images/champ-bataille.jpg"
+   },
+   "nl": {
+    "titre": "Oorlog en vrede",
+    "difficulte": "22/50",
+    "citation": "meer dan 500 personages. de meeste hebben drie namen.",
+    "texte": "tolstoj volgt vijf families tijdens napoleons veldtocht naar rusland. meer dan 1.200 pagina's, en elk personage heeft een voornaam, vadersnaam en bijnaam. maak een lijstje",
+    "image": "images/champ-bataille.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Brothers Karamazov",
+    "difficulte": "27/50",
+    "citation": "you'll argue with a fictional monk for a week.",
+    "texte": "dostoevsky's last novel: a murder, three brothers and the question of whether god exists. the chapter \"the grand inquisitor\" alone is a philosophy course",
+    "image": "images/deux-moines.jpg"
+   },
+   "de": {
+    "titre": "Die Brüder Karamasow",
+    "difficulte": "27/50",
+    "citation": "du streitest eine woche mit einem erfundenen mönch.",
+    "texte": "dostojewskis letzter roman: ein mord, drei brüder und die frage, ob es gott gibt. das kapitel „der großinquisitor“ allein ist ein philosophiekurs",
+    "image": "images/deux-moines.jpg"
+   },
+   "it": {
+    "titre": "I fratelli Karamazov",
+    "difficulte": "27/50",
+    "citation": "litigherai con un monaco inventato per una settimana.",
+    "texte": "l'ultimo romanzo di dostoevskij: un omicidio, tre fratelli e la domanda se dio esista. il capitolo «il grande inquisitore» da solo è un corso di filosofia",
+    "image": "images/deux-moines.jpg"
+   },
+   "pt-BR": {
+    "titre": "Os Irmãos Karamázov",
+    "difficulte": "27/50",
+    "citation": "você vai discutir com um monge fictício por uma semana.",
+    "texte": "o último romance de dostoiévski: um assassinato, três irmãos e a pergunta se deus existe. só o capítulo \"o grande inquisidor\" já é um curso de filosofia",
+    "image": "images/deux-moines.jpg"
+   },
+   "tr": {
+    "titre": "Karamazov Kardeşler",
+    "difficulte": "27/50",
+    "citation": "bir hafta boyunca hayali bir keşişle tartışacaksın.",
+    "texte": "dostoyevski'nin son romanı: bir cinayet, üç kardeş ve tanrının var olup olmadığı sorusu. \"büyük engizisyoncu\" bölümü tek başına bir felsefe dersi",
+    "image": "images/deux-moines.jpg"
+   },
+   "sv": {
+    "titre": "Bröderna Karamazov",
+    "difficulte": "27/50",
+    "citation": "du kommer att bråka med en påhittad munk i en vecka.",
+    "texte": "dostojevskijs sista roman: ett mord, tre bröder och frågan om gud finns. kapitlet \"storinkvisitorn\" är en filosofikurs i sig",
+    "image": "images/deux-moines.jpg"
+   },
+   "nl": {
+    "titre": "De gebroeders Karamazov",
+    "difficulte": "27/50",
+    "citation": "je gaat een week ruziën met een verzonnen monnik.",
+    "texte": "dostojevski's laatste roman: een moord, drie broers en de vraag of god bestaat. alleen al het hoofdstuk \"de grootinquisiteur\" is een filosofiecursus",
+    "image": "images/deux-moines.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "4/50",
+    "citation": "my warm-up before any of these.",
+    "texte": "10 minutes a day. it's like a tiny lecture every morning: history, philosophy, science, economics, then a quiz",
+    "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "difficulte": "4/50",
+    "citation": "mein aufwärmen vor all diesen büchern.",
+    "texte": "10 minuten am tag. wie eine kleine vorlesung jeden morgen: geschichte, philosophie, wissenschaft, wirtschaft, dann ein quiz",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "difficulte": "4/50",
+    "citation": "il mio riscaldamento prima di tutti questi.",
+    "texte": "10 minuti al giorno. come una piccola lezione universitaria ogni mattina: storia, filosofia, scienze, economia, poi un quiz",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "difficulte": "4/50",
+    "citation": "meu aquecimento antes de qualquer um desses.",
+    "texte": "10 minutos por dia. tipo uma mini aula toda manhã: história, filosofia, ciência, economia, e depois um quiz",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "difficulte": "4/50",
+    "citation": "bunların hepsinden önceki ısınmam.",
+    "texte": "günde 10 dakika. her sabah minik bir ders gibi: tarih, felsefe, bilim, ekonomi, sonra bir quiz",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "difficulte": "4/50",
+    "citation": "min uppvärmning före alla de här.",
+    "texte": "10 minuter om dagen. som en liten föreläsning varje morgon: historia, filosofi, vetenskap, ekonomi, sen ett quiz",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "difficulte": "4/50",
+    "citation": "mijn warming-up voor al deze boeken.",
+    "texte": "10 minuten per dag. een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie, daarna een quiz",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Critique of Pure Reason",
+    "difficulte": "38/50",
+    "citation": "you'll read the same sentence five times.",
+    "texte": "kant, 1781. he asks what we can know before any experience at all. huge sentences, a vocabulary of his own. read a summary first, then the book",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "de": {
+    "titre": "Kritik der reinen Vernunft",
+    "difficulte": "38/50",
+    "citation": "du liest denselben satz fünfmal.",
+    "texte": "kant, 1781. er fragt, was wir vor jeder erfahrung wissen können. riesige sätze, ein wortschatz ganz für sich. lies erst eine zusammenfassung, dann das buch",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "it": {
+    "titre": "Critica della ragion pura",
+    "difficulte": "38/50",
+    "citation": "leggerai la stessa frase cinque volte.",
+    "texte": "kant, 1781. si chiede cosa possiamo sapere prima di qualsiasi esperienza. frasi enormi e un vocabolario tutto suo. leggi prima un riassunto, poi il libro",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Crítica da Razão Pura",
+    "difficulte": "38/50",
+    "citation": "você vai ler a mesma frase cinco vezes.",
+    "texte": "kant, 1781. ele pergunta o que podemos saber antes de qualquer experiência. frases enormes e um vocabulário só dele. leia um resumo primeiro, depois o livro",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "tr": {
+    "titre": "Saf Aklın Eleştirisi",
+    "difficulte": "38/50",
+    "citation": "aynı cümleyi beş kez okuyacaksın.",
+    "texte": "kant, 1781. her türlü deneyimden önce neyi bilebileceğimizi sorar. dev cümleler, kendine özgü bir kelime dağarcığı. önce bir özet oku, sonra kitabı",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "sv": {
+    "titre": "Kritik av det rena förnuftet",
+    "difficulte": "38/50",
+    "citation": "du kommer att läsa samma mening fem gånger.",
+    "texte": "kant, 1781. han frågar vad vi kan veta före all erfarenhet. enorma meningar och ett helt eget ordförråd. läs en sammanfattning först, sen boken",
+    "image": "images/philosophe-manet.jpg"
+   },
+   "nl": {
+    "titre": "Kritiek van de zuivere rede",
+    "difficulte": "38/50",
+    "citation": "je leest dezelfde zin vijf keer.",
+    "texte": "kant, 1781. hij vraagt wat we kunnen weten vóór elke ervaring. gigantische zinnen en een eigen woordenschat. lees eerst een samenvatting, dan het boek",
+    "image": "images/philosophe-manet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "it won a pulitzer. it's about recursion.",
+    "texte": "hofstadter weaves math, art and music into one question: how does meaning come out of meaningless symbols? 700+ pages of puzzles, dialogues and a talking tortoise",
+    "image": "images/escalier-infini.jpg"
+   },
+   "de": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "pulitzerpreis. thema: rekursion.",
+    "texte": "hofstadter verwebt mathe, kunst und musik zu einer frage: wie entsteht bedeutung aus bedeutungslosen zeichen? über 700 seiten rätsel, dialoge und eine sprechende schildkröte",
+    "image": "images/escalier-infini.jpg"
+   },
+   "it": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "ha vinto un pulitzer. parla di ricorsione.",
+    "texte": "hofstadter intreccia matematica, arte e musica in una sola domanda: come nasce il significato da simboli che non significano niente? oltre 700 pagine di enigmi, dialoghi e una tartaruga parlante",
+    "image": "images/escalier-infini.jpg"
+   },
+   "pt-BR": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "ganhou um pulitzer. o tema é recursão.",
+    "texte": "hofstadter junta matemática, arte e música numa só pergunta: como o significado nasce de símbolos sem significado? mais de 700 páginas de enigmas, diálogos e uma tartaruga falante",
+    "image": "images/escalier-infini.jpg"
+   },
+   "tr": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "pulitzer kazandı. konusu özyineleme.",
+    "texte": "hofstadter matematiği, sanatı ve müziği tek bir soruda birleştirir: anlamsız sembollerden anlam nasıl doğar? 700'den fazla sayfa bulmaca, diyalog ve konuşan bir kaplumbağa",
+    "image": "images/escalier-infini.jpg"
+   },
+   "sv": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "den vann ett pulitzerpris. den handlar om rekursion.",
+    "texte": "hofstadter väver ihop matte, konst och musik till en enda fråga: hur uppstår mening ur meningslösa symboler? över 700 sidor gåtor, dialoger och en talande sköldpadda",
+    "image": "images/escalier-infini.jpg"
+   },
+   "nl": {
+    "titre": "Gödel, Escher, Bach",
+    "difficulte": "41/50",
+    "citation": "het won een pulitzer. het gaat over recursie.",
+    "texte": "hofstadter vlecht wiskunde, kunst en muziek samen tot één vraag: hoe ontstaat betekenis uit betekenisloze symbolen? meer dan 700 pagina's puzzels, dialogen en een pratende schildpad",
+    "image": "images/escalier-infini.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Ulysses",
+    "difficulte": "48/50",
+    "citation": "the last chapter is basically eight sentences.",
+    "texte": "joyce, 1922. one ordinary day in dublin, 16 june 1904, told in a new style every chapter. people celebrate that date every year. you will need a guide",
+    "image": "images/vague-renoir.jpg"
+   },
+   "de": {
+    "titre": "Ulysses",
+    "difficulte": "48/50",
+    "citation": "das letzte kapitel sind praktisch acht sätze.",
+    "texte": "joyce, 1922. ein ganz normaler tag in dublin, der 16. juni 1904, jedes kapitel in einem neuen stil. der tag wird jedes jahr gefeiert. du brauchst einen begleiter",
+    "image": "images/vague-renoir.jpg"
+   },
+   "it": {
+    "titre": "Ulisse",
+    "difficulte": "48/50",
+    "citation": "l'ultimo capitolo sono praticamente otto frasi.",
+    "texte": "joyce, 1922. una giornata qualunque a dublino, il 16 giugno 1904, ogni capitolo in uno stile nuovo. quella data si festeggia ogni anno. ti servirà una guida",
+    "image": "images/vague-renoir.jpg"
+   },
+   "pt-BR": {
+    "titre": "Ulysses",
+    "difficulte": "48/50",
+    "citation": "o último capítulo é basicamente oito frases.",
+    "texte": "joyce, 1922. um dia comum em dublin, 16 de junho de 1904, cada capítulo num estilo novo. essa data é comemorada todo ano. você vai precisar de um guia",
+    "image": "images/vague-renoir.jpg"
+   },
+   "tr": {
+    "titre": "Ulysses",
+    "difficulte": "48/50",
+    "citation": "son bölüm neredeyse sekiz cümleden ibaret.",
+    "texte": "joyce, 1922. dublin'de sıradan bir gün, 16 haziran 1904, her bölüm yeni bir üslupla. o gün her yıl kutlanır. bir rehbere ihtiyacın olacak",
+    "image": "images/vague-renoir.jpg"
+   },
+   "sv": {
+    "titre": "Ulysses",
+    "difficulte": "48/50",
+    "citation": "sista kapitlet är typ åtta meningar.",
+    "texte": "joyce, 1922. en helt vanlig dag i dublin, 16 juni 1904, varje kapitel i en ny stil. dagen firas varje år. du kommer att behöva en guide",
+    "image": "images/vague-renoir.jpg"
+   },
+   "nl": {
+    "titre": "Ulysses",
+    "difficulte": "48/50",
+    "citation": "het laatste hoofdstuk is eigenlijk acht zinnen.",
+    "texte": "joyce, 1922. één gewone dag in dublin, 16 juni 1904, elk hoofdstuk in een nieuwe stijl. die dag wordt elk jaar gevierd. je hebt een gids nodig",
+    "image": "images/vague-renoir.jpg"
+   }
+  }
+ ]
+}

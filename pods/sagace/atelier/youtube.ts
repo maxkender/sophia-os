@@ -195,6 +195,8 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   "pt-BR": { hl: "pt", gl: "BR" },
   "es-419": { hl: "es-419", gl: "MX" },
   tr: { hl: "tr", gl: "TR" },
+  ro: { hl: "ro", gl: "RO" },
+  cs: { hl: "cs", gl: "CZ" },
 };
 
 const ENTETES = {
@@ -299,6 +301,13 @@ export function dateAppli(date: string, langue = "en"): string {
     const mot = { a: n(es[1]) ? "años" : "año", m: n(es[1]) ? "meses" : "mes", "sem.": n(es[1]) ? "semanas" : "semana", d: n(es[1]) ? "días" : "día", h: n(es[1]) ? "horas" : "hora", min: "min" }[es[2]];
     return `hace ${es[1]} ${mot}`;
   }
+  // En tchèque, la page abrège (« před 2 r. », « před 6 l. », « před 2 měs. ») ; l'appli écrit « před 2 lety ».
+  const cs = date.match(/^před (\d+)\s*(r\.|l\.|měs\.|týd\.|d\.|h\.|min\.)$/);
+  if (langue === "cs" && cs) {
+    const un = cs[1] === "1";
+    const mot = { "r.": un ? "rokem" : "lety", "l.": un ? "rokem" : "lety", "měs.": un ? "měsícem" : "měsíci", "týd.": un ? "týdnem" : "týdny", "d.": un ? "dnem" : "dny", "h.": un ? "hodinou" : "hodinami", "min.": un ? "minutou" : "minutami" }[cs[2]];
+    return `před ${cs[1]} ${mot}`;
+  }
   const m = date.match(/^(\d+)\s*(y|yr|mo|w|wk|d|h|min)s?\s+ago$/i);
   if (!m || langue !== "en") return date;
   const unite = { y: "year", yr: "year", mo: "month", w: "week", wk: "week", d: "day", h: "hour", min: "minute" }[m[2].toLowerCase()] ?? m[2];
@@ -329,7 +338,7 @@ export async function details(id: string, langue = "en", recherche?: string): Pr
 }
 
 /**
- * Les vues comme l'appli les écrit en de, es, it et pt : le chiffre compact
+ * Les vues comme l'appli les écrit en de, es, it, pt, tr, ro et cs : le chiffre compact
  * que YouTube donne lui-même dans la langue, puis le mot (« 1,2 Mio. Aufrufe »,
  * « 1,2 M de visualizaciones », « 1,2 Mln visualizzazioni », « 1,2 mi visualizações »).
  */
@@ -340,6 +349,9 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   pt: (c) => `${c} visualizações`,
   "pt-BR": (c) => `${c} visualizações`,
   "es-419": (c) => (/\sM$/.test(c) ? `${c} de vistas` : `${c} vistas`),
+  tr: (c) => `${c} görüntüleme`,
+  ro: (c) => `${c} vizionări`,
+  cs: (c) => `${c} zhlédnutí`,
 };
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */

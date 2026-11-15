@@ -1,0 +1,623 @@
+{
+ "id": "dr-002",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2000000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of introvert hobbies",
+  "de": "Der Eisberg der Introvertierten-Hobbys",
+  "it": "Iceberg degli hobby da introversi",
+  "pt-BR": "Iceberg de hobbies de introvertido",
+  "tr": "İçe dönüklerin hobi buzdağı",
+  "sv": "Isberget av introverta hobbyer",
+  "nl": "IJsberg van introverte hobby's"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #introvert #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #introvertiert #selbstverbesserung",
+  "it": "#iceberg #hobby #introversi #crescitapersonale",
+  "pt-BR": "#iceberg #hobbies #introvertido #autoconhecimento",
+  "tr": "#buzdağı #hobi #içedönük #kişiselgelişim",
+  "sv": "#isberg #hobbyer #introvert #självutveckling",
+  "nl": "#ijsberg #hobbys #introvert #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "оригинальный звук - исма америкоша",
+  "url": "https://www.tiktok.com/music/original-sound-7695439871377722133"
+ },
+ "notes": "Original sur son iceberg à 2 M (« Iceberg of Autistic hobbies ») : même format, sujet « introverti ». 5 étages (4, 4, 4, 3, 1), Sophia au 2e étage (« one sophia lesson a day », icône de l'appli). Objets détourés Seedream (images/objets/). En, de, it, pt-BR (décision d'Adrien du 15/11, via la coordination BLEO).",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "introvert hobbies"
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Introvertierten-Hobbys"
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da introversi"
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de introvertido"
+   },
+   "tr": {
+    "haut": "İçe dönüklerin",
+    "bas": "hobi buzdağı"
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "introverta hobbyer"
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "introverte hobby's"
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "puzzles",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "tea rituals",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "one sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "film photography",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomy",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "lockpicking",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "geography trivia",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "memorizing poems",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "inventing a language",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "bücher lesen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "tagebuch schreiben",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "puzzeln",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "tee-rituale",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schach",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "vögel beobachten",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "jeden tag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "analog fotografieren",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "sterne beobachten",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "latein lernen",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "schlösser knacken",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "geografie-quiz",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "gedichte auswendig",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "eine sprache erfinden",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "leggere libri",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "scrivere un diario",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "puzzle",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "il rito del tè",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "scacchi",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "fotografia analogica",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "calligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "imparare il latino",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "scassinare lucchetti",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "quiz di geografia",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "poesie a memoria",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "inventare una lingua",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "ler livros",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "escrever um diário",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "quebra-cabeça",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "rituais de chá",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "xadrez",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "observar pássaros",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "fotografia analógica",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "caligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "aprender latim",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "abrir cadeados",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "quiz de geografia",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "decorar poemas",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "inventar um idioma",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "kitap okumak",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "günlük tutmak",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "yapboz",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "çay ritüelleri",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "kuş gözlemi",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "analog fotoğraf",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "kaligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "latince öğrenmek",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "kilit açmak",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "coğrafya bilgisi",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "şiir ezberlemek",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "dil icat etmek",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "läsa böcker",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "skriva dagbok",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "pussel",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "te-ritualer",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "skåda fåglar",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "analog fotografi",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "kalligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "lära sig latin",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "dyrka lås",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "geografiquiz",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "dikter utantill",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "uppfinna ett språk",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "boeken lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "dagboek schrijven",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "puzzelen",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "theerituelen",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "vogels kijken",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "analoge fotografie",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "sterrenkunde",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "sloten openen",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "topografie-quiz",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "gedichten uit je hoofd",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "een taal verzinnen",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ]
+}

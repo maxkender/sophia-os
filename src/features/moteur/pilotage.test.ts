@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { lignesStock, resumeVues, serieVuesParJour, tauxPublication } from "./pilotage";
+import { lignesStock, resumeVues, serieVuesParJour, tauxPublication, valeurVuesJour } from "./pilotage";
 
 const jour = (j: string, vues: number | null, provisoire = false) => ({
   jour: j,
@@ -58,6 +58,47 @@ describe("serieVuesParJour", () => {
     ]);
     expect(serie[0]!.posts).toBe(421);
     expect(serieVuesParJour([], "2026-11-02")).toEqual([]);
+  });
+
+  it("calcule total, moyenne, médiane et posts, à J+1/J+3/J+7, sans chiffre faux", () => {
+    const serie = serieVuesParJour(
+      [
+        {
+          jour: "2026-11-07",
+          vues: 4_000_000,
+          posts_mesures: 500,
+          nb_comptes: 300,
+          med: "1200.5",
+          vues_j1: "1502890",
+          vues_j3: 3890919,
+          vues_j7: 612319,
+          posts_j1: 498,
+          posts_j3: 380,
+          posts_j7: 89,
+          med_j1: 700,
+          med_j3: 1500,
+          med_j7: 900,
+        },
+        { jour: "2026-11-08", vues: 10, posts_mesures: 1, nb_comptes: 1, vues_j7: 400, posts_j7: 20 },
+      ],
+      "2026-11-08",
+    );
+    const [a, b] = [serie[0]!, serie[1]!];
+    expect(["total", "moyenne", "mediane", "posts"].map((c) => valeurVuesJour(a, "vues", c as never))).toEqual([
+      4_000_000, 8000, 1201, 500,
+    ]);
+    expect(valeurVuesJour(a, "j1", "total")).toBe(1502890);
+    // J+3 : 380 posts photographiés sur 500 (< 80 %) → pas de total, mais la moyenne.
+    expect(valeurVuesJour(a, "j3", "total")).toBeNull();
+    expect(valeurVuesJour(a, "j3", "moyenne")).toBe(10239);
+    // J+7 : jamais de total ; moyenne dès 30 posts photographiés.
+    expect(valeurVuesJour(a, "j7", "total")).toBeNull();
+    expect(valeurVuesJour(a, "j7", "moyenne")).toBe(6880);
+    expect(valeurVuesJour(a, "j7", "mediane")).toBe(900);
+    expect(valeurVuesJour(a, "j7", "posts")).toBe(89);
+    expect(valeurVuesJour(b, "j7", "moyenne")).toBeNull();
+    // Sans 0732 : pas de médiane.
+    expect(valeurVuesJour(b, "vues", "mediane")).toBeNull();
   });
 
   it("traverse un changement de mois et d'heure", () => {

@@ -1,0 +1,264 @@
+{
+ "id": "dr-001",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+  "vues": 568900,
+  "publie_le": "2026-10-19",
+  "accroche": "5 niche ways to disgustingly improve your critical thinking"
+ },
+ "titre": {
+  "en": "5 niche habits of disgustingly well-read people",
+  "de": "5 nischige gewohnheiten von absurd belesenen menschen",
+  "it": "5 abitudini di nicchia delle persone assurdamente colte",
+  "pt-BR": "5 hábitos nichados de pessoas absurdamente cultas",
+  "tr": "aşırı kültürlü insanların 5 niş alışkanlığı",
+  "sv": "5 nischade vanor hos sjukt belästa människor",
+  "nl": "5 niche gewoontes van walgelijk belezen mensen"
+ },
+ "legendes": {
+  "en": "#niche #lockedin #selfimprovement #smarttok",
+  "de": "#nische #lesen #selbstverbesserung #lernen",
+  "it": "#nicchia #lettura #crescitapersonale #cultura",
+  "pt-BR": "#nicho #leitura #autodesenvolvimento #conhecimento",
+  "tr": "#niş #kitap #kişiselgelişim #öğrenmek",
+  "sv": "#nisch #böcker #självutveckling #lärande",
+  "nl": "#niche #boeken #zelfontwikkeling #leren"
+ },
+ "musique": {
+  "titre": "A Song of Ice and Fire - Ramin Djawadi",
+  "url": "https://www.tiktok.com/music/A-Song-of-Ice-and-Fire-6723045131219372033"
+ },
+ "notes": "Pilote du podz 16 (15/11), sur le modèle de son post à 569 k (« 5 niche ways to disgustingly improve your critical thinking », 7,2 % d'enregistrements) : même structure (couverture, cerveau en IRM, 5 items à tableau), sujet « bien lu » qui colle à Sophia. Tableaux de l'Art Institute of Chicago (domaine public) : David, Mola, Tiepolo, Héraclite (espagnol, v. 1630). Sophia en item 4 sur 5 (cta A : « a lesson written by an actual professor »), écran « accueil » (captures de l'appli données par Adrien). Traduit en de, it, pt-BR le 15/11 (demande d'Adrien) ; écran « accueil » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of disgustingly well-read people",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(it's not just reading)"
+   },
+   "de": {
+    "titre": "5 nischige gewohnheiten von absurd belesenen menschen",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(es ist nicht nur lesen)"
+   },
+   "it": {
+    "titre": "5 abitudini di nicchia delle persone assurdamente colte",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(non è solo leggere)"
+   },
+   "pt-BR": {
+    "titre": "5 hábitos nichados de pessoas absurdamente cultas",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(não é só ler)"
+   },
+   "tr": {
+    "titre": "aşırı kültürlü insanların 5 niş alışkanlığı",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(sadece okumak değil)"
+   },
+   "sv": {
+    "titre": "5 nischade vanor hos sjukt belästa människor",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(det är inte bara läsning)"
+   },
+   "nl": {
+    "titre": "5 niche gewoontes van walgelijk belezen mensen",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(het is niet alleen lezen)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The 2-minute rabbit hole",
+    "texte": "the second a word, a name or a place confuses you, look it up. two minutes, not later. curiosity is exactly when your brain remembers best",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "de": {
+    "titre": "Der 2-Minuten-Kaninchenbau",
+    "texte": "sobald dich ein wort, ein name oder ein ort verwirrt, schlag es nach. zwei minuten, nicht später. in diesem moment der neugier merkt sich dein gehirn am meisten",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "it": {
+    "titre": "Il rabbit hole da 2 minuti",
+    "texte": "appena una parola, un nome o un luogo ti confonde, cercalo. due minuti, non dopo. la curiosità è proprio il momento in cui il cervello ricorda meglio",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "pt-BR": {
+    "titre": "A toca do coelho de 2 minutos",
+    "texte": "assim que uma palavra, um nome ou um lugar te confundir, pesquise. dois minutos, não depois. a curiosidade é exatamente quando o cérebro mais grava",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "tr": {
+    "titre": "2 dakikalık tavşan deliği",
+    "texte": "bir kelime, isim ya da yer kafanı karıştırdığı an, hemen araştır. iki dakika, sonra değil. merak, beynin en iyi hatırladığı andır",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "sv": {
+    "titre": "Det 2 minuter långa kaninhålet",
+    "texte": "så fort ett ord, ett namn eller en plats förvirrar dig, slå upp det. två minuter, inte sen. nyfikenheten är precis när hjärnan minns bäst",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "nl": {
+    "titre": "Het konijnenhol van 2 minuten",
+    "texte": "zodra een woord, een naam of een plek je verwart, zoek het op. twee minuten, niet later. nieuwsgierigheid is precies het moment waarop je brein het best onthoudt",
+    "image": "images/lectrice-buron.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Explain it to a 10-year-old",
+    "texte": "after you learn something, explain it out loud in simple words. the parts you can't explain are the parts you didn't really get",
+    "image": "images/homere-dictant.jpg"
+   },
+   "de": {
+    "titre": "Erklär es einem 10-Jährigen",
+    "texte": "wenn du etwas gelernt hast, erklär es laut in einfachen worten. was du nicht erklären kannst, hast du nicht wirklich verstanden",
+    "image": "images/homere-dictant.jpg"
+   },
+   "it": {
+    "titre": "Spiegalo a un bambino di 10 anni",
+    "texte": "dopo aver imparato qualcosa, spiegala ad alta voce con parole semplici. le parti che non sai spiegare sono quelle che non hai capito davvero",
+    "image": "images/homere-dictant.jpg"
+   },
+   "pt-BR": {
+    "titre": "Explique pra alguém de 10 anos",
+    "texte": "depois de aprender algo, explique em voz alta com palavras simples. as partes que você não consegue explicar são as que você não entendeu de verdade",
+    "image": "images/homere-dictant.jpg"
+   },
+   "tr": {
+    "titre": "10 yaşındaki birine anlat",
+    "texte": "bir şey öğrendikten sonra, onu basit kelimelerle sesli anlat. anlatamadığın kısımlar, aslında anlamadığın kısımlardır",
+    "image": "images/homere-dictant.jpg"
+   },
+   "sv": {
+    "titre": "Förklara för en 10-åring",
+    "texte": "när du har lärt dig något, förklara det högt med enkla ord. de delar du inte kan förklara är de du inte riktigt förstod",
+    "image": "images/homere-dictant.jpg"
+   },
+   "nl": {
+    "titre": "Leg het uit aan een 10-jarige",
+    "texte": "als je iets geleerd hebt, leg het hardop uit in simpele woorden. wat je niet kunt uitleggen, heb je niet echt begrepen",
+    "image": "images/homere-dictant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Steal the greatest hits",
+    "texte": "you don't need to read all of plato. learn the 20 ideas everyone references: the allegory of the cave, occam's razor, the prisoner's dilemma",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "de": {
+    "titre": "Klau die größten Hits",
+    "texte": "du musst nicht den ganzen platon lesen. lern die 20 ideen, auf die sich alle beziehen: das höhlengleichnis, ockhams rasiermesser, das gefangenendilemma",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "it": {
+    "titre": "Ruba i grandi classici",
+    "texte": "non devi leggere tutto platone. impara le 20 idee che tutti citano: il mito della caverna, il rasoio di occam, il dilemma del prigioniero",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "pt-BR": {
+    "titre": "Roube os grandes sucessos",
+    "texte": "você não precisa ler platão inteiro. aprenda as 20 ideias que todo mundo cita: o mito da caverna, a navalha de occam, o dilema do prisioneiro",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "tr": {
+    "titre": "En büyük hitleri çal",
+    "texte": "platon'un tamamını okumana gerek yok. herkesin atıf yaptığı 20 fikri öğren: mağara alegorisi, ockham'ın usturası, mahkum ikilemi",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "sv": {
+    "titre": "Sno de största hitsen",
+    "texte": "du behöver inte läsa hela platon. lär dig de 20 idéer alla refererar till: grottliknelsen, ockhams rakkniv, fångarnas dilemma",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "nl": {
+    "titre": "Steel de grootste hits",
+    "texte": "je hoeft niet heel plato te lezen. leer de 20 ideeën waar iedereen naar verwijst: de allegorie van de grot, het scheermes van ockham, het prisonersdilemma",
+    "image": "images/tete-philosophe.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. history, philosophy, science, economics. a tiny lecture every morning",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. geschichte, philosophie, wissenschaft, wirtschaft. eine kleine vorlesung jeden morgen",
+    "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. storia, filosofia, scienze, economia. una piccola lezione ogni mattina",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. história, filosofia, ciência, economia. uma mini aula toda manhã",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. tarih, felsefe, bilim, ekonomi. her sabah minik bir ders",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. historia, filosofi, vetenskap, ekonomi. en liten föreläsning varje morgon",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. geschiedenis, filosofie, wetenschap, economie. elke ochtend een mini-college",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Connect everything",
+    "texte": "link every new fact to one you already know. history explains economics, economics explains politics. knowledge compounds when it's connected",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "de": {
+    "titre": "Verbinde alles",
+    "texte": "verknüpfe jede neue info mit etwas, das du schon kennst. geschichte erklärt wirtschaft, wirtschaft erklärt politik. wissen wächst, wenn es verbunden ist",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "it": {
+    "titre": "Collega tutto",
+    "texte": "collega ogni fatto nuovo a uno che conosci già. la storia spiega l'economia, l'economia spiega la politica. la conoscenza cresce quando è collegata",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "pt-BR": {
+    "titre": "Conecte tudo",
+    "texte": "ligue cada fato novo a um que você já conhece. a história explica a economia, a economia explica a política. o conhecimento se multiplica quando está conectado",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "tr": {
+    "titre": "Her şeyi birbirine bağla",
+    "texte": "her yeni bilgiyi zaten bildiğin bir şeye bağla. tarih ekonomiyi açıklar, ekonomi de siyaseti. bilgi, bağlandıkça katlanır",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "sv": {
+    "titre": "Koppla ihop allt",
+    "texte": "koppla varje nytt faktum till något du redan kan. historia förklarar ekonomi, ekonomi förklarar politik. kunskap växer när den hänger ihop",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "nl": {
+    "titre": "Verbind alles",
+    "texte": "koppel elk nieuw feit aan iets wat je al weet. geschiedenis verklaart economie, economie verklaart politiek. kennis groeit als het verbonden is",
+    "image": "images/heraclite-sphere.jpg"
+   }
+  }
+ ]
+}

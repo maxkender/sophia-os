@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o220",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4",
+ "titre": "niche habits of women who always seem put-together #puttogether #thatgirl #smartgirl #elegance #habits",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "413c2cd2-0157-4a5b-8eb2-2cb036f6e0f4"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 27 de la boîte (parent 413c2cd2, langue source en) : accroche du parent mot pour mot. Habitudes neuves face au parent (préparer ses affaires la veille, un carnet dans le sac, le lit fait, être en avance, un rituel du dimanche, toujours une histoire à raconter). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0cd964e3",
+   "texte_overlay": "niche habits of women who\nalways seem put-together",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "632b74df",
+   "texte_overlay": "they lay out tomorrow\nthe night before",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bd84239b",
+   "texte_overlay": "they carry a small notebook",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "87d71093",
+   "texte_overlay": "they make their bed,\nevery morning",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b83e47ea",
+   "texte_overlay": "they arrive ten minutes early",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7a35bca4",
+   "texte_overlay": "they keep a sunday reset",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4373a342",
+   "texte_overlay": "they always have a story\nto tell",
+   "texte_sophia": "they always have a story to tell.\nmine come from 5 minutes a day\non a micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "236e9370",
+   "texte_overlay": "which one is yours?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7622468554180414741/6.jpg"
+  }
+ ]
+}

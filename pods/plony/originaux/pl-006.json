@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-006",
+  "titre": "Mastering others requires force. Mastering yourself requires true strength. #taoism #laotzu #philosophy #quotes",
+  "source_phrase": "Lao Tzu, Tao Te Ching, 33 (Gia-Fu Feng translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "Sleepy Lagoon",
+  "notes": "cta B",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d8279242",
+      "texte_overlay": "Mastering others requires force.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692880057957764370/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "621e722c",
+      "texte_overlay": "Mastering yourself",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684453887826267400/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ae459e6e",
+      "texte_overlay": "requires true strength.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694341625878826247/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c33816a3",
+      "texte_overlay": "Lao Tzu, Tao Te Ching.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694821093193927943/1.jpg",
+      "texte_sophia": "Today's 5 minutes on Sophia: Lao Tzu and the Tao Te Ching."
+    }
+  ]
+}

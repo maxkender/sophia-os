@@ -18,7 +18,7 @@ rejette est validée toute seule 5 h après son dépôt.
 - **L'appli** : **Sophia**, à la place de Swuvi : **une des cinq applis, ni la première ni la dernière**, avec ses vraies captures de l'appli (données par Adrien le 15/11 : l'accueil « For you », une question de quiz, « Course complete! ») et une note qui dit ce qu'elle fait : des leçons courtes (histoire, philosophie, sciences, géopolitique, littérature, économie) écrites par des profs, un quiz après chaque leçon, 10 minutes par jour.
 - **Le label** : `appshelf` (migration 0730), qui sert **Sophia seul**, 100 % podz, genre `femme`. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » (test sur 4 comptes anglais) ou Adrien et Max (Pilotage). `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais seul**, comme elle : phrases simples, chaleureuses, sans emphase.
+- **En 4 langues** (décision d'Adrien du 15/11, via la coordination BLEO) : en, es, it, pt-BR, un deck par langue dans chaque livraison, traduit à la main, simple et chaleureux comme elle. Chaque langue tient sur sa slide : raccourcis, ne réduis pas (le rendu refuse un sous-titre trop long). Chaque appli doit exister dans le magasin de chaque pays (`npm run appli -- --id` le vérifie et prend ses captures locales). Au moins 2 livraisons par jour, ou le rythme de l'OS s'il est plus haut. Un contenu ne va qu'à un compte par langue (0720).
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un original

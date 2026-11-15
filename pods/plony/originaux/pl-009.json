@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-009",
+  "titre": "It is not that we have a short time to live, but that we waste so much of it. #stoicism #seneca #time #quotes",
+  "source_phrase": "Seneca, On the Shortness of Life, 1 (Basore translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "Naima",
+  "notes": "cta C",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "632b7383",
+      "texte_overlay": "It is not that we have a short time to live,",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694498114564197640/3.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "9262a9fc",
+      "texte_overlay": "but that we waste",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700825033760836882/3.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "0d24ed1e",
+      "texte_overlay": "so much of it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7683734018847788295/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ea37d839",
+      "texte_overlay": "Seneca, On the Shortness of Life.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692657950514629895/3.jpg",
+      "texte_sophia": "Seneca wrote this to Paulinus, who ran Rome's grain supply. I learned it this morning on Sophia."
+    }
+  ]
+}

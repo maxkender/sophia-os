@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-007",
+  "titre": "There is always some madness in love. But there is also always some reason in madness. #love #nietzsche #philosophy #quotes",
+  "source_phrase": "Nietzsche, Thus Spoke Zarathustra, I, On Reading and Writing",
+  "type_bleo": "full_test",
+  "musique_titre": "Moment to Moment",
+  "notes": "cta A",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6f95c01b",
+      "texte_overlay": "There is always some madness in love.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7703748102183816466/2.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "659b4dbf",
+      "texte_overlay": "But there is also always",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689865525555514632/3.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d3c445fa",
+      "texte_overlay": "some reason in madness.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686228188757789970/2.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "687333ee",
+      "texte_overlay": "Nietzsche, Thus Spoke Zarathustra.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696312507345997064/3.jpg",
+      "texte_sophia": "Nietzsche wrote this in 1883. I read it this morning on Sophia."
+    }
+  ]
+}

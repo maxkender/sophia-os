@@ -1,0 +1,577 @@
+{
+ "id": "fa-065",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Skills That Make People Love Talking To You",
+  "fr": "3 compétences qui donnent envie aux gens de te parler",
+  "es": "3 habilidades que hacen que todos quieran hablar contigo",
+  "de": "3 Fähigkeiten, durch die alle gern mit dir reden",
+  "it": "3 abilità per cui tutti amano parlare con te",
+  "pt-BR": "3 habilidades que fazem todos amarem conversar com você",
+  "es-419": "3 habilidades que hacen que todos quieran hablar contigo"
+ },
+ "legendes": {
+  "en": "3 Skills That Make People Love Talking To You #learnontiktok #socialskills #selfimprovement",
+  "fr": "3 compétences qui donnent envie aux gens de te parler #apprendresurtiktok #communication #développementpersonnel",
+  "es": "3 habilidades que hacen que todos quieran hablar contigo #aprendeentiktok #comunicación #desarrollopersonal",
+  "de": "3 Fähigkeiten, durch die alle gern mit dir reden #lernenmittiktok #kommunikation #selbstverbesserung",
+  "it": "3 abilità per cui tutti amano parlare con te #imparacontiktok #comunicazione #crescitapersonale",
+  "pt-BR": "3 habilidades que fazem todos amarem conversar com você #aprendanotiktok #comunicação #desenvolvimentopessoal",
+  "es-419": "3 habilidades que hacen que todos quieran hablar contigo #aprendeentiktok #comunicación #desarrollopersonal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7435207007541480224"
+ },
+ "notes": "cta B. Full test (jauge BLEO du 15/11) : accroche neuve au format liste de @fathom0g (« 3 Skills That Make People Love Talking To You »), jamais faite chez nous. Étapes : écoute active, retenir les prénoms, Sophia, raconter des histoires. Son peu utilisé (0671). Langues des comptes du label (7), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "THAT MAKE PEOPLE",
+     [
+      {
+       "t": "LOVE TALKING TO YOU",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 COMPÉTENCES",
+       "bronze": true
+      }
+     ],
+     "QUI DONNENT ENVIE",
+     "AUX GENS",
+     [
+      {
+       "t": "DE TE PARLER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE HACEN QUE TODOS",
+     "QUIERAN",
+     [
+      {
+       "t": "HABLAR CONTIGO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 FÄHIGKEITEN",
+       "bronze": true
+      }
+     ],
+     "DURCH DIE ALLE",
+     "GERN",
+     [
+      {
+       "t": "MIT DIR REDEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABILITÀ",
+       "bronze": true
+      }
+     ],
+     "PER CUI TUTTI",
+     "AMANO",
+     [
+      {
+       "t": "PARLARE CON TE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE FAZEM TODOS",
+     "AMAREM",
+     [
+      {
+       "t": "CONVERSAR COM VOCÊ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE HACEN QUE TODOS",
+     "QUIERAN",
+     [
+      {
+       "t": "HABLAR CONTIGO",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "ACTIVE",
+     "LISTENING"
+    ],
+    "video": {
+     "id": "i3ku5nx4tMU",
+     "titre": "4 things all great listeners know",
+     "chaine": "TED-Ed",
+     "vues": "2.7M views",
+     "date": "3 years ago",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "L'ÉCOUTE",
+     "ACTIVE"
+    ],
+    "video": {
+     "id": "RFfbV5fZVvs",
+     "titre": "Améliorerez Rapidement vos Compétences en Écoute Active",
+     "chaine": "La Brève du Manager - Clément Bergon",
+     "vues": "16 k vues",
+     "date": "il y a 4 ans",
+     "duree": "6:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mMbXLEDMgsE8Zwt7uc6L6r1kWNEfegZukvNibCOs5QdKI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ESCUCHA",
+     "ACTIVA"
+    ],
+    "video": {
+     "id": "VcIW9uUDx0c",
+     "titre": "Escucha Activa: 12 Técnicas (Imprescindibles)",
+     "chaine": "Fernando Miralles",
+     "vues": "311 K visualizaciones",
+     "date": "hace 2 años",
+     "duree": "18:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKRxIBJIfdJogx8ZfaWord-96w2CQvJiv1Z_At6ZN3iS4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "AKTIVES",
+     "ZUHÖREN"
+    ],
+    "video": {
+     "id": "PJklq_88PPs",
+     "titre": "AKTIVES ZUHÖREN nach Carl Rogers - die 7 Techniken einfach erklärt mit Beispielen | ERZIEHERKANAL",
+     "chaine": "Erzieherkanal - Wissen, Theorien & Infos",
+     "vues": "242.494 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTLIjj0tRulCXu8dOZJCvvuaczYEdjo3JXBxaSwDjdrRM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "ASCOLTO",
+     "ATTIVO"
+    ],
+    "video": {
+     "id": "cRnkoqida1g",
+     "titre": "Le regole per un ascolto efficace",
+     "chaine": "Antonio Quaglietta",
+     "vues": "10K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "14:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzOz-NXMOCD-R9l-Pj-fiNwchf5YEnBN8jTjiNzCRDXy4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ESCUTA",
+     "ATIVA"
+    ],
+    "video": {
+     "id": "K5Kj-G7aVvY",
+     "titre": "Escuta Ativa: Essa técnica irá melhorar MUITO seus relacionamentos! com Dra Anahy",
+     "chaine": "Papo com Anahy D'Amico",
+     "vues": "59 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6uUoU8EERjH4_o4awWuhQJn0XZ2W7_FN_iU8UzA2o9Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "ESCUCHA",
+     "ACTIVA"
+    ],
+    "video": {
+     "id": "L8qIdDBm7rU",
+     "titre": "APRENDE a ESCUCHAR: Técnica de \"Escucha activa\"",
+     "chaine": "Psicóloga Pau",
+     "vues": "251 k vistas",
+     "date": "hace 5 años",
+     "duree": "14:09",
+     "avatar": "https://yt3.ggpht.com/EOikNNzQeKlZshqqXF9Wsb5OBM5sEwwLMYs2pyu0DcVcSimdXEE24Wt2Ru50rplkBo2rVOdEjw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "REMEMBER",
+     "NAMES"
+    ],
+    "video": {
+     "id": "byMvk6Nqz7I",
+     "titre": "The \"Association\" Trick I Use To Remember Everyone's Name!",
+     "chaine": "Vinh Giang",
+     "vues": "265K views",
+     "date": "1 year ago",
+     "duree": "5:39",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "RETENIR",
+     "LES PRÉNOMS"
+    ],
+    "video": {
+     "id": "Jb_NrXYTex4",
+     "titre": "Comment retenir les prénoms (Devenez plus intelligent #8)",
+     "chaine": "Potion de vie",
+     "vues": "2,4 k vues",
+     "date": "il y a 12 ans",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/oPrmxkiJmLHPnGHUkxkmxzIsRafICCEzdhcHcflATzZVBNkpW1Bm7L3ubg0d4WHROLKY4hjXfxw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "RECORDAR",
+     "NOMBRES"
+    ],
+    "video": {
+     "id": "xxUYjcGgaDc",
+     "titre": "Cómo RECORDAR Nombres Sin Esfuerzo (Aunque Tengas Mala MEMORIA)",
+     "chaine": "Cerebro Ilimitado",
+     "vues": "3,6 K visualizaciones",
+     "date": "hace 1 año",
+     "duree": "20:38",
+     "avatar": "https://yt3.ggpht.com/cBH3NnlabGpiVAnl52M5GxZldMkLj8tv0l0v5jTSeIN0JTzYdgSkD_9GQAcRnG46hbDkbMTp5a8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "NAMEN",
+     "MERKEN"
+    ],
+    "video": {
+     "id": "25cFw7CmQuc",
+     "titre": "Warum du Namen sofort vergisst: Die verborgene Psychologie deines Gehirns 🧠",
+     "chaine": "Menschen Verstehen",
+     "vues": "176.655 Aufrufe",
+     "date": "vor 7 Monaten",
+     "duree": "12:32",
+     "avatar": "https://yt3.ggpht.com/VJRxATvMGMcq1A2qIAB4L0jv0uUYRvEIQM7RW8gw9OBvYljcRvc60v_VqgwfG14nM966Mle3=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RICORDARE",
+     "I NOMI"
+    ],
+    "video": {
+     "id": "eOAS8gZ7vPU",
+     "titre": "COME RICORDARSI IL NOME DELLE PERSONE: 4 PASSAGGI",
+     "chaine": "Massimo Bersotti",
+     "vues": "29K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "4:37",
+     "avatar": "https://yt3.ggpht.com/D804yyNn6YWdY8rbrtVyWHGL273Zsh0yTq9NRC0l7W5ghfV7jNyfO1pBAdqt2TXdor2hy4XAjUg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "LEMBRAR",
+     "NOMES"
+    ],
+    "video": {
+     "id": "F1m24ZMl1-U",
+     "titre": "COMO LEMBRAR O NOME DAS PESSOAS? 3 TRUQUES SIMPLES QUE FUNCIONAM | Peter Liu",
+     "chaine": "Peter Liu",
+     "vues": "97 mil visualizações",
+     "date": "há 2 meses",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/z6rEjiRfgROzKmRD458Y4udXFHJZ3wK5rKdDnrosOgJ3dDc1hV_nR7aycek6zXI_71yWqxLkhw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "RECORDAR",
+     "NOMBRES"
+    ],
+    "video": {
+     "id": "xnNbj2J3msc",
+     "titre": "Cómo Recordar Nombres De Personas (Que Recién Conoces) | Coach Social",
+     "chaine": "Coach Social",
+     "vues": "27 k vistas",
+     "date": "hace 9 años",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/M_8ITQn1_amNR2l0uO1CLmu-XSApnKvi1a7lEufp8VaAF5Kcfavi8DQqdsB5JwFE98hmA6mnHw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ALWAYS HAVE",
+     "SOMETHING TO SAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes a day",
+      "to know a bit about everything."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "AVOIR TOUJOURS",
+     "UN SUJET"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "TENER SIEMPRE",
+     "DE QUÉ HABLAR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "IMMER WAS",
+     "ZU ERZÄHLEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 Minuten am Tag,",
+      "um von allem etwas zu wissen."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "AVERE SEMPRE",
+     "QUALCOSA DA DIRE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuti al giorno",
+      "per sapere un po' di tutto."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "TER SEMPRE",
+     "ASSUNTO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos por dia",
+      "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "TENER SIEMPRE",
+     "DE QUÉ HABLAR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "TELL GREAT",
+     "STORIES"
+    ],
+    "video": {
+     "id": "JOs-q7rXqdk",
+     "titre": "4 ways to tell a great story",
+     "chaine": "TED-Ed",
+     "vues": "599K views",
+     "date": "2 months ago",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "RACONTER",
+     "DES HISTOIRES"
+    ],
+    "video": {
+     "id": "Wcr1sfAmMNU",
+     "titre": "Comment RACONTER UNE HISTOIRE qui va CAPTIVER vos amis",
+     "chaine": "Stratégie Vidéo",
+     "vues": "58 k vues",
+     "date": "il y a 7 ans",
+     "duree": "8:07",
+     "avatar": "https://yt3.ggpht.com/ce_stgEsXnRzG4q5xzolRaivi7AM0s3yqmt2X78fsfwy4Q1MIXHUVPCSPGS3-2QGPPLTiyPN=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CONTAR",
+     "HISTORIAS"
+    ],
+    "video": {
+     "id": "VS57LXYYBWM",
+     "titre": "Cómo Contar Una Historia | Coach Social",
+     "chaine": "Coach Social",
+     "vues": "259 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/M_8ITQn1_amNR2l0uO1CLmu-XSApnKvi1a7lEufp8VaAF5Kcfavi8DQqdsB5JwFE98hmA6mnHw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "GESCHICHTEN",
+     "ERZÄHLEN"
+    ],
+    "video": {
+     "id": "831Bb86uwzw",
+     "titre": "Storytelling lernen: Wie Du gute Geschichten gut erzählst",
+     "chaine": "Michael Geerdts",
+     "vues": "8260 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/U2bYdXu2rTsa6wdshCHbNcMrJ-I3fXRpQxk_GcnSrOj-Gs6ScCFCgJopQqjC-MDMUWGwBB9nDw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RACCONTARE",
+     "STORIE"
+    ],
+    "video": {
+     "id": "LJhzV3WY5y8",
+     "titre": "Come raccontare una storia",
+     "chaine": "GioPizzi",
+     "vues": "97K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "21:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMCr4fBWJNER7eKLt-xRqJvVRdUSuWVUEM-uMi8PspMwQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "CONTAR",
+     "HISTÓRIAS"
+    ],
+    "video": {
+     "id": "MlFLOglMr20",
+     "titre": "APRENDA STORYTELLING EM 3 PASSOS - Como contar sua própria história",
+     "chaine": "El Professor da Oratória",
+     "vues": "204 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/JRRnzRD1rMftcRJ4Rzpt39F8emS7w3NQClW_NlbsEq_RAS7KgijhvQkPAeAZDFXCcVzBwFvb=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "CONTAR",
+     "HISTORIAS"
+    ],
+    "video": {
+     "id": "2Qb-B8ug7Po",
+     "titre": "Cómo crear y contar historias | Storytelling para ficción",
+     "chaine": "Edgardoodles",
+     "vues": "30 k vistas",
+     "date": "hace 5 meses",
+     "duree": "12:36",
+     "avatar": "https://yt3.ggpht.com/Idf8197IiHc-tPEjFYkkZHUu8oDkiyvSUxfuQ0-oJzRb5BdNoWdku2DILEA2ieh3HOZEHMT7E-c=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

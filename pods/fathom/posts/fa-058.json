@@ -6,14 +6,18 @@
   "de": "3 Fragen, die dich umhauen",
   "it": "3 domande che ti apriranno la mente",
   "pt-BR": "3 perguntas que vão explodir sua mente",
-  "es-419": "3 preguntas que te volarán la cabeza"
+  "es-419": "3 preguntas que te volarán la cabeza",
+  "fr": "3 questions qui vont te retourner le cerveau",
+  "es": "3 preguntas que te volarán la cabeza"
  },
  "legendes": {
   "en": "3 Questions That Will Blow Your Mind #science #learnontiktok #curiosity",
   "de": "3 Fragen, die dich umhauen #wissenschaft #lernenmittiktok #neugier",
   "it": "3 domande che ti apriranno la mente #scienza #imparacontiktok #curiosità",
   "pt-BR": "3 perguntas que vão explodir sua mente #ciência #aprendanotiktok #curiosidades",
-  "es-419": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades"
+  "es-419": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades",
+  "fr": "3 questions qui vont te retourner le cerveau #science #apprendresurtiktok #curiosité",
+  "es": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades"
  },
  "musique": {
   "titre": "audio originale",
@@ -108,6 +112,41 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 QUESTIONS",
+       "bronze": true
+      }
+     ],
+     "QUI VONT TE",
+     "RETOURNER",
+     [
+      {
+       "t": "LE CERVEAU",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 PREGUNTAS",
+       "bronze": true
+      }
+     ],
+     "QUE TE VOLARÁN",
+     [
+      {
+       "t": "LA CABEZA",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -185,6 +224,36 @@
      "date": "hace 4 años",
      "duree": "8:45",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "POURQUOI",
+     "VIEILLIT-ON ?"
+    ],
+    "video": {
+     "id": "gf2DxVoEitI",
+     "titre": "Comment l'Homme vieillit",
+     "chaine": "Le Blob",
+     "vues": "32 k vues",
+     "date": "il y a 8 ans",
+     "duree": "5:55",
+     "avatar": "https://yt3.ggpht.com/3CrS_3yOeqQVpaOhaQO3ejlY7e7lzvrU3J-QuhaBmm00qpBTTMNPat5H4R0PC0V4VyTjBHOevg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿POR QUÉ",
+     "ENVEJECEMOS?"
+    ],
+    "video": {
+     "id": "fg3Ioz8oz8s",
+     "titre": "¿Por qué ENVEJECEMOS? | La Hiperactina",
+     "chaine": "La Hiperactina",
+     "vues": "795 K visualizaciones",
+     "date": "hace 7 años",
+     "duree": "9:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nL3FDG1AgWzNM4OIAzIzF4mFUTP_qp2KyAGaP37yNm3KU=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -264,6 +333,36 @@
      "duree": "4:18",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "POURQUOI",
+     "RÊVE-T-ON ?"
+    ],
+    "video": {
+     "id": "XIBUrNtzbh4",
+     "titre": "Pourquoi rêvons-nous? - Amy Adkins",
+     "chaine": "Restons Curieux — TED-Ed",
+     "vues": "2,9 k vues",
+     "date": "il y a 2 ans",
+     "duree": "5:40",
+     "avatar": "https://yt3.ggpht.com/d9VB3B3NqpL9x7UA-16_qQFLE6rbjp55FOBryiMQEaf7sBDGKYe14fy7DaTonxyXF7WrGH2xPA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿POR QUÉ",
+     "SOÑAMOS?"
+    ],
+    "video": {
+     "id": "zBNXZVRVJt8",
+     "titre": "¿Por qué soñamos?",
+     "chaine": "CuriosaMente",
+     "vues": "908 K visualizaciones",
+     "date": "hace 10 años",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nRKSFKLP4EVb_FVwl2NB-g8hTpJW3DQTtiMrXbi-RTBdQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -322,6 +421,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "UNA RESPUESTA NUEVA",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UNE RÉPONSE NOUVELLE",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "UNA RESPUESTA NUEVA",
      "CADA DÍA"
@@ -407,6 +532,36 @@
      "titre": "¿Qué pasa si nos caemos en un agujero negro?",
      "chaine": "En Pocas Palabras – Kurzgesagt",
      "vues": "6.9 M de vistas",
+     "date": "hace 3 años",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "C'EST QUOI UN",
+     "TROU NOIR ?"
+    ],
+    "video": {
+     "id": "R5SD0JtvBDo",
+     "titre": "Tout comprendre sur : les trous noirs",
+     "chaine": "Nat Geo France",
+     "vues": "1,2 M de vues",
+     "date": "il y a 7 ans",
+     "duree": "2:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_Pc9OED3ZyWK0Ylw1rx9Cyu7RznxDgsMMDP8qWfv6DYA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "¿Y SI CAEMOS EN",
+     "UN AGUJERO NEGRO?"
+    ],
+    "video": {
+     "id": "TFhRXnE2xck",
+     "titre": "¿Qué pasa si nos caemos en un agujero negro?",
+     "chaine": "En Pocas Palabras – Kurzgesagt",
+     "vues": "7 M de visualizaciones",
      "date": "hace 3 años",
      "duree": "11:41",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBMZVFA7nkIFmtpBgbz0LE59y9wmj9AusPTlzeUhW3DA=s176-c-k-c0x00ffffff-no-rj"

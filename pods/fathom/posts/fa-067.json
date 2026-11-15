@@ -1,0 +1,572 @@
+{
+ "id": "fa-067",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "38b18801-aa04-4be3-9237-29d58cb4704b",
+ "titre": {
+  "en": "3 Skills That Make You Look Smarter",
+  "fr": "3 compétences qui te font paraître plus intelligent",
+  "es": "3 habilidades que te hacen parecer más inteligente",
+  "de": "3 Fähigkeiten, mit denen du klüger wirkst",
+  "it": "3 abilità che ti fanno sembrare più intelligente",
+  "pt-BR": "3 habilidades que fazem você parecer mais inteligente",
+  "es-419": "3 habilidades que te hacen ver más inteligente"
+ },
+ "legendes": {
+  "en": "3 Skills That Make You Look Smarter #selfimprovement #learnontiktok #skills",
+  "fr": "3 compétences qui te font paraître plus intelligent #développementpersonnel #apprendresurtiktok #compétences",
+  "es": "3 habilidades que te hacen parecer más inteligente #desarrollopersonal #aprendeentiktok #habilidades",
+  "de": "3 Fähigkeiten, mit denen du klüger wirkst #selbstverbesserung #lernenmittiktok #skills",
+  "it": "3 abilità che ti fanno sembrare più intelligente #crescitapersonale #imparacontiktok #abilità",
+  "pt-BR": "3 habilidades que fazem você parecer mais inteligente #desenvolvimentopessoal #aprendanotiktok #habilidades",
+  "es-419": "3 habilidades que te hacen ver más inteligente #desarrollopersonal #aprendeentiktok #habilidades"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "cta A. Déclinaison G1 de fa-059 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Skills That Make You Look Smarter »), traductions du parent ; autres étapes (mémoire, échecs, Rubik's cube), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "THAT MAKE YOU",
+     [
+      {
+       "t": "LOOK SMARTER",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 COMPÉTENCES",
+       "bronze": true
+      }
+     ],
+     "QUI TE FONT PARAÎTRE",
+     [
+      {
+       "t": "PLUS MALIN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE TE HACEN VER",
+     [
+      {
+       "t": "MÁS INTELIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "MIT DENEN DU",
+     [
+      {
+       "t": "KLÜGER WIRKST",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABILITÀ",
+       "bronze": true
+      }
+     ],
+     "CHE TI FANNO",
+     [
+      {
+       "t": "SEMBRARE GENIALE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE TE FAZEM",
+     [
+      {
+       "t": "PARECER GÊNIO",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE TE HACEN VER",
+     [
+      {
+       "t": "MÁS INTELIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "MEMORIZE",
+     "ANYTHING"
+    ],
+    "video": {
+     "id": "p9IOqd1LpkA",
+     "titre": "The Memory Palace : Can You Do It?",
+     "chaine": "Sprouts",
+     "vues": "700K views",
+     "date": "9 years ago",
+     "duree": "3:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSAFsiX7DamIFNxlGd-Xwuw7IXUcwMQB_NhdLjd24_sw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "MÉMORISER",
+     "N'IMPORTE QUOI"
+    ],
+    "video": {
+     "id": "u6wu_iY4xd8",
+     "titre": "Le Palais Mental - Masterclass #2",
+     "chaine": "FabienOlicard",
+     "vues": "340 k vues",
+     "date": "il y a 2 ans",
+     "duree": "39:00",
+     "avatar": "https://yt3.ggpht.com/hOu5CGjWlGlRYry-hXYT20RX4D5XkZcxJ_DOfkz24oK2-UQKLSJjhkhdaZtSxcY2eS8X8PVr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "MEMORIZAR",
+     "LO QUE SEA"
+    ],
+    "video": {
+     "id": "X_URHlAJ7aA",
+     "titre": "El Palacio de la Memoria: ¿Puedes hacerlo?",
+     "chaine": "Sprouts Español",
+     "vues": "95 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "ALLES",
+     "MERKEN"
+    ],
+    "video": {
+     "id": "hfsEV6WOFUY",
+     "titre": "Loci Methode - Erste Schritte zum Gedächtnispalast",
+     "chaine": "Niels Cimpa",
+     "vues": "137.600 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/aIGzzscYq8dFCBxn4UACJwqOcmE25SggKOxONpKEtbZU5htx75hcfOvtyYwtaTFY0-DzATa8lGw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "MEMORIZZARE",
+     "QUALSIASI COSA"
+    ],
+    "video": {
+     "id": "LC0JO1a3DA8",
+     "titre": "IL PALAZZO DELLA MEMORIA🏰 spiegato dal CAMPIONE DEL MONDO",
+     "chaine": "Andrea Muzii",
+     "vues": "501K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "15:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "MEMORIZAR",
+     "QUALQUER COISA"
+    ],
+    "video": {
+     "id": "3vdzghRCprU",
+     "titre": "Como memorizar ABSOLUTAMENTE TUDO",
+     "chaine": "Ciência Todo Dia",
+     "vues": "5,7 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "17:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "MEMORIZAR",
+     "LO QUE SEA"
+    ],
+    "video": {
+     "id": "X_URHlAJ7aA",
+     "titre": "El Palacio de la Memoria: ¿Puedes hacerlo?",
+     "chaine": "Sprouts Español",
+     "vues": "94 k vistas",
+     "date": "hace 3 años",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "PLAY",
+     "CHESS"
+    ],
+    "video": {
+     "id": "OCSbzArwB10",
+     "titre": "How To Play Chess: The Ultimate Beginner Guide",
+     "chaine": "GothamChess",
+     "vues": "13M views",
+     "date": "5 years ago",
+     "duree": "31:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJ4RQwl-WnWQ_3AgLxvPrLkVdfLHPCRKMxUtLJnjUkhkg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "JOUER",
+     "AUX ÉCHECS"
+    ],
+    "video": {
+     "id": "sxJmefXA46M",
+     "titre": "Les 4 ERREURS que les DEBUTANTS font le plus aux échecs",
+     "chaine": "Julien Song",
+     "vues": "254 k vues",
+     "date": "il y a 3 ans",
+     "duree": "11:51",
+     "avatar": "https://yt3.ggpht.com/Bd9iqICF-q6k5wYIvodr_KSRU_o_i-1IkAR3_D_yBOwHDkAydJfzfWohHdIRsi0yVYGhte7QCw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "JUGAR",
+     "AL AJEDREZ"
+    ],
+    "video": {
+     "id": "X7F_vPjkMqM",
+     "titre": "21 CONSEJOS de AJEDREZ para PRINCIPIANTES (FUNCIONAN!)",
+     "chaine": "Rey Enigma",
+     "vues": "224 K visualizaciones",
+     "date": "hace 6 meses",
+     "duree": "19:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTu7ZL5ZR2EeI1H5CZzLpaQ3GTjqbIva8Ry323qw1CLw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "SCHACH",
+     "SPIELEN"
+    ],
+    "video": {
+     "id": "y6vQRcp0w40",
+     "titre": "SCHACH LERNEN: Das einzige Video, das du brauchst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "763.442 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "21:55",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "GIOCARE",
+     "A SCACCHI"
+    ],
+    "video": {
+     "id": "SOQ534Wi1EQ",
+     "titre": "Impara a Giocare a Scacchi Meglio del 97% | Tutorial DEFINITIVO | Apertura, Strategia e Basi",
+     "chaine": "superspeed-club scacchi",
+     "vues": "238K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "33:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lG6A1IwIvxIT4uMF9oZckw_e2ddl8eF3PEMXccq_rR-R4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "JOGAR",
+     "XADREZ"
+    ],
+    "video": {
+     "id": "kJTwOfl0RmA",
+     "titre": "Xadrez Total | Aprendendo a jogar xadrez",
+     "chaine": "Xadrez Total",
+     "vues": "908 mil visualizações",
+     "date": "há 11 anos",
+     "duree": "3:09",
+     "avatar": "https://yt3.ggpht.com/ueIZlYmJQTXN1X5rS2rWu2XB_Ap25uQdK9H4E1zVXEUZj1hkyIKSm7j47VXWqQ09EyPzg8kYLw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "JUGAR",
+     "AL AJEDREZ"
+    ],
+    "video": {
+     "id": "2UeYpl46ggc",
+     "titre": "Las 30 CLAVES para MEJORAR TU AJEDREZ",
+     "chaine": "Resourchess en Español",
+     "vues": "430 k vistas",
+     "date": "hace 4 años",
+     "duree": "13:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lxTG5Rpl-2D2Co7WmmyCo_DVa1ZJsQZRjsLrj95qrrHw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ALWAYS HAVE",
+     "A FUN FACT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "AVOIR TOUJOURS",
+     "UNE ANECDOTE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "TENER SIEMPRE",
+     "UN DATO CURIOSO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "IMMER EINEN",
+     "FUN FACT PARAT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "AVERE SEMPRE",
+     "UNA CURIOSITÀ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "TER SEMPRE",
+     "UMA CURIOSIDADE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "TENER SIEMPRE",
+     "UN DATO CURIOSO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "SOLVE A",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "7Ron6MN45LY",
+     "titre": "Learn How to Solve a Rubik's Cube in 10 Minutes (Beginner Tutorial)",
+     "chaine": "J Perm",
+     "vues": "102M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp5RPKxsgc_GGP5150cfSRPkVTKTV-DCDvII-EcX_c3QU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "RÉSOUDRE UN",
+     "RUBIK'S CUBE"
+    ],
+    "video": {
+     "id": "uORbJS9bp54",
+     "titre": "Comment résoudre un Rubik's Cube (méthode facile et rapide)",
+     "chaine": "Delnart",
+     "vues": "5,7 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/iJE1jTrWOv2-oFTsmZwq1eYWf63RfDb6pKX7U1187EZubJ-VaKY4dXV4pCYix9xDEML27naa=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "RESOLVER EL",
+     "CUBO DE RUBIK"
+    ],
+    "video": {
+     "id": "GyY0OxDk5lI",
+     "titre": "Resolver cubo de Rubik 3x3 (Principiantes) | Rápido y Fácil | EL MEJOR TUTORIAL | Español",
+     "chaine": "Cuby",
+     "vues": "85 M de visualizaciones",
+     "date": "hace 11 años",
+     "duree": "38:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ki1hWmCujGbk4_8wNHIVdZOe9p81HW8rK5uiib7ecptlU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DEN ZAUBERWÜRFEL",
+     "LÖSEN"
+    ],
+    "video": {
+     "id": "HYyrneUsJ88",
+     "titre": "Löse den Rubik's Cube in 10 minuten - Der Zauberwürfel für Anfänger",
+     "chaine": "Cubecumber",
+     "vues": "2,9 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/Lfyhg9h1MpTopLf-AB2UGmT58kfffezWt3rUNbhLxyCqyQTMl2k636zqNQgZygHsmjZ7_7blbg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "RISOLVERE IL",
+     "CUBO DI RUBIK"
+    ],
+    "video": {
+     "id": "q6gapVA8TaA",
+     "titre": "Come Risolvere Il Cubo di Rubik 3x3 in un Batter d'Occhio | Tutorial Semplicissimo",
+     "chaine": "IL LATO POSITIVO",
+     "vues": "2,4 Mln visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kIdS0V93z_CqiryUuoI4W2asMqZ-q_-Jk3uwPpuytzYQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "MONTAR O",
+     "CUBO MÁGICO"
+    ],
+    "video": {
+     "id": "aJuUOG9FYlM",
+     "titre": "Como Resolver Rapidamente um Cubo de Rubik 3x3 | O Tutorial Mais Fácil",
+     "chaine": "INCRÍVEL",
+     "vues": "14 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_moyLRg4mLejXMsF2FPiI_dpzjG5v2Evy5mw_f8VLES9pc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "RESOLVER EL",
+     "CUBO DE RUBIK"
+    ],
+    "video": {
+     "id": "sXGdZrDXMgU",
+     "titre": "Cómo resolver un cubo de Rubik de 3x3 en muy poco tiempo",
+     "chaine": "GENIAL",
+     "vues": "30 M de vistas",
+     "date": "hace 7 años",
+     "duree": "11:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMLEWxNh6DAng8uyCux9DtPpIKIaQyGqT6tgEQNjB0i1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

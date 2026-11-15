@@ -3292,6 +3292,32 @@
    "notes": "déclinaison G1 de var-weekend-1 (variante de var-weekend-1); cta B",
    "type_bleo": "declinaison",
    "parent_contenu_id": "085c948a-ba2b-44ad-ae03-64ff174b40b0"
+  },
+  {
+   "post_id": "original-079",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#traintravel #phonefree #slowliving",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696527080426655009_1",
+    "2": "7696527080426655009_2",
+    "3": "7701398929807641888_6",
+    "4": "7702412215902571809_4",
+    "5": "7705815524244081953_6",
+    "6": "7696527080426655009_5"
+   },
+   "notes": "full test BLEO (long trajet en train); cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

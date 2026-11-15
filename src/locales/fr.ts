@@ -3750,6 +3750,11 @@ export const fr = {
       vuesDesc:
         "Vues des posts publiés chaque jour, tous comptes, hors tests. Chaque post compte pour son jour, avec ses vues relevées jusqu’à 3 jours après.",
       vuesSerie: "Vues",
+      vuesSerieJalon: "Vues à {{age}}",
+      vuesDescJalon:
+        "Vues des posts publiés chaque jour, figées {{age}} après la publication : un jour se compare aux autres. Seuls les jours où au moins 80 % des posts ont été photographiés à cet âge sont montrés (photos depuis le 1/11).",
+      mesure: { vues: "Actuelles", j1: "J+1", j3: "J+3", j7: "J+7" },
+      mesureAria: "Vues actuelles ou figées",
       vuesMoyenne: "Moyenne 7 jours",
       vuesProvisoire: "monte encore",
       vuesProvisoireLegende: "Hier et avant-hier : encore relevés",

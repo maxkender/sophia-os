@@ -2795,6 +2795,10 @@ export type PilotageDashboard = {
     comptes: number;
     /** Encore relu par le rattrapage de minuit : le chiffre monte encore. */
     provisoire: boolean;
+    /** Vues figées à J+1, J+3, J+7 (0731) ; `null` si le jour n'a pas (assez) de photos à cet âge. */
+    j1: number | null;
+    j3: number | null;
+    j7: number | null;
   }>;
   recruteurs: Array<{
     id: string;
@@ -2855,6 +2859,27 @@ export type PilotageDashboard = {
 /** Combien de jours de posts le Pilotage remonte pour « publiés / prévus ». */
 const JOURS_POSTS_PILOTAGE = 14;
 
+/**
+ * Les vues par jour de publication, avec les vues figées à J+1/J+3/J+7 (0731).
+ * Tant que 0731 n'est pas appliquée, la vue n'a pas ces colonnes : on relit
+ * sans elles (le graphique garde les vues actuelles).
+ */
+async function lireVuesParJour(du: string, au: string) {
+  const lire = (colonnes: string) =>
+    supabase
+      .from("vues_par_jour_publication")
+      .select(colonnes)
+      .gte("jour", du)
+      .lte("jour", au)
+      .order("jour", { ascending: true })
+      .returns<Array<{ jour: string; vues: number | null; posts_mesures: number; nb_comptes: number } & Record<string, unknown>>>();
+  const complet = await lire(
+    "jour, vues, posts_mesures, nb_comptes, vues_j1, vues_j3, vues_j7, posts_j1, posts_j3, posts_j7",
+  );
+  if (!complet.error) return complet;
+  return lire("jour, vues, posts_mesures, nb_comptes");
+}
+
 /** Données Pilotage : courbe vues, classements ELO / recruteurs, alertes posts. */
 export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
   // Fuseau Paris (comme minuit / assignation) — pas l'heure locale du navigateur.
@@ -2869,12 +2894,7 @@ export async function chargerPilotageDashboard(): Promise<PilotageDashboard> {
     { data: postsVeille, error: errPosts },
   ] = await Promise.all([
     // Les 90 derniers jours jusqu'à hier : aujourd'hui n'a pas encore de vues.
-    supabase
-      .from("vues_par_jour_publication")
-      .select("jour, vues, posts_mesures, nb_comptes")
-      .gte("jour", ajouterJoursParisCalendaire(auj, -JOURS_VUES_PILOTAGE))
-      .lte("jour", veille)
-      .order("jour", { ascending: true }),
+    lireVuesParJour(ajouterJoursParisCalendaire(auj, -JOURS_VUES_PILOTAGE), veille),
     supabase
       .from("comptes")
       .select(

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o230",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8b07a269-0ca1-4584-96cb-d10ec890ce09",
+ "titre": "quiet skills that make people think you're a genius #genius #intelligence #skills #selfimprovement #learning",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "211c8c24-7841-45ae-a789-96303a85cd2d"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 211c8c24). déclinaison G1 de « quiet skills that make people think you re a genius » (parent 8b07a269). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "36f6c928-f0b4-4cc7-ba69-8daca7623405",
+   "texte_overlay": "quiet skills that make people\nthink you're a genius",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "211aa981-cb7c-4608-94d1-49e3796d3294",
+   "texte_overlay": "summarising in one line\n\nafter any meeting, video or book, sum it up in one sentence. people who can squeeze a long idea into a short, clear line always sound brilliantly sharp.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "85e6c815-5650-4837-955b-e56a25e2a89a",
+   "texte_overlay": "asking the second why\n\nwhen someone explains something, ask why one more time than feels polite. the second answer is where the real understanding is hiding, every single time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3a4e3e6a-a5a3-41db-a0f2-395b4f938da1",
+   "texte_overlay": "knowing a bit of everything\n\ni used to only know my own subject. learning a little about art, history and science every day changed how people see me, and now i can join any conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/4.jpg",
+   "texte_sophia": "knowing a bit of everything\n\ni used to only know my own subject. now i spend 5 minutes a day on one lesson in the Sophia app: art, history, science. people now think i know a bit about everything."
+  },
+  {
+   "position": 5,
+   "media_id": "308704a8-d7c5-4190-83c2-6f8bfc450104",
+   "texte_overlay": "remembering numbers\n\nlearn a few useful numbers by heart: distances, dates, populations. dropping one accurate figure into a conversation makes you sound instantly well informed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "56ca80c7-0d6d-4d88-9488-9418de16f822",
+   "texte_overlay": "saying i'm not sure\n\nadmit when you don't know, then say how you'd find out. confident uncertainty sounds far smarter than a guess, and people trust you so much more for it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660420946636836118/6.jpg"
+  }
+ ]
+}

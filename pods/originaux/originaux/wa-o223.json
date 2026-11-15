@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o223",
+ "type_bleo": "full_test",
+ "titre": "small habits that stop overthinking before it starts #overthinking #anxiety #mentalhealth #selfimprovement #habits",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "ed8b88ee-49fc-42e9-8fed-99228b32ac7a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ed8b88ee). full test BLEO : accroche jamais faite (format « small habits that stop X before it starts »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "036b412f-1c39-4c96-b53d-f7527f210164",
+   "texte_overlay": "small habits that stop\noverthinking before it starts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "02763a92-06a4-4fb5-b2f1-dd0ee3ed81dc",
+   "texte_overlay": "the two minute rule\n\nif a decision takes less than two minutes, make it now. small choices left open pile up in your head and turn into the kind of noise that keeps you awake.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2f03a585-bb68-4971-9ff6-f413a249040f",
+   "texte_overlay": "writing it down\n\nwhen a thought loops, write it on paper exactly as it sounds. seeing it in ink makes it smaller, and your brain stops repeating what it knows is safely stored.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "90b51c29-2cb2-4dc3-9487-37bd95f8778c",
+   "texte_overlay": "giving your mind something better\n\nan overthinking mind is often just a hungry one, so feed it something calm and interesting: a myth, a planet, a painting. new ideas leave less room for old loops.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/4.jpg",
+   "texte_sophia": "giving your mind something better\n\nmy mind used to loop all evening. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and giving it something new to chew on quiets the noise."
+  },
+  {
+   "position": 5,
+   "media_id": "06bee328-e2e4-4828-89b3-2be134d8860b",
+   "texte_overlay": "moving your body\n\nwhen you catch yourself spiralling, walk around the block or stretch for five minutes. moving your body pulls your attention out of your head and back into the room.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2c661be0-242e-43ff-bd80-dbc4150b7e2e",
+   "texte_overlay": "setting a worry time\n\ngive yourself fifteen minutes a day to worry on purpose. when a worry shows up at another time, tell it to wait, and you'll find most of them never come back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/6.jpg"
+  }
+ ]
+}

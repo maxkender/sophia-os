@@ -2795,10 +2795,10 @@ export type PilotageDashboard = {
     comptes: number;
     /** Encore relu par le rattrapage de minuit : le chiffre monte encore. */
     provisoire: boolean;
-    /** Vues figées à J+1, J+3, J+7 (0731) ; `null` si le jour n'a pas (assez) de photos à cet âge. */
-    j1: number | null;
-    j3: number | null;
-    j7: number | null;
+    /** Vues médianes par post (0732) ; `null` avant 0732 ou sans post mesuré. */
+    mediane: number | null;
+    /** Vues figées à J+1, J+3, J+7 (photos de la nuit, 0731/0732). */
+    jalons: Record<"j1" | "j3" | "j7", { total: number | null; posts: number; mediane: number | null }>;
   }>;
   recruteurs: Array<{
     id: string;
@@ -2860,9 +2860,9 @@ export type PilotageDashboard = {
 const JOURS_POSTS_PILOTAGE = 14;
 
 /**
- * Les vues par jour de publication, avec les vues figées à J+1/J+3/J+7 (0731).
- * Tant que 0731 n'est pas appliquée, la vue n'a pas ces colonnes : on relit
- * sans elles (le graphique garde les vues actuelles).
+ * Les vues par jour de publication, avec les vues figées à J+1/J+3/J+7 (0731)
+ * et les médianes (0732). Tant qu'une migration n'est pas appliquée, la vue
+ * n'a pas ses colonnes : on relit sans elles.
  */
 async function lireVuesParJour(du: string, au: string) {
   const lire = (colonnes: string) =>
@@ -2873,11 +2873,15 @@ async function lireVuesParJour(du: string, au: string) {
       .lte("jour", au)
       .order("jour", { ascending: true })
       .returns<Array<{ jour: string; vues: number | null; posts_mesures: number; nb_comptes: number } & Record<string, unknown>>>();
-  const complet = await lire(
-    "jour, vues, posts_mesures, nb_comptes, vues_j1, vues_j3, vues_j7, posts_j1, posts_j3, posts_j7",
-  );
+  // Du plus complet (0732 : médianes) au plus simple (avant 0731).
+  const base = "jour, vues, posts_mesures, nb_comptes";
+  const jalons = "vues_j1, vues_j3, vues_j7, posts_j1, posts_j3, posts_j7";
+  const medianes = "med, med_j1, med_j3, med_j7";
+  const complet = await lire(`${base}, ${jalons}, ${medianes}`);
   if (!complet.error) return complet;
-  return lire("jour, vues, posts_mesures, nb_comptes");
+  const sansMedianes = await lire(`${base}, ${jalons}`);
+  if (!sansMedianes.error) return sansMedianes;
+  return lire(base);
 }
 
 /** Données Pilotage : courbe vues, classements ELO / recruteurs, alertes posts. */

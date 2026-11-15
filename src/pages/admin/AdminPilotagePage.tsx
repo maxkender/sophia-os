@@ -35,6 +35,10 @@ import {
   SEUIL_STOCK_JOURS,
   tauxPublication,
   type LigneStock,
+  type CalculVues,
+  type MesureVues,
+  totalPossible,
+  valeurVuesJour,
 } from "@/features/moteur/pilotage";
 // Les briques de la page Allocation, pour que les deux pages se lisent pareil :
 // le tableau (titres en petites capitales, ligne dépliable), la barre
@@ -50,12 +54,14 @@ import { localeDate } from "@/locales/localeDate";
 const PERIODES = [7, 30, 90] as const;
 type Periode = (typeof PERIODES)[number];
 
-/** Ce que montrent les barres de « Vues par jour » : les vues actuelles, ou figées à J+1/J+3/J+7 (0731). */
-const MESURES_VUES = ["vues", "j1", "j3", "j7"] as const;
-type MesureVues = (typeof MESURES_VUES)[number];
+/**
+ * « Vues par jour » : quelles vues (actuelles, ou figées à J+1/J+3/J+7, 0731)
+ * et quel calcul (total, moyenne et médiane par post, nombre de posts, 0732).
+ */
+const MESURES_VUES: readonly MesureVues[] = ["vues", "j1", "j3", "j7"];
+const CALCULS_VUES: readonly CalculVues[] = ["total", "moyenne", "mediane", "posts"];
 type JourVues = PilotageDashboard["vuesSerie"][number];
 
-const valeurVues = (s: JourVues, m: MesureVues) => (m === "vues" ? s.vues : s[m]);
 // À J+n, un jour est figé : jamais « provisoire ».
 const provisoireVues = (s: JourVues, m: MesureVues) => m === "vues" && s.provisoire;
 
@@ -126,10 +132,12 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
   const langue = i18n.language;
   const [periode, setPeriode] = React.useState<Periode>(30);
   const [mesure, setMesure] = React.useState<MesureVues>("vues");
+  const [calculChoisi, setCalcul] = React.useState<CalculVues>("total");
+  // À J+7, pas de total (photo partielle) : on passe à la moyenne.
+  const calcul: CalculVues = calculChoisi === "total" && !totalPossible(mesure) ? "moyenne" : calculChoisi;
   const actuelles = mesure === "vues";
-  const libelleSerie = actuelles
-    ? t("pilotage.vuesSerie")
-    : t("pilotage.vuesSerieJalon", { age: t(`pilotage.mesure.${mesure}`) });
+  const valeur = (s: JourVues) => valeurVuesJour(s, mesure, calcul);
+  const libelleSerie = t(`pilotage.calcul.${calcul}`) + (actuelles ? "" : ` · ${t(`pilotage.mesure.${mesure}`)}`);
 
   // Moyenne calculée sur toute la série puis coupée : le premier jour affiché
   // a lui aussi sa fenêtre complète. Les jours provisoires (vues qui montent
@@ -137,14 +145,18 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
   const moyenne = React.useMemo(
     () =>
       moyenneGlissante(
-        serie.map((s) => (provisoireVues(s, mesure) ? null : valeurVues(s, mesure))),
+        serie.map((s) => (provisoireVues(s, mesure) ? null : valeurVuesJour(s, mesure, calcul))),
         7,
       ).map((m, i) => (provisoireVues(serie[i]!, mesure) ? null : m)),
-    [serie, mesure],
+    [serie, mesure, calcul],
   );
   const debut = Math.max(0, serie.length - periode);
   const points: PointBarre[] = serie.slice(debut).map((s) => {
-    const v = valeurVues(s, mesure);
+    const v = valeur(s);
+    const autre = (c: CalculVues) => {
+      const x = valeurVuesJour(s, mesure, c);
+      return x === null ? "—" : exact(x, langue);
+    };
     return {
       key: s.jour,
       axisLabel: jourCourt(s.jour, langue),
@@ -152,10 +164,12 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
       value: v,
       provisional: provisoireVues(s, mesure),
       detail:
-        v !== null && s.posts > 0
-          ? t("pilotage.vuesDetail", {
-              posts: exact(s.posts, langue),
-              parPost: exact(Math.round(v / s.posts), langue),
+        v !== null
+          ? t("pilotage.vuesDetailCalculs", {
+              total: autre("total"),
+              moyenne: autre("moyenne"),
+              mediane: autre("mediane"),
+              posts: autre("posts"),
             })
           : undefined,
     };
@@ -168,7 +182,9 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
         <CardDescription>
           {actuelles
             ? t("pilotage.vuesDesc")
-            : t("pilotage.vuesDescJalon", { age: t(`pilotage.mesure.${mesure}`) })}
+            : mesure === "j7"
+              ? t("pilotage.vuesDescJ7")
+              : t("pilotage.vuesDescJalon", { age: t(`pilotage.mesure.${mesure}`) })}
         </CardDescription>
         <CardAction className="flex flex-wrap items-center justify-end gap-2">
           <div className="inline-flex gap-1" role="group" aria-label={t("pilotage.mesureAria")}>
@@ -181,6 +197,21 @@ function CarteVues({ serie }: { serie: PilotageDashboard["vuesSerie"] }) {
                 onClick={() => setMesure(m)}
               >
                 {t(`pilotage.mesure.${m}`)}
+              </Button>
+            ))}
+          </div>
+          <div className="inline-flex gap-1" role="group" aria-label={t("pilotage.calculAria")}>
+            {CALCULS_VUES.map((c) => (
+              <Button
+                key={c}
+                size="xs"
+                variant={c === calcul ? "secondary" : "ghost"}
+                aria-pressed={c === calcul}
+                disabled={c === "total" && !totalPossible(mesure)}
+                title={c === "total" && !totalPossible(mesure) ? t("pilotage.totalJ7Impossible") : undefined}
+                onClick={() => setCalcul(c)}
+              >
+                {t(`pilotage.calcul.${c}`)}
               </Button>
             ))}
           </div>

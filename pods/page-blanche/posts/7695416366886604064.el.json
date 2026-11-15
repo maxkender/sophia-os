@@ -115,7 +115,6 @@
       ""
      ],
      "fr": "",
-     "garder": true,
      "texte": ""
     },
     "T5": {
@@ -128,11 +127,61 @@
     }
    },
    "images": {
-    "I1": "garder",
-    "I2": "garder",
-    "I3": "garder",
-    "I4": "garder",
-    "I5": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7695416366886604064_3.jpg",
+      "boite": [
+       100,
+       1150,
+       300,
+       120
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/7695416366886604064_3.jpg",
+      "boite": [
+       100,
+       1150,
+       300,
+       120
+      ]
+     }
+    },
+    "I3": {
+     "remplacer": {
+      "source": "sources/7695416366886604064_3.jpg",
+      "boite": [
+       100,
+       1150,
+       300,
+       120
+      ]
+     }
+    },
+    "I4": {
+     "remplacer": {
+      "source": "sources/7698667830635400470_6.jpg",
+      "boite": [
+       605,
+       387,
+       421,
+       600
+      ]
+     }
+    },
+    "I5": {
+     "remplacer": {
+      "source": "sources/7685340052989398275_3.jpg",
+      "boite": [
+       569,
+       376,
+       402,
+       573
+      ]
+     }
+    }
    }
   },
   "4": {

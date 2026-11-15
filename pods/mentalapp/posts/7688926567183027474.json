@@ -8,7 +8,10 @@
   "de": "Tierlist der Dopaminquellen, letzter Teil #dopamin #mentalmaxxing #tierlist #selbstverbesserung",
   "es": "tier list de fuentes de dopamina, última parte #dopamina #mentalmaxxing #tierlist #superacionpersonal",
   "it": "tier list delle fonti di dopamina, ultima parte #dopamina #mentalmaxxing #tierlist #crescitapersonale",
-  "tr": "dopamin kaynakları tier list, son bölüm #dopamin #mentalmaxxing #tierlist #kişiselgelişim"
+  "tr": "dopamin kaynakları tier list, son bölüm #dopamin #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "tier list das fontes de dopamina, última parte #dopamine #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "tier list źródeł dopaminy, ostatnia część #mentalmaxxing #dopamina #tierlist #rozwojosobisty",
+  "hu": "dopamin-források tier list, utolsó rész #mentalmaxxing #dopamin #tierlist #önfejlesztés"
  },
  "app": {
   "position": 2,
@@ -66,6 +69,15 @@
        "tier list:"
       ],
       "tr": [
+       "tier list:"
+      ],
+      "pt-BR": [
+       "tier list:"
+      ],
+      "pl": [
+       "tier list:"
+      ],
+      "hu": [
        "tier list:"
       ]
      }
@@ -393,6 +405,15 @@
       ],
       "tr": [
        "Dopamin"
+      ],
+      "pt-BR": [
+       "Dopamina"
+      ],
+      "pl": [
+       "Dopamina"
+      ],
+      "hu": [
+       "Dopamin"
       ]
      }
     },
@@ -439,6 +460,15 @@
       ],
       "tr": [
        "kaynakları"
+      ],
+      "pt-BR": [
+       "as fontes"
+      ],
+      "pl": [
+       "i jej źródła"
+      ],
+      "hu": [
+       "források"
       ]
      }
     },
@@ -597,6 +627,15 @@
       ],
       "tr": [
        "3. bölüm (son)"
+      ],
+      "pt-BR": [
+       "pt3 (final)"
+      ],
+      "pl": [
+       "pt3 (koniec)"
+      ],
+      "hu": [
+       "pt3 (vége)"
       ]
      }
     },
@@ -884,6 +923,15 @@
       ],
       "tr": [
        "aksini kanıtla"
+      ],
+      "pt-BR": [
+       "me prova o contrário"
+      ],
+      "pl": [
+       "udowodnij, że się mylę"
+      ],
+      "hu": [
+       "cáfolj meg"
       ]
      }
     },
@@ -1311,6 +1359,18 @@
       "tr": [
        "para",
        "kazanmak"
+      ],
+      "pt-BR": [
+       "receber",
+       "dinheiro"
+      ],
+      "pl": [
+       "dostawanie",
+       "kasy"
+      ],
+      "hu": [
+       "pénzt",
+       "kapni"
       ]
      }
     },
@@ -1369,6 +1429,18 @@
       "tr": [
        "bir beceride",
        "ustalaşmak"
+      ],
+      "pt-BR": [
+       "dominar uma",
+       "habilidade"
+      ],
+      "pl": [
+       "opanowanie",
+       "skilla"
+      ],
+      "hu": [
+       "profi lenni",
+       "valamiben"
       ]
      }
     },
@@ -1415,6 +1487,15 @@
       ],
       "tr": [
        "spor"
+      ],
+      "pt-BR": [
+       "esporte"
+      ],
+      "pl": [
+       "sport"
+      ],
+      "hu": [
+       "sport"
       ]
      }
     },
@@ -1461,6 +1542,15 @@
       ],
       "tr": [
        "kazanmak"
+      ],
+      "pt-BR": [
+       "ganhar"
+      ],
+      "pl": [
+       "wygrywanie"
+      ],
+      "hu": [
+       "nyerni"
       ]
      }
     },
@@ -1535,6 +1625,15 @@
       ],
       "tr": [
        "gerçek, kalıcı"
+      ],
+      "pt-BR": [
+       "real, merecido, dura"
+      ],
+      "pl": [
+       "zasłużone, trwałe"
+      ],
+      "hu": [
+       "valódi, kiérdemelt, tartós"
       ]
      }
     },
@@ -1693,6 +1792,15 @@
       ],
       "tr": [
        "iyi yemek"
+      ],
+      "pt-BR": [
+       "comida boa"
+      ],
+      "pl": [
+       "dobre żarcie"
+      ],
+      "hu": [
+       "jó kaja"
       ]
      }
     },
@@ -1739,6 +1847,15 @@
       ],
       "tr": [
        "yürümek"
+      ],
+      "pt-BR": [
+       "caminhar"
+      ],
+      "pl": [
+       "spacer"
+      ],
+      "hu": [
+       "séta"
       ]
      }
     },
@@ -1785,6 +1902,15 @@
       ],
       "tr": [
        "iyi uyku"
+      ],
+      "pt-BR": [
+       "dormir bem"
+      ],
+      "pl": [
+       "dobry sen"
+      ],
+      "hu": [
+       "jó alvás"
       ]
      }
     },
@@ -1831,6 +1957,15 @@
       ],
       "tr": [
        "seyahat"
+      ],
+      "pt-BR": [
+       "viagem"
+      ],
+      "pl": [
+       "wyjazd"
+      ],
+      "hu": [
+       "utazás"
       ]
      }
     },
@@ -1877,6 +2012,15 @@
       ],
       "tr": [
        "güçlü, hak edilmiş"
+      ],
+      "pt-BR": [
+       "forte, ainda merecido"
+      ],
+      "pl": [
+       "mocne, nadal zasłużone"
+      ],
+      "hu": [
+       "erős, még kiérdemelt"
       ]
      }
     },
@@ -2091,6 +2235,15 @@
       ],
       "tr": [
        "güzel hava"
+      ],
+      "pt-BR": [
+       "dia bonito"
+      ],
+      "pl": [
+       "ładna pogoda"
+      ],
+      "hu": [
+       "jó idő"
       ]
      }
     },
@@ -2137,6 +2290,15 @@
       ],
       "tr": [
        "yemek yapmak"
+      ],
+      "pt-BR": [
+       "cozinhar"
+      ],
+      "pl": [
+       "gotowanie"
+      ],
+      "hu": [
+       "főzés"
       ]
      }
     },
@@ -2182,6 +2344,15 @@
        "film"
       ],
       "tr": [
+       "film"
+      ],
+      "pt-BR": [
+       "filme"
+      ],
+      "pl": [
+       "film"
+      ],
+      "hu": [
        "film"
       ]
      }
@@ -2229,6 +2400,15 @@
       ],
       "tr": [
        "iyi müzik"
+      ],
+      "pt-BR": [
+       "música boa"
+      ],
+      "pl": [
+       "dobra muzyka"
+      ],
+      "hu": [
+       "jó zene"
       ]
      }
     },
@@ -2275,6 +2455,15 @@
       ],
       "tr": [
        "sağlam, hafif"
+      ],
+      "pt-BR": [
+       "sólido, leve"
+      ],
+      "pl": [
+       "solidne, łagodne"
+      ],
+      "hu": [
+       "stabil, enyhe"
       ]
      }
     },
@@ -2641,6 +2830,15 @@
       ],
       "tr": [
        "kitap"
+      ],
+      "pt-BR": [
+       "livro"
+      ],
+      "pl": [
+       "książka"
+      ],
+      "hu": [
+       "könyv"
       ]
      }
     },
@@ -2687,6 +2885,15 @@
       ],
       "tr": [
        "yeni kıyafet"
+      ],
+      "pt-BR": [
+       "roupa nova"
+      ],
+      "pl": [
+       "nowy outfit"
+      ],
+      "hu": [
+       "új szett"
       ]
      }
     },
@@ -2789,6 +2996,15 @@
       ],
       "tr": [
        "soğuk su"
+      ],
+      "pt-BR": [
+       "água gelada"
+      ],
+      "pl": [
+       "zimna woda"
+      ],
+      "hu": [
+       "hideg víz"
       ]
      }
     },
@@ -2835,6 +3051,15 @@
       ],
       "tr": [
        "nötr, idare eder"
+      ],
+      "pt-BR": [
+       "neutro, ok"
+      ],
+      "pl": [
+       "neutralne, ok"
+      ],
+      "hu": [
+       "semleges, oké"
       ]
      }
     },
@@ -2949,6 +3174,18 @@
       "tr": [
        "arka planda",
        "YouTube"
+      ],
+      "pt-BR": [
+       "youtube",
+       "de fundo"
+      ],
+      "pl": [
+       "youtube",
+       "w tle"
+      ],
+      "hu": [
+       "youtube",
+       "a háttérben"
       ]
      }
     },
@@ -2995,6 +3232,15 @@
       ],
       "tr": [
        "scroll"
+      ],
+      "pt-BR": [
+       "scroll"
+      ],
+      "pl": [
+       "scrollowanie"
+      ],
+      "hu": [
+       "scrollozás"
       ]
      }
     },
@@ -3041,6 +3287,15 @@
       ],
       "tr": [
        "abur cubur"
+      ],
+      "pt-BR": [
+       "junk food"
+      ],
+      "pl": [
+       "śmieciowe żarcie"
+      ],
+      "hu": [
+       "szemétkaja"
       ]
      }
     },
@@ -3087,6 +3342,15 @@
       ],
       "tr": [
        "oyun"
+      ],
+      "pt-BR": [
+       "games"
+      ],
+      "pl": [
+       "granie"
+      ],
+      "hu": [
+       "gaming"
       ]
      }
     },
@@ -3133,6 +3397,15 @@
       ],
       "tr": [
        "ucuz, çoğunlukla zararsız"
+      ],
+      "pt-BR": [
+       "fácil, quase inofensivo"
+      ],
+      "pl": [
+       "tanie, raczej nieszkodliwe"
+      ],
+      "hu": [
+       "olcsó, nagyjából ártalmatlan"
       ]
      }
     },
@@ -3505,6 +3778,18 @@
       "tr": [
        "tamamen gereksiz /",
        "kötü alışkanlık"
+      ],
+      "pt-BR": [
+       "totalmente inútil /",
+       "mau hábito"
+      ],
+      "pl": [
+       "totalnie bezużyteczne /",
+       "zły nawyk"
+      ],
+      "hu": [
+       "teljesen haszontalan /",
+       "rossz szokás"
       ]
      }
     },
@@ -3551,6 +3836,15 @@
       ],
       "tr": [
        "kumar"
+      ],
+      "pt-BR": [
+       "apostas"
+      ],
+      "pl": [
+       "hazard"
+      ],
+      "hu": [
+       "szerencsejáték"
       ]
      }
     },
@@ -3597,6 +3891,15 @@
       ],
       "tr": [
        "bağımlılıklar"
+      ],
+      "pt-BR": [
+       "vícios"
+      ],
+      "pl": [
+       "nałogi"
+      ],
+      "hu": [
+       "függőségek"
       ]
      }
     },
@@ -3643,6 +3946,16 @@
       ],
       "tr": [
        "aşırı alışveriş"
+      ],
+      "pt-BR": [
+       "compra por",
+       "impulso"
+      ],
+      "pl": [
+       "zakupoholizm"
+      ],
+      "hu": [
+       "kényszervásárlás"
       ]
      }
     },
@@ -3688,6 +4001,15 @@
        "goon"
       ],
       "tr": [
+       "goon"
+      ],
+      "pt-BR": [
+       "goon"
+      ],
+      "pl": [
+       "goon"
+      ],
+      "hu": [
        "goon"
       ]
      }
@@ -3738,6 +4060,15 @@
       ],
       "en": [
        "what’s missing from this list?"
+      ],
+      "pt-BR": [
+       "o que falta nessa lista?"
+      ],
+      "pl": [
+       "czego brakuje na liście?"
+      ],
+      "hu": [
+       "mi hiányzik a listáról?"
       ]
      }
     },
@@ -3797,6 +4128,18 @@
       "tr": [
        "ilk kahve",
        "/ akşam çayı"
+      ],
+      "pt-BR": [
+       "primeiro café",
+       "/ chá da noite"
+      ],
+      "pl": [
+       "pierwsza kawa",
+       "/ wieczorna herbata"
+      ],
+      "hu": [
+       "első kávé",
+       "/ esti tea"
       ]
      },
      "couleur": "#151a13",
@@ -3855,6 +4198,18 @@
       "tr": [
        "senin seçimin",
        "(yorum yap)"
+      ],
+      "pt-BR": [
+       "sua opção",
+       "(comenta)"
+      ],
+      "pl": [
+       "twój typ",
+       "(skomentuj)"
+      ],
+      "hu": [
+       "a te tipped",
+       "(kommenteld)"
       ]
      },
      "couleur": "#151a13",
@@ -3907,6 +4262,15 @@
       ],
       "tr": [
        "bunu dene"
+      ],
+      "pt-BR": [
+       "testa isso"
+      ],
+      "pl": [
+       "spróbuj tego"
+      ],
+      "hu": [
+       "próbáld ki"
       ]
      },
      "couleur": "#51302a",

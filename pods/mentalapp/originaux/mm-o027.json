@@ -8,7 +8,10 @@
   "de": "Dopamin-Detox-Moves, neu sortiert #dopamindetox #mentalmaxxing #tierlist #selbstverbesserung",
   "es": "movimientos de detox de dopamina, otra vez #detoxdedopamina #mentalmaxxing #tierlist #superacionpersonal",
   "it": "mosse di detox da dopamina, di nuovo #detoxdopamina #mentalmaxxing #tierlist #crescitapersonale",
-  "tr": "dopamin detoksu hamleleri, yeniden #dopamindetoks #mentalmaxxing #tierlist #kişiselgelişim"
+  "tr": "dopamin detoksu hamleleri, yeniden #dopamindetoks #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "detox de dopamina, classificado de novo #detoxdedopamina #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "detoks dopaminowy, nowy ranking #detoksdopaminowy #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "dopamin detox lépések, újra rangsorolva #dopamindetox #mentalmaxxing #tierlist #önfejlesztés"
  },
  "couverture": {
   "image": {
@@ -26,7 +29,10 @@
    "de": "Tierlist der",
    "es": "tier list de",
    "it": "tier list delle",
-   "tr": "tier list:"
+   "tr": "tier list:",
+   "pt-BR": "tier list:",
+   "pl": "tier list:",
+   "hu": "tier list:"
   },
   "gros": {
    "en": "Dopamine",
@@ -34,7 +40,10 @@
    "de": "Dopamin-",
    "es": "detox de",
    "it": "mosse detox",
-   "tr": "dopamin"
+   "tr": "dopamin",
+   "pt-BR": "detox",
+   "pl": "detoks",
+   "hu": "dopamin"
   },
   "bas": {
    "en": "detox moves pt2",
@@ -42,7 +51,10 @@
    "de": "Detox-Moves 2",
    "es": "dopamina pt2",
    "it": "da dopamina 2",
-   "tr": "detoksu 2"
+   "tr": "detoksu 2",
+   "pt-BR": "de dopamina pt2",
+   "pl": "dopaminowy pt2",
+   "hu": "detox lépések pt2"
   }
  },
  "titre_tableau": {
@@ -51,7 +63,10 @@
   "de": "beweis mir das Gegenteil",
   "es": "demuéstrame lo contrario",
   "it": "dimostrami il contrario",
-  "tr": "aksini kanıtla"
+  "tr": "aksini kanıtla",
+  "pt-BR": "me prova o contrário",
+  "pl": "udowodnij, że się mylę",
+  "hu": "cáfolj meg"
  },
  "pied": {
   "en": "which one actually worked for you?",
@@ -59,7 +74,10 @@
   "de": "was hat bei dir wirklich geklappt?",
   "es": "¿cuál te funcionó de verdad?",
   "it": "quale ha funzionato davvero per te?",
-  "tr": "sende hangisi gerçekten işe yaradı?"
+  "tr": "sende hangisi gerçekten işe yaradı?",
+  "pt-BR": "qual funcionou de verdade pra você?",
+  "pl": "co naprawdę u ciebie zadziałało?",
+  "hu": "melyik vált be neked tényleg?"
  },
  "rangs": [
   {
@@ -72,7 +90,10 @@
     "de": "setzt dich zurück",
     "es": "te resetea",
     "it": "ti resetta",
-    "tr": "seni sıfırlar"
+    "tr": "seni sıfırlar",
+    "pt-BR": "te reseta",
+    "pl": "resetuje cię",
+    "hu": "lenulláz"
    },
    "cases": [
     {
@@ -89,7 +110,10 @@
       "de": "ein Tag|ohne Handy",
       "es": "un día|sin móvil",
       "it": "un giorno|senza telefono",
-      "tr": "telefonsuz|bir gün"
+      "tr": "telefonsuz|bir gün",
+      "pt-BR": "um dia|sem celular",
+      "pl": "dzień|bez telefonu",
+      "hu": "egy nap|telefon nélkül"
      }
     },
     {
@@ -106,7 +130,10 @@
       "de": "ein langer|Spaziergang",
       "es": "un paseo|largo",
       "it": "una lunga|passeggiata",
-      "tr": "uzun bir|yürüyüş"
+      "tr": "uzun bir|yürüyüş",
+      "pt-BR": "caminhada longa|lá fora",
+      "pl": "długi spacer|na dworze",
+      "hu": "hosszú séta|a szabadban"
      }
     },
     {
@@ -123,7 +150,10 @@
       "de": "ein echtes Buch",
       "es": "un libro de verdad",
       "it": "un libro vero",
-      "tr": "gerçek bir kitap"
+      "tr": "gerçek bir kitap",
+      "pt-BR": "um livro|de verdade",
+      "pl": "prawdziwa książka",
+      "hu": "egy igazi könyv"
      }
     },
     {
@@ -141,7 +171,10 @@
     "de": "stark",
     "es": "fuerte",
     "it": "forte",
-    "tr": "güçlü"
+    "tr": "güçlü",
+    "pt-BR": "forte",
+    "pl": "mocne",
+    "hu": "erős"
    },
    "cases": [
     {
@@ -158,7 +191,10 @@
       "de": "kalte Dusche",
       "es": "ducha fría",
       "it": "doccia fredda",
-      "tr": "soğuk duş"
+      "tr": "soğuk duş",
+      "pt-BR": "banho gelado",
+      "pl": "zimny prysznic",
+      "hu": "hideg zuhany"
      }
     },
     {
@@ -175,7 +211,10 @@
       "de": "Krafttraining",
       "es": "pesas",
       "it": "pesi",
-      "tr": "ağırlık"
+      "tr": "ağırlık",
+      "pt-BR": "musculação",
+      "pl": "siłka",
+      "hu": "súlyzózás"
      }
     },
     {
@@ -192,7 +231,10 @@
       "de": "10 Min.|Stille",
       "es": "10 min|de silencio",
       "it": "10 min|di silenzio",
-      "tr": "10 dk|sessizlik"
+      "tr": "10 dk|sessizlik",
+      "pt-BR": "10 min|de silêncio",
+      "pl": "10 min|ciszy",
+      "hu": "10 perc|csend"
      }
     },
     {
@@ -209,7 +251,10 @@
       "de": "Morgen-|sonne",
       "es": "sol de|la mañana",
       "it": "sole del|mattino",
-      "tr": "sabah|güneşi"
+      "tr": "sabah|güneşi",
+      "pt-BR": "sol|da manhã",
+      "pl": "poranne|słońce",
+      "hu": "reggeli|napfény"
      }
     }
    ]
@@ -224,7 +269,10 @@
     "de": "solide",
     "es": "sólido",
     "it": "solido",
-    "tr": "sağlam"
+    "tr": "sağlam",
+    "pt-BR": "sólido",
+    "pl": "solidne",
+    "hu": "stabil"
    },
    "cases": [
     {
@@ -241,7 +289,10 @@
       "de": "Kochen",
       "es": "cocinar",
       "it": "cucinare",
-      "tr": "yemek yapmak"
+      "tr": "yemek yapmak",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
      }
     },
     {
@@ -258,7 +309,10 @@
       "de": "Schach",
       "es": "ajedrez",
       "it": "scacchi",
-      "tr": "satranç"
+      "tr": "satranç",
+      "pt-BR": "xadrez",
+      "pl": "szachy",
+      "hu": "sakk"
      }
     },
     {
@@ -275,7 +329,10 @@
       "de": "früh schlafen",
       "es": "acostarse pronto",
       "it": "andare a letto presto",
-      "tr": "erken yatmak"
+      "tr": "erken yatmak",
+      "pt-BR": "dormir cedo",
+      "pl": "wcześnie spać",
+      "hu": "korai lefekvés"
      }
     },
     {
@@ -292,7 +349,10 @@
       "de": "Wasser|trinken",
       "es": "beber|agua",
       "it": "bere|acqua",
-      "tr": "su|içmek"
+      "tr": "su|içmek",
+      "pt-BR": "beber|água",
+      "pl": "picie|wody",
+      "hu": "vizet|inni"
      }
     }
    ]
@@ -307,7 +367,10 @@
     "de": "halbe Lösung",
     "es": "a medias",
     "it": "a metà",
-    "tr": "yarım çözüm"
+    "tr": "yarım çözüm",
+    "pt-BR": "meio que ajuda",
+    "pl": "połowiczne",
+    "hu": "félmegoldás"
    },
    "cases": [
     {
@@ -324,7 +387,10 @@
       "de": "Bildschirmzeit-|limits",
       "es": "límites de|tiempo de pantalla",
       "it": "limiti di|tempo schermo",
-      "tr": "ekran süresi|sınırı"
+      "tr": "ekran süresi|sınırı",
+      "pt-BR": "limite de|tempo de tela",
+      "pl": "limity|czasu ekranu",
+      "hu": "képernyőidő-|limit"
      }
     },
     {
@@ -341,7 +407,10 @@
       "de": "Musik|beim Arbeiten",
       "es": "música|trabajando",
       "it": "musica|lavorando",
-      "tr": "çalışırken|müzik"
+      "tr": "çalışırken|müzik",
+      "pt-BR": "música|trabalhando",
+      "pl": "muzyka|przy pracy",
+      "hu": "zene|munka közben"
      }
     },
     {
@@ -358,7 +427,10 @@
       "de": "nur ein Kaffee",
       "es": "un solo café",
       "it": "un solo caffè",
-      "tr": "tek kahve"
+      "tr": "tek kahve",
+      "pt-BR": "um café só",
+      "pl": "tylko|jedna kawa",
+      "hu": "csak egy|kávé"
      }
     },
     {
@@ -375,7 +447,10 @@
       "de": "Handy in|die Schublade",
       "es": "móvil en|un cajón",
       "it": "telefono in|un cassetto",
-      "tr": "telefon|çekmecede"
+      "tr": "telefon|çekmecede",
+      "pt-BR": "celular|na gaveta",
+      "pl": "telefon|w szufladzie",
+      "hu": "telefon|a fiókban"
      }
     }
    ]
@@ -390,7 +465,10 @@
     "de": "hilft kaum",
     "es": "apenas ayuda",
     "it": "aiuta poco",
-    "tr": "az işe yarar"
+    "tr": "az işe yarar",
+    "pt-BR": "ajuda pouco",
+    "pl": "ledwo pomaga",
+    "hu": "alig segít"
    },
    "cases": [
     {
@@ -407,7 +485,10 @@
       "de": "ausschlafen",
       "es": "dormir hasta tarde",
       "it": "dormire fino a tardi",
-      "tr": "geç uyanmak"
+      "tr": "geç uyanmak",
+      "pt-BR": "dormir|até tarde",
+      "pl": "odsypianie",
+      "hu": "sokáig alvás"
      }
     },
     {
@@ -424,7 +505,10 @@
       "de": "Cheat Meals",
       "es": "cheat meals",
       "it": "cheat meal",
-      "tr": "kaçamak öğün"
+      "tr": "kaçamak öğün",
+      "pt-BR": "cheat meal",
+      "pl": "cheat meale",
+      "hu": "cheat mealek"
      }
     },
     {
@@ -441,7 +525,10 @@
       "de": "„nur eine Stunde“|zocken",
       "es": "“solo una hora”|de juego",
       "it": "“solo un’ora”|di gioco",
-      "tr": "“sadece bir saat”|oyun"
+      "tr": "“sadece bir saat”|oyun",
+      "pt-BR": "“só uma hora”|de jogo",
+      "pl": "„tylko godzinka”|grania",
+      "hu": "„csak egy óra”|gaming"
      }
     },
     {
@@ -458,7 +545,10 @@
       "de": "lange Videos|stattdessen",
       "es": "vídeos largos|en su lugar",
       "it": "video lunghi|invece",
-      "tr": "yerine|uzun videolar"
+      "tr": "yerine|uzun videolar",
+      "pt-BR": "vídeos longos|no lugar",
+      "pl": "długie filmiki|zamiast tego",
+      "hu": "hosszú videók|helyette"
      }
     }
    ]
@@ -474,7 +564,10 @@
    "de": "Fake-Detox",
    "es": "falso detox",
    "it": "finto detox",
-   "tr": "sahte detoks"
+   "tr": "sahte detoks",
+   "pt-BR": "detox fake",
+   "pl": "fake detoks",
+   "hu": "kamu detox"
   },
   "cases": [
    {
@@ -491,7 +584,10 @@
      "de": "Detox,|dann Rückfall",
      "es": "detox|y luego atracón",
      "it": "detox,|poi abbuffata",
-     "tr": "detoks,|sonra tıkınma"
+     "tr": "detoks,|sonra tıkınma",
+     "pt-BR": "detox,|depois recaída",
+     "pl": "detoks,|potem ciąg",
+     "hu": "detox,|aztán visszaesés"
     }
    },
    {
@@ -508,7 +604,10 @@
      "de": "in einer anderen|App scrollen",
      "es": "scroll en|otra app",
      "it": "scrollare|un’altra app",
-     "tr": "başka uygulamada|kaydırmak"
+     "tr": "başka uygulamada|kaydırmak",
+     "pt-BR": "scroll|em outro app",
+     "pl": "scroll|w innej apce",
+     "hu": "scrollozás|egy másik appon"
     }
    },
    {
@@ -525,7 +624,10 @@
      "de": "Doomscrolling|„für News“",
      "es": "doomscrolling|“por las noticias”",
      "it": "doomscrolling|“per le notizie”",
-     "tr": "“haber için”|doomscroll"
+     "tr": "“haber için”|doomscroll",
+     "pt-BR": "doomscrolling|“pra ver notícia”",
+     "pl": "doomscrolling|„dla newsów”",
+     "hu": "doomscrolling|„a hírek miatt”"
     }
    },
    {
@@ -542,7 +644,10 @@
      "de": "deine Wahl|(kommentiere)",
      "es": "tu opción|(comenta)",
      "it": "la tua scelta|(commenta)",
-     "tr": "senin seçimin|(yorum yap)"
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój typ|(skomentuj)",
+     "hu": "a te tipped|(kommenteld)"
     }
    }
   ]

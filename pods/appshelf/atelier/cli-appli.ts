@@ -8,7 +8,8 @@
 //   éditeur) et en fait une planche (icône et trois premières captures),
 //   sortie/applis/<recherche>.jpg, à REGARDER avec Read ;
 // - `--id` télécharge l'icône et les trois premières captures iPhone dans
-//   images/applis/<nom>/ (icone.jpg, 1.jpg, 2.jpg, 3.jpg) avec fiche.json
+//   images/applis/<nom>/ (icone.jpg, 1.jpg, 2.jpg, 3.jpg ; les captures locales
+//   dans <langue>/ quand le magasin du pays en a d'autres) avec fiche.json
 //   (nom, éditeur, catégorie, note, description de l'App Store) : c'est là
 //   qu'on lit ce que fait l'appli avant d'écrire sa note.
 // Jamais une appli concurrente de Sophia (apprentissage, culture générale,
@@ -17,6 +18,7 @@
 import { createCanvas, loadImage } from "@napi-rs/canvas";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
+import { PAYS } from "./api.ts";
 import { retirerMetadonnees } from "./metadonnees.ts";
 
 const racine = join(import.meta.dirname, "..");
@@ -49,21 +51,37 @@ const id = opt("--id");
 if (id) {
   const nom = args[args.indexOf("--id") + 2];
   if (!nom || !/^[a-z0-9-]{2,40}$/.test(nom)) throw new Error("usage : appli --id <id> <nom-en-minuscules>");
-  const r = await fetch(`https://itunes.apple.com/lookup?id=${id}&country=us`);
-  const a = ((await r.json()) as { results: Appli[] }).results[0];
-  if (!a) throw new Error(`${id} : introuvable sur l'App Store (us)`);
-  if (a.screenshotUrls.length < 3) throw new Error(`${a.trackName} : moins de 3 captures iPhone`);
+  // L'appli doit exister dans le magasin de chaque langue livrée (PAYS) : on y
+  // prend son nom local et ses captures (images/applis/<nom>/<langue>/).
+  const parPays: Record<string, Appli> = {};
+  for (const [langue, pays] of Object.entries(PAYS)) {
+    const r = await fetch(`https://itunes.apple.com/lookup?id=${id}&country=${pays}`);
+    const a = ((await r.json()) as { results: Appli[] }).results[0];
+    if (!a) throw new Error(`${id} : absente de l'App Store ${pays} (${langue}) : choisis une autre appli`);
+    if (a.screenshotUrls.length < 3) throw new Error(`${a.trackName} (${pays}) : moins de 3 captures iPhone`);
+    parPays[langue] = a;
+  }
+  const a = parPays.en;
   const dossier = join(racine, "images", "applis", nom);
-  mkdirSync(dossier, { recursive: true });
-  for (const [i, u] of [a.artworkUrl512, ...a.screenshotUrls.slice(0, 3).map(grande)].entries()) {
+  const ecrire = async (u: string, f: string) => {
     const img = await loadImage(await octets(u));
     const c = createCanvas(img.width, img.height);
     c.getContext("2d").drawImage(img, 0, 0);
-    writeFileSync(join(dossier, i === 0 ? "icone.jpg" : `${i}.jpg`), retirerMetadonnees(c.toBuffer("image/jpeg", 90)));
+    writeFileSync(f, retirerMetadonnees(c.toBuffer("image/jpeg", 90)));
+  };
+  mkdirSync(dossier, { recursive: true });
+  for (const [i, u] of [a.artworkUrl512, ...a.screenshotUrls.slice(0, 3).map(grande)].entries()) await ecrire(u, join(dossier, i === 0 ? "icone.jpg" : `${i}.jpg`));
+  // Les captures locales, seulement quand elles diffèrent des américaines.
+  for (const [langue, b] of Object.entries(parPays)) {
+    if (langue === "en" || b.screenshotUrls.slice(0, 3).join() === a.screenshotUrls.slice(0, 3).join()) continue;
+    mkdirSync(join(dossier, langue), { recursive: true });
+    for (const [i, u] of b.screenshotUrls.slice(0, 3).map(grande).entries()) await ecrire(u, join(dossier, langue, `${i + 1}.jpg`));
   }
-  const fiche = { id: a.trackId, nom: a.trackName, editeur: a.sellerName, categorie: a.primaryGenreName, note: a.averageUserRating, avis: a.userRatingCount, url: a.trackViewUrl, description: a.description };
+  const pays = Object.fromEntries(Object.entries(parPays).map(([l, b]) => [l, { nom: b.trackName, note: b.averageUserRating, avis: b.userRatingCount, captures_locales: l !== "en" && b.screenshotUrls.slice(0, 3).join() !== a.screenshotUrls.slice(0, 3).join() }]));
+  const fiche = { id: a.trackId, nom: a.trackName, editeur: a.sellerName, categorie: a.primaryGenreName, note: a.averageUserRating, avis: a.userRatingCount, url: a.trackViewUrl, pays, description: a.description };
   writeFileSync(join(dossier, "fiche.json"), `${JSON.stringify(fiche, null, 1)}\n`);
   console.log(`images/applis/${nom}/ : ${a.trackName} (${a.sellerName}, ${a.primaryGenreName}, ${a.averageUserRating?.toFixed(1) ?? "?"} ★ sur ${a.userRatingCount ?? 0} avis)`);
+  for (const [l, p] of Object.entries(pays)) console.log(`  ${l} : « ${p.nom} » ${p.note?.toFixed(1) ?? "?"} ★ (${p.avis ?? 0} avis)${p.captures_locales ? ", captures locales" : ""}`);
   console.log(a.description.slice(0, 600));
 } else {
   const requete = args.filter((a, i) => !a.startsWith("--") && !(i > 0 && args[i - 1] === "--n")).join(" ");

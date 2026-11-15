@@ -1,0 +1,212 @@
+{
+ "id": "as-006",
+ "style": "carte",
+ "fond": "images/c6-couv.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7702562032536603935",
+  "vues": 24300,
+  "publie_le": "2026-10-30",
+  "accroche": "five apps that make every day feel special"
+ },
+ "titre": {
+  "en": "five apps to make days special",
+  "es": "cinco apps para días especiales",
+  "it": "cinque app per giornate speciali",
+  "pt-BR": "cinco apps pra dias especiais"
+ },
+ "legendes": {
+  "en": "little apps that make ordinary days feel like a movie 🎞️ #softgirl #cozy #apprecommendations #cuteapps",
+  "es": "apps pequeñitas que hacen que los días normales parezcan una peli 🎞️ #softgirl #cozy #appsrecomendadas #appsbonitas",
+  "it": "piccole app che fanno sembrare un film anche le giornate normali 🎞️ #softgirl #cozy #appconsigliate #appcarine",
+  "pt-BR": "apps fofinhos que deixam os dias comuns com cara de filme 🎞️ #softgirl #cozy #dicasdeapps #appsfofos"
+ },
+ "musique": {
+  "titre": "Paper Sunburst - Nina Cross",
+  "url": "https://www.tiktok.com/music/original-7685295435000317967"
+ },
+ "notes": "Lancement 4 langues (15/11). Preuve : « five apps / that make every day feel special » (24 k, 30/10), style carte ; sous-titre raccourci (« to make days special ») pour tenir dans la fenêtre. Applis vérifiées us, es, it, br : 1 Second Everyday, Locket, Sophia (3e, cta C), Daylio, Tezza. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c6-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "to make days special"
+   },
+   "es": {
+    "photos": [
+     "images/c6-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para días especiales"
+   },
+   "it": {
+    "photos": [
+     "images/c6-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per giornate speciali"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c6-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra dias especiais"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "1 Second Everyday",
+    "dossier": "images/applis/1se",
+    "note": "Film one second every day and it stitches them into a little movie of your year. Watching it back is so emotional",
+    "fond": "images/c6-coucher.jpg"
+   },
+   "es": {
+    "nom": "1 Second Everyday",
+    "dossier": "images/applis/1se",
+    "note": "Graba un segundo cada día y lo junta en una peli de tu año. Volver a verla emociona muchísimo",
+    "fond": "images/c6-coucher.jpg"
+   },
+   "it": {
+    "nom": "1 Second Everyday",
+    "dossier": "images/applis/1se",
+    "note": "Registri un secondo ogni giorno e li unisce in un piccolo film del tuo anno. Riguardarlo è un'emozione",
+    "fond": "images/c6-coucher.jpg"
+   },
+   "pt-BR": {
+    "nom": "1 Second Everyday",
+    "dossier": "images/applis/1se",
+    "note": "Grave um segundo por dia e ele junta tudo num filminho do seu ano. Rever é muito emocionante",
+    "fond": "images/c6-coucher.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Locket",
+    "dossier": "images/applis/locket",
+    "note": "Live photos from your best friends, right on your home screen, every time you unlock your phone",
+    "fond": "images/c6-fleurs.jpg"
+   },
+   "es": {
+    "nom": "Locket",
+    "dossier": "images/applis/locket",
+    "note": "Fotos en directo de tus mejores amigas, en tu pantalla de inicio, cada vez que desbloqueas el móvil",
+    "fond": "images/c6-fleurs.jpg"
+   },
+   "it": {
+    "nom": "Locket",
+    "dossier": "images/applis/locket",
+    "note": "Le foto delle tue migliori amiche in tempo reale, sulla schermata Home, ogni volta che sblocchi il telefono",
+    "fond": "images/c6-fleurs.jpg"
+   },
+   "pt-BR": {
+    "nom": "Locket",
+    "dossier": "images/applis/locket",
+    "note": "Fotos das suas melhores amigas ao vivo, direto na tela inicial, toda vez que você desbloqueia o celular",
+    "fond": "images/c6-fleurs.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done",
+    "fond": "images/c6-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo",
+    "fond": "images/c6-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito",
+    "fond": "images/c6-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto",
+    "fond": "images/c6-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Daylio",
+    "dossier": "images/applis/daylio",
+    "note": "A journal without writing: tap your mood and what you did, and it shows you what makes your good days good",
+    "fond": "images/c6-gateau.jpg"
+   },
+   "es": {
+    "nom": "Daylio",
+    "dossier": "images/applis/daylio",
+    "note": "Un diario sin escribir: marcas tu humor y lo que hiciste, y te enseña qué hace buenos tus días buenos",
+    "fond": "images/c6-gateau.jpg"
+   },
+   "it": {
+    "nom": "Daylio",
+    "dossier": "images/applis/daylio",
+    "note": "Un diario senza scrivere: tocchi il tuo umore e cosa hai fatto, e ti mostra cosa rende belle le giornate belle",
+    "fond": "images/c6-gateau.jpg"
+   },
+   "pt-BR": {
+    "nom": "Daylio",
+    "dossier": "images/applis/daylio",
+    "note": "Um diário sem escrever: você marca seu humor e o que fez, e ele mostra o que deixa seus dias bons tão bons",
+    "fond": "images/c6-gateau.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Tezza",
+    "dossier": "images/applis/tezza",
+    "note": "Film-style presets and dreamy effects that make even a quick photo of your coffee look like a memory",
+    "fond": "images/c6-plage.jpg"
+   },
+   "es": {
+    "nom": "Tezza",
+    "dossier": "images/applis/tezza",
+    "note": "Filtros estilo analógico y efectos de ensueño que hacen que hasta una foto rápida de tu café parezca un recuerdo",
+    "fond": "images/c6-plage.jpg"
+   },
+   "it": {
+    "nom": "Tezza",
+    "dossier": "images/applis/tezza",
+    "note": "Preset effetto pellicola ed effetti sognanti che fanno sembrare un ricordo anche una foto veloce del caffè",
+    "fond": "images/c6-plage.jpg"
+   },
+   "pt-BR": {
+    "nom": "Tezza",
+    "dossier": "images/applis/tezza",
+    "note": "Presets estilo filme e efeitos sonhadores que fazem até uma foto rápida do seu café parecer uma lembrança",
+    "fond": "images/c6-plage.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

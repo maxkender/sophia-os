@@ -1,0 +1,212 @@
+{
+ "id": "as-005",
+ "style": "carte",
+ "fond": "images/c5-couv.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7690296801471008031",
+  "vues": 24900,
+  "publie_le": "2026-09-27",
+  "accroche": "five apps to simplify your life"
+ },
+ "titre": {
+  "en": "five apps to simplify your life",
+  "es": "cinco apps para una vida simple",
+  "it": "cinque app per una vita semplice",
+  "pt-BR": "cinco apps pra uma vida simples"
+ },
+ "legendes": {
+  "en": "less group chat chaos, less food waste, more calm ☁️ #apprecommendations #lifehacks #productivityapps #cuteapps",
+  "es": "menos caos en el grupo, menos comida tirada, más calma ☁️ #appsrecomendadas #trucos #productividad #appsbonitas",
+  "it": "meno caos nel gruppo, meno cibo sprecato, più calma ☁️ #appconsigliate #lifehacks #produttività #appcarine",
+  "pt-BR": "menos caos no grupo, menos comida jogada fora, mais calma ☁️ #dicasdeapps #lifehacks #produtividade #appsfofos"
+ },
+ "musique": {
+  "titre": "bubblegum speed up - 🐰",
+  "url": "https://www.tiktok.com/music/original-7363046014728981249"
+ },
+ "notes": "Lancement 4 langues (15/11). Preuve : « five apps to simplify your life » (25 k, 27/09), style carte. Applis vérifiées us, es, it, br : Howbout, Sophia (2e, cta B), Tasty, tricount, Too Good To Go. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c5-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "to simplify your life"
+   },
+   "es": {
+    "photos": [
+     "images/c5-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para una vida simple"
+   },
+   "it": {
+    "photos": [
+     "images/c5-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per una vita semplice"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c5-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra uma vida simples"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Howbout",
+    "dossier": "images/applis/howbout",
+    "note": "A shared calendar with your friends: see when everyone's free and lock in the plan without 100 messages",
+    "fond": "images/c5-agenda.jpg"
+   },
+   "es": {
+    "nom": "Howbout",
+    "dossier": "images/applis/howbout",
+    "note": "Un calendario compartido con tus amigas: ves cuándo están libres todas y cerráis el plan sin 100 mensajes",
+    "fond": "images/c5-agenda.jpg"
+   },
+   "it": {
+    "nom": "Howbout",
+    "dossier": "images/applis/howbout",
+    "note": "Un calendario condiviso con le amiche: vedi quando sono libere tutte e fissate il piano senza 100 messaggi",
+    "fond": "images/c5-agenda.jpg"
+   },
+   "pt-BR": {
+    "nom": "Howbout",
+    "dossier": "images/applis/howbout",
+    "note": "Um calendário compartilhado com as amigas: você vê quando todo mundo tá livre e fecha o rolê sem 100 mensagens",
+    "fond": "images/c5-agenda.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks",
+    "fond": "images/c5-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede",
+    "fond": "images/c5-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero",
+    "fond": "images/c5-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade",
+    "fond": "images/c5-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Tasty",
+    "dossier": "images/applis/tasty",
+    "note": "Thousands of recipes with short videos and a step-by-step cooking mode, so dinner stops being a question",
+    "fond": "images/c5-cuisine.jpg"
+   },
+   "es": {
+    "nom": "Tasty",
+    "dossier": "images/applis/tasty",
+    "note": "Miles de recetas con vídeos cortos y un modo paso a paso, para que la cena deje de ser un drama",
+    "fond": "images/c5-cuisine.jpg"
+   },
+   "it": {
+    "nom": "Tasty",
+    "dossier": "images/applis/tasty",
+    "note": "Migliaia di ricette con brevi video e una modalità passo passo, così la cena non è più un problema",
+    "fond": "images/c5-cuisine.jpg"
+   },
+   "pt-BR": {
+    "nom": "Tasty",
+    "dossier": "images/applis/tasty",
+    "note": "Milhares de receitas com vídeos curtos e um modo passo a passo, pra janta deixar de ser um drama",
+    "fond": "images/c5-cuisine.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "tricount",
+    "dossier": "images/applis/tricount",
+    "note": "Split bills with friends or roommates: everyone adds what they paid and it tells you who owes who",
+    "fond": "images/c5-brunch.jpg"
+   },
+   "es": {
+    "nom": "tricount",
+    "dossier": "images/applis/tricount",
+    "note": "Divide gastos con amigas o compañeras de piso: cada una apunta lo que pagó y te dice quién debe a quién",
+    "fond": "images/c5-brunch.jpg"
+   },
+   "it": {
+    "nom": "tricount",
+    "dossier": "images/applis/tricount",
+    "note": "Dividi le spese con amiche o coinquiline: ognuna segna quanto ha pagato e ti dice chi deve cosa a chi",
+    "fond": "images/c5-brunch.jpg"
+   },
+   "pt-BR": {
+    "nom": "tricount",
+    "dossier": "images/applis/tricount",
+    "note": "Divide as contas com as amigas ou quem mora com você: cada uma anota o que pagou e ele mostra quem deve pra quem",
+    "fond": "images/c5-brunch.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Too Good To Go",
+    "dossier": "images/applis/too-good-to-go",
+    "note": "Save unsold food from cafes and bakeries near you for a fraction of the price. Surprise bags are so fun",
+    "fond": "images/c5-marche.jpg"
+   },
+   "es": {
+    "nom": "Too Good To Go",
+    "dossier": "images/applis/too-good-to-go",
+    "note": "Rescata comida que no se vendió en cafeterías y panaderías cerca de ti, por mucho menos. Las bolsas sorpresa son lo mejor",
+    "fond": "images/c5-marche.jpg"
+   },
+   "it": {
+    "nom": "Too Good To Go",
+    "dossier": "images/applis/too-good-to-go",
+    "note": "Salva il cibo invenduto di bar e panetterie vicino a te a un prezzo molto più basso. Le Surprise Bag sono bellissime",
+    "fond": "images/c5-marche.jpg"
+   },
+   "pt-BR": {
+    "nom": "Too Good To Go",
+    "dossier": "images/applis/too-good-to-go",
+    "note": "Salva comida que sobrou em cafés e padarias perto de você por bem menos. As sacolas surpresa são muito divertidas",
+    "fond": "images/c5-marche.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

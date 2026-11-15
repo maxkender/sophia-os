@@ -5,8 +5,10 @@
 export const POD = "originaux_appshelf";
 /** Le compte modèle : @theappshelf (« cool apps, daily », la créatrice de Swuvi), ses listes de cinq applis. */
 export const COMPTE_SOURCE = "theappshelf";
-/** Les langues livrées : l'anglais, celle du compte (lancement du 15/11). Déclarées à l'OS (0654) : l'attribution des comptes les lit. */
-export const LANGUES = ["en"] as const;
+/** Les langues livrées : l'anglais (celle du compte modèle), l'espagnol, l'italien et le portugais du Brésil (décision d'Adrien du 15/11). Déclarées à l'OS (0654) : l'attribution des comptes les lit. */
+export const LANGUES = ["en", "es", "it", "pt-BR"] as const;
+/** Le magasin App Store de chaque langue : on vérifie que l'appli y existe et on y prend ses captures. */
+export const PAYS: Record<string, string> = { en: "us", es: "es", it: "it", "pt-BR": "br" };
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

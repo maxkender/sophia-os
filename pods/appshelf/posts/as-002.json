@@ -1,0 +1,212 @@
+{
+ "id": "as-002",
+ "style": "carte",
+ "fond": "images/c2-couv.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7672560736127814943",
+  "vues": 479000,
+  "publie_le": "2026-08-11",
+  "accroche": "five apps every girl needs"
+ },
+ "titre": {
+  "en": "five apps every girl needs",
+  "es": "cinco apps para toda chica",
+  "it": "cinque app per ogni ragazza",
+  "pt-BR": "cinco apps pra toda garota"
+ },
+ "legendes": {
+  "en": "the ones i'd tell my best friend to download first 🎀 #apprecommendations #cuteapps #thatgirl #selfcare",
+  "es": "las que le recomendaría primero a mi mejor amiga 🎀 #appsrecomendadas #appsbonitas #autocuidado #thatgirl",
+  "it": "quelle che consiglierei per prime alla mia migliore amica 🎀 #appconsigliate #appcarine #selfcare #thatgirl",
+  "pt-BR": "os que eu indicaria primeiro pra minha melhor amiga 🎀 #dicasdeapps #appsfofos #autocuidado #thatgirl"
+ },
+ "musique": {
+  "titre": "sonido original - NINTENDO SOUND",
+  "url": "https://www.tiktok.com/music/original-7373191820832017185"
+ },
+ "notes": "Lancement 4 langues (en, es, it, pt-BR ; demande d'Adrien via la coordination BLEO, 15/11). Preuve : son tube « five apps / every girl needs » (479 k, 11/08), style carte. Applis vérifiées sur l'App Store us, es, it et br (15/11) : Flo, Sophia (2e, cta B ; ses vraies captures), Waterllama, Yuka, Pinterest. Captures locales par pays quand le magasin en a. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c2-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "every girl needs"
+   },
+   "es": {
+    "photos": [
+     "images/c2-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para toda chica"
+   },
+   "it": {
+    "photos": [
+     "images/c2-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per ogni ragazza"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c2-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra toda garota"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Flo",
+    "dossier": "images/applis/flo",
+    "note": "Tracks your cycle and predicts your period, so it never catches you off guard (and your mood swings finally make sense)",
+    "fond": "images/c2-lit.jpg"
+   },
+   "es": {
+    "nom": "Flo",
+    "dossier": "images/applis/flo",
+    "note": "Sigue tu ciclo y predice tu regla, para que nunca te pille por sorpresa (y tus cambios de humor por fin tengan sentido)",
+    "fond": "images/c2-lit.jpg"
+   },
+   "it": {
+    "nom": "Flo",
+    "dossier": "images/applis/flo",
+    "note": "Segue il tuo ciclo e prevede le mestruazioni, così non ti colgono mai di sorpresa (e gli sbalzi d'umore finalmente hanno senso)",
+    "fond": "images/c2-lit.jpg"
+   },
+   "pt-BR": {
+    "nom": "Flo",
+    "dossier": "images/applis/flo",
+    "note": "Acompanha seu ciclo e prevê sua menstruação, pra ela nunca te pegar de surpresa (e suas mudanças de humor finalmente fazerem sentido)",
+    "fond": "images/c2-lit.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks",
+    "fond": "images/c2-moodboard.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede",
+    "fond": "images/c2-moodboard.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero",
+    "fond": "images/c2-moodboard.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade",
+    "fond": "images/c2-moodboard.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Waterllama",
+    "dossier": "images/applis/waterllama",
+    "note": "A cute water tracker: every glass fills up a little llama, with gentle reminders through the day",
+    "fond": "images/c2-eau.jpg"
+   },
+   "es": {
+    "nom": "Waterllama",
+    "dossier": "images/applis/waterllama",
+    "note": "Un contador de agua adorable: cada vaso llena a una llamita, con recordatorios suaves durante el día",
+    "fond": "images/c2-eau.jpg"
+   },
+   "it": {
+    "nom": "Waterllama",
+    "dossier": "images/applis/waterllama",
+    "note": "Un tracker dell'acqua adorabile: ogni bicchiere riempie un piccolo lama, con promemoria gentili durante il giorno",
+    "fond": "images/c2-eau.jpg"
+   },
+   "pt-BR": {
+    "nom": "Waterllama",
+    "dossier": "images/applis/waterllama",
+    "note": "Um contador de água fofo: cada copo enche uma lhaminha, com lembretes leves ao longo do dia",
+    "fond": "images/c2-eau.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Yuka",
+    "dossier": "images/applis/yuka",
+    "note": "Scan the barcode of your food or skincare and see right away if it's good for you, with healthier swaps if it's not",
+    "fond": "images/c2-cuisine.jpg"
+   },
+   "es": {
+    "nom": "Yuka",
+    "dossier": "images/applis/yuka",
+    "note": "Escanea el código de barras de tu comida o tu skincare y ve al momento si es bueno para ti, con alternativas más sanas si no lo es",
+    "fond": "images/c2-cuisine.jpg"
+   },
+   "it": {
+    "nom": "Yuka",
+    "dossier": "images/applis/yuka",
+    "note": "Scansiona il codice a barre del cibo o della skincare e vedi subito se fa bene, con alternative più sane se non è così",
+    "fond": "images/c2-cuisine.jpg"
+   },
+   "pt-BR": {
+    "nom": "Yuka",
+    "dossier": "images/applis/yuka",
+    "note": "Escaneia o código de barras da comida ou do skincare e mostra na hora se faz bem, com opções mais saudáveis se não fizer",
+    "fond": "images/c2-cuisine.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Pinterest",
+    "dossier": "images/applis/pinterest",
+    "note": "Where every outfit, room idea and recipe I love ends up, sorted into boards I actually go back to",
+    "fond": "images/c2-couv.jpg"
+   },
+   "es": {
+    "nom": "Pinterest",
+    "dossier": "images/applis/pinterest",
+    "note": "Donde acaban todos los outfits, ideas de deco y recetas que me encantan, ordenados en tableros a los que sí vuelvo",
+    "fond": "images/c2-couv.jpg"
+   },
+   "it": {
+    "nom": "Pinterest",
+    "dossier": "images/applis/pinterest",
+    "note": "Dove finiscono tutti gli outfit, le idee per la casa e le ricette che amo, in bacheche che riapro davvero",
+    "fond": "images/c2-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Pinterest",
+    "dossier": "images/applis/pinterest",
+    "note": "Onde vão parar todos os looks, ideias de decoração e receitas que eu amo, em pastas que eu realmente volto pra ver",
+    "fond": "images/c2-couv.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

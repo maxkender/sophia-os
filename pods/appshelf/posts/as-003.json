@@ -1,0 +1,212 @@
+{
+ "id": "as-003",
+ "style": "carte",
+ "fond": "images/c3-couv.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7686584494861733151",
+  "vues": 71800,
+  "publie_le": "2026-09-17",
+  "accroche": "five apps to get organized"
+ },
+ "titre": {
+  "en": "five apps to get organized",
+  "es": "cinco apps para organizarte",
+  "it": "cinque app per organizzarti",
+  "pt-BR": "cinco apps pra se organizar"
+ },
+ "legendes": {
+  "en": "from a messy camera roll to a calm week, these keep my life in order 🗂️ #apprecommendations #productivity #organization #cuteapps",
+  "es": "de una galería caótica a una semana tranquila, estas apps me tienen organizada 🗂️ #appsrecomendadas #productividad #organizacion #appsbonitas",
+  "it": "dalla galleria nel caos a una settimana tranquilla, queste app mi tengono in ordine 🗂️ #appconsigliate #produttività #organizzazione #appcarine",
+  "pt-BR": "da galeria bagunçada a uma semana tranquila, esses apps me deixam organizada 🗂️ #dicasdeapps #produtividade #organizacao #appsfofos"
+ },
+ "musique": {
+  "titre": "original sound - 🎄❄️🍁🎃",
+  "url": "https://www.tiktok.com/music/original-7524836894987930398"
+ },
+ "notes": "Lancement 4 langues (15/11). Preuve : « five apps / to get organized » (72 k, 17/09), style carte. Applis vérifiées us, es, it, br : Todoist, Tiimo, Sophia (3e, cta C), Picnic, Notion. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c3-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "to get organized"
+   },
+   "es": {
+    "photos": [
+     "images/c3-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para organizarte"
+   },
+   "it": {
+    "photos": [
+     "images/c3-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per organizzarti"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c3-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra se organizar"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Todoist",
+    "dossier": "images/applis/todoist",
+    "note": "Type 'water plants every sunday' and it sets the reminder for you. My whole to-do list in one place",
+    "fond": "images/c3-planner.jpg"
+   },
+   "es": {
+    "nom": "Todoist",
+    "dossier": "images/applis/todoist",
+    "note": "Escribes 'regar las plantas cada domingo' y crea el recordatorio solo. Toda mi lista de tareas en un sitio",
+    "fond": "images/c3-planner.jpg"
+   },
+   "it": {
+    "nom": "Todoist",
+    "dossier": "images/applis/todoist",
+    "note": "Scrivi 'annaffiare le piante ogni domenica' e crea il promemoria da solo. Tutta la mia lista di cose da fare in un posto",
+    "fond": "images/c3-planner.jpg"
+   },
+   "pt-BR": {
+    "nom": "Todoist",
+    "dossier": "images/applis/todoist",
+    "note": "Você escreve 'regar as plantas todo domingo' e ele cria o lembrete sozinho. Toda a minha lista de tarefas num lugar só",
+    "fond": "images/c3-planner.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Tiimo",
+    "dossier": "images/applis/tiimo",
+    "note": "A visual planner with colorful icons and timers that make your day feel lighter, made for brains that lose track of time",
+    "fond": "images/c3-chambre.jpg"
+   },
+   "es": {
+    "nom": "Tiimo",
+    "dossier": "images/applis/tiimo",
+    "note": "Un planner visual con iconos de colores y temporizadores que hacen tu día más ligero, para cerebros que pierden la noción del tiempo",
+    "fond": "images/c3-chambre.jpg"
+   },
+   "it": {
+    "nom": "Tiimo",
+    "dossier": "images/applis/tiimo",
+    "note": "Un planner visivo con icone colorate e timer che alleggeriscono la giornata, pensato per chi perde la cognizione del tempo",
+    "fond": "images/c3-chambre.jpg"
+   },
+   "pt-BR": {
+    "nom": "Tiimo",
+    "dossier": "images/applis/tiimo",
+    "note": "Um planner visual com ícones coloridos e timers que deixam o dia mais leve, feito pra quem perde a noção do tempo",
+    "fond": "images/c3-chambre.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done",
+    "fond": "images/c3-cafe2.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo",
+    "fond": "images/c3-cafe2.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito",
+    "fond": "images/c3-cafe2.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto",
+    "fond": "images/c3-cafe2.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Picnic",
+    "dossier": "images/applis/picnic",
+    "note": "Swipe through your camera roll to clear old screenshots and blurry duplicates. My storage finally breathes",
+    "fond": "images/c3-etagere.jpg"
+   },
+   "es": {
+    "nom": "Picnic",
+    "dossier": "images/applis/picnic",
+    "note": "Desliza por tu galería para borrar capturas viejas y fotos repetidas. Mi almacenamiento por fin respira",
+    "fond": "images/c3-etagere.jpg"
+   },
+   "it": {
+    "nom": "Picnic",
+    "dossier": "images/applis/picnic",
+    "note": "Scorri la galleria per eliminare vecchi screenshot e foto doppie. La mia memoria finalmente respira",
+    "fond": "images/c3-etagere.jpg"
+   },
+   "pt-BR": {
+    "nom": "Picnic",
+    "dossier": "images/applis/picnic",
+    "note": "Deslize pela galeria pra apagar prints antigos e fotos repetidas. Meu armazenamento finalmente respira",
+    "fond": "images/c3-etagere.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Notion",
+    "dossier": "images/applis/notion",
+    "note": "Notes, lists and plans in pages you design yourself: my budget, my meal plan and my trips all live here",
+    "fond": "images/c3-couv.jpg"
+   },
+   "es": {
+    "nom": "Notion",
+    "dossier": "images/applis/notion",
+    "note": "Notas, listas y planes en páginas que diseñas tú: mi presupuesto, mis menús y mis viajes viven aquí",
+    "fond": "images/c3-couv.jpg"
+   },
+   "it": {
+    "nom": "Notion",
+    "dossier": "images/applis/notion",
+    "note": "Note, liste e piani in pagine che progetti tu: il mio budget, i menù della settimana e i viaggi stanno tutti qui",
+    "fond": "images/c3-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Notion",
+    "dossier": "images/applis/notion",
+    "note": "Notas, listas e planos em páginas que você mesma monta: meu orçamento, meu cardápio e minhas viagens ficam todos aqui",
+    "fond": "images/c3-couv.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

@@ -278,6 +278,7 @@ async function couvertureCarte(ctx: Ctx, c: Couverture) {
   ctx.font = `${s}px "${POLICE.titre}"`;
   ctx.letterSpacing = `${-0.05 * s}px`;
   while (ctx.measureText(c.titre ?? "").width > 560 && s > 50) {
+    if (s <= 88) throw new Error(`couverture : « ${c.titre} » ne tient pas dans la fenêtre, raccourcis-le`);
     s -= 2;
     ctx.font = `${s}px "${POLICE.titre}"`;
     ctx.letterSpacing = `${-0.05 * s}px`;
@@ -290,6 +291,7 @@ async function couvertureCarte(ctx: Ctx, c: Couverture) {
     let t = 62;
     ctx.font = `${t}px "${POLICE.texte}"`;
     while (ctx.measureText(c.sous).width > 540 && t > 30) ctx.font = `${(t -= 2)}px "${POLICE.texte}"`;
+    if (t < 52) throw new Error(`couverture : « ${c.sous} » ne tient pas dans la fenêtre, raccourcis-le`);
     surligne(ctx, c.sous, 540, 953, t, COULEUR.rose, COULEUR.roseBande);
   }
 }
@@ -385,7 +387,7 @@ function iconesNotes(ctx: Ctx, base: number) {
   }
 }
 
-async function appli(ctx: Ctx, post: Post, s: Slide, c: AppliSlide) {
+async function appli(ctx: Ctx, post: Post, s: Slide, c: AppliSlide, langue: string) {
   const carte = post.style === "carte";
   await fond(ctx, c.fond ?? post.fond, carte ? 0.14 : 0.5);
   ombre(ctx, 26, 0.35);
@@ -405,7 +407,9 @@ async function appli(ctx: Ctx, post: Post, s: Slide, c: AppliSlide) {
   let xp = APP.pastilles.x;
   for (const e of c.etiquettes ?? ["iOS"]) xp += pastille(ctx, e, xp, APP.pastilles.y, APP.pastilles.h, APP.pastilles.taille, false, carte ? COULEUR.rosePastille : COULEUR.jaune) + 14;
 
-  const captures = s.app === "sophia" ? [1, 2, 3].map((n) => `assets/sophia/ecran-${n}.jpg`) : [1, 2, 3].map((n) => `${c.dossier}/${n}.jpg`);
+  // Les captures du magasin de la langue (images/applis/<nom>/<langue>/) quand il en a d'autres.
+  const locales = (n: number) => (existsSync(join(RACINE, `${c.dossier}/${langue}/${n}.jpg`)) ? `${c.dossier}/${langue}/${n}.jpg` : `${c.dossier}/${n}.jpg`);
+  const captures = s.app === "sophia" ? [1, 2, 3].map((n) => `assets/sophia/ecran-${n}.jpg`) : [1, 2, 3].map(locales);
   if (s.app !== "sophia" && !c.dossier) throw new Error(`${c.nom} : pas de dossier d'appli (npm run appli -- --id <id> <nom>)`);
   for (const [i, f] of captures.entries()) {
     const { y, l, h, r } = APP.captures;
@@ -575,6 +579,7 @@ async function finCarte(ctx: Ctx, post: Post, c: Fin) {
   ctx.letterSpacing = "-5px";
   ctx.fillStyle = COULEUR.noir;
   ctx.textAlign = "center";
+  if (ctx.measureText(c.haut).width > 660) throw new Error(`fin : « ${c.haut} » ne tient pas dans la fenêtre, raccourcis-le`);
   ctx.fillText(c.haut, 541, 888);
   ctx.letterSpacing = "0px";
   surligne(ctx, c.bande, 545, 962, 58, COULEUR.rose, COULEUR.roseBande, -2);
@@ -625,7 +630,7 @@ export async function rendreSlide(post: Post, s: Slide, langue: string): Promise
   if (!c) throw new Error(`slide ${s.type} : rien en ${langue}`);
   const style = post.style ?? "bibliotheque";
   if (s.type === "couverture") await couverture(ctx, c as Couverture, style);
-  else if (s.type === "appli") await appli(ctx, post, s, c as AppliSlide);
+  else if (s.type === "appli") await appli(ctx, post, s, c as AppliSlide, langue);
   else if (style === "carte") await finCarte(ctx, post, c as Fin);
   else {
     const couv = post.slides.find((x) => x.type === "couverture");

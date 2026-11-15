@@ -191,14 +191,14 @@
    },
    "de": {
     "titre": [
-     "EINE",
+     "EINE MÜNZE",
      [
       {
-       "t": "MÜNZE ROLLEN",
+       "t": "ÜBER DIE FINGER",
        "couleur": "#a86c58"
       }
      ],
-     "ÜBER DIE FINGERKNÖCHEL"
+     "ROLLEN"
     ],
     "video": {
      "id": "3_3NqpVR3bA",
@@ -524,6 +524,12 @@
     },
     "sous": [
      "30 min pour apprendre"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
     ]
    },
    "en": {
@@ -554,6 +560,12 @@
     },
     "sous": [
      "30 min to learn"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
     ]
    },
    "de": {
@@ -584,6 +596,12 @@
     },
     "sous": [
      "30 Min. zum Lernen"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
     ]
    },
    "it": {
@@ -614,6 +632,12 @@
     },
     "sous": [
      "30 min per imparare"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
     ]
    },
    "pt-BR": {
@@ -644,6 +668,12 @@
     },
     "sous": [
      "30 min para aprender"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
     ]
    }
   },

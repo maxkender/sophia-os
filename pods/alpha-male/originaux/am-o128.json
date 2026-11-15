@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o128",
+ "type_bleo": "full_test",
+ "titre": "Things every man should be able to fix himself #men #skills #diy #selfimprovement #discipline",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 15/11. Full test du jour (1 sur 3, jauge : 3 sur 12). Accroche jamais faite chez nous : aucun « fix it yourself » ni « handy » dans donnees/label.json. Compétences concrètes et sûres, rien d'électrique ni de dangereux en détail. Format : numéro, réparation, deux lignes. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Slide Sophia : chalet en forêt, sans personne. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "49ad673a",
+   "texte_overlay": "Things every man should\nbe able to fix himself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0e8a7119",
+   "texte_overlay": "1. A flat tire\n\nJack, wrench, spare.\nTwenty minutes, no tow truck.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "077efffb",
+   "texte_overlay": "2. A wobbly chair\n\nTighten the screws,\nglue the joint. Done.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "34b68e92",
+   "texte_overlay": "3. A clogged sink\n\nA plunger and patience\nbefore calling anyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "884a5ab6",
+   "texte_overlay": "4. Anything, after\nlearning how it works\n\nFive minutes of curiosity\nsaves hours of waiting.",
+   "texte_sophia": "4. Anything, after\nlearning how it works\n\nI learn how things work\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0ba1cc8c",
+   "texte_overlay": "5. A loose button\n\nNeedle, thread, two minutes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "291f900d",
+   "texte_overlay": "6. A squeaky door\n\nA drop of oil on the hinge.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  }
+ ]
+}

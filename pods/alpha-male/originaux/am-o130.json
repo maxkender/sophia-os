@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o130",
+ "type_bleo": "full_test",
+ "titre": "Old money habits that cost nothing #men #oldmoney #class #selfimprovement #gentleman",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 15/11. Full test du jour (3 sur 3, jauge : 3 sur 12). Accroche jamais faite chez nous : aucun « old money » dans donnees/label.json. Le savoir-vivre discret, sans argent : aucun prix, aucune marque, rien à acheter. Format : numéro, habitude, deux lignes. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Célébrités en illustration (autorisé) ; slide Sophia : salon sur la mer, sans personne. reference_url : le post source de am-o036 (slides 2 à 7 ; 1 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b87debce",
+   "texte_overlay": "Old money habits\nthat cost nothing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9cad6036",
+   "texte_overlay": "1. Speak softly\n\nNo one important\nneeds to be loud.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "70efeef1",
+   "texte_overlay": "2. Write thank-you notes\n\nBy hand. Short.\nSent the next day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "347b04b3",
+   "texte_overlay": "3. Never talk about money\n\nNot what you earn,\nnot what you paid.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3f1658ee",
+   "texte_overlay": "4. Stand when someone\narrives at the table\n\nA small habit people remember.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2289de38",
+   "texte_overlay": "5. Keep your things\nfor years\n\nLook after them.\nReplace less.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0cfaf996",
+   "texte_overlay": "6. Be well-read\n\nHistory, art, the world.\nA little every day.",
+   "texte_sophia": "6. Be well-read\n\nI learn a little every day\non the Sophia app.\nHistory, art, the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

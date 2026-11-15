@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o125",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d24f09dd-8edb-4e58-ac1f-d132cfd36328",
+ "titre": "6 things you should keep to yourself #men #discipline #privacy #mindset #selfimprovement",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "d24f09dd-8edb-4e58-ac1f-d132cfd36328"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 15/11. Déclinaison G1 de la ligne 11 (parent d24f09dd = notre am-o024, langue source en ; meilleur passage sv 4,3 k vues, r 2,77). Accroche du parent mot pour mot. Même format : chose, puis deux ou trois lignes. Choses neuves, aucune de am-o024 (brouillon, heures, entretiens, avis sur les gens, sommeil, progrès). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Slide Sophia : chambre grise sur la ville, sans personne. reference_url de am-o024 vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4071291c",
+   "texte_overlay": "6 things you should\nkeep to yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2693b8ad",
+   "texte_overlay": "1. Your next move\nAnnounce it after it's done.\nPlans shared too early\ncollect doubt.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6a1b079c",
+   "texte_overlay": "2. Family arguments\nThey'll make up next week.\nOthers will remember forever.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1a5102be",
+   "texte_overlay": "3. A friend's secret\nEven after the friendship ends.\nEspecially then.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2ce7489b",
+   "texte_overlay": "4. Every complaint about work\nVent once to one person.\nNot to everyone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "13155a41",
+   "texte_overlay": "5. What you're learning\nJust keep doing it daily.\nPeople will notice the change.",
+   "texte_sophia": "5. What you're learning\nUse a micro-learning app\nlike the Sophia app daily.\nPeople will notice the change.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7598151836503166230/6.jpg"
+  }
+ ]
+}

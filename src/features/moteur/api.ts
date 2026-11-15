@@ -8086,3 +8086,14 @@ export async function aDejaPublie(): Promise<boolean> {
   if (error) throw error;
   return (data ?? []).length > 0;
 }
+
+/**
+ * Les comptes qui portent un label (15/11) : une petite requête par label,
+ * pour le filtre « Label » de la page Posteurs, sans dépendre du chargement
+ * des labels de tous les comptes.
+ */
+export async function comptesDuLabel(labelId: string): Promise<Set<string>> {
+  const { data, error } = await supabase.from("compte_labels").select("compte_id").eq("label_id", labelId);
+  if (error) throw error;
+  return new Set((data ?? []).map((r) => (r as { compte_id: string }).compte_id));
+}

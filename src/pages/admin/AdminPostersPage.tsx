@@ -73,6 +73,7 @@ import {
   definirRole,
   demarrerWarmup,
   skipWarmup,
+  comptesDuLabel,
   labelsDesComptes,
   listerComptesAvecDormants,
   listerLabels,
@@ -766,6 +767,12 @@ export function AdminPostersPage() {
   // Pays du compte (ISO-3166), ou CLE_SANS_PAYS pour « à renseigner ».
   const [filtrePays, setFiltrePays] = React.useState("");
   const [filtreLabel, setFiltreLabel] = React.useState("");
+  // 15/11 : le filtre Label lit directement les comptes du label choisi.
+  const comptesLabelFiltre = useQuery({
+    queryKey: ["comptes-du-label", filtreLabel],
+    queryFn: () => comptesDuLabel(filtreLabel),
+    enabled: Boolean(filtreLabel),
+  });
   const [filtreApp, setFiltreApp] = React.useState("tous");
   // Seulement la cohorte Ruul (posters venus du site, payés par Ruul).
   const [filtreRuul, setFiltreRuul] = React.useState(false);
@@ -1396,8 +1403,13 @@ export function AdminPostersPage() {
       if (!correspond) return false;
     }
     if (filtreLabel) {
-      const labs = liste.flatMap((c) => labelsComptes.data?.get(c.id) ?? []);
-      if (!labs.some((l) => l.id === filtreLabel)) return false;
+      const duLabel = comptesLabelFiltre.data;
+      if (duLabel) {
+        if (!liste.some((c) => duLabel.has(c.id))) return false;
+      } else {
+        const labs = liste.flatMap((c) => labelsComptes.data?.get(c.id) ?? []);
+        if (!labs.some((l) => l.id === filtreLabel)) return false;
+      }
     }
     if (filtreApp && filtreApp !== "tous") {
       // Ce que ses comptes PROMEUVENT (leur badge), pas ce que leurs labels

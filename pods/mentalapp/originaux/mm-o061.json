@@ -1,0 +1,657 @@
+{
+ "id": "mm-o061",
+ "titre": "tier list of Study breaks",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "the best and worst study breaks, ranked #study #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les meilleures et pires pauses de révision #revisions #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "die besten und schlechtesten Lernpausen #lernen #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "los mejores y peores descansos de estudio #estudiar #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "le pause studio migliori e peggiori #studio #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "en iyi ve en kötü ders molaları #ders #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "as melhores e piores pausas de estudo #estudos #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "najlepsze i najgorsze przerwy w nauce #nauka #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "a legjobb és legrosszabb tanulási szünetek #tanulás #mentalmaxxing #tierlist #önfejlesztés"
+ },
+ "couverture": {
+  "image": {
+   "src": "7690939244096834824/1",
+   "boite": [
+    255,
+    238,
+    550,
+    745
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list dei",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
+  },
+  "gros": {
+   "en": "Study",
+   "fr": "pauses de",
+   "de": "Lern-",
+   "es": "descansos",
+   "it": "pause",
+   "tr": "ders",
+   "pt-BR": "pausas de",
+   "pl": "przerwy",
+   "hu": "tanulási"
+  },
+  "bas": {
+   "en": "breaks",
+   "fr": "révision",
+   "de": "pausen",
+   "es": "de estudio",
+   "it": "studio",
+   "tr": "molaları",
+   "pt-BR": "estudo",
+   "pl": "w nauce",
+   "hu": "szünetek"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "fr": "note mon classement",
+  "de": "bewerte mein Ranking",
+  "es": "califica mi ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla",
+  "pt-BR": "avalia meu ranking",
+  "pl": "oceń mój ranking",
+  "hu": "értékeld a rangsorom"
+ },
+ "pied": {
+  "en": "what’s your go-to study break?",
+  "fr": "c’est quoi ta pause préférée ?",
+  "de": "was ist deine Lieblingspause?",
+  "es": "¿cuál es tu descanso favorito?",
+  "it": "qual è la tua pausa preferita?",
+  "tr": "en sevdiğin mola ne?",
+  "pt-BR": "qual é sua pausa favorita?",
+  "pl": "jaka jest twoja ulubiona przerwa?",
+  "hu": "mi a kedvenc szüneted?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "recharges you",
+    "fr": "te recharge",
+    "de": "lädt dich auf",
+    "es": "te recarga",
+    "it": "ti ricarica",
+    "tr": "şarj eder",
+    "pt-BR": "recarrega",
+    "pl": "ładuje",
+    "hu": "feltölt"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "a short walk",
+      "fr": "une petite|marche",
+      "de": "kurz gehen",
+      "es": "un paseo|corto",
+      "it": "una breve|camminata",
+      "tr": "kısa yürüyüş",
+      "pt-BR": "uma caminhada|curta",
+      "pl": "krótki spacer",
+      "hu": "rövid séta"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      365,
+      35,
+      125,
+      175
+     ],
+     "t": {
+      "en": "water",
+      "fr": "de l’eau",
+      "de": "Wasser",
+      "es": "agua",
+      "it": "acqua",
+      "tr": "su",
+      "pt-BR": "água",
+      "pl": "woda",
+      "hu": "víz"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      28,
+      624,
+      196,
+      156
+     ],
+     "t": {
+      "en": "a few|push-ups",
+      "fr": "quelques|pompes",
+      "de": "ein paar|Liegestütze",
+      "es": "unas|flexiones",
+      "it": "qualche|flessione",
+      "tr": "birkaç şınav",
+      "pt-BR": "umas|flexões",
+      "pl": "kilka pompek",
+      "hu": "pár fekvő-|támasz"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam",
+    "pt-BR": "sólido",
+    "pl": "solidne",
+    "hu": "jó"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      360,
+      185,
+      155
+     ],
+     "t": {
+      "en": "fresh air",
+      "fr": "air frais",
+      "de": "frische Luft",
+      "es": "aire fresco",
+      "it": "aria fresca",
+      "tr": "temiz hava",
+      "pt-BR": "ar fresco",
+      "pl": "świeże|powietrze",
+      "hu": "friss levegő"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "one coffee",
+      "fr": "un café",
+      "de": "ein Kaffee",
+      "es": "un café",
+      "it": "un caffè",
+      "tr": "bir kahve",
+      "pt-BR": "um café",
+      "pl": "jedna kawa",
+      "hu": "egy kávé"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      5,
+      185,
+      195
+     ],
+     "t": {
+      "en": "a light snack",
+      "fr": "un petit|en-cas",
+      "de": "ein kleiner|Snack",
+      "es": "un snack|ligero",
+      "it": "uno spuntino|leggero",
+      "tr": "hafif|atıştırmalık",
+      "pt-BR": "um lanche|leve",
+      "pl": "lekka|przekąska",
+      "hu": "egy kis nasi"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "a 20 min nap",
+      "fr": "sieste de|20 min",
+      "de": "20 Min.|Powernap",
+      "es": "siesta de|20 min",
+      "it": "pisolino|di 20 min",
+      "tr": "20 dk|şekerleme",
+      "pt-BR": "cochilo de|20 min",
+      "pl": "drzemka|20 min",
+      "hu": "20 perc|alvás"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "okay",
+    "fr": "ça va",
+    "de": "okay",
+    "es": "vale",
+    "it": "ok",
+    "tr": "idare eder",
+    "pt-BR": "ok",
+    "pl": "okej",
+    "hu": "oké"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "music",
+      "fr": "musique",
+      "de": "Musik",
+      "es": "música",
+      "it": "musica",
+      "tr": "müzik",
+      "pt-BR": "música",
+      "pl": "muzyka",
+      "hu": "zene"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "tidying|your desk",
+      "fr": "ranger|ton bureau",
+      "de": "Schreibtisch|aufräumen",
+      "es": "ordenar|tu mesa",
+      "it": "sistemare|la scrivania",
+      "tr": "masanı|toplamak",
+      "pt-BR": "arrumar|a mesa",
+      "pl": "ogarnięcie|biurka",
+      "hu": "asztal-|rendezés"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "a shower",
+      "fr": "une douche",
+      "de": "duschen",
+      "es": "una ducha",
+      "it": "una doccia",
+      "tr": "duş",
+      "pt-BR": "um banho",
+      "pl": "prysznic",
+      "hu": "zuhany"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "one chess|game",
+      "fr": "une partie|d’échecs",
+      "de": "eine Partie|Schach",
+      "es": "una partida|de ajedrez",
+      "it": "una partita|a scacchi",
+      "tr": "bir el|satranç",
+      "pt-BR": "uma partida|de xadrez",
+      "pl": "partia|szachów",
+      "hu": "egy sakk-|parti"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "risky",
+    "fr": "risqué",
+    "de": "riskant",
+    "es": "arriesgado",
+    "it": "rischioso",
+    "tr": "riskli",
+    "pt-BR": "arriscado",
+    "pl": "ryzykowne",
+    "hu": "kockázatos"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "a podcast",
+      "fr": "un podcast",
+      "de": "ein Podcast",
+      "es": "un pódcast",
+      "it": "un podcast",
+      "tr": "podcast",
+      "pt-BR": "um podcast",
+      "pl": "podcast",
+      "hu": "podcast"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "“one”|episode",
+      "fr": "« un seul »|épisode",
+      "de": "„nur eine“|Folge",
+      "es": "“solo un”|episodio",
+      "it": "“solo un”|episodio",
+      "tr": "“tek” bölüm",
+      "pt-BR": "“só um”|episódio",
+      "pl": "„jeden”|odcinek",
+      "hu": "„csak egy”|rész"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming",
+      "fr": "gaming",
+      "de": "Gaming",
+      "es": "gaming",
+      "it": "gaming",
+      "tr": "oyun",
+      "pt-BR": "games",
+      "pl": "gry",
+      "hu": "gaming"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "a 2h nap",
+      "fr": "sieste de 2h",
+      "de": "2 Std.|Schlaf",
+      "es": "siesta de 2h",
+      "it": "pisolino|di 2 ore",
+      "tr": "2 saat uyku",
+      "pt-BR": "cochilo de 2h",
+      "pl": "drzemka 2h",
+      "hu": "2 órás alvás"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "kills the session",
+    "fr": "tue la séance",
+    "de": "killt die Session",
+    "es": "mata la sesión",
+    "it": "uccide la sessione",
+    "tr": "dersi bitirir",
+    "pt-BR": "mata o estudo",
+    "pl": "zabija naukę",
+    "hu": "vége a tanulásnak"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube",
+      "fr": "youtube",
+      "de": "YouTube",
+      "es": "youtube",
+      "it": "youtube",
+      "tr": "youtube",
+      "pt-BR": "youtube",
+      "pl": "youtube",
+      "hu": "youtube"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "Junkfood",
+      "es": "comida basura",
+      "it": "cibo spazzatura",
+      "tr": "abur cubur",
+      "pt-BR": "junk food",
+      "pl": "fast food",
+      "hu": "szemétkaja"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "checking likes",
+      "fr": "checker|les likes",
+      "de": "Likes|checken",
+      "es": "mirar likes",
+      "it": "controllare|i like",
+      "tr": "beğenilere|bakmak",
+      "pt-BR": "ver curtidas",
+      "pl": "sprawdzanie|lajków",
+      "hu": "lájkok|nézése"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "online|shopping",
+      "fr": "shopping|en ligne",
+      "de": "Online-|Shopping",
+      "es": "compras|online",
+      "it": "shopping|online",
+      "tr": "online|alışveriş",
+      "pt-BR": "compras|online",
+      "pl": "zakupy|online",
+      "hu": "online|vásárlás"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "never again",
+   "fr": "plus jamais",
+   "de": "nie wieder",
+   "es": "nunca más",
+   "it": "mai più",
+   "tr": "asla",
+   "pt-BR": "nunca mais",
+   "pl": "nigdy więcej",
+   "hu": "soha többé"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "“just one”|reel",
+     "fr": "« juste un »|reel",
+     "de": "„nur ein“|Reel",
+     "es": "“solo un”|reel",
+     "it": "“solo un”|reel",
+     "tr": "“sadece bir”|reels",
+     "pt-BR": "“só um”|reel",
+     "pl": "„tylko jeden”|reels",
+     "hu": "„csak egy”|reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "Doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları",
+     "pt-BR": "apps de aposta",
+     "pl": "bukmacherka",
+     "hu": "fogadós appok"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój wybór|(skomentuj)",
+     "hu": "a te tipped|(kommenteld)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 15/11 (relance Sophia) : full test (type_bleo full_test), accroche jamais faite chez nous (sujet études, proche de mm-o017 qui a fait 884 vues en de). cta B : élément Sophia en dernière case du S+. 9 langues."
+}

@@ -1,0 +1,657 @@
+{
+ "id": "mm-o060",
+ "titre": "tier list of Boredom cures",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "what actually cures boredom, ranked #boredom #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "ce qui guérit vraiment l’ennui, classé #ennui #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "was wirklich gegen Langeweile hilft #langeweile #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "lo que de verdad cura el aburrimiento #aburrimiento #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "cosa cura davvero la noia, in classifica #noia #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "can sıkıntısını gerçekten geçiren şeyler #cansıkıntısı #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "o que realmente cura o tédio, ranqueado #tedio #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "co naprawdę leczy nudę, ranking #nuda #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "ami tényleg legyőzi az unalmat #unalom #mentalmaxxing #tierlist #önfejlesztés"
+ },
+ "couverture": {
+  "image": {
+   "src": "7689665265591799048/1",
+   "boite": [
+    290,
+    246,
+    402,
+    616
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list dei",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
+  },
+  "gros": {
+   "en": "Boredom",
+   "fr": "remèdes",
+   "de": "Mittel gegen",
+   "es": "curas para",
+   "it": "rimedi",
+   "tr": "can sıkıntısı",
+   "pt-BR": "curas pro",
+   "pl": "sposoby",
+   "hu": "unalom"
+  },
+  "bas": {
+   "en": "cures",
+   "fr": "à l’ennui",
+   "de": "Langeweile",
+   "es": "el aburrimiento",
+   "it": "alla noia",
+   "tr": "ilaçları",
+   "pt-BR": "tédio",
+   "pl": "na nudę",
+   "hu": "ellen"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "fr": "note mon classement",
+  "de": "bewerte mein Ranking",
+  "es": "califica mi ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla",
+  "pt-BR": "avalia meu ranking",
+  "pl": "oceń mój ranking",
+  "hu": "értékeld a rangsorom"
+ },
+ "pied": {
+  "en": "what do you do when you’re bored?",
+  "fr": "tu fais quoi quand tu t’ennuies ?",
+  "de": "was machst du, wenn dir langweilig ist?",
+  "es": "¿qué haces cuando te aburres?",
+  "it": "cosa fai quando ti annoi?",
+  "tr": "sıkılınca ne yapıyorsun?",
+  "pt-BR": "o que você faz quando tá entediado?",
+  "pl": "co robisz, gdy się nudzisz?",
+  "hu": "mit csinálsz, ha unatkozol?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "actually fixes it",
+    "fr": "ça règle tout",
+    "de": "hilft wirklich",
+    "es": "lo arregla",
+    "it": "funziona davvero",
+    "tr": "gerçekten geçirir",
+    "pt-BR": "resolve mesmo",
+    "pl": "naprawdę działa",
+    "hu": "tényleg segít"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "a walk",
+      "fr": "une marche",
+      "de": "ein Spaziergang",
+      "es": "un paseo",
+      "it": "una passeggiata",
+      "tr": "yürüyüş",
+      "pt-BR": "uma caminhada",
+      "pl": "spacer",
+      "hu": "egy séta"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "a book",
+      "fr": "un livre",
+      "de": "ein Buch",
+      "es": "un libro",
+      "it": "un libro",
+      "tr": "bir kitap",
+      "pt-BR": "um livro",
+      "pl": "książka",
+      "hu": "egy könyv"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "training",
+      "fr": "la muscu",
+      "de": "Training",
+      "es": "entrenar",
+      "it": "allenamento",
+      "tr": "antrenman",
+      "pt-BR": "treino",
+      "pl": "trening",
+      "hu": "edzés"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "great",
+    "fr": "top",
+    "de": "super",
+    "es": "genial",
+    "it": "ottimo",
+    "tr": "harika",
+    "pt-BR": "ótimo",
+    "pl": "super",
+    "hu": "szuper"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "Schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç",
+      "pt-BR": "xadrez",
+      "pl": "szachy",
+      "hu": "sakk"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "a full album",
+      "fr": "un album entier",
+      "de": "ein ganzes Album",
+      "es": "un álbum entero",
+      "it": "un album intero",
+      "tr": "tam bir albüm",
+      "pt-BR": "um álbum inteiro",
+      "pl": "cały album",
+      "hu": "egy teljes album"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "time with|a pet",
+      "fr": "temps avec|un animal",
+      "de": "Zeit mit|dem Haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|un animale",
+      "tr": "evcil hayvanla|vakit",
+      "pt-BR": "tempo com|o pet",
+      "pl": "czas|ze zwierzakiem",
+      "hu": "idő|a kisállattal"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi",
+    "pt-BR": "bom",
+    "pl": "dobre",
+    "hu": "jó"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "tidying up",
+      "fr": "ranger",
+      "de": "aufräumen",
+      "es": "ordenar",
+      "it": "riordinare",
+      "tr": "toparlanmak",
+      "pt-BR": "arrumar",
+      "pl": "sprzątanie",
+      "hu": "rendrakás"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "a shower",
+      "fr": "une douche",
+      "de": "duschen",
+      "es": "una ducha",
+      "it": "una doccia",
+      "tr": "duş",
+      "pt-BR": "um banho",
+      "pl": "prysznic",
+      "hu": "zuhany"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "silence",
+      "fr": "le silence",
+      "de": "Stille",
+      "es": "silencio",
+      "it": "silenzio",
+      "tr": "sessizlik",
+      "pt-BR": "silêncio",
+      "pl": "cisza",
+      "hu": "csend"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "Meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon",
+      "pt-BR": "meditação",
+      "pl": "medytacja",
+      "hu": "meditáció"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "meh",
+    "fr": "bof",
+    "de": "naja",
+    "es": "meh",
+    "it": "mah",
+    "tr": "eh işte",
+    "pt-BR": "mais ou menos",
+    "pl": "takie sobie",
+    "hu": "hát"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a movie",
+      "fr": "un film",
+      "de": "ein Film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "bir film",
+      "pt-BR": "um filme",
+      "pl": "film",
+      "hu": "egy film"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "snacking",
+      "fr": "grignoter",
+      "de": "snacken",
+      "es": "picotear",
+      "it": "sgranocchiare",
+      "tr": "atıştırmak",
+      "pt-BR": "beliscar",
+      "pl": "podjadanie",
+      "hu": "nassolás"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "a podcast",
+      "fr": "un podcast",
+      "de": "ein Podcast",
+      "es": "un pódcast",
+      "it": "un podcast",
+      "tr": "podcast",
+      "pt-BR": "um podcast",
+      "pl": "podcast",
+      "hu": "podcast"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping",
+      "de": "Shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş",
+      "pt-BR": "compras",
+      "pl": "zakupy",
+      "hu": "vásárlás"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "makes it worse",
+    "fr": "c’est pire",
+    "de": "macht’s schlimmer",
+    "es": "lo empeora",
+    "it": "peggiora",
+    "tr": "daha kötü",
+    "pt-BR": "piora",
+    "pl": "pogarsza",
+    "hu": "rontja"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming",
+      "fr": "gaming",
+      "de": "Gaming",
+      "es": "gaming",
+      "it": "gaming",
+      "tr": "oyun",
+      "pt-BR": "games",
+      "pl": "gry",
+      "hu": "gaming"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube",
+      "fr": "youtube",
+      "de": "YouTube",
+      "es": "youtube",
+      "it": "youtube",
+      "tr": "youtube",
+      "pt-BR": "youtube",
+      "pl": "youtube",
+      "hu": "youtube"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "Junkfood",
+      "es": "comida basura",
+      "it": "cibo spazzatura",
+      "tr": "abur cubur",
+      "pt-BR": "junk food",
+      "pl": "fast food",
+      "hu": "szemétkaja"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "likes",
+      "fr": "les likes",
+      "de": "Likes",
+      "es": "likes",
+      "it": "like",
+      "tr": "beğeniler",
+      "pt-BR": "curtidas",
+      "pl": "lajki",
+      "hu": "lájkok"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "kills your brain",
+   "fr": "tue ton cerveau",
+   "de": "killt dein Hirn",
+   "es": "mata tu cerebro",
+   "it": "uccide il cervello",
+   "tr": "beynini öldürür",
+   "pt-BR": "mata seu cérebro",
+   "pl": "zabija mózg",
+   "hu": "kinyírja az agyad"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels",
+     "es": "reels sin fin",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim",
+     "pl": "reelsy|bez końca",
+     "hu": "végtelen reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "Doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps",
+     "es": "apps de apuestas",
+     "it": "app di scommesse",
+     "tr": "bahis uygulamaları",
+     "pt-BR": "apps de aposta",
+     "pl": "bukmacherka",
+     "hu": "fogadós appok"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój wybór|(skomentuj)",
+     "hu": "a te tipped|(kommenteld)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 15/11 (relance Sophia) : full test (type_bleo full_test), accroche jamais faite chez nous, idée « boredommaxxing » du post « locked in » de @mentalapp. cta A : élément Sophia en première case du S+. 9 langues."
+}

@@ -24,7 +24,7 @@
   "titre": "original sound - クリスティーナ",
   "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
  },
- "notes": "Son post à 153 k (29/08), en 5 langues (fr, en, de, it, pt-BR). Sa couverture : ses 4 lignes noir / jaune (#f7b955, relevé sur sa couverture) et leurs tailles (110, 139, 118, 152) ; « A APPRENDRE » → « À APPRENDRE », « EN 2 MINUTE » → « EN 2 MINUTES », « scrolle » → « scroller ». Ses 5 compétences dans son ordre, d'autres vraies vidéos natives par langue (les siennes : Laetitia Valstar « Arrêtez de parler… », Dr Bastien Intartaglia, Le Monde de Jamy, Cafelista, Laurastar). Sophia en étape 4 sur 7 (cta A : « LÂCHER TIKTOK », des cours courts écrits par de vrais profs), sa slide « ABONNE-TOI » retirée.",
+ "notes": "Son post à 153 k (29/08), en 5 langues (fr, en, de, it, pt-BR). Sa couverture : ses 4 lignes noir / jaune (#f7b955, relevé sur sa couverture) et leurs tailles (110, 139, 118, 152) ; « A APPRENDRE » → « À APPRENDRE », « EN 2 MINUTE » → « EN 2 MINUTES », « scrolle » → « scroller ». Ses 5 compétences dans son ordre, d'autres vraies vidéos natives par langue (les siennes : Laetitia Valstar « Arrêtez de parler… », Dr Bastien Intartaglia, Le Monde de Jamy, Cafelista, Laurastar). Sophia en étape 4 sur 7 (cta A : « PARLER DE / TOUT », des cours courts écrits par de vrais profs), sa slide « ABONNE-TOI » retirée.",
  "slides": [
   {
    "type": "couverture",
@@ -380,10 +380,10 @@
    "app": "sophia",
    "fr": {
     "titre": [
-     "LÂCHER",
+     "PARLER DE",
      [
       {
-       "t": "TIKTOK",
+       "t": "TOUT",
        "couleur": "#e07aa6"
       }
      ]
@@ -401,10 +401,10 @@
    },
    "en": {
     "titre": [
-     "QUIT",
+     "TALK ABOUT",
      [
       {
-       "t": "TIKTOK",
+       "t": "ANYTHING",
        "couleur": "#e07aa6"
       }
      ]
@@ -422,10 +422,10 @@
    },
    "de": {
     "titre": [
-     "TIKTOK",
+     "ÜBER ALLES",
      [
       {
-       "t": "WEGLEGEN",
+       "t": "REDEN",
        "couleur": "#e07aa6"
       }
      ]
@@ -443,10 +443,10 @@
    },
    "it": {
     "titre": [
-     "MOLLARE",
+     "PARLARE",
      [
       {
-       "t": "TIKTOK",
+       "t": "DI TUTTO",
        "couleur": "#e07aa6"
       }
      ]
@@ -464,10 +464,10 @@
    },
    "pt-BR": {
     "titre": [
-     "LARGAR",
+     "FALAR DE",
      [
       {
-       "t": "O TIKTOK",
+       "t": "TUDO",
        "couleur": "#e07aa6"
       }
      ]

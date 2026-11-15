@@ -24,7 +24,7 @@
   "titre": "original sound - m - m",
   "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
  },
- "notes": "Son post à 352 k (25/08), refait en 5 langues (fr, en, de, it, pt-BR). Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes, les deux en couleur passées en brun. Ses 5 compétences dans son ordre ; fautes corrigées (« 10 compétences », « À REPÉRER », « LES CONSTELLATIONS », « INDISPENSABLES », « À DÉCOUPER »). Vidéos : une vraie vidéo native par langue, aucune des siennes (Whoogy's, Eric Flag, Passion Astronomie, SimonSW, RESAUV). Couleur des nœuds passée du vert (déjà pris par les légumes) au brun corde. Sophia en étape 4 sur 7 (cta B : « LÂCHER / TIKTOK »), sa slide « ABONNE-TOI » retirée.",
+ "notes": "Son post à 352 k (25/08), refait en 5 langues (fr, en, de, it, pt-BR). Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes, les deux en couleur passées en brun. Ses 5 compétences dans son ordre ; fautes corrigées (« 10 compétences », « À REPÉRER », « LES CONSTELLATIONS », « INDISPENSABLES », « À DÉCOUPER »). Vidéos : une vraie vidéo native par langue, aucune des siennes (Whoogy's, Eric Flag, Passion Astronomie, SimonSW, RESAUV). Couleur des nœuds passée du vert (déjà pris par les légumes) au brun corde. Sophia en étape 4 sur 7 (cta B : « SE CULTIVER / EN 5 MIN »), sa slide « ABONNE-TOI » retirée.",
  "slides": [
   {
    "type": "couverture",
@@ -465,10 +465,10 @@
    "app": "sophia",
    "fr": {
     "titre": [
-     "LÂCHER",
+     "SE CULTIVER",
      [
       {
-       "t": "TIKTOK",
+       "t": "EN 5 MIN",
        "couleur": "#e07aa6"
       }
      ]
@@ -486,10 +486,10 @@
    },
    "en": {
     "titre": [
-     "PUT DOWN",
+     "GET SMARTER",
      [
       {
-       "t": "TIKTOK",
+       "t": "IN 5 MIN",
        "couleur": "#e07aa6"
       }
      ]
@@ -507,10 +507,10 @@
    },
    "de": {
     "titre": [
-     "TIKTOK",
+     "KLÜGER WERDEN",
      [
       {
-       "t": "WEGLEGEN",
+       "t": "IN 5 MIN.",
        "couleur": "#e07aa6"
       }
      ]
@@ -528,10 +528,10 @@
    },
    "it": {
     "titre": [
-     "MOLLARE",
+     "CULTURA",
      [
       {
-       "t": "TIKTOK",
+       "t": "IN 5 MINUTI",
        "couleur": "#e07aa6"
       }
      ]
@@ -549,10 +549,10 @@
    },
    "pt-BR": {
     "titre": [
-     "LARGAR",
+     "SE CULTIVAR",
      [
       {
-       "t": "O TIKTOK",
+       "t": "EM 5 MIN",
        "couleur": "#e07aa6"
       }
      ]

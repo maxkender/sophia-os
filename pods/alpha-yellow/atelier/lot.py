@@ -37,7 +37,8 @@ BAD = ["cigarette", "smok", "pill", "supermaxing", "quote", "title", "caption", 
        "square", "border", "illustration", "painting", "drawing", "cartoon", "screenshot", "poster", "classroom",
        "student", "school", "microphone", "reporter", "crowd", "close-up", "closeup", "batman", "joker", "superhero",
        "statue", "teenager", "woman", "girl", "women", "naked", "nude", "child", "kid", "baby", "blood", "gun",
-       "weapon", "knife", "alcohol", "beer", "wine", "drunk", "lamborghini", "white car", "white sports car", "godfather"]
+       "weapon", "knife", "alcohol", "beer", "wine", "drunk", "drink", "glass", "restaurant", "collage", "church", "pew",
+       "blackboard", "red carpet", "party", "lamborghini", "white car", "white sports car", "godfather"]
 # slide Sophia : pas de personne de face
 SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimming", "underwater", "diving", "laptop",
            "desk", "book", "coffee", "flat lay", "tennis court", "lighthouse", "skyline", "mountain", "landscape"]

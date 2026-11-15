@@ -1,0 +1,24 @@
+{
+  "name": "pod-sagace",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 15 — remakes @sagace.fr pour Sophia : ses listes « 10/10 » en français (sa couverture à l'identique, la falaise en pâte à modeler et le « 10/10 » sculpté, puis une compétence par slide avec une vraie vidéo YouTube et le temps qu'il faut), Sophia en étape de la liste.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "youtube": "NODE_USE_ENV_PROXY=1 node atelier/cli-youtube.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts"
+  }
+}

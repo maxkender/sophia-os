@@ -11,20 +11,26 @@
   "en": "5 10/10 skills to learn instead of scrolling",
   "de": "5 10/10-Skills zum Lernen, statt zu scrollen",
   "it": "5 competenze 10/10 da imparare invece di scrollare",
-  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed"
+  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 5 adet 10/10 beceri",
+  "ro": "5 abilități de 10/10 de învățat în loc de scroll",
+  "cs": "5 dovedností 10/10, které se naučíš místo scrollování"
  },
  "legendes": {
   "fr": "5 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
   "en": "5 10/10 skills to learn instead of scrolling #learnontiktok #selfimprovement #skills",
   "de": "5 10/10-Skills zum Lernen, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
   "it": "5 competenze 10/10 da imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
-  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades"
+  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 5 adet 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "5 abilități de 10/10 de învățat în loc de scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "5 dovedností 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
  },
  "musique": {
   "titre": "im not alone - Žvaigždė",
   "url": "https://www.tiktok.com/music/im-not-alone-7214561277266610990"
  },
- "notes": "Son post à 202 k (02/09), en 5 langues. Sa couverture (« COMPÉTENCE » noir 110, « À APPRENDRE » orange 139, « AU LIEU » noir 118, « DE SCROLLER » orange 152, couleur relevée #f8b858), « 5 compétence » corrigé au titre, « DES TRACTION » et « A LA MAIN » corrigés. Ses 5 compétences dans son ordre, ses couleurs et ses temps, d'autres vraies vidéos natives dans chaque langue (les siennes en fr : Eric Flag, apprentissage natation, Benjamin Brochet, Potion de vie, Enjoy Couture). Sophia en étape 4 sur 7 (cta C : « LÂCHER / TIKTOK », ce que j'ouvre au lieu de scroller), sa slide « ABONNE-TOI » retirée.",
+ "notes": "Son post à 202 k (02/09), en 5 langues. Sa couverture (« COMPÉTENCE » noir 110, « À APPRENDRE » orange 139, « AU LIEU » noir 118, « DE SCROLLER » orange 152, couleur relevée #f8b858), « 5 compétence » corrigé au titre, « DES TRACTION » et « A LA MAIN » corrigés. Ses 5 compétences dans son ordre, ses couleurs et ses temps, d'autres vraies vidéos natives dans chaque langue (les siennes en fr : Eric Flag, apprentissage natation, Benjamin Brochet, Potion de vie, Enjoy Couture). Sophia en étape 4 sur 7 (cta C : « LÂCHER / TIKTOK », ce que j'ouvre au lieu de scroller), sa slide « ABONNE-TOI » retirée. tr, ro et cs ajoutés le 15/11 (vidéos natives : tr AĞIRSAĞLAM, SU'dan Sebepler, Op. Dr. Cengiz Türkmen, Safa Bozdağ, Osman Çakır ; ro tony saik, antrenorultau, Cursuri de Sanatate, Cultura Generala Video, Minione ; cs Jakub Enžl, Čejky, Zdravá & Fit, Bam bust, Petra Lammas), même cta C.",
  "slides": [
   {
    "type": "couverture",
@@ -133,6 +139,72 @@
      },
      {
       "t": "ROLAR O FEED",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 110
+     },
+     {
+      "t": "YERİNE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "ÖĞRENİLECEK",
+      "cap": 118
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 110
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "ÎN LOC",
+      "cap": 118
+     },
+     {
+      "t": "DE SCROLL",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "K NAUČENÍ",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
       "couleur": "#f8b858",
       "cap": 152
      }
@@ -255,6 +327,75 @@
     "sous": [
      "1 semana para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BARFİKS",
+       "couleur": "#ea180c"
+      }
+     ],
+     "ÇEKMEK"
+    ],
+    "video": {
+     "id": "cImbL8ALYco",
+     "titre": "0 Barfiksten 20 Barfikse Adım Adım Bunları Yap!",
+     "chaine": "AĞIRSAĞLAM",
+     "vues": "254 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kaXcJZBJtgm5bU9i5ZsZLOUngVV_AUBbKZJ53_xpI927E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 hafta"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "TRACȚIUNI",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ytUGO2S6O_M",
+     "titre": "Invata sa faci tractiuni! 3 Pasi simpli/TonySaik",
+     "chaine": "tony saik",
+     "vues": "77 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/qCCr69eq9S-shHhaxQZoGdHIrNw1b_xSxo9YMymNGnf6lmQHTGjzrDxdcUv3y81sCZs8Rng-Rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZVLÁDNOUT",
+     [
+      {
+       "t": "SHYBY",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xygw6KRzDpM",
+     "titre": "JAK UDĚLAT PRVNÍ SHYB",
+     "chaine": "Jakub Enžl",
+     "vues": "174 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "12:18",
+     "avatar": "https://yt3.ggpht.com/lecjK9HZzcugMJkDO5qlGSj8_7U9uQiFm4hTnGMUZ9AhwmsCNknKq0GjCCOHlo5WopQz_i8v8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
    }
   },
   {
@@ -373,6 +514,75 @@
     "sous": [
      "1 semana para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SERBEST STİL",
+       "couleur": "#368ac6"
+      }
+     ],
+     "YÜZMEK"
+    ],
+    "video": {
+     "id": "bPqwWscP9oc",
+     "titre": "Kulaç Nasıl Atılır | Daha Hızlı Yüzmek İsteyenler Bu Videoya!",
+     "chaine": "SU'dan Sebepler",
+     "vues": "938 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n91esfFkiG2C5pWUfFqO2U04sLNgT_EGfJt87KzyY3uCc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 hafta"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ÎNOȚI",
+       "couleur": "#368ac6"
+      }
+     ],
+     "CRAUL"
+    ],
+    "video": {
+     "id": "_ZJjxquIcIA",
+     "titre": "Invata corect procedeul de inot crawl - Antrenorul Tau Bogdan Constantinescu",
+     "chaine": "antrenorultau",
+     "vues": "75 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klJjCJd76cPk36PHbaYPPepiELLBOoOeBgABbkv1Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PLAVAT",
+       "couleur": "#368ac6"
+      }
+     ],
+     "KRAULEM"
+    ],
+    "video": {
+     "id": "jhoY8zOnQB8",
+     "titre": "5 základů kraulu | Jak plavat rychleji a efektivněji?",
+     "chaine": "Čejky",
+     "vues": "77 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/q03bYoTo2tBb7etA9LRAZlHxeRY57sUebH0KEjRlRdvQXEN_BiES0XRkS_DKEZnV-oksscQMpg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
    }
   },
   {
@@ -481,6 +691,69 @@
     },
     "sous": [
      "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "TİKTOK'U",
+       "couleur": "#e07aa6"
+      }
+     ],
+     "BIRAKMAK"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "RENUNȚĂ",
+     [
+      {
+       "t": "LA TIKTOK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SEKNOUT",
+     [
+      {
+       "t": "S TIKTOKEM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
     ]
    }
   },
@@ -600,6 +873,75 @@
     "sous": [
      "1 hora para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "AĞIR YÜK",
+       "couleur": "#124e8a"
+      }
+     ],
+     "KALDIRMAK"
+    ],
+    "video": {
+     "id": "a4GsO1gTOGI",
+     "titre": "Bel ağrısı yaşamamak için ağır yük kaldırırken nelere dikkat etmek gerekir? - Op. Dr. Cengiz Türkmen",
+     "chaine": "Op. Dr. Cengiz Türkmen",
+     "vues": "21 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/peKCBLyywUTngtbCOL9Lj2INeJj4z81Z7G1-xaeStZCO7Q4YkvJWMpK_Btdac2k503AYAaL1nwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ RIDICI",
+       "couleur": "#124e8a"
+      }
+     ],
+     "GREUTĂȚI"
+    ],
+    "video": {
+     "id": "KBIDZBmr510",
+     "titre": "Cum sa-ti protejezi spatele cand ridici greutati",
+     "chaine": "Cursuri de Sanatate",
+     "vues": "4,2 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9vG_wHz3zQTK52Gat3yPWWLvngT8JrVyRo-Hb2JF-kA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZVEDAT",
+       "couleur": "#124e8a"
+      }
+     ],
+     "TĚŽKÉ VĚCI"
+    ],
+    "video": {
+     "id": "Aj4nT1N9pG4",
+     "titre": "Šetrné zvedání věcí ze země",
+     "chaine": "Zdravá & Fit",
+     "vues": "2,5 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "2:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lBQ9_InsYM-tdxz6xK2UsR5MV0njHvOONsoIRE0qdgUUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
    }
   },
   {
@@ -718,6 +1060,75 @@
     "sous": [
      "2 horas para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MORS ALFABESİ",
+       "couleur": "#905a48"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "AYesmXJXDRw",
+     "titre": "Mors Alfabesi Nedir? Nasıl Çalışır? Mors Kodları Nelerdir?",
+     "chaine": "Safa Bozdağ - En Son Ne Dedim Ben?",
+     "vues": "98 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfov4b_Cy1k9I3-YKsh6Qr4ACTfo4fGenb31r6Tz5VNA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CODUL MORSE",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X3X_-RrpFDk",
+     "titre": "Ce este alfabetul Morse",
+     "chaine": "Cultura Generala Video",
+     "vues": "11 K vizionări",
+     "date": "acum 13 ani",
+     "duree": "5:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m7yXmp2JG3u33NUCosmCuXqLWNltelTV0qq5ot65cr9hg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "MORSEOVKU",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7z06CpR3DVg",
+     "titre": "NEJSTARŠÍ ŠIFRA, Morseova abeceda, Skauting 1.1",
+     "chaine": "Bam bust",
+     "vues": "2,1 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/dA3mBf5edjliMpG3b02SFsazCW-aMGM6ZWn-ECW1vWigGu8D237ODtryb--Z0yX5SZq0BWM2=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
    }
   },
   {
@@ -835,6 +1246,75 @@
     },
     "sous": [
      "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ELDE",
+       "couleur": "#384c40"
+      }
+     ],
+     "DİKİŞ DİKMEK"
+    ],
+    "video": {
+     "id": "fN_mrcV_heU",
+     "titre": "Elde en sağlam dikiş nasıl dikilir - osman çakır",
+     "chaine": "Osman Çakır",
+     "vues": "721 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/NEFmbD3jcvPbP5ljKNNuftXJxHzbdhs8o75vT-nKQ9rDJWdTX4Pzx7igI7550VD4cTYgrgziWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ COȘI",
+     [
+      {
+       "t": "DE MÂNĂ",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FwkPOS_ZZzE",
+     "titre": "Tiv invizibil cusut de mână",
+     "chaine": "Minione by Ivan Andreea",
+     "vues": "4,5 K vizionări",
+     "date": "acum 1 an",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/fVUwyT5onluMkwQOOhVQD2GW5ASdRONi4qVumO8N5A3GN89MklnjyR96Dq0WVLhAug8Ku6KU3ks=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ŠÍT",
+     [
+      {
+       "t": "RUČNĚ",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pw69DcC-G4E",
+     "titre": "Jak se šije zadní steh?",
+     "chaine": "Petra Lammas - Síla ženské tvořivosti",
+     "vues": "11 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/VbY6oFKj9Lw48FdJnl6qhba8UGElyMR3ooF_EQ0OY5f5i7dOfBjSnaqcbgvsvUqZfa811gk7qy8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
     ]
    }
   }

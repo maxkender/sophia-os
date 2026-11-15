@@ -11,20 +11,26 @@
   "en": "10/10 skills you can learn instead of scrolling",
   "de": "10/10 Skills, die du lernen kannst, statt zu scrollen",
   "it": "Abilità 10/10 che puoi imparare invece di scrollare",
-  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed"
+  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování"
  },
  "legendes": {
   "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
   "en": "10/10 skills you can learn instead of scrolling #learnontiktok #selfimprovement #skills",
   "de": "10/10 Skills, die du lernen kannst, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
   "it": "Abilità 10/10 che puoi imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
-  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades"
+  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
  },
  "musique": {
   "titre": "original sound - クリスティーナ",
   "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
  },
- "notes": "Son post à 153 k (29/08), en 5 langues (fr, en, de, it, pt-BR). Sa couverture : ses 4 lignes noir / jaune (#f7b955, relevé sur sa couverture) et leurs tailles (110, 139, 118, 152) ; « A APPRENDRE » → « À APPRENDRE », « EN 2 MINUTE » → « EN 2 MINUTES », « scrolle » → « scroller ». Ses 5 compétences dans son ordre, d'autres vraies vidéos natives par langue (les siennes : Laetitia Valstar « Arrêtez de parler… », Dr Bastien Intartaglia, Le Monde de Jamy, Cafelista, Laurastar). Sophia en étape 4 sur 7 (cta A : « PARLER DE / TOUT », des cours courts écrits par de vrais profs), sa slide « ABONNE-TOI » retirée.",
+ "notes": "Son post à 153 k (29/08), en 5 langues (fr, en, de, it, pt-BR). Sa couverture : ses 4 lignes noir / jaune (#f7b955, relevé sur sa couverture) et leurs tailles (110, 139, 118, 152) ; « A APPRENDRE » → « À APPRENDRE », « EN 2 MINUTE » → « EN 2 MINUTES », « scrolle » → « scroller ». Ses 5 compétences dans son ordre, d'autres vraies vidéos natives par langue (les siennes : Laetitia Valstar « Arrêtez de parler… », Dr Bastien Intartaglia, Le Monde de Jamy, Cafelista, Laurastar). Sophia en étape 4 sur 7 (cta A : « PARLER DE / TOUT », des cours courts écrits par de vrais profs), sa slide « ABONNE-TOI » retirée. tr/ro/cs (15/11 soir) : vidéos natives Baran Parlakyıldız, Aktifizyo, Asla Durma, Refika'nın Mutfağı, Sevilay ile Pratik Bilgiler (tr) ; Teodora Metiu, TopSucces, Marius Oiaga, CLARO Cafe, Tudor Personal Tailor (ro) ; Pavel Procházka, ZEK, Zvedni se!, Coffee Planet, Gentleman Store (cs).",
  "slides": [
   {
    "type": "couverture",
@@ -133,6 +139,72 @@
      },
      {
       "t": "ROLAR O FEED",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 110
+     },
+     {
+      "t": "YERİNE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ÖĞRENECEĞİN",
+      "cap": 118
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 110
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ÎN LOC SĂ",
+      "cap": 118
+     },
+     {
+      "t": "DAI SCROLL",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "K NAUČENÍ",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
       "cap": 152,
       "couleur": "#f7b955"
      }
@@ -255,6 +327,75 @@
     "sous": [
      "2-3 horas para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     "ETKİLİ",
+     [
+      {
+       "t": "KONUŞMAK",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KI8dwtic_Ds",
+     "titre": "Bana 8 dakikanı ver, %88 daha iyi konuşmaya başla.",
+     "chaine": "Baran Parlakyıldız",
+     "vues": "564 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/8mstjnu9zGxux16RpWzxNxsBlbOpr0PRnsUT7rjDIeBWrAId-RnZCB8bg21v-G5tfT_gTAbndkQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DEVII",
+     [
+      {
+       "t": "ELOCVENT",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k__YyNugykM",
+     "titre": "Exercițiul minune de corectare a vorbirii",
+     "chaine": "Teodora Metiu",
+     "vues": "110 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loOJ_R8wzbIlWrvyHoFSbVhhD6JGj7E3Y9FgmPJc-2YR4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BÝT",
+     [
+      {
+       "t": "VÝŘEČNÝ",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gzGbVnUtcvc",
+     "titre": "Jak mluvit tak, aby vám lidé naslouchali.",
+     "chaine": "Pavel Procházka",
+     "vues": "54 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "14:40",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
    }
   },
   {
@@ -373,6 +514,75 @@
     "sous": [
      "30 min para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "2 DAKİKADA",
+       "couleur": "#cf1b14"
+      }
+     ],
+     "UYKUYA DALMAK"
+    ],
+    "video": {
+     "id": "HP4caipMyqU",
+     "titre": "UYKU SORUNUNU ÇÖZÜN (2 Dakikada Uykuya Dalmak İçin Etkili Yöntemler)",
+     "chaine": "Aktifizyo",
+     "vues": "1,5 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "6:45",
+     "avatar": "https://yt3.ggpht.com/SE33lic18h30lCp81On5U_jfFR6WEmubhmGQaCV-vLGly7g6K0Eg4Smixi4fBzPNE9_skKeIQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ADORMI",
+     [
+      {
+       "t": "ÎN 2 MINUTE",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RD0Rp6ZKyWk",
+     "titre": "CUM SA ADORMI REPEDE - Tehnica de a adormi in 2 MINUTE",
+     "chaine": "TopSucces",
+     "vues": "168 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpaVq-Pj6_nGqSz3TKZtxbIFsneeggw18x0AvHKHCYEn4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "USNOUT",
+     [
+      {
+       "t": "ZA 2 MINUTY",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3Q2B-P2BedU",
+     "titre": "JAK USNOUT ZA 2 MINUTY?",
+     "chaine": "ZEK",
+     "vues": "63 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "2:41",
+     "avatar": "https://yt3.ggpht.com/E5pyh32lJUoQgZslwC5aL0aNZX_rYHTNZ0afB2bNgsJwH8glZ5BT76QGWo7VE4LauAqj43IFtQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
    }
   },
   {
@@ -481,6 +691,69 @@
     },
     "sous": [
      "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER KONUDA",
+     [
+      {
+       "t": "KONUŞABİLMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ VORBEȘTI",
+     [
+      {
+       "t": "DESPRE ORICE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MLUVIT",
+     [
+      {
+       "t": "O ČEMKOLIV",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
     ]
    }
   },
@@ -600,6 +873,75 @@
     "sous": [
      "1 hora para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     "SAKATLANMADAN",
+     [
+      {
+       "t": "KOŞMAK",
+       "couleur": "#a5877b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QPnOTNVH5cQ",
+     "titre": "Sakatlanmadan Koşmanın 10 İpucu",
+     "chaine": "Asla Durma",
+     "vues": "54 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "12:38",
+     "avatar": "https://yt3.ggpht.com/gEx1s674dnu05r3JC5weXwCKiDl5kXGbfHCBUpc5oYSSL3um3djZamLtma-FqBj7qoDnkUxs1Aw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ALERGI",
+       "couleur": "#a5877b"
+      }
+     ],
+     "FĂRĂ ACCIDENTĂRI"
+    ],
+    "video": {
+     "id": "CUqjpwbilZM",
+     "titre": "Cum sa alergi cu o forma corecta – TEHNICA DE ALERGARE (VIDEO EXPLICATIV)",
+     "chaine": "Marius Oiaga",
+     "vues": "70 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/ION0nHpA79qO9djXmDfQEwcJa5GEErKbSk3xlQ55p16htd9E_L_-EeClGkUo4jVziK8Zicy3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "BĚHAT",
+       "couleur": "#a5877b"
+      }
+     ],
+     "BEZ ZRANĚNÍ"
+    ],
+    "video": {
+     "id": "gondlpY8Vaw",
+     "titre": "Běh #1 | Technika běhání a časté chyby | Zvedni se!",
+     "chaine": "Zvedni se!",
+     "vues": "161 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kCiw3Ul9wxBMslSo0Pmgo6hWD3NoOMqOHs93G-CqDScg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
    }
   },
   {
@@ -718,6 +1060,75 @@
     "sous": [
      "15 min para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İYİ BİR KAHVE",
+       "couleur": "#f2ce27"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "pl8ZCftsSxA",
+     "titre": "Kahve Hakkında Bilmeniz Gereken Her Şey! | 8 Kahve Tarifi | Filtre, Türk, Latte, Espresso ve Fazlası",
+     "chaine": "Refika'nın Mutfağı",
+     "vues": "550 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "21:52",
+     "avatar": "https://yt3.ggpht.com/cqoZ06A5fIOfkQOrHQI5xgf7V5uQ2qtm336J9kmaHSHy554jgIUBqHTM6p5fqhHT8QhR3nkU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "O CAFEA BUNĂ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BvAt3tqKD48",
+     "titre": "Cum să faci CEA MAI BUNĂ cafea la ibric chiar la tine acasă *demonstratie* ☕️ 🏆 ⭐",
+     "chaine": "CLARO Cafe",
+     "vues": "17 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "12:08",
+     "avatar": "https://yt3.ggpht.com/gR2xof4iOs1he7IFYQZh6F_0N8lyVCATHiTyQzuZVv4M8fdgrgbZ06wKCH0igC8wVX8Z4YdNTjI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "DOBROU KÁVU",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rnsSAneNugs",
+     "titre": "Příprava kávy v moka konvičce Tognana",
+     "chaine": "Coffee Planet",
+     "vues": "74 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k0nu-sN4CrgQHWSYaw8HaKENdCoQ9JZcEsPu2Kr6z8Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
    }
   },
   {
@@ -835,6 +1246,75 @@
     },
     "sous": [
      "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÖMLEK",
+     [
+      {
+       "t": "ÜTÜLEMEK",
+       "couleur": "#bd6851"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TkyJVpcVZdc",
+     "titre": "Gömlek Nasıl Ütülenir? | Püf Noktalarıyla Evde Gömlek Ütüleme Teknikleri",
+     "chaine": "Sevilay ile Pratik Bilgiler",
+     "vues": "212 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/_qD0v_1ZOSpbaWZ4TJJRD_TKgcxmjG1fSV6AZoJyiAYmdHgMHduH7bL1Iw3Yq-bPmTQWkNvftNI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ CALCI",
+       "couleur": "#bd6851"
+      }
+     ],
+     "O CĂMAȘĂ"
+    ],
+    "video": {
+     "id": "lYJbgzIqHgk",
+     "titre": "Cum se calca corect o camasa - Tudor Tailor",
+     "chaine": "Tudor. Personal Tailor",
+     "vues": "312 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "2:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lrlXPqPQOYujY61SfKUY3iMCum6NZ5Jddo74BXQZ7KsVg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "VYŽEHLIT",
+       "couleur": "#bd6851"
+      }
+     ],
+     "KOŠILI"
+    ],
+    "video": {
+     "id": "fnp8AL9X6CA",
+     "titre": "Jak jednoduše vyžehlit košili za 5 minut | Gentleman Store 💛",
+     "chaine": "Gentleman Store",
+     "vues": "91 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "6:59",
+     "avatar": "https://yt3.ggpht.com/mVVd67U0aZ0HqnVihPuZEOwOmw97NKNYSgHPmBNpQ3IZAmOio3yW1QdKl9AOz30iPHEtWEjsYRI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
     ]
    }
   }

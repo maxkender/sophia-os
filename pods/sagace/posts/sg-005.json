@@ -11,14 +11,20 @@
   "en": "10 skills that are useless but make you 10x cooler",
   "de": "10 Fähigkeiten: nutzlos, aber sie machen dich 10x cooler",
   "it": "10 abilità inutili ma che ti rendono 10x più cool",
-  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal"
+  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal",
+  "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri",
+  "ro": "10 abilități inutile, dar care te fac de 10x mai cool",
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool"
  },
  "legendes": {
   "fr": "10 compétences inutiles mais qui te rendent 10x plus cool #apprendresurtiktok #learnontiktok #developpementpersonnel",
   "en": "10 skills that are useless but make you 10x cooler #learnontiktok #selfimprovement #skills",
   "de": "10 Fähigkeiten: nutzlos, aber sie machen dich 10x cooler #lernenmittiktok #persönlichkeitsentwicklung #skills",
   "it": "10 abilità inutili ma che ti rendono 10x più cool #imparacontiktok #crescitapersonale #skills",
-  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal #aprendanotiktok #desenvolvimentopessoal #habilidades"
+  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "İşe yaramayan ama seni 10 kat daha havalı yapan 10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "10 abilități inutile, dar care te fac de 10x mai cool #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "10 zbytečných dovedností, díky kterým budeš 10x víc cool #učímesenatiktoku #osobnírozvoj #dovednosti"
  },
  "musique": {
   "titre": "original sound - Jacob . P",
@@ -133,6 +139,72 @@
      },
      {
       "t": "10x MAIS LEGAL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "İŞE YARAMAYAN",
+      "cap": 111
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "AMA SENİ 10X DAHA",
+      "cap": 93
+     },
+     {
+      "t": "HAVALI YAPAR",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 111
+     },
+     {
+      "t": "INUTILE",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "DAR CARE TE FAC",
+      "cap": 93
+     },
+     {
+      "t": "DE 10X MAI COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 111
+     },
+     {
+      "t": "ZBYTEČNÉ",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ALE DÍKY NIM BUDEŠ",
+      "cap": 93
+     },
+     {
+      "t": "10X VÍC COOL",
       "couleur": "brun",
       "cap": 146
      }
@@ -260,6 +332,78 @@
     "sous": [
      "30 min para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     "PARMAKLARINDA",
+     [
+      {
+       "t": "BOZUK PARA",
+       "couleur": "#a86c58"
+      }
+     ],
+     "GEZDİRMEK"
+    ],
+    "video": {
+     "id": "ybaKpsdlp3k",
+     "titre": "ARKADAŞLARINI ŞAŞIRT !!/Parmakta para gezdirme nasıl yapılır ? (Batuhan Yılmaz)",
+     "chaine": "Batuhan Yılmaz",
+     "vues": "98 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "3:08",
+     "avatar": "https://yt3.ggpht.com/9UShcnRNBnvykgR69mWC1ZMQChf_os_bhUFKtMe6mHX7T2R2yw2Yqg_gUwVvvaS2YTPY8T4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk'da öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ROSTOGOLEȘTE",
+     [
+      {
+       "t": "O MONEDĂ",
+       "couleur": "#a86c58"
+      }
+     ],
+     "PE DEGETE"
+    ],
+    "video": {
+     "id": "eWSXKkYSzJM",
+     "titre": "Cum Să Învârți O MONEDĂ Pe Degete / Tutorial",
+     "chaine": "Magicianul Alex Niculae",
+     "vues": "999 vizionări",
+     "date": "acum 4 ani",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/9RBE12rj2RNBKWXkZx_9IGTvpYN6XnlhDgIHTD8SZQRaI2eDyUz0zcJmT0qU7kQfNCIWzyK1Ug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     [
+      {
+       "t": "VÁLET MINCI",
+       "couleur": "#a86c58"
+      }
+     ],
+     "MEZI PRSTY"
+    ],
+    "video": {
+     "id": "jZzPZ24ox_s",
+     "titre": "Valení mince mezi prsty //NÁVOD// Efektní manipulace s padesáti korunou",
+     "chaine": "Dejf & Petr",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "3:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFlR7Vo7nFWJS5ZXk0bebklhTufrgjCrb0VmHTJZZTsJE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
    }
   },
   {
@@ -383,6 +527,78 @@
     "sous": [
      "1-2 horas para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     "KART",
+     [
+      {
+       "t": "FIRLATMAYI",
+       "couleur": "#d07a78"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "aj335Ub4DG0",
+     "titre": "EN ETKİLİ KART FIRLATMA HAREKETİ NASIL YAPILIR ?",
+     "chaine": "Magic Osman",
+     "vues": "211 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "5:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRv1TPqixf378bT1v8eYYQs2zoJW_HOJUFv-pMbeqNIOw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ SĂ",
+     [
+      {
+       "t": "ARUNCI",
+       "couleur": "#d07a78"
+      }
+     ],
+     "O CARTE DE JOC"
+    ],
+    "video": {
+     "id": "gCv_qR5rVps",
+     "titre": "CUM să ARUNCI CĂRȚI DE JOC foarte RAPID?",
+     "chaine": "Sebastian Stefan",
+     "vues": "78 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/vYN-t3HadzGLyOObRYo17VlhQB0OWJfuea47nL55PSFtGosR4U5HxiuSau4sjOsQC1fAlEDdmA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     [
+      {
+       "t": "HÁZET",
+       "couleur": "#d07a78"
+      }
+     ],
+     "KARTAMI"
+    ],
+    "video": {
+     "id": "EVfuRKHsoto",
+     "titre": "TUTORIAL- Jak házet karty",
+     "chaine": "Bárny",
+     "vues": "47 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k8vIj-12fthRpbpfiN876-FmuXzVAX_FrTz9ihn5uZfmA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 hodiny na naučení"
+    ]
    }
   },
   {
@@ -491,6 +707,69 @@
     },
     "sous": [
      "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İLGİNÇ",
+     [
+      {
+       "t": "BİLGİLER ÖĞREN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "AFLĂ",
+     [
+      {
+       "t": "CURIOZITĂȚI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZNÁT",
+     [
+      {
+       "t": "ZAJÍMAVOSTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
     ]
    }
   },
@@ -675,6 +954,114 @@
      165,
      100
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KARTLARLA",
+       "couleur": "#2a1470"
+      }
+     ],
+     "HAVALI BİR",
+     [
+      {
+       "t": "ŞELALE",
+       "couleur": "#2a1470"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "RipembHF1Gw",
+     "titre": "Kartları elden ele havalı bir şekilde atma hareketi - Nasıl yapılır ? (Batuhan Yılmaz)",
+     "chaine": "Batuhan Yılmaz",
+     "vues": "41 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/9UShcnRNBnvykgR69mWC1ZMQChf_os_bhUFKtMe6mHX7T2R2yw2Yqg_gUwVvvaS2YTPY8T4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk'da öğrenilir"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "ÎNVAȚĂ",
+       "couleur": "#2a1470"
+      }
+     ],
+     "SĂ FACI O",
+     [
+      {
+       "t": "CASCADĂ",
+       "couleur": "#2a1470"
+      }
+     ],
+     "CU CĂRȚI DE JOC"
+    ],
+    "video": {
+     "id": "rOm_Qbm6X8M",
+     "titre": "Cum să faci o cascadă cu carți de joc?",
+     "chaine": "Claudiu Munteanu",
+     "vues": "13 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "5:40",
+     "avatar": "https://yt3.ggpht.com/PM726y4ETgvASUPvOjMu7lcVYq8pdfSlTuVSQ98639qQKqBasqMGTx9F7h0-s3ac8qkouMWY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "NAUČ SE",
+       "couleur": "#2a1470"
+      }
+     ],
+     "UDĚLAT",
+     [
+      {
+       "t": "VODOPÁD",
+       "couleur": "#2a1470"
+      }
+     ],
+     "Z KARET"
+    ],
+    "video": {
+     "id": "NWYVZaVqoMc",
+     "titre": "Card Spring | Návod na kartový vodopád",
+     "chaine": "Magic Miracles",
+     "vues": "115 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "8:26",
+     "avatar": "https://yt3.ggpht.com/fn3cFPxHgtVu1j8ei8P_UdDxGs970uX3zCwoKeTq_8aEeMQyaer4V9bvD7ZYtfqoECUuQJrw1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ],
+    "tailles": [
+     130,
+     100,
+     165,
+     100
+    ]
    }
   },
   {
@@ -798,6 +1185,77 @@
     "sous": [
      "1 hora para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     "KALEMLE YAPILAN",
+     [
+      {
+       "t": "5 NUMARA",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rQAObld0lYQ",
+     "titre": "Kalem nasıl çevrilir? (Pen spinning)",
+     "chaine": "Rhasus",
+     "vues": "401 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:51",
+     "avatar": "https://yt3.ggpht.com/quBlE8Bc2TZdXp6KPadgIJLSuT5La1CLwUTl83AZ5TWYZfqSNcBPXXn_lyoyewyjHdh3vGw_Jg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     "5 TRUCURI CU",
+     [
+      {
+       "t": "UN PIX",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7LnIN39tHyM",
+     "titre": "Invat Flipp-uri cu pixul de la zero",
+     "chaine": "Eu sunt un om",
+     "vues": "5 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "4:09",
+     "avatar": "https://yt3.ggpht.com/4eoWThiu47iixmFkyvaezInCHb8agBrr_LiyhvDHGTuhfSFvnq6-rEKkNuoZBqNap7kj4ZEE8AQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     "5 TRIKŮ S",
+     [
+      {
+       "t": "PROPISKOU",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kwVTnICScEA",
+     "titre": "Penspinning CZ - Thumb Around | Los Carlos/CHIARRA",
+     "chaine": "CHIARRA",
+     "vues": "30 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyik-ipTugnF-oA1qOay55VxUfBPQOb7PEBOxnesq1W95w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
    }
   },
   {
@@ -920,6 +1378,78 @@
     },
     "sous": [
      "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KAĞITLA",
+     [
+      {
+       "t": "ŞİŞE",
+       "couleur": "#7a7062"
+      }
+     ],
+     "AÇMAK"
+    ],
+    "video": {
+     "id": "bpKwa_4sIxM",
+     "titre": "Kağıt İle Şişe Açma",
+     "chaine": "İlginç Şeyler Türkiye",
+     "vues": "2,9 B görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "1:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxFdjKGN4jDg-_u9MB5tTr-JXiNy6G28ixnVgsvKxc0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk'da öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "DESFĂ",
+     [
+      {
+       "t": "O STICLĂ",
+       "couleur": "#7a7062"
+      }
+     ],
+     "CU O FOAIE DE HÂRTIE"
+    ],
+    "video": {
+     "id": "eFop64GJJlY",
+     "titre": "Cum desfaci o sticlă de bere cu o foaie de hârtie",
+     "chaine": "Vlad Petreanu",
+     "vues": "68 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "2:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_njCGfqF0xSnkQwOTgOMt1kz7eLbVW3CjodQhWFRY7b5U1U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OTEVŘI",
+     [
+      {
+       "t": "LÁHEV",
+       "couleur": "#7a7062"
+      }
+     ],
+     "LISTEM PAPÍRU"
+    ],
+    "video": {
+     "id": "1YePHIitrdE",
+     "titre": "Jak otevřít pivo papírem | Martin Freedom",
+     "chaine": "Martin Freedom",
+     "vues": "799 zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "2:12",
+     "avatar": "https://yt3.ggpht.com/6kOg_pDqf1bXFQK1bBE_ewqtX6Ae9e4LuPiRSjM_Lg1wQeZbt4c7QumSE1EnfTiR9OzPbU0G=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
     ]
    }
   }

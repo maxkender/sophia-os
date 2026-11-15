@@ -30,12 +30,12 @@
    "images": {
     "I1": {
      "remplacer": {
-      "source": "sources/7705377890921205025_1.jpg",
+      "source": "sources/7692093201968090401_1.jpg",
       "boite": [
-       90,
-       389,
-       806,
-       632
+       99,
+       384,
+       696,
+       514
       ]
      }
     }
@@ -147,7 +147,7 @@
       "whatever"
      ],
      "fr": "piano, guitare, batterie, peu importe",
-     "texte": "3 chords, a card trick, juggling"
+     "texte": "a violin scale, a card trick"
     },
     "T4": {
      "en": [
@@ -177,7 +177,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702412215902571809_6.jpg",
+      "boite": [
+       507,
+       467,
+       522,
+       377
+      ]
+     }
+    }
    }
   },
   "5": {
@@ -196,7 +206,7 @@
       "all day"
      ],
      "fr": "le scroll laisse ton cerveau [[en surchauffe]] H24",
-     "texte": "yoga, pottery, salsa, anything you've [[never done]]"
+     "texte": "climbing, pottery, salsa, anything you've [[never done]]"
     },
     "T3": {
      "en": [
@@ -215,7 +225,7 @@
       "you come out calmer than scrolling ever made you!!"
      ],
      "fr": "t'en ressors [[plus zen]] que n'importe quel scroll !!",
-     "texte": "you come out laughing at [[your own downward dog]]!!"
+     "texte": "you come out laughing at [[how bad you both were]]!!"
     },
     "T5": {
      "en": [
@@ -227,7 +237,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701398929807641888_5.jpg",
+      "boite": [
+       503,
+       404,
+       499,
+       552
+      ]
+     }
+    }
    }
   },
   "6": {
@@ -276,7 +296,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7680975889932225814_4.jpg",
+      "boite": [
+       180,
+       575,
+       270,
+       215
+      ]
+     }
+    }
    }
   }
  }

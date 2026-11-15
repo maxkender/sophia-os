@@ -3318,6 +3318,221 @@
    },
    "notes": "full test BLEO (long trajet en train); cta A",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-080",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#morningroutine #reading #booktok",
+   "musique": {
+    "titre": "The beginning by Flawed Mangoes slowed",
+    "auteur": "⠀",
+    "original": true,
+    "id": "7318739514535889697",
+    "url_tiktok": "https://www.tiktok.com/music/x-7318739514535889697"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696836327026724128_1",
+    "2": "7688807102764092705_4",
+    "3": "7688807102764092705_3",
+    "4": "7692093201968090401_4",
+    "5": "7707007603754290464_6",
+    "6": "7707007603754290464_2"
+   },
+   "notes": "full test BLEO (lecteur du matin); cta B",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-081",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#digitalminimalism #phonefree #screentime",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7436056740669557536",
+    "url_tiktok": "https://www.tiktok.com/music/x-7436056740669557536"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7689509565536177441_1",
+    "2": "7697728269335924001_3",
+    "3": "7689509565536177441_3",
+    "4": "7683541501007252758_5",
+    "5": "7703525134610566433_5",
+    "6": "7689509565536177441_2"
+   },
+   "notes": "full test BLEO (rendre son tel chiant); cta C",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-neuro-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7705738841709088033?variante=var-neuro-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#neuroplasticity #brainhealth #habits",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "big sound selecta",
+    "original": true,
+    "id": "7239212554831104814",
+    "url_tiktok": "https://www.tiktok.com/music/x-7239212554831104814"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7705738841709088033_1",
+    "2": "7699118764788321558_5",
+    "3": "7681048823824649494_2",
+    "4": "7681048823824649494_6",
+    "5": "7697728269335924001_4",
+    "6": "7699118764788321558_6"
+   },
+   "notes": "déclinaison G1 de 7705738841709088033; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "fe114923-0fc3-4b97-b6ee-c400dea15e75"
+  },
+  {
+   "post_id": "var-instead-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7705377890921205025?variante=var-instead-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 7,
+   "legende": "#doomscrolling #selfimprovement #habits",
+   "musique": {
+    "titre": "fred again lights burn dimmer",
+    "auteur": "Fred Again Archive1",
+    "original": true,
+    "id": "7594953962046901014",
+    "url_tiktok": "https://www.tiktok.com/music/x-7594953962046901014"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7705377890921205025_1",
+    "2": "7699386616988650774_5",
+    "3": "7683541501007252758_6",
+    "4": "7691007701127564576_2",
+    "5": "7696527080426655009_4",
+    "6": "7699386616988650774_2",
+    "7": "7691007701127564576_5"
+   },
+   "notes": "déclinaison G1 de 7705377890921205025; cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "df399c18-c71e-4326-85d0-7abdf6d80ce7"
+  },
+  {
+   "post_id": "var-grands-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#grandparents #slowliving #oldschool",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7436056740669557536",
+    "url_tiktok": "https://www.tiktok.com/music/x-7436056740669557536"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7689509565536177441_1",
+    "2": "7685340052989398275_6",
+    "3": "7691336990419209505_4",
+    "4": "7685340052989398275_3",
+    "5": "7694778035337235744_5",
+    "6": "7700620281760533792_3"
+   },
+   "notes": "déclinaison G1 de original-056; cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "cdf4d237-18fd-43a3-9596-d43b69b9d32f"
+  },
+  {
+   "post_id": "var-discipline-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7699386616988650774?variante=var-discipline-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#discipline #selfimprovement #habits",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699386616988650774_1",
+    "2": "7685736268617059616_3",
+    "3": "7695416366886604064_2",
+    "4": "7700916867665284385_4",
+    "5": "7689509565536177441_4",
+    "6": "7685736268617059616_2"
+   },
+   "notes": "déclinaison G1 de 7699386616988650774; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "98e8b826-1431-4344-aab5-07507de27300"
+  },
+  {
+   "post_id": "var-dates-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#dateideas #phonefree #couplegoals",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696527080426655009_1",
+    "2": "7699939278847085857_2",
+    "3": "7699939278847085857_5",
+    "4": "7705377890921205025_3",
+    "5": "7705377890921205025_6",
+    "6": "7705377890921205025_2"
+   },
+   "notes": "déclinaison G1 de original-069; cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "caac04b9-1087-4913-bb74-17a5197667b6"
+  },
+  {
+   "post_id": "var-genius-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7705091474748181792?variante=var-genius-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#genius #habits #learning",
+   "musique": {
+    "titre": "original sound - ridgeclub",
+    "auteur": "ridgeclub",
+    "original": false,
+    "id": "7584564476481948428",
+    "url_tiktok": "https://www.tiktok.com/music/x-7584564476481948428"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7705091474748181792_1",
+    "2": "7691336990419209505_3",
+    "3": "7699523873712164128_4",
+    "4": "7699523873712164128_6",
+    "5": "7699523873712164128_3",
+    "6": "7704751322830064929_3"
+   },
+   "notes": "déclinaison G1 de 7705091474748181792; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "320b8851-d5b9-4aa4-b64e-3f50c6009950"
   }
  ]
 }

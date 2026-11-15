@@ -158,11 +158,11 @@
      {
       "t": "ÖNCE",
       "couleur": "brun",
-      "cap": 283
+      "cap": 245
      },
      {
       "t": "ÖĞREN",
-      "cap": 169
+      "cap": 150
      }
     ]
    },
@@ -362,13 +362,13 @@
      "BANILOR"
     ],
     "video": {
-     "id": "4rmEgznFopc",
-     "titre": "MANUAL DE  ECONOMISIRE A  BANILOR  ÎN ȚARA ÎN CARE CHELTUIM TOT. | Fain & Simplu Podcast 129",
-     "chaine": "Fain & Simplu cu Mihai Morar",
-     "vues": "176 K vizionări",
-     "date": "acum 3 ani",
-     "duree": "1:46:03",
-     "avatar": "https://yt3.ggpht.com/l59Bd2jXtsL95Tv_zMnNIb0f8WKJ_vGCP-SxCE97RT3i0C53b5BVtB42DTd4xaUB6d1mwoNYYQ=s176-c-k-c0x00ffffff-no-rj"
+     "id": "u8mg9asYE4g",
+     "titre": "Educație financiară cu Ana și Radu - Episodul 3 – Venituri și cheltuieli",
+     "chaine": "Banca Națională a României",
+     "vues": "23 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ETxhIPLzlbdLWry9WC0jeCTfM7jUL8xlX4ZWOEXG5wU9Ih_6Crgi4nxGghQ8j2ia4tedasSJkw=s176-c-k-c0x00ffffff-no-rj"
     },
     "sous": [
      "1 oră de învățat"
@@ -540,13 +540,13 @@
    },
    "ro": {
     "titre": [
+     "ÎNVAȚĂ",
      [
       {
-       "t": "ÎNVAȚĂ",
+       "t": "SĂ ÎNVEȚI",
        "couleur": "#66696f"
       }
-     ],
-     "SĂ ÎNVEȚI"
+     ]
     ],
     "video": {
      "id": "JaeKKwFYVt0",

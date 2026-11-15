@@ -11,13 +11,19 @@
   "en": "Iceberg of introvert hobbies",
   "de": "Der Eisberg der Introvertierten-Hobbys",
   "it": "Iceberg degli hobby da introversi",
-  "pt-BR": "Iceberg de hobbies de introvertido"
+  "pt-BR": "Iceberg de hobbies de introvertido",
+  "tr": "İçe dönüklerin hobi buzdağı",
+  "sv": "Isberget av introverta hobbyer",
+  "nl": "IJsberg van introverte hobby's"
  },
  "legendes": {
   "en": "#iceberg #hobbies #introvert #lockedin #selfimprovement",
   "de": "#eisberg #hobbys #introvertiert #selbstverbesserung",
   "it": "#iceberg #hobby #introversi #crescitapersonale",
-  "pt-BR": "#iceberg #hobbies #introvertido #autoconhecimento"
+  "pt-BR": "#iceberg #hobbies #introvertido #autoconhecimento",
+  "tr": "#buzdağı #hobi #içedönük #kişiselgelişim",
+  "sv": "#isberg #hobbyer #introvert #självutveckling",
+  "nl": "#ijsberg #hobbys #introvert #zelfontwikkeling"
  },
  "musique": {
   "titre": "оригинальный звук - исма америкоша",
@@ -42,6 +48,18 @@
    "pt-BR": {
     "haut": "Iceberg de",
     "bas": "hobbies de introvertido"
+   },
+   "tr": {
+    "haut": "İçe dönüklerin",
+    "bas": "hobi buzdağı"
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "introverta hobbyer"
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "introverte hobby's"
    }
   },
   {
@@ -362,6 +380,243 @@
      ]
     ],
     "question": "discorda?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "kitap okumak",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "günlük tutmak",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "yapboz",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "çay ritüelleri",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "kuş gözlemi",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "analog fotoğraf",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "kaligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "latince öğrenmek",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "kilit açmak",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "coğrafya bilgisi",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "şiir ezberlemek",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "dil icat etmek",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "läsa böcker",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "skriva dagbok",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "pussel",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "te-ritualer",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "skåda fåglar",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "analog fotografi",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "kalligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "lära sig latin",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "dyrka lås",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "geografiquiz",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "dikter utantill",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "uppfinna ett språk",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "boeken lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "dagboek schrijven",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "puzzelen",
+       "image": "images/objets/puzzle.png"
+      },
+      {
+       "t": "theerituelen",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "vogels kijken",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "analoge fotografie",
+       "image": "images/objets/appareil-argentique.png"
+      }
+     ],
+     [
+      {
+       "t": "sterrenkunde",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "sloten openen",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "topografie-quiz",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "gedichten uit je hoofd",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "een taal verzinnen",
+       "image": "images/objets/plume.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
    }
   }
  ]

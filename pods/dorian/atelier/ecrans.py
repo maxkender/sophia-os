@@ -44,6 +44,15 @@ T={
  'pt-BR':dict(foryou='Para você',following='Seguindo',science='Ciência',titre='Por que sonhamos?',sous='Você passa uns seis anos da vida sonhando. E esquece quase tudo.',team='Equipe Sophia',
    cat='CIÊNCIA · PERGUNTA 6 DE 8',q=['Qual elemento, acumulado no','núcleo de uma estrela massiva,','anuncia o seu colapso?'],opts=['Carbono','Hidrogênio','Hélio','Ferro'],
    fini='Curso concluído!',sci='Ciência',xp='· 62 para o LVL 5',earned='+10 XP ganhos',like='Curtir curso',follow='Seguir Muhamm...'),
+'tr':dict(foryou='Senin için',following='Takip',science='Bilim',titre='Neden rüya görürüz?',sous='Ömrünün yaklaşık altı yılı rüyada geçer. Ve neredeyse hepsini unutursun.',team='Sophia ekibi',
+   cat='BİLİM · SORU 6 / 8',q=['Büyük kütleli bir yıldızın','çekirdeğinde biriken hangi element','çöküşünü haber verir?'],opts=['Karbon','Hidrojen','Helyum','Demir'],
+   fini='Kurs tamamlandı!',sci='Bilim',xp='· LVL 5 için 62',earned='+10 XP kazanıldı',like='Kursu beğen',follow='Muhamm... takip et'),
+ 'sv':dict(foryou='För dig',following='Följer',science='Vetenskap',titre='Varför drömmer vi?',sous='Du drömmer bort ungefär sex år av ditt liv. Och glömmer nästan allt.',team='Sophia-teamet',
+   cat='VETENSKAP · FRÅGA 6 AV 8',q=['Vilket grundämne, som byggs upp','i kärnan av en massiv stjärna,','varslar om dess kollaps?'],opts=['Kol','Väte','Helium','Järn'],
+   fini='Kursen klar!',sci='Vetenskap',xp='· 62 till LVL 5',earned='+10 XP intjänat',like='Gilla kursen',follow='Följ Muhamm...'),
+ 'nl':dict(foryou='Voor jou',following='Volgend',science='Wetenschap',titre='Waarom dromen we?',sous='Je droomt ongeveer zes jaar van je leven. En je vergeet bijna alles.',team='Het Sophia-team',
+   cat='WETENSCHAP · VRAAG 6 VAN 8',q=['Welk element, opgehoopt in','de kern van een zware ster,','kondigt zijn ineenstorting aan?'],opts=['Koolstof','Waterstof','Helium','IJzer'],
+   fini='Cursus voltooid!',sci='Wetenschap',xp='· 62 tot LVL 5',earned='+10 XP verdiend',like='Vind ik leuk',follow='Volg Muhamm...'),
 }
 EN=T['en']
 def accueil(l):

@@ -11,14 +11,13 @@ import { type Jalon, lireSeriesPods, serieDuPod } from "./api";
 
 const JALONS: { cle: Jalon; libelle: string }[] = [
   { cle: "moy_j1", libelle: "J+1" },
-  { cle: "moy_j2", libelle: "J+2" },
   { cle: "moy_j3", libelle: "J+3" },
   { cle: "moy_j7", libelle: "J+7" },
 ];
 
 /**
  * Vues par jour, par podz (0727) : pour voir quand un podz s'épuise ou tient.
- * Barres : vues moyennes à J+1, J+2, J+3 ou J+7 (au choix) des posts publiés ce jour-là (comparables d'un
+ * Barres : vues moyennes à J+1, J+3 ou J+7 (au choix) des posts publiés ce jour-là (comparables d'un
  * jour à l'autre) ; trait : la même moyenne pour tous les podz.
  */
 export function CarteSeriesPods({ pods }: { pods: { slug: string; nom: string }[] }) {

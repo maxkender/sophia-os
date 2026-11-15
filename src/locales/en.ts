@@ -7110,7 +7110,7 @@ export const en = {
       title: "Pods",
       series: {
         titre: "Views per day, per pod",
-        description: "Average views of the posts published each day, at the same age for every day (D+1, D+2, D+3 or D+7: comparable from one day to the next; D+2 recorded since 16/11). The line: the same average for all pods. A bar falling day after day below the line: the pod is wearing out.",
+        description: "Average views of the posts published each day, at the same age for every day (D+1, D+3 or D+7: comparable from one day to the next). The line: the same average for all pods. A bar falling day after day below the line: the pod is wearing out.",
         choisir: "Pod",
         serie: "Average views at {{age}}",
         age: "Age",

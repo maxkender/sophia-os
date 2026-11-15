@@ -7120,7 +7120,7 @@ export const fr = {
       title: "Pods",
       series: {
         titre: "Vues par jour, par podz",
-        description: "Vues moyennes des posts publiés chaque jour, au même âge pour tous les jours (J+1, J+2, J+3 ou J+7 : comparables d'un jour à l'autre ; J+2 relevé depuis le 16/11). Le trait : la même moyenne pour tous les podz. Une barre qui baisse jour après jour sous le trait : le podz s'épuise.",
+        description: "Vues moyennes des posts publiés chaque jour, au même âge pour tous les jours (J+1, J+3 ou J+7 : comparables d'un jour à l'autre). Le trait : la même moyenne pour tous les podz. Une barre qui baisse jour après jour sous le trait : le podz s'épuise.",
         choisir: "Podz",
         serie: "Vues moyennes à {{age}}",
         age: "Âge",

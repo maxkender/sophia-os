@@ -1,0 +1,316 @@
+{
+ "post_id": "var-instead-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 things to do instead of",
+      "doomscrolling"
+     ],
+     "fr": "6 trucs à faire au lieu de doomscroller",
+     "texte": "6 dolog, amit doomscroll helyett csinálj"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(a tudomány is egyetért)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699386616988650774_1.jpg",
+      "boite": [
+       114,
+       364,
+       694,
+       546
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "all or nothing thinking"
+     ],
+     "fr": "la mentalité [[tout ou rien]]",
+     "texte": "este feküdj le [[korábban]]"
+    },
+    "T2": {
+     "en": [
+      "you miss one workout or eat one bad meal, and",
+      "decide the whole week is ruined"
+     ],
+     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
+     "texte": "az éjféli görgetés nem pihenés, az agyad [[bekapcsolva marad a sötétben]]"
+    },
+    "T3": {
+     "en": [
+      "so you quit completely",
+      "instead of just getting",
+      "back on track the next",
+      "day"
+     ],
+     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
+     "texte": "telefon a szoba másik végében, villany le, [[nincs „még egy videó”]]"
+    },
+    "T4": {
+     "en": [
+      "it's consistency that",
+      "matters, being",
+      "consistently good is",
+      "better than being",
+      "occasionally great"
+     ],
+     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
+     "texte": "reggel tisztább fejjel ébredsz, és végre [[nem eleve lemerülve]] kezded az egész napot"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "fr": "désactive toutes tes notifs sur ton tel",
+     "texte": "tervezd meg a hetedet [[vasárnap este]]"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "fr": "j'ai pas de notifs pour le moindre truc dans chaque appli,",
+     "texte": "20 perc egy kávéval és a naptáraddal, ahelyett hogy [[hétfőig görgetnél]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "fr": "t'as pas besoin de répondre direct, c'est ok",
+     "texte": "úgy kezded a hetet, hogy [[tudod, mi a dolgod]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "[[mozogj egy kicsit]] otthon"
+    },
+    "T2": {
+     "en": [
+      "your cortisol is at it's peak in the morning, and how",
+      "you begin your day sets the mood for the rest of it"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], et comment tu démarres ta journée [[conditionne tout le reste]]",
+     "texte": "nem kell edzőterem, eszköz vagy terv: pár fekvőtámasz, guggolás és plank a szobád padlóján [[elég]]"
+    },
+    "T3": {
+     "en": [
+      "working out helps",
+      "you practice delayed",
+      "gratification, in a",
+      "world that runs on",
+      "short-form content"
+     ],
+     "fr": "le sport t'apprend [[à attendre ta récompense]], à l'époque des [[vidéos de 10 secondes]]",
+     "texte": "a görgetési kényszer sokszor csak nyugtalanság, és [[a mozgás levezeti]], gyorsabban bármilyen videónál"
+    },
+    "T4": {
+     "en": [
+      "discipline gets easier when discomfort becomes part",
+      "of the routine"
+     ],
+     "fr": "la discipline vient toute seule quand [[l'inconfort]] devient [[la routine]]",
+     "texte": "10 perc, és [[felébredsz]], nem úgy, mint egy óra reels után"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books that expand your mind"
+     ],
+     "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
+     "texte": "tanulj [[minden nap valami újat]]"
+    },
+    "T2": {
+     "en": [
+      "read psychology, philosophy, history, and classic literature"
+     ],
+     "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
+     "texte": "művészet, történelem, [[bármi új]]"
+    },
+    "T3": {
+     "en": [
+      "the more you understand",
+      "about people, human",
+      "nature, and the world"
+     ],
+     "fr": "plus tu comprends les gens, la nature humaine et le monde",
+     "texte": "a görgetés száz dolgot zúdít rád, és [[egyik sem marad meg]]"
+    },
+    "T4": {
+     "en": [
+      "the more you have to",
+      "contribute to a conversation"
+     ],
+     "fr": "plus t'as de quoi [[nourrir une conversation]]",
+     "texte": "napi egy igazi dolog viszont [[tényleg megmarad]]"
+    },
+    "T5": {
+     "en": [
+      "i used to struggle with",
+      "stopping scrolling until i found",
+      "this thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
+     "texte": "régen csak görgettem, most ha már úgyis a telefonomon vagyok, [[veszek egy 5 perces leckét a Sophia appban]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "írj esténként [[egy oldalt]] a naplódba"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "kézzel, tollal: hogy telt a napod, mi idegesített, [[mit akarsz igazán]]"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "a görgetés folyton [[mások gondolataival]] tölti meg a fejed"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "a napló az egyetlen hely, ahol [[a saját hangodat hallod]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "train a martial art"
+     ],
+     "fr": "fais un sport de combat",
+     "texte": "kezdj [[küzdősportba]]"
+    },
+    "T2": {
+     "en": [
+      "you get corrected constantly, exposed when your",
+      "technique is bad, and forced to keep going when",
+      "you're tired"
+     ],
+     "fr": "on te [[corrige sans arrêt]], on voit direct quand ta technique est nulle, et tu dois continuer [[même crevée]]",
+     "texte": "heti egy este egy igazi teremben, igazi emberekkel, ahol [[senki nem görget]], és [[végig jelen kell lenned]]"
+    },
+    "T3": {
+     "en": [
+      "martial arts teaches",
+      "you to stay calm under",
+      "pressure"
+     ],
+     "fr": "ça t'apprend à [[rester calme sous pression]]",
+     "texte": "a telefonod [[egy teljes órára]] a szekrényben marad"
+    },
+    "T4": {
+     "en": [
+      "instead of quitting the",
+      "second something gets",
+      "uncomfortable"
+     ],
+     "fr": "au lieu de tout lâcher dès que ça devient inconfortable",
+     "texte": "és utána a fejed végre [[minden mástól kiürül]] egy kicsit"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,313 @@
+{
+ "post_id": "var-dates-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "telefonsuz, [[gerçekten eğlenceli]] randevular"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(ve sıfır gerginlik)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7692093201968090401_1.jpg",
+      "boite": [
+       99,
+       384,
+       696,
+       514
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "[[lâche youtube]] pendant les repas",
+     "texte": "[[ters telefon]] kuralıyla akşam yemeği"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "pas pouvoir manger sans youtube, c'est [[la pire habitude de notre génération]], ça [[te grille le cerveau]]",
+     "texte": "iki telefon da ekranı aşağı bakacak şekilde masanın ortasına. [[ilk dokunan hesabı öder]]"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "chaque moment d'ennui est [[noyé sous du contenu]] avant que t'apprennes à le vivre",
+     "texte": "abartı gibi geliyor ama elinin [[kendiliğinden ona gittiğini]] fark edeceksin"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to",
+      "watch something while you eat is destroying your",
+      "attention span"
+     ],
+     "fr": "je sais que c'est dur, mais regarder un truc à chaque repas, ça [[détruit ta capacité de concentration]]",
+     "texte": "tatlıya gelince birbirinizi gerçekten dinliyorsunuz ve biri [[hesap yüzünden çok gergin]]. (asla teklif eden değil)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "bilgi düellosu, [[sadece ikiniz]]"
+    },
+    "T2": {
+     "en": [
+      "short form content is frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "ikiniz de küçük kâğıtlara [[5 soru]] yazıyorsunuz"
+    },
+    "T3": {
+     "en": [
+      "reading teaches you to",
+      "focus on one thing for a long",
+      "time, which makes every",
+      "other hard thing easier to sit",
+      "through"
+     ],
+     "fr": "lire t'apprend à [[rester sur une seule chose]] longtemps, et du coup tout ce qui est dur devient [[plus facile à tenir]]",
+     "texte": "sadece bu hafta öğrendiğiniz şeyler. yanlış cevap = [[bulaşıklar senden]]. benimkiler hep aynı 3 yerden geliyor:"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant sur mon tel j'apprends [[un truc en 5 min sur l'appli Sophia]]",
+     "texte": "scroll'un yerini alanlar: bir kitap, podcastler ve telefonu yine de elime aldığımda [[Sophia uygulaması]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends un [[instrument difficile]]",
+     "texte": "[[birbirinize]] bir şey öğretin"
+    },
+    "T2": {
+     "en": [
+      "scrolling gives you dopamine for doing nothing, practicing",
+      "gives you dopamine you actually earned"
+     ],
+     "fr": "scroller te file de la dopamine [[à rien faire]], t'entraîner te file une dopamine [[vraiment méritée]]",
+     "texte": "ikiniz de iyi olduğunuz bir şey seçip 30 dakikada karşınızdakine öğretiyorsunuz. [[telefon yok, video yok]]"
+    },
+    "T3": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever"
+     ],
+     "fr": "piano, guitare, batterie, peu importe",
+     "texte": "bir gam, bir iskambil numarası"
+    },
+    "T4": {
+     "en": [
+      "every time you get a bit",
+      "better, your brain learns",
+      "that effort pays off"
+     ],
+     "fr": "chaque petit progrès apprend à ton cerveau que [[l'effort paie]]",
+     "texte": "hoşlandığın birinin [[senin işinde berbat olmasını]] izlemek garip şekilde tatlı"
+    },
+    "T5": {
+     "en": [
+      "a month of practicing and you can play a song.",
+      "a month of scrolling and you have nothing to",
+      "show for it"
+     ],
+     "fr": "un mois à t'entraîner et tu joues une chanson. un mois à scroller et t'as [[rien à montrer au bout]]",
+     "texte": "sonunda ikiniz de titrek bir şarkı çalıyorsunuz. [[kimse bis istemiyor]] ama hep gülüyorsunuz"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702412215902571809_6.jpg",
+      "boite": [
+       507,
+       467,
+       522,
+       377
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start doing yoga"
+     ],
+     "fr": "mets-toi au [[yoga]]",
+     "texte": "bir [[deneme dersi]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling keeps your",
+      "brain overstimulated",
+      "all day"
+     ],
+     "fr": "le scroll laisse ton cerveau [[en surchauffe]] H24",
+     "texte": "tırmanış, seramik, salsa, [[hiç yapmadığınız]] bir şey"
+    },
+    "T3": {
+     "en": [
+      "yoga forces you to",
+      "slow down, breathe,",
+      "and stay in one",
+      "moment instead of",
+      "reaching for the next",
+      "thing"
+     ],
+     "fr": "le yoga t'oblige à ralentir, respirer et [[rester dans l'instant]] au lieu de courir après le truc suivant",
+     "texte": "yeni bir şeyde yan yana aynı derecede kötü olmak, sizi şık bir yemekten [[çok daha fazla yakınlaştırır]]"
+    },
+    "T4": {
+     "en": [
+      "you come out calmer than scrolling ever made you!!"
+     ],
+     "fr": "t'en ressors [[plus zen]] que n'importe quel scroll !!",
+     "texte": "[[ne kadar kötü olduğunuza]] gülerek çıkıyorsunuz!!"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701398929807641888_5.jpg",
+      "boite": [
+       503,
+       404,
+       499,
+       552
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take a long walk without music"
+     ],
+     "fr": "marche longtemps [[sans musique]]",
+     "texte": "birlikte [[gün batımı]] avına çıkın"
+    },
+    "T2": {
+     "en": [
+      "take a long walk (~1hr), but most people fill every walk",
+      "with podcasts or music and think they're being productive"
+     ],
+     "fr": "une marche d'1h, mais la plupart des gens la remplissent de [[podcasts ou de musique]] en croyant [[gagner du temps]]",
+     "texte": "şehirde hiç gitmediğiniz yüksek bir yer bulun, bir battaniye ve sıcak bir şey alın, [[erkenden orada olun]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain only starts",
+      "thinking for itself when",
+      "nothing is feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le gave]]",
+     "texte": "tek kural: [[fotoğraf yok]]. gökyüzü kimse çekmezken daha güzel görünüyor"
+    },
+    "T4": {
+     "en": [
+      "your best ideas and",
+      "clearest mind will come",
+      "from walks, only when",
+      "you walk in silence"
+     ],
+     "fr": "tes [[meilleures idées]] et ta tête la plus claire viennent en marchant, [[seulement en silence]]",
+     "texte": "her şeyden ve hiçbir şeyden konuşuyorsunuz, [[telefonun çantada olduğunu bile unutuyorsunuz]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7680975889932225814_4.jpg",
+      "boite": [
+       180,
+       575,
+       270,
+       215
+      ]
+     }
+    }
+   }
+  }
+ }
+}

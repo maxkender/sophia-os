@@ -67,6 +67,7 @@ const TOUS = [
   candidat("concept", { score: 80, sorte: "concept", labelId: null, concept: "fautes d'orthographe", langue: "hu" }),
   candidat("attend", { statut: "plus_tard", note: "à revoir après le test turc" }),
   candidat("refuse", { statut: "refuse", raisonRefus: "trop de citations" }),
+  candidat("faible", { statut: "ecarte", pourquoi: "Relevé du 12/11 : 4 slideshows sur 12 posts, médiane 1 200 vues." }),
 ];
 
 function rendre() {
@@ -195,6 +196,25 @@ describe("CandidatsSourcesPanel", () => {
     expect(within(carte).getByRole("button", { name: "Remettre à décider" })).toBeTruthy();
   });
 
+  it("range les écartés dans leur onglet, avec la raison, et sait les repêcher", async () => {
+    listerCandidatsSources.mockResolvedValue(TOUS);
+    deciderCandidatSource.mockResolvedValue(undefined);
+    rendre();
+    await screen.findAllByTestId("candidat-source");
+    fireEvent.click(screen.getByRole("button", { name: "Écartés · 1" }));
+    const ligne = screen.getByTestId("candidat-ecarte");
+    expect(within(ligne).getByText("Relevé du 12/11 : 4 slideshows sur 12 posts, médiane 1 200 vues.")).toBeTruthy();
+    fireEvent.click(within(ligne).getByRole("button", { name: "Remettre à décider" }));
+    await waitFor(() => expect(deciderCandidatSource).toHaveBeenCalledWith("faible", "propose"));
+  });
+
+  it("ne s'affiche pas s'il n'y a que des écartés", async () => {
+    listerCandidatsSources.mockResolvedValue([candidat("faible", { statut: "ecarte" })]);
+    const { container } = rendre();
+    await waitFor(() => expect(listerCandidatsSources).toHaveBeenCalled());
+    expect(container.querySelector("[data-testid='candidats-sources']")).toBeNull();
+  });
+
   it("filtre par sorte", async () => {
     listerCandidatsSources.mockResolvedValue(TOUS);
     rendre();
@@ -251,7 +271,7 @@ describe("candidatsSources", () => {
   });
 
   it("compte les onglets et trie par score", () => {
-    expect(compterOnglets(TOUS)).toEqual({ a_decider: 3, plus_tard: 1, decides: 1 });
+    expect(compterOnglets(TOUS)).toEqual({ a_decider: 3, plus_tard: 1, decides: 1, ecartes: 1 });
     expect(candidatsVisibles(TOUS, { onglet: "a_decider", langue: "de", sorte: "" }).map((c) => c.handle)).toEqual([
       "fort",
       "moyen",

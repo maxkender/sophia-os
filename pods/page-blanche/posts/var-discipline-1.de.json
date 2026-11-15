@@ -1,0 +1,398 @@
+{
+ "post_id": "var-discipline-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things quietly destroying",
+      "your discipline"
+     ],
+     "fr": "10/10 trucs qui flinguent ta discipline en silence",
+     "texte": "10/10 Dinge, die heimlich deine Disziplin zerstören"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    },
+    "T4": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "texte": "(wissenschaftlich belegt)",
+     "alignement": "droite"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685736268617059616_4.jpg",
+      "boite": [
+       564,
+       422,
+       443,
+       538
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 82,
+      "y": 226,
+      "l": 829,
+      "h": 132
+     },
+     "lignes": [
+      {
+       "x": 84,
+       "y": 226,
+       "l": 827,
+       "h": 60,
+       "base": 272
+      },
+      {
+       "x": 82,
+       "y": 299,
+       "l": 387,
+       "h": 59,
+       "base": 345
+      }
+     ],
+     "pas": 73,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 120,
+      "y": 400,
+      "l": 696,
+      "h": 450
+     }
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 818,
+      "y": 607,
+      "l": 3,
+      "h": 67
+     },
+     "lignes": [
+      {
+       "x": 818,
+       "y": 607,
+       "l": 3,
+       "h": 67,
+       "base": 665
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 114,
+      "y": 631,
+      "l": 4,
+      "h": 49
+     },
+     "lignes": [
+      {
+       "x": 114,
+       "y": 631,
+       "l": 4,
+       "h": 49,
+       "base": 672
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 482,
+      "y": 912,
+      "l": 408,
+      "h": 38
+     },
+     "lignes": [
+      {
+       "x": 482,
+       "y": 912,
+       "l": 408,
+       "h": 38,
+       "base": 943
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 1040,
+      "y": 1302,
+      "l": 40,
+      "h": 40
+     },
+     "lignes": [
+      {
+       "x": 1040,
+       "y": 1302,
+       "l": 40,
+       "h": 40,
+       "base": 1304
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you feel tired even during the",
+      "day"
+     ],
+     "fr": "t'es à plat [[même en pleine journée]]",
+     "texte": "[[im Bett scrollen]], sobald du wach bist"
+    },
+    "T2": {
+     "en": [
+      "you can sleep 8 hours and still",
+      "feel mentally exhausted if",
+      "your brain is getting",
+      "hammered with stimulation all",
+      "day"
+     ],
+     "fr": "tu peux dormir 8 heures et [[avoir quand même la tête en vrac]] si ton cerveau se fait [[bombarder toute la journée]]",
+     "texte": "bevor du überhaupt aufgestanden bist, hast du schon [[3 Gruppenchats]], die News und fremde Urlaubsfotos durch"
+    },
+    "T3": {
+     "en": [
+      "constant switching, scrolling",
+      "and notifications create",
+      "attentional fatigue"
+     ],
+     "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
+     "texte": "dein Tag startet mit [[Reagieren auf andere]] statt mit dem, was du dir vorgenommen hast"
+    },
+    "T4": {
+     "en": [
+      "so even simple tasks start",
+      "feeling weirdly draining"
+     ],
+     "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
+     "texte": "mach zuerst [[eine Sache für dich]], erst dann entsperren"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming while doing everything"
+     ],
+     "fr": "consommer [[pendant tout ce que tu fais]]",
+     "texte": "[[ständig mit dir selbst verhandeln]]"
+    },
+    "T2": {
+     "en": [
+      "eating with youtube, walking with podcasts, working",
+      "with music, scrolling while watching netflix"
+     ],
+     "fr": "[[manger devant youtube]], marcher avec un podcast, bosser en [[musique]], scroller devant netflix",
+     "texte": "„noch 5 Minuten“, „nach dem hier fang ich an“, „morgen passt besser“, „erst mal Pause“"
+    },
+    "T3": {
+     "en": [
+      "you’re training your",
+      "brain to expect multiple",
+      "streams of input at once"
+     ],
+     "fr": "tu habitues ton cerveau à recevoir [[plusieurs flux d'infos]] à la fois",
+     "texte": "jede kleine Debatte gibt [[deinem inneren Faulpelz]] noch eine Chance"
+    },
+    "T4": {
+     "en": [
+      "eventually doing just",
+      "one thing starts to feel",
+      "painfully empty"
+     ],
+     "fr": "à force, faire une seule chose te paraît [[atrocement vide]]",
+     "texte": "einmal entscheiden, und dann [[den Fall nicht neu aufrollen]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "attendre [[d'avoir le temps]]",
+     "texte": "auf [[freie Zeit]] warten"
+    },
+    "T2": {
+     "en": [
+      "even a 20–30 minute run or gym session before",
+      "school or work"
+     ],
+     "fr": "sport, lecture, révisions : tout attend [[une semaine plus calme]]",
+     "texte": "Sport, Lesen, Lernen: alles wartet auf [[eine ruhigere Woche]]"
+    },
+    "T3": {
+     "en": [
+      "exercise is",
+      "proven to grow",
+      "the part of your",
+      "brain that",
+      "handles",
+      "memory"
+     ],
+     "fr": "le temps libre tombe jamais du ciel, [[un autre truc le prend toujours avant]]",
+     "texte": "freie Zeit fällt nicht vom Himmel, [[irgendwas anderes füllt sie immer zuerst]]"
+    },
+    "T4": {
+     "en": [
+      "so you get a sharper brain for the",
+      "rest of the day"
+     ],
+     "fr": "donne-lui [[un créneau fixe]] et un lieu, comme un rdv",
+     "texte": "gib dem Ganzen [[eine feste Zeit]] und einen Ort"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "dir [[keine Sekunde Langeweile]] gönnen"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "jede Schlange, jede Werbung, jede Pause wird zugescrollt, also fühlt sich alles Langsame [[unerträglich]] an"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "wenn ich eh am Handy hänge, dann wenigstens sinnvoll. meine 5 Min heute in [[der Sophia-App]]: was der Urknall eigentlich ist"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you watch everything at",
+      "2x speed"
+     ],
+     "fr": "tu regardes tout [[en vitesse x2]]",
+     "texte": "mit [[5 Stunden Schlaf]] auskommen"
+    },
+    "T2": {
+     "en": [
+      "a 20-minute video becoming 10 feels efficient, but",
+      "you're teaching yourself that normal pacing is too",
+      "slow"
+     ],
+     "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
+     "texte": "Schlafforscher finden immer wieder dasselbe: ein müdes Gehirn ist am nächsten Tag [[schlechter in Selbstkontrolle]]"
+    },
+    "T3": {
+     "en": [
+      "eventually lectures,",
+      "reading, and even",
+      "conversations start",
+      "feeling painfully",
+      "under-stimulating"
+     ],
+     "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
+     "texte": "also fühlt sich jedes Verlangen stärker an, und der Plan von gestern Abend [[wird optional]]"
+    },
+    "T4": {
+     "en": [
+      "are you really in a rush",
+      "to watch a tiktok?"
+     ],
+     "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
+     "texte": "Disziplin fängt [[schon am Abend vorher]] an"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7695416366886604064_1.jpg",
+      "boite": [
+       132,
+       404,
+       696,
+       484
+      ]
+     }
+    }
+   }
+  }
+ }
+}

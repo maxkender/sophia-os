@@ -6,8 +6,8 @@ import { supabase } from "@/lib/supabase/client";
  * source et la met dans la file des mises à jour, une source à la fois.
  */
 
-/** `ecarte` (0685) existe en base : un compte que l'agent a relevé puis laissé de côté. La page ne le lit pas. */
-export type StatutCandidat = "propose" | "plus_tard" | "valide" | "refuse";
+/** `ecarte` (0685) : un compte que l'agent a relevé puis laissé de côté, avec la raison dans `pourquoi`. */
+export type StatutCandidat = "propose" | "plus_tard" | "valide" | "refuse" | "ecarte";
 /** `label` : nourrit un label existant. `concept` : un format qu'on n'a pas. */
 export type SorteCandidat = "label" | "concept";
 
@@ -88,7 +88,7 @@ export function versCandidat(l: Record<string, unknown>): CandidatSource {
       .filter((e) => texte(e.url))
       .map((e) => ({ url: String(e.url), vues: nombre(e.vues), accroche: String(e.accroche ?? "") })),
     piste: String(l.piste ?? ""),
-    statut: (["propose", "plus_tard", "valide", "refuse"] as const).includes(l.statut as StatutCandidat)
+    statut: (["propose", "plus_tard", "valide", "refuse", "ecarte"] as const).includes(l.statut as StatutCandidat)
       ? (l.statut as StatutCandidat)
       : "propose",
     raisonRefus: texte(l.raison_refus),
@@ -96,12 +96,13 @@ export function versCandidat(l: Record<string, unknown>): CandidatSource {
   };
 }
 
-export type OngletCandidats = "a_decider" | "plus_tard" | "decides";
+export type OngletCandidats = "a_decider" | "plus_tard" | "decides" | "ecartes";
 
 const STATUTS_ONGLET: Record<OngletCandidats, StatutCandidat[]> = {
   a_decider: ["propose"],
   plus_tard: ["plus_tard"],
   decides: ["valide", "refuse"],
+  ecartes: ["ecarte"],
 };
 
 export interface FiltreCandidats {
@@ -126,7 +127,7 @@ export function candidatsVisibles(tous: CandidatSource[], filtre: FiltreCandidat
 
 export function compterOnglets(tous: CandidatSource[]): Record<OngletCandidats, number> {
   const n = (o: OngletCandidats) => tous.filter((c) => STATUTS_ONGLET[o].includes(c.statut)).length;
-  return { a_decider: n("a_decider"), plus_tard: n("plus_tard"), decides: n("decides") };
+  return { a_decider: n("a_decider"), plus_tard: n("plus_tard"), decides: n("decides"), ecartes: n("ecartes") };
 }
 
 /** Les langues présentes dans un onglet, dans l'ordre du nombre de propositions. */
@@ -155,8 +156,6 @@ export async function listerCandidatsSources(): Promise<CandidatSource[]> {
     .select(
       "id, handle_tiktok, langue, sorte, label_id, concept, pourquoi, risques, score, chiffres, exemples, piste, statut, raison_refus, note",
     )
-    // Les comptes écartés par l'agent restent en base pour sa mémoire, pas pour la page.
-    .neq("statut", "ecarte")
     .order("score", { ascending: false });
   if (error) throw error;
   return (data ?? []).map((l) => versCandidat(l as Record<string, unknown>));

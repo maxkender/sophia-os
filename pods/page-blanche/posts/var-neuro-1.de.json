@@ -1,0 +1,291 @@
+{
+ "post_id": "var-neuro-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to increase",
+      "neuroplasticity before it's too late"
+     ],
+     "fr": "10/10 habitudes pour booster ta neuroplasticité tant qu'il est temps",
+     "texte": "10/10 Gewohnheiten für mehr Neuroplastizität, bevor es zu spät ist"
+    },
+    "T3": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(laut Neurowissenschaft)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7690642292855672096_5.jpg",
+      "boite": [
+       597,
+       338,
+       423,
+       450
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 60,
+      "y": 229,
+      "l": 900,
+      "h": 132
+     },
+     "lignes": [
+      {
+       "x": 60,
+       "y": 229,
+       "l": 639,
+       "h": 54,
+       "base": 275
+      },
+      {
+       "x": 61,
+       "y": 302,
+       "l": 899,
+       "h": 59,
+       "base": 348
+      }
+     ],
+     "pas": 73,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 84,
+      "y": 426,
+      "l": 400,
+      "h": 426
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 513,
+      "y": 950,
+      "l": 446,
+      "h": 41
+     },
+     "lignes": [
+      {
+       "x": 513,
+       "y": 950,
+       "l": 446,
+       "h": 41,
+       "base": 982
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start lifting weights"
+     ],
+     "fr": "mets-toi [[à la muscu]]",
+     "texte": "vor dem Lernen [[bewegen]]"
+    },
+    "T2": {
+     "en": [
+      "it’s not just about looks"
+     ],
+     "fr": "y'a pas que le physique",
+     "texte": "ein Spaziergang reicht"
+    },
+    "T3": {
+     "en": [
+      "exercise boosts",
+      "dopamine, lowers",
+      "stress, and is one of",
+      "the best things you can",
+      "do for your brain"
+     ],
+     "fr": "le sport booste [[la dopamine]], [[fait chuter le stress]] et c'est le top pour [[ton cerveau]]",
+     "texte": "Sport erhöht [[BDNF]], ein Protein, das deinen Nervenzellen hilft, [[neue Verbindungen zu bilden]]"
+    },
+    "T4": {
+     "en": [
+      "and once you see your body change, you start",
+      "believing you can change other things too"
+     ],
+     "fr": "et quand tu vois ton corps changer, tu commences à croire que [[tu peux changer le reste aussi]]",
+     "texte": "also erst bewegen, dann lernen, mit einem Gehirn, das [[bereit zum Umbauen]] ist"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. set my phone to greyscale"
+     ],
+     "fr": "1. mon tel en noir et blanc",
+     "texte": "finde deinen Weg [[ohne Navi]]"
+    },
+    "T2": {
+     "en": [
+      "everyone says to do it",
+      "but it actually helps,",
+      "keep it grey for tiktok",
+      "and reels too."
+     ],
+     "fr": "tout le monde le dit, mais ça marche vraiment. et laisse le gris même sur tiktok et les reels.",
+     "texte": "Londoner Taxifahrer, die die ganze Stadt lernen, bekommen einen größeren [[Hippocampus]]"
+    },
+    "T3": {
+     "en": [
+      "scrolling is so",
+      "boring now"
+     ],
+     "fr": "scroller me saoule trop",
+     "texte": "sei mal [[deine eigene Karte]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5. switched off all triggers"
+     ],
+     "fr": "5. j'ai viré les tentations",
+     "texte": "mach [[nur eine Sache]] auf einmal"
+    },
+    "T2": {
+     "en": [
+      "i literally have 0",
+      "notifications on for all",
+      "my messaging",
+      "platforms"
+     ],
+     "fr": "j'ai littéralement 0 notif sur toutes mes applis de messagerie",
+     "texte": "eine Serie im TV, der Laptop auf dem Schoß und das Handy in der Hand"
+    },
+    "T3": {
+     "en": [
+      "gives me no reason to",
+      "check until i want to"
+     ],
+     "fr": "du coup j'ouvre seulement quand j'en ai envie",
+     "texte": "dein Gehirn [[springt dabei nur hin und her]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis un livre [[au lieu de scroller]]",
+     "texte": "lerne jeden Tag [[etwas Neues]]"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could"
+     ],
+     "fr": "une heure de scroll, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "Neues ist das, was dein Gehirn zum [[Umbauen]] bringt"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "derselbe Feed jeden Tag hält dein Gehirn im [[Autopilot]]"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que tu [[veux lire plus]], mais [[l'algo]] te happe à chaque fois",
+     "texte": "Geschichte, Kunst, Wissenschaft, Philosophie, egal, solange [[es neu für dich ist]]"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "avant je scrollais H24, maintenant j'ouvre l'appli Sophia et j'apprends un truc en 5 min",
+     "texte": "heute hab ich gelernt, wie der Urknall abgelaufen ist, in einer 5-Min-Lektion in [[der Sophia-App]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get sunlight first thing",
+      "in the morning"
+     ],
+     "fr": "prends [[la lumière du jour]] dès le matin",
+     "texte": "steh jeden Tag [[zur gleichen Zeit]] auf"
+    },
+    "T2": {
+     "en": [
+      "go outside for 10 minutes right after you wake up"
+     ],
+     "fr": "sors [[10 minutes]] juste après ton réveil",
+     "texte": "ja, auch am Wochenende, und hol dir früh Tageslicht"
+    },
+    "T3": {
+     "en": [
+      "morning light sets",
+      "your body clock, so",
+      "you get energy in",
+      "the morning and",
+      "feel sleepy at night"
+     ],
+     "fr": "la lumière du matin règle ton horloge interne : t'as [[de l'énergie le matin]] et sommeil le soir",
+     "texte": "ein fester Rhythmus heißt tieferer Schlaf, und dann [[speichert dein Gehirn, was du gelernt hast]]"
+    },
+    "T4": {
+     "en": [
+      "better sleep is the easiest way to start turning",
+      "your life around, everything else gets easier"
+     ],
+     "fr": "bien dormir, c'est le plus simple pour [[reprendre ta vie en main]], tout le reste devient plus facile",
+     "texte": "wer bis 1 Uhr im Bett scrollt, würgt das ab, also [[lass das Handy außerhalb vom Schlafzimmer]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

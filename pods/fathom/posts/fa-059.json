@@ -6,14 +6,18 @@
   "de": "3 Fähigkeiten, mit denen du klüger wirkst",
   "it": "3 abilità che ti fanno sembrare più intelligente",
   "pt-BR": "3 habilidades que fazem você parecer mais inteligente",
-  "es-419": "3 habilidades que te hacen ver más inteligente"
+  "es-419": "3 habilidades que te hacen ver más inteligente",
+  "fr": "3 compétences qui te font paraître plus intelligent",
+  "es": "3 habilidades que te hacen parecer más inteligente"
  },
  "legendes": {
   "en": "3 Skills That Make You Look Smarter #selfimprovement #learnontiktok #skills",
   "de": "3 Fähigkeiten, mit denen du klüger wirkst #selbstverbesserung #lernenmittiktok #skills",
   "it": "3 abilità che ti fanno sembrare più intelligente #crescitapersonale #imparacontiktok #abilità",
   "pt-BR": "3 habilidades que fazem você parecer mais inteligente #desenvolvimentopessoal #aprendanotiktok #habilidades",
-  "es-419": "3 habilidades que te hacen ver más inteligente #desarrollopersonal #aprendeentiktok #habilidades"
+  "es-419": "3 habilidades que te hacen ver más inteligente #desarrollopersonal #aprendeentiktok #habilidades",
+  "fr": "3 compétences qui te font paraître plus intelligent #développementpersonnel #apprendresurtiktok #compétences",
+  "es": "3 habilidades que te hacen parecer más inteligente #desarrollopersonal #aprendeentiktok #habilidades"
  },
  "musique": {
   "titre": "audio originale",
@@ -108,6 +112,40 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 COMPÉTENCES",
+       "bronze": true
+      }
+     ],
+     "QUI TE FONT PARAÎTRE",
+     [
+      {
+       "t": "PLUS MALIN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 HABILIDADES",
+       "bronze": true
+      }
+     ],
+     "QUE TE HACEN VER",
+     [
+      {
+       "t": "MÁS INTELIGENTE",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -184,6 +222,36 @@
      "date": "hace 1 año",
      "duree": "12:14",
      "avatar": "https://yt3.ggpht.com/Fyjo8CIATVw9DU0cWweSMWObo47mpxvOlrc_jw9fWM8DiSDTyG8glEOvsAwHwkV85HXIOHZP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "CALCULE",
+     "DE TÊTE"
+    ],
+    "video": {
+     "id": "i1YQnh9fcKk",
+     "titre": "Calculer 98 x 97 EN 10 SECONDES 😎",
+     "chaine": "Hedacademy",
+     "vues": "1,3 M de vues",
+     "date": "il y a 4 ans",
+     "duree": "8:00",
+     "avatar": "https://yt3.ggpht.com/tjiQ1W7LGI0KKR9qZ-LUc5nk-b5bba9QwqzPJ2vpHupBVwpYPO2SsAt0uUyz2CBya98JbpM-LQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "CÁLCULO",
+     "MENTAL"
+    ],
+    "video": {
+     "id": "M3u7yWoNqSA",
+     "titre": "🤯Cómo MULTIPLICAR en 3 SEGUNDOS (de forma MENTAL) | TRUCOS para el examen de admisión",
+     "chaine": "Profe Nicolos - Especialista en admisiones",
+     "vues": "5 M de visualizaciones",
+     "date": "hace 3 años",
+     "duree": "10:57",
+     "avatar": "https://yt3.ggpht.com/4zcjS0Yf9gsZUTIrO3MvAtglvRnEr1IdvhpCA9wQbds9yLUCBmq5geVk1MdK1AiM4X1okCjN9Q=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -263,6 +331,36 @@
      "duree": "6:47",
      "avatar": "https://yt3.ggpht.com/CuhDZCLull2nwLiynAaQNX3g3tbb8On9caFcjkhv_vfbVyJgkX7BB1gbO44wNNTwHUYX-8uxcg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "LIS PLUS",
+     "VITE"
+    ],
+    "video": {
+     "id": "RC5PpuXsYas",
+     "titre": "La Méthode de LECTURE RAPIDE : Apprends à Lire Deux Fois Plus Vite ! ⏰",
+     "chaine": "Les Sherpas - Étudiants",
+     "vues": "335 k vues",
+     "date": "il y a 7 ans",
+     "duree": "4:47",
+     "avatar": "https://yt3.ggpht.com/IiRySU74h5eZiyGwa8B-c4uk3GoMgEIS95YIJeGTvvjIY2Mqk7oLo7qoIgvwFRAO1SVYDWIF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "LECTURA",
+     "RÁPIDA"
+    ],
+    "video": {
+     "id": "NxHyGzFCpKQ",
+     "titre": "La Mejor Técnica de Lectura Rápida 📖 [Apréndela en 10 minutos]🤩",
+     "chaine": "Fernando Fernández Fernández",
+     "vues": "668 K visualizaciones",
+     "date": "hace 7 años",
+     "duree": "6:47",
+     "avatar": "https://yt3.ggpht.com/CuhDZCLull2nwLiynAaQNX3g3tbb8On9caFcjkhv_vfbVyJgkX7BB1gbO44wNNTwHUYX-8uxcg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -321,6 +419,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SAVOIR UN PEU",
+     "DE TOUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "SABER UN POCO",
      "DE TODO"
@@ -409,6 +533,36 @@
      "date": "hace 6 años",
      "duree": "10:19",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nyy23hwLMlY42xyjm-C5sdkWxIhBzvnnI-gMz3tiBS0mY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "TAPE PLUS VITE",
+     "AU CLAVIER"
+    ],
+    "video": {
+     "id": "ZM67WSxg1rI",
+     "titre": "Comment taper plus vite au clavier en 7 jours",
+     "chaine": "Derrière La Bulle",
+     "vues": "104 k vues",
+     "date": "il y a 4 ans",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/2M1ddd4s40By-kRLRL4NMgECzH1aMA4EzXMv-zDN1bgHA7f8WU710R6xdmm0Al36YWcYk7A484U=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "ESCRIBE MÁS RÁPIDO",
+     "EN EL TECLADO"
+    ],
+    "video": {
+     "id": "tz0MvAiej0A",
+     "titre": "Cómo Escribir SÚPER Rápido en el Teclado (116 Palabras Por Minuto)",
+     "chaine": "Miguel Meza",
+     "vues": "878 K visualizaciones",
+     "date": "hace 5 años",
+     "duree": "15:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4CBJT1nfJ5HAfnDsi3-DUKZF8q49kdSuKISt0yDYxbw=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

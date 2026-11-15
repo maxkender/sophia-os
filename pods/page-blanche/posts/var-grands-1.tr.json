@@ -1,0 +1,276 @@
+{
+ "post_id": "var-grands-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 skills to learn to be",
+      "successful by 25"
+     ],
+     "fr": "10/10 compétences pour percer avant 25 ans",
+     "texte": "nine ve dedelerimizden geri getirmemiz gerekenler"
+    },
+    "T2": {
+     "en": [
+      "(7 figures by 25)"
+     ],
+     "fr": "(millionnaire à 25 ans)",
+     "alignement": "droite",
+     "texte": "(bir bildikleri varmış)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7694778035337235744_3.jpg",
+      "boite": [
+       477,
+       386,
+       539,
+       420
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write things down by hand"
+     ],
+     "fr": "note tout [[à la main]]",
+     "texte": "her şey için [[bir defter]]"
+    },
+    "T2": {
+     "en": [
+      "typing is faster, but that's not always better"
+     ],
+     "fr": "taper, c'est plus rapide, mais pas forcément [[mieux]]",
+     "texte": "doğum günleri, adresler, tarifler, [[hepsi tek yerde]]"
+    },
+    "T3": {
+     "en": [
+      "handwriting forces you to",
+      "slow down, compress",
+      "ideas, and actually process",
+      "what matters"
+     ],
+     "fr": "écrire à la main te force à [[ralentir]], à résumer et à vraiment capter ce qui compte",
+     "texte": "elle yazdığın şey [[aklında kalır]], o yüzden nadiren tekrar bakmaları gerekirdi"
+    },
+    "T4": {
+     "en": [
+      "use a notebook for",
+      "anything you genuinely",
+      "want to remember"
+     ],
+     "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
+     "texte": "ve 40 yıl sonra bile [[o defter bir aile hazinesidir]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "bekleme salonunda [[bir bulmaca]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "otobüs durağı, bekleme salonu, yemekten önceki 10 dakika: boşlukları bir kalem ve [[düşündüren bir bulmacayla]] doldururlardı"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "biz ise sadece [[kaydırıyoruz]]."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "eskiden her kuyrukta [[doomscroll]] yapardım ve elimde hiçbir şey kalmazdı, anlatacak tek bir bilgi bile"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "şimdi telefondayken 5 dakikalık bir ders yapıyorum: [[Sophia uygulaması]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[qui servent à rien]]",
+     "texte": "bilmediklerini [[sözlükte]] ararlardı"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
+     "texte": "arama çubuğu yok, sadece raftaki kalın bir kitap ve [[sayfaları çevirme]] sabrı"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[pas besoin de rentabiliser chaque heure]]",
+     "texte": "[[ve yanındaki kelimeyi de okurlardı]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "plus t'as de culture, plus ton cerveau a d'idées à relier le jour où tu dois vraiment régler un problème",
+     "texte": "bir kelimeye bakarsın, üç kelime öğrenmiş çıkarsın, çünkü sayfa [[komşularını da gösterir]]"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis, [[la culture, c'est trop cool !!]]",
+     "texte": "böylece [[her şeye meraklı]] kalırlardı"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become good at multiple things"
+     ],
+     "fr": "deviens bonne en [[plein de trucs]]",
+     "texte": "her hesabı [[akıldan]] yaparlardı"
+    },
+    "T2": {
+     "en": [
+      "learn to write, communicate, build, sell ideas, analyse,",
+      "and use technology well"
+     ],
+     "fr": "apprends à écrire, parler, créer, vendre tes idées, analyser et maîtriser la tech",
+     "texte": "hesap, para üstü, market toplamı: hesap makinesi yok, [[en fazla bir kalem]]"
+    },
+    "T3": {
+     "en": [
+      "you don’t need to be",
+      "world-class at",
+      "everything"
+     ],
+     "fr": "pas besoin d'être la meilleure au monde en tout",
+     "texte": "böylece beyinleri [[biraz çabaya alışık]] kalırdı"
+    },
+    "T4": {
+     "en": [
+      "being good across",
+      "several valuable skills",
+      "makes you unusually",
+      "hard to replace"
+     ],
+     "fr": "être bonne dans plusieurs compétences utiles te rend [[super dure à remplacer]]",
+     "texte": "bir dahaki alışverişte dene: kasiyer söylemeden önce [[toplamı tahmin et]]"
+    },
+    "T5": {
+     "en": [
+      "a jack of all trades is better than a master of one"
+     ],
+     "fr": "[[mieux vaut être touche-à-tout qu'experte en un seul truc]]",
+     "texte": "önce yanılırsın, sonra [[şaşırtıcı derecede yaklaşırsın]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "keep skipping slides instead of",
+      "reading"
+     ],
+     "texte": "her gece [[komodinin üstünde bir kitap]]",
+     "fr": "le moment où [[t'essaies de t'endormir]]"
+    },
+    "T1b": {
+     "en": [
+      "why read the actual text when you can just look at",
+      "the headings and swipe?"
+     ],
+     "texte": "telefon koridorda kalırdı, gece gördükleri son şey [[bir sayfa olurdu]]",
+     "fr": "scroll : encore une vidéo, et d'un coup il est 1h40 et [[t'as plus sommeil]]"
+    },
+    "T2": {
+     "en": [
+      "train your brain to",
+      "only read the",
+      "headline and",
+      "move on"
+     ],
+     "texte": "sonuç: [[10 sayfada uyuyakalmak]], gözlük hâlâ takılı",
+     "fr": "lecture : [[KO en 10 pages]], la tête dans le bouquin"
+    },
+    "T3": {
+     "en": [
+      "most people won't even read this part, just keep",
+      "reading headlines and being misinformed!"
+     ],
+     "texte": "akış hiç bitmez. kitap uykunu getirir ve günün bittiğine [[gözlerin karar verir]]",
+     "fr": "le scroll, ça s'arrête jamais, c'est à toi de dire stop. un livre [[décide à ta place]] vers la page 12"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 2
+   }
+  }
+ }
+}

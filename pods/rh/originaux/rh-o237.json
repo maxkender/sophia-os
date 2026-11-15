@@ -1,0 +1,51 @@
+{
+ "source_id": "rh-o237",
+ "type_bleo": "full_test",
+ "titre": "les 5 choses que j'ai arrêté de faire pendant ma pause déjeuner (et mon après-midi a changé) #travail #pause #santementale #carriere #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 15/11 (2 full tests seulement : banque d'images épuisée par la règle des 14 jours). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Full test : accroche jamais faite chez nous (la pause déjeuner). 6 slides, banque d'images réduite. Inspirations reprises de rh-o235. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "67480cba",
+   "texte_overlay": "les 5 choses que j'ai arrêté de faire\npendant ma pause déjeuner\n(et mon après-midi a changé)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "24bbe2ff",
+   "texte_overlay": "manger devant mon écran\nmaintenant je sors, même 20 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "36a2856a",
+   "texte_overlay": "lire mes mails pro\nils attendent 13 h 30",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5ec9b22d",
+   "texte_overlay": "parler du boulot pendant tout le repas\non parle d'autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "771f747e",
+   "texte_overlay": "scroller sans fin\nà la place, 5 minutes à apprendre un truc. je reviens plus vive",
+   "texte_sophia": "scroller sans fin\nà la place, 5 minutes sur l'appli Sophia. je reviens plus vive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a68ba05c",
+   "texte_overlay": "ta pause déjeuner, elle dure combien ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

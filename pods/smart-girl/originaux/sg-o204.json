@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o204",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "2d742ace-668f-45ac-986e-dcc8aaf239da",
+ "titre": "how to actually unrot your brain #brainrot #focus #smartgirl #digitaldetox #selfimprovement",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "b053325f-c2e0-4f25-bfd4-6bd09358eddc"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 20 de la boîte (parent 2d742ace, langue source en) : accroche du parent mot pour mot. Ligne 19 écartée (jugement des autres). Étapes neuves face au parent et à sg-o175 (supprimer une appli, une heure par jour sans écran, lire un chapitre entier, des loisirs manuels, des conversations longues). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d912b226",
+   "texte_overlay": "how to actually unrot\nyour brain",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5cbb4645",
+   "texte_overlay": "1. delete one app,\njust for a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "46009033",
+   "texte_overlay": "2. one screen-free hour a day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5e10ef09",
+   "texte_overlay": "3. read one full chapter\nwithout stopping",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "890def49",
+   "texte_overlay": "4. do something with your hands\n\ncook, knit, draw.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7f61ed57",
+   "texte_overlay": "5. have one long conversation\nthis week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "41ecb71e",
+   "texte_overlay": "6. replace the scroll with\none real lesson",
+   "texte_sophia": "6. replace the scroll with\none real lesson. i use a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1150c4ad",
+   "texte_overlay": "try it for 30 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  }
+ ]
+}

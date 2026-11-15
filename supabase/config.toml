@@ -246,6 +246,9 @@ verify_jwt = false
 [functions.strip-c2pa]
 verify_jwt = false
 
+[functions.retoucher-bande]
+verify_jwt = false
+
 [functions.rc-pays]
 verify_jwt = false
 

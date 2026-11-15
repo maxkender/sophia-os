@@ -1,0 +1,316 @@
+{
+ "post_id": "var-instead-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "6 things to do instead of",
+      "doomscrolling"
+     ],
+     "fr": "6 trucs à faire au lieu de doomscroller",
+     "texte": "6 cose da fare al posto del doomscrolling"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(lo dice la scienza)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699386616988650774_1.jpg",
+      "boite": [
+       114,
+       364,
+       694,
+       546
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "all or nothing thinking"
+     ],
+     "fr": "la mentalité [[tout ou rien]]",
+     "texte": "vai a letto [[più presto]]"
+    },
+    "T2": {
+     "en": [
+      "you miss one workout or eat one bad meal, and",
+      "decide the whole week is ruined"
+     ],
+     "fr": "une séance ratée, un repas pas ouf, et hop [[toute la semaine est fichue]]",
+     "texte": "scrollare a mezzanotte non è riposo, è il cervello [[acceso al buio]]"
+    },
+    "T3": {
+     "en": [
+      "so you quit completely",
+      "instead of just getting",
+      "back on track the next",
+      "day"
+     ],
+     "fr": "alors tu lâches tout au lieu de [[juste reprendre]] le lendemain",
+     "texte": "telefono dall'altra parte della stanza, luce spenta, [[niente «ultimo video»]]"
+    },
+    "T4": {
+     "en": [
+      "it's consistency that",
+      "matters, being",
+      "consistently good is",
+      "better than being",
+      "occasionally great"
+     ],
+     "fr": "c'est la régularité qui compte, [[bien faire chaque jour vaut mieux que tout déchirer une fois]]",
+     "texte": "ti svegli con la testa più lucida e per una volta la giornata [[non parte già in riserva]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "turn off all notifications",
+      "on your phone"
+     ],
+     "fr": "désactive toutes tes notifs sur ton tel",
+     "texte": "organizza la settimana [[la domenica sera]]"
+    },
+    "T2": {
+     "en": [
+      "i don't have",
+      "notifications on for",
+      "every single thing in",
+      "every app,"
+     ],
+     "fr": "j'ai pas de notifs pour le moindre truc dans chaque appli,",
+     "texte": "20 minuti con un caffè e l'agenda invece di [[scrollare fino a lunedì]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need to",
+      "respond instantly, it's",
+      "fine"
+     ],
+     "fr": "t'as pas besoin de répondre direct, c'est ok",
+     "texte": "e cominci il lunedì [[sapendo già cosa fare]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "work out in the morning"
+     ],
+     "fr": "fais du sport [[le matin]]",
+     "texte": "[[muovi il corpo]] a casa"
+    },
+    "T2": {
+     "en": [
+      "your cortisol is at it's peak in the morning, and how",
+      "you begin your day sets the mood for the rest of it"
+     ],
+     "fr": "ton cortisol est [[au max le matin]], et comment tu démarres ta journée [[conditionne tout le reste]]",
+     "texte": "niente palestra, niente attrezzi, niente piano: qualche flessione, squat e un plank sul pavimento [[bastano]]"
+    },
+    "T3": {
+     "en": [
+      "working out helps",
+      "you practice delayed",
+      "gratification, in a",
+      "world that runs on",
+      "short-form content"
+     ],
+     "fr": "le sport t'apprend [[à attendre ta récompense]], à l'époque des [[vidéos de 10 secondes]]",
+     "texte": "la voglia di scrollare spesso è solo irrequietezza, e [[muoverti la scarica]] più in fretta di un video"
+    },
+    "T4": {
+     "en": [
+      "discipline gets easier when discomfort becomes part",
+      "of the routine"
+     ],
+     "fr": "la discipline vient toute seule quand [[l'inconfort]] devient [[la routine]]",
+     "texte": "10 minuti e [[ti svegli davvero]], altro che un'ora di reel che ti annebbia"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books that expand your mind"
+     ],
+     "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
+     "texte": "impara [[una cosa nuova]] al giorno"
+    },
+    "T2": {
+     "en": [
+      "read psychology, philosophy, history, and classic literature"
+     ],
+     "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
+     "texte": "arte, storia, [[qualcosa di nuovo]]"
+    },
+    "T3": {
+     "en": [
+      "the more you understand",
+      "about people, human",
+      "nature, and the world"
+     ],
+     "fr": "plus tu comprends les gens, la nature humaine et le monde",
+     "texte": "lo scroll ti butta addosso cento cose e [[non te ne resta nessuna]]"
+    },
+    "T4": {
+     "en": [
+      "the more you have to",
+      "contribute to a conversation"
+     ],
+     "fr": "plus t'as de quoi [[nourrir une conversation]]",
+     "texte": "una sola cosa vera al giorno [[ti resta davvero]]"
+    },
+    "T5": {
+     "en": [
+      "i used to struggle with",
+      "stopping scrolling until i found",
+      "this thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
+     "texte": "prima facevo doomscrolling, ora quando sono comunque al telefono faccio [[una lezione di 5 min sull'app Sophia]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel motivated"
+     ],
+     "fr": "attendre que [[la motivation vienne]]",
+     "texte": "scrivi [[una pagina]] nel tuo diario"
+    },
+    "T2": {
+     "en": [
+      "motivation is just a feeling, and feelings come",
+      "and go every day"
+     ],
+     "fr": "la motivation c'est une émotion, et ça [[va et ça vient]] chaque jour",
+     "texte": "la sera, a penna: la giornata, cosa ti ha dato noia, [[cosa vuoi davvero]]"
+    },
+    "T3": {
+     "en": [
+      "if you only work",
+      "when you feel like it,",
+      "you’ll barely ever",
+      "work"
+     ],
+     "fr": "si tu bosses que quand t'en as envie, tu [[bosseras presque jamais]]",
+     "texte": "lo scroll ti riempie la testa [[dei pensieri degli altri]]"
+    },
+    "T4": {
+     "en": [
+      "discipline is doing it",
+      "even when you don’t",
+      "feel like it"
+     ],
+     "fr": "la discipline, c'est le faire [[même quand t'as pas envie]]",
+     "texte": "il diario è l'unico posto dove [[senti la tua voce]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "7": {
+   "textes": {
+    "T1": {
+     "en": [
+      "train a martial art"
+     ],
+     "fr": "fais un sport de combat",
+     "texte": "fai [[arti marziali]]"
+    },
+    "T2": {
+     "en": [
+      "you get corrected constantly, exposed when your",
+      "technique is bad, and forced to keep going when",
+      "you're tired"
+     ],
+     "fr": "on te [[corrige sans arrêt]], on voit direct quand ta technique est nulle, et tu dois continuer [[même crevée]]",
+     "texte": "una sera a settimana in una vera palestra, con persone vere, dove [[nessuno può scrollare]] e [[devi esserci con la testa]]"
+    },
+    "T3": {
+     "en": [
+      "martial arts teaches",
+      "you to stay calm under",
+      "pressure"
+     ],
+     "fr": "ça t'apprend à [[rester calme sous pression]]",
+     "texte": "il telefono resta nell'armadietto [[per tutta l'ora]]"
+    },
+    "T4": {
+     "en": [
+      "instead of quitting the",
+      "second something gets",
+      "uncomfortable"
+     ],
+     "fr": "au lieu de tout lâcher dès que ça devient inconfortable",
+     "texte": "ed esci da lì con la testa [[finalmente libera da tutto]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

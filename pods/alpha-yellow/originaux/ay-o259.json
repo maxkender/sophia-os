@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o259",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "38838555-ca88-4bf0-8205-9b0b6e4f349c",
+ "titre": "4 hobbies to become extremely intelligent. #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "38838555-ca88-4bf0-8205-9b0b6e4f349c"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 12 de la boîte (38838555, hr 17,5 k r 12,98) : accroche du parent mot pour mot (point final gardé). Le parent a 4 hobbies, le deck en a 7 slides (4 hobbies, Sophia, pourquoi, conclusion). Hobbies neufs, aucun repris du parent (lecture, langue, échecs, écriture).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7fd51357-d7f6-4c3a-8d36-c9a84c59b574",
+   "texte_overlay": "4 hobbies to become\nextremely intelligent.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "1. Playing a musical instrument. Piano, guitar, drums. Reading music, coordinating both hands and keeping rhythm trains memory, focus and patience at the same time.",
+   "media_id": "f59c4132-6886-4f44-abe8-dcf040399704"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "2. Building with your hands. Woodworking, models, repairing old bikes. Solving physical problems teaches planning and spatial thinking that screens never will.",
+   "media_id": "028cec07-2a31-45f2-8828-84ad827d4501"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "3. Learning to code. Small projects, simple games, a personal website. Coding trains logic and breaks big problems into small, clear steps.",
+   "media_id": "27cec4f8-ee69-4150-a3a5-3f2416a459be"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "4. Debating with friends. Pick a topic over dinner and argue the side you disagree with. It sharpens your reasoning and makes you a far better listener.",
+   "media_id": "6149cefe-795c-40e1-a41a-08c9f72604f7"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Bonus: a daily dose of curiosity. I do five minutes a day of history, art or science, and it feeds every other hobby with new ideas.",
+   "texte_sophia": "Bonus: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It feeds every other hobby with new ideas.",
+   "media_id": "4b19c59b-dbcd-408e-ab73-4c46157a39ea"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Why it works: intelligence grows when you do hard things regularly. Hobbies that challenge you a little every week build a sharper mind than any quick trick.",
+   "media_id": "4c191a2e-f21c-4c1b-961c-517d2c305438"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Pick one and stick with it for three months. Not four at once. Depth beats variety, and the progress you feel after a few months will keep you going.",
+   "media_id": "673333db-b559-4761-ae86-28edc9261d58"
+  }
+ ]
+}

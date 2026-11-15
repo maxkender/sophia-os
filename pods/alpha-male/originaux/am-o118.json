@@ -1,0 +1,54 @@
+{
+ "source_id": "am-o118",
+ "type_bleo": "full_test",
+ "titre": "How to be the friend every man wishes he had #men #friendship #respect #loyalty #selfimprovement",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 14/11. Full test du jour (3 sur 3, jauge : 3 sur 11). Accroche jamais faite chez nous : aucun « good friend », « great friend » ni « best friend » dans donnees/label.json. L'amitié entre hommes, en gestes : promesse neuve. Format : numéro, geste, deux lignes. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), prises dans toute la banque avec --cherche. Slide Sophia : salon de cabane, sans personne. reference_url : le post source de am-o036 (slides 2 à 7 ; 1 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a5320f0",
+   "texte_overlay": "How to be the friend\nevery man wishes he had",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1dd38158",
+   "texte_overlay": "1. Pick up at 2 a.m.\n\nNo questions first.\nJust \"where are you?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "143dae1f",
+   "texte_overlay": "2. Remember what matters\nto him\n\nThe interview, the surgery,\nhis kid's game. Ask about it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3ff1932b",
+   "texte_overlay": "3. Say the hard thing\nin private\n\nHonest, kind, one time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0951be26",
+   "texte_overlay": "4. Show up for the move\n\nEarly. With gloves.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0ff827ee",
+   "texte_overlay": "5. Hype his wins\n\nIn the group chat. Out loud.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dbdf7398",
+   "texte_overlay": "6. Bring something new\nto the table\n\nA book, a fact, an idea.\nGood friends make you sharper.",
+   "texte_sophia": "6. Bring something new\nto the table\n\nUse a micro-learning app\nlike the Sophia app.\nGood friends make you sharper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682893617211378962/7.jpg"
+  }
+ ]
+}

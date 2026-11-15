@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o227",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "20bc146e-0a53-46b7-b228-16037ff19b34",
+ "titre": "hobbies that give you a seriously sharp mind #intelligence #hobbies #brain #learning #selfimprovement",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "f2859d4a-2767-473f-be8d-7dbbd477b759"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f2859d4a). déclinaison G2 de « hobbies that will make you intellectually lethal » (parent 20bc146e). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "23d39be2-4512-4e87-853b-3effd1c86486",
+   "texte_overlay": "hobbies that give you\na seriously sharp mind",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "11579f7c-4029-4cc8-9d08-0d99a522e4ed",
+   "texte_overlay": "writing the counter argument\n\nonce a week, write the best case against your own opinion. seeing the other side clearly makes your thinking more honest and your arguments much stronger.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "48d280b7-a51f-4179-b316-ff5b6b57ffaa",
+   "texte_overlay": "going to the source\n\nread the original study or speech instead of a summary of it. going straight to the source is slower, but you'll notice details that everyone else misses.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d602cde2-3642-453e-86e7-f81945fe56c9",
+   "texte_overlay": "a daily lesson\n\nlearning one real idea a day, like a theory, an experiment or a turning point in history, slowly builds a sharp mind that sees connections everywhere.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/4.jpg",
+   "texte_sophia": "a daily lesson\n\ni used to only read headlines. now i spend 5 minutes a day on one lesson in the Sophia app, a theory or an experiment, and i see connections i never noticed before."
+  },
+  {
+   "position": 5,
+   "media_id": "213298cd-ebc1-418c-9a99-359b02cbdba7",
+   "texte_overlay": "chess puzzles\n\nsolve one chess puzzle a day with your coffee. thinking a few moves ahead trains the same calm and careful logic you'll use in every important decision.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "538897f3-c465-4f95-be3f-df5eca130c80",
+   "texte_overlay": "teaching what you learn\n\nexplain one new idea a week to a friend in simple words. if you can't make it simple, you've found exactly the part you still need to understand better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/6.jpg"
+  }
+ ]
+}

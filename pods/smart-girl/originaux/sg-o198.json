@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o198",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "66a3113f-78f4-4be5-b492-98398ffd3f10",
+ "titre": "habits that make you smarter without trying #habits #smarter #smartgirl #learning #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "b6047a52-7aa9-416b-b37d-36dcbd13718f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 2 de la boîte (parent 66a3113f, langue source en) : accroche reformulée (« 6 habits that make you unexpectedly intelligent » → « habits that make you smarter without trying »), troisième et dernière déclinaison du parent, autre que sg-o168 et sg-o182. Habitudes neuves (changer la langue de son téléphone, visiter une église ou un musée en passant, regarder un documentaire au lieu d'une série, écouter de la musique classique en travaillant, poser une question à chaque dîner). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c91df3d1",
+   "texte_overlay": "habits that make you smarter\nwithout trying",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a1bf36c3",
+   "texte_overlay": "1. switch one device to\nanother language",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a524f19b",
+   "texte_overlay": "2. step into every old church\nyou walk past",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "53b7f888",
+   "texte_overlay": "3. one documentary instead\nof one episode",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "620e03f1",
+   "texte_overlay": "4. classical music while\nyou work",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5ad62013",
+   "texte_overlay": "5. one real question\nat every dinner",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f0c77cbd",
+   "texte_overlay": "6. a 5-minute lesson with\nyour morning coffee",
+   "texte_sophia": "6. a 5-minute lesson with\nmy morning coffee, on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e2a6bf22",
+   "texte_overlay": "which one starts today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649560844988058893/6.jpg"
+  }
+ ]
+}

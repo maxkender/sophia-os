@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o111",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e8a4ca6b-3cac-4799-bd7f-9a75d0414087",
+  "titre": "revising for days and my mind going blank the moment the test starts #studytok #studytips #exams",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "e8a4ca6b-3cac-4799-bd7f-9a75d0414087"
+  ],
+  "notes": "Déclinaison G2 de e8a4ca6b (notre cs-o052 en G1 : r 2,93 en turc), ligne 1 de la boîte. Même promesse (avoir révisé et tout oublier devant la copie, puis ce qui a changé), autres mots : « revising for days and my mind going blank the moment the test starts ». Gestes neufs, aucun de cs-o016 ni de cs-o052 : s'entraîner dans les conditions de l'épreuve, écrire un plan de mémoire en 1 minute au début, un mot-clé par question pour relancer la mémoire, se tester la veille sur des questions mélangées (place micabo, slide 5), garder une routine avant l'épreuve, dormir. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "3a6dfc7e",
+      "texte_overlay": "revising for days and my mind going blank\nthe moment the test starts",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3b8cc94d",
+      "texte_overlay": "what helped me:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "449e90a0",
+      "texte_overlay": "i practice in test conditions at home.\nsilence, timer, no notes. the real day feels familiar.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "45496dbb",
+      "texte_overlay": "first minute of the test: i scribble everything i remember.\nformulas, dates, keywords. then i start.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "a2ac9e7e",
+      "texte_overlay": "the night before, i quiz myself on mixed questions.\nnot chapter by chapter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7217d5a7",
+      "texte_overlay": "stuck? i write one keyword from the question\nand build from there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "725421d6",
+      "texte_overlay": "same small routine before every test.\nwater, deep breath, read everything once.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

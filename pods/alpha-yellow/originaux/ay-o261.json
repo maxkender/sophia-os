@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o261",
+ "type_bleo": "full_test",
+ "titre": "Things your future self will thank you for doing today #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous telle quelle (ay-o197 visait « 30-year-old self », ici le « today » concret). Accroches écrites : « Things your future self will thank you for doing today » (retenue), « Do this today, thank yourself tomorrow » (écartée : slogan), « Small things today, big results later » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ef2547c6-ecbe-48a6-a298-417174eb13d3",
+   "texte_overlay": "Things your future self\nwill thank you for doing today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Drinking water before your first coffee. It takes ten seconds, and your energy, skin and focus slowly improve over months without you even noticing.",
+   "media_id": "0c07266a-3ba3-450d-8604-4b62d08d5504"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Putting a little money aside. Even a small amount today. Future you will remember the day he finally had a cushion when something went wrong.",
+   "media_id": "0cfd84a3-a857-4a45-bf05-9c92ddb1ae9b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Sending that message you keep postponing. The apology, the thank you, the \"we should catch up.\" Relationships are saved by small messages sent on time.",
+   "media_id": "0d771d76-9dca-4748-918c-087f89aa337f"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Stretching for five minutes. Hips, back, shoulders. Your body at forty is built by the tiny habits you start at twenty. Start tonight, it's free.",
+   "media_id": "0e01204e-9160-47e2-a7ea-eafe27e5b8c2"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Learning a little today. I do five minutes a day of history, art or science, and every day it adds a little more to the man I'm becoming.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Every day it adds a little more to the man I'm becoming.",
+   "media_id": "1050d4c0-4740-4724-8b24-059be8593d09"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Going to bed thirty minutes earlier. Tomorrow's patience, focus and mood are mostly decided by tonight's sleep. It's the easiest upgrade there is.",
+   "media_id": "0e83746b-d76f-431e-b600-77472b3e62ac"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Doing one hard thing before lunch. The call, the workout, the difficult task. Future you will be glad you didn't carry it around all afternoon.",
+   "media_id": "8736b4f7-42a4-45f1-9a95-f65842a21cbd"
+  }
+ ]
+}

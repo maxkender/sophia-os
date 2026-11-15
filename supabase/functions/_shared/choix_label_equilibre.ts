@@ -405,6 +405,18 @@ export function testPodPlein(s: StatLabelCreation, r: ReglagesChoixLabel, applic
   return enTestPod(s, r, applicationId) && s.comptes_total >= r.testPodComptes;
 }
 
+/**
+ * DÉMARRAGE D'UN PODZ (0716, décision d'Adrien du 14/11) : un label en test
+ * qui n'a pas encore ses `testPodComptes` comptes, dans une langue où il n'en
+ * a aucun (et que son podz sert), passe AVANT les autres. Ses comptes de test
+ * arrivent donc d'office, chacun dans une langue différente ; il est jugé à
+ * `testPodPosts` posts, comme avant. Seul « à sec » passe avant lui.
+ */
+export function demarragePod(s: StatLabelCreation, r: ReglagesChoixLabel, applicationId: string): boolean {
+  return enTestPod(s, r, applicationId) && s.comptes_total < r.testPodComptes && s.comptes_langue === 0 &&
+    s.livre_langue !== false;
+}
+
 /** Stock compté dans le poids ; un label 100 % pod n'est pas jugé sur son stock. */
 export function capacite(
   s: StatLabelCreation,
@@ -494,6 +506,8 @@ export interface LabelClasse {
   saturePays: boolean;
   /** Moins de `reserveMinJours` de réserve avec ce compte en plus. */
   suspendu: boolean;
+  /** Label de podz en démarrage, absent de cette langue : passe avant les autres (0716). */
+  demarrage: boolean;
   /** Moins de `JOURS_A_SEC` de réserve avec ce compte en plus. */
   aSec: boolean;
 }
@@ -538,10 +552,13 @@ export function classerLabels(
     saturePays: estSaturePays(s, nPays, r),
     suspendu: estSuspendu(s, r),
     aSec: estASec(s, r),
+    demarrage: demarragePod(s, r, app),
   }));
   // Un écart ne joue que s'il ne frappe pas tous les candidats.
   const regles: Array<(c: LabelClasse) => boolean> = [
     (c) => c.aSec,
+    // Démarrage d'un podz (0716) : ses comptes de test d'abord, une langue chacun.
+    (c) => !c.demarrage,
     (c) => c.rafaleLangue,
     // L'ÉLÉMENT CENTRAL (0354) : un label qui tient déjà plus de la moitié d'un
     // pays n'y reçoit plus de compte, quels que soient sa réserve et sa perf.

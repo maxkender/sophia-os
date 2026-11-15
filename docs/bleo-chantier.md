@@ -755,3 +755,34 @@ recalculée à la main, rejouabilité, derniers plans).
     - **Ça marche :** turc (2 comptes), français (emma.lit147 1,32), italien (martina.saggezza245 1,81), anglais (~1,0).
     - **Simulation :** sans nikoleta.diavazei900 et asya.ogrenir761, le label passe à 0,80 ; sans klara.mudrost149 aussi, à 0,84. Proposé à Adrien : nikoleta → smart_girl, asya.ogrenir761 → compte à refaire, klara → weird_alpha ou une semaine d'attente.
     - **11/11, 13 h (Adrien : « passe nikoleta.diavazei900 sur smart_girl et enlève beau_smart_girl, sans toucher aux posts d'aujourd'hui ») :** fait (`compte_labels`) ; ses 2 posts du 11/11 restent beau_smart_girl. Plan du 12/11 (bbeeca3c, 692 créneaux, 0 vide) : ses 2 créneaux sont de la récolte smart_girl. asya.ogrenir761 (compte à refaire) et klara.mudrost149 (weird_alpha ou une semaine d'attente) : en attente d'Adrien.
+- **13/11 et 14/11** : la nuit du 13/11 a fermé weird_alpha (0,726) et voulu
+  refermer beau_smart_girl : weird_alpha rouvert, ses 20 comptes remis, la
+  fermeture automatique coupée (`fermeture_min_posts` = 1 milliard), réserve
+  basse à 4 jours au lieu de 5 (décisions d'Adrien). Les podz en clair (0716,
+  SQL collé par Adrien) : le rythme de la voie 1 suit le taux de gagnants sur
+  21 jours face à la flotte (`bleo_rythme_resultats`, appliqué par le chef),
+  une fiche par podz sur la page Pods (`pods_fiches`), et le démarrage d'un
+  podz neuf : 4 comptes de test d'office, un par langue, jugés à 30 posts.
+- **14/11, réserve BLEO (0718, décision d'Adrien, option 3)** : la réserve d'un
+  label ne compte plus les passages restants de la tierlist mais ses posts
+  « forts et frais » (valeur BLEO ≥ 3 dans une langue où le label a un compte),
+  au rythme de sa récolte des 7 derniers jours. Même vue
+  (`label_application_reserve`) : choix de label, Répartition, stock du
+  Pilotage, sanity et tableau des podz suivent. Au 14/11 : weird_alpha 0,4 j,
+  alpha_male_yellow 4,6, smart_girl 5,2, RH 7,8, alpha_male 9,4,
+  beau_smart_girl 11,1.
+- **14/11, étalement des labels 100 % podz (0720, Adrien)** : un même contenu
+  white_bg reposté dans la même langue par un autre compte fait −65 % (2e
+  passage), −77 % (3e). Le tirage ne sert plus un contenu 100 % podz qu'à un
+  compte par langue ; le rythme des remakes compte la consommation par langue
+  (2 comptes = production doublée). D'abord étaler (un compte par langue, les
+  langues sans recrutement sautées), ensuite un 2e compte avec ses propres
+  contenus. Les comptes en trop de white_bg et Fathomly attendent les labels
+  qu'Adrien donnera.
+- **14/11, soupape des langues (0722, option A d'Adrien)** : chaque nuit
+  (4 h 40), un podz de remakes dont toutes les langues déclarées ont un compte
+  et dont le label tient 0,75 de la flotte sur 30 posts reçoit UNE langue de
+  plus (celle où l'on recrute le plus, hors ar/he/fa/ur/ja), au plus une par
+  semaine. 0721 : Plony (voie 1) s'étale dans toutes les langues où l'on
+  recrute. Changements de labels (doublons white_bg/Fathomly, daniela,
+  comptes en warmup vers Fathomly) : le 15/11 avec Adrien.

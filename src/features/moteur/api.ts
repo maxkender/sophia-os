@@ -411,12 +411,17 @@ export async function sourcesDeLaSemaine(): Promise<SemaineSources | null> {
 
 /**
  * Une source ajoutée passe par la file des mises à jour (0669) : lancée tout de
- * suite si rien ne tourne, sinon en tête du lot suivant (6 h 37).
+ * suite si rien ne tourne, sinon en tête du lot suivant (6 h 37). `essai` dit
+ * si elle a été mise en essai (ses 30 meilleurs posts d'abord, 0686) : pas dans
+ * un label que personne ne porte encore (0721).
  */
-export async function ajouterSourceALaFile(compteReferenceId: string): Promise<"lancee" | "attente"> {
+export async function ajouterSourceALaFile(
+  compteReferenceId: string,
+): Promise<{ file: "lancee" | "attente"; essai: boolean }> {
   const { data, error } = await supabase.rpc("maj_sources_ajouter", { p_compte: compteReferenceId });
   if (error) throw error;
-  return (data as { file?: string } | null)?.file === "lancee" ? "lancee" : "attente";
+  const r = (data ?? {}) as { file?: string; essai_max?: number | null };
+  return { file: r.file === "lancee" ? "lancee" : "attente", essai: typeof r.essai_max === "number" };
 }
 
 export async function majSource(id: string, patch: Partial<CompteReference>): Promise<void> {

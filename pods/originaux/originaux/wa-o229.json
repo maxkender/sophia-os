@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o229",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7db5eacb-00e0-4caa-b0de-bd567006480f",
+ "titre": "everyday habits that build bulletproof confidence #confidence #habits #selfrespect #selfimprovement #mindset",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "4d79f4a2-fc0a-4486-b187-f66df926aaac"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4d79f4a2). déclinaison G2 de « habits that will make you unreasonably confident » (parent 7db5eacb). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2e975d28-0299-4a49-8630-13b029599689",
+   "texte_overlay": "everyday habits that build\nbulletproof confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "190f7c7a-2945-4f66-8a7a-1a2af0550fa6",
+   "texte_overlay": "saying what you think\n\nonce a week, share an honest opinion you'd normally keep to yourself, calmly and kindly. people respect a clear view far more than nervous, polite agreement.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7c5364a0-db87-48fc-b72a-101e17bfd909",
+   "texte_overlay": "understanding people\n\nlearning a little psychology each day, like why we people please or how habits form, makes other people far less intimidating and much easier to read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/3.jpg",
+   "texte_sophia": "understanding people\n\ni spend 5 minutes a day on one idea from psychology, like why we people please. i do it with the Sophia app, and understanding people makes them so much less scary."
+  },
+  {
+   "position": 4,
+   "media_id": "01ee84ef-0a03-40e7-a850-9914451476d8",
+   "texte_overlay": "asking them to explain\n\nwhen a comment feels like a dig, ask calmly what they meant by it. most little jabs quickly fall apart the moment someone has to explain them out loud.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2d5d4b3e-60d9-4226-94d3-c8f1ddeb7b09",
+   "texte_overlay": "preparing your first line\n\nbefore a hard conversation, write down the first sentence you want to say. walking in with a clear opening keeps your voice steady even when you're feeling nervous.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "56a720bd-49f2-44d3-bc57-3662089ab5f9",
+   "texte_overlay": "keeping no short\n\nwhen you say no, give one reason or none at all. long explanations sound like you're asking for permission, while a short no sounds calm, kind and certain.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/6.jpg"
+  }
+ ]
+}

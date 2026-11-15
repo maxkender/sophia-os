@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o158",
+  "type_bleo": "full_test",
+  "titre": "comment je choisis mes livres pour ne presque jamais tomber sur un mauvais #lecture #booktok #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : choisir ses livres, méthode « je ». Accroches écrites : « comment je choisis mes livres pour ne presque jamais tomber sur un mauvais » (retenue : douleur commune, promesse honnête), « quels livres lire » (écartée : vague), « les livres à ne pas lire » (écartée : négatif). Fait vérifié le 14/11 sur https://en.wikipedia.org/wiki/Agatha_Christie : « She is the best-selling novelist of all time, her books having sold more than two billion copies ». Routine du 14/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 4 full tests. Lignes sautées : 5 (« validé par les neurosciences », preuves à vérifier), 6 (« je notes »), 7 (accroche illisible), 8 (« backed by science »), 9 (« enterimarnt »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "19a29cde",
+      "texte_overlay": "comment je choisis mes livres\npour ne presque jamais tomber\nsur un mauvais",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "12be5ef2",
+      "texte_overlay": "1. je lis la première page en librairie\n\nsi elle ne me donne pas envie,\nle reste non plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "03c5ff11",
+      "texte_overlay": "2. je demande aux libraires, pas aux classements\n\nils lisent tout.\net ils adorent conseiller.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c6114c0b",
+      "texte_overlay": "3. je pioche dans les grands classiques\n\nce matin, j'ai appris qu'agatha christie est la romancière la plus vendue de tous les temps, avec plus de deux milliards de livres.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. je pioche dans les grands classiques\n\nce matin, l'appli Sophia m'a appris qu'agatha christie est la romancière la plus vendue de tous les temps, avec plus de deux milliards de livres.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0677dca1",
+      "texte_overlay": "4. je suis les auteurs, pas les modes\n\nun livre m'a plu ?\nje lis le suivant du même auteur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "07cf7fda",
+      "texte_overlay": "5. je m'autorise à abandonner\n\n50 pages, pas plus.\nla vie est trop courte pour un livre ennuyeux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "280ad808",
+      "texte_overlay": "c'est quoi ton dernier coup de cœur ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

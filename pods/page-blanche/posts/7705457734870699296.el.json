@@ -21,7 +21,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7699899851747659041_6.jpg",
+      "boite": [
+       39,
+       483,
+       556,
+       414
+      ]
+     }
+    }
    }
   },
   "2": {
@@ -68,7 +78,17 @@
     }
    },
    "images": {
-    "I1": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7700916867665284385_3.jpg",
+      "boite": [
+       591,
+       361,
+       421,
+       600
+      ]
+     }
+    }
    },
    "geometrie": [
     {

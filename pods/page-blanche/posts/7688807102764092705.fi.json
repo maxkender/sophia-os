@@ -70,9 +70,39 @@
     }
    },
    "images": {
-    "I1": "garder",
-    "I2": "garder",
-    "I3": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7698667830635400470_6.jpg",
+      "boite": [
+       605,
+       400,
+       421,
+       421
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/7684726544442346774_6.jpg",
+      "boite": [
+       40,
+       505,
+       320,
+       320
+      ]
+     }
+    },
+    "I3": {
+     "remplacer": {
+      "source": "sources/7688807102764092705_2.jpg",
+      "boite": [
+       1000,
+       100,
+       17,
+       22
+      ]
+     }
+    }
    }
   },
   "3": {
@@ -230,7 +260,7 @@
       "what if it doesn't go to plan?"
      ],
      "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
-     "texte": "entä jos epäonnistut?\nentä jos muut nauraa?\nentä jos ei mee suunnitelmien mukaan?"
+     "texte": "entä jos epäonnistut?\nentä jos muut nauraa?\nentä jos ei mee niinku piti?"
     },
     "T3": {
      "en": [

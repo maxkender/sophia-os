@@ -58,7 +58,7 @@
       "barely gets used!"
      ],
      "fr": "à force, tu la laisses tellement réfléchir à ta place que [[ton jugement sert presque plus]] !",
-     "texte": "накрая толкова много мислене му прехвърляш, че [[собствената ти преценка почти не се използва]]!"
+     "texte": "накрая толкова мислене му прехвърляш, че [[собствената ти преценка почти не работи]]!"
     },
     "T5": {
      "en": [
@@ -70,9 +70,39 @@
     }
    },
    "images": {
-    "I1": "garder",
-    "I2": "garder",
-    "I3": "garder"
+    "I1": {
+     "remplacer": {
+      "source": "sources/7698667830635400470_6.jpg",
+      "boite": [
+       605,
+       400,
+       421,
+       421
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/7684726544442346774_6.jpg",
+      "boite": [
+       40,
+       505,
+       320,
+       320
+      ]
+     }
+    },
+    "I3": {
+     "remplacer": {
+      "source": "sources/7688807102764092705_2.jpg",
+      "boite": [
+       1000,
+       100,
+       17,
+       22
+      ]
+     }
+    }
    }
   },
   "3": {
@@ -180,7 +210,7 @@
       "solve your problems"
      ],
      "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
-     "texte": "може пък [[следващият тикток]] [[най-накрая]] да ти реши проблемите"
+     "texte": "дано [[следващият тикток]] [[най-сетне]] реши проблемите ти"
     },
     "T3": {
      "en": [

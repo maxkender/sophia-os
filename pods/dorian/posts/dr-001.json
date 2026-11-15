@@ -1,0 +1,72 @@
+{
+ "id": "dr-001",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+  "vues": 568900,
+  "publie_le": "2026-10-19",
+  "accroche": "5 niche ways to disgustingly improve your critical thinking"
+ },
+ "titre": {
+  "en": "5 niche habits of disgustingly well-read people"
+ },
+ "legendes": {
+  "en": "#niche #lockedin #selfimprovement #smarttok"
+ },
+ "musique": {
+  "titre": "A Song of Ice and Fire - Ramin Djawadi",
+  "url": "https://www.tiktok.com/music/A-Song-of-Ice-and-Fire-6723045131219372033"
+ },
+ "notes": "Pilote du podz 16 (15/11), sur le modèle de son post à 569 k (« 5 niche ways to disgustingly improve your critical thinking », 7,2 % d'enregistrements) : même structure (couverture, cerveau en IRM, 5 items à tableau), sujet « bien lu » qui colle à Sophia. Tableaux de l'Art Institute of Chicago (domaine public) : David, Mola, Tiepolo, Héraclite (espagnol, v. 1630). Sophia en item 4 sur 5 (cta A : « a lesson written by an actual professor »), écran « accueil » (captures de l'appli données par Adrien).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of disgustingly well-read people",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(it's not just reading)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The 2-minute rabbit hole",
+    "texte": "the second a word, a name or a place confuses you, look it up. two minutes, not later. curiosity is exactly when your brain remembers best",
+    "image": "images/lectrice-buron.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Explain it to a 10-year-old",
+    "texte": "after you learn something, explain it out loud in simple words. the parts you can't explain are the parts you didn't really get",
+    "image": "images/homere-dictant.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Steal the greatest hits",
+    "texte": "you don't need to read all of plato. learn the 20 ideas everyone references: the allegory of the cave, occam's razor, the prisoner's dilemma",
+    "image": "images/tete-philosophe.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. history, philosophy, science, economics. a tiny lecture every morning",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Connect everything",
+    "texte": "link every new fact to one you already know. history explains economics, economics explains politics. knowledge compounds when it's connected",
+    "image": "images/heraclite-sphere.jpg"
+   }
+  }
+ ]
+}

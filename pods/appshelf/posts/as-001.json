@@ -1,0 +1,101 @@
+{
+ "id": "as-001",
+ "fond": "images/fond-bibliotheque.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7693264861173796127",
+  "vues": 21300,
+  "publie_le": "2026-10-05",
+  "accroche": "my most used apps as someone with ADHD"
+ },
+ "titre": {
+  "en": "my most used apps as a busy student"
+ },
+ "legendes": {
+  "en": "the ones that actually stay on my home screen #apprecommendations #productivity #studytok #cuteapps"
+ },
+ "musique": {
+  "titre": "sippin' with u - Malia B.",
+  "url": "https://www.tiktok.com/music/sippin-with-u-7666602353542252561"
+ },
+ "notes": "Pilote du podz 17 (15/11), sur le modèle du post donné par Adrien (« my most used apps / as someone with ADHD », 21 k) : même couverture en collage, même fond de bibliothèque, cinq applis, la fin « save & follow ». Applis réelles (App Store, 15/11) : Structured, Finch, Sophia (3e, cta A : « written by professors », « 10 minutes a day » ; ses vraies captures : accueil, quiz, cours fini), DailyBean, Routinery. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/bureau-bougie.jpg",
+     "images/bureau-organiseur.jpg",
+     "images/cafe-glace.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "my"
+      },
+      {
+       "t": "most",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "used",
+       "style": "clair"
+      },
+      {
+       "t": "apps"
+      }
+     ]
+    ],
+    "pastille": "as a busy student"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Structured",
+    "dossier": "images/applis/structured",
+    "note": "A visual planner that puts your tasks and calendar on one timeline, so you can actually see how your day fits together"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Finch",
+    "dossier": "images/applis/finch",
+    "note": "A little self-care pet that grows when you take care of yourself: drink water, stretch, journal, go outside"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "DailyBean",
+    "dossier": "images/applis/dailybean",
+    "note": "A no-writing journal: tap your mood and what you did, and it turns your days into a cute little calendar"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Routinery",
+    "dossier": "images/applis/routinery",
+    "note": "Turns your morning and night routines into a step-by-step timer, so you stop losing 20 minutes between tasks"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   }
+  }
+ ]
+}

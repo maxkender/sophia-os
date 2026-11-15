@@ -11,13 +11,19 @@
   "en": "Iceberg of gifted kid hobbies",
   "de": "Der Eisberg der Hochbegabten-Hobbys",
   "it": "Iceberg degli hobby da plusdotati",
-  "pt-BR": "Iceberg de hobbies de superdotado"
+  "pt-BR": "Iceberg de hobbies de superdotado",
+  "tr": "Üstün yeteneklilerin hobi buzdağı",
+  "sv": "Isberget av särbegåvade hobbyer",
+  "nl": "IJsberg van hoogbegaafde hobby's"
  },
  "legendes": {
   "en": "#iceberg #hobbies #giftedkid #lockedin #selfimprovement",
   "de": "#eisberg #hobbys #hochbegabt #selbstverbesserung",
   "it": "#iceberg #hobby #plusdotati #crescitapersonale",
-  "pt-BR": "#iceberg #hobbies #superdotado #autoconhecimento"
+  "pt-BR": "#iceberg #hobbies #superdotado #autoconhecimento",
+  "tr": "#buzdağı #hobi #üstünyetenekli #kişiselgelişim",
+  "sv": "#isberg #hobbyer #särbegåvad #självutveckling",
+  "nl": "#ijsberg #hobbys #hoogbegaafd #zelfontwikkeling"
  },
  "musique": {
   "titre": "original sound - 432pa.hp",
@@ -42,6 +48,18 @@
    "pt-BR": {
     "haut": "Iceberg de",
     "bas": "hobbies de superdotado"
+   },
+   "tr": {
+    "haut": "Üstün yeteneklilerin",
+    "bas": "hobi buzdağı"
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "särbegåvade hobbyer"
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hoogbegaafde hobby's"
    }
   },
   {
@@ -362,6 +380,243 @@
      ]
     ],
     "question": "discorda?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "kitap okumak",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "çizim",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "piyano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "belgeseller",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "münazara",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "günde 10 dk sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "yunan mitolojisi",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "kodlama",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "latince öğrenmek",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "şiir yazmak",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "ortaçağ tarihi",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "gece 3'te felsefe",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "ansiklopedi okumak",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "yarım kalan projeler",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "läsa böcker",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "skissa",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "dokumentärer",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "debattklubb",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "10 min sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "grekisk mytologi",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "koda",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "lära sig latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "skriva poesi",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "medeltiden",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "filosofi kl. 3",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "läsa uppslagsverk",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "ofärdiga projekt",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "boeken lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "schetsen",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "docu's",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "debatteren",
+       "image": "images/objets/pupitre.png"
+      },
+      {
+       "t": "10 min sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "griekse mythologie",
+       "image": "images/objets/amphore.png"
+      }
+     ],
+     [
+      {
+       "t": "coderen",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "sterren kijken",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "gedichten schrijven",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "middeleeuwen",
+       "image": "images/objets/heaume.png"
+      },
+      {
+       "t": "filosofie om 3 uur",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "encyclopedie lezen",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "onafgemaakte projecten",
+       "image": "images/objets/papiers-froisses.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
    }
   }
  ]

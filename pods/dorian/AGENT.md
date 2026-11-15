@@ -20,9 +20,9 @@ rejette est validée toute seule 5 h après son dépôt.
 	- dans un iceberg, comme **un hobby** avec l'icône de l'appli : « one sophia lesson a day », « 10-minute lessons on sophia ».
 - **Le label** : `dorian` (migration 0729), qui sert **Sophia seul**, label 100 % podz. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » (test sur 4 comptes anglais) ou Adrien et Max (Pilotage). `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En 4 langues : en, de, it, pt-BR** (décision d'Adrien du 15/11, `LANGUES` dans `atelier/api.ts`) : un deck par langue dans chaque livraison, traduit à la main au ton du compte modèle (minuscules, phrases courtes, ton « niche », un peu provoc : « disgustingly », « genuinely f*cking difficult »). Un exemple trop anglo-saxon s'adapte au lieu de se traduire mot à mot. Chaque langue tient sur la slide : raccourcis plutôt que réduire (une étiquette d'iceberg : deux lignes au plus, `npm run rendu` refuse au-delà).
-	- L'écran Sophia : `assets/sophia/<langue>/telephone-<écran>.jpg`, les trois écrans (accueil, quiz, cours) traduits en de, it et pt-BR (demande d'Adrien du 15/11) : `python3 atelier/ecrans.py de it pt-BR` réécrit leurs textes dans la police de l'appli (Plus Jakarta Sans, SIL OFL). Une langue neuve : ajoute ses textes dans le script et regarde les écrans (Read) avant de livrer.
-- **Le rythme** (demande d'Adrien du 15/11) : au moins 2 livraisons par jour, toujours dans les 4 langues ; suis le plus haut de ce plancher et du rythme de `npm run boite`. Un contenu ne va qu'à un compte par langue (0720) : un 2e compte dans une langue double les posts à faire.
+- **En 7 langues : en, de, it, pt-BR, tr, sv, nl** (décisions d'Adrien du 15/11 : de, it, pt-BR, puis tr, sv, nl ; `LANGUES` dans `atelier/api.ts`) : un deck par langue dans chaque livraison, traduit à la main au ton du compte modèle (minuscules, phrases courtes, ton « niche », un peu provoc : « disgustingly », « genuinely f*cking difficult »). Un exemple trop anglo-saxon s'adapte au lieu de se traduire mot à mot. Chaque langue tient sur la slide : raccourcis plutôt que réduire (une étiquette d'iceberg : deux lignes au plus, `npm run rendu` refuse au-delà).
+	- L'écran Sophia : `assets/sophia/<langue>/telephone-<écran>.jpg`, les trois écrans (accueil, quiz, cours) traduits dans chaque langue (demande d'Adrien du 15/11) : `python3 atelier/ecrans.py de it pt-BR tr sv nl` réécrit leurs textes dans la police de l'appli (Plus Jakarta Sans, SIL OFL). Une langue neuve : ajoute ses textes dans le script et regarde les écrans (Read) avant de livrer.
+- **Le rythme** (demande d'Adrien du 15/11) : au moins 2 livraisons par jour, toujours dans toutes les langues de `LANGUES` ; suis le plus haut de ce plancher et du rythme de `npm run boite`. Un contenu ne va qu'à un compte par langue (0720) : un 2e compte dans une langue double les posts à faire.
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un original
@@ -81,7 +81,7 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 - `musique` : la sienne pour ce post (le manifeste donne son id).
 - `type_bleo` et `parent_contenu_id` : comme `pods/ROUTINE.md` §5.3 et §5.4.
 - `notes` : la preuve, les images (tableaux : titre et peintre), la place et la version (`cta A`…) de Sophia.
-- `titre`, `legendes` et chaque slide ont une clé par langue (`en`, `de`, `it`, `pt-BR`) ; les exemples ci-dessous montrent `en` :
+- `titre`, `legendes` et chaque slide ont une clé par langue (`en`, `de`, `it`, `pt-BR`, `tr`, `sv`, `nl`) ; les exemples ci-dessous montrent `en` :
 	- `couverture` : `{ "titre": "5 niche …", "image": "images/cerveau-irm.jpg", "legende": "(it's not just reading)" }` ;
 	- `item` : `{ "titre": "Steelmanning", "texte": "…", "image": "images/…jpg" }`, avec au besoin `difficulte` (« 35/50 »), `citation` (bleu-vert), `imageY` ;
 	- l'item Sophia : `{ "type": "item", "app": "sophia", "en": { "titre": "One lesson a day on Sophia", "texte": "…", "telephone": "accueil" } }` ;

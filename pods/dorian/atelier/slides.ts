@@ -205,7 +205,7 @@ async function couvertureListe(ctx: Ctx, c: CouvertureListe) {
 }
 
 /** « difficulty: » dans la langue du deck. */
-const DIFFICULTE: Record<string, string> = { en: "difficulty", de: "schwierigkeit", it: "difficoltà", "pt-BR": "dificuldade" };
+const DIFFICULTE: Record<string, string> = { en: "difficulty", de: "schwierigkeit", it: "difficoltà", "pt-BR": "dificuldade", tr: "zorluk", sv: "svårighet", nl: "moeilijkheid" };
 
 /**
  * L'écran de Sophia dans la langue du deck : `assets/sophia/<langue>/telephone-<écran>.jpg`

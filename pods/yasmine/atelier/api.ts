@@ -5,8 +5,8 @@
 export const POD = "remakes_yasmine";
 /** Le compte refait : « that girl / studytok », gros succès de la rentrée de juillet. */
 export const COMPTE_SOURCE = "yasminespixels";
-/** Les langues livrées : le français, puis l'espagnol, l'allemand et le turc (langues de micabo, 23/10). Déclarées à l'OS (0654) : l'attribution des comptes les lit, n'y mets que ce que tu sais vraiment faire. */
-export const LANGUES = ["fr", "en", "es", "de", "it", "pt", "tr"] as const;
+/** Les langues livrées (un compte micabo par langue, 15/11) : es, tr, fr, en, de, it et pt-BR (le portugais des posts, écrit « pt » dans les anciens, est brésilien). Déclarées à l'OS (0654) à chaque `npm run boite` : l'attribution des comptes les lit, et une langue absente d'ici ne reçoit plus rien. */
+export const LANGUES = ["fr", "en", "es", "de", "it", "pt-BR", "tr"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "fr";
 

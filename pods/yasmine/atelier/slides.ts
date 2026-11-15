@@ -96,7 +96,17 @@ export type Post = {
 export const RACINE = join(import.meta.dirname, "..");
 
 export function lirePost(id: string): Post {
-  return JSON.parse(readFileSync(join(RACINE, "posts", `${id}.json`), "utf8")) as Post;
+  const p = JSON.parse(readFileSync(join(RACINE, "posts", `${id}.json`), "utf8")) as Post;
+  // Le portugais des posts est brésilien (« você ») ; l'OS l'appelle pt-BR
+  // depuis le 15/11 (compte micabo pt-BR). Les posts écrits avec « pt » le
+  // restent : on les lit aussi sous « pt-BR ».
+  const tout = p as unknown as { titre: Record<string, string>; legendes: Record<string, string>; slides: Record<string, unknown>[] };
+  if (tout.titre.pt && !tout.titre["pt-BR"]) {
+    tout.titre["pt-BR"] = tout.titre.pt;
+    if (tout.legendes.pt) tout.legendes["pt-BR"] = tout.legendes.pt;
+    for (const s of tout.slides) if (s.pt && !s["pt-BR"]) s["pt-BR"] = s.pt;
+  }
+  return p;
 }
 
 export function contenu(s: Slide, langue: Langue): ContenuSlide {

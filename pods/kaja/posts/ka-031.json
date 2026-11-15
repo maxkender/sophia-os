@@ -1,0 +1,328 @@
+{
+ "id": "ka-031",
+ "titre": {
+  "en": "10/10 skills you can learn in one day",
+  "fr": "10/10 skills à apprendre en un jour",
+  "de": "10/10 Skills, die du an einem Tag lernst"
+ },
+ "legendes": {
+  "en": "10/10 skills you can learn in one day #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills à apprendre en un jour #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die du an einem Tag lernst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7660804487010847501"
+ },
+ "notes": "Full test (BLEO, 15/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (« en un jour »). Décor branche2, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia, jamais faites chez nous : photos au téléphone, alphabet en langue des signes, grue en origami. Musique : son « original sound » 7660804487010847501 de son manifeste, jamais pris, pour alterner. Sophia en étape 3 « HOW TO LEARN SOMETHING EVERY DAY » : cta A, « 5 min a day ». Vraies vidéos : en Drew Tooley, Learn How to Sign, Origami Tsunami ; fr Photo Maniac, Langue des signes, L'Atelier de Thomas ; de Timo Nausch, Cindy Klink, Tavins Origami-Anleitungen.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS YOU",
+     "CAN LEARN",
+     "IN ONE DAY"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS À",
+     "APPRENDRE",
+     "EN UN JOUR"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "EINEN TAG"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO TAKE",
+     [
+      {
+       "t": "BETTER PHOTOS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dQymfKW34XY",
+     "titre": "MOBILE PHOTOGRAPHY TIPS and TRICKS - Simple WAYS to CAPTURE BETTER PHOTOS",
+     "chaine": "Drew Tooley",
+     "vues": "590K views",
+     "date": "6 years ago",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/-RTWFhnBe_UAgGrcS79LydtPFUqGwqguEIcTrKeTViX6wbGh_ULm5y8MWtWlviQx0Va5eGsu=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DE BELLES PHOTOS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "16OcnFicNP4",
+     "titre": "Comment Prendre de Belles Photos au Smartphone ? (Matériel, Réglage, Exposition, Lumière)",
+     "chaine": "Photo Maniac",
+     "vues": "10 k vues",
+     "date": "il y a 4 ans",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/fcyeecHl8yd6BF5PyMYr-Yu0w9AmvhhNt-XSSFIeZ4opXgCyUYrDd0iKh0AIsYy0xhQc4XO2Yg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "BESSERE FOTOS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r5_MzOYmzXg",
+     "titre": "SMARTPHONE FOTOGRAFIE TUTORIAL - 5 einfache Tipps für die Fotografie mit dem Handy",
+     "chaine": "Timo Nausch",
+     "vues": "95.620 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWrmWb_-C8scxAQsXTRJN2kocEUuAgmBjoim8Vs7jyrws=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-20 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SIGN",
+     [
+      {
+       "t": "THE ALPHABET",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DBQINq0SsAw",
+     "titre": "Learn the ASL Alphabet Fast | American Sign Language ABCs",
+     "chaine": "Learn How to Sign",
+     "vues": "1.8M views",
+     "date": "3 years ago",
+     "duree": "13:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjylWENsAjiqg9Ctp5NmnDOSyEtVO0KV44Mfk_XOBh1n8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT SIGNER",
+     [
+      {
+       "t": "L'ALPHABET",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XQEFR5YmIP4",
+     "titre": "Alphabet en langue des signes française",
+     "chaine": "Langue des signes",
+     "vues": "589 k vues",
+     "date": "il y a 12 ans",
+     "duree": "5:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5jb8fj2iJwAIwMP3JLuG96Uq2yiFlJ8gC1OQDXI6yaQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU DAS",
+     [
+      {
+       "t": "FINGERALPHABET",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UpNnIo80V8M",
+     "titre": "Gebärdensprache lernen: FINGERALPHABET | Cindy Klink",
+     "chaine": "Cindy Klink",
+     "vues": "233.308 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:39",
+     "avatar": "https://yt3.ggpht.com/bWj0wYU_Q_2k2gDR8qmLO0C9XLpyXeDnRACa14aS0DAHuePe48bncQcQg3InLkviHoHDUZDU0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "SOMETHING EVERY DAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "UN TRUC PAR JOUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "JEDEN TAG WAS NEUES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO FOLD",
+     [
+      {
+       "t": "A PAPER CRANE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KfnyopxdJXQ",
+     "titre": "How To Make a Paper Crane - Origami Crane Step by Step - Easy",
+     "chaine": "Origami Tsunami",
+     "vues": "13M views",
+     "date": "12 years ago",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0NLs7H4Z94DZ6238uVavckWOfsvFolDv-G8QJpXImvA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT PLIER",
+     [
+      {
+       "t": "UNE GRUE EN PAPIER",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bZcl8eKG3HU",
+     "titre": "Origami ! La Grue traditionnelle [HD]",
+     "chaine": "L'Atelier de Thomas",
+     "vues": "784 k vues",
+     "date": "il y a 10 ans",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/7rqyaoG0qMafPaa37JOyZuskBzwZwWDID-RyfsEDqJbxEY2gmT_3MVh4iWynPbYT7QbO3UXI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FALTEST DU",
+     [
+      {
+       "t": "EINEN KRANICH",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NyrQDdHCXMs",
+     "titre": "Origami-Anleitung: Kranich",
+     "chaine": "Tavins Origami-Anleitungen",
+     "vues": "2 Mio. Aufrufe",
+     "date": "vor 16 Jahren",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkCf0gfFaEzevZxd82GOYZ2-a5UhsYrIZNi3hitLvLwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

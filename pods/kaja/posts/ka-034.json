@@ -1,0 +1,329 @@
+{
+ "id": "ka-034",
+ "titre": {
+  "en": "10/10 skills to learn this winter",
+  "fr": "10/10 skills à apprendre cet hiver",
+  "de": "10/10 Skills für diesen Winter"
+ },
+ "legendes": {
+  "en": "10/10 skills to learn this winter #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills à apprendre cet hiver #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für diesen Winter #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "son original",
+  "url": "https://www.tiktok.com/music/son-original-7642981725571730208"
+ },
+ "notes": "Full test (BLEO, 15/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (l'hiver, de saison). Décor branche2, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia, jamais faites chez nous : patin à glace, tricot, ski. Musique : son « son original » 7642981725571730208 de son manifeste, jamais pris, pour alterner. Sophia en étape 3 « HOW TO LEARN FROM YOUR COUCH » : cta C, « 5 min a day ». Vraies vidéos : en Coach Michelle Hong, RJ Knits, Stomp It Tutorials ; fr La FAMILLE c'est du SPORT, Les Triconautes, Le Moniteur De Ski ; de Smart Economic Life, Tolle Wolle, Marius Quast.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS TO",
+     "LEARN THIS",
+     "WINTER"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS À",
+     "APPRENDRE",
+     "CET HIVER"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "DIESEN",
+     "WINTER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "ICE SKATE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rv-mHUQG6lg",
+     "titre": "BEST VIDEO FOR ICE SKATING BEGINNERS! || HOW TO ICE SKATE | Coach Michelle Hong",
+     "chaine": "Coach Michelle Hong",
+     "vues": "2.1M views",
+     "date": "7 years ago",
+     "duree": "7:16",
+     "avatar": "https://yt3.ggpht.com/7pjwAk3bRQ5BRPfANB7Vy3h6IalxbwfQiUJWjjMYTBW8l5Ucq2WJcrid5mcJLxxfT8RnkwsbDQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "PATINER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RJRgsN8Mm3c",
+     "titre": "Tutoriel PATIN À GLACE - 5 trucs pour DÉBUTANTS",
+     "chaine": "La FAMILLE c'est du SPORT",
+     "vues": "141 k vues",
+     "date": "il y a 3 ans",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kXfybfF0VpkblMUM8q82xZWSu637GAmAI39ocImMEzRyM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "EISLAUFEN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6EjqLyNFmhg",
+     "titre": "Schlittschuhlaufen lernen für Anfänger - Die ersten Schritte auf dem Eis",
+     "chaine": "Smart Economic Life",
+     "vues": "344.592 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mj54v2nlKuBL-PzuIe4YX4_EDACNa1cLysjHV2O1Ngmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "KNIT",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "p_R1UDsNOMk",
+     "titre": "How to Knit: Easy for Beginners",
+     "chaine": "RJ Knits",
+     "vues": "15M views",
+     "date": "7 years ago",
+     "duree": "21:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVA5BHLRcC_N2a1_e9sAHeT2wACDKoXF74o70koaZkQU0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "TRICOTER",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dqA57romtls",
+     "titre": "Apprendre à tricoter en UNE SEULE VIDÉO : La méthode complète pour apprendre le tricot pour débutant",
+     "chaine": "Les Triconautes",
+     "vues": "393 k vues",
+     "date": "il y a 5 ans",
+     "duree": "26:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasFlHy-cCFcUH9femJBFWVbIjQHIRamoI4S-vqdn35to=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "STRICKEN",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cBaehiBVWz8",
+     "titre": "Maschen aufnehmen - Stricken für Anfänger 1 | Stricken Lernen Basics | Stricken lernen",
+     "chaine": "Tolle Wolle",
+     "vues": "1,5 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nr7QyQEh1kpwVMMpi6jVlttQc3PmhaKQS1zbtCe0KrVKU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "FROM YOUR COUCH",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "DEPUIS TON CANAPÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "VOM SOFA AUS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SKI",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MMeJsyiiifM",
+     "titre": "How to Ski in One Day | Beginner Learns Basic Turns",
+     "chaine": "Stomp It Tutorials",
+     "vues": "1.5M views",
+     "date": "6 years ago",
+     "duree": "10:01",
+     "avatar": "https://yt3.ggpht.com/NScPvlZMWRPrA0t_vtkJR3NpqOjxAmWnt5JN8UMMVm-q9iaF2yypNLOvy77gwFf4-mq486iwJg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "SKIER",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oKTWw28_SSI",
+     "titre": "Apprendre le ski : Comment réussir sa première journée sur les pistes de ski ?",
+     "chaine": "Le Moniteur De Ski",
+     "vues": "182 k vues",
+     "date": "il y a 2 ans",
+     "duree": "5:43",
+     "avatar": "https://yt3.ggpht.com/lEFijfjkD97bF251Q4rD4zUmBWcEsaf7djlXecXwcUQKLvYgYQZYmz0vzwgFl_7FmDxKUrFu=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SKIFAHREN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Kg3MVrVkqZw",
+     "titre": "Anfänger Skikurs in 3 Minuten | Skifahren lernen",
+     "chaine": "Marius Quast",
+     "vues": "810.118 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:11",
+     "avatar": "https://yt3.ggpht.com/wv8dtFt85lMVwkJyBsYBOhbY8IJWCJT9CQe-5MaSwfqJcqE3T5JARtNxag0bsTIXwQaKmpP30dY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Tage"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

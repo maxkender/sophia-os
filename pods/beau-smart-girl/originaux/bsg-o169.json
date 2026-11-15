@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o169",
+  "type_bleo": "full_test",
+  "titre": "comment je me fais une culture en histoire de l'art sans faire d'études d'art #art #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : l'histoire de l'art en autodidacte, méthode « je ». Accroches écrites : « comment je me fais une culture en histoire de l'art sans faire d'études d'art » (retenue : accessible, concrète), « les tableaux à connaître » (écartée : liste de faits à vérifier), « l'art pour les nulles » (écartée : dévalorise). Aucun fait daté. Routine du 15/11 sur BLEO (règle 0671 : images neuves de toute la banque, vérifiées sur planche ; son en rotation). Jauge : 3 full tests et 5 déclinaisons ; seules les lignes 1, 2 et 8 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (« validé par les neurosciences »), 4 (accroche illisible), 5 (« backed by science »), 6 (« enterimarnt »), 7 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b3aedb17",
+      "texte_overlay": "comment je me fais une culture\nen histoire de l'art\nsans faire d'études d'art",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b46c8168",
+      "texte_overlay": "1. un mouvement par mois\n\nla renaissance, l'impressionnisme, le surréalisme.\nun mois, c'est assez pour le reconnaître.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b47736dd",
+      "texte_overlay": "2. je garde un tableau en fond d'écran\n\nje le change chaque semaine.\nje finis par le connaître par cœur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b4b07600",
+      "texte_overlay": "3. je compare deux œuvres sur le même sujet\n\ndeux portraits, deux paysages, à trois siècles d'écart.\non voit tout ce qui a changé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b4e06733",
+      "texte_overlay": "4. je lis la vie des peintres\n\nleurs amours, leurs disputes, leur misère.\nles tableaux prennent un autre sens.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "35c3b03b",
+      "texte_overlay": "5. j'en apprends un peu chaque jour\n\navant, je passais devant les tableaux sans les voir.\nmaintenant, j'apprends un truc sur le monde chaque matin. et au musée, je reconnais tout.",
+      "texte_sophia": "5. j'en apprends un peu chaque jour\n\navant, je passais devant les tableaux sans les voir.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et au musée, je reconnais tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "b4f4be3e",
+      "texte_overlay": "tu as un peintre préféré ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

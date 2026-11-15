@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o171",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8abb9518-4973-4d29-a7c3-e3428c184751",
+  "titre": "les sujets de conversation qui marchent à tous les coups (et ce n'est pas la météo) #conversation #culture #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [
+    "8abb9518-4973-4d29-a7c3-e3428c184751"
+  ],
+  "notes": "G1, déclinaison de 8abb9518 (« les sujets de conversation qui marchent à tous les coups (et ce n'est pas la météo) », génération 0 ; meilleur passage en 4,5 k vues, r 5,51), en français. Famille de mon full test bsg-o127, gagnante. cta B (l'anecdote du jour en item 3). Sujets neufs (rien de repris de bsg-o127 : ni meilleur repas, ni année sabbatique, ni livre d'enfance, ni ce qu'on aimerait apprendre). Fait vérifié le 3/11 sur https://en.wikipedia.org/wiki/Venus : orbite de 224,7 jours terrestres, jour sidéral de 243 jours. Routine du 15/11 sur BLEO (règle 0671 : images neuves de toute la banque, vérifiées sur planche ; son en rotation). Jauge : 3 full tests et 5 déclinaisons ; seules les lignes 1, 2 et 8 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (« validé par les neurosciences »), 4 (accroche illisible), 5 (« backed by science »), 6 (« enterimarnt »), 7 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b5df1a42",
+      "texte_overlay": "les sujets de conversation\nqui marchent à tous les coups\n(et ce n'est pas la météo)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b6045474",
+      "texte_overlay": "1. le dernier truc qui l'a fait rire\n\nune vidéo, une phrase, un moment.\nla conversation démarre toute seule.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b63b8144",
+      "texte_overlay": "2. la ville où elle aimerait vivre\n\net pourquoi.\non découvre ses rêves en deux minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4f25ca9a",
+      "texte_overlay": "3. une anecdote qui surprend\n\nce matin, j'ai appris qu'une journée sur vénus dure plus longtemps qu'une année.\ntout le monde a voulu vérifier.",
+      "texte_sophia": "3. une anecdote qui surprend\n\nce matin, l'appli Sophia m'a appris qu'une journée sur vénus dure plus longtemps qu'une année.\ntout le monde a voulu vérifier.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b6441514",
+      "texte_overlay": "4. son talent caché\n\ntout le monde en a un.\net personne ne le demande jamais.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b645d0b0",
+      "texte_overlay": "5. la meilleure chose de sa semaine\n\nplus joyeux que la question classique.\net la réponse est toujours sincère.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "b666429e",
+      "texte_overlay": "enregistre-le pour ta prochaine soirée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o167",
+  "type_bleo": "full_test",
+  "titre": "les questions à poser en cours pour que tes profs se souviennent de toi #etudes #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : se faire remarquer en cours, liste enregistrable. Accroches écrites : « les questions à poser en cours pour que tes profs se souviennent de toi » (retenue : concrète, utile à la rentrée), « comment être la chouchoute » (écartée : connotation), « participer en cours » (écartée : sec). Aucun fait daté. Routine du 15/11 sur BLEO (règle 0671 : images neuves de toute la banque, vérifiées sur planche ; son en rotation). Jauge : 3 full tests et 5 déclinaisons ; seules les lignes 1, 2 et 8 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (« validé par les neurosciences »), 4 (accroche illisible), 5 (« backed by science »), 6 (« enterimarnt »), 7 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5ac41c47",
+      "texte_overlay": "les questions à poser en cours\npour que tes profs se souviennent de toi",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b6393b02",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "5ace5e90",
+      "texte_overlay": "1. vous pouvez me donner un exemple ?\n\nla question qui montre que tu suis vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "5b388e3f",
+      "texte_overlay": "2. ça ressemble à ce qu'on a vu la semaine dernière, non ?\n\ntu relies les cours.\nles profs adorent ça.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "5b460414",
+      "texte_overlay": "3. qu'est-ce que vous me conseillez de lire là-dessus ?\n\nils ont toujours une réponse.\net ils s'en souviennent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5b70017d",
+      "texte_overlay": "4. où est-ce que les gens se trompent le plus ?\n\nla réponse vaut tous les conseils d'examen.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5ba24b57",
+      "texte_overlay": "5. pourquoi vous avez choisi ce sujet ?\n\nà la fin du cours.\nc'est souvent le début d'une vraie conversation.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "5a403309",
+      "texte_overlay": "enregistre-le pour lundi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

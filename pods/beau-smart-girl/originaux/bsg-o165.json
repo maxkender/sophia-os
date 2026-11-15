@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o165",
+  "type_bleo": "full_test",
+  "titre": "comment je révise l'histoire comme si c'était une série #histoire #etudes #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : l'histoire racontée comme une série, méthode « je ». Accroches écrites : « comment je révise l'histoire comme si c'était une série » (retenue : image forte, concrète), « l'histoire, c'est pas ennuyeux » (écartée : défensif), « réviser l'histoire facilement » (écartée : sec). Fait vérifié le 5/11 sur https://en.wikipedia.org/wiki/Anglo-Zanzibar_War : « between 38 and 45 minutes, marking it as the shortest recorded war in history » (1896). Routine du 15/11 sur BLEO (règle 0671 : images neuves de toute la banque, vérifiées sur planche ; son en rotation). Jauge : 3 full tests et 5 déclinaisons ; seules les lignes 1, 2 et 8 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (« validé par les neurosciences »), 4 (accroche illisible), 5 (« backed by science »), 6 (« enterimarnt »), 7 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "581fc88a",
+      "texte_overlay": "comment je révise l'histoire\ncomme si c'était une série",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "5895d443",
+      "texte_overlay": "1. chaque chapitre est un épisode\n\nun début, un conflit, une fin.\net je veux toujours voir la suite.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "58a47206",
+      "texte_overlay": "2. je choisis mes personnages préférés\n\nun roi, une espionne, un inventeur.\nje suis leur histoire d'un chapitre à l'autre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "581a4ef7",
+      "texte_overlay": "3. je retiens les rebondissements\n\nce matin, j'ai appris que la guerre la plus courte de l'histoire a duré moins d'une heure, en 1896.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. je retiens les rebondissements\n\nce matin, l'appli Sophia m'a appris que la guerre la plus courte de l'histoire a duré moins d'une heure, en 1896.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "58ad381b",
+      "texte_overlay": "4. je fais un résumé de l'épisode précédent\n\navant chaque séance, trente secondes.\ncomme à la télé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "58e67907",
+      "texte_overlay": "5. je regarde un film sur l'époque\n\nle week-end, en récompense.\net je cherche ce qui est vrai.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "58f63ae0",
+      "texte_overlay": "tu révises quelle époque en ce moment ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

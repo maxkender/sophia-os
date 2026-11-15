@@ -1,0 +1,272 @@
+{
+ "post_id": "original-056",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 skills to learn to be",
+      "successful by 25"
+     ],
+     "fr": "10/10 compétences pour percer avant 25 ans",
+     "texte": "a nagyszüleink szokásai, amiket vissza kéne hozni"
+    },
+    "T2": {
+     "en": [
+      "(7 figures by 25)"
+     ],
+     "fr": "(millionnaire à 25 ans)",
+     "alignement": "droite",
+     "texte": "(volt benne valami)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7691007701127564576_6.jpg",
+      "boite": [
+       40,
+       540,
+       556,
+       414
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "test yourself instead of",
+      "rereading"
+     ],
+     "fr": "teste-toi [[au lieu de relire]]",
+     "texte": "kézzel írtak [[igazi leveleket]]"
+    },
+    "T2": {
+     "en": [
+      "rereading notes feels",
+      "productive, but mostly it just",
+      "makes things look familiar"
+     ],
+     "fr": "relire tes fiches donne l'impression de bosser, mais ça les rend juste familières",
+     "texte": "egy levél egy egész estébe telik, így csak azt írod bele, [[amit tényleg gondolsz]]"
+    },
+    "T3": {
+     "en": [
+      "close the book, write down",
+      "everything you remember,",
+      "then check what you missed"
+     ],
+     "fr": "ferme le livre, écris tout ce dont tu te souviens, puis vérifie ce que t'as oublié",
+     "texte": "és megmarad. a leveleket évtizedekig őrzik egy dobozban, egy sms-t senki"
+    },
+    "T4": {
+     "en": [
+      "recall is the workout"
+     ],
+     "fr": "réciter, c'est la muscu",
+     "texte": "[[szavak, amik túlélnek]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "[[séta vacsora után]], minden este"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "se cél, se podcast, csak egy kör a környéken"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "ilyenkor mesélték el a napjukat, vagy [[egyáltalán nem beszéltek]]"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "evés után egy kis mozgás segít a testednek megnyugodni, és a nap [[igazi lezárást]] kap egy éjféli képernyő helyett"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[és az este is hosszabbnak tűnik]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. take real breaks"
+     ],
+     "fr": "1. fais de [[vraies pauses]]",
+     "texte": "tanulj [[verset kívülről]]"
+    },
+    "T2": {
+     "en": [
+      "doomscrolling between work",
+      "blocks is not rest, that's why",
+      "you always feel tired"
+     ],
+     "fr": "[[scroller]] entre deux sessions, [[c'est pas une pause]], d'où ta fatigue constante",
+     "texte": "a suliban be kellett magolniuk párat, és 80 évesen [[még mindig fújják őket]]"
+    },
+    "T3": {
+     "en": [
+      "you're just swapping",
+      "one stream of",
+      "stimulation for another"
+     ],
+     "fr": "tu remplaces juste une dose de stimulation par une autre",
+     "texte": "a vers, amit tudsz, mindig veled van: buszon, sorban, hajnali 3-kor"
+    },
+    "T4": {
+     "en": [
+      "take 10 minutes with",
+      "no screen"
+     ],
+     "fr": "prends 10 minutes sans écran",
+     "texte": "már [[napi 2 sor]] is bőven elég"
+    },
+    "T5": {
+     "en": [
+      "walk, stretch, stare outside, then come",
+      "back with an actually quieter brain"
+     ],
+     "fr": "marche, étire-toi, regarde dehors, puis reviens avec un cerveau enfin au calme",
+     "texte": "egy hét múlva egy egész vers a tiéd, és ott van, valahányszor [[elcsendesedik a fejed]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[tous les jours]]",
+     "texte": "olvass [[reggeli közben]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, you run out",
+      "of things to talk about"
+     ],
+     "fr": "si tu consommes que des vidéos courtes, [[t'as vite plus rien à raconter]]",
+     "texte": "újság a kávé mellé: [[napi egyszer hírek]], és ennyi elég is volt"
+    },
+    "T3": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[scrollais tous les soirs]], maintenant si je prends mon tel, c'est pour [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "ami kiváltotta a görgetést: egy könyv, a rádió, és [[a Sophia app]], ha mégis előveszem a telóm"
+    },
+    "T4": {
+     "en": [
+      "books are proven to make",
+      "you smarter and more",
+      "empathetic, and people can",
+      "feel that"
+     ],
+     "fr": "c'est [[prouvé]] : lire [[muscle ton cerveau]] et rend [[plus empathique]], et ça se sent",
+     "texte": "egy lassú reggeli olvasás többet ér [[száz főcímnél]], amit délre elfelejtesz"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "ülj kint, [[és ne csinálj semmit]]"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "a verandán, egy padon, a víz mellett. se telefon, se terv, csak egy órán át [[nézni, ahogy megy a világ]]"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "ott [[rendezték el a gondolataikat]], erőlködés nélkül"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "az unalom nem elpazarolt idő, ilyenkor [[kap végre levegőt az agyad]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_1.jpg",
+      "boite": [
+       88,
+       383,
+       760,
+       539
+      ]
+     }
+    }
+   }
+  }
+ }
+}

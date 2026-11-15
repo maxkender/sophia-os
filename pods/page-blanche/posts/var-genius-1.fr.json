@@ -1,0 +1,313 @@
+{
+ "post_id": "var-genius-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 unusual habits to make",
+      "you a genius"
+     ],
+     "fr": "10/10 habitudes insolites pour être un génie",
+     "texte": "10/10 habitudes insolites pour être un génie"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(version niche)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7683630825610513686_3.jpg",
+      "boite": [
+       42,
+       404,
+       525,
+       394
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 83,
+      "y": 226,
+      "l": 787,
+      "h": 133
+     },
+     "lignes": [
+      {
+       "x": 84,
+       "y": 226,
+       "l": 786,
+       "h": 54,
+       "base": 273
+      },
+      {
+       "x": 83,
+       "y": 299,
+       "l": 340,
+       "h": 60,
+       "base": 345
+      }
+     ],
+     "pas": 72,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 83,
+      "y": 406,
+      "l": 782,
+      "h": 571
+     }
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 607,
+      "y": 1008,
+      "l": 252,
+      "h": 41
+     },
+     "lignes": [
+      {
+       "x": 607,
+       "y": 1008,
+       "l": 252,
+       "h": 41,
+       "base": 1042
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "seeking approval from everyone"
+     ],
+     "fr": "vouloir plaire à tout le monde",
+     "texte": "galère [[exprès]] sur un problème"
+    },
+    "T2": {
+     "en": [
+      "if every decision has to make your friends, family,",
+      "or strangers online happy, you’ll slowly build a life",
+      "that doesn’t even feel like yours"
+     ],
+     "fr": "si chaque choix doit plaire à tes potes, ta famille ou [[des inconnus sur internet]], tu vas finir avec une vie [[qui te ressemble même pas]]",
+     "texte": "la plupart des gens googlent la réponse dès que ça devient dur, du coup leur cerveau sait jamais quoi faire quand y'a [[rien à googler]]"
+    },
+    "T3": {
+     "en": [
+      "learn to",
+      "disappoint",
+      "people",
+      "sometimes"
+     ],
+     "fr": "accepte de [[décevoir des gens]]",
+     "texte": "tiens [[20 min]] avant de regarder la soluce"
+    },
+    "T4": {
+     "en": [
+      "your 20s are for figuring out what you actually",
+      "want, not performing for everyone else"
+     ],
+     "fr": "tes 20 ans, c'est pour savoir [[ce que toi tu veux]], pas pour jouer un rôle devant les autres",
+     "texte": "cette frustration, c'est ton cerveau qui [[fait des liens]], pas la preuve que t'y arrives pas"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "apprends [[un truc random]] par jour"
+    },
+    "T2": {
+     "en": [
+      "short form content is",
+      "frying your attention span"
+     ],
+     "fr": "les vidéos courtes [[te grillent la concentration]]",
+     "texte": "les grandes idées viennent [[du mélange des domaines]]"
+    },
+    "T3": {
+     "en": [
+      "books are proven to make",
+      "you smarter, more",
+      "empathetic and more",
+      "successful"
+     ],
+     "fr": "c'est [[prouvé]] : les livres boostent [[ton intelligence]], [[ton empathie]] et [[ta réussite]]",
+     "texte": "de vinci bossait l'anatomie, l'eau, les machines volantes, et [[tout servait son art]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "au lieu de mon [[doomscroll]] habituel, mes 5 min du jour sur [[l'appli Sophia]] : pourquoi Camus imagine Sisyphe heureux",
+     "texte": "au lieu de scroller, j'ai appris pourquoi Camus imagine Sisyphe heureux, en 5 min sur [[l'appli Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn a difficult instrument"
+     ],
+     "fr": "apprends [[un instrument difficile]]",
+     "texte": "joue d'un instrument, [[mal]]"
+    },
+    "T2": {
+     "en": [
+      "piano, guitar, drums,",
+      "whatever"
+     ],
+     "fr": "piano, guitare, batterie, peu importe",
+     "texte": "personne doit l'entendre, jamais"
+    },
+    "T3": {
+     "en": [
+      "playing uses your hands,",
+      "ears, memory and focus",
+      "all at the same time"
+     ],
+     "fr": "jouer fait bosser mains, oreilles, mémoire et concentration [[en même temps]]",
+     "texte": "lire des notes en bougeant les mains, c'est [[une vraie muscu]] pour ton cerveau"
+    },
+    "T4": {
+     "en": [
+      "you’ll be bad at it for a while, but you have to get",
+      "used to trying and failing, and trying again"
+     ],
+     "fr": "au début tu vas galérer un moment, mais faut t'habituer à [[essayer, rater]], et [[recommencer]]",
+     "texte": "le but c'est pas de bien jouer, c'est d'avoir toujours un truc où t'en es [[au début]]. ça garde l'esprit curieux"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "note tes [[questions bêtes]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "pourquoi on bâille ? pourquoi 1 minute fait 60 secondes ? [[note tout]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "et une fois par semaine, cherche la réponse à celles qui [[te travaillent encore]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "les gens brillants ont pas toutes les réponses, ils ont [[de meilleures questions]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on long walks without music"
+     ],
+     "fr": "fais [[de longues balades sans musique]]",
+     "texte": "pense [[en marchant]], pas au bureau"
+    },
+    "T2": {
+     "en": [
+      "most people fill every walk with podcasts or music",
+      "and think they're being productive"
+     ],
+     "fr": "tout le monde marche avec [[un podcast ou de la musique]] et se croit [[super productif]]",
+     "texte": "darwin faisait chaque jour le même tour près de chez lui : son [[chemin de réflexion]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain only",
+      "starts thinking for",
+      "itself when nothing is",
+      "feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le nourrit]]",
+     "texte": "pars avec [[un seul problème]] en tête, sans podcast, et laisse tes pieds faire le reste"
+    },
+    "T4": {
+     "en": [
+      "walk in silence, let your mind wander, and your best",
+      "ideas will come from walks"
+     ],
+     "fr": "marche en silence, laisse-toi rêvasser, [[tes meilleures idées]] viendront [[en marchant]]",
+     "texte": "marcher occupe juste assez ton corps pour que ta tête [[parte ailleurs]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7688807102764092705_6.jpg",
+      "boite": [
+       570,
+       470,
+       443,
+       314
+      ]
+     }
+    }
+   }
+  }
+ }
+}

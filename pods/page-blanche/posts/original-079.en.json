@@ -1,0 +1,268 @@
+{
+ "post_id": "original-079",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "dangerously charismatic"
+     ],
+     "fr": "10/10 habitudes pour avoir un charisme de dingue",
+     "texte": "what to do on a long train ride instead of scrolling"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(window seat edition)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7686189452963712288_5.jpg",
+      "boite": [
+       540,
+       534,
+       429,
+       345
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "scissions": {
+    "T1": 1
+   },
+   "textes": {
+    "T1a": {
+     "en": [
+      "be comfortable with yourself"
+     ],
+     "fr": "sois [[bien dans ta peau]]",
+     "texte": "bring a book [[you can finish]]"
+    },
+    "T1b": {
+     "en": [
+      "focus on yourself instead of the person in front of you"
+     ],
+     "fr": "plus tu veux impressionner, plus tu penses à [[toi]] et pas à l'autre",
+     "texte": "a long ride is the perfect length for a short novel"
+    },
+    "T2": {
+     "en": [
+      "stop performing,",
+      "stop name-dropping,",
+      "stop trying to prove",
+      "how smart you are"
+     ],
+     "fr": "arrête de surjouer, de lâcher des noms, de [[vouloir prouver ton QI]]",
+     "texte": "no tab to switch to, nobody waiting on a reply, just [[page after page]]"
+    },
+    "T3": {
+     "en": [
+      "BE YOURSELF. confidence is being comfortable without",
+      "needing constant approval"
+     ],
+     "fr": "[[SOIS TOI-MÊME.]] la confiance, c'est être [[à l'aise]] sans avoir besoin qu'on te valide",
+     "texte": "[[closing a book]] as the train pulls in is a feeling no feed has ever given me"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get up on the first alarm"
+     ],
+     "texte": "take [[the window seat]]",
+     "fr": "[[côté fenêtre]], toujours"
+    },
+    "T2": {
+     "en": [
+      "snoozing 5 times means your first decision of the",
+      "day is quitting"
+     ],
+     "texte": "fields, rivers, little towns you'll never visit: [[a show no one edited]]",
+     "fr": "champs, rivières, petits villages : [[un film sans montage]]"
+    },
+    "T3": {
+     "en": [
+      "put your phone across",
+      "the room so you have to",
+      "stand up to turn it off"
+     ],
+     "texte": "after hours of staring at a screen, your eyes finally [[look far away]]",
+     "fr": "après des heures sur un écran, tes yeux [[regardent enfin au loin]]"
+    },
+    "T4": {
+     "en": [
+      "win the first fight of the",
+      "day, and every fight",
+      "after it gets a little",
+      "easier"
+     ],
+     "texte": "watch it go by long enough and [[your mind starts to wander]] somewhere new",
+     "fr": "regarde-le défiler assez longtemps et [[ta tête part en balade]] toute seule"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[tous les jours]]",
+     "texte": "a lesson [[per station]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, you run out",
+      "of things to talk about"
+     ],
+     "fr": "si tu consommes que des vidéos courtes, [[t'as vite plus rien à raconter]]",
+     "texte": "when you do pick up your phone, make the minutes between stops [[count]]"
+    },
+    "T3": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je [[scrollais tous les soirs]], maintenant si je prends mon tel, c'est pour [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "i used to doomscroll the whole way, now at each stop i do [[a 5 min lesson on the Sophia app]]"
+    },
+    "T4": {
+     "en": [
+      "books are proven to make",
+      "you smarter and more",
+      "empathetic, and people can",
+      "feel that"
+     ],
+     "fr": "c'est [[prouvé]] : lire [[muscle ton cerveau]] et rend [[plus empathique]], et ça se sent",
+     "texte": "three stops, three lessons, and i get off [[knowing something i didn't]] this morning"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start journalling"
+     ],
+     "fr": "tiens [[un journal]]",
+     "texte": "write [[a postcard]]"
+    },
+    "T2": {
+     "en": [
+      "write down what you learned today, what you're",
+      "thinking about, and what you don't understand yet"
+     ],
+     "fr": "note ce que t'as appris aujourd'hui, ce qui te trotte dans la tête, et [[ce que tu captes pas encore]]",
+     "texte": "describe the view, the stranger opposite you, the coffee from the trolley, and [[who you wish was here]]"
+    },
+    "T3": {
+     "en": [
+      "your thoughts feel",
+      "messy and unclear until",
+      "you try to write them",
+      "down"
+     ],
+     "fr": "tes pensées paraissent [[floues et en vrac]] jusqu'à ce que tu [[les écrives]]",
+     "texte": "a text gets read once, a postcard [[ends up on a fridge]] for years"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start thinking",
+      "more clearly"
+     ],
+     "fr": "c'est [[prouvé]] : même 5 minutes avant de dormir suffisent pour [[y voir plus clair]]",
+     "texte": "and writing slowly by hand makes you [[notice what you actually feel]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get comfortable with silence"
+     ],
+     "fr": "sois à l'aise avec [[les silences]]",
+     "texte": "and sometimes, [[do nothing]]"
+    },
+    "T2": {
+     "en": [
+      "stop rushing to fill",
+      "every pause in a",
+      "conversation"
+     ],
+     "fr": "arrête de vouloir combler [[chaque blanc]] dans la discussion",
+     "texte": "no headphones, no book, just [[the rhythm of the rails]]"
+    },
+    "T3": {
+     "en": [
+      "speak slower, finish",
+      "your sentences, and",
+      "let your words land",
+      "before adding more"
+     ],
+     "fr": "[[parle moins vite]], finis tes phrases, [[laisse tes mots infuser]] avant d'en rajouter",
+     "texte": "let your thoughts drift with the view. that's [[where the good ideas show up]]"
+    },
+    "T4": {
+     "en": [
+      "people who seem comfortable with silence often",
+      "come across as more confident because they aren’t",
+      "desperately chasing approval"
+     ],
+     "fr": "les gens à l'aise avec le silence ont souvent l'air [[plus sûrs d'eux]], parce qu'ils cherchent pas à tout prix à plaire",
+     "texte": "a boring hour isn't a wasted hour, it's the only time your brain gets to [[sort through everything]] without a feed talking over it"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

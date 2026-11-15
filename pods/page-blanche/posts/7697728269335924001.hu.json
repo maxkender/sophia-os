@@ -1,0 +1,247 @@
+{
+ "post_id": "7697728269335924001",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "10/10 szokás, hogy betegesen fegyelmezett legyél"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "alignement": "droite",
+     "texte": "(niche verzió)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "ne kürtöld világgá [[a terveidet]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs te file [[un shot de dopamine]] avant d'avoir fait quoi que ce soit",
+     "texte": "ha mindenkinek elmondod a céljaidat, kapsz [[egy adag dopamint]], mielőtt bármit is csináltál volna"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kif de l'ambition]], les compliments, tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "[[ambiciózusnak érzed magad]], megdicsérnek, és már látod az eredményt, [[egy perc munka nélkül]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "ne arról beszélj, mit fogsz csinálni. tűnj el, dolgozz csendben, és [[hagyd, hogy az eredményeid beszéljenek]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to win every single day"
+     ],
+     "fr": "arrête de vouloir [[réussir chaque jour]]",
+     "texte": "ne akard [[minden egyes napot megnyerni]]"
+    },
+    "T2": {
+     "en": [
+      "aim to win 5/7 days and accept that 2 days might",
+      "be messy"
+     ],
+     "fr": "vise [[5 jours sur 7]] et accepte que [[2 jours partent un peu en vrille]]",
+     "texte": "célozz [[heti 5 jó napra]], és fogadd el, hogy [[2 nap szétcsúszhat]]"
+    },
+    "T3": {
+     "en": [
+      "you don't need 7",
+      "perfect days a week to",
+      "become disciplined"
+     ],
+     "fr": "la discipline, ça demande pas [[7 jours parfaits sur 7]]",
+     "texte": "nem kell [[heti 7 tökéletes nap]] ahhoz, hogy fegyelmezett legyél"
+    },
+    "T4": {
+     "en": [
+      "one bad day is normal",
+      "letting one bad day",
+      "turn into a bad week is",
+      "a choice"
+     ],
+     "fr": "une mauvaise journée, c'est normal\nen faire [[une mauvaise semaine, c'est un choix]]",
+     "texte": "egy rossz nap teljesen normális\nde ha [[egy rossz hét lesz belőle, az már döntés]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis un livre [[au lieu de scroller]]",
+     "texte": "olvass [[görgetés helyett]]"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could"
+     ],
+     "fr": "une heure de scroll, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "egy óra görgetés egy óra, amit [[az agyadra]] szánhattál volna"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "[[olvass napi 10 oldalt]], akkor is, ha nincs kedved"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que tu [[veux lire plus]], mais [[l'algo]] te happe à chaque fois",
+     "texte": "azt mondod, [[többet akarsz olvasni]], de [[az algoritmus]] mindig beszippant"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "avant je scrollais H24, maintenant j'ouvre l'appli Sophia et j'apprends un truc en 5 min",
+     "texte": "régen egész nap görgettem, most megnyitom a Sophia appot, és 5 perc alatt tanulok valamit"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build a life where discipline is the",
+      "default"
+     ],
+     "fr": "construis une vie où [[la discipline va de soi]]",
+     "texte": "építs olyan életet, ahol [[a fegyelem az alap]]"
+    },
+    "T2": {
+     "en": [
+      "stop relying on motivation to do basic things"
+     ],
+     "fr": "arrête de miser sur la motivation pour les bases",
+     "texte": "ne a motivációra várj az alap dolgokhoz"
+    },
+    "T3": {
+     "en": [
+      "put your phone in another",
+      "room, lay out your gym",
+      "clothes the night before,",
+      "and keep distractions out",
+      "of reach"
+     ],
+     "fr": "mets ton tel dans une autre pièce, [[prépare tes affaires de sport la veille]] et garde les distractions hors de portée",
+     "texte": "tedd a telód egy másik szobába, [[készítsd ki az edzőcuccod előző este]], és tartsd távol, ami eltereli a figyelmed"
+    },
+    "T4": {
+     "en": [
+      "the less you have to fight",
+      "yourself to do the right",
+      "thing"
+     ],
+     "fr": "moins t'as à te battre contre toi-même pour bien faire",
+     "texte": "minél kevésbé kell megküzdened magaddal a jó döntésért"
+    },
+    "T5": {
+     "en": [
+      "the more friction you remove, the more consistent",
+      "you'll become"
+     ],
+     "fr": "plus tu retires de friction, [[plus tu gagnes en régularité]]",
+     "texte": "minél több akadályt szedsz ki az útból, annál [[következetesebb]] leszel"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never miss twice"
+     ],
+     "fr": "[[jamais 2 fois de suite]]",
+     "texte": "[[ne hagyd ki kétszer]]"
+    },
+    "T2": {
+     "en": [
+      "missed the gym today? fine. ate badly? move on.",
+      "wasted three hours scrolling? don't waste the next",
+      "three."
+     ],
+     "fr": "pas de sport aujourd'hui ? ok. mal mangé ? on oublie. [[3h perdues à scroller ? perds pas les 3 suivantes.]]",
+     "texte": "kimaradt ma az edzés? oké. rosszul ettél? lépj tovább. [[elment 3 óra görgetéssel? a következő hármat ne dobd el.]]"
+    },
+    "T3": {
+     "en": [
+      "the real damage isn't",
+      "making a mistake."
+     ],
+     "fr": "le vrai problème, c'est pas l'erreur.",
+     "texte": "az igazi kár nem az, hogy hibázol."
+    },
+    "T4": {
+     "en": [
+      "it's using that mistake as",
+      "permission to keep going."
+     ],
+     "fr": "c'est de s'en servir comme [[excuse pour continuer.]]",
+     "texte": "hanem ha a hibát [[engedélynek veszed, hogy folytasd.]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

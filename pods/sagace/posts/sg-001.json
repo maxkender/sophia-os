@@ -11,14 +11,20 @@
   "en": "10/10 skill to learn before 20",
   "de": "10/10-Skill zum Lernen vor 20",
   "it": "Competenza 10/10 da imparare prima dei 20 anni",
-  "pt-BR": "Habilidade 10/10 para aprender antes dos 20 anos"
+  "pt-BR": "Habilidade 10/10 para aprender antes dos 20 anos",
+  "tr": "20 yaşından önce öğrenmen gereken 10/10 beceri",
+  "ro": "Abilitate 10/10 de învățat înainte de 20 de ani",
+  "cs": "Dovednost 10/10, kterou se nauč před dvacítkou"
  },
  "legendes": {
   "fr": "Compétence 10/10 à apprendre avant 20 ans #apprendresurtiktok #learnontiktok #developpementpersonnel",
   "en": "10/10 skill to learn before 20 #learnontiktok #selfimprovement #skills",
   "de": "10/10-Skill zum Lernen vor 20 #lernenmittiktok #persönlichkeitsentwicklung #skills",
   "it": "Competenza 10/10 da imparare prima dei 20 anni #imparacontiktok #crescitapersonale #skills",
-  "pt-BR": "Habilidade 10/10 para aprender antes dos 20 anos #aprendanotiktok #desenvolvimentopessoal #habilidades"
+  "pt-BR": "Habilidade 10/10 para aprender antes dos 20 anos #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "20 yaşından önce öğrenmen gereken 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilitate 10/10 de învățat înainte de 20 de ani #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednost 10/10, kterou se nauč před dvacítkou #učímesenatiktoku #osobnírozvoj #dovednosti"
  },
  "musique": {
   "titre": "original sound - rithu",
@@ -134,6 +140,72 @@
      },
      {
       "t": "20 ANOS",
+      "cap": 169
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "BECERİ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "20 YAŞINDAN",
+      "cap": 93
+     },
+     {
+      "t": "ÖNCE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ÖĞREN",
+      "cap": 169
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITATE",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "cap": 93
+     },
+     {
+      "t": "ÎNAINTE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "DE 20 DE ANI",
+      "cap": 169
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOST",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "NAUČ SE JI",
+      "cap": 93
+     },
+     {
+      "t": "PŘED",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "DVACÍTKOU",
       "cap": 169
      }
     ]
@@ -255,6 +327,75 @@
     "sous": [
      "1 hora para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PARANI",
+       "couleur": "#d0a239"
+      }
+     ],
+     "YÖNETMEK"
+    ],
+    "video": {
+     "id": "CBb0uRw19TQ",
+     "titre": "Keşke Bu 7 Para Kuralını 20’li Yaşımda Bilseydim…",
+     "chaine": "Baykalem",
+     "vues": "1,2 Mn görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "12:54",
+     "avatar": "https://yt3.ggpht.com/GuhJEpR1JVVkq_zmPTmtGCVuFgFpErnjg6Hv8yIpE2QiMgS8DaL_fVMEYfZC-PozmtnXH4cY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "GESTIONAREA",
+       "couleur": "#d0a239"
+      }
+     ],
+     "BANILOR"
+    ],
+    "video": {
+     "id": "4rmEgznFopc",
+     "titre": "MANUAL DE  ECONOMISIRE A  BANILOR  ÎN ȚARA ÎN CARE CHELTUIM TOT. | Fain & Simplu Podcast 129",
+     "chaine": "Fain & Simplu cu Mihai Morar",
+     "vues": "176 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "1:46:03",
+     "avatar": "https://yt3.ggpht.com/l59Bd2jXtsL95Tv_zMnNIb0f8WKJ_vGCP-SxCE97RT3i0C53b5BVtB42DTd4xaUB6d1mwoNYYQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "HOSPODAŘIT",
+       "couleur": "#d0a239"
+      }
+     ],
+     "S PENĚZI"
+    ],
+    "video": {
+     "id": "fHnNqH6p68Q",
+     "titre": "JAK NEUTRÁCET a naučit se žít finančně gramotněji (19 tipů, co vám změní pohled na peníze!)",
+     "chaine": "Katie",
+     "vues": "50 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "15:15",
+     "avatar": "https://yt3.ggpht.com/WLw5TrKW99f9k4ZSC4BqpG7QDkU_4DwMqWH3CrdmHaxNgk6MhTGByEK9_H9Fj26oQubvkrvabGk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
    }
   },
   {
@@ -373,6 +514,75 @@
     "sous": [
      "2 horas para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÖĞRENMEYİ",
+       "couleur": "#66696f"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "HCLFCqMcqs0",
+     "titre": "Dünyanın en Etkili Öğrenme Yöntemi (en Hızlı ve en Basiti)",
+     "chaine": "Hikmet Anıl Öztekin",
+     "vues": "940 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:50",
+     "avatar": "https://yt3.ggpht.com/Y8HAwaWYIKTzSx3LJl8UNKcINJN9_pY8-slEoLODZQ4-NDirMV4RXAe5YT8pmrX9ya6tOsst=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "ÎNVAȚĂ",
+       "couleur": "#66696f"
+      }
+     ],
+     "SĂ ÎNVEȚI"
+    ],
+    "video": {
+     "id": "JaeKKwFYVt0",
+     "titre": "Cum sa inveti eficient | Metode bazate pe dovezi",
+     "chaine": "Mihai Bica",
+     "vues": "77 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "14:53",
+     "avatar": "https://yt3.ggpht.com/uj76IK7gWDtmSnQV_mafjAqE7wzCFuiypkBd1NgkgbW3A3NieyON5lFUAVOfeNOuEVHcmbfNfg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "NAUČIT SE",
+       "couleur": "#66696f"
+      }
+     ],
+     "UČIT SE"
+    ],
+    "video": {
+     "id": "zPv6T_GWkN0",
+     "titre": "Jak se učit efektivně a rychle!? Nejlepší návod v ČR",
+     "chaine": "Jan Kohut",
+     "vues": "67 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "16:47",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
    }
   },
   {
@@ -481,6 +691,69 @@
     },
     "sous": [
      "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GENEL KÜLTÜR",
+     [
+      {
+       "t": "EDİN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ AI",
+     [
+      {
+       "t": "CULTURĂ GENERALĂ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MÍT",
+     [
+      {
+       "t": "VŠEOBECNÝ PŘEHLED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
     ]
    }
   },
@@ -600,6 +873,75 @@
     "sous": [
      "2-3 horas para aprender"
     ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PAZARLIK YAPILIR",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "73KzA2Nilr8",
+     "titre": "En İyi Pazarlığı Zenginler Yapar! Pazarlık Taktikleri",
+     "chaine": "Hayat Okulu",
+     "vues": "176 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "15:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPD3cuGmdeZLiOeMmTB95D8XH7Dqlv6Ng9Kwz8IgOOxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CUM SĂ",
+     [
+      {
+       "t": "NEGOCIEZI",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cn_dE_M8U9w",
+     "titre": "Expert în Negociere: CĂȘTIGĂ Orice Negociere cu Aceste Secrete | Sabin Gîlceavă | Podcast GD (4K)",
+     "chaine": "Radu Constantin și Gandeste Diferit Plus",
+     "vues": "133 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "1:33:28",
+     "avatar": "https://yt3.ggpht.com/iwN37HAmFHBOkGdJZ8dcdEGp6fgYRhRPckK_pDyfVhNjFQOR_8NunCB2f24zlsO9WRinUPaI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "VYJEDNÁVAT",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I8K835CkcXo",
+     "titre": "Jak ven z nepříjemné situace? Naučte se vyjednávat.",
+     "chaine": "Pavel Procházka",
+     "vues": "33 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "17:49",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučení"
+    ]
    }
   },
   {
@@ -718,6 +1060,75 @@
     "sous": [
      "treino ao longo de vários dias"
     ]
+   },
+   "tr": {
+    "titre": [
+     "TOPLULUK ÖNÜNDE",
+     [
+      {
+       "t": "KONUŞMAK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ElWN0NvabZI",
+     "titre": "Topluluk Önünde Konuşma Korkusunu Böyle Yönetirsin.. ( Politikacıların Tekniği )",
+     "chaine": "Oğuz Benlioğlu",
+     "vues": "116 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "6:50",
+     "avatar": "https://yt3.ggpht.com/14vkz4BMZMNC_-JYYgn-1Nlvi3M6krWlI2HPii08L-xmBPl3zfGjwFAWe6G_oQ2PJJo8nkC6=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "VORBITUL",
+     [
+      {
+       "t": "ÎN PUBLIC",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S8shnHE-yT0",
+     "titre": "10 sfaturi despre vorbitul in public: Ada Roseti at TEDxEroilor",
+     "chaine": "TEDx Talks",
+     "vues": "145 K vizionări",
+     "date": "acum 13 ani",
+     "duree": "20:28",
+     "avatar": "https://yt3.ggpht.com/1gDPO-4YPWFErfn3yQBnv0yxpkmiud1m5CrorApkOqUYdNd9FrZQ9xB9C9VmDt4EsgArnlwqAQc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MLUVIT",
+     [
+      {
+       "t": "PŘED LIDMI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6owRqJTuLgM",
+     "titre": "Šípkovník /3/ Jak se nebát mluvit před lidmi",
+     "chaine": "Skautský institut",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "7:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMDrP1OMvtDQUerTEcUmnagjCcktJiCwQwsdjrB-izqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
    }
   },
   {
@@ -835,6 +1246,75 @@
     },
     "sous": [
      "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "YEMEK YAPMAYI",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IgLBwOcayXk",
+     "titre": "Uğur Şef'ten Pratik Mutfak Sırları (Pratik Bilgiler)",
+     "chaine": "Yakışıklı Yemekler",
+     "vues": "653 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "9:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ms4RigSaegIZJk5nsUcGbpJy0Zxf-4J3S_J1gIuyu8-A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     [
+      {
+       "t": "SĂ GĂTEȘTI",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RLbdCgDW3Ys",
+     "titre": "Somon cu Sos de Unt si Lamaie - Home Cooking - Florin Arvunescu",
+     "chaine": "Chef Florin Arvunescu",
+     "vues": "139 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "11:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lH-R9UIwf3J3gE-2ZKwzogw4ImMCIgHpCwhxYW8JJThA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "VAŘIT",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9GmfSRCYWJk",
+     "titre": "(1) Základy v kuchyni s nožem",
+     "chaine": "Rohlik.cz",
+     "vues": "29 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSeysSIy1iNUcjYaMgdkSF_TodIHbv6WYE-Vqy7iOcOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
     ]
    }
   }

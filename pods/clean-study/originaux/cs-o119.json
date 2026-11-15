@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o119",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "9421f9e1-72d5-443c-b17a-2d3908baeab0",
+  "titre": "doing my homework at 11pm every single night even though i get home at 4 #studytok #studytips #school",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "9421f9e1-72d5-443c-b17a-2d3908baeab0"
+  ],
+  "notes": "Déclinaison G1 de 9421f9e1 (notre cs-o022 : r 12,92 en espagnol d'Amérique latine), ligne 3 de la boîte. Accroche du parent mot pour mot. Gestes neufs, aucun de cs-o022 (30 minutes après le retour, pas de scroll, le plus dur d'abord, 10 minutes de test, la première tâche du lendemain) : écrire l'heure de fin dans l'agenda, faire les devoirs courts dans le bus ou en étude, un endroit fixe à la maison, prévenir la famille, se tester à la fin (place micabo, slide 6), pas de devoirs au lit. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8eaf6dfe",
+      "texte_overlay": "doing my homework at 11pm every single night\neven though i get home at 4",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "1f42762e",
+      "texte_overlay": "what changed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f7185071",
+      "texte_overlay": "i write a finish time in my planner.\n\"homework done by 7\". it's a real deadline now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "16818a92",
+      "texte_overlay": "short tasks get done at school.\nstudy hall, lunch break, 10 free minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "3857af03",
+      "texte_overlay": "one fixed spot at home.\nsitting there = working, my brain gets it now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "6a8ff156",
+      "texte_overlay": "i end with a quick quiz on the day's lessons.\nso the evening is truly free after.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8dead4c4",
+      "texte_overlay": "no homework in bed. ever.\nthat's where 11pm came from.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

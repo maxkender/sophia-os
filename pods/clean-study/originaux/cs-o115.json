@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o115",
+  "type_bleo": "full_test",
+  "titre": "what i do when i have three tests in the same week #studytok #studytips #exams",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 15/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« three tests », « same week » absents du label). Accroches écrites : « what i do when i have three tests in the same week » (retenue : une situation précise et redoutée), « how to survive exam week » (écartée : vague), « studying for 3 tests at once » (écartée : plate). Gestes vrais : tout écrire sur un calendrier, commencer par le premier contrôle, une matière par bloc, se tester chaque soir sur les trois (place micabo, slide 5), ne rien apprendre de neuf la veille, dormir. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "008401d5",
+      "texte_overlay": "what i do when i have three tests\nin the same week",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "34ee82c6",
+      "texte_overlay": "first, all three on one calendar.\ndates, chapters, what each one is worth.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "135304a7",
+      "texte_overlay": "the first test gets my weekend.\nthe others get 20 minutes a day so they don't pile up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "075e1180",
+      "texte_overlay": "one subject per block.\nswitching every 10 minutes means learning nothing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "cf457095",
+      "texte_overlay": "every evening: a quick quiz on all three.\n5 questions each, notes closed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f0ffdeac",
+      "texte_overlay": "the night before each test: no new chapters.\njust my mistakes from the week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "55c84607",
+      "texte_overlay": "and sleep. three tests is a marathon, not a sprint.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

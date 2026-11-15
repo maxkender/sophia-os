@@ -24,7 +24,7 @@ validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette
   - Son style depuis le **16/09** : des tier lists « mentalmaxxing » de 2 slides, plus quelques comparatifs et guides en 3 ou 4 slides.
   - Les visuels : fond gris-vert uni, police très fine, images détourées, format 4:5 (1080 × 1350).
 - **Ton travail** : refaire ses posts **à l'identique**, avec **l'élément Sophia** à la place de leur appli, et écrire des **tier lists originales** dans son style.
-- **Langues** : **en, fr, de, it, tr** depuis le 15/11 (décision d'Adrien relayée par la coordination BLEO ; `LANGUES` dans `atelier/api.ts`). Un compte par langue rejoint le label quand chaque langue a au moins 4 contenus validés. L'espagnol reste à la demande (`--langues`).
+- **Langues** : **en, fr, de, it, tr, pt-BR, pl, hu, es** (décisions d'Adrien du 15/11 relayées par la coordination BLEO ; `LANGUES` dans `atelier/api.ts`). Un compte par langue sur le label. Chaque nouvelle tier list se livre dans les 9 langues ; si une langue pose un problème de mise en page ou de traduction, le dire plutôt que livrer approximatif.
 - **Source de vérité** : l'agent de coordination BLEO (consigne d'Adrien du 15/11). Ses messages valent décision pour ce pod.
 - **Rythme** : au moins 2 livraisons par jour dans les 5 langues, ou le rythme de `npm run boite` s'il est plus haut.
 - **Ce qui a marché sur UnSwipe** (19/10 au 3/11, 62 contenus) : les **tier lists de 2 slides**. « Dopamine hits » (mm-o021), « Dopamine detox moves » (mm-o002, mm-o027) et « Evening habits » (mm-o023) ont fait 5 k vues et r ≥ 5. Le remake « Dopamine sources pt3 » (7688926567183027474) a fait r 3,6.

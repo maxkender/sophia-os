@@ -13,14 +13,14 @@ export const DEPUIS = "2026-09-16";
 export const VUES_MIN_DEPART = 20_000;
 export const LANGUE_SOURCE = "en";
 /** Les langues dont les textes existent (celles d'UnSwipe jusqu'au 4/11), l'anglais d'abord. */
-export const TOUTES_LANGUES = ["en", "fr", "de", "es", "it", "tr"] as const;
+export const TOUTES_LANGUES = ["en", "fr", "de", "es", "it", "tr", "pt-BR", "pl", "hu"] as const;
 export type Langue = (typeof TOUTES_LANGUES)[number];
 /**
- * Les langues livrées : en, fr, de, it, tr depuis le 15/11 (décision d'Adrien
- * relayée par la coordination BLEO : un compte par langue sur le label).
- * L'espagnol reste rendu à la demande (`--langues`).
+ * Les langues livrées (décisions d'Adrien relayées par la coordination BLEO,
+ * un compte par langue sur le label) : en, fr, de, it, tr depuis le 15/11
+ * après-midi, puis pt-BR, pl, hu et es le 15/11 au soir.
  */
-export const LANGUES: readonly Langue[] = ["en", "fr", "de", "it", "tr"];
+export const LANGUES: readonly Langue[] = ["en", "fr", "de", "it", "tr", "pt-BR", "pl", "hu", "es"];
 
 /**
  * Les versions Sophia (relance du 15/11) se déposent sous un autre id que

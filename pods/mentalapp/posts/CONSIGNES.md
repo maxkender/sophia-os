@@ -30,16 +30,19 @@
 
 Fixé par langue dans `atelier/app.ts` (relance du 15/11). Sophia se nomme
 toujours avec « like / comme » (prompt `placement_sophia`), jamais « the
-Sophia app ». Le test part en anglais seul.
+Sophia app ». Le pod livre en 9 langues depuis le 15/11 : en, fr, de, it, tr, pt-BR, pl, hu, es. Hashtags de développement personnel : #desenvolvimentopessoal (pt-BR), #rozwojosobisty (pl), #önfejlesztés (hu).
 
 | Langue | Texte | Appli |
 | --- | --- | --- |
 | en | learn, then scroll | (apps like Sophia) |
 | fr | lire, puis scroller | (apps comme Sophia) |
 | de | lernen, dann scrollen | (Apps wie Sophia) |
-| es | aprender, luego scrollear | (apps como Sophia) |
+| es | aprende, luego scrollea | (apps como Sophia) |
 | it | impara, poi scrolla | (app come Sophia) |
 | tr | öğren, sonra kaydır | (Sophia gibi appler) |
+| pt-BR | aprenda, depois role | (apps como Sophia) |
+| pl | ucz się, potem scrolluj | (apki jak Sophia) |
+| hu | tanulj, aztán görgess | (Sophia-szerű appok) |
 
 Jusqu'au 4/11 : l'élément UnSwipe, « delete short-videos (UnSwipe app) ».
 Plus jamais UnSwipe dans un rendu.

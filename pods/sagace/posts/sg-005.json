@@ -1,0 +1,897 @@
+{
+ "id": "sg-005",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7679111055632600353",
+  "vues": 149400,
+  "publie_le": "2026-08-28",
+  "accroche": "10 Compétence inutile mais qui te rendent 10x plus cool"
+ },
+ "titre": {
+  "fr": "10 compétences inutiles mais qui te rendent 10x plus cool",
+  "en": "10 skills that are useless but make you 10x cooler",
+  "de": "10 Fähigkeiten: nutzlos, aber sie machen dich 10x cooler",
+  "it": "10 abilità inutili ma che ti rendono 10x più cool",
+  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal"
+ },
+ "legendes": {
+  "fr": "10 compétences inutiles mais qui te rendent 10x plus cool #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10 skills that are useless but make you 10x cooler #learnontiktok #selfimprovement #skills",
+  "de": "10 Fähigkeiten: nutzlos, aber sie machen dich 10x cooler #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "10 abilità inutili ma che ti rendono 10x più cool #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "10 habilidades inúteis mas que te deixam 10x mais legal #aprendanotiktok #desenvolvimentopessoal #habilidades"
+ },
+ "musique": {
+  "titre": "original sound - Jacob . P",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "Son post à 149 k (28/08), en 5 langues. Couverture à l'identique (4 lignes noir/brun/noir/brun, caps relevés 111/198/93/146), « INUTILE » et « PHALANGE » corrigés, « MAIS QUI TE RENDENT » comme son accroche. Ses 5 tours dans son ordre, une vidéo native par langue (les siennes : Oscar Owen, Abracademie, MagieExpliquée, Rumble non reprises). Sophia en étape 4 sur 7 (cta B : « CONNAÎTRE / DES FUN FACTS », de : « UNNÜTZES / WISSEN »), sa slide « ABONNE-TOI » retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 111
+     },
+     {
+      "t": "INUTILES",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "MAIS QUI TE RENDENT",
+      "cap": 93
+     },
+     {
+      "t": "10x PLUS COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS THAT ARE",
+      "cap": 111
+     },
+     {
+      "t": "USELESS",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "BUT MAKE YOU",
+      "cap": 93
+     },
+     {
+      "t": "10x COOLER",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "FÄHIGKEITEN",
+      "cap": 111
+     },
+     {
+      "t": "NUTZLOS",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "ABER SIE MACHEN DICH",
+      "cap": 93
+     },
+     {
+      "t": "10x COOLER",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 111
+     },
+     {
+      "t": "INUTILI",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "MA CHE TI RENDONO",
+      "cap": 93
+     },
+     {
+      "t": "10x PIÙ COOL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "INÚTEIS",
+      "couleur": "brun",
+      "cap": 198
+     },
+     {
+      "t": "MAS QUE TE DEIXAM",
+      "cap": 93
+     },
+     {
+      "t": "10x MAIS LEGAL",
+      "couleur": "brun",
+      "cap": 146
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "ROULER UNE PIÈCE",
+       "couleur": "#a86c58"
+      }
+     ],
+     "ENTRE SES PHALANGES"
+    ],
+    "video": {
+     "id": "J7EYyJ-E2Sc",
+     "titre": "Coin Roll Tutorial in french / Manipulation de pièce",
+     "chaine": "JEAN LUC LEURQUIN",
+     "vues": "21 k vues",
+     "date": "il y a 11 ans",
+     "duree": "2:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_noy3LWB-WEhJZHbgyhS97Y80_T4CKHrZ5zIg2kDz9PLfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN TO",
+     [
+      {
+       "t": "ROLL A COIN",
+       "couleur": "#a86c58"
+      }
+     ],
+     "ACROSS YOUR KNUCKLES"
+    ],
+    "video": {
+     "id": "wbokdZh7_Gg",
+     "titre": "Coin Trick: How to Roll a Coin Across Your Knuckles [HD]",
+     "chaine": "52Kards",
+     "vues": "20M views",
+     "date": "14 years ago",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfl-uIm_qPFEB0SA6FhHFzyauPPp3b43uTq-nWsk7eo2k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE",
+     [
+      {
+       "t": "MÜNZE ROLLEN",
+       "couleur": "#a86c58"
+      }
+     ],
+     "ÜBER DIE FINGERKNÖCHEL"
+    ],
+    "video": {
+     "id": "3_3NqpVR3bA",
+     "titre": "MÜNZE ÜBER FINGER ROLLEN Erklärung Deutsch",
+     "chaine": "Matthias Berger",
+     "vues": "148.500 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "11:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfIVFyDA9WIbV7yGj8_wmldW0ymBEI5Fu9lzIXDrwmXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FAR",
+     [
+      {
+       "t": "ROTOLARE UNA MONETA",
+       "couleur": "#a86c58"
+      }
+     ],
+     "TRA LE NOCCHE"
+    ],
+    "video": {
+     "id": "MbjJEEmEm3c",
+     "titre": "trucco di magia con la moneta: COME FAR ROTOLARE LA MONETA TRA LE DITA / TUTORIAL",
+     "chaine": "Jack Nobile",
+     "vues": "194K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "2:36",
+     "avatar": "https://yt3.ggpht.com/SUyrlrFnx2vnJ0YZvqpZv74Hiyx0ueS1n7Us3KBXvpUoqk3O-B0BdSPCHExzthxt0n1QZH7Svw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "UMA MOEDA ROLAR",
+       "couleur": "#a86c58"
+      }
+     ],
+     "ENTRE OS DEDOS"
+    ],
+    "video": {
+     "id": "TLhwGsRIuLM",
+     "titre": "Tutorial: Como rolar uma moeda entre os dedos - Coin Roll",
+     "chaine": "Pedro Martins",
+     "vues": "2,5 mi visualizações",
+     "date": "há 14 anos",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkfQYxBlSfFMcXw-s1vSVJBIsrBH1BvLWTD02V-ipUEQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE À",
+     [
+      {
+       "t": "LANCER",
+       "couleur": "#d07a78"
+      }
+     ],
+     "UNE CARTE"
+    ],
+    "video": {
+     "id": "ES47RXRFfYg",
+     "titre": "COMMENT LANCER DES CARTES AVEC STYLE ?",
+     "chaine": "Abracademie",
+     "vues": "146 k vues",
+     "date": "il y a 7 ans",
+     "duree": "6:10",
+     "avatar": "https://yt3.ggpht.com/boPGJAWw0UP9Llt6wkANwXph0QlUtU2Jbf4Jqv1un7eAzpe6gMBv9Zspx8lBEWAe1bf9Y01AsEA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN TO",
+     [
+      {
+       "t": "THROW",
+       "couleur": "#d07a78"
+      }
+     ],
+     "A CARD"
+    ],
+    "video": {
+     "id": "BlMIcGTLQNU",
+     "titre": "Card Throwing Tutorial | Rick Smith Jr.",
+     "chaine": "Rick Smith, Jr.",
+     "vues": "4.3M views",
+     "date": "9 years ago",
+     "duree": "9:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ljTaBf0pE6PZKTvCpTznLPjF9-0PbrilbKtlRL0mL5GFg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE KARTE",
+     [
+      {
+       "t": "WERFEN",
+       "couleur": "#d07a78"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "SN37o6Ymq0A",
+     "titre": "Karten werfen | Tutorial",
+     "chaine": "Las",
+     "vues": "97.186 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/FmVgxgkHlHMANTPv2B4LtPdm4xUSmcfgzBijASrXMQshh6QQ1R1tgI3yK4bZCr7Y4HKz0s7u=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE A",
+     [
+      {
+       "t": "LANCIARE",
+       "couleur": "#d07a78"
+      }
+     ],
+     "UNA CARTA"
+    ],
+    "video": {
+     "id": "G0fsmo0RyrY",
+     "titre": "tutorial :: il miglior modo per lanciare le carte da gioco con precisione",
+     "chaine": "Steve Elvi",
+     "vues": "57K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLslIbW1T6QgcvwlTQsiZfmGSy6v1PVNmr-ptqPUfdM1U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER A",
+     [
+      {
+       "t": "ARREMESSAR",
+       "couleur": "#d07a78"
+      }
+     ],
+     "UMA CARTA"
+    ],
+    "video": {
+     "id": "E_nx-m_HHTU",
+     "titre": "Como aprendi a LANÇAR CARTAS DE BARALHO MUITO FORTE!",
+     "chaine": "FELIJAO",
+     "vues": "1,7 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "8:01",
+     "avatar": "https://yt3.ggpht.com/gNuv8IFbrxGoISet4nU0bzVz-nYvXINLPugdukDj2Hqsy_b3BV97Iz-PShjAcNm87jc7Rm7STg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "CONNAÎTRE",
+     [
+      {
+       "t": "DES FUN FACTS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "KNOW",
+     [
+      {
+       "t": "FUN FACTS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "UNNÜTZES",
+     [
+      {
+       "t": "WISSEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CONOSCERE",
+     [
+      {
+       "t": "CURIOSITÀ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SABER",
+     [
+      {
+       "t": "CURIOSIDADES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "APPRENDRE",
+       "couleur": "#2a1470"
+      }
+     ],
+     "À FAIRE UNE",
+     [
+      {
+       "t": "CASCADE",
+       "couleur": "#2a1470"
+      }
+     ],
+     "AVEC DES CARTES"
+    ],
+    "video": {
+     "id": "Wp6B1jgXSCw",
+     "titre": "COMMENT DRIBBLER AVEC DES CARTES ?!",
+     "chaine": "9 de pique - Devenir magicien",
+     "vues": "3,9 k vues",
+     "date": "il y a 6 ans",
+     "duree": "3:03",
+     "avatar": "https://yt3.ggpht.com/kwja2V3qnGrCdvV_Y4q_8TdZpopJZC8BweMvyfqiGoe5J8DpO69UMnwyg3c8lKrzeuWuwt_l=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "LEARN",
+       "couleur": "#2a1470"
+      }
+     ],
+     "TO DO A",
+     [
+      {
+       "t": "CASCADE",
+       "couleur": "#2a1470"
+      }
+     ],
+     "WITH CARDS"
+    ],
+    "video": {
+     "id": "yjyXVRIjv1E",
+     "titre": "How to Do a Card Cascade | Magic Card Flourishes",
+     "chaine": "Howcast",
+     "vues": "643K views",
+     "date": "12 years ago",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNH2pDkz9-fE3Xkix_Vcz_ijlYXBIy-y03Ei1yaHhTujA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "LERNE",
+       "couleur": "#2a1470"
+      }
+     ],
+     "EINEN",
+     [
+      {
+       "t": "WASSERFALL",
+       "couleur": "#2a1470"
+      }
+     ],
+     "MIT KARTEN"
+    ],
+    "video": {
+     "id": "6hnY6wTVcno",
+     "titre": "WASSERFALL KARTEN TUTORIAL | Tutorial für coole Kartenmanipulation",
+     "chaine": "King Of Magic",
+     "vues": "57.622 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "1:51",
+     "avatar": "https://yt3.ggpht.com/SNbQjHKWEbVmoG10AZAo4cu1BHZRuCFvnDLeQonNyxmWFpwwuwoq-QI9dN5omZ8eiSPJ6mAFxA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "IMPARA",
+       "couleur": "#2a1470"
+      }
+     ],
+     "A FARE UNA",
+     [
+      {
+       "t": "CASCATA",
+       "couleur": "#2a1470"
+      }
+     ],
+     "CON LE CARTE"
+    ],
+    "video": {
+     "id": "YqMGSssk6Uw",
+     "titre": "TUTORIAL | Come Fare Una Cascata Con Le Carte",
+     "chaine": "Hyde",
+     "vues": "34K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "7:48",
+     "avatar": "https://yt3.ggpht.com/MLvaKadLY7DCVqOg_J_TgzESuYCWudKCfMkD0Up_kLqIQ-bUDbiP95rcNVCY8CLoxdWE-c8ItQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "APRENDA",
+       "couleur": "#2a1470"
+      }
+     ],
+     "A FAZER UMA",
+     [
+      {
+       "t": "CASCATA",
+       "couleur": "#2a1470"
+      }
+     ],
+     "COM AS CARTAS"
+    ],
+    "video": {
+     "id": "zHwIiqIEtJM",
+     "titre": "CASCATA movimento de cardistry - TUTORIAL Ep.36",
+     "chaine": "Escolha Uma Carta",
+     "vues": "26 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "5:55",
+     "avatar": "https://yt3.ggpht.com/7e4T9OQf1LwMpz18r0eGOQRaMbvIXZujy3xR6NAv2tRhgJJfYVH0qRj-gAGGcrTGbC9lzXdA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     "5 TOURS AVEC",
+     [
+      {
+       "t": "UN STYLO",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0CCXEmamiXI",
+     "titre": "5 TOURS FACILES A FAIRE AVEC UN STYLO ! (Magie - Explications)",
+     "chaine": "REMIND",
+     "vues": "103 k vues",
+     "date": "il y a 7 ans",
+     "duree": "10:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nC_H9q5lYRYv_8vsuQG8bp7aoJdeYfYHPllMP6lV9mxw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     "5 TRICKS WITH",
+     [
+      {
+       "t": "A PEN",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2ld-w-Sv-3A",
+     "titre": "Pen Spinning Fundamentals: Learn THESE 4 Tricks First",
+     "chaine": "tilt_ps",
+     "vues": "470K views",
+     "date": "3 years ago",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/u7M7KmIbOdmBl0DTxxYiwI05vlnOqAXZMVh9bY6bbZaET5eVhvrxDqzXBwdFQuVy9haFqkgMJA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "LERNE",
+     "5 TRICKS MIT",
+     [
+      {
+       "t": "EINEM STIFT",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yNdsdikUq08",
+     "titre": "Penspinning Tutorial für Anfänger - THUMBAROUND [Linkshänder | Rechtshänder][Deutsch]",
+     "chaine": "lookslikeLink",
+     "vues": "458.532 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "5:13",
+     "avatar": "https://yt3.ggpht.com/S0OVvJXpqFZN5AtFaDYh6uxySEaZV8xXZEclSWyQGTml0Ct5mUbvh5dafQKA7BPvoAer_RY5KwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARA",
+     "5 TRUCCHI CON",
+     [
+      {
+       "t": "UNA PENNA",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HPz4DClI8vE",
+     "titre": "far girare la penna sul dito | pen spin | trick con la penna | pen tricks",
+     "chaine": "Ale Magix",
+     "vues": "86K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/g5JCpabNJBmk9-EFBl6RGo0_KvwJb_Rvuy4H1_mYkX4EpT2DiaO5i7UREWTOHgXgRCynvblG2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDA",
+     "5 TRUQUES COM",
+     [
+      {
+       "t": "UMA CANETA",
+       "couleur": "#924640"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vyHN4UUjORY",
+     "titre": "5 MANOBRAS MAIS FÁCEIS COM CANETA!!!",
+     "chaine": "DIEGO GUERRA",
+     "vues": "2,5 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "6:09",
+     "avatar": "https://yt3.ggpht.com/4xjDD2sT2iaQauXrOWbuS5WPfqeG2hhjud73pvpcIRWsUb04MY3O_oxejoNkGvKwnWUnw6CtSg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DÉCAPSULER",
+     [
+      {
+       "t": "UNE BOUTEILLE",
+       "couleur": "#7a7062"
+      }
+     ],
+     "AVEC UNE FEUILLE"
+    ],
+    "video": {
+     "id": "iyP-r5hgoi0",
+     "titre": "Ouvrir une bière avec une simple feuille de papier !",
+     "chaine": "Happy Beer Time",
+     "vues": "21 k vues",
+     "date": "il y a 11 ans",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kbWblKsjs0b3OVrioUQz5xOFgmx5GIhKky5D8EoJ0fmqo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "OPEN",
+     [
+      {
+       "t": "A BOTTLE",
+       "couleur": "#7a7062"
+      }
+     ],
+     "WITH A SHEET OF PAPER"
+    ],
+    "video": {
+     "id": "B8terFam-hg",
+     "titre": "How to open a bottle with a piece of paper",
+     "chaine": "Handimania",
+     "vues": "664K views",
+     "date": "11 years ago",
+     "duree": "0:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mgSHqS3W_VUDxyLML2W663Z7WcxqVrvXhvEh3otFErMQc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE FLASCHE",
+     [
+      {
+       "t": "ÖFFNEN",
+       "couleur": "#7a7062"
+      }
+     ],
+     "MIT EINEM BLATT PAPIER"
+    ],
+    "video": {
+     "id": "zUbuK4qsSYk",
+     "titre": "Lifehack: Flasche mit normalem Papier öffnen [Erklärt]",
+     "chaine": "MyOwnVideoReviews",
+     "vues": "32.107 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngt6NEUYs09aIzsEwUHLKkJzypgySPgKbC32ynRDKBbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "STAPPARE",
+     [
+      {
+       "t": "UNA BOTTIGLIA",
+       "couleur": "#7a7062"
+      }
+     ],
+     "CON UN FOGLIO"
+    ],
+    "video": {
+     "id": "dqwwjYsCs0c",
+     "titre": "Come aprire una bottiglia di birra con fogli di carta",
+     "chaine": "TVbamboo",
+     "vues": "12K visualizzazioni",
+     "date": "17 anni fa",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKMSJxhOEHFJJ18fXScq2HW8soTKEcPTpW732YpLcFAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ABRIR",
+     [
+      {
+       "t": "UMA GARRAFA",
+       "couleur": "#7a7062"
+      }
+     ],
+     "COM UMA FOLHA"
+    ],
+    "video": {
+     "id": "0a7_t7YtJSQ",
+     "titre": "Como abrir uma garrafa de cerveja com uma folha de papel.",
+     "chaine": "Emanuel Gomes Rei",
+     "vues": "72 mil visualizações",
+     "date": "há 12 anos",
+     "duree": "1:04",
+     "avatar": "https://yt3.ggpht.com/y0WoI_X13gMzeZsYUEBpWJrVh8vSCxDpgxMQmDLz3UPTvKagstFV-iETYVASg26d9egwqgnG=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   }
+  }
+ ]
+}

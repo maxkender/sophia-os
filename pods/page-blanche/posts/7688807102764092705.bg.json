@@ -1,0 +1,259 @@
+{
+ "post_id": "7688807102764092705",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "топ 5 начина да съсипеш 20-те си"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(горчивата истина)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never think for yourself"
+     ],
+     "fr": "ne réfléchis surtout pas",
+     "texte": "никога не мисли с главата си"
+    },
+    "T2": {
+     "en": [
+      "why struggle with an idea",
+      "when AI can give you an",
+      "answer in 3 seconds?"
+     ],
+     "fr": "pourquoi galérer sur une idée si l'IA te sort une réponse [[en 3 secondes]] ?",
+     "texte": "защо да се мъчиш с някаква идея, когато AI ти дава отговор [[за 3 секунди]]?"
+    },
+    "T3": {
+     "en": [
+      "ask it what to think, what to",
+      "write, what to believe, what",
+      "to do next"
+     ],
+     "fr": "demande-lui ce que tu dois [[penser]], écrire, [[croire]], faire ensuite",
+     "texte": "питай го какво да [[мислиш]], какво да пишеш, в какво да [[вярваш]], какво да правиш после"
+    },
+    "T4": {
+     "en": [
+      "eventually you can",
+      "outsource so much thinking",
+      "that your own judgment",
+      "barely gets used!"
+     ],
+     "fr": "à force, tu la laisses tellement réfléchir à ta place que [[ton jugement sert presque plus]] !",
+     "texte": "накрая толкова много мислене му прехвърляш, че [[собствената ти преценка почти не се използва]]!"
+    },
+    "T5": {
+     "en": [
+      "then you'll never have to worry about thinking",
+      "again!"
+     ],
+     "fr": "comme ça, plus jamais besoin de [[réfléchir]] !",
+     "texte": "и повече никога няма да се тревожиш за [[мисленето]]!"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder",
+    "I3": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "никога не седи в тишина"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "нека [[винаги]] нещо върви на заден фон: музика, подкасти, видеа, каквото и да е"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "никога не оставяй мозъка си да се чува твърде дълго"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "иначе може да започнеш да мислиш какво [[наистина искаш]], [[от какво бягаш]] или [[какво трябва да се промени]]. това би било страшно"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "никога не пътувай"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "[[навън няма нищо]], което трябва да преживееш лично"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "планини, градове, култури и хора така или иначе виждаш [[на 6-инчов екран]]"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "стой там, където ти е [[удобно]]"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "защо да рискуваш да откриеш, че светът е [[много по-голям]] от живота, който имаш?"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "скролвай без спиране"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "може пък [[следващият тикток]] [[най-накрая]] да ти реши проблемите"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "не ограничавай екранното си време, не прекарвай 5 минути [[в приложението Sophia]], не оставяй мозъка си [[да скучае]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "просто продължавай да [[храниш алгоритъма]], докато не знае какво искаш [[по-добре от теб]]"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "давай им [[данните си]], заслужават ги!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "никога не рискувай"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "ами ако се провалиш?\nами ако хората ти се смеят?\nами ако не стане по план?"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "по-добре си стой на сигурно в стаята, на телефона, и мисли за живота, който можеше да имаш"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "ако рискуваш, може да се провалиш, ако не, [[просто пропиляваш живота си]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -1,0 +1,313 @@
+{
+ "post_id": "7695416366886604064",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things destroying your",
+      "attention span"
+     ],
+     "fr": "10/10 trucs qui te bousillent la concentration",
+     "texte": "10/10 asiaa, jotka tuhoaa sun keskittymiskyvyn"
+    },
+    "T2": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true,
+     "texte": ""
+    },
+    "T4": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(édition niche)",
+     "texte": "(niche-versio)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder",
+    "I2": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "consuming while doing everything"
+     ],
+     "fr": "consommer [[pendant tout ce que tu fais]]",
+     "texte": "sisältöä [[ihan kaiken muun ohessa]]"
+    },
+    "T2": {
+     "en": [
+      "eating with youtube, walking with podcasts, working",
+      "with music, scrolling while watching netflix"
+     ],
+     "fr": "[[manger devant youtube]], marcher avec un podcast, bosser en [[musique]], scroller devant netflix",
+     "texte": "[[syöt videon ääressä]], kävelet podcastin kanssa, teet töitä [[musiikin]] tahtiin, skrollaat sarjaa katsoessa"
+    },
+    "T3": {
+     "en": [
+      "you’re training your",
+      "brain to expect multiple",
+      "streams of input at once"
+     ],
+     "fr": "tu habitues ton cerveau à recevoir [[plusieurs flux d'infos]] à la fois",
+     "texte": "totutat aivosi odottamaan [[monta eri ärsykevirtaa]] samaan aikaan"
+    },
+    "T4": {
+     "en": [
+      "eventually doing just",
+      "one thing starts to feel",
+      "painfully empty"
+     ],
+     "fr": "à force, faire une seule chose te paraît [[atrocement vide]]",
+     "texte": "lopulta pelkkä yhden asian tekeminen alkaa tuntua [[tuskallisen tyhjältä]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never finishing a thought"
+     ],
+     "fr": "[[lâcher une idée en route]]",
+     "texte": "[[et ikinä ajattele loppuun]]"
+    },
+    "T2": {
+     "en": [
+      "you get an idea, hit one difficult point, then",
+      "instantly google it, ask AI, or open another tab"
+     ],
+     "fr": "t'as une idée, tu bloques sur un point, [[direct tu googles ou tu demandes à l'IA]], ou un autre onglet",
+     "texte": "saat idean, jumitat vaikeaan kohtaan ja [[heti haet netistä tai kysyt AI:lta]], tai avaat uuden välilehden"
+    },
+    "T3": {
+     "en": [
+      "your brain never",
+      "gets practice",
+      "staying with",
+      "confusion long",
+      "enough to work",
+      "something out"
+     ],
+     "fr": "ton cerveau s'entraîne jamais à rester dans le flou assez longtemps pour trouver tout seul",
+     "texte": "sun aivot ei ikinä totu sietämään epäselvyyttä niin pitkään, että keksisit jotain itse"
+    },
+    "T4": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": ""
+    },
+    "T5": {
+     "en": [
+      "attention gets stronger when you stop escaping the",
+      "hard part"
+     ],
+     "fr": "ton attention se muscle quand t'arrêtes de fuir ce qui est dur",
+     "texte": "keskittyminen vahvistuu, kun lopetat vaikean kohdan pakoilun"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7695416366886604064_3.jpg",
+      "boite": [
+       100,
+       1150,
+       300,
+       120
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/7695416366886604064_3.jpg",
+      "boite": [
+       100,
+       1150,
+       300,
+       120
+      ]
+     }
+    },
+    "I3": {
+     "remplacer": {
+      "source": "sources/7695416366886604064_3.jpg",
+      "boite": [
+       100,
+       1150,
+       300,
+       120
+      ]
+     }
+    },
+    "I4": {
+     "remplacer": {
+      "source": "sources/7698667830635400470_6.jpg",
+      "boite": [
+       605,
+       387,
+       421,
+       600
+      ]
+     }
+    },
+    "I5": {
+     "remplacer": {
+      "source": "sources/7685340052989398275_3.jpg",
+      "boite": [
+       569,
+       376,
+       402,
+       573
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "not reading books"
+     ],
+     "fr": "ne [[plus lire de livres]]",
+     "texte": "et [[lue enää kirjoja]]"
+    },
+    "T2": {
+     "en": [
+      "if most of what you consume",
+      "is short posts, clips, and",
+      "headlines, your brain rarely",
+      "has to hold attention for long"
+     ],
+     "fr": "si tu consommes surtout des posts courts, des clips et des titres, ton cerveau a rarement à [[tenir sa concentration]]",
+     "texte": "jos kulutat lähinnä lyhyitä postauksia, klippejä ja otsikoita, sun aivojen pitää harvoin [[keskittyä pitkään]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow one",
+      "idea across pages, remember",
+      "context, and resist the urge for",
+      "something new"
+     ],
+     "fr": "[[un livre t'oblige à suivre une idée sur des pages]], à retenir le contexte et à résister à l'envie d'autre chose",
+     "texte": "[[kirjan kanssa seuraat yhtä ajatusta sivukaupalla]], muistat kontekstin ja vastustat halua saada jotain uutta"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "j'arrivais pas à lâcher le scroll, alors tant qu'à être sur mon tel, je fais 5 min de leçon sur [[l'appli Sophia]]",
+     "texte": "en päässyt skrollaamisesta eroon, nyt opin [[Sophia-sovelluksessa]]. tänään: miksi renessanssi syntyi italiassa"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "skipping every boring part"
+     ],
+     "fr": "zapper chaque passage chiant",
+     "texte": "skippaat kaikki tylsät kohdat"
+    },
+    "T2": {
+     "en": [
+      "you skip intros, speed up videos, skim paragraphs,",
+      "jump between chapters"
+     ],
+     "fr": "tu zappes les intros, [[tu mets en x2]], tu survoles, tu sautes des chapitres",
+     "texte": "skippaat introt, [[nopeutat videoita]], silmäilet tekstiä, hypit lukujen välillä"
+    },
+    "T3": {
+     "en": [
+      "you’re teaching yourself that",
+      "anything slightly slow",
+      "deserves to be escaped"
+     ],
+     "fr": "t'apprends à ton cerveau que dès que c'est un peu lent, faut fuir",
+     "texte": "opetat itsellesi, että kaikkea vähänkin hidasta pitää paeta saman tien"
+    },
+    "T4": {
+     "en": [
+      "then real work feels",
+      "unbearable because there’s",
+      "no “skip 10 seconds” button"
+     ],
+     "fr": "alors bosser devient insupportable, y'a [[pas de bouton « avancer de 10 s »]]",
+     "texte": "sitten oikea työ tuntuu sietämättömältä, koska [[siinä ei ole ”10 s eteenpäin” -nappia]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "keeping stimulation within reach"
+     ],
+     "fr": "avoir des distractions [[sous la main]]",
+     "texte": "ärsykkeet on [[käden ulottuvilla]]"
+    },
+    "T2": {
+     "en": [
+      "your phone is on the desk,",
+      "youtube is one tab away,",
+      "and every distracting app",
+      "is already logged in"
+     ],
+     "fr": "ton tel est sur le bureau, youtube est à un onglet, et toutes tes applis à distraction sont déjà connectées",
+     "texte": "puhelin on pöydällä, videot yhden välilehden päässä ja jokaiseen häiritsevään sovellukseen oot jo kirjautunut"
+    },
+    "T3": {
+     "en": [
+      "you’re forcing yourself to",
+      "resist temptation hundreds",
+      "of times a day"
+     ],
+     "fr": "tu t'obliges à résister à la tentation [[des centaines de fois par jour]]",
+     "texte": "pakotat itsesi vastustamaan [[kiusausta satoja kertoja päivässä]]"
+    },
+    "T4": {
+     "en": [
+      "make distraction inconvenient before trying to become",
+      "more disciplined"
+     ],
+     "fr": "complique-toi l'accès aux distractions avant de chercher plus de discipline",
+     "texte": "tee häiriötekijöistä hankalia, ennen kuin yrität olla kurinalaisempi"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

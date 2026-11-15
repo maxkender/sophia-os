@@ -114,10 +114,15 @@ déclinaisons de la boîte dans l'ordre.
   langues où `white_bg` a un compte ; sans `--langues`, `npm run livrer` les
   prend toutes, et il laisse de côté celles sans compte. Tes langues
   possibles sont `LANGUES` de `atelier/api.ts` (ta déclaration, lue par
-  l'attribution des comptes) : fr, en, es, de, it, tr et hu. « es » sert aussi
-  les comptes es-419. Pour le hongrois, les captures de l'appli prennent
-  l'anglais tant que `assets/sophia/hu/` n'existe pas : dis-le dans ton compte
-  rendu.
+  l'attribution des comptes) : fr, en, es, de, it, tr, hu, et depuis le 16/11
+  sr, hr, el, fi, da, lt et bg (un compte chacune). Chaque nouveau post se
+  livre aussi dans ces 7 langues. « es » sert aussi les comptes es-419. Pour
+  tr, hu, sr, hr, el, fi, da, lt et bg, les captures de l'appli prennent
+  l'anglais (Renaissance en Italie) tant que `assets/sophia/<langue>/`
+  n'existe pas : la phrase Sophia parle alors de ce sujet ; dis-le dans ton
+  compte rendu. La police Inter couvre le cyrillique (bg) et le grec (el).
+  Serbe en latinica (cyrillique banni), bulgare en cyrillique (doctrines
+  `traduction_sr` et `traduction_bg` de l'OS).
 - **Rattrapage** (ROUTINE §5.5) : traduis `posts/<id>.<langue>.json` comme
   d'habitude, puis `npm run livrer -- sources <id> --langues hu` (seulement
   les langues de la commande : le post est déjà en ligne).

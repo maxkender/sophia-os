@@ -409,7 +409,9 @@ async function appli(ctx: Ctx, post: Post, s: Slide, c: AppliSlide, langue: stri
 
   // Les captures du magasin de la langue (images/applis/<nom>/<langue>/) quand il en a d'autres.
   const locales = (n: number) => (existsSync(join(RACINE, `${c.dossier}/${langue}/${n}.jpg`)) ? `${c.dossier}/${langue}/${n}.jpg` : `${c.dossier}/${n}.jpg`);
-  const captures = s.app === "sophia" ? [1, 2, 3].map((n) => `assets/sophia/ecran-${n}.jpg`) : [1, 2, 3].map(locales);
+  // Sophia : ses captures traduites (assets/sophia/<langue>/, `npm run sophia`) quand elles existent.
+  const sophia = (n: number) => (existsSync(join(RACINE, `assets/sophia/${langue}/ecran-${n}.jpg`)) ? `assets/sophia/${langue}/ecran-${n}.jpg` : `assets/sophia/ecran-${n}.jpg`);
+  const captures = s.app === "sophia" ? [1, 2, 3].map(sophia) : [1, 2, 3].map(locales);
   if (s.app !== "sophia" && !c.dossier) throw new Error(`${c.nom} : pas de dossier d'appli (npm run appli -- --id <id> <nom>)`);
   for (const [i, f] of captures.entries()) {
     const { y, l, h, r } = APP.captures;

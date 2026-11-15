@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o219",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4098c834-e0dd-4a12-9c79-c835527bc80e",
+ "titre": "6 hobbies that make you more impressive #hobbies #impressive #smartgirl #selfimprovement #skills",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "01c616ec-beb6-435f-964f-14bac97b717a"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 26 de la boîte (parent 4098c834, langue source en) : accroche du parent mot pour mot. Hobbies neufs face au parent (échecs, chant en chorale, escrime, aquarelle, jardinage, apprendre chaque jour). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bd4dbe99",
+   "texte_overlay": "6 hobbies that make you\nmore impressive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "27dc22c2",
+   "texte_overlay": "1. chess",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9bc7d814",
+   "texte_overlay": "2. singing in a choir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7ec38bc5",
+   "texte_overlay": "3. fencing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "569cfac8",
+   "texte_overlay": "4. watercolour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "ae3fa3e5",
+   "texte_overlay": "5. gardening",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ca67e60f",
+   "texte_overlay": "6. one lesson instead of\none scroll\n\nart, history, science.",
+   "texte_sophia": "6. one lesson instead of\none scroll\n\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "512896d5",
+   "texte_overlay": "which one will you start?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662625140466863390/6.jpg"
+  }
+ ]
+}

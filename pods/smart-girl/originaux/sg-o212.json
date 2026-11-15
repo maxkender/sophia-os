@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o212",
+ "type_bleo": "full_test",
+ "titre": "how to talk about art without sounding pretentious #art #arthistory #smartgirl #museum #conversation",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 5/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« talk about art » absent des accroches de donnees/label.json). Accroches écrites : « how to talk about art without sounding pretentious » (retenue : conversation et culture, concret), « art words to sound smart » (écartée : liste de mots, thème gagnant), « what to say in a museum » (écartée : proche de sg-o093). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fa60cb1f",
+   "texte_overlay": "how to talk about art without\nsounding pretentious",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "effa829e",
+   "texte_overlay": "1. say what you feel first\n\n\"it makes me calm.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "e69b7c19",
+   "texte_overlay": "2. ask what others see",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ba534512",
+   "texte_overlay": "3. know one story about it\n\nwho painted it, and why.",
+   "texte_sophia": "3. know one story about it.\ni learn one a day on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0f844058",
+   "texte_overlay": "4. point at one detail",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "853baa45",
+   "texte_overlay": "5. never pretend to know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a8a5c5de",
+   "texte_overlay": "6. it's okay not to like it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e961a7ca",
+   "texte_overlay": "save this for your next\nmuseum date",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

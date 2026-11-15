@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o214",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "34f68d36-92c7-487d-b087-3fc52239dc32",
+ "titre": "behaviours that make you look 10x more attractive #attractive #presence #smartgirl #confidence #elegance",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "34f68d36-92c7-487d-b087-3fc52239dc32"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 16 de la boîte (parent 34f68d36, langue source en) : accroche du parent mot pour mot. Présence, jamais corps : comportements neufs face au parent (sourire avec les yeux, parler de ce qu'on aime, rire de soi, ranger son téléphone, être gentille avec ceux qui servent). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "04506f98",
+   "texte_overlay": "behaviours that make you look\n10x more attractive",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "22ebe1ee",
+   "texte_overlay": "1. smiling with your eyes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "70ad47e3",
+   "texte_overlay": "2. talking about what you love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4cf964d1",
+   "texte_overlay": "3. laughing at yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "94b511dc",
+   "texte_overlay": "4. putting your phone away",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "984cc77a",
+   "texte_overlay": "5. being kind to the people\nwho serve you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c76a2e82",
+   "texte_overlay": "6. having interesting things\nto say",
+   "texte_sophia": "6. having interesting things\nto say. i learn something new\nevery day on a micro-learning\napp like the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5d2542e2",
+   "texte_overlay": "which one starts today?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7649873123898084629/5.jpg"
+  }
+ ]
+}

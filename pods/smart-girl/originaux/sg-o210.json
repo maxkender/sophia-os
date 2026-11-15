@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o210",
+ "type_bleo": "full_test",
+ "titre": "the surprising history of 5 colours #arthistory #colour #smartgirl #funfacts #darkacademia",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« colour » absent des accroches de donnees/label.json). Accroches écrites : « the surprising history of 5 colours » (retenue : culture, faits vérifiables, très partageable), « why purple was royal » (écartée : trop étroite), « colours that changed art » (écartée : moins accrocheuse). Faits vérifiés : le pourpre de Tyr tiré de coquillages murex ; l'outremer broyé à partir du lapis-lazuli d'Afghanistan, plus cher que l'or ; le bleu de Prusse découvert par accident à Berlin vers 1706 ; le mauve, premier colorant synthétique, inventé par William Perkin en 1856 à 18 ans ; l'ocre utilisée dans les plus anciennes peintures rupestres. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "501e9b88",
+   "texte_overlay": "the surprising history\nof 5 colours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "29fb111a",
+   "texte_overlay": "purple\n\nmade from thousands of\nsea snails. only emperors\ncould afford it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1a70949b",
+   "texte_overlay": "ultramarine\n\nground from lapis lazuli,\nworth more than gold.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2ccce730",
+   "texte_overlay": "prussian blue\n\ndiscovered by accident\nin berlin, around 1706.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6cc8b552",
+   "texte_overlay": "mauve\n\nthe first synthetic dye, found\nby an 18-year-old in 1856.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "71128ee3",
+   "texte_overlay": "ochre\n\nthe colour of the oldest\ncave paintings.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5d97e5a7",
+   "texte_overlay": "trade one scroll a day for\na story like this.",
+   "texte_sophia": "trade one scroll a day for a\nstory like this, on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a1004f56",
+   "texte_overlay": "which one surprised you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

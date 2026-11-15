@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o211",
+ "type_bleo": "full_test",
+ "titre": "how to write a thank-you note people keep forever #thankyou #etiquette #smartgirl #letters #elegance",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 4/5 (la jauge en demande 5 sur 16) : accroche jamais faite chez nous (« thank » absent des accroches de donnees/label.json). Accroches écrites : « how to write a thank-you note people keep forever » (retenue : savoir-vivre concret, distinct de sg-o150 sur la lettre en général), « thank-you note etiquette » (écartée : sèche), « what to write in a thank-you card » (écartée : faible). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7a51d648",
+   "texte_overlay": "how to write a thank-you note\npeople keep forever",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "32fee0e0",
+   "texte_overlay": "1. send it within three days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3c2a3950",
+   "texte_overlay": "2. name the exact thing\n\nnot \"thanks for the gift\",\nbut \"the blue scarf\".",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e4f57588",
+   "texte_overlay": "3. say how you'll use it",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "07ea2280",
+   "texte_overlay": "4. add one small memory",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f95ffae2",
+   "texte_overlay": "5. end with the future\n\n\"see you in june.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "20e3de4a",
+   "texte_overlay": "6. write it by hand\n\nand have something to say:\na book, a painting, a story.",
+   "texte_sophia": "6. write it by hand.\ni always have a story to add,\nfrom 5 minutes a day on a\nmicro-learning app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "79544ff5",
+   "texte_overlay": "save this for your next note",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

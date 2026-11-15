@@ -7107,6 +7107,17 @@ export const en = {
     },
     pods: {
       title: "Pods",
+      series: {
+        titre: "Views per day, per pod",
+        description: "Average views of the posts published each day, at the same age for every day (D+1, D+2, D+3 or D+7: comparable from one day to the next; D+2 recorded since 16/11). The line: the same average for all pods. A bar falling day after day below the line: the pod is wearing out.",
+        choisir: "Pod",
+        serie: "Average views at {{age}}",
+        age: "Age",
+        flotte: "All pods",
+        enCours: "Day in progress",
+        detail: "{{posts}} posts · {{moy}} average views today · {{p10k}} at 10k or more",
+        erreur: "Charts unavailable: {{message}}",
+      },
       comptesPod: {
         titre: "Accounts of the {{label}} label",
         vide: "No active account carries this label.",

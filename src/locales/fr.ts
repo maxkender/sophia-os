@@ -7117,6 +7117,17 @@ export const fr = {
     },
     pods: {
       title: "Pods",
+      series: {
+        titre: "Vues par jour, par podz",
+        description: "Vues moyennes des posts publiés chaque jour, au même âge pour tous les jours (J+1, J+2, J+3 ou J+7 : comparables d'un jour à l'autre ; J+2 relevé depuis le 16/11). Le trait : la même moyenne pour tous les podz. Une barre qui baisse jour après jour sous le trait : le podz s'épuise.",
+        choisir: "Podz",
+        serie: "Vues moyennes à {{age}}",
+        age: "Âge",
+        flotte: "Tous les podz",
+        enCours: "Jour en cours",
+        detail: "{{posts}} posts · {{moy}} vues moyennes aujourd'hui · {{p10k}} à 10 k ou plus",
+        erreur: "Courbes indisponibles : {{message}}",
+      },
       comptesPod: {
         titre: "Comptes du label {{label}}",
         vide: "Aucun compte actif ne porte ce label.",

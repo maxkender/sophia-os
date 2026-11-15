@@ -37,7 +37,7 @@ Les podz :
 | 3 · Réactions vidéo (en pause) | `reactions` | `session_01VS4KLri3cw1YkZrx8ZdYBX` | — |
 | 4 · Originaux alpha_male_yellow | `alpha-yellow` | `session_014ZhTRbi5iRvv2vfZ5JeAfr` | alpha_male_yellow |
 | 5 · Originaux RH | `rh` | `session_01LfA4fSWqnaCFDYsWjJCVjU` | RH |
-| 6 · Remakes @mentalapp (arrêté le 4/11) | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing (fermé le 5/11 : UnSwipe arrêté) |
+| 6 · Remakes @mentalapp (Sophia) | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing (Sophia seul, anglais ; relancé par Adrien le 15/11 en test sur 3 ou 4 comptes, arrêt si r médian sous 1 après une semaine ; il servait UnSwipe du 17/10 au 4/11) |
 | 7 · Originaux beau_smart_girl | `beau-smart-girl` | `session_01THEUnC81JyhMwLkGH5utSQ` | beau_smart_girl |
 | 8 · Originaux smart_girl | `smart-girl` | `session_01Tm4VDGW1KMgkF1hzdLhHL1` | smart_girl |
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |

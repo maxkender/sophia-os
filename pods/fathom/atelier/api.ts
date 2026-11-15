@@ -6,7 +6,9 @@ export const POD = "remakes_fathom";
 /** Le compte refait : Fathomly, l'appli concurrente de Sophia, et ses listes sur fond blanc. */
 export const COMPTE_SOURCE = "fathom0g";
 /** Les langues livrées : l'anglais d'abord (décision du 23/10), puis les grandes langues de Sophia. Déclarées à l'OS (0654) : l'attribution des comptes les lit, n'y mets que ce que tu sais vraiment faire. */
-export const LANGUES = ["en", "fr", "es", "de", "it", "pt", "pt-BR", "es-419"] as const;
+// 15/11 (Adrien) : un compte par langue sur 18 langues ; cette liste est déclarée à l'OS à chaque `npm run boite`
+// et remplace `pods.langues` : n'en retire pas une langue qui a un compte.
+export const LANGUES = ["en", "fr", "es", "de", "it", "pt", "pt-BR", "es-419", "tr", "pl", "hu", "nl", "sv", "ro", "cs", "sk", "hr", "sl"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

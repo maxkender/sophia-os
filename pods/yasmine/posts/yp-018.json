@@ -944,8 +944,8 @@
   {
    "type": "photo",
    "photo": {
-    "media_id": "175e44ec-8568-4871-bf54-23c5ef9e57c2",
-    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ef405631-e93f-45a3-9954-74b3bfb5d863/6.jpg?v=1790607933574",
+    "media_id": "0c938189-2b8c-4064-8ae1-177a778460f8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/36c02d0f-c599-4cc1-8d2a-76a0da7ba0ce/2.jpg?v=1787157854627",
     "cadrage": {
      "x": 0.5,
      "y": 0.5
@@ -984,7 +984,8 @@
      "taille": 42,
      "couleur": "jaune",
      "sous": [
-      "a teacher, a friend, your big sister. that’s what we’re here for."
+      "a teacher, a friend, your big sister.",
+      "that’s what we’re here for."
      ],
      "taille_sous": 28
     }
@@ -1014,7 +1015,8 @@
      "taille": 42,
      "couleur": "jaune",
      "sous": [
-      "Lehrkraft, Freundin, große Schwester. dafür sind wir da."
+      "Lehrkraft, Freundin, große Schwester.",
+      "dafür sind wir da."
      ],
      "taille_sous": 28
     }
@@ -1029,7 +1031,8 @@
      "taille": 42,
      "couleur": "jaune",
      "sous": [
-      "un prof, un’amica, tua sorella maggiore. siamo qui per questo."
+      "un prof, un’amica, tua sorella maggiore.",
+      "siamo qui per questo."
      ],
      "taille_sous": 28
     }
@@ -1044,7 +1047,8 @@
      "taille": 42,
      "couleur": "jaune",
      "sous": [
-      "um professor, uma amiga, sua irmã mais velha. é pra isso que a gente existe."
+      "um professor, uma amiga, sua irmã mais velha.",
+      "é pra isso que a gente existe."
      ],
      "taille_sous": 28
     }

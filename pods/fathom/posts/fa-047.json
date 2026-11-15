@@ -12,7 +12,11 @@
   "it": "10/10 abilità da imparare prima dei 30 anni",
   "es-419": "10/10 habilidades para aprender antes de los 30",
   "fr": "10/10 compétences à apprendre avant 30 ans",
-  "es": "10/10 habilidades que aprender antes de los 30"
+  "es": "10/10 habilidades que aprender antes de los 30",
+  "cs": "10/10 dovedností na naučení do třicítky",
+  "sk": "10/10 zručností na naučenie do tridsiatky",
+  "hr": "10/10 vještina koje trebaš naučiti prije 30.",
+  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #learnontiktok #selfmastery #curiosity",
@@ -21,7 +25,11 @@
   "it": "10/10 abilità da imparare prima dei 30 anni #imparacontiktok #crescitapersonale #abilità",
   "es-419": "10/10 habilidades para aprender antes de los 30 #aprendeentiktok #desarrollopersonal #habilidades",
   "fr": "10/10 compétences à apprendre avant 30 ans #apprendresurtiktok #développementpersonnel #culture",
-  "es": "10/10 habilidades que aprender antes de los 30 #aprendeentiktok #desarrollopersonal #cultura"
+  "es": "10/10 habilidades que aprender antes de los 30 #aprendeentiktok #desarrollopersonal #cultura",
+  "cs": "10/10 dovedností na naučení do třicítky #dovednosti #seberozvoj #vzdělávání",
+  "sk": "10/10 zručností na naučenie do tridsiatky #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "10/10 vještina koje trebaš naučiti prije 30. #vještine #osobnirazvoj #učenje",
+  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom #veščine #osebnarast #učenje"
  },
  "musique": {
   "titre": "original sound",
@@ -151,6 +159,78 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "DOVEDNOSTÍ",
+     "NA NAUČENÍ",
+     [
+      {
+       "t": "DO TŘICÍTKY",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZRUČNOSTÍ",
+     "NA NAUČENIE",
+     [
+      {
+       "t": "DO TRIDSIATKY",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VJEŠTINA KOJE",
+     "TREBAŠ NAUČITI",
+     [
+      {
+       "t": "PRIJE 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠČIN",
+     "KI SE JIH NAUČIŠ",
+     [
+      {
+       "t": "PRED 30. LETOM",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -258,6 +338,66 @@
      "date": "hace 6 años",
      "duree": "5:30",
      "avatar": "https://yt3.ggpht.com/vvcGXvi5uzQy8Q7cYmm8EenpLxE63tWcJgREgHTZd_aPytW7xTT2j510u33O5TmiFbbiY-827A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "VYMĚŇ",
+     "KOLO"
+    ],
+    "video": {
+     "id": "m2OGvfzwvVo",
+     "titre": "DIY Jak vyměnit kolo u auta čili jak přezout auto",
+     "chaine": "Wekon",
+     "vues": "42 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ndL9rvXZiiIxUkkM_8atqW1fa4zz9h2zjkp3_B8XtHx70=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "VYMEŇ",
+     "KOLESO"
+    ],
+    "video": {
+     "id": "KBb-CxfYwVQ",
+     "titre": "NÁVOD - AKO VYMENIŤ KOLESO?",
+     "chaine": "AUTORIDE",
+     "vues": "65 tis. zhliadnutí",
+     "date": "pred 9 rokmi",
+     "duree": "2:46",
+     "avatar": "https://yt3.ggpht.com/zNpCrgvXtBYYU8nYyxA6DHoY7VSLzCKRF63Z6a_DUk20OJkAlJRxkDigpTYXdCbwjPw2B7sr3uY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZAMIJENI",
+     "GUMU"
+    ],
+    "video": {
+     "id": "vFDlxqCZqPM",
+     "titre": "Kako zamjeniti gumu na autu u 5 jednostavnih koraka",
+     "chaine": "Auto SOS",
+     "vues": "4,3 tis. pregleda",
+     "date": "prije 3 godine",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/bon-08i3XaU8K02hUHoduAVu52aAaiJ5q6bn5fydjr5epb_EA8G3Kw2O7tCGVxMYh2r2iTXgqQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "ZAMENJAJ",
+     "KOLO"
+    ],
+    "video": {
+     "id": "H5v1_tYuZXo",
+     "titre": "Kako zamenjati kolo na BMW E60 v primeru okvare (montaža rezervnega kolesa)",
+     "chaine": "DriveRO",
+     "vues": "3,1 tis. ogledov",
+     "date": "pred 4 leti",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/SXc7YNy7OpKSKS8iahtxVRMMMPCvNw2epRL1uUAz-0pGnr9Fxoud1IVXtSscTrWo0scJvX9JB2w=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -367,6 +507,66 @@
      "duree": "11:50",
      "avatar": "https://yt3.ggpht.com/Rmh2fRiManK8F0s6cqa4oCUVCTtlRGRYuLDdTAjCmwlSnJfTxUzOOatpKYqhbRMvf4NXUDwl=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     "VYJEDNÁVAT"
+    ],
+    "video": {
+     "id": "RNzguGjEwTg",
+     "titre": "HARVARDSKÝ vyjednavač vysvětluje: Jak vyjednávat s NÁROČNÝM člověkem a vyhrát",
+     "chaine": "TrochuLepší",
+     "vues": "48 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "24:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjInIyfhJFAa4OsEBFfvoCXUIWyc868ZwkwJmlg5fdhQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     "VYJEDNÁVAŤ"
+    ],
+    "video": {
+     "id": "uaArPfr9Rjo",
+     "titre": "Ako odhaliť manipuláciu: Taktiky profesionálneho vyjednávača krok za krokom - intro podcastu",
+     "chaine": "Viktor Kosticky",
+     "vues": "190 zhliadnutí",
+     "date": "pred 11 mesiacmi",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/nOuPiY6Pj2vip_610j2PfhlZNIB9on3rAxjgIkoo9BqJxS2rxE0RJ_1jqR_PRY1Nj9SW-qqkHA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     "PREGOVARATI"
+    ],
+    "video": {
+     "id": "VjcHE-CMglE",
+     "titre": "Mikroučenje #28 - Pet savjeta za uspješne pregovore o plaći (i drugim uvjetima)",
+     "chaine": "Lider",
+     "vues": "340 pregleda",
+     "date": "prije 2 godine",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/G7EgGB2JZ_tGQ4BPq3-EGrppOs4LC8WP7khy_u9w9wQZJYdfNqeQrb1pGxY0b8qqWBIbk53Ksw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAUČI SE",
+     "POGAJATI"
+    ],
+    "video": {
+     "id": "OKyge1m9Hu0",
+     "titre": "UMETNOST POGAJANJA | MARKO KRYŽANOWSKI | seminar",
+     "chaine": "Podjetnik_net",
+     "vues": "873 ogledov",
+     "date": "pred 9 leti",
+     "duree": "20:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLLQSu_t_-9CJ3Frh0GrdZ_K1MK-eAdrV_oZ24ShQvIRk=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -460,6 +660,58 @@
      "texte": [
       "lo que abro",
       "en vez de hacer scroll."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "NIKDY SE",
+     "NEPŘESTAŇ UČIT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "NIKDY SA",
+     "NEPRESTAŇ UČIŤ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "čo otváram",
+      "namiesto scrollovania."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "NIKAD NE",
+     "PRESTAJ UČITI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ono što otvaram",
+      "umjesto skrolanja."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "NIKOLI NE",
+     "NEHAJ UČITI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kar odprem",
+      "namesto skrolanja."
      ]
     }
    }
@@ -569,6 +821,66 @@
      "date": "hace 5 años",
      "duree": "4:54",
      "avatar": "https://yt3.ggpht.com/FjIqYTpTeyfHp2Vjag73IAwvPRPaEAH_4ovYOlk6-TEE9HgBhSkUjj2Ym3qOjXK9wLAOV51hSXU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "NAPIŠ SKVĚLÝ",
+     "ŽIVOTOPIS"
+    ],
+    "video": {
+     "id": "92znYEXMynM",
+     "titre": "Životopis prakticky",
+     "chaine": "Kariérní centrum MU",
+     "vues": "9,8 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kVXQg_wH1a4Lzd6J5h-wVTFTutbuU2NSHY3fim3LCxf_0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAPÍŠ SKVELÝ",
+     "ŽIVOTOPIS"
+    ],
+    "video": {
+     "id": "EiYYAFCnvHk",
+     "titre": "Ako si urobiť životopis",
+     "chaine": "Profesia.sk",
+     "vues": "5,3 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTWa7PkH8f4Xje2lnF_TtNDzoDxIwRpy1TfEKePHTdJsI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAPIŠI DOBAR",
+     "ŽIVOTOPIS"
+    ],
+    "video": {
+     "id": "JyDoYYeKbhY",
+     "titre": "Kako napisati životopis?",
+     "chaine": "Udruga UZOR",
+     "vues": "3,1 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "11:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKrQ3jB9dW0ZoTyR7GDnPrDULw8x7_PfWybywAbhC1OA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAPIŠI DOBER",
+     "ŽIVLJENJEPIS"
+    ],
+    "video": {
+     "id": "iWueqSM6EEg",
+     "titre": "Kako napisati učinkovit življenjepis? - CV",
+     "chaine": "psihologi FF",
+     "vues": "3,5 tis. ogledov",
+     "date": "pred 10 leti",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k3w0T2NotpF7IlvdSiAUlHuFb2n6dv0iPMRuib7Nl6uSo=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

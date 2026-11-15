@@ -142,10 +142,13 @@ describe("AdminPostersPage — par zone", () => {
     expect(screen.getByText(/Deactivated recruiters with no creators \(1\)/)).toBeTruthy();
   });
 
-  it("prompt 25 v4 : seulement les posteurs qui ont posté ; les recrues sont sur Onboarding posters", async () => {
-    ayantPoste.lirePosteursAyantPoste.mockResolvedValueOnce(new Set(["beyza", "marta", "elodie"]));
+  it("15/11 : tous les posteurs par défaut ; la case rend « seulement ceux qui ont posté »", async () => {
+    ayantPoste.lirePosteursAyantPoste.mockResolvedValue(new Set(["beyza", "marta", "elodie"]));
     renderPage();
     await screen.findByRole("heading", { level: 2, name: "Turkey + Israel" });
+    expect(screen.getByText("Solo")).toBeTruthy();
+    expect(screen.queryByTestId("posters-onboarding")).toBeNull();
+    fireEvent.click(screen.getByLabelText(/Only posters who have already posted/));
     expect((await screen.findByTestId("posters-onboarding")).textContent).toMatch(/1 recruits not posting yet/);
     expect(screen.getByRole("link", { name: "Onboarding posters" }).getAttribute("href")).toBe("/admin/auto/recruits");
     expect(within(sectionZone("Turkey + Israel")).getByText("Beyza")).toBeTruthy();

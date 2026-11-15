@@ -4273,6 +4273,7 @@ export const fr = {
       },
       seulementActifs: "Seulement les posteurs qui ont posté (1er post avec lien). {{n}} recrues pas encore en route :",
       voirOnboarding: "Onboarding posters",
+      seulementPostes: "Seulement les posteurs qui ont déjà posté (premier post avec lien)",
       title: "Posters",
       subtitle: "Créateurs (logins) et leurs comptes TikTok.",
       creerPosterDesc:

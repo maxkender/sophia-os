@@ -6968,12 +6968,20 @@ export async function labelsDesComptes(
 ): Promise<Map<string, Label[]>> {
   const out = new Map<string, Label[]>();
   if (compteIds.length === 0) return out;
-  const { data, error } = await supabase
-    .from("compte_labels")
-    .select("compte_id, labels(*)")
-    .in("compte_id", compteIds);
-  if (error) throw error;
-  for (const row of data ?? []) {
+  // 15/11 : par paquets. 800 identifiants dans un seul `in` dépassaient la
+  // longueur d'URL admise : la requête échouait et la page Posteurs ne
+  // trouvait aucun compte par label (Plony, psychologiefaits).
+  const PAQUET = 150;
+  const data: unknown[] = [];
+  for (let i = 0; i < compteIds.length; i += PAQUET) {
+    const { data: lot, error } = await supabase
+      .from("compte_labels")
+      .select("compte_id, labels(*)")
+      .in("compte_id", compteIds.slice(i, i + PAQUET));
+    if (error) throw error;
+    data.push(...(lot ?? []));
+  }
+  for (const row of data) {
     const r = row as unknown as { compte_id: string; labels: Label | null };
     if (!r.labels) continue;
     const list = out.get(r.compte_id) ?? [];
@@ -8077,4 +8085,15 @@ export async function aDejaPublie(): Promise<boolean> {
     .limit(1);
   if (error) throw error;
   return (data ?? []).length > 0;
+}
+
+/**
+ * Les comptes qui portent un label (15/11) : une petite requête par label,
+ * pour le filtre « Label » de la page Posteurs, sans dépendre du chargement
+ * des labels de tous les comptes.
+ */
+export async function comptesDuLabel(labelId: string): Promise<Set<string>> {
+  const { data, error } = await supabase.from("compte_labels").select("compte_id").eq("label_id", labelId);
+  if (error) throw error;
+  return new Set((data ?? []).map((r) => (r as { compte_id: string }).compte_id));
 }

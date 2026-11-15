@@ -4265,6 +4265,7 @@ export const en = {
       },
       seulementActifs: "Only posters who have posted (first post with a link). {{n}} recruits not posting yet:",
       voirOnboarding: "Onboarding posters",
+      seulementPostes: "Only posters who have already posted (first post with a link)",
       title: "Posters",
       subtitle: "Creators (logins) and their TikTok accounts.",
       creerPosterDesc:
@@ -7107,6 +7108,17 @@ export const en = {
     },
     pods: {
       title: "Pods",
+      series: {
+        titre: "Views per day, per pod",
+        description: "Average views of the posts published each day, at the same age for every day (D+1, D+3 or D+7: comparable from one day to the next). The line: the same average for all pods. A bar falling day after day below the line: the pod is wearing out.",
+        choisir: "Pod",
+        serie: "Average views at {{age}}",
+        age: "Age",
+        flotte: "All pods",
+        enCours: "Day in progress",
+        detail: "{{posts}} posts · {{moy}} average views today · {{p10k}} at 10k or more",
+        erreur: "Charts unavailable: {{message}}",
+      },
       comptesPod: {
         titre: "Accounts of the {{label}} label",
         vide: "No active account carries this label.",

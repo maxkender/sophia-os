@@ -7,10 +7,18 @@
   "accroche": "Compétence 10/10 à apprendre avant 20 ans"
  },
  "titre": {
-  "fr": "Compétence 10/10 à apprendre avant 20 ans"
+  "fr": "Compétence 10/10 à apprendre avant 20 ans",
+  "en": "10/10 skill to learn before 20",
+  "de": "10/10-Skill zum Lernen vor 20",
+  "it": "Competenza 10/10 da imparare prima dei 20 anni",
+  "pt-BR": "Habilidade 10/10 para aprender antes dos 20 anos"
  },
  "legendes": {
-  "fr": "Compétence 10/10 à apprendre avant 20 ans #apprendresurtiktok #learnontiktok #developpementpersonnel"
+  "fr": "Compétence 10/10 à apprendre avant 20 ans #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skill to learn before 20 #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skill zum Lernen vor 20 #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Competenza 10/10 da imparare prima dei 20 anni #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidade 10/10 para aprender antes dos 20 anos #aprendanotiktok #desenvolvimentopessoal #habilidades"
  },
  "musique": {
   "titre": "original sound - rithu",
@@ -41,6 +49,94 @@
       "cap": 169
      }
     ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILL",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO LEARN",
+      "cap": 93
+     },
+     {
+      "t": "BEFORE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "20",
+      "cap": 169
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILL",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "ZUM LERNEN",
+      "cap": 93
+     },
+     {
+      "t": "VOR",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "20",
+      "cap": 169
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZA",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DA IMPARARE",
+      "cap": 93
+     },
+     {
+      "t": "PRIMA DEI",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "20 ANNI",
+      "cap": 169
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADE",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 93
+     },
+     {
+      "t": "ANTES DOS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "20 ANOS",
+      "cap": 169
+     }
+    ]
    }
   },
   {
@@ -66,6 +162,98 @@
     },
     "sous": [
      "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "MANAGE",
+       "couleur": "#d0a239"
+      }
+     ],
+     "YOUR MONEY"
+    ],
+    "video": {
+     "id": "gH0iNMgFC7Q",
+     "titre": "You Can Change Your Finances in 3 Months (Here’s How)",
+     "chaine": "Humphrey Yang",
+     "vues": "2.2M views",
+     "date": "1 year ago",
+     "duree": "21:03",
+     "avatar": "https://yt3.ggpht.com/G3iRyu9xe7F8ARD1zE5SSdKW2gCLKFwEqtuvyUvAJEvIPXMq11o6DbJPdEyxEAYhZI0JeK8T=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "GELD",
+       "couleur": "#d0a239"
+      }
+     ],
+     "VERWALTEN"
+    ],
+    "video": {
+     "id": "kGGhlSGkKt0",
+     "titre": "Die Psychologie von Menschen, die gut mit Geld umgehen (wissenschaftlich belegt)",
+     "chaine": "Finanzfluss",
+     "vues": "184.006 Aufrufe",
+     "date": "vor 3 Monaten",
+     "duree": "13:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "GESTIRE",
+       "couleur": "#d0a239"
+      }
+     ],
+     "I SOLDI"
+    ],
+    "video": {
+     "id": "jtjXtZhIOtQ",
+     "titre": "GESTIRE I SOLDI COME L’1%",
+     "chaine": "Riccardo Zanetti",
+     "vues": "137K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcrsJDHJzTJFeNXk2K1YBtdowusNflgexjVGC-htCtzJ4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "ORGANIZAR",
+       "couleur": "#d0a239"
+      }
+     ],
+     "O DINHEIRO"
+    ],
+    "video": {
+     "id": "in0XbfQEm2A",
+     "titre": "COMO ORGANIZAR SUAS FINANÇAS E GUARDAR DINHEIRO | Planejamento financeiro FÁCIL",
+     "chaine": "O Primo Rico",
+     "vues": "4,8 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "17:14",
+     "avatar": "https://yt3.ggpht.com/8phfTSVtEI0rd4SAxGDhUfsxOZnCcAMnvHVMiMKtysKX8CvVM5FEc50pzFbTEGesO_iYbeomwTY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
     ]
    }
   },
@@ -93,6 +281,98 @@
     "sous": [
      "2 heures pour apprendre"
     ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "LEARN HOW",
+       "couleur": "#66696f"
+      }
+     ],
+     "TO LEARN"
+    ],
+    "video": {
+     "id": "nIABz0Z4IRA",
+     "titre": "How to Learn So Fast People Assume You're Naturally Gifted",
+     "chaine": "Justin Sung",
+     "vues": "6.8M views",
+     "date": "2 months ago",
+     "duree": "8:23",
+     "avatar": "https://yt3.ggpht.com/tw9EX9JBePgRa2kUI9UfydwlOQm5MFbifKHnrECsZYBlb-TTsc3ijHrwna1GP9odyjvqHPanGQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#66696f"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "WJ4hq2dpZgM",
+     "titre": "Wie du so SCHNELL LERNST dass es sich ILLEGAL anfühlt",
+     "chaine": "Henry Hildebrandt",
+     "vues": "462.729 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "8:14",
+     "avatar": "https://yt3.ggpht.com/jsshGkKONs53QHCb6nOVwRbzzG7EVOIqOHhYPI1omt9WY5iRcXmq6l6pTUo51r5SkPnSOghM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "IMPARARE",
+       "couleur": "#66696f"
+      }
+     ],
+     "A IMPARARE"
+    ],
+    "video": {
+     "id": "LTmygn6Sj_U",
+     "titre": "Come memorizzare VELOCEMENTE (3 tecniche infallibili)",
+     "chaine": "EfficaceMente (con Andrea Giuliodori)",
+     "vues": "56K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/ixZegPxbLUlAo8YklFToyRu3NK5jNhnVJoagaVRTkLl5AN8hWEUiXc3UC8cSSW5P0HOSsGsdHQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "APRENDER",
+       "couleur": "#66696f"
+      }
+     ],
+     "A APRENDER"
+    ],
+    "video": {
+     "id": "3vdzghRCprU",
+     "titre": "Como memorizar ABSOLUTAMENTE TUDO",
+     "chaine": "Ciência Todo Dia",
+     "vues": "5,8 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "17:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
    }
   },
   {
@@ -117,6 +397,90 @@
     },
     "sous": [
      "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "GET",
+     [
+      {
+       "t": "CULTURED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "MEHR",
+     [
+      {
+       "t": "ALLGEMEINBILDUNG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARSI UNA",
+     [
+      {
+       "t": "CULTURA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER",
+     [
+      {
+       "t": "CULTURA GERAL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
     ]
    }
   },
@@ -144,6 +508,98 @@
     "sous": [
      "2-3 heures pour apprendre"
     ]
+   },
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "NEGOTIATE",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z3HJCQJ2Lmo",
+     "titre": "3 steps to getting what you want in a negotiation | The Way We Work, a TED series",
+     "chaine": "TED",
+     "vues": "600K views",
+     "date": "4 years ago",
+     "duree": "5:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_koIFcCOrvh0KThLNOiazAIDu6hcs8bjkGNwe1f6A_OYm8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "VERHANDELN",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PxxtNm9wGOU",
+     "titre": "Das Harvard-Konzept - so wird Verhandeln zur Win-Win-Situation",
+     "chaine": "youknow",
+     "vues": "35.809 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ldeg6icbWTRf6Qg-KG06KAgZNWRvVdOvtryy8G4CVk5ZI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "NEGOZIARE",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9EJLqgye0do",
+     "titre": "COME NEGOZIARE: le Parole da NON Dire per Condurre una Trattativa (Consigli per vendere)",
+     "chaine": "Simone Marietta Durelli Ockham Group",
+     "vues": "70K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "14:39",
+     "avatar": "https://yt3.ggpht.com/ogrPZmCYg0HK42oXluTyW0_Jj1YSq_s5sAmHOEifZACsLQDiBAYiHKBUk1X5D1vgnkFL2WkSFAg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "NEGOCIAR",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JDaWSbD7TeU",
+     "titre": "6 TÉCNICAS PARA FECHAR BONS ACORDOS - Dicas de Negociação",
+     "chaine": "Roberto Fialkovits",
+     "vues": "166 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "6:43",
+     "avatar": "https://yt3.ggpht.com/lKQeHQ8P4d4gETk3KRD7EOlAQJv9YXJffEwPUPl-VyLttPnzBweITjA8LJt2DxIQLd6sb4iUefI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
    }
   },
   {
@@ -170,6 +626,98 @@
     "sous": [
      "Entraînement sur plusieurs jours"
     ]
+   },
+   "en": {
+    "titre": [
+     "PUBLIC",
+     [
+      {
+       "t": "SPEAKING",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5m-C5mwpmxU",
+     "titre": "The 3-2-1 Speaking Trick That Forces You To Stop Rambling!",
+     "chaine": "Vinh Giang",
+     "vues": "8.2M views",
+     "date": "1 year ago",
+     "duree": "5:29",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     "ÖFFENTLICH",
+     [
+      {
+       "t": "SPRECHEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UGbo8X-rXqo",
+     "titre": "Frei sprechen lernen - Übungen, um unendlich lange am Stück locker reden zu können",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "229.520 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "11:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PARLARE",
+     [
+      {
+       "t": "IN PUBBLICO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w4HuqBOpjms",
+     "titre": "4 consigli per parlare meglio in pubblico (nella vita reale)",
+     "chaine": "Marco Montemagno",
+     "vues": "844K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "7:31",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FALAR",
+     [
+      {
+       "t": "EM PÚBLICO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N9EJ7gbJr5s",
+     "titre": "COMO falar em público | 5 TÉCNICAS que FUNCIONAM | com Joel Jota",
+     "chaine": "Joel Jota",
+     "vues": "1,6 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "18:43",
+     "avatar": "https://yt3.ggpht.com/0TK1Rp3PWZNA2Nj3o7eutFLunpR2WeDH1SBbRzWTjza_L6VLI1LeFmdZiaCu8nbxRqpOdlYj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
    }
   },
   {
@@ -195,6 +743,98 @@
     },
     "sous": [
      "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO COOK",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T8CK9aIqy20",
+     "titre": "How I would learn to cook if I could start over.",
+     "chaine": "Ethan Chlebowski",
+     "vues": "488K views",
+     "date": "1 year ago",
+     "duree": "17:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nASBGz3OXASRVham6ZgSHJrheFcXNKHtI86bw0QeA9ENc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "KOCHEN",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BPrjXWyc1_U",
+     "titre": "5 Basic Kochskills die du beherrschen musst! ⭐️",
+     "chaine": "Nelson Müller",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "16:16",
+     "avatar": "https://yt3.ggpht.com/18LnuCG9CVriAcno6BRBzRqKQqeXUEzlHwu7BmE_c3KFTshMTJVzrw3311FD7jOFkEaBKkNp=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A CUCINARE",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z5RfnQzpJ2w",
+     "titre": "9 TRUCCHI IN CUCINA CHE AVREI VOLUTO CONOSCERE PRIMA - essenziali per iniziare",
+     "chaine": "Cooker Girl",
+     "vues": "157K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "9:10",
+     "avatar": "https://yt3.ggpht.com/WREk3YNldWzh5uTNywlooN5diJNRF3D7xD5VB7IdS3GTEwKqYUow0rymnlbQfUkN4TDxBh9uUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A COZINHAR",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZfHQ6SpUqB8",
+     "titre": "Aprenda a cozinhar melhor com esses truques!",
+     "chaine": "Paola Carosella",
+     "vues": "1,5 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "41:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjf86gk7mnUBFuyHRocbhWSW0tnhNnuwYPGwoZPgcpxIk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
     ]
    }
   }

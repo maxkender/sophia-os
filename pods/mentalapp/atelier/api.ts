@@ -16,10 +16,11 @@ export const LANGUE_SOURCE = "en";
 export const TOUTES_LANGUES = ["en", "fr", "de", "es", "it", "tr"] as const;
 export type Langue = (typeof TOUTES_LANGUES)[number];
 /**
- * Les langues livrées : l'anglais seul pour le test Sophia (relance du 15/11,
- * comme Kaja). `--langues` pour rendre les autres.
+ * Les langues livrées : en, fr, de, it, tr depuis le 15/11 (décision d'Adrien
+ * relayée par la coordination BLEO : un compte par langue sur le label).
+ * L'espagnol reste rendu à la demande (`--langues`).
  */
-export const LANGUES: readonly Langue[] = ["en"];
+export const LANGUES: readonly Langue[] = ["en", "fr", "de", "it", "tr"];
 
 /**
  * Les versions Sophia (relance du 15/11) se déposent sous un autre id que

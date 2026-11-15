@@ -4273,6 +4273,7 @@ export const fr = {
       },
       seulementActifs: "Seulement les posteurs qui ont posté (1er post avec lien). {{n}} recrues pas encore en route :",
       voirOnboarding: "Onboarding posters",
+      seulementPostes: "Seulement les posteurs qui ont déjà posté (premier post avec lien)",
       title: "Posters",
       subtitle: "Créateurs (logins) et leurs comptes TikTok.",
       creerPosterDesc:
@@ -7117,6 +7118,17 @@ export const fr = {
     },
     pods: {
       title: "Pods",
+      series: {
+        titre: "Vues par jour, par podz",
+        description: "Vues moyennes des posts publiés chaque jour, au même âge pour tous les jours (J+1, J+3 ou J+7 : comparables d'un jour à l'autre). Le trait : la même moyenne pour tous les podz. Une barre qui baisse jour après jour sous le trait : le podz s'épuise.",
+        choisir: "Podz",
+        serie: "Vues moyennes à {{age}}",
+        age: "Âge",
+        flotte: "Tous les podz",
+        enCours: "Jour en cours",
+        detail: "{{posts}} posts · {{moy}} vues moyennes aujourd'hui · {{p10k}} à 10 k ou plus",
+        erreur: "Courbes indisponibles : {{message}}",
+      },
       comptesPod: {
         titre: "Comptes du label {{label}}",
         vide: "Aucun compte actif ne porte ce label.",

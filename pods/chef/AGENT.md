@@ -46,6 +46,7 @@ Les podz :
 | 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
 | 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; 2 par jour depuis le 5/11, demande d'Adrien ; en test sur 3 comptes, un par langue) |
 | 14 · Originaux Plony (Sophia) | `plony` | `session_017c8FRZ8qRaSWXppDYa8Lum` | Plony (Sophia seul, voie 1, en anglais, images de @_plony_ et Seedream ; lancé par Adrien le 13/11 à 2 par jour ; label rattaché à Sophia après le nettoyage de l'import, comptes à choisir dans Pilotage) |
+| 15 · Remakes @sagace.fr (Sophia) | `sagace` | (session à créer) | sagace (Sophia seul, voie 2, en français ; lancé par Adrien le 15/11, pilote sg-001 ; comptes par « démarrage d'un podz » ou Pilotage) |
 
 ## Règles absolues
 
@@ -80,7 +81,8 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11 et 13 ; le 6 est arrêté) a aussi sa boîte et
+- **La voie 2** (podz 1, 10, 11, 13 et 15 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré

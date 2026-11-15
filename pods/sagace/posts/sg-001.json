@@ -1,0 +1,202 @@
+{
+ "id": "sg-001",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7681636512013765920",
+  "vues": 482200,
+  "publie_le": "2026-09-04",
+  "accroche": "Compétence 10/10 à apprendre avant 20 ans"
+ },
+ "titre": {
+  "fr": "Compétence 10/10 à apprendre avant 20 ans"
+ },
+ "legendes": {
+  "fr": "Compétence 10/10 à apprendre avant 20 ans #apprendresurtiktok #learnontiktok #developpementpersonnel"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "notes": "Pilote du podz 15 (15/11). Son post à 482 k : sa couverture à l'identique (décor, lignes et tailles mesurées), ses 5 compétences dans son ordre avec d'autres vraies vidéos (les siennes : Mark Tilbury doublé, Reflexion, Katana, TEDx, Le French Gourmet), « EN PLUBLIC » corrigé. Sophia en étape 4 sur 7 (cta A : « AVOIR UNE CULTURE G », des cours courts écrits par de vrais profs), sa slide « ABONNE-TOI » retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCE",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "À APPRENDRE",
+      "cap": 93
+     },
+     {
+      "t": "AVANT",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "20 ANS",
+      "cap": 169
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "GÉRER",
+       "couleur": "#d0a239"
+      }
+     ],
+     "SON ARGENT"
+    ],
+    "video": {
+     "id": "w7tjQCnwvxQ",
+     "titre": "Comment bien gérer son Argent ? (en 6 étapes)",
+     "chaine": "Matthieu Louvet - S'investir",
+     "vues": "121 k vues",
+     "date": "il y a 4 ans",
+     "duree": "13:29",
+     "avatar": "https://yt3.ggpht.com/F1hFe5VWFyd-4zegI31SBX-ajrIUTA5w1qvyBVCC6j_HpqFNiAfBhyUCwiuMNxHqR1beLxnSh24=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "APPRENDRE",
+       "couleur": "#66696f"
+      }
+     ],
+     "À APPRENDRE"
+    ],
+    "video": {
+     "id": "RVB3PBPxMWg",
+     "titre": "MIEUX APPRENDRE & ÉTUDIER : les (vraies) techniques scientifiques",
+     "chaine": "ScienceEtonnante",
+     "vues": "2,5 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "28:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kzU96H3Lq6fihVVFNWXUEFaidERMvSqyMwn0f455Gi4w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "AVOIR UNE",
+     [
+      {
+       "t": "CULTURE G",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "NÉGOCIER",
+       "couleur": "#a9715d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8cc7k1rPA8E",
+     "titre": "Les négociateurs de HARVARD expliquent : Comment obtenir ce que vous voulez à chaque fois",
+     "chaine": "Un Peu Mieux",
+     "vues": "1,1 M de vues",
+     "date": "il y a 2 ans",
+     "duree": "12:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nPZYNGrRuK_2Anh-lpgVSPFFxHMPpbuQ7q7PJa2TgCFg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PARLER",
+     [
+      {
+       "t": "EN PUBLIC",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Cbl3E2FBEC0",
+     "titre": "PEUR DE PARLER EN PUBLIC ? Faites ces 6 choses pour vaincre l’ennemi !",
+     "chaine": "Fanta Conde (talkbyfanta)",
+     "vues": "244 k vues",
+     "date": "il y a 2 ans",
+     "duree": "13:48",
+     "avatar": "https://yt3.ggpht.com/jdgBVS8zXxDDuJ3nff6EuWpA-n0ym0IqeLV-iE1Pt_JhEsy8cwRKEo1IvgZjS0UzYRToR2Whkg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À CUISINER",
+       "couleur": "#d9b07f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AaphxoKIGwk",
+     "titre": "✅ Les 5 choses à faire avant de cuisiner",
+     "chaine": "Philippe Etchebest",
+     "vues": "230 k vues",
+     "date": "il y a 1 an",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/TETeWVwZ0hc-qP_wWMN74dFRRcZOipEhGJ4MegZgjgKoo47wv-9igEfwLlf2lVZx2LPCIAOO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   }
+  }
+ ]
+}

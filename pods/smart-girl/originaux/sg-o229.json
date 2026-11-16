@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o229",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e0eabc10-4dec-47c1-bd9c-91ac40501ac4",
+ "titre": "unspoken etiquette rules that make you quietly unforgettable #etiquette #elegance #smartgirl #manners #grace",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 1 de la boîte (parent e0eabc10, langue source en) : accroche reformulée (« 43 unspoken laws of etiquette that cultivate grace, confidence and quiet power » → « unspoken etiquette rules that make you quietly unforgettable »), même promesse. Le parent est la version hongroise de notre sg-o158 ; règles neuves, plusieurs par slide. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "51eaf412",
+   "texte_overlay": "unspoken etiquette rules that\nmake you quietly unforgettable",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f147d2c4",
+   "texte_overlay": "at the door\n• greet everyone in the room\n• let others go first\n• take your coat off inside",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3ccc59df",
+   "texte_overlay": "at the table\n• wait for the host to start\n• pass to the right\n• never stack plates",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e5727c10",
+   "texte_overlay": "in conversation\n• ask before you advise\n• no phone, ever\n• leave room for silence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0af67718",
+   "texte_overlay": "as a guest\n• bring something\n• offer help once\n• thank them the next day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fe325736",
+   "texte_overlay": "always\n• keep learning: art, history,\nscience, a little every day",
+   "texte_sophia": "always\n• keep learning: 5 minutes a day\non an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a62992e8",
+   "texte_overlay": "which one do you follow?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  }
+ ]
+}

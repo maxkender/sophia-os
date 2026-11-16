@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o235",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5076cd9b-0cbc-45d8-9911-331353e8008f",
+ "titre": "job choices for people who hate math #careers #jobs #smartgirl #future #creative",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "28dc8de8-0858-4666-a11f-658e3f75d29c"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 32 de la boîte (parent 5076cd9b, langue source en) : accroche du parent mot pour mot. Métiers neufs face au parent et à sg-o215 (libraire, historienne de l'art, orthophoniste, professeure de langues, illustratrice, archéologue). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "60fc599e",
+   "texte_overlay": "job choices for people\nwho hate math",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d0f90167",
+   "texte_overlay": "bookseller",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d674f461",
+   "texte_overlay": "art historian",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bd979cee",
+   "texte_overlay": "speech therapist",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e1bf9569",
+   "texte_overlay": "language teacher",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c96cb23e",
+   "texte_overlay": "illustrator",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "f47144b4",
+   "texte_overlay": "archaeologist\n\ncurious about the past.",
+   "texte_sophia": "archaeologist\n\ncurious about the past:\n5 minutes a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d7a098b4",
+   "texte_overlay": "which one is you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  }
+ ]
+}

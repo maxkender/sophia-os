@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o225",
+ "type_bleo": "full_test",
+ "titre": "how to host a salon like an 18th-century woman #salon #conversation #smartgirl #history #dinnerparty",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 2/5 (la jauge en demande 5 sur 17) : accroche jamais faite chez nous (« salon » absent des accroches de donnees/label.json). Accroches écrites : « how to host a salon like an 18th-century woman » (retenue : histoire et conversation, original), « how to host intellectual evenings » (écartée : plus fade), « dinner party conversation ideas » (écartée : proche de sg-o097). Fait vérifié : les salons parisiens du XVIIIe siècle, tenus par des femmes comme Madame Geoffrin, réunissaient philosophes et artistes. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1777be25",
+   "texte_overlay": "how to host a salon like\nan 18th-century woman",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8662988c",
+   "texte_overlay": "what it was\n\nwomen like madame geoffrin\nhosted writers and thinkers\nin their paris homes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8ea5cb30",
+   "texte_overlay": "1. invite people who\ndon't know each other",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e2f0b71d",
+   "texte_overlay": "2. choose one topic\nfor the evening\n\na painting, a book, a question.",
+   "texte_sophia": "2. choose one topic for the\nevening. i find mine in 5\nminutes on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a5ca71fa",
+   "texte_overlay": "3. simple food, good candles",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e1b24ff9",
+   "texte_overlay": "4. everyone brings one story",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "db5b6f63",
+   "texte_overlay": "5. no phones, all evening",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "6d72168b",
+   "texte_overlay": "save this and host one\nthis winter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

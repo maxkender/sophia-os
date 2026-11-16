@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o224",
+ "type_bleo": "full_test",
+ "titre": "greek myths every cultured woman should know #greekmythology #myths #smartgirl #darkacademia #culture",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 1/5 (la jauge en demande 5 sur 17) : accroche jamais faite chez nous (« myth » absent des accroches de donnees/label.json). Accroches écrites : « greek myths every cultured woman should know » (retenue : culture générale, très référencée dans l'art), « myths behind words we use » (écartée : proche de l'étymologie déjà faite), « gods and goddesses explained » (écartée : scolaire). Mythes classiques : Pandore, Icare, Narcisse, Orphée et Eurydice, Perséphone, Arachné. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1bc9e185",
+   "texte_overlay": "greek myths every cultured\nwoman should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f1a01783",
+   "texte_overlay": "pandora\n\nshe opened the jar, and only\nhope stayed inside.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9c136dff",
+   "texte_overlay": "icarus\n\nhe flew too close to the sun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4fe59791",
+   "texte_overlay": "narcissus\n\nhe fell in love with\nhis own reflection.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "21223b0e",
+   "texte_overlay": "orpheus and eurydice\n\nhe looked back, and lost her.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9b00e0a4",
+   "texte_overlay": "persephone\n\nher return each spring\nexplains the seasons.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b4fd6bdd",
+   "texte_overlay": "arachne\n\nshe out-wove a goddess\nand became a spider.",
+   "texte_sophia": "arachne\n\nshe out-wove a goddess. i learn\none myth a day on a\nmicro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "1d1bbca4",
+   "texte_overlay": "which one is your favourite?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o240",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "69221f43-fcd9-44dd-af95-c1187653cc82",
+ "titre": "things you can learn in no time to become a more interesting person #interesting #learning #smartgirl #culture #funfacts",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "69221f43-fcd9-44dd-af95-c1187653cc82"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 47 de la boîte (parent 69221f43, langue source en) : accroche du parent mot pour mot. Sujets neufs face au parent (lire une partition simple, reconnaître trois styles de peinture, les phases de la lune, l'origine de son prénom, trois accords de guitare, un poème par cœur). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c526edb5",
+   "texte_overlay": "things you can learn in no time\nto become a more interesting person",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "f75bb214",
+   "texte_overlay": "1. the phases of the moon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a7457a79",
+   "texte_overlay": "2. three painting styles\n\nimpressionism, cubism,\nsurrealism.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "881c12eb",
+   "texte_overlay": "3. general culture, one story\na day: art, history, science.",
+   "texte_sophia": "3. general culture: one story\na day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b87d9e66",
+   "texte_overlay": "4. where your name comes from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5c89eeab",
+   "texte_overlay": "5. three guitar chords",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7389109e",
+   "texte_overlay": "6. one poem by heart",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a254175c",
+   "texte_overlay": "save this and pick one",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688314883221228820/8.jpg"
+  }
+ ]
+}

@@ -9,9 +9,9 @@ import { PageQuestionnaire } from "./PageQuestionnaire";
 import { versCsv } from "./PageQuestionnaires";
 import { colonnes, listePays, manquantes, SECTIONS, visible } from "./questions";
 
-function rendu() {
+function rendu(url = "/questionnaire/top-posters") {
   return render(
-    <MemoryRouter initialEntries={["/questionnaire/top-posters"]}>
+    <MemoryRouter initialEntries={[url]}>
       <Routes><Route path="/questionnaire/:slug" element={<PageQuestionnaire />} /></Routes>
     </MemoryRouter>,
   );
@@ -56,6 +56,18 @@ describe("Questionnaire (15/11)", () => {
     const derniere = a.sauverReponses.mock.calls.at(-1)!;
     expect(derniere[0]).toBe("top-posters");
     expect(derniere[2].reponses).toMatchObject({ niveau_langue: "Native", pays: "France" });
+  });
+
+  it("« Do the star survey » en test (?test=1) : bandeau, rien n'est enregistré", async () => {
+    rendu("/questionnaire/top-posters?test=1");
+    expect(screen.getByTestId("mode-test")).toHaveTextContent("nothing is saved");
+    fireEvent.change(screen.getByLabelText("First name and last name"), { target: { value: "Max Test" } });
+    fireEvent.change(screen.getByLabelText(/^Email/), { target: { value: "max@example.com" } });
+    fireEvent.change(screen.getByLabelText("Your TikTok @"), { target: { value: "@test" } });
+    fireEvent.click(screen.getByTestId("suivant"));
+    expect(await screen.findByText("About you")).toBeTruthy();
+    await new Promise((r) => setTimeout(r, 50));
+    expect(a.sauverReponses).not.toHaveBeenCalled();
   });
 
   it("CSV : une ligne par personne, données OS, non reliée signalée", () => {

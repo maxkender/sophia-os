@@ -1,0 +1,65 @@
+{
+ "id": "ig-001",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7698007507851152672",
+  "vues": 1300000,
+  "publie_le": "2026-10-18",
+  "accroche": "4 apps every girl needs"
+ },
+ "titre": {
+  "en": "4 apps every girl needs"
+ },
+ "legendes": {
+  "en": "4 apps every girl needs #foryou #app #apps #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Preuve : son « 4 apps every girl needs » du 18/10 (1,3 M vues, 6,5 % d'enregistrements), même couverture et mêmes slides. Photos Seedream (images/photos) : trousse-1, fille-2, bouquet-2. Applis (App Store, 16/11) : Whering (4,7 ★, 12 k avis), Sophia en 2e (cta A), Shuffles by Pinterest (4,8 ★, 44 k avis), Waterllama (4,9 ★, 165 k avis). Aucune appli de cycle (demande d'Adrien du 16/11).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/trousse-1.jpg",
+     "images/photos/fille-2.jpg",
+     "images/photos/bouquet-2.jpg"
+    ],
+    "titre": "4 apps every\ngirl needs"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/whering",
+   "en": {
+    "nom": "whering",
+    "texte": "you can upload photos of your clothes, plan outfits and see what you actually wear"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/shuffles",
+   "en": {
+    "nom": "shuffles",
+    "texte": "you can cut out anything from your pictures and make aesthetic collages and moodboards"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/waterllama",
+   "en": {
+    "nom": "waterllama",
+    "texte": "reminds you to drink water during the day, and you fill up cute little characters as you go"
+   }
+  }
+ ]
+}

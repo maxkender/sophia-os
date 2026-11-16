@@ -9,12 +9,22 @@
  "titre": {
   "en": "10/10 skills you can learn",
   "fr": "10/10 compétences que tu peux apprendre",
-  "de": "10/10 Skills, die du lernen kannst"
+  "de": "10/10 Skills, die du lernen kannst",
+  "it": "10/10 abilità che puoi imparare",
+  "tr": "10/10 öğrenebileceğin beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz",
+  "pl": "10/10 umiejętności, których możesz się nauczyć",
+  "pt-BR": "10/10 habilidades que você pode aprender"
  },
  "legendes": {
   "en": "10/10 skills you can learn #skills #selfimprovement #learnontiktok",
   "fr": "10/10 compétences que tu peux apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
-  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 abilità che puoi imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin beceriler #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności, których możesz się nauczyć #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades que você pode aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
  },
  "musique": {
   "titre": "sonido original",
@@ -44,6 +54,39 @@
      "SKILLS, DIE",
      "DU LERNEN",
      "KANNST"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "ABILITÀ",
+     "CHE PUOI",
+     "IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "ÖĞRENEBİLECEĞİN",
+     "BECERİLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÉSZSÉG, AMIT",
+     "MEGTANULHATSZ"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI,",
+     "KTÓRYCH MOŻESZ",
+     "SIĘ NAUCZYĆ"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "QUE VOCÊ",
+     "PODE APRENDER"
     ]
    }
   },
@@ -117,6 +160,127 @@
     "sous": [
      "2-10 Min."
     ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL NODO",
+       "couleur": "#f4eb11"
+      }
+     ],
+     [
+      {
+       "t": "ALLA CRAVATTA",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ocuBxKc-Ykk",
+     "titre": "Come annodare la cravatta - Nodo Semplice -",
+     "chaine": "GMC Heritage",
+     "vues": "3,8 Mln visualizzazioni",
+     "date": "14 anni fa",
+     "duree": "1:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nKVQeGSK-gzuwGEGPnJpgNbOXAYeb8KRkMgc6O7Xkoeiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KRAVAT BAĞLANIR",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Wg2eYcJTjCg",
+     "titre": "Kravat Nasıl Bağlanır - Kolay ve Hızlı",
+     "chaine": "Bıdık Amca",
+     "vues": "384 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/5oqUmyEqr8D9VBVl7ZH70K3VQndM2omgSewZnxx7ErQIfKldNbNiY3Xwo80X4j4mzWAUX2Eo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KÖSS",
+     [
+      {
+       "t": "NYAKKENDŐT",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d5XoSOCL_9Q",
+     "titre": "Nyakkendő kötés -  windsor csomó",
+     "chaine": "sityak2000",
+     "vues": "1,7 M megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mhmwHCeXqYElKbz1BP2R68FB75U1TDukBT5LeuL2P8Ig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZAWIĄZAĆ",
+     [
+      {
+       "t": "KRAWAT",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WH52w9fuPpg",
+     "titre": "Jak zawiązać krawat. [Węzeł windsorski]",
+     "chaine": "chalger",
+     "vues": "1,6 mln wyświetleń",
+     "date": "19 lat temu",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_myhShVz882bVH5mCwNszRV3gqVePgPxSd99VHtYQc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO DAR",
+     [
+      {
+       "t": "NÓ DE GRAVATA",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xRqjl1YSG98",
+     "titre": "Como dar Nó em Gravata. Fácil, Elegante e Simples! 5 Passo a Passo. MUITO FACIL. How to Tie a Tie.",
+     "chaine": "by Andre Sav Andre",
+     "vues": "23 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7-dZes7AbmXbh_QFTXpNoWgDs2-3TpDnzkYOiIx20ag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-10 min"
+    ]
    }
   },
   {
@@ -188,6 +352,121 @@
     },
     "sous": [
      "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FUNZIONA",
+     [
+      {
+       "t": "UN MOTORE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9zCOpQ8pEgg",
+     "titre": "Guardiamo attraverso un motore 4 tempi: ecco come funziona dall'interno un motore a scoppio",
+     "chaine": "Geopop",
+     "vues": "844K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "9:21",
+     "avatar": "https://yt3.ggpht.com/oE0UEzTJ3tQwypwVB-CLljtel5wErzFm07vlAg4BqUlOdK3sHA7Pt4tRyIBb3Ene0x5NCpmInK4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BİR ARABA",
+     [
+      {
+       "t": "NASIL ÇALIŞIR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SM_BCbL6uv4",
+     "titre": "Bir Otomobil Nasıl Çalışır?",
+     "chaine": "Fren İzleri",
+     "vues": "15 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "7:51",
+     "avatar": "https://yt3.ggpht.com/ECoUs80-rYWg7OXXFNKDPZW4yaKJq0rmF97e2-vM2pxRZaVGZ8Xl9UtakJLvCYqXYA4EE3xbIcI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN MŰKÖDIK",
+     [
+      {
+       "t": "AZ AUTÓ",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PJJPhz1_LlM",
+     "titre": "Hogyan működik az autó? Érdekességek gyerekeknek",
+     "chaine": "OkosCsemete",
+     "vues": "821 megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/evI5_6XSo6KuXNDu1JWv3csJKysAZ3kAyschP6nnRVm8zDZnz4dsHAxloIuvVBxqlBVi35pLTA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK DZIAŁA",
+     [
+      {
+       "t": "SILNIK",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X4alJUqdbpg",
+     "titre": "Budowa silnika ,Co to są Panewki, jak działa układ korbowo tłokowy, Cz.1",
+     "chaine": "Miłośnicy czterech kółek -zrób to sam",
+     "vues": "679 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "25:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5escq-Fax7jZeo5J56E-Umw0PyKa4kPxA2pqBAkP1PNs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FUNCIONA",
+     [
+      {
+       "t": "UM MOTOR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ul1XuiJE0Dw",
+     "titre": "Entenda de vez COMO FUNCIONA O MOTOR DO CARRO!",
+     "chaine": "Manual do Mundo",
+     "vues": "5,8 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "17:36",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
     ]
    }
   },
@@ -274,6 +553,141 @@
     "sous": [
      "5 Min. am Tag"
     ]
+   },
+   "it": {
+    "titre": [
+     "COME NON RESTARE",
+     [
+      {
+       "t": "MAI SENZA",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ARGOMENTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL HİÇ",
+     [
+      {
+       "t": "KONUSUZ",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "KALMAZSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN NE FOGYJ",
+     [
+      {
+       "t": "KI SOHA",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "A TÉMÁBÓL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZAWSZE",
+     [
+      {
+       "t": "MIEĆ TEMAT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "DO ROZMOWY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO NUNCA",
+     [
+      {
+       "t": "FICAR SEM",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ASSUNTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
    }
   },
   {
@@ -351,6 +765,121 @@
     },
     "sous": [
      "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME RACCONTARE",
+     [
+      {
+       "t": "UNA STORIA",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LJhzV3WY5y8",
+     "titre": "Come raccontare una storia",
+     "chaine": "GioPizzi",
+     "vues": "97K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "21:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kMCr4fBWJNER7eKLt-xRqJvVRdUSuWVUEM-uMi8PspMwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "HİKAYE ANLATILIR",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uvrZkQ-6RdU",
+     "titre": "Nasıl Uzman Bir Hikaye Anlatıcısı Olursun (5 Adımda)",
+     "chaine": "Berk Sezgin",
+     "vues": "13 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "6:54",
+     "avatar": "https://yt3.ggpht.com/mUd7unr1EnOr3Gypo8nIhpEgBweQ1-zH8s2duh1N4yzJsIub1QcwtNTnxsd9QWn_5gzRN8vZcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "MESÉLJ JÓL",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WEezRJYLh4g",
+     "titre": "Györffy Kinga: Történetmesélés a magával ragadó, meggyőző el(ő)adásban",
+     "chaine": "Personal Brand Institute",
+     "vues": "5,5 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkbKyaZeptW7LDyfitilkmGLRB77DMRfTZjaW7Wo0yFpU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK OPOWIADAĆ",
+     [
+      {
+       "t": "HISTORIE",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "28D9jx7chVQ",
+     "titre": "JAK OPOWIADAĆ HISTORIE - STORYTELLING | ANTONI ŁĄCKI",
+     "chaine": "Antoni Łącki",
+     "vues": "13 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "13:13",
+     "avatar": "https://yt3.ggpht.com/6jZky8twuS1YUsmLXcoC8HYGHwKZcgmtvnYjAVRr-oMcKthco1iPnSkW8szH00RSbiW5Jflz=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO CONTAR",
+     [
+      {
+       "t": "HISTÓRIAS",
+       "couleur": "#6204a3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MlFLOglMr20",
+     "titre": "APRENDA STORYTELLING EM 3 PASSOS - Como contar sua própria história",
+     "chaine": "El Professor da Oratória",
+     "vues": "205 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/JRRnzRD1rMftcRJ4Rzpt39F8emS7w3NQClW_NlbsEq_RAS7KgijhvQkPAeAZDFXCcVzBwFvb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
     ]
    }
   },
@@ -435,6 +964,121 @@
     },
     "sous": [
      "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME ACCENDERE",
+     [
+      {
+       "t": "UN FUOCO",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TQ0UbCDB7tA",
+     "titre": "COME ACCENDERE UN FUOCO (senza bruciare)",
+     "chaine": "Dada e Marcolino",
+     "vues": "123K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "7:23",
+     "avatar": "https://yt3.ggpht.com/Kz_NGDxEsmCsKXgaDKwY6VB6vBUu52OU6z4DVI5dqZSun0kikR6Whp_ZuGKI1s9pguTE7RvD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ATEŞ YAKILIR",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZlXMic8mC6s",
+     "titre": "Vahşi Doğada Ateş Nasıl Yakılır ?",
+     "chaine": "Hayatta Kalma Sanatı",
+     "vues": "6,3 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "11:43",
+     "avatar": "https://yt3.ggpht.com/wGH3FyqXwsgezkU8gh3EndCN0Nc2SO9h0th10RvEQHb4dhiTWvR7AGK6SZtuyrbBxfIpB3U7kAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "RAKJ TÜZET",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rSpRTHOj0cc",
+     "titre": "TŰZGYÚJTÁS KURZUS",
+     "chaine": "Erdősuli",
+     "vues": "9,8 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "15:34",
+     "avatar": "https://yt3.ggpht.com/xlNDc8KwmIlkioirnCBeRDddXwrEO0H78tyWh8LHLdNM5Glf1y713tH9okBfDBYyrY4P9Dh_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ROZPALIĆ",
+     [
+      {
+       "t": "OGIEŃ",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rb3F7970AYo",
+     "titre": "Jak rozpalić ogień w każdych warunkach - survival i bushcraft",
+     "chaine": "Bushcraftowy",
+     "vues": "216 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "24:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZEWydJRhbNuzEAEvKDTITi4GgeVAqrF1O7BJlwPb6qus=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "UMA FOGUEIRA",
+       "couleur": "#b41a02"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gAOpmKcFtdg",
+     "titre": "Como fazer uma fogueira: O guia COMPLETO! - Sobreviva Ep. 01",
+     "chaine": "Sobrevivencialismo",
+     "vues": "993 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "19:04",
+     "avatar": "https://yt3.ggpht.com/Tc9CnSSdQNISaAB_IVJPUVtRJTrfJZg59qQTUb0B4368cVhS9cSd2cSaRyA_DXEVtcnsoyjk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
     ]
    }
   }

@@ -184,6 +184,8 @@ const REGION: Record<string, { hl: string; gl: string }> = {
   "pt-BR": { hl: "pt", gl: "BR" },
   "es-419": { hl: "es-419", gl: "MX" },
   tr: { hl: "tr", gl: "TR" },
+  hu: { hl: "hu", gl: "HU" },
+  pl: { hl: "pl", gl: "PL" },
 };
 
 const ENTETES = {
@@ -329,6 +331,9 @@ const VUES_LOCALES: Record<string, (court: string) => string> = {
   pt: (c) => `${c} visualizações`,
   "pt-BR": (c) => `${c} visualizações`,
   "es-419": (c) => (/\sM$/.test(c) ? `${c} de vistas` : `${c} vistas`),
+  tr: (c) => `${c} görüntüleme`,
+  hu: (c) => `${c} megtekintés`,
+  pl: (c) => `${c} wyświetleń`,
 };
 
 /** « 3.4M views » : un chiffre après la virgule sous 10, tronqué comme l'appli. */

@@ -1,0 +1,169 @@
+{
+ "id": "ig-004",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7667894722093911328",
+  "vues": 1100000,
+  "publie_le": "2026-07-29",
+  "accroche": "it-girl bag essentiels"
+ },
+ "titre": {
+  "en": "apps every it-girl has",
+  "fr": "les applis de toute it-girl",
+  "es": "apps que toda it-girl tiene",
+  "it": "le app che ogni it-girl ha",
+  "tr": "her it-girl'ün kullandığı uygulamalar"
+ },
+ "legendes": {
+  "en": "apps every it-girl has #foryou #apps #itgirl #wishlist",
+  "fr": "les applis de toute it-girl #foryou #apps #itgirl #wishlist",
+  "es": "apps que toda it-girl tiene #foryou #apps #itgirl #wishlist",
+  "it": "le app che ogni it-girl ha #foryou #apps #itgirl #wishlist",
+  "tr": "her it-girl'ün kullandığı uygulamalar #foryou #apps #itgirl #wishlist"
+ },
+ "musique": {
+  "titre": "suara asli - yuda",
+  "url": "https://www.tiktok.com/music/suara-asli-7654957419163847432"
+ },
+ "notes": "Preuve : son « it-girl bag essentiels » du 29/07 (1,1 M), passé en liste d'applis. Photos Seedream : sac-1, fille-9-2, bouquet-5. Applis (App Store US, 16/11) : Pinterest (4,8 ★, 5,8 M avis), Canva (4,9 ★, 3,6 M), Sophia en 3e (cta A), Planta (4,8 ★, 115 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/sac-1.jpg",
+     "images/photos/fille-9-2.jpg",
+     "images/photos/bouquet-5.jpg"
+    ],
+    "titre": "apps every\nit-girl has"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/sac-1.jpg",
+     "images/photos/fille-9-2.jpg",
+     "images/photos/bouquet-5.jpg"
+    ],
+    "titre": "les applis de\ntoute it-girl"
+   },
+   "es": {
+    "photos": [
+     "images/photos/sac-1.jpg",
+     "images/photos/fille-9-2.jpg",
+     "images/photos/bouquet-5.jpg"
+    ],
+    "titre": "apps que toda\nit-girl tiene"
+   },
+   "it": {
+    "photos": [
+     "images/photos/sac-1.jpg",
+     "images/photos/fille-9-2.jpg",
+     "images/photos/bouquet-5.jpg"
+    ],
+    "titre": "le app che ogni\nit-girl ha"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/sac-1.jpg",
+     "images/photos/fille-9-2.jpg",
+     "images/photos/bouquet-5.jpg"
+    ],
+    "titre": "her it-girl'ün\nkullandığı uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/pinterest",
+   "en": {
+    "nom": "pinterest",
+    "texte": "you save all your ideas on boards, from outfits and recipes to room inspo"
+   },
+   "fr": {
+    "nom": "pinterest",
+    "texte": "tu ranges toutes tes idées dans des tableaux, des tenues aux recettes jusqu'à la déco de ta chambre"
+   },
+   "es": {
+    "nom": "pinterest",
+    "texte": "guardas todas tus ideas en tableros, desde outfits y recetas hasta inspo para decorar tu cuarto"
+   },
+   "it": {
+    "nom": "pinterest",
+    "texte": "salvi tutte le tue idee in bacheche, dagli outfit alle ricette fino all'ispirazione per la camera"
+   },
+   "tr": {
+    "nom": "pinterest",
+    "texte": "kombinlerden tariflere, oda ilhamına kadar tüm fikirlerini panolara kaydedersin"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/canva",
+   "en": {
+    "nom": "canva",
+    "texte": "you can make collages, vision boards and cute designs right from your phone"
+   },
+   "fr": {
+    "nom": "canva",
+    "texte": "tu peux faire des collages, des vision boards et des designs mignons depuis ton téléphone"
+   },
+   "es": {
+    "nom": "canva",
+    "texte": "puedes hacer collages, vision boards y diseños monísimos desde tu móvil"
+   },
+   "it": {
+    "nom": "canva",
+    "texte": "puoi creare collage, vision board e grafiche carinissime direttamente dal telefono"
+   },
+   "tr": {
+    "nom": "canva",
+    "texte": "telefonundan kolajlar, vision board'lar ve tatlı tasarımlar kolayca yapabilirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/planta",
+   "en": {
+    "nom": "planta",
+    "texte": "it tells you exactly when to water each plant so they actually stay alive"
+   },
+   "fr": {
+    "nom": "planta",
+    "texte": "elle te dit exactement quand arroser chaque plante pour qu'elles restent enfin en vie"
+   },
+   "es": {
+    "nom": "planta",
+    "texte": "te dice exactamente cuándo regar cada planta para que por fin sigan vivas"
+   },
+   "it": {
+    "nom": "planta",
+    "texte": "ti dice esattamente quando annaffiare ogni pianta così restano finalmente vive"
+   },
+   "tr": {
+    "nom": "planta",
+    "texte": "her bitkiyi tam olarak ne zaman sulaman gerektiğini söyler, böylece hepsi yaşamaya devam eder"
+   }
+  }
+ ]
+}

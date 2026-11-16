@@ -1,0 +1,169 @@
+{
+ "id": "ig-003",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7678396355257273602",
+  "vues": 2000000,
+  "publie_le": "2026-08-26",
+  "accroche": "best makeup looks for each haircolor"
+ },
+ "titre": {
+  "en": "glow up apps every girl needs",
+  "fr": "les applis glow up de toute fille",
+  "es": "apps de glow up que toda chica necesita",
+  "it": "app per il glow up che ogni ragazza deve avere",
+  "tr": "her kızın ihtiyacı olan glow up uygulamaları"
+ },
+ "legendes": {
+  "en": "glow up apps every girl needs #foryou #apps #glowup #thatgirl",
+  "fr": "les applis glow up de toute fille #foryou #apps #glowup #thatgirl",
+  "es": "apps de glow up que toda chica necesita #foryou #apps #glowup #thatgirl",
+  "it": "app per il glow up che ogni ragazza deve avere #foryou #apps #glowup #thatgirl",
+  "tr": "her kızın ihtiyacı olan glow up uygulamaları #foryou #apps #glowup #thatgirl"
+ },
+ "musique": {
+  "titre": "suono originale",
+  "url": "https://www.tiktok.com/music/suono-originale-7578511818520480515"
+ },
+ "notes": "Preuve : son tube glow up « best makeup looks for each haircolor » du 26/08 (2 M), passé en liste d'applis. Photos Seedream : soins-1, fille-6-1, bouquet-4. Applis (App Store US, 16/11) : Indyx (4,8 ★, 1,7 k avis), Sophia en 2e (cta C), Gratitude (4,9 ★, 45 k), Tasty (4,9 ★, 433 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/soins-1.jpg",
+     "images/photos/fille-6-1.jpg",
+     "images/photos/bouquet-4.jpg"
+    ],
+    "titre": "glow up apps\nevery girl needs"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/soins-1.jpg",
+     "images/photos/fille-6-1.jpg",
+     "images/photos/bouquet-4.jpg"
+    ],
+    "titre": "les applis glow up\nde toute fille"
+   },
+   "es": {
+    "photos": [
+     "images/photos/soins-1.jpg",
+     "images/photos/fille-6-1.jpg",
+     "images/photos/bouquet-4.jpg"
+    ],
+    "titre": "apps de glow up que\ntoda chica necesita"
+   },
+   "it": {
+    "photos": [
+     "images/photos/soins-1.jpg",
+     "images/photos/fille-6-1.jpg",
+     "images/photos/bouquet-4.jpg"
+    ],
+    "titre": "app per il glow up che\nogni ragazza deve avere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/soins-1.jpg",
+     "images/photos/fille-6-1.jpg",
+     "images/photos/bouquet-4.jpg"
+    ],
+    "titre": "her kızın ihtiyacı olan\nglow up uygulamaları"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/indyx",
+   "en": {
+    "nom": "indyx",
+    "texte": "you can add all your clothes, plan outfits and see your cost per wear for each piece"
+   },
+   "fr": {
+    "nom": "indyx",
+    "texte": "tu peux ajouter tous tes vêtements, préparer tes tenues et voir combien te coûte chaque pièce par port"
+   },
+   "es": {
+    "nom": "indyx",
+    "texte": "puedes añadir toda tu ropa, planear tus outfits y ver cuánto te cuesta cada prenda por uso"
+   },
+   "it": {
+    "nom": "indyx",
+    "texte": "puoi aggiungere tutti i tuoi vestiti, pianificare gli outfit e vedere quanto ti costa ogni capo a utilizzo"
+   },
+   "tr": {
+    "nom": "indyx",
+    "texte": "tüm kıyafetlerini ekleyip kombin planlayabilir ve her parçanın giyim başı maliyetini hemen görebilirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, con un quiz cortito después para que se te quede"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/gratitude",
+   "en": {
+    "nom": "gratitude",
+    "texte": "you write down what you're grateful for, with daily affirmations and your own vision board"
+   },
+   "fr": {
+    "nom": "gratitude",
+    "texte": "tu écris ce pour quoi tu es reconnaissante, avec des affirmations chaque jour et ton propre vision board"
+   },
+   "es": {
+    "nom": "gratitude",
+    "texte": "escribes por qué cosas estás agradecida, con afirmaciones diarias y tu propio vision board"
+   },
+   "it": {
+    "nom": "gratitude",
+    "texte": "scrivi le cose per cui sei grata, con affermazioni ogni giorno e la tua vision board"
+   },
+   "tr": {
+    "nom": "gratitude",
+    "texte": "minnettar olduğun şeyleri yazarsın, her gün olumlamalar ve kendi vision board'unla"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/tasty",
+   "en": {
+    "nom": "tasty",
+    "texte": "thousands of easy recipes with videos that show you every step"
+   },
+   "fr": {
+    "nom": "tasty",
+    "texte": "des milliers de recettes faciles avec des vidéos qui te montrent chaque étape"
+   },
+   "es": {
+    "nom": "tasty",
+    "texte": "miles de recetas fáciles con vídeos que te enseñan cada paso de la receta"
+   },
+   "it": {
+    "nom": "tasty",
+    "texte": "migliaia di ricette facili con video che ti mostrano ogni passaggio della ricetta"
+   },
+   "tr": {
+    "nom": "tasty",
+    "texte": "her adımı videoyla gösteren binlerce kolay tarif"
+   }
+  }
+ ]
+}

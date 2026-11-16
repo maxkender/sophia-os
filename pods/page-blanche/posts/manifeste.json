@@ -3551,7 +3551,8 @@
     "id": "7636068211729599264",
     "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
    },
-   "statut": "nouveau"
+   "statut": "rendu_fr",
+   "notes": "cta A"
   },
   {
    "post_id": "7708388542627466529",
@@ -3598,6 +3599,32 @@
    "notes": "déclinaison G1 de original-010; cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "24fcb8ab-03be-4651-b98e-bd06cd1ede89"
+  },
+  {
+   "post_id": "original-083",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#boredom #creativity #phonefree",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "big sound selecta",
+    "original": true,
+    "id": "7239212554831104814",
+    "url_tiktok": "https://www.tiktok.com/music/x-7239212554831104814"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7704304928449121568_1",
+    "2": "7699386616988650774_6",
+    "3": "7696527080426655009_4",
+    "4": "7683630825610513686_4",
+    "5": "7704304928449121568_3",
+    "6": "7704304928449121568_6"
+   },
+   "notes": "full test BLEO (s'ennuyer exprès); cta C",
+   "type_bleo": "full_test"
   }
  ]
 }

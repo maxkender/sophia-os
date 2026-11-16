@@ -1,0 +1,1317 @@
+{
+ "id": "sg-010",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 à apprendre cet hiver",
+  "en": "10/10 skills to learn this winter",
+  "de": "10/10-Skills, die du diesen Winter lernen solltest",
+  "it": "Abilità 10/10 da imparare in inverno",
+  "pt-BR": "Habilidades 10/10 para aprender nas férias",
+  "tr": "Bu kış öğreneceğin 10/10 beceriler",
+  "ro": "Abilități 10/10 de învățat iarna aceasta",
+  "cs": "Dovednosti 10/10, které se naučíš tuto zimu"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 à apprendre cet hiver #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to learn this winter #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die du diesen Winter lernen solltest #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 da imparare in inverno #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para aprender nas férias #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Bu kış öğreneceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 de învățat iarna aceasta #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které se naučíš tuto zimu #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "notes": "Full test du 16/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 à apprendre cet hiver », sa couverture (décor, lignes brun/noir aux tailles de son post à 482 k), 5 compétences d'intérieur (dessin, échecs, tricot, pain, frappe sans regarder), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « NOURRIR / SON CERVEAU »). pt-BR : « nas férias » au lieu de l'hiver (décembre est l'été au Brésil).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "À APPRENDRE",
+      "cap": 93
+     },
+     {
+      "t": "CET",
+      "cap": 169
+     },
+     {
+      "t": "HIVER",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO LEARN",
+      "cap": 93
+     },
+     {
+      "t": "THIS",
+      "cap": 169
+     },
+     {
+      "t": "WINTER",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "ZUM LERNEN",
+      "cap": 93
+     },
+     {
+      "t": "DIESEN",
+      "cap": 169
+     },
+     {
+      "t": "WINTER",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DA IMPARARE",
+      "cap": 93
+     },
+     {
+      "t": "IN",
+      "cap": 169
+     },
+     {
+      "t": "INVERNO",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 93
+     },
+     {
+      "t": "NAS",
+      "cap": 169
+     },
+     {
+      "t": "FÉRIAS",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "BU",
+      "cap": 169
+     },
+     {
+      "t": "KIŞ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ÖĞRENECEĞİN",
+      "cap": 93
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "cap": 93
+     },
+     {
+      "t": "IARNA",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ACEASTA",
+      "cap": 120
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "K NAUČENÍ",
+      "cap": 93
+     },
+     {
+      "t": "TUTO",
+      "cap": 169
+     },
+     {
+      "t": "ZIMU",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À DESSINER",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Sv3ZwgBAgI8",
+     "titre": "Débuter le dessin : 6 étapes pour progresser plus vite",
+     "chaine": "Léo Dessin-création",
+     "vues": "206 k vues",
+     "date": "il y a 3 ans",
+     "duree": "14:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1zeX40sZuLgGcOrZOk4Vk2P90GoT6wRY_jjXRa3tuE9I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO DRAW",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b2scvHu_tGQ",
+     "titre": "Draw ANYTHING! Beginner Sketching in 7 Easy Steps",
+     "chaine": "Julia Bausenhardt",
+     "vues": "1M views",
+     "date": "3 years ago",
+     "duree": "11:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKry7_x2iBvKAm7D9tKSHN4ho8-QYKlRHydZsPHsGCK_0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ZEICHNEN",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "_P0miJyVt4E",
+     "titre": "Zeichnen lernen für Anfänger - Zeichnen Grundlagen",
+     "chaine": "Simon Gillmeister",
+     "vues": "49.957 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "16:10",
+     "avatar": "https://yt3.ggpht.com/0UolUpHHEcHhJ5LDjctd_3nyDsovUzFDsN38b4lVSgPWBPWltP-64czV9X6VviMdQHlQbERsIg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A DISEGNARE",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mygEqkI2aaQ",
+     "titre": "Lezione di disegno: come disegnare senza saper disegnare | Le Lezioni di Giorgio Michetti",
+     "chaine": "Le Lezioni di Giorgio Michetti",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/gMNickP2fjDAkFNDP_1g8aH32kTZlvbhvtPP7GtXT99OcNPx7Q82pVd9ajcuDClzlV-4txeNcjM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A DESENHAR",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3CKCOYvqZIk",
+     "titre": "Como Desenhar COMEÇANDO do ZERO - Aula 1",
+     "chaine": "Desenho Mestre",
+     "vues": "1,7 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "13:41",
+     "avatar": "https://yt3.ggpht.com/yt4IfjtWEFu_HhxcAgzOWA1A-WMflDrHYZLUJE9RiULJeDUi5TkLzP8if57J-GCZV5jIUW0Ptg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ÇİZİM",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "Fu6AqW8Ltno",
+     "titre": "Resim Yapmaya Nasıl Başlanır?",
+     "chaine": "ÇiZiO",
+     "vues": "748 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "5:54",
+     "avatar": "https://yt3.ggpht.com/PvvJr1zjggsbXa5z-N7DA1O_b0VQqJuj1L_qmikHZrTkCSPUF_ozUMmST5VuwhcfttceUoXG2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "SĂ DESENEZI",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S32iG5Ef3hU",
+     "titre": "Cum să desenezi mai bine | Ce aș fi vrut să știu când am început să desenez",
+     "chaine": "Jannet",
+     "vues": "60 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "8:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVadHhZ54FrcWiwutAO-C1eDy1j3jjZTO-1dhAJWS7BBQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "KRESLIT",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rjRkDt19tFg",
+     "titre": "SKICÁŘ - Základy kresby 01 - Jak nakreslit cokoliv...hezky od začátku. Jak držet tužku a jak kreslit",
+     "chaine": "Nevzdělanci",
+     "vues": "57 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "32:57",
+     "avatar": "https://yt3.ggpht.com/WKqygxSzmzix3M0lpadsBxt-3scq4YJo4fX0kQZoucXIwJlKIV7945DoWHDL9LJRrINu-Wb7iw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "JOUER",
+     [
+      {
+       "t": "AUX ÉCHECS",
+       "couleur": "#8a63b8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "upixcS1m540",
+     "titre": "Apprends à jouer aux échecs ! Le guide ultime pour débutant.",
+     "chaine": "Julien Song",
+     "vues": "698 k vues",
+     "date": "il y a 3 ans",
+     "duree": "49:20",
+     "avatar": "https://yt3.ggpht.com/Bd9iqICF-q6k5wYIvodr_KSRU_o_i-1IkAR3_D_yBOwHDkAydJfzfWohHdIRsi0yVYGhte7QCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PLAY",
+     [
+      {
+       "t": "CHESS",
+       "couleur": "#8a63b8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OCSbzArwB10",
+     "titre": "How To Play Chess: The Ultimate Beginner Guide",
+     "chaine": "GothamChess",
+     "vues": "13M views",
+     "date": "5 years ago",
+     "duree": "31:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJ4RQwl-WnWQ_3AgLxvPrLkVdfLHPCRKMxUtLJnjUkhkg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "SCHACH",
+       "couleur": "#8a63b8"
+      }
+     ],
+     "SPIELEN"
+    ],
+    "video": {
+     "id": "y6vQRcp0w40",
+     "titre": "SCHACH LERNEN: Das einzige Video, das du brauchst",
+     "chaine": "Niklas Steenfatt",
+     "vues": "771.338 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "21:55",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "GIOCARE",
+     [
+      {
+       "t": "A SCACCHI",
+       "couleur": "#8a63b8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZkxnN-zrZ3U",
+     "titre": "Impara a Giocare a Scacchi in 20 Minuti - Pistoia Scacchi - Regole e Basi",
+     "chaine": "Daviddol - SCACCHI ITALIA - Circolo Scacchistico Pistoiese",
+     "vues": "671K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "19:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCmExHZ8KoNtNlmyTeH_17_rOZwvFb07SBEY3BkloB26w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "JOGAR",
+     [
+      {
+       "t": "XADREZ",
+       "couleur": "#8a63b8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rrx7CCLQip4",
+     "titre": "TODAS AS REGRAS BÁSICAS DO XADREZ EM 8 MINUTOS",
+     "chaine": "Xeque!",
+     "vues": "363 mil visualizações",
+     "date": "há 6 meses",
+     "duree": "8:30",
+     "avatar": "https://yt3.ggpht.com/EFv1gM7pRjSKk05WYH8VjpDerCsTTce3w0b9kGHaIQW_50fHOOIQeVPk00rTYDPBk86XbOFMlv8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SATRANÇ",
+       "couleur": "#8a63b8"
+      }
+     ],
+     "OYNAMAK"
+    ],
+    "video": {
+     "id": "V1F2-zs-Wvg",
+     "titre": "Satranç Nasıl Oynanır 6 dk İçinde öğren ( Gerçek Tahta üzerinde)",
+     "chaine": "Berkay Özcan",
+     "vues": "220 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/oMtBhlMCAUT6pXzJXbK-WCL9NYUs4r7zQubu3SR23aCslCAgPtNrYTibeeweot4aafMirbDZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ JOCI",
+     [
+      {
+       "t": "ȘAH",
+       "couleur": "#8a63b8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aUFhliiUNic",
+     "titre": "Învață să Joci ȘAH! Tutorial Complet Pentru Începători",
+     "chaine": "Old Time America",
+     "vues": "57 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "9:09",
+     "avatar": "https://yt3.ggpht.com/psk_KMOjV5TGJvTRBj7dGhj_VsjswGloVRivZTibIgggmh-QANVMKIjQteKTkKUOuZ7gzkScNsI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "HRÁT",
+     [
+      {
+       "t": "ŠACHY",
+       "couleur": "#8a63b8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AGI8Lr4TT2A",
+     "titre": "Šachistou za 1 hodinu! Kompletní šachový průvodce [pro úplné začátečníky]",
+     "chaine": "Šachy s Kateřinou",
+     "vues": "53 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "1:09:48",
+     "avatar": "https://yt3.ggpht.com/ENZnW9ACKxjwRdIAiDH2KOA-84UcEoPThB4j1CXfqq7e9ZpofmAjqtBw_aLjP78asc4t_0QVdaM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "NOURRIR",
+     [
+      {
+       "t": "SON CERVEAU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FEED",
+     [
+      {
+       "t": "YOUR BRAIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEIN GEHIRN",
+     [
+      {
+       "t": "FÜTTERN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "NUTRIRE",
+     [
+      {
+       "t": "IL CERVELLO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ALIMENTAR",
+     [
+      {
+       "t": "O CÉREBRO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BEYNİNİ",
+     [
+      {
+       "t": "BESLE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI HRĂNEȘTI",
+     [
+      {
+       "t": "CREIERUL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAKRMIT",
+     [
+      {
+       "t": "SVŮJ MOZEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "TRICOTER",
+       "couleur": "#b5473a"
+      }
+     ],
+     "UNE ÉCHARPE"
+    ],
+    "video": {
+     "id": "dqA57romtls",
+     "titre": "Apprendre à tricoter en UNE SEULE VIDÉO : La méthode complète pour apprendre le tricot pour débutant",
+     "chaine": "Les Triconautes",
+     "vues": "394 k vues",
+     "date": "il y a 5 ans",
+     "duree": "26:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasFlHy-cCFcUH9femJBFWVbIjQHIRamoI4S-vqdn35to=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "KNIT",
+       "couleur": "#b5473a"
+      }
+     ],
+     "A SCARF"
+    ],
+    "video": {
+     "id": "p_R1UDsNOMk",
+     "titre": "How to Knit: Easy for Beginners",
+     "chaine": "RJ Knits",
+     "vues": "15M views",
+     "date": "7 years ago",
+     "duree": "21:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVA5BHLRcC_N2a1_e9sAHeT2wACDKoXF74o70koaZkQU0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN SCHAL",
+     [
+      {
+       "t": "STRICKEN",
+       "couleur": "#b5473a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PSGZrIihtHw",
+     "titre": "Tutorial Stricken - Basics für Anfänger",
+     "chaine": "Maschenmarie",
+     "vues": "1,7 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "16:42",
+     "avatar": "https://yt3.ggpht.com/AbclRCRDyZbORj31qtQTOLJJH6iU7mQR_5A4fnKB_CrSVGh0YJplsesQlX2efOyoY19yeNzf0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE UNA SCIARPA",
+     [
+      {
+       "t": "AI FERRI",
+       "couleur": "#b5473a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ykyinGkpBZk",
+     "titre": "Tutorial per principianti: Avvio maglie sui ferri/maglia diritta/maglia rovescio",
+     "chaine": "angolo creatività di Enza",
+     "vues": "2 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_le2vFGTyOmJxf6sf8ev9SfpoAzHNpbe2lrmRQbqAYdtmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "TRICOTAR",
+       "couleur": "#b5473a"
+      }
+     ],
+     "UM CACHECOL"
+    ],
+    "video": {
+     "id": "4Ph_eDei5C4",
+     "titre": "Aprendendo: Tricô para inciantes ~ colocar e tirar da agulha, ponto meia e tricô",
+     "chaine": "Marie Castro",
+     "vues": "1,5 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "6:03",
+     "avatar": "https://yt3.ggpht.com/sBZBsu4Dal0P6Wye-pdTh5FPgIr9TgzYneFplveldzrxO5hR91GmA3dL4KJ-iq1Ql4LFDObIVQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ATKI",
+     [
+      {
+       "t": "ÖRMEK",
+       "couleur": "#b5473a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J9jD7Imht3g",
+     "titre": "YENİ BAŞLAYANLAR İÇİN ŞİŞ ÖRGÜDE İLMEK ATMA, HAROŞA, TERS ÖRGÜ, DÜZ ÖRGÜ VE ÖRGÜ KESME NASIL YAPILIR",
+     "chaine": "InSerpil",
+     "vues": "184 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "22:47",
+     "avatar": "https://yt3.ggpht.com/k_N2pdvWTTHuvU2ZXA1SCtGZBzIx518sqERKWioyst5E6bskisnRV09bo-caffT5hHTuzbFUaA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ TRICOTEZI",
+       "couleur": "#b5473a"
+      }
+     ],
+     "UN FULAR"
+    ],
+    "video": {
+     "id": "AGUFoee07TI",
+     "titre": "Tutorial de Tricotat.🥰 Doua Modalitati de a Monta Ochiurile pe Andrele! ❤️❤️❤️❤️❤️❤️❤️❤️❤️",
+     "chaine": "Lacramioara Gheorghe",
+     "vues": "136 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "15:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwmBTuirRFtI7u-r1zL1xs7dY9a_efBM76yN0vFjcStII=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "UPLÉST",
+       "couleur": "#b5473a"
+      }
+     ],
+     "ŠÁLU"
+    ],
+    "video": {
+     "id": "L_qYVSgNqgY",
+     "titre": "Jak začít plést: NAHOZENÍ OK A HLADCE 🧶 | Pletení pro začátečníky (1. díl)",
+     "chaine": "Katrincola škola pletení a háčkování",
+     "vues": "584 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/g1nyQ4Y1gDfpbxQeUJG5o2qdwoQ3779PASgpRH5Ok014_eOAXdDI6OTdC8nh-9U2CUThnAPTmA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "SON PAIN",
+       "couleur": "#c8902f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_sqtzcB9SIk",
+     "titre": "Faire son PAIN MAISON sans MACHINE à PAIN",
+     "chaine": "Marmiton",
+     "vues": "1,2 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "4:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mO3a1OjsT-g--VIkLEVIhIXHhwuBV4lOMCEjiNjINbK16C=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 journée pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BAKE",
+     [
+      {
+       "t": "YOUR OWN BREAD",
+       "couleur": "#c8902f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dwwhwVaI6vg",
+     "titre": "How To Make Bread At Home | Jamie Oliver",
+     "chaine": "Jamie Oliver",
+     "vues": "1M views",
+     "date": "1 year ago",
+     "duree": "10:32",
+     "avatar": "https://yt3.ggpht.com/IuSK5Kbv2c6duyWbtH413CRL9F0J3K-owptbpUbDPXGHrZXz8PKr7mim3nsj5EQYlpOoJbT16uk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 day to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "BROT",
+       "couleur": "#c8902f"
+      }
+     ],
+     "SELBER BACKEN"
+    ],
+    "video": {
+     "id": "i2mWCHKJQA4",
+     "titre": "Anfängerbrot – das perfekte Brot für Back-Anfänger",
+     "chaine": "Einfach Backen - Marcel Paa",
+     "vues": "659.468 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:47",
+     "avatar": "https://yt3.ggpht.com/jgH9sdccDVmIBvWpVCrmew9DY3DfSY2gIJSWh5VlWj9DmCmah6nRjglGjQ7D0hJwk7tXKOUw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Tag zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "IL PANE",
+       "couleur": "#c8902f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pw5J235m9qU",
+     "titre": "PANE FATTO IN CASA FACILE: Ricette perfetta garantita!",
+     "chaine": "GialloZafferano",
+     "vues": "995K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/DIbS5q7AH-sy9nB9K6AfT-4yhagb4h1GI2u-9UQmcQCbtY8kV85MwumcnSGWYmUOl8shxYClsSI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 giorno per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "PÃO CASEIRO",
+       "couleur": "#c8902f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nAWHwvnO5SY",
+     "titre": "PÃO CASEIRO PARA INICIANTES: Receita fácil para quem nunca fez pão",
+     "chaine": "Amo Pão Caseiro",
+     "vues": "10 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:43",
+     "avatar": "https://yt3.ggpht.com/NZHQ3EwcmEfjL2zGiMPZCF6wnOgAR4A-53BBD9e3KZa6wcwrPr2E5CTT15OrHB6yjIZmSwPX6A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 dia para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "EVDE",
+     [
+      {
+       "t": "EKMEK YAPMAK",
+       "couleur": "#c8902f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "onKfeESPVKo",
+     "titre": "Evde EKMEK nasıl yapılır? | Oktay Usta",
+     "chaine": "CHEF OKTAY USTA",
+     "vues": "318 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "20:20",
+     "avatar": "https://yt3.ggpht.com/sIGHnuGvBn_oOY0C64GyJQUILs2hCkoWGik8xxLtqrgHGqbpVZ_np8d9_wW33gr5bAfMiiH-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 günde öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "PÂINE DE CASĂ",
+       "couleur": "#c8902f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kqzELb2Wzyk",
+     "titre": "Paine simpla de casa reteta traditionala| Gina Bradea",
+     "chaine": "Poftă bună cu Gina Bradea",
+     "vues": "1,6 mil. vizionări",
+     "date": "acum 9 ani",
+     "duree": "8:29",
+     "avatar": "https://yt3.ggpht.com/MSVdcNKdt-nlvPe9ZeD1dvfhhC5OhSYyX7UlspVPQNau-CDQuMpbCiD1s_AqXma15DBYlAoYTg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 zi de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UPÉCT",
+     [
+      {
+       "t": "DOMÁCÍ CHLEBA",
+       "couleur": "#c8902f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q4X5cRXI1jg",
+     "titre": "Chleba pro ZAČÁTEČNÍKY!",
+     "chaine": "BigChef",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 3 měsíci",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/52TTPvHhVkTgmNsLURpni3uh5XpXnDA7pTDR-LpELEl9lYAAM-HHf1O4XW1noAt4A34fDGFK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 den na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "TAPER",
+     [
+      {
+       "t": "SANS REGARDER",
+       "couleur": "#4a8c5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Avtc3v08-dU",
+     "titre": "J'apprends à taper rapidement sur un clavier [100 Mots Par Minute en 1 semaine]",
+     "chaine": "Incrémental",
+     "vues": "247 k vues",
+     "date": "il y a 4 ans",
+     "duree": "8:19",
+     "avatar": "https://yt3.ggpht.com/JayK3NvOB5HXvoHqzmNkCNz1azq3pItsuPzmCsn8bEhiI-vOWd_C8HjYevT61fRkFX_jTKP-JA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TYPE",
+     [
+      {
+       "t": "WITHOUT LOOKING",
+       "couleur": "#4a8c5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iHx2xv12otc",
+     "titre": "I Learned How To Type in 7 Days",
+     "chaine": "Gage Kenyon",
+     "vues": "467K views",
+     "date": "4 years ago",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/N6dHPftb31Gew-H1oX3T6e9xY3t7SbWTe7y0BwxEZU1JO7xhUZ4ybthiIMqAL4DpHCGxBXk4hw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "BLIND",
+       "couleur": "#4a8c5c"
+      }
+     ],
+     "TIPPEN"
+    ],
+    "video": {
+     "id": "PaUcSv5DJi8",
+     "titre": "10 Fingersystem Tutorial (Deutsch) – Schnell tippen lernen",
+     "chaine": "simplexstudy",
+     "vues": "229.022 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "7:18",
+     "avatar": "https://yt3.ggpht.com/AzjRjSU5rqcGZmMibIzuytzLVXsYzChugntqegJZTjNneYwIIe_Avs7DM6RSS_8EaPhnfxGNKmM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SCRIVERE",
+     [
+      {
+       "t": "CON 10 DITA",
+       "couleur": "#4a8c5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l14AKiMg7As",
+     "titre": "Corso di dattilografia. Lezione 1. Impariamo a scrivere con 10 dita sulla tastiera e velocemente!",
+     "chaine": "Stefania Scotto",
+     "vues": "164K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMESA02bYzIcrMG2ODgt66LviNgeUZTF-kZSiYIu2E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DIGITAR",
+     [
+      {
+       "t": "SEM OLHAR",
+       "couleur": "#4a8c5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AnnrutHbUb8",
+     "titre": "Como Digitar Sem Olhar e Mais Rápido — Parte I",
+     "chaine": "Philippe Fanaro",
+     "vues": "245 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/e85b7pdCyazbscC4DZSP52hBxV5Ev6j2opR0jEC0eqvDwzZYbTTPwOUSOTRYgdMc83eS6Mw1tw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ON PARMAK",
+       "couleur": "#4a8c5c"
+      }
+     ],
+     "KLAVYE"
+    ],
+    "video": {
+     "id": "PD64sNHgb3I",
+     "titre": "Kursa Gitmeden 10 Parmak Klavye Kullanmayı Nasıl Öğrendim?",
+     "chaine": "Burak Göç",
+     "vues": "368 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "12:20",
+     "avatar": "https://yt3.ggpht.com/ifekyx6NyK6B0siwBwS0gLnh7JTgu7WY8980ljAwvtq8R5bjevtsc5pkWjsX7aDxot0_ebnO_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ TASTEZI",
+     [
+      {
+       "t": "FĂRĂ SĂ TE UIȚI",
+       "couleur": "#4a8c5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d-4dS68SJOc",
+     "titre": "Cum TASTAM FOARTE REPEDE si corect la tastatura FARA SA NE UITAM",
+     "chaine": "GabiTech",
+     "vues": "26 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_npRj9Ea-2nMcyfeR1ciKyD6atRlsI9fGbkiW503oGZ5A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PSÁT",
+     [
+      {
+       "t": "VŠEMI DESETI",
+       "couleur": "#4a8c5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DSd7BzQYJBw",
+     "titre": "Lekce 1a – Základní pravidla při psaní všemi deseti prsty",
+     "chaine": "Allten.cz",
+     "vues": "42 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "6:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k2_HuSZa6s7ei0RSmqvyfW17EuqfAaEwo33OSsuROA8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  }
+ ]
+}

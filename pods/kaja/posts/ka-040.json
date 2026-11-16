@@ -1,0 +1,853 @@
+{
+ "id": "ka-040",
+ "titre": {
+  "en": "10/10 skills to ace any job interview",
+  "fr": "10/10 skills pour réussir ton entretien",
+  "de": "10/10 Skills fürs Vorstellungsgespräch",
+  "it": "10/10 skill per superare il colloquio",
+  "tr": "10/10 mülakatı geçmek için beceriler",
+  "hu": "10/10 készség az állásinterjúhoz",
+  "pl": "10/10 umiejętności na rozmowę o pracę",
+  "pt-BR": "10/10 habilidades para passar na entrevista"
+ },
+ "legendes": {
+  "en": "10/10 skills to ace any job interview #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour réussir ton entretien #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills fürs Vorstellungsgespräch #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill per superare il colloquio #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 mülakatı geçmek için beceriler #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 készség az állásinterjúhoz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności na rozmowę o pracę #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades para passar na entrevista #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "Earrings",
+  "url": "https://www.tiktok.com/music/earrings-7354423336196933649"
+ },
+ "notes": "Full test (BLEO, 16/11), le premier livré d'emblée dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (l'entretien d'embauche). Décor branche2. Son format court à 3 compétences plus l'étape Sophia : se présenter (« tell me about yourself »), le langage du corps, le CV. En hongrois, pas de vraie vidéo native sur le langage du corps en entretien : l'étape devient « HOGYAN HOZD KI MAGADBÓL A MAXIMUMOT » (WHC) ; en allemand, « SO ÜBERZEUGST DU IM GESPRÄCH » (StepUp). Musique : « Earrings » de son manifeste. Sophia en étape 3 « HOW TO STAND OUT » : cta B, « 5 min a day ». Une vraie vidéo YouTube native par étape et par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS TO ACE",
+     "ANY JOB",
+     "INTERVIEW"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "RÉUSSIR TON",
+     "ENTRETIEN"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜRS",
+     "VORSTELLUNGS-",
+     "GESPRÄCH"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL PER",
+     "SUPERARE IL",
+     "COLLOQUIO"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "MÜLAKATI",
+     "GEÇMEK İÇİN",
+     "BECERİLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÉSZSÉGEK AZ",
+     "ÁLLÁSINTERJÚHOZ"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "NA ROZMOWĘ",
+     "O PRACĘ"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "PARA PASSAR NA",
+     "ENTREVISTA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO ANSWER",
+     [
+      {
+       "t": "TELL ME",
+       "couleur": "#5176e0"
+      }
+     ],
+     [
+      {
+       "t": "ABOUT YOURSELF",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kayOhGRcNt4",
+     "titre": "Tell Me About Yourself - A Good Answer to This Interview Question",
+     "chaine": "Linda Raynier",
+     "vues": "25M views",
+     "date": "9 years ago",
+     "duree": "7:06",
+     "avatar": "https://yt3.ggpht.com/Ev4lSD9B1q8X38uY5ipo_rEdL7WHlZ8P8zH_dx1NsHc3k9COBeoSPWRXGlrFHDnCXKPOYMrSaw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "TE PRÉSENTER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AYtAhi-YE9U",
+     "titre": "Entretien d'embauche présentez vous : comment se présenter en 2 minutes (exemples)",
+     "chaine": "Y.GAUTIER, Coach Emploi, oral de concours et +",
+     "vues": "3 M de vues",
+     "date": "il y a 14 ans",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/6VFGyIhmE_WlsY1NX72-uJ1vKPhbzVDA-4yyQlwokfmiHHrn-2_uwt6_ZYgImBs3WGOv8zdD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STELLST",
+     [
+      {
+       "t": "DU DICH VOR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "asLGZmdB3Z8",
+     "titre": "Vorstellungsgespräch: Die perfekte Selbstpräsentation | Beispiel",
+     "chaine": "Silke Koppitz: Karriereberatung",
+     "vues": "750.706 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "8:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasmy0DpJgpRZrY4N9uNak6BLEMrLRw8GFzPNkDNkgGw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME RISPONDERE",
+     [
+      {
+       "t": "PARLAMI DI TE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UdFlVo9UHME",
+     "titre": "Come Superare un Colloquio di Lavoro - MI PARLI DI LEI (Comunicazione Efficace al colloquio)",
+     "chaine": "Simone Marietta Durelli Ockham Group",
+     "vues": "251K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "11:14",
+     "avatar": "https://yt3.ggpht.com/ogrPZmCYg0HK42oXluTyW0_Jj1YSq_s5sAmHOEifZACsLQDiBAYiHKBUk1X5D1vgnkFL2WkSFAg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KENDİNDEN BAHSEDİLİR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_oWyEWvoq4k",
+     "titre": "Kendinizden Bahseder Misiniz? | Mülakat Soruları ve Cevapları | Nurfer Işık",
+     "chaine": "Enis Altıok",
+     "vues": "800 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/kbQUqbTjMeer3WOlyPYBqL6GBdS9cNxrQTqjgJ3SEgGzImP0U5D094YIC9rMQAMI3kNSoBwn9Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "MESÉLJ MAGADRÓL",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4MZESESz07g",
+     "titre": "| A Glass of Life | A sikeres interjú:  II. Mesélj magadról",
+     "chaine": "A Glass of Life",
+     "vues": "1,9 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "8:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lplFy2fgkA1V4Wzm8VDN42BtEJGYEyUrLHJqCUG7BL3g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK OPOWIEDZIEĆ",
+     [
+      {
+       "t": "O SOBIE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bXzzuoIWkJY",
+     "titre": "PROSZĘ OPOWIEDZIEĆ COŚ O SOBIE | ROZMOWA KWALIFIKACYJNA",
+     "chaine": "Marcin Krajewski Zrób Karierę",
+     "vues": "62 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "6:43",
+     "avatar": "https://yt3.ggpht.com/fXVEXcs2ZfA1tS_kEF-73M4YcaC3btAywn80PJ9fTytlCqhK3viGT2DT8HyDIroME8y53xXY8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO RESPONDER",
+     [
+      {
+       "t": "FALE SOBRE VOCÊ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T7CO3Hnj68M",
+     "titre": "ME FALE SOBRE VOCÊ?.... COMO RESPONDER!",
+     "chaine": "Danielle Silva - driverh",
+     "vues": "1,8 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "11:04",
+     "avatar": "https://yt3.ggpht.com/BSGHfEZHUeA4uEv7MQAyJUfzzCfhbQsm79T4jfjfAPsqu9fxa71a0DHOgYbeMxp7v70QwvIV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO USE",
+     [
+      {
+       "t": "BODY LANGUAGE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PCWVi5pAa30",
+     "titre": "7 body language tips to impress at your next job interview",
+     "chaine": "Cognitive Group | Recruiting For Your Future",
+     "vues": "2.1M views",
+     "date": "10 years ago",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ONzgaKX855PSru30nDPtEGQ_ESUW-5vagUYfi5BB3pmgglpB8ymZPfSv_7hTwDnPJbETWQ4ekzk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "MAÎTRISER TES GESTES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "88436hp7YdY",
+     "titre": "Entretien d'embauche : ces gestes inconscients qui en disent long",
+     "chaine": "Stephen Bunard",
+     "vues": "120 k vues",
+     "date": "il y a 10 ans",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mye5Sn0pooJhZHl95BorzVzgEVdQ3ikEUKAeEz1YGE28A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ÜBERZEUGST DU",
+     [
+      {
+       "t": "IM GESPRÄCH",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T0MCNIPkihA",
+     "titre": "VORSTELLUNGSGESPRÄCH (6 unverzichtbare Tipps) 🚀 I Traumjob",
+     "chaine": "StepUp! Coaching & Karrieretipps",
+     "vues": "298.847 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/qlWWHJRFiM8CDsMlJHrMULhyGkEIODG6yb402QR8Q_t8dP_qLs7e59t3GDphhaUJ5ITDXkJ9Ew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME USARE",
+     [
+      {
+       "t": "IL LINGUAGGIO",
+       "couleur": "#ec8713"
+      }
+     ],
+     [
+      {
+       "t": "DEL CORPO",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-BG-Z0dUQ6E",
+     "titre": "🟢 Linguaggio del corpo: il colloquio di lavoro",
+     "chaine": "Sergio Omassi - Formatore e Life Coach",
+     "vues": "10K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "10:05",
+     "avatar": "https://yt3.ggpht.com/oVKtAHhU8NgVIyhg7HVrSS5jnxIqAv_ca_ZKZYBEplsut7klZvJuZ4_2rt0q4QOnFZSg36Nh4A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "DOĞRU BEDEN DİLİ",
+       "couleur": "#ec8713"
+      }
+     ],
+     [
+      {
+       "t": "KULLANILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8oBunYpqtCU",
+     "titre": "MÜLAKATLARDA  DOĞRU BEDEN DİLİ NASIL OLMALI?",
+     "chaine": "Ece Gürler'le Davranış Bilimleri",
+     "vues": "2,4 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "17:21",
+     "avatar": "https://yt3.ggpht.com/ldRcj6RfyCbsoR8klH06gMwEk1HnhuMcvaOIiP-JNe6XtBiYDk8IGDYoBnICfuFZe8IKNzu6=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN HOZD KI",
+     [
+      {
+       "t": "MAGADBÓL",
+       "couleur": "#ec8713"
+      }
+     ],
+     [
+      {
+       "t": "A MAXIMUMOT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IbaSELsjiU8",
+     "titre": "Tuti tippek állásinterjúra – Így hozd ki magadból a maximumot!",
+     "chaine": "WHC",
+     "vues": "1 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/MiA8M24LaRFDFEH6PVP49E1H9K_gWSG-UGy_TfK-8p2uAu2zV5kmwifuZ5Is4pG4R1k6wtlybKo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UŻYWAĆ",
+     [
+      {
+       "t": "MOWY CIAŁA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6BOGjDI2yDc",
+     "titre": "Mowa Ciała na Rozmowie o Pracę",
+     "chaine": "Pracuj.pl",
+     "vues": "97 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "3:59",
+     "avatar": "https://yt3.ggpht.com/IkyHLvWH9Kqh_7lhAJcWXj1BACnLUGrRGdpB_ln9tiJnRungWBxBbbPeVFdNui35ojtgmNoncg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO USAR",
+     [
+      {
+       "t": "A LINGUAGEM",
+       "couleur": "#ec8713"
+      }
+     ],
+     [
+      {
+       "t": "CORPORAL",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dSJPz1A_s7s",
+     "titre": "Entrevista de Emprego: Sinais para passar confiança! (Linguagem Corporal - Dicas)",
+     "chaine": "Metaforando",
+     "vues": "493 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "7:25",
+     "avatar": "https://yt3.ggpht.com/uI1P-w-eK6bsq07E8A_w3e5oXc0gruzQ3sGM5hLJK1HYr2e6CgwSmdG-A6TMYOkTnE3cUyezEmg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "STAND OUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "SORTIR DU LOT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STICHST",
+     [
+      {
+       "t": "DU HERAUS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "FARTI NOTARE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "FARK YARATIRSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "TŰNJ KI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK SIĘ",
+     [
+      {
+       "t": "WYRÓŻNIĆ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO SE",
+     [
+      {
+       "t": "DESTACAR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO WRITE",
+     [
+      {
+       "t": "A GREAT RESUME",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Tt08KmFfIYQ",
+     "titre": "Write an Incredible Resume: 5 Golden Rules!",
+     "chaine": "Jeff Su",
+     "vues": "4.4M views",
+     "date": "5 years ago",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/fHDMaIjQYS0XTz17AL-iIxdfyrGJfLliAJTQmJE931P1OareLsLIvFeJDcDtI3QpkD9HLnvI7Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN BON CV",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LWYoowR4ejw",
+     "titre": "Comment faire un CV qui passe TOUS les ATS ? (avec ou sans expérience)",
+     "chaine": "La Jobsetteuse",
+     "vues": "122 k vues",
+     "date": "il y a 1 an",
+     "duree": "12:30",
+     "avatar": "https://yt3.ggpht.com/j6GstXfljO5YlaL6FynXlWCJvTcl_9moI6ZUlTdzz-wIxN2kLVHHQw9XJYVm054LyB9lfS6AwA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHREIBST DU",
+     [
+      {
+       "t": "DEINEN LEBENSLAUF",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JABmhVzKdwQ",
+     "titre": "Lebenslauf schreiben: 11 wichtige Tipps (mit Vorlage zum Download)",
+     "chaine": "Niklas Steenfatt",
+     "vues": "701.515 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "16:27",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME SCRIVERE",
+     [
+      {
+       "t": "UN BUON CURRICULUM",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QOhEFKouK4M",
+     "titre": "Il Curriculum PERFETTO: 10 Cose da Fare (e da non fare)",
+     "chaine": "Pietro Michelangeli",
+     "vues": "146K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "16:41",
+     "avatar": "https://yt3.ggpht.com/-rOrDMmEMFy_rkmzNnNiDA9EkBfBqdC5nuKzwufGV6dvKt5Yh_OxP2gGBTj0XHmpJWOqoFEF300=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "CV HAZIRLANIR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LGYdEtDOTrI",
+     "titre": "Dikkat Çekici Bir CV Nasıl Hazırlanır? Etkili Özgeçmiş Teknikleri",
+     "chaine": "Assessment Systems",
+     "vues": "68 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "5:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l2PrAeFBWkRDMMFJzZkKQ_IxIUsZ3PePj5d9AyTHDOOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÍRJ",
+     [
+      {
+       "t": "ÖNÉLETRAJZOT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "v0aWtAqgpLM",
+     "titre": "HOGYAN ÍRJ PROFI ÖNÉLETRAJZOT",
+     "chaine": "Dorka Perak",
+     "vues": "2,8 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "10:24",
+     "avatar": "https://yt3.ggpht.com/AZZlDYd4u7CpPBPJ2X5H3PGBqeY9_XKgcGjiJwHprbx2C-jAzQRoyizTYVccHNw8gjnkTI-lvw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NAPISAĆ",
+     [
+      {
+       "t": "DOBRE CV",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yu2k9NzP-hk",
+     "titre": "7 BŁĘDÓW w CV - tego UNIKAJ! Jak napisać dobre CV?",
+     "chaine": "Agnieszka Bełz",
+     "vues": "77 tys. wyświetleń",
+     "date": "3 lata temu",
+     "duree": "6:23",
+     "avatar": "https://yt3.ggpht.com/VJhZ2skkJE3m7BnvbDbUP14zd2PXnhUIhtrAJXVg7Exleq_1JrqBpiyyLBseit-9AjA9d6ruVw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 godzina"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "UM CURRÍCULO",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ymFvJxPZzQU",
+     "titre": "Como Fazer um Currículo Simples no Word em 5 Minutos! | Currículo Rápido e Fácil",
+     "chaine": "vintecinconet",
+     "vues": "1 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1G5JYX0NRkmsoopN6RlQVqFdvynbbywFkS9NAhd3HUw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

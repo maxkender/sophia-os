@@ -16,7 +16,13 @@
   "cs": "10/10 koníčků pro chytřejší mozek!",
   "sk": "10/10 koníčkov pre múdrejší mozog!",
   "hr": "10/10 hobija za pametniji mozak!",
-  "sl": "10/10 hobijev za pametnejše možgane!"
+  "sl": "10/10 hobijev za pametnejše možgane!",
+  "hu": "10/10 hobbi az intelligenciádért!",
+  "nl": "10/10 hobby's voor een slimmer brein!",
+  "pl": "10/10 hobby dla mądrzejszego mózgu!",
+  "ro": "10/10 hobby-uri pentru o minte mai ageră!",
+  "sv": "10/10 hobbys för en smartare hjärna!",
+  "tr": "Zekanı geliştiren 10/10 hobi!"
  },
  "legendes": {
   "en": "10/10 Hobbies To Build Intelligence! #skills #learnontiktok #selfimprovement",
@@ -29,7 +35,13 @@
   "cs": "10/10 koníčků pro chytřejší mozek! #koníčky #seberozvoj #vzdělávání",
   "sk": "10/10 koníčkov pre múdrejší mozog! #koníčky #sebarozvoj #vzdelávanie",
   "hr": "10/10 hobija za pametniji mozak! #hobiji #osobnirazvoj #učenje",
-  "sl": "10/10 hobijev za pametnejše možgane! #hobiji #osebnarast #učenje"
+  "sl": "10/10 hobijev za pametnejše možgane! #hobiji #osebnarast #učenje",
+  "hu": "10/10 hobbi az intelligenciádért! #hobbi #önfejlesztés #tanulás",
+  "nl": "10/10 hobby's voor een slimmer brein! #hobby #zelfontwikkeling #leren",
+  "pl": "10/10 hobby dla mądrzejszego mózgu! #hobby #rozwójosobisty #nauka",
+  "ro": "10/10 hobby-uri pentru o minte mai ageră! #hobby #dezvoltarepersonală #învățare",
+  "sv": "10/10 hobbys för en smartare hjärna! #hobby #självutveckling #lärande",
+  "tr": "Zekanı geliştiren 10/10 hobi! #hobi #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "original sound",
@@ -230,6 +242,108 @@
       }
      ]
     ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBI AZ",
+     [
+      {
+       "t": "INTELLIGENCIÁDÉRT!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBY'S VOOR EEN",
+     [
+      {
+       "t": "SLIMMER BREIN!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBY DLA",
+     [
+      {
+       "t": "MĄDRZEJSZEGO MÓZGU!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBY-URI PENTRU",
+     [
+      {
+       "t": "O MINTE MAI AGERĂ!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBBYS FÖR EN",
+     [
+      {
+       "t": "SMARTARE HJÄRNA!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZEKANI GELİŞTİREN",
+     [
+      {
+       "t": "HOBİ!",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -390,6 +504,90 @@
      "date": "pred 7 leti",
      "duree": "13:37",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nhopaIMutdzNOMQ65VUvZTZzLqKKAFfuAcAf_czQJ9kQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "SAKKOZZ"
+    ],
+    "video": {
+     "id": "44yI-8sUWz4",
+     "titre": "Hogyan kell sakkozni? - Játékszabályok",
+     "chaine": "video LCZ",
+     "vues": "130 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "45:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtvoyfkol_VcNslvSu4JC-Lo_IkqTWJ4OS_aabkogWlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "SPEEL SCHAAK"
+    ],
+    "video": {
+     "id": "C-pktIlaJlg",
+     "titre": "Schaken: Gouden Regels van de  opening",
+     "chaine": "DeTorenRules",
+     "vues": "241K weergaven",
+     "date": "9 jaar geleden",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kN97a8_czOonaNuvpUTx4GNqlpCNP7iJ5eXV0nxMLzZA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "GRAJ W SZACHY"
+    ],
+    "video": {
+     "id": "H0r8QBph9ug",
+     "titre": "Szachy. Schemat myślenia dla początkujących.",
+     "chaine": "Kanał Szachowy",
+     "vues": "46 tys. wyświetleń",
+     "date": "4 lata temu",
+     "duree": "29:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpUIKoaBMkxOAMwuVJkWh7SR_AEJjsrJStkU-XyU-5GA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "JOACĂ ȘAH"
+    ],
+    "video": {
+     "id": "C27Ih6c03bs",
+     "titre": "Cum se muta piesele in jocul de SAH ???",
+     "chaine": "SAHISTII ROMANIEI",
+     "vues": "93 K de vizionări",
+     "date": "acum 5 ani",
+     "duree": "5:17",
+     "avatar": "https://yt3.ggpht.com/7_ZB7L9o7yxUA2ghJqiHiORVi8md0OVkomVMtaiSP-IHnFLIfFNzXcouYQOqUYaJEvt8P8iekfM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SPELA SCHACK"
+    ],
+    "video": {
+     "id": "AoK4H_8bkv8",
+     "titre": "Schackfyran för nybörjare   Del 1",
+     "chaine": "Schack i skolan",
+     "vues": "101 154 visningar",
+     "date": "för 12 år sen",
+     "duree": "19:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n0hsLdkzybeLxwqVP9fbPQi_X8TQdA7nO3ERvX81s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "SATRANÇ OYNA"
+    ],
+    "video": {
+     "id": "maFTIRH2nD8",
+     "titre": "SATRANÇ NASIL OYNANIR 🧐",
+     "chaine": "NASIL OYNANIR",
+     "vues": "1,7 Mn görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/bzzmk78nsVf32AHmIfKeYXdemACjK3hMYoKv19VbBIOqKjUv3S_2yB--4KdNDsWAOkUJ2y37TCU=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -559,6 +757,96 @@
      "duree": "1:01",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4TtL3r48UJRUmfKbe1MbCY_JLt0EZK3kC2GYCfvphTv4=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "ISMERD MEG",
+     "A CSILLAGOS EGET"
+    ],
+    "video": {
+     "id": "0auA6K6b7LM",
+     "titre": "A csillagos égbolt",
+     "chaine": "Szilárd Sneff",
+     "vues": "7,8 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "12:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nI_EKBK2Twupim9wWi7umF9rFLguW5uiamzQVciY36k6E=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER DE",
+     "STERRENHEMEL"
+    ],
+    "video": {
+     "id": "WpOyYjhJR_U",
+     "titre": "Het sterrenbeeld Grote Beer vroeger, nu en in de toekomst",
+     "chaine": "Hemel waarnemen",
+     "vues": "7,5K weergaven",
+     "date": "10 jaar geleden",
+     "duree": "0:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6-sXhOPHiAB17u4s1lmlDWrDcU4vPZs2EoA9XEelj6w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "POZNAJ",
+     "NOCNE NIEBO"
+    ],
+    "video": {
+     "id": "zwxFyn6bF1I",
+     "titre": "Naucz się nieba. Poznaj pierwsze gwiazdy i gwiazdozbiory - AstroLife",
+     "chaine": "AstroLife",
+     "vues": "93 tys. wyświetleń",
+     "date": "4 lata temu",
+     "duree": "10:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjPUklLdt6y-KiDRnLbyBEKhEslverFv9PopiMIQD4iuc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     "CERUL NOPȚII"
+    ],
+    "video": {
+     "id": "gzc_--6A4o4",
+     "titre": "Cassiopeia - Constelatii - Praf de Stele#7",
+     "chaine": "PRAF DE STELE",
+     "vues": "569 de vizionări",
+     "date": "acum 9 ani",
+     "duree": "1:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kU4sDE1yeo2tJrX6o8BiCIN-6iwvK3tnbFhAlvNdjg2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     "STJÄRNHIMLEN"
+    ],
+    "video": {
+     "id": "IjDdnhkgrUQ",
+     "titre": "Astronomi för nybörjare – lär dig universums hemligheter",
+     "chaine": "Anders på landet",
+     "vues": "17 407 visningar",
+     "date": "för 5 år sen",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/CsS9af3wWQpNX0OgpyJnBnLOs5GO3qlSQM0hTVc966S4dR9KnNLZoeDQbvh-qTe8Y1Kitry3HdI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "GECE GÖKYÜZÜNÜ",
+     "ÖĞREN"
+    ],
+    "video": {
+     "id": "PjVOH5tfMv8",
+     "titre": "Orion Takımyıldızı ( Avcı Takımyıldızı ) - Uzay Belgeseli - Gökyüzü - Betelgeuse Patlaması",
+     "chaine": "BİLİM VE COSMOS",
+     "vues": "6,4 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "7:17",
+     "avatar": "https://yt3.ggpht.com/0MD8dIXLYVQRh-8L9HOa3kEC-WPLJhRgm9LGK0PALm5T5PTtJGsLWiN_uq8eQG1KDPj95PvHBIA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -722,6 +1010,90 @@
      "duree": "37:24",
      "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "FEJTS SUDOKUT"
+    ],
+    "video": {
+     "id": "heA34cw5nig",
+     "titre": "Sudoku magyar végigjátszás 1. rész - Hogy kezdjük el?",
+     "chaine": "Robin Komka (Robitron)",
+     "vues": "1,2 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "54:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEurv3d-q0ZtnbSom8uVH44AJFIcfuM8a-G31lp34EPp4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LOS SUDOKU'S OP"
+    ],
+    "video": {
+     "id": "aJ_GiaFvFIw",
+     "titre": "Hoe los je een moeilijke sudoku op? Deel 1: oplossingen en kandidaten",
+     "chaine": "Sudoku oplossen",
+     "vues": "76K weergaven",
+     "date": "6 jaar geleden",
+     "duree": "30:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mWTKOzBn3KsY5UK9zrQH61uWieP0ztCJlyIUxUWCc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ROZWIĄZUJ SUDOKU"
+    ],
+    "video": {
+     "id": "Am67-ySAEpQ",
+     "titre": "Sudoku - jak rozwiązywać",
+     "chaine": "matspot",
+     "vues": "175 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "12:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mG5Xz46-zwtk_hbvWbckKcQHbkLV8Cr6V7pPho_rOg7g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "REZOLVĂ SUDOKU"
+    ],
+    "video": {
+     "id": "-tyAtDl8crw",
+     "titre": "Invata sa joci Sudoku",
+     "chaine": "Mate cu Lavinia",
+     "vues": "19 K de vizionări",
+     "date": "acum 4 ani",
+     "duree": "10:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzG2mm5oOdCVrgnTFV7s0cGaJbO_Y7ASQj5e1C0K-SMg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÖS SUDOKU"
+    ],
+    "video": {
+     "id": "eyEU_nC_3R8",
+     "titre": "Hur man löser en sudoku (för nybörjare)",
+     "chaine": "Plugga! med Viktor",
+     "vues": "12 940 visningar",
+     "date": "för 6 år sen",
+     "duree": "4:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n23mBom2Te6H6cmTifW_Li_fpTmQ3QjQ2VGG-7rJA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "SUDOKU ÇÖZ"
+    ],
+    "video": {
+     "id": "JiVZlJePEkI",
+     "titre": "Sudoku Nasıl Oynanır? - Zeka Oyunları",
+     "chaine": "Bilişim Günlüğüm",
+     "vues": "250 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/mmZxV6Bdh4Y_TPYs8iZXZcohVhxOh8Fjc6rxMuENKpMfdhWMalLfzm0jg2O1Lc134rnyo9972Q=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -867,6 +1239,84 @@
      "texte": [
       "vsak dan se nauči nekaj novega,",
       "v 5 minutah."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "NAPI EGY",
+     "ÉRDEKESSÉG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap valami újat,",
+      "5 perc alatt."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "ELKE DAG EEN",
+     "LEUK WEETJE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "leer elke dag iets nieuws,",
+      "in 5 minuten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "JEDNA CIEKAWOSTKA",
+     "DZIENNIE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie czegoś nowego,",
+      "w 5 minut."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "O CURIOZITATE",
+     "PE ZI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou în fiecare zi,",
+      "în 5 minute."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "EN KUL GREJ",
+     "OM DAGEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt varje dag,",
+      "på 5 minuter."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "GÜNDE BİR",
+     "İLGİNÇ BİLGİ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni bir şey öğren,",
+      "5 dakikada."
      ]
     }
    }
@@ -1036,6 +1486,96 @@
      "date": "pred 7 leti",
      "duree": "15:23",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFyPyDBRY0ZLSWJpml8onDqf6R6Jsr5v5CMpLOj6QYvXs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     "NYELVET"
+    ],
+    "video": {
+     "id": "T_95-uCIc54",
+     "titre": "Hogyan tanulj nyelveket",
+     "chaine": "Online Marketinges",
+     "vues": "63 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "7:06",
+     "avatar": "https://yt3.ggpht.com/7i5S6q-725NNFmAIwY1g_8iJbV7rmRyS8TZccgJgjPA_PXhkED0O7kPsAzG-L6dAfLZ_S1ueCQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER EEN",
+     "TAAL"
+    ],
+    "video": {
+     "id": "nCIet8N0LqI",
+     "titre": "Hoe kun je SNEL een taal leren (zonder talent)? 🤔",
+     "chaine": "De Taalhacker",
+     "vues": "1,9K weergaven",
+     "date": "4 jaar geleden",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/0mhM0Li2Jv8IF81IWypRQALd8eN-7d8SfGfkcw4-u7uHsK-m5ofhbSBMEQOoi2k3WsxpD7wS=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     "JĘZYKA"
+    ],
+    "video": {
+     "id": "t6YprG3PoCw",
+     "titre": "Jak nauczyć się języka w pół roku?",
+     "chaine": "Polimaty",
+     "vues": "906 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "19:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ndmWV8aMt3ADXKOfkZ1bX0E-23lKHul8Fob3ZVfERzUEM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ O",
+     "LIMBĂ STRĂINĂ"
+    ],
+    "video": {
+     "id": "N1kI279KGrc",
+     "titre": "5 CELE MAI BUNE, UȘOARE, EFECTIVE METODE PRIN CARE POȚI ÎNVĂȚA O LIMBA NOUA + O SURPIZĂ !",
+     "chaine": "Dorotea Cheptea",
+     "vues": "6,1 K de vizionări",
+     "date": "acum 4 ani",
+     "duree": "12:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klWAQxiylUYtHP6gzhLr7rJNdT7MMHgefgVQVayzcNnH6r=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     "ETT SPRÅK"
+    ],
+    "video": {
+     "id": "KQC1PsUQL9s",
+     "titre": "Hur lär man sig ett nytt språk?",
+     "chaine": "Romanska och klassiska institutionen",
+     "vues": "27 248 visningar",
+     "date": "för 9 år sen",
+     "duree": "7:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lDYc3O-tgkjWaZtIUSQiLKEOyw943cF7RtuZ8OTkpdgiU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "YABANCI DİL",
+     "ÖĞREN"
+    ],
+    "video": {
+     "id": "CgXPnpvrGNM",
+     "titre": "Yabancı dil öğrenmenin en hızlı yolu: KO-KO Tekniği",
+     "chaine": "Barış Özcan",
+     "vues": "6,9 Mn görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "14:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdtLLPQnErbtjn6tO4tKFLvOEE-jYjYRbhNvzrcFJZh8xd=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

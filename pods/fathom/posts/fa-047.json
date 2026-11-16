@@ -16,7 +16,13 @@
   "cs": "10/10 dovedností na naučení do třicítky",
   "sk": "10/10 zručností na naučenie do tridsiatky",
   "hr": "10/10 vještina koje trebaš naučiti prije 30.",
-  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom"
+  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom",
+  "hu": "10/10 készség, amit 30 éves korod előtt tanulj meg",
+  "nl": "10/10 skills om te leren voor je 30e",
+  "pl": "10/10 umiejętności do nauczenia przed 30.",
+  "ro": "10/10 abilități de învățat înainte de 30 de ani",
+  "sv": "10/10 färdigheter att lära sig innan du fyller 30",
+  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 30 #learnontiktok #selfmastery #curiosity",
@@ -29,7 +35,13 @@
   "cs": "10/10 dovedností na naučení do třicítky #dovednosti #seberozvoj #vzdělávání",
   "sk": "10/10 zručností na naučenie do tridsiatky #zručnosti #sebarozvoj #vzdelávanie",
   "hr": "10/10 vještina koje trebaš naučiti prije 30. #vještine #osobnirazvoj #učenje",
-  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom #veščine #osebnarast #učenje"
+  "sl": "10/10 veščin, ki se jih naučiš pred 30. letom #veščine #osebnarast #učenje",
+  "hu": "10/10 készség, amit 30 éves korod előtt tanulj meg #készségek #önfejlesztés #tanulás",
+  "nl": "10/10 skills om te leren voor je 30e #skills #zelfontwikkeling #leren",
+  "pl": "10/10 umiejętności do nauczenia przed 30. #umiejętności #rozwójosobisty #nauka",
+  "ro": "10/10 abilități de învățat înainte de 30 de ani #abilități #dezvoltarepersonală #învățare",
+  "sv": "10/10 färdigheter att lära sig innan du fyller 30 #färdigheter #självutveckling #lärande",
+  "tr": "30 yaşından önce öğrenmen gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "original sound",
@@ -231,6 +243,111 @@
       }
      ]
     ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KÉSZSÉG, AMIT",
+     "MEG KELL TANULNOD",
+     [
+      {
+       "t": "30 ELŐTT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS OM TE LEREN",
+     [
+      {
+       "t": "VOOR JE 30E",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "UMIEJĘTNOŚCI",
+     "DO NAUCZENIA",
+     [
+      {
+       "t": "PRZED 30.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITĂȚI DE ÎNVĂȚAT",
+     [
+      {
+       "t": "ÎNAINTE DE 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FÄRDIGHETER ATT LÄRA",
+     [
+      {
+       "t": "INNAN DU FYLLER 30",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "30 YAŞINDAN ÖNCE",
+     "ÖĞRENMEN GEREKEN",
+     [
+      {
+       "t": "BECERİ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -398,6 +515,96 @@
      "date": "pred 4 leti",
      "duree": "5:22",
      "avatar": "https://yt3.ggpht.com/SXc7YNy7OpKSKS8iahtxVRMMMPCvNw2epRL1uUAz-0pGnr9Fxoud1IVXtSscTrWo0scJvX9JB2w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "CSERÉLJ",
+     "KEREKET"
+    ],
+    "video": {
+     "id": "DBeKbNlID0w",
+     "titre": "Hogyan cserélj kereket az autódon? - Alapjárat Bütykölde",
+     "chaine": "Alapjárat",
+     "vues": "28 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/FvGUjxhv8-2nq7HQ9QWaRNG2shHjBuQqp-MzW0Mk2Aeb-pOaXD03Zj65F5xcHjxKzAoZcOGEGic=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "VERVANG",
+     "EEN BAND"
+    ],
+    "video": {
+     "id": "QQ6DK9dQA74",
+     "titre": "Zelf je band vervangen? | Wegenwacht vlog #90",
+     "chaine": "ANWB",
+     "vues": "69K weergaven",
+     "date": "7 jaar geleden",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/7yyV_UVCpTq7zaRUVXEGyleiGt1uPkAQjEFMNbqXBI91bAAI95CoFKX_1UTdI0Bn40KkxE19=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "WYMIEŃ",
+     "KOŁO"
+    ],
+    "video": {
+     "id": "XWRnjoPuuB8",
+     "titre": "Jak wymienić koło w samochodzie? Poradnik dla kierowcy, który nigdy wcześniej nie wymieniał koła!",
+     "chaine": "ForumWiedzy",
+     "vues": "339 tys. wyświetleń",
+     "date": "13 lat temu",
+     "duree": "7:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCE-YRnr9qadgHV34HxC_Prrq5MCU_rApLg8R0xTE6img=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SCHIMBĂ",
+     "O ROATĂ"
+    ],
+    "video": {
+     "id": "HfLTQMBeA7k",
+     "titre": "CUM SCHIMBI O ROATA? | REZOLVA PANA USOR | SFATURI",
+     "chaine": "Andrei Leskar",
+     "vues": "15 K de vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:27",
+     "avatar": "https://yt3.ggpht.com/e_SYASe-PAhdGhlo43MmaBSEBjSuUXxDrQ1BpslWTCCw3TRc_pnL0LbUodIJ5SRkNwYaNC6OLxo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "BYT",
+     "DÄCK"
+    ],
+    "video": {
+     "id": "Kakyh2W4HyY",
+     "titre": "Byta däck – så gör du",
+     "chaine": "Mekonomen Sverige",
+     "vues": "134 260 visningar",
+     "date": "för 11 år sen",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/_P2qptVBB3YkxtFYcn3ndvBwcocAjCNU7NPrPJvTn8mgvmtjpCRwmdMx1tpK00O5xFxsIaQBAQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "LASTİK",
+     "DEĞİŞTİR"
+    ],
+    "video": {
+     "id": "i5gIyy5SZNw",
+     "titre": "Lastik nasıl değiştirilir Kolay Patlak Lastik değiştirme",
+     "chaine": "BAHADIRIN GARAJI",
+     "vues": "87 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "5:20",
+     "avatar": "https://yt3.ggpht.com/ByMnJvkPMczJfsxr3_XMmvtOpBiPPnbyYTGtPuorMNxY6NA2MKTKjjR6fPKnABor5ABdiTAJCQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -567,6 +774,96 @@
      "duree": "20:48",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLLQSu_t_-9CJ3Frh0GrdZ_K1MK-eAdrV_oZ24ShQvIRk=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     "TÁRGYALNI"
+    ],
+    "video": {
+     "id": "pm7SEhmEIdg",
+     "titre": "7 dolog, ami instant jobb tárgyalóvá tesz",
+     "chaine": "CV Shark - Erdőssy Gellért",
+     "vues": "12 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "13:04",
+     "avatar": "https://yt3.ggpht.com/4wxNP0VXtBnrEb_KWt3-LIdA-CcDeWe6Z_MIWQFTmjjfZHLwyZSBPSwH5D9Kc93qorlldjv2=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER",
+     "ONDERHANDELEN"
+    ],
+    "video": {
+     "id": "k-HMZfoOcE0",
+     "titre": "De Harvard principes van onderhandelen",
+     "chaine": "Spreek & Luister",
+     "vues": "2,9K weergaven",
+     "date": "3 jaar geleden",
+     "duree": "14:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l9rGlTFaI6NZ1tuKhHbzMt0MMQTfN0HSSs864WwjRVWw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ",
+     "NEGOCJOWAĆ"
+    ],
+    "video": {
+     "id": "xxtUYUNmfAk",
+     "titre": "Jak negocjować ceny? Czyli cztery strategie negocjacyjne",
+     "chaine": "Łukasz Hodorowicz - Pomagam firmom osiągnąć sukces",
+     "vues": "19 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "14:36",
+     "avatar": "https://yt3.ggpht.com/txiXrf5I3N9YHV3Alu9KshCrP9Y8YDM8r5IrqAz-zEcJmaZNE22dRhOaU6u46OobyRmKsp_Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ SĂ",
+     "NEGOCIEZI"
+    ],
+    "video": {
+     "id": "wEnYeWlC1ME",
+     "titre": "Strategii Eficiente în Negocierea Salariului în 2025: Cum Să Obții Ceea ce Meriți!",
+     "chaine": "Vlad Romuald",
+     "vues": "2,6 K de vizionări",
+     "date": "acum 2 ani",
+     "duree": "23:02",
+     "avatar": "https://yt3.ggpht.com/oDQCqZJlw1qCwAUaPFN9vZfp70VBUpb-bRy0ZtYPezglL_XF2ISjda2W09OU3fqKKmAFQv6AZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     "FÖRHANDLA"
+    ],
+    "video": {
+     "id": "qLf7yjRMo8k",
+     "titre": "(5 tips) så förhandlar du som ett proffs",
+     "chaine": "Moderna Kompetenser",
+     "vues": "4 217 visningar",
+     "date": "för 6 år sen",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nYS_9-gLwmPpgeclZg53ou1zwbL1x1rKWEx_5qfWrHdqQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "PAZARLIK",
+     "YAPMAYI ÖĞREN"
+    ],
+    "video": {
+     "id": "itXIldRYzvg",
+     "titre": "Nasıl Pazarlık Yapılır? Zorlu Pazarlıklar İçin Taktikler.",
+     "chaine": "Gülçin Karabiber",
+     "vues": "11 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "12:51",
+     "avatar": "https://yt3.ggpht.com/wNkeq21QihmVBt1fN-wcCVI4p1Pq3fZl5kXJ5WhXs42Nay8eDcv_VbpGK1bLxuuPZocJNkFRZg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -712,6 +1009,84 @@
      "texte": [
       "kar odprem",
       "namesto skrolanja."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "SOHA NE HAGYD",
+     "ABBA A TANULÁST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "STOP NOOIT",
+     "MET LEREN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wat ik open",
+      "in plaats van te scrollen."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "NIGDY NIE PRZESTAWAJ",
+     "SIĘ UCZYĆ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otwieram",
+      "zamiast scrollowania."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "NU TE OPRI NICIODATĂ",
+     "DIN ÎNVĂȚAT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "SLUTA ALDRIG",
+     "LÄRA DIG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "det jag öppnar",
+      "i stället för att scrolla."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "ÖĞRENMEYİ",
+     "ASLA BIRAKMA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
      ]
     }
    }
@@ -881,6 +1256,96 @@
      "date": "pred 10 leti",
      "duree": "4:48",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_k3w0T2NotpF7IlvdSiAUlHuFb2n6dv0iPMRuib7Nl6uSo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "ÍRJ ERŐS",
+     "ÖNÉLETRAJZOT"
+    ],
+    "video": {
+     "id": "1e9GBRlZvJQ",
+     "titre": "Hogyan készíts ÖNÉLETRAJZOT? | Herczeg Hajni",
+     "chaine": "Herczeg Hajni",
+     "vues": "38 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/HOBlle3Oyc_vIPSgQp9HVeyBHtCn_Xmo4xGP7IAqNCrNmYo8Q7xXZ5aFcTr8dA5lOLU9TBCxNA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "SCHRIJF EEN",
+     "STERK CV"
+    ],
+    "video": {
+     "id": "VfXVXDDtUBs",
+     "titre": "Hoe maak je een krachtig CV?",
+     "chaine": "Utrecht University",
+     "vues": "235K weergaven",
+     "date": "10 jaar geleden",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/MI1A0hpMsLtlxCvHcAojzlqbsKg8s4Hr0fAXBTjGvJcFL2EWOzPPG04t_YfnKsKD4hEz7L05=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAPISZ",
+     "DOBRE CV"
+    ],
+    "video": {
+     "id": "I0FSUV7ZiCQ",
+     "titre": "CV",
+     "chaine": "Ania Kubica",
+     "vues": "23 tys. wyświetleń",
+     "date": "4 lata temu",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/O3xyhK5NmNWgVAt0PYppqxwbxne4PNRWlt4Gk8HnLBL3TbuY9MWTIq4aMR19hdyTwP9zkxk0mQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SCRIE UN",
+     "CV BUN"
+    ],
+    "video": {
+     "id": "NxkmCjQ1DFg",
+     "titre": "Cum iti faci un CV (perfect) pentru Angajare in 2026 | Europass vs One pager CV",
+     "chaine": "Ramon Adrian Nǎstase",
+     "vues": "110 K de vizionări",
+     "date": "acum 6 ani",
+     "duree": "16:34",
+     "avatar": "https://yt3.ggpht.com/WEsDRf-xJy4zeujjsv1iUbKFLdV-H7dOkw0MqAKUpZyfh8056BZVhM46ywNaeiWY4Pxv2OcGxh0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SKRIV ETT",
+     "BRA CV"
+    ],
+    "video": {
+     "id": "oim_jV6F1M8",
+     "titre": "Hur skriver man ett bra CV? Rekryterarens bästa råd | Skriva CV och söka jobb",
+     "chaine": "Hej Sverige",
+     "vues": "19 279 visningar",
+     "date": "för 1 år sen",
+     "duree": "3:10",
+     "avatar": "https://yt3.ggpht.com/7GM0vod2XLyj67FQGzNhN7SJ6eOd-sCZAy39bZ3-3AKngT3t-7CkhVj6raBnZrMXWYKoXBne=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "İYİ BİR",
+     "CV HAZIRLA"
+    ],
+    "video": {
+     "id": "oXS9qhubDGw",
+     "titre": "CV Nasıl Hazırlanır, CV Hazırlama Nasıl Yapılır",
+     "chaine": "Hasan Çağlar",
+     "vues": "38 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/lk-eZmJBb_WL03WeOArxHKKxYjBIN00x5xmdKV5YztO4Ad0ZXgEegAHKm5k4f0k1OxcnbbNy1g=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

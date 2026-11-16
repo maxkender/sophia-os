@@ -1,0 +1,341 @@
+{
+ "id": "ka-039",
+ "titre": {
+  "en": "10/10 dance moves for any party",
+  "fr": "10/10 pas de danse pour briller en soirée",
+  "de": "10/10 Tanzschritte für jede Party"
+ },
+ "legendes": {
+  "en": "10/10 dance moves for any party #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 pas de danse pour briller en soirée #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Tanzschritte für jede Party #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7585395509230062367"
+ },
+ "notes": "Full test (BLEO, 16/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (des pas de danse pour la soirée). Décor branche2, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : shuffle, salsa, valse (la danse en général n'était qu'une étape de ka-019). Musique : son « original sound » 7585395509230062367 de son manifeste (une seule fois chez nous, ka-011), pour alterner. Sophia en étape 3 « HOW TO BE THE INTERESTING ONE » : cta A, « 5 min a day ». Vraies vidéos : en pigmie, Dancing with Gali, LearnToDance ; fr Thuy Vu, Super Mylo, Danse à la maison ; de Shuffle Dance Munich, Melissa Ortiz Gomez, AO Dance.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "DANCE MOVES",
+     "FOR ANY",
+     "PARTY"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "PAS DE DANSE",
+     "POUR BRILLER",
+     "EN SOIRÉE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "TANZSCHRITTE",
+     "FÜR JEDE",
+     "PARTY"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SHUFFLE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pddp8OLi7lo",
+     "titre": "Learn How to Shuffle - In Only 5 Minutes - for Beginners",
+     "chaine": "pigmie",
+     "vues": "14M views",
+     "date": "7 years ago",
+     "duree": "5:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7_9ONsKPZV7OzyZaL5qWTnX3mQGg1k2TGWI0DpDAuSuA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DANSER",
+     [
+      {
+       "t": "LE SHUFFLE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HVbX1pxryJg",
+     "titre": "APPRENDRE LE SHUFFLE l 5 pas de base + COMBO en 5 minutes !",
+     "chaine": "Thuy Vu",
+     "vues": "290 k vues",
+     "date": "il y a 6 ans",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/t_EALPWxFfNwNHfyw7xFNAPucnr8h5sSNTSPM2H-AC-2yMPx_dKUoZWVYdwbhPdYMaCnNFVS_5g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TANZT DU",
+     [
+      {
+       "t": "SHUFFLE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7wD2Vy7tr_s",
+     "titre": "Running Man Tutorial | Shuffle Dance tanzen lernen - Step by Step",
+     "chaine": "Shuffle Dance Munich",
+     "vues": "135.247 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/pl7M_TAvPKZ2T8FesfYCjyj7LnU5sTReukxPPIG6O1NIPoan8KiF2upC3kfvIILmc_DhWY41=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Tage"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DANCE",
+     [
+      {
+       "t": "SALSA",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5TSldGfAQDw",
+     "titre": "5 SALSA Basics YOU NEED to Start! TOTAL BEGINNERS - No Partner Needed",
+     "chaine": "Dancing with Gali",
+     "vues": "702K views",
+     "date": "3 years ago",
+     "duree": "12:42",
+     "avatar": "https://yt3.ggpht.com/Gj6UM9kPOeYdv_uuAQzWoZF-ftlqF_RxpUYdmJpAQoSBovsRbE-rqDoEGFFN-OP4FiB9arzfHw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DANSER",
+     [
+      {
+       "t": "LA SALSA",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nWdyBjN2-zE",
+     "titre": "Cours de Salsa en ligne SALSA TUTO DANSE cours débutant",
+     "chaine": "Super Mylo",
+     "vues": "259 k vues",
+     "date": "il y a 2 ans",
+     "duree": "16:28",
+     "avatar": "https://yt3.ggpht.com/Hc21e6TfjtWw3WO4-Yic6J0e8s0f7qRGKKCTfcCRSgQpQDveySq0EKdGnsbuCvUAwNBsChBV=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TANZT DU",
+     [
+      {
+       "t": "SALSA",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rIEkQK84rcY",
+     "titre": "SALSA GRUNDSCHRITT IN 3 MINUTEN | Melissa Ortiz Gomez | Tanzgrundschritte für Anfänger Paartanz",
+     "chaine": "Melissa Ortiz Gomez",
+     "vues": "176.223 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/R9dQ_9AXuJivKdfiC5pgKkzOSzOKTUazJZ9xUCWLKKs5LXleAjtlF7imvAsQ-3gVBXXRU0QMnA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Tage"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO BE",
+     [
+      {
+       "t": "THE INTERESTING ONE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ÊTRE",
+     [
+      {
+       "t": "LA PERSONNE",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "INTÉRESSANTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BIST DU",
+     [
+      {
+       "t": "DIE SPANNENDE",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "PERSON",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "WALTZ",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NBKTN6c_MEQ",
+     "titre": "How To Waltz Dance For Beginners - Waltz Box Step",
+     "chaine": "LearnToDance",
+     "vues": "3.8M views",
+     "date": "9 years ago",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kolWDzG2RDf5E1ip2qBbRt4GS47GDjc4fH31-f2ax8Ug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DANSER",
+     [
+      {
+       "t": "LA VALSE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z7_X_9jO3fc",
+     "titre": "Comment danser la VALSE tout simplement (bases en solo pour débutant)",
+     "chaine": "Danse à la maison",
+     "vues": "118 k vues",
+     "date": "il y a 4 ans",
+     "duree": "17:39",
+     "avatar": "https://yt3.ggpht.com/D-UxULHh5D2fSngKn14NOBIaJXRrKJK3Y7KMbwGebQHy2BnnJu9yXry8p_1EUMD4Z1PP5et9gg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TANZT DU",
+     [
+      {
+       "t": "WALZER",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iRzdpJuvJsQ",
+     "titre": "Langsamer Walzer Grundschritt in 5 Minuten - Perfekt als Hochzeitstanz (für jedes Kleid)",
+     "chaine": "AO Dance - online Tanzen lernen: Flashmob&Paartanz",
+     "vues": "843.098 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/LTBHKhvkVib99cK3sJOfCFSp1HM7ZpB279fOi7CApWaS4mDguH0wt4nV6PnfFPOD0IHLkb6BZw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

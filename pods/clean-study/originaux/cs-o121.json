@@ -1,0 +1,47 @@
+{
+  "source_id": "cs-o121",
+  "type_bleo": "full_test",
+  "titre": "how i stay focused in the class right after lunch #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 16/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« after lunch » absent du label). Accroches écrites : « how i stay focused in the class right after lunch » (retenue : un creux que tout le monde connaît), « afternoon slump tips » (écartée : vague), « why you're always tired after lunch » (écartée : ton médical). Santé générale seulement : un déjeuner léger, de l'eau, quelques pas avant le cours, s'asseoir devant, prendre des notes à la main, se tester le soir sur ce cours (place micabo, slide 4). Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0c1d76e6",
+      "texte_overlay": "how i stay focused in the class\nright after lunch",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7f7afe63",
+      "texte_overlay": "a lighter lunch and a big glass of water.\nthe heavy meal can wait for dinner.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a1173e2f",
+      "texte_overlay": "5 minutes of walking before class.\nnot straight from the table to my chair.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ab1ff35e",
+      "texte_overlay": "that evening, i quiz myself on that class first.\nit's the one i half-heard.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c488c8fa",
+      "texte_overlay": "i sit near the front.\nharder to drift off when the teacher is right there.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "bc4d1887",
+      "texte_overlay": "notes by hand, with questions in the margin.\nmy hand keeps my brain awake.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

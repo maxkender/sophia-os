@@ -1,0 +1,51 @@
+{
+  "source_id": "cs-o125",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5a8fc76d-2b11-446f-a52b-fc24c28ba657",
+  "titre": "méthodes d'étude pour les étudiants qui visent un A+ #studytok #révisions #lycée",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "5a8fc76d-2b11-446f-a52b-fc24c28ba657"
+  ],
+  "notes": "Déclinaison G1 de 5a8fc76d (r 2,43 en grec), ligne 3 de la boîte. Langue source du parent : français ; accroche du parent mot pour mot (les émojis 📚📍 du parent tombent : vrais symboles, et la police de l'aperçu ne les affiche pas). Méthodes neuves, aucune du parent (Pomodoro, Cornell, Feynman, flashcards, blurting) : répétition espacée, mélange des matières, carte mentale, auto-questionnement (place micabo, slide 4), anciens sujets. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "53d506ef",
+      "texte_overlay": "méthodes d'étude pour les\nétudiants qui visent un A+",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6d7cfaf7",
+      "texte_overlay": "RÉPÉTITION ESPACÉE\nrevois une leçon le lendemain, puis 3 jours après, puis une semaine après. c'est ce qui fait tenir dans le temps.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7fc5ccc2",
+      "texte_overlay": "MÉLANGE DES MATIÈRES\nalterne deux chapitres ou deux types d'exercices dans la même séance. le jour du contrôle, tu sais choisir la bonne méthode.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "95ccb363",
+      "texte_overlay": "AUTO-QUESTIONNEMENT\nferme ton cours et réponds à des questions dessus. ce que tu ne sais pas dire, tu ne le sais pas encore.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0972ae21",
+      "texte_overlay": "CARTE MENTALE\nle thème au centre, les idées en branches. parfait pour voir comment tout un chapitre tient ensemble.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "bc03c894",
+      "texte_overlay": "ANCIENS SUJETS\nentraîne-toi sur de vrais sujets, chronomètre lancé. tu découvres le format avant le jour J.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

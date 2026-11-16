@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o237",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7db5eacb-00e0-4caa-b0de-bd567006480f",
+ "titre": "habits that make you fearless around anyone #confidence #fearless #socialskills #selfimprovement #habits",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "648e59e7-f960-4d66-80f9-bf89cd9c897f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 648e59e7). déclinaison G2 de « habits that will make you unreasonably confident » (parent 7db5eacb). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3f83008f-3969-4e03-9509-a737191b790c",
+   "texte_overlay": "habits that make you\nfearless around anyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "10cb8680-315f-4987-a6fd-a4ba02a3afed",
+   "texte_overlay": "saying it plainly\n\nsay what you mean in one simple sentence instead of hiding it in a long apology. plain words sound calm and certain, and people take them far more seriously.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d0e0508-021d-474a-bdc7-22077e6754a4",
+   "texte_overlay": "asking one more question\n\nwhen someone says something unclear, ask what they meant. a calm, simple question takes away their power to make you feel small, flustered or confused.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "380e8133-89b1-41f6-a934-cae12eaf0d73",
+   "texte_overlay": "practising small discomfort\n\ndo one slightly uncomfortable thing a day, like a phone call or a question in class. each small one makes the next big moment feel far less scary and much easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2b9d73eb-fd3d-4620-859b-f4ad1e7902b5",
+   "texte_overlay": "understanding people\n\nlearning how people think makes them far less scary. 5 minutes a day on one idea from psychology, like why we people please, goes a surprisingly long way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/5.jpg",
+   "texte_sophia": "understanding people\n\nlearn how people think, like why we people please. the Sophia app turns it into one short lesson a day, and understanding people makes them far less scary."
+  },
+  {
+   "position": 6,
+   "media_id": "c1269671-c4e9-4d9e-a11b-4e072bb3138f",
+   "texte_overlay": "no long excuses\n\nwhen you say no, keep it short and kind. long explanations sound like you're asking for permission, while a short answer sounds calm and sure of itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/6.jpg"
+  }
+ ]
+}

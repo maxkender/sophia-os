@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o235",
+ "type_bleo": "full_test",
+ "titre": "weird habits that make you instantly calmer #calm #anxiety #mentalhealth #selfcare #habits",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "d7817c43-6e83-46af-934e-1ff6995fa3b5"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d7817c43). full test BLEO : accroche jamais faite (format « weird habits that make you instantly X »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "15e60b58-5689-4672-b337-b6ca312c0786",
+   "texte_overlay": "weird habits that make you\ninstantly calmer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aac20cc9-e0be-4fbd-9afd-5701b1f0f5fe",
+   "texte_overlay": "humming\n\nhum a slow tune for a minute when you feel tense. the gentle vibration calms your nervous system, and it's almost impossible to feel panicked while humming.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0ca8d44e-5731-4323-a0f1-d039e0a33a5d",
+   "texte_overlay": "learning something gentle\n\ngiving your anxious mind one calm and beautiful thing to focus on, like a constellation or a painting, gently pulls it away from the worry it keeps circling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/3.jpg",
+   "texte_sophia": "learning something gentle\n\nwhen i feel anxious, i spend 5 minutes on one lesson in the Sophia app, a constellation or a painting. focusing on something beautiful calms me down so quickly."
+  },
+  {
+   "position": 4,
+   "media_id": "9c7f6a02-05d3-4ac4-99d5-a0b851672566",
+   "texte_overlay": "holding something cold\n\nhold an ice cube or a cold glass in your hand for a minute. the strong sensation pulls your attention out of your racing thoughts and back into your body.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3d2bc573-8b7b-4f31-86a3-abcb78749ab5",
+   "texte_overlay": "naming five things\n\nname five things you can see, four you can hear and three you can touch. this simple game anchors you in the present moment and quietens anxious thoughts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f4f68242-50e9-45ba-8db9-e3e4a1c4872b",
+   "texte_overlay": "slowing your breath out\n\nbreathe in for four seconds and out for eight. a long breath out tells your body it's safe, and your heart rate starts to slow down in under a minute.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657840341285997846/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o239",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "03dd36f6-84d5-4fb6-b149-1e27acb8bad7",
+ "titre": "the 5 minute rules that make life feel lighter #rules #habits #simpleliving #selfimprovement #mentalhealth",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "3fb47dcc-e11e-4fc0-8880-fff84cc80b3e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3fb47dcc). déclinaison G1 de « the 5 minute rules that make life feel lighter » (parent 03dd36f6). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6004bd0c-47f5-4112-9d35-3f3e6adb615f",
+   "texte_overlay": "the 5 minute rules that\nmake life feel lighter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fb0709f0-f0a2-49ea-be64-3c797cd0bb61",
+   "texte_overlay": "the two minute tidy\n\nif tidying something takes less than two minutes, do it now. a clear home gives you a clearer head, and you stop feeling like life is slipping away from you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bdbb8312-e16e-43be-aa5e-fe319d17c511",
+   "texte_overlay": "the five minute walk\n\nwhen you feel stuck or anxious, walk for five minutes before deciding anything. moving your body changes your mood faster than overthinking ever will.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e1aa3bb1-3f7a-41bf-b04b-4d08fbd2107e",
+   "texte_overlay": "the five minute lesson\n\nlearn something just for the joy of it every day, like a strange animal or a forgotten empire. five minutes of pure curiosity makes ordinary days feel lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/4.jpg",
+   "texte_sophia": "the five minute lesson\n\ni spend 5 minutes a day learning something just for fun, like a forgotten empire. i do it with the Sophia app, and it makes my days feel so much lighter."
+  },
+  {
+   "position": 5,
+   "media_id": "8e7a219a-3d14-41ef-8d82-b5c9cd10a577",
+   "texte_overlay": "the one line diary\n\nbefore bed, write a single sentence about your day. a tiny habit you never skip is far better than a big, ambitious journal you give up on after only a week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c5970386-f5c9-43f0-a3b4-31624874250b",
+   "texte_overlay": "the reply rule\n\nif a message takes less than five minutes to answer, reply right away. unanswered messages weigh on your mind far more than the few minutes they would take.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/6.jpg"
+  }
+ ]
+}

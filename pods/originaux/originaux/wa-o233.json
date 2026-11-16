@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o233",
+ "type_bleo": "full_test",
+ "titre": "signs your mind is asking for a reset #mentalhealth #burnout #selfcare #mindset #signs",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "f2859d4a-2767-473f-be8d-7dbbd477b759"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, f2859d4a). full test BLEO : accroche jamais faite (format « signs your X is asking for Y »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0ec7841a-2cce-4064-80c1-e856e1193c97",
+   "texte_overlay": "signs your mind is asking\nfor a reset",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "08453a46-a6f2-4e5c-81d6-fec918a9befe",
+   "texte_overlay": "you reread the same line\n\nyou read a paragraph three times and still don't take it in. when focus keeps slipping, your mind is usually tired, not lazy, and it needs a real break.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "49d57a45-66be-4879-b0ff-b962dc3eac74",
+   "texte_overlay": "small things annoy you\n\na slow queue or a loud chewer suddenly feels unbearable. a short temper over tiny things is often the first sign that your mental battery is running low.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "285812f6-7021-42e0-a8b5-cad928dc68bd",
+   "texte_overlay": "nothing feels interesting\n\nwhen nothing sparks your curiosity anymore, your mind is usually starving for something new and calm. a few minutes of gentle learning can wake it back up.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/4.jpg",
+   "texte_sophia": "nothing feels interesting\n\nnothing felt interesting to me for months. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and that small spark helps my mind reset."
+  },
+  {
+   "position": 5,
+   "media_id": "979d2a88-ed3b-4e15-9030-981e85ac1db0",
+   "texte_overlay": "you scroll without enjoying it\n\nyou open the same apps again and again without even liking what you see. that endless loop is your tired brain looking for rest in completely the wrong place.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2a3aa99d-3856-48c8-ba58-bd607b255d3b",
+   "texte_overlay": "you forget simple things\n\nyou walk into a room and forget why. an overloaded mind drops the small details first, which is a clear signal that it needs some quiet and a lot more sleep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659305767773687062/6.jpg"
+  }
+ ]
+}

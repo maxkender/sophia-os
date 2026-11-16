@@ -1,0 +1,246 @@
+{
+ "post_id": "7708456205689113889",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 things to learn to make",
+      "you ridiculously capable"
+     ],
+     "fr": "10/10 trucs à apprendre pour devenir capable de tout",
+     "texte": "10/10 πράγματα να μάθεις για να τα καταφέρνεις σχεδόν σε όλα"
+    },
+    "T2": {
+     "en": [
+      "(niche edition)"
+     ],
+     "fr": "(version niche)",
+     "texte": "(έκδοση για λίγους)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to speak in front of people"
+     ],
+     "fr": "apprends à parler [[devant les gens]]",
+     "texte": "μάθε να μιλάς [[μπροστά σε κόσμο]]"
+    },
+    "T2": {
+     "en": [
+      "most people would rather do anything than talk in",
+      "front of a room"
+     ],
+     "fr": "la plupart des gens [[préféreraient tout faire]] plutôt que parler devant une salle",
+     "texte": "οι περισσότεροι [[θα έκαναν οτιδήποτε]] για να μη μιλήσουν μπροστά σε μια αίθουσα"
+    },
+    "T3": {
+     "en": [
+      "every time you do it",
+      "anyway, your brain",
+      "learns that the fear",
+      "doesn't actually stop",
+      "you"
+     ],
+     "fr": "chaque fois que tu le fais quand même, ton cerveau comprend que la peur [[ne t'arrête pas vraiment]]",
+     "texte": "κάθε φορά που το κάνεις παρ' όλα αυτά, ο εγκέφαλός σου μαθαίνει ότι ο φόβος [[δεν σε σταματάει στ' αλήθεια]]"
+    },
+    "T4": {
+     "en": [
+      "and once you can do that, you stay calm under",
+      "pressure and almost nothing feels scary anymore"
+     ],
+     "fr": "et une fois que tu sais faire ça, tu restes [[calme sous pression]] et [[presque plus rien te fait peur]]",
+     "texte": "και μόλις το μάθεις, [[κρατάς την ψυχραιμία σου]] υπό πίεση και [[σχεδόν τίποτα δεν σε τρομάζει]] πια"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7686189452963712288_6.jpg",
+      "boite": [
+       553,
+       600,
+       493,
+       353
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1a": {
+     "en": [
+      "learn to make things with your",
+      "hands"
+     ],
+     "fr": "apprends à faire des trucs [[de tes mains]]",
+     "texte": "μάθε να φτιάχνεις πράγματα [[με τα χέρια σου]]"
+    },
+    "T1b": {
+     "en": [
+      "cooking, pottery, sewing, fixing your own bike,",
+      "anything where you can see your mistakes"
+     ],
+     "fr": "cuisine, poterie, couture, réparer ton propre vélo, tout ce qui te [[montre tes erreurs]]",
+     "texte": "μαγείρεμα, κεραμική, ράψιμο, να φτιάχνεις το ποδήλατό σου, οτιδήποτε όπου [[βλέπεις τα λάθη σου]]"
+    },
+    "T2": {
+     "en": [
+      "you can't just watch a",
+      "video and know it,",
+      "you have to try, mess",
+      "up, and adjust"
+     ],
+     "fr": "regarder une vidéo suffit pas pour savoir faire, faut [[essayer, rater et ajuster]]",
+     "texte": "δεν αρκεί να δεις ένα βίντεο για να το ξέρεις, πρέπει να [[δοκιμάσεις, να κάνεις λάθη, να διορθώσεις]]"
+    },
+    "T3": {
+     "en": [
+      "that's how capable people learn everything, by actually",
+      "doing it instead of just watching"
+     ],
+     "fr": "c'est comme ça que les gens capables apprennent tout, [[en le faisant vraiment]] au lieu de juste regarder",
+     "texte": "έτσι μαθαίνουν τα πάντα οι ικανοί άνθρωποι, [[κάνοντάς το στην πράξη]] αντί απλώς να κοιτάνε"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "scissions": {
+    "T1": 2
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read a book everyday"
+     ],
+     "fr": "lis un livre [[chaque jour]]",
+     "texte": "διάβαζε ένα βιβλίο [[κάθε μέρα]]"
+    },
+    "T2": {
+     "en": [
+      "if you only consume short form content, your brain",
+      "rarely has to hold attention for long"
+     ],
+     "fr": "si tu consommes que du contenu court, ton cerveau a rarement besoin de [[rester concentré longtemps]]",
+     "texte": "αν βλέπεις μόνο σύντομο περιεχόμενο, ο εγκέφαλός σου σπάνια χρειάζεται να [[μένει συγκεντρωμένος πολλή ώρα]]"
+    },
+    "T3": {
+     "en": [
+      "books force you to follow",
+      "ideas for whole chapters,",
+      "and that focus makes you",
+      "better at learning anything"
+     ],
+     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et cette concentration t'aide à [[tout apprendre]]",
+     "texte": "[[τα βιβλία σε κάνουν να ακολουθείς ιδέες]] για ολόκληρα κεφάλαια, και αυτή η συγκέντρωση σε βοηθάει να [[μαθαίνεις οτιδήποτε]]"
+    },
+    "T4": {
+     "en": [
+      "i struggled with stopping",
+      "scrolling until i found this",
+      "thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "avant je scrollais H24. maintenant quand je prends mon tel, c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "παλιά απλώς σκρόλαρα. τώρα όταν πιάνω το κινητό, κάνω 5 λεπτά [[στην εφαρμογή Sophia]]. σήμερα: γιατί η αναγέννηση ξεκίνησε στην ιταλία"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to touch type"
+     ],
+     "fr": "apprends à [[taper sans regarder]]",
+     "texte": "μάθε [[τυφλό σύστημα]]"
+    },
+    "T2": {
+     "en": [
+      "you'll spend thousands of hours typing in your life,",
+      "and most people still look down at the keyboard"
+     ],
+     "fr": "tu vas passer [[des milliers d'heures]] à taper dans ta vie, et presque tout le monde regarde encore son clavier",
+     "texte": "θα περάσεις [[χιλιάδες ώρες]] πληκτρολογώντας στη ζωή σου, κι οι περισσότεροι ακόμα κοιτάνε το πληκτρολόγιο"
+    },
+    "T3": {
+     "en": [
+      "touch typing lets you",
+      "think and type at the",
+      "same time"
+     ],
+     "fr": "taper sans regarder, c'est [[penser et écrire en même temps]]",
+     "texte": "με το τυφλό σύστημα [[σκέφτεσαι και γράφεις ταυτόχρονα]]"
+    },
+    "T4": {
+     "en": [
+      "instead of losing your",
+      "train of thought every",
+      "time you look for a key"
+     ],
+     "fr": "au lieu de perdre le fil à chaque fois que tu cherches une touche",
+     "texte": "αντί να χάνεις τον ειρμό σου κάθε φορά που ψάχνεις ένα πλήκτρο"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to write clearly"
+     ],
+     "fr": "apprends à [[écrire clairement]]",
+     "texte": "μάθε να [[γράφεις καθαρά]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you",
+      "try to write them down"
+     ],
+     "fr": "tes pensées ont l'air [[floues et en vrac]] tant que t'essaies pas de les écrire",
+     "texte": "οι σκέψεις σου μοιάζουν [[μπερδεμένες και θολές]] μέχρι να προσπαθήσεις να τις γράψεις"
+    },
+    "T3": {
+     "en": [
+      "writing forces your",
+      "brain to put your",
+      "ideas in order and",
+      "find the parts that",
+      "don't make sense"
+     ],
+     "fr": "écrire oblige ton cerveau à [[mettre tes idées en ordre]] et à repérer ce qui tient pas debout",
+     "texte": "το γράψιμο αναγκάζει τον εγκέφαλό σου να [[βάλει τις ιδέες σε τάξη]] και να βρει τι δεν στέκει"
+    },
+    "T4": {
+     "en": [
+      "and people who can explain things clearly get",
+      "taken seriously everywhere they go"
+     ],
+     "fr": "et les gens qui expliquent les choses clairement [[sont pris au sérieux]] partout où ils vont",
+     "texte": "και όσους εξηγούν τα πράγματα καθαρά [[τους παίρνουν στα σοβαρά]] όπου κι αν πάνε"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

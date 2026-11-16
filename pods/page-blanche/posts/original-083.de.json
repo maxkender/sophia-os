@@ -1,0 +1,290 @@
+{
+ "post_id": "original-083",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits that are secretly",
+      "destroying your brain"
+     ],
+     "fr": "10/10 habitudes qui te grillent le cerveau en douce",
+     "texte": "wie du dich\nabsichtlich langweilst"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(la science le prouve)",
+     "texte": "(dein Gehirn wird dir danken)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "too many small decisions"
+     ],
+     "fr": "trop de [[petites décisions]]",
+     "texte": "warte [[ohne dein Handy]]"
+    },
+    "T2": {
+     "en": [
+      "what to wear, what to eat,",
+      "when to start, every",
+      "choice uses up willpower"
+     ],
+     "fr": "quoi mettre, quoi manger, quand s'y mettre, chaque choix [[grignote ta volonté]]",
+     "texte": "in der Schlange, an der Bushaltestelle, im Wartezimmer, [[steh einfach da]]"
+    },
+    "T3": {
+     "en": [
+      "this is called decision",
+      "fatigue"
+     ],
+     "fr": "ça s'appelle la [[fatigue décisionnelle]]",
+     "texte": "die ersten 2 Minuten sind [[voll komisch]]"
+    },
+    "T4": {
+     "en": [
+      "plan tomorrow the night",
+      "before, so in the",
+      "morning you just start"
+     ],
+     "fr": "prépare demain dès la veille, et le matin [[tu te lances direct]]",
+     "texte": "dann schweifen deine Gedanken ab, und [[genau darum geht's]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books that expand your mind"
+     ],
+     "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
+     "texte": "und wenn du [[doch zum Handy greifst]]…"
+    },
+    "T2": {
+     "en": [
+      "read psychology, philosophy, history, and classic literature"
+     ],
+     "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
+     "texte": "passiert halt, alles gut"
+    },
+    "T3": {
+     "en": [
+      "the more you understand",
+      "about people, human",
+      "nature, and the world"
+     ],
+     "fr": "plus tu comprends les gens, la nature humaine et le monde",
+     "texte": "dann lern in den Minuten [[wenigstens was]]"
+    },
+    "T4": {
+     "en": [
+      "the more you have to",
+      "contribute to a conversation"
+     ],
+     "fr": "plus t'as de quoi [[nourrir une conversation]]",
+     "texte": "statt dir [[noch mehr Lärm]] reinzuziehen"
+    },
+    "T5": {
+     "en": [
+      "i used to struggle with",
+      "stopping scrolling until i found",
+      "this thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
+     "texte": "was mein Scrollen ersetzt hat: Spaziergänge, Fenstergucken und der Urknall in [[der Sophia-App]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "geh raus [[ohne was auf den Ohren]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24 h entre quatre murs et tu finis par végéter",
+     "texte": "kein Podcast, keine Musik, keine Anrufe, nur die Straße"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20 à 30 minutes]], idéalement en plein jour",
+     "texte": "schon [[10 Minuten um den Block]] zählen, keine große Wanderung nötig"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "ohne Input kommt dein Kopf endlich zu deinem eigenen Kram: die unbeantwortete Nachricht, die Idee von letzter Woche"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[scroller, c'est PAS se reposer !!]]",
+     "texte": "[[da kommen die Ideen]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "listening to music all the time"
+     ],
+     "fr": "écouter de la musique [[H24]]",
+     "texte": "schau [[5 Minuten]] aus dem Fenster"
+    },
+    "T2": {
+     "en": [
+      "on the bus, at the gym,",
+      "while studying, falling",
+      "asleep, there’s always",
+      "something playing"
+     ],
+     "fr": "dans le bus, à la salle, en bossant, pour t'endormir, y'a [[toujours un truc qui tourne]]",
+     "texte": "im Zug, im Auto, am Schreibtisch, kein Handy, keine Musik, [[nur rausschauen]]"
+    },
+    "T3": {
+     "en": [
+      "your brain never gets a",
+      "quiet moment to think for",
+      "itself"
+     ],
+     "fr": "ton cerveau a [[jamais un moment au calme]] pour penser seul",
+     "texte": "ja, die Kopfhörer kommen auch ab. lass deine Gedanken [[einfach treiben]]"
+    },
+    "T4": {
+     "en": [
+      "that’s why silence feels so uncomfortable now, and",
+      "you struggle to remember anything"
+     ],
+     "fr": "du coup le silence te met [[trop mal à l'aise]], et [[t'arrives plus à rien retenir]]",
+     "texte": "sieht aus wie Nichtstun, aber [[da kommt die Hälfte meiner guten Ideen her]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "reading book summaries"
+     ],
+     "fr": "lire des [[résumés de livres]]",
+     "texte": "duschen [[ohne Podcast]]"
+    },
+    "T2": {
+     "en": [
+      "blinkist, 10 minute youtube recaps, “5 lessons from",
+      "atomic habits” threads, you feel like you’ve read 50",
+      "books this year"
+     ],
+     "fr": "applis de résumés, récaps vidéo de 10 min, threads « 5 leçons de… », t'as l'impression d'avoir [[lu 50 livres cette année]]",
+     "texte": "keine Musik, kein Video am Waschbecken, niemand, der dir ins Ohr quatscht. nur heißes Wasser und [[was dir so durch den Kopf geht]], auch wenn's random ist"
+    },
+    "T3": {
+     "en": [
+      "but you only get the",
+      "conclusions, never the",
+      "thinking that got there"
+     ],
+     "fr": "mais t'as que [[les conclusions]], jamais le raisonnement derrière",
+     "texte": "gib ihm eine Minute, dann fängt dein Gehirn an, [[Punkte zu verbinden]]"
+    },
+    "T4": {
+     "en": [
+      "so a week later you",
+      "remember nothing,",
+      "because your brain",
+      "never did the work"
+     ],
+     "fr": "une semaine après t'as tout oublié, parce que [[ton cerveau a rien fait]]",
+     "texte": "deshalb kommen die besten Ideen immer dann, [[wenn du sie nicht aufschreiben kannst]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

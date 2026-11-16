@@ -38,8 +38,8 @@
       "most people would rather do anything than talk in",
       "front of a room"
      ],
-     "fr": "la plupart des gens [[préféreraient tout faire]] plutôt que parler devant une salle",
-     "texte": "οι περισσότεροι [[θα έκαναν οτιδήποτε]] για να μη μιλήσουν μπροστά σε μια αίθουσα"
+     "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
+     "texte": "οι περισσότεροι [[θα έκαναν οτιδήποτε]] για να μη μιλήσουν σε κοινό"
     },
     "T3": {
      "en": [
@@ -49,7 +49,7 @@
       "doesn't actually stop",
       "you"
      ],
-     "fr": "chaque fois que tu le fais quand même, ton cerveau comprend que la peur [[ne t'arrête pas vraiment]]",
+     "fr": "chaque fois que tu le fais quand même, ton cerveau voit que la peur [[t'arrête pas vraiment]]",
      "texte": "κάθε φορά που το κάνεις παρ' όλα αυτά, ο εγκέφαλός σου μαθαίνει ότι ο φόβος [[δεν σε σταματάει στ' αλήθεια]]"
     },
     "T4": {
@@ -134,7 +134,7 @@
       "rarely has to hold attention for long"
      ],
      "fr": "si tu consommes que du contenu court, ton cerveau a rarement besoin de [[rester concentré longtemps]]",
-     "texte": "αν βλέπεις μόνο σύντομο περιεχόμενο, ο εγκέφαλός σου σπάνια χρειάζεται να [[μένει συγκεντρωμένος πολλή ώρα]]"
+     "texte": "αν βλέπεις μόνο σύντομο περιεχόμενο, ο εγκέφαλός σου σπάνια χρειάζεται να [[μένει συγκεντρωμένος ώρα]]"
     },
     "T3": {
      "en": [
@@ -143,8 +143,8 @@
       "and that focus makes you",
       "better at learning anything"
      ],
-     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et cette concentration t'aide à [[tout apprendre]]",
-     "texte": "[[τα βιβλία σε κάνουν να ακολουθείς ιδέες]] για ολόκληρα κεφάλαια, και αυτή η συγκέντρωση σε βοηθάει να [[μαθαίνεις οτιδήποτε]]"
+     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
+     "texte": "[[τα βιβλία σε κάνουν να ακολουθείς ιδέες]] για ολόκληρα κεφάλαια, κι αυτό σε βοηθάει να [[μαθαίνεις οτιδήποτε]]"
     },
     "T4": {
      "en": [
@@ -153,8 +153,8 @@
       "thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "avant je scrollais H24. maintenant quand je prends mon tel, c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
-     "texte": "παλιά απλώς σκρόλαρα. τώρα όταν πιάνω το κινητό, κάνω 5 λεπτά [[στην εφαρμογή Sophia]]. σήμερα: γιατί η αναγέννηση ξεκίνησε στην ιταλία"
+     "fr": "avant je scrollais H24, maintenant c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "παλιά απλώς σκρόλαρα, τώρα κάνω 5 λεπτά [[στην εφαρμογή Sophia]]. σήμερα: γιατί η αναγέννηση ξεκίνησε στην ιταλία"
     }
    },
    "images": {
@@ -234,7 +234,7 @@
       "and people who can explain things clearly get",
       "taken seriously everywhere they go"
      ],
-     "fr": "et les gens qui expliquent les choses clairement [[sont pris au sérieux]] partout où ils vont",
+     "fr": "et les gens qui expliquent clairement [[sont pris au sérieux]] partout où ils vont",
      "texte": "και όσους εξηγούν τα πράγματα καθαρά [[τους παίρνουν στα σοβαρά]] όπου κι αν πάνε"
     }
    },

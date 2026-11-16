@@ -38,8 +38,8 @@
       "most people would rather do anything than talk in",
       "front of a room"
      ],
-     "fr": "la plupart des gens [[préféreraient tout faire]] plutôt que parler devant une salle",
-     "texte": "повечето хора [[биха направили всичко]], само и само да не говорят пред пълна зала"
+     "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
+     "texte": "повечето хора [[биха направили всичко]], само да не говорят пред зала"
     },
     "T3": {
      "en": [
@@ -49,7 +49,7 @@
       "doesn't actually stop",
       "you"
      ],
-     "fr": "chaque fois que tu le fais quand même, ton cerveau comprend que la peur [[ne t'arrête pas vraiment]]",
+     "fr": "chaque fois que tu le fais quand même, ton cerveau voit que la peur [[t'arrête pas vraiment]]",
      "texte": "всеки път, когато все пак го направиш, мозъкът ти научава, че страхът [[всъщност не те спира]]"
     },
     "T4": {
@@ -143,7 +143,7 @@
       "and that focus makes you",
       "better at learning anything"
      ],
-     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et cette concentration t'aide à [[tout apprendre]]",
+     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
      "texte": "[[книгите те карат да следиш идеи]] цели глави, и този фокус ти помага [[да научиш каквото и да е]]"
     },
     "T4": {
@@ -153,8 +153,8 @@
       "thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "avant je scrollais H24. maintenant quand je prends mon tel, c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
-     "texte": "преди само скролвах. сега, като взема телефона, са 5 мин в [[приложението Sophia]]. днес: защо ренесансът започва в италия"
+     "fr": "avant je scrollais H24, maintenant c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "преди само скролвах, сега са 5 мин в [[приложението Sophia]]. днес: защо ренесансът започва в италия"
     }
    },
    "images": {
@@ -234,7 +234,7 @@
       "and people who can explain things clearly get",
       "taken seriously everywhere they go"
      ],
-     "fr": "et les gens qui expliquent les choses clairement [[sont pris au sérieux]] partout où ils vont",
+     "fr": "et les gens qui expliquent clairement [[sont pris au sérieux]] partout où ils vont",
      "texte": "а тези, които обясняват ясно, [[ги приемат насериозно]] навсякъде"
     }
    },

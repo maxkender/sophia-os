@@ -38,7 +38,7 @@
       "most people would rather do anything than talk in",
       "front of a room"
      ],
-     "fr": "la plupart des gens [[préféreraient tout faire]] plutôt que parler devant une salle",
+     "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
      "texte": "la mayoría [[prefiere hacer cualquier cosa]] antes que hablar delante de una sala"
     },
     "T3": {
@@ -49,7 +49,7 @@
       "doesn't actually stop",
       "you"
      ],
-     "fr": "chaque fois que tu le fais quand même, ton cerveau comprend que la peur [[ne t'arrête pas vraiment]]",
+     "fr": "chaque fois que tu le fais quand même, ton cerveau voit que la peur [[t'arrête pas vraiment]]",
      "texte": "cada vez que lo haces igual, tu cerebro aprende que el miedo [[no te frena de verdad]]"
     },
     "T4": {
@@ -143,7 +143,7 @@
       "and that focus makes you",
       "better at learning anything"
      ],
-     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et cette concentration t'aide à [[tout apprendre]]",
+     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
      "texte": "[[los libros te obligan a seguir ideas]] durante capítulos enteros, y ese foco te ayuda a [[aprender lo que sea]]"
     },
     "T4": {
@@ -153,8 +153,8 @@
       "thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "avant je scrollais H24. maintenant quand je prends mon tel, c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
-     "texte": "antes me pasaba el día scrolleando. ahora cuando agarro el móvil son 5 min en [[la app Sophia]]. hoy: por qué el cielo es azul"
+     "fr": "avant je scrollais H24, maintenant c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "antes me pasaba el día scrolleando, ahora son 5 min en [[la app Sophia]]. hoy: por qué el cielo es azul"
     }
    },
    "images": {
@@ -234,7 +234,7 @@
       "and people who can explain things clearly get",
       "taken seriously everywhere they go"
      ],
-     "fr": "et les gens qui expliquent les choses clairement [[sont pris au sérieux]] partout où ils vont",
+     "fr": "et les gens qui expliquent clairement [[sont pris au sérieux]] partout où ils vont",
      "texte": "y a la gente que explica las cosas claro [[la toman en serio]] vaya donde vaya"
     }
    },

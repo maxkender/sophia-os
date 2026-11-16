@@ -38,7 +38,7 @@
       "most people would rather do anything than talk in",
       "front of a room"
      ],
-     "fr": "la plupart des gens [[préféreraient tout faire]] plutôt que parler devant une salle",
+     "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
      "texte": "a legtöbben [[bármit megcsinálnának]], csak ne kelljen egy terem előtt beszélni"
     },
     "T3": {
@@ -49,7 +49,7 @@
       "doesn't actually stop",
       "you"
      ],
-     "fr": "chaque fois que tu le fais quand même, ton cerveau comprend que la peur [[ne t'arrête pas vraiment]]",
+     "fr": "chaque fois que tu le fais quand même, ton cerveau voit que la peur [[t'arrête pas vraiment]]",
      "texte": "minden alkalommal, amikor mégis megcsinálod, az agyad megtanulja, hogy a félelem [[valójában nem állít meg]]"
     },
     "T4": {
@@ -143,7 +143,7 @@
       "and that focus makes you",
       "better at learning anything"
      ],
-     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et cette concentration t'aide à [[tout apprendre]]",
+     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
      "texte": "[[a könyvek gondolatok követésére kényszerítenek]] egész fejezeteken át, és ez a fókusz segít [[bármit megtanulni]]"
     },
     "T4": {
@@ -153,8 +153,8 @@
       "thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "avant je scrollais H24. maintenant quand je prends mon tel, c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
-     "texte": "régen csak görgettem. most ha előveszem a telót, 5 perc [[a Sophia appban]]. ma: miért olaszországban kezdődött a reneszánsz"
+     "fr": "avant je scrollais H24, maintenant c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "régen csak görgettem, most 5 perc [[a Sophia appban]]. ma: miért olaszországban kezdődött a reneszánsz"
     }
    },
    "images": {
@@ -234,7 +234,7 @@
       "and people who can explain things clearly get",
       "taken seriously everywhere they go"
      ],
-     "fr": "et les gens qui expliquent les choses clairement [[sont pris au sérieux]] partout où ils vont",
+     "fr": "et les gens qui expliquent clairement [[sont pris au sérieux]] partout où ils vont",
      "texte": "és akik érthetően magyaráznak, [[azokat mindenhol komolyan veszik]]"
     }
    },

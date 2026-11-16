@@ -38,7 +38,7 @@
       "most people would rather do anything than talk in",
       "front of a room"
      ],
-     "fr": "la plupart des gens [[préféreraient tout faire]] plutôt que parler devant une salle",
+     "fr": "la plupart des gens [[préféreraient tout faire]] que parler devant une salle",
      "texte": "most people [[would rather do anything]] than talk in front of a room"
     },
     "T3": {
@@ -49,7 +49,7 @@
       "doesn't actually stop",
       "you"
      ],
-     "fr": "chaque fois que tu le fais quand même, ton cerveau comprend que la peur [[ne t'arrête pas vraiment]]",
+     "fr": "chaque fois que tu le fais quand même, ton cerveau voit que la peur [[t'arrête pas vraiment]]",
      "texte": "every time you do it anyway, your brain learns that the fear [[doesn't actually stop you]]"
     },
     "T4": {
@@ -143,7 +143,7 @@
       "and that focus makes you",
       "better at learning anything"
      ],
-     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et cette concentration t'aide à [[tout apprendre]]",
+     "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
      "texte": "[[books force you to follow ideas]] for whole chapters, and that focus makes you better at [[learning anything]]"
     },
     "T4": {
@@ -153,8 +153,8 @@
       "thing that blocks my apps",
       "until i read for 20 minutes"
      ],
-     "fr": "avant je scrollais H24. maintenant quand je prends mon tel, c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
-     "texte": "i used to doomscroll. now when i grab my phone, it's 5 min on [[the Sophia app]]. today: why the renaissance began in italy"
+     "fr": "avant je scrollais H24, maintenant c'est 5 min sur [[l'appli Sophia]]. aujourd'hui : Camus et Sisyphe",
+     "texte": "i used to doomscroll, now i do 5 min on [[the Sophia app]] instead. today: why the renaissance began in italy"
     }
    },
    "images": {
@@ -234,7 +234,7 @@
       "and people who can explain things clearly get",
       "taken seriously everywhere they go"
      ],
-     "fr": "et les gens qui expliquent les choses clairement [[sont pris au sérieux]] partout où ils vont",
+     "fr": "et les gens qui expliquent clairement [[sont pris au sérieux]] partout où ils vont",
      "texte": "and people who can explain things clearly [[get taken seriously]] everywhere they go"
     }
    },

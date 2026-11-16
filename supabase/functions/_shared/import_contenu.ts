@@ -1101,6 +1101,10 @@ export async function listerUrlsCompteReference(
      * (`comptes_reference.essai_max`) s'applique en plus, lu ici.
      */
     maxParMaj?: number | null;
+    /** 15/11 : « recents » trie les slideshows par date de publication, les plus récents d'abord. */
+    ordre?: "vues" | "recents";
+    /** 15/11 : ignorer l'essai de la source pour ce passage (plafond `maxParMaj` posé à la main). */
+    sansEssai?: boolean;
   } = {},
 ): Promise<ListingCompte> {
   const { data: ref } = await supabase
@@ -1175,7 +1179,9 @@ export async function listerUrlsCompteReference(
   // sur le même contenu (re-pipeline, historique Passages conservé) — sauf
   // `nouveauxSeulement`, qui ne reprend que ce qui manque.
   const toutes = [...urlsSet].sort(
-    (a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0),
+    opts.ordre === "recents"
+      ? (a, b) => (createTimeParId.get(idDe(b)) ?? 0) - (createTimeParId.get(idDe(a)) ?? 0)
+      : (a, b) => (vues.get(idDe(b)) ?? 0) - (vues.get(idDe(a)) ?? 0),
   );
   const manquantes = urlsManquantes(toutes, deja);
   const dernierImportAt = ref.dernier_scrape_at
@@ -1200,7 +1206,7 @@ export async function listerUrlsCompteReference(
   }
   // 0686 : l'essai de la source et la tranche par mise à jour. `murs` est trié
   // par vues, on garde donc les meilleurs ; le reste attend la fois suivante.
-  const essaiMax = (ref as { essai_max?: number | null }).essai_max ?? null;
+  const essaiMax = opts.sansEssai ? null : (ref as { essai_max?: number | null }).essai_max ?? null;
   const plafond = opts.nouveauxSeulement
     ? plafondEnfilage({ essaiMax, dejaDeLaSource: deCetteSource.length, maxParMaj: opts.maxParMaj ?? null })
     : null;

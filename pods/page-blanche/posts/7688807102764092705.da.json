@@ -1,0 +1,289 @@
+{
+ "post_id": "7688807102764092705",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "top 5 ways to ruin your 20s"
+     ],
+     "fr": "top 5 pour foirer ta vingtaine",
+     "texte": "top 5 måder at ødelægge dine 20'ere på"
+    },
+    "T2": {
+     "en": [
+      "(harsh truth)"
+     ],
+     "fr": "(ça pique)",
+     "alignement": "droite",
+     "texte": "(barsk sandhed)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never think for yourself"
+     ],
+     "fr": "ne réfléchis surtout pas",
+     "texte": "tænk aldrig selv"
+    },
+    "T2": {
+     "en": [
+      "why struggle with an idea",
+      "when AI can give you an",
+      "answer in 3 seconds?"
+     ],
+     "fr": "pourquoi galérer sur une idée si l'IA te sort une réponse [[en 3 secondes]] ?",
+     "texte": "hvorfor kæmpe med en idé, når AI kan give dig et svar [[på 3 sekunder]]?"
+    },
+    "T3": {
+     "en": [
+      "ask it what to think, what to",
+      "write, what to believe, what",
+      "to do next"
+     ],
+     "fr": "demande-lui ce que tu dois [[penser]], écrire, [[croire]], faire ensuite",
+     "texte": "spørg den, hvad du skal [[tænke]], skrive, [[tro på]] og gøre bagefter"
+    },
+    "T4": {
+     "en": [
+      "eventually you can",
+      "outsource so much thinking",
+      "that your own judgment",
+      "barely gets used!"
+     ],
+     "fr": "à force, tu la laisses tellement réfléchir à ta place que [[ton jugement sert presque plus]] !",
+     "texte": "til sidst outsourcer du så meget tænkning, at [[din egen dømmekraft næsten aldrig bliver brugt]]!"
+    },
+    "T5": {
+     "en": [
+      "then you'll never have to worry about thinking",
+      "again!"
+     ],
+     "fr": "comme ça, plus jamais besoin de [[réfléchir]] !",
+     "texte": "så skal du aldrig mere bekymre dig om at [[tænke]]!"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7698667830635400470_6.jpg",
+      "boite": [
+       605,
+       400,
+       421,
+       421
+      ]
+     }
+    },
+    "I2": {
+     "remplacer": {
+      "source": "sources/7684726544442346774_6.jpg",
+      "boite": [
+       40,
+       505,
+       320,
+       320
+      ]
+     }
+    },
+    "I3": {
+     "remplacer": {
+      "source": "sources/7688807102764092705_2.jpg",
+      "boite": [
+       1000,
+       100,
+       17,
+       22
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never sit in silence"
+     ],
+     "fr": "jamais de silence",
+     "texte": "sid aldrig i stilhed"
+    },
+    "T2": {
+     "en": [
+      "always have music, podcasts, youtube,",
+      "anything playing in the background"
+     ],
+     "fr": "mets [[toujours]] un truc en fond : musique, podcast, youtube, n'importe quoi",
+     "texte": "hav [[altid]] noget kørende i baggrunden: musik, podcasts, videoer, hvad som helst"
+    },
+    "T3": {
+     "en": [
+      "never let",
+      "your brain",
+      "hear itself",
+      "for too long"
+     ],
+     "fr": "ton cerveau ne doit jamais s'entendre penser",
+     "texte": "lad aldrig din hjerne høre sig selv for længe"
+    },
+    "T4": {
+     "en": [
+      "or you might start thinking about what you",
+      "actually want, what you're avoiding, or what",
+      "needs to change. that would be scary"
+     ],
+     "fr": "sinon tu risques de penser à ce que tu [[veux vraiment]], à ce que [[tu fuis]], à ce qui [[doit changer]]. et ça, ça fait peur",
+     "texte": "ellers begynder du måske at tænke over, hvad du [[virkelig vil]], hvad [[du undgår]], eller hvad [[der skal ændres]]. det ville være skræmmende"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never travel"
+     ],
+     "fr": "ne pars jamais",
+     "texte": "rejs aldrig"
+    },
+    "T2": {
+     "en": [
+      "there's nothing out there you need to experience",
+      "yourself"
+     ],
+     "fr": "y'a [[rien là-dehors]] qui mérite que tu le vives en vrai",
+     "texte": "der er [[intet derude]], du behøver at opleve selv"
+    },
+    "T3": {
+     "en": [
+      "you can see mountains,",
+      "cities, cultures and people",
+      "through a 6-inch screen",
+      "anyway"
+     ],
+     "fr": "montagnes, villes, cultures, gens : tu vois tout [[sur un écran de 15 cm, de toute façon]]",
+     "texte": "du kan jo alligevel se bjerge, byer, kulturer og mennesker [[på en 6-tommers skærm]]"
+    },
+    "T4": {
+     "en": [
+      "stay where it's",
+      "comfortable"
+     ],
+     "fr": "reste [[dans ta zone de confort]]",
+     "texte": "bliv der, hvor det er [[behageligt]]"
+    },
+    "T5": {
+     "en": [
+      "why risk discovering that",
+      "the world is much bigger",
+      "than the life you've built?"
+     ],
+     "fr": "pourquoi risquer de découvrir que le monde est [[bien plus grand]] que ta petite vie ?",
+     "texte": "hvorfor risikere at opdage, at verden er [[meget større]] end det liv, du har bygget?"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never stop scrolling"
+     ],
+     "fr": "scrolle non-stop",
+     "texte": "scroll uden stop"
+    },
+    "T2": {
+     "en": [
+      "maybe the next tiktok will finally",
+      "solve your problems"
+     ],
+     "fr": "le [[prochain tiktok]] va [[enfin]] régler tes problèmes, qui sait",
+     "texte": "måske løser [[den næste tiktok]] [[endelig]] dine problemer"
+    },
+    "T3": {
+     "en": [
+      "don’t limit your screen time,",
+      "don’t start reading, don’t give",
+      "your brain a chance to get",
+      "bored"
+     ],
+     "fr": "limite pas ton temps d'écran, ouvre surtout pas [[l'appli Sophia]] 5 min, laisse jamais ton cerveau [[s'ennuyer]]",
+     "texte": "lad være med at begrænse din skærmtid, brug ikke 5 min [[på Sophia-appen]], lad aldrig din hjerne [[kede sig]]"
+    },
+    "T4": {
+     "en": [
+      "just keep feeding the algorithm",
+      "until it knows what you want",
+      "better than you do"
+     ],
+     "fr": "continue de [[nourrir l'algo]] jusqu'à ce qu'il sache ce que tu veux [[mieux que toi]]",
+     "texte": "bare bliv ved med at [[fodre algoritmen]], til den ved, hvad du vil have, [[bedre end du selv gør]]"
+    },
+    "T5": {
+     "en": [
+      "keep giving them your data,",
+      "they deserve it!"
+     ],
+     "fr": "file-leur [[tes données]], ils le méritent !",
+     "texte": "bliv ved med at give dem [[dine data]], de fortjener det!"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "never take risks"
+     ],
+     "fr": "ne tente jamais rien",
+     "texte": "tag aldrig chancer"
+    },
+    "T2": {
+     "en": [
+      "what if you fail?",
+      "what if people laugh?",
+      "what if it doesn't go to plan?"
+     ],
+     "fr": "et si tu te plantes ? et si on se moque ? et si rien se passe comme prévu ?",
+     "texte": "hvad hvis du fejler?\nhvad hvis folk griner?\nhvad hvis det går galt?"
+    },
+    "T3": {
+     "en": [
+      "better stay safe in your",
+      "room, on your phone,",
+      "thinking about the life you",
+      "could've lived"
+     ],
+     "fr": "reste plutôt bien à l'abri dans ta chambre, sur ton tel, à rêver de la vie que t'aurais pu avoir",
+     "texte": "bliv hellere i sikkerhed på dit værelse, på din telefon, og tænk på det liv, du kunne have levet"
+    },
+    "T4": {
+     "en": [
+      "taking risks might make you fail, avoiding",
+      "them only wastes your life"
+     ],
+     "fr": "en prenant des risques, tu peux rater. en les fuyant, [[tu rates ta vie]]",
+     "texte": "tager du chancer, kan du fejle, undgår du dem, [[spilder du bare dit liv]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

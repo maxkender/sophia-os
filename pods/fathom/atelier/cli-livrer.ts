@@ -92,9 +92,9 @@ const corps = {
   action: "deposer",
   pod: POD,
   // Un full test (accroche neuve) part sans le post modèle : un original en images finies, rang fixe.
-  source_url: post.type_bleo === "full_test" ? null : sourceUrl,
+  source_url: post.type_bleo === "full_test" ? null : (sourceUrl ?? null),
   source_id: post.id,
-  source_vues: post.type_bleo === "full_test" ? undefined : post.source.vues,
+  source_vues: post.type_bleo === "full_test" ? undefined : post.source?.vues,
   titre: post.titre[LANGUE_SOURCE].slice(0, 160),
   langue_source: LANGUE_SOURCE,
   musique_url: post.musique.url,

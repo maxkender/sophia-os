@@ -1,0 +1,328 @@
+{
+ "id": "ka-035",
+ "titre": {
+  "en": "10/10 creative skills to learn",
+  "fr": "10/10 skills créatifs",
+  "de": "10/10 kreative Skills zum Lernen"
+ },
+ "legendes": {
+  "en": "10/10 creative skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills créatifs #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 kreative Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "som original",
+  "url": "https://www.tiktok.com/music/som-original-7646217405663841044"
+ },
+ "notes": "Full test (BLEO, 15/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (« creative skills »). Décor branche, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia, jamais faites chez nous : calligraphie, aquarelle, batterie. Musique : son « som original » 7646217405663841044 de son manifeste, jamais pris, pour alterner. Sophia en étape 3 « HOW TO FEED YOUR CURIOSITY » : cta B, « 5 min a day ». Vraies vidéos : en The Happy Ever Crafter, Andrea Nelson Art, Drumeo ; fr Les lectures du loup, Marie Boudon, Lolo Batterie ; de Alexander Flemming, artistravel, Schlagzeug-Lernen.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "CREATIVE",
+     "SKILLS TO",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS",
+     "CRÉATIFS"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "KREATIVE",
+     "SKILLS ZUM",
+     "LERNEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "CALLIGRAPHY",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nj962-cU2PQ",
+     "titre": "Basic Calligraphy Strokes (Beginner Calligraphy 101) | The Happy Ever Crafter",
+     "chaine": "The Happy Ever Crafter",
+     "vues": "2.3M views",
+     "date": "9 years ago",
+     "duree": "7:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTQFZosd67U0dTysNTbgd1H3Sj00bnPfkGCiHh0l85VC0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DE LA CALLIGRAPHIE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aW77Tn6u-dM",
+     "titre": "Trucs et Astuces en Calligraphie pour débutants - Tutoriel Lettering",
+     "chaine": "Les lectures du loup",
+     "vues": "361 k vues",
+     "date": "il y a 8 ans",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/ygDHKmijaOVvJncBel_x_cEdQ-ZVN_SD_r1aO939z2X70KI59N97APHISg7Z81__fwj4LYLfAA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "KALLIGRAFIE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1rmTUZdKaOA",
+     "titre": "Kalligrafie lernen für Einsteiger",
+     "chaine": "Alexander Flemming",
+     "vues": "213.450 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "10:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l-jswkPbU06RbEpZpHBzY--y2jwLsHhTFpK_MFnVpoPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO PAINT",
+     [
+      {
+       "t": "WITH WATERCOLOR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XeFaqls1xtk",
+     "titre": "Watercolor for beginners!",
+     "chaine": "Andrea Nelson Art",
+     "vues": "454K views",
+     "date": "2 years ago",
+     "duree": "2:28",
+     "avatar": "https://yt3.ggpht.com/pkpfgXWy6oyyWdVfta6AvFvqMmSnejWAbu6UjXyW31-ktpOM32cPnbhhUVQGhZ08WBgpUfprUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT PEINDRE",
+     [
+      {
+       "t": "À L'AQUARELLE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "f3mPWOZ1Xug",
+     "titre": "AQUARELLE débutant : 10 techniques de base (FACILE)",
+     "chaine": "Marie Boudon",
+     "vues": "790 k vues",
+     "date": "il y a 6 ans",
+     "duree": "13:15",
+     "avatar": "https://yt3.ggpht.com/1rnJfH9U0S6AVnv41V0EPiPntLSxl1H0AChPW0cw6g-u0EwTh5sMzgqJz1aUDSRXIr7jix-Ck5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MALST DU",
+     [
+      {
+       "t": "MIT AQUARELL",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jEhGzvRsa9M",
+     "titre": "Aquarell für Einsteiger | Felix Scheinberger",
+     "chaine": "artistravel",
+     "vues": "396.398 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "13:06",
+     "avatar": "https://yt3.ggpht.com/UDeyHX5_VZtZXHX_4UAk5WnoqXMOE56JGW_THU6KwrZF-zHfzmQ_ja0aIzgt9Fx0XJc-n2628Fo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO FEED",
+     [
+      {
+       "t": "YOUR CURIOSITY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NOURRIR",
+     [
+      {
+       "t": "TA CURIOSITÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÜTTERST DU",
+     [
+      {
+       "t": "DEINE NEUGIER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO PLAY",
+     [
+      {
+       "t": "DRUMS",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "et9hU7QMDYU",
+     "titre": "How To Play Drums - Your Very First Drum Lesson",
+     "chaine": "Drumeo",
+     "vues": "13M views",
+     "date": "12 years ago",
+     "duree": "7:01",
+     "avatar": "https://yt3.ggpht.com/rDA9JX4r-b2gIHLU6HYDjxLAhaRpzu3aivCGBk2CoGIEQA8yNBh5T2NwlwH23R2B_kNjSH6cw88=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT JOUER",
+     [
+      {
+       "t": "DE LA BATTERIE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JWMM9-MbcGc",
+     "titre": "DÉBUTANT : Votre Premier Rythme à la Batterie",
+     "chaine": "Lolo • Batterie",
+     "vues": "1 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "15:49",
+     "avatar": "https://yt3.ggpht.com/8evzJFPJKfuY5Of026LWdOAxC7ubp6CHib_L0_Ri8j7yCw5-KiKnmulCRDj2WW6kxvoOYkbbIf0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPIELST DU",
+     [
+      {
+       "t": "SCHLAGZEUG",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MR5WEcgdvzs",
+     "titre": "Schlagzeug lernen - Deine erste Schlagzeug Lesson (ideal für Schlagzeuganfänger)",
+     "chaine": "Schlagzeug-Lernen",
+     "vues": "492.589 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "12:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ax13iEvBU9hbtFDi2zZ_rahnaVeqdWbTXg8bXcwbEw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

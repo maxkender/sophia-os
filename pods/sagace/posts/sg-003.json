@@ -1,0 +1,1322 @@
+{
+ "id": "sg-003",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7680943672074030369",
+  "vues": 202000,
+  "publie_le": "2026-09-02",
+  "accroche": "5 compétence 10/10 à apprendre au lieu de scroller"
+ },
+ "titre": {
+  "fr": "5 compétences 10/10 à apprendre au lieu de scroller",
+  "en": "5 10/10 skills to learn instead of scrolling",
+  "de": "5 10/10-Skills zum Lernen, statt zu scrollen",
+  "it": "5 competenze 10/10 da imparare invece di scrollare",
+  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 5 adet 10/10 beceri",
+  "ro": "5 abilități de 10/10 de învățat în loc de scroll",
+  "cs": "5 dovedností 10/10, které se naučíš místo scrollování"
+ },
+ "legendes": {
+  "fr": "5 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "5 10/10 skills to learn instead of scrolling #learnontiktok #selfimprovement #skills",
+  "de": "5 10/10-Skills zum Lernen, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "5 competenze 10/10 da imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "5 habilidades 10/10 pra aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 5 adet 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "5 abilități de 10/10 de învățat în loc de scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "5 dovedností 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "im not alone - Žvaigždė",
+  "url": "https://www.tiktok.com/music/im-not-alone-7214561277266610990"
+ },
+ "notes": "Son post à 202 k (02/09), en 5 langues. Sa couverture (« COMPÉTENCE » noir 110, « À APPRENDRE » orange 139, « AU LIEU » noir 118, « DE SCROLLER » orange 152, couleur relevée #f8b858), « 5 compétence » corrigé au titre, « DES TRACTION » et « A LA MAIN » corrigés. Ses 5 compétences dans son ordre, ses couleurs et ses temps, d'autres vraies vidéos natives dans chaque langue (les siennes en fr : Eric Flag, apprentissage natation, Benjamin Brochet, Potion de vie, Enjoy Couture). Sophia en étape 4 sur 7 (cta C : « LÂCHER / TIKTOK », ce que j'ouvre au lieu de scroller), sa slide « ABONNE-TOI » retirée. tr, ro et cs ajoutés le 15/11 (vidéos natives : tr AĞIRSAĞLAM, SU'dan Sebepler, Op. Dr. Cengiz Türkmen, Safa Bozdağ, Osman Çakır ; ro tony saik, antrenorultau, Cursuri de Sanatate, Cultura Generala Video, Minione ; cs Jakub Enžl, Čejky, Zdravá & Fit, Bam bust, Petra Lammas), même cta C.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCE",
+      "cap": 110
+     },
+     {
+      "t": "À APPRENDRE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "AU LIEU",
+      "cap": 118
+     },
+     {
+      "t": "DE SCROLLER",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "TO LEARN",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "INSTEAD OF",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLING",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "ZUM LERNEN",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "STATT ZU",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLEN",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "cap": 110
+     },
+     {
+      "t": "DA IMPARARE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "INVECE DI",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLARE",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 110
+     },
+     {
+      "t": "PRA APRENDER",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "EM VEZ DE",
+      "cap": 118
+     },
+     {
+      "t": "ROLAR O FEED",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 110
+     },
+     {
+      "t": "YERİNE",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "ÖĞRENİLECEK",
+      "cap": 118
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 110
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "ÎN LOC",
+      "cap": 118
+     },
+     {
+      "t": "DE SCROLL",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "K NAUČENÍ",
+      "couleur": "#f8b858",
+      "cap": 139
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
+      "couleur": "#f8b858",
+      "cap": 152
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "DES TRACTIONS",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gsC5GsFGBAQ",
+     "titre": "Enchainer 20 TRACTIONS facilement en 30 jours ! (Tutoriel débutant + programme)",
+     "chaine": "Manga Workout",
+     "vues": "526 k vues",
+     "date": "il y a 3 ans",
+     "duree": "8:56",
+     "avatar": "https://yt3.ggpht.com/2ZPoi3LWonoW5shY0l6NVkWqmmCX-K7fVmTlXde1_b1e4oPwyI-MXIi7pStC6Y9kKu5AimJT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semaine pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "DO",
+     [
+      {
+       "t": "PULL-UPS",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GSYYXRjtkUQ",
+     "titre": "How To Get Your First Pull-Up (4 Steps)",
+     "chaine": "Jeremy Ethier",
+     "vues": "346K views",
+     "date": "5 years ago",
+     "duree": "9:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgPUjjOwxY-qWIYhqSzQlS_ncT-zL0MHVgKnxxnfJ59QQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 week to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KLIMMZÜGE",
+       "couleur": "#ea180c"
+      }
+     ],
+     "MACHEN"
+    ],
+    "video": {
+     "id": "tu2N9LgzmmI",
+     "titre": "Der Weg zum ERSTEN KLIMMZUG | Klimmzüge lernen",
+     "chaine": "Coach Stef",
+     "vues": "319.209 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "14:34",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "LE TRAZIONI",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dArMGj22n44",
+     "titre": "Guida alle trazioni alla sbarra: da 0 a 20",
+     "chaine": "Project inVictus",
+     "vues": "227K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "7:40",
+     "avatar": "https://yt3.ggpht.com/GdLXFtGtLXP7LmGY0QXAe83tbdAANGbNPW3Z9Phgw1VLpIhwsnmlJ2FVnRQ888n1dhyiAwVlbkc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 settimana per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "BARRA FIXA",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JqeQvFQxIig",
+     "titre": "Treino de barra fixa para iniciantes - Carol Borba",
+     "chaine": "Carol Borba",
+     "vues": "1 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "7:05",
+     "avatar": "https://yt3.ggpht.com/Nj4WO2suLbginPREoeyAZlPRrevlV1wCGb0dUtkX9xxzUsyWSfGTTviuuIsF4ocqczRttCWN=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BARFİKS",
+       "couleur": "#ea180c"
+      }
+     ],
+     "ÇEKMEK"
+    ],
+    "video": {
+     "id": "cImbL8ALYco",
+     "titre": "0 Barfiksten 20 Barfikse Adım Adım Bunları Yap!",
+     "chaine": "AĞIRSAĞLAM",
+     "vues": "254 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kaXcJZBJtgm5bU9i5ZsZLOUngVV_AUBbKZJ53_xpI927E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 hafta"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "TRACȚIUNI",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ytUGO2S6O_M",
+     "titre": "Invata sa faci tractiuni! 3 Pasi simpli/TonySaik",
+     "chaine": "tony saik",
+     "vues": "77 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/qCCr69eq9S-shHhaxQZoGdHIrNw1b_xSxo9YMymNGnf6lmQHTGjzrDxdcUv3y81sCZs8Rng-Rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZVLÁDNOUT",
+     [
+      {
+       "t": "SHYBY",
+       "couleur": "#ea180c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xygw6KRzDpM",
+     "titre": "JAK UDĚLAT PRVNÍ SHYB",
+     "chaine": "Jakub Enžl",
+     "vues": "174 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "12:18",
+     "avatar": "https://yt3.ggpht.com/lecjK9HZzcugMJkDO5qlGSj8_7U9uQiFm4hTnGMUZ9AhwmsCNknKq0GjCCOHlo5WopQz_i8v8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "NAGER",
+       "couleur": "#368ac6"
+      }
+     ],
+     "LE CRAWL"
+    ],
+    "video": {
+     "id": "0BELcjhKOlc",
+     "titre": "Apprendre a NAGER LE CRAWL en 5 étapes",
+     "chaine": "Mon Coach De Natation",
+     "vues": "1,4 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n_UBd8-agW2GdC_BhNt4jt4hKe94zZRrRbndFp0mxDH64=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semaine pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "SWIM",
+       "couleur": "#368ac6"
+      }
+     ],
+     "FRONT CRAWL"
+    ],
+    "video": {
+     "id": "6_vXycbD2TM",
+     "titre": "Learn To Swim Freestyle | A Simple Step-By-Step Guide",
+     "chaine": "Global Triathlon Network",
+     "vues": "1.4M views",
+     "date": "2 years ago",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ns7y5bTVS0-YQYpC2m3HDPnqhmcOH9dFKfvRjJ1VO72A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 week to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KRAULEN",
+       "couleur": "#368ac6"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "8p_cppnHUmk",
+     "titre": "Kraulen für Anfänger / Schwimmtraining - Kraultechnik lernen",
+     "chaine": "Klara Fuchs",
+     "vues": "804.368 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLepyyirjxBu0GXW-YLqS9-P0LjOmN3ywQJQJP1kkHfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "NUOTARE",
+       "couleur": "#368ac6"
+      }
+     ],
+     "A STILE LIBERO"
+    ],
+    "video": {
+     "id": "qrmeaLfkEbE",
+     "titre": "Come IMPARARE a nuotare STILE LIBERO con facilità",
+     "chaine": "Swimprove",
+     "vues": "91K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "14:30",
+     "avatar": "https://yt3.ggpht.com/8tU4rmJ5BBuxtPKm5d1E3bcYBKFs_ManlWL3e3-Go-NpjvLqMWBwyOhuRapKNYh1sA4mdv5I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 settimana per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "NADAR",
+       "couleur": "#368ac6"
+      }
+     ],
+     "CRAWL"
+    ],
+    "video": {
+     "id": "OA7NzLDe0tQ",
+     "titre": "NATAÇÃO PARA INICIANTES (NADO CRAWL) | AULA COMPLETA LIBERADA",
+     "chaine": "Nada Melhor | Jota Campos",
+     "vues": "254 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "9:33",
+     "avatar": "https://yt3.ggpht.com/iB70TBPjguhPURB848HMoPN6XxJXaIjmfcQVWiXLck_ArP26v31Dl7yTLBFrwRDxA8LEcdPT-w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SERBEST STİL",
+       "couleur": "#368ac6"
+      }
+     ],
+     "YÜZMEK"
+    ],
+    "video": {
+     "id": "bPqwWscP9oc",
+     "titre": "Kulaç Nasıl Atılır | Daha Hızlı Yüzmek İsteyenler Bu Videoya!",
+     "chaine": "SU'dan Sebepler",
+     "vues": "938 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n91esfFkiG2C5pWUfFqO2U04sLNgT_EGfJt87KzyY3uCc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 hafta"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ÎNOȚI",
+       "couleur": "#368ac6"
+      }
+     ],
+     "CRAUL"
+    ],
+    "video": {
+     "id": "_ZJjxquIcIA",
+     "titre": "Invata corect procedeul de inot crawl - Antrenorul Tau Bogdan Constantinescu",
+     "chaine": "antrenorultau",
+     "vues": "75 K vizionări",
+     "date": "acum 11 ani",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_klJjCJd76cPk36PHbaYPPepiELLBOoOeBgABbkv1Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PLAVAT",
+       "couleur": "#368ac6"
+      }
+     ],
+     "KRAULEM"
+    ],
+    "video": {
+     "id": "jhoY8zOnQB8",
+     "titre": "5 základů kraulu | Jak plavat rychleji a efektivněji?",
+     "chaine": "Čejky",
+     "vues": "77 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/q03bYoTo2tBb7etA9LRAZlHxeRY57sUebH0KEjRlRdvQXEN_BiES0XRkS_DKEZnV-oksscQMpg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "LÂCHER",
+     [
+      {
+       "t": "TIKTOK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "QUIT",
+     [
+      {
+       "t": "TIKTOK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WEG VON",
+     [
+      {
+       "t": "TIKTOK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "MOLLARE",
+     [
+      {
+       "t": "TIKTOK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LARGAR",
+     [
+      {
+       "t": "O TIKTOK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "TİKTOK'U",
+       "couleur": "#e07aa6"
+      }
+     ],
+     "BIRAKMAK"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "RENUNȚĂ",
+     [
+      {
+       "t": "LA TIKTOK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SEKNOUT",
+     [
+      {
+       "t": "S TIKTOKEM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "PORTER",
+       "couleur": "#124e8a"
+      }
+     ],
+     "UNE CHARGE"
+    ],
+    "video": {
+     "id": "Xs8J17XAaLQ",
+     "titre": "Bien porter un objet lourd sans douleur",
+     "chaine": "Major Mouvement",
+     "vues": "38 k vues",
+     "date": "il y a 7 ans",
+     "duree": "5:16",
+     "avatar": "https://yt3.ggpht.com/A3BpGqL6TLtFs_bInd2JYC8lcrWO8ICblsSkrS2yLkpkgpTNRUv-SgWJQVYGu2GAj46rVvuQ2os=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "LIFT",
+       "couleur": "#124e8a"
+      }
+     ],
+     "HEAVY THINGS"
+    ],
+    "video": {
+     "id": "zDUg7zHYXxE",
+     "titre": "Safe Lifting of Heavy Objects - Ask Doctor Jo",
+     "chaine": "AskDoctorJo",
+     "vues": "237K views",
+     "date": "13 years ago",
+     "duree": "2:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mhLXGaBbpSXiPTbIh7ymQ1cPm1P8Bq_Way7frUkULVag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "RICHTIG",
+       "couleur": "#124e8a"
+      }
+     ],
+     "SCHWER HEBEN"
+    ],
+    "video": {
+     "id": "ZstGtGiWXQc",
+     "titre": "Rückengerechtes Heben - so geht´s! Richtig schwere Lasten anheben",
+     "chaine": "fitundgud - Personal Training",
+     "vues": "81.879 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/x9k2QjROPfLjp8hUv2mQ_Aa-RD2JZqPaPyRJZdj-wSlieDJ3Kvhgm8_bJV4k6zg1aBw1dzzPQkM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "SOLLEVARE",
+       "couleur": "#124e8a"
+      }
+     ],
+     "UN PESO"
+    ],
+    "video": {
+     "id": "xfbHqwOGklo",
+     "titre": "Mal di schiena: trucchi e consigli per sollevare gli oggetti",
+     "chaine": "Marcello Chiapponi",
+     "vues": "16K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "5:20",
+     "avatar": "https://yt3.ggpht.com/x75B2J23gIQD5mSuz_dP0vyJ0Vgc1YXanfRX2T2M7uwEhm8PCzRcZO-KfMgdawkFX4vQO6eE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "CARREGAR",
+       "couleur": "#124e8a"
+      }
+     ],
+     "PESO"
+    ],
+    "video": {
+     "id": "vX98ksbrklw",
+     "titre": "Dicas de como carregar peso",
+     "chaine": "Dr.André Santos | Espaço da coluna",
+     "vues": "98 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "2:15",
+     "avatar": "https://yt3.ggpht.com/ZpfWvnzriDTkwzcXZXbZBXV5HZA0CK8tXIsOfqXZPZSjpn5LXuU-GVdYJ3AuwNMy_Ni6eeLj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "AĞIR YÜK",
+       "couleur": "#124e8a"
+      }
+     ],
+     "KALDIRMAK"
+    ],
+    "video": {
+     "id": "a4GsO1gTOGI",
+     "titre": "Bel ağrısı yaşamamak için ağır yük kaldırırken nelere dikkat etmek gerekir? - Op. Dr. Cengiz Türkmen",
+     "chaine": "Op. Dr. Cengiz Türkmen",
+     "vues": "21 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/peKCBLyywUTngtbCOL9Lj2INeJj4z81Z7G1-xaeStZCO7Q4YkvJWMpK_Btdac2k503AYAaL1nwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ RIDICI",
+       "couleur": "#124e8a"
+      }
+     ],
+     "GREUTĂȚI"
+    ],
+    "video": {
+     "id": "KBIDZBmr510",
+     "titre": "Cum sa-ti protejezi spatele cand ridici greutati",
+     "chaine": "Cursuri de Sanatate",
+     "vues": "4,2 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "3:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9vG_wHz3zQTK52Gat3yPWWLvngT8JrVyRo-Hb2JF-kA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZVEDAT",
+       "couleur": "#124e8a"
+      }
+     ],
+     "TĚŽKÉ VĚCI"
+    ],
+    "video": {
+     "id": "Aj4nT1N9pG4",
+     "titre": "Šetrné zvedání věcí ze země",
+     "chaine": "Zdravá & Fit",
+     "vues": "2,5 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "2:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lBQ9_InsYM-tdxz6xK2UsR5MV0njHvOONsoIRE0qdgUUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "LE MORSE",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QgnHDt6ciZQ",
+     "titre": "J'apprends le −− −−− ·−· ··· · en 5 jours 🎖",
+     "chaine": "Super Heco 💾⚡",
+     "vues": "80 k vues",
+     "date": "il y a 6 ans",
+     "duree": "15:43",
+     "avatar": "https://yt3.ggpht.com/ehnCDXjQEJ2RHiR6qe0AdJqFGTmxGC1WNHpXif-JaBHKm-cwJPqkuKo11IBP1YU0fsgI7r_QUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "MORSE CODE",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "D8tPkb98Fkk",
+     "titre": "LEARN MORSE CODE from a MEMORY CHAMP (in 15 minutes)",
+     "chaine": "Nelson Dellis",
+     "vues": "10M views",
+     "date": "7 years ago",
+     "duree": "15:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nS0O7OXvAbyGxVeXbWLbajNRw78ziPM-PBhKkehHLzObo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DAS MORSE-",
+     [
+      {
+       "t": "ALPHABET",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q6vhjmTlLt8",
+     "titre": "Morsezeichen lernen: So geht's ganz einfach!",
+     "chaine": "LangeWissen",
+     "vues": "105.597 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l8V-n_Iu_2ytdBoOlD188RZdSRWoSwJlH2ZHAKxW7lgA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "IL MORSE",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DCTkw4l21no",
+     "titre": "IMPARA IL CODICE MORSE IN 15 MINUTI - TUTORIAL",
+     "chaine": "Mind Skills",
+     "vues": "79K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "14:55",
+     "avatar": "https://yt3.ggpht.com/vQx6clkUz0Q26P_FP8DjkxTwBHT77YQei1N-eVxf1tMLzHGVIPhbVt7rWrgi2-iQG4rfcoT3GQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "CÓDIGO MORSE",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EC1xj0jAoqI",
+     "titre": "Como aprendi CÓDIGO MORSE EM 1 DIA!",
+     "chaine": "FELIJAO",
+     "vues": "882 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "9:19",
+     "avatar": "https://yt3.ggpht.com/gNuv8IFbrxGoISet4nU0bzVz-nYvXINLPugdukDj2Hqsy_b3BV97Iz-PShjAcNm87jc7Rm7STg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "MORS ALFABESİ",
+       "couleur": "#905a48"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "AYesmXJXDRw",
+     "titre": "Mors Alfabesi Nedir? Nasıl Çalışır? Mors Kodları Nelerdir?",
+     "chaine": "Safa Bozdağ - En Son Ne Dedim Ben?",
+     "vues": "98 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfov4b_Cy1k9I3-YKsh6Qr4ACTfo4fGenb31r6Tz5VNA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "CODUL MORSE",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X3X_-RrpFDk",
+     "titre": "Ce este alfabetul Morse",
+     "chaine": "Cultura Generala Video",
+     "vues": "11 K vizionări",
+     "date": "acum 13 ani",
+     "duree": "5:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m7yXmp2JG3u33NUCosmCuXqLWNltelTV0qq5ot65cr9hg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "MORSEOVKU",
+       "couleur": "#905a48"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7z06CpR3DVg",
+     "titre": "NEJSTARŠÍ ŠIFRA, Morseova abeceda, Skauting 1.1",
+     "chaine": "Bam bust",
+     "vues": "2,1 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "2:10",
+     "avatar": "https://yt3.ggpht.com/dA3mBf5edjliMpG3b02SFsazCW-aMGM6ZWn-ECW1vWigGu8D237ODtryb--Z0yX5SZq0BWM2=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COUDRE",
+     [
+      {
+       "t": "À LA MAIN",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uAVt12v15pc",
+     "titre": "points basiques couture main",
+     "chaine": "selfcouture",
+     "vues": "327 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ma7UwCVPIVF8Bf9jN3yMluvLsUYRQStslZ24IlNRDwhw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SEW",
+     [
+      {
+       "t": "BY HAND",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1FknfumFPX8",
+     "titre": "Hand-Sewing | Basic Stitches and Techniques",
+     "chaine": "Nutty Crafter",
+     "vues": "3.8M views",
+     "date": "11 years ago",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNZ5mhHv6qRQToVD_BQ4pTkK5bA4jdiqdOo8a7Lxvhtfo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "VON HAND",
+     [
+      {
+       "t": "NÄHEN",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "18tAQYm7Ri4",
+     "titre": "Von Hand nähen | Knoten Steppstich Applizieren | Linkshänder | nähen lernen mit Kindern | mommymade",
+     "chaine": "mommymade",
+     "vues": "103.446 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "25:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k1EmO3LYlqRG2Q0lxk8KruEauPxgkv02KSmhu-oALklw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CUCIRE",
+     [
+      {
+       "t": "A MANO",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VBs38ewLhVQ",
+     "titre": "I PUNTI A MANO FONDAMENTALI PER CUCIRE",
+     "chaine": "Vivi everyday",
+     "vues": "523K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "6:32",
+     "avatar": "https://yt3.ggpht.com/RfxIIMKFPALOsT2m4L93NbItjxWwXHP-Pz1VDd0SJULZ2ujguoUi5eG3POeyDrJ9jWJb5Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COSTURAR",
+     [
+      {
+       "t": "À MÃO",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9ZAb5o09DJE",
+     "titre": "7 Pontos Mais Usados na Costura Feita à Mão",
+     "chaine": "Meu Manequim",
+     "vues": "1,3 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "10:38",
+     "avatar": "https://yt3.ggpht.com/NP1lpgGr7739R1EwRX9tmngaf5b5llZWd9kKozIsYevzVWFLWOHAfHqJJPL8VfmKFQaukKlfXAo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ELDE",
+       "couleur": "#384c40"
+      }
+     ],
+     "DİKİŞ DİKMEK"
+    ],
+    "video": {
+     "id": "fN_mrcV_heU",
+     "titre": "Elde en sağlam dikiş nasıl dikilir - osman çakır",
+     "chaine": "Osman Çakır",
+     "vues": "721 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/NEFmbD3jcvPbP5ljKNNuftXJxHzbdhs8o75vT-nKQ9rDJWdTX4Pzx7igI7550VD4cTYgrgziWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ COȘI",
+     [
+      {
+       "t": "DE MÂNĂ",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FwkPOS_ZZzE",
+     "titre": "Tiv invizibil cusut de mână",
+     "chaine": "Minione by Ivan Andreea",
+     "vues": "4,5 K vizionări",
+     "date": "acum 1 an",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/fVUwyT5onluMkwQOOhVQD2GW5ASdRONi4qVumO8N5A3GN89MklnjyR96Dq0WVLhAug8Ku6KU3ks=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ŠÍT",
+     [
+      {
+       "t": "RUČNĚ",
+       "couleur": "#384c40"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pw69DcC-G4E",
+     "titre": "Jak se šije zadní steh?",
+     "chaine": "Petra Lammas - Síla ženské tvořivosti",
+     "vues": "11 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/VbY6oFKj9Lw48FdJnl6qhba8UGElyMR3ooF_EQ0OY5f5i7dOfBjSnaqcbgvsvUqZfa811gk7qy8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   }
+  }
+ ]
+}

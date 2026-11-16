@@ -1,0 +1,1322 @@
+{
+ "id": "sg-004",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7679488418337885473",
+  "vues": 153200,
+  "publie_le": "2026-08-29",
+  "accroche": "10 compétence 10/10 que tu peux apprendre au lieu de scrolle"
+ },
+ "titre": {
+  "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller",
+  "en": "10/10 skills you can learn instead of scrolling",
+  "de": "10/10 Skills, die du lernen kannst, statt zu scrollen",
+  "it": "Abilità 10/10 che puoi imparare invece di scrollare",
+  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll",
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování"
+ },
+ "legendes": {
+  "fr": "10 compétences 10/10 que tu peux apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills you can learn instead of scrolling #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die du lernen kannst, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che puoi imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que você pode aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care le poți învăța în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které se můžeš naučit místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Son post à 153 k (29/08), en 5 langues (fr, en, de, it, pt-BR). Sa couverture : ses 4 lignes noir / jaune (#f7b955, relevé sur sa couverture) et leurs tailles (110, 139, 118, 152) ; « A APPRENDRE » → « À APPRENDRE », « EN 2 MINUTE » → « EN 2 MINUTES », « scrolle » → « scroller ». Ses 5 compétences dans son ordre, d'autres vraies vidéos natives par langue (les siennes : Laetitia Valstar « Arrêtez de parler… », Dr Bastien Intartaglia, Le Monde de Jamy, Cafelista, Laurastar). Sophia en étape 4 sur 7 (cta A : « PARLER DE / TOUT », des cours courts écrits par de vrais profs), sa slide « ABONNE-TOI » retirée. tr/ro/cs (15/11 soir) : vidéos natives Baran Parlakyıldız, Aktifizyo, Asla Durma, Refika'nın Mutfağı, Sevilay ile Pratik Bilgiler (tr) ; Teodora Metiu, TopSucces, Marius Oiaga, CLARO Cafe, Tudor Personal Tailor (ro) ; Pavel Procházka, ZEK, Zvedni se!, Coffee Planet, Gentleman Store (cs).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCE",
+      "cap": 110
+     },
+     {
+      "t": "À APPRENDRE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "AU LIEU",
+      "cap": 118
+     },
+     {
+      "t": "DE SCROLLER",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "TO LEARN",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "INSTEAD OF",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLING",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 110
+     },
+     {
+      "t": "ZUM LERNEN",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "STATT ZU",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLEN",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 110
+     },
+     {
+      "t": "DA IMPARARE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "INVECE DI",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLARE",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 110
+     },
+     {
+      "t": "PARA APRENDER",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "EM VEZ DE",
+      "cap": 118
+     },
+     {
+      "t": "ROLAR O FEED",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 110
+     },
+     {
+      "t": "YERİNE",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ÖĞRENECEĞİN",
+      "cap": 118
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 110
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "ÎN LOC SĂ",
+      "cap": 118
+     },
+     {
+      "t": "DAI SCROLL",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 110
+     },
+     {
+      "t": "K NAUČENÍ",
+      "cap": 139,
+      "couleur": "#f7b955"
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 118
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
+      "cap": 152,
+      "couleur": "#f7b955"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DEVENIR",
+     [
+      {
+       "t": "ÉLOQUENT",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yDzKRFn0Oko",
+     "titre": "S’entraîner à mieux parler : 5 habitudes quotidiennes pour être plus éloquent, clair et confiant",
+     "chaine": "Laetitia Valstar",
+     "vues": "926 k vues",
+     "date": "il y a 1 an",
+     "duree": "20:32",
+     "avatar": "https://yt3.ggpht.com/T4ekJ9CC5rF3i9qgauJ-xr2zOEW8AaiWGj5xj9nuMOKLJWfJL2NTJffQNtPAEIINEfu_orY3LnY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BECOME",
+     [
+      {
+       "t": "ARTICULATE",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rj5W40LjspA",
+     "titre": "How to Be Disgustingly Articulate And Well Spoken",
+     "chaine": "Vinh Giang",
+     "vues": "328K views",
+     "date": "3 months ago",
+     "duree": "15:56",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WERDE",
+     [
+      {
+       "t": "REDEGEWANDT",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oiPHLGN23P8",
+     "titre": "Übungen für eine klare Aussprache – Sprechen wie die Profis",
+     "chaine": "Sprechen wie die Profis",
+     "vues": "177.629 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlPbWZKzkALdnY9tNTN9Z9JP02UnuGAZpIz4gnYutCHg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DIVENTARE",
+     [
+      {
+       "t": "ELOQUENTE",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ClF7ujUB7m0",
+     "titre": "Eloquenza ed Espressività: consigli per PARLARE BENE",
+     "chaine": "Rick DuFer",
+     "vues": "845K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "27:31",
+     "avatar": "https://yt3.ggpht.com/F1VcTEjAOvvvjc0Cv93cdhkixo24vAkYj41Hpd3F9vDxdGUrkS1EiA91MjsdiyxHKlm17V53mRs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SER",
+     [
+      {
+       "t": "ELOQUENTE",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-w9tPITrRvM",
+     "titre": "5 exercícios para treinar oratória em casa (apenas 5min POR DIA)",
+     "chaine": "El Professor da Oratória",
+     "vues": "328 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "8:05",
+     "avatar": "https://yt3.ggpht.com/JRRnzRD1rMftcRJ4Rzpt39F8emS7w3NQClW_NlbsEq_RAS7KgijhvQkPAeAZDFXCcVzBwFvb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ETKİLİ",
+     [
+      {
+       "t": "KONUŞMAK",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KI8dwtic_Ds",
+     "titre": "Bana 8 dakikanı ver, %88 daha iyi konuşmaya başla.",
+     "chaine": "Baran Parlakyıldız",
+     "vues": "564 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/8mstjnu9zGxux16RpWzxNxsBlbOpr0PRnsUT7rjDIeBWrAId-RnZCB8bg21v-G5tfT_gTAbndkQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DEVII",
+     [
+      {
+       "t": "ELOCVENT",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k__YyNugykM",
+     "titre": "Exercițiul minune de corectare a vorbirii",
+     "chaine": "Teodora Metiu",
+     "vues": "110 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loOJ_R8wzbIlWrvyHoFSbVhhD6JGj7E3Y9FgmPJc-2YR4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BÝT",
+     [
+      {
+       "t": "VÝŘEČNÝ",
+       "couleur": "#74563a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gzGbVnUtcvc",
+     "titre": "Jak mluvit tak, aby vám lidé naslouchali.",
+     "chaine": "Pavel Procházka",
+     "vues": "54 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "14:40",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "S'ENDORMIR",
+     [
+      {
+       "t": "EN 2 MINUTES",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SNAlkxq3vkw",
+     "titre": "4 TECHNIQUES POUR S'ENDORMIR EN 5 MINUTES",
+     "chaine": "Dans Ton Corps",
+     "vues": "115 k vues",
+     "date": "il y a 1 an",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/F0_TFlKO0GIhjG0wa5XmVZVlw4iZwHJfDT-30uepJQQcx6nk4QdYka-fUsFCYIKBwf-FV1e9zAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FALL ASLEEP",
+     [
+      {
+       "t": "IN 2 MINUTES",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zpBj5Z1TbyU",
+     "titre": "How to Fall Asleep in 2 Minutes (Military Technique)",
+     "chaine": "Justin Agustin",
+     "vues": "12M views",
+     "date": "4 years ago",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZkWJ4PkB_nOGESU9M6CM-XZUW_V7aRr0AT534gukhYCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINSCHLAFEN",
+     [
+      {
+       "t": "IN 2 MINUTEN",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LOFHjWmnytI",
+     "titre": "Einschlafen in 60 Sekunden - Die 4-7-8 Methode 😴",
+     "chaine": "Ideen-Couch",
+     "vues": "142.026 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mAVlnP2X66OVKK3Rii1jyZuGGolanfrURe3N9GHaOUcQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ADDORMENTARSI",
+     [
+      {
+       "t": "IN 2 MINUTI",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3wZU6WKsFnk",
+     "titre": "Come Addormentarsi in 2 Minuti: La tecnica dei Marines",
+     "chaine": "IL LATO POSITIVO",
+     "vues": "4,2 Mln visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kIdS0V93z_CqiryUuoI4W2asMqZ-q_-Jk3uwPpuytzYQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DORMIR",
+     [
+      {
+       "t": "EM 2 MINUTOS",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PAGOy6lrDOo",
+     "titre": "'Método para dormir dos militares' pode ajudar a dormir em 2 minutos?",
+     "chaine": "BBC News Brasil",
+     "vues": "29 mil visualizações",
+     "date": "há 6 meses",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxfAGf2WYRHqMTgrScAVCAKN4ZHqwY89Z_5KirrVNsQTmi=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "2 DAKİKADA",
+       "couleur": "#cf1b14"
+      }
+     ],
+     "UYKUYA DALMAK"
+    ],
+    "video": {
+     "id": "HP4caipMyqU",
+     "titre": "UYKU SORUNUNU ÇÖZÜN (2 Dakikada Uykuya Dalmak İçin Etkili Yöntemler)",
+     "chaine": "Aktifizyo",
+     "vues": "1,5 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "6:45",
+     "avatar": "https://yt3.ggpht.com/SE33lic18h30lCp81On5U_jfFR6WEmubhmGQaCV-vLGly7g6K0Eg4Smixi4fBzPNE9_skKeIQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ADORMI",
+     [
+      {
+       "t": "ÎN 2 MINUTE",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RD0Rp6ZKyWk",
+     "titre": "CUM SA ADORMI REPEDE - Tehnica de a adormi in 2 MINUTE",
+     "chaine": "TopSucces",
+     "vues": "168 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "4:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpaVq-Pj6_nGqSz3TKZtxbIFsneeggw18x0AvHKHCYEn4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "USNOUT",
+     [
+      {
+       "t": "ZA 2 MINUTY",
+       "couleur": "#cf1b14"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3Q2B-P2BedU",
+     "titre": "JAK USNOUT ZA 2 MINUTY?",
+     "chaine": "ZEK",
+     "vues": "63 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "2:41",
+     "avatar": "https://yt3.ggpht.com/E5pyh32lJUoQgZslwC5aL0aNZX_rYHTNZ0afB2bNgsJwH8glZ5BT76QGWo7VE4LauAqj43IFtQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "PARLER DE",
+     [
+      {
+       "t": "TOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TALK ABOUT",
+     [
+      {
+       "t": "ANYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "ÜBER ALLES",
+     [
+      {
+       "t": "REDEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PARLARE",
+     [
+      {
+       "t": "DI TUTTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FALAR DE",
+     [
+      {
+       "t": "TUDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER KONUDA",
+     [
+      {
+       "t": "KONUŞABİLMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ VORBEȘTI",
+     [
+      {
+       "t": "DESPRE ORICE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MLUVIT",
+     [
+      {
+       "t": "O ČEMKOLIV",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "COURIR",
+       "couleur": "#a5877b"
+      }
+     ],
+     "SANS SE BLESSER"
+    ],
+    "video": {
+     "id": "Mdu4yqAMGeE",
+     "titre": "COMMENT BIEN COURIR si j’ai DES DOULEURS ou pour NE PAS SE BLESSER ? conseils kiné @flaviobonnet",
+     "chaine": "Hem Ton Kiné",
+     "vues": "81 k vues",
+     "date": "il y a 4 ans",
+     "duree": "8:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lcZe3__Qpg0G59pShm_-D7NCSLds_3B9Yq7yL-ZE148A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "RUN",
+       "couleur": "#a5877b"
+      }
+     ],
+     "WITHOUT INJURY"
+    ],
+    "video": {
+     "id": "v1Bj-0QYnIg",
+     "titre": "10 Minutes to Fix Your Running Form",
+     "chaine": "Nicklas Rossner",
+     "vues": "2.1M views",
+     "date": "2 years ago",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/_rHUDggAueTG55Tn04E2Z-F33Ml4FQshqU2rABmPmHgdDCJtLyHqStFCqWgWPBRXsoaQszkT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "LAUFEN",
+       "couleur": "#a5877b"
+      }
+     ],
+     "OHNE VERLETZUNG"
+    ],
+    "video": {
+     "id": "lhEwMUCPyk0",
+     "titre": "Joggen für Anfänger: So gelingt der Einstieg ins Lauftraining - Tipps, Trainingsplan & Fallstricke",
+     "chaine": "DoktorWeigl",
+     "vues": "204.086 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_la_3DQ-H6W6MSa2n7C3wwNS3-H8iFXQYYvDJjOoKFY_C0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "CORRERE",
+       "couleur": "#a5877b"
+      }
+     ],
+     "SENZA INFORTUNI"
+    ],
+    "video": {
+     "id": "IE5mgW64jvA",
+     "titre": "Correre NON causa infortuni: 8 consigli per smettere subito di infortunarti quando ti alleni",
+     "chaine": "Correre Naturale",
+     "vues": "21K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "8:39",
+     "avatar": "https://yt3.ggpht.com/aphc9Y7Rdsj4tHuXxwZqKdBbApFjBRT6hu8hcQHDYYPEKy68TmxB3KBdXsaJQJPhLSGJmXMf=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "CORRER",
+       "couleur": "#a5877b"
+      }
+     ],
+     "SEM SE MACHUCAR"
+    ],
+    "video": {
+     "id": "Xhjlw4fNWSE",
+     "titre": "Como prevenir lesões na corrida. As TOP 5 lesões.",
+     "chaine": "Raquel Castanharo",
+     "vues": "68 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "11:22",
+     "avatar": "https://yt3.ggpht.com/t8V2iniXXtl4uZbw3KxKW5KvHUtfk4B9aoXWsMPZgSazxM8nx4H8HlqP-VB16npi2gMDCylBo70=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SAKATLANMADAN",
+     [
+      {
+       "t": "KOŞMAK",
+       "couleur": "#a5877b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QPnOTNVH5cQ",
+     "titre": "Sakatlanmadan Koşmanın 10 İpucu",
+     "chaine": "Asla Durma",
+     "vues": "54 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "12:38",
+     "avatar": "https://yt3.ggpht.com/gEx1s674dnu05r3JC5weXwCKiDl5kXGbfHCBUpc5oYSSL3um3djZamLtma-FqBj7qoDnkUxs1Aw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ALERGI",
+       "couleur": "#a5877b"
+      }
+     ],
+     "FĂRĂ ACCIDENTĂRI"
+    ],
+    "video": {
+     "id": "CUqjpwbilZM",
+     "titre": "Cum sa alergi cu o forma corecta – TEHNICA DE ALERGARE (VIDEO EXPLICATIV)",
+     "chaine": "Marius Oiaga",
+     "vues": "70 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/ION0nHpA79qO9djXmDfQEwcJa5GEErKbSk3xlQ55p16htd9E_L_-EeClGkUo4jVziK8Zicy3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "BĚHAT",
+       "couleur": "#a5877b"
+      }
+     ],
+     "BEZ ZRANĚNÍ"
+    ],
+    "video": {
+     "id": "gondlpY8Vaw",
+     "titre": "Běh #1 | Technika běhání a časté chyby | Zvedni se!",
+     "chaine": "Zvedni se!",
+     "vues": "161 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kCiw3Ul9wxBMslSo0Pmgo6hWD3NoOMqOHs93G-CqDScg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "UN BON CAFÉ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "t1MxaPcJel0",
+     "titre": "Comment faire un bon café avec une cafetière italienne ?",
+     "chaine": "Café Expresso",
+     "vues": "683 k vues",
+     "date": "il y a 6 ans",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIItobcObTDq1eULE9OQxg2aeXfvG-95lEIE6AgQ0CTQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min à apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE",
+     [
+      {
+       "t": "GREAT COFFEE",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZCXG0BCFLNA",
+     "titre": "A Beginner's Guide to Making Great Coffee",
+     "chaine": "Charlie Anderson",
+     "vues": "397K views",
+     "date": "4 years ago",
+     "duree": "9:37",
+     "avatar": "https://yt3.ggpht.com/pzSUKpiVs9mbgpa8mYTd6jIr8KQNFLuPz4uT6apXCSsYuFadY8nbVVLONtxr1fEfmBMNuX77iA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GUTEN",
+     [
+      {
+       "t": "KAFFEE KOCHEN",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FznInRH1qmo",
+     "titre": "Wie man guten Kaffee macht | SWR Handwerkskunst",
+     "chaine": "SWR Handwerkskunst",
+     "vues": "509.885 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "22:53",
+     "avatar": "https://yt3.ggpht.com/EBFLt4mLsAN4gBeQUyGiLuHFNinPNZ4jIRHzMWFDwmFpOe60J4Sg5TrtEckmKvs69ZfxfqvJsA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "UN BUON CAFFÈ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7wJe24b3XN8",
+     "titre": "Come fare il caffè napoletano perfetto con la caffettiera moka a casa",
+     "chaine": "Fanpage.it",
+     "vues": "131K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nxkSuUQL3eb8dkJ55qyLjzTnsot6lsHU742V1E0rUvA6Ss=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "UM BOM CAFÉ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k5tzvInGVmg",
+     "titre": "VOCÊ SABE PASSAR UM BOM CAFÉ COADO? | Mohamad Hindi",
+     "chaine": "Mohamad Hindi",
+     "vues": "498 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "4:47",
+     "avatar": "https://yt3.ggpht.com/0ZPN6lLPDhWfMyqjDtuVZ4pWkaLiaNjUMXqnZUo4MmpmLwqyBezVu6FOKxfgrGLlj5D665HW3P0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İYİ BİR KAHVE",
+       "couleur": "#f2ce27"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "pl8ZCftsSxA",
+     "titre": "Kahve Hakkında Bilmeniz Gereken Her Şey! | 8 Kahve Tarifi | Filtre, Türk, Latte, Espresso ve Fazlası",
+     "chaine": "Refika'nın Mutfağı",
+     "vues": "550 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "21:52",
+     "avatar": "https://yt3.ggpht.com/cqoZ06A5fIOfkQOrHQI5xgf7V5uQ2qtm336J9kmaHSHy554jgIUBqHTM6p5fqhHT8QhR3nkU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "O CAFEA BUNĂ",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BvAt3tqKD48",
+     "titre": "Cum să faci CEA MAI BUNĂ cafea la ibric chiar la tine acasă *demonstratie* ☕️ 🏆 ⭐",
+     "chaine": "CLARO Cafe",
+     "vues": "17 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "12:08",
+     "avatar": "https://yt3.ggpht.com/gR2xof4iOs1he7IFYQZh6F_0N8lyVCATHiTyQzuZVv4M8fdgrgbZ06wKCH0igC8wVX8Z4YdNTjI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "DOBROU KÁVU",
+       "couleur": "#f2ce27"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rnsSAneNugs",
+     "titre": "Příprava kávy v moka konvičce Tognana",
+     "chaine": "Coffee Planet",
+     "vues": "74 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k0nu-sN4CrgQHWSYaw8HaKENdCoQ9JZcEsPu2Kr6z8Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "REPASSER",
+       "couleur": "#bd6851"
+      }
+     ],
+     "UNE CHEMISE"
+    ],
+    "video": {
+     "id": "cEx0B2tuZ2Y",
+     "titre": "Repasser une chemise en deux temps trois mouvements",
+     "chaine": "Calor Belgique",
+     "vues": "651 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzWggF5OKDfxiw71rsRvR4yUR1HQRTvxIL_Mz37qJuew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min à apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "IRON",
+       "couleur": "#bd6851"
+      }
+     ],
+     "A SHIRT"
+    ],
+    "video": {
+     "id": "0EpinulvKTA",
+     "titre": "How to Iron a Dress Shirt | Art of Manliness",
+     "chaine": "Art of Manliness",
+     "vues": "3.8M views",
+     "date": "12 years ago",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/ZTf0fjWtbo309aFYf0vIMJ0KSBkAfpzgmbk7JyE7bEQf1BP1KTGkQAx1V-NnU6_W-ebbmaQsS2c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "HEMDEN",
+       "couleur": "#bd6851"
+      }
+     ],
+     "RICHTIG BÜGELN"
+    ],
+    "video": {
+     "id": "kiOlkSO83ck",
+     "titre": "Hemd bügeln Herrenhemd richtig bügeln Businesshemd bügeln",
+     "chaine": "The Handyman",
+     "vues": "488.960 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/cN-bSYZLb81XE-BuNUWikixUFlmqwmDvblhSRAP4LovgUVOzafFDSnR0yE4ZxPCBzYXRInOwKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "STIRARE",
+       "couleur": "#bd6851"
+      }
+     ],
+     "UNA CAMICIA"
+    ],
+    "video": {
+     "id": "FNIncR_Jgao",
+     "titre": "Tutorial: come stirare una camicia, in circa 5 minuti",
+     "chaine": "Lavanderia Raggio di Sole",
+     "vues": "292K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "5:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lsPCOc6ZERnqsCjit3dIO5gEjoMGDm-6aKDzjitFVGfxw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PASSAR",
+       "couleur": "#bd6851"
+      }
+     ],
+     "UMA CAMISA"
+    ],
+    "video": {
+     "id": "PzYcR5J_j-Q",
+     "titre": "Como passar uma Camisa Social",
+     "chaine": "ComoFaz",
+     "vues": "1,3 mi visualizações",
+     "date": "há 12 anos",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrRFChgBJWc483czaegWXUGNjhv6_ImWYAnTA87PMnc2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÖMLEK",
+     [
+      {
+       "t": "ÜTÜLEMEK",
+       "couleur": "#bd6851"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TkyJVpcVZdc",
+     "titre": "Gömlek Nasıl Ütülenir? | Püf Noktalarıyla Evde Gömlek Ütüleme Teknikleri",
+     "chaine": "Sevilay ile Pratik Bilgiler",
+     "vues": "212 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "5:58",
+     "avatar": "https://yt3.ggpht.com/_qD0v_1ZOSpbaWZ4TJJRD_TKgcxmjG1fSV6AZoJyiAYmdHgMHduH7bL1Iw3Yq-bPmTQWkNvftNI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ CALCI",
+       "couleur": "#bd6851"
+      }
+     ],
+     "O CĂMAȘĂ"
+    ],
+    "video": {
+     "id": "lYJbgzIqHgk",
+     "titre": "Cum se calca corect o camasa - Tudor Tailor",
+     "chaine": "Tudor. Personal Tailor",
+     "vues": "312 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "2:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lrlXPqPQOYujY61SfKUY3iMCum6NZ5Jddo74BXQZ7KsVg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "VYŽEHLIT",
+       "couleur": "#bd6851"
+      }
+     ],
+     "KOŠILI"
+    ],
+    "video": {
+     "id": "fnp8AL9X6CA",
+     "titre": "Jak jednoduše vyžehlit košili za 5 minut | Gentleman Store 💛",
+     "chaine": "Gentleman Store",
+     "vues": "91 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "6:59",
+     "avatar": "https://yt3.ggpht.com/mVVd67U0aZ0HqnVihPuZEOwOmw97NKNYSgHPmBNpQ3IZAmOio3yW1QdKl9AOz30iPHEtWEjsYRI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,333 @@
+{
+ "id": "ka-029",
+ "titre": {
+  "en": "10/10 skills for better sleep",
+  "fr": "10/10 skills pour mieux dormir",
+  "de": "10/10 Skills für besseren Schlaf"
+ },
+ "legendes": {
+  "en": "10/10 skills for better sleep #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour mieux dormir #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für besseren Schlaf #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7240852724106005291"
+ },
+ "notes": "Full test (BLEO, 15/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le sommeil). Décor falaise, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : s'endormir vite, faire une sieste, se lever tôt. Musique : son « original sound » 7240852724106005291 de son manifeste, jamais pris, pour alterner. Sophia en étape 3 « HOW TO STOP SCROLLING IN BED » : cta C, « 5 min a day ». Vraies vidéos : en Justin Agustin, Med School Insiders, Ndup Mastery ; fr Europe 1, Allo Docteurs, Emilio ; de Tomary, AOK, Coach Stef.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS FOR",
+     "BETTER SLEEP"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "MIEUX DORMIR"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "BESSEREN",
+     "SCHLAF"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "FALL ASLEEP",
+       "couleur": "#5176e0"
+      }
+     ],
+     [
+      {
+       "t": "IN 2 MINUTES",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zpBj5Z1TbyU",
+     "titre": "How to Fall Asleep in 2 Minutes (Military Technique)",
+     "chaine": "Justin Agustin",
+     "vues": "12M views",
+     "date": "4 years ago",
+     "duree": "2:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZkWJ4PkB_nOGESU9M6CM-XZUW_V7aRr0AT534gukhYCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "S'ENDORMIR VITE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Td98PUoC08s",
+     "titre": "La technique du 4-7-8, le remède miracle pour s'endormir",
+     "chaine": "Europe 1",
+     "vues": "333 k vues",
+     "date": "il y a 11 ans",
+     "duree": "3:26",
+     "avatar": "https://yt3.ggpht.com/J-di-D8Nm9NvPJ_WB9BTVHnQc99W6HHknZHq5yuWZ0PB6TqMVc2JOp7-APG8HnDrfgco2bqm9A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHLÄFST DU",
+     [
+      {
+       "t": "SCHNELL EIN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KRehkTrkYZw",
+     "titre": "Einschlafen in 1 Minute Trick | Selbstexperiment",
+     "chaine": "Tomary",
+     "vues": "2,4 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "7:16",
+     "avatar": "https://yt3.ggpht.com/gxG8Y9l8Dfg0hOL42zFA2g2c2NsmvFHun4_DpPjAHMGT7uKHRC2meCAM0EhEYPgucJPB8V70cvk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO TAKE",
+     [
+      {
+       "t": "A POWER NAP",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q7F2mNWjzgM",
+     "titre": "How to Nap and NOT Wake Up Groggy | 4 Tips",
+     "chaine": "Med School Insiders",
+     "vues": "218K views",
+     "date": "8 years ago",
+     "duree": "7:55",
+     "avatar": "https://yt3.ggpht.com/u-HzltuKtE_y3KqRS_ea2ThRDENTgFzDuRFQHPBVoZcmnriMBWc5u-1xHLh1QA9peeMs8HIS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UNE MICRO-SIESTE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rSAuJBzhH-Y",
+     "titre": "Comment faire une micro-sieste ? - Le Magazine de la santé",
+     "chaine": "Allo Docteurs",
+     "vues": "32 k vues",
+     "date": "il y a 8 ans",
+     "duree": "2:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nSX4jkHyWNDL9UBGaVGscb3vtobgIrNK70WGnUFm04Hyo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "EINEN POWERNAP",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uptuQGwNKeU",
+     "titre": "Nickerchen: Wie lange sollte ein Powernap dauern?",
+     "chaine": "AOK - Der Gesundheitskanal",
+     "vues": "97.747 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/1KJj46cSlEvqgWy1uGX7wollCZPtXWjlG54h7sAuVMpkRTofPHp_T-wGncl3rjT73v0BgaX8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO STOP",
+     [
+      {
+       "t": "SCROLLING IN BED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ARRÊTER",
+     [
+      {
+       "t": "DE SCROLLER AU LIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HÖRST DU AUF,",
+     [
+      {
+       "t": "IM BETT ZU SCROLLEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "WAKE UP EARLY",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hhPWHoWgu9g",
+     "titre": "How to wake up early (without snoozing)",
+     "chaine": "Ndup Mastery",
+     "vues": "334K views",
+     "date": "1 year ago",
+     "duree": "4:22",
+     "avatar": "https://yt3.ggpht.com/CE5vCgqnquVEzrySjS4n3zwMFixJjQOX4SR62EzeH1vPpHnlwCTHdLixDW2iOE-3vdBGmgbdfi0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "SE LEVER TÔT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0kXifja0u1g",
+     "titre": "COMMENT SE LEVER TÔT FACILEMENT (5 ASTUCES)",
+     "chaine": "Emilio",
+     "vues": "569 k vues",
+     "date": "il y a 5 ans",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/NKv2f_MdR9cZPEeTwmr9M7kCB-w6SN4Zq9ENKN0yPk-AisjMvMkuhBG2kr7ZQ3Vng5Oil3A-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STEHST DU",
+     [
+      {
+       "t": "FRÜH AUF",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jDtcrvUonDc",
+     "titre": "Nie wieder SNOOZE drücken und morgens direkt aufstehen",
+     "chaine": "Coach Stef",
+     "vues": "68.607 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

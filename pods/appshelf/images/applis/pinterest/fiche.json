@@ -1,0 +1,36 @@
+{
+ "id": 429047995,
+ "nom": "Pinterest",
+ "editeur": "Pinterest, Inc.",
+ "categorie": "Lifestyle",
+ "note": 4.77606,
+ "avis": 5824556,
+ "url": "https://apps.apple.com/us/app/pinterest/id429047995?uo=4",
+ "pays": {
+  "en": {
+   "nom": "Pinterest",
+   "note": 4.77606,
+   "avis": 5824556,
+   "captures_locales": false
+  },
+  "es": {
+   "nom": "Pinterest",
+   "note": 4.68365,
+   "avis": 292628,
+   "captures_locales": true
+  },
+  "it": {
+   "nom": "Pinterest",
+   "note": 4.71164,
+   "avis": 297035,
+   "captures_locales": true
+  },
+  "pt-BR": {
+   "nom": "Pinterest",
+   "note": 4.85512,
+   "avis": 1226888,
+   "captures_locales": true
+  }
+ },
+ "description": "Pinterest is a place of endless possibilities. You can:\n- Discover everyday inspiration\n- Shop styles you love\n- Try and learn something new\n\nCreate boards, save Pins and make collages of all your inspiration. Unlock billions of ideas, from fashion tips and easy recipes to DIY projects and fresh ways to redo your space. Creating the life you love? \n\nIt's Possible."
+}

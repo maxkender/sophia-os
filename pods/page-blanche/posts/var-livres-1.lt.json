@@ -1,0 +1,417 @@
+{
+ "post_id": "var-livres-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "5 knygos tiems, kurie mano, kad [[nekenčia skaityti]]"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(trumpos ir itin įtraukiančios)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7700620281760533792_1.jpg",
+      "boite": [
+       95,
+       420,
+       590,
+       437
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to tolerate boring repetition"
+     ],
+     "fr": "apprends à [[supporter la routine chiante]]",
+     "texte": "1. [[Apie peles ir žmones]], Steinbeck"
+    },
+    "T2": {
+     "en": [
+      "most success is less",
+      "exciting than it looks"
+     ],
+     "fr": "réussir, c'est [[moins excitant]] que ça en a l'air",
+     "texte": "du darbininkai, viena svajonė: [[savas kampas]]"
+    },
+    "T3": {
+     "en": [
+      "it’s doing the same",
+      "useful things for",
+      "months after the",
+      "novelty disappears"
+     ],
+     "fr": "c'est répéter les mêmes trucs utiles [[des mois]], bien après l'effet waouh",
+     "texte": "jauti, kad artėja kažkas blogo, bet vis tiek [[negali sustoti skaityti]]"
+    },
+    "T4": {
+     "en": [
+      "consistency gets powerful when other people get bored",
+      "and move on"
+     ],
+     "fr": "[[la régularité]] devient une force quand les autres s'ennuient et lâchent",
+     "texte": "apie 100 puslapių, o pabaiga [[neišeina iš galvos kelias dienas]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "fr": "accepte de t'[[ennuyer]]",
+     "texte": "2. [[Schachnovelle]], Zweig"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "fr": "[[chaque]] file d'attente, balade, pause pipi : on remplit tout",
+     "texte": "laive šachmatų pasaulio čempionas sutinka tylų nepažįstamąjį"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "fr": "ça a l'air de rien, mais ton attention n'a [[plus jamais l'occasion]] de se poser",
+     "texte": "nereikia nieko išmanyti apie šachmatus, iš tikrųjų tai apie tai, [[kiek galima išbandyti protą]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "fr": "chaque jour, [[20-30 minutes]] sans podcast, musique, scroll ni deuxième écran",
+     "texte": "mažiau nei 100 puslapių, tobula vienam vakarui ar ilgai kelionei traukiniu"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[nepaleisi jos iš rankų]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "make decisions before you feel ready"
+     ],
+     "fr": "décide [[avant de te sentir prête]]",
+     "texte": "3. [[Metamorfozė]] (Franz Kafka, 1915)"
+    },
+    "T2": {
+     "en": [
+      "there will never be a",
+      "perfect moment, you will",
+      "never feel ready"
+     ],
+     "fr": "[[le moment parfait n'existe pas]], tu te sentiras jamais prête",
+     "texte": "jis pabunda milžinišku vabzdžiu, o pirmas rūpestis [[nepavėluoti į darbą]]"
+    },
+    "T3": {
+     "en": [
+      "take that risk you've",
+      "been thinking about, you",
+      "have nothing to lose"
+     ],
+     "fr": "prends ce risque auquel tu penses depuis longtemps, [[t'as rien à perdre]]",
+     "texte": "skamba absurdiškai, bet [[keistai pažįstama]], jei tavo gyvenimas įstrigo"
+    },
+    "T4": {
+     "en": [
+      "procrastination is making you lose trust in yourself"
+     ],
+     "fr": "procrastiner te fait [[perdre confiance en toi]]",
+     "texte": "mažiau nei 100 puslapių, [[perskaitysi vienu prisėdimu]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685340052989398275_1.jpg",
+      "boite": [
+       97,
+       417,
+       703,
+       566
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "wake up before everyone else"
+     ],
+     "fr": "lève-toi [[avant tout le monde]]",
+     "texte": "4. [[Svetimas]], Albert Camus"
+    },
+    "T2": {
+     "en": [
+      "no messages, no notifications, no one needs you yet"
+     ],
+     "fr": "zéro message, zéro notif, [[personne n'a besoin de toi]]",
+     "texte": "jos pirmas sakinys [[vienas garsiausių literatūroje]]"
+    },
+    "T3": {
+     "en": [
+      "the first hour of the day is",
+      "when your focus is at its",
+      "best, so use it for your",
+      "own goals"
+     ],
+     "fr": "dans la première heure de la journée, ta concentration est [[au max]], garde-la pour tes objectifs",
+     "texte": "žmogus, kuris nevaidina jausmų, kurių visi iš jo tikisi, ir [[pasaulis, kuris to neatleidžia]]"
+    },
+    "T4": {
+     "en": [
+      "before anyone else can",
+      "take your attention"
+     ],
+     "fr": "avant que quelqu'un [[te prenne ton attention]]",
+     "texte": "trumpi, paprasti sakiniai, [[keistai hipnotizuoja]]"
+    },
+    "T5": {
+     "en": [
+      "even 30 minutes earlier makes a difference"
+     ],
+     "fr": "même [[30 minutes plus tôt]], ça change tout",
+     "texte": "mažiau nei 150 puslapių, [[tobula savaitgaliui]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 42,
+      "y": 200,
+      "l": 762,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 200,
+       "l": 762,
+       "h": 56,
+       "base": 243
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 345,
+      "l": 855,
+      "h": 38
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 345,
+       "l": 855,
+       "h": 38,
+       "base": 373
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 45,
+      "y": 415,
+      "l": 495,
+      "h": 479
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 558,
+      "y": 445,
+      "l": 419,
+      "h": 168
+     },
+     "lignes": [
+      {
+       "x": 558,
+       "y": 445,
+       "l": 419,
+       "h": 37,
+       "base": 473
+      },
+      {
+       "x": 559,
+       "y": 489,
+       "l": 395,
+       "h": 36,
+       "base": 517
+      },
+      {
+       "x": 558,
+       "y": 532,
+       "l": 364,
+       "h": 37,
+       "base": 560
+      },
+      {
+       "x": 560,
+       "y": 577,
+       "l": 166,
+       "h": 36,
+       "base": 605
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 561,
+      "y": 681,
+      "l": 380,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 564,
+       "y": 681,
+       "l": 377,
+       "h": 37,
+       "base": 709
+      },
+      {
+       "x": 561,
+       "y": 725,
+       "l": 308,
+       "h": 36,
+       "base": 753
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 924,
+      "l": 704,
+      "h": 36
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 924,
+       "l": 704,
+       "h": 36,
+       "base": 952
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "5. [[Daktaras Džekilas ir misteris Haidas]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "Stevensonas. gerbiamas gydytojas, žiaurus nepažįstamasis ir beprasmis testamentas. [[skaitosi kaip tikras detektyvas]]"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "kas pakeitė mano skrolinimą:"
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "trumpa knyga ant naktinio staliuko, podkastai pasivaikščiojant ir [[programėlė Sophia]], kai vis tiek paimu telefoną"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "šiandienos 5 min pamoka: kodėl Renesansas prasidėjo Italijoje"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  }
+ }
+}

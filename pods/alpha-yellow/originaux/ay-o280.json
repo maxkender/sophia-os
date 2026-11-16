@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o280",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "86c14886-4179-4ff7-bf98-e47c396d0923",
+ "titre": "How to become seriously well-read in your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "86c14886-4179-4ff7-bf98-e47c396d0923"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 4 de la boîte (86c14886, tr 5,2 k r 4,29), 3e et dernière déclinaison après ay-o256 et ay-o267. Même promesse, autres mots. Items neufs, aucun repris d'ay-o155, o256 ni o267.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a525aaf9-11f7-452e-8c6a-46b6ef76c31c",
+   "texte_overlay": "How to become seriously\nwell-read in your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Read twenty pages a day. It sounds small, but it's about twenty books a year. In ten years, that's more than most people read in their whole life.",
+   "media_id": "dd078432-804c-4210-9d73-82271fcbbe0b"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Alternate fiction and non-fiction. A novel teaches you about people, a history book teaches you about the world. You need both to understand life.",
+   "media_id": "7d7c942c-d2da-45f2-91b8-f6546a37e62b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keep a list of books people recommend. When someone you admire mentions a book, write it down. Your reading list becomes a map of great minds.",
+   "media_id": "813a45d4-cfda-4977-b6e4-d2261f5e07f1"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Read the classics slowly. A few pages of Marcus Aurelius or Tolstoy before bed. Old books lasted for a reason, and they change how you see things.",
+   "media_id": "81cda94f-f8c9-4a5f-b17b-67eefc824e08"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. It fills the gaps between books and makes everything you read click.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It fills the gaps between books and makes everything you read click.",
+   "media_id": "61844dd5-a4c0-4747-bebc-e0b89e60cf4a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Talk about what you read. Share one idea with a friend each week. Explaining a book helps you remember it and starts great conversations.",
+   "media_id": "df12d534-7217-4e93-82c9-6aa3531b49a1"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Carry a book everywhere. Waiting rooms, trains, queues. All those lost minutes add up to hours of reading every single week. Use them.",
+   "media_id": "86527514-66a5-4873-803f-2adc85ce888c"
+  }
+ ]
+}

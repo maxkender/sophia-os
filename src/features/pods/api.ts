@@ -459,3 +459,51 @@ export async function listerComptesPod(pod: string): Promise<CompteDuPod[]> {
   if (error) throw error;
   return (data ?? []) as CompteDuPod[];
 }
+
+/** Un jour d'un podz (`pods_series`, 0727). */
+export interface JourPod {
+  pod: string;
+  jour: string;
+  posts: number;
+  moy_j1: number | null;
+  moy_j2: number | null;
+  moy_j3: number | null;
+  moy_j7: number | null;
+  moy: number | null;
+  p10k: number;
+}
+
+/** L'âge auquel on compare les jours entre eux. */
+export type Jalon = "moy_j1" | "moy_j2" | "moy_j3" | "moy_j7";
+
+export async function lireSeriesPods(jours = 21): Promise<JourPod[]> {
+  const { data, error } = await supabase.rpc("pods_series", { p_jours: jours });
+  if (error) throw error;
+  return (data ?? []) as JourPod[];
+}
+
+/**
+ * Les jours d'un podz, avec la moyenne à J+1 de tous les podz le même jour
+ * (pondérée par les posts) pour comparer.
+ */
+export function serieDuPod(
+  lignes: readonly JourPod[],
+  pod: string,
+  jalon: Jalon = "moy_j1",
+): (JourPod & { valeur: number | null; flotte: number | null })[] {
+  const flotte = new Map<string, { somme: number; n: number }>();
+  for (const l of lignes) {
+    const v = l[jalon];
+    if (v == null) continue;
+    const f = flotte.get(l.jour) ?? { somme: 0, n: 0 };
+    f.somme += v * l.posts;
+    f.n += l.posts;
+    flotte.set(l.jour, f);
+  }
+  return lignes
+    .filter((l) => l.pod === pod)
+    .map((l) => {
+      const f = flotte.get(l.jour);
+      return { ...l, valeur: l[jalon], flotte: f && f.n > 0 ? Math.round(f.somme / f.n) : null };
+    });
+}

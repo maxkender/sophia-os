@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o215",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "394b0b41-0ba1-46fe-83bb-c29da58743ac",
+ "titre": "job choices for people who don't like math #careers #jobs #smartgirl #future #creative",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "28dc8de8-0858-4666-a11f-658e3f75d29c"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 18 de la boîte (parent 394b0b41, langue source en) : accroche du parent mot pour mot. Métiers neufs face au parent et à sg-o159/sg-o203, sans salaires (éditrice, archiviste, interprète, guide de musée, scénariste, avocate déjà faite donc remplacée par diplomate). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "17e87017",
+   "texte_overlay": "job choices for people who\ndon't like math",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "abaccf2f",
+   "texte_overlay": "editor",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c7d36b48",
+   "texte_overlay": "archivist",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0152abc4",
+   "texte_overlay": "writer\n\ncurious about everything.",
+   "texte_sophia": "writer\n\ncurious about everything:\n5 minutes a day on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d9fcc33e",
+   "texte_overlay": "interpreter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "496b8ef7",
+   "texte_overlay": "museum guide",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "35cf6eaf",
+   "texte_overlay": "screenwriter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e4da9c89",
+   "texte_overlay": "which one is you?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7627503465387920662/5.jpg"
+  }
+ ]
+}

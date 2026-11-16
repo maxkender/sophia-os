@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o116",
+  "type_bleo": "full_test",
+  "titre": "how i ask my teacher for help without feeling awkward #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« ask my teacher » absent du label). Accroches écrites : « how i ask my teacher for help without feeling awkward » (retenue : une gêne très partagée, un mode d'emploi simple), « teachers want you to ask » (écartée : affirmation générale), « questions to ask your teacher » (écartée : plate). Gestes vrais : venir à la fin du cours ou aux heures prévues, préparer une question précise, montrer ce qu'on a déjà essayé, prendre une note pendant la réponse, se tester ensuite sur ce point (place micabo, slide 6), dire merci et revenir dire que ça a marché. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6e43a704",
+      "texte_overlay": "how i ask my teacher for help\nwithout feeling awkward",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4cf10bb1",
+      "texte_overlay": "i go at the end of class, not in the middle of it.\nthey have time and i don't have an audience.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f10cf66f",
+      "texte_overlay": "one precise question.\nnot \"i don't get anything\", but \"i'm lost at step 3\".",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "95df39a1",
+      "texte_overlay": "i show what i already tried.\nit shows i worked, and they see exactly where i'm stuck.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "692e4107",
+      "texte_overlay": "i write down their answer right away.\nin my own words.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "a0fa7ad3",
+      "texte_overlay": "that evening, i quiz myself on that exact point.\nso i don't have to ask twice.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "3e27791a",
+      "texte_overlay": "and next time, i tell them it worked.\nteachers love hearing that.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

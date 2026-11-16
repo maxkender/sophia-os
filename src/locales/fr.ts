@@ -3750,6 +3750,16 @@ export const fr = {
       vuesDesc:
         "Vues des posts publiés chaque jour, tous comptes, hors tests. Chaque post compte pour son jour, avec ses vues relevées jusqu’à 3 jours après.",
       vuesSerie: "Vues",
+      vuesDescJ7:
+        "Vues des posts publiés chaque jour, figées 7 jours après. La photo de J+7 ne prend que les posts encore relus (environ la moitié) : pas de total, mais moyenne, médiane et nombre de posts photographiés. Jours d’au moins 30 posts photographiés.",
+      calcul: { total: "Total", moyenne: "Moyenne", mediane: "Médiane", posts: "Nb de posts" },
+      calculAria: "Calcul",
+      totalJ7Impossible: "Pas de total à J+7 : la photo ne prend qu’une partie des posts.",
+      vuesDetailCalculs: "Total {{total}} · moyenne {{moyenne}} · médiane {{mediane}} · {{posts}} posts",
+      vuesDescJalon:
+        "Vues des posts publiés chaque jour, figées {{age}} après la publication : un jour se compare aux autres. Seuls les jours où au moins 80 % des posts ont été photographiés à cet âge sont montrés (photos depuis le 1/11).",
+      mesure: { vues: "Actuelles", j1: "J+1", j3: "J+3", j7: "J+7" },
+      mesureAria: "Vues actuelles ou figées",
       vuesMoyenne: "Moyenne 7 jours",
       vuesProvisoire: "monte encore",
       vuesProvisoireLegende: "Hier et avant-hier : encore relevés",
@@ -4273,6 +4283,7 @@ export const fr = {
       },
       seulementActifs: "Seulement les posteurs qui ont posté (1er post avec lien). {{n}} recrues pas encore en route :",
       voirOnboarding: "Onboarding posters",
+      seulementPostes: "Seulement les posteurs qui ont déjà posté (premier post avec lien)",
       title: "Posters",
       subtitle: "Créateurs (logins) et leurs comptes TikTok.",
       creerPosterDesc:
@@ -7117,6 +7128,17 @@ export const fr = {
     },
     pods: {
       title: "Pods",
+      series: {
+        titre: "Vues par jour, par podz",
+        description: "Vues moyennes des posts publiés chaque jour, au même âge pour tous les jours (J+1, J+3 ou J+7 : comparables d'un jour à l'autre). Le trait : la même moyenne pour tous les podz. Une barre qui baisse jour après jour sous le trait : le podz s'épuise.",
+        choisir: "Podz",
+        serie: "Vues moyennes à {{age}}",
+        age: "Âge",
+        flotte: "Tous les podz",
+        enCours: "Jour en cours",
+        detail: "{{posts}} posts · {{moy}} vues moyennes aujourd'hui · {{p10k}} à 10 k ou plus",
+        erreur: "Courbes indisponibles : {{message}}",
+      },
       comptesPod: {
         titre: "Comptes du label {{label}}",
         vide: "Aucun compte actif ne porte ce label.",

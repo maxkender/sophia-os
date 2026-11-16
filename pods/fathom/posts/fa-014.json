@@ -10,14 +10,18 @@
   "de": "10/10 Skills, die Reiche früh lernen",
   "pt": "10/10 habilidades que os ricos aprendem cedo",
   "it": "10/10 abilità che i ricchi imparano presto",
-  "es-419": "10/10 habilidades que los ricos aprenden pronto"
+  "es-419": "10/10 habilidades que los ricos aprenden pronto",
+  "fr": "10/10 compétences que les riches apprennent tôt",
+  "es": "10/10 habilidades que los ricos aprenden pronto"
  },
  "legendes": {
   "en": "10/10 Skills Rich People Learn Early #money #learnontiktok #selfimprovement",
   "de": "10/10 Skills, die Reiche früh lernen #geld #lernenmittiktok #selbstverbesserung",
   "pt": "10/10 habilidades que os ricos aprendem cedo #dinheiro #aprendernotiktok #desenvolvimentopessoal",
   "it": "10/10 abilità che i ricchi imparano presto #imparacontiktok #finanzapersonale #abilità",
-  "es-419": "10/10 habilidades que los ricos aprenden pronto #aprendeentiktok #finanzaspersonales #habilidades"
+  "es-419": "10/10 habilidades que los ricos aprenden pronto #aprendeentiktok #finanzaspersonales #habilidades",
+  "fr": "10/10 compétences que les riches apprennent tôt #apprendresurtiktok #finances #compétences",
+  "es": "10/10 habilidades que los ricos aprenden pronto #aprendeentiktok #finanzaspersonales #habilidades"
  },
  "musique": {
   "titre": "original sound",
@@ -114,6 +118,42 @@
       }
      ]
     ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "COMPÉTENCES",
+     "QUE LES RICHES",
+     [
+      {
+       "t": "APPRENNENT TÔT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HABILIDADES",
+     "QUE LOS RICOS",
+     [
+      {
+       "t": "APRENDEN PRONTO",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -183,6 +223,34 @@
      "titre": "¿Cómo Hacer Contactos? | Guía de Networking",
      "chaine": "Pedro Buerbaum",
      "vues": "491 k vistas",
+     "date": "hace 3 años",
+     "duree": "21:16",
+     "avatar": "https://yt3.ggpht.com/1HIt4aN0rvl9tckXDTWhSjsHN0CV6ZNQRKm4ZaTc1FVRbthX6GXkY_flfCjbXW-f2jLmHa753A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LE RÉSEAU"
+    ],
+    "video": {
+     "id": "12v0RArFNHs",
+     "titre": "Comment maîtriser le networking en 19 minutes",
+     "chaine": "Laetitia Valstar",
+     "vues": "14 k vues",
+     "date": "il y a 2 mois",
+     "duree": "19:35",
+     "avatar": "https://yt3.ggpht.com/T4ekJ9CC5rF3i9qgauJ-xr2zOEW8AaiWGj5xj9nuMOKLJWfJL2NTJffQNtPAEIINEfu_orY3LnY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "NETWORKING"
+    ],
+    "video": {
+     "id": "gzPWv7fYsYs",
+     "titre": "¿Cómo Hacer Contactos? | Guía de Networking",
+     "chaine": "Pedro Buerbaum",
+     "vues": "492 K visualizaciones",
      "date": "hace 3 años",
      "duree": "21:16",
      "avatar": "https://yt3.ggpht.com/1HIt4aN0rvl9tckXDTWhSjsHN0CV6ZNQRKm4ZaTc1FVRbthX6GXkY_flfCjbXW-f2jLmHa753A=s176-c-k-c0x00ffffff-no-rj"
@@ -260,6 +328,34 @@
      "duree": "8:06",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nGAeloDkqCu3T9Ci74b3fEah_ObpQREbi_cGvXqxr6ew=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "NÉGOCIER"
+    ],
+    "video": {
+     "id": "aGI7puAXf6w",
+     "titre": "Négociation : 10 techniques d'Expert et leurs parades (source: Harvard, FBI, GIGN)",
+     "chaine": "Katana - Quentin Despas",
+     "vues": "508 k vues",
+     "date": "il y a 1 an",
+     "duree": "28:17",
+     "avatar": "https://yt3.ggpht.com/FybRoEE6gXK52RxFfR_6hq3vCxOJDeFCAz9jxCgEELFRQSBNMxzpBpDkxQxCDaItGBrDuh2l=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "NEGOCIAR"
+    ],
+    "video": {
+     "id": "TwlAU7aGsBg",
+     "titre": "Cómo negociar para ganar en 6 pasos",
+     "chaine": "Teresa Baró • Comunicación de éxito",
+     "vues": "152 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/SpCnWtGCgzS65JJTetZqeVuZJ8u3s2e9JyUh_rMT5XR4ncLwIONo8sZn84U_6a4SENq1dG4z9ok=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -318,6 +414,32 @@
     }
    },
    "es-419": {
+    "titre": [
+     "SABER UN POCO",
+     "DE TODO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutos al día",
+      "para saber un poco de todo."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "SAVOIR UN PEU",
+     "DE TOUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minutes par jour",
+      "pour savoir un peu de tout."
+     ]
+    }
+   },
+   "es": {
     "titre": [
      "SABER UN POCO",
      "DE TODO"
@@ -406,6 +528,36 @@
      "duree": "7:38",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtS6T3-Z5FFRIGOq7Ttqx91YpBqeseUqpIUz7jRT2AsA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "fr": {
+    "titre": [
+     "INTÉRÊTS",
+     "COMPOSÉS"
+    ],
+    "video": {
+     "id": "SC30iIqjl9U",
+     "titre": "Intérêts composés : comment ça marche ? (+ simulateur investissement)",
+     "chaine": "Matthieu Louvet - S'investir",
+     "vues": "191 k vues",
+     "date": "il y a 3 ans",
+     "duree": "8:48",
+     "avatar": "https://yt3.ggpht.com/F1hFe5VWFyd-4zegI31SBX-ajrIUTA5w1qvyBVCC6j_HpqFNiAfBhyUCwiuMNxHqR1beLxnSh24=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "INTERÉS",
+     "COMPUESTO"
+    ],
+    "video": {
+     "id": "6YiZ5SIMBdY",
+     "titre": "Qué es el Interés Compuesto | Explicado FÁCIL 🎓",
+     "chaine": "Economipedia",
+     "vues": "51 K visualizaciones",
+     "date": "hace 3 años",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/RvRUK0MqXB-H3X0h4mTGmVEE9vE4uiUHyxQkWg8Lz8T3O0eVdX91opQ4EgehxYzZamnsFi9UMQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -479,6 +631,36 @@
      "titre": "Cómo Superar la Gratificación Instantánea • 3 Pasos Para Recuperar El Enfoque",
      "chaine": "Full Perception",
      "vues": "52 k vistas",
+     "date": "hace 3 años",
+     "duree": "11:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_moTdZ4QCQDh_Bn5cXarTpVMv-IUX602lfFc2TierecCMU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "SAVOIR",
+     "VENDRE"
+    ],
+    "video": {
+     "id": "zP63gwGERxw",
+     "titre": "Technique de vente - Les 10 qualités pour devenir un excellent commercial et réussir dans la vente",
+     "chaine": "Jean-Pierre Giraud",
+     "vues": "2 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "8:43",
+     "avatar": "https://yt3.ggpht.com/dscWit64I1WJHbte1phbWl7nQVc_4LdywrLuYFR7-jt84xSXgmdzpuqgN4EW3F-7bZuzjM8F=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "SABER",
+     "ESPERAR"
+    ],
+    "video": {
+     "id": "2p9HTJ_I7Z4",
+     "titre": "Cómo Superar la Gratificación Instantánea • 3 Pasos Para Recuperar El Enfoque",
+     "chaine": "Full Perception",
+     "vues": "52 K visualizaciones",
      "date": "hace 3 años",
      "duree": "11:25",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_moTdZ4QCQDh_Bn5cXarTpVMv-IUX602lfFc2TierecCMU=s176-c-k-c0x00ffffff-no-rj"

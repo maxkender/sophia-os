@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o240",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d443ff45-842d-44bc-a6cc-596ed0455baf",
+ "titre": "quiet signs you're smarter than you think #intelligence #psychology #signs #selfimprovement #mindset",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "adcb68de-e32c-4b29-b78e-1181e7bf8a56"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, adcb68de). déclinaison G1 de « quiet signs you re smarter than you think » (parent d443ff45). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "511757d6-c241-4611-baeb-68f38b187065",
+   "texte_overlay": "quiet signs you're smarter\nthan you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3609fb5d-8e45-49fb-99ff-5b2637810c46",
+   "texte_overlay": "you enjoy being alone\n\nyou can spend an afternoon with your own thoughts without feeling bored. a mind that entertains itself is usually a mind with plenty going on inside it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "30e7602e-0e1a-40bf-b5ad-258e3a2b8fce",
+   "texte_overlay": "you change your mind\n\nwhen someone shows you good evidence, you update your opinion without a fight. being able to say i was wrong is one of the rarest and clearest signs of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f6e2987d-28bb-4fe2-a6cc-abc3e7a6bab0",
+   "texte_overlay": "you ask a lot of questions\n\nyou can't hear about something new without wanting to know how it works. constant questions are the quiet habit behind almost every brilliant mind in history.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0366b68e-c12b-40ab-93ae-a2678a85a955",
+   "texte_overlay": "you crave new ideas\n\nyou get restless when life feels too repetitive, so you feed your mind something new every day, a planet, a painting, a myth, and it keeps you sharp and happy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/5.jpg",
+   "texte_sophia": "you crave new ideas\n\nyou crave new ideas. the Sophia app turns that into one short lesson a day, a planet or a painting, and 5 minutes is enough to keep a restless mind happy."
+  },
+  {
+   "position": 6,
+   "media_id": "92ae23b1-0557-42c7-aaec-43d981cb6a0f",
+   "texte_overlay": "you notice patterns\n\nyou spot links between things that seem unrelated: a song and a memory, a habit and a mood. seeing patterns quickly is a quiet but powerful kind of intelligence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/6.jpg"
+  }
+ ]
+}

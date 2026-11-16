@@ -1,0 +1,1610 @@
+{
+ "id": "sg-002",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7677887690662055201",
+  "vues": 352500,
+  "publie_le": "2026-08-25",
+  "accroche": "10 compétence 10/10 à apprendre au lieu de scroller"
+ },
+ "titre": {
+  "fr": "10 compétences 10/10 à apprendre au lieu de scroller",
+  "en": "10 10/10 skills to learn instead of scrolling",
+  "de": "10 Skills (10/10), die du lernen kannst, statt zu scrollen",
+  "it": "10 abilità da 10/10 da imparare invece di scrollare",
+  "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri",
+  "ro": "10 abilități de 10/10 de învățat în loc să dai scroll",
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování"
+ },
+ "legendes": {
+  "fr": "10 compétences 10/10 à apprendre au lieu de scroller #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10 10/10 skills to learn instead of scrolling #learnontiktok #selfimprovement #skills",
+  "de": "10 Skills (10/10), die du lernen kannst, statt zu scrollen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "10 abilità da 10/10 da imparare invece di scrollare #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "10 habilidades nota 10 para aprender em vez de rolar o feed #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Kaydırmak yerine öğrenebileceğin 10 tane 10/10 beceri #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "10 abilități de 10/10 de învățat în loc să dai scroll #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "10 dovedností na 10/10, které se naučíš místo scrollování #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - m - m",
+  "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
+ },
+ "notes": "Son post à 352 k (25/08), refait en 5 langues (fr, en, de, it, pt-BR). Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes, les deux en couleur passées en brun. Ses 5 compétences dans son ordre ; fautes corrigées (« 10 compétences », « À REPÉRER », « LES CONSTELLATIONS », « INDISPENSABLES », « À DÉCOUPER »). Vidéos : une vraie vidéo native par langue, aucune des siennes (Whoogy's, Eric Flag, Passion Astronomie, SimonSW, RESAUV). Couleur des nœuds passée du vert (déjà pris par les légumes) au brun corde. Sophia en étape 4 sur 7 (cta B : « SE CULTIVER / EN 5 MIN »), sa slide « ABONNE-TOI » retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCE",
+      "cap": 138
+     },
+     {
+      "t": "À APPRENDRE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "AU LIEU",
+      "cap": 149
+     },
+     {
+      "t": "DE SCROLLER",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 138
+     },
+     {
+      "t": "TO LEARN",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "INSTEAD OF",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLING",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 138
+     },
+     {
+      "t": "ZUM LERNEN",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "STATT ZU",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLEN",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 138
+     },
+     {
+      "t": "DA IMPARARE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "INVECE DI",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLARE",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "PARA APRENDER",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "EM VEZ DE",
+      "cap": 149
+     },
+     {
+      "t": "ROLAR O FEED",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "KAYDIRMAK",
+      "cap": 138
+     },
+     {
+      "t": "YERİNE",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ÖĞRENİLECEK",
+      "cap": 149
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 138
+     },
+     {
+      "t": "DE ÎNVĂȚAT",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "ÎN LOC SĂ",
+      "cap": 149
+     },
+     {
+      "t": "DAI SCROLL",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 138
+     },
+     {
+      "t": "K NAUČENÍ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "MÍSTO",
+      "cap": 149
+     },
+     {
+      "t": "SCROLLOVÁNÍ",
+      "couleur": "brun",
+      "cap": 188
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À DÉCOUPER",
+       "couleur": "#406f27"
+      }
+     ],
+     "DES LÉGUMES"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "D-kSBb2499g",
+     "titre": "5 conseils de cuisine d'un chef professionnel pour couper les légumes",
+     "chaine": "L'astucerie",
+     "vues": "279 k vues",
+     "date": "il y a 7 ans",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mx3lILLNxDiSeEEkGJ2klPHs8NMyiUm42UknbU7ePKs1Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO CHOP",
+       "couleur": "#406f27"
+      }
+     ],
+     "VEGETABLES"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "YrHpeEwk_-U",
+     "titre": "9 Essential Knife Skills To Master | Epicurious 101",
+     "chaine": "Epicurious",
+     "vues": "4.1M views",
+     "date": "4 years ago",
+     "duree": "13:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZx80-3cTYmxKt9xeXzUUkAP9RuDcDT6J0u_5RSRBYHQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "GEMÜSE",
+     [
+      {
+       "t": "SCHNEIDEN",
+       "couleur": "#406f27"
+      }
+     ],
+     "LERNEN"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "GYl-tqYRfbE",
+     "titre": "So lernt jeder Koch das SCHNEIDEN 🧑‍🍳",
+     "chaine": "Tim - Brot mit Ei",
+     "vues": "940.539 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "14:57",
+     "avatar": "https://yt3.ggpht.com/XdOsM384UspvGaLWEcHNtb8du3TVKn5sYPok_i6z-TAMDYX70fSBBkomiLITmNJ8w-w35I1YZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A TAGLIARE",
+       "couleur": "#406f27"
+      }
+     ],
+     "LE VERDURE"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "VLtufLvnJDs",
+     "titre": "Come tagliare le verdure - le tecniche di base",
+     "chaine": "Chef Martino Beria",
+     "vues": "478K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/OY2HtRvOiADku8BI8hwrkUEKWCXG6f6I7AyEZpo26wdRId9dkewUo0rYb3aP4dGJCOstqqRh=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A CORTAR",
+       "couleur": "#406f27"
+      }
+     ],
+     "LEGUMES"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "XbOcIhUpKOg",
+     "titre": "COMO CORTAR LEGUMES DA MANEIRA CORRETA | GoHanTEACH",
+     "chaine": "Go Han Go",
+     "vues": "756 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "17:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9ELT856x2tJlmDRTL0R5gJLRGrPAeLCO1zaZfzPQfMQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SEBZE",
+     [
+      {
+       "t": "DOĞRAMAYI",
+       "couleur": "#406f27"
+      }
+     ],
+     "ÖĞREN"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "WiSXW6N2FjE",
+     "titre": "ULUSLARARASI DOĞRAMA TEKNİKLERİ, DOĞRAMA ŞEKİLLERİ, Julyen Doğrama, (Profesyonelce Sunum)",
+     "chaine": "LEZZET SAATİ",
+     "vues": "119 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/krdmW-_7l00aHjYJBPs8CL4kaCyZOpLDbll190SERwQ-0Xh0DF32uyM7ib1sBA6lilOIZ3It=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1-2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     [
+      {
+       "t": "SĂ TAI",
+       "couleur": "#406f27"
+      }
+     ],
+     "LEGUMELE"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "5GWpbgEyCTM",
+     "titre": "Cum se toaca legumele mai bine, mai repede, perfect!",
+     "chaine": "Bucataras TV",
+     "vues": "107 K vizionări",
+     "date": "acum 10 ani",
+     "duree": "6:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdv6lf5Fpwpm8Bwn3dO26qi3pJLXWsKZlT_qcHE29Il2I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     [
+      {
+       "t": "KRÁJET",
+       "couleur": "#406f27"
+      }
+     ],
+     "ZELENINU"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "GaDiuUR9xSE",
+     "titre": "Základní druhy krájení zeleniny - Roman Paulus - Kulinářská Akademie Lidlu",
+     "chaine": "Kuchyně Lidlu",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "2:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnHNf9fovCFxmB1zs1daJyyEKBWmYOXRObn13YH-Q1TaE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "APPRENDRE",
+       "couleur": "#66696f"
+      }
+     ],
+     "À AVOIR UNE",
+     [
+      {
+       "t": "BONNE POSTURE",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "b09fKBMjMBY",
+     "titre": "Ameliore ta posture MAINTENANT ( 6 min par jour )",
+     "chaine": "Major Mouvement",
+     "vues": "1 M de vues",
+     "date": "il y a 3 ans",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/A3BpGqL6TLtFs_bInd2JYC8lcrWO8ICblsSkrS2yLkpkgpTNRUv-SgWJQVYGu2GAj46rVvuQ2os=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "LEARN",
+       "couleur": "#66696f"
+      }
+     ],
+     "TO HAVE",
+     [
+      {
+       "t": "GOOD POSTURE",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "cC5pPsiXO7s",
+     "titre": "How to Finally \"Fix\" Your Posture",
+     "chaine": "Hybrid Calisthenics",
+     "vues": "1.8M views",
+     "date": "3 years ago",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lHDTeNbNPLCIuChuhtXjCMZ6S6UQ6nPhDKewcrZj5i1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "LERN",
+       "couleur": "#66696f"
+      }
+     ],
+     "EINE GUTE",
+     [
+      {
+       "t": "HALTUNG",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "F_efxYDtnh4",
+     "titre": "12 MIN Haltungstraining - Verbessere nachhaltig Deine Körperhaltung!",
+     "chaine": "Ergotopia",
+     "vues": "133.976 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "13:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lz-K1lq1aEppj2i_3Y-3c-F6iKLisNRy4Zs09NSQq_Ct8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "IMPARARE",
+       "couleur": "#66696f"
+      }
+     ],
+     "AD AVERE UNA",
+     [
+      {
+       "t": "BUONA POSTURA",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "54nYnuWUpJ8",
+     "titre": "Posturali a Casa: Esercizi per Correggere la Postura",
+     "chaine": "LUMOWELL - Benessere360",
+     "vues": "2,2 Mln visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "11:35",
+     "avatar": "https://yt3.ggpht.com/HknOje5L57FyCsYQKeZZnLpZ7NzsU-dslZQK2PHuQJ7WpY59mlujnkYL-R6nyw1FQwssjhxR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "APRENDER",
+       "couleur": "#66696f"
+      }
+     ],
+     "A TER UMA",
+     [
+      {
+       "t": "BOA POSTURA",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "vHpX3ZbK5cU",
+     "titre": "Exercícios para corrigir postura - RPG | Dr. Rodrigo Lopes",
+     "chaine": "Dr. Rodrigo Lopes - Fisioterapeuta",
+     "vues": "1,1 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "15:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyEPAdcq2lM3XeKxi-E5mR0RMOFR5X6QUGvNGlDYnyuoI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DİK",
+       "couleur": "#66696f"
+      }
+     ],
+     "DURMAYI",
+     [
+      {
+       "t": "ÖĞREN",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "GBhkQIO3i74",
+     "titre": "Duruşunu Düzelt, Ağrılarından Kurtul (Ofiste, evde ekipmansız yap)",
+     "chaine": "Tuğçe İrtem",
+     "vues": "919 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nEGE4FkhG0L6dz36g7zai50n4T1xt0QA2j7rNIDTfkvg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "ÎNVAȚĂ",
+       "couleur": "#66696f"
+      }
+     ],
+     "SĂ AI O",
+     [
+      {
+       "t": "POSTURĂ BUNĂ",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "wgAmg4qcuA4",
+     "titre": "6 EXERCIȚII pentru POSTURĂ și DURERI DE SPATE. KINETOTERAPIA pentru CIFOZĂ",
+     "chaine": "HealthP",
+     "vues": "184 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/n_v-6arCPdUkmpbIFHn6iNT_uatNW0WBcwSG-qEMS5_wg5ya2c7sShSfB6HimZFdOT1trtqvdbY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "NAUČ SE",
+       "couleur": "#66696f"
+      }
+     ],
+     "SPRÁVNĚ",
+     [
+      {
+       "t": "DRŽET TĚLO",
+       "couleur": "#66696f"
+      }
+     ]
+    ],
+    "tailles": [
+     125,
+     120,
+     125
+    ],
+    "video": {
+     "id": "lrqOyi2CQUE",
+     "titre": "7 cviků pro správné držení těla",
+     "chaine": "Zuzka Plíhalová",
+     "vues": "60 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "13:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mob0SYAgY6tvVhNPIQII_3_FfhHHa4T_uJjCxoiy1C1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 minut na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "SE CULTIVER",
+     [
+      {
+       "t": "EN 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "GET SMARTER",
+     [
+      {
+       "t": "IN 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "KLÜGER WERDEN",
+     [
+      {
+       "t": "IN 5 MIN.",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CULTURA",
+     [
+      {
+       "t": "IN 5 MINUTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SE CULTIVAR",
+     [
+      {
+       "t": "EM 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "5 DAKİKADA",
+     [
+      {
+       "t": "KÜLTÜRLEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CULTIVĂ-TE",
+     [
+      {
+       "t": "ÎN 5 MIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VZDĚLÁVEJ SE",
+     [
+      {
+       "t": "ZA 5 MINUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À REPÉRER",
+       "couleur": "#b131c4"
+      }
+     ],
+     "LES CONSTELLATIONS"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "L2eS7gUdzSw",
+     "titre": "Comment se repérer dans le ciel - Partie 1",
+     "chaine": "12 Parsecs",
+     "vues": "283 k vues",
+     "date": "il y a 8 ans",
+     "duree": "13:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPfvJWKWfInQn9lg6yoocKH3w1EY7jSxa1QvbEhbS33A0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO SPOT",
+       "couleur": "#b131c4"
+      }
+     ],
+     "CONSTELLATIONS"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "XUbG8jboh4M",
+     "titre": "Getting oriented to better learn the night sky: Stargazing Basics 1 of 3",
+     "chaine": "Eyes on the Sky",
+     "vues": "858K views",
+     "date": "14 years ago",
+     "duree": "5:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_luiP2AsWM7Pr_7qVuszyco4yMkRZhNGV9aLeiIDXWpiNY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "STERNBILDER",
+     [
+      {
+       "t": "ERKENNEN",
+       "couleur": "#b131c4"
+      }
+     ],
+     "LERNEN"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "00xNKckslhg",
+     "titre": "Orientieren an den Sternen: So geht's! Lehrer vs. Schüler  | Quarks",
+     "chaine": "Quarks",
+     "vues": "38.823 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "12:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4bDvezc36i3vmptDIlmT9_Hc_kYlyVJg3zlJmsjBf1_M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A RICONOSCERE",
+       "couleur": "#b131c4"
+      }
+     ],
+     "LE COSTELLAZIONI"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "YjSUH2S4I94",
+     "titre": "Come iniziare a osservare il cielo",
+     "chaine": "Oneira",
+     "vues": "125K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "17:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lf1USTPK8PhcPTHny6Qy0HVOBkKdEmHdblLZInN33DOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A IDENTIFICAR",
+       "couleur": "#b131c4"
+      }
+     ],
+     "CONSTELAÇÕES"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "WWK1o6yDQzs",
+     "titre": "O CRUZEIRO DO SUL - UMA VIAGEM PELAS ESTRELAS DO CÉU DO SUL",
+     "chaine": "ASTROOM",
+     "vues": "460 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "11:41",
+     "avatar": "https://yt3.ggpht.com/GhSswougTLYfrrUTh9MKAyf4qXHl3Uv0pFs0iYSZNCo0GZDL-96x92j-10RYPEGRsyo8aGIfgw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "TAKIMYILDIZLARI",
+     [
+      {
+       "t": "TANIMAYI",
+       "couleur": "#b131c4"
+      }
+     ],
+     "ÖĞREN"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "e-w7vac88IY",
+     "titre": "Takımyıldızları ve Özellikleri Nelerdir?",
+     "chaine": "Baryum",
+     "vues": "49 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "3:36",
+     "avatar": "https://yt3.ggpht.com/3d4Cip5jaRCWw_AUFwTbF6eI_50DjUALciqF9Ht02qgvQZXu2k-XF8cmDOqaLoMYHdfCf4L8aQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1-2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     [
+      {
+       "t": "SĂ RECUNOȘTI",
+       "couleur": "#b131c4"
+      }
+     ],
+     "CONSTELAȚIILE"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "Ba0hEyOMF7g",
+     "titre": "TUTORIAL ÎNVĂȚAREA CERULUI – Ce să faci înainte să îți iei TELESCOP?",
+     "chaine": "Școala de Astronomie",
+     "vues": "10 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:21",
+     "avatar": "https://yt3.ggpht.com/jMmqgN5SFzEdbPrk9VDQpq3rNnkZCoKRZucsSh1EdRXfRN1Ls3Hh9Q-wIxKG9e-YGfLZNPJVCg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     [
+      {
+       "t": "POZNÁVAT",
+       "couleur": "#b131c4"
+      }
+     ],
+     "SOUHVĚZDÍ"
+    ],
+    "tailles": [
+     110,
+     160,
+     100
+    ],
+    "video": {
+     "id": "3JgDVEFfx2o",
+     "titre": "Souhvězdí, Velký vůz, Polárka - fyzika 9 ZŠ",
+     "chaine": "Petr Němec",
+     "vues": "2,7 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "16:06",
+     "avatar": "https://yt3.ggpht.com/4bcalJrDdADRaO7UPD-n54IxCIDZdd9y1lUw4tffbHPJ1px_Mv94p6wI9Xaz57MkHAegUlL3iQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     "À FAIRE",
+     [
+      {
+       "t": "LE POIRIER",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "ATL79J-9z3g",
+     "titre": "HANDSTAND : 5 ÉTAPES pour APPRENDRE RAPIDEMENT L'ÉQUILIBRE SUR LES MAINS 🤸‍♀️",
+     "chaine": "Amandine Léger",
+     "vues": "1,7 M de vues",
+     "date": "il y a 4 ans",
+     "duree": "18:57",
+     "avatar": "https://yt3.ggpht.com/ehxx5X30un6OMorZ9y5LDUBop8zBmonJaSOZbbBzt0fUgbEPfBr9TeIzP2QuPNcAAlgd4guj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures par jour",
+     "pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     "TO DO A",
+     [
+      {
+       "t": "HANDSTAND",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "7EvtMQFlPUQ",
+     "titre": "Learn to Achieve A Handstand Fast - Hacks Make it Easy",
+     "chaine": "pigmie",
+     "vues": "2.3M views",
+     "date": "5 years ago",
+     "duree": "7:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7_9ONsKPZV7OzyZaL5qWTnX3mQGg1k2TGWI0DpDAuSuA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours a day",
+     "to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN",
+     [
+      {
+       "t": "HANDSTAND",
+       "couleur": "#e8322f"
+      }
+     ],
+     "LERNEN"
+    ],
+    "tailles": [
+     110,
+     170,
+     110
+    ],
+    "video": {
+     "id": "V9fDp3-NsWc",
+     "titre": "Handstand lernen in 5 einfachen Schritten!",
+     "chaine": "caro.upsidedown",
+     "vues": "251.200 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "6:28",
+     "avatar": "https://yt3.ggpht.com/3GA1OGL6bAdM5Lc9Ea52oF3cMlgOX6yAW-5QByXjJsz92sik1SdZ5pF8JSl0-EFgUCVCYII68w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden am Tag",
+     "zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     "A FARE",
+     [
+      {
+       "t": "LA VERTICALE",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "jxlucKF-lOs",
+     "titre": "COME FARE LA VERTICALE - TUTORIAL",
+     "chaine": "Choros Ballet",
+     "vues": "230K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "6:52",
+     "avatar": "https://yt3.ggpht.com/dCz9LlbPdVpD4UFYt2II2vWfD8upDPBzm5wKnwmA_yOyz3jETOPJ1iCFZ5ysGJd9LXDjsBcFpw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore al giorno",
+     "per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     "A FAZER",
+     [
+      {
+       "t": "PARADA DE MÃO",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "iIBbpyiY-Rw",
+     "titre": "COMO FAZER O HANDSTAND EM POUCOS PASSOS! (Do 0 a parada de mão)",
+     "chaine": "Gabriel Macineli",
+     "vues": "116 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "10:06",
+     "avatar": "https://yt3.ggpht.com/J_3lSoOAsdZYVM6PbnmoIiWxO_Nn9noUhxPBee-xKvNqg76B8dRGLVxez02SU3eT7V0ipXvCfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas por dia",
+     "para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÖĞREN:",
+     "KUSURSUZ",
+     [
+      {
+       "t": "AMUT",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "ORoW1ETNagU",
+     "titre": "4 Egzersiz ile AMUT Yap - Sıfır Malzeme İle AMUT Nasıl Yapılır?",
+     "chaine": "Damla Karahasan",
+     "vues": "345 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "7:37",
+     "avatar": "https://yt3.ggpht.com/f8IzcnxoAJGbAykJEfJ4qkkasH7mSUjCMCxYKtvFK9N0ri_0wmrCgEpNGkTrgr5s-Bn9uwWMhA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "günde 2-3 saat",
+     "öğrenmek için"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     "SĂ STAI",
+     [
+      {
+       "t": "ÎN MÂINI",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "8yTFIuYLp5o",
+     "titre": "CUM SA STAI IN MAINI/HANDSTAND I Pasi simpli si usori!",
+     "chaine": "tony saik",
+     "vues": "103 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/qCCr69eq9S-shHhaxQZoGdHIrNw1b_xSxo9YMymNGnf6lmQHTGjzrDxdcUv3y81sCZs8Rng-Rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore pe zi",
+     "ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     "UDĚLAT",
+     [
+      {
+       "t": "STOJKU",
+       "couleur": "#e8322f"
+      }
+     ]
+    ],
+    "tailles": [
+     110,
+     110,
+     170
+    ],
+    "video": {
+     "id": "GbjnZ0FboEs",
+     "titre": "JAK SE NAUČIT STOJKU | Tutoriál pro začátečníky",
+     "chaine": "Monnie",
+     "vues": "40 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/9pmQ-dKsIXxBMvktw2twDEfwpwuDsR_MQ0y4ENQW5gu8EIBzri4l2Z4Ed641inPh2EfJon8rSnM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny denně",
+     "na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "LES 15 NŒUDS",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "INDISPENSABLES"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "JUZ86NjYCv4",
+     "titre": "Les nœuds indispensables à connaître | Tuto",
+     "chaine": "Alexis brus",
+     "vues": "250 k vues",
+     "date": "il y a 6 ans",
+     "duree": "10:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lKyLTu3wzOlBUZl_gIs5PbUtmdmIyMaD_Fq894eUj7im8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "THE 15 KNOTS",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "EVERYONE NEEDS"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "3X8drKsdf5E",
+     "titre": "7 Essential Knots You Need To Know",
+     "chaine": "InnerBark Outdoors",
+     "vues": "19M views",
+     "date": "10 years ago",
+     "duree": "7:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mNq4RS5g4TRhD-OkMUCmboTlg182ejjTvvVZhnXVM0wg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DIE 15",
+     [
+      {
+       "t": "WICHTIGSTEN",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "KNOTEN"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "N6JpoBYoGdk",
+     "titre": "Meine Top 5 Outdoor Bushcraft Survival Knoten - Deutschland (german/deutsch)",
+     "chaine": "Fritz Meinecke",
+     "vues": "185.884 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "9:14",
+     "avatar": "https://yt3.ggpht.com/5AHYzlRfdC4xpFIzCroJ35-qqzlgkilcUu3J7CWFvZ_l0bp9OKeOUgjdQfKPsoXEBjTSHLNb=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "I 15 NODI",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "FONDAMENTALI"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "VIHe8BnwM78",
+     "titre": "10 nodi base da imparare!",
+     "chaine": "MartinoInMontagna",
+     "vues": "31K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "15:19",
+     "avatar": "https://yt3.ggpht.com/8TAHnz1GcLwT8JgKJyLHIjNqWt3Zgggd0JXoTSTgBcnV0D7CwEc7GxobELnXzjQKDByJro5p=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "OS 15 NÓS",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "ESSENCIAIS"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "VjSVEqnmpeI",
+     "titre": "Top 7 nós que você precisa saber para sobreviver! - Sobreviva Ep.05",
+     "chaine": "Sobrevivencialismo",
+     "vues": "1,5 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "21:31",
+     "avatar": "https://yt3.ggpht.com/Tc9CnSSdQNISaAB_IVJPUVtRJTrfJZg59qQTUb0B4368cVhS9cSd2cSaRyA_DXEVtcnsoyjk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ÖĞREN:",
+     [
+      {
+       "t": "15 TEMEL",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "DÜĞÜM"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "p2-zZ44PDfY",
+     "titre": "Denizci Bağları Eğitimi / Gerekli Bağlar Nasıl Yapılır?",
+     "chaine": "Deniz Giray",
+     "vues": "320 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "21:14",
+     "avatar": "https://yt3.ggpht.com/g7yKUvBAJqoac03aw5q-i5CInJ9qVkpJgkedUmvRoA_AdEw3Vy1ZHL4Y9fGLUniT0CnC8MxKvQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1-2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     [
+      {
+       "t": "CELE 15 NODURI",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "ESENȚIALE"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "9DmwVV8JygY",
+     "titre": "Singurele Noduri pe care Trebuie să le știi la Camping!",
+     "chaine": "Alex Camping",
+     "vues": "7,6 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "19:45",
+     "avatar": "https://yt3.ggpht.com/3ev8vhMJv8lLxRvNlFFWhPJO4kVcy1MQns8Y-AO1DEjrIIeKda26GV6zYNOeKe8zZ5tfZBc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     [
+      {
+       "t": "15 ZÁKLADNÍCH",
+       "couleur": "#c27a2c"
+      }
+     ],
+     "UZLŮ"
+    ],
+    "tailles": [
+     110,
+     150,
+     100
+    ],
+    "video": {
+     "id": "_9MTq_jh3Mo",
+     "titre": "9 uzlů + 1 trik, bez kterých se lezec neobejde | Hanibal.cz",
+     "chaine": "Hanibal.cz",
+     "vues": "334 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkZdOuKOH7EPhZ3FU91UQ4vbsTdvYP6EkC_AlrhajQYw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hodiny na naučení"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o172",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e8dab205-1d71-4313-9c76-73e052dbae8d",
+  "titre": "how to get back on track after falling behind in school #studytok #school",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [
+    "e8dab205-1d71-4313-9c76-73e052dbae8d"
+  ],
+  "notes": "G1, déclinaison de e8dab205 (« how to get back on track after falling behind in school », génération 0 ; meilleur passage it 1,5 k vues, r 1,68), en anglais. cta A (avant / après sur le dernier item). Items neufs (rien de repris de bsg-o140 « already so behind »). Ton rassurant, aucune autre appli. Routine du 15/11 sur BLEO (règle 0671 : images neuves de toute la banque, vérifiées sur planche ; son en rotation). Jauge : 3 full tests et 5 déclinaisons ; seules les lignes 1, 2 et 8 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (« validé par les neurosciences »), 4 (accroche illisible), 5 (« backed by science »), 6 (« enterimarnt »), 7 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b672a38f",
+      "texte_overlay": "how to get back on track\nafter falling behind in school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b70ec542",
+      "texte_overlay": "1. make one list of everything you missed\n\nit looks scary on paper.\nbut now it has an end.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2a2ca47c",
+      "texte_overlay": "2. talk to your teacher this week\n\nthey'd rather help now\nthan see you fail later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "02c77b89",
+      "texte_overlay": "3. catch up on the newest topic first\n\ntomorrow's class builds on it.\nthe old stuff can wait a few days.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1ab4d5a1",
+      "texte_overlay": "4. borrow notes from the best note-taker\n\nand offer them a coffee.\nit's a fair trade.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b45ccd0c",
+      "texte_overlay": "5. make learning feel good again\n\nbefore, school felt like a mountain i couldn't climb.\nnow i learn one fun thing every morning. and studying feels lighter.",
+      "texte_sophia": "5. make learning feel good again\n\nbefore, school felt like a mountain i couldn't climb.\nnow i open the Sophia app every morning. and studying feels lighter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2718de0f",
+      "texte_overlay": "save this for the next time you feel behind.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

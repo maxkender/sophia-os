@@ -221,8 +221,8 @@ posts neufs de ton compte modèle.
    faire »).
 4. **Le reste de ton rythme du jour**, dans cet ordre :
    1. **Les posts neufs du compte modèle**, tant qu'il en publie : c'est ce
-      qui fait la voie 2. Ta liste : `sources/manifeste.json` (podz 10, 11 et
-      13), les posts neufs d'@amayareading (podz 1, `npm run sources`).
+      qui fait la voie 2. Ta liste : `sources/manifeste.json` (podz 10, 11, 13 et
+      15), les posts neufs d'@amayareading (podz 1, `npm run sources`).
       Parfait ou rien : un remake pas prêt attend le lendemain.
    2. **Les déclinaisons**, dans l'ordre de la boîte, avec les mêmes règles
       qu'en 4.2 : une ligne par thème, un thème décliné une fois par jour,

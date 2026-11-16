@@ -11,6 +11,7 @@ import {
   classerLabels,
   cleFermeture,
   demarragePod,
+  estASec,
   doitFermer,
   enTestPod,
   estFerme,
@@ -616,6 +617,17 @@ Deno.test("démarrage : jamais deux comptes de test dans la même langue, ni au-
   // Avec 4 comptes de test (réglage), le 4e arrive encore d'office.
   const quatre = lireReglagesChoixLabel({ test_pod_comptes: 4 });
   assert(demarragePod(stat({ ...FATHOMLY, comptes_total: 3, comptes_langue: 0 }), quatre, APP));
+});
+
+Deno.test("étalement : un label 100 % podz déjà présent dans la langue n'empile qu'en dernier recours", () => {
+  // Kaja le 15/11 : ses langues toutes servies (niveau 1), un compte allemand de plus arrivait.
+  const kaja = stat({ ...FATHOMLY, label_id: "kaja", comptes_langue: 1, comptes_total: 3, niveau_pod: 1 });
+  assert(estASec(kaja, R));
+  assert(choisirLabel([...FR_24_10, kaja], R) !== "kaja");
+  // Seul candidat : il prend quand même le compte (jamais sans label).
+  assertEquals(choisirLabel([kaja], R, { jamaisSansLabel: true }), "kaja");
+  // Langue vide : il passe normalement.
+  assertEquals(estASec(stat({ ...FATHOMLY, label_id: "kaja", comptes_langue: 0 }), R), false);
 });
 
 // ── Pays saturé (0354) : l'élément central contre la sur-utilisation d'un marché ──

@@ -8,7 +8,10 @@
   "de": "müde, null Fokus, alles fühlt sich gleich an? hier ist die Lösung #mentalmaxxing #dopamin #selbstverbesserung",
   "es": "¿cansado, cero concentración, todo se siente igual? aquí está la solución #mentalmaxxing #dopamina #superacionpersonal",
   "it": "stanco, zero concentrazione, tutto sembra uguale? ecco la soluzione #mentalmaxxing #dopamina #crescitapersonale",
-  "tr": "yorgun, sıfır odak, her şey aynı mı geliyor? işte çözüm #mentalmaxxing #dopamin #kişiselgelişim"
+  "tr": "yorgun, sıfır odak, her şey aynı mı geliyor? işte çözüm #mentalmaxxing #dopamin #kişiselgelişim",
+  "pt-BR": "cansado, zero foco, tudo parece igual? aqui tá a solução #mentalmaxxing #dopamine #desenvolvimentopessoal",
+  "pl": "zmęczenie, zero skupienia, wszystko takie samo? oto rozwiązanie #mentalmaxxing #dopamina #rozwojosobisty",
+  "hu": "fáradt vagy, nulla fókusz, minden ugyanolyan? itt a megoldás #mentalmaxxing #dopamin #önfejlesztés"
  },
  "app": {
   "position": 2,
@@ -269,6 +272,15 @@
       ],
       "tr": [
        "SORUN"
+      ],
+      "pt-BR": [
+       "PROBLEMA"
+      ],
+      "pl": [
+       "PROBLEM"
+      ],
+      "hu": [
+       "PROBLÉMA"
       ]
      }
     },
@@ -489,6 +501,15 @@
       ],
       "tr": [
        "“yorgunum”"
+      ],
+      "pt-BR": [
+       "“tô cansado”"
+      ],
+      "pl": [
+       "„jestem padnięty”"
+      ],
+      "hu": [
+       "“fáradt vagyok”"
       ]
      }
     },
@@ -619,6 +640,15 @@
       ],
       "tr": [
        "yüksek kortizol"
+      ],
+      "pt-BR": [
+       "cortisol alto"
+      ],
+      "pl": [
+       "wysoki kortyzol"
+      ],
+      "hu": [
+       "magas kortizol"
       ]
      }
     },
@@ -733,6 +763,18 @@
       "tr": [
        "sıfır",
        "odak"
+      ],
+      "pt-BR": [
+       "zero",
+       "foco"
+      ],
+      "pl": [
+       "zero",
+       "skupienia"
+      ],
+      "hu": [
+       "nulla",
+       "fókusz"
       ]
      }
     },
@@ -779,6 +821,15 @@
       ],
       "tr": [
        "hep şişkin"
+      ],
+      "pt-BR": [
+       "sempre inchado"
+      ],
+      "pl": [
+       "ciągle wzdęty"
+      ],
+      "hu": [
+       "mindig puffadt"
       ]
      }
     },
@@ -810,6 +861,18 @@
       "tr": [
        "her şey",
        "aynı geliyor"
+      ],
+      "pt-BR": [
+       "tudo parece",
+       "igual"
+      ],
+      "pl": [
+       "wszystko jest",
+       "takie samo"
+      ],
+      "hu": [
+       "minden",
+       "ugyanolyan"
       ]
      },
      "couleur": "#151a13",
@@ -888,6 +951,15 @@
       ],
       "tr": [
        "çözüm."
+      ],
+      "pt-BR": [
+       "solução."
+      ],
+      "pl": [
+       "rozwiązanie."
+      ],
+      "hu": [
+       "megoldás."
       ]
      }
     },
@@ -1186,6 +1258,15 @@
       ],
       "tr": [
        "antrenman"
+      ],
+      "pt-BR": [
+       "treino"
+      ],
+      "pl": [
+       "trening"
+      ],
+      "hu": [
+       "edzés"
       ]
      }
     },
@@ -1232,6 +1313,15 @@
       ],
       "tr": [
        "doğal gıda"
+      ],
+      "pt-BR": [
+       "comida natural"
+      ],
+      "pl": [
+       "naturalne jedzenie"
+      ],
+      "hu": [
+       "igazi kaja"
       ]
      }
     },
@@ -1278,6 +1368,15 @@
       ],
       "tr": [
        "potasyum"
+      ],
+      "pt-BR": [
+       "potássio"
+      ],
+      "pl": [
+       "potas"
+      ],
+      "hu": [
+       "kálium"
       ]
      }
     },
@@ -1324,6 +1423,15 @@
       ],
       "tr": [
        "10k adım"
+      ],
+      "pt-BR": [
+       "10k passos"
+      ],
+      "pl": [
+       "10k kroków"
+      ],
+      "hu": [
+       "10k lépés"
       ]
      }
     },
@@ -1488,6 +1596,15 @@
       ],
       "tr": [
        "7s+ uyku"
+      ],
+      "pt-BR": [
+       "dormir 7h+"
+      ],
+      "pl": [
+       "7h+ snu"
+      ],
+      "hu": [
+       "7+ óra alvás"
       ]
      }
     },
@@ -1534,6 +1651,15 @@
       ],
       "tr": [
        "3l+ su"
+      ],
+      "pt-BR": [
+       "3l+ de água"
+      ],
+      "pl": [
+       "3l+ wody"
+      ],
+      "hu": [
+       "3l+ víz"
       ]
      }
     },
@@ -1580,6 +1706,15 @@
       ],
       "tr": [
        "öğrenmek"
+      ],
+      "pt-BR": [
+       "aprender"
+      ],
+      "pl": [
+       "nauka"
+      ],
+      "hu": [
+       "tanulás"
       ]
      }
     },
@@ -1626,6 +1761,15 @@
       ],
       "tr": [
        "çay"
+      ],
+      "pt-BR": [
+       "chá"
+      ],
+      "pl": [
+       "herbata"
+      ],
+      "hu": [
+       "tea"
       ]
      }
     },
@@ -1672,6 +1816,15 @@
       ],
       "tr": [
        "kahve"
+      ],
+      "pt-BR": [
+       "café"
+      ],
+      "pl": [
+       "kawa"
+      ],
+      "hu": [
+       "kávé"
       ]
      }
     },
@@ -1839,6 +1992,15 @@
       ],
       "tr": [
        "sakin müzik"
+      ],
+      "pt-BR": [
+       "música calma"
+      ],
+      "pl": [
+       "chill muzyka"
+      ],
+      "hu": [
+       "chill zene"
       ]
      }
     },
@@ -1897,6 +2059,18 @@
       "tr": [
        "zeka",
        "oyunları"
+      ],
+      "pt-BR": [
+       "jogos de",
+       "raciocínio"
+      ],
+      "pl": [
+       "gry",
+       "logiczne"
+      ],
+      "hu": [
+       "logikai",
+       "játékok"
       ]
      }
     },
@@ -1943,6 +2117,15 @@
       ],
       "tr": [
        "yürüyüş"
+      ],
+      "pt-BR": [
+       "caminhar"
+      ],
+      "pl": [
+       "spacery"
+      ],
+      "hu": [
+       "séta"
       ]
      }
     },
@@ -1989,6 +2172,15 @@
       ],
       "tr": [
        "güneş"
+      ],
+      "pt-BR": [
+       "sol"
+      ],
+      "pl": [
+       "słońce"
+      ],
+      "hu": [
+       "napfény"
       ]
      }
     },
@@ -2020,6 +2212,18 @@
       "tr": [
        "dijital",
        "detoks"
+      ],
+      "pt-BR": [
+       "detox",
+       "digital"
+      ],
+      "pl": [
+       "cyfrowy",
+       "detoks"
+      ],
+      "hu": [
+       "digitális",
+       "detox"
       ]
      },
      "couleur": "#151a13",

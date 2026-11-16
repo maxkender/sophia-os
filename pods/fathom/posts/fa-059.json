@@ -8,7 +8,11 @@
   "pt-BR": "3 habilidades que fazem você parecer mais inteligente",
   "es-419": "3 habilidades que te hacen ver más inteligente",
   "fr": "3 compétences qui te font paraître plus intelligent",
-  "es": "3 habilidades que te hacen parecer más inteligente"
+  "es": "3 habilidades que te hacen parecer más inteligente",
+  "cs": "3 dovednosti, se kterými budeš vypadat chytřeji",
+  "sk": "3 zručnosti, vďaka ktorým budeš pôsobiť múdrejšie",
+  "hr": "3 vještine zbog kojih izgledaš pametnije",
+  "sl": "3 veščine, s katerimi deluješ pametneje"
  },
  "legendes": {
   "en": "3 Skills That Make You Look Smarter #selfimprovement #learnontiktok #skills",
@@ -17,7 +21,11 @@
   "pt-BR": "3 habilidades que fazem você parecer mais inteligente #desenvolvimentopessoal #aprendanotiktok #habilidades",
   "es-419": "3 habilidades que te hacen ver más inteligente #desarrollopersonal #aprendeentiktok #habilidades",
   "fr": "3 compétences qui te font paraître plus intelligent #développementpersonnel #apprendresurtiktok #compétences",
-  "es": "3 habilidades que te hacen parecer más inteligente #desarrollopersonal #aprendeentiktok #habilidades"
+  "es": "3 habilidades que te hacen parecer más inteligente #desarrollopersonal #aprendeentiktok #habilidades",
+  "cs": "3 dovednosti, se kterými budeš vypadat chytřeji #dovednosti #seberozvoj #vzdělávání",
+  "sk": "3 zručnosti, vďaka ktorým budeš pôsobiť múdrejšie #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "3 vještine zbog kojih izgledaš pametnije #vještine #osobnirazvoj #učenje",
+  "sl": "3 veščine, s katerimi deluješ pametneje #veščine #osebnarast #učenje"
  },
  "musique": {
   "titre": "audio originale",
@@ -146,6 +154,74 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "3 DOVEDNOSTI",
+       "bronze": true
+      }
+     ],
+     "SE KTERÝMI BUDEŠ",
+     [
+      {
+       "t": "VYPADAT CHYTŘEJI",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "3 ZRUČNOSTI",
+       "bronze": true
+      }
+     ],
+     "VĎAKA KTORÝM BUDEŠ",
+     [
+      {
+       "t": "PÔSOBIŤ MÚDREJŠIE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "3 VJEŠTINE",
+       "bronze": true
+      }
+     ],
+     "ZBOG KOJIH",
+     [
+      {
+       "t": "IZGLEDAŠ PAMETNIJE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "3 VEŠČINE",
+       "bronze": true
+      }
+     ],
+     "S KATERIMI",
+     [
+      {
+       "t": "DELUJEŠ PAMETNEJE",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -252,6 +328,66 @@
      "date": "hace 3 años",
      "duree": "10:57",
      "avatar": "https://yt3.ggpht.com/4zcjS0Yf9gsZUTIrO3MvAtglvRnEr1IdvhpCA9wQbds9yLUCBmq5geVk1MdK1AiM4X1okCjN9Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "POČÍTEJ",
+     "Z HLAVY"
+    ],
+    "video": {
+     "id": "Fgf-pXLRZFE",
+     "titre": "Násobení velkých čísel bez kalkulačky",
+     "chaine": "Broker Consulting - Palmovka",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbgPeUYpNkhx94ykDihqq6xHtIVu8yfYGt-Fl1O2Uj3A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POČÍTAJ",
+     "SPAMÄTI"
+    ],
+    "video": {
+     "id": "iot6plSItgk",
+     "titre": "Druhá odmocnina ľubovoľného čísla spamäti? Ako na to...",
+     "chaine": "Rudolf Zrebny",
+     "vues": "1 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kOjeshHGtcp02i_t2PD7Hs2xvdBL3ptfptd7uFoWBokAc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "RAČUNAJ",
+     "BEZ KALKULATORA"
+    ],
+    "video": {
+     "id": "3gUwyWp8R2c",
+     "titre": "Kako množiti pomoću prstiju?",
+     "chaine": "e-kako portal",
+     "vues": "349 tis. pregleda",
+     "date": "prije 14 godina",
+     "duree": "1:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "RAČUNAJ",
+     "NA PAMET"
+    ],
+    "video": {
+     "id": "xTeYk03a_zg",
+     "titre": "MATEMATIČNI TRIK 2: Hitro množenje - SUPER NA IZI 😁",
+     "chaine": "Mata na izi",
+     "vues": "1,4 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nABnDwrhOe4BkBEB8a7HzElW4zEuAbJfcc_9cypT1_TA=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -361,6 +497,66 @@
      "duree": "6:47",
      "avatar": "https://yt3.ggpht.com/CuhDZCLull2nwLiynAaQNX3g3tbb8On9caFcjkhv_vfbVyJgkX7BB1gbO44wNNTwHUYX-8uxcg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     "RYCHLOČTENÍ"
+    ],
+    "video": {
+     "id": "9SjsOybl344",
+     "titre": "Rychločtení",
+     "chaine": "metalearning_cz",
+     "vues": "64 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/sklMeGpRbBfRiYj67_fL9jmzhEbYcMHrumLEuA0QpMp05Bok0I0nPKkYcOejSsfnAHIbVRmuWA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     "RÝCHLOČÍTANIE"
+    ],
+    "video": {
+     "id": "piB-PshUGWA",
+     "titre": "Ako čítať RÝCHLEJŠIE",
+     "chaine": "Dejepis Inak",
+     "vues": "69 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "10:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBhPYPYBuXMMfPWSRC6JZOBAV6bf_dcjVoY-LR2lUzLFw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "BRZO",
+     "ČITANJE"
+    ],
+    "video": {
+     "id": "KJgIWFtIUag",
+     "titre": "TEHNIKE BRZO ČITANJE - Uvod u moć brzog čitanja",
+     "chaine": "tutor up",
+     "vues": "16 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "16:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUvGzq6RJowVQH8tRF4ncA-E33U0zfcbsQh4pHqr0QBg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "HITRO",
+     "BRANJE"
+    ],
+    "video": {
+     "id": "K5g_J9lq7PQ",
+     "titre": "Tečaj hitrega branja",
+     "chaine": "Gabrijel Krizman",
+     "vues": "479 ogledov",
+     "date": "pred 15 leti",
+     "duree": "0:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRSNfTPwo7hSRyJkz8W29B5VoxNOLoLC9xjxedr8VyQA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -454,6 +650,58 @@
      "texte": [
       "5 minutos al día",
       "para saber un poco de todo."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "VĚZ TROCHU",
+     "O VŠEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut denně",
+      "a víš trochu o všem."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "VEDZ TROCHU",
+     "O VŠETKOM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minút denne",
+      "a vieš trochu o všetkom."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZNAJ PONEŠTO",
+     "O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "VEDI MALO",
+     "O VSEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut na dan",
+      "da veš malo o vsem."
      ]
     }
    }
@@ -563,6 +811,66 @@
      "date": "hace 5 años",
      "duree": "15:05",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4CBJT1nfJ5HAfnDsi3-DUKZF8q49kdSuKISt0yDYxbw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "PIŠ",
+     "RYCHLEJI"
+    ],
+    "video": {
+     "id": "GQ7b8hCtDwY",
+     "titre": "Psaní všemi deseti prsty   prstoklad",
+     "chaine": "Radek Němec",
+     "vues": "24 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyMK8HgEXvZhAKDyD3iahDQhbOQN55Hx4T8nog8Vw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "PÍŠ",
+     "RÝCHLEJŠIE"
+    ],
+    "video": {
+     "id": "6r3uHGG7Ptw",
+     "titre": "Písanie 10 prstami po klávesnici | Strojopis",
+     "chaine": "Informatika s Mišom",
+     "vues": "10 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "12:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lixyBioJEsikHNHJrUw1tQvo-ajc92l5k9ncSa_RwDCA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "TIPKAJ",
+     "BRŽE"
+    ],
+    "video": {
+     "id": "-532TZK1gPg",
+     "titre": "Nepravilno i pravilno tipkanje - tečaj daktilografije",
+     "chaine": "Hrvatsko stenografsko društvo",
+     "vues": "4,7 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m38OLzeN4gzElD9Guc12fDI2MkYHIeMJRvQW_o1dvoSg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "TIPKAJ",
+     "HITREJE"
+    ],
+    "video": {
+     "id": "ZZGbCt2AZu0",
+     "titre": "Učenje tipkanja: Izbira programa in osnovne nastavitve",
+     "chaine": "pojasni_si",
+     "vues": "1 tis. ogledov",
+     "date": "pred 5 leti",
+     "duree": "1:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWk7keXWyUVXarqyPazo-PjLGHjAq4pGKKkx2MSd4=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

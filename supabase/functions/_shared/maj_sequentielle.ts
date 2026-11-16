@@ -96,6 +96,13 @@ export interface MajCompte {
   id: string;
   handle: string;
   langue: string;
+  /**
+   * 15/11 (Adrien) : « recents » enfile les slideshows les plus récents
+   * d'abord au lieu des plus vus ; `max` plafonne ce passage (sinon les
+   * plafonds habituels). Posé à la main dans `maj_sources_run.comptes`.
+   */
+  ordre?: "vues" | "recents";
+  max?: number;
 }
 
 export interface MajJournalLigne {

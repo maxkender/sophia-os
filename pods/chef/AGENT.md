@@ -37,7 +37,7 @@ Les podz :
 | 3 · Réactions vidéo (en pause) | `reactions` | `session_01VS4KLri3cw1YkZrx8ZdYBX` | — |
 | 4 · Originaux alpha_male_yellow | `alpha-yellow` | `session_014ZhTRbi5iRvv2vfZ5JeAfr` | alpha_male_yellow |
 | 5 · Originaux RH | `rh` | `session_01LfA4fSWqnaCFDYsWjJCVjU` | RH |
-| 6 · Remakes @mentalapp (arrêté le 4/11) | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing (fermé le 5/11 : UnSwipe arrêté) |
+| 6 · Remakes @mentalapp (Sophia) | `mentalapp` | `session_011K2Rbg2qneX3JJLP7cYmC7` | mentalmaxxing (Sophia seul, anglais ; relancé par Adrien le 15/11 en test sur 3 ou 4 comptes, arrêt si r médian sous 1 après une semaine ; il servait UnSwipe du 17/10 au 4/11) |
 | 7 · Originaux beau_smart_girl | `beau-smart-girl` | `session_01THEUnC81JyhMwLkGH5utSQ` | beau_smart_girl |
 | 8 · Originaux smart_girl | `smart-girl` | `session_01Tm4VDGW1KMgkF1hzdLhHL1` | smart_girl |
 | 9 · Originaux alpha_male | `alpha-male` | `session_01EvmYq9dqbSLEAHnULpx8f7` | alpha_male |
@@ -46,6 +46,9 @@ Les podz :
 | 12 · Originaux clean_study | `clean-study` | `session_017vrvWpn3BvUR1gGwHo2he4` | clean_study (micabo seul depuis le 4/11, pas Sophia ; anglais, l'OS place l'appli) |
 | 13 · Remakes @kaja.learn (Sophia) | `kaja` | `session_017c8FRWxnPZ2spm6e5w98G4` | Kaja (Sophia seul, en, fr et de ; 2 par jour depuis le 5/11, demande d'Adrien ; en test sur 3 comptes, un par langue) |
 | 14 · Originaux Plony (Sophia) | `plony` | `session_017c8FRZ8qRaSWXppDYa8Lum` | Plony (Sophia seul, voie 1, en anglais, images de @_plony_ et Seedream ; lancé par Adrien le 13/11 à 2 par jour ; label rattaché à Sophia après le nettoyage de l'import, comptes à choisir dans Pilotage) |
+| 15 · Remakes @sagace.fr (Sophia) | `sagace` | `session_017c8FRYHR6JY3Ltj2xa2Ftw` | sagace (Sophia seul, voie 2, en français ; lancé par Adrien le 15/11, pilote sg-001 ; comptes par « démarrage d'un podz » ou Pilotage) |
+| 16 · Originaux @dorian.frog (Sophia) | `dorian` | `session_017c8FRXy9zA7uNry6RREAEV` | dorian (Sophia seul, images finies, en anglais ; icebergs et listes « niche » au style exact de @dorian.frog ; lancé par Adrien le 15/11, pilote dr-001) |
+| 17 · Originaux @theappshelf (Sophia) | `appshelf` | `session_017c8FRWZLUvdhYUiNBvRmdo` | appshelf (Sophia seul, images finies, en anglais, genre femme ; cinq vraies applis dont Sophia, au style exact de @theappshelf ; lancé par Adrien le 15/11, pilote as-001) |
 
 ## Règles absolues
 
@@ -80,7 +83,9 @@ vaut `true` (bascule le dimanche 1/11 au soir : les routines du lundi 2/11 sont 
   la jauge le demande (`pods/ROUTINE.md` §4). Les règles 5 (le rythme ne
   baisse jamais) et 6 ci-dessous ne valent plus pour eux : leur rythme suit
   la jauge (plus bas).
-- **La voie 2** (podz 1, 10, 11 et 13 ; le 6 est arrêté) a aussi sa boîte et
+- **La voie 2** (podz 1, 10, 11, 13, 15, 16 et 17 ; le 6, relancé le 15/11, y
+  revient à son premier remake validé ; 16 et 17 sont des originaux en images
+  finies) a aussi sa boîte et
   sa jauge depuis le 5/11 (0653) : ses podz refont les posts neufs de leur
   compte modèle, déclinent leur boîte dans l'ordre et déposent les full tests
   de la jauge (`pods/ROUTINE.md` §5). Une déclinaison ou un full test déclaré

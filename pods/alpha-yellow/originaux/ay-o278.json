@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o278",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "021742b5-3777-4b66-a7c0-ce6d9a7e5caa",
+ "titre": "How to completely reinvent the way you think #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "021742b5-3777-4b66-a7c0-ce6d9a7e5caa"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (021742b5, es 1,5 k, it 1,3 k), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (entrées, histoire de l'homme à devenir, habitude remplacée, se parler en ami, entourage, petites victoires).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "12551afc-9367-4172-b676-cdcfd583ad77",
+   "texte_overlay": "How to completely reinvent\nthe way you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Question one belief you've had for years. \"I'm bad with money.\" \"I'm not a morning person.\" Many of the limits you live with were never true.",
+   "media_id": "59a61353-68b0-4b08-8b7f-0d5b0cfdb134"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Read one book that disagrees with you. Seeing the other side clearly stretches your mind and makes your own opinions stronger and calmer.",
+   "media_id": "5b2e8f13-e675-4f44-9d33-18340d52ed0a"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Change your first hour of the day. No phone, a glass of water, a short walk. How you start the morning shapes how you think all day.",
+   "media_id": "5c06a766-a9f9-4859-a7cc-7d6ec335df2a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep a journal for a month. Write what happened and how you reacted. Patterns in your thinking become obvious when you see them on paper.",
+   "media_id": "607d5002-b1d8-4c40-a8d4-bed0ac2e9140"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Feed your mind something new daily. I do five minutes a day of history, art or science, and it slowly changes what I think about.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Little by little, it changes what I think about every single day.",
+   "media_id": "5d88fe03-5913-4515-a9de-e75fa92b8365"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Do one thing that scares you every week. A hard conversation, a new class, a solo trip. Courage rewires your mind faster than any quote.",
+   "media_id": "62b98def-0cdb-4b7b-85fb-94b682852f5f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Ask \"what would the best version of me do?\" before big decisions. It's a simple question, but it stops old habits from making choices for you.",
+   "media_id": "62c76737-0e51-4f71-bd0d-54d307c89b6a"
+  }
+ ]
+}

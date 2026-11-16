@@ -1,0 +1,284 @@
+{
+ "compte": "sagace.fr",
+ "maj_le": "2026-11-15",
+ "note": "Ses 17 diaporamas relevés le 15/11 (21/08 → 03/11), du plus vu au moins vu. Il recycle ses accroches (« Compétence 10/10 à apprendre avant 20 ans » deux fois, « … au lieu de scroller » trois fois) avec d'autres compétences : chaque post est un remake à part. `competences` : lues sur ses slides, avec la place de ses slides de fin (« ABONNE-TOI », « ENREGISTRE CE POST », « e-books ») qu'on ne refait jamais. Ses posts depuis le 24/09 (« e-books », 5 à 14 k) font bien moins que ceux d’août et du début septembre : refais d'abord les tubes. Ordre de travail : les `a_faire` de haut en bas.",
+ "posts": [
+  {
+   "id": "7681636512013765920",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7681636512013765920",
+   "publie_le": "2026-09-04",
+   "accroche": "Compétence 10/10 à apprendre avant 20 ans",
+   "vues": 482200,
+   "enregistrements": 49313,
+   "partages": 4373,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - rithu",
+    "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+   },
+   "competences": "gérer son argent, apprendre à apprendre, négocier, parler en public, apprendre à cuisiner (vidéos : Mark Tilbury, Reflexion, Katana, TEDx Jennifer Migan, Le French Gourmet) ; ABONNE-TOI en fin",
+   "statut": "fait",
+   "motif": "sg-001 (pilote du 15/11) : ses 5 compétences, d'autres vraies vidéos, Sophia en étape 4 « AVOIR UNE CULTURE G » ; redéposé le 15/11 en 5 langues (fr, en, de, it, pt-BR)"
+  },
+  {
+   "id": "7677887690662055201",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7677887690662055201",
+   "publie_le": "2026-08-25",
+   "accroche": "10 compétence 10/10 à apprendre au lieu de scroller",
+   "vues": 352500,
+   "enregistrements": 23841,
+   "partages": 1549,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - m - m",
+    "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
+   },
+   "competences": "découper des légumes, avoir une bonne posture, repérer les constellations, faire le poirier, les 15 nœuds indispensables ; ABONNE-TOI en fin",
+   "statut": "fait",
+   "motif": "sg-002 (15/11, livraison 9cd8d3f1) : 5 langues (fr, en, de, it, pt-BR), vraies vidéos natives par langue, Sophia en étape 4, cta B « SE CULTIVER / EN 5 MIN »"
+  },
+  {
+   "id": "7680943672074030369",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7680943672074030369",
+   "publie_le": "2026-09-02",
+   "accroche": "5 compétence 10/10 à apprendre au lieu de scroller",
+   "vues": 202000,
+   "enregistrements": 11103,
+   "partages": 684,
+   "slides": 7,
+   "musique": {
+    "titre": "im not alone - Žvaigždė",
+    "url": "https://www.tiktok.com/music/im-not-alone-7214561277266610990"
+   },
+   "competences": "faire des tractions, nager le crawl, porter une charge, apprendre le morse, coudre à la main ; ABONNE-TOI en fin",
+   "statut": "fait",
+   "motif": "sg-003 (15/11, livraison fd372cb1) : 5 langues (fr, en, de, it, pt-BR), vraies vidéos natives par langue, Sophia en étape 4, cta C « LÂCHER / TIKTOK »"
+  },
+  {
+   "id": "7679488418337885473",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7679488418337885473",
+   "publie_le": "2026-08-29",
+   "accroche": "10 compétence 10/10 que tu peux apprendre au lieu de scrolle",
+   "vues": 153200,
+   "enregistrements": 13561,
+   "partages": 1434,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - クリスティーナ",
+    "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+   },
+   "competences": "devenir éloquent, s'endormir en 2 minutes, courir sans se blesser, faire un bon café, repasser une chemise ; ABONNE-TOI en fin",
+   "statut": "fait",
+   "motif": "sg-004 (15/11, livraison c0fa02a1) : 5 langues (fr, en, de, it, pt-BR), vraies vidéos natives par langue, Sophia en étape 4, cta A « PARLER DE / TOUT »"
+  },
+  {
+   "id": "7679111055632600353",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7679111055632600353",
+   "publie_le": "2026-08-28",
+   "accroche": "10 Compétence inutile mais qui te rendent 10x plus cool",
+   "vues": 149400,
+   "enregistrements": 7885,
+   "partages": 443,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - Jacob . P",
+    "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+   },
+   "competences": "faire rouler une pièce entre ses phalanges, lancer une carte, faire une cascade avec des cartes, 5 tours avec un stylo, décapsuler une bouteille avec une feuille ; ABONNE-TOI en fin",
+   "statut": "fait",
+   "motif": "sg-005 (15/11, livraison 43591b0d) : 5 langues (fr, en, de, it, pt-BR), vraies vidéos natives par langue, Sophia en étape 4, cta B « CONNAÎTRE / DES FUN FACTS »"
+  },
+  {
+   "id": "7677520528948743456",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7677520528948743456",
+   "publie_le": "2026-08-24",
+   "accroche": "10 compétence inutile mais qui te rendent 10x plus cool",
+   "vues": 99400,
+   "enregistrements": 4114,
+   "partages": 298,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - Notmaster",
+    "url": "https://www.tiktok.com/music/original-sound-7229869367767485227"
+   },
+   "competences": "jongler, faire un avion en papier qui vole longtemps, le moonwalk, siffler avec les doigts, faire un backflip ; ABONNE-TOI en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7683955324025408801",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7683955324025408801",
+   "publie_le": "2026-09-10",
+   "accroche": "Compétence 10/10 à apprendre avant 20ans",
+   "vues": 87800,
+   "enregistrements": 8072,
+   "partages": 672,
+   "slides": 7,
+   "musique": {
+    "titre": "PULL UP - Internet Girl",
+    "url": "https://www.tiktok.com/music/pull-up-7362000806738298897"
+   },
+   "competences": "arrêter de procrastiner, parler avec éloquence, dire non, ABONNE-TOI au milieu, gérer les conflits, comprendre les intérêts composés (même accroche que le post à 482 k, d'autres compétences)",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7676494598587419937",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7676494598587419937",
+   "publie_le": "2026-08-21",
+   "accroche": "Les compétences 10/10 que tu peux apprendre en un jour",
+   "vues": 81500,
+   "enregistrements": 7365,
+   "partages": 579,
+   "slides": 7,
+   "musique": {
+    "titre": "sonido original - Lexn🧛🏽",
+    "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+   },
+   "competences": "lire les nuages, devenir monstrueux en calcul mental, s'orienter en forêt, faire une omelette comme un chef, faire un nœud de cravate ; « ENREGISTRE CE POST » en fin (ancienne couverture, 10/10 plus gros)",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7683245134854556960",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7683245134854556960",
+   "publie_le": "2026-09-08",
+   "accroche": "10 compétence 10/10 qui valent plus qu’un diplôme .",
+   "vues": 81200,
+   "enregistrements": 7583,
+   "partages": 653,
+   "slides": 7,
+   "musique": {
+    "titre": "son original - psycho - psycho",
+    "url": "https://www.tiktok.com/music/son-original-psycho-7668282687572462358"
+   },
+   "competences": "comprendre les intérêts composés, psychologie inversée, capter l'attention, vendre n'importe quoi, bien utiliser l'IA ; ABONNE-TOI en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7677186836392840481",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7677186836392840481",
+   "publie_le": "2026-08-23",
+   "accroche": "10 compétences 10/10 que tu peux apprendre au lieu de scroller",
+   "vues": 57200,
+   "enregistrements": 3971,
+   "partages": 343,
+   "slides": 7,
+   "musique": {
+    "titre": "sonido original - 𝐀𝐋𝐄𝐗",
+    "url": "https://www.tiktok.com/music/sonido-original-7637325514269838098"
+   },
+   "competences": "résoudre un Rubik's cube, faire une bonne première impression, faire un massage cardiaque, apprendre une langue rapidement, aiguiser un couteau ; « ENREGISTRE CE POST » en fin (ancienne couverture)",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7678300054616116512",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7678300054616116512",
+   "publie_le": "2026-08-26",
+   "accroche": "10 compétence 10/10 que tu peux apprendre en 1 mois.",
+   "vues": 25000,
+   "enregistrements": 1038,
+   "partages": 88,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - afc.lp",
+    "url": "https://www.tiktok.com/music/original-sound-7659247530319891222"
+   },
+   "competences": "apprendre le piano, faire du skate, piloter, son premier marathon, jouer de la guitare ; ABONNE-TOI en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7680302500674555169",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7680302500674555169",
+   "publie_le": "2026-08-31",
+   "accroche": "Les vidéos 10/10 à absolument voir",
+   "vues": 23600,
+   "enregistrements": 1873,
+   "partages": 189,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - mxk.media22",
+    "url": "https://www.tiktok.com/music/original-sound-7541284794651527966"
+   },
+   "competences": "format « vidéos » sans titre d'étape : 5 techniques anti-flemme, la solitude, pourquoi ton cerveau remet à demain, la pub, l'effet de halo ; ABONNE-TOI en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7689580801020808480",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7689580801020808480",
+   "publie_le": "2026-09-25",
+   "accroche": "10/10 vidéos à absolument voir.",
+   "vues": 13700,
+   "enregistrements": 1062,
+   "partages": 111,
+   "slides": 8,
+   "musique": {
+    "titre": "still love you (Slowed) - GLM-RST",
+    "url": "https://www.tiktok.com/music/still-love-you-slowed--7673789140375472145"
+   },
+   "competences": "format « vidéos » : avoir une peau parfaite, avoir une odeur, la solitude, ABONNE-TOI au milieu, bien parler, arrêter une addiction ; « e-books » en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7689104304279473441",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7689104304279473441",
+   "publie_le": "2026-09-24",
+   "accroche": "10/10 compétence inutile mais qui te rendent 10x plus cool",
+   "vues": 7279,
+   "enregistrements": 201,
+   "partages": 15,
+   "slides": 8,
+   "musique": {
+    "titre": "still love you - GLM-RST",
+    "url": "https://www.tiktok.com/music/still-love-you-7673789150877779985"
+   },
+   "competences": "faire un bon café, faire tourner un ballon sur son doigt, 3 tours de magie, ABONNE-TOI au milieu, un origami dragon, faire du feu en forêt ; « e-books » en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7689938088386153760",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7689938088386153760",
+   "publie_le": "2026-09-26",
+   "accroche": "10/10 compétences que les riches ont.",
+   "vues": 7039,
+   "enregistrements": 391,
+   "partages": 27,
+   "slides": 8,
+   "musique": {
+    "titre": "Jealousy - てんねんすい",
+    "url": "https://www.tiktok.com/music/jealousy-7681834526759799573"
+   },
+   "competences": "comment investir, l'argent infini, devenir riche en France, les principes de millionnaire, ABONNE-TOI au milieu, l'art de négocier ; « e-books » en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7703633246621420833",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7703633246621420833",
+   "publie_le": "2026-11-02",
+   "accroche": "Compétence 10/10 qui peuvent changer ta vie.",
+   "vues": 6391,
+   "enregistrements": 501,
+   "partages": 31,
+   "slides": 7,
+   "musique": {
+    "titre": "original sound - 11obby",
+    "url": "https://www.tiktok.com/music/original-sound-7694643248358492930"
+   },
+   "competences": "les bases en finance, captiver grâce à un montage, ABONNE-TOI au milieu, organiser ses journées, ouvrir son entreprise ; « e-books » en fin",
+   "statut": "a_faire"
+  },
+  {
+   "id": "7704018547965463841",
+   "url": "https://www.tiktok.com/@sagace.fr/video/7704018547965463841",
+   "publie_le": "2026-11-03",
+   "accroche": "Compétences 10/10 qui te transforme en génie",
+   "vues": 5273,
+   "enregistrements": 448,
+   "partages": 29,
+   "slides": 5,
+   "musique": {
+    "titre": "original sound - T07",
+    "url": "https://www.tiktok.com/music/original-sound-7690376253924231949"
+   },
+   "competences": "être le meilleur en calcul mental, apprendre comme une machine, négocier tout ce que tu veux ; « e-books » en fin",
+   "statut": "a_faire"
+  }
+ ]
+}

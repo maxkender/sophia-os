@@ -4,12 +4,20 @@
  "titre": {
   "fr": "les erreurs que j’ai arrêté de faire en révisant",
   "es": "los errores que dejé de hacer al estudiar",
-  "tr": "ders çalışırken bıraktığım hatalar"
+  "tr": "ders çalışırken bıraktığım hatalar",
+  "en": "the study mistakes i stopped making",
+  "de": "die Lernfehler, die ich nicht mehr mache",
+  "it": "gli errori che ho smesso di fare studiando",
+  "pt-BR": "os erros que parei de cometer estudando"
  },
  "legendes": {
   "fr": "si tu fais encore ça, arrête 🙅‍♀️ #studytok #revisions #thatgirl #conseils #examens",
   "es": "si todavía haces esto, para 🙅‍♀️ #studytok #estudiar #thatgirl #consejos #examenes",
-  "tr": "hâlâ bunu yapıyorsan bırak 🙅‍♀️ #studytok #ders #thatgirl #tavsiye #sınav"
+  "tr": "hâlâ bunu yapıyorsan bırak 🙅‍♀️ #studytok #ders #thatgirl #tavsiye #sınav",
+  "en": "if you still do this, stop 🙅‍♀️ #studytok #studytips #thatgirl #exams #studying",
+  "de": "wenn du das noch machst: hör auf 🙅‍♀️ #studytok #lerntipps #thatgirl #prüfung #lernen",
+  "it": "se lo fai ancora, smetti 🙅‍♀️ #studytok #studiare #thatgirl #esami #consigli",
+  "pt-BR": "se você ainda faz isso, para 🙅‍♀️ #studytok #estudos #thatgirl #provas #dicas"
  },
  "musique": {
   "titre": "original sound",
@@ -67,6 +75,60 @@
      "interligne": 1,
      "y": 620
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "the study mistakes",
+     "lignes": [
+      "I STOPPED",
+      "MAKING"
+     ],
+     "taille": 170,
+     "taille_script": 80,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "die Lernfehler, die ich",
+     "lignes": [
+      "NICHT MEHR",
+      "MACHE"
+     ],
+     "taille": 150,
+     "taille_script": 80,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "gli errori che ho",
+     "lignes": [
+      "SMESSO",
+      "DI FARE"
+     ],
+     "taille": 170,
+     "taille_script": 80,
+     "script_bas": "studiando",
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "os erros que eu",
+     "lignes": [
+      "PAREI DE",
+      "COMETER"
+     ],
+     "taille": 160,
+     "taille_script": 80,
+     "script_bas": "estudando",
+     "y": 620
+    }
    }
   },
   {
@@ -111,6 +173,50 @@
       "grand": true
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "studying with my phone next to me📵",
+      "texte": "one notification and 20 min are gone. now it sleeps in another room.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "mit dem Handy neben mir lernen📵",
+      "texte": "eine Benachrichtigung und 20 Min. sind weg. jetzt schläft es in einem anderen Zimmer.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "studiare con il telefono accanto📵",
+      "texte": "una notifica e 20 min volano via. ora dorme in un’altra stanza.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "estudar com o celular do lado📵",
+      "texte": "uma notificação e lá se vão 20 min. agora ele dorme em outro cômodo.",
+      "grand": true
+     }
+    ]
    }
   },
   {
@@ -152,6 +258,50 @@
       "y": 90,
       "titre": "her şeyin altını çizmek🖍️",
       "texte": "bütün sayfa sarıysa hiçbir şey öne çıkmaz. paragraf başına bir fikir, fazlası değil.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 40,
+      "y": 90,
+      "titre": "highlighting everything🖍️",
+      "texte": "when the whole page is yellow, nothing stands out. one idea per paragraph, max.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 40,
+      "y": 90,
+      "titre": "alles markieren🖍️",
+      "texte": "wenn die ganze Seite gelb ist, sticht nichts heraus. eine Idee pro Absatz, mehr nicht.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 40,
+      "y": 90,
+      "titre": "evidenziare tutto🖍️",
+      "texte": "quando tutta la pagina è gialla, niente risalta. un’idea per paragrafo, non di più.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 40,
+      "y": 90,
+      "titre": "grifar tudo🖍️",
+      "texte": "quando a página toda fica amarela, nada se destaca. uma ideia por parágrafo, no máximo.",
       "grand": true
      }
     ]
@@ -200,6 +350,50 @@
       "grand": true
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1100,
+      "titre": "rereading instead of testing myself🧠",
+      "texte": "rereading makes you feel like you know it. now i put my lessons into micabo and do its quizzes: i see right away what’s missing.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1100,
+      "titre": "nochmal lesen statt mich abzufragen🧠",
+      "texte": "lesen gibt dir das Gefühl, es zu können. jetzt packe ich meinen Stoff in micabo und mache die Quiz: ich sehe sofort, was fehlt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1100,
+      "titre": "rileggere invece di mettermi alla prova🧠",
+      "texte": "rileggere ti fa credere di sapere. ora metto le lezioni su micabo e faccio i suoi quiz: vedo subito cosa manca.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1100,
+      "titre": "reler em vez de me testar🧠",
+      "texte": "reler dá a sensação de que você sabe. agora coloco minhas aulas no micabo e faço os quizzes: vejo na hora o que falta.",
+      "grand": true
+     }
+    ]
    }
   },
   {
@@ -241,6 +435,50 @@
       "y": 1150,
       "titre": "her şeyi son geceye bırakmak😵",
       "texte": "son gece tekrar içindir. her şey önceki haftalarda belirlenir.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "leaving everything for the night before😵",
+      "texte": "the night before is for rereading. it all happens in the weeks before.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "alles auf den letzten Abend schieben😵",
+      "texte": "der Abend davor ist zum Wiederholen. alles passiert in den Wochen davor.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "lasciare tutto per la sera prima😵",
+      "texte": "la sera prima serve a ripassare. tutto si gioca nelle settimane prima.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "deixar tudo pra véspera😵",
+      "texte": "a véspera é pra revisar. tudo se decide nas semanas antes.",
       "grand": true
      }
     ]
@@ -288,6 +526,50 @@
       "grand": true
      }
     ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "skipping breaks☕",
+      "texte": "after 50 min your brain checks out. 10 min without a screen and you’re back.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "Pausen auslassen☕",
+      "texte": "nach 50 Min. schaltet dein Kopf ab. 10 Min. ohne Bildschirm und es geht weiter.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "saltare le pause☕",
+      "texte": "dopo 50 min il cervello stacca. 10 min senza schermo e riparti.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 1150,
+      "titre": "pular as pausas☕",
+      "texte": "depois de 50 min o cérebro desliga. 10 min sem tela e você volta.",
+      "grand": true
+     }
+    ]
    }
   },
   {
@@ -329,6 +611,50 @@
       "y": 1150,
       "titre": "yatakta ders çalışmak🛏️",
       "texte": "20 dakika sonra yarı uyuyordum. yatak uyumak içindir.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "studying in bed🛏️",
+      "texte": "after 20 min i was half asleep. bed is for sleeping.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "im Bett lernen🛏️",
+      "texte": "nach 20 Min. war ich halb eingeschlafen. das Bett ist zum Schlafen da.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "studiare a letto🛏️",
+      "texte": "dopo 20 min dormivo a metà. il letto è per dormire.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 308,
+      "y": 1150,
+      "titre": "estudar na cama🛏️",
+      "texte": "depois de 20 min eu já estava meio dormindo. cama é pra dormir.",
       "grand": true
      }
     ]

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o166",
+  "type_bleo": "full_test",
+  "titre": "les choses que j'ai apprises en vivant seule pour la première fois #independante #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : le premier appartement, récit « je » (la famille « choses faites seule » parle d'activités, pas du logement). Accroches écrites : « les choses que j'ai apprises en vivant seule pour la première fois » (retenue : étape de vie, concrète), « conseils pour ton premier appart » (écartée : sèche), « vivre seule, c'est dur ? » (écartée : question molle). Aucun fait daté. Routine du 15/11 sur BLEO (règle 0671 : images neuves de toute la banque, vérifiées sur planche ; son en rotation). Jauge : 3 full tests et 5 déclinaisons ; seules les lignes 1, 2 et 8 de la boîte se déclinent proprement, donc 3 déclinaisons et 5 full tests. Lignes sautées : 3 (« validé par les neurosciences »), 4 (accroche illisible), 5 (« backed by science »), 6 (« enterimarnt »), 7 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "5922b2dc",
+      "texte_overlay": "les choses que j'ai apprises\nen vivant seule pour la première fois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "59381859",
+      "texte_overlay": "1. le silence fait peur, puis il devient précieux\n\nla première semaine, je mettais la télé en fond.\nmaintenant, j'adore.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "597e0116",
+      "texte_overlay": "2. une maison rangée, c'est une tête rangée\n\ncinq minutes le soir.\nle matin, tout est plus simple.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "599528cc",
+      "texte_overlay": "3. cuisiner pour soi, c'est se respecter\n\nune vraie assiette,\nmême quand personne ne regarde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "59980fb7",
+      "texte_overlay": "4. on apprend à s'occuper de soi\n\nles factures, les rendez-vous, les petites réparations.\non grandit d'un coup.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5b3a741b",
+      "texte_overlay": "5. les soirées seule deviennent les meilleures\n\navant, je m'ennuyais dès que j'étais seule.\nmaintenant, j'apprends un truc sur le monde chaque matin. et mes soirées sont pleines de curiosité.",
+      "texte_sophia": "5. les soirées seule deviennent les meilleures\n\navant, je m'ennuyais dès que j'étais seule.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et mes soirées sont pleines de curiosité.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "5abed443",
+      "texte_overlay": "et toi, tu vis seule ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

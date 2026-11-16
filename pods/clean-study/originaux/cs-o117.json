@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o117",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e8a4ca6b-3cac-4799-bd7f-9a75d0414087",
+  "titre": "putting in the hours all week and drawing a blank on test day #studytok #studytips #exams",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "e8a4ca6b-3cac-4799-bd7f-9a75d0414087"
+  ],
+  "notes": "Déclinaison G2 de e8a4ca6b (notre cs-o052 en G1 : r 2,93 en turc), ligne 1 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o111 : « putting in the hours all week and drawing a blank on test day ». Gestes neufs, aucun de cs-o016, cs-o052 ni cs-o111 : apprendre en se posant des questions et pas en relisant, réviser à voix haute, refaire les exercices du cours sans la correction, se tester 2 jours avant (place micabo, slide 5), sauter la question qui bloque et y revenir, relire la copie à la fin. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "086be0a9",
+      "texte_overlay": "putting in the hours all week\nand drawing a blank on test day",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "62498a2c",
+      "texte_overlay": "what fixed it for me:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "6ad8bb4a",
+      "texte_overlay": "i stopped rereading. now i ask myself questions.\nrecognizing a page isn't remembering it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ad8efffc",
+      "texte_overlay": "i revise out loud.\nif i can say it, i can write it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c50c301f",
+      "texte_overlay": "2 days before, a full quiz with my notes closed.\nthe gaps show up while there's still time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1b8515d1",
+      "texte_overlay": "on the test, a question that blocks me gets skipped.\ni come back once the easy ones are done.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "eeea4a88",
+      "texte_overlay": "the last 5 minutes: i reread everything.\nhalf my \"blanks\" were just rushed answers.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

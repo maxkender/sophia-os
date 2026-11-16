@@ -12,7 +12,7 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { createCanvas, loadImage } from "@napi-rs/canvas";
-import { appelPod, LANGUE_SOURCE, LANGUES, lireManifeste, POD, type Langue } from "./api.ts";
+import { appelPod, idDepot, LANGUE_SOURCE, LANGUES, lireManifeste, POD, type Langue } from "./api.ts";
 import { CHEMIN_ICONE } from "./app.ts";
 import { metadonneesRestantes } from "./metadonnees.ts";
 import { rendreCarrousel, textesCarrousel, type Carrousel } from "./carrousel.ts";
@@ -29,11 +29,16 @@ const deposer = args.includes("--deposer");
 // Deux formats : la tier list (couverture + tableau) et le carrousel (un item par slide).
 const o = lireOriginal(id) as Original | Carrousel;
 const carrousel = "format" in o && o.format === "carrousel";
-/** Slide de l'élément UnSwipe : la 2e pour une tier list, celle de son item pour un carrousel. */
+/** Slide de l'élément Sophia : la 2e pour une tier list, celle de son item pour un carrousel. */
 const positionApp = carrousel ? (o as Carrousel).items.findIndex((it) => "app" in it) + 2 : (o as Original).position_app;
-if (positionApp < 2) throw new Error(`${id} : pas d'élément UnSwipe (jamais sur la couverture)`);
+if (positionApp < 2) throw new Error(`${id} : pas d'élément Sophia (jamais sur la couverture)`);
 const icone = await loadImage(CHEMIN_ICONE);
-const decks: Record<string, { hashtags: string; slides: { position: number; jpeg_base64: string; position_app?: true }[] }> = {};
+/** `type_bleo` (+ `parent_contenu_id`) de originaux/<id>.json, s'il y en a. */
+function bleo(x: unknown): Record<string, string> {
+  const { type_bleo, parent_contenu_id } = x as { type_bleo?: string; parent_contenu_id?: string };
+  return type_bleo ? { type_bleo, ...(parent_contenu_id ? { parent_contenu_id } : {}) } : {};
+}
+const decks: Record<string, { hashtags: string; slides: { position: number; jpeg_base64: string; position_sophia?: true }[] }> = {};
 const rendus: Record<string, Buffer[]> = {};
 for (const langue of langues) {
   const jpegs = carrousel ? await rendreCarrousel(o as Carrousel, langue, icone) : await rendreOriginal(o as Original, langue, icone);
@@ -47,7 +52,7 @@ for (const langue of langues) {
   rendus[langue] = jpegs;
   decks[langue] = {
     hashtags: o.legendes[langue],
-    slides: jpegs.map((j, i) => ({ position: i + 1, jpeg_base64: j.toString("base64"), ...(i + 1 === positionApp ? { position_app: true as const } : {}) })),
+    slides: jpegs.map((j, i) => ({ position: i + 1, jpeg_base64: j.toString("base64"), ...(i + 1 === positionApp ? { position_sophia: true as const } : {}) })),
   };
 }
 
@@ -68,13 +73,15 @@ if (essai || deposer) {
   const corps = {
     action: "deposer",
     pod: POD,
-    source_id: id,
+    source_id: idDepot(id),
     titre: o.titre.slice(0, 160),
     langue_source: LANGUE_SOURCE,
     musique_url: top?.musique.url ?? null,
     musique_titre: top?.musique.titre ?? null,
     textes: carrousel ? textesCarrousel(o as Carrousel) : textesOriginal(o as Original),
     decks,
+    // BLEO (pods/ROUTINE.md §5, npm run boite) : déclaration facultative.
+    ...bleo(o),
   };
   if (essai) {
     mkdirSync(essai, { recursive: true });

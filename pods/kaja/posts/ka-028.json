@@ -1,0 +1,347 @@
+{
+ "id": "ka-028",
+ "titre": {
+  "en": "10/10 skills that can save a life",
+  "fr": "10/10 gestes qui sauvent des vies",
+  "de": "10/10 Skills, die Leben retten"
+ },
+ "legendes": {
+  "en": "10/10 skills that can save a life #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 gestes qui sauvent des vies #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die Leben retten #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7486234767046773546"
+ },
+ "notes": "Full test (BLEO, 15/11) : une accroche neuve au format de @kaja.learn (proche de son « SKILLS THAT CAN SAVE YOUR LIFE », jamais refait chez nous). Décor branche2, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : Heimlich, position latérale de sécurité, arrêter un saignement (le massage cardiaque de ka-013 n'est pas repris). Musique : son « original sound » de son post à 827 k, pour alterner. Sophia en étape 3 « HOW TO KNOW WHAT TO DO » : cta A, « 5 min a day ». Vraies vidéos : en Howcast, St John Ambulance, Mass General Brigham ; fr Le Figaro, Doctissimo, RTS ; de Die Techniker, Johanniter, gesundheitsinformation.de.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS THAT",
+     "CAN SAVE",
+     "A LIFE"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "GESTES QUI",
+     "SAUVENT",
+     "DES VIES"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS,",
+     "DIE LEBEN",
+     "RETTEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "THE HEIMLICH",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7CgtIgSyAiU",
+     "titre": "How to Give the Heimlich Maneuver | First Aid Training",
+     "chaine": "Howcast",
+     "vues": "3.5M views",
+     "date": "14 years ago",
+     "duree": "2:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNH2pDkz9-fE3Xkix_Vcz_ijlYXBIy-y03Ei1yaHhTujA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "LA MANŒUVRE",
+       "couleur": "#d6344c"
+      }
+     ],
+     [
+      {
+       "t": "DE HEIMLICH",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aavBG7bHZ64",
+     "titre": "Le geste qui sauve : la manoeuvre de Heimlich",
+     "chaine": "Le Figaro",
+     "vues": "376 k vues",
+     "date": "il y a 10 ans",
+     "duree": "2:09",
+     "avatar": "https://yt3.ggpht.com/XdZoq42VpxVA7NDBKfaAi-kO664L97NCZZXLkIFxgQrne4d6JgoazzHDouIBlh_serwA6UQaamA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT DER",
+     [
+      {
+       "t": "HEIMLICH-GRIFF",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J_8rotr_UIs",
+     "titre": "Der Heimlich-Griff - wenn man sich verschluckt hat und zu ersticken droht | Dr. Johannes Wimmer",
+     "chaine": "Die Techniker",
+     "vues": "3,7 Mio. Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "2:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwxrV798aao3tuBc6IacdtmU72JpOV895tjHv6EVUdEYE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "THE RECOVERY",
+       "couleur": "#5176e0"
+      }
+     ],
+     [
+      {
+       "t": "POSITION",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GmqXqwSV3bo",
+     "titre": "The Recovery Position - First Aid Training - St John Ambulance",
+     "chaine": "St John Ambulance",
+     "vues": "2.4M views",
+     "date": "10 years ago",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/3_EKVZ4cYtPnl5RtfXgOGkN4w3KpDelNVlEs1qjcyfyxDLDIt8km0jA5Iq6J7FxewSsN1LVVtA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UNE PLS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NIAmZJDca_s",
+     "titre": "Mettre une personne en position latérale de sécurité",
+     "chaine": "Doctissimo",
+     "vues": "823 k vues",
+     "date": "il y a 8 ans",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/kwtE8Vn8ftjY9h_X-MOFnAfn_Y9_LJh3Z4XgDfZNYi0olO-T97DGnj4zHgiyd-myRauzOQQwXpY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GEHT DIE",
+     [
+      {
+       "t": "STABILE",
+       "couleur": "#5176e0"
+      }
+     ],
+     [
+      {
+       "t": "SEITENLAGE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eF9rO3g-dYY",
+     "titre": "Erste-Hilfe-Tutorial: stabile Seitenlage",
+     "chaine": "Johanniter-Unfall-Hilfe e.V.",
+     "vues": "119.894 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l15BdS2HJgtfPyrqRwzI-VEDm_3cXsE0W-tk9JHGDmYrc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO KNOW",
+     [
+      {
+       "t": "WHAT TO DO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT SAVOIR",
+     [
+      {
+       "t": "QUOI FAIRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WEISST DU,",
+     [
+      {
+       "t": "WAS ZU TUN IST",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "STOP BLEEDING",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NoOW3Ca0vPM",
+     "titre": "How to Stop Bleeding from an Immediate Injury | In Case of Emergency | Mass General Brigham",
+     "chaine": "Mass General Brigham",
+     "vues": "412K views",
+     "date": "3 years ago",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/Jxx3gDlpsmiXN8DwFjGkE4bhRQTMAzNjp-MfAEDRR91aVudr5hiX1UT5PQvPemIY36tvykLmyg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ARRÊTER",
+     [
+      {
+       "t": "UN SAIGNEMENT",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u4nseO56Wps",
+     "titre": "Comment stopper le saignement d'une plaie? (64)",
+     "chaine": "RTS - Radio Télévision Suisse",
+     "vues": "71 k vues",
+     "date": "il y a 9 ans",
+     "duree": "1:23",
+     "avatar": "https://yt3.ggpht.com/G_8yRvhSQGryHCDGSM82_F90mYYkeciY-y1GQLp9xpwzFy392eyquVotTvx2isTidcbTSVciJA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STOPPST DU",
+     [
+      {
+       "t": "EINE BLUTUNG",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yzLP2GiQ0cs",
+     "titre": "Stärkere Blutung stoppen: So kannst du mit Hilfsmitteln einen Druckverband anlegen!",
+     "chaine": "gesundheitsinformation.de",
+     "vues": "31.521 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/lE3DDKMv6fTxOWq5GXLmJ9wfCon2BOCD58MoVxPgkqSjuirmq96JSTMKl80IjPq9ytllk8nRvQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5-10 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

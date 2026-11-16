@@ -24,20 +24,28 @@
   « tier list des / sources de / dopamine », « Tierlist der / Dopamin- /
   quellen », « tier list: / Dopamin / kaynakları ».
 - **Pas de tiret long**, pas de point-virgule.
-- **Jamais** Journey, Mental, « check bio », « lien en bio ».
+- **Jamais** Journey, Mental, UnSwipe, « check bio », « lien en bio ».
 
-## L'élément UnSwipe
+## L'élément Sophia
 
-Fixé par langue dans `atelier/app.ts` (décision du 17/10) :
+Fixé par langue dans `atelier/app.ts` (relance du 15/11). Sophia se nomme
+toujours avec « like / comme » (prompt `placement_sophia`), jamais « the
+Sophia app ». Le pod livre en 9 langues depuis le 15/11 : en, fr, de, it, tr, pt-BR, pl, hu, es. Hashtags de développement personnel : #desenvolvimentopessoal (pt-BR), #rozwojosobisty (pl), #önfejlesztés (hu).
 
 | Langue | Texte | Appli |
 | --- | --- | --- |
-| en | delete short-videos | (UnSwipe app) |
-| fr | supprimer les vidéos courtes | (appli UnSwipe) |
-| de | Kurzvideos löschen | (UnSwipe-App) |
-| es | borrar los vídeos cortos | (app UnSwipe) |
-| it | eliminare i video brevi | (app UnSwipe) |
-| tr | kısa videoları sil | (UnSwipe uygulaması) |
+| en | learn, then scroll | (apps like Sophia) |
+| fr | lire, puis scroller | (apps comme Sophia) |
+| de | lernen, dann scrollen | (Apps wie Sophia) |
+| es | aprende, luego scrollea | (apps como Sophia) |
+| it | impara, poi scrolla | (app come Sophia) |
+| tr | öğren, sonra kaydır | (Sophia gibi appler) |
+| pt-BR | aprenda, depois role | (apps como Sophia) |
+| pl | ucz się, potem scrolluj | (apki jak Sophia) |
+| hu | tanulj, aztán görgess | (Sophia-szerű appok) |
+
+Jusqu'au 4/11 : l'élément UnSwipe, « delete short-videos (UnSwipe app) ».
+Plus jamais UnSwipe dans un rendu.
 
 ## Le pied de slide
 

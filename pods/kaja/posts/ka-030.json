@@ -1,0 +1,328 @@
+{
+ "id": "ka-030",
+ "titre": {
+  "en": "10/10 skills to get better with money",
+  "fr": "10/10 skills pour mieux gérer ton argent",
+  "de": "10/10 Skills für mehr Geld"
+ },
+ "legendes": {
+  "en": "10/10 skills to get better with money #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour mieux gérer ton argent #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für mehr Geld #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "som original",
+  "url": "https://www.tiktok.com/music/som-original-7218209310147562246"
+ },
+ "notes": "Full test (BLEO, 15/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (l'argent). Décor branche, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia : faire un budget, négocier son salaire, investir en ETF. Musique : son « som original » 7218209310147562246 de son manifeste, jamais pris, pour alterner. Sophia en étape 3 « HOW TO KNOW A BIT ABOUT EVERYTHING » : cta B, « 5 min a day ». Vraies vidéos : en Humphrey Yang, AdviceWithErin, Rose Han ; fr Rachel Finance, Y. Gautier, Matthieu Louvet ; de Finanzfluss, Martin Wehrle, Stiftung Warentest.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS TO GET",
+     "BETTER WITH",
+     "MONEY"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "MIEUX GÉRER",
+     "TON ARGENT"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "MEHR GELD"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "A BUDGET",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N2aODJWw7Xw",
+     "titre": "The One Simple Budgeting Method That Changed My Life",
+     "chaine": "Humphrey Yang",
+     "vues": "414K views",
+     "date": "3 years ago",
+     "duree": "13:53",
+     "avatar": "https://yt3.ggpht.com/G3iRyu9xe7F8ARD1zE5SSdKW2gCLKFwEqtuvyUvAJEvIPXMq11o6DbJPdEyxEAYhZI0JeK8T=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN BUDGET",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ACsP1ulY8zs",
+     "titre": "COMMENT GÉRER SON BUDGET FACILEMENT ? (règle du 50/30/20)",
+     "chaine": "Rachel Finance",
+     "vues": "358 k vues",
+     "date": "il y a 4 ans",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/7xH1wAfJ_cfpOivjA1LYIQ-gU_mEFImNNW93_mwsKk1lNBPwLKWEP4VreOaTe8KLrYvJsafxJg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÜHRST DU",
+     [
+      {
+       "t": "EIN HAUSHALTSBUCH",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ENiWBrHnwbE",
+     "titre": "Excel Haushaltsbuch erstellen & führen | Anleitung inkl. Vorlage 📊",
+     "chaine": "Finanzfluss",
+     "vues": "466.615 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO ASK",
+     [
+      {
+       "t": "FOR A RAISE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vGqswpmICP8",
+     "titre": "How to: Ask for a Raise (& actually get it!)",
+     "chaine": "AdviceWithErin",
+     "vues": "145K views",
+     "date": "3 years ago",
+     "duree": "12:33",
+     "avatar": "https://yt3.ggpht.com/szitUIxlc5pbOMyUrbpok_jR9xKj3P6nsHVslZxJnnDSlBg5HtKVtvOJGEH8TgST0zvn5uU-5JU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NÉGOCIER",
+     [
+      {
+       "t": "TON SALAIRE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yT_DKvUdDAQ",
+     "titre": "Comment négocier son salaire en entretien d'embauche : 7 erreurs (+ solutions)",
+     "chaine": "Y.GAUTIER, Coach Emploi, oral de concours et +",
+     "vues": "708 k vues",
+     "date": "il y a 5 ans",
+     "duree": "12:53",
+     "avatar": "https://yt3.ggpht.com/6VFGyIhmE_WlsY1NX72-uJ1vKPhbzVDA-4yyQlwokfmiHHrn-2_uwt6_ZYgImBs3WGOv8zdD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO VERHANDELST DU",
+     [
+      {
+       "t": "DEIN GEHALT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7qDcJgkRkYI",
+     "titre": "Gehaltsverhandlung: Mein bester Trick aus 15 Jahren // M. Wehrle",
+     "chaine": "Martin Wehrle: Coaching- und Karrieretipps",
+     "vues": "472.767 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtlnlfI1W_yE6cXg8lQLL6lDo9FGdnfUlOg_23Ws82rcY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO KNOW A BIT",
+     [
+      {
+       "t": "ABOUT EVERYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT SAVOIR",
+     [
+      {
+       "t": "UN PEU DE TOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WEISST DU",
+     [
+      {
+       "t": "VON ALLEM ETWAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO START",
+     [
+      {
+       "t": "INVESTING",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Zzz_rv7hrDY",
+     "titre": "Index Fund Investing for Beginners (How To Be a Millionaire)",
+     "chaine": "Rose Han",
+     "vues": "285K views",
+     "date": "2 years ago",
+     "duree": "18:51",
+     "avatar": "https://yt3.ggpht.com/SlAxDzBzNe76g4UGvIvlKs6penC5nBRabLVu0Gf5t7JFwhEP_bpZmslYCfg_4iiXSVd3vi_teg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT INVESTIR",
+     [
+      {
+       "t": "EN ETF",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dXqBuAcHQbU",
+     "titre": "Tout comprendre sur les ETF en 5 minutes",
+     "chaine": "Matthieu Louvet - S'investir",
+     "vues": "223 k vues",
+     "date": "il y a 1 an",
+     "duree": "5:54",
+     "avatar": "https://yt3.ggpht.com/F1hFe5VWFyd-4zegI31SBX-ajrIUTA5w1qvyBVCC6j_HpqFNiAfBhyUCwiuMNxHqR1beLxnSh24=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STARTEST DU",
+     [
+      {
+       "t": "EINEN ETF-SPARPLAN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JoQ9_KliPWk",
+     "titre": "ETF kaufen 2024: Anleitung zum Sparen mit ETFs - in 3 Schritten zur Geldanlage mit ETF Sparplan",
+     "chaine": "Stiftung Warentest",
+     "vues": "390.004 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/ly4PwrS7-CG8wSiRE_uj_5fQlSmCjmvU9h7Us08vF5RQs-CNHucJWtiIT2w_krwNaDm-5lezFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

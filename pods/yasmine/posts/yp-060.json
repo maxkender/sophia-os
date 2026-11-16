@@ -1,0 +1,342 @@
+{
+ "id": "yp-060",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je fais une fiche de révision parfaite",
+  "es": "cómo hago un resumen perfecto",
+  "tr": "mükemmel bir özet nasıl hazırlıyorum"
+ },
+ "legendes": {
+  "fr": "une fiche, pas un roman 📝 #fiches #revisions #studytok #thatgirl #methode",
+  "es": "un resumen, no una novela 📝 #resumenes #estudiar #studytok #thatgirl #metodo",
+  "tr": "özet, roman değil 📝 #özet #ders #studytok #thatgirl #yöntem"
+ },
+ "musique": {
+  "titre": "young folks nightcore",
+  "url": "https://www.tiktok.com/music/young-folks-nightcore-7070641315155757826"
+ },
+ "fond": {
+  "media_id": "0eba7934-6ef0-4c91-84e0-c2edda1cce0d",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b3b345fc-f3c0-403c-8469-17158274fe65/3.jpg?v=1787158118369",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans la note de l’étape « je la transforme en quiz », sans mise en scène. photos et son neufs (consigne du 12/11)",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "comment je fais",
+     "lignes": [
+      "UNE FICHE",
+      "DE RÉVISION",
+      "PARFAITE"
+     ],
+     "taille": 140,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cómo hago",
+     "lignes": [
+      "UN RESUMEN",
+      "PERFECTO"
+     ],
+     "taille": 140,
+     "taille_script": 76,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MÜKEMMEL BİR",
+      "ÖZET NASIL",
+      "HAZIRLIYORUM"
+     ],
+     "taille": 104,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "276b0367-f1f2-4b54-b298-04ebc281c39b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/3e6526ec-fbc6-422f-b3bb-d46d0a4bc303/4.jpg?v=1791726187299",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je relis le cours une fois📖",
+      "texte": "sans rien écrire. je veux d’abord comprendre l’ensemble avant de résumer.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "leo los apuntes una vez📖",
+      "texte": "sin escribir nada. primero quiero entender el conjunto antes de resumir.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "dersi bir kez okuyorum📖",
+      "texte": "hiçbir şey yazmadan. özetlemeden önce bütünü anlamak istiyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b57278c0-433c-4c9a-9a08-015eec0334a3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9c184eab-41d2-41e2-9afc-02f3d47825ac/6.jpg?v=1790608985741",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une seule page par chapitre📄",
+      "texte": "si ça déborde, c’est que je n’ai pas encore trié l’essentiel.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una sola página por tema📄",
+      "texte": "si no cabe, es que aún no he filtrado lo esencial.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her ünite için tek sayfa📄",
+      "texte": "sığmıyorsa, henüz önemli kısmı ayıklamamışım demektir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "e315402d-e080-4722-b578-6fc2f59d8575",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b0de6b91-5850-4301-a33d-32464bf7bdca/1.jpg?v=1791725594021",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "3 couleurs, pas plus🖊️",
+      "texte": "une pour les titres, une pour les mots clés, une pour les exemples.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "3 colores, no más🖊️",
+      "texte": "uno para títulos, otro para palabras clave, otro para ejemplos.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "en fazla 3 renk🖊️",
+      "texte": "biri başlıklar, biri anahtar kelimeler, biri örnekler için.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "3879ecc0-d48c-45fa-ab8d-146e7e38a5d4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/63ffa170-7c0e-4890-acf5-b1522aad1cfa/6.jpg?v=1790608743954",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je la transforme en quiz🧠",
+      "texte": "je la mets dans micabo et il me pose les questions. je vois tout de suite ce qui manque.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lo convierto en quiz🧠",
+      "texte": "lo meto en micabo y me hace las preguntas. veo enseguida lo que falta.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "onu teste çeviriyorum🧠",
+      "texte": "micabo’ya koyuyorum, soruları o soruyor. eksiğimi hemen görüyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2a6fdacf-4417-46b2-801c-60ddf5ee9b36",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/7f1ed494-8b7c-4f74-ad06-2e7fbfd11f2b/4-upscale.jpg?v=1785924002709",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je la relis à voix haute🗣️",
+      "texte": "ce qui accroche quand je le dis, je le simplifie.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lo leo en voz alta🗣️",
+      "texte": "lo que se traba al decirlo, lo simplifico.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "yüksek sesle okuyorum🗣️",
+      "texte": "söylerken takıldığım yeri sadeleştiriyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "d65939ed-072b-438c-8058-117480939ab7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/15d9ec74-163c-42b2-86e5-022ed42f7015/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je la garde toujours sur moi🎒",
+      "texte": "5 min dans le bus ou entre deux cours, ça compte vraiment.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lo llevo siempre encima🎒",
+      "texte": "5 min en el bus o entre clases cuentan de verdad.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hep yanımda taşıyorum🎒",
+      "texte": "otobüste ya da ders arasında 5 dakika gerçekten sayılır.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je fais une fiche de révision parfaite"
+ }
+}

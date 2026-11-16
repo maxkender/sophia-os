@@ -1,0 +1,564 @@
+{
+ "id": "fa-066",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "3 Ancient Ideas That Still Change Lives",
+  "fr": "3 idées antiques qui changent encore des vies",
+  "es": "3 ideas antiguas que todavía cambian vidas",
+  "de": "3 uralte Ideen, die heute noch Leben verändern",
+  "it": "3 idee antiche che cambiano ancora la vita",
+  "pt-BR": "3 ideias antigas que ainda mudam vidas",
+  "es-419": "3 ideas antiguas que todavía cambian vidas"
+ },
+ "legendes": {
+  "en": "3 Ancient Ideas That Still Change Lives #learnontiktok #philosophy #selfimprovement",
+  "fr": "3 idées antiques qui changent encore des vies #apprendresurtiktok #philosophie #développementpersonnel",
+  "es": "3 ideas antiguas que todavía cambian vidas #aprendeentiktok #filosofía #desarrollopersonal",
+  "de": "3 uralte Ideen, die heute noch Leben verändern #lernenmittiktok #philosophie #selbstverbesserung",
+  "it": "3 idee antiche che cambiano ancora la vita #imparacontiktok #filosofia #crescitapersonale",
+  "pt-BR": "3 ideias antigas que ainda mudam vidas #aprendanotiktok #filosofia #desenvolvimentopessoal",
+  "es-419": "3 ideas antiguas que todavía cambian vidas #aprendeentiktok #filosofía #desarrollopersonal"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7676628417169197855"
+ },
+ "notes": "cta A. Full test (jauge BLEO du 15/11) : accroche neuve au format liste de @fathom0g (« 3 Ancient Ideas That Still Change Lives »), jamais faite chez nous. Étapes : stoïcisme, méthode socratique, Sophia, memento mori. Son peu utilisé (0671). Langues des comptes du label (7), vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "statue": "assets/statues/hercule-lion.webp",
+   "en": {
+    "lignes": [
+     [
+      {
+       "t": "3 ANCIENT IDEAS",
+       "bronze": true
+      }
+     ],
+     "THAT STILL",
+     [
+      {
+       "t": "CHANGE LIVES",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "fr": {
+    "lignes": [
+     [
+      {
+       "t": "3 IDÉES ANTIQUES",
+       "bronze": true
+      }
+     ],
+     "QUI CHANGENT",
+     [
+      {
+       "t": "ENCORE DES VIES",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es": {
+    "lignes": [
+     [
+      {
+       "t": "3 IDEAS ANTIGUAS",
+       "bronze": true
+      }
+     ],
+     "QUE TODAVÍA",
+     [
+      {
+       "t": "CAMBIAN VIDAS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "de": {
+    "lignes": [
+     [
+      {
+       "t": "3 URALTE IDEEN",
+       "bronze": true
+      }
+     ],
+     "DIE HEUTE NOCH",
+     [
+      {
+       "t": "LEBEN VERÄNDERN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "it": {
+    "lignes": [
+     [
+      {
+       "t": "3 IDEE ANTICHE",
+       "bronze": true
+      }
+     ],
+     "CHE CAMBIANO",
+     [
+      {
+       "t": "ANCORA LA VITA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     [
+      {
+       "t": "3 IDEIAS ANTIGAS",
+       "bronze": true
+      }
+     ],
+     "QUE AINDA",
+     [
+      {
+       "t": "MUDAM VIDAS",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "es-419": {
+    "lignes": [
+     [
+      {
+       "t": "3 IDEAS ANTIGUAS",
+       "bronze": true
+      }
+     ],
+     "QUE TODAVÍA",
+     [
+      {
+       "t": "CAMBIAN VIDAS",
+       "bronze": true
+      }
+     ]
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "STOICISM"
+    ],
+    "video": {
+     "id": "R9OCA6UFE-0",
+     "titre": "The philosophy of Stoicism - Massimo Pigliucci",
+     "chaine": "TED-Ed",
+     "vues": "11M views",
+     "date": "9 years ago",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LE STOÏCISME"
+    ],
+    "video": {
+     "id": "7j9mnKsGXo8",
+     "titre": "Comprendre LE STOÏCISME   / philosophie",
+     "chaine": "Epanouissement Authentique",
+     "vues": "13 k vues",
+     "date": "il y a 8 ans",
+     "duree": "38:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lo-TtLO5IQ70BG0PQgRT364cGdMaVz2lXVJHyWAXC0hg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EL ESTOICISMO"
+    ],
+    "video": {
+     "id": "Sqwr-zUFL9E",
+     "titre": "ESTOICISMO: Un ANTÍDOTO contra la INSATISFACCIÓN",
+     "chaine": "Roxana Kreimer",
+     "vues": "3,7 M de visualizaciones",
+     "date": "hace 5 años",
+     "duree": "20:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m7TmhIRK-2oALY6S3Q4Yv6-ek6J_e_-Cq4Qf0NpYVg5Dg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DER STOIZISMUS"
+    ],
+    "video": {
+     "id": "W0e_jI3SeT0",
+     "titre": "Das Leben in 17 Minuten erklärt | Stoizismus",
+     "chaine": "Stoische Zeiten",
+     "vues": "16.852 Aufrufe",
+     "date": "vor 9 Monaten",
+     "duree": "17:15",
+     "avatar": "https://yt3.ggpht.com/RbMTCHx1MXc-W-WXa--yFcr6c9U78OpDa_cu6tQYOB8mupmhsdfk1AEJsm8Fvbxnz4or4WC0sg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LO STOICISMO"
+    ],
+    "video": {
+     "id": "BXiqCRO5OvA",
+     "titre": "La filosofia stoica spiegata in 10 minuti",
+     "chaine": "Pillole di Storia, Filosofia e...",
+     "vues": "47K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "11:48",
+     "avatar": "https://yt3.ggpht.com/SaOEso-WmdfPeoiqfgOYEjMHC599z_7qNZA1p1DdLt-Rcd6VmHEONLMem5aSk-BWkktTZK9WLQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O ESTOICISMO"
+    ],
+    "video": {
+     "id": "A3vsljr2Fx8",
+     "titre": "Entenda o que é o ESTOICISMO",
+     "chaine": "Toda Matéria",
+     "vues": "229 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/HzNmGq7dz8hluGyGAmMijcUKc_sp-9cynIvm9U41wDVqDmfREuHWjyuphcyajKWkrTfMTvZBgg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL ESTOICISMO"
+    ],
+    "video": {
+     "id": "9ldXznMe1W8",
+     "titre": "La filosofía del estoicismo - Massimo Pigliucci",
+     "chaine": "Sé Curioso — TED-Ed",
+     "vues": "1.5 M de vistas",
+     "date": "hace 4 años",
+     "duree": "5:24",
+     "avatar": "https://yt3.ggpht.com/vdB0b-Jk-EZqJSDyLTaOIPOEbdM_xBDvTlhtvAdH4SkM5VXqDVnOLVialM_4Nked437AeVCt_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "THE SOCRATIC",
+     "METHOD"
+    ],
+    "video": {
+     "id": "USo7V6kwfEk",
+     "titre": "How to Use the Socratic Method (for Dialogue, Debate and Critical Thinking)",
+     "chaine": "The Right Questions",
+     "vues": "270K views",
+     "date": "5 years ago",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/Xc406yypqlXkMD3YJKXvpuT1uCdvKsSUBdUkLACBI_2g0WsJzrC3oEZU4bZuErsCudbghv8CPA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "LA MÉTHODE",
+     "SOCRATIQUE"
+    ],
+    "video": {
+     "id": "QJFdcQYBkDY",
+     "titre": "SOCRATE - La maïeutique",
+     "chaine": "Le Précepteur",
+     "vues": "1,3 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "43:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n4BJ0ATv7tI63fZT3OMkauNMvdJ0Cjps-pJrL1EPDJqg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "EL MÉTODO",
+     "SOCRÁTICO"
+    ],
+    "video": {
+     "id": "r9ToN5VWoek",
+     "titre": "La Mayéutica, el método🤔//SOCRATES//🤔\"Sólo sé que no se nada\"//Juan Denis",
+     "chaine": "Filosofía en Minutos",
+     "vues": "574 K visualizaciones",
+     "date": "hace 9 años",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/R9wkahIlR36BULE2riFz7RqlU8YLbAwSyk4rSd7g7Qp5-RIa2JfxV6I-bIExUGP00RSo64Oa9po=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DIE SOKRATISCHE",
+     "METHODE"
+    ],
+    "video": {
+     "id": "CzqtmuUC8EU",
+     "titre": "Die sokratische Methode · Platons Dialoge ft. Sokrates",
+     "chaine": "David Johann Lensing",
+     "vues": "82.742 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/-XWGPJyd-axt-Uug-J7ywmJPEwuzE5-m9Sd-LZjrFl-foSIBDf75vJm-dDPbKnLnEFTwh6JAfQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IL METODO",
+     "SOCRATICO"
+    ],
+    "video": {
+     "id": "dXWX3mBYcT4",
+     "titre": "Il metodo socratico: la maieutica",
+     "chaine": "Mirko Crescenzo (Philosopills)",
+     "vues": "4K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kkwMBKKQsOsXlg1mG3olHD6b1Fm_1ZKRe3oXeyO9MF2Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O MÉTODO",
+     "SOCRÁTICO"
+    ],
+    "video": {
+     "id": "4t8IPpvVwiI",
+     "titre": "O que é a Maiêutica de Sócrates ou Maiêutica Socrática? ║➽ “Conhece-te a ti mesmo.\" ║Animação",
+     "chaine": "Insista // Persista e nunca Desista!",
+     "vues": "95 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJgKbhEIaJr0JfCUHEpSjzVG1y0THBLacBMd1D8k8mcDM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "EL MÉTODO",
+     "SOCRÁTICO"
+    ],
+    "video": {
+     "id": "tdXbN9kfug4",
+     "titre": "Aprende a Conversar: El Poder del Método Socrático",
+     "chaine": "VaST",
+     "vues": "1.3 M de vistas",
+     "date": "hace 1 año",
+     "duree": "17:39",
+     "avatar": "https://yt3.ggpht.com/U_Ybl-2ImX72n2U4rr6Xo-z56-lw6imwNo_zMQ0HPvR7TEN4pv_KcyoWrTTt6jzk1CK33VnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "ONE BIG IDEA",
+     "EVERY DAY"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new every day,",
+      "in 5 minutes."
+     ]
+    }
+   },
+   "fr": {
+    "titre": [
+     "UNE GRANDE IDÉE",
+     "CHAQUE JOUR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau chaque jour,",
+      "en 5 minutes."
+     ]
+    }
+   },
+   "es": {
+    "titre": [
+     "UNA GRAN IDEA",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     "EINE GROSSE IDEE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag etwas Neues,",
+      "in 5 Minuten."
+     ]
+    }
+   },
+   "it": {
+    "titre": [
+     "UNA GRANDE IDEA",
+     "OGNI GIORNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo ogni giorno,",
+      "in 5 minuti."
+     ]
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "UMA GRANDE IDEIA",
+     "TODO DIA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo todo dia,",
+      "em 5 minutos."
+     ]
+    }
+   },
+   "es-419": {
+    "titre": [
+     "UNA GRAN IDEA",
+     "CADA DÍA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprende algo nuevo cada día,",
+      "en 5 minutos."
+     ]
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "MEMENTO",
+     "MORI"
+    ],
+    "video": {
+     "id": "Jbt6VGOYU3E",
+     "titre": "What Is Memento Mori? (Explained In 5 Minutes)",
+     "chaine": "Daily Stoic",
+     "vues": "392K views",
+     "date": "4 years ago",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/pq1GHfeGRW_ul_7sAdqDLfdbmyMPiFZjnSxC_Q1Bvco73R2oGV3iRIqMTXgF4qcm6TMut_UP1w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "fr": {
+    "titre": [
+     "MEMENTO",
+     "MORI"
+    ],
+    "video": {
+     "id": "YYYvpKYMX5k",
+     "titre": "MEMENTO MORI : Être pleinement vivant ... (stoïcisme)",
+     "chaine": "Gianni Bergandi",
+     "vues": "10 k vues",
+     "date": "il y a 7 ans",
+     "duree": "3:16",
+     "avatar": "https://yt3.ggpht.com/P7muZa6X8DkUy0KLptK4qx7QOerHKL-rZKBSNYhfK1Y1mSn6MtgNJYb7i_jyZNcWPqYbtnoBQOU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es": {
+    "titre": [
+     "MEMENTO",
+     "MORI"
+    ],
+    "video": {
+     "id": "V2zZVFSqa6c",
+     "titre": "El significado de Memento Mori - Bully Magnets - Historia Documental",
+     "chaine": "Bully Magnets - Historia Documental",
+     "vues": "155 K visualizaciones",
+     "date": "hace 6 años",
+     "duree": "15:05",
+     "avatar": "https://yt3.ggpht.com/0hprZ7LYNpjPiVAdx5qo4cBLVhZnOa6ye3ji7mZIQLOARx7K1OL5EoWLKuc4B8BwAeugKO-NXCo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "MEMENTO",
+     "MORI"
+    ],
+    "video": {
+     "id": "3TMFzhewETU",
+     "titre": "Memento Mori, die Kunst in vollen Zügen zu leben - Stoizismus anwenden",
+     "chaine": "Schule der Inspiration",
+     "vues": "13.567 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "8:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lbfnSskzk9VAvgvOkCVJiGINUNRs_eLCOU_HFfTdIL4g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "MEMENTO",
+     "MORI"
+    ],
+    "video": {
+     "id": "tteB5djYSBA",
+     "titre": "Memento Mori. Ricordati che dovrai morire",
+     "chaine": "Scuola Stoica - Michele Putrino",
+     "vues": "2,3K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "13:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mS23kp2T0ynw4Ln5S_iKTWLUIzzQ9NIB-Be4oy49QuWA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "MEMENTO",
+     "MORI"
+    ],
+    "video": {
+     "id": "r0M1dcdZfD8",
+     "titre": "Por que os Estóicos dizem Memento Mori? Sabedoria Estóica",
+     "chaine": "Garota Estoica",
+     "vues": "50 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "9:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFJ7BfvuGGVT42HJ3qAV1ufM-rcy5BGByEL-hZmiKD_yk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "es-419": {
+    "titre": [
+     "MEMENTO",
+     "MORI"
+    ],
+    "video": {
+     "id": "r_qu59BZlx8",
+     "titre": "MEMENTO MORI (Motivación Estoica para AFRONTAR la MUERTE) - Marco Aurelio, Séneca y Epicuro",
+     "chaine": "Ram Talks",
+     "vues": "531 k vistas",
+     "date": "hace 6 años",
+     "duree": "24:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l58E78HPsWyBvAHqfpzTXsn9WSykP50bEimHHhJWOjj0M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o222",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4be08123-9ab6-45d9-89dc-6544747ef8f0",
+ "titre": "the art of being effortlessly elegant and intelligent #elegance #intelligent #smartgirl #classy #selfimprovement",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 34 de la boîte (parent 4be08123, langue source en) : accroche du parent mot pour mot. Conseils neufs face au parent (parler doucement, écouter jusqu'au bout, un vocabulaire précis, une tenue simple et soignée, garder ses opinions pour les bons moments, la curiosité chaque jour). Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8cf74ce1",
+   "texte_overlay": "the art of being effortlessly\nelegant and intelligent",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "61c5d33b",
+   "texte_overlay": "speak softly.\npeople lean in to listen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "73f41236",
+   "texte_overlay": "listen until the very end.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fccb3b8d",
+   "texte_overlay": "choose precise words.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0cf734d4",
+   "texte_overlay": "keep your outfits simple\nand cared for.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4a0aaca9",
+   "texte_overlay": "share your opinion when\nit's asked for.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b6ae7d16",
+   "texte_overlay": "stay curious every day:\na painting, a city, a war.",
+   "texte_sophia": "stay curious: trade one scroll\na day for 5 minutes on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "77277353",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

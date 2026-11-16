@@ -12,7 +12,11 @@
   "fr": "10/10 loisirs qui rendent plus intelligent",
   "es": "10/10 aficiones para ser más inteligente",
   "es-419": "10/10 pasatiempos para ser más inteligente",
-  "it": "10/10 hobby per diventare più intelligente"
+  "it": "10/10 hobby per diventare più intelligente",
+  "cs": "10/10 koníčků pro chytřejší mozek!",
+  "sk": "10/10 koníčkov pre múdrejší mozog!",
+  "hr": "10/10 hobija za pametniji mozak!",
+  "sl": "10/10 hobijev za pametnejše možgane!"
  },
  "legendes": {
   "en": "10/10 Hobbies To Build Intelligence! #skills #learnontiktok #selfimprovement",
@@ -21,7 +25,11 @@
   "fr": "10/10 loisirs qui rendent plus intelligent #apprendresurtiktok #développementpersonnel #culture",
   "es": "10/10 aficiones para ser más inteligente #aprendeentiktok #desarrollopersonal #cultura",
   "es-419": "10/10 pasatiempos para ser más inteligente #aprendeentiktok #desarrollopersonal #pasatiempos",
-  "it": "10/10 hobby per diventare più intelligente #imparacontiktok #crescitapersonale #hobby"
+  "it": "10/10 hobby per diventare più intelligente #imparacontiktok #crescitapersonale #hobby",
+  "cs": "10/10 koníčků pro chytřejší mozek! #koníčky #seberozvoj #vzdělávání",
+  "sk": "10/10 koníčkov pre múdrejší mozog! #koníčky #sebarozvoj #vzdelávanie",
+  "hr": "10/10 hobija za pametniji mozak! #hobiji #osobnirazvoj #učenje",
+  "sl": "10/10 hobijev za pametnejše možgane! #hobiji #osebnarast #učenje"
  },
  "musique": {
   "titre": "original sound",
@@ -154,6 +162,74 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KONÍČKŮ PRO",
+     [
+      {
+       "t": "CHYTŘEJŠÍ MOZEK!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KONÍČKOV PRE",
+     [
+      {
+       "t": "MÚDREJŠÍ MOZOG!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBIJA ZA",
+     [
+      {
+       "t": "PAMETNIJI MOZAK!",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "HOBIJEV ZA",
+     [
+      {
+       "t": "PAMETNEJŠE MOŽGANE!",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -258,6 +334,62 @@
      "date": "1 anno fa",
      "duree": "33:52",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lG6A1IwIvxIT4uMF9oZckw_e2ddl8eF3PEMXccq_rR-R4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "HRAJ ŠACHY"
+    ],
+    "video": {
+     "id": "AxaUKh9RwDM",
+     "titre": "Každý šachista MUSÍ znát tyto osvědčené principy",
+     "chaine": "Šachy s Kateřinou",
+     "vues": "72 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "32:38",
+     "avatar": "https://yt3.ggpht.com/ENZnW9ACKxjwRdIAiDH2KOA-84UcEoPThB4j1CXfqq7e9ZpofmAjqtBw_aLjP78asc4t_0QVdaM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "HRAJ ŠACH"
+    ],
+    "video": {
+     "id": "AKl3VWabZ2U",
+     "titre": "Obľúbená finta na začiatočníkov /pasce v otvorení/ 2020 |Bratislavská šachová akadémia|",
+     "chaine": "Sachova Akademia",
+     "vues": "39 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nwEpz7WyW9vqnXzg89cdpz3N8mHkFis3g04zt9fct53w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "IGRAJ ŠAH"
+    ],
+    "video": {
+     "id": "g17sV6Q_ZVU",
+     "titre": "Kako Igrati Šah?",
+     "chaine": "e-kako portal",
+     "vues": "263 tis. pregleda",
+     "date": "prije 15 godina",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "IGRAJ ŠAH"
+    ],
+    "video": {
+     "id": "Gfm1vwVs3nM",
+     "titre": "(SLO) osnove šahovske taktike",
+     "chaine": "Šahovski Kmet",
+     "vues": "3,1 tis. ogledov",
+     "date": "pred 7 leti",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nhopaIMutdzNOMQ65VUvZTZzLqKKAFfuAcAf_czQJ9kQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -367,6 +499,66 @@
      "duree": "17:55",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lf1USTPK8PhcPTHny6Qy0HVOBkKdEmHdblLZInN33DOQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "POZNEJ",
+     "NOČNÍ OBLOHU"
+    ],
+    "video": {
+     "id": "3JgDVEFfx2o",
+     "titre": "Souhvězdí, Velký vůz, Polárka - fyzika 9 ZŠ",
+     "chaine": "Petr Němec",
+     "vues": "2,7 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "16:06",
+     "avatar": "https://yt3.ggpht.com/4bcalJrDdADRaO7UPD-n54IxCIDZdd9y1lUw4tffbHPJ1px_Mv94p6wI9Xaz57MkHAegUlL3iQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "SPOZNAJ",
+     "NOČNÚ OBLOHU"
+    ],
+    "video": {
+     "id": "oZ8Jn7L8ZO4",
+     "titre": "Prechádzka jarnými súhvezdiami",
+     "chaine": "Krajská hvezdáreň a planetárium Maximiliána Hella",
+     "vues": "18 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "23:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kEHZVMtz1ah-r5rtwDu5CFU6JU_h21N48rXVheHgf8HYk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "SLOŽI",
+     "RUBIKOVU KOCKU"
+    ],
+    "video": {
+     "id": "r2JEev05mpk",
+     "titre": "Kako složiti Rubikovu kocku? (početnička metoda)",
+     "chaine": "Maja Zavišić",
+     "vues": "115 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxh3w-x1vh8bcy7j3XWNKRlUEl6FaR89HsNSyUww8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "SPOZNAJ",
+     "NOČNO NEBO"
+    ],
+    "video": {
+     "id": "-QUNT-07pps",
+     "titre": "Gibanje ozvezdja Orion nizko nad obzorjem zimskega večernega neba nekje na Primorskem, skoraj Krasu",
+     "chaine": "Kresnička DMFA Slovenije",
+     "vues": "1,1 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "1:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4TtL3r48UJRUmfKbe1MbCY_JLt0EZK3kC2GYCfvphTv4=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -472,6 +664,64 @@
      "duree": "13:00",
      "avatar": "https://yt3.ggpht.com/qCGkM1RX-O0GjJPzXL_mLvF7KF_E7fDfyhil_yhEYjpvQHqP4o6ydQIdEGewqPYzuFUdiP9LYQ=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "LUŠTI SUDOKU"
+    ],
+    "video": {
+     "id": "KBvwzWFxSCw",
+     "titre": "SUDOKU – 1. díl – PRAVIDLA",
+     "chaine": "DushanCz",
+     "vues": "17 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m7_tc39we-tDWllfvoTMNO9XkAZ6z-EYHm5DTZSrPuJg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POSKLADAJ",
+     "RUBIKOVU KOCKU"
+    ],
+    "video": {
+     "id": "0_hQqnoIQPE",
+     "titre": "Skutočne najjednoduchší spôsob ako poskladať rubikovú kocku. pozri popis,druhé video,ako na žltú.",
+     "chaine": "Marek Krajčovič",
+     "vues": "365 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/O166dtOHE_WNYxS-9wRa6qfbvLz-VHvaJ8DIiUwKwGCPkH_1Mna9_9pB9Q15sRoCjJewKU7dwQE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "RJEŠAVAJ SUDOKU"
+    ],
+    "video": {
+     "id": "OF4Pq-_vQsg",
+     "titre": "Naučite kako riješiti Sudoku kao profesionalac. Nisam ni ja znao dok nisam naučio",
+     "chaine": "Učionicahr",
+     "vues": "3,9 tis. pregleda",
+     "date": "prije 2 godine",
+     "duree": "3:42",
+     "avatar": "https://yt3.ggpht.com/stbksLfrfUFsC1iY-pW6u2AOC9sC6qBHBvtg7hLeb4CT5cNfo84kT_j-W1AqqvbEoOrX-YpHkw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "SESTAVI",
+     "RUBIKOVO KOCKO"
+    ],
+    "video": {
+     "id": "RQnt54AIb3c",
+     "titre": "Kako sestaviti Rubikovo kocko? (enostaven vodič)",
+     "chaine": "Nik Škrlec",
+     "vues": "604 tis. ogledov",
+     "date": "pred 8 leti",
+     "duree": "37:24",
+     "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -565,6 +815,58 @@
      "texte": [
       "impara qualcosa di nuovo ogni giorno,",
       "in 5 minuti."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "JEDNA ZAJÍMAVOST",
+     "DENNĚ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den něco nového,",
+      "za 5 minut."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "JEDNA ZAUJÍMAVOSŤ",
+     "DENNE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň niečo nové,",
+      "za 5 minút."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "JEDNA ZANIMLJIVOST",
+     "DNEVNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "ENA ZANIMIVOST",
+     "NA DAN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "vsak dan se nauči nekaj novega,",
+      "v 5 minutah."
      ]
     }
    }
@@ -674,6 +976,66 @@
      "date": "6 anni fa",
      "duree": "16:01",
      "avatar": "https://yt3.ggpht.com/O7Guse7uMO170W2Dakwlc-rgyB5XEcYgeBUVDxVLdM494piW1YVfHSKsAX3IRx9xtG_648z1=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     "JAZYK"
+    ],
+    "video": {
+     "id": "AO6ZsHhXUic",
+     "titre": "Jak se učit jazyky?! 5 účinných tipů, jak na cizí jazyk bez talentu",
+     "chaine": "Jan Kohut",
+     "vues": "25 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "13:15",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA",
+     "JAZYK"
+    ],
+    "video": {
+     "id": "uBJwLOkrOcY",
+     "titre": "Ako sa naučiť Angličtinu rýchlo? Alebo akýkoľvek cudzí jazyk zadarmo.",
+     "chaine": "Martin Kamenický",
+     "vues": "11 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "7:11",
+     "avatar": "https://yt3.ggpht.com/Ug7kLgC_OkK3eObVH-FpMFnTS5yf05xiB2tdmEfuKBPXrSwv7Gx7JKG8s40jDxmbl2e4tAzn=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAUČI",
+     "STRANI JEZIK"
+    ],
+    "video": {
+     "id": "-JCcwU38XUY",
+     "titre": "Kako i zašto učiti strani jezik? | Marija Vlahović",
+     "chaine": "Marija Vlahović",
+     "vues": "4,7 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "17:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k38vQ-I1xRvCXBt3SCyYl_T5GOQOL_36r-gK56eTdgB5I=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAUČI SE",
+     "TUJ JEZIK"
+    ],
+    "video": {
+     "id": "brUg3Nbh9VU",
+     "titre": "🆓 Kako se naučiti tujega jezika? ✈️ 5 korakov || lilandille",
+     "chaine": "Lili Anne",
+     "vues": "574 ogledov",
+     "date": "pred 7 leti",
+     "duree": "15:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFyPyDBRY0ZLSWJpml8onDqf6R6Jsr5v5CMpLOj6QYvXs=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

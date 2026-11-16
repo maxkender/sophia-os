@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o123",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "e8a4ca6b-3cac-4799-bd7f-9a75d0414087",
+  "titre": "spending the whole week revising and forgetting it all when i turn the paper over #studytok #studytips #exams",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "e8a4ca6b-3cac-4799-bd7f-9a75d0414087"
+  ],
+  "notes": "Déclinaison G2 de e8a4ca6b (notre cs-o052 en G1 : r 2,93 en turc), ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o111 et cs-o117 : « spending the whole week revising and forgetting it all when i turn the paper over ». Gestes neufs, aucun de cs-o016, cs-o052, cs-o111 ni cs-o117 : réviser en écrivant de mémoire, des petites séances espacées sur la semaine, se tester à l'heure du contrôle (place micabo, slide 4), lire toutes les questions avant de répondre. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1ffdadf6",
+      "texte_overlay": "spending the whole week revising\nand forgetting it all when i turn the paper over",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f2fae6c8",
+      "texte_overlay": "i stopped highlighting and started writing from memory.\na blank page, then i check.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "76e8e0f2",
+      "texte_overlay": "short sessions spread over the week.\nnot one giant one.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "879bb811",
+      "texte_overlay": "i quiz myself at the same time of day as the test.\nmy brain gets used to it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7f7b2fa7",
+      "texte_overlay": "on the day, i read every question before writing.\nsomething always clicks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2e6b29f0",
+      "texte_overlay": "now my week of work actually shows up on the paper.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

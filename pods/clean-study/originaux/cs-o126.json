@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o126",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "0ed9ab5f-cbc7-4064-8f24-d8427938925c",
+  "titre": "things the BEST student in class never says #studytok #studytips #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "0ed9ab5f-cbc7-4064-8f24-d8427938925c"
+  ],
+  "notes": "Déclinaison G1 de 0ed9ab5f (notre cs-o021 : r 14,71 en turc, 11,9 k vues), ligne 4 de la boîte. Accroche du parent mot pour mot. Phrases neuves, aucune de cs-o021 (« je demanderai plus tard », « je vais juste relire », « j'ai révisé je te jure », « le prof ne l'a jamais expliqué », « je range mon téléphone dans une minute », « je n'ai pas besoin de noter ») : « je ne suis pas une personne des maths », « c'était juste de la malchance », « je le saurai le jour J » (place micabo, slide 4 : se tester), « je ferai tout ce week-end », « tout le monde a eu une mauvaise note ». Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "02ba88dd",
+      "texte_overlay": "things the BEST student in class\nnever says",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3aae1254",
+      "texte_overlay": "\"i'm just not a math person\"\nshe says \"i haven't practiced this enough yet.\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "b6ab8030",
+      "texte_overlay": "\"it was just bad luck\"\nshe looks at what went wrong and fixes that.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c0a28fd7",
+      "texte_overlay": "\"i'll know it on the day\"\nshe quizzes herself before, so she knows she knows it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ecdc7d4f",
+      "texte_overlay": "\"i'll do everything this weekend\"\na little every day. the weekend stays free.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "241aa64d",
+      "texte_overlay": "\"everyone failed, so it's fine\"\nher only comparison is her last test.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

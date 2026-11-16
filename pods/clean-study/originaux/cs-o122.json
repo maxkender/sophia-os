@@ -1,0 +1,47 @@
+{
+  "source_id": "cs-o122",
+  "type_bleo": "full_test",
+  "titre": "what i do the day a teacher hands back a test #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous (« hands back » absent du label ; cs-o034 parlait de la mauvaise note, ici de toute copie rendue). Accroches écrites : « what i do the day a teacher hands back a test » (retenue : un moment précis, valable quelle que soit la note), « don't just look at your grade » (écartée : injonction), « how i use my old tests » (écartée : plate). Gestes vrais : lire chaque commentaire, trier les erreurs, refaire les questions ratées le soir (place micabo, slide 3 : se tester), demander une précision au prof, ranger la copie dans un dossier de révision. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "adcaea49",
+      "texte_overlay": "what i do the day a teacher\nhands back a test",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "803fe3d2",
+      "texte_overlay": "i read every comment, not just the grade.\nthe comments are the free lesson.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1ae57e29",
+      "texte_overlay": "that evening, i redo every question i missed.\nno looking at the correction.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "837c8be7",
+      "texte_overlay": "i sort my mistakes:\ndidn't know it, misread it, ran out of time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8ce21716",
+      "texte_overlay": "one question for the teacher the next day.\n\"what would a full answer look like here?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9141bd18",
+      "texte_overlay": "the test goes in a \"final exam\" folder.\nold tests are the best revision sheets.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

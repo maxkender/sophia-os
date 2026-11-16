@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o238",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5a7f12b2-a54c-4f87-9c20-449236c2dd16",
+ "titre": "9 simple exercises that make you smarter if you practice them daily #brain #learning #smartgirl #habits #selfimprovement",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "5a7f12b2-a54c-4f87-9c20-449236c2dd16"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 40 de la boîte (parent 5a7f12b2, langue source en) : accroche du parent mot pour mot. Exercices neufs face au parent (calcul mental, dessiner de mémoire, résumer sa journée en 3 phrases, apprendre la capitale d'un pays, écrire de la main gauche, nommer 10 choses vues, lire à voix haute, jouer aux échecs contre soi, apprendre un fait). Deux par slide. Sophia en cta C. CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "45463369",
+   "texte_overlay": "9 simple exercises that make you\nsmarter if you practice them daily",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657280282420170004/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3b3636f0",
+   "texte_overlay": "1. mental maths at the shop\n\n2. draw something from memory",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657280282420170004/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8764a1ce",
+   "texte_overlay": "3. sum up your day in\nthree sentences\n\n4. learn one new capital city",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657280282420170004/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "af428bdf",
+   "texte_overlay": "5. write with your other hand\n\n6. name ten things you saw\non your walk",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657280282420170004/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8af91437",
+   "texte_overlay": "7. read out loud for\nfive minutes\n\n8. one chess puzzle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657280282420170004/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b2b6dcdb",
+   "texte_overlay": "9. learn one new fact\n\ninstead of one scroll.",
+   "texte_sophia": "9. learn one new fact\n\n5 minutes on an app\nlike Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657280282420170004/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "910d521e",
+   "texte_overlay": "save this and start today",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657280282420170004/7.jpg"
+  }
+ ]
+}

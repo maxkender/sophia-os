@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o237",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5983421f-9576-41a1-9bd1-38a206eeca25",
+ "titre": "how to speak like a highly successful and intelligent person #speaking #communication #smartgirl #confidence #eloquence",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "5983421f-9576-41a1-9bd1-38a206eeca25"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 38 de la boîte (parent 5983421f, langue source en) : accroche du parent mot pour mot. Conseils neufs face au parent et à sg-o217 (une idée par phrase, des exemples concrets, admettre ce qu'on ne sait pas, résumer avant de conclure, parler moins vite). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3438ebe6",
+   "texte_overlay": "how to speak like a highly\nsuccessful and intelligent person",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "03c1d411",
+   "texte_overlay": "one idea per sentence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ff90a9d0",
+   "texte_overlay": "use a concrete example\nevery time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "8f70b5f0",
+   "texte_overlay": "have something fresh to bring:\na book, a fact, a story.",
+   "texte_sophia": "have something fresh to bring.\ni learn one thing a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "68cb3f6d",
+   "texte_overlay": "say \"i don't know yet\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a317ff91",
+   "texte_overlay": "summarise before you conclude",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4ca53d3a",
+   "texte_overlay": "slow down by 20%",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fe81c17b",
+   "texte_overlay": "save this before your\nnext meeting",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7606682329137909013/4.jpg"
+  }
+ ]
+}

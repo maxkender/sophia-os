@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o236",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "577cae13-0359-486e-ac83-6c2d0d347df6",
+ "titre": "manners 101 for extremely elegant women #manners #etiquette #smartgirl #elegance #classy",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 36 de la boîte (parent 577cae13, langue source en) : accroche du parent mot pour mot. Manières neuves face au parent (se lever pour saluer, un mot pour les condoléances, couverts posés en silence, rendre une invitation, retirer ses lunettes de soleil pour parler, profondeur plutôt que bruit). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a8897b72",
+   "texte_overlay": "manners 101 for\nextremely elegant women",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "93f792a8",
+   "texte_overlay": "1. stand up to greet someone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2677e87f",
+   "texte_overlay": "2. send a note when someone\nloses a loved one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f32ff645",
+   "texte_overlay": "3. put your cutlery down\nwithout a sound.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0bbf7dd3",
+   "texte_overlay": "4. return every invitation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9a0ba58d",
+   "texte_overlay": "5. take off your sunglasses\nto talk to someone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "c2c70be3",
+   "texte_overlay": "6. cultivate quiet depth\nover loud opinions.",
+   "texte_sophia": "6. cultivate quiet depth.\ni learn something new every day\non a micro-learning app like\nthe Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d64e0295",
+   "texte_overlay": "save this",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

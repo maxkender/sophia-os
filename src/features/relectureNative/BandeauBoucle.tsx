@@ -15,7 +15,7 @@ export type EtapeBoucle = "relectures" | "relecteurs" | "corrections" | "traduct
 
 /**
  * La boucle de correction en quatre étapes, avec les chiffres des 7 derniers
- * jours par langue : posts envoyés le samedi → relus par le natif →
+ * jours par langue : posts envoyés le mercredi → relus par le natif →
  * corrections à trier → retenues, dans la traduction. Même bandeau en tête
  * de Relecture native (clic sur une étape = onglet) et de Traduction &
  * placement → Langues (clic = lien vers Relecture native).

@@ -52,7 +52,7 @@ describe("RelecturesRelecteur", () => {
   it("sans post : message d'attente", async () => {
     mesRelectures.mockResolvedValue([]);
     rendre();
-    expect(await screen.findByTestId("relectures-vide")).toHaveTextContent(/samedi|saturday/i);
+    expect(await screen.findByTestId("relectures-vide")).toHaveTextContent(/mercredi|wednesday/i);
   });
 
   it("un post à la fois, la slide d'appli marquée ; réécrire une slide suffit avec la note, sans 30 mots", async () => {

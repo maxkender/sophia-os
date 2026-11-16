@@ -25,7 +25,7 @@
   "titre": "original sound - rithu",
   "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
  },
- "notes": "Full test du 16/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 à apprendre cet hiver », sa couverture (décor, lignes brun/noir aux tailles de son post à 482 k), 5 compétences d'intérieur (dessin, échecs, tricot, pain, frappe sans regarder), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « NOURRIR / SON CERVEAU »). pt-BR : « nas férias » au lieu de l'hiver (décembre est l'été au Brésil).",
+ "notes": "Full test du 16/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 à apprendre cet hiver », sa couverture (décor, lignes brun/noir aux tailles de son post à 482 k), 5 compétences d'intérieur (dessin, échecs, tricot, pain, frappe sans regarder), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « APPRENDRE / DEPUIS SON CANAPÉ »). pt-BR : « nas férias » au lieu de l'hiver (décembre est l'été au Brésil).",
  "slides": [
   {
    "type": "couverture",
@@ -585,10 +585,10 @@
    "app": "sophia",
    "fr": {
     "titre": [
-     "NOURRIR",
+     "APPRENDRE",
      [
       {
-       "t": "SON CERVEAU",
+       "t": "DEPUIS SON CANAPÉ",
        "couleur": "#e07aa6"
       }
      ]
@@ -606,10 +606,10 @@
    },
    "en": {
     "titre": [
-     "FEED",
+     "LEARN",
      [
       {
-       "t": "YOUR BRAIN",
+       "t": "FROM YOUR COUCH",
        "couleur": "#e07aa6"
       }
      ]
@@ -627,10 +627,10 @@
    },
    "de": {
     "titre": [
-     "DEIN GEHIRN",
+     "LERNEN",
      [
       {
-       "t": "FÜTTERN",
+       "t": "VOM SOFA AUS",
        "couleur": "#e07aa6"
       }
      ]
@@ -648,10 +648,10 @@
    },
    "it": {
     "titre": [
-     "NUTRIRE",
+     "IMPARARE",
      [
       {
-       "t": "IL CERVELLO",
+       "t": "DAL DIVANO",
        "couleur": "#e07aa6"
       }
      ]
@@ -669,10 +669,10 @@
    },
    "pt-BR": {
     "titre": [
-     "ALIMENTAR",
+     "APRENDER",
      [
       {
-       "t": "O CÉREBRO",
+       "t": "DO SOFÁ",
        "couleur": "#e07aa6"
       }
      ]
@@ -690,10 +690,10 @@
    },
    "tr": {
     "titre": [
-     "BEYNİNİ",
+     "KOLTUKTAN",
      [
       {
-       "t": "BESLE",
+       "t": "ÖĞRENMEK",
        "couleur": "#e07aa6"
       }
      ]
@@ -711,10 +711,10 @@
    },
    "ro": {
     "titre": [
-     "SĂ-ȚI HRĂNEȘTI",
+     "SĂ ÎNVEȚI",
      [
       {
-       "t": "CREIERUL",
+       "t": "DE PE CANAPEA",
        "couleur": "#e07aa6"
       }
      ]
@@ -732,10 +732,10 @@
    },
    "cs": {
     "titre": [
-     "NAKRMIT",
+     "UČIT SE",
      [
       {
-       "t": "SVŮJ MOZEK",
+       "t": "Z GAUČE",
        "couleur": "#e07aa6"
       }
      ]

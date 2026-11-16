@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-010",
+  "titre": "The supreme happiness of life is the conviction that we are loved; loved for ourselves, or rather, in spite of ourselves. #love #victorhugo #lesmiserables #quotes",
+  "source_phrase": "Victor Hugo, Les Misérables, IV, 5, 4 (translation tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "Sleepy Lagoon",
+  "notes": "cta A",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "aba44f51",
+      "texte_overlay": "The supreme happiness of life",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687726721189055762/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "cb227019",
+      "texte_overlay": "is the conviction that we are loved;",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688539332520545554/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "666b049c",
+      "texte_overlay": "loved for ourselves, or rather, in spite of ourselves.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7693609290472410369/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "771ff79b",
+      "texte_overlay": "Victor Hugo, Les Misérables.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679706996785892616/2.jpg",
+      "texte_sophia": "Victor Hugo wrote this in Les Misérables. I read it this morning on Sophia."
+    }
+  ]
+}

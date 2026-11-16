@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o279",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a03c4954-8cac-41cb-b4b1-53af2061a0d6",
+ "titre": "How to make people like you from the very first minute #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "a03c4954-8cac-41cb-b4b1-53af2061a0d6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 3 de la boîte (a03c4954, fr 1,1 k), 3e et dernière déclinaison après ay-o252 et ay-o265. Même promesse, autres mots. Items neufs, aucun repris d'ay-o085, o167, o252 ni o265.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9ec137b3-a738-465c-a3ab-006d532f2c7f",
+   "texte_overlay": "How to make people like you\nfrom the very first minute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Walk in like you're glad to be there. Relaxed shoulders, a small smile, an easy pace. People decide how they feel about you before you speak.",
+   "media_id": "6d206b9e-5ac5-4064-8527-ac7fade8531e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Give a firm, short handshake. Not too hard, not too soft, two seconds. A good handshake quietly says \"I'm confident and friendly.\"",
+   "media_id": "729c86bf-7801-4375-ac3e-8dfd4f154686"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Ask about their plans, not their past. \"What are you up to this weekend?\" Talking about something they're looking forward to puts people in a good mood.",
+   "media_id": "7494394c-1da7-4325-aa79-7978c9bc4e85"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Listen for one detail and come back to it. \"Wait, you said you just moved here?\" It proves you were really listening, and people love that.",
+   "media_id": "74b50f33-9e82-4f7a-bbe2-338e3ddc61a4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I struggled to keep conversations going. After: five minutes a day of history, art or science, and I always have something to share.",
+   "texte_sophia": "Before: I struggled to keep conversations going. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have something to share.",
+   "media_id": "5e0d7800-6a10-40ac-8a40-252ecc18d73a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Laugh easily. Not fake, just open and warm. People like being around someone who enjoys the moment and makes them feel funny and relaxed.",
+   "media_id": "75331301-20a9-4534-b1a3-5bf41f2ad67d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Leave before the energy drops. End on a high point with \"let's continue this another time.\" People remember the best moment, not the length.",
+   "media_id": "79eb040d-9958-429f-bf64-b7e907d48f71"
+  }
+ ]
+}

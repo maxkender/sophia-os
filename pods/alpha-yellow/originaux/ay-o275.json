@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o275",
+ "type_bleo": "full_test",
+ "titre": "Things every man should learn before living alone #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : autonomie pratique, quitter le nid. Accroches écrites : « Things every man should learn before living alone » (retenue), « Adulting skills nobody taught you » (écartée : ton ado), « How to survive your first apartment » (écartée : trop étroit).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2b72d61e-fca0-416b-8a7e-49e4ad572f23",
+   "texte_overlay": "Things every man should learn\nbefore living alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "How to cook a few real meals. A pasta dish, a stir fry, a good omelette. Knowing three meals by heart keeps you healthy and saves you a lot of money.",
+   "media_id": "2c9bc1d1-b570-45b1-bac2-1351c362f705"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "How to make a simple budget. Rent, food, savings, fun. Ten minutes at the start of every month and you'll never wonder where your money went again.",
+   "media_id": "324df99a-2707-4f6c-a6bc-ad7ecdd02eca"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "How to fix small things yourself. A loose handle, a blocked sink, a flat bike tyre. Small repairs save money and give you a quiet sense of pride.",
+   "media_id": "3a7fb43c-d11b-46bb-8396-08f391a933e7"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "How to keep a clean home without effort. Ten minutes every evening beats a whole Sunday of cleaning. A tidy space makes your head feel tidy too.",
+   "media_id": "3c73ea0a-56a9-455f-99d8-88e6d7454c11"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "How to keep learning on your own. I do five minutes a day of history, art or science, and it makes quiet evenings at home feel rich, not lonely.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It makes quiet evenings at home feel rich, not lonely.",
+   "media_id": "5840565a-4eb4-40b2-88af-7a66e3ca5af1"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "How to enjoy your own company. Cook for yourself, read, go for walks. Living alone is easy when you actually like the person you live with.",
+   "media_id": "3ee5340e-9bc0-4670-bb3c-f1f7cac9176e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "How to invite people over. A simple dinner for two or three friends. A home where people feel welcome turns a small flat into a real place to live.",
+   "media_id": "3f195ac8-9587-419a-9585-6770775fdb57"
+  }
+ ]
+}

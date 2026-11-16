@@ -37,7 +37,7 @@ BAD = ["cigarette", "smok", "pill", "supermaxing", "quote", "title", "caption", 
        "square", "border", "illustration", "painting", "drawing", "cartoon", "screenshot", "poster", "classroom",
        "student", "school", "microphone", "reporter", "crowd", "close-up", "closeup", "batman", "joker", "superhero",
        "statue", "teenager", "woman", "girl", "women", "naked", "nude", "child", "kid", "baby", "blood", "gun",
-       "weapon", "knife", "alcohol", "beer", "wine", "drunk", "drink", "glass", "restaurant", "collage", "church", "pew",
+       "weapon", "knife", "alcohol", "beer", "wine", "drunk", "drink", "whisk", "cocktail", "wine glass", "restaurant", "collage", "church", "pew",
        "blackboard", "red carpet", "party", "lamborghini", "white car", "white sports car", "godfather"]
 # slide Sophia : pas de personne de face
 SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimming", "underwater", "diving", "laptop",
@@ -100,7 +100,7 @@ def main():
     return not any(dist(k, t) < 12 for t in recents_fp)
   def lum(k): return FP[k]["lum"]
   couv = sorted([k for k in IM if IM[k]["est_hook"] and k in FP and 12 <= lum(k) < 70 and ok(k)], key=lambda k: (lum(k) > 50, IM[k]["used_count"], k))
-  corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and 25 <= lum(k) < 75 and ok(k)], key=lambda k: (IM[k]["used_count"], k))
+  corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and 20 <= lum(k) < 90 and ok(k)], key=lambda k: (IM[k]["used_count"], k))
   soph = sorted([k for k in IM if k in FP and lum(k) < 130 and COMPTE.get(IM[k]["contenu_id"]) != "supermaxing"
                  and any(w in leg(k) for w in SOPH_OK) and not any(w in leg(k) for w in SOPH_NON)
                  and not (re.search(r"\b(man|men|person|people|boy|guy|player)\b", leg(k))

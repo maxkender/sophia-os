@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o273",
+ "type_bleo": "full_test",
+ "titre": "Habits that make your 30s easier than your 20s #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Try",
+ "musique_url": "https://www.tiktok.com/music/try-7533289206400027394",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous : préparer sa trentaine, concret. Accroches écrites : « Habits that make your 30s easier than your 20s » (retenue), « Do this in your 20s, thank yourself at 30 » (écartée : proche d'ay-o261), « What your 30s will reward » (écartée : vague).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eb6a81c6-043e-4f64-8fc9-8a1c6b481f91",
+   "texte_overlay": "Habits that make your 30s\neasier than your 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learning to cook ten simple meals. Healthy food stops being a struggle, you save money every week, and you're never stuck ordering takeaway at midnight again.",
+   "media_id": "04316bf9-723f-489a-96dd-959bb20a0b18"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Building a small emergency fund. Three months of rent set aside turns every bad surprise, a broken car, a lost job, into a problem instead of a crisis.",
+   "media_id": "0a3e8049-9b79-4c48-933d-5c1705c41c32"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Training your back and your core. Most men in their 30s start feeling stiff and sore. A strong back now means you'll still move freely in ten years.",
+   "media_id": "0c4c77a7-8dac-4761-93f9-46ab44b33d86"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Learning to say no without feeling guilty. Your time gets more precious every year. Protect it now and your 30s will feel calm instead of crowded.",
+   "media_id": "0e629a46-f28b-4616-ba58-33a4b35baf7e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I scrolled every evening and felt empty. After: five minutes a day of history, art or science, and I go to bed feeling a little smarter.",
+   "texte_sophia": "Before: I scrolled every evening and felt empty. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I go to bed feeling a little smarter.",
+   "media_id": "53bda447-a34d-449e-9a92-2ee701ad42b3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keeping two or three close friends. Friendships get harder to build after 30. The ones you invest in now will carry you through everything that comes.",
+   "media_id": "1074d3a3-2730-46f9-a61a-a6ca7ed9c140"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Fixing your sleep. A fixed bedtime, a dark room, no phone in bed. Good sleep in your 20s makes your 30s full of energy instead of coffee.",
+   "media_id": "1293973d-66b0-4d75-a8e7-b98c00695bbd"
+  }
+ ]
+}

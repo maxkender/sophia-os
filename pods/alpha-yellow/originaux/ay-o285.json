@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o285",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "45585531-2f79-42a3-aac1-7361b091e84c",
+ "titre": "eat for maximum brain power #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "45585531-2f79-42a3-aac1-7361b091e84c"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 12 de la boîte (45585531, de 5,4 k r 2,89) : accroche du parent mot pour mot (minuscules gardées). Items neufs, aucun repris du parent (protéines, aliments du cerveau, eau, caféine, pics de sucre). Conseils généraux, sans promesse médicale.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e591bf74-ce0d-4f07-8efb-e0a473f2f29e",
+   "texte_overlay": "eat for maximum brain power",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Don't skip breakfast before hard thinking. A real breakfast with eggs, oats or yogurt keeps your focus steady through the morning.",
+   "media_id": "c1ce0ed1-00ea-48e9-bc02-c2c720aaea6f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Eat more fatty fish. Salmon, sardines, mackerel. Two portions a week bring omega-3 fats that your brain uses every single day.",
+   "media_id": "c41f3362-7629-4731-b44c-54482d7fb7ec"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Keep snacks simple. A handful of nuts, an apple, some dark chocolate. Better snacks mean fewer afternoon crashes and a much clearer head.",
+   "media_id": "c43d99d4-80b4-4c8e-b765-39f37f7428b2"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Eat colourful vegetables at every meal. Greens, peppers, carrots, beetroot. Different colours bring different nutrients your body and brain need.",
+   "media_id": "c4559bef-3b89-44d2-896d-47004e5c2b8e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I fed my body well but my mind only got scrolling. After: five minutes a day of history, art or science, and my brain feels fed too.",
+   "texte_sophia": "Before: I fed my body well but my mind only got scrolling. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. My brain feels fed too.",
+   "media_id": "976c489c-d82c-4566-aea2-fc12d6fb46fd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Don't eat a huge lunch before important work. A lighter lunch keeps you sharp and awake. A heavy one makes your afternoon slow and foggy.",
+   "media_id": "cb9d0429-272c-4f02-b496-57cbc1252823"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stop eating two or three hours before bed. Your sleep gets deeper, and deep sleep is when your brain sorts and stores everything you learned.",
+   "media_id": "cc39da2a-3760-409a-b496-348cf4f50ae0"
+  }
+ ]
+}

@@ -3625,6 +3625,59 @@
    },
    "notes": "full test BLEO (s'ennuyer exprès); cta C",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-082",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#reading #booktok #memory",
+   "musique": {
+    "titre": "Better in the Dark",
+    "auteur": "Jordana & TV Girl",
+    "original": false,
+    "id": "7015372949901281281",
+    "url_tiktok": "https://www.tiktok.com/music/x-7015372949901281281"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7681048823824649494_1",
+    "2": "7698667830635400470_6",
+    "3": "7689918962905124129_5",
+    "4": "7692093201968090401_4",
+    "5": "7690642292855672096_5",
+    "6": "7703619977630190881_6"
+   },
+   "notes": "full test BLEO (retenir ce qu'on lit); cta B",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-livres-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#booktok #bookrecommendations #shortbooks",
+   "musique": {
+    "titre": "kagefumi",
+    "auteur": "-",
+    "original": true,
+    "id": "7402610556690860833",
+    "url_tiktok": "https://www.tiktok.com/music/x-7402610556690860833"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7680975889932225814_1",
+    "2": "7694778035337235744_6",
+    "3": "7685340052989398275_4",
+    "4": "7694778035337235744_3",
+    "5": "7705457734870699296_6",
+    "6": "7691336990419209505_4"
+   },
+   "notes": "déclinaison G1 de original-043; cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "1ce38110-9132-4866-871e-67e6fb335e9a"
   }
  ]
 }

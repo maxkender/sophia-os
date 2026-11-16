@@ -3,10 +3,17 @@
  "titre": "tier list of Dopamine hits",
  "position_app": 2,
  "type_bleo": "declinaison",
- "parent_contenu_id": "603463f9-0fd1-47e8-b5fc-4395f0336ddd",
+ "parent_contenu_id": "9f779280-e053-4e8b-8d65-2edb702907ac",
  "legendes": {
   "en": "dopamine hits, from real to cheap #dopamine #mentalmaxxing #tierlist #selfimprovement",
-  "fr": "les shoots de dopamine, du vrai au toc #dopamine #mentalmaxxing #tierlist #developpementpersonnel"
+  "fr": "les shoots de dopamine, du vrai au toc #dopamine #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "dopamin-kicks, von echt bis billig #dopamin #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "chutes de dopamina, de los reales a los baratos #dopamina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "scariche di dopamina, da quelle vere a quelle tarocche #dopamina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "dopamin vuruşları, gerçekten ucuza #dopamin #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "doses de dopamina, da real à barata #dopamina #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "strzały dopaminy, od prawdziwych po tanie #dopamina #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "dopamin löketek, a valóditól az olcsóig #dopamin #mentalmaxxing #tierlist #önfejlesztés"
  },
  "couverture": {
   "image": {
@@ -20,24 +27,59 @@
   },
   "haut": {
    "en": "tier list of",
-   "fr": "tier list des"
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
   },
   "gros": {
    "en": "Dopamine",
-   "fr": "shoots de"
+   "fr": "shoots de",
+   "de": "Dopamin-",
+   "es": "chutes de",
+   "it": "scariche di",
+   "tr": "dopamin",
+   "pt-BR": "doses de",
+   "pl": "strzały",
+   "hu": "dopamin"
   },
   "bas": {
    "en": "hits",
-   "fr": "dopamine"
+   "fr": "dopamine",
+   "de": "Kicks",
+   "es": "dopamina",
+   "it": "dopamina",
+   "tr": "vuruşları",
+   "pt-BR": "dopamina",
+   "pl": "dopaminy",
+   "hu": "löketek"
   }
  },
  "titre_tableau": {
   "en": "prove me wrong",
-  "fr": "prouve-moi le contraire"
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla",
+  "pt-BR": "me prova o contrário",
+  "pl": "udowodnij, że się mylę",
+  "hu": "győzz meg az ellenkezőjéről"
  },
  "pied": {
   "en": "which one is your daily hit?",
-  "fr": "c’est quoi ton shoot quotidien ?"
+  "fr": "c’est quoi ton shoot quotidien ?",
+  "de": "was ist dein täglicher kick?",
+  "es": "¿cuál es tu chute diario?",
+  "it": "qual è la tua scarica quotidiana?",
+  "tr": "senin günlük vuruşun ne?",
+  "pt-BR": "qual é a sua dose diária?",
+  "pl": "jaki jest twój codzienny strzał?",
+  "hu": "mi a napi löketed?"
  },
  "rangs": [
   {
@@ -46,7 +88,14 @@
    "texte": "#890000",
    "sous": {
     "en": "earned, lasts",
-    "fr": "mérité, durable"
+    "fr": "mérité, durable",
+    "de": "verdient, hält",
+    "es": "ganado, dura",
+    "it": "meritata, dura",
+    "tr": "hak edilmiş, kalıcı",
+    "pt-BR": "merecida, dura",
+    "pl": "zasłużony, trwały",
+    "hu": "megérdemelt, tartós"
    },
    "cases": [
     {
@@ -62,7 +111,14 @@
      ],
      "t": {
       "en": "a hard|workout",
-      "fr": "une séance|dure"
+      "fr": "une séance|dure",
+      "de": "hartes|training",
+      "es": "un entreno|duro",
+      "it": "allenamento|tosto",
+      "tr": "zorlu bir|antrenman",
+      "pt-BR": "um treino|pesado",
+      "pl": "ciężki|trening",
+      "hu": "kemény|edzés"
      }
     },
     {
@@ -75,7 +131,14 @@
      ],
      "t": {
       "en": "a goal|reached",
-      "fr": "un objectif|atteint"
+      "fr": "un objectif|atteint",
+      "de": "ein ziel|erreicht",
+      "es": "una meta|cumplida",
+      "it": "obiettivo|raggiunto",
+      "tr": "ulaşılan|hedef",
+      "pt-BR": "uma meta|batida",
+      "pl": "osiągnięty|cel",
+      "hu": "elért|cél"
      }
     },
     {
@@ -88,7 +151,14 @@
      ],
      "t": {
       "en": "learning|a skill",
-      "fr": "apprendre|un truc"
+      "fr": "apprendre|un truc",
+      "de": "was neues|lernen",
+      "es": "aprender|algo nuevo",
+      "it": "imparare|qualcosa",
+      "tr": "yeni bir şey|öğrenmek",
+      "pt-BR": "aprender|algo novo",
+      "pl": "nauka|czegoś nowego",
+      "hu": "tanulni|valami újat"
      }
     }
    ]
@@ -99,7 +169,14 @@
    "texte": "#6f2900",
    "sous": {
     "en": "strong",
-    "fr": "fort"
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü",
+    "pt-BR": "forte",
+    "pl": "mocny",
+    "hu": "erős"
    },
    "cases": [
     {
@@ -112,7 +189,14 @@
      ],
      "t": {
       "en": "sunlight",
-      "fr": "soleil"
+      "fr": "soleil",
+      "de": "sonnenlicht",
+      "es": "sol",
+      "it": "sole",
+      "tr": "güneş ışığı",
+      "pt-BR": "sol",
+      "pl": "słońce",
+      "hu": "napfény"
      }
     },
     {
@@ -125,7 +209,14 @@
      ],
      "t": {
       "en": "a long walk",
-      "fr": "une longue|marche"
+      "fr": "une longue|marche",
+      "de": "langer|spaziergang",
+      "es": "un paseo|largo",
+      "it": "una lunga|camminata",
+      "tr": "uzun|yürüyüş",
+      "pt-BR": "uma longa|caminhada",
+      "pl": "długi|spacer",
+      "hu": "hosszú|séta"
      }
     },
     {
@@ -138,7 +229,14 @@
      ],
      "t": {
       "en": "meditation",
-      "fr": "méditation"
+      "fr": "méditation",
+      "de": "meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon",
+      "pt-BR": "meditação",
+      "pl": "medytacja",
+      "hu": "meditáció"
      }
     },
     {
@@ -151,7 +249,14 @@
      ],
      "t": {
       "en": "a good book",
-      "fr": "un bon livre"
+      "fr": "un bon livre",
+      "de": "ein gutes buch",
+      "es": "un buen libro",
+      "it": "un buon libro",
+      "tr": "iyi bir kitap",
+      "pt-BR": "um bom livro",
+      "pl": "dobra książka",
+      "hu": "egy jó könyv"
      }
     }
    ]
@@ -162,7 +267,14 @@
    "texte": "#6b530d",
    "sous": {
     "en": "solid",
-    "fr": "solide"
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solida",
+    "tr": "sağlam",
+    "pt-BR": "sólida",
+    "pl": "solidny",
+    "hu": "stabil"
    },
    "cases": [
     {
@@ -175,7 +287,14 @@
      ],
      "t": {
       "en": "music",
-      "fr": "musique"
+      "fr": "musique",
+      "de": "musik",
+      "es": "música",
+      "it": "musica",
+      "tr": "müzik",
+      "pt-BR": "música",
+      "pl": "muzyka",
+      "hu": "zene"
      }
     },
     {
@@ -188,7 +307,14 @@
      ],
      "t": {
       "en": "a good|breakfast",
-      "fr": "un bon|petit-déj"
+      "fr": "un bon|petit-déj",
+      "de": "gutes|frühstück",
+      "es": "un buen|desayuno",
+      "it": "una buona|colazione",
+      "tr": "iyi bir|kahvaltı",
+      "pt-BR": "um bom|café da manhã",
+      "pl": "dobre|śniadanie",
+      "hu": "jó|reggeli"
      }
     },
     {
@@ -201,7 +327,14 @@
      ],
      "t": {
       "en": "chess",
-      "fr": "échecs"
+      "fr": "échecs",
+      "de": "schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç",
+      "pt-BR": "xadrez",
+      "pl": "szachy",
+      "hu": "sakk"
      }
     },
     {
@@ -214,7 +347,14 @@
      ],
      "t": {
       "en": "a nap",
-      "fr": "une sieste"
+      "fr": "une sieste",
+      "de": "nickerchen",
+      "es": "una siesta",
+      "it": "un pisolino",
+      "tr": "şekerleme",
+      "pt-BR": "um cochilo",
+      "pl": "drzemka",
+      "hu": "szunyókálás"
      }
     }
    ]
@@ -225,7 +365,14 @@
    "texte": "#565300",
    "sous": {
     "en": "borrowed",
-    "fr": "emprunté"
+    "fr": "emprunté",
+    "de": "geliehen",
+    "es": "prestado",
+    "it": "in prestito",
+    "tr": "ödünç",
+    "pt-BR": "emprestada",
+    "pl": "pożyczony",
+    "hu": "kölcsönzött"
    },
    "cases": [
     {
@@ -238,7 +385,14 @@
      ],
      "t": {
       "en": "espresso",
-      "fr": "espresso"
+      "fr": "espresso",
+      "de": "espresso",
+      "es": "espresso",
+      "it": "espresso",
+      "tr": "espresso",
+      "pt-BR": "espresso",
+      "pl": "espresso",
+      "hu": "espresso"
      }
     },
     {
@@ -251,7 +405,14 @@
      ],
      "t": {
       "en": "a series",
-      "fr": "une série"
+      "fr": "une série",
+      "de": "eine serie",
+      "es": "una serie",
+      "it": "una serie",
+      "tr": "bir dizi",
+      "pt-BR": "uma série",
+      "pl": "serial",
+      "hu": "egy sorozat"
      }
     },
     {
@@ -264,7 +425,14 @@
      ],
      "t": {
       "en": "shopping",
-      "fr": "shopping"
+      "fr": "shopping",
+      "de": "shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş",
+      "pt-BR": "compras",
+      "pl": "zakupy",
+      "hu": "vásárlás"
      }
     },
     {
@@ -277,7 +445,14 @@
      ],
      "t": {
       "en": "old playlists",
-      "fr": "vieilles|playlists"
+      "fr": "vieilles|playlists",
+      "de": "alte|playlists",
+      "es": "playlists|viejas",
+      "it": "vecchie|playlist",
+      "tr": "eski|playlistler",
+      "pt-BR": "playlists|antigas",
+      "pl": "stare|playlisty",
+      "hu": "régi|playlistek"
      }
     }
    ]
@@ -288,7 +463,14 @@
    "texte": "#366b0d",
    "sous": {
     "en": "cheap",
-    "fr": "toc"
+    "fr": "toc",
+    "de": "billig",
+    "es": "barato",
+    "it": "tarocca",
+    "tr": "ucuz",
+    "pt-BR": "barata",
+    "pl": "tani",
+    "hu": "olcsó"
    },
    "cases": [
     {
@@ -301,7 +483,14 @@
      ],
      "t": {
       "en": "fast food",
-      "fr": "fast-food"
+      "fr": "fast-food",
+      "de": "fast food",
+      "es": "fast food",
+      "it": "fast food",
+      "tr": "fast food",
+      "pt-BR": "fast food",
+      "pl": "fast food",
+      "hu": "fast food"
      }
     },
     {
@@ -314,7 +503,14 @@
      ],
      "t": {
       "en": "gaming|marathons",
-      "fr": "marathons|de jeu"
+      "fr": "marathons|de jeu",
+      "de": "gaming-|marathons",
+      "es": "maratones|de gaming",
+      "it": "maratone|di gaming",
+      "tr": "gaming|maratonu",
+      "pt-BR": "maratonas|de games",
+      "pl": "gamingowe|maratony",
+      "hu": "gaming|maratonok"
      }
     },
     {
@@ -327,7 +523,14 @@
      ],
      "t": {
       "en": "checking|likes",
-      "fr": "checker|les likes"
+      "fr": "checker|les likes",
+      "de": "likes|checken",
+      "es": "mirar|los likes",
+      "it": "controllare|i like",
+      "tr": "beğenilere|bakmak",
+      "pt-BR": "checar|curtidas",
+      "pl": "sprawdzanie|lajków",
+      "hu": "lájkok|nézegetése"
      }
     },
     {
@@ -340,7 +543,14 @@
      ],
      "t": {
       "en": "autoplay",
-      "fr": "autoplay"
+      "fr": "autoplay",
+      "de": "autoplay",
+      "es": "autoplay",
+      "it": "autoplay",
+      "tr": "autoplay",
+      "pt-BR": "autoplay",
+      "pl": "autoplay",
+      "hu": "autoplay"
      }
     }
    ]
@@ -352,7 +562,14 @@
   "texte": "#2c2d7c",
   "sous": {
    "en": "drains you",
-   "fr": "te vide"
+   "fr": "te vide",
+   "de": "saugt dich aus",
+   "es": "te vacía",
+   "it": "ti svuota",
+   "tr": "seni tüketir",
+   "pt-BR": "te esgota",
+   "pl": "wysysa cię",
+   "hu": "lemerít"
   },
   "cases": [
    {
@@ -365,7 +582,14 @@
     ],
     "t": {
      "en": "endless reels",
-     "fr": "reels sans fin"
+     "fr": "reels sans fin",
+     "de": "endlose reels",
+     "es": "reels sin fin",
+     "it": "reels infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim",
+     "pl": "reels|bez końca",
+     "hu": "végtelen reels"
     }
    },
    {
@@ -378,7 +602,14 @@
     ],
     "t": {
      "en": "betting apps",
-     "fr": "applis de paris"
+     "fr": "applis de paris",
+     "de": "wett-apps",
+     "es": "apps de|apuestas",
+     "it": "app di|scommesse",
+     "tr": "bahis|uygulamaları",
+     "pt-BR": "apps de|aposta",
+     "pl": "zakłady|online",
+     "hu": "fogadási|appok"
     }
    },
    {
@@ -391,7 +622,14 @@
     ],
     "t": {
      "en": "3am scrolling",
-     "fr": "scroller à 3h"
+     "fr": "scroller à 3h",
+     "de": "scrollen|um 3 uhr",
+     "es": "scroll|a las 3am",
+     "it": "scroll|alle 3",
+     "tr": "gece 3’te|scroll",
+     "pt-BR": "scroll|às 3h",
+     "pl": "scroll|o 3 w nocy",
+     "hu": "scroll|hajnali 3-kor"
     }
    },
    {
@@ -404,10 +642,17 @@
     ],
     "t": {
      "en": "your option|(comment)",
-     "fr": "ton choix|(commente)"
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentier)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yaz)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój wybór|(komentuj)",
+     "hu": "a te ötleted|(kommenteld)"
     }
    }
   ]
  },
- "notes": "routine du 16/11 : déclinaison G1 de mm-o021 (« tier list of Dopamine hits », de 5,6 k, r 5,91), titre mot pour mot, autres items, autre couverture (le moine), cta A (le parent est en cta B). 9 langues."
+ "notes": "routine du 16/11 : déclinaison G1 de mm-o021 (« tier list of Dopamine hits », de 5,6 k, r 5,91), titre mot pour mot, autres items, autre couverture (le moine), cta A (le parent est en cta B). 9 langues. Parent déclaré : la version Sophia du parent (9f779280), la boîte donnant le contenu UnSwipe rejeté (parent_introuvable)."
 }

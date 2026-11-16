@@ -3,10 +3,17 @@
  "titre": "tier list of Evening habits",
  "position_app": 2,
  "type_bleo": "declinaison",
- "parent_contenu_id": "57078436-110b-465d-b7d5-b6619641e295",
+ "parent_contenu_id": "39a0ed92-e64f-4ef6-9882-c04cf5bda2e9",
  "legendes": {
   "en": "evening habits, ranked by what they do to tomorrow #eveningroutine #mentalmaxxing #tierlist #selfimprovement",
-  "fr": "les habitudes du soir, classées selon ce qu’elles font à demain #routinedusoir #mentalmaxxing #tierlist #developpementpersonnel"
+  "fr": "les habitudes du soir, classées selon ce qu’elles font à demain #routinedusoir #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "abendgewohnheiten, sortiert danach, was sie mit deinem morgen machen #abendroutine #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "hábitos de noche, según lo que le hacen a tu día siguiente #rutinadenoche #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "abitudini serali, in base a cosa fanno al tuo domani #routineserale #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "akşam alışkanlıkları, yarına ne yaptıklarına göre sıralı #akşamrutini #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "hábitos da noite, pelo que eles fazem com o seu amanhã #rotinanoturna #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "wieczorne nawyki według tego, co robią z twoim jutrem #wieczornarutyna #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "esti szokások aszerint, mit tesznek a holnapoddal #estirutin #mentalmaxxing #tierlist #önfejlesztés"
  },
  "couverture": {
   "image": {
@@ -20,24 +27,59 @@
   },
   "haut": {
    "en": "tier list of",
-   "fr": "tier list des"
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
   },
   "gros": {
    "en": "Evening",
-   "fr": "habitudes"
+   "fr": "habitudes",
+   "de": "Abend-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "akşam",
+   "pt-BR": "hábitos",
+   "pl": "wieczorne",
+   "hu": "esti"
   },
   "bas": {
    "en": "habits",
-   "fr": "du soir"
+   "fr": "du soir",
+   "de": "gewohnheiten",
+   "es": "de noche",
+   "it": "serali",
+   "tr": "alışkanlıkları",
+   "pt-BR": "da noite",
+   "pl": "nawyki",
+   "hu": "szokások"
   }
  },
  "titre_tableau": {
   "en": "rate my ranking",
-  "fr": "note mon classement"
+  "fr": "note mon classement",
+  "de": "bewerte mein ranking",
+  "es": "califica mi ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla",
+  "pt-BR": "avalia meu ranking",
+  "pl": "oceń mój ranking",
+  "hu": "értékeld a rangsorom"
  },
  "pied": {
   "en": "what do you do after 9pm?",
-  "fr": "tu fais quoi après 21h ?"
+  "fr": "tu fais quoi après 21h ?",
+  "de": "was machst du nach 21 uhr?",
+  "es": "¿qué haces después de las 21h?",
+  "it": "cosa fai dopo le 21?",
+  "tr": "21’den sonra ne yapıyorsun?",
+  "pt-BR": "o que você faz depois das 21h?",
+  "pl": "co robisz po 21?",
+  "hu": "mit csinálsz este 9 után?"
  },
  "rangs": [
   {
@@ -46,7 +88,14 @@
    "texte": "#890000",
    "sous": {
     "en": "tomorrow thanks you",
-    "fr": "demain te dit merci"
+    "fr": "demain te dit merci",
+    "de": "morgen dankt dir",
+    "es": "mañana te lo agradece",
+    "it": "domani ti ringrazia",
+    "tr": "yarın sana teşekkür eder",
+    "pt-BR": "o amanhã agradece",
+    "pl": "jutro ci podziękuje",
+    "hu": "a holnap hálás lesz"
    },
    "cases": [
     {
@@ -59,7 +108,14 @@
      ],
      "t": {
       "en": "phone|outside the room",
-      "fr": "téléphone|hors chambre"
+      "fr": "téléphone|hors chambre",
+      "de": "handy|im flur",
+      "es": "móvil fuera|del cuarto",
+      "it": "telefono|fuori camera",
+      "tr": "telefon|odanın dışında",
+      "pt-BR": "celular|fora do quarto",
+      "pl": "telefon|poza pokojem",
+      "hu": "telefon|kint marad"
      }
     },
     {
@@ -72,7 +128,14 @@
      ],
      "t": {
       "en": "a walk|after dinner",
-      "fr": "marcher|après manger"
+      "fr": "marcher|après manger",
+      "de": "spaziergang|nach dem essen",
+      "es": "caminar|tras cenar",
+      "it": "camminare|dopo cena",
+      "tr": "yemekten|sonra yürüyüş",
+      "pt-BR": "caminhar|pós-janta",
+      "pl": "spacer|po kolacji",
+      "hu": "séta|vacsora után"
      }
     },
     {
@@ -85,7 +148,14 @@
      ],
      "t": {
       "en": "10 pages",
-      "fr": "10 pages"
+      "fr": "10 pages",
+      "de": "10 seiten",
+      "es": "10 páginas",
+      "it": "10 pagine",
+      "tr": "10 sayfa",
+      "pt-BR": "10 páginas",
+      "pl": "10 stron",
+      "hu": "10 oldal"
      }
     },
     {
@@ -99,7 +169,14 @@
    "texte": "#6f2900",
    "sous": {
     "en": "strong",
-    "fr": "fort"
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü",
+    "pt-BR": "forte",
+    "pl": "mocny",
+    "hu": "erős"
    },
    "cases": [
     {
@@ -112,7 +189,14 @@
      ],
      "t": {
       "en": "herbal tea",
-      "fr": "tisane"
+      "fr": "tisane",
+      "de": "kräutertee",
+      "es": "infusión",
+      "it": "tisana",
+      "tr": "bitki çayı",
+      "pt-BR": "chazinho",
+      "pl": "herbatka|ziołowa",
+      "hu": "gyógytea"
      }
     },
     {
@@ -125,7 +209,14 @@
      ],
      "t": {
       "en": "warm shower",
-      "fr": "douche chaude"
+      "fr": "douche chaude",
+      "de": "warme dusche",
+      "es": "ducha|caliente",
+      "it": "doccia calda",
+      "tr": "sıcak duş",
+      "pt-BR": "banho quente",
+      "pl": "ciepły|prysznic",
+      "hu": "meleg zuhany"
      }
     },
     {
@@ -138,7 +229,14 @@
      ],
      "t": {
       "en": "tidy desk",
-      "fr": "bureau rangé"
+      "fr": "bureau rangé",
+      "de": "aufgeräumter|tisch",
+      "es": "escritorio|ordenado",
+      "it": "scrivania|in ordine",
+      "tr": "toplu masa",
+      "pt-BR": "mesa|arrumada",
+      "pl": "czyste biurko",
+      "hu": "rendes|íróasztal"
      }
     },
     {
@@ -151,7 +249,14 @@
      ],
      "t": {
       "en": "planning|tomorrow",
-      "fr": "préparer|demain"
+      "fr": "préparer|demain",
+      "de": "morgen|planen",
+      "es": "planear|mañana",
+      "it": "preparare|domani",
+      "tr": "yarını|planlamak",
+      "pt-BR": "planejar|amanhã",
+      "pl": "plan|na jutro",
+      "hu": "holnap|megtervezése"
      }
     }
    ]
@@ -162,7 +267,14 @@
    "texte": "#6b530d",
    "sous": {
     "en": "good",
-    "fr": "bien"
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi",
+    "pt-BR": "bom",
+    "pl": "dobry",
+    "hu": "jó"
    },
    "cases": [
     {
@@ -175,7 +287,14 @@
      ],
      "t": {
       "en": "cooking",
-      "fr": "cuisiner"
+      "fr": "cuisiner",
+      "de": "kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
      }
     },
     {
@@ -188,7 +307,14 @@
      ],
      "t": {
       "en": "vinyl|or album",
-      "fr": "vinyle|ou album"
+      "fr": "vinyle|ou album",
+      "de": "vinyl|oder album",
+      "es": "vinilo|o álbum",
+      "it": "vinile|o album",
+      "tr": "plak|ya da albüm",
+      "pt-BR": "vinil|ou álbum",
+      "pl": "winyl|lub album",
+      "hu": "bakelit|vagy album"
      }
     },
     {
@@ -201,7 +327,14 @@
      ],
      "t": {
       "en": "pet time",
-      "fr": "câlins|au chat"
+      "fr": "câlins|au chat",
+      "de": "katze|kuscheln",
+      "es": "mimos|al gato",
+      "it": "coccole|al gatto",
+      "tr": "kediyle|sarılmak",
+      "pt-BR": "carinho|no gato",
+      "pl": "przytulanie|kota",
+      "hu": "macskás|ölelgetés"
      }
     },
     {
@@ -214,7 +347,14 @@
      ],
      "t": {
       "en": "stretching",
-      "fr": "étirements"
+      "fr": "étirements",
+      "de": "dehnen",
+      "es": "estiramientos",
+      "it": "stretching",
+      "tr": "esneme",
+      "pt-BR": "alongamento",
+      "pl": "rozciąganie",
+      "hu": "nyújtás"
      }
     }
    ]
@@ -225,7 +365,14 @@
    "texte": "#565300",
    "sous": {
     "en": "depends",
-    "fr": "ça dépend"
+    "fr": "ça dépend",
+    "de": "kommt drauf an",
+    "es": "depende",
+    "it": "dipende",
+    "tr": "duruma göre",
+    "pt-BR": "depende",
+    "pl": "zależy",
+    "hu": "attól függ"
    },
    "cases": [
     {
@@ -238,7 +385,14 @@
      ],
      "t": {
       "en": "one episode",
-      "fr": "un épisode"
+      "fr": "un épisode",
+      "de": "eine folge",
+      "es": "un episodio",
+      "it": "un episodio",
+      "tr": "tek bölüm",
+      "pt-BR": "um episódio",
+      "pl": "jeden odcinek",
+      "hu": "egy rész"
      }
     },
     {
@@ -251,7 +405,14 @@
      ],
      "t": {
       "en": "7pm nap",
-      "fr": "sieste à 19h"
+      "fr": "sieste à 19h",
+      "de": "nickerchen|um 19 uhr",
+      "es": "siesta|a las 19h",
+      "it": "pisolino|alle 19",
+      "tr": "19’da|şekerleme",
+      "pt-BR": "cochilo|às 19h",
+      "pl": "drzemka|o 19",
+      "hu": "alvás|este 7-kor"
      }
     },
     {
@@ -264,7 +425,14 @@
      ],
      "t": {
       "en": "late snack",
-      "fr": "grignoter|tard"
+      "fr": "grignoter|tard",
+      "de": "spät|snacken",
+      "es": "picar|tarde",
+      "it": "spuntino|tardi",
+      "tr": "gece|atıştırması",
+      "pt-BR": "beliscar|tarde",
+      "pl": "podjadanie|w nocy",
+      "hu": "késői|nassolás"
      }
     },
     {
@@ -277,7 +445,14 @@
      ],
      "t": {
       "en": "online chess",
-      "fr": "échecs|en ligne"
+      "fr": "échecs|en ligne",
+      "de": "online-|schach",
+      "es": "ajedrez|online",
+      "it": "scacchi|online",
+      "tr": "online|satranç",
+      "pt-BR": "xadrez|online",
+      "pl": "szachy|online",
+      "hu": "online|sakk"
      }
     }
    ]
@@ -288,7 +463,14 @@
    "texte": "#366b0d",
    "sous": {
     "en": "costs you",
-    "fr": "te coûte"
+    "fr": "te coûte",
+    "de": "kostet dich",
+    "es": "te pasa factura",
+    "it": "ti costa",
+    "tr": "bedeli var",
+    "pt-BR": "cobra caro",
+    "pl": "kosztuje cię",
+    "hu": "megfizeted"
    },
    "cases": [
     {
@@ -301,7 +483,14 @@
      ],
      "t": {
       "en": "late coffee",
-      "fr": "café tardif"
+      "fr": "café tardif",
+      "de": "kaffee|am abend",
+      "es": "café tarde",
+      "it": "caffè tardi",
+      "tr": "geç kahve",
+      "pt-BR": "café tarde",
+      "pl": "późna kawa",
+      "hu": "késői kávé"
      }
     },
     {
@@ -314,7 +503,14 @@
      ],
      "t": {
       "en": "ranked games",
-      "fr": "parties|classées"
+      "fr": "parties|classées",
+      "de": "ranked-|games",
+      "es": "partidas|ranked",
+      "it": "partite|classificate",
+      "tr": "dereceli|maçlar",
+      "pt-BR": "partidas|ranqueadas",
+      "pl": "gry|rankingowe",
+      "hu": "rangsoros|meccsek"
      }
     },
     {
@@ -327,7 +523,14 @@
      ],
      "t": {
       "en": "youtube|in bed",
-      "fr": "youtube|au lit"
+      "fr": "youtube|au lit",
+      "de": "youtube|im bett",
+      "es": "youtube|en la cama",
+      "it": "youtube|a letto",
+      "tr": "yatakta|youtube",
+      "pt-BR": "youtube|na cama",
+      "pl": "youtube|w łóżku",
+      "hu": "youtube|az ágyban"
      }
     },
     {
@@ -340,7 +543,14 @@
      ],
      "t": {
       "en": "midnight|fast food",
-      "fr": "fast-food|à minuit"
+      "fr": "fast-food|à minuit",
+      "de": "fast food|um mitternacht",
+      "es": "fast food|a medianoche",
+      "it": "fast food|a mezzanotte",
+      "tr": "gece yarısı|fast food",
+      "pt-BR": "fast food|à meia-noite",
+      "pl": "fast food|o północy",
+      "hu": "éjféli|fast food"
      }
     }
    ]
@@ -352,7 +562,14 @@
   "texte": "#2c2d7c",
   "sous": {
    "en": "ruins tomorrow",
-   "fr": "ruine demain"
+   "fr": "ruine demain",
+   "de": "ruiniert morgen",
+   "es": "arruina mañana",
+   "it": "rovina domani",
+   "tr": "yarını mahveder",
+   "pt-BR": "arruína amanhã",
+   "pl": "rujnuje jutro",
+   "hu": "rontja a holnapot"
   },
   "cases": [
    {
@@ -365,7 +582,14 @@
     ],
     "t": {
      "en": "reels in bed",
-     "fr": "reels au lit"
+     "fr": "reels au lit",
+     "de": "reels im bett",
+     "es": "reels|en la cama",
+     "it": "reels a letto",
+     "tr": "yatakta reels",
+     "pt-BR": "reels na cama",
+     "pl": "reels w łóżku",
+     "hu": "reels|az ágyban"
     }
    },
    {
@@ -378,7 +602,14 @@
     ],
     "t": {
      "en": "doomscrolling",
-     "fr": "doomscrolling"
+     "fr": "doomscrolling",
+     "de": "doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
     }
    },
    {
@@ -391,7 +622,14 @@
     ],
     "t": {
      "en": "betting apps",
-     "fr": "applis de paris"
+     "fr": "applis de paris",
+     "de": "wett-apps",
+     "es": "apps de|apuestas",
+     "it": "app di|scommesse",
+     "tr": "bahis|uygulamaları",
+     "pt-BR": "apps de|aposta",
+     "pl": "zakłady|online",
+     "hu": "fogadási|appok"
     }
    },
    {
@@ -404,10 +642,17 @@
     ],
     "t": {
      "en": "your option|(comment)",
-     "fr": "ton choix|(commente)"
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentier)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yaz)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój wybór|(komentuj)",
+     "hu": "a te ötleted|(kommenteld)"
     }
    }
   ]
  },
- "notes": "routine du 16/11 : déclinaison G1 de mm-o023 (« tier list of Evening habits », es 5,3 k, r 5,16), titre mot pour mot, autres items, autre couverture (Bale au casque), cta B (le parent est en cta A). 9 langues."
+ "notes": "routine du 16/11 : déclinaison G1 de mm-o023 (« tier list of Evening habits », es 5,3 k, r 5,16), titre mot pour mot, autres items, autre couverture (Bale au casque), cta B (le parent est en cta A). 9 langues. Parent déclaré : la version Sophia du parent (39a0ed92), la boîte donnant le contenu UnSwipe rejeté (parent_introuvable)."
 }

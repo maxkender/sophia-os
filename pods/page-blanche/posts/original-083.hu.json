@@ -172,7 +172,7 @@
       "“resting” in bed"
      ],
      "fr": "marcher, prendre le soleil, juste changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
-     "texte": "inger nélkül az agyad végre a saját dolgaiddal foglalkozik: a megválaszolatlan üzenettel, a múlt heti ötlettel"
+     "texte": "inger nélkül az agyad végre a te dolgaiddal foglalkozik: válasz nélküli üzenet, régi ötlet"
     },
     "T5": {
      "en": [
@@ -213,7 +213,7 @@
       "itself"
      ],
      "fr": "ton cerveau a [[jamais un moment au calme]] pour penser seul",
-     "texte": "igen, a fejhallgató is lekerül. hagyd a gondolataidat [[szabadon kóborolni]]"
+     "texte": "igen, a fejhallgató is le. hagyd [[kóborolni a gondolataidat]]"
     },
     "T4": {
      "en": [
@@ -252,7 +252,7 @@
       "books this year"
      ],
      "fr": "applis de résumés, récaps vidéo de 10 min, threads « 5 leçons de… », t'as l'impression d'avoir [[lu 50 livres cette année]]",
-     "texte": "se zene, se a mosdóra támasztott videó, senki nem beszél a füledbe. csak a forró víz és [[ami épp eszedbe jut]], még ha random is"
+     "texte": "se zene, se a mosdóra támasztott videó, senki nem beszél a füledbe. csak a forró víz és [[ami épp eszedbe jut]]"
     },
     "T3": {
      "en": [
@@ -271,7 +271,7 @@
       "never did the work"
      ],
      "fr": "une semaine après t'as tout oublié, parce que [[ton cerveau a rien fait]]",
-     "texte": "ezért jönnek a legjobb ötletek mindig akkor, [[amikor nem tudod leírni őket]]"
+     "texte": "ezért jönnek a legjobb ötletek [[amikor nem tudod leírni őket]]"
     },
     "T5": {
      "en": [

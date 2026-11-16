@@ -3571,6 +3571,33 @@
     "url_tiktok": "https://www.tiktok.com/music/x-7673106455768419105"
    },
    "statut": "nouveau"
+  },
+  {
+   "post_id": "var-greenflags-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#greenflags #smartpeople #intelligence",
+   "musique": {
+    "titre": "Bliss",
+    "auteur": "Klsr",
+    "original": false,
+    "id": "7346226879747917826",
+    "url_tiktok": "https://www.tiktok.com/music/x-7346226879747917826"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7689918962905124129_1",
+    "2": "7699939278847085857_6",
+    "3": "7689509565536177441_4",
+    "4": "7684726544442346774_7",
+    "5": "7699939278847085857_3",
+    "6": "7685071416466607382_4"
+   },
+   "notes": "déclinaison G1 de original-010; cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "24fcb8ab-03be-4651-b98e-bd06cd1ede89"
   }
  ]
 }

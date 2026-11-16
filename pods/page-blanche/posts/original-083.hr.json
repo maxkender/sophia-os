@@ -48,7 +48,7 @@
       "choice uses up willpower"
      ],
      "fr": "quoi mettre, quoi manger, quand s'y mettre, chaque choix [[grignote ta volonté]]",
-     "texte": "u redu, na stanici, u čekaonici, [[samo stoj tamo]]"
+     "texte": "u redu, na stanici, u čekaonici kod doktora, [[samo stoj tamo]]"
     },
     "T3": {
      "en": [
@@ -65,7 +65,7 @@
       "morning you just start"
      ],
      "fr": "prépare demain dès la veille, et le matin [[tu te lances direct]]",
-     "texte": "onda misli krenu lutati, i [[u tome je cijela poanta]]"
+     "texte": "onda misli polako krenu lutati, i [[u tome je cijela poanta]]"
     },
     "T5": {
      "en": [
@@ -252,7 +252,7 @@
       "books this year"
      ],
      "fr": "applis de résumés, récaps vidéo de 10 min, threads « 5 leçons de… », t'as l'impression d'avoir [[lu 50 livres cette année]]",
-     "texte": "bez glazbe, bez videa naslonjenog na umivaonik, bez ikoga tko ti priča u uho. samo topla voda i [[što god ti padne na pamet]], makar bilo nebitno"
+     "texte": "bez glazbe, bez videa naslonjenog na umivaonik, bez ikoga tko ti priča u uho. samo topla voda i [[što god ti padne na pamet]]"
     },
     "T3": {
      "en": [

@@ -112,10 +112,14 @@ export function parPod(pods: Pick<Pod, "slug">[], livraisons: Livraison[]): Map<
   return groupes;
 }
 
-/** File d'attente (la plus ancienne d'abord) + les 30 dernières décidées. */
+/**
+ * File d'attente (la plus ancienne d'abord) + les 30 dernières décidées.
+ * Plafond 500 (sous le max-rows de 1000) : le 16/11, 110 livraisons en attente,
+ * les rattrapages de Kaja (au-delà des 100 premières) n'apparaissaient pas.
+ */
 export async function listerLivraisons(): Promise<{ aValider: Livraison[]; decidees: Livraison[] }> {
   const [attente, faites] = await Promise.all([
-    supabase.from("pod_livraisons").select(COLONNES).eq("statut", "a_valider").order("created_at").limit(100),
+    supabase.from("pod_livraisons").select(COLONNES).eq("statut", "a_valider").order("created_at").limit(500),
     supabase
       .from("pod_livraisons")
       .select(COLONNES)

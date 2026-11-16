@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o140",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fd4b2b91-49d9-4c30-abd5-b80df68669ba",
+ "titre": "5 rules that stop a man from losing himself #men #mindset #selfimprovement #discipline #identity",
+ "musique_titre": "Elle Ta Tue Instrumental (Morena)",
+ "musique_url": "https://www.tiktok.com/music/elle-ta-tue-instrumental-morena-7430147882671508257",
+ "inspirations": [
+  "fd4b2b91-49d9-4c30-abd5-b80df68669ba"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 16/11. Déclinaison G1 de la ligne 24 (parent fd4b2b91, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Règle. » puis deux ou trois lignes. Règles neuves, aucune du parent (pas de décision après 22 h, programme qui disparaît, téléphone, scénarios, nourrir l'esprit). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 5) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "40c5ec27",
+   "texte_overlay": "5 rules that stop a man\nfrom losing himself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629448082408639752/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7534523c",
+   "texte_overlay": "1. Keep one thing that's only yours.\n\nA sport, a hobby, a morning walk.\nNo matter who comes into your life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629448082408639752/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "03be0d9f",
+   "texte_overlay": "2. Never drop your friends\nfor a relationship.\n\nThe right person wants\nyou to have a life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629448082408639752/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7d4dba4e",
+   "texte_overlay": "3. Say no without a long excuse.\n\nOne sentence is enough.\nYour time is yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629448082408639752/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1b3ed21a",
+   "texte_overlay": "4. Keep learning, whatever happens.\n\nA mind that grows stays yours.\nFive minutes a day is enough.",
+   "texte_sophia": "4. Keep learning, whatever happens.\n\nUse a micro-learning app\nlike the Sophia app.\nFive minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7629448082408639752/5.jpg"
+  }
+ ]
+}

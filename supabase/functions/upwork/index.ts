@@ -1,3 +1,4 @@
+import { lireParLots } from "../_shared/lots.ts";
 import {
   abregerPourJournal,
   aRenouveler,
@@ -82,6 +83,7 @@ import {
 import {
   ACTIONS_PAYEES,
   choisirCanari,
+  motifInhabituel,
   classerErreur,
   ecartsCanari,
   ecartsReconciliation,
@@ -1224,22 +1226,21 @@ async function chargerLignes(
   const raisonDe = new Map(brutes.map((b) => [String(b.id), (b.raison as string | null) ?? null]));
   // Les comptes actifs de chaque ligne (Double en warm-up compris) : l'écart avec la milestone financée.
   const comptesDe = new Map(brutes.map((b) => [String(b.id), Array.isArray(b.detail_comptes) ? b.detail_comptes.length : Number(b.nb_comptes ?? 1)]));
-  const posteurs = brutes.map((l) => l.poster_id);
-  const [{ data: profils }, { data: paysComptes }] = posteurs.length
-    ? await Promise.all([
-      supabase.from("profiles").select("id, upwork_contract_id, canal_paie").in("id", posteurs),
-      supabase.from("comptes").select("poster_id, pays").in("poster_id", posteurs),
-    ])
-    : [{ data: [] }, { data: [] }];
+  const posteurs = [...new Set(brutes.map((l) => String(l.poster_id)))];
+  // 16/11 : par lots de 100, et une lecture ratée arrête tout (avant : 386 posteurs d'un coup, l'erreur
+  // ignorée, aucun contrat lu, et la paie auto passait pour « rien à payer »).
+  const [profils, paysComptes] = await Promise.all([
+    lireParLots(posteurs, "paie : profils", (lot) => supabase.from("profiles").select("id, upwork_contract_id, canal_paie").in("id", lot)),
+    lireParLots(posteurs, "paie : comptes", (lot) => supabase.from("comptes").select("poster_id, pays").in("poster_id", lot).limit(900)),
+  ]);
   const contratDe = new Map((profils ?? []).map((p) => [p.id as string, (p.upwork_contract_id as string | null) ?? null]));
   // 0574 : les posteurs Ruul sont payés par le lot Ruul, jamais par l'API Upwork.
   const ruul = new Set((profils ?? []).filter((p) => p.canal_paie === "ruul").map((p) => p.id as string));
   const paysDe = new Map<string, (string | null)[]>();
   for (const c of paysComptes ?? []) paysDe.set(String(c.poster_id), [...(paysDe.get(String(c.poster_id)) ?? []), (c.pays as string | null) ?? null]);
   const contrats = [...new Set([...contratDe.values()].filter(Boolean))] as string[];
-  const { data: orgs } = contrats.length
-    ? await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", contrats)
-    : { data: [] };
+  const orgs = await lireParLots(contrats, "paie : contrats", (lot) =>
+    supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", lot));
   const tenantDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), (o.organisation_id as string | null) ?? null]));
   const lignes = fusionnerParContrat(brutes.map((brute) => ({
     id: brute.id, poster_id: brute.poster_id, poster_nom: brute.poster_nom, action: brute.action,
@@ -2173,6 +2174,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     const finis = reessaisFinis(maintenant, semaine);
     const reprises: { l: LigneAuto; v: PaiementApi }[] = [];
     const nouvelles: LigneAuto[] = [];
+    let bilanInhabituels = 0;
     for (const l of lignes) {
       const x = l.ids[0] ? verrouDe.get(l.ids[0]) : undefined;
       if (x) {
@@ -2199,9 +2201,19 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
         }
         continue;
       }
+      // 16/11 (Max) : seule la paie normale part seule ; un montant inhabituel attend son OK (Payroll → Pay).
+      const inhabituel = aRenommer(l) ? null : motifInhabituel(l, r.plafond_ligne);
+      if (inhabituel) {
+        await aFaire(supabase, {
+          cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : attend ton OK`,
+          detail: `${inhabituel} — à payer depuis Payroll si c'est bon`, poster_id: l.poster_id, contrat_id: l.contrat_id, semaine,
+        });
+        bilanInhabituels++;
+        continue;
+      }
       nouvelles.push(l);
     }
-    const bilan = { semaine, reprises: 0, payees: 0, reessais: 0, a_verifier: 0, refusees: 0, rien: 0 };
+    const bilan = { semaine, reprises: 0, payees: 0, reessais: 0, a_verifier: 0, refusees: 0, rien: 0, attendent_ok: bilanInhabituels };
     const compter = (i: Issue) => {
       if (i.resultat === "paye" || i.resultat === "deja_payee") bilan.payees++;
       else if (i.resultat === "reessai") bilan.reessais++;

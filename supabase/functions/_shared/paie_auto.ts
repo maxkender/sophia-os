@@ -304,3 +304,19 @@ export function ecartsReconciliation(
   }
   return ecarts;
 }
+
+/**
+ * 16/11 (Max) : « La paie normale du lundi (lignes « payer » au tarif du contrat) reste AUTOMATIQUE. Seuls les
+ * montants inhabituels (corrections, Doubler, au-dessus du plafond, lignes « modifier » ou « à vérifier »)
+ * attendent mon OK. » Rend la raison si la ligne n'est pas une paie normale, sinon null.
+ */
+export function motifInhabituel(l: LigneAuto, plafondLigne: number): string | null {
+  if (l.action !== "payer") return `ligne « ${l.action} »`;
+  if (l.ids.length > 1) return "plusieurs profils sur ce contrat";
+  if ((l.nb_comptes ?? 1) > 1) return "Doubler (plusieurs comptes payés)";
+  if (l.tarif === null || !(l.tarif > 0)) return "tarif du contrat inconnu";
+  if (Math.abs(l.montant - l.tarif) >= 0.005) return `montant ${l.montant} $ différent du tarif ${l.tarif} $`;
+  if (Math.abs(l.montant_calcule - l.montant) >= 0.005 || l.raison_correction) return "montant corrigé à la main";
+  if (plafondLigne > 0 && l.montant > plafondLigne) return `au-dessus du plafond (${plafondLigne} $)`;
+  return null;
+}

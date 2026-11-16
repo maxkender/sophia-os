@@ -1,0 +1,413 @@
+{
+ "id": "mm-o062",
+ "titre": "tier list of Dopamine hits",
+ "position_app": 2,
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "603463f9-0fd1-47e8-b5fc-4395f0336ddd",
+ "legendes": {
+  "en": "dopamine hits, from real to cheap #dopamine #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les shoots de dopamine, du vrai au toc #dopamine #mentalmaxxing #tierlist #developpementpersonnel"
+ },
+ "couverture": {
+  "image": {
+   "src": "7692811167261248775/1",
+   "boite": [
+    134,
+    280,
+    746,
+    588
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des"
+  },
+  "gros": {
+   "en": "Dopamine",
+   "fr": "shoots de"
+  },
+  "bas": {
+   "en": "hits",
+   "fr": "dopamine"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire"
+ },
+ "pied": {
+  "en": "which one is your daily hit?",
+  "fr": "c’est quoi ton shoot quotidien ?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "earned, lasts",
+    "fr": "mérité, durable"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "a hard|workout",
+      "fr": "une séance|dure"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      267,
+      239,
+      120,
+      114
+     ],
+     "t": {
+      "en": "a goal|reached",
+      "fr": "un objectif|atteint"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      880,
+      1092,
+      120,
+      125
+     ],
+     "t": {
+      "en": "learning|a skill",
+      "fr": "apprendre|un truc"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "sunlight",
+      "fr": "soleil"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      870,
+      85,
+      150,
+      130
+     ],
+     "t": {
+      "en": "a long walk",
+      "fr": "une longue|marche"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      398,
+      712,
+      150,
+      94
+     ],
+     "t": {
+      "en": "a good book",
+      "fr": "un bon livre"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "music",
+      "fr": "musique"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      5,
+      185,
+      195
+     ],
+     "t": {
+      "en": "a good|breakfast",
+      "fr": "un bon|petit-déj"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "a nap",
+      "fr": "une sieste"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "borrowed",
+    "fr": "emprunté"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "espresso",
+      "fr": "espresso"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a series",
+      "fr": "une série"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "old playlists",
+      "fr": "vieilles|playlists"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "cheap",
+    "fr": "toc"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "fast food",
+      "fr": "fast-food"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming|marathons",
+      "fr": "marathons|de jeu"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "checking|likes",
+      "fr": "checker|les likes"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "autoplay",
+      "fr": "autoplay"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "drains you",
+   "fr": "te vide"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "3am scrolling",
+     "fr": "scroller à 3h"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 16/11 : déclinaison G1 de mm-o021 (« tier list of Dopamine hits », de 5,6 k, r 5,91), titre mot pour mot, autres items, autre couverture (le moine), cta A (le parent est en cta B). 9 langues."
+}

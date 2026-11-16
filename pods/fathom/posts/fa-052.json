@@ -17,7 +17,13 @@
   "cs": "10/10 dovedností, které se naučíš za týden",
   "sk": "10/10 zručností, ktoré sa naučíš za týždeň",
   "hr": "10/10 vještina koje možeš naučiti za tjedan dana",
-  "sl": "10/10 veščin, ki se jih naučiš v enem tednu"
+  "sl": "10/10 veščin, ki se jih naučiš v enem tednu",
+  "hu": "10/10 készség, amit egy hét alatt megtanulhatsz",
+  "nl": "10/10 skills die je in een week kunt leren",
+  "pl": "10/10 umiejętności do nauczenia w tydzień",
+  "ro": "10/10 abilități pe care le înveți într-o săptămână",
+  "sv": "10/10 färdigheter du kan lära dig på en vecka",
+  "tr": "Bir haftada öğrenebileceğin 10/10 beceri"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Week #skills #learnontiktok #selfmastery",
@@ -31,7 +37,13 @@
   "cs": "10/10 dovedností, které se naučíš za týden #dovednosti #seberozvoj #vzdělávání",
   "sk": "10/10 zručností, ktoré sa naučíš za týždeň #zručnosti #sebarozvoj #vzdelávanie",
   "hr": "10/10 vještina koje možeš naučiti za tjedan dana #vještine #osobnirazvoj #učenje",
-  "sl": "10/10 veščin, ki se jih naučiš v enem tednu #veščine #osebnarast #učenje"
+  "sl": "10/10 veščin, ki se jih naučiš v enem tednu #veščine #osebnarast #učenje",
+  "hu": "10/10 készség, amit egy hét alatt megtanulhatsz #készségek #önfejlesztés #tanulás",
+  "nl": "10/10 skills die je in een week kunt leren #skills #zelfontwikkeling #leren",
+  "pl": "10/10 umiejętności do nauczenia w tydzień #umiejętności #rozwójosobisty #nauka",
+  "ro": "10/10 abilități pe care le înveți într-o săptămână #abilități #dezvoltarepersonală #învățare",
+  "sv": "10/10 färdigheter du kan lära dig på en vecka #färdigheter #självutveckling #lärande",
+  "tr": "Bir haftada öğrenebileceğin 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "original sound",
@@ -251,6 +263,112 @@
       }
      ]
     ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KÉSZSÉG, AMIT",
+     "MEGTANULHATSZ",
+     [
+      {
+       "t": "EGY HÉT ALATT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS DIE JE KUNT",
+     [
+      {
+       "t": "LEREN IN EEN WEEK",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "UMIEJĘTNOŚCI",
+     "DO NAUCZENIA",
+     [
+      {
+       "t": "W TYDZIEŃ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITĂȚI PE CARE",
+     "LE ÎNVEȚI ÎNTR-O",
+     [
+      {
+       "t": "SĂPTĂMÂNĂ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FÄRDIGHETER DU KAN",
+     [
+      {
+       "t": "LÄRA DIG PÅ EN VECKA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "BİR HAFTADA",
+     "ÖĞRENEBİLECEĞİN",
+     [
+      {
+       "t": "BECERİ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -433,6 +551,96 @@
      "date": "pred 5 leti",
      "duree": "1:22",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWk7keXWyUVXarqyPazo-PjLGHjAq4pGKKkx2MSd4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "GÉPELJ",
+     "VAKON"
+    ],
+    "video": {
+     "id": "VwFj8mpsRj0",
+     "titre": "A Tíz Ujjas Gépelésről",
+     "chaine": "KOMTUBE",
+     "vues": "1,1 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/3SgwUKiCRq9UkBWYR3ZRBwZOg_sxhLacwY2Umqyiw5Iyh7BaizQgRfll0rQuyJlU2H3D9NAh=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "TYP",
+     "BLIND"
+    ],
+    "video": {
+     "id": "i2o_WBSbVzM",
+     "titre": "Typen met tien vingers",
+     "chaine": "SeniorWeb Nederland",
+     "vues": "53K weergaven",
+     "date": "12 jaar geleden",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/jO8oCgR_rKT9raPK3QX-TMLnF7OEVffD_ZZGFRLzfFnqTIj429GEGtDWByds-e9uSLIrpSvRZ4k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "PISZ BEZ",
+     "PATRZENIA"
+    ],
+    "video": {
+     "id": "AWYmqtKCDtM",
+     "titre": "Jak nauczyć się pisania bez patrzenia na klawiaturę w godzinę? NOWA LEPSZA METODA!",
+     "chaine": "TouchTyping.guru",
+     "vues": "157 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVXgPsWANljKY_QVctcxyUYQHi97SZ4XDfv7eb02_QPw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "TASTEAZĂ FĂRĂ",
+     "SĂ TE UIȚI"
+    ],
+    "video": {
+     "id": "dN_hYtO5fSk",
+     "titre": "Cum să scrii mult mai rapid la calculator | Peste 100 de cuvinte pe minut",
+     "chaine": "Cristian Florea",
+     "vues": "22 K de vizionări",
+     "date": "acum 4 ani",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SKRIV UTAN",
+     "ATT TITTA"
+    ],
+    "video": {
+     "id": "w7t4Lp0yLtU",
+     "titre": "Grundfingersättning",
+     "chaine": "Merja Eriksson",
+     "vues": "20 287 visningar",
+     "date": "för 9 år sen",
+     "duree": "1:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n8WCJuA6L7cwM7-gUw_8H0L7KRvnbZAXDUF-ov2MhPlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "BAKMADAN",
+     "YAZ"
+    ],
+    "video": {
+     "id": "PD64sNHgb3I",
+     "titre": "Kursa Gitmeden 10 Parmak Klavye Kullanmayı Nasıl Öğrendim?",
+     "chaine": "Burak Göç",
+     "vues": "368 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "12:20",
+     "avatar": "https://yt3.ggpht.com/ifekyx6NyK6B0siwBwS0gLnh7JTgu7WY8980ljAwvtq8R5bjevtsc5pkWjsX7aDxot0_ebnO_A=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -617,6 +825,96 @@
      "duree": "9:07",
      "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "ÉPÍTS",
+     "MEMÓRIAPALOTÁT"
+    ],
+    "video": {
+     "id": "8OIJZiW7U18",
+     "titre": "Memória Palota 01. Bevezetés",
+     "chaine": "SanFranciscobol Jottem",
+     "vues": "26 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnGHodf1vSrp5_8prKdXijF8KrncPTb9xhbqqT6xdNafA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "BOUW EEN",
+     "GEHEUGENPALEIS"
+    ],
+    "video": {
+     "id": "F451z2rpny4",
+     "titre": "Beter studeren met het geheugenpaleis",
+     "chaine": "Schrijven met Beloftes",
+     "vues": "1,7K weergaven",
+     "date": "4 jaar geleden",
+     "duree": "4:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lBqFACC5siFy8YYDhThBbG1UMWAQaOWF-2XpJ-w6jypA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZBUDUJ",
+     "PAŁAC PAMIĘCI"
+    ],
+    "video": {
+     "id": "s1qe5cwr99k",
+     "titre": "Jak szukać stacji w pałacu pamięci i łączyć je ze skojarzeniami?",
+     "chaine": "Dobra Pamięć",
+     "vues": "1,8 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/waZCUMT-xesTPzH3yCxE-Xqd9kn0dn_CqfrlM7mx0eHy9J5np8mO5QcyRD1uF5o6zVCiNp0h=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CONSTRUIEȘTE-ȚI",
+     "PALATUL MEMORIEI"
+    ],
+    "video": {
+     "id": "tolB7htVLD0",
+     "titre": "Cum să îți faci Castelul Memoriei (Cafeaua de Noapte)",
+     "chaine": "Eduard G",
+     "vues": "653 de vizionări",
+     "date": "acum 8 ani",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/EB91bMxsF6SN_RmTOgR30XGUkSmOUphBc-Bfs5lF6djYAsfyXmLLCCs7BbPOu8uywJOugqh36Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "BYGG ETT",
+     "MINNESPALATS"
+    ],
+    "video": {
+     "id": "8ZfLaT9EaeY",
+     "titre": "Skaffa ett superminne! - Lektion 2: Minnespalats (Del 1/2)",
+     "chaine": "Jonas von Essen",
+     "vues": "56 237 visningar",
+     "date": "för 11 år sen",
+     "duree": "11:02",
+     "avatar": "https://yt3.ggpht.com/1LU4E6FeJYEdj0QBS4j3bceDA7SWt8D2gcx1ubD7DHO6AKVM717N5uH30O-gg7otcJEoPsigew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "HAFIZA SARAYI",
+     "KUR"
+    ],
+    "video": {
+     "id": "hCuz6tfRKec",
+     "titre": "Hafıza Sarayı: En Güçlü Hafıza Tekniği",
+     "chaine": "Abdullah Yılmaz",
+     "vues": "25 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/e18eawTJglhdRd0A1N8pBfBmkSS7b6LaYFgLKbHiGDeVOoKx7qB1oXZmLXl_Yj51XGN4-nLhSQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -775,6 +1073,84 @@
      "texte": [
       "5 minut na dan",
       "da veš malo o vsem."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "TUDJ MINDENRŐL",
+     "EGY KICSIT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "napi 5 perc,",
+      "hogy mindenről tudj egy kicsit."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "WEET VAN ALLES",
+     "EEN BEETJE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuten per dag",
+      "om van alles iets te weten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "WIEDZ TROCHĘ",
+     "O WSZYSTKIM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut dziennie,",
+      "by wiedzieć trochę o wszystkim."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "ȘTII CÂTE PUȚIN",
+     "DIN TOATE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minute pe zi",
+      "ca să știi câte puțin din toate."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "KAN LITE",
+     "OM ALLT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuter om dagen",
+      "för att kunna lite om allt."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYDEN",
+     "BİRAZ BİL"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "günde 5 dakika,",
+      "her şeyden biraz bilmek için."
      ]
     }
    }
@@ -959,6 +1335,96 @@
      "date": "pred 6 leti",
      "duree": "5:07",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nABnDwrhOe4BkBEB8a7HzElW4zEuAbJfcc_9cypT1_TA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "SZÁMOLJ",
+     "FEJBEN"
+    ],
+    "video": {
+     "id": "nDuP5BjmUI4",
+     "titre": "Fejben számolós kivonás",
+     "chaine": "Zseni Leszek",
+     "vues": "13 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_knM-tFq2fzW_iySbYQbJhNN_GFv6m3e5QFPStJ_2kb2vg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "REKEN",
+     "UIT JE HOOFD"
+    ],
+    "video": {
+     "id": "Kvfn2x_J3JI",
+     "titre": "Hoe reken je sneller dan een rekenmachine?",
+     "chaine": "Mathastic",
+     "vues": "1,8K weergaven",
+     "date": "1 jaar geleden",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/7H_i55xXJqkFUXUTvgJemZEVHlLo8Z_mLFNahv9mCokt7Bmf5HY7kdf1x5OeJBf2Iji5UvQ2oyE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "LICZ",
+     "W PAMIĘCI"
+    ],
+    "video": {
+     "id": "2KfXJ1LerYM",
+     "titre": "TRICK 1: Błyskawiczne MNOŻENIE w pamięci liczb dwucyfrowych (97 i 96)",
+     "chaine": "MatboyTV",
+     "vues": "33 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIxZ4ksPoVT-yM2uGgGlTvllxN7hOsbmAeGgCc_MSUdA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CALCULEAZĂ",
+     "MINTAL"
+    ],
+    "video": {
+     "id": "O4fPzG46MsA",
+     "titre": "Truc de calcul mintal-inmultirea cu 11",
+     "chaine": "PROFA DE MATE",
+     "vues": "451 de vizionări",
+     "date": "acum 6 ani",
+     "duree": "0:33",
+     "avatar": "https://yt3.ggpht.com/RH3ayZX1bPEhnI2IX0jgR7aVa4ngY5bc0Dt7eOJsLUm6py4ewbtD_0ZmBr6igc4JpwtJtl-1bw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "RÄKNA",
+     "I HUVUDET"
+    ],
+    "video": {
+     "id": "bghGMaozj5A",
+     "titre": "Snabb Multiplikation | Trick - Huvudräkning Tips",
+     "chaine": "Klar Kunskap",
+     "vues": "5 145 visningar",
+     "date": "för 6 år sen",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbAIoqzcOyU3YnoaRsP14GUxOhhhiwxoF4QATurbo2JA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZİHNİNDEN",
+     "HESAPLA"
+    ],
+    "video": {
+     "id": "VEprphPmLoY",
+     "titre": "AŞIRI Hızlı Nasıl HESAPLAMA Yapılır? 🔢⚡(Zihinden Yapacağın 5 İşlem Hilesi!)",
+     "chaine": "Tinko",
+     "vues": "259 B görüntüleme",
+     "date": "1 ay önce",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

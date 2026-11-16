@@ -1,0 +1,657 @@
+{
+ "id": "mm-o064",
+ "titre": "tier list of Stress relievers",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "what actually lowers stress, ranked #stress #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "ce qui fait vraiment baisser le stress #stress #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "was wirklich gegen stress hilft, gerankt #stress #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "lo que de verdad baja el estrés, en ranking #estres #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "cosa abbassa davvero lo stress, in classifica #stress #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "stresi gerçekten azaltan şeyler, sıralı #stres #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "o que realmente baixa o estresse, ranqueado #estresse #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "co naprawdę obniża stres, ranking #stres #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "ami tényleg csökkenti a stresszt, rangsorolva #stressz #mentalmaxxing #tierlist #önfejlesztés"
+ },
+ "couverture": {
+  "image": {
+   "src": "7686526569703017735/1",
+   "boite": [
+    30,
+    792,
+    362,
+    380
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list dei",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
+  },
+  "gros": {
+   "en": "Stress",
+   "fr": "anti-",
+   "de": "Stress-",
+   "es": "anti-",
+   "it": "rimedi",
+   "tr": "stres",
+   "pt-BR": "anti-",
+   "pl": "sposoby",
+   "hu": "stressz-"
+  },
+  "bas": {
+   "en": "relievers",
+   "fr": "stress",
+   "de": "killer",
+   "es": "estrés",
+   "it": "anti-stress",
+   "tr": "gidericiler",
+   "pt-BR": "estresse",
+   "pl": "na stres",
+   "hu": "oldók"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "fr": "note mon classement",
+  "de": "bewerte mein ranking",
+  "es": "califica mi ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla",
+  "pt-BR": "avalia meu ranking",
+  "pl": "oceń mój ranking",
+  "hu": "értékeld a rangsorom"
+ },
+ "pied": {
+  "en": "what calms you down fastest?",
+  "fr": "qu’est-ce qui te calme le plus vite ?",
+  "de": "was beruhigt dich am schnellsten?",
+  "es": "¿qué te calma más rápido?",
+  "it": "cosa ti calma più in fretta?",
+  "tr": "seni en hızlı ne sakinleştirir?",
+  "pt-BR": "o que te acalma mais rápido?",
+  "pl": "co cię najszybciej uspokaja?",
+  "hu": "mi nyugtat meg a leggyorsabban?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "really calms",
+    "fr": "calme vraiment",
+    "de": "beruhigt echt",
+    "es": "calma de verdad",
+    "it": "calma davvero",
+    "tr": "gerçekten rahatlatır",
+    "pt-BR": "acalma mesmo",
+    "pl": "naprawdę koi",
+    "hu": "tényleg nyugtat"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "a long walk",
+      "fr": "une longue|marche",
+      "de": "langer|spaziergang",
+      "es": "un paseo|largo",
+      "it": "una lunga|camminata",
+      "tr": "uzun|yürüyüş",
+      "pt-BR": "uma longa|caminhada",
+      "pl": "długi|spacer",
+      "hu": "hosszú|séta"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "training",
+      "fr": "la muscu",
+      "de": "krafttraining",
+      "es": "el gym",
+      "it": "palestra",
+      "tr": "spor",
+      "pt-BR": "musculação",
+      "pl": "siłownia",
+      "hu": "edzés"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "real sleep",
+      "fr": "vrai sommeil",
+      "de": "echter schlaf",
+      "es": "dormir bien",
+      "it": "sonno vero",
+      "tr": "gerçek uyku",
+      "pt-BR": "sono de|verdade",
+      "pl": "prawdziwy sen",
+      "hu": "igazi alvás"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü",
+    "pt-BR": "forte",
+    "pl": "mocny",
+    "hu": "erős"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "breathing",
+      "fr": "respiration",
+      "de": "atmen",
+      "es": "respirar",
+      "it": "respirazione",
+      "tr": "nefes",
+      "pt-BR": "respiração",
+      "pl": "oddychanie",
+      "hu": "légzés"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "silence",
+      "fr": "silence",
+      "de": "stille",
+      "es": "silencio",
+      "it": "silenzio",
+      "tr": "sessizlik",
+      "pt-BR": "silêncio",
+      "pl": "cisza",
+      "hu": "csend"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      896,
+      866,
+      164,
+      126
+     ],
+     "t": {
+      "en": "herbal tea",
+      "fr": "tisane",
+      "de": "kräutertee",
+      "es": "infusión",
+      "it": "tisana",
+      "tr": "bitki çayı",
+      "pt-BR": "chazinho",
+      "pl": "herbatka|ziołowa",
+      "hu": "gyógytea"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "sunlight",
+      "fr": "soleil",
+      "de": "sonnenlicht",
+      "es": "sol",
+      "it": "sole",
+      "tr": "güneş ışığı",
+      "pt-BR": "sol",
+      "pl": "słońce",
+      "hu": "napfény"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi",
+    "pt-BR": "bom",
+    "pl": "dobry",
+    "hu": "jó"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "pet time",
+      "fr": "câlins|à l’animal",
+      "de": "haustier|kuscheln",
+      "es": "mimos|a tu mascota",
+      "it": "coccole|all’animale",
+      "tr": "evcil hayvanla|vakit",
+      "pt-BR": "carinho|no pet",
+      "pl": "czas|ze zwierzakiem",
+      "hu": "idő|a kisállattal"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "a novel",
+      "fr": "un roman",
+      "de": "ein roman",
+      "es": "una novela",
+      "it": "un romanzo",
+      "tr": "bir roman",
+      "pt-BR": "um romance",
+      "pl": "powieść",
+      "hu": "egy regény"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "hot shower",
+      "fr": "douche chaude",
+      "de": "heiße dusche",
+      "es": "ducha|caliente",
+      "it": "doccia calda",
+      "tr": "sıcak duş",
+      "pt-BR": "banho quente",
+      "pl": "gorący|prysznic",
+      "hu": "forró zuhany"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "short relief",
+    "fr": "soulage un peu",
+    "de": "hilft kurz",
+    "es": "alivia poco",
+    "it": "aiuta poco",
+    "tr": "biraz rahatlatır",
+    "pt-BR": "alivia pouco",
+    "pl": "chwilowa ulga",
+    "hu": "kicsit enyhít"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "loud music",
+      "fr": "musique fort",
+      "de": "laute musik",
+      "es": "música|a tope",
+      "it": "musica|a palla",
+      "tr": "yüksek sesle|müzik",
+      "pt-BR": "música alta",
+      "pl": "głośna muzyka",
+      "hu": "hangos zene"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a comedy",
+      "fr": "une comédie",
+      "de": "eine komödie",
+      "es": "una comedia",
+      "it": "una commedia",
+      "tr": "bir komedi",
+      "pt-BR": "uma comédia",
+      "pl": "komedia",
+      "hu": "egy vígjáték"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "coffee",
+      "fr": "café",
+      "de": "kaffee",
+      "es": "café",
+      "it": "caffè",
+      "tr": "kahve",
+      "pt-BR": "café",
+      "pl": "kawa",
+      "hu": "kávé"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "comfort food",
+      "fr": "nourriture|réconfort",
+      "de": "comfort food",
+      "es": "comida|reconfortante",
+      "it": "cibo|consolatorio",
+      "tr": "teselli|yemeği",
+      "pt-BR": "comida|afetiva",
+      "pl": "comfort food",
+      "hu": "vigasz-|kaja"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "feels good, isn’t",
+    "fr": "faux remède",
+    "de": "falsche hilfe",
+    "es": "falso remedio",
+    "it": "falso rimedio",
+    "tr": "sahte çare",
+    "pt-BR": "falso remédio",
+    "pl": "fałszywy lek",
+    "hu": "hamis gyógyír"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "stress|shopping",
+      "fr": "shopping|anti-stress",
+      "de": "frust-|shopping",
+      "es": "compras|antiestrés",
+      "it": "shopping|anti-stress",
+      "tr": "stres|alışverişi",
+      "pt-BR": "compras|anti-estresse",
+      "pl": "zakupy|na stres",
+      "hu": "stressz-|vásárlás"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming|all night",
+      "fr": "jouer|toute la nuit",
+      "de": "nächtelang|zocken",
+      "es": "jugar|toda la noche",
+      "it": "giocare|tutta notte",
+      "tr": "sabaha kadar|oyun",
+      "pt-BR": "jogar|a noite toda",
+      "pl": "granie|całą noc",
+      "hu": "egész éjjeli|gaming"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe",
+      "de": "junkfood",
+      "es": "comida|basura",
+      "it": "cibo|spazzatura",
+      "tr": "abur cubur",
+      "pt-BR": "junk food",
+      "pl": "śmieciowe|jedzenie",
+      "hu": "gyorskaja"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "autoplay",
+      "fr": "autoplay",
+      "de": "autoplay",
+      "es": "autoplay",
+      "it": "autoplay",
+      "tr": "autoplay",
+      "pt-BR": "autoplay",
+      "pl": "autoplay",
+      "hu": "autoplay"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "makes it worse",
+   "fr": "empire tout",
+   "de": "macht’s schlimmer",
+   "es": "lo empeora",
+   "it": "peggiora tutto",
+   "tr": "kötüleştirir",
+   "pt-BR": "piora tudo",
+   "pl": "pogarsza sprawę",
+   "hu": "csak ront"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose reels",
+     "es": "reels sin fin",
+     "it": "reels infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim",
+     "pl": "reels|bez końca",
+     "hu": "végtelen reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     272,
+     853,
+     90,
+     94
+    ],
+    "t": {
+     "en": "checking|the news",
+     "fr": "checker|les infos",
+     "de": "news|checken",
+     "es": "mirar|las noticias",
+     "it": "leggere|le news",
+     "tr": "haberlere|bakmak",
+     "pt-BR": "checar|notícias",
+     "pl": "czytanie|newsów",
+     "hu": "hírek|nézegetése"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentier)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yaz)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój wybór|(komentuj)",
+     "hu": "a te ötleted|(kommenteld)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 16/11 : full test (type_bleo full_test), thème stress, jamais fait chez nous. cta A. 9 langues. REFUSÉ au guichet le 16/11 (theme_gagnant : « instead of scrolling tier list ») : pas déposé."
+}

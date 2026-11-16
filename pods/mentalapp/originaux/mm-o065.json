@@ -1,0 +1,657 @@
+{
+ "id": "mm-o065",
+ "titre": "tier list of Social battery rechargers",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "how to recharge your social battery, ranked #socialbattery #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "comment recharger ta batterie sociale #batteriesociale #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "wie du deine soziale batterie auflädst, gerankt #sozialebatterie #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "cómo recargar tu batería social, en ranking #bateriasocial #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "come ricaricare la tua batteria sociale, in classifica #batteriasociale #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "sosyal pilini nasıl şarj edersin, sıralı #sosyalpil #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "como recarregar sua bateria social, ranqueado #bateriasocial #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "jak naładować baterię społeczną, ranking #bateriaspołeczna #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "hogyan töltsd fel a szociális akkud, rangsorolva #szociálisakku #mentalmaxxing #tierlist #önfejlesztés"
+ },
+ "couverture": {
+  "image": {
+   "src": "7693198322500259090/1",
+   "boite": [
+    265,
+    425,
+    580,
+    815
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
+  },
+  "gros": {
+   "en": "Social battery",
+   "fr": "recharger ta",
+   "de": "Sozial-",
+   "es": "recargar tu",
+   "it": "ricariche",
+   "tr": "sosyal pil",
+   "pt-BR": "recarregar",
+   "pl": "ładowanie",
+   "hu": "szociális"
+  },
+  "bas": {
+   "en": "rechargers",
+   "fr": "batterie sociale",
+   "de": "Akku-Lader",
+   "es": "batería social",
+   "it": "batteria sociale",
+   "tr": "şarj yolları",
+   "pt-BR": "a bateria social",
+   "pl": "baterii społecznej",
+   "hu": "akku töltése"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla",
+  "pt-BR": "me prova o contrário",
+  "pl": "udowodnij, że się mylę",
+  "hu": "győzz meg az ellenkezőjéről"
+ },
+ "pied": {
+  "en": "how do you recharge?",
+  "fr": "tu te recharges comment ?",
+  "de": "wie lädst du auf?",
+  "es": "¿tú cómo te recargas?",
+  "it": "tu come ti ricarichi?",
+  "tr": "sen nasıl şarj oluyorsun?",
+  "pt-BR": "como você se recarrega?",
+  "pl": "jak się ładujesz?",
+  "hu": "te hogyan töltődsz?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "full charge",
+    "fr": "charge à fond",
+    "de": "voll geladen",
+    "es": "carga completa",
+    "it": "carica piena",
+    "tr": "tam şarj",
+    "pt-BR": "carga total",
+    "pl": "pełne ładowanie",
+    "hu": "teljes töltés"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "a long sleep",
+      "fr": "une grosse|nuit",
+      "de": "lange|schlafen",
+      "es": "dormir|mucho",
+      "it": "una lunga|dormita",
+      "tr": "uzun bir|uyku",
+      "pt-BR": "dormir|bastante",
+      "pl": "długi sen",
+      "hu": "egy nagy|alvás"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "walking alone",
+      "fr": "marcher seul",
+      "de": "allein|spazieren",
+      "es": "caminar solo",
+      "it": "camminare|da solo",
+      "tr": "yalnız|yürümek",
+      "pt-BR": "caminhar|sozinho",
+      "pl": "samotny|spacer",
+      "hu": "egyedül|sétálni"
+     }
+    },
+    {
+     "app": true
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "a book",
+      "fr": "un livre",
+      "de": "ein buch",
+      "es": "un libro",
+      "it": "un libro",
+      "tr": "bir kitap",
+      "pt-BR": "um livro",
+      "pl": "książka",
+      "hu": "egy könyv"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü",
+    "pt-BR": "forte",
+    "pl": "mocny",
+    "hu": "erős"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "quiet room",
+      "fr": "pièce calme",
+      "de": "ruhiger raum",
+      "es": "cuarto|tranquilo",
+      "it": "stanza|silenziosa",
+      "tr": "sessiz oda",
+      "pt-BR": "quarto|silencioso",
+      "pl": "cichy pokój",
+      "hu": "csendes szoba"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "long shower",
+      "fr": "longue douche",
+      "de": "lange dusche",
+      "es": "ducha larga",
+      "it": "doccia lunga",
+      "tr": "uzun duş",
+      "pt-BR": "banho longo",
+      "pl": "długi prysznic",
+      "hu": "hosszú zuhany"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking alone",
+      "fr": "cuisiner seul",
+      "de": "allein kochen",
+      "es": "cocinar solo",
+      "it": "cucinare|da solo",
+      "tr": "yalnız|yemek yapmak",
+      "pt-BR": "cozinhar|sozinho",
+      "pl": "gotowanie|solo",
+      "hu": "egyedül|főzni"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "pet time",
+      "fr": "temps avec|l’animal",
+      "de": "zeit mit|dem haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|l’animale",
+      "tr": "evcil hayvanla|vakit",
+      "pt-BR": "tempo com|o pet",
+      "pl": "czas|ze zwierzakiem",
+      "hu": "idő|a kisállattal"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi",
+    "pt-BR": "bom",
+    "pl": "dobry",
+    "hu": "jó"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "one album",
+      "fr": "un album",
+      "de": "ein album",
+      "es": "un álbum",
+      "it": "un album",
+      "tr": "bir albüm",
+      "pt-BR": "um álbum",
+      "pl": "jeden album",
+      "hu": "egy album"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç",
+      "pt-BR": "xadrez",
+      "pl": "szachy",
+      "hu": "sakk"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      896,
+      866,
+      164,
+      126
+     ],
+     "t": {
+      "en": "tea",
+      "fr": "un thé",
+      "de": "tee",
+      "es": "un té",
+      "it": "un tè",
+      "tr": "çay",
+      "pt-BR": "um chá",
+      "pl": "herbata",
+      "hu": "egy tea"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation",
+      "de": "meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon",
+      "pt-BR": "meditação",
+      "pl": "medytacja",
+      "hu": "meditáció"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "half charge",
+    "fr": "moitié",
+    "de": "halb voll",
+    "es": "media carga",
+    "it": "mezza carica",
+    "tr": "yarım şarj",
+    "pt-BR": "meia carga",
+    "pl": "połowa",
+    "hu": "félig"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a movie",
+      "fr": "un film",
+      "de": "ein film",
+      "es": "una peli",
+      "it": "un film",
+      "tr": "bir film",
+      "pt-BR": "um filme",
+      "pl": "film",
+      "hu": "egy film"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "a nap",
+      "fr": "une sieste",
+      "de": "nickerchen",
+      "es": "una siesta",
+      "it": "un pisolino",
+      "tr": "şekerleme",
+      "pt-BR": "um cochilo",
+      "pl": "drzemka",
+      "hu": "szunyókálás"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "a podcast",
+      "fr": "un podcast",
+      "de": "ein podcast",
+      "es": "un podcast",
+      "it": "un podcast",
+      "tr": "bir podcast",
+      "pt-BR": "um podcast",
+      "pl": "podcast",
+      "hu": "egy podcast"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "snacks",
+      "fr": "grignoter",
+      "de": "snacks",
+      "es": "picar algo",
+      "it": "snack",
+      "tr": "atıştırmalık",
+      "pt-BR": "beliscar",
+      "pl": "przekąski",
+      "hu": "nassolás"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "drains more",
+    "fr": "vide encore",
+    "de": "zieht mehr",
+    "es": "te vacía más",
+    "it": "scarica di più",
+    "tr": "daha çok tüketir",
+    "pt-BR": "drena mais",
+    "pl": "drenuje bardziej",
+    "hu": "még jobban merít"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "online games",
+      "fr": "jeux en ligne",
+      "de": "online-games",
+      "es": "juegos online",
+      "it": "giochi online",
+      "tr": "online oyunlar",
+      "pt-BR": "jogos online",
+      "pl": "gry online",
+      "hu": "online játékok"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "group chats",
+      "fr": "groupes|de discussion",
+      "de": "gruppenchats",
+      "es": "chats|de grupo",
+      "it": "chat|di gruppo",
+      "tr": "grup|sohbetleri",
+      "pt-BR": "grupos|de conversa",
+      "pl": "czaty|grupowe",
+      "hu": "csoportos|chatek"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube",
+      "fr": "youtube",
+      "de": "youtube",
+      "es": "youtube",
+      "it": "youtube",
+      "tr": "youtube",
+      "pt-BR": "youtube",
+      "pl": "youtube",
+      "hu": "youtube"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping",
+      "de": "shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş",
+      "pt-BR": "compras",
+      "pl": "zakupy",
+      "hu": "vásárlás"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "0% battery",
+   "fr": "0 % batterie",
+   "de": "0 % akku",
+   "es": "0 % batería",
+   "it": "0% batteria",
+   "tr": "%0 pil",
+   "pt-BR": "0% bateria",
+   "pl": "0% baterii",
+   "hu": "0% akku"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose reels",
+     "es": "reels sin fin",
+     "it": "reels infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim",
+     "pl": "reels|bez końca",
+     "hu": "végtelen reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     421,
+     863,
+     91,
+     84
+    ],
+    "t": {
+     "en": "reels in bed",
+     "fr": "reels au lit",
+     "de": "reels im bett",
+     "es": "reels|en la cama",
+     "it": "reels a letto",
+     "tr": "yatakta reels",
+     "pt-BR": "reels na cama",
+     "pl": "reels w łóżku",
+     "hu": "reels|az ágyban"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentier)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yaz)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twój wybór|(komentuj)",
+     "hu": "a te ötleted|(kommenteld)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 16/11 : full test (type_bleo full_test), thème batterie sociale, jamais fait chez nous. cta C (élément Sophia en 3e case du S+, place nouvelle). 9 langues. REFUSÉ au guichet le 16/11 (theme_gagnant : « instead of scrolling tier list ») : pas déposé."
+}

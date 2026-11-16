@@ -1,0 +1,51 @@
+{
+ "source_id": "rh-o241",
+ "type_bleo": "full_test",
+ "titre": "les 5 signes que tu es prête pour un nouveau poste #carriere #travail #promotion #emploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 16/11 (3 full tests seulement : banque d'images épuisée par la règle des 14 jours). cta D (l'appli est un item d'une liste), slide Sophia en position 5. Full test : accroche jamais faite chez nous (être prête pour la suite). 6 slides, banque d'images réduite. Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a914f623",
+   "texte_overlay": "les 5 signes\nque tu es prête\npour un nouveau poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a3367de7",
+   "texte_overlay": "tu fais ton travail les yeux fermés\net tu t'ennuies un peu",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "acc62048",
+   "texte_overlay": "on vient te demander conseil\nsur des sujets qui ne sont pas les tiens",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "c7077d7a",
+   "texte_overlay": "tu as des idées que personne ne te demande",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c7db1e98",
+   "texte_overlay": "tu as commencé à apprendre autre chose\nmes 3 signes : une formation, des lectures, et 5 minutes par jour à apprendre",
+   "texte_sophia": "tu as commencé à apprendre autre chose\nmes 3 signes : une formation, des lectures, et 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "baafa748",
+   "texte_overlay": "combien de signes sur 5 ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

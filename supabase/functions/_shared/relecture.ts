@@ -927,6 +927,16 @@ export function estSansCreditApify(message: string): boolean {
   return /\bApify 402\b/.test(message) || /not-enough-usage|usage limit|monthly usage/i.test(message);
 }
 export const ERREUR_SANS_CREDIT = "Apify sans crédit (limite mensuelle atteinte) : en attente, sans tentative comptée";
+/**
+ * Apify refuse le jeton (401 « user-or-token-not-found », du 12/11 11 h au
+ * 13/11 5 h : 608 posts passés en échec sans qu'un seul run ait démarré). Comme
+ * le crédit, le post n'y est pour rien : il reste en file sans compter de
+ * tentative, et la relecture reprend seule quand le jeton est rétabli.
+ */
+export function estJetonApifyRefuse(message: string): boolean {
+  return /\bApify 401\b/.test(message) || /user-or-token-not-found|authentication token is not valid/i.test(message);
+}
+export const ERREUR_JETON_REFUSE = "Apify refuse le jeton (401) : en attente, sans tentative comptée";
 /** Un envoi à la main ne vise que les relectures récentes : un vieux retour n'a plus de sens. */
 export const ENVOI_MANUEL_JOURS_MAX = 3;
 /**
@@ -955,6 +965,22 @@ export function postersEnPause(
   );
 }
 
+/** Première semaine de posts d'une cohorte : du lundi de la cohorte au dimanche. */
+export const PREMIERE_SEMAINE_JOURS = 7;
+
+/**
+ * Le post (publié le `jour`, heure de Paris) tombe dans la première semaine de
+ * posts de la cohorte du créateur (`profiles.cohorte_lundi`). Ces posts-là
+ * n'ont pas de limite de fréquence (décision d'Adrien du 16/11) : c'est la
+ * semaine où le créateur apprend, il reçoit un retour pour chaque post qui en
+ * mérite un.
+ */
+export function estPremiereSemaine(jour: string, cohorteLundi: string | null | undefined): boolean {
+  if (!cohorteLundi) return false;
+  const ecart = Math.round((Date.parse(`${jour}T12:00:00Z`) - Date.parse(`${cohorteLundi}T12:00:00Z`)) / 86_400_000);
+  return ecart >= 0 && ecart < PREMIERE_SEMAINE_JOURS;
+}
+
 /**
  * Un retour par créateur et par nuit : celui du post au défaut le plus
  * important (rang du premier point dans PRIORITE), puis celui qui a le plus de
@@ -962,6 +988,10 @@ export function postersEnPause(
  * reviewé ou passé à la main n'est jamais repris, un créateur qui a déjà
  * reçu le retour de l'agent cette nuit n'en reçoit pas un deuxième, et un
  * créateur servi il y a moins de 3 jours attend (postersEnPause).
+ *
+ * `sansLimite` : les relectures (leur id) de la première semaine de posts d'une
+ * cohorte. Elles partent toutes, sans la règle d'un par nuit ni le délai de
+ * 3 jours ; seul un post déjà reviewé ou passé à la main reste écarté.
  */
 export function choisirRetoursAEnvoyer<
   L extends { id: string; post_id: string | null; poster_id: string | null; defauts: Defaut[] },
@@ -970,13 +1000,24 @@ export function choisirRetoursAEnvoyer<
   postsDejaTraites: Set<string>,
   postersDejaServis: Set<string>,
   postersEnDelai: Set<string> = new Set(),
+  sansLimite: Set<string> = new Set(),
 ): { envoyer: L[]; sauter: Array<{ id: string; raison: string }> } {
   const sauter: Array<{ id: string; raison: string }> = [];
   const parPoster = new Map<string, L[]>();
+  const envoyer: L[] = [];
+  // Un créateur servi sans limite cette nuit : ses autres posts ne rouvrent pas la règle d'un par nuit.
+  const servisSansLimite = new Set<string>();
   for (const l of lignes) {
+    if (!l.poster_id || !sansLimite.has(l.id) || (l.post_id && postsDejaTraites.has(l.post_id))) continue;
+    envoyer.push(l);
+    servisSansLimite.add(l.poster_id);
+  }
+  const partis = new Set(envoyer.map((l) => l.id));
+  for (const l of lignes) {
+    if (partis.has(l.id)) continue;
     if (!l.poster_id) sauter.push({ id: l.id, raison: RAISON_SANS_CREATEUR });
     else if (l.post_id && postsDejaTraites.has(l.post_id)) sauter.push({ id: l.id, raison: RAISON_DEJA_TRAITE });
-    else if (postersDejaServis.has(l.poster_id)) sauter.push({ id: l.id, raison: RAISON_UN_PAR_CREATEUR });
+    else if (postersDejaServis.has(l.poster_id) || servisSansLimite.has(l.poster_id)) sauter.push({ id: l.id, raison: RAISON_UN_PAR_CREATEUR });
     else if (postersEnDelai.has(l.poster_id)) sauter.push({ id: l.id, raison: RAISON_DELAI });
     else parPoster.set(l.poster_id, [...(parPoster.get(l.poster_id) ?? []), l]);
   }
@@ -984,7 +1025,6 @@ export function choisirRetoursAEnvoyer<
     const points = trier(l.defauts.filter((d) => d.niveau === "remarque"));
     return { rang: points.length ? rang(points[0].code) : Number.MAX_SAFE_INTEGER, n: points.length };
   };
-  const envoyer: L[] = [];
   for (const posts of parPoster.values()) {
     const [retenu, ...autres] = [...posts].sort((p, q) => {
       const a = poids(p), b = poids(q);

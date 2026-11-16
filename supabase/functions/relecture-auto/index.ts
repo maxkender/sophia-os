@@ -51,7 +51,10 @@ import {
   choisirRetoursAEnvoyer,
   DELAI_ENTRE_RETOURS_JOURS,
   ENVOI_MANUEL_JOURS_MAX,
+  ERREUR_JETON_REFUSE,
   ERREUR_SANS_CREDIT,
+  estJetonApifyRefuse,
+  estPremiereSemaine,
   estSansCreditApify,
   postersEnPause,
   type Defaut,
@@ -246,11 +249,13 @@ async function lancerScrapes(supabase: Client): Promise<number> {
     return aLancer.length;
   } catch (error) {
     const message = messageErreur(error);
-    if (estSansCreditApify(message)) {
-      // Pas la faute du post : la réservation rend la tentative qu'elle a comptée.
+    const sansCredit = estSansCreditApify(message);
+    if (sansCredit || estJetonApifyRefuse(message)) {
+      // Pas la faute du post (crédit épuisé, jeton refusé) : la réservation rend la tentative qu'elle a comptée.
+      const erreur = sansCredit ? ERREUR_SANS_CREDIT : ERREUR_JETON_REFUSE;
       for (const t of new Set(aLancer.map((l) => l.tentatives))) {
         const memes = aLancer.filter((l) => l.tentatives === t).map((l) => l.id);
-        await maj(supabase, memes, { statut: "a_scraper", tentatives: Math.max(0, t - 1), erreur: ERREUR_SANS_CREDIT });
+        await maj(supabase, memes, { statut: "a_scraper", tentatives: Math.max(0, t - 1), erreur });
       }
     } else {
       await maj(supabase, ids, { statut: "a_scraper", erreur: `lancement Apify : ${message}` });
@@ -623,7 +628,7 @@ interface LigneEnvoi {
   remarques: unknown;
   defauts: Defaut[];
   comptes: { handle_tiktok: string | null; persona_nom: string | null } | null;
-  passages: { contenus: { source_url: string | null } | null } | null;
+  passages: { contenus: { source_url: string | null; contenu_labels: Array<{ label_id: string }> | null } | null } | null;
 }
 
 /**
@@ -633,6 +638,8 @@ interface LigneEnvoi {
  * chevauchent n'envoient pas deux fois (et l'index unique de 0296 tient bon).
  * `jourManuel` : rattrapage d'une nuit ratée, envoyé à la main hors de la
  * fenêtre horaire ; mêmes règles (interrupteur, un par créateur, délai).
+ * Première semaine de posts d'une cohorte (hors labels 100 % podz) : tous les
+ * retours partent, sans la règle d'un par nuit ni le délai.
  */
 async function envoyerRetours(supabase: Client, types: RemarqueType[], jourManuel?: string): Promise<number> {
   const { data: reglage } = await supabase.from("reglages").select("valeur").eq("cle", "relecture_envoi_auto").maybeSingle();
@@ -653,7 +660,7 @@ async function envoyerRetours(supabase: Client, types: RemarqueType[], jourManue
 
   const { data, error } = await supabase
     .from("relectures_auto")
-    .select("id, post_id, poster_id, publie_url, brouillon, remarques, defauts, comptes(handle_tiktok, persona_nom), passages(contenus(source_url))")
+    .select("id, post_id, poster_id, publie_url, brouillon, remarques, defauts, comptes(handle_tiktok, persona_nom), passages(contenus(source_url, contenu_labels(label_id)))")
     .eq("jour", jour)
     .eq("origine", "cron")
     .eq("statut", "fait")
@@ -667,7 +674,7 @@ async function envoyerRetours(supabase: Client, types: RemarqueType[], jourManue
   const posterIds = [...new Set(lignes.map((l) => l.poster_id).filter((x): x is string => Boolean(x)))];
   // Délai entre deux retours : les retours reçus ces derniers jours (heure de Paris).
   const depuis = new Date(Date.now() - (DELAI_ENTRE_RETOURS_JOURS + 1) * 86_400_000).toISOString();
-  const [reviews, passes, servis, recents] = await Promise.all([
+  const [reviews, passes, servis, recents, cohortes, podz] = await Promise.all([
     parLots(postIds, async (lot) => {
       const { data: d, error: e } = await supabase.from("reviews").select("post_id").in("post_id", lot);
       if (e) throw e;
@@ -697,13 +704,39 @@ async function envoyerRetours(supabase: Client, types: RemarqueType[], jourManue
       if (e) throw e;
       return (d ?? []).map((r) => ({ poster_id: r.poster_id as string, jour: jourParis(r.created_at as string) }));
     }),
+    parLots(posterIds, async (lot) => {
+      const { data: d, error: e } = await supabase.from("profiles").select("id, cohorte_lundi").in("id", lot);
+      if (e) throw e;
+      return (d ?? []).map((r) => ({ id: r.id as string, cohorte_lundi: r.cohorte_lundi as string | null }));
+    }),
+    (async () => {
+      const { data: d, error: e } = await supabase.from("labels_100_podz").select("label_id");
+      if (e) throw e;
+      return (d ?? []).map((r) => r.label_id as string);
+    })(),
   ]);
+
+  // Première semaine de posts de la cohorte : pas de limite de fréquence. Sauf
+  // les labels 100 % podz (slides livrées en images, rien à retaper).
+  const cohorteDe = new Map(cohortes.map((c) => [c.id, c.cohorte_lundi]));
+  const labelsPodz = new Set(podz);
+  const sansLimite = new Set(
+    lignes
+      .filter((l) => {
+        if (!l.poster_id || !estPremiereSemaine(jour, cohorteDe.get(l.poster_id))) return false;
+        const passage = Array.isArray(l.passages) ? l.passages[0] : l.passages;
+        const contenu = Array.isArray(passage?.contenus) ? passage?.contenus[0] : passage?.contenus;
+        return !(contenu?.contenu_labels ?? []).some((cl: { label_id: string }) => labelsPodz.has(cl.label_id));
+      })
+      .map((l) => l.id),
+  );
 
   const { envoyer, sauter } = choisirRetoursAEnvoyer(
     lignes,
     new Set([...reviews, ...passes]),
     new Set(servis),
     postersEnPause(recents, aujourdhuiParis()),
+    sansLimite,
   );
   const parRaison = new Map<string, string[]>();
   for (const s of sauter) parRaison.set(s.raison, [...(parRaison.get(s.raison) ?? []), s.id]);

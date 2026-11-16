@@ -8,6 +8,8 @@ import {
   choisirPositions,
   controlesPost,
   couleursCompatibles,
+  estJetonApifyRefuse,
+  estPremiereSemaine,
   estSansCreditApify,
   familleCouleur,
   idMusique,
@@ -485,6 +487,50 @@ Deno.test("choisirRetoursAEnvoyer : un créateur servi il y a moins de 3 jours a
   const { envoyer, sauter } = choisirRetoursAEnvoyer(lignes, new Set(), new Set(), pause);
   assertEquals(envoyer.map((l) => l.id), ["e1"]);
   assertEquals(sauter, [{ id: "d1", raison: RAISON_DELAI }]);
+});
+
+Deno.test("choisirRetoursAEnvoyer : première semaine de la cohorte, tous les retours partent malgré les limites", () => {
+  const d: Defaut = { code: "taille", niveau: "remarque", slides: [1], confiance: 1, detail: "" };
+  const lignes = [
+    // nina : première semaine, déjà servie cette nuit ET dans le délai de 3 jours ; n3 n'est pas sans limite (label 100 % podz).
+    { id: "n1", post_id: "p1", poster_id: "nina", defauts: [d] },
+    { id: "n2", post_id: "p2", poster_id: "nina", defauts: [d] },
+    { id: "n3", post_id: "p3", poster_id: "nina", defauts: [d] },
+    { id: "n4", post_id: "p4", poster_id: "nina", defauts: [d] },
+    // otto : ancienne cohorte, les règles habituelles.
+    { id: "o1", post_id: "p5", poster_id: "otto", defauts: [d] },
+    { id: "o2", post_id: "p6", poster_id: "otto", defauts: [d] },
+  ];
+  const { envoyer, sauter } = choisirRetoursAEnvoyer(
+    lignes,
+    new Set(["p4"]),
+    new Set(["nina"]),
+    new Set(["nina"]),
+    new Set(["n1", "n2", "n4"]),
+  );
+  assertEquals(envoyer.map((l) => l.id).sort(), ["n1", "n2", "o1"]);
+  const raisons = Object.fromEntries(sauter.map((s) => [s.id, s.raison]));
+  assertEquals(Object.keys(raisons).sort(), ["n3", "n4", "o2"]);
+  assert(raisons.n4.includes("déjà reviewé"));
+  assert(raisons.n3.includes("un retour par créateur"));
+});
+
+Deno.test("estPremiereSemaine : du lundi de la cohorte au dimanche", () => {
+  assert(estPremiereSemaine("2026-11-16", "2026-11-16"));
+  assert(estPremiereSemaine("2026-11-22", "2026-11-16"));
+  assert(!estPremiereSemaine("2026-11-23", "2026-11-16"));
+  assert(!estPremiereSemaine("2026-11-15", "2026-11-16"));
+  assert(!estPremiereSemaine("2026-11-16", null));
+  // Changement d'heure (25/10) : toujours 7 jours.
+  assert(estPremiereSemaine("2026-10-25", "2026-10-19"));
+  assert(!estPremiereSemaine("2026-10-26", "2026-10-19"));
+});
+
+Deno.test("estJetonApifyRefuse : le 401 du jeton, pas un autre échec", () => {
+  assert(estJetonApifyRefuse('Apify 401: {\n  "error": {\n    "type": "user-or-token-not-found",\n    "message": "User was not found or authentication token is not valid"'));
+  assert(!estJetonApifyRefuse("Apify 402: payment required"));
+  assert(!estJetonApifyRefuse("Apify 500: internal error"));
+  assert(!estSansCreditApify("Apify 401: user-or-token-not-found"));
 });
 
 Deno.test("écart fort : lignes très courtes envoyées, lignes un peu courtes gardées pour l'admin", () => {

@@ -68,6 +68,9 @@ export function PageQuestionnaires() {
             {copie ? "Copié ✓" : "Copier le lien"}
           </Button>
           <a href={lien} target="_blank" rel="noreferrer" className="text-sm underline">Ouvrir</a>
+          <Button size="sm" variant="secondary" render={<a href={`${lien}?test=1`} target="_blank" rel="noreferrer" />} data-testid="faire-en-test">
+            Do the star survey (test)
+          </Button>
           <span className="ml-auto text-muted-foreground text-sm">{terminees} terminée{terminees > 1 ? "s" : ""} · {lignes.length - terminees} en cours</span>
         </CardContent>
       </Card>

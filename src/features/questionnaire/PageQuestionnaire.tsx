@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,8 +20,15 @@ const LONGS = new Set(["warmup_suivis_type", "astuces", "warmup_recherche_quoi",
  */
 export function PageQuestionnaire() {
   const { slug = "" } = useParams();
-  const jeton = React.useMemo(() => jetonNavigateur(slug), [slug]);
-  const [b, setB] = React.useState<Brouillon>(() => lireBrouillonLocal(slug) ?? VIDE);
+  // 16/11 (Max) : « Do the star survey » en test (?test=1) : le vrai questionnaire, mais rien n'est enregistré.
+  const test = useSearchParams()[0].get("test") === "1";
+  const cle = test ? `${slug}-test` : slug;
+  const jeton = React.useMemo(() => jetonNavigateur(cle), [cle]);
+  const [b, setB] = React.useState<Brouillon>(() => lireBrouillonLocal(cle) ?? VIDE);
+  const sauver = React.useCallback(
+    (x: Brouillon, termine: boolean) => (test ? Promise.resolve({ ok: true as const }) : sauverReponses(slug, jeton, x, termine)),
+    [test, slug, jeton],
+  );
   const [statut, setStatut] = React.useState<"" | "enregistrement" | "enregistre" | "erreur">("");
   const [erreur, setErreur] = React.useState<string | null>(null);
   const total = SECTIONS.length + 1;
@@ -29,15 +36,15 @@ export function PageQuestionnaire() {
 
   // Sauvegarde automatique : à chaque changement dans le navigateur, et 2 s après sur le serveur.
   React.useEffect(() => {
-    ecrireBrouillonLocal(slug, b);
+    ecrireBrouillonLocal(cle, b);
     if (!sale.current || !b.identite.email) return;
     const t = setTimeout(() => {
       setStatut("enregistrement");
-      sauverReponses(slug, jeton, b, b.termine).then(() => setStatut("enregistre")).catch(() => setStatut("erreur"));
+      sauver(b, b.termine).then(() => setStatut("enregistre")).catch(() => setStatut("erreur"));
       sale.current = false;
     }, 2000);
     return () => clearTimeout(t);
-  }, [b, slug, jeton]);
+  }, [b, cle, sauver]);
 
   const changer = (f: (x: Brouillon) => Brouillon) => {
     sale.current = true;
@@ -51,7 +58,7 @@ export function PageQuestionnaire() {
     document.documentElement.scrollTop = 0;
     try {
       setStatut("enregistrement");
-      await sauverReponses(slug, jeton, suivant, termine || b.termine);
+      await sauver(suivant, termine || b.termine);
       sale.current = false;
       setStatut("enregistre");
     } catch (e) {
@@ -66,6 +73,12 @@ export function PageQuestionnaire() {
   return (
     <main className="min-h-screen bg-muted/30 px-4 py-6 sm:py-10" data-testid="questionnaire">
       <div className="mx-auto max-w-xl space-y-4">
+        {test && (
+          <div className="flex items-center gap-2 rounded-lg border border-amber-300 bg-amber-50 px-3 py-2 text-amber-900 text-xs dark:bg-amber-950/40 dark:text-amber-200" data-testid="mode-test">
+            <span className="flex-1">TEST MODE: nothing is saved or sent.</span>
+            <button type="button" className="underline" onClick={() => { sale.current = false; setB(VIDE); setStatut(""); }}>Restart</button>
+          </div>
+        )}
         <header className="space-y-2">
           <p className="font-semibold text-muted-foreground text-sm">Vik Studios</p>
           <div className="h-2 overflow-hidden rounded-full bg-muted" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={ecran}>
@@ -111,7 +124,7 @@ export function PageQuestionnaire() {
                     repondre={repondre}
                     captures={b.captures[q.id] ?? []}
                     envoyer={async (f) => {
-                      const chemin = await envoyerCapture(slug, jeton, q.id, f);
+                      const chemin = test ? `test/${f.name}` : await envoyerCapture(slug, jeton, q.id, f);
                       changer((x) => ({ ...x, captures: { ...x.captures, [q.id]: [...(x.captures[q.id] ?? []), chemin] } }));
                     }}
                   />

@@ -12,12 +12,20 @@
  "titre": {
   "fr": "ce que je dirais à ma petite sœur avant son bac",
   "es": "lo que le diría a mi hermana pequeña antes de selectividad",
-  "tr": "küçük kardeşime sınavından önce söyleyeceklerim"
+  "tr": "küçük kardeşime sınavından önce söyleyeceklerim",
+  "en": "what i’d tell my little sister before her finals",
+  "de": "was ich meiner kleinen Schwester vor dem Abi sagen würde",
+  "it": "cosa direi a mia sorella minore prima della maturità",
+  "pt-BR": "o que eu diria pra minha irmã mais nova antes do vestibular"
  },
  "legendes": {
   "fr": "pour toutes les petites sœurs en terminale 🤍 #bac #terminale #studytok #thatgirl #conseils",
   "es": "para todas las hermanas pequeñas en segundo de bachillerato 🤍 #selectividad #bachillerato #studytok #thatgirl #consejos",
-  "tr": "son sınıftaki tüm küçük kardeşler için 🤍 #yks #sınav #studytok #thatgirl #tavsiye"
+  "tr": "son sınıftaki tüm küçük kardeşler için 🤍 #yks #sınav #studytok #thatgirl #tavsiye",
+  "en": "for every little sister in senior year 🤍 #finals #seniorYear #studytok #thatgirl #advice",
+  "de": "für alle kleinen Schwestern im Abijahr 🤍 #abitur #abi #studytok #thatgirl #tipps",
+  "it": "per tutte le sorelle minori in quinta 🤍 #maturità #scuola #studytok #thatgirl #consigli",
+  "pt-BR": "pra todas as irmãs mais novas no terceirão 🤍 #vestibular #enem #studytok #thatgirl #dicas"
  },
  "musique": {
   "titre": "original sound",
@@ -98,6 +106,70 @@
      "texte_bas_x": 540,
      "texte_bas_taille": 40
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "WHAT I’D",
+      "TELL MY",
+      "LITTLE SISTER"
+     ],
+     "taille": 118,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "before her finals",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "WAS ICH",
+      "MEINER KLEINEN",
+      "SCHWESTER SAGE"
+     ],
+     "taille": 100,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "vor ihrem Abi",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "COSA DIREI",
+      "A MIA SORELLA",
+      "MINORE"
+     ],
+     "taille": 108,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "prima della maturità",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "O QUE EU",
+      "DIRIA PRA MINHA",
+      "IRMÃ MAIS NOVA"
+     ],
+     "taille": 100,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "antes do vestibular",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
    }
   },
   {
@@ -162,6 +234,70 @@
      "couleur": "jaune",
      "sous": [
       "aynı sorular her yıl çıkıyor."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "do past papers",
+      "starting in january."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "the same questions come back every year."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach alte Prüfungen",
+      "schon ab Januar."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "die gleichen Fragen kommen jedes Jahr."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "fai le prove passate",
+      "da gennaio."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "le stesse domande tornano ogni anno."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "faça provas antigas",
+      "desde janeiro."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "as mesmas perguntas voltam todo ano."
      ],
      "taille_sous": 28
     }
@@ -255,6 +391,110 @@
       "y": 0.45
      }
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "a little every day,",
+      "not everything in may."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "i put my lessons into micabo:",
+      "10 min of quizzes a day, nothing piles up."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "jeden Tag ein bisschen,",
+      "nicht alles im Mai."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "ich packe meinen Stoff in micabo:",
+      "10 Min. Quiz am Tag, nichts stapelt sich."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "un po’ ogni giorno,",
+      "non tutto a maggio."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "metto le lezioni su micabo:",
+      "10 min di quiz al giorno, niente si accumula."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "um pouco todo dia,",
+      "não tudo em outubro."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "coloco minhas aulas no micabo:",
+      "10 min de quiz por dia, nada acumula."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
    }
   },
   {
@@ -304,6 +544,54 @@
      "lignes": [
       "derslerini kendin için seç,",
       "arkadaşların için değil."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "pick your classes",
+      "for you, not your friends."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "wähl deine Fächer",
+      "für dich, nicht für deine Freundinnen."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "scegli le materie",
+      "per te, non per le amiche."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "escolha seu curso",
+      "por você, não pelas amigas."
      ],
      "x": 540,
      "y": 1040,
@@ -377,6 +665,70 @@
      ],
      "taille_sous": 28
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "exam day stress",
+      "is something you prepare for."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "practice in real conditions: timer and silence."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "Prüfungsstress",
+      "kann man vorbereiten."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "übe unter echten Bedingungen: Stoppuhr und Stille."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "l’ansia del giorno X",
+      "si prepara."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "esercitati in condizioni reali: cronometro e silenzio."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "o nervoso do dia da prova",
+      "se prepara."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "treine em condições reais: cronômetro e silêncio."
+     ],
+     "taille_sous": 28
+    }
    }
   },
   {
@@ -426,6 +778,54 @@
      "lignes": [
       "haftada bir gün",
       "kendine izin ver."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "keep one day off",
+      "a week."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "nimm dir einen Tag frei",
+      "pro Woche."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "tieniti un giorno libero",
+      "a settimana."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "tire um dia de folga",
+      "por semana."
      ],
      "x": 540,
      "y": 1040,
@@ -487,12 +887,64 @@
      "taille": 42,
      "couleur": "jaune"
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "your grade doesn’t say",
+      "who you are."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "deine Note sagt nicht,",
+      "wer du bist."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "il tuo voto non dice",
+      "chi sei."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "sua nota não diz",
+      "quem você é."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune"
+    }
    }
   }
  ],
  "mises_en_scene_notees": [
   "a83da81b-2434-485c-8069-f4db3b953794",
   "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
-  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49"
  ]
 }

@@ -12,12 +12,20 @@
  "titre": {
   "fr": "comment je passe une journée entière à la bibli",
   "es": "cómo paso un día entero en la biblio",
-  "tr": "kütüphanede bütün bir günüm"
+  "tr": "kütüphanede bütün bir günüm",
+  "en": "how i spend a whole day at the library",
+  "de": "wie ich einen ganzen Tag in der Bibliothek verbringe",
+  "it": "come passo un’intera giornata in biblioteca",
+  "pt-BR": "como eu passo um dia inteiro na biblioteca"
  },
  "legendes": {
   "fr": "ta prochaine journée bibli sera la meilleure 📚 #bibliotheque #revisions #studytok #thatgirl #etudiante",
   "es": "tu próximo día de biblio será el mejor 📚 #biblioteca #estudiar #studytok #thatgirl #universidad",
-  "tr": "bir sonraki kütüphane günün en iyisi olacak 📚 #kütüphane #ders #studytok #thatgirl #üniversite"
+  "tr": "bir sonraki kütüphane günün en iyisi olacak 📚 #kütüphane #ders #studytok #thatgirl #üniversite",
+  "en": "your next library day will be your best 📚 #library #studying #studytok #thatgirl #college",
+  "de": "dein nächster Bibliothekstag wird der beste 📚 #bibliothek #lernen #studytok #thatgirl #uni",
+  "it": "la tua prossima giornata in biblioteca sarà la migliore 📚 #biblioteca #studiare #studytok #thatgirl #università",
+  "pt-BR": "seu próximo dia de biblioteca vai ser o melhor 📚 #biblioteca #estudos #studytok #thatgirl #faculdade"
  },
  "musique": {
   "titre": "domestic wolves",
@@ -77,6 +85,66 @@
      "interligne": 1,
      "y": 700
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "how i spend",
+     "lignes": [
+      "A WHOLE DAY",
+      "AT THE",
+      "LIBRARY"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 700
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "wie ich verbringe",
+     "lignes": [
+      "EINEN GANZEN",
+      "TAG IN DER",
+      "BIBLIOTHEK"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 700
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "come passo",
+     "lignes": [
+      "UN’INTERA",
+      "GIORNATA IN",
+      "BIBLIOTECA"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 700
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "como eu passo",
+     "lignes": [
+      "UM DIA",
+      "INTEIRO NA",
+      "BIBLIOTECA"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 700
+    }
    }
   },
   {
@@ -127,6 +195,58 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pick a library far from home.",
+     "texte": "the commute is a break: when you arrive, your brain knows it’s time to work.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "such dir eine Bibliothek weit weg von zu Hause.",
+     "texte": "der Weg ist ein Schnitt: wenn du ankommst, weiß dein Kopf, dass Lernzeit ist.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "scegli una biblioteca lontana da casa.",
+     "texte": "il tragitto fa da stacco: quando arrivi, il cervello sa che è ora di studiare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "escolha uma biblioteca longe de casa.",
+     "texte": "o trajeto faz um corte: quando você chega, o cérebro sabe que é hora de estudar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   },
   {
@@ -171,6 +291,58 @@
      "y": 300,
      "titre": "pencereye yakın otur.",
      "texte": "gün ışığı seni bir lambadan çok daha uzun süre uyanık tutar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "sit by a window.",
+     "texte": "daylight keeps you awake much longer than a lamp.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "setz dich ans Fenster.",
+     "texte": "Tageslicht hält dich viel länger wach als eine Lampe.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "siediti vicino a una finestra.",
+     "texte": "la luce del giorno ti tiene sveglia molto più di una lampada.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "sente perto de uma janela.",
+     "texte": "a luz do dia te mantém acordada muito mais que uma luminária.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -250,6 +422,98 @@
       "zoom": 1
      }
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "your phone is only for studying.",
+     "texte": "focus mode and one app open: micabo, for a quiz between chapters.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "dein Handy ist nur zum Lernen da.",
+     "texte": "Fokusmodus und eine einzige App offen: micabo, für ein Quiz zwischen zwei Kapiteln.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "il telefono serve solo per studiare.",
+     "texte": "modalità concentrazione e una sola app aperta: micabo, per un quiz tra un capitolo e l’altro.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "o celular é só pra estudar.",
+     "texte": "modo foco e um app aberto só: micabo, pra um quiz entre um capítulo e outro.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
    }
   },
   {
@@ -294,6 +558,58 @@
      "y": 300,
      "titre": "öğle yemeğini dışarıda ye.",
      "texte": "kitaplardan 30 dakika uzak kal, öğleden sonra çok daha iyi geçer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "eat lunch outside.",
+     "texte": "30 min away from the books and the afternoon goes so much better.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "iss draußen zu Mittag.",
+     "texte": "30 Min. weg von den Büchern und der Nachmittag läuft viel besser.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pranza fuori.",
+     "texte": "30 min lontana dai libri e il pomeriggio va molto meglio.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "almoce lá fora.",
+     "texte": "30 min longe dos livros e a tarde rende muito mais.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -350,12 +666,68 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "write down what you did before leaving.",
+     "texte": "3 lines in your planner. seeing the work done makes you want to come back.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "schreib auf, was du geschafft hast, bevor du gehst.",
+     "texte": "3 Zeilen in deinen Kalender. erledigte Arbeit zu sehen macht Lust, wiederzukommen.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "scrivi cosa hai fatto prima di andare via.",
+     "texte": "3 righe nell’agenda. vedere il lavoro fatto ti fa venire voglia di tornare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "anote o que você fez antes de ir embora.",
+     "texte": "3 linhas na agenda. ver o que você fez dá vontade de voltar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   }
  ],
  "mises_en_scene_notees": [
   "a83da81b-2434-485c-8069-f4db3b953794",
   "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
-  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49"
  ]
 }

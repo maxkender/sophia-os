@@ -1,0 +1,783 @@
+{
+ "id": "yp-061",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f3f1fd42-1158-4abc-928e-4f187f2487a6",
+ "titre": {
+  "fr": "mon avis honnête sur les astuces de révision virales",
+  "en": "my honest review of viral study hacks",
+  "es": "mi opinión sincera sobre los trucos de estudio virales",
+  "de": "meine ehrliche Meinung zu viralen Lerntricks",
+  "it": "la mia opinione sincera sui trucchi di studio virali",
+  "pt-BR": "minha opinião sincera sobre os truques de estudo virais",
+  "tr": "viral ders taktikleri hakkında dürüst yorumum"
+ },
+ "legendes": {
+  "fr": "lequel tu fais déjà ? 📝 #revisions #studyhacks #studytok #thatgirl #astuces",
+  "en": "which one do you already do? 📝 #studyhacks #studytips #studytok #thatgirl #studying",
+  "es": "¿cuál haces ya? 📝 #estudiar #studyhacks #studytok #thatgirl #trucos",
+  "de": "welchen machst du schon? 📝 #lerntipps #studyhacks #studytok #thatgirl #lernen",
+  "it": "quale fai già? 📝 #studiare #studyhacks #studytok #thatgirl #consigli",
+  "pt-BR": "qual você já faz? 📝 #estudos #studyhacks #studytok #thatgirl #dicas",
+  "tr": "hangisini zaten yapıyorsun? 📝 #ders #studyhacks #studytok #thatgirl #taktik"
+ },
+ "musique": {
+  "titre": "human nature by madonna",
+  "url": "https://www.tiktok.com/music/human-nature-by-madonna-7654003404851251990"
+ },
+ "fond": {
+  "media_id": "1c717b96-f9c5-47bb-87a1-3af9d127bb73",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/5de88bab-89e8-4065-bf1b-f91171bbfb40/2-upscale.jpg?v=1785743194027",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-017 (« je note des astuces de révision : ça vaut le coup ou pas ?, partie 3 », gagnante : 2,2 k en tr, r 2,79), 2e sur 3 : même promesse (des astuces notées sur 10), autre accroche, 6 astuces jamais notées au label, photos et son neufs. cta A : micabo dans la note 10/10 « un quiz avant le cours », sans capture. 7 langues",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mon avis honnête sur",
+     "lignes": [
+      "LES ASTUCES",
+      "DE RÉVISION",
+      "VIRALES"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "taille_script": 76,
+     "texte_bas": "notées sur 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "my honest review of",
+     "lignes": [
+      "VIRAL",
+      "STUDY HACKS"
+     ],
+     "taille": 130,
+     "interligne": 1,
+     "taille_script": 76,
+     "texte_bas": "rated out of 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "mi opinión sincera sobre",
+     "lignes": [
+      "LOS TRUCOS",
+      "DE ESTUDIO",
+      "VIRALES"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "taille_script": 72,
+     "texte_bas": "puntuados del 1 al 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "meine ehrliche Meinung zu",
+     "lignes": [
+      "VIRALEN",
+      "LERNTRICKS"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "taille_script": 72,
+     "texte_bas": "bewertet von 1 bis 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "la mia opinione sincera sui",
+     "lignes": [
+      "TRUCCHI DI",
+      "STUDIO VIRALI"
+     ],
+     "taille": 120,
+     "interligne": 1,
+     "taille_script": 72,
+     "texte_bas": "con il voto su 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "minha opinião sincera sobre",
+     "lignes": [
+      "OS TRUQUES",
+      "DE ESTUDO",
+      "VIRAIS"
+     ],
+     "taille": 140,
+     "interligne": 1,
+     "taille_script": 72,
+     "texte_bas": "com nota de 0 a 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "VİRAL DERS",
+      "TAKTİKLERİ",
+      "HAKKINDA",
+      "DÜRÜST YORUMUM"
+     ],
+     "taille": 96,
+     "interligne": 1,
+     "texte_bas": "10 üzerinden puanladım📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "30c03752-a1e6-4c79-bfb9-537f9ccf25a3",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/6b0bf608-6b40-4cee-afc7-a480abeeaa54/6.jpg?v=1787138986584",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "le bruit blanc🎧",
+     "texte": "7/10\nil couvre le bruit autour de toi. mais rien ne remplace un endroit vraiment calme.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "white noise🎧",
+     "texte": "7/10\nit covers the noise around you. but nothing beats a truly quiet place.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "el ruido blanco🎧",
+     "texte": "7/10\ntapa el ruido de alrededor. pero nada sustituye un sitio de verdad tranquilo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "weißes Rauschen🎧",
+     "texte": "7/10\nes übertönt den Lärm um dich herum. aber nichts ersetzt einen wirklich ruhigen Ort.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "il rumore bianco🎧",
+     "texte": "7/10\ncopre i rumori intorno a te. ma niente sostituisce un posto davvero tranquillo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ruído branco🎧",
+     "texte": "7/10\nabafa o barulho em volta. mas nada substitui um lugar realmente silencioso.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "beyaz gürültü🎧",
+     "texte": "7/10\netraftaki sesi bastırıyor. ama gerçekten sessiz bir yerin yerini tutmuyor.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "b62e34ae-d5bf-4795-9c37-28d0aa743656",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/6.jpg?v=1790606874437",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mâcher un chewing-gum en révisant🍬",
+     "texte": "3/10\naucune vraie preuve que ça aide. et tout le monde t’entend à la bibli.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "chewing gum while studying🍬",
+     "texte": "3/10\nno real proof it helps. and everyone in the library can hear you.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mascar chicle mientras estudias🍬",
+     "texte": "3/10\nno hay pruebas reales de que ayude. y en la biblio te oye todo el mundo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "Kaugummi kauen beim Lernen🍬",
+     "texte": "3/10\nkein echter Beweis, dass es hilft. und in der Bibliothek hört dich jeder.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "masticare una gomma mentre studi🍬",
+     "texte": "3/10\nnessuna vera prova che aiuti. e in biblioteca ti sentono tutti.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mascar chiclete estudando🍬",
+     "texte": "3/10\nnenhuma prova real de que ajuda. e na biblioteca todo mundo escuta.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "çalışırken sakız çiğnemek🍬",
+     "texte": "3/10\nişe yaradığına dair gerçek bir kanıt yok. üstelik kütüphanede herkes duyuyor.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2b6948de-1b7e-4f72-9257-116876d45372",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/4e0ef857-d35d-4b44-b6f9-371e615b9f76/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "la méthode Feynman🗣️",
+     "texte": "9/10\nexplique le cours comme à un enfant de 10 ans. là où tu bloques, c’est ce qui te manque.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "the Feynman method🗣️",
+     "texte": "9/10\nexplain the lesson like you would to a 10-year-old. wherever you get stuck is what you’re missing.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "el método Feynman🗣️",
+     "texte": "9/10\nexplica la lección como a un niño de 10 años. donde te atascas, ahí está lo que te falta.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "die Feynman-Methode🗣️",
+     "texte": "9/10\nerklär den Stoff wie einem 10-jährigen Kind. wo du hängen bleibst, fehlt dir etwas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "il metodo Feynman🗣️",
+     "texte": "9/10\nspiega la lezione come a un bambino di 10 anni. dove ti blocchi, lì c’è quello che ti manca.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "o método Feynman🗣️",
+     "texte": "9/10\nexplique a matéria como pra uma criança de 10 anos. onde você trava é o que está faltando.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "Feynman yöntemi🗣️",
+     "texte": "9/10\ndersi 10 yaşında bir çocuğa anlatır gibi anlat. takıldığın yer eksiğin olan yer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "8a94c68e-9465-492e-830c-dbf526638caa",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/9479280e-f45c-4fa3-887e-1d63ff5fb194/1.jpg?v=1791725615727",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "le planning heure par heure🗓️",
+     "texte": "5/10\ntrop rigide : un retard et tout s’écroule. 3 tâches par jour, c’est plus tenable.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "the hour-by-hour schedule🗓️",
+     "texte": "5/10\ntoo rigid: one delay and it all falls apart. 3 tasks a day is easier to stick to.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "el horario hora por hora🗓️",
+     "texte": "5/10\ndemasiado rígido: un retraso y se viene abajo. 3 tareas al día es más llevadero.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "der Stundenplan für jede Stunde🗓️",
+     "texte": "5/10\nzu starr: eine Verspätung und alles bricht zusammen. 3 Aufgaben pro Tag sind machbarer.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "il programma ora per ora🗓️",
+     "texte": "5/10\ntroppo rigido: un ritardo e crolla tutto. 3 compiti al giorno sono più sostenibili.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "o cronograma hora por hora🗓️",
+     "texte": "5/10\nrígido demais: um atraso e desmorona tudo. 3 tarefas por dia é mais fácil de cumprir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "saat saat plan🗓️",
+     "texte": "5/10\nfazla katı: bir gecikme ve her şey çöküyor. günde 3 görev daha sürdürülebilir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "02b9abc1-af8d-466b-bd49-6e150c7844de",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e87bf7da-dd86-486f-8786-259d6f0fd3f6/4.jpg?v=1790608875168",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "un quiz avant même le cours🧠",
+     "texte": "10/10\nje mets le chapitre dans micabo et je fais un quiz avant le cours. mon cerveau sait déjà quoi écouter.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "a quiz before the lesson even starts🧠",
+     "texte": "10/10\ni put the chapter into micabo and do a quiz before class. my brain already knows what to listen for.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "un quiz antes incluso de la clase🧠",
+     "texte": "10/10\nmeto el tema en micabo y hago un quiz antes de clase. mi cerebro ya sabe qué escuchar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ein Quiz noch vor der Stunde🧠",
+     "texte": "10/10\nich packe das Kapitel in micabo und mache vor dem Unterricht ein Quiz. mein Kopf weiß schon, worauf er achten muss.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "un quiz prima ancora della lezione🧠",
+     "texte": "10/10\nmetto il capitolo su micabo e faccio un quiz prima della lezione. il cervello sa già cosa ascoltare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "um quiz antes mesmo da aula🧠",
+     "texte": "10/10\ncoloco o capítulo no micabo e faço um quiz antes da aula. meu cérebro já sabe o que prestar atenção.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "dersten önce bile test🧠",
+     "texte": "10/10\nüniteyi micabo’ya koyup dersten önce test çözüyorum. beynim neyi dinleyeceğini zaten biliyor.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "11b6d69f-96c7-4242-ba26-c57ec38bef4a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/424e42c8-6c12-46e6-bb29-d89e9c97865c/2.jpg?v=1792841381363",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "les post-it sur le miroir🪞",
+     "texte": "8/10\nune formule par post-it. tu la lis en te brossant les dents, sans même y penser.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "sticky notes on the mirror🪞",
+     "texte": "8/10\none formula per sticky note. you read it while brushing your teeth without even thinking.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pósits en el espejo🪞",
+     "texte": "8/10\nuna fórmula por pósit. la lees mientras te lavas los dientes, sin pensarlo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "Post-its am Spiegel🪞",
+     "texte": "8/10\neine Formel pro Post-it. du liest sie beim Zähneputzen, ganz nebenbei.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "i post-it sullo specchio🪞",
+     "texte": "8/10\nuna formula per post-it. la leggi mentre ti lavi i denti, senza pensarci.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "post-its no espelho🪞",
+     "texte": "8/10\numa fórmula por post-it. você lê enquanto escova os dentes, sem nem pensar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "aynaya yapışkan notlar🪞",
+     "texte": "8/10\nher nota bir formül. dişlerini fırçalarken farkında olmadan okuyorsun.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ]
+}

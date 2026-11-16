@@ -1,7 +1,7 @@
 /**
  * Relecture simple des posts publiés (0631), côté admin : les envois par
  * langue, leur état, et l'envoi immédiat de n posts (sinon le cron du
- * samedi). Les relectures faites sont découpées en corrections (0630).
+ * mercredi, 0735). Les relectures faites sont découpées en corrections (0630).
  */
 import { supabase } from "@/lib/supabase/client";
 

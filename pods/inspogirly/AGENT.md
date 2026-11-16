@@ -17,9 +17,14 @@ rejette est validée toute seule 5 h après son dépôt.
 	- `ANALYSE.md` donne le détail, `sources/manifeste.json` ses posts : ta **preuve**.
 - **Des originaux** (demande d'Adrien du 16/11) : des listes d'applis à **son style exact** (sa couverture en trois photos, ses slides d'appli), mais **avec d'autres applis que les siennes** : des applis douces, pour les filles, **jamais de cycle, de règles ou de santé intime** (pas de Luna, Flo, Clue… : « moins vénère »).
 - **L'appli** : **Sophia**, **une des applis, ni la première ni la dernière** : sa vraie icône (`assets/sophia/icone.jpg`, l'icône de l'App Store) et une phrase qui dit ce qu'elle fait : une leçon courte par jour (histoire, philosophie, sciences, géopolitique, littérature, économie) écrite par des profs, un quiz après chaque leçon, 10 minutes par jour.
-- **Le label** : `inspogirly` (migration 0733), qui sert **Sophia seul**, 100 % podz, genre `femme`. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Aucun compte au lancement : la règle « démarrage d'un podz » (test sur 4 comptes anglais) ou Adrien et Max (Pilotage). `npm run etat` te dit où il en est.
+- **Le label** : `inspogirly` (migration 0733), qui sert **Sophia seul**, 100 % podz, genre `femme`. L'OS le range en voie 2 dès le premier original validé (avant : `npm run boite` dit voie 1, c'est normal). Depuis le 16/11 (demande d'Adrien) : un compte par langue, en, fr, es, it et tr. `npm run etat` te dit où il en est.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
-- **En anglais seul**, comme lui : minuscules, phrases simples, « you can … ».
+- **En 5 langues** (demande d'Adrien du 16/11) : **chaque original se livre en anglais, français, espagnol, italien et turc** (`LANGUES` dans `atelier/api.ts`), dans le même dépôt (`npm run livrer` part dans les langues du label).
+	- Écris d'abord l'anglais, comme lui : minuscules, phrases simples, « you can … ». Puis chaque langue, avec le même ton : minuscules, tutoiement (« tu peux… », « puedes… », « puoi… », « …abilirsin »).
+	- Chaque slide est dans la langue : le titre de la couverture, la phrase sous chaque appli, la légende. Le nom de l'appli reste celui de l'écran d'accueil, et la slide Sophia garde sa place.
+	- Vérifie que chaque appli est sur l'App Store du pays (`https://itunes.apple.com/lookup?id=<id>&country=fr|es|it|tr`). Si une appli manque, remplace-la pour cette langue ou dis-le.
+	- Regarde la planche de chaque langue : une phrase plus longue que l'anglais laisse souvent un mot seul sur la dernière ligne, reformule-la.
+	- Exemple : `posts/ig-001.json` (« 4 applis que toute fille doit avoir », « 4 apps que toda chica necesita », « 4 app che ogni ragazza deve avere », « her kızın ihtiyacı olan 4 uygulama »).
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un original

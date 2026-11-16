@@ -3,6 +3,7 @@ import { PageSure } from "@/components/erreurs/PageSure";
 import { useTranslation } from "react-i18next";
 import {
   ClipboardCheck,
+  ClipboardList,
   Link2,
   MessageSquareWarning,
   AtSign,
@@ -328,6 +329,12 @@ export function AdminLayout() {
               label: t("nav.commentMasters"),
               icon: MessagesSquare,
               description: t("navDesc.commentMasters"),
+            },
+            {
+              to: "/admin/questionnaires",
+              label: t("nav.questionnaires"),
+              icon: ClipboardList,
+              description: t("navDesc.questionnaires"),
             },
           ],
         },

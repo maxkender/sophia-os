@@ -19,6 +19,7 @@ import { useParrainageActif } from "@/features/bonus/parrainageActif";
 import { useAuth } from "@/features/auth/AuthContext";
 import { BandeauEmailRuul } from "@/features/ruul/BandeauEmailRuul";
 import { BoutonHelp } from "@/features/support/BoutonHelp";
+import { QuestionnairePopup } from "@/features/questionnaire/QuestionnairePopup";
 
 export function PosterLayout() {
   const { t, i18n } = useTranslation();
@@ -82,6 +83,10 @@ export function PosterLayout() {
       </SectionSure>
       <SectionSure nom="Getting started">
         <DebutPopup />
+      </SectionSure>
+      {/* 15/11 : seulement pour les posteurs choisis par Max (page Questionnaires). */}
+      <SectionSure nom="Questionnaire">
+        <QuestionnairePopup />
       </SectionSure>
       <PageSure />
     </AppShell>

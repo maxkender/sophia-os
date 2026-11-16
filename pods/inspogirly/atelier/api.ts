@@ -6,7 +6,9 @@ export const POD = "originaux_inspogirly";
 /** Le compte modèle : @iinspogiirly (inspo « it-girl » : wishlists, glow up, et ses « 4 apps every girl needs »). */
 export const COMPTE_SOURCE = "iinspogiirly";
 /** Les langues livrées : l'anglais, celle du compte (lancement du 16/11). Déclarées à l'OS (0654) : l'attribution des comptes les lit. */
-export const LANGUES = ["en"] as const;
+// 16/11 (Adrien) : 5 langues, un compte par langue ; cette liste est déclarée à l'OS à chaque `npm run boite`
+// et remplace `pods.langues` : n'en retire pas une langue qui a un compte.
+export const LANGUES = ["en", "fr", "es", "it", "tr"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

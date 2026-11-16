@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-011",
+  "titre": "He suffers more than is necessary, who suffers before it is necessary. #stoicism #seneca #anxiety #quotes",
+  "source_phrase": "Seneca, Letters to Lucilius, 98 (Gummere translation)",
+  "type_bleo": "full_test",
+  "musique_titre": "Moment to Moment",
+  "notes": "cta C",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2581431a",
+      "texte_overlay": "He suffers more than is necessary,",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690626169292475656/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "43c5f7b3",
+      "texte_overlay": "who suffers",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686142512708341010/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "81390eed",
+      "texte_overlay": "before it is necessary.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7690260292235808018/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "0dfc01c6",
+      "texte_overlay": "Seneca, Letters to Lucilius.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682814231061875975/3.jpg",
+      "texte_sophia": "Seneca wrote 124 letters to his friend Lucilius. I learned that this morning on Sophia."
+    }
+  ]
+}

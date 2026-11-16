@@ -1,0 +1,239 @@
+{
+ "id": "as-008",
+ "style": "carte",
+ "fond": "images/c8-couv.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7695889637872635166",
+  "vues": 17500,
+  "publie_le": "2026-10-12",
+  "accroche": "six iOS apps I've been loving"
+ },
+ "titre": {
+  "en": "six iOS apps I've been loving",
+  "es": "seis apps iOS que me encantan",
+  "it": "sei app iOS che sto amando",
+  "pt-BR": "seis apps iOS que eu tô amando"
+ },
+ "legendes": {
+  "en": "my current favorites, from cute notes to tiny habit grids 💗 #apprecommendations #ios #cuteapps #productivity",
+  "es": "mis favoritas ahora mismo, de notas bonitas a cuadrículas de hábitos 💗 #appsrecomendadas #ios #appsbonitas #productividad",
+  "it": "le mie preferite del momento, dagli appunti carini alle griglie delle abitudini 💗 #appconsigliate #ios #appcarine #produttività",
+  "pt-BR": "meus favoritos do momento, de anotações fofas a quadradinhos de hábitos 💗 #dicasdeapps #ios #appsfofos #produtividade"
+ },
+ "musique": {
+  "titre": "Candy Berry - nanaacom",
+  "url": "https://www.tiktok.com/music/original-7622685066682435601"
+ },
+ "notes": "Preuve : « six iOS apps / I've been loving » (17,5 k, 12/10 ; 3,8 % d'enregistrements), style carte, six applis comme elle. Applis vérifiées us, es, it, br : Goodnotes, Canva, Sophia (3e, cta B), HabitKit, Strava, Bearable. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c8-couv.jpg"
+    ],
+    "titre": "six iOS apps",
+    "sous": "I've been loving"
+   },
+   "es": {
+    "photos": [
+     "images/c8-couv.jpg"
+    ],
+    "titre": "seis apps iOS",
+    "sous": "que me encantan"
+   },
+   "it": {
+    "photos": [
+     "images/c8-couv.jpg"
+    ],
+    "titre": "sei app iOS",
+    "sous": "che sto amando"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c8-couv.jpg"
+    ],
+    "titre": "seis apps iOS",
+    "sous": "que eu tô amando"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Goodnotes",
+    "dossier": "images/applis/goodnotes",
+    "note": "Handwritten notes on your iPad that feel like real paper, with cute planners and stickers",
+    "fond": "images/c8-ipad.jpg"
+   },
+   "es": {
+    "nom": "Goodnotes",
+    "dossier": "images/applis/goodnotes",
+    "note": "Notas a mano en tu iPad que se sienten como papel de verdad, con agendas y stickers monísimos",
+    "fond": "images/c8-ipad.jpg"
+   },
+   "it": {
+    "nom": "Goodnotes",
+    "dossier": "images/applis/goodnotes",
+    "note": "Appunti a mano sull'iPad che sembrano carta vera, con planner e sticker carinissimi",
+    "fond": "images/c8-ipad.jpg"
+   },
+   "pt-BR": {
+    "nom": "Goodnotes",
+    "dossier": "images/applis/goodnotes",
+    "note": "Anotações à mão no iPad que parecem papel de verdade, com planners e adesivos fofos",
+    "fond": "images/c8-ipad.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Canva",
+    "dossier": "images/applis/canva",
+    "note": "Design anything in minutes: stories, invitations, mood boards, even your phone wallpaper",
+    "fond": "images/c8-bureau.jpg"
+   },
+   "es": {
+    "nom": "Canva",
+    "dossier": "images/applis/canva",
+    "note": "Diseña lo que quieras en minutos: stories, invitaciones, moodboards, hasta tu fondo de pantalla",
+    "fond": "images/c8-bureau.jpg"
+   },
+   "it": {
+    "nom": "Canva",
+    "dossier": "images/applis/canva",
+    "note": "Crei qualsiasi cosa in pochi minuti: storie, inviti, moodboard, perfino lo sfondo del telefono",
+    "fond": "images/c8-bureau.jpg"
+   },
+   "pt-BR": {
+    "nom": "Canva",
+    "dossier": "images/applis/canva",
+    "note": "Crie qualquer coisa em minutos: stories, convites, moodboards, até o papel de parede do celular",
+    "fond": "images/c8-bureau.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks",
+    "fond": "images/c8-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede",
+    "fond": "images/c8-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero",
+    "fond": "images/c8-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade",
+    "fond": "images/c8-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "HabitKit",
+    "dossier": "images/applis/habitkit",
+    "note": "A minimal habit tracker with little colored grids that fill up day by day. So satisfying",
+    "fond": "images/c8-fleurs.jpg"
+   },
+   "es": {
+    "nom": "HabitKit",
+    "dossier": "images/applis/habitkit",
+    "note": "Un tracker de hábitos minimalista con cuadrículas de colores que se llenan día a día. Súper satisfactorio",
+    "fond": "images/c8-fleurs.jpg"
+   },
+   "it": {
+    "nom": "HabitKit",
+    "dossier": "images/applis/habitkit",
+    "note": "Un habit tracker minimal con piccole griglie colorate che si riempiono giorno dopo giorno. Che soddisfazione",
+    "fond": "images/c8-fleurs.jpg"
+   },
+   "pt-BR": {
+    "nom": "HabitKit",
+    "dossier": "images/applis/habitkit",
+    "note": "Um app de hábitos minimalista com quadradinhos coloridos que vão se enchendo dia após dia. Muito satisfatório",
+    "fond": "images/c8-fleurs.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Strava",
+    "dossier": "images/applis/strava",
+    "note": "Logs my walks and runs with a map of where I went, and my friends can cheer me on",
+    "fond": "images/c8-course.jpg"
+   },
+   "es": {
+    "nom": "Strava",
+    "dossier": "images/applis/strava",
+    "note": "Registra mis paseos y carreras con un mapa del recorrido, y mis amigas me pueden animar",
+    "fond": "images/c8-course.jpg"
+   },
+   "it": {
+    "nom": "Strava",
+    "dossier": "images/applis/strava",
+    "note": "Registra le mie passeggiate e corse con la mappa del percorso, e le amiche possono farmi il tifo",
+    "fond": "images/c8-course.jpg"
+   },
+   "pt-BR": {
+    "nom": "Strava",
+    "dossier": "images/applis/strava",
+    "note": "Registra minhas caminhadas e corridas com o mapa do percurso, e minhas amigas podem me apoiar",
+    "fond": "images/c8-course.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Bearable",
+    "dossier": "images/applis/bearable",
+    "note": "Tracks your mood, sleep and symptoms together, so you can see what actually makes you feel better",
+    "fond": "images/c7-the.jpg"
+   },
+   "es": {
+    "nom": "Bearable",
+    "dossier": "images/applis/bearable",
+    "note": "Registra tu humor, tu sueño y tus síntomas juntos, para ver qué te hace sentir mejor de verdad",
+    "fond": "images/c7-the.jpg"
+   },
+   "it": {
+    "nom": "Bearable",
+    "dossier": "images/applis/bearable",
+    "note": "Tiene traccia di umore, sonno e sintomi insieme, così vedi cosa ti fa stare davvero meglio",
+    "fond": "images/c7-the.jpg"
+   },
+   "pt-BR": {
+    "nom": "Bearable",
+    "dossier": "images/applis/bearable",
+    "note": "Registra seu humor, sono e sintomas juntos, pra você ver o que realmente te faz bem",
+    "fond": "images/c7-the.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

@@ -1,0 +1,212 @@
+{
+ "id": "as-007",
+ "style": "carte",
+ "fond": "images/c7-couv.jpg",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7700314528264883487",
+  "vues": 18100,
+  "publie_le": "2026-10-24",
+  "accroche": "five apps for cozy daily rituals"
+ },
+ "titre": {
+  "en": "five apps for cozy daily rituals",
+  "es": "cinco apps para rituales cozy",
+  "it": "cinque app per rituali cozy",
+  "pt-BR": "cinco apps pra rituais cozy"
+ },
+ "legendes": {
+  "en": "from a plant that grows when you drink water to sleep stories, these are my cozy daily rituals 🍵 #cozy #apprecommendations #selfcare #cuteapps",
+  "es": "de una plantita que crece cuando bebes agua a historias para dormir, mis rituales cozy de cada día 🍵 #cozy #appsrecomendadas #autocuidado #appsbonitas",
+  "it": "da una piantina che cresce quando bevi a storie della buonanotte, i miei rituali cozy di ogni giorno 🍵 #cozy #appconsigliate #selfcare #appcarine",
+  "pt-BR": "de uma plantinha que cresce quando você bebe água a histórias pra dormir, meus rituais cozy de todo dia 🍵 #cozy #dicasdeapps #autocuidado #appsfofos"
+ },
+ "musique": {
+  "titre": "Pixel Palm Parade - Trey Oxendine",
+  "url": "https://www.tiktok.com/music/original-7696747521258833971"
+ },
+ "notes": "Preuve : « five apps / for cozy daily rituals » (18 k, 24/10 ; 4,2 % d'enregistrements), style carte. Applis vérifiées us, es, it, br : Plant Nanny, Sophia (2e, cta A), Day One, Calm, Widgetsmith. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c7-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "for cozy daily rituals"
+   },
+   "es": {
+    "photos": [
+     "images/c7-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para rituales cozy"
+   },
+   "it": {
+    "photos": [
+     "images/c7-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per rituali cozy"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c7-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra rituais cozy"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Plant Nanny",
+    "dossier": "images/applis/plant-nanny",
+    "note": "Every glass of water you drink waters a cute little plant, so staying hydrated feels like a tiny ritual",
+    "fond": "images/c7-plante.jpg"
+   },
+   "es": {
+    "nom": "Plant Nanny",
+    "dossier": "images/applis/plant-nanny",
+    "note": "Cada vaso de agua que bebes riega una plantita adorable, así hidratarte se vuelve un pequeño ritual",
+    "fond": "images/c7-plante.jpg"
+   },
+   "it": {
+    "nom": "Plant Nanny",
+    "dossier": "images/applis/plant-nanny",
+    "note": "Ogni bicchiere d'acqua che bevi annaffia una piantina adorabile, così bere diventa un piccolo rituale",
+    "fond": "images/c7-plante.jpg"
+   },
+   "pt-BR": {
+    "nom": "Plant Nanny",
+    "dossier": "images/applis/plant-nanny",
+    "note": "Cada copo de água que você bebe rega uma plantinha fofa, e se hidratar vira um pequeno ritual",
+    "fond": "images/c7-plante.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day",
+    "fond": "images/c7-the.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día",
+    "fond": "images/c7-the.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno",
+    "fond": "images/c7-the.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia",
+    "fond": "images/c7-the.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Day One",
+    "dossier": "images/applis/day-one",
+    "note": "A beautiful journal for photos, places and little moments, with daily prompts when you don't know what to write",
+    "fond": "images/c7-carnet.jpg"
+   },
+   "es": {
+    "nom": "Day One",
+    "dossier": "images/applis/day-one",
+    "note": "Un diario precioso para fotos, lugares y pequeños momentos, con preguntas diarias cuando no sabes qué escribir",
+    "fond": "images/c7-carnet.jpg"
+   },
+   "it": {
+    "nom": "Day One",
+    "dossier": "images/applis/day-one",
+    "note": "Un diario bellissimo per foto, luoghi e piccoli momenti, con spunti quotidiani quando non sai cosa scrivere",
+    "fond": "images/c7-carnet.jpg"
+   },
+   "pt-BR": {
+    "nom": "Day One",
+    "dossier": "images/applis/day-one",
+    "note": "Um diário lindo pra fotos, lugares e pequenos momentos, com sugestões diárias quando você não sabe o que escrever",
+    "fond": "images/c7-carnet.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Calm",
+    "dossier": "images/applis/calm",
+    "note": "Sleep stories, rain sounds and short meditations. My favorite way to end the day",
+    "fond": "images/c7-bain.jpg"
+   },
+   "es": {
+    "nom": "Calm",
+    "dossier": "images/applis/calm",
+    "note": "Historias para dormir, sonido de lluvia y meditaciones cortas. Mi forma favorita de acabar el día",
+    "fond": "images/c7-bain.jpg"
+   },
+   "it": {
+    "nom": "Calm",
+    "dossier": "images/applis/calm",
+    "note": "Storie della buonanotte, suono della pioggia e brevi meditazioni. Il mio modo preferito di chiudere la giornata",
+    "fond": "images/c7-bain.jpg"
+   },
+   "pt-BR": {
+    "nom": "Calm",
+    "dossier": "images/applis/calm",
+    "note": "Histórias pra dormir, som de chuva e meditações curtas. Meu jeito favorito de terminar o dia",
+    "fond": "images/c7-bain.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Widgetsmith",
+    "dossier": "images/applis/widgetsmith",
+    "note": "Make your own home screen widgets: a photo, a countdown, the weather, in the colors and fonts you like",
+    "fond": "images/c7-couv.jpg"
+   },
+   "es": {
+    "nom": "Widgetsmith",
+    "dossier": "images/applis/widgetsmith",
+    "note": "Crea tus propios widgets para la pantalla de inicio: una foto, una cuenta atrás, el tiempo, con los colores y letras que te gustan",
+    "fond": "images/c7-couv.jpg"
+   },
+   "it": {
+    "nom": "Widgetsmith",
+    "dossier": "images/applis/widgetsmith",
+    "note": "Crea i tuoi widget per la schermata Home: una foto, un conto alla rovescia, il meteo, con i colori e i font che ami",
+    "fond": "images/c7-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Widgetsmith",
+    "dossier": "images/applis/widgetsmith",
+    "note": "Crie seus próprios widgets pra tela inicial: uma foto, uma contagem regressiva, o clima, nas cores e fontes que você gosta",
+    "fond": "images/c7-couv.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

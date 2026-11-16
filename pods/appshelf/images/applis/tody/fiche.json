@@ -1,0 +1,36 @@
+{
+ "id": 595339588,
+ "nom": "Tody",
+ "editeur": "Looploop IVS",
+ "categorie": "Productivity",
+ "note": 4.82538,
+ "avis": 10910,
+ "url": "https://apps.apple.com/us/app/tody/id595339588?uo=4",
+ "pays": {
+  "en": {
+   "nom": "Tody",
+   "note": 4.82538,
+   "avis": 10910,
+   "captures_locales": false
+  },
+  "es": {
+   "nom": "Tody",
+   "note": 4.79675,
+   "avis": 123,
+   "captures_locales": true
+  },
+  "it": {
+   "nom": "Tody",
+   "note": 4.58537,
+   "avis": 41,
+   "captures_locales": false
+  },
+  "pt-BR": {
+   "nom": "Tody",
+   "note": 4.80392,
+   "avis": 51,
+   "captures_locales": true
+  }
+ },
+ "description": "Tody is a smarter to-do list for managing household cleaning routines. It will optimize and motivate your cleaning. \n\n●  Gain flexibility by managing cleaning tasks by indicators of actual need rather than arbitrary dates.\n\n●  Tody visualizes dirtiness to motivate cleaning and visualizes the effect of cleaning to enhance satisfaction.\n\n●  There are no deadlines, alarms and notifications (optional). Tody puts you in control of your cleaning routines instead of cleaning routines controlling you.\n\n●  Turn home cleaning into a game. House members can sync plans across devices and users and check-in to claim credit for their actions.\n\n●  Enjoy an extremely easy and intuitive set up of a customized cleaning plan.\n\n●  Tody can be customized and scaled to fit almost any needs. It thus suits singles as well as complex households with many members. Even professionals find Tody to be their preferred tool.\n\nRecommended by marthastewart.com, Buzzfeed and MacWorld."
+}

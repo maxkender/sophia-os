@@ -1,0 +1,270 @@
+{
+ "id": "as-009",
+ "fond": "images/c9-fond.jpg",
+ "titre": {
+  "en": "apps i can't live without as a college girl",
+  "es": "apps sin las que no vivo como universitaria",
+  "it": "app senza cui non vivo da universitaria",
+  "pt-BR": "apps que não largo por nada como universitária"
+ },
+ "legendes": {
+  "en": "the five that never leave my home screen 📚 #collegelife #apprecommendations #studytok #productivity",
+  "es": "las cinco que nunca salen de mi pantalla de inicio 📚 #universidad #appsrecomendadas #estudiante #productividad",
+  "it": "le cinque che non lasciano mai la mia schermata Home 📚 #università #appconsigliate #studentessa #produttività",
+  "pt-BR": "os cinco que nunca saem da minha tela inicial 📚 #faculdade #dicasdeapps #estudante #produtividade"
+ },
+ "musique": {
+  "titre": "last sip - Malia B.",
+  "url": "https://www.tiktok.com/music/original-7660064882242390032"
+ },
+ "type_bleo": "full_test",
+ "notes": "Full test (accroche neuve, au format de son « my most used apps / as someone with ADHD ») : « apps i can't live without / as a college girl », style bibliotheque. Applis vérifiées us, es, it, br : Google Calendar, Spotify, Sophia (3e, cta C), Clue, Picsart. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c9-campus.jpg",
+     "images/c9-cafe.jpg",
+     "images/c9-lampe.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps i"
+      },
+      {
+       "t": "can't",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "live",
+       "style": "clair"
+      },
+      {
+       "t": "without"
+      }
+     ]
+    ],
+    "pastille": "as a college girl"
+   },
+   "es": {
+    "photos": [
+     "images/c9-campus.jpg",
+     "images/c9-cafe.jpg",
+     "images/c9-lampe.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps sin"
+      },
+      {
+       "t": "las que",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "no",
+       "style": "clair"
+      },
+      {
+       "t": "vivo"
+      }
+     ]
+    ],
+    "pastille": "como universitaria"
+   },
+   "it": {
+    "photos": [
+     "images/c9-campus.jpg",
+     "images/c9-cafe.jpg",
+     "images/c9-lampe.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "app senza"
+      },
+      {
+       "t": "cui",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "non",
+       "style": "clair"
+      },
+      {
+       "t": "vivo"
+      }
+     ]
+    ],
+    "pastille": "da universitaria"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c9-campus.jpg",
+     "images/c9-cafe.jpg",
+     "images/c9-lampe.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps que"
+      },
+      {
+       "t": "não",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "largo",
+       "style": "clair"
+      },
+      {
+       "t": "por nada"
+      }
+     ]
+    ],
+    "pastille": "como universitária"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Google Calendar",
+    "dossier": "images/applis/google-calendar",
+    "note": "Classes, shifts and plans in one calendar, with colors for everything and reminders I actually see"
+   },
+   "es": {
+    "nom": "Google Calendar",
+    "dossier": "images/applis/google-calendar",
+    "note": "Clases, turnos y planes en un solo calendario, con colores para todo y recordatorios que sí veo"
+   },
+   "it": {
+    "nom": "Google Calendar",
+    "dossier": "images/applis/google-calendar",
+    "note": "Lezioni, turni e impegni in un solo calendario, con colori per tutto e promemoria che vedo davvero"
+   },
+   "pt-BR": {
+    "nom": "Google Calendar",
+    "dossier": "images/applis/google-calendar",
+    "note": "Aulas, trabalho e rolês num calendário só, com cores pra tudo e lembretes que eu realmente vejo"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Spotify",
+    "dossier": "images/applis/spotify",
+    "note": "My study playlists, my walk-to-class podcasts and the songs I play on repeat"
+   },
+   "es": {
+    "nom": "Spotify",
+    "dossier": "images/applis/spotify",
+    "note": "Mis playlists para estudiar, mis pódcasts de camino a clase y las canciones que pongo en bucle"
+   },
+   "it": {
+    "nom": "Spotify",
+    "dossier": "images/applis/spotify",
+    "note": "Le mie playlist per studiare, i podcast mentre vado a lezione e le canzoni che ascolto a ripetizione"
+   },
+   "pt-BR": {
+    "nom": "Spotify",
+    "dossier": "images/applis/spotify",
+    "note": "Minhas playlists pra estudar, os podcasts no caminho pra aula e as músicas que eu ouço no repeat"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Clue",
+    "dossier": "images/applis/clue",
+    "note": "Tracks your cycle with clear, science-based info, so you know what's coming and why"
+   },
+   "es": {
+    "nom": "Clue",
+    "dossier": "images/applis/clue",
+    "note": "Sigue tu ciclo con información clara y basada en la ciencia, para saber qué viene y por qué"
+   },
+   "it": {
+    "nom": "Clue",
+    "dossier": "images/applis/clue",
+    "note": "Segue il tuo ciclo con informazioni chiare e basate sulla scienza, così sai cosa arriva e perché"
+   },
+   "pt-BR": {
+    "nom": "Clue",
+    "dossier": "images/applis/clue",
+    "note": "Acompanha seu ciclo com informações claras e baseadas em ciência, pra você saber o que vem e por quê"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Picsart",
+    "dossier": "images/applis/picsart",
+    "note": "Edits, collages and stickers for every photo dump. I make all my stories here"
+   },
+   "es": {
+    "nom": "Picsart",
+    "dossier": "images/applis/picsart",
+    "note": "Edición, collages y stickers para cada photo dump. Hago todas mis stories aquí"
+   },
+   "it": {
+    "nom": "Picsart",
+    "dossier": "images/applis/picsart",
+    "note": "Modifiche, collage e sticker per ogni photo dump. Faccio tutte le mie storie qui"
+   },
+   "pt-BR": {
+    "nom": "Picsart",
+    "dossier": "images/applis/picsart",
+    "note": "Edição, colagens e figurinhas pra cada photo dump. Faço todos os meus stories aqui"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

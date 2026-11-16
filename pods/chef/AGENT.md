@@ -49,7 +49,7 @@ Les podz :
 | 15 · Remakes @sagace.fr (Sophia) | `sagace` | `session_017c8FRYHR6JY3Ltj2xa2Ftw` | sagace (Sophia seul, voie 2, en français ; lancé par Adrien le 15/11, pilote sg-001 ; comptes par « démarrage d'un podz » ou Pilotage) |
 | 16 · Originaux @dorian.frog (Sophia) | `dorian` | `session_017c8FRXy9zA7uNry6RREAEV` | dorian (Sophia seul, images finies, en anglais ; icebergs et listes « niche » au style exact de @dorian.frog ; lancé par Adrien le 15/11, pilote dr-001) |
 | 17 · Originaux @theappshelf (Sophia) | `appshelf` | `session_017c8FRWZLUvdhYUiNBvRmdo` | appshelf (Sophia seul, images finies, en anglais, genre femme ; cinq vraies applis dont Sophia, au style exact de @theappshelf ; lancé par Adrien le 15/11, pilote as-001) |
-| 18 · Originaux @iinspogiirly (Sophia) | `inspogirly` | session à créer | inspogirly (Sophia seul, images finies, en anglais, genre femme ; « 4 apps every girl needs » au style exact de @iinspogiirly, couverture en trois photos, applis douces sans cycle, dont Sophia ; lancé par Adrien le 16/11, pilote ig-001) |
+| 18 · Originaux @iinspogiirly (Sophia) | `inspogirly` | `session_017c8FRY98W6VXYGxJbXtwx8` | inspogirly (Sophia seul, images finies, en anglais, genre femme ; « 4 apps every girl needs » au style exact de @iinspogiirly, couverture en trois photos, applis douces sans cycle, dont Sophia ; lancé par Adrien le 16/11, pilote ig-001) |
 
 ## Règles absolues
 

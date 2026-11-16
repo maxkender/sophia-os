@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o134",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "77fd7015-9af0-4ea4-af0e-a3f19ce8bb6f",
+ "titre": "How to reinvent yourself as a man in 6 months #selfimprovement #men #discipline #reinvent #mindset",
+ "musique_titre": "Expansion",
+ "musique_url": "https://www.tiktok.com/music/expansion-7383085187666184209",
+ "inspirations": [
+  "77fd7015-9af0-4ea4-af0e-a3f19ce8bb6f"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 16/11. Déclinaison G1 de la ligne 9 (parent 77fd7015, @selfsculpt_, langue source en ; meilleur passage el 4,8 k). Accroche du parent mot pour mot. Format du parent : « N. Titre: » puis une phrase et des puces. Étapes neuves, aucune du parent (entourage, sport 3 fois, compétence qui paie, suivre ses pensées). Rien sur l'argent ni d'autre appli. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 5) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7dcf5244",
+   "texte_overlay": "How to reinvent yourself\nas a man in 6 months:",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684037235796118806/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "00fb9dca",
+   "texte_overlay": "1. Rebuild your mornings:\nThe day follows the first hour.\n• Same wake-up time\n• No phone for 30 minutes\n• Move before you scroll",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684037235796118806/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "042c058b",
+   "texte_overlay": "2. Upgrade how you show up:\nPeople read you before you speak.\n• Clothes that fit\n• Haircut every 4 weeks\n• Stand up straight",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684037235796118806/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a6d07138",
+   "texte_overlay": "3. Feed your mind daily:\nA new man needs new ideas.\n• One book a month\n• One lesson a day\n• One new topic a week",
+   "texte_sophia": "3. Feed your mind daily:\nA new man needs new ideas.\n• One book a month\n• One lesson a day on the Sophia app\n• One new topic a week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684037235796118806/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02798f99",
+   "texte_overlay": "4. Show up for people:\nReinvention isn't hiding.\n• Call one friend a week\n• Keep every small promise\n• Host one dinner a month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7684037235796118806/5.jpg"
+  }
+ ]
+}

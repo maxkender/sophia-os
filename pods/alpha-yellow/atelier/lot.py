@@ -84,6 +84,8 @@ def main():
   avant = sorted(f for f in glob.glob("originaux/ay-o*.json") if int(f[-8:-5]) < premier)[-200:]
   recents = {s["media_id"][:8] for f in avant for s in json.load(open(f))["slides"]}
   exclus = set(ns.get("EXCLUS", []))
+  # images vues avec cigarette, alcool, pilules, enfants... sur un aperçu : jamais reprises
+  if os.path.exists("atelier/exclues.json"): exclus |= set(json.load(open("atelier/exclues.json")))
   sons20 = [json.load(open(f))["musique_url"] for f in avant[-20:]]
 
   def leg(k): return (IM[k].get("legende") or "").lower()

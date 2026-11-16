@@ -1,0 +1,259 @@
+{
+ "id": "dr-009",
+ "format": "liste",
+ "titre": {
+  "en": "5 niche habits of people who read 50 books a year",
+  "de": "5 gewohnheiten von leuten, die 50 bücher im jahr lesen",
+  "it": "5 abitudini di nicchia di chi legge 50 libri all'anno",
+  "pt-BR": "5 hábitos nichados de quem lê 50 livros por ano",
+  "tr": "yılda 50 kitap okuyanların 5 niş alışkanlığı",
+  "sv": "5 nischade vanor hos folk som läser 50 böcker om året",
+  "nl": "5 niche gewoontes van wie 50 boeken per jaar leest"
+ },
+ "legendes": {
+  "en": "#niche #booktok #reading #lockedin",
+  "de": "#booktok #lesen #bücher #gewohnheiten",
+  "it": "#booktok #lettura #libri #abitudini",
+  "pt-BR": "#booktok #leitura #livros #hábitos",
+  "tr": "#booktok #okuma #kitap #alışkanlık",
+  "sv": "#booktok #läsning #böcker #vanor",
+  "nl": "#booktok #lezen #boeken #gewoontes"
+ },
+ "musique": {
+  "titre": "WISTED - Slowed - UdieNnx & HXVSAGE & DXNOHU",
+  "url": "https://www.tiktok.com/music/WISTED-Slowed-7498688645760944129"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes « 5 niche habits of … » (293 k, 569 k). Faits : règle des 50 (Nancy Pearl), 20 pages × 365 ≈ 7 300 pages ≈ 24 livres. Tableaux AIC (domaine public) : Manet (« Woman Reading »), Corot (« Interrupted Reading »), Maître des demi-figures féminines, Van der Pluym ; couverture Seedream. Sophia en item 3 sur 5 (cta B), écran « cours » traduit. 7 langues.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of people who read 50 books a year",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(no speed reading)"
+   },
+   "de": {
+    "titre": "5 gewohnheiten von leuten, die 50 bücher im jahr lesen",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(ohne speed reading)"
+   },
+   "it": {
+    "titre": "5 abitudini di nicchia di chi legge 50 libri all'anno",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(niente lettura veloce)"
+   },
+   "pt-BR": {
+    "titre": "5 hábitos nichados de quem lê 50 livros por ano",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(sem leitura dinâmica)"
+   },
+   "tr": {
+    "titre": "yılda 50 kitap okuyanların 5 niş alışkanlığı",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(hızlı okuma yok)"
+   },
+   "sv": {
+    "titre": "5 nischade vanor hos folk som läser 50 böcker om året",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(ingen snabbläsning)"
+   },
+   "nl": {
+    "titre": "5 niche gewoontes van wie 50 boeken per jaar leest",
+    "image": "images/bibliotheque-chaude.jpg",
+    "legende": "(geen snellezen)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Always carry a book",
+    "texte": "a paperback in your bag, an ebook on your phone. ten minutes in a queue, ten on the bus: that's 20 pages a day without trying",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "de": {
+    "titre": "Hab immer ein Buch dabei",
+    "texte": "ein taschenbuch in der tasche, ein e-book auf dem handy. zehn minuten in der schlange, zehn im bus: 20 seiten am tag, ohne es zu merken",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "it": {
+    "titre": "Porta sempre un libro",
+    "texte": "un tascabile in borsa, un ebook sul telefono. dieci minuti in fila, dieci sul bus: 20 pagine al giorno senza fatica",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "pt-BR": {
+    "titre": "Ande sempre com um livro",
+    "texte": "um livro de bolso na mochila, um ebook no celular. dez minutos na fila, dez no ônibus: 20 páginas por dia sem esforço",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "tr": {
+    "titre": "Yanında hep bir kitap olsun",
+    "texte": "çantada bir cep kitabı, telefonda bir e-kitap. kuyrukta on dakika, otobüste on dakika: zorlanmadan günde 20 sayfa",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "sv": {
+    "titre": "Ha alltid en bok med dig",
+    "texte": "en pocket i väskan, en e-bok i mobilen. tio minuter i kön, tio på bussen: 20 sidor om dagen utan att försöka",
+    "image": "images/lectrice-manet.jpg"
+   },
+   "nl": {
+    "titre": "Heb altijd een boek bij je",
+    "texte": "een pocket in je tas, een e-book op je telefoon. tien minuten in de rij, tien in de bus: 20 pagina's per dag zonder moeite",
+    "image": "images/lectrice-manet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Read three at once",
+    "texte": "one heavy, one fun, one non-fiction. you pick the one that fits your mood, so you never stop reading",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "de": {
+    "titre": "Lies drei gleichzeitig",
+    "texte": "eins schwer, eins leicht, ein sachbuch. du nimmst das, was zu deiner laune passt, und hörst nie auf zu lesen",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "it": {
+    "titre": "Leggine tre insieme",
+    "texte": "uno impegnativo, uno leggero, un saggio. scegli quello che va col tuo umore, così non smetti mai di leggere",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "pt-BR": {
+    "titre": "Leia três ao mesmo tempo",
+    "texte": "um pesado, um leve, um de não ficção. você escolhe o que combina com seu humor e nunca para de ler",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "tr": {
+    "titre": "Aynı anda üç kitap oku",
+    "texte": "bir ağır, bir hafif, bir de kurgu dışı. ruh haline uyanı seçersin, böylece okumayı hiç bırakmazsın",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "sv": {
+    "titre": "Läs tre samtidigt",
+    "texte": "en tung, en rolig, en facklitteratur. du väljer den som passar ditt humör, så du slutar aldrig läsa",
+    "image": "images/lectrice-corot.jpg"
+   },
+   "nl": {
+    "titre": "Lees er drie tegelijk",
+    "texte": "één zware, één leuke, één non-fictie. je pakt wat bij je bui past, dus je stopt nooit met lezen",
+    "image": "images/lectrice-corot.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "it's like a tiny lecture every morning: history, philosophy, science, economics. 10 minutes, then a quiz",
+    "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "wie eine kleine vorlesung jeden morgen: geschichte, philosophie, wissenschaft, wirtschaft. 10 minuten, dann ein quiz",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "come una piccola lezione universitaria ogni mattina: storia, filosofia, scienze, economia. 10 minuti, poi un quiz",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "tipo uma mini aula toda manhã: história, filosofia, ciência, economia. 10 minutos, e depois um quiz",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "her sabah minik bir ders gibi: tarih, felsefe, bilim, ekonomi. 10 dakika, sonra bir quiz",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "som en liten föreläsning varje morgon: historia, filosofi, vetenskap, ekonomi. 10 minuter, sen ett quiz",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie. 10 minuten, daarna een quiz",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Quit bad books",
+    "texte": "not hooked by page 50? drop it. librarians call it the rule of 50. the next book might be the one",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "de": {
+    "titre": "Brich schlechte Bücher ab",
+    "texte": "nach 50 seiten noch nicht gepackt? weg damit. bibliothekare nennen das die 50-seiten-regel. das nächste buch könnte das richtige sein",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "it": {
+    "titre": "Molla i libri brutti",
+    "texte": "non ti ha preso entro pagina 50? lascialo. i bibliotecari la chiamano la regola del 50. il prossimo libro potrebbe essere quello giusto",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "pt-BR": {
+    "titre": "Largue livros ruins",
+    "texte": "não te prendeu até a página 50? larga. bibliotecários chamam isso de regra dos 50. o próximo livro pode ser o certo",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "tr": {
+    "titre": "Kötü kitapları bırak",
+    "texte": "50. sayfaya kadar seni yakalamadıysa bırak. kütüphaneciler buna 50 kuralı der. bir sonraki kitap aradığın olabilir",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "sv": {
+    "titre": "Lägg ner dåliga böcker",
+    "texte": "inte fast efter sida 50? lägg ner den. bibliotekarier kallar det 50-sidorsregeln. nästa bok kan vara den rätta",
+    "image": "images/lectrice-fenetre.jpg"
+   },
+   "nl": {
+    "titre": "Stop met slechte boeken",
+    "texte": "na pagina 50 nog niet gegrepen? weg ermee. bibliothecarissen noemen het de regel van 50. het volgende boek kan het zijn",
+    "image": "images/lectrice-fenetre.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Pages, not scrolling",
+    "texte": "swap the last 20 minutes of scrolling for 20 pages. that's about 7,000 pages a year: two dozen books from one habit",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "de": {
+    "titre": "Seiten statt Scrollen",
+    "texte": "tausch die letzten 20 minuten scrollen gegen 20 seiten. das sind rund 7.000 seiten im jahr: zwei dutzend bücher aus einer gewohnheit",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "it": {
+    "titre": "Pagine, non scroll",
+    "texte": "cambia gli ultimi 20 minuti di scroll con 20 pagine. sono circa 7.000 pagine all'anno: due dozzine di libri da un'abitudine sola",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "pt-BR": {
+    "titre": "Páginas, não rolagem",
+    "texte": "troque os últimos 20 minutos de rolagem por 20 páginas. são umas 7.000 páginas por ano: duas dúzias de livros com um hábito só",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "tr": {
+    "titre": "Kaydırmak yerine sayfa",
+    "texte": "kaydırdığın son 20 dakikayı 20 sayfayla değiştir. yılda yaklaşık 7.000 sayfa: tek bir alışkanlıktan iki düzine kitap",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "sv": {
+    "titre": "Sidor, inte scroll",
+    "texte": "byt de sista 20 minuterna scrollande mot 20 sidor. det blir runt 7 000 sidor om året: två dussin böcker från en enda vana",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "nl": {
+    "titre": "Pagina's, geen scrollen",
+    "texte": "ruil de laatste 20 minuten scrollen in voor 20 pagina's. dat is zo'n 7.000 pagina's per jaar: twee dozijn boeken uit één gewoonte",
+    "image": "images/vieil-homme-livre.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

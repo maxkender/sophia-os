@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Check, ChevronRight, ExternalLink, RefreshCw } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
+import { RattrapageSamedi } from "@/features/ckd/decisions/RattrapageSamedi";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -244,6 +245,9 @@ export function AdminCheckKillDoublePage() {
           </Button>
         ))}
       </div>
+
+      {/* 16/11 : le samedi de la semaine passée pas validé (kills en brouillon) : à valider ici. */}
+      <RattrapageSamedi />
 
       <PlateformeDecisions.Provider value={plateforme}>
       <PanneauOnglet id="decisions" actif={onglet}>

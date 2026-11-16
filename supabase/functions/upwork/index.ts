@@ -1652,6 +1652,11 @@ async function testFermeture(supabase: Supabase, par: string | null, contratId: 
     raison_obligatoire: requis.some((n) => /reason/i.test(n)),
   };
   await noter(supabase, { par, action: "test_fermeture_bilan", contrat: contratId, reponse: { etapes, bilan }, erreur });
+  // 16/11 : le résultat reste (la réponse brute est purgée après 24 h) ; c'est lui qui autorise les fins de contrat.
+  await supabase.from("reglages").upsert(
+    { cle: "test_fermeture", valeur: { at: new Date().toISOString(), contrat: contratId, contrat_ferme: erreur === null && bilan.contrat_ferme === true } },
+    { onConflict: "cle" },
+  );
   return { ok: erreur === null, error: erreur ?? undefined, etapes, bilan };
 }
 
@@ -4666,14 +4671,24 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
  * contrat sans erreur ? Sinon, aucune fermeture par l'API.
  */
 async function fermetureTestee(supabase: Supabase): Promise<boolean> {
+  // 16/11 : le résultat du dernier test, gardé dans Réglages (la réponse brute de l'API est purgée après
+  // 24 h, conditions de l'API : depuis le 31/10, plus aucun contrat n'était fermé, faute de preuve).
+  const { data: r } = await supabase.from("reglages").select("valeur").eq("cle", "test_fermeture").maybeSingle();
+  const garde = r?.valeur as { contrat_ferme?: boolean } | null | undefined;
+  if (garde && typeof garde.contrat_ferme === "boolean") return garde.contrat_ferme;
   const { data } = await supabase
     .from("upwork_appels")
-    .select("erreur, reponse")
+    .select("at, erreur, reponse")
     .eq("action", "test_fermeture_bilan")
     .order("at", { ascending: false })
     .limit(1);
-  const d = (data ?? [])[0] as { erreur: string | null; reponse: { bilan?: { contrat_ferme?: boolean } } | null } | undefined;
-  return !!d && !d.erreur && d.reponse?.bilan?.contrat_ferme === true;
+  const d = (data ?? [])[0] as { at: string; erreur: string | null; reponse: { bilan?: { contrat_ferme?: boolean } } | null } | undefined;
+  if (!d || d.erreur) return false;
+  if (d.reponse) return d.reponse.bilan?.contrat_ferme === true;
+  // Réponse purgée : la preuve est une vraie fermeture réussie par l'API après ce test.
+  const { count } = await supabase.from("upwork_appels").select("id", { count: "exact", head: true })
+    .in("action", ["fermer_contrat", "sans_posteur_fermer"]).is("erreur", null).gt("at", d.at);
+  return (count ?? 0) > 0;
 }
 
 /**
@@ -4795,6 +4810,19 @@ async function finsDeContrat(supabase: Supabase, par: string | null, reel: boole
         }
         if (semaine === "zero" && plan.rembourser.length) {
           nouvelles.push(etape("remboursement", "a_faire", `Ask for a refund : ${decrireJalons(plan.rembourser)} (liste de paie)`));
+        }
+        // 16/11 (Max) : une milestone encore financée au Kill → « payer ou rembourser » dans sa liste.
+        if (reel && plan.rembourser.length) {
+          const { data: pr } = await supabase.from("profiles").select("prenom, nom").eq("id", f.poster_id).maybeSingle();
+          const nom = [pr?.prenom, pr?.nom].filter(Boolean).join(" ") || f.poster_id;
+          await aFaire(supabase, {
+            cle: `kill:${f.poster_id}:${f.semaine}`,
+            titre: `Kill ${nom} : milestone financée, payer ou rembourser`,
+            detail: semaine === "zero"
+              ? `${decrireJalons(plan.rembourser)} : rien n'est dû pour la semaine, demander le remboursement ; le contrat se termine`
+              : `${decrireJalons(plan.rembourser)} : la payer ou demander le remboursement, puis terminer le contrat`,
+            poster_id: f.poster_id, contrat_id: f.contrat_id, semaine: f.semaine,
+          });
         }
         const fin = planFinContrat(plan, semaine);
         if (!fin.fermer) {

@@ -1,0 +1,51 @@
+{
+ "source_id": "rh-o240",
+ "type_bleo": "full_test",
+ "titre": "ce que j'aurais aimé savoir avant mon premier entretien annuel #entretienannuel #travail #carriere #manager #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 16/11 (3 full tests seulement : banque d'images épuisée par la règle des 14 jours). cta A (confession à la 1re personne), slide Sophia en position 4. Full test : accroche jamais faite chez nous (le premier entretien annuel). 6 slides, banque d'images réduite. Inspirations reprises de rh-o235. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "82030cf3",
+   "texte_overlay": "ce que j'aurais aimé savoir\navant mon premier\nentretien annuel",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bace0ae7",
+   "texte_overlay": "ce n'est pas un examen\nc'est une conversation sur ton année",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c186d0f0",
+   "texte_overlay": "viens avec 3 réussites écrites\navec des chiffres si possible",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b62e34ae",
+   "texte_overlay": "parle de ce que tu veux apprendre\nperso, j'ai dit ce que j'apprenais déjà, 5 minutes par jour",
+   "texte_sophia": "parle de ce que tu veux apprendre\nperso, j'ai dit ce que j'apprenais déjà, 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "da6c5683",
+   "texte_overlay": "demande ce qu'on attend de toi l'an prochain\net note-le",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "db64b0ae",
+   "texte_overlay": "ton premier entretien annuel, c'était quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

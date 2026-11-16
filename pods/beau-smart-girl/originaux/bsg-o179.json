@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o179",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8d4b10af-807f-4470-8df7-3819ad9e5cf4",
+  "titre": "tout ce que j'ai tenté pour décrocher de mon téléphone, noté de 0 à 10 #scroll #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "8d4b10af-807f-4470-8df7-3819ad9e5cf4"
+  ],
+  "notes": "G2, déclinaison de 8d4b10af (« je note toutes les choses les plus folles que j'ai faites pour arrêter de scroller », G1 gagnante, génération 1 en français ; meilleur passage de 4,8 k vues, r 4,16), en français. Accroche reformulée : « tout ce que j'ai tenté pour décrocher de mon téléphone, noté de 0 à 10 » (autres mots que bsg-o170). cta A (avant / après sur le dernier item). Essais neufs (rien de repris de bsg-o065, o103, o170 ni du parent). Routine du 16/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 et 9 de la boîte se déclinent proprement, donc 2 déclinaisons et 6 full tests. Lignes sautées : 2 (« validé par les neurosciences »), 3 (accroche illisible), 4, 7 et 8 (« backed by science », bienfaits santé invérifiables), 5 (« enterimarnt »), 6 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "832a78ef",
+      "texte_overlay": "tout ce que j'ai tenté\npour décrocher de mon téléphone,\nnoté de 0 à 10",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "dd2cc75e",
+      "texte_overlay": "1. le mettre en noir et blanc\n\n4/10\nmoins joli. mais je scrollais quand même.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ddab0277",
+      "texte_overlay": "2. une règle : pas de téléphone à table\n\n8/10\nles dîners ont changé. on se parle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ddaf5dc9",
+      "texte_overlay": "3. un minuteur de cuisine pour mes pauses\n\n7/10\nquand il sonne, je repose tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ddd9e319",
+      "texte_overlay": "4. laisser le téléphone à l'entrée en rentrant\n\n9/10\nla maison est redevenue calme.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "25450fc0",
+      "texte_overlay": "5. donner une meilleure raison à mon matin\n\navant, j'ouvrais les réseaux avant même de me lever.\nmaintenant, j'apprends un truc sur le monde chaque matin. 10/10.",
+      "texte_sophia": "5. donner une meilleure raison à mon matin\n\navant, j'ouvrais les réseaux avant même de me lever.\nmaintenant, j'ouvre l'appli Sophia chaque matin. 10/10.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "de22aa81",
+      "texte_overlay": "et toi, ta technique ?\nje la teste et je la note.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

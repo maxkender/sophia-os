@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o180",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "077d4990-cb90-4d3c-94ef-8d4ee34f029e",
+  "titre": "5 habitudes pour devenir dangereusement sur-éduqué (venant d'une étudiante de l'ENS) #culture #etudiante #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "077d4990-cb90-4d3c-94ef-8d4ee34f029e"
+  ],
+  "notes": "G1, déclinaison de 077d4990 (« 5 habitudes pour devenir dangereusement sur-éduqué (venant d'une étudiante de l'ENS) », génération 0 en français ; meilleur passage tr 4,7 k vues, r 3,81), en français. cta B (l'anecdote du jour en item 3). Accroche recopiée mot pour mot (« sur-éduqué » au masculin, comme le parent). Habitudes neuves (rien de repris du parent : ni livre d'histoire, ni esprit critique tel quel). Fait vérifié le 12/11 sur https://en.wikipedia.org/wiki/Statue_of_Liberty : « a gift to the United States from the people of France », « dedicated on October 28, 1886 ». Routine du 16/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 et 9 de la boîte se déclinent proprement, donc 2 déclinaisons et 6 full tests. Lignes sautées : 2 (« validé par les neurosciences »), 3 (accroche illisible), 4, 7 et 8 (« backed by science », bienfaits santé invérifiables), 5 (« enterimarnt »), 6 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "de3388bf",
+      "texte_overlay": "5 habitudes pour devenir\ndangereusement sur-éduqué\n(venant d'une étudiante de l'ENS)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "de93e8c1",
+      "texte_overlay": "1. lire les notes de bas de page\n\nc'est là que les auteurs cachent\nleurs meilleures idées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "df17f944",
+      "texte_overlay": "2. lire deux livres qui ne sont pas d'accord\n\nsur le même sujet.\nton avis devient vraiment le tien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "82fff8d3",
+      "texte_overlay": "3. relier chaque fait à une histoire\n\nce matin, j'ai appris que la statue de la liberté est un cadeau du peuple français, inaugurée en 1886.\nje ne l'oublierai plus.",
+      "texte_sophia": "3. relier chaque fait à une histoire\n\nce matin, l'appli Sophia m'a appris que la statue de la liberté est un cadeau du peuple français, inaugurée en 1886.\nje ne l'oublierai plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "df3d0fb4",
+      "texte_overlay": "4. expliquer ce que tu apprends\n\nà quelqu'un qui n'y connaît rien.\nsi tu bloques, tu n'as pas compris.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "df728451",
+      "texte_overlay": "5. aller aux conférences gratuites\n\nles universités en organisent souvent.\nles meilleurs profs, sans payer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "df968206",
+      "texte_overlay": "tu commences par laquelle ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

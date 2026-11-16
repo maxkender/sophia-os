@@ -1,0 +1,618 @@
+{
+ "id": "dr-008",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of old soul hobbies",
+  "de": "Der Eisberg der Hobbys alter Seelen",
+  "it": "Iceberg degli hobby da anima antica",
+  "pt-BR": "Iceberg de hobbies de alma velha",
+  "tr": "Yaşlı ruhların hobi buzdağı",
+  "sv": "Isberget av gamla själars hobbyer",
+  "nl": "IJsberg van hobby's van oude zielen"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #oldsoul #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #alteseele #selbstverbesserung",
+  "it": "#iceberg #hobby #animaantica #crescitapersonale",
+  "pt-BR": "#iceberg #hobbies #almavelha #autoconhecimento",
+  "tr": "#buzdağı #hobi #yaşlıruh #kişiselgelişim",
+  "sv": "#isberg #hobbyer #gammalsjäl #självutveckling",
+  "nl": "#ijsberg #hobbys #oudeziel #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "original sound - mel - mel",
+  "url": "https://www.tiktok.com/music/original-sound-7430692417982057249"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs (2 M, 1,1 M) : « old soul hobbies ». Sophia au 2e étage (« daily sophia lessons », icône). Objets Seedream. 7 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "old soul hobbies"
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Hobbys alter Seelen"
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da anima antica"
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de alma velha"
+   },
+   "tr": {
+    "haut": "Yaşlı ruhların",
+    "bas": "hobi buzdağı"
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "gamla själars hobbyer"
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van oude zielen"
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "vinyl records",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "handwritten letters",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "gardening",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "baking bread",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "knitting",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "film photography",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "jigsaw puzzles",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "quill pens",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "collecting old maps",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "pressing flowers",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "fixing old radios",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "using a typewriter",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "schallplatten",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "briefe von hand",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "gärtnern",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "brot backen",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "stricken",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "analog fotografieren",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "puzzeln",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "vögel beobachten",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "mit feder schreiben",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "alte karten sammeln",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "blumen pressen",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "latein lernen",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "alte radios reparieren",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "schreibmaschine",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "vinili",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "lettere a mano",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "giardinaggio",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "fare il pane",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "lavorare a maglia",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "fotografia analogica",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "puzzle",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "birdwatching",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "calligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "penna d'oca",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "collezionare mappe",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "fiori pressati",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "imparare il latino",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "aggiustare radio vecchie",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "macchina da scrivere",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "discos de vinil",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "escrever cartas",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "jardinagem",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "fazer pão",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "tricô",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "fotografia analógica",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "quebra-cabeça",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "observar pássaros",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "caligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "escrever com pena",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "colecionar mapas",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "prensar flores",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "aprender latim",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "consertar rádios antigos",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "máquina de escrever",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "plak dinlemek",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "elle mektup",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "bahçecilik",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "ekmek yapmak",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "örgü örmek",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "analog fotoğraf",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "yapboz",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "kuş gözlemi",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "kaligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "tüy kalem",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "eski harita toplamak",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "çiçek kurutmak",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "latince öğrenmek",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "eski radyo tamiri",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "daktiloyla yazmak",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "vinylskivor",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "handskrivna brev",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "trädgård",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "baka bröd",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "sticka",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "analog fotografi",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "pussel",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "skåda fåglar",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "kalligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "fjäderpenna",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "samla gamla kartor",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "pressa blommor",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "lära sig latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "laga gamla radior",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "skriva på skrivmaskin",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "vinylplaten",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "brieven met de hand",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "tuinieren",
+       "image": "images/objets/arrosoir.png"
+      },
+      {
+       "t": "brood bakken",
+       "image": "images/objets/pain.png"
+      }
+     ],
+     [
+      {
+       "t": "breien",
+       "image": "images/objets/tricot.png"
+      },
+      {
+       "t": "analoge fotografie",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "puzzelen",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "vogels kijken",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "ganzenveer",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "oude kaarten",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "bloemen drogen",
+       "image": "images/objets/fleurs-sechees.png"
+      },
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "oude radio's repareren",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "typen op een typemachine",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

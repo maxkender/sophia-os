@@ -1,0 +1,264 @@
+{
+ "id": "dr-007",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696252759917481236",
+  "vues": 382200,
+  "publie_le": "2026-10-13",
+  "accroche": "10/10 skills to learn if you have ADHD"
+ },
+ "titre": {
+  "en": "10/10 skills to learn if you get bored easily",
+  "de": "10/10 skills gegen schnelle langeweile",
+  "it": "skill 10/10 da imparare se ti annoi facilmente",
+  "pt-BR": "habilidades 10/10 pra aprender se você se entedia fácil",
+  "tr": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
+  "sv": "10/10-färdigheter att lära sig om du lätt blir uttråkad",
+  "nl": "10/10 skills om te leren als je je snel verveelt"
+ },
+ "legendes": {
+  "en": "#niche #skills #selfimprovement #lockedin",
+  "de": "#skills #lernen #selbstverbesserung #nische",
+  "it": "#skill #imparare #crescitapersonale #nicchia",
+  "pt-BR": "#habilidades #aprender #autodesenvolvimento #nicho",
+  "tr": "#beceri #öğrenmek #kişiselgelişim #niş",
+  "sv": "#färdigheter #lärande #självutveckling #nisch",
+  "nl": "#skills #leren #zelfontwikkeling #niche"
+ },
+ "musique": {
+  "titre": "nhạc nền - Gia Đình Huấn Hoa Hồng",
+  "url": "https://www.tiktok.com/music/nhac-nen-7505339122241424145"
+ },
+ "notes": "Original sur sa liste « 10/10 skills to learn if you have ADHD » (382 k) : même accroche « 10/10 skills », public « tu t'ennuies vite ». Faits : cascade à 3 balles, SOS (··· ––– ···), astuce du 11 (34 × 11 = 374). Images : Seedream (jonglage, machine à écrire, objet morse), tableau AIC « Heraclitus » (dr-001) ; couverture Seedream. Sophia en item 3 sur 5 (cta A), écran accueil traduit. 7 langues.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "10/10 skills to learn if you get bored easily",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(no talent needed)"
+   },
+   "de": {
+    "titre": "10/10 skills gegen schnelle langeweile",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(kein talent nötig)"
+   },
+   "it": {
+    "titre": "skill 10/10 da imparare se ti annoi facilmente",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(non serve talento)"
+   },
+   "pt-BR": {
+    "titre": "habilidades 10/10 pra aprender se você se entedia fácil",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(não precisa de talento)"
+   },
+   "tr": {
+    "titre": "çabuk sıkılıyorsan öğrenmen gereken 10/10 beceriler",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(yetenek gerekmez)"
+   },
+   "sv": {
+    "titre": "10/10-färdigheter att lära sig om du lätt blir uttråkad",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(ingen talang krävs)"
+   },
+   "nl": {
+    "titre": "10/10 skills om te leren als je je snel verveelt",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(geen talent nodig)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Juggling",
+    "texte": "three balls, ten minutes a day. most people get a basic cascade within a few days, and it's the best break your brain will ever take",
+    "image": "images/jonglage.jpg"
+   },
+   "de": {
+    "titre": "Jonglieren",
+    "texte": "drei bälle, zehn minuten am tag. die meisten schaffen die grundkaskade in ein paar tagen, und es ist die beste pause für dein gehirn",
+    "image": "images/jonglage.jpg"
+   },
+   "it": {
+    "titre": "Giocoleria",
+    "texte": "tre palline, dieci minuti al giorno. quasi tutti imparano la cascata base in pochi giorni, ed è la pausa migliore per il cervello",
+    "image": "images/jonglage.jpg"
+   },
+   "pt-BR": {
+    "titre": "Malabarismo",
+    "texte": "três bolinhas, dez minutos por dia. a maioria aprende a cascata básica em poucos dias, e é a melhor pausa pro seu cérebro",
+    "image": "images/jonglage.jpg"
+   },
+   "tr": {
+    "titre": "Jonglörlük",
+    "texte": "üç top, günde on dakika. çoğu insan temel kaskadı birkaç günde öğrenir ve bu, beynin için en iyi moladır",
+    "image": "images/jonglage.jpg"
+   },
+   "sv": {
+    "titre": "Jonglering",
+    "texte": "tre bollar, tio minuter om dagen. de flesta klarar en enkel kaskad på några dagar, och det är den bästa pausen din hjärna kan få",
+    "image": "images/jonglage.jpg"
+   },
+   "nl": {
+    "titre": "Jongleren",
+    "texte": "drie ballen, tien minuten per dag. de meeste mensen kunnen de basiscascade binnen een paar dagen, en het is de beste pauze voor je brein",
+    "image": "images/jonglage.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Morse code",
+    "texte": "learn it by sound, not by dots and dashes. sos is three short, three long, three short. once you know it, you hear it everywhere",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "de": {
+    "titre": "Morsecode",
+    "texte": "lern ihn über den klang, nicht über punkte und striche. sos ist dreimal kurz, dreimal lang, dreimal kurz. danach hörst du ihn überall",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "it": {
+    "titre": "Alfabeto morse",
+    "texte": "imparalo a orecchio, non con punti e linee. sos è tre brevi, tre lunghi, tre brevi. poi lo senti ovunque",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "pt-BR": {
+    "titre": "Código morse",
+    "texte": "aprenda pelo som, não por pontos e traços. sos é três curtos, três longos, três curtos. depois você ouve em todo lugar",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "tr": {
+    "titre": "Mors alfabesi",
+    "texte": "noktalarla değil, sesle öğren. sos üç kısa, üç uzun, üç kısa. öğrendikten sonra her yerde duyarsın",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "sv": {
+    "titre": "Morsekod",
+    "texte": "lär dig den via ljudet, inte via prickar och streck. sos är tre korta, tre långa, tre korta. sen hör du den överallt",
+    "image": "images/objets/manipulateur-morse.png"
+   },
+   "nl": {
+    "titre": "Morsecode",
+    "texte": "leer het via het geluid, niet via punten en strepen. sos is drie kort, drie lang, drie kort. daarna hoor je het overal",
+    "image": "images/objets/manipulateur-morse.png"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. a new topic every day, so you never get bored",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. jeden tag ein neues thema, also nie langweilig",
+    "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. ogni giorno un argomento nuovo, quindi non ti annoi mai",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. um assunto novo por dia, então nunca fica chato",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. her gün yeni bir konu, yani asla sıkılmazsın",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. ett nytt ämne varje dag, så det blir aldrig tråkigt",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. elke dag een nieuw onderwerp, dus nooit saai",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Mental math",
+    "texte": "start with the 11 trick: add the two digits and put the sum in the middle. 34 × 11 = 374. then learn your squares up to 25",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "de": {
+    "titre": "Kopfrechnen",
+    "texte": "fang mit dem 11er-trick an: addier die zwei ziffern und setz die summe in die mitte. 34 × 11 = 374. dann lern die quadratzahlen bis 25",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "it": {
+    "titre": "Calcolo mentale",
+    "texte": "inizia col trucco dell'11: somma le due cifre e metti il risultato in mezzo. 34 × 11 = 374. poi impara i quadrati fino a 25",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "pt-BR": {
+    "titre": "Cálculo mental",
+    "texte": "comece com o truque do 11: some os dois dígitos e coloque o resultado no meio. 34 × 11 = 374. depois aprenda os quadrados até 25",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "tr": {
+    "titre": "Zihinden hesap",
+    "texte": "11 hilesiyle başla: iki rakamı topla ve sonucu ortaya koy. 34 × 11 = 374. sonra 25'e kadar kareleri öğren",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "sv": {
+    "titre": "Huvudräkning",
+    "texte": "börja med 11-tricket: lägg ihop de två siffrorna och sätt summan i mitten. 34 × 11 = 374. lär dig sen kvadraterna upp till 25",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "nl": {
+    "titre": "Hoofdrekenen",
+    "texte": "begin met de 11-truc: tel de twee cijfers op en zet de som in het midden. 34 × 11 = 374. leer daarna de kwadraten tot 25",
+    "image": "images/heraclite-sphere.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Touch typing",
+    "texte": "never look at the keyboard. 15 minutes a day for a few weeks and you'll stop typing with two fingers forever",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "de": {
+    "titre": "Zehnfingersystem",
+    "texte": "schau nie auf die tastatur. ein paar wochen lang 15 minuten am tag, und du tippst nie wieder mit zwei fingern",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "it": {
+    "titre": "Dattilografia",
+    "texte": "non guardare mai la tastiera. 15 minuti al giorno per qualche settimana e non scriverai più con due dita",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "pt-BR": {
+    "titre": "Digitação",
+    "texte": "nunca olhe pro teclado. 15 minutos por dia por algumas semanas e você nunca mais digita com dois dedos",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "tr": {
+    "titre": "On parmak klavye",
+    "texte": "klavyeye hiç bakma. birkaç hafta boyunca günde 15 dakika ve bir daha asla iki parmakla yazmazsın",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "sv": {
+    "titre": "Touchmetoden",
+    "texte": "titta aldrig på tangentbordet. 15 minuter om dagen i några veckor, så skriver du aldrig med två fingrar igen",
+    "image": "images/machine-ecrire-scene.jpg"
+   },
+   "nl": {
+    "titre": "Blind typen",
+    "texte": "kijk nooit naar het toetsenbord. een paar weken 15 minuten per dag en je typt nooit meer met twee vingers",
+    "image": "images/machine-ecrire-scene.jpg"
+   }
+  }
+ ]
+}

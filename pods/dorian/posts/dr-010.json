@@ -1,0 +1,297 @@
+{
+ "id": "dr-010",
+ "format": "liste",
+ "titre": {
+  "en": "5 history facts that genuinely break your brain",
+  "de": "5 geschichtsfakten, die dein gehirn zerbrechen",
+  "it": "5 fatti storici che ti spaccano il cervello",
+  "pt-BR": "5 fatos históricos que dão um nó no cérebro",
+  "tr": "beynini yakan 5 tarih gerçeği",
+  "sv": "5 historiska fakta som får hjärnan att krascha",
+  "nl": "5 geschiedenisfeiten die je brein breken"
+ },
+ "legendes": {
+  "en": "#history #facts #smarttok #lockedin",
+  "de": "#geschichte #fakten #wissen #lernen",
+  "it": "#storia #curiosità #cultura #imparare",
+  "pt-BR": "#história #curiosidades #conhecimento #aprender",
+  "tr": "#tarih #bilgi #ilginçbilgiler #öğrenmek",
+  "sv": "#historia #fakta #kunskap #lärande",
+  "nl": "#geschiedenis #weetjes #kennis #leren"
+ },
+ "musique": {
+  "titre": "original sound - Neopatrickharris",
+  "url": "https://www.tiktok.com/music/original-sound-7687733674313288461"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à image (cerveau en IRM, « (all true) »). Faits vérifiés : Grande Pyramide v. 2560 av. J.-C., Cléopâtre † 30 av. J.-C., Apollo 11 en 1969 ; mammouths de l'île Wrangel jusque vers 2000 av. J.-C. ; enseignement à Oxford dès 1096, Tenochtitlan fondée en 1325 ; Napoléon env. 1,69 m (5 pieds 2 pouces français) ; premiers requins ~450 Ma, premiers arbres ~385 Ma. Images Seedream (pyramide, mammouth, Tenochtitlan, requin), tableau AIC Bellangé (« Battle Scene », dr-003). Sophia en item 3 sur 6 (cta C), écran « quiz » traduit. 7 langues.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 history facts that genuinely break your brain",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(all true)"
+   },
+   "de": {
+    "titre": "5 geschichtsfakten, die dein gehirn zerbrechen",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(alles wahr)"
+   },
+   "it": {
+    "titre": "5 fatti storici che ti spaccano il cervello",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(tutto vero)"
+   },
+   "pt-BR": {
+    "titre": "5 fatos históricos que dão um nó no cérebro",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(tudo verdade)"
+   },
+   "tr": {
+    "titre": "beynini yakan 5 tarih gerçeği",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(hepsi gerçek)"
+   },
+   "sv": {
+    "titre": "5 historiska fakta som får hjärnan att krascha",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(allt är sant)"
+   },
+   "nl": {
+    "titre": "5 geschiedenisfeiten die je brein breken",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(allemaal waar)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Cleopatra and the moon landing",
+    "texte": "cleopatra lived closer in time to the moon landing than to the building of the great pyramid. for her, it was already 2,500 years old",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "de": {
+    "titre": "Kleopatra und die Mondlandung",
+    "texte": "kleopatra lebte zeitlich näher an der mondlandung als am bau der großen pyramide. für sie war die schon 2.500 jahre alt",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "it": {
+    "titre": "Cleopatra e lo sbarco sulla Luna",
+    "texte": "cleopatra visse più vicina allo sbarco sulla luna che alla costruzione della grande piramide. per lei aveva già 2.500 anni",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "pt-BR": {
+    "titre": "Cleópatra e a chegada à Lua",
+    "texte": "cleópatra viveu mais perto da chegada à lua do que da construção da grande pirâmide. pra ela, a pirâmide já tinha 2.500 anos",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "tr": {
+    "titre": "Kleopatra ve Ay'a iniş",
+    "texte": "kleopatra, zaman olarak büyük piramidin inşasından çok ay'a inişe yakın yaşadı. onun için piramit zaten 2.500 yaşındaydı",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "sv": {
+    "titre": "Kleopatra och månlandningen",
+    "texte": "kleopatra levde närmare månlandningen i tid än bygget av den stora pyramiden. för henne var den redan 2 500 år gammal",
+    "image": "images/grande-pyramide.jpg"
+   },
+   "nl": {
+    "titre": "Cleopatra en de maanlanding",
+    "texte": "cleopatra leefde dichter bij de maanlanding dan bij de bouw van de grote piramide. voor haar was die al 2.500 jaar oud",
+    "image": "images/grande-pyramide.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Mammoths and the pyramids",
+    "texte": "woolly mammoths were still alive on an arctic island when the great pyramid was built. the last ones died about 4,000 years ago",
+    "image": "images/mammouth.jpg"
+   },
+   "de": {
+    "titre": "Mammuts und die Pyramiden",
+    "texte": "auf einer arktischen insel lebten noch wollhaarmammuts, als die große pyramide gebaut wurde. die letzten starben vor etwa 4.000 jahren",
+    "image": "images/mammouth.jpg"
+   },
+   "it": {
+    "titre": "I mammut e le piramidi",
+    "texte": "i mammut lanosi erano ancora vivi su un'isola artica quando fu costruita la grande piramide. gli ultimi morirono circa 4.000 anni fa",
+    "image": "images/mammouth.jpg"
+   },
+   "pt-BR": {
+    "titre": "Os mamutes e as pirâmides",
+    "texte": "mamutes-lanosos ainda viviam numa ilha do ártico quando a grande pirâmide foi construída. os últimos morreram há uns 4.000 anos",
+    "image": "images/mammouth.jpg"
+   },
+   "tr": {
+    "titre": "Mamutlar ve piramitler",
+    "texte": "büyük piramit inşa edilirken yünlü mamutlar arktik bir adada hâlâ yaşıyordu. sonuncuları yaklaşık 4.000 yıl önce öldü",
+    "image": "images/mammouth.jpg"
+   },
+   "sv": {
+    "titre": "Mammutar och pyramiderna",
+    "texte": "ullhåriga mammutar levde fortfarande på en arktisk ö när den stora pyramiden byggdes. de sista dog för ungefär 4 000 år sedan",
+    "image": "images/mammouth.jpg"
+   },
+   "nl": {
+    "titre": "Mammoeten en de piramides",
+    "texte": "wolharige mammoeten leefden nog op een arctisch eiland toen de grote piramide werd gebouwd. de laatste stierven zo'n 4.000 jaar geleden",
+    "image": "images/mammouth.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. it's where i find facts like these",
+    "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. da finde ich fakten wie diese",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. è lì che trovo fatti come questi",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. é lá que eu acho fatos como esses",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. bunun gibi bilgileri orada buluyorum",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. det är där jag hittar fakta som de här",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. daar vind ik feiten als deze",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Oxford is older than the Aztecs",
+    "texte": "teaching at oxford had already started by 1096. tenochtitlan, the aztec capital, was founded in 1325",
+    "image": "images/tenochtitlan.jpg"
+   },
+   "de": {
+    "titre": "Oxford ist älter als die Azteken",
+    "texte": "in oxford wurde schon 1096 gelehrt. tenochtitlan, die hauptstadt der azteken, wurde 1325 gegründet",
+    "image": "images/tenochtitlan.jpg"
+   },
+   "it": {
+    "titre": "Oxford è più antica degli Aztechi",
+    "texte": "a oxford si insegnava già nel 1096. tenochtitlan, la capitale azteca, fu fondata nel 1325",
+    "image": "images/tenochtitlan.jpg"
+   },
+   "pt-BR": {
+    "titre": "Oxford é mais antiga que os astecas",
+    "texte": "em oxford já se ensinava em 1096. tenochtitlán, a capital asteca, foi fundada em 1325",
+    "image": "images/tenochtitlan.jpg"
+   },
+   "tr": {
+    "titre": "Oxford, Azteklerden eski",
+    "texte": "oxford'da 1096'da zaten ders veriliyordu. aztek başkenti tenochtitlan ise 1325'te kuruldu",
+    "image": "images/tenochtitlan.jpg"
+   },
+   "sv": {
+    "titre": "Oxford är äldre än aztekerna",
+    "texte": "i oxford undervisade man redan 1096. tenochtitlan, aztekernas huvudstad, grundades 1325",
+    "image": "images/tenochtitlan.jpg"
+   },
+   "nl": {
+    "titre": "Oxford is ouder dan de Azteken",
+    "texte": "in oxford werd al in 1096 lesgegeven. tenochtitlan, de hoofdstad van de azteken, werd in 1325 gesticht",
+    "image": "images/tenochtitlan.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Napoleon wasn't short",
+    "texte": "he was about 1.69 m, average for a frenchman of his time. the myth comes from british cartoons and french inches being longer than english ones",
+    "image": "images/champ-bataille.jpg"
+   },
+   "de": {
+    "titre": "Napoleon war nicht klein",
+    "texte": "er war etwa 1,69 m groß, durchschnitt für einen franzosen seiner zeit. der mythos stammt aus britischen karikaturen und dem französischen zoll, der länger war als der englische",
+    "image": "images/champ-bataille.jpg"
+   },
+   "it": {
+    "titre": "Napoleone non era basso",
+    "texte": "era alto circa 1,69 m, nella media dei francesi del suo tempo. il mito nasce dalle vignette inglesi e dal pollice francese, più lungo di quello inglese",
+    "image": "images/champ-bataille.jpg"
+   },
+   "pt-BR": {
+    "titre": "Napoleão não era baixo",
+    "texte": "ele tinha cerca de 1,69 m, a média de um francês da época. o mito vem das charges britânicas e da polegada francesa, maior que a inglesa",
+    "image": "images/champ-bataille.jpg"
+   },
+   "tr": {
+    "titre": "Napolyon kısa değildi",
+    "texte": "boyu yaklaşık 1,69 m'ydi, döneminin fransızları için ortalama. efsane, ingiliz karikatürlerinden ve ingiliz inçinden uzun olan fransız inçinden geliyor",
+    "image": "images/champ-bataille.jpg"
+   },
+   "sv": {
+    "titre": "Napoleon var inte kort",
+    "texte": "han var ungefär 1,69 m, genomsnittet för en fransman på hans tid. myten kommer från brittiska karikatyrer och franska tum som var längre än engelska",
+    "image": "images/champ-bataille.jpg"
+   },
+   "nl": {
+    "titre": "Napoleon was niet klein",
+    "texte": "hij was zo'n 1,69 m, gemiddeld voor een fransman uit zijn tijd. de mythe komt van britse spotprenten en de franse duim, die langer was dan de engelse",
+    "image": "images/champ-bataille.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Sharks are older than trees",
+    "texte": "the first sharks swam about 450 million years ago. the first trees grew about 385 million years ago",
+    "image": "images/requin.jpg"
+   },
+   "de": {
+    "titre": "Haie sind älter als Bäume",
+    "texte": "die ersten haie schwammen vor etwa 450 millionen jahren. die ersten bäume wuchsen vor etwa 385 millionen jahren",
+    "image": "images/requin.jpg"
+   },
+   "it": {
+    "titre": "Gli squali sono più antichi degli alberi",
+    "texte": "i primi squali nuotavano circa 450 milioni di anni fa. i primi alberi sono cresciuti circa 385 milioni di anni fa",
+    "image": "images/requin.jpg"
+   },
+   "pt-BR": {
+    "titre": "Tubarões são mais antigos que árvores",
+    "texte": "os primeiros tubarões nadavam há cerca de 450 milhões de anos. as primeiras árvores cresceram há cerca de 385 milhões de anos",
+    "image": "images/requin.jpg"
+   },
+   "tr": {
+    "titre": "Köpekbalıkları ağaçlardan eski",
+    "texte": "ilk köpekbalıkları yaklaşık 450 milyon yıl önce yüzüyordu. ilk ağaçlar ise yaklaşık 385 milyon yıl önce büyüdü",
+    "image": "images/requin.jpg"
+   },
+   "sv": {
+    "titre": "Hajar är äldre än träd",
+    "texte": "de första hajarna simmade för ungefär 450 miljoner år sedan. de första träden växte för ungefär 385 miljoner år sedan",
+    "image": "images/requin.jpg"
+   },
+   "nl": {
+    "titre": "Haaien zijn ouder dan bomen",
+    "texte": "de eerste haaien zwommen zo'n 450 miljoen jaar geleden. de eerste bomen groeiden zo'n 385 miljoen jaar geleden",
+    "image": "images/requin.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

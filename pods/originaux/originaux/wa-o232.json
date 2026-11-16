@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o232",
+ "type_bleo": "full_test",
+ "titre": "habits that make your brain feel ten years younger #brainhealth #habits #selfimprovement #learning #wellness",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "4d79f4a2-fc0a-4486-b187-f66df926aaac"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4d79f4a2). full test BLEO : accroche jamais faite (format « habits that make your X feel younger »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "02bc901a-a969-43c2-a9f2-f9861925b3f7",
+   "texte_overlay": "habits that make your brain\nfeel ten years younger",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01e21630-edbd-40ae-9e1d-806dd9c72482",
+   "texte_overlay": "walking every day\n\na brisk thirty minute walk sends more blood and oxygen to your brain. people who walk daily tend to stay sharper, calmer and more focused as they get older.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0a6e836f-581d-41fd-9827-3b2b71e1e427",
+   "texte_overlay": "sleeping on a schedule\n\ngoing to bed and waking up at the same time keeps your brain rested and clear. deep, regular sleep is when your mind quietly repairs and sorts your memories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0d006332-077d-4808-8dab-8c9569a86120",
+   "texte_overlay": "learning something new\n\na brain that keeps learning keeps building new connections at any age. even 5 minutes a day on a myth, a planet or a painting keeps your mind feeling young.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/4.jpg",
+   "texte_sophia": "learning something new\n\ni used to feel foggy all the time. now i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and my mind feels younger and much quicker."
+  },
+  {
+   "position": 5,
+   "media_id": "37ac15fd-af16-4236-b281-d9a586848a38",
+   "texte_overlay": "seeing friends often\n\nreal conversations are a workout for your brain. laughing, listening and arguing with friends keep your thinking quick and your memory strong for years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5bdf8414-51f1-42fa-a87b-884a154f220f",
+   "texte_overlay": "trying new routes\n\ntake a different route to work or the shops once a week. new streets force your brain to pay attention again instead of running on autopilot all day long.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/6.jpg"
+  }
+ ]
+}

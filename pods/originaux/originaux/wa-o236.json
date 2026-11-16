@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o236",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9c858631-c5b5-41f6-99cc-6ac6436f1f6d",
+ "titre": "odd things self assured people do without thinking #confidence #psychology #habits #selfimprovement #socialskills",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "dc65211f-db60-4764-80a1-cc17d64c2c16"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, dc65211f). déclinaison G2 de « bizarre things confident people do that nobody notices » (parent 9c858631). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "192ac45b-157f-44f4-ab54-9d6ecd7ceff4",
+   "texte_overlay": "odd things self assured\npeople do without thinking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bf097906-7071-4e7a-bf47-bb2240f43bbc",
+   "texte_overlay": "they walk at their own pace\n\nthey don't speed up just because everyone around them is rushing. moving at their own calm pace shows they're completely comfortable in their own skin.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8094efd2-3304-40fb-98a0-bb49004b2630",
+   "texte_overlay": "they ask what words mean\n\nwhen they hear a word they don't know, they simply ask. being curious instead of pretending to understand is a quiet but very clear sign of real inner security.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "04146550-d203-4150-9ab4-ed905e0e463a",
+   "texte_overlay": "they keep growing\n\nself assured people keep learning little things every day, a strange fact or a famous painting, and that steady growth makes their confidence calm and solid.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/4.jpg",
+   "texte_sophia": "they keep growing\n\ni spend 5 minutes a day learning something new, a strange fact or a painting. i do it with the Sophia app, one lesson a day, and i feel steadier every single week."
+  },
+  {
+   "position": 5,
+   "media_id": "d037039e-c419-4ca1-9119-c696e17d1d31",
+   "texte_overlay": "they hold eye contact\n\nthey look at people while they talk instead of at the floor. calm eye contact tells everyone they have nothing to hide and absolutely nothing to prove.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "186383c6-03e7-483b-a92f-c6ca1df47bbb",
+   "texte_overlay": "they sit comfortably\n\nthey lean back and relax in their chair instead of folding in. taking up a normal amount of space is one of the clearest signals of real, quiet confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656512976798698755/6.jpg"
+  }
+ ]
+}

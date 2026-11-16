@@ -1,57 +1,51 @@
 {
  "source_id": "am-o132",
  "type_bleo": "declinaison",
- "parent_contenu_id": "b2abca35-622f-410a-8cb9-2b38ccf4b2d8",
- "titre": "Texting rules every grown man should follow #men #texting #respect #selfimprovement #communication",
+ "parent_contenu_id": "59249e27-1664-43b9-a617-176dc57644ff",
+ "titre": "5 signs a man is quietly confident #selfimprovement #men #confidence #mindset #discipline",
  "musique_titre": "bipolar (slowed)",
  "musique_url": "https://www.tiktok.com/music/bipolar-slowed-7391819517150660624",
  "inspirations": [
-  "b2abca35-622f-410a-8cb9-2b38ccf4b2d8"
+  "59249e27-1664-43b9-a617-176dc57644ff"
  ],
- "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 16/11. Déclinaison G1 de la ligne 3 (parent b2abca35 = notre full test am-o095, langue source en). Accroche du parent mot pour mot. Même format : numéro, règle, deux lignes. Règles neuves, aucune de am-o095 (répondre dans la journée, colère, appeler, contenu utile, « k », vocaux, vu). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url de am-o095 vérifiées en 200.",
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 16/11. Déclinaison G1 de la ligne 20 (parent 59249e27, @selfsculpt_, langue source en). Remplace une première version (G1 de b2abca35, « Texting rules every grown man should follow ») refusée au guichet en accroche_voisine avec « Travel rules every classy man follows » (am-o141). Accroche du parent mot pour mot. Format du parent : « N. Signe. » puis deux ou trois lignes. Signes neufs, aucun du parent (blague, manger seul, autorité calme, victoires discrètes, encourager les autres). Images neuves, reprises de la première version. reference_url du parent (slides 1 à 6) vérifiées en 200.",
  "slides": [
   {
    "position": 1,
    "media_id": "1e79cd83",
-   "texte_overlay": "Texting rules every grown man\nshould follow",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+   "texte_overlay": "5 signs a man is quietly\nconfident",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696631092794739990/1.jpg"
   },
   {
    "position": 2,
    "media_id": "3bd3f702",
-   "texte_overlay": "1. Say happy birthday\nbefore noon\n\nNot at 11:58 p.m.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+   "texte_overlay": "1. He asks for directions.\n\nNo pride in being lost.\nHe just wants to get there.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696631092794739990/2.jpg"
   },
   {
    "position": 3,
    "media_id": "2fdc0326",
-   "texte_overlay": "2. Never text while\nsomeone's talking to you\n\nThe phone can wait.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+   "texte_overlay": "2. He's fine being the beginner.\n\nNew sport, new class.\nHe laughs at his first try.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696631092794739990/3.jpg"
   },
   {
    "position": 4,
    "media_id": "8c6b7f27",
-   "texte_overlay": "3. Send something you learned\n\nA fact, an idea, a story.\nBetter than another meme.",
-   "texte_sophia": "3. Send something you learned\n\nA fact from the Sophia app.\nBetter than another meme.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+   "texte_overlay": "3. He knows a little about a lot.\n\nAny topic, any table.\nHe learns something every day.",
+   "texte_sophia": "3. He knows a little about a lot.\n\nAny topic, any table.\nHe learns on the Sophia app daily.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696631092794739990/4.jpg"
   },
   {
    "position": 5,
    "media_id": "0061981a",
-   "texte_overlay": "4. No paragraphs at 2 a.m.\n\nSleep on it.\nSend the short version.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+   "texte_overlay": "4. He apologizes without\na speech.\n\n\"My bad.\" Then he fixes it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696631092794739990/5.jpg"
   },
   {
    "position": 6,
    "media_id": "016afe0b",
-   "texte_overlay": "5. Confirm plans the day before\n\n\"Still on for tomorrow?\"\nRespect their time.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
-  },
-  {
-   "position": 7,
-   "media_id": "8b1ec3b5",
-   "texte_overlay": "6. Say thank you properly\n\nNot \"ty\". Two full words.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+   "texte_overlay": "5. He lets others finish.\n\nNo interrupting, no rushing.\nHe doesn't need the floor.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696631092794739990/6.jpg"
   }
  ]
 }

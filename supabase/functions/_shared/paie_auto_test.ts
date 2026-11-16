@@ -7,6 +7,7 @@ import { assert, assertEquals } from "jsr:@std/assert@1";
 import type { JalonUpwork, LignePaieApi, PlanPaiement } from "./paiement.ts";
 import {
   choisirCanari,
+  motifInhabituel,
   classerErreur,
   ecartsCanari,
   ecartsReconciliation,
@@ -165,4 +166,18 @@ Deno.test("9/11 : un plafond est reprogrammé au lendemain, jamais abandonné", 
   assertEquals(reessaiPossible("autre", lundi, "2026-11-02"), false);
   assertEquals(jourDePaie(lundi), true);
   assertEquals(jourDePaie(mercredi), false);
+});
+
+Deno.test("16/11 : seule la paie normale part seule (payer au tarif, 1 compte, sous le plafond)", () => {
+  const base = {
+    id: "l", ids: ["l"], posteurs: ["p"], poster_id: "p", poster_nom: "Ana", action: "payer", faits: 14, tarif: 14, montant: 14, montant_calcule: 14,
+    retenue: 0, raison_correction: null, exclu: false, paye_at: null, semaine_suivante_faite_at: null, suivante_action: "financer",
+    suivante_comptes: 1, suivante_montant: 14, contrat_id: "1", nb_comptes: 1, moins6: 0, douteux: 0, refus: null,
+  };
+  assertEquals(motifInhabituel(base, 2000), null);
+  assertEquals(motifInhabituel({ ...base, action: "modifier" }, 2000), "ligne « modifier »");
+  assertEquals(motifInhabituel({ ...base, nb_comptes: 2, montant: 28, montant_calcule: 28 }, 2000), "Doubler (plusieurs comptes payés)");
+  assertEquals(motifInhabituel({ ...base, montant: 10, montant_calcule: 10 }, 2000), "montant 10 $ différent du tarif 14 $");
+  assertEquals(motifInhabituel({ ...base, raison_correction: "posts manqués" }, 2000), "montant corrigé à la main");
+  assertEquals(motifInhabituel({ ...base, tarif: 30, montant: 30, montant_calcule: 30 }, 20), "au-dessus du plafond (20 $)");
 });

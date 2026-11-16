@@ -12,7 +12,13 @@
   "cs": "3 dovednosti, se kterými budeš vypadat chytřeji",
   "sk": "3 zručnosti, vďaka ktorým budeš pôsobiť múdrejšie",
   "hr": "3 vještine zbog kojih izgledaš pametnije",
-  "sl": "3 veščine, s katerimi deluješ pametneje"
+  "sl": "3 veščine, s katerimi deluješ pametneje",
+  "hu": "3 készség, amitől okosabbnak tűnsz",
+  "nl": "3 skills waardoor je slimmer overkomt",
+  "pl": "3 umiejętności, dzięki którym wypadasz mądrzej",
+  "ro": "3 abilități care te fac să pari mai inteligent",
+  "sv": "3 färdigheter som får dig att verka smartare",
+  "tr": "Seni daha zeki gösteren 3 beceri"
  },
  "legendes": {
   "en": "3 Skills That Make You Look Smarter #selfimprovement #learnontiktok #skills",
@@ -25,7 +31,13 @@
   "cs": "3 dovednosti, se kterými budeš vypadat chytřeji #dovednosti #seberozvoj #vzdělávání",
   "sk": "3 zručnosti, vďaka ktorým budeš pôsobiť múdrejšie #zručnosti #sebarozvoj #vzdelávanie",
   "hr": "3 vještine zbog kojih izgledaš pametnije #vještine #osobnirazvoj #učenje",
-  "sl": "3 veščine, s katerimi deluješ pametneje #veščine #osebnarast #učenje"
+  "sl": "3 veščine, s katerimi deluješ pametneje #veščine #osebnarast #učenje",
+  "hu": "3 készség, amitől okosabbnak tűnsz #készségek #önfejlesztés #tanulás",
+  "nl": "3 skills waardoor je slimmer overkomt #skills #zelfontwikkeling #leren",
+  "pl": "3 umiejętności, dzięki którym wypadasz mądrzej #umiejętności #rozwójosobisty #nauka",
+  "ro": "3 abilități care te fac să pari mai inteligent #abilități #dezvoltarepersonală #învățare",
+  "sv": "3 färdigheter som får dig att verka smartare #färdigheter #självutveckling #lärande",
+  "tr": "Seni daha zeki gösteren 3 beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "audio originale",
@@ -222,6 +234,108 @@
       }
      ]
     ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "3 KÉSZSÉG",
+       "bronze": true
+      }
+     ],
+     "AMITŐL",
+     [
+      {
+       "t": "OKOSABBNAK TŰNSZ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "WAARDOOR JE",
+     [
+      {
+       "t": "SLIMMER OVERKOMT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "3 UMIEJĘTNOŚCI",
+       "bronze": true
+      }
+     ],
+     "DZIĘKI KTÓRYM",
+     [
+      {
+       "t": "WYPADASZ MĄDRZEJ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABILITĂȚI",
+       "bronze": true
+      }
+     ],
+     "CARE TE FAC SĂ PARI",
+     [
+      {
+       "t": "MAI INTELIGENT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "3 FÄRDIGHETER",
+       "bronze": true
+      }
+     ],
+     "SOM FÅR DIG ATT",
+     [
+      {
+       "t": "VERKA SMARTARE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "SENİ DAHA ZEKİ",
+       "bronze": true
+      }
+     ],
+     "GÖSTEREN",
+     [
+      {
+       "t": "3 BECERİ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -388,6 +502,96 @@
      "date": "pred 6 leti",
      "duree": "5:07",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nABnDwrhOe4BkBEB8a7HzElW4zEuAbJfcc_9cypT1_TA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "SZÁMOLJ",
+     "FEJBEN"
+    ],
+    "video": {
+     "id": "nDuP5BjmUI4",
+     "titre": "Fejben számolós kivonás",
+     "chaine": "Zseni Leszek",
+     "vues": "13 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_knM-tFq2fzW_iySbYQbJhNN_GFv6m3e5QFPStJ_2kb2vg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "REKEN",
+     "UIT JE HOOFD"
+    ],
+    "video": {
+     "id": "Kvfn2x_J3JI",
+     "titre": "Hoe reken je sneller dan een rekenmachine?",
+     "chaine": "Mathastic",
+     "vues": "1,8K weergaven",
+     "date": "1 jaar geleden",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/7H_i55xXJqkFUXUTvgJemZEVHlLo8Z_mLFNahv9mCokt7Bmf5HY7kdf1x5OeJBf2Iji5UvQ2oyE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "LICZ",
+     "W PAMIĘCI"
+    ],
+    "video": {
+     "id": "2KfXJ1LerYM",
+     "titre": "TRICK 1: Błyskawiczne MNOŻENIE w pamięci liczb dwucyfrowych (97 i 96)",
+     "chaine": "MatboyTV",
+     "vues": "33 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIxZ4ksPoVT-yM2uGgGlTvllxN7hOsbmAeGgCc_MSUdA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CALCULEAZĂ",
+     "MINTAL"
+    ],
+    "video": {
+     "id": "O4fPzG46MsA",
+     "titre": "Truc de calcul mintal-inmultirea cu 11",
+     "chaine": "PROFA DE MATE",
+     "vues": "451 de vizionări",
+     "date": "acum 6 ani",
+     "duree": "0:33",
+     "avatar": "https://yt3.ggpht.com/RH3ayZX1bPEhnI2IX0jgR7aVa4ngY5bc0Dt7eOJsLUm6py4ewbtD_0ZmBr6igc4JpwtJtl-1bw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "RÄKNA",
+     "I HUVUDET"
+    ],
+    "video": {
+     "id": "bghGMaozj5A",
+     "titre": "Snabb Multiplikation | Trick - Huvudräkning Tips",
+     "chaine": "Klar Kunskap",
+     "vues": "5 145 visningar",
+     "date": "för 6 år sen",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbAIoqzcOyU3YnoaRsP14GUxOhhhiwxoF4QATurbo2JA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZİHNİNDEN",
+     "HESAPLA"
+    ],
+    "video": {
+     "id": "VEprphPmLoY",
+     "titre": "AŞIRI Hızlı Nasıl HESAPLAMA Yapılır? 🔢⚡(Zihinden Yapacağın 5 İşlem Hilesi!)",
+     "chaine": "Tinko",
+     "vues": "259 B görüntüleme",
+     "date": "1 ay önce",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -557,6 +761,96 @@
      "duree": "0:22",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRSNfTPwo7hSRyJkz8W29B5VoxNOLoLC9xjxedr8VyQA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     "GYORSOLVASÁST"
+    ],
+    "video": {
+     "id": "L87NLyz1FpY",
+     "titre": "Egy könyv egy óra alatt? - Villámolvasás! - Működik?",
+     "chaine": "Tanulom Magam",
+     "vues": "109 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "17:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "SNEL",
+     "LEZEN"
+    ],
+    "video": {
+     "id": "q2bFmtpvdCw",
+     "titre": "Skills booster | Sneller lezen",
+     "chaine": "Utrecht University",
+     "vues": "2,7K weergaven",
+     "date": "3 jaar geleden",
+     "duree": "1:49",
+     "avatar": "https://yt3.ggpht.com/MI1A0hpMsLtlxCvHcAojzlqbsKg8s4Hr0fAXBTjGvJcFL2EWOzPPG04t_YfnKsKD4hEz7L05=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "SZYBKIE",
+     "CZYTANIE"
+    ],
+    "video": {
+     "id": "WL7ZVwN76sY",
+     "titre": "TECHNIKI SZYBKIEGO CZYTANIA. CZY WARTO CZYTAĆ 1 KSIĄŻKĘ NA GODZINĘ?",
+     "chaine": "Przeciętny Człowiek",
+     "vues": "113 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "7:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwZtzflFpP0qhUiZtsM11LR01co0oSv34IMczHFgDw_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CITIRE",
+     "RAPIDĂ"
+    ],
+    "video": {
+     "id": "Y9cN3yiu6Zc",
+     "titre": "Citire rapida | 4 Tehnici de citire rapida",
+     "chaine": "Beni Rusu",
+     "vues": "11 K de vizionări",
+     "date": "acum 5 ani",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kCvLs9WlREgio2pKoA0b2ZFX6-K8puTHpTncke1PodMtw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄS",
+     "SNABBARE"
+    ],
+    "video": {
+     "id": "GNbzK9S98aI",
+     "titre": "8. Studieteknik - Om snabbläsning",
+     "chaine": "Campus Gotland",
+     "vues": "18 813 visningar",
+     "date": "för 12 år sen",
+     "duree": "26:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBn8IYR0842B14LeCK9OG6vy3d2fBqmZnP57oKrWSjMQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "HIZLI",
+     "OKUMA"
+    ],
+    "video": {
+     "id": "DTG0rS8j3y0",
+     "titre": "HIZLI OKUMA TEKNİKLERİ - ANLAYARAK HIZLI OKUMA - BÖLÜM 1",
+     "chaine": "Haluk TATAR",
+     "vues": "1,2 Mn görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "17:01",
+     "avatar": "https://yt3.ggpht.com/uCS_szCsKpaaeM7TVqjdNR9kuNbPv8nEtQxZ4m3mvrvKE_dX0l7_LQagL0coh-AX0pscoWTLPA=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -702,6 +996,84 @@
      "texte": [
       "5 minut na dan",
       "da veš malo o vsem."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "TUDJ MINDENRŐL",
+     "EGY KICSIT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "napi 5 perc,",
+      "hogy mindenről tudj egy kicsit."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "WEET VAN ALLES",
+     "EEN BEETJE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuten per dag",
+      "om van alles iets te weten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "WIEDZ TROCHĘ",
+     "O WSZYSTKIM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut dziennie,",
+      "by wiedzieć trochę o wszystkim."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "ȘTII CÂTE PUȚIN",
+     "DIN TOATE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minute pe zi",
+      "ca să știi câte puțin din toate."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "KAN LITE",
+     "OM ALLT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuter om dagen",
+      "för att kunna lite om allt."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYDEN",
+     "BİRAZ BİL"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "günde 5 dakika,",
+      "her şeyden biraz bilmek için."
      ]
     }
    }
@@ -871,6 +1243,96 @@
      "date": "pred 5 leti",
      "duree": "1:22",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWk7keXWyUVXarqyPazo-PjLGHjAq4pGKKkx2MSd4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "GÉPELJ",
+     "GYORSABBAN"
+    ],
+    "video": {
+     "id": "VwFj8mpsRj0",
+     "titre": "A Tíz Ujjas Gépelésről",
+     "chaine": "KOMTUBE",
+     "vues": "1,1 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/3SgwUKiCRq9UkBWYR3ZRBwZOg_sxhLacwY2Umqyiw5Iyh7BaizQgRfll0rQuyJlU2H3D9NAh=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "TYP",
+     "SNELLER"
+    ],
+    "video": {
+     "id": "i2o_WBSbVzM",
+     "titre": "Typen met tien vingers",
+     "chaine": "SeniorWeb Nederland",
+     "vues": "53K weergaven",
+     "date": "12 jaar geleden",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/jO8oCgR_rKT9raPK3QX-TMLnF7OEVffD_ZZGFRLzfFnqTIj429GEGtDWByds-e9uSLIrpSvRZ4k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "PISZ",
+     "SZYBCIEJ"
+    ],
+    "video": {
+     "id": "AWYmqtKCDtM",
+     "titre": "Jak nauczyć się pisania bez patrzenia na klawiaturę w godzinę? NOWA LEPSZA METODA!",
+     "chaine": "TouchTyping.guru",
+     "vues": "157 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVXgPsWANljKY_QVctcxyUYQHi97SZ4XDfv7eb02_QPw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "TASTEAZĂ",
+     "MAI REPEDE"
+    ],
+    "video": {
+     "id": "dN_hYtO5fSk",
+     "titre": "Cum să scrii mult mai rapid la calculator | Peste 100 de cuvinte pe minut",
+     "chaine": "Cristian Florea",
+     "vues": "22 K de vizionări",
+     "date": "acum 4 ani",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SKRIV",
+     "SNABBARE"
+    ],
+    "video": {
+     "id": "w7t4Lp0yLtU",
+     "titre": "Grundfingersättning",
+     "chaine": "Merja Eriksson",
+     "vues": "20 287 visningar",
+     "date": "för 9 år sen",
+     "duree": "1:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n8WCJuA6L7cwM7-gUw_8H0L7KRvnbZAXDUF-ov2MhPlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "DAHA HIZLI",
+     "YAZ"
+    ],
+    "video": {
+     "id": "PD64sNHgb3I",
+     "titre": "Kursa Gitmeden 10 Parmak Klavye Kullanmayı Nasıl Öğrendim?",
+     "chaine": "Burak Göç",
+     "vues": "368 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "12:20",
+     "avatar": "https://yt3.ggpht.com/ifekyx6NyK6B0siwBwS0gLnh7JTgu7WY8980ljAwvtq8R5bjevtsc5pkWjsX7aDxot0_ebnO_A=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

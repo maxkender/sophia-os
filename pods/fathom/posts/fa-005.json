@@ -12,7 +12,17 @@
   "es": "5 habilidades que el 99 % no tiene",
   "de": "5 Skills, die 99 % nicht haben",
   "it": "5 abilità che il 99% non ha",
-  "pt": "5 habilidades que 99% das pessoas não têm"
+  "pt": "5 habilidades que 99% das pessoas não têm",
+  "cs": "5 dovedností, které 99 % lidí nemá",
+  "sk": "5 zručností, ktoré 99 % ľudí nemá",
+  "hr": "5 vještina koje 99 % ljudi nema",
+  "sl": "5 veščin, ki jih 99 % ljudi nima",
+  "hu": "5 készség, ami az emberek 99%-ának nincs meg",
+  "nl": "5 skills die 99% van de mensen niet heeft",
+  "pl": "5 umiejętności, których 99% ludzi nie ma",
+  "ro": "5 abilități pe care 99% dintre oameni nu le au",
+  "sv": "5 färdigheter som 99 % av alla saknar",
+  "tr": "İnsanların %99'unda olmayan 5 beceri"
  },
  "legendes": {
   "en": "5 Skills 99% Of People Don’t Have #selfimprovement #learnontiktok #selfmastery",
@@ -20,7 +30,17 @@
   "es": "5 habilidades que el 99 % no tiene #desarrollopersonal #aprendeentiktok #superacionpersonal",
   "de": "5 Skills, die 99 % nicht haben #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
   "it": "5 abilità che il 99% non ha #crescitapersonale #imparacontiktok #miglioramentopersonale",
-  "pt": "5 habilidades que 99% das pessoas não têm #desenvolvimentopessoal #aprendanotiktok #autoconhecimento"
+  "pt": "5 habilidades que 99% das pessoas não têm #desenvolvimentopessoal #aprendanotiktok #autoconhecimento",
+  "cs": "5 dovedností, které 99 % lidí nemá #dovednosti #seberozvoj #vzdělávání",
+  "sk": "5 zručností, ktoré 99 % ľudí nemá #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "5 vještina koje 99 % ljudi nema #vještine #osobnirazvoj #učenje",
+  "sl": "5 veščin, ki jih 99 % ljudi nima #veščine #osebnarast #učenje",
+  "hu": "5 készség, ami az emberek 99%-ának nincs meg #készségek #önfejlesztés #tanulás",
+  "nl": "5 skills die 99% van de mensen niet heeft #skills #zelfontwikkeling #leren",
+  "pl": "5 umiejętności, których 99% ludzi nie ma #umiejętności #rozwójosobisty #nauka",
+  "ro": "5 abilități pe care 99% dintre oameni nu le au #abilități #dezvoltarepersonală #învățare",
+  "sv": "5 färdigheter som 99 % av alla saknar #färdigheter #självutveckling #lärande",
+  "tr": "İnsanların %99'unda olmayan 5 beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "original sound",
@@ -101,6 +121,126 @@
      ],
      "QUE 99% DAS PESSOAS",
      "NÃO TÊM"
+    ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "5 DOVEDNOSTÍ",
+       "bronze": true
+      }
+     ],
+     "KTERÉ 99 % LIDÍ",
+     "NEMÁ"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "5 ZRUČNOSTÍ",
+       "bronze": true
+      }
+     ],
+     "KTORÉ 99 % ĽUDÍ",
+     "NEMÁ"
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "5 VJEŠTINA",
+       "bronze": true
+      }
+     ],
+     "KOJE 99 % LJUDI",
+     "NEMA"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "5 VEŠČIN",
+       "bronze": true
+      }
+     ],
+     "KI JIH 99 % LJUDI",
+     "NIMA"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "5 KÉSZSÉG",
+       "bronze": true
+      }
+     ],
+     "AMI AZ EMBEREK",
+     "99%-ÁNAK NINCS MEG"
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "5 SKILLS",
+       "bronze": true
+      }
+     ],
+     "DIE 99% VAN DE MENSEN",
+     "NIET HEEFT"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "5 UMIEJĘTNOŚCI",
+       "bronze": true
+      }
+     ],
+     "KTÓRYCH 99% LUDZI",
+     "NIE MA"
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "5 ABILITĂȚI",
+       "bronze": true
+      }
+     ],
+     "PE CARE 99% DINTRE",
+     "OAMENI NU LE AU"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "5 FÄRDIGHETER",
+       "bronze": true
+      }
+     ],
+     "SOM 99 % AV ALLA",
+     "SAKNAR"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "5 BECERİ",
+       "bronze": true
+      }
+     ],
+     "İNSANLARIN %99'UNDA",
+     "YOK"
     ]
    }
   },
@@ -195,6 +335,146 @@
      "duree": "10:33",
      "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "PAMĚŤOVÝ PALÁC"
+    ],
+    "video": {
+     "id": "FNKMbJnrKR8",
+     "titre": "Paměťový palác: Jak si mozek trénují šampioni?",
+     "chaine": "Ambryho Projekt",
+     "vues": "53 zhlédnutí",
+     "date": "před 3 měsíci",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/Qnr7Pj6INusqAWCK-mzGpOcO8MVg6BnVsDPuI8_S0NBSxhCKuqmT74TjZRpK88Y9EuKKLnpE2A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "PAMÄŤOVÝ PALÁC"
+    ],
+    "video": {
+     "id": "qzrVC0gdwPY",
+     "titre": "Môžem použiť pamaťový palác pri učení slovíčok?",
+     "chaine": "AkoSaNaucit",
+     "vues": "643 zhliadnutí",
+     "date": "pred 13 rokmi",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMdo2uMfPCUh5bBD0LbdKm4cEvES28EU3erge324HOiQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "TEHNIKE PAMĆENJA"
+    ],
+    "video": {
+     "id": "LAWQ3Q3HWeI",
+     "titre": "TEHNIKE PAMĆENJA - memorijski principi - tehnike i teorija prisećanja",
+     "chaine": "tutor up",
+     "vues": "12 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "15:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUvGzq6RJowVQH8tRF4ncA-E33U0zfcbsQh4pHqr0QBg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "ZAPOMNI SI IMENA"
+    ],
+    "video": {
+     "id": "00CZ46Qxf_A",
+     "titre": "Kako si zapomniti imena - 5 namigov in 1 tehnika (tehnike pomnjenja)",
+     "chaine": "Nik Škrlec",
+     "vues": "9,3 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "MEMÓRIAPALOTA"
+    ],
+    "video": {
+     "id": "8OIJZiW7U18",
+     "titre": "Memória Palota 01. Bevezetés",
+     "chaine": "SanFranciscobol Jottem",
+     "vues": "26 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnGHodf1vSrp5_8prKdXijF8KrncPTb9xhbqqT6xdNafA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "EEN GEHEUGENPALEIS"
+    ],
+    "video": {
+     "id": "F451z2rpny4",
+     "titre": "Beter studeren met het geheugenpaleis",
+     "chaine": "Schrijven met Beloftes",
+     "vues": "1,7K weergaven",
+     "date": "4 jaar geleden",
+     "duree": "4:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lBqFACC5siFy8YYDhThBbG1UMWAQaOWF-2XpJ-w6jypA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "PAŁAC PAMIĘCI"
+    ],
+    "video": {
+     "id": "s1qe5cwr99k",
+     "titre": "Jak szukać stacji w pałacu pamięci i łączyć je ze skojarzeniami?",
+     "chaine": "Dobra Pamięć",
+     "vues": "1,8 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/waZCUMT-xesTPzH3yCxE-Xqd9kn0dn_CqfrlM7mx0eHy9J5np8mO5QcyRD1uF5o6zVCiNp0h=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "PALATUL MEMORIEI"
+    ],
+    "video": {
+     "id": "tolB7htVLD0",
+     "titre": "Cum să îți faci Castelul Memoriei (Cafeaua de Noapte)",
+     "chaine": "Eduard G",
+     "vues": "653 de vizionări",
+     "date": "acum 8 ani",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/EB91bMxsF6SN_RmTOgR30XGUkSmOUphBc-Bfs5lF6djYAsfyXmLLCCs7BbPOu8uywJOugqh36Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "ETT MINNESPALATS"
+    ],
+    "video": {
+     "id": "8ZfLaT9EaeY",
+     "titre": "Skaffa ett superminne! - Lektion 2: Minnespalats (Del 1/2)",
+     "chaine": "Jonas von Essen",
+     "vues": "56 237 visningar",
+     "date": "för 11 år sen",
+     "duree": "11:02",
+     "avatar": "https://yt3.ggpht.com/1LU4E6FeJYEdj0QBS4j3bceDA7SWt8D2gcx1ubD7DHO6AKVM717N5uH30O-gg7otcJEoPsigew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "HAFIZA SARAYI"
+    ],
+    "video": {
+     "id": "hCuz6tfRKec",
+     "titre": "Hafıza Sarayı: En Güçlü Hafıza Tekniği",
+     "chaine": "Abdullah Yılmaz",
+     "vues": "25 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/e18eawTJglhdRd0A1N8pBfBmkSS7b6LaYFgLKbHiGDeVOoKx7qB1oXZmLXl_Yj51XGN4-nLhSQ=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -288,6 +568,146 @@
      "duree": "5:08",
      "avatar": "https://yt3.ggpht.com/e85b7pdCyazbscC4DZSP52hBxV5Ev6j2opR0jEC0eqvDwzZYbTTPwOUSOTRYgdMc83eS6Mw1tw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "PSANÍ VŠEMI DESETI"
+    ],
+    "video": {
+     "id": "GQ7b8hCtDwY",
+     "titre": "Psaní všemi deseti prsty   prstoklad",
+     "chaine": "Radek Němec",
+     "vues": "24 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyMK8HgEXvZhAKDyD3iahDQhbOQN55Hx4T8nog8Vw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "PÍSANIE VŠETKÝMI DESIATIMI"
+    ],
+    "video": {
+     "id": "6r3uHGG7Ptw",
+     "titre": "Písanie 10 prstami po klávesnici | Strojopis",
+     "chaine": "Informatika s Mišom",
+     "vues": "10 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "12:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lixyBioJEsikHNHJrUw1tQvo-ajc92l5k9ncSa_RwDCA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "TIPKANJE NASLIJEPO"
+    ],
+    "video": {
+     "id": "-532TZK1gPg",
+     "titre": "Nepravilno i pravilno tipkanje - tečaj daktilografije",
+     "chaine": "Hrvatsko stenografsko društvo",
+     "vues": "4,7 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "1:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m38OLzeN4gzElD9Guc12fDI2MkYHIeMJRvQW_o1dvoSg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "TIPKANJE NA SLEPO"
+    ],
+    "video": {
+     "id": "ZZGbCt2AZu0",
+     "titre": "Učenje tipkanja: Izbira programa in osnovne nastavitve",
+     "chaine": "pojasni_si",
+     "vues": "1 tis. ogledov",
+     "date": "pred 5 leti",
+     "duree": "1:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWk7keXWyUVXarqyPazo-PjLGHjAq4pGKKkx2MSd4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "VAKON GÉPELÉS"
+    ],
+    "video": {
+     "id": "VwFj8mpsRj0",
+     "titre": "A Tíz Ujjas Gépelésről",
+     "chaine": "KOMTUBE",
+     "vues": "1,1 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/3SgwUKiCRq9UkBWYR3ZRBwZOg_sxhLacwY2Umqyiw5Iyh7BaizQgRfll0rQuyJlU2H3D9NAh=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "BLIND TYPEN"
+    ],
+    "video": {
+     "id": "i2o_WBSbVzM",
+     "titre": "Typen met tien vingers",
+     "chaine": "SeniorWeb Nederland",
+     "vues": "53K weergaven",
+     "date": "12 jaar geleden",
+     "duree": "1:24",
+     "avatar": "https://yt3.ggpht.com/jO8oCgR_rKT9raPK3QX-TMLnF7OEVffD_ZZGFRLzfFnqTIj429GEGtDWByds-e9uSLIrpSvRZ4k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "PISANIE BEZWZROKOWE"
+    ],
+    "video": {
+     "id": "AWYmqtKCDtM",
+     "titre": "Jak nauczyć się pisania bez patrzenia na klawiaturę w godzinę? NOWA LEPSZA METODA!",
+     "chaine": "TouchTyping.guru",
+     "vues": "157 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVXgPsWANljKY_QVctcxyUYQHi97SZ4XDfv7eb02_QPw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "TASTARE FĂRĂ PRIVIRE"
+    ],
+    "video": {
+     "id": "dN_hYtO5fSk",
+     "titre": "Cum să scrii mult mai rapid la calculator | Peste 100 de cuvinte pe minut",
+     "chaine": "Cristian Florea",
+     "vues": "22 K de vizionări",
+     "date": "acum 4 ani",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SKRIVA BLINT"
+    ],
+    "video": {
+     "id": "w7t4Lp0yLtU",
+     "titre": "Grundfingersättning",
+     "chaine": "Merja Eriksson",
+     "vues": "20 287 visningar",
+     "date": "för 9 år sen",
+     "duree": "1:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n8WCJuA6L7cwM7-gUw_8H0L7KRvnbZAXDUF-ov2MhPlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "10 PARMAK KLAVYE"
+    ],
+    "video": {
+     "id": "PD64sNHgb3I",
+     "titre": "Kursa Gitmeden 10 Parmak Klavye Kullanmayı Nasıl Öğrendim?",
+     "chaine": "Burak Göç",
+     "vues": "368 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "12:20",
+     "avatar": "https://yt3.ggpht.com/ifekyx6NyK6B0siwBwS0gLnh7JTgu7WY8980ljAwvtq8R5bjevtsc5pkWjsX7aDxot0_ebnO_A=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -368,6 +788,126 @@
      "texte": [
       "5 minutos por dia",
       "para saber um pouco de tudo."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "VĚDĚT TROCHU O VŠEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut denně",
+      "a víš trochu o všem."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "VEDIEŤ TROCHU O VŠETKOM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minút denne",
+      "a vieš trochu o všetkom."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZNATI PONEŠTO O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "VEDETI MALO O VSEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut na dan",
+      "da veš malo o vsem."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "MINDENRŐL TUDNI EGY KICSIT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "napi 5 perc,",
+      "hogy mindenről tudj egy kicsit."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "VAN ALLES IETS WETEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuten per dag",
+      "om van alles iets te weten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "WIEDZIEĆ TROCHĘ O WSZYSTKIM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut dziennie,",
+      "by wiedzieć trochę o wszystkim."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ ȘTII CÂTE PUȚIN DIN TOATE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minute pe zi",
+      "ca să știi câte puțin din toate."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "KUNNA LITE OM ALLT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuter om dagen",
+      "för att kunna lite om allt."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYDEN BİRAZ BİLMEK"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "günde 5 dakika,",
+      "her şeyden biraz bilmek için."
      ]
     }
    }
@@ -463,6 +1003,146 @@
      "duree": "15:10",
      "avatar": "https://yt3.ggpht.com/XVJPEED2WUwQU_oWpar5dubweYMJF0PrXJAbnHN4YTetjxE74nIgis87-cCUOGlfzgViSUYbwUo=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "POČÍTÁNÍ Z HLAVY"
+    ],
+    "video": {
+     "id": "Fgf-pXLRZFE",
+     "titre": "Násobení velkých čísel bez kalkulačky",
+     "chaine": "Broker Consulting - Palmovka",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbgPeUYpNkhx94ykDihqq6xHtIVu8yfYGt-Fl1O2Uj3A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POČÍTANIE SPAMÄTI"
+    ],
+    "video": {
+     "id": "iot6plSItgk",
+     "titre": "Druhá odmocnina ľubovoľného čísla spamäti? Ako na to...",
+     "chaine": "Rudolf Zrebny",
+     "vues": "1 tis. zhliadnutí",
+     "date": "pred 8 rokmi",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kOjeshHGtcp02i_t2PD7Hs2xvdBL3ptfptd7uFoWBokAc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "BRZO RAČUNANJE"
+    ],
+    "video": {
+     "id": "3gUwyWp8R2c",
+     "titre": "Kako množiti pomoću prstiju?",
+     "chaine": "e-kako portal",
+     "vues": "349 tis. pregleda",
+     "date": "prije 14 godina",
+     "duree": "1:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "HITRO RAČUNANJE"
+    ],
+    "video": {
+     "id": "xTeYk03a_zg",
+     "titre": "MATEMATIČNI TRIK 2: Hitro množenje - SUPER NA IZI 😁",
+     "chaine": "Mata na izi",
+     "vues": "1,4 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nABnDwrhOe4BkBEB8a7HzElW4zEuAbJfcc_9cypT1_TA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "FEJSZÁMOLÁS"
+    ],
+    "video": {
+     "id": "nDuP5BjmUI4",
+     "titre": "Fejben számolós kivonás",
+     "chaine": "Zseni Leszek",
+     "vues": "13 E megtekintés",
+     "date": "12 évvel ezelőtt",
+     "duree": "4:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_knM-tFq2fzW_iySbYQbJhNN_GFv6m3e5QFPStJ_2kb2vg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "SNEL HOOFDREKENEN"
+    ],
+    "video": {
+     "id": "Kvfn2x_J3JI",
+     "titre": "Hoe reken je sneller dan een rekenmachine?",
+     "chaine": "Mathastic",
+     "vues": "1,8K weergaven",
+     "date": "1 jaar geleden",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/7H_i55xXJqkFUXUTvgJemZEVHlLo8Z_mLFNahv9mCokt7Bmf5HY7kdf1x5OeJBf2Iji5UvQ2oyE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "LICZENIE W PAMIĘCI"
+    ],
+    "video": {
+     "id": "2KfXJ1LerYM",
+     "titre": "TRICK 1: Błyskawiczne MNOŻENIE w pamięci liczb dwucyfrowych (97 i 96)",
+     "chaine": "MatboyTV",
+     "vues": "33 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIxZ4ksPoVT-yM2uGgGlTvllxN7hOsbmAeGgCc_MSUdA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CALCUL MINTAL"
+    ],
+    "video": {
+     "id": "O4fPzG46MsA",
+     "titre": "Truc de calcul mintal-inmultirea cu 11",
+     "chaine": "PROFA DE MATE",
+     "vues": "451 de vizionări",
+     "date": "acum 6 ani",
+     "duree": "0:33",
+     "avatar": "https://yt3.ggpht.com/RH3ayZX1bPEhnI2IX0jgR7aVa4ngY5bc0Dt7eOJsLUm6py4ewbtD_0ZmBr6igc4JpwtJtl-1bw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "HUVUDRÄKNING"
+    ],
+    "video": {
+     "id": "bghGMaozj5A",
+     "titre": "Snabb Multiplikation | Trick - Huvudräkning Tips",
+     "chaine": "Klar Kunskap",
+     "vues": "5 145 visningar",
+     "date": "för 6 år sen",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbAIoqzcOyU3YnoaRsP14GUxOhhhiwxoF4QATurbo2JA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZİHİNDEN HESAPLAMA"
+    ],
+    "video": {
+     "id": "VEprphPmLoY",
+     "titre": "AŞIRI Hızlı Nasıl HESAPLAMA Yapılır? 🔢⚡(Zihinden Yapacağın 5 İşlem Hilesi!)",
+     "chaine": "Tinko",
+     "vues": "259 B görüntüleme",
+     "date": "1 ay önce",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -555,6 +1235,146 @@
      "date": "há 4 meses",
      "duree": "5:33",
      "avatar": "https://yt3.ggpht.com/AslfWRZCzEx4-Ate0tSoXgtCbXqtYiTPdRkmTnjx03urkW5GKQEn2ci0GYjAtHms0T9QBPBoEl4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ČÍST ŘEČ TĚLA"
+    ],
+    "video": {
+     "id": "bxjLoFa3n_Y",
+     "titre": "NAUČTE SE POROZUMĚT ŘEČI TĚLA | TOP 5 Co o vás říká vaše tělo",
+     "chaine": "TopTrendingCZ",
+     "vues": "1,3 mil. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/mG8LB-MO23k7Luln7TjuHUdcg7mabYrgMm1xfUt2wVETMUyVWBMYUzyTsL3XKDNAxhQ0-DKa2g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ČÍTAŤ REČ TELA"
+    ],
+    "video": {
+     "id": "vDhifblYVVI",
+     "titre": "Klamstvo, stres, nervozitu, prezradia tieto gestá na hlave (REČ TELA)",
+     "chaine": "Tomáš Vepi",
+     "vues": "19 tis. zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "10:34",
+     "avatar": "https://yt3.ggpht.com/Gll-rBV43edXEesNUFwJx4WgfpKOEMyRMY6rsQwfpJZ9LTWNEGID_VRskor7ffEuksDDYibN=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ČITATI GOVOR TIJELA"
+    ],
+    "video": {
+     "id": "wPNuL3nP8ds",
+     "titre": "Kako Čitati Ljude (30 Znakova Tijela) - Definitivni Vodič Kroz Govor Tijela",
+     "chaine": "Online Lekcije",
+     "vues": "450 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "8:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kndmnvomlEwE9V4uQhJdiJ6yHE9seAWqySGtawHQV--e0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "BRATI GOVORICO TELESA"
+    ],
+    "video": {
+     "id": "6CWfqIsuN1o",
+     "titre": "Zakaj je govorica telesa tako pomembna?",
+     "chaine": "Vesna Sodnik - Beseda",
+     "vues": "73 ogledov",
+     "date": "pred 4 leti",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/9VtpOJa43c5h4Lp1-nFBefgk14d4Z9zCRlRMM4LqGbFPrAXDuhnO6hwDrpPfmfo6fe-gwNflOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TESTBESZÉDET OLVASNI"
+    ],
+    "video": {
+     "id": "-lY5nmK1S5E",
+     "titre": "Hogyan Olvass Az Emberekben?",
+     "chaine": "Online Marketinges",
+     "vues": "13 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/7i5S6q-725NNFmAIwY1g_8iJbV7rmRyS8TZccgJgjPA_PXhkED0O7kPsAzG-L6dAfLZ_S1ueCQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LICHAAMSTAAL LEZEN"
+    ],
+    "video": {
+     "id": "N1MK3VNb420",
+     "titre": "4 Lichaamstaal - Geheimen Om Binnen Seconden Respect Te Krijgen",
+     "chaine": "De Mentale Hamer",
+     "vues": "851 weergaven",
+     "date": "1 jaar geleden",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/WYHCjaHOtpCl99wujkEDpO35w-8v98frcmw8cRWm1Jk62oKEXMYfmGX50meMYzYaQ_SRWksAoQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "CZYTAĆ MOWĘ CIAŁA"
+    ],
+    "video": {
+     "id": "8G6xt8LM238",
+     "titre": "O tych drobiazgach na pewno nie wiedziałeś - 10 TRIKÓW MOWY CIAŁA",
+     "chaine": "Przeciętny Człowiek",
+     "vues": "111 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "12:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwZtzflFpP0qhUiZtsM11LR01co0oSv34IMczHFgDw_A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ CITEȘTI LIMBAJUL CORPULUI"
+    ],
+    "video": {
+     "id": "6Ays5LjNxxo",
+     "titre": "Arta de a citi oamenii | Învață comunicarea non-verbală rapid (Carte audio)",
+     "chaine": "Cărți Educaționale",
+     "vues": "2 K de vizionări",
+     "date": "acum 9 luni",
+     "duree": "2:26:35",
+     "avatar": "https://yt3.ggpht.com/KgEroYfoHMS0KcA0QVru_uMAu0eswMacTiLIZugo-BJbMsbsS_NPo4MbMQPsApUikWmfWnEr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄSA KROPPSSPRÅK"
+    ],
+    "video": {
+     "id": "IMoRNvCr_74",
+     "titre": "F 32. Skapa trygghet med kroppsspråket",
+     "chaine": "YA-delegationen Arbetsplatslärande",
+     "vues": "5 301 visningar",
+     "date": "för 9 år sen",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nSWJY5-P2tQDf0CDqpk666mgxv_PtvIRf1fv8YMbH8dQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "BEDEN DİLİNİ OKUMAK"
+    ],
+    "video": {
+     "id": "RastG_UKq84",
+     "titre": "Daha Öz Güvenli Bir Beden Dili",
+     "chaine": "Psikolog Tuba Dadaşoğlu",
+     "vues": "420 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "14:33",
+     "avatar": "https://yt3.ggpht.com/4r7t6tRSCtfipLR_bpfHnJlQxmAZEhvpBP8AJvj4Cx4sSFkll5DHs8Gq3C83wQv-21n36AJoMd4=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

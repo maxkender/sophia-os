@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o176",
+  "type_bleo": "full_test",
+  "titre": "les petites choses qui m'ont rendue plus curieuse que jamais #curiosite #culture #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : devenir curieuse, récit « je ». Accroches écrites : « les petites choses qui m'ont rendue plus curieuse que jamais » (retenue : simple, positive), « comment être curieuse » (écartée : sec), « la curiosité, ça s'apprend » (écartée : slogan). Aucun fait daté. Routine du 16/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 et 9 de la boîte se déclinent proprement, donc 2 déclinaisons et 6 full tests. Lignes sautées : 2 (« validé par les neurosciences »), 3 (accroche illisible), 4, 7 et 8 (« backed by science », bienfaits santé invérifiables), 5 (« enterimarnt »), 6 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7f370761",
+      "texte_overlay": "les petites choses\nqui m'ont rendue plus curieuse que jamais",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7fc4dc02",
+      "texte_overlay": "1. demander pourquoi, une fois de plus\n\nles enfants le font.\non a arrêté trop tôt.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7ffc4718",
+      "texte_overlay": "2. parler à des gens qui ne me ressemblent pas\n\nma voisine de 80 ans, le cordonnier, un étudiant en physique.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "80468374",
+      "texte_overlay": "3. lire un livre hors de ma zone\n\nsur les fourmis, les volcans, l'opéra.\nle sujet compte moins que la surprise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "809e8413",
+      "texte_overlay": "4. regarder les détails\n\nles façades, les plaques, les vieilles photos.\ntout a une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2306deba",
+      "texte_overlay": "5. apprendre un peu chaque jour\n\navant, je pensais que la curiosité, on l'avait ou pas.\nmaintenant, j'apprends un truc sur le monde chaque matin. et elle grandit un peu chaque jour.",
+      "texte_sophia": "5. apprendre un peu chaque jour\n\navant, je pensais que la curiosité, on l'avait ou pas.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et elle grandit un peu chaque jour.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "80a8c7ea",
+      "texte_overlay": "c'est quoi ta dernière curiosité ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

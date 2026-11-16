@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o177",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en passant un week-end sans réseaux sociaux #weekend #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : un week-end sans réseaux, en récit « je » (pas une liste générique). Accroches écrites : « ce que j'ai appris en passant un week-end sans réseaux sociaux » (retenue : expérience courte, faisable), « arrêter les réseaux » (écartée : générique), « détox digitale » (écartée : trop vu). Aucun conseil médical, aucune autre appli. Routine du 16/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 et 9 de la boîte se déclinent proprement, donc 2 déclinaisons et 6 full tests. Lignes sautées : 2 (« validé par les neurosciences »), 3 (accroche illisible), 4, 7 et 8 (« backed by science », bienfaits santé invérifiables), 5 (« enterimarnt »), 6 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "80dc705f",
+      "texte_overlay": "ce que j'ai appris en passant\nun week-end sans réseaux sociaux",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ddb5694a",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "80f4a6b2",
+      "texte_overlay": "1. les journées sont longues\n\nle samedi, à midi,\nj'avais déjà lu cinquante pages.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "80ffe68f",
+      "texte_overlay": "2. l'ennui ne dure que vingt minutes\n\naprès, les idées arrivent.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "81011fc9",
+      "texte_overlay": "3. je n'ai rien raté\n\nle lundi, personne ne m'a parlé\nde ce que j'avais manqué.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8155eb35",
+      "texte_overlay": "4. j'ai appelé au lieu d'écrire\n\nma meilleure amie, ma grand-mère.\ndeux heures de vraies conversations.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "81dd0642",
+      "texte_overlay": "5. j'ai eu envie de recommencer\n\nun week-end par mois, maintenant.\nc'est devenu mon rituel.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "8204708c",
+      "texte_overlay": "tu tenterais ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

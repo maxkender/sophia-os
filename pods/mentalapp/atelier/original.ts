@@ -33,7 +33,15 @@ export type Original = {
   /** Slide de l'élément UnSwipe (jamais la couverture). */
   position_app: 2;
   legendes: ParLangue;
-  couverture: { image: Recadrage; haut: ParLangue; gros: ParLangue; bas: ParLangue };
+  /**
+   * `mise` (décision du 17/11 : varier les couvertures, comme @mentalapp) :
+   * - « classique » (défaut) : « tier list of » / image / le mot fort / la suite ;
+   * - « titre_haut » : le mot fort en haut, la suite dessous, une grande image,
+   *   une ligne `edition` facultative et la petite frise S+ → F ;
+   * - « collage » : l'image au centre, le titre dessous, et dix vignettes du
+   *   tableau (avec leur légende) tout autour.
+   */
+  couverture: { mise?: "classique" | "titre_haut" | "collage"; image: Recadrage; haut: ParLangue; gros: ParLangue; bas: ParLangue; edition?: ParLangue };
   titre_tableau: ParLangue;
   pied: ParLangue;
   /** Rangs du tableau principal (S+ à D), puis le rang F à part, sous un « + ». */
@@ -125,15 +133,48 @@ export async function rendreOriginal(o: Original, langue: Langue, icone: Image):
     ctx.drawImage(await source(r.src), sx, sy, sl, sh, cx - (sl * k) / 2, bas - sh * k, sl * k, sh * k);
   };
 
-  // 1. Couverture : « tier list of » / image / le mot fort en très gros / la suite.
+  // 1. Couverture, selon sa mise.
   const c1 = createCanvas(L, H);
   const x1 = c1.getContext("2d");
   x1.fillStyle = FOND;
   x1.fillRect(0, 0, L, H);
-  centree(x1, o.couverture.haut[langue], L / 2, 250, 175, 200, 900, ENCRE, -0.03);
-  await poser(x1, o.couverture.image, L / 2, 790, 520, 470);
-  centree(x1, o.couverture.gros[langue], L / 2, 1010, 190, 200, 960, ENCRE, -0.03);
-  centree(x1, o.couverture.bas[langue], L / 2, 1160, 130, 200, 960, ENCRE, -0.03);
+  const cv = o.couverture;
+  const mise = cv.mise ?? "classique";
+  if (mise === "titre_haut") {
+    centree(x1, cv.gros[langue], L / 2, 220, 150, 200, 980, ENCRE, -0.03);
+    centree(x1, cv.bas[langue], L / 2, 320, 90, 200, 940, ENCRE, -0.02);
+    await poser(x1, cv.image, L / 2, cv.edition ? 1150 : 1200, 820, cv.edition ? 760 : 820);
+    if (cv.edition) centree(x1, cv.edition[langue], L / 2, 1225, 50, 300, 900);
+    // La petite frise S+ → F, comme sur leurs couvertures « … tier list ».
+    const tailles = [40, 34, 34, 34, 34];
+    const couleurs = ["#fb0200", "#ff9f40", "#fadc7c", "#fffd68", "#8685ed"];
+    let bx = L / 2 - (tailles.reduce((a, b) => a + b, 0) + 4 * 12) / 2;
+    for (const [i, t] of tailles.entries()) {
+      x1.fillStyle = couleurs[i];
+      x1.fillRect(bx, 1300 - t, t, t);
+      bx += t + 12;
+    }
+  } else if (mise === "collage") {
+    // Dix vignettes du tableau, cinq de chaque côté, avec leur légende.
+    const cases = [...o.rangs, o.f].flatMap((r) => r.cases).filter((c): c is Recadrage & { t: ParLangue } => "t" in c);
+    const choix = cases.filter((_, i) => i % 2 === 0).concat(cases.filter((_, i) => i % 2 === 1)).slice(0, 10);
+    for (const [i, c] of choix.entries()) {
+      const cx = i < 5 ? 125 : L - 125;
+      const haut = 70 + (i % 5) * 250;
+      await poser(x1, c, cx, haut + 150, 170, 140);
+      const lignes = c.t[langue].split("|");
+      lignes.forEach((l, k) => centree(x1, l, cx, haut + 185 + k * 30, 28, 300, 220));
+    }
+    if (cv.haut[langue]) centree(x1, cv.haut[langue], L / 2, 200, 90, 200, 560, ENCRE, -0.02);
+    await poser(x1, cv.image, L / 2, 900, 520, 620);
+    centree(x1, cv.gros[langue], L / 2, 1040, 130, 200, 600, ENCRE, -0.03);
+    centree(x1, cv.bas[langue], L / 2, 1135, 80, 200, 580, ENCRE, -0.02);
+  } else {
+    centree(x1, cv.haut[langue], L / 2, 250, 175, 200, 900, ENCRE, -0.03);
+    await poser(x1, cv.image, L / 2, 790, 520, 470);
+    centree(x1, cv.gros[langue], L / 2, 1010, 190, 200, 960, ENCRE, -0.03);
+    centree(x1, cv.bas[langue], L / 2, 1160, 130, 200, 960, ENCRE, -0.03);
+  }
 
   // 2. Tableau.
   const c2 = createCanvas(L, H);

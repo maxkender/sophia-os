@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o300",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "5b4f0c10-55c0-4f0e-b72d-610b22744e45",
+ "titre": "how to be insanely charismatic #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "5b4f0c10-55c0-4f0e-b72d-610b22744e45"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 13 de la boîte (5b4f0c10, es 36,3 k) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (écoute, prénom, clarté, questions, langage du corps). Aucune appli citée hors Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "eac72dd5-1ec7-4f18-8b80-3558dd0dae19",
+   "texte_overlay": "how to be insanely\ncharismatic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695144994897661216/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Smile with your eyes. A real smile reaches the eyes and changes your whole face. People feel the difference immediately and warm up to you.",
+   "media_id": "299b014e-ecfe-42a4-8ba6-d070a5b92cb2"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Give people your full energy. When you talk to someone, be there completely. No phone, no glancing around the room, just them. It shows they matter.",
+   "media_id": "eab45ac8-35d2-4284-8141-4347469ba547"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Tell stories, not facts. \"Last summer I got lost in Naples\" beats \"I went to Italy.\" Stories pull people in and make you memorable.",
+   "media_id": "ecd96879-a400-4072-ad80-8cf88f56c2cb"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Make others feel important. Ask their opinion, praise their ideas, remember their wins. Charisma is mostly about how you make people feel.",
+   "media_id": "ed8d39f0-2e8a-43a5-af91-765df22c8bf9"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I struggled to keep people interested. After: five minutes a day of history, art or science, and my stories got much better.",
+   "texte_sophia": "Before: I struggled to keep people interested. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. My stories got much better.",
+   "media_id": "f19c6cf4-7572-4bd4-a00b-183c8c099dd1"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Be comfortable being yourself. Your odd hobbies, your strong opinions, your quirks. People are drawn to someone who isn't hiding. That's what makes you real.",
+   "media_id": "ee0247eb-4276-454c-925f-c910cb12ee4e"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Bring good energy into every room. A warm hello, a light joke, real enthusiasm. People remember the person who made the moment better.",
+   "media_id": "ef56c767-1505-4942-9b7f-ce2cd60d7dfe"
+  }
+ ]
+}

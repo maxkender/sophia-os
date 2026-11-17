@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o288",
+ "type_bleo": "full_test",
+ "titre": "Simple rules that make a man's life easier #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 5 et 10 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 5e full test. Accroches écrites : « Simple rules that make a man's life easier » (retenue), « Life rules nobody taught you » (écartée : proche de déjà vu), « Rules for an easy life » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c809f694-748c-4cf0-86c8-17af948c4766",
+   "texte_overlay": "Simple rules that make\na man's life easier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "If it takes two minutes, do it now. Reply to the email, wash the cup, pay the bill. Small tasks only become heavy when you let them pile up for days.",
+   "media_id": "10a18346-bad0-4a6f-87fa-70c260f71519"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Put things back where they belong. Keys, wallet, charger. One fixed place for everything saves you hours of searching every year. Do it on day one.",
+   "media_id": "11133a12-1099-4a0e-81de-100d9a4c5801"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Never go food shopping hungry. You'll spend more and buy worse. A full stomach and a short list keep your money and your health in check.",
+   "media_id": "133f9bd6-5eee-4d93-963c-e97e45c50023"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Prepare tomorrow tonight. Clothes ready, bag packed, plan written. Your morning self will thank you for every decision you already made.",
+   "media_id": "13452ece-1f4b-484d-a263-f1ef3cd618f6"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: my evenings disappeared into scrolling. After: five minutes a day of history, art or science, and I end every day a little sharper.",
+   "texte_sophia": "Before: my evenings disappeared into scrolling. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I end every day a little sharper.",
+   "media_id": "4b3133b6-40bc-434e-b61e-02d62f4df56b"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Sleep on big decisions. A night's sleep turns many urgent problems into simple ones. Very few choices really need an answer tonight.",
+   "media_id": "1405f939-d23e-4c90-b6ba-a876170ef213"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Buy fewer, better things. One good jacket beats three cheap ones. Quality saves money over time and makes life feel less cluttered.",
+   "media_id": "1577af23-1cd7-41c2-8339-7577234e4eec"
+  }
+ ]
+}

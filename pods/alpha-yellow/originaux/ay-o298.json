@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o298",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "560db433-0e1e-461d-a366-da89eed65683",
+ "titre": "how you make your brain work better #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "560db433-0e1e-461d-a366-da89eed65683"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 11 de la boîte (560db433, pl 7,7 k) : accroche du parent mot pour mot, coupes gardées. Les lignes 3 à 5 et 10 sont sautées (faute de frappe à reprendre mot pour mot). Items neufs, aucun repris du parent (à rebours, oublier exprès, élèves invisibles, penser sur papier).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e67a94e1-8b48-434b-ab35-2b89b0e421ff",
+   "texte_overlay": "how you make your brain\nwork better",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Do one thing at a time. Multitasking feels productive, but it makes you slower and more tired. Close the tabs and focus on one task.",
+   "media_id": "d50f91b5-1c39-4311-964f-6963852c8eab"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Take short breaks every hour. Five minutes of walking or stretching resets your attention and helps you think more clearly after. Your brain recovers fast.",
+   "media_id": "dc2f0708-575e-49b1-b2bb-ffdbb5433da9"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Go outside in the morning light. Ten minutes of daylight wakes your body up and helps you feel alert for the rest of the day. Try it before noon.",
+   "media_id": "dd6a1d5a-ed06-48d0-b4ec-5a3fa039c2b7"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Ask \"why\" three times. When you learn something, keep digging. Understanding the reasons behind facts makes them stick much longer.",
+   "media_id": "e05d9aa7-3ff2-4ff6-88d4-941ac654efc7"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. A small daily dose of new knowledge keeps your mind active. Ask the next question.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. A small daily dose of new knowledge keeps your mind active.",
+   "media_id": "c8b9c634-8d04-4125-874f-60c4e779e90f"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Move your body regularly. Exercise improves mood, sleep and focus. A thirty-minute workout is one of the best things for your thinking.",
+   "media_id": "e321590e-114d-4cc0-bb66-ff473bced500"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Protect your sleep. Your brain cleans and organises itself at night. Skipping sleep is like skipping the save button on everything you learned.",
+   "media_id": "e41395ec-9840-4686-aae1-43a2585a9746"
+  }
+ ]
+}

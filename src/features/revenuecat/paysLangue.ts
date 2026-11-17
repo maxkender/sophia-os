@@ -69,6 +69,8 @@ const CODES_ISO_PAYS: Record<string, string> = {
   si: "sl", // Slovénie ; SL = Sierra Leone, hors marché
   sk: "sk",
   rs: "sr", // Serbie ; SR = Suriname, hors marché
+  me: "sr", // 17/11 : Monténégro, mêmes contenus que la Serbie
+  ba: "sr", // 17/11 : Bosnie-Herzégovine, mêmes contenus que la Serbie
   eg: "ar",
   sa: "ar",
   ae: "ar",

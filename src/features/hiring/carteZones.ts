@@ -60,6 +60,12 @@ const ALIAS: Record<string, readonly string[]> = {
   bulgarie: ["Bulgaria"],
   hongrie: ["Hungary"],
   serbie: ["Serbia"],
+  // 17/11 : Monténégro et Bosnie-Herzégovine (« Bosnia and Herzegovina » est coupé sur « and »).
+  montenegro: ["Montenegro"],
+  bosnie: ["Bosnia and Herz."],
+  bosnia: ["Bosnia and Herz."],
+  herzegovina: ["Bosnia and Herz."],
+  "bosnie herzegovine": ["Bosnia and Herz."],
   australie: ["Australia"],
   irlande: ["Ireland"],
   belgique: ["Belgium"],

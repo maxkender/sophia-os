@@ -75,6 +75,8 @@ export const PAYS_VERS_NOTION: Readonly<Record<string, string>> = Object.freeze(
   PT: "Portugal",
   RO: "Romania",
   RS: "Serbia",
+  ME: "Montenegro",
+  BA: "Bosnia and Herzegovina",
   SK: "Slovakia",
   SI: "Slovenia",
   ES: "Spain",

@@ -159,7 +159,7 @@ const MOTS_PAYS: [RegExp, string][] = [
   [/denmark|danish/i, "DK"], [/\bspain\b|spanish speaker\/ in spain/i, "ES"], [/german/i, "DE"], [/france|french/i, "FR"],
   [/ital/i, "IT"], [/poland|polish/i, "PL"], [/turk|türk/i, "TR"], [/roman/i, "RO"], [/czech/i, "CZ"], [/sloven/i, "SI"],
   [/slovak/i, "SK"], [/croat/i, "HR"], [/swed/i, "SE"], [/norw/i, "NO"], [/netherlands|dutch/i, "NL"], [/\buk\b|united kingdom|britain/i, "GB"],
-  [/\bus\b|usa|united states/i, "US"], [/brazil/i, "BR"], [/portugal/i, "PT"], [/kazakh/i, "KZ"], [/serbia/i, "RS"], [/eston/i, "EE"],
+  [/\bus\b|usa|united states/i, "US"], [/brazil/i, "BR"], [/portugal/i, "PT"], [/kazakh/i, "KZ"], [/montenegr/i, "ME"], [/bosnia|herzegovina/i, "BA"], [/serbia/i, "RS"], [/eston/i, "EE"],
   [/lithuan/i, "LT"], [/latvi/i, "LV"], [/japan/i, "JP"], [/korea/i, "KR"], [/\buae\b|emirates|dubai|\barab\b/i, "AE"], [/colombia/i, "CO"],
   [/argentin/i, "AR"], [/mexic/i, "MX"], [/austral/i, "AU"], [/belgi/i, "BE"],
 ];

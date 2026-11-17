@@ -1,0 +1,1202 @@
+{
+ "id": "sg-012",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7680302500674555169",
+  "vues": 23600,
+  "publie_le": "2026-08-31",
+  "accroche": "Les vidéos 10/10 à absolument voir"
+ },
+ "titre": {
+  "fr": "Les vidéos 10/10 à absolument voir",
+  "en": "10/10 videos you absolutely must watch",
+  "de": "10/10-Videos, die du unbedingt sehen musst",
+  "it": "Video 10/10 da vedere assolutamente",
+  "pt-BR": "Vídeos 10/10 que você precisa assistir",
+  "tr": "Mutlaka izlemen gereken 10/10 videolar",
+  "ro": "Videoclipuri 10/10 pe care trebuie neapărat să le vezi",
+  "cs": "Videa 10/10, která musíš rozhodně vidět"
+ },
+ "legendes": {
+  "fr": "Les vidéos 10/10 à absolument voir #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 videos you absolutely must watch #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Videos, die du unbedingt sehen musst #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Video 10/10 da vedere assolutamente #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Vídeos 10/10 que você precisa assistir #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Mutlaka izlemen gereken 10/10 videolar #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Videoclipuri 10/10 pe care trebuie neapărat să le vezi #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Videa 10/10, která musíš rozhodně vidět #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - mxk.media22",
+  "url": "https://www.tiktok.com/music/original-sound-7541284794651527966"
+ },
+ "notes": "Routine du 17/11. Son post à 23,6 k (format « vidéos », sans titre d'étape ni temps) : sa couverture (« VIDÉOS / QUE TU DOIS / ABSOLUMENT / VOIR », brun/noir, tailles relevées 238/155/200/242), ses 5 sujets dans son ordre avec un titre d'étape écrit dans son style, d'autres vraies vidéos que les siennes (Fabien Olicard, Lacrimosophia, Léo Duff, Lael, Gnooki), natives dans chaque langue. Sophia en étape 4 sur 7 (cta C : « RÉVEILLER / SA CURIOSITÉ »), sa slide « ABONNE-TOI » retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "VIDÉOS",
+      "couleur": "brun",
+      "cap": 238
+     },
+     {
+      "t": "QUE TU DOIS",
+      "cap": 155
+     },
+     {
+      "t": "ABSOLUMENT",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "VOIR",
+      "cap": 242
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "VIDEOS",
+      "couleur": "brun",
+      "cap": 238
+     },
+     {
+      "t": "YOU ABSOLUTELY",
+      "cap": 140
+     },
+     {
+      "t": "MUST",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "WATCH",
+      "cap": 220
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "VIDEOS",
+      "couleur": "brun",
+      "cap": 238
+     },
+     {
+      "t": "DIE DU",
+      "cap": 155
+     },
+     {
+      "t": "UNBEDINGT",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "SEHEN MUSST",
+      "cap": 180
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "VIDEO",
+      "couleur": "brun",
+      "cap": 238
+     },
+     {
+      "t": "CHE DEVI",
+      "cap": 155
+     },
+     {
+      "t": "ASSOLUTAMENTE",
+      "couleur": "brun",
+      "cap": 180
+     },
+     {
+      "t": "VEDERE",
+      "cap": 230
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "VÍDEOS",
+      "couleur": "brun",
+      "cap": 238
+     },
+     {
+      "t": "QUE VOCÊ",
+      "cap": 155
+     },
+     {
+      "t": "PRECISA",
+      "couleur": "brun",
+      "cap": 210
+     },
+     {
+      "t": "ASSISTIR",
+      "cap": 220
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "MUTLAKA",
+      "couleur": "brun",
+      "cap": 220
+     },
+     {
+      "t": "İZLEMEN",
+      "cap": 155
+     },
+     {
+      "t": "GEREKEN",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "VİDEOLAR",
+      "cap": 220
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "VIDEOCLIPURI",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "PE CARE TREBUIE",
+      "cap": 130
+     },
+     {
+      "t": "NEAPĂRAT",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "SĂ LE VEZI",
+      "cap": 200
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "VIDEA",
+      "couleur": "brun",
+      "cap": 238
+     },
+     {
+      "t": "KTERÁ MUSÍŠ",
+      "cap": 155
+     },
+     {
+      "t": "ROZHODNĚ",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "VIDĚT",
+      "cap": 215
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "5 TECHNIQUES",
+     [
+      {
+       "t": "ANTI-FLEMME",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YL850ztmnAk",
+     "titre": "Comment ne plus avoir la flemme (5 astuces)",
+     "chaine": "Emilio",
+     "vues": "194 k vues",
+     "date": "il y a 5 ans",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/NKv2f_MdR9cZPEeTwmr9M7kCB-w6SN4Zq9ENKN0yPk-AisjMvMkuhBG2kr7ZQ3Vng5Oil3A-=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "HOW TO BEAT",
+     [
+      {
+       "t": "LAZINESS",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "adDgQeRavzU",
+     "titre": "7 Proven Ways to STOP Being Lazy",
+     "chaine": "TopThink",
+     "vues": "2.3M views",
+     "date": "7 years ago",
+     "duree": "10:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4z8DqO8Piw03zC0EWi-PPmo8ZspkHl4EtEFnJVr-PDts=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "FAULHEIT",
+     [
+      {
+       "t": "BESIEGEN",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5n8yfGY0vv0",
+     "titre": "Faulheit existiert nicht: Das MUSST du wissen (lebensverändernd)",
+     "chaine": "Erschaffe dich neu",
+     "vues": "87.786 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "7:20",
+     "avatar": "https://yt3.ggpht.com/g8RGrTrIVK_ftKoDZNUqM9dcqLBKM1Zp45OvACqp-OrqnyzNgfekxVUKqg-gwFGRuIXJOHyM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "BATTERE",
+     [
+      {
+       "t": "LA PIGRIZIA",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kvDvGUHZT0M",
+     "titre": "Sei pigro? Tutte scuse. Ecco che cosa fare.",
+     "chaine": "Dr. Filippo Ongaro",
+     "vues": "70K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:04",
+     "avatar": "https://yt3.ggpht.com/h6rUuIJy2Gq35UIFROwcxOtvJOCfAz8aCu2NCOgBpXes4U8lY1NHWYQGshWQtMBFisMSNKkP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "VENCER",
+     [
+      {
+       "t": "A PREGUIÇA",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ibZncifCWnY",
+     "titre": "PREGUIÇA E PROCRASTINAÇÃO: Acabe definitivamente com elas | SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "5,6 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "7:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "TEMBELLİĞİ",
+     [
+      {
+       "t": "YENMEK",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hIvgIksYQKw",
+     "titre": "Tembellikten Kurtulma Sanatı - 8 Yöntem",
+     "chaine": "Hikmet Anıl Öztekin",
+     "vues": "532 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "8:33",
+     "avatar": "https://yt3.ggpht.com/Y8HAwaWYIKTzSx3LJl8UNKcINJN9_pY8-slEoLODZQ4-NDirMV4RXAe5YT8pmrX9ya6tOsst=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVINGI",
+     [
+      {
+       "t": "LENEA",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jgvxoVR6eqw",
+     "titre": "Cum sa nu mai fi atat de lenes: 10 obiceiuri simple. Dezvoltare personala.",
+     "chaine": "Laboratorul de motivatie",
+     "vues": "6,8 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "9:01",
+     "avatar": "https://yt3.ggpht.com/MZVtXMaBs7F1JKT5TNiFPr4o683msKNMknTqIJE6kCRfO10f3-tq4vrBMdufbQLEbhI-aSOr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "JAK PORAZIT",
+     [
+      {
+       "t": "LENOST",
+       "couleur": "#e0a526"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P8tjinOhOuw",
+     "titre": "Jak překonat lenost?! Jediná technika, kterou potřebujete v boji proti lenosti!",
+     "chaine": "Jan Kohut",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "9:54",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LA",
+     [
+      {
+       "t": "SOLITUDE",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3j0U0pCHMXI",
+     "titre": "Solitude, le mal d’une génération | Documentaire | ARTE",
+     "chaine": "ARTE",
+     "vues": "371 k vues",
+     "date": "il y a 6 jours",
+     "duree": "1:29:18",
+     "avatar": "https://yt3.ggpht.com/JvG9t1fNgirmoEWieadI9gz5wm0889z8ULzCF959u1FrDykh8LJUO9BjEGUg1k_xDOZWFNb3uQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "WHY WE FEEL",
+     [
+      {
+       "t": "LONELY",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "n3Xv_g3g-mA",
+     "titre": "Loneliness",
+     "chaine": "Kurzgesagt – In a Nutshell",
+     "vues": "28M views",
+     "date": "7 years ago",
+     "duree": "13:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1Ribd7LwdP_qKtqWL3ZDfIgv9M1d6g78VwpHGXVR2Ir4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DIE",
+     [
+      {
+       "t": "EINSAMKEIT",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hsavV5nIoQg",
+     "titre": "Einsam, auch unter jungen Menschen? Exit Einsamkeit | 1/3 | SWR Doku",
+     "chaine": "SWR Doku",
+     "vues": "142.648 Aufrufe",
+     "date": "vor 11 Monaten",
+     "duree": "29:35",
+     "avatar": "https://yt3.ggpht.com/k4Ml0DaAVEdzQvaYTUfF0jJSVXIpriRukVxjMWPOnk9EilTitbMBpzv4NnAZNQZZ0rHpDKzI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LA",
+     [
+      {
+       "t": "SOLITUDINE",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aNA4_UPP2CI",
+     "titre": "La VERA ragione per cui ti senti Solo (anche se non lo sei)",
+     "chaine": "Dott. Valerio Rosso",
+     "vues": "19K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "9:43",
+     "avatar": "https://yt3.ggpht.com/NLHjpZ2_D9LP0_Fsi3IFRqq69yCpDaPEvi_mD9_6J_eImA5-euVQRzIevWSkU7UY7c3hccG2jg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "A",
+     [
+      {
+       "t": "SOLIDÃO",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SRS3rang8RA",
+     "titre": "SOLIDÃO | ANA BEATRIZ",
+     "chaine": "PodPeople - Ana Beatriz Barbosa",
+     "vues": "174 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/SqCOu5_BOHhu-wKyBZLfVtveTCVywPhq2ruWJR7IflurWJC7--VJo9jz32rVcJgKPDBjPxff=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "NEDEN",
+     [
+      {
+       "t": "YALNIZ HİSSEDERİZ",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KECuxFJupIY",
+     "titre": "Neden Bu Kadar Yalnız Hissediyorsunuz?",
+     "chaine": "Evrim Ağacı",
+     "vues": "828 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "20:48",
+     "avatar": "https://yt3.ggpht.com/yy48QgMLjlpIqzRqWM-ecSuL6g8KggV2pi8YS7wNzkugZHH_-eNNxJ5-BenWWYp-K8gUliIpwVo=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "DESPRE",
+     [
+      {
+       "t": "SINGURĂTATE",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gd3G8RPXu9I",
+     "titre": "Singurătate vs izolare socială: riscuri și soluții.",
+     "chaine": "Doctor Mihail",
+     "vues": "45 K vizionări",
+     "date": "acum 6 luni",
+     "duree": "32:29",
+     "avatar": "https://yt3.ggpht.com/qr39hN1rt730-nEAreSHLVEFa6HBlysRhG8wrat7cjVqURRfYnnI3A0gSTy02jkRbIIIyjSPN5Y=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "PROČ JSME",
+     [
+      {
+       "t": "OSAMĚLÍ",
+       "couleur": "#2f5597"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bBqO3w_xYBI",
+     "titre": "Skrytý zabiják moderní doby: Proč nás samota ničí? | Ve stínu osamělosti | Celý dokument",
+     "chaine": "Dokumenty České televize",
+     "vues": "117 tis. zhlédnutí",
+     "date": "před 2 týdny",
+     "duree": "25:54",
+     "avatar": "https://yt3.ggpht.com/OOp410Rk_u7hGeFdgl4HHzmm-Lz1dvOKqJUMz_Zwek6kBxhTEu-Aic6_AxcMGzHWbQZgT1A5=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "RÉVEILLER",
+     [
+      {
+       "t": "SA CURIOSITÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WAKE UP",
+     [
+      {
+       "t": "YOUR CURIOSITY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEINE NEUGIER",
+     [
+      {
+       "t": "WECKEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RISVEGLIARE",
+     [
+      {
+       "t": "LA CURIOSITÀ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DESPERTAR",
+     [
+      {
+       "t": "A CURIOSIDADE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "MERAKINI",
+     [
+      {
+       "t": "UYANDIR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI TREZEȘTI",
+     [
+      {
+       "t": "CURIOZITATEA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PROBUDIT",
+     [
+      {
+       "t": "ZVĚDAVOST",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "POURQUOI TU",
+     [
+      {
+       "t": "REMETS À DEMAIN",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fymrF-9dokc",
+     "titre": "Dopamine : L'arme SECRÊTE anti-procrastination (et comment l'utiliser) !",
+     "chaine": "Jérémy Coron",
+     "vues": "368 k vues",
+     "date": "il y a 1 an",
+     "duree": "17:27",
+     "avatar": "https://yt3.ggpht.com/dasTYXWKzOUyMSxdGXYBloKBt6ohnN_7Emht2r8psJ0wZtUARPI1bmAjGDMdo9CwpdPKonqW=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "WHY YOU PUT",
+     [
+      {
+       "t": "THINGS OFF",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FWTNMzK9vG4",
+     "titre": "Why you procrastinate even when it feels bad",
+     "chaine": "TED-Ed",
+     "vues": "11M views",
+     "date": "4 years ago",
+     "duree": "5:46",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WARUM DU",
+     [
+      {
+       "t": "ALLES AUFSCHIEBST",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IRdrz2y4m2I",
+     "titre": "Katzenvideos statt arbeiten - warum prokrastinieren wir?",
+     "chaine": "MAITHINK X",
+     "vues": "359.220 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "4:18",
+     "avatar": "https://yt3.ggpht.com/dPNzbGj-vTQ0GFNk6hp16CQUq8i_3rUu1oQ_HucoJjTKGHwEL-6dX4IeofSXVvvkXgvUQKHeb5k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "PERCHÉ RIMANDI",
+     [
+      {
+       "t": "TUTTO A DOMANI",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XRu90R-HVno",
+     "titre": "Il Semplice Trucco Anti-Procrastinazione (spiegato da uno psicologo)",
+     "chaine": "Dr. Gennaro Romagnoli • PsiNel",
+     "vues": "82K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "13:20",
+     "avatar": "https://yt3.ggpht.com/a1ZQ536AuvTAtkG2f-TbrUqtipxoQV3FGGhtuutEspW6co4W9BOOPU3Xcj6LTij2-AYmJKsjz5U=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "POR QUE VOCÊ",
+     [
+      {
+       "t": "DEIXA PRA DEPOIS",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WIS3PzNJEdU",
+     "titre": "Como parar de PROCRASTINAR?",
+     "chaine": "Ciência Todo Dia",
+     "vues": "1,4 mi visualizações",
+     "date": "há 1 ano",
+     "duree": "15:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQoeh3pIl35H0tiDQ6fG3YeSrn2hWxKKCIxN11NQvnDdg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "NEDEN HER ŞEYİ",
+     [
+      {
+       "t": "ERTELERİZ",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "__MSthuk65k",
+     "titre": "Üşeniyorum Öyleyse Yarın: Erteleme ile Başa Çıkma",
+     "chaine": "Beyhan Budak",
+     "vues": "409 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "6:50",
+     "avatar": "https://yt3.ggpht.com/CuslZcad93sGBkQlQOcPs7W_2UKO6aB9290uMqQRQWik4WOeSbo7OJojA6suqIsihiFoPY5VLOg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "DE CE AMÂNI",
+     [
+      {
+       "t": "TOTUL",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y37MQglmVxw",
+     "titre": "Cum sa nu procrastinam | de ce pierdem timpul",
+     "chaine": "Alexandra Chiriac",
+     "vues": "4,4 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "8:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_msO8Nc2a8KVug6tytz_VhrsNunudzufjEdOoHBg8wDHX9v=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "PROČ VŠECHNO",
+     [
+      {
+       "t": "ODKLÁDÁŠ",
+       "couleur": "#3f9a52"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qhRo1Hp4tuw",
+     "titre": "Proč často prokrastinujeme? ( Princip, který změní tvůj život) | Kniha - Válka Umění",
+     "chaine": "Miloš Ouhrabka",
+     "vues": "5,6 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "11:52",
+     "avatar": "https://yt3.ggpht.com/d7P2VWylwy03tEq9XdyrwlmQEscdt-qY7w5eoMR5ccgbA-K7mgSoQUImuoHXZK6jwuX7wsqhgcA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMMENT LA PUB",
+     [
+      {
+       "t": "TE MANIPULE",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0skabykqVW8",
+     "titre": "Comment les marques manipulent nos sens ?",
+     "chaine": "AVRE (Explore Media)",
+     "vues": "194 k vues",
+     "date": "il y a 3 ans",
+     "duree": "11:58",
+     "avatar": "https://yt3.ggpht.com/kYxNY2wJON9wV1MzEUJPz2RTVmsRmOOYAFeiV-P7MpumHknBCgl846ja_WtmH50gLdv9g3T4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "HOW ADS",
+     [
+      {
+       "t": "MANIPULATE YOU",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8LqqVfPduTs",
+     "titre": "How Marketers Manipulate Us: Psychological Manipulation in Advertising",
+     "chaine": "Wendover Productions",
+     "vues": "495K views",
+     "date": "11 years ago",
+     "duree": "7:09",
+     "avatar": "https://yt3.ggpht.com/OnFIYArpFofrmngLXAsDGHsoVUpPA-yW3oD2ug7J2tq7H4BUcnnQvyfaQ8vw6s5JCiXJu1hb5A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "WIE WERBUNG",
+     [
+      {
+       "t": "DICH MANIPULIERT",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tC1Q4GN6UYU",
+     "titre": "Neuromarketing – wie uns Werbung manipuliert",
+     "chaine": "Terra Xplore",
+     "vues": "174.409 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "15:27",
+     "avatar": "https://yt3.ggpht.com/5vOONTJvCHm6cndKdMLxIOZ6Y3y_TCjAgkWcetqWG-1kFK4w3nc8sEPf2dsoV15eEcujSI_O-i4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "COME TI MANIPOLA",
+     [
+      {
+       "t": "LA PUBBLICITÀ",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HTujevlAgfc",
+     "titre": "8 Trucchi di Marketing in cui caschiamo sempre",
+     "chaine": "Marco Montemagno",
+     "vues": "275K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "4:40",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO A PROPAGANDA",
+     [
+      {
+       "t": "TE MANIPULA",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZETt9MjqBnk",
+     "titre": "COMO A PUBLICIDADE TE MANIPULA",
+     "chaine": "Minutos Psíquicos",
+     "vues": "94 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "5:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nvRD-Veu4jEfaJK6AiQL_jjDG9gSB0sXgd2imG1KyeM6k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "REKLAMLAR SENİ",
+     [
+      {
+       "t": "NASIL KANDIRIR",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6IZ-ZNiqyXU",
+     "titre": "Reklamların karanlık yüzü ilişkileri nasıl etkiliyor?",
+     "chaine": "Psikolog Tulay Kok",
+     "vues": "23 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "19:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nyaGlynU5MYhx4Q24Vfvg5pTqTR0AZDXCofqjRMOK1ERk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CUM TE MANIPULEAZĂ",
+     [
+      {
+       "t": "RECLAMELE",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gOR20Bq--aw",
+     "titre": "Trucuri de manipulare si marketing - Trucuri de psihologie",
+     "chaine": "Vladislav",
+     "vues": "3,7 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "8:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4_iLRilIJ99zHwfNbmmfPL9dBJv4WzFrVJvQOG9GnXA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "JAK TĚ REKLAMA",
+     [
+      {
+       "t": "MANIPULUJE",
+       "couleur": "#c8322f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OqdXklcAoew",
+     "titre": "Na pár minut Aneb jak tě reklamy manipulují a proč to funguje",
+     "chaine": "LoganAcesTV",
+     "vues": "2,5 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "4:04",
+     "avatar": "https://yt3.ggpht.com/erUYvSSjvjjywSo5VfyX7GqGrAro016Z0PWLZiPOVftU1a0WfLdLyQ36CrfoZFOt-e-5mRVdfA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "L'EFFET",
+     [
+      {
+       "t": "DE HALO",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xJO5GstqTSY",
+     "titre": "L'effet de Halo — Crétin de cerveau ! #1",
+     "chaine": "ScienceEtonnante",
+     "vues": "1,6 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "7:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kzU96H3Lq6fihVVFNWXUEFaidERMvSqyMwn0f455Gi4w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "THE",
+     [
+      {
+       "t": "HALO EFFECT",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kpjeMaOirvg",
+     "titre": "The Halo Effect [Pretty Privilege]",
+     "chaine": "Sprouts",
+     "vues": "978K views",
+     "date": "4 years ago",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSAFsiX7DamIFNxlGd-Xwuw7IXUcwMQB_NhdLjd24_sw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DER",
+     [
+      {
+       "t": "HALO-EFFEKT",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SI6DFpYztPs",
+     "titre": "Psychologie: Der Halo-Effekt - Wenn ein Persönlichkeitsmerkmal alles überstrahlt... (Teil 1)",
+     "chaine": "Psychologie-lernen .de",
+     "vues": "373.356 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "6:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n8jsdjsiQbN-JlLqaRKK63Hme1bIr7PhIWSfaIFIhq3eg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "L'EFFETTO",
+     [
+      {
+       "t": "ALONE",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IWwEFombYEc",
+     "titre": "Il SUPERPOTERE che può portarti al Successo - Effetto Alone",
+     "chaine": "L' Arte della Crescita Personale",
+     "vues": "19K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "10:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngFFazLGf0sjblEOn6g0mXYHRTaBFR0ROBG8Ye95iddw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O",
+     [
+      {
+       "t": "EFEITO HALO",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V9HKODEIn8c",
+     "titre": "EFEITO HALO | O que é | Como Funciona | Psicologia e Administração",
+     "chaine": "Economia para Iniciantes – com Gabriel Braga",
+     "vues": "7,9 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "2:56",
+     "avatar": "https://yt3.ggpht.com/XJwUycyx0M8DVDquhiFkp01pFUZ_2ayDq9SA2WoBJnDtIoiEnnMYshcYJ8nEuEWl71ddkntH=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "HALE",
+     [
+      {
+       "t": "ETKİSİ",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FaRBfnQmSXw",
+     "titre": "İyi Görünmek Hayatınızı Nasıl Değiştirir? (Halo Effect Nedir?) Yarattığın Algıyı Düzelt!",
+     "chaine": "Ceren Can",
+     "vues": "3,3 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "11:10",
+     "avatar": "https://yt3.ggpht.com/q76lMdZ-23ggY9r5U7bQdb_pzDucI97AAp41lOTViF1yDGs5Q60SeSIYq6A-zXnLLY4GAagk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "EFECTUL",
+     [
+      {
+       "t": "HALO",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dRkq_b5rYHw",
+     "titre": "Efectul De Halou Sau De Ce Să Nu Te Compari Cu Ceillalți",
+     "chaine": "Andy Szekely",
+     "vues": "1 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "2:33",
+     "avatar": "https://yt3.ggpht.com/66fteT0VlII6hGXD9r61btewDZpnws-UqmoWv0V6IUftap0db1QvPSpnOtzUEpQP3TqyEBDOpg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "HALO",
+     [
+      {
+       "t": "EFEKT",
+       "couleur": "#c9a227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XAsND6aEMCE",
+     "titre": "Psychologika 16: Halo efekt a prokletí prvního dojmu",
+     "chaine": "Moje psychologie",
+     "vues": "1,9 tis. zhlédnutí",
+     "date": "před 6 měsíci",
+     "duree": "26:49",
+     "avatar": "https://yt3.ggpht.com/x9cC-igliuMvSrKy3g7jLR265zb8LKXZhtdK41cnt_RpLzoP7hAaTQIx8FKPb37h13Yd0ry2nQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

@@ -7,6 +7,13 @@ bout en bout et tu rends compte. Tu ne décides jamais seul de publier : tout ce
 que tu produis part dans la **file de validation** de l'OS (Pilotage → Pods),
 où un humain valide ou rejette.
 
+## Variété et volume (demande d'Adrien du 17/11, prime sur le reste)
+
+Le label est 100 % podz : il ne doit pas servir chaque jour le même post traduit à tous les créateurs, avec la même couverture.
+- **Plus de posts différents chaque jour** : au moins 12 livraisons par jour (ou le rythme de `npm run boite` s'il est plus haut). Une livraison n'a plus à partir dans toutes les langues : répartis tes posts du jour entre les langues, pour que deux créateurs ne publient pas le même post le même jour.
+- **Une couverture par livraison** : chaque post du jour a sa propre couverture (autre image, autre accroche, autre mise en page dans ton style). Quand un même post part quand même dans plusieurs langues, change aussi sa couverture d'une langue à l'autre (image ou accroche), jamais la même pour tous.
+- Les autres règles (qualité, slide Sophia, preuve, vérification des faits) ne changent pas. Si le volume demandé ne tient pas au niveau de qualité, livre ce qui est au niveau et dis-le dans ton compte rendu.
+
 ## Ce que fait le pod
 - **Format** : slideshows « page blanche » façon @amayareading. Fond blanc, texte
   noir en dur avec des mots soulignés, photos en encart, et une slide qui montre
@@ -23,6 +30,7 @@ Une fois par session : `npm install`.
 | --- | --- |
 | `npm run sources` | télécharge les slides d'origine des posts du manifeste dans `sources/` (identiques d'une fois à l'autre) |
 | `npm run sources -- --compte amayareading` | scrape le compte et ajoute ses nouveaux slideshows au manifeste (statut `nouveau`) |
+| `npm run sources -- --compte mind.in.motionx --max 60 --banque` | source scrapable « banque photo » (ajoutée le 17/11) : même format page blanche, statut `banque` et champ `compte` au manifeste. Ses photos servent aux originaux et aux déclinaisons ; ses posts ne sont pas à reprendre. Écarte ses slides d'appli (Perfect Day, captures d'écran de verrouillage) et ses célébrités (acteurs de séries, etc.) |
 | `npm run geometrie -- sources <sortie>` | blocs détectés + images annotées (T = texte, I = image) pour transcrire un nouveau post |
 | `npm run rendu -- sources posts/<id>.<langue>.json <sortie> <langue>` | rend un post dans une langue ; rapport des débordements |
 | `npm run livrer -- sources <id\|all> --langues <l1,l2>` | rend et DÉPOSE dans la file de validation de l'OS |

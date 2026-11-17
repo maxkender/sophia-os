@@ -1,0 +1,1325 @@
+{
+ "id": "sg-007",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7683245134854556960",
+  "vues": 81200,
+  "publie_le": "2026-09-08",
+  "accroche": "10 compétence 10/10 qui valent plus qu’un diplôme ."
+ },
+ "titre": {
+  "fr": "10 compétences 10/10 qui valent plus qu'un diplôme",
+  "en": "10 skills 10/10 worth more than a degree",
+  "de": "10 Skills 10/10, die mehr wert sind als ein Studium",
+  "it": "10 competenze 10/10 che valgono più di una laurea",
+  "pt-BR": "10 habilidades 10/10 que valem mais que um diploma",
+  "tr": "Diplomadan daha değerli 10 beceri 10/10",
+  "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă",
+  "cs": "10 dovedností 10/10, které mají větší cenu než diplom"
+ },
+ "legendes": {
+  "fr": "10 compétences 10/10 qui valent plus qu'un diplôme #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10 skills 10/10 worth more than a degree #learnontiktok #selfimprovement #skills",
+  "de": "10 Skills 10/10, die mehr wert sind als ein Studium #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "10 competenze 10/10 che valgono più di una laurea #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "10 habilidades 10/10 que valem mais que um diploma #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Diplomadan daha değerli 10 beceri 10/10 #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "10 abilități 10/10 care valorează mai mult decât o diplomă #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "10 dovedností 10/10, které mají větší cenu než diplom #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "son original - psycho - psycho",
+  "url": "https://www.tiktok.com/music/son-original-psycho-7668282687572462358"
+ },
+ "notes": "Routine du 16/11. Son post à 81,2 k : sa couverture (lignes noir/brun/noir/brun, cap relevés 122/176/150/198), ses 5 compétences dans son ordre avec ses couleurs et ses temps, fautes corrigées (« COMPÉTENCES », « PSYCHOLOGIE », « LES INTÉRÊTS COMPOSÉS », « UTILISER L'IA »). Autres vraies vidéos que les siennes (Matthieu Louvet, Michael Aguilar, Timothée Falcon, Bastien Pelissier, Ludo Salenne), natives dans chaque langue. Sophia en étape 4 sur 7 (cta A : « S'INSTRUIRE / CHAQUE JOUR »), sa slide « ABONNE-TOI » retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 122
+     },
+     {
+      "t": "QUI VALENT",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "PLUS QU'UN",
+      "cap": 150
+     },
+     {
+      "t": "DIPLÔME",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 122
+     },
+     {
+      "t": "WORTH MORE",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAN A",
+      "cap": 150
+     },
+     {
+      "t": "DEGREE",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS,",
+      "cap": 122
+     },
+     {
+      "t": "DIE MEHR",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "WERT SIND ALS",
+      "cap": 150
+     },
+     {
+      "t": "EIN STUDIUM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "cap": 122
+     },
+     {
+      "t": "CHE VALGONO",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "PIÙ DI UNA",
+      "cap": 150
+     },
+     {
+      "t": "LAUREA",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 122
+     },
+     {
+      "t": "QUE VALEM",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MAIS QUE UM",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOMA",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "DİPLOMADAN",
+      "cap": 122
+     },
+     {
+      "t": "DAHA",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "DEĞERLİ",
+      "cap": 150
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 122
+     },
+     {
+      "t": "CARE VALOREAZĂ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "MAI MULT DECÂT",
+      "cap": 150
+     },
+     {
+      "t": "O DIPLOMĂ",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 122
+     },
+     {
+      "t": "CO MAJÍ VĚTŠÍ",
+      "cap": 176,
+      "couleur": "brun"
+     },
+     {
+      "t": "CENU NEŽ",
+      "cap": 150
+     },
+     {
+      "t": "DIPLOM",
+      "cap": 198,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "COMPRENDRE",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "LES INTÉRÊTS COMPOSÉS"
+    ],
+    "video": {
+     "id": "u50ZgQ9kBls",
+     "titre": "📈Intérêts Composés : Comment Ça Marche ? (+ simulateur gratuit)",
+     "chaine": "Sylvain - l'investissement facile",
+     "vues": "41 k vues",
+     "date": "il y a 3 ans",
+     "duree": "8:43",
+     "avatar": "https://yt3.ggpht.com/bjFxQKyIc3ef12U3ECxB9W1g3TiPFeTPYg-8D5ZSx9Pov3MvrznaFzMEYdmf4niTcxlpwQs5ig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "UNDERSTAND",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "COMPOUND INTEREST"
+    ],
+    "video": {
+     "id": "wf91rEGw88Q",
+     "titre": "What Is Compound Interest? | Investopedia",
+     "chaine": "Investopedia",
+     "vues": "2.1M views",
+     "date": "13 years ago",
+     "duree": "2:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCZDgY285VwOSZiiFRNPUqcFAtA7qXu7QXHvD1YSnzoOU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ZINSESZINS",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "VERSTEHEN"
+    ],
+    "video": {
+     "id": "kyYguppNaqE",
+     "titre": "Reich durch Zinseszins? Zinseszinseffekt einfach erklärt! | Finanzfluss",
+     "chaine": "Finanzfluss",
+     "vues": "604.746 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "10:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "CAPIRE",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "L'INTERESSE COMPOSTO"
+    ],
+    "video": {
+     "id": "hSa2fIQ5Vow",
+     "titre": "Interesse Composto: Come Funziona DAVVERO e Come Usarlo",
+     "chaine": "Pietro Michelangeli",
+     "vues": "96K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:18",
+     "avatar": "https://yt3.ggpht.com/-rOrDMmEMFy_rkmzNnNiDA9EkBfBqdC5nuKzwufGV6dvKt5Yh_OxP2gGBTj0XHmpJWOqoFEF300=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "ENTENDER",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "JUROS COMPOSTOS"
+    ],
+    "video": {
+     "id": "SpyWH9U15Ek",
+     "titre": "Como funcionam os juros compostos? - Aula obrigatória para qualquer investidor!",
+     "chaine": "Investidor Sardinha l Raul Sena",
+     "vues": "277 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/q6bgR6BvYXgq3u9GF_MP_YrVW4myeX_ETDwgM68vUA4XkahJUCoxnFy-MnELZPd5n875FDi5Fw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BİLEŞİK FAİZİ",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "ANLAMAK"
+    ],
+    "video": {
+     "id": "y27loS0nXvo",
+     "titre": "Bileşik Faiz Nedir? Formülü nedir? BASİT anlatım",
+     "chaine": "Beyaz Tahta",
+     "vues": "45 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "11:51",
+     "avatar": "https://yt3.ggpht.com/gfZ3TCbriDLELRDuVBvIyzW0TsJctM93y1Dy7wgXC3pnOBHQu1G7idvEXdNDctNSxxG7dcnS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ÎNȚELEGI",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "DOBÂNDA COMPUSĂ"
+    ],
+    "video": {
+     "id": "aV7aesD0pi8",
+     "titre": "DOBÂNDĂ COMPUSĂ - Secretul care îi face pe bogați și mai BOGAȚI",
+     "chaine": "Răzvan Bălănescu",
+     "vues": "51 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "19:07",
+     "avatar": "https://yt3.ggpht.com/8aD83e0hHsQs7uTKSzeD_Ea_I92evY7o9Ybc5ImlbxLLgwjOcD0wttUncd7S5BSWR2e5n3AQvHs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "POCHOPIT",
+       "couleur": "#0b1a80"
+      }
+     ],
+     "SLOŽENÉ ÚROČENÍ"
+    ],
+    "video": {
+     "id": "XP4A7ib5qCY",
+     "titre": "Složené úročení pro začátečníky (+ příklady) | Nejdůležitější investiční princip",
+     "chaine": "Ondřej Koběrský",
+     "vues": "40 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "15:41",
+     "avatar": "https://yt3.ggpht.com/-yhvUEQ_XfYnzxEljirZEo-rL76_GIy0VkHkGR2RwBu6Xs7ur09Vqlw2BHypHXfecFlUZayNKhY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PSYCHOLOGIE",
+     [
+      {
+       "t": "INVERSÉE",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yZDmBa89qmE",
+     "titre": "🧠 la Psychologie Inversée #biais cognitif",
+     "chaine": "Point de vue",
+     "vues": "6,9 k vues",
+     "date": "il y a 4 ans",
+     "duree": "4:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k8Z0Rf8PvRBqOIRcj2RGQPVDgT93CzxahdWDaEcaNQwQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "REVERSE",
+     [
+      {
+       "t": "PSYCHOLOGY",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BOQQPt2LoNY",
+     "titre": "How Does Reverse Psychology Work?",
+     "chaine": "SciShow Psych",
+     "vues": "360K views",
+     "date": "8 years ago",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/V9VvdM63Tl6tHJTndYzdy_YGQjVUDpJElctgxgGG-tliCZj6W4ngcCGKY-QM6bITsJMfE8nPdAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "UMGEKEHRTE",
+     [
+      {
+       "t": "PSYCHOLOGIE",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EDlXJ9oWWuk",
+     "titre": "Was ist Reaktanz 😤 Psychologie im Alltag (einfach erklärt mit Beispielen)",
+     "chaine": "ACTitude – Für mehr psychische Flexibilität",
+     "vues": "4131 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "7:02",
+     "avatar": "https://yt3.ggpht.com/UIwjeip6-BlpD1GDioYXefBDA2JYruB95peCOD-lY33x4iM9xK7MsmS29Bfxe17f0IRddNh1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PSICOLOGIA",
+     [
+      {
+       "t": "INVERSA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VxiLIEqb5y0",
+     "titre": "Psicologia inversa",
+     "chaine": "Luca Romito",
+     "vues": "76K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nK6Q_xI7_hL188zcal2CDyMe9QJwBZHxNlTNgSGqe6UQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PSICOLOGIA",
+     [
+      {
+       "t": "REVERSA",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-YAmxu8Xo9A",
+     "titre": "Use a Rejeição a Seu Favor: Psicologia reversa que funciona!",
+     "chaine": "Carol Morgana",
+     "vues": "163 mil visualizações",
+     "date": "há 3 meses",
+     "duree": "21:06",
+     "avatar": "https://yt3.ggpht.com/bPkJvVqJjh6Uj3XT437_aUvGmZ1hEoelRrLub4whA7mB1QFrImE3iR-NaWcnYYl7RaEE_31Ihw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "TERS",
+     [
+      {
+       "t": "PSİKOLOJİ",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OPAQHM5ZdV0",
+     "titre": "TERS PSİKOLOJİ TEKNİKLERİ - KİŞİSEL GELİŞİM",
+     "chaine": "Haluk TATAR",
+     "vues": "1 Mn görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "24:29",
+     "avatar": "https://yt3.ggpht.com/uCS_szCsKpaaeM7TVqjdNR9kuNbPv8nEtQxZ4m3mvrvKE_dX0l7_LQagL0coh-AX0pscoWTLPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "PSIHOLOGIE",
+     [
+      {
+       "t": "INVERSĂ",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bGShlHmWYkA",
+     "titre": "Psihologia inversă",
+     "chaine": "ECHILIBRU by Psiholog Harbur Elena",
+     "vues": "2,7 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "24:00",
+     "avatar": "https://yt3.ggpht.com/INeoF7KErAe0PURUIf5VBe16A7WS3dQx62Rj9sI1Yo7WbPVUie4p1VIJm3cqn92dTPhJ03Bm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OBRÁCENÁ",
+     [
+      {
+       "t": "PSYCHOLOGIE",
+       "couleur": "#ae8066"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nCgTEvxdLag",
+     "titre": "🤯 OBRÁCENÁ PSYCHOLOGIE: JAK OVLIVNIT LIDI?",
+     "chaine": "Top Trendy CZ",
+     "vues": "19 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9jZzK9TDsr8sm-eQB2cLtQ-mIrerOBk6Xr-jiMgSWDLg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–4 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "S'INSTRUIRE",
+     [
+      {
+       "t": "CHAQUE JOUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "EVERY DAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "JEDEN TAG",
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "OGNI GIORNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "TODO DIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER GÜN",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "ZILNIC",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "KAŽDÝ DEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "CAPTER",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "L'ATTENTION"
+    ],
+    "video": {
+     "id": "EZwMCbv5GsQ",
+     "titre": "5 Accroches pour bien commencer son DISCOURS et capter l'attention",
+     "chaine": "Liam Borchardt",
+     "vues": "61 k vues",
+     "date": "il y a 2 ans",
+     "duree": "9:40",
+     "avatar": "https://yt3.ggpht.com/c1ZARIGjgeIm8r3OV3x0n0y8R_jwQRxzGzGlTVj_9CWo_IwX3QmTH9PTfkQIRWpTnZ3Isa88=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "GRAB",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "ATTENTION"
+    ],
+    "video": {
+     "id": "VP6rdR1p29s",
+     "titre": "How to capture audience attention without saying a word",
+     "chaine": "Darren Tay",
+     "vues": "762K views",
+     "date": "9 years ago",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/ZvLj61UdO783eBMrf6OLf-rarDS4a2Cc7PGUsl7VI63nDjkWwadLL5SKgyUbigZ5hGNZUoR57Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "AUFMERKSAMKEIT",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "GEWINNEN"
+    ],
+    "video": {
+     "id": "L8WhR103zig",
+     "titre": "6 kleine Tricks, um sofort mehr Aufmerksamkeit zu bekommen",
+     "chaine": "RedeFabrik - Kommunikation & Charisma",
+     "vues": "49.403 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "7:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-amDRIUD0mk0CI3xOcWzaskdQKqCEzbk6aiNF5vN6x6I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "CATTURARE",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "L'ATTENZIONE"
+    ],
+    "video": {
+     "id": "QFFEspesM-8",
+     "titre": "Come catturare l'attenzione e mantenerla? Aumenta l'interesse con il corpo",
+     "chaine": "Giuseppe Franco",
+     "vues": "1,4K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "3:18",
+     "avatar": "https://yt3.ggpht.com/uShOTlb5DV9FCn1tHOSQW1Ngz672eF8ssSJrdsHan7R7Civy2d9LEzpJaKFSrfraqF4USK5Pcw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PRENDER",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "A ATENÇÃO"
+    ],
+    "video": {
+     "id": "OtkgyeUp6ec",
+     "titre": "3 estratégias para iniciar uma conversa e prender a atenção imediatamente",
+     "chaine": "Lara Brenner",
+     "vues": "74 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "10:54",
+     "avatar": "https://yt3.ggpht.com/vOuXjS4rhs6jyvGw8ly7kZ_s1SnH-w4L6B8VbTmiKICnLVZs-P1gbF2Ct4pMXCY4zni0Ctrpiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DİKKAT",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "ÇEKMEK"
+    ],
+    "video": {
+     "id": "DNrkOLZp358",
+     "titre": "TÜM GÖZLERİ SİZE ÇEVİRECEK BEŞ YÖNTEMİ ADİL YILDIRIM AÇIKLIYOR",
+     "chaine": "Adil YILDIRIM",
+     "vues": "492 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "18:32",
+     "avatar": "https://yt3.ggpht.com/JOWURY-rcQ9wbIXdY0LNfgEJXwGYElnOSXEHeDcdm9CUCCDk570VrdX2oTvvzx2CxckIbg35G8s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ CAPTEZI",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "ATENȚIA"
+    ],
+    "video": {
+     "id": "3n0WEy1h3h0",
+     "titre": "3 Tehnici Prin Care Să Captezi Atenția Atunci Când Comunici",
+     "chaine": "Andy Szekely",
+     "vues": "1,9 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "1:49",
+     "avatar": "https://yt3.ggpht.com/66fteT0VlII6hGXD9r61btewDZpnws-UqmoWv0V6IUftap0db1QvPSpnOtzUEpQP3TqyEBDOpg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4-5 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "UPOUTAT",
+       "couleur": "#dcb83c"
+      }
+     ],
+     "POZORNOST"
+    ],
+    "video": {
+     "id": "foM1jTHwGeQ",
+     "titre": "Zaujmi publikum zajímavým otvírákem",
+     "chaine": "KurzyKomunikace.cz",
+     "vues": "5,8 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lJlWIw0DQD-aooh0Vu07f5VTAtH7tt3_0iQvJ-C0Zr1A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "4–5 hodin na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "VENDRE",
+     [
+      {
+       "t": "N'IMPORTE",
+       "couleur": "#1f5f9e"
+      }
+     ],
+     "QUOI"
+    ],
+    "video": {
+     "id": "TizKQp8Xp5c",
+     "titre": "Comment vendre n'importe quoi à n'importe qui ?",
+     "chaine": "Racem Flazi",
+     "vues": "65 k vues",
+     "date": "il y a 2 ans",
+     "duree": "24:34",
+     "avatar": "https://yt3.ggpht.com/7n5Jv124AJdIgPuXad66E09k-7vZC0QVq88zGY_V7BaOjpqZ5SAjTIqPq0sGhb9kmC6oQ1UY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SELL",
+     [
+      {
+       "t": "ANYTHING",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JfbtySq6_B4",
+     "titre": "Sell Anything To Anyone With This Unusual Method",
+     "chaine": "Alex Hormozi",
+     "vues": "1.2M views",
+     "date": "5 years ago",
+     "duree": "7:14",
+     "avatar": "https://yt3.ggpht.com/4To_zqG1x2hAszdNGNtYaNGxDOPoPA77fDlQTnLZ7ehDBCH0piv5XetKK_DAe7Uk3PY8odSCI98=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "ALLES",
+     [
+      {
+       "t": "VERKAUFEN",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8sRg9do46ok",
+     "titre": "Verkaufen lernen mit meinen TOP TECHNIKEN!",
+     "chaine": "Bodo Schäfer",
+     "vues": "176.323 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/Llm57BR4khfSECeQkF8O_UUU4NfStN3stmuzgF6dfl7Ihc79dmfhSxl-EbbUHSQQr2mR7h3lzA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "VENDERE",
+     [
+      {
+       "t": "QUALSIASI",
+       "couleur": "#1f5f9e"
+      }
+     ],
+     "COSA"
+    ],
+    "video": {
+     "id": "uiSdq8ck7HA",
+     "titre": "Tutte le tecniche di vendita e le strategie per vendere tutto, a chiunque, sempre",
+     "chaine": "HCE International",
+     "vues": "402K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "14:46",
+     "avatar": "https://yt3.ggpht.com/JBSPXAciH1_l9ana4uKEJs6mC3PNcOCzgDAeYknrTIi51n_12coIv1aDicNEZfUnstPSKhkdKyI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "VENDER",
+     [
+      {
+       "t": "QUALQUER",
+       "couleur": "#1f5f9e"
+      }
+     ],
+     "COISA"
+    ],
+    "video": {
+     "id": "qqrX3Uywk4s",
+     "titre": "Me dê 13 minutos e eu te ensino a vender qualquer coisa",
+     "chaine": "Carol Iasmim",
+     "vues": "670 mil visualizações",
+     "date": "há 2 meses",
+     "duree": "13:09",
+     "avatar": "https://yt3.ggpht.com/1NSO-msHP1CYTHvl0c572b3-OzFK0l4No8DOgrHk05QF0rwFRq4QGg9PMf1opuFE9kyrBiAm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYİ",
+     [
+      {
+       "t": "SATMAK",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QEOlVZPDhKg",
+     "titre": "SATIŞ ve PAZARLAMADA HİÇ SÖYLENMEMİŞ SIRLAR",
+     "chaine": "Sinan Ergin - livealive",
+     "vues": "1 Mn görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "12:15",
+     "avatar": "https://yt3.ggpht.com/tWLIvQEW2GdmbBCSUVc0zTfsOXEFy-c7l6xgDteSiyX2MG7ypqWax34884iGlFdbJZw6fQNEIls=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ VINZI",
+     [
+      {
+       "t": "ORICE",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G3APWqgzxIU",
+     "titre": "CUM SA VINZI ORICE, ORICUI - cristian chifoi",
+     "chaine": "Cristian Chifoi",
+     "vues": "83 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "19:08",
+     "avatar": "https://yt3.ggpht.com/0pn7toqILZNaxqliLcwHRmdoXXzIaNFCAEoAICDdBeZlGw09UZ3zUNkgoFcax6L0qjpxgOG5RA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PRODAT",
+     [
+      {
+       "t": "COKOLIV",
+       "couleur": "#1f5f9e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AxTQSKCxZjc",
+     "titre": "4  zaručné tipy jak prodat cokoliv komukoliv",
+     "chaine": "Myšlení Úspěšných",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "2:34",
+     "avatar": "https://yt3.ggpht.com/Gj2YewqtOjCruFRzvmuuHkCZLp9uiCQcXRNlU941lQxiXLN6ol_l-Y1l0LuHKO6wQdeb9NXT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "BIEN",
+       "couleur": "#3a929a"
+      }
+     ],
+     "UTILISER L'IA"
+    ],
+    "video": {
+     "id": "6VTZyuswGQk",
+     "titre": "L’IA pour débutants : Les bases incontournables",
+     "chaine": "Jon Gregor",
+     "vues": "122 k vues",
+     "date": "il y a 1 an",
+     "duree": "8:27",
+     "avatar": "https://yt3.ggpht.com/j_ApekvKDdCzLsOFUDgUHHutwW2ecqPbHj9zpjgxsbR56gbu7u6YlwR8RrbhZxFiGmXsTZG9_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "USE AI",
+       "couleur": "#3a929a"
+      }
+     ],
+     "THE RIGHT WAY"
+    ],
+    "video": {
+     "id": "nVyD6THcvDQ",
+     "titre": "99% of Beginners Don't Know the Basics of AI",
+     "chaine": "Jeff Su",
+     "vues": "3.6M views",
+     "date": "2 years ago",
+     "duree": "10:12",
+     "avatar": "https://yt3.ggpht.com/fHDMaIjQYS0XTz17AL-iIxdfyrGJfLliAJTQmJE931P1OareLsLIvFeJDcDtI3QpkD9HLnvI7Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KI RICHTIG",
+       "couleur": "#3a929a"
+      }
+     ],
+     "NUTZEN"
+    ],
+    "video": {
+     "id": "3yp3dVxiBzE",
+     "titre": "Die besten ChatGPT Prompts 🤖 so nutzt du KI richtig ✅",
+     "chaine": "Felicia Simon",
+     "vues": "144.837 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "13:34",
+     "avatar": "https://yt3.ggpht.com/M0B5aKQZufLvLtI6WTgfD7W3RVZ7n7aWPDoiqbGAmtczUHmkqnaHUy8Zj6iW0iNYrxJnqsU6Hg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "USARE BENE",
+       "couleur": "#3a929a"
+      }
+     ],
+     "L'IA"
+    ],
+    "video": {
+     "id": "bmiN4LYjZV4",
+     "titre": "Come Imparare ad usare l'AI Da Zero (in 15 minuti)",
+     "chaine": "Giuseppe Castagna",
+     "vues": "58K visualizzazioni",
+     "date": "9 mesi fa",
+     "duree": "17:04",
+     "avatar": "https://yt3.ggpht.com/rm_ed4yMgUnupEiKgQJ2ue-pn7jV_RGeeeUKonN2YUgpLCXX_Z8zx9iV_hQmGmq102OE7V0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "USAR BEM",
+       "couleur": "#3a929a"
+      }
+     ],
+     "A IA"
+    ],
+    "video": {
+     "id": "xfVUmd545KU",
+     "titre": "5 DICAS de IA que EU USO no meu dia a dia",
+     "chaine": "Manual do Mundo",
+     "vues": "695 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "13:28",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "YAPAY ZEKÂYI",
+       "couleur": "#3a929a"
+      }
+     ],
+     "DOĞRU KULLANMAK"
+    ],
+    "video": {
+     "id": "VHZqI5uC-Pw",
+     "titre": "Yapay Zekayı DOĞRU Kullan! (13 Dakikada Tüm Mantığı Anlatıyorum)",
+     "chaine": "Görkem Sakınmaz",
+     "vues": "192 B görüntüleme",
+     "date": "6 ay önce",
+     "duree": "13:01",
+     "avatar": "https://yt3.ggpht.com/AclV_fe76QCBGZjYHiHewa5-63nrrYcnSyVgzMYdo9ValU8mBrBl3AqB1VOg-PM3Jx7sj-MoWA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ FOLOSEȘTI AI",
+       "couleur": "#3a929a"
+      }
+     ],
+     "CUM TREBUIE"
+    ],
+    "video": {
+     "id": "jRy4BpPteV0",
+     "titre": "Chat GPT - Cum să folosești Inteligența Artificială",
+     "chaine": "Leonard Tech",
+     "vues": "53 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "19:36",
+     "avatar": "https://yt3.ggpht.com/ujJD32hoeKmcTp9QfWlzIY9C1k9nhxFFtrt7lLNCGwelW8ihCP_3OxL0UvqvtFE7vKHLwgcm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "POUŽÍVAT",
+       "couleur": "#3a929a"
+      }
+     ],
+     "AI SPRÁVNĚ"
+    ],
+    "video": {
+     "id": "ur6rsO2zb6E",
+     "titre": "Nejlepší Umělá Inteligence je... Zdarma! ChatGPT CZ Tutorial",
+     "chaine": "Onden&OndwaK",
+     "vues": "183 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "14:16",
+     "avatar": "https://yt3.ggpht.com/TMatwrKB_fA4pYpj9aDlvB6PcLS7ngqgHZktdGjo_vmZ0nvIAK69cARuIi2gDtrodJxqIfto=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučení"
+    ]
+   }
+  }
+ ]
+}

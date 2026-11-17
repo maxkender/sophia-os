@@ -70,6 +70,13 @@ export function StatutsRuulApi() {
     mutationFn: () => invoke<{ ok: boolean; error?: string; lus?: number }>("ruul-api", { action: "sync" }),
     onSettled: () => void qc.invalidateQueries({ queryKey: ["ruul-api"] }),
   });
+  const regler = useMutation({
+    mutationFn: async (actif: boolean) => {
+      const { error } = await supabase.rpc("ruul_api_regler", { p_connect_actif: actif });
+      if (error) throw error;
+    },
+    onSettled: () => void qc.invalidateQueries({ queryKey: ["ruul-api"] }),
+  });
   const { cohortes, n, total } = croiser(tableau.data ?? []);
   const e = etat.data;
   const colonnes = STATUTS_ONBOARDING.filter((s) => total(s) > 0 || s === "READY");
@@ -112,6 +119,16 @@ export function StatutsRuulApi() {
             </tbody>
           </table>
         </div>
+        <label className="flex items-center gap-2 text-sm" data-testid="ruul-connect-actif">
+          <input type="checkbox" checked={e?.connect_actif ?? false} disabled={!e || regler.isPending}
+            onChange={(x) => regler.mutate(x.target.checked)} />
+          <span>
+            Invitation automatique : un lien d'onboarding Ruul pour chaque posteur pas READY (régénéré toutes les 48 h),
+            dans les emails et le bouton « Open my Ruul setup » du dashboard.{" "}
+            <b>{e?.connect_actif ? "Allumée" : "Éteinte (ancien guide app.ruul.io/register)"}</b>
+          </span>
+        </label>
+        {regler.error && <p className="text-sm text-destructive">{(regler.error as Error).message}</p>}
         <div className="flex items-center gap-3">
           <Button size="sm" variant="outline" loading={relire.isPending} onClick={() => relire.mutate()} data-testid="statuts-ruul-relire">
             Relire maintenant

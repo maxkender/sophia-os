@@ -27,6 +27,16 @@ export const fr = {
       ruulInviteTexte: "Go to app.ruul.io and sign up with this exact email: {{email}}. Then add your ID and bank details (5 minutes). You don't need to wait for an email from Ruul.",
       ruulPretTitre: "Your Ruul account is ready ✅",
       ruulPretTexte: "You'll be paid every Monday.",
+      ruulSetupTitre: "Set up Ruul — required to get paid (5 min)",
+      ruulSetupBouton: "Open my Ruul setup",
+      ruulPasBesoin: "You don't need Ruul to start posting — it's only to get paid.",
+      ruulSetupErreur: "We couldn't open your Ruul setup. Please try again in a minute.",
+      ruulReste: {
+        NOT_REGISTERED: "Create your account, then add your ID and your bank account.",
+        PENDING_KYC: "Next step: add your ID (2 minutes), then your bank account.",
+        PENDING_COLLECTION_ACCOUNT: "Next step: add your bank account.",
+        PENDING_AGREEMENTS: "Next step: sign the agreements.",
+      },
       // 13/11 (Max) : le guide Ruul pas à pas (étape 6, dépliable).
       guideOuvrir: "How to set up Ruul",
       guideTitre: "Set up Ruul — required to get paid (5 minutes)",

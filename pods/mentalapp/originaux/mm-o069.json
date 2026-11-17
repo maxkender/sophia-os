@@ -5,7 +5,14 @@
  "type_bleo": "full_test",
  "legendes": {
   "en": "hobbies for introverts, ranked #introvert #mentalmaxxing #tierlist #selfimprovement",
-  "fr": "les hobbies pour introvertis, classés #introverti #mentalmaxxing #tierlist #developpementpersonnel"
+  "fr": "les hobbies pour introvertis, classés #introverti #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "hobbys für introvertierte, gerankt #introvertiert #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "hobbies para introvertidos, clasificados #introvertido #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "hobby per introversi, in classifica #introverso #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "içe dönükler için hobiler, sıralandı #içedönük #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "hobbies pra introvertidos, ranqueados #introvertido #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "hobby dla introwertyków, ranking #introwertyk #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "hobbik introvertáltaknak, rangsorolva #introvertált #mentalmaxxing #tierlist #önfejlesztés"
  },
  "couverture": {
   "image": {
@@ -19,24 +26,59 @@
   },
   "haut": {
    "en": "tier list of",
-   "fr": "tier list des"
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list degli",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
   },
   "gros": {
    "en": "Introvert",
-   "fr": "hobbies"
+   "fr": "hobbies",
+   "de": "Introvert-",
+   "es": "hobbies",
+   "it": "hobby",
+   "tr": "içe dönük",
+   "pt-BR": "hobbies",
+   "pl": "hobby",
+   "hu": "introvertált"
   },
   "bas": {
    "en": "hobbies",
-   "fr": "d’introverti"
+   "fr": "d’introverti",
+   "de": "Hobbys",
+   "es": "de introvertido",
+   "it": "da introversi",
+   "tr": "hobileri",
+   "pt-BR": "de introvertido",
+   "pl": "introwertyka",
+   "hu": "hobbik"
   }
  },
  "titre_tableau": {
   "en": "rate my ranking",
-  "fr": "note mon classement"
+  "fr": "note mon classement",
+  "de": "bewerte mein ranking",
+  "es": "puntúa mi ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla",
+  "pt-BR": "avalia meu ranking",
+  "pl": "oceń mój ranking",
+  "hu": "értékeld a rangsorom"
  },
  "pied": {
   "en": "what’s your solo hobby?",
-  "fr": "c’est quoi ton hobby solo ?"
+  "fr": "c’est quoi ton hobby solo ?",
+  "de": "was ist dein solo-hobby?",
+  "es": "¿cuál es tu hobby en solitario?",
+  "it": "qual è il tuo hobby in solitaria?",
+  "tr": "senin solo hobin ne?",
+  "pt-BR": "qual é seu hobby solo?",
+  "pl": "jakie jest twoje solo hobby?",
+  "hu": "mi a te solo hobbid?"
  },
  "rangs": [
   {
@@ -45,7 +87,14 @@
    "texte": "#890000",
    "sous": {
     "en": "perfect alone",
-    "fr": "parfait en solo"
+    "fr": "parfait en solo",
+    "de": "perfekt allein",
+    "es": "perfecto solo",
+    "it": "perfetto da solo",
+    "tr": "yalnızken mükemmel",
+    "pt-BR": "perfeito sozinho",
+    "pl": "idealne solo",
+    "hu": "tökéletes egyedül"
    },
    "cases": [
     {
@@ -58,7 +107,14 @@
      ],
      "t": {
       "en": "reading",
-      "fr": "lire"
+      "fr": "lire",
+      "de": "lesen",
+      "es": "leer",
+      "it": "leggere",
+      "tr": "okumak",
+      "pt-BR": "ler",
+      "pl": "czytanie",
+      "hu": "olvasás"
      }
     },
     {
@@ -71,7 +127,14 @@
      ],
      "t": {
       "en": "chess",
-      "fr": "échecs"
+      "fr": "échecs",
+      "de": "schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç",
+      "pt-BR": "xadrez",
+      "pl": "szachy",
+      "hu": "sakk"
      }
     },
     {
@@ -84,7 +147,14 @@
      ],
      "t": {
       "en": "cooking",
-      "fr": "cuisiner"
+      "fr": "cuisiner",
+      "de": "kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
      }
     },
     {
@@ -98,7 +168,14 @@
    "texte": "#6f2900",
    "sous": {
     "en": "great",
-    "fr": "top"
+    "fr": "top",
+    "de": "top",
+    "es": "genial",
+    "it": "top",
+    "tr": "harika",
+    "pt-BR": "top",
+    "pl": "super",
+    "hu": "szuper"
    },
    "cases": [
     {
@@ -111,7 +188,14 @@
      ],
      "t": {
       "en": "long walks",
-      "fr": "longues|marches"
+      "fr": "longues|marches",
+      "de": "lange|spaziergänge",
+      "es": "paseos|largos",
+      "it": "lunghe|passeggiate",
+      "tr": "uzun|yürüyüşler",
+      "pt-BR": "caminhadas|longas",
+      "pl": "długie|spacery",
+      "hu": "hosszú|séták"
      }
     },
     {
@@ -124,7 +208,14 @@
      ],
      "t": {
       "en": "lifting",
-      "fr": "la muscu"
+      "fr": "la muscu",
+      "de": "krafttraining",
+      "es": "pesas",
+      "it": "palestra",
+      "tr": "spor salonu",
+      "pt-BR": "musculação",
+      "pl": "siłownia",
+      "hu": "súlyzózás"
      }
     },
     {
@@ -137,7 +228,14 @@
      ],
      "t": {
       "en": "vinyl|collecting",
-      "fr": "collection|de vinyles"
+      "fr": "collection|de vinyles",
+      "de": "vinyl|sammeln",
+      "es": "coleccionar|vinilos",
+      "it": "collezionare|vinili",
+      "tr": "plak|biriktirmek",
+      "pt-BR": "colecionar|vinil",
+      "pl": "zbieranie|winyli",
+      "hu": "bakelit-|gyűjtés"
      }
     },
     {
@@ -150,7 +248,14 @@
      ],
      "t": {
       "en": "archery",
-      "fr": "tir à l’arc"
+      "fr": "tir à l’arc",
+      "de": "bogenschießen",
+      "es": "tiro con arco",
+      "it": "tiro|con l’arco",
+      "tr": "okçuluk",
+      "pt-BR": "tiro com arco",
+      "pl": "łucznictwo",
+      "hu": "íjászat"
      }
     }
    ]
@@ -161,7 +266,14 @@
    "texte": "#6b530d",
    "sous": {
     "en": "good",
-    "fr": "bien"
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi",
+    "pt-BR": "bom",
+    "pl": "dobre",
+    "hu": "jó"
    },
    "cases": [
     {
@@ -174,7 +286,14 @@
      ],
      "t": {
       "en": "yoga",
-      "fr": "yoga"
+      "fr": "yoga",
+      "de": "yoga",
+      "es": "yoga",
+      "it": "yoga",
+      "tr": "yoga",
+      "pt-BR": "yoga",
+      "pl": "joga",
+      "hu": "jóga"
      }
     },
     {
@@ -187,7 +306,14 @@
      ],
      "t": {
       "en": "making|playlists",
-      "fr": "faire|des playlists"
+      "fr": "faire|des playlists",
+      "de": "playlists|bauen",
+      "es": "hacer|playlists",
+      "it": "fare|playlist",
+      "tr": "playlist|yapmak",
+      "pt-BR": "montar|playlists",
+      "pl": "robienie|playlist",
+      "hu": "playlist-|készítés"
      }
     },
     {
@@ -200,7 +326,14 @@
      ],
      "t": {
       "en": "pet care",
-      "fr": "s’occuper|d’un animal"
+      "fr": "s’occuper|d’un animal",
+      "de": "tierpflege",
+      "es": "cuidar|una mascota",
+      "it": "curare|un animale",
+      "tr": "hayvan|bakmak",
+      "pt-BR": "cuidar|de um pet",
+      "pl": "opieka|nad pupilem",
+      "hu": "állat-|gondozás"
      }
     },
     {
@@ -213,7 +346,14 @@
      ],
      "t": {
       "en": "gardening",
-      "fr": "jardinage"
+      "fr": "jardinage",
+      "de": "gärtnern",
+      "es": "jardinería",
+      "it": "giardinaggio",
+      "tr": "bahçecilik",
+      "pt-BR": "jardinagem",
+      "pl": "ogrodnictwo",
+      "hu": "kertészkedés"
      }
     }
    ]
@@ -224,7 +364,14 @@
    "texte": "#565300",
    "sous": {
     "en": "okay",
-    "fr": "ça passe"
+    "fr": "ça passe",
+    "de": "geht klar",
+    "es": "vale",
+    "it": "ci sta",
+    "tr": "idare eder",
+    "pt-BR": "de boa",
+    "pl": "może być",
+    "hu": "elmegy"
    },
    "cases": [
     {
@@ -237,7 +384,14 @@
      ],
      "t": {
       "en": "film nights",
-      "fr": "soirées|ciné"
+      "fr": "soirées|ciné",
+      "de": "filmabende",
+      "es": "noches|de pelis",
+      "it": "serate|film",
+      "tr": "film|geceleri",
+      "pt-BR": "noite|de filme",
+      "pl": "wieczory|filmowe",
+      "hu": "filmes|esték"
      }
     },
     {
@@ -250,7 +404,14 @@
      ],
      "t": {
       "en": "café hopping",
-      "fr": "tournée|des cafés"
+      "fr": "tournée|des cafés",
+      "de": "café-hopping",
+      "es": "ruta de|cafeterías",
+      "it": "giro|dei caffè",
+      "tr": "kafe kafe|gezmek",
+      "pt-BR": "rolê|de cafés",
+      "pl": "rundka|po kawiarniach",
+      "hu": "kávézó-|túra"
      }
     },
     {
@@ -263,7 +424,14 @@
      ],
      "t": {
       "en": "pc building",
-      "fr": "monter un pc"
+      "fr": "monter un pc",
+      "de": "pc bauen",
+      "es": "montar un pc",
+      "it": "montare un pc",
+      "tr": "pc toplamak",
+      "pt-BR": "montar um pc",
+      "pl": "składanie pc",
+      "hu": "pc-építés"
      }
     },
     {
@@ -276,7 +444,14 @@
      ],
      "t": {
       "en": "shopping",
-      "fr": "shopping"
+      "fr": "shopping",
+      "de": "shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş",
+      "pt-BR": "compras",
+      "pl": "zakupy",
+      "hu": "vásárlás"
      }
     }
    ]
@@ -287,7 +462,14 @@
    "texte": "#366b0d",
    "sous": {
     "en": "not a hobby",
-    "fr": "pas un hobby"
+    "fr": "pas un hobby",
+    "de": "kein hobby",
+    "es": "no es un hobby",
+    "it": "non è un hobby",
+    "tr": "hobi değil",
+    "pt-BR": "não é hobby",
+    "pl": "to nie hobby",
+    "hu": "nem hobbi"
    },
    "cases": [
     {
@@ -300,7 +482,14 @@
      ],
      "t": {
       "en": "ranked games",
-      "fr": "parties|classées"
+      "fr": "parties|classées",
+      "de": "ranked-|matches",
+      "es": "partidas|ranked",
+      "it": "partite|classificate",
+      "tr": "dereceli|maçlar",
+      "pt-BR": "partidas|ranqueadas",
+      "pl": "gry|rankingowe",
+      "hu": "rangsorolt|meccsek"
      }
     },
     {
@@ -313,7 +502,14 @@
      ],
      "t": {
       "en": "watching|vlogs",
-      "fr": "regarder|des vlogs"
+      "fr": "regarder|des vlogs",
+      "de": "vlogs|schauen",
+      "es": "ver vlogs",
+      "it": "guardare|vlog",
+      "tr": "vlog|izlemek",
+      "pt-BR": "ver vlogs",
+      "pl": "oglądanie|vlogów",
+      "hu": "vlogok|nézése"
      }
     },
     {
@@ -326,7 +522,14 @@
      ],
      "t": {
       "en": "posting",
-      "fr": "poster"
+      "fr": "poster",
+      "de": "posten",
+      "es": "postear",
+      "it": "postare",
+      "tr": "paylaşım|yapmak",
+      "pt-BR": "postar",
+      "pl": "wrzucanie|postów",
+      "hu": "posztolás"
      }
     },
     {
@@ -339,7 +542,14 @@
      ],
      "t": {
       "en": "snacking",
-      "fr": "grignoter"
+      "fr": "grignoter",
+      "de": "snacken",
+      "es": "picotear",
+      "it": "spizzicare",
+      "tr": "atıştırmak",
+      "pt-BR": "beliscar",
+      "pl": "podjadanie",
+      "hu": "nassolás"
      }
     }
    ]
@@ -351,7 +561,14 @@
   "texte": "#2c2d7c",
   "sous": {
    "en": "drains you",
-   "fr": "te vide"
+   "fr": "te vide",
+   "de": "laugt dich aus",
+   "es": "te agota",
+   "it": "ti svuota",
+   "tr": "seni tüketir",
+   "pt-BR": "te drena",
+   "pl": "wysysa cię",
+   "hu": "lemerít"
   },
   "cases": [
    {
@@ -364,7 +581,14 @@
     ],
     "t": {
      "en": "endless reels",
-     "fr": "reels sans fin"
+     "fr": "reels sans fin",
+     "de": "endlose reels",
+     "es": "reels sin fin",
+     "it": "reels infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim",
+     "pl": "nieskończone|reelsy",
+     "hu": "végtelen reels"
     }
    },
    {
@@ -377,7 +601,14 @@
     ],
     "t": {
      "en": "doomscrolling",
-     "fr": "doomscrolling"
+     "fr": "doomscrolling",
+     "de": "doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
     }
    },
    {
@@ -390,7 +621,14 @@
     ],
     "t": {
      "en": "betting apps",
-     "fr": "applis de paris"
+     "fr": "applis de paris",
+     "de": "wett-apps",
+     "es": "apps de|apuestas",
+     "it": "app di|scommesse",
+     "tr": "bahis|uygulamaları",
+     "pt-BR": "apps de|aposta",
+     "pl": "apki|bukmacherskie",
+     "hu": "fogadós|appok"
     }
    },
    {
@@ -403,7 +641,14 @@
     ],
     "t": {
      "en": "your option|(comment)",
-     "fr": "ton choix|(commente)"
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twoja opcja|(komentuj)",
+     "hu": "a te opciód|(kommentelj)"
     }
    }
   ]

@@ -6,7 +6,14 @@
  "parent_contenu_id": "015a132c-deaf-4b50-9017-c9970ea8ae9e",
  "legendes": {
   "en": "dopamine sources tier list, final part #dopamine #mentalmaxxing #tierlist #selfimprovement",
-  "fr": "tier list des sources de dopamine, dernière partie #dopamine #mentalmaxxing #tierlist #developpementpersonnel"
+  "fr": "tier list des sources de dopamine, dernière partie #dopamine #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "tierlist der dopaminquellen, letzter teil #dopamin #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "tier list de fuentes de dopamina, última parte #dopamina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "tier list delle fonti di dopamina, ultima parte #dopamina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "dopamin kaynakları tier list, son kısım #dopamin #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "tier list de fontes de dopamina, última parte #dopamina #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "tier list źródeł dopaminy, ostatnia część #dopamina #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "dopaminforrások tier list, utolsó rész #dopamin #mentalmaxxing #tierlist #önfejlesztés"
  },
  "couverture": {
   "image": {
@@ -20,24 +27,59 @@
   },
   "haut": {
    "en": "tier list of",
-   "fr": "tier list des"
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
   },
   "gros": {
    "en": "Dopamine",
-   "fr": "sources de"
+   "fr": "sources de",
+   "de": "Dopamin-",
+   "es": "fuentes de",
+   "it": "fonti di",
+   "tr": "dopamin",
+   "pt-BR": "fontes de",
+   "pl": "źródła",
+   "hu": "dopamin"
   },
   "bas": {
    "en": "sources pt3 (final)",
-   "fr": "dopamine 3 (fin)"
+   "fr": "dopamine 3 (fin)",
+   "de": "quellen Teil 3",
+   "es": "dopamina pt3",
+   "it": "dopamina pt3",
+   "tr": "kaynakları 3",
+   "pt-BR": "dopamina pt3",
+   "pl": "dopaminy 3",
+   "hu": "források 3"
   }
  },
  "titre_tableau": {
   "en": "rate my ranking",
-  "fr": "note mon classement"
+  "fr": "note mon classement",
+  "de": "bewerte mein ranking",
+  "es": "puntúa mi ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla",
+  "pt-BR": "avalia meu ranking",
+  "pl": "oceń mój ranking",
+  "hu": "értékeld a rangsorom"
  },
  "pied": {
   "en": "what’s missing from all 3 parts?",
-  "fr": "il manque quoi dans les 3 parties ?"
+  "fr": "il manque quoi dans les 3 parties ?",
+  "de": "was fehlt in allen 3 teilen?",
+  "es": "¿qué falta en las 3 partes?",
+  "it": "cosa manca nelle 3 parti?",
+  "tr": "3 kısımda da eksik olan ne?",
+  "pt-BR": "o que faltou nas 3 partes?",
+  "pl": "czego brakuje we wszystkich 3 częściach?",
+  "hu": "mi hiányzik mind a 3 részből?"
  },
  "rangs": [
   {
@@ -46,7 +88,14 @@
    "texte": "#890000",
    "sous": {
     "en": "real, earned",
-    "fr": "vrai, mérité"
+    "fr": "vrai, mérité",
+    "de": "echt, verdient",
+    "es": "real, ganada",
+    "it": "vera, meritata",
+    "tr": "gerçek, hak edilen",
+    "pt-BR": "real, merecida",
+    "pl": "prawdziwe, zasłużone",
+    "hu": "valódi, kiérdemelt"
    },
    "cases": [
     {
@@ -59,7 +108,14 @@
      ],
      "t": {
       "en": "a new PR",
-      "fr": "un nouveau|record"
+      "fr": "un nouveau|record",
+      "de": "ein neuer|rekord",
+      "es": "un nuevo|récord",
+      "it": "un nuovo|record",
+      "tr": "yeni bir|rekor",
+      "pt-BR": "um novo|recorde",
+      "pl": "nowa|życiówka",
+      "hu": "új egyéni|csúcs"
      }
     },
     {
@@ -72,7 +128,14 @@
      ],
      "t": {
       "en": "a day|in nature",
-      "fr": "une journée|dans la nature"
+      "fr": "une journée|dans la nature",
+      "de": "ein tag in|der natur",
+      "es": "un día en|la naturaleza",
+      "it": "una giornata|nella natura",
+      "tr": "doğada|bir gün",
+      "pt-BR": "um dia na|natureza",
+      "pl": "dzień|w naturze",
+      "hu": "egy nap|a szabadban"
      }
     },
     {
@@ -85,7 +148,14 @@
      ],
      "t": {
       "en": "mastering|a skill",
-      "fr": "maîtriser|un truc"
+      "fr": "maîtriser|un truc",
+      "de": "einen skill|meistern",
+      "es": "dominar|una habilidad",
+      "it": "padroneggiare|una skill",
+      "tr": "bir beceride|ustalaşmak",
+      "pt-BR": "dominar uma|habilidade",
+      "pl": "opanować|umiejętność",
+      "hu": "profi lenni|valamiben"
      }
     },
     {
@@ -99,7 +169,14 @@
    "texte": "#6f2900",
    "sous": {
     "en": "strong",
-    "fr": "fort"
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü",
+    "pt-BR": "forte",
+    "pl": "mocne",
+    "hu": "erős"
    },
    "cases": [
     {
@@ -112,7 +189,14 @@
      ],
      "t": {
       "en": "walking",
-      "fr": "marcher"
+      "fr": "marcher",
+      "de": "spazieren",
+      "es": "caminar",
+      "it": "camminare",
+      "tr": "yürümek",
+      "pt-BR": "caminhar",
+      "pl": "spacer",
+      "hu": "séta"
      }
     },
     {
@@ -125,7 +209,14 @@
      ],
      "t": {
       "en": "deep sleep",
-      "fr": "sommeil|profond"
+      "fr": "sommeil|profond",
+      "de": "tiefschlaf",
+      "es": "sueño|profundo",
+      "it": "sonno|profondo",
+      "tr": "derin uyku",
+      "pt-BR": "sono|profundo",
+      "pl": "głęboki sen",
+      "hu": "mély alvás"
      }
     },
     {
@@ -138,7 +229,14 @@
      ],
      "t": {
       "en": "meditation",
-      "fr": "méditation"
+      "fr": "méditation",
+      "de": "meditation",
+      "es": "meditación",
+      "it": "meditazione",
+      "tr": "meditasyon",
+      "pt-BR": "meditação",
+      "pl": "medytacja",
+      "hu": "meditáció"
      }
     },
     {
@@ -151,7 +249,14 @@
      ],
      "t": {
       "en": "cold shower",
-      "fr": "douche froide"
+      "fr": "douche froide",
+      "de": "kalt duschen",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş",
+      "pt-BR": "banho gelado",
+      "pl": "zimny prysznic",
+      "hu": "hideg zuhany"
      }
     }
    ]
@@ -162,7 +267,14 @@
    "texte": "#6b530d",
    "sous": {
     "en": "solid",
-    "fr": "solide"
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam",
+    "pt-BR": "sólido",
+    "pl": "solidne",
+    "hu": "stabil"
    },
    "cases": [
     {
@@ -175,7 +287,14 @@
      ],
      "t": {
       "en": "pet time",
-      "fr": "temps avec|l’animal"
+      "fr": "temps avec|l’animal",
+      "de": "zeit mit|dem haustier",
+      "es": "tiempo con|tu mascota",
+      "it": "tempo con|il tuo animale",
+      "tr": "evcil hayvanla|vakit",
+      "pt-BR": "tempo com|o pet",
+      "pl": "czas|ze zwierzakiem",
+      "hu": "idő|a kedvenceddel"
      }
     },
     {
@@ -188,7 +307,14 @@
      ],
      "t": {
       "en": "good food",
-      "fr": "bonne bouffe"
+      "fr": "bonne bouffe",
+      "de": "gutes essen",
+      "es": "buena comida",
+      "it": "buon cibo",
+      "tr": "iyi yemek",
+      "pt-BR": "comida boa",
+      "pl": "dobre jedzenie",
+      "hu": "jó kaja"
      }
     },
     {
@@ -201,7 +327,14 @@
      ],
      "t": {
       "en": "cooking",
-      "fr": "cuisiner"
+      "fr": "cuisiner",
+      "de": "kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
      }
     },
     {
@@ -214,7 +347,14 @@
      ],
      "t": {
       "en": "vinyl",
-      "fr": "vinyle"
+      "fr": "vinyle",
+      "de": "vinyl",
+      "es": "vinilos",
+      "it": "vinili",
+      "tr": "plak",
+      "pt-BR": "vinil",
+      "pl": "winyle",
+      "hu": "bakelit"
      }
     }
    ]
@@ -225,7 +365,14 @@
    "texte": "#565300",
    "sous": {
     "en": "neutral",
-    "fr": "neutre"
+    "fr": "neutre",
+    "de": "neutral",
+    "es": "neutral",
+    "it": "neutro",
+    "tr": "nötr",
+    "pt-BR": "neutro",
+    "pl": "neutralne",
+    "hu": "semleges"
    },
    "cases": [
     {
@@ -238,7 +385,14 @@
      ],
      "t": {
       "en": "coffee",
-      "fr": "café"
+      "fr": "café",
+      "de": "kaffee",
+      "es": "café",
+      "it": "caffè",
+      "tr": "kahve",
+      "pt-BR": "café",
+      "pl": "kawa",
+      "hu": "kávé"
      }
     },
     {
@@ -251,7 +405,14 @@
      ],
      "t": {
       "en": "movies",
-      "fr": "films"
+      "fr": "films",
+      "de": "filme",
+      "es": "pelis",
+      "it": "film",
+      "tr": "filmler",
+      "pt-BR": "filmes",
+      "pl": "filmy",
+      "hu": "filmek"
      }
     },
     {
@@ -264,7 +425,14 @@
      ],
      "t": {
       "en": "espresso",
-      "fr": "espresso"
+      "fr": "espresso",
+      "de": "espresso",
+      "es": "espresso",
+      "it": "espresso",
+      "tr": "espresso",
+      "pt-BR": "espresso",
+      "pl": "espresso",
+      "hu": "eszpresszó"
      }
     },
     {
@@ -277,7 +445,14 @@
      ],
      "t": {
       "en": "shopping",
-      "fr": "shopping"
+      "fr": "shopping",
+      "de": "shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş",
+      "pt-BR": "compras",
+      "pl": "zakupy",
+      "hu": "vásárlás"
      }
     }
    ]
@@ -288,7 +463,14 @@
    "texte": "#366b0d",
    "sous": {
     "en": "cheap",
-    "fr": "toc"
+    "fr": "toc",
+    "de": "billig",
+    "es": "barata",
+    "it": "da poco",
+    "tr": "ucuz",
+    "pt-BR": "barata",
+    "pl": "tanie",
+    "hu": "olcsó"
    },
    "cases": [
     {
@@ -301,7 +483,14 @@
      ],
      "t": {
       "en": "junk food",
-      "fr": "malbouffe"
+      "fr": "malbouffe",
+      "de": "junkfood",
+      "es": "comida basura",
+      "it": "junk food",
+      "tr": "abur cubur",
+      "pt-BR": "junk food",
+      "pl": "fast food",
+      "hu": "gyorskaja"
      }
     },
     {
@@ -314,7 +503,14 @@
      ],
      "t": {
       "en": "gaming",
-      "fr": "gaming"
+      "fr": "gaming",
+      "de": "gaming",
+      "es": "gaming",
+      "it": "gaming",
+      "tr": "gaming",
+      "pt-BR": "gaming",
+      "pl": "gaming",
+      "hu": "gaming"
      }
     },
     {
@@ -327,7 +523,14 @@
      ],
      "t": {
       "en": "likes",
-      "fr": "les likes"
+      "fr": "les likes",
+      "de": "likes",
+      "es": "likes",
+      "it": "i like",
+      "tr": "beğeniler",
+      "pt-BR": "likes",
+      "pl": "lajki",
+      "hu": "lájkok"
      }
     },
     {
@@ -340,7 +543,14 @@
      ],
      "t": {
       "en": "youtube",
-      "fr": "youtube"
+      "fr": "youtube",
+      "de": "youtube",
+      "es": "youtube",
+      "it": "youtube",
+      "tr": "youtube",
+      "pt-BR": "youtube",
+      "pl": "youtube",
+      "hu": "youtube"
      }
     }
    ]
@@ -352,7 +562,14 @@
   "texte": "#2c2d7c",
   "sous": {
    "en": "useless",
-   "fr": "inutile"
+   "fr": "inutile",
+   "de": "nutzlos",
+   "es": "inútil",
+   "it": "inutile",
+   "tr": "işe yaramaz",
+   "pt-BR": "inútil",
+   "pl": "bezużyteczne",
+   "hu": "haszontalan"
   },
   "cases": [
    {
@@ -365,7 +582,14 @@
     ],
     "t": {
      "en": "endless reels",
-     "fr": "reels sans fin"
+     "fr": "reels sans fin",
+     "de": "endlose reels",
+     "es": "reels sin fin",
+     "it": "reels infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim",
+     "pl": "nieskończone|reelsy",
+     "hu": "végtelen reels"
     }
    },
    {
@@ -378,7 +602,14 @@
     ],
     "t": {
      "en": "betting apps",
-     "fr": "applis de paris"
+     "fr": "applis de paris",
+     "de": "wett-apps",
+     "es": "apps de|apuestas",
+     "it": "app di|scommesse",
+     "tr": "bahis|uygulamaları",
+     "pt-BR": "apps de|aposta",
+     "pl": "apki|bukmacherskie",
+     "hu": "fogadós|appok"
     }
    },
    {
@@ -391,7 +622,14 @@
     ],
     "t": {
      "en": "3am scrolling",
-     "fr": "scroller à 3h"
+     "fr": "scroller à 3h",
+     "de": "scrollen|um 3 uhr",
+     "es": "scroll|a las 3am",
+     "it": "scrollare|alle 3",
+     "tr": "gece 3’te|scroll",
+     "pt-BR": "scroll|às 3h",
+     "pl": "scroll|o 3 w nocy",
+     "hu": "hajnali 3-as|görgetés"
     }
    },
    {
@@ -404,10 +642,17 @@
     ],
     "t": {
      "en": "your option|(comment)",
-     "fr": "ton choix|(commente)"
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twoja opcja|(komentuj)",
+     "hu": "a te opciód|(kommentelj)"
     }
    }
   ]
  },
- "notes": "routine du 17/11 : déclinaison G1 du remake 7688926567183027474 (« tier list of Dopamine sources pt3 (final) », es 6,2 k, r 6,16), titre mot pour mot, en tier list originale (autres images, autre couverture). Parent déclaré : la version Sophia (015a132c). cta B. 9 langues."
+ "notes": "routine du 17/11 : déclinaison G1 du remake 7688926567183027474 (« tier list of Dopamine sources pt3 (final) », es 6,2 k, r 6,16), titre mot pour mot, en tier list originale (autres images, autre couverture). Parent déclaré : la version Sophia (015a132c). cta B. 9 langues. Refusé le 17/11 (accroche_voisine avec mm-o066, même jour) : à déposer demain."
 }

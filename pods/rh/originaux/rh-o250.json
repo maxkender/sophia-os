@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o250",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "b354d228-6a89-4490-bd6e-0b0e36e32eaa",
+ "titre": "ex-rh, je traduis les phrases que les recruteurs disent en entretien (partie 2) #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G1 de la ligne #5 (parent b354d228) : accroche du parent mot pour mot, autres phrases traduites. Inspirations reprises de rh-o033. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "bc2c233c",
+   "texte_overlay": "ex-rh, je traduis les phrases\nque les recruteurs disent\nen entretien",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "aca05fa0",
+   "texte_overlay": "« vous avez des questions ? »\n= on veut voir si tu t'es renseignée. pose-en une sur le poste",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "70ca7fc0",
+   "texte_overlay": "« le poste est assez polyvalent »\n= tu feras plusieurs métiers. demande lesquels",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "3cf9209d",
+   "texte_overlay": "« on cherche quelqu'un d'autonome »\n= tu seras souvent seule. demande qui t'aide au début",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "15ce9e45",
+   "texte_overlay": "« parlez-moi de vous »\n= on veut 2 minutes claires. pas ta vie entière",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "11b6d69f",
+   "texte_overlay": "« qu'est-ce que vous lisez en ce moment ? »\n= on veut voir ce qui t'anime. moi, je parle de ce que j'apprends 5 minutes chaque matin",
+   "texte_sophia": "« qu'est-ce que vous lisez en ce moment ? »\n= on veut voir ce qui t'anime. moi, je parle de ce que j'apprends 5 minutes chaque matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7914368d",
+   "texte_overlay": "« on a d'autres entretiens cette semaine »\n= rien n'est joué. envoie un mot de remerciement le soir même",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "afb4613b",
+   "texte_overlay": "quelle phrase je traduis ensuite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

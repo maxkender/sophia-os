@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o247",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d7e62ed8-b0c5-4e22-aef0-fda8d81fb6c9",
+ "titre": "les 5 messages que j'envoie pendant ma première semaine dans une nouvelle boîte #nouveaujob #travail #carriere #emploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G2 de la ligne #1 (parent d7e62ed8) : même promesse, autres mots et autres messages. Inspirations reprises de rh-o168. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "424a6b53",
+   "texte_overlay": "les 5 messages\nque j'envoie pendant ma première semaine\ndans une nouvelle boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0e8b3d73",
+   "texte_overlay": "lundi, à mon voisin de bureau\n« tu déjeunes où d'habitude ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d2ff198c",
+   "texte_overlay": "mardi, à mon manager\n« qu'est-ce qui ferait de mon premier mois une réussite pour toi ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "870e38c8",
+   "texte_overlay": "mercredi, à quelqu'un d'une autre équipe\n« je suis nouvelle, tu as 10 minutes pour m'expliquer ton job ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "2c8d464c",
+   "texte_overlay": "jeudi, à moi-même\nce que j'ai compris de la boîte. et ce que j'ai appris de neuf",
+   "texte_sophia": "jeudi, à moi-même\nce que j'ai compris de la boîte. et ce que j'ai appris de neuf en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d882a84",
+   "texte_overlay": "vendredi, à toute l'équipe\n« merci pour cette semaine, j'ai hâte de la suivante »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "87336fe4",
+   "texte_overlay": "lequel t'oses pas envoyer ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

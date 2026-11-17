@@ -1,0 +1,164 @@
+{
+ "id": "ig-008",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps that make your phone so aesthetic",
+  "fr": "les applis qui rendent ton tel trop aesthetic",
+  "es": "apps que hacen tu móvil súper aesthetic",
+  "it": "app che rendono il tuo telefono super aesthetic",
+  "tr": "telefonunu çok estetik yapan uygulamalar"
+ },
+ "legendes": {
+  "en": "apps that make your phone so aesthetic #foryou #apps #aesthetic #thatgirl",
+  "fr": "les applis qui rendent ton tel trop aesthetic #foryou #apps #aesthetic #thatgirl",
+  "es": "apps que hacen tu móvil súper aesthetic #foryou #apps #aesthetic #thatgirl",
+  "it": "app che rendono il tuo telefono super aesthetic #foryou #apps #aesthetic #thatgirl",
+  "tr": "telefonunu çok estetik yapan uygulamalar #foryou #apps #aesthetic #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve au format de @iinspogiirly). Photos Seedream : accessoires-1, fille-17-2, bouquet-9. Applis (App Store US, 17/11) : Aesthetic Kit (4,6 ★, 126 k avis), Widgetable (4,9 ★, 389 k), Sophia en 3e (cta B), 1998 Cam (4,8 ★, 40 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/accessoires-1.jpg",
+     "images/photos/fille-17-2.jpg",
+     "images/photos/bouquet-9.jpg"
+    ],
+    "titre": "apps that make your\nphone so aesthetic"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/accessoires-1.jpg",
+     "images/photos/fille-17-2.jpg",
+     "images/photos/bouquet-9.jpg"
+    ],
+    "titre": "les applis qui rendent\nton tel trop aesthetic"
+   },
+   "es": {
+    "photos": [
+     "images/photos/accessoires-1.jpg",
+     "images/photos/fille-17-2.jpg",
+     "images/photos/bouquet-9.jpg"
+    ],
+    "titre": "apps que hacen tu\nmóvil súper aesthetic"
+   },
+   "it": {
+    "photos": [
+     "images/photos/accessoires-1.jpg",
+     "images/photos/fille-17-2.jpg",
+     "images/photos/bouquet-9.jpg"
+    ],
+    "titre": "app che rendono il tuo\ntelefono super aesthetic"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/accessoires-1.jpg",
+     "images/photos/fille-17-2.jpg",
+     "images/photos/bouquet-9.jpg"
+    ],
+    "titre": "telefonunu çok estetik\nyapan uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/aesthetickit",
+   "en": {
+    "nom": "aesthetic kit",
+    "texte": "you change your app icons, wallpapers and widgets to match your vibe in a few taps"
+   },
+   "fr": {
+    "nom": "aesthetic kit",
+    "texte": "tu changes les icônes de tes applis, ton fond d'écran et tes widgets selon ton style en quelques clics"
+   },
+   "es": {
+    "nom": "aesthetic kit",
+    "texte": "cambias los iconos de tus apps, tu fondo de pantalla y tus widgets a tu estilo en pocos toques"
+   },
+   "it": {
+    "nom": "aesthetic kit",
+    "texte": "cambi le icone delle app, lo sfondo e i widget in base al tuo stile in pochi tocchi"
+   },
+   "tr": {
+    "nom": "aesthetic kit",
+    "texte": "uygulama simgelerini, duvar kağıdını ve widget'larını tarzına göre değiştirirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/widgetable",
+   "en": {
+    "nom": "widgetable",
+    "texte": "cute widgets you share with your besties, and you can even raise a little pet together"
+   },
+   "fr": {
+    "nom": "widgetable",
+    "texte": "des widgets trop mignons que tu partages avec tes copines, et vous pouvez même élever un petit animal ensemble"
+   },
+   "es": {
+    "nom": "widgetable",
+    "texte": "widgets monísimos que compartes con tus amigas, y hasta podéis cuidar juntas de una mascotita"
+   },
+   "it": {
+    "nom": "widgetable",
+    "texte": "widget carinissimi da condividere con le tue amiche, e potete perfino crescere insieme un piccolo animaletto"
+   },
+   "tr": {
+    "nom": "widgetable",
+    "texte": "en yakın arkadaşlarınla paylaştığın tatlı widget'lar, hatta birlikte minik bir evcil hayvan bile büyütebilirsiniz"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "short lessons written by actual professors, you learn something new in just 10 minutes a day"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "lecciones cortas escritas por profesores de verdad, para aprender algo nuevo cada día en 10 minutos"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/1998cam",
+   "en": {
+    "nom": "1998 cam",
+    "texte": "every picture you take looks like it came from an old 90s film camera"
+   },
+   "fr": {
+    "nom": "1998 cam",
+    "texte": "chaque photo que tu prends a l'air de sortir d'un vieil appareil argentique des années 90"
+   },
+   "es": {
+    "nom": "1998 cam",
+    "texte": "cada foto que haces parece salida de una cámara de carrete de los años 90"
+   },
+   "it": {
+    "nom": "1998 cam",
+    "texte": "ogni foto che scatti sembra uscita da una vecchia macchina fotografica a pellicola anni 90"
+   },
+   "tr": {
+    "nom": "1998 cam",
+    "texte": "çektiğin her fotoğraf 90'lardan kalma eski bir film kamerasıyla çekilmiş gibi görünür"
+   }
+  }
+ ]
+}

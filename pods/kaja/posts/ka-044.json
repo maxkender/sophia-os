@@ -1,0 +1,845 @@
+{
+ "id": "ka-044",
+ "titre": {
+  "en": "10/10 skills to fix your own bike",
+  "fr": "10/10 skills pour réparer ton vélo",
+  "de": "10/10 Skills für dein Fahrrad",
+  "it": "10/10 skill per riparare la tua bici",
+  "tr": "10/10 bisikletini tamir et",
+  "hu": "10/10 bicikliszerelési készség",
+  "pl": "10/10 umiejętności do naprawy roweru",
+  "pt-BR": "10/10 habilidades para consertar sua bike"
+ },
+ "legendes": {
+  "en": "10/10 skills to fix your own bike #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour réparer ton vélo #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für dein Fahrrad #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill per riparare la tua bici #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 bisikletini tamir et #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 bicikliszerelési készség #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności do naprawy roweru #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades para consertar sua bike #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "Full test (BLEO, 17/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (réparer son vélo). Décor falaise. Son format court à 3 compétences plus l'étape Sophia (crevaison, freins, chaîne), une vraie vidéo YouTube native par étape et par langue. Musique : « sonido original » de son manifeste. Sophia en étape 3, cta A, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SKILLS TO FIX",
+     "YOUR OWN",
+     "BIKE"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "RÉPARER",
+     "TON VÉLO"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "DEIN FAHRRAD"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL PER",
+     "RIPARARE",
+     "LA TUA BICI"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "BİSİKLETİNİ",
+     "TAMİR ET"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "BICIKLISZERELÉSI",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "DO NAPRAWY",
+     "ROWERU"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "PARA CONSERTAR",
+     "SUA BIKE"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO FIX",
+     [
+      {
+       "t": "A FLAT TIRE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eqR6nlZNeU8",
+     "titre": "How to Remove and Install a Bicycle Tire & Tube",
+     "chaine": "Park Tool",
+     "vues": "7.6M views",
+     "date": "10 years ago",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mv82BL3GFB-3ROTc7XGHtVHjTeGE1jKpB7Ldv4M5BKm-k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RÉPARER",
+     [
+      {
+       "t": "UNE CREVAISON",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LZaap5V97oU",
+     "titre": "Réparer son pneu de vélo crevé, c'est facile",
+     "chaine": "LeHuffPost",
+     "vues": "391 k vues",
+     "date": "il y a 10 ans",
+     "duree": "3:29",
+     "avatar": "https://yt3.ggpht.com/rnfJQ3XC6mz5c88Cmb65s5WnoxTNG_ABsQ9yQiyxtDmpAiZDe-N_jTHbvQEbcC2QE9gvapEG=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FLICKST DU",
+     [
+      {
+       "t": "DEINEN SCHLAUCH",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8ULZd-hXYbw",
+     "titre": "Fahrradschlauch flicken",
+     "chaine": "Bikebuilds .de",
+     "vues": "812.488 Aufrufe",
+     "date": "vor 13 Jahren",
+     "duree": "9:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mn8R1Q-U8HRaIGcy2rZ7TrVlThaQbq5HoUfS5HWr8tSQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME CAMBIARE",
+     [
+      {
+       "t": "LA CAMERA D'ARIA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jhvnLRhMjn0",
+     "titre": "Come Cambiare La Camera D'Aria Della Bicicletta",
+     "chaine": "GCN Italia",
+     "vues": "591K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "5:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrCvY2hC_fJw6eVkx3_N_OgNEByvonqSscTkZPDjgo6kA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "LASTİK TAMİR EDİLİR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z8iQgMw02TQ",
+     "titre": "Bisiklet lastik tamir kiti seti nasıl kullanılır | Patlak bisiklet lastiği tamir nasıl yapılır",
+     "chaine": "İsmâil Hakkı FEYZİOĞLU",
+     "vues": "94 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "8:28",
+     "avatar": "https://yt3.ggpht.com/H6RWz_R9JL1jr5GHZLJTClebiNBBpl_zatDwr9ENN8E9BpNodTOgFykPr7K2ncHxu7uX-8-brg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN JAVÍTS",
+     [
+      {
+       "t": "DEFEKTET",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SW-gsjTxyuI",
+     "titre": "Kerékpár karbantartás - 6. rész, Defekt javítás",
+     "chaine": "VideoSmart",
+     "vues": "121 E megtekintés",
+     "date": "17 évvel ezelőtt",
+     "duree": "7:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lZgCV5gafg8NpwAlZiPKiV3gjSP0_J24gM8BVvQiPupg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK WYMIENIĆ",
+     [
+      {
+       "t": "DĘTKĘ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EOyoZTtNX2Y",
+     "titre": "Jak wymienić dziurawą dętkę w rowerze? Poradnik krok po kroku",
+     "chaine": "Na Rower! Blog (narower.com)",
+     "vues": "460 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRLr0AABpZo-J8GhYYzVFA0J5hnX__Ag4wsbB4ZNcB4Jk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO REMENDAR",
+     [
+      {
+       "t": "A CÂMARA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hgL5Z1tvYvA",
+     "titre": "Como remendar a câmara da bicicleta. Pedaleria",
+     "chaine": "Pedaleria",
+     "vues": "811 mil visualizações",
+     "date": "há 11 anos",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/rogxFKRqSHnjkE6olsyDrTtggqPm211XihOm-AwoLzgwRjUBfn2NSDrDI47MKkZyNyYpRsoHiA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO ADJUST",
+     [
+      {
+       "t": "YOUR BRAKES",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hg6s596PPRY",
+     "titre": "How to Adjust Bike Brakes | Bike Maintenance",
+     "chaine": "Howcast",
+     "vues": "6M views",
+     "date": "15 years ago",
+     "duree": "2:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNH2pDkz9-fE3Xkix_Vcz_ijlYXBIy-y03Ei1yaHhTujA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RÉGLER",
+     [
+      {
+       "t": "TES FREINS",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "h5KG1Ywaktg",
+     "titre": "Comment régler un frein V-Brake de vélo ?",
+     "chaine": "Lecyclo_com",
+     "vues": "503 k vues",
+     "date": "il y a 8 ans",
+     "duree": "5:55",
+     "avatar": "https://yt3.ggpht.com/hQ4GYi01IXa62m3SJqwm7gTrA5421gyI2yA2oHwXWRS80mOHDW7JRIX0nhMwPsKj_pZohT5I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STELLST DU",
+     [
+      {
+       "t": "DIE BREMSEN EIN",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kQT7OLkB5VI",
+     "titre": "Fahrradbremsen einstellen (V-Brakes)",
+     "chaine": "Bikebuilds .de",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 15 Jahren",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mn8R1Q-U8HRaIGcy2rZ7TrVlThaQbq5HoUfS5HWr8tSQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME REGOLARE",
+     [
+      {
+       "t": "I FRENI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uDl3X8BtD5A",
+     "titre": "Regolazione di base freni V-Brake",
+     "chaine": "Cascina Quadri in Bici",
+     "vues": "645K visualizzazioni",
+     "date": "11 anni fa",
+     "duree": "6:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_netckoZE8Vvk-g1PHdiFdB60L2TA4lmgAm_5f0JMov=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "FREN AYARI YAPILIR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ytvhWE0eM8M",
+     "titre": "Bisiklet Fren Ayarı Nasıl Yapılır? V Fren Ayarı Yapma",
+     "chaine": "Kamp ve Ötesi",
+     "vues": "272 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/89KDYnXN2V0O2b1_HipjQdmcPMULUUH5OEGZ6Hg7SURvRMPEZvU12mS7ZkabZnvAd3Jb2EFVLh8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÁLLÍTSD BE",
+     [
+      {
+       "t": "A FÉKET",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "938LwuoW41Q",
+     "titre": "Kerékpárszerelés házilag: fékbeállítás",
+     "chaine": "Mozgásvilág",
+     "vues": "102 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/qhgvk777R81pHA7T7kbXZH3vBAJCMFzUnt2kxnyaUssVOoH9VNgWf6Q-_6R1z9TQRUuciUHx=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK USTAWIĆ",
+     [
+      {
+       "t": "HAMULCE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WDTqcm_2wwE",
+     "titre": "Jak ustawić hydrauliczne hamulce tarczowe w rowerze - okładziny ocierające o tarcze. Regulacja.",
+     "chaine": "SzajBajk",
+     "vues": "827 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "6:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k6yTilzutVxkDGNrwDK0C9oAP7HZwVZdUOvTqwsBeUSf4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO REGULAR",
+     [
+      {
+       "t": "O FREIO",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Lo7msUUTaLY",
+     "titre": "Regulando freios v-brake. Pedaleria",
+     "chaine": "Pedaleria",
+     "vues": "1,9 mi visualizações",
+     "date": "há 10 anos",
+     "duree": "5:55",
+     "avatar": "https://yt3.ggpht.com/rogxFKRqSHnjkE6olsyDrTtggqPm211XihOm-AwoLzgwRjUBfn2NSDrDI47MKkZyNyYpRsoHiA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO KNOW",
+     [
+      {
+       "t": "HOW THINGS WORK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT COMPRENDRE",
+     [
+      {
+       "t": "COMMENT TOUT MARCHE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO VERSTEHST DU,",
+     [
+      {
+       "t": "WIE ALLES",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FUNKTIONIERT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME CAPIRE",
+     [
+      {
+       "t": "COME FUNZIONA TUTTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL ÇALIŞTIĞINI",
+     [
+      {
+       "t": "ANLA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÉRTSD MEG,",
+     [
+      {
+       "t": "HOGYAN MŰKÖDIK",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "MINDEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROZUMIEĆ,",
+     [
+      {
+       "t": "JAK WSZYSTKO",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "DZIAŁA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ENTENDER",
+     [
+      {
+       "t": "COMO TUDO",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "FUNCIONA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO CLEAN",
+     [
+      {
+       "t": "YOUR CHAIN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Zztm9Ei3E4I",
+     "titre": "How To: Clean and Lube Your Bike Chain",
+     "chaine": "Trek Bicycle",
+     "vues": "688K views",
+     "date": "8 years ago",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/gVbQAz0nCLpjqX3c-ibLCRQnNl-jODc_ARIM3rLRsqqGI-XGp6dsdYJOwMF2ox2FBW2N176qank=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT GRAISSER",
+     [
+      {
+       "t": "TA CHAÎNE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "09-Oiz80ruc",
+     "titre": "Comment nettoyer et graisser sa chaîne de vélo ?",
+     "chaine": "Cédric de Bricolage Facile",
+     "vues": "40 k vues",
+     "date": "il y a 3 ans",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/wbhbQu_NyX_r-gZA5JqzDLXCduBQpSLMIVV_NCkvHx7zIOJpefS8aTH04NtWmiHBZPQZRWo6=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO REINIGST DU",
+     [
+      {
+       "t": "DIE KETTE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lmiSZC53qXs",
+     "titre": "Fahrradkette reinigen: So geht's in 5 Schritten | Einfach. Selber. Machen. | ADAC",
+     "chaine": "ADAC",
+     "vues": "465.161 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "12:34",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME CURARE",
+     [
+      {
+       "t": "LA TRASMISSIONE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "R6f6YbL3ZQQ",
+     "titre": "I 5 errori più comuni nella manutenzione della trasmissione della bici",
+     "chaine": "MTB MAG",
+     "vues": "598K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m9VZl4qnAbnjVsDSeuK6VU3vodk8HhsbLe7xFczF1o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ZİNCİR YAĞLANIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xfsOdTRsiQo",
+     "titre": "Bisiklet Zinciri Nasıl Temizlenir? Bisiklet Zinciri Hangi Yağ ile Yağlanır? Nasıl Yağlanır?",
+     "chaine": "Cagri Terzioglu",
+     "vues": "49 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "19:34",
+     "avatar": "https://yt3.ggpht.com/zurq-MYVNZmwOerlq_7VNf_0tfhVROLWoJlr48TjUZkCwSkP4sKspQU0UZff6rvco1SjNAOwhg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "OLAJOZD A LÁNCOT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KLedDBtDeVQ",
+     "titre": "🛠 Szerviztippek: Lánc olajozás",
+     "chaine": "Csepel Kerékpár",
+     "vues": "11 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "1:00",
+     "avatar": "https://yt3.ggpht.com/KHJu7Vfor_VUV3E2ewlfJsPWR7cTevDTiNCKuTfmIxEcF8qUes9IrQkqoh7rDoLKh1A016XCJw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK SMAROWAĆ",
+     [
+      {
+       "t": "ŁAŃCUCH",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zZu9rN2ygSY",
+     "titre": "Ścierą, szczotą, czy sznurówką... Czyszczenie i smarowanie łańcucha. Porównanie metod w slow motion.",
+     "chaine": "SzajBajk",
+     "vues": "727 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "6:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k6yTilzutVxkDGNrwDK0C9oAP7HZwVZdUOvTqwsBeUSf4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO LIMPAR",
+     [
+      {
+       "t": "A CORRENTE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XQZ6m-OYGr0",
+     "titre": "Pedaleria - Por que lavar a corrente?",
+     "chaine": "Pedaleria",
+     "vues": "652 mil visualizações",
+     "date": "há 11 anos",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/rogxFKRqSHnjkE6olsyDrTtggqPm211XihOm-AwoLzgwRjUBfn2NSDrDI47MKkZyNyYpRsoHiA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

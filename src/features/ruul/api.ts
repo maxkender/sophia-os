@@ -1,3 +1,4 @@
+import { invoke } from "@/features/moteur/api";
 import { supabase } from "@/lib/supabase/client";
 
 /** 0574 : les posteurs payés par Ruul. */
@@ -191,6 +192,16 @@ export interface MonOnboardingRuul {
   ruul_pret: boolean;
   /** 0702 : le compte Ruul lu par l'import (invited / active), null si inconnu. */
   ruul_compte?: string | null;
+  /** 17/11 (API Ruul) : le statut lu chez Ruul (READY = payable) et l'invitation automatique allumée. */
+  ruul_onboarding?: string | null;
+  ruul_lien_auto?: boolean;
+}
+
+/** 17/11 : le lien d'onboarding Ruul du posteur connecté (frais, < 48 h), pour le bouton « Open my Ruul setup ». */
+export async function monLienRuul(): Promise<{ url: string | null; ready: boolean }> {
+  const r = await invoke<{ ok: boolean; url: string | null; ready?: boolean; error?: string }>("ruul-api", { action: "mon_lien" });
+  if (!r.ok) throw new Error(r.error ?? "Ruul setup unavailable");
+  return { url: r.url, ready: r.ready === true };
 }
 
 export const lireMonOnboardingRuul = () => rpc<MonOnboardingRuul | null>("ruul_mon_onboarding");

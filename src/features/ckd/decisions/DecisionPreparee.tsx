@@ -39,6 +39,16 @@ function LigneCompte({ compteId, handle, lundi, desactive }: { compteId: string;
       void qc.invalidateQueries({ queryKey: ["samedi-brouillons", lundi] });
     },
   });
+  // 17/11 (Max) : un clic = la décision enregistrée (Kill samedi, Recreate, Keep), sans passer par la liste.
+  const rapide = useMutation({
+    mutationFn: (k: ChoixSamedi) => noterBrouillonSamedi(lundi, compteId, k, { note: noteVue.trim() || null }),
+    onSuccess: () => {
+      setChoix(null);
+      setNote(null);
+      void qc.invalidateQueries({ queryKey: ["samedi-brouillons", lundi] });
+      void qc.invalidateQueries({ queryKey: ["posteurs-tableau"] });
+    },
+  });
   const change = choix !== null || note !== null;
   const p = "posters.decisionSamedi";
   return (
@@ -75,6 +85,21 @@ function LigneCompte({ compteId, handle, lundi, desactive }: { compteId: string;
           {t(`${p}.enregistrer`)}
         </Button>
       </div>
+      <div className="flex flex-wrap gap-1.5" data-testid="decision-rapide">
+        {(["kill", "recreate", "keep"] as const).map((k) => (
+          <Button
+            key={k}
+            size="sm"
+            variant={actuel?.choix === k || (!actuel && k === "keep") ? "default" : "outline"}
+            className={k === "kill" ? "h-7 border-red-300 text-xs" : "h-7 text-xs"}
+            disabled={desactive || rapide.isPending}
+            onClick={() => rapide.mutate(k)}
+            data-action={`decision-${k}`}
+          >
+            {k === "kill" ? "Kill samedi" : k === "recreate" ? "Recreate" : "Keep"}
+          </Button>
+        ))}
+      </div>
       {actuel?.maj_at && (
         <p className="text-[11px] text-muted-foreground">
           {t(`${p}.notePar`, {
@@ -84,8 +109,8 @@ function LigneCompte({ compteId, handle, lundi, desactive }: { compteId: string;
         </p>
       )}
       {choixVu === "kill_np" && <p className="text-[11px] text-muted-foreground">{t(`${p}.killNp`)}</p>}
-      {(enregistrer.error || brouillons.error) && (
-        <p className="text-xs text-destructive">{((enregistrer.error ?? brouillons.error) as Error).message}</p>
+      {(enregistrer.error || rapide.error || brouillons.error) && (
+        <p className="text-xs text-destructive">{((enregistrer.error ?? rapide.error ?? brouillons.error) as Error).message}</p>
       )}
     </li>
   );

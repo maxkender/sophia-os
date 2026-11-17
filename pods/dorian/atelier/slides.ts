@@ -62,7 +62,19 @@ export type Item = {
   /** Le haut de l'image de droite (480 par défaut). */
   imageY?: number;
 };
-export type CouvertureIceberg = { haut: string; bas: string; note?: string };
+/** `variante` (0 à 6) : son décor cadré autrement pour que chaque langue ait sa couverture (miroir, zoom, teinte), sans changer son style. */
+export type CouvertureIceberg = { haut: string; bas: string; note?: string; variante?: number };
+
+/** Les variantes du décor de couverture : miroir, zoom (centré sur l'ovale) et teinte. */
+const VARIANTES_ICEBERG = [
+  { miroir: false, zoom: 1, teinte: 0 },
+  { miroir: true, zoom: 1, teinte: 0 },
+  { miroir: false, zoom: 1.1, teinte: 12 },
+  { miroir: true, zoom: 1.1, teinte: -12 },
+  { miroir: false, zoom: 1, teinte: -18 },
+  { miroir: true, zoom: 1.15, teinte: 18 },
+  { miroir: false, zoom: 1.15, teinte: 25 },
+] as const;
 /** Un hobby de l'iceberg : son nom et son image détourée (`images/objets/….png`), ou `"sophia"` pour l'icône de l'appli. */
 export type Hobby = { t: string; image: string };
 export type Iceberg = { etages: Hobby[][]; question?: string };
@@ -260,7 +272,17 @@ const ICE = {
 };
 
 async function icebergCouverture(ctx: Ctx, c: CouvertureIceberg) {
-  ctx.drawImage(await image("assets/iceberg-couverture.jpg"), 0, 0, L, H);
+  const v = VARIANTES_ICEBERG[(c.variante ?? 0) % VARIANTES_ICEBERG.length];
+  const fond = await image("assets/iceberg-couverture.jpg");
+  // Le bleu nuit du coin, pour remplir quand le décor est dézoomé.
+  ctx.fillStyle = "#0f1f30";
+  ctx.fillRect(0, 0, L, H);
+  ctx.save();
+  if (v.teinte) ctx.filter = `hue-rotate(${v.teinte}deg)`;
+  ctx.translate(L / 2, 720);
+  ctx.scale(v.miroir ? -v.zoom : v.zoom, v.zoom);
+  ctx.drawImage(fond, -L / 2, -720, L, H);
+  ctx.restore();
   ctx.fillStyle = "#ffffff";
   ctx.textAlign = "center";
   for (const [t, o] of [

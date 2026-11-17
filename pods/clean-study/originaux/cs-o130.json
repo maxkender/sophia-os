@@ -1,0 +1,44 @@
+{
+  "source_id": "cs-o130",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6484befc-160b-4f54-9dbd-8a2aaa15e534",
+  "titre": "your favorite school subjects and the career opportunities that go with them #studytok #school #career",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "6484befc-160b-4f54-9dbd-8a2aaa15e534"
+  ],
+  "notes": "Déclinaison G1 de 6484befc (r 3,95 en croate, 8,4 k vues), ligne 2 de la boîte. Accroche du parent mot pour mot, avec « ୨୧ » (chiffres pour le guichet ; les autres symboles décoratifs tombent). Matières et métiers neufs, aucun du parent (maths/physique, anglais/géo/politique, informatique, sport/biologie/nutrition, géo/physique/maths) : chimie et biologie, histoire et lettres, arts plastiques, langues. Métiers réels et courants. Place micabo : slide 5 (se tester, quel que soit le choix). Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "113d5f6f",
+      "texte_overlay": "୨୧ your favorite school subjects\nand the career opportunities\nthat go with them",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e5765b3b",
+      "texte_overlay": "subjects: chemistry, biology\nprofessions:\n- pharmacist\n- lab technician\n- doctor or nurse",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f1bc2754",
+      "texte_overlay": "subjects: history, literature\nprofessions:\n- lawyer\n- archivist or museum curator\n- editor",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e98d8f17",
+      "texte_overlay": "subjects: art, design\nprofessions:\n- graphic designer\n- illustrator\n- architect",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "325104bd",
+      "texte_overlay": "subjects: languages\nprofessions:\n- interpreter\n- teacher\n- international relations\nwhatever you choose: quiz yourself on it a little every day",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    }
+  ]
+}

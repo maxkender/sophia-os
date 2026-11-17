@@ -1,7 +1,10 @@
 // Usage :
 //   node atelier/cli-sources.ts                 télécharge les slides des posts du manifeste
 //   node atelier/cli-sources.ts <post_id> …     seulement ces posts
-//   node atelier/cli-sources.ts --compte <handle> [--max 30]
+//   node atelier/cli-sources.ts --compte <handle> [--max 30] [--banque]
+//                                               --banque : compte « banque photo » (statut
+//                                               « banque », champ compte) : ses photos servent
+//                                               aux originaux, ses posts ne sont pas à reprendre
 //                                               scrape un compte, ajoute ses nouveaux posts
 //                                               slideshows au manifeste (statut « nouveau »)
 //
@@ -30,6 +33,8 @@ type PostManifeste = {
   musique: { titre: string | null; auteur?: string | null; original?: boolean; id?: string | null; url_tiktok: string | null };
   statut: string;
   raison_exclusion?: string | null;
+  /** Compte d'origine quand ce n'est pas le compte modèle (banque photo). */
+  compte?: string;
   /** Post original : slide n → slide source réutilisée (« <post_id>_<n> »). */
   composition?: Record<string, string>;
 };
@@ -77,7 +82,7 @@ async function telecharger(p: PostApify): Promise<number> {
   return n;
 }
 
-const versManifeste = (p: PostApify): PostManifeste => ({
+const versManifeste = (p: PostApify, statut = "nouveau", compte?: string): PostManifeste => ({
   post_id: p.id,
   url: p.webVideoUrl ?? "",
   publie_le: p.createTimeISO?.slice(0, 10),
@@ -94,7 +99,8 @@ const versManifeste = (p: PostApify): PostManifeste => ({
     id: p.musicMeta?.musicId ?? null,
     url_tiktok: p.musicMeta?.musicId ? `https://www.tiktok.com/music/x-${p.musicMeta.musicId}` : null,
   },
-  statut: "nouveau",
+  statut,
+  ...(compte ? { compte } : {}),
 });
 
 const args = process.argv.slice(2);
@@ -104,6 +110,7 @@ const i = args.indexOf("--compte");
 if (i >= 0) {
   const handle = args[i + 1].replace(/^@/, "");
   const max = Number(args[args.indexOf("--max") + 1]) || 30;
+  const banque = args.includes("--banque");
   const posts = (await apify({ profiles: [handle], resultsPerPage: max })).filter((p) => p.slideshowImageLinks?.length);
   const connus = new Set(manifeste.posts.map((p) => p.post_id));
   let nouveaux = 0;
@@ -114,13 +121,13 @@ if (i >= 0) {
       continue;
     }
     if (connus.has(p.id)) continue;
-    manifeste.posts.push(versManifeste(p));
+    manifeste.posts.push(banque ? versManifeste(p, "banque", handle) : versManifeste(p));
     await telecharger(p);
     nouveaux++;
   }
   manifeste.scrape_le = new Date().toISOString().slice(0, 10);
   writeFileSync(MANIFESTE, JSON.stringify(manifeste, null, 1));
-  console.log(`@${handle} : ${posts.length} slideshows, ${nouveaux} nouveau(x) ajouté(s) au manifeste`);
+  console.log(`@${handle} : ${posts.length} slideshows, ${nouveaux} ${banque ? "ajouté(s) à la banque photo" : "nouveau(x) ajouté(s) au manifeste"}`);
 } else {
   const cibles = args.length ? args : manifeste.posts.filter((p) => p.statut !== "exclu").map((p) => p.post_id);
   const originaux = manifeste.posts.filter((p) => p.composition && cibles.includes(p.post_id));

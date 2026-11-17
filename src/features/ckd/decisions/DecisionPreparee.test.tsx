@@ -38,6 +38,14 @@ describe("Posters → fiche : préparer la décision du samedi (0492)", () => {
     await waitFor(() => expect(api.noterBrouillonSamedi).toHaveBeenCalledWith("2026-11-02", "c1", "kill", { note: "no posts since Tuesday" }));
   });
 
+  it("17/11 : un clic sur « Kill samedi » enregistre tout de suite le Kill du samedi", async () => {
+    rendu();
+    fireEvent.click(screen.getByRole("button", { name: "Kill samedi" }));
+    await waitFor(() => expect(api.noterBrouillonSamedi).toHaveBeenCalledWith("2026-11-02", "c1", "kill", { note: null }));
+    fireEvent.click(screen.getByRole("button", { name: "Recreate" }));
+    await waitFor(() => expect(api.noterBrouillonSamedi).toHaveBeenCalledWith("2026-11-02", "c1", "recreate", { note: null }));
+  });
+
   it("une cohorte qui n'a pas commencé : rien à préparer (décidé dimanche soir)", () => {
     rendu("2026-11-09");
     expect(screen.getByTestId("decision-a-venir")).toBeInTheDocument();

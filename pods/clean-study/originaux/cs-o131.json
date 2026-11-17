@@ -1,0 +1,45 @@
+{
+  "source_id": "cs-o131",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "6ae9319d-e5b0-4cde-a770-a54eeb25aa22",
+  "titre": "pourquoi avoir un bon entourage est essentiel pour les cours mais aussi dans la vie de tous les jours #studytok #lycée #motivation",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "6ae9319d-e5b0-4cde-a770-a54eeb25aa22"
+  ],
+  "notes": "Déclinaison G1 de 6ae9319d (r 2,19 en croate), ligne 3 de la boîte. Langue source du parent : français ; accroche du parent mot pour mot (le « ? » final tombe, ponctuation). Angle neuf : pas de « mauvaises fréquentations » ni de jugement des autres (garde-fous du label) ; ce qu'un entourage qui travaille apporte, et comment le construire. Rien sur l'alcool ni le tabac. Place micabo : slide 4 (se tester à deux). Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c00821a6",
+      "texte_overlay": "pourquoi avoir un bon entourage est essentiel pour les cours mais aussi dans la vie de tous les jours",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "cf478bb1",
+      "texte_overlay": "on finit par avoir les habitudes des gens avec qui on passe le plus de temps.\nautant choisir des habitudes qui nous tirent vers le haut.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f4a3e1c8",
+      "texte_overlay": "un ami qui révise te donne envie de réviser.\nun ami qui pose des questions t'apprend à en poser.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "b70d8a79",
+      "texte_overlay": "teste-toi à deux sur les cours de la semaine.\nchacun pose des questions à l'autre, cahier fermé.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "b112f97d",
+      "texte_overlay": "pas besoin de changer d'amis.\njuste de passer un peu plus de temps avec ceux qui te font avancer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    }
+  ],
+  "langue_source": "fr"
+}

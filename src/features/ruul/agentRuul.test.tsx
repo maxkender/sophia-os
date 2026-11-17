@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import type * as React from "react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -40,21 +40,16 @@ describe("0681 : Agent Ruul", () => {
     ])).toBe("Ana B ; ana@gmail.com ; Spain\n? ; b@x.io ; ?\nEce ; e@x.io ; Türkiye ; nouvelle adresse");
   });
 
-  it("intitulés fixes ; Importer seulement après Vérifier ; Marquer invités montre les introuvables", async () => {
+  it("intitulés fixes ; plus d'import manuel des statuts (lus par l'API) ; Marquer invités montre les introuvables", async () => {
     rendu(<AgentRuul />);
     expect(await screen.findByText("À inviter dans Ruul (1)")).toBeTruthy();
     expect(screen.getByRole("heading", { name: "Marquer invités" })).toBeTruthy();
-    expect(screen.getByRole("heading", { name: "Importer statuts Ruul" })).toBeTruthy();
-    fireEvent.change(screen.getByLabelText("Importer statuts Ruul"), { target: { value: "a@x.io ; Active\nb@x.io ; Invited" } });
-    expect((screen.getByTestId("agent-ruul-importer") as HTMLButtonElement).disabled).toBe(true);
-    fireEvent.click(screen.getByTestId("agent-ruul-verifier"));
-    await screen.findByTestId("agent-ruul-apercu");
-    expect(api.importerStatutsRuul).toHaveBeenCalledWith("a@x.io ; Active\nb@x.io ; Invited", true);
-    fireEvent.click(screen.getByTestId("agent-ruul-importer"));
-    await waitFor(() => expect(api.importerStatutsRuul).toHaveBeenCalledWith("a@x.io ; Active\nb@x.io ; Invited", false));
+    expect(screen.queryByRole("heading", { name: "Importer statuts Ruul" })).toBeNull();
+    expect(screen.queryByLabelText("Importer statuts Ruul")).toBeNull();
     fireEvent.change(screen.getByLabelText("Marquer invités"), { target: { value: "ana@gmail.com x@y.com" } });
     fireEvent.click(screen.getByTestId("agent-ruul-marquer-bouton"));
     expect((await screen.findByTestId("agent-ruul-marquer-resultat")).textContent).toContain("x@y.com");
+    expect(api.importerStatutsRuul).not.toHaveBeenCalled();
   });
 
   it("sans import depuis 48 h : alerte en haut de la page et ligne dans Aujourd'hui", async () => {

@@ -14,6 +14,13 @@ Tu ne publies jamais rien. Tout ce que tu livres part dans la **file de
 validation** de l'OS (Pilotage → Pods), où un humain valide ou rejette
 (validation automatique 5 h après le dépôt).
 
+## Variété et volume (demande d'Adrien du 17/11, prime sur le reste)
+
+Le label est 100 % podz : il ne doit pas servir chaque jour le même post traduit à tous les créateurs, avec la même couverture.
+- **Plus de posts différents chaque jour** : au moins 6 livraisons par jour (ou le rythme de `npm run boite` s'il est plus haut). Une livraison n'a plus à partir dans toutes les langues : répartis tes posts du jour entre les langues, pour que deux créateurs ne publient pas le même post le même jour.
+- **Une couverture par livraison** : chaque post du jour a sa propre couverture (autre image, autre accroche, autre mise en page dans ton style). Quand un même post part quand même dans plusieurs langues, change aussi sa couverture d'une langue à l'autre (image ou accroche), jamais la même pour tous.
+- Les autres règles (qualité, slide Sophia, preuve, vérification des faits) ne changent pas. Si le volume demandé ne tient pas au niveau de qualité, livre ce qui est au niveau et dis-le dans ton compte rendu.
+
 ## La mission
 
 - **Label** : `mentalmaxxing`, 100 % podz, qui sert **Sophia seul**.
@@ -117,6 +124,9 @@ Décision du 17/10 : une tier list neuve de 2 slides dans le style du compte.
 - **Textes** : par langue ; `|` force un retour à la ligne, sinon une légende trop large se coupe seule. Mêmes règles que `posts/CONSIGNES.md`.
 - **Id** : `mm-o` + numéro, jamais réutilisé une fois validé ou rejeté.
 - **Flux** : `npm run original -- <id>`, relis la planche, montre-la à l'humain, puis `--deposer`. Validé, l'original entre au rang original.
+- **Varier les couvertures et les titres** (demande d'Adrien du 17/11) : deux tier lists à la suite ne se ressemblent jamais.
+  - **Couverture** : alterne les trois mises de `couverture.mise` (`atelier/original.ts`) : `classique` (« tier list of » / image / mot fort / suite), `titre_haut` (« Introvert hobbies » / « tier list », grande image, ligne `edition` facultative comme « productivity edition », petite frise S+ → F) et `collage` (image au centre, titre dessous, dix vignettes du tableau autour, comme « peak Mental » ou « locked in »). Change aussi d'image de couverture : pioche dans toutes les couvertures relevées (`sources/<id>/1.jpg`), pas toujours les mêmes.
+  - **Titre** : hors déclinaison G1 (titre du parent mot pour mot), varie la forme de l'accroche comme @mentalapp : « X tier list », « tier list of X », « X things », « how to fix your X », « everything you need to X », « X ranked », avec un mot qui accroche (« …maxxing », « peak », « locked in »).
 - **Format** : la **tier list de 2 slides** (`atelier/original.ts`), seule pour le test Sophia.
   - Le carrousel (`"format": "carrousel"`, `atelier/carrousel.ts`) existe encore, mais ses textes d'élément parlent d'UnSwipe (« After deleting them with UnSwipe ») et le format n'a pas marché : ne le relivre pas sans décision.
 - **CTA** (ROUTINE.md §4.5) : la légende « learn, then scroll (apps like Sophia) » est fixe, donc les versions varient par la place.

@@ -134,6 +134,7 @@ sera ensuite relu dans la PR.
 	- Les items sont **neufs** : jamais un item de @stonemag.co recopié, jamais deux fois le même dans tes originaux.
 - **Slide 5 = slide Sophia** : un item sur l'apprentissage (apprendre un peu de tout, avoir quelque chose à dire sur tout). La base est sans appli, la version Sophia dans `texte_sophia`.
 - **Images** : **toute la banque du label** (2 232 images), avec `npm run images -- --cherche "…"`. Plus jamais seulement celles des contenus d'inspiration du schéma : le 12/11, 102 images avaient servi pour 1 488 slides en 14 jours, et les posteurs voyaient les mêmes photos à chaque post. Une image que tu as livrée depuis 14 jours ne t'est plus proposée, et le guichet la refuse (`images_recentes`). Les contenus d'inspiration ne servent qu'aux slides d'inspiration.
+	- **Toute la banque, sans tri de fond (Adrien, 17/11, `pods/ROUTINE.md` §4)** : personnes connues, cigarettes, alcool, marques, logos, écrans, filigranes, images sombres sont acceptés. Seule limite : la slide de l'appli, jamais sur une personne reconnaissable. Ce qui suit est un style à préférer, jamais une raison d'écarter une image.
 	- La plus forte en accroche.
 	- **Couvertures variées** : pioche largement dans la banque (367 images d'accroche, `npm run couvertures`). Reprendre une accroche ou une couverture est permis (c'est le principe des variantes, `ROUTINE.md` §4.3, §4.7 avant BLEO), mais chaque reprise change quelque chose : items, angle, image ou CTA. `deposer` refuse un post identique à un autre.
 	- Jamais deux fois la même image dans un deck.

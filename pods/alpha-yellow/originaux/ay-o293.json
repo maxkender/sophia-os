@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o293",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cf0a0c60-7f7e-4bf3-958d-dc9b0bc243be",
+ "titre": "How to speak so clearly people hang on every word #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Let it burn",
+ "musique_url": "https://www.tiktok.com/music/let-it-burn-7456190184968800272",
+ "inspirations": [
+  "cf0a0c60-7f7e-4bf3-958d-dc9b0bc243be"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (cf0a0c60, tr 3,6 k r 2,43), 1re déclinaison. Même promesse, autres mots. Items neufs, aucun repris du parent (trois points, phrases courtes, pauses, une histoire, vocabulaire, adapter, finir net).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "6b840f2d-acf1-4294-8cb4-38e24bfba383",
+   "texte_overlay": "How to speak so clearly\npeople hang on every word",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Know your point before you speak. Ask yourself \"what do I want them to remember?\" and say that first. Clear thinking always comes before clear speaking.",
+   "media_id": "7285df7f-e12b-443c-94ce-46feabd7156d"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Open your mouth a bit more. Mumbling comes from lazy lips and jaw. Pronouncing each word fully makes you sound confident and easy to follow.",
+   "media_id": "7287bead-0baa-490f-a8d1-6e78ac5a2875"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Use examples instead of explanations. \"It's like when you...\" A concrete picture makes people understand you in seconds. Practise it with a friend.",
+   "media_id": "7385a5dc-2657-4534-8901-33eb5cc6e018"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Lower your voice at the end of a sentence. Rising tones sound unsure. Ending low sounds certain and makes people take you seriously.",
+   "media_id": "767d0fef-2380-4f2c-9fbd-f6e6d60dac43"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Read and learn a little every day. I do five minutes a day of history, art or science, and it gives me better words and clearer ideas.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives me better words and clearer ideas.",
+   "media_id": "7b2047a6-660e-464c-a8db-ed5fb1284d31"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Record yourself once a week. Listen back for rushed parts and filler words. Hearing yourself is the fastest way to improve how you speak.",
+   "media_id": "7723bd54-5e76-47ed-8e95-e3c37b92786c"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Look at people while you talk. Eye contact keeps them with you, and it helps you notice when someone has lost the thread. Then you adapt.",
+   "media_id": "7864f267-5921-4a26-8ef0-bb353d5aff80"
+  }
+ ]
+}

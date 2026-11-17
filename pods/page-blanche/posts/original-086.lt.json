@@ -1,0 +1,295 @@
+{
+ "post_id": "original-086",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "įpročiai, su kuriais pokalbyje skambi protingiau"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(be jokios vaidybos)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705190384011414797_5.jpg",
+      "boite": [
+       584,
+       600,
+       400,
+       297
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build relationships with",
+      "people smarter than you"
+     ],
+     "fr": "entoure-toi de [[gens plus intelligents que toi]]",
+     "texte": "užduok [[tikrą papildomą klausimą]]"
+    },
+    "T2": {
+     "en": [
+      "if you're always the",
+      "smartest person in the",
+      "room, you stop getting",
+      "better"
+     ],
+     "fr": "si t'es toujours la personne la plus calée de la pièce, tu [[progresses plus]]",
+     "texte": "dauguma tiesiog laukia savo eilės kalbėti ir iki tol linksi galva"
+    },
+    "T3": {
+     "en": [
+      "smart people make you",
+      "explain your ideas,",
+      "defend them, and see",
+      "where you're wrong"
+     ],
+     "fr": "les gens brillants te font [[expliquer tes idées]], les défendre et voir où tu te trompes",
+     "texte": "„palauk, o kodėl būtent tai?“ parodo, kad [[tikrai klausaisi]], o žmonės tai dievina"
+    },
+    "T4": {
+     "en": [
+      "and you slowly start",
+      "picking up how they think"
+     ],
+     "fr": "et petit à petit, tu prends [[leur façon de penser]]",
+     "texte": "geras klausimas [[skamba protingiau]] už bet kokį faktą"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708848668530707726_4.jpg",
+      "boite": [
+       96,
+       508,
+       400,
+       402
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start before you feel ready"
+     ],
+     "fr": "lance-toi [[avant que tout soit prêt]]",
+     "texte": "pasakyk [[„nežinau“]]"
+    },
+    "T2": {
+     "en": [
+      "the business, the gym, the youtube channel, you",
+      "keep waiting until you feel confident enough"
+     ],
+     "fr": "le projet, la salle, la chaîne, t'attends toujours le jour où t'auras [[assez confiance]]",
+     "texte": "kai apsimeti, kad žinai, visą pokalbį tik linksi galva ir nieko nesupranti"
+    },
+    "T3": {
+     "en": [
+      "but motivation usually",
+      "comes after you start,",
+      "not before"
+     ],
+     "fr": "mais la motivation arrive [[quand t'as commencé]], pas avant",
+     "texte": "„neturiu supratimo, paaiškinsi?“ pradeda [[tikrą pokalbį]]"
+    },
+    "T4": {
+     "en": [
+      "successful people feel",
+      "scared too, they just",
+      "start anyway"
+     ],
+     "fr": "les gens qui réussissent [[ont peur aussi]], ils y vont quand même",
+     "texte": "žmonės labiau tavimi pasitiki, kai [[pripažįsti, ko nežinai]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702536129064570126_1.jpg",
+      "boite": [
+       210,
+       458,
+       575,
+       602
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read CLASSIC books"
+     ],
+     "fr": "lis des CLASSIQUES",
+     "texte": "turėk [[vieną gerą istoriją]]"
+    },
+    "T4": {
+     "en": [
+      "one study found that just 6",
+      "minutes of reading reduced",
+      "stress levels by up to 68%"
+     ],
+     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]",
+     "texte": "geriausi pašnekovai visada turi kokį atsitiktinį dalyką, kurį sužinojo šią savaitę"
+    },
+    "T5": {
+     "en": [
+      "if you struggle getting off your",
+      "phone and reading books, i",
+      "recommend ReadUp, it blocks",
+      "your doomscrolling apps until",
+      "you read"
+     ],
+     "fr": "si t'as du mal à lâcher ton tel, perso j'ai remplacé mon scroll par 5 min sur l'appli Sophia, un truc nouveau chaque jour",
+     "texte": "pavyzdžiui, kodėl Renesansas prasidėjo Italijoje. aš tai randu knygoje prie lovos, podkastuose per pasivaikščiojimus ir [[programėlėje Sophia]], kai vis tiek paimu telefoną"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "I1",
+      "T2",
+      "T3",
+      "T7",
+      "T8",
+      "T9",
+      "T10",
+      "I3",
+      "T11",
+      "T6"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start creating",
+      "instead of consuming"
+     ],
+     "fr": "commence à [[créer]] au lieu de consommer",
+     "texte": "susiek tai su [[kažkuo, ką skaitei]]"
+    },
+    "T2": {
+     "en": [
+      "write, draw, make music, edit a video, cook",
+      "something new, whatever you're into"
+     ],
+     "fr": "écris, dessine, fais de la musique, monte une vidéo, teste une recette, ce qui te parle",
+     "texte": "„tai man primena vieną knygą“, ir paprastas plepėjimas tampa tikru pokalbiu"
+    },
+    "T3": {
+     "en": [
+      "consuming lets you",
+      "follow someone",
+      "else's ideas,"
+     ],
+     "fr": "consommer, c'est [[suivre les idées des autres]],",
+     "texte": "tai ne pasipuikavimas, tu tiesiog [[prisidedi savo dalimi]]"
+    },
+    "T4": {
+     "en": [
+      "creating forces",
+      "your brain to come",
+      "up with its own"
+     ],
+     "fr": "créer oblige ton cerveau à [[trouver les siennes]]",
+     "texte": "ir duodi jiems [[apie ką naujo pagalvoti]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703972418016005390_3.jpg",
+      "boite": [
+       396,
+       584,
+       504,
+       360
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "track your progress every day"
+     ],
+     "fr": "note tes progrès [[chaque jour]]",
+     "texte": "[[apibendrink]], ką išgirdai"
+    },
+    "T2": {
+     "en": [
+      "a habit tracker, a gym log, a journal, anything",
+      "you can look back at"
+     ],
+     "fr": "un habit tracker, un carnet de muscu, un journal, [[n'importe quoi à relire]]",
+     "texte": "„tai tu nori pasakyti, kad...“, prieš išsakant savo nuomonę"
+    },
+    "T3": {
+     "en": [
+      "your brain rewards",
+      "progress, even",
+      "small progress, so",
+      "seeing it makes you",
+      "want to keep going"
+     ],
+     "fr": "ton cerveau [[récompense les progrès]], même petits, alors les voir te donne envie de continuer",
+     "texte": "taip parodai, kad seki mintį, o jei kažką supratai ne taip, [[tave pataisys]] dar prieš ginčą"
+    },
+    "T4": {
+     "en": [
+      "you stop relying on motivation and start trusting",
+      "the proof that you're getting better"
+     ],
+     "fr": "tu comptes plus sur la motivation, tu [[te fies aux preuves]] que tu progresses",
+     "texte": "tave prisimins kaip žmogų, kuris [[tikrai supranta]] kitus"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708532318389931277_5.jpg",
+      "boite": [
+       96,
+       600,
+       400,
+       298
+      ]
+     }
+    }
+   }
+  }
+ }
+}

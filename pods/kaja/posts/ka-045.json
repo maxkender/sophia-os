@@ -1,0 +1,870 @@
+{
+ "id": "ka-045",
+ "titre": {
+  "en": "10/10 drawing skills for beginners",
+  "fr": "10/10 bases du dessin pour débuter",
+  "de": "10/10 Zeichen-Skills für Anfänger",
+  "it": "10/10 basi del disegno per principianti",
+  "tr": "10/10 yeni başlayana çizim becerileri",
+  "hu": "10/10 rajzkészség kezdőknek",
+  "pl": "10/10 rysowanie od zera",
+  "pt-BR": "10/10 habilidades de desenho para iniciantes"
+ },
+ "legendes": {
+  "en": "10/10 drawing skills for beginners #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 bases du dessin pour débuter #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Zeichen-Skills für Anfänger #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 basi del disegno per principianti #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 yeni başlayana çizim becerileri #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 rajzkészség kezdőknek #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 rysowanie od zera #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades de desenho para iniciantes #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "sonido original",
+  "url": "https://www.tiktok.com/music/sonido-original-7663314321833364245"
+ },
+ "notes": "Full test (BLEO, 17/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (les bases du dessin). Décor branche. Son format court à 3 compétences plus l'étape Sophia (visage, perspective, ombres), une vraie vidéo YouTube native par étape et par langue. Musique : « sonido original » de son manifeste. Sophia en étape 3, cta C, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "DRAWING",
+     "SKILLS FOR",
+     "BEGINNERS"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "BASES",
+     "DU DESSIN",
+     "POUR DÉBUTER"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "ZEICHEN-",
+     "SKILLS FÜR",
+     "ANFÄNGER"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "BASI DEL",
+     "DISEGNO PER",
+     "PRINCIPIANTI"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "YENİ BAŞLAYANA",
+     "ÇİZİM BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "RAJZ-",
+     "KÉSZSÉGEK",
+     "KEZDŐKNEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "RYSOWANIE",
+     "OD ZERA"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "DE DESENHO PARA",
+     "INICIANTES"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DRAW",
+     [
+      {
+       "t": "A FACE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gT5zBXuKO3I",
+     "titre": "How To: Draw Face | Easy Beginner Proportion Tutorial",
+     "chaine": "Lazy Arts",
+     "vues": "7.1M views",
+     "date": "5 years ago",
+     "duree": "16:04",
+     "avatar": "https://yt3.ggpht.com/e7M4UXvM1Rr3vLzhd4Y2vIOkOSK7LfRW738RgL82pu4itJMVv93Ji14uILvblQVzKyPEO6Zm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DESSINER",
+     [
+      {
+       "t": "UN VISAGE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZuDgO1XGoPU",
+     "titre": "LES BASES POUR DESSINER UN VISAGE DE FACE [TUTO MANGA #1]",
+     "chaine": "Draw my Japan",
+     "vues": "2,7 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6BS6ENogfpXufORf0Pdq-yjT2uJ6ntsfHBKOIGN-nPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ZEICHNEST DU",
+     [
+      {
+       "t": "EIN GESICHT",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iomuOeoRaYY",
+     "titre": "Das Gesicht | Ganz einfach zeichnen lernen 1 (English Subtitles)",
+     "chaine": "artistravel",
+     "vues": "858.950 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "8:48",
+     "avatar": "https://yt3.ggpht.com/UDeyHX5_VZtZXHX_4UAk5WnoqXMOE56JGW_THU6KwrZF-zHfzmQ_ja0aIzgt9Fx0XJc-n2628Fo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME DISEGNARE",
+     [
+      {
+       "t": "UN VOLTO",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lKMgtmB7ALE",
+     "titre": "Come DISEGNARE un RITRATTO | Tutorial COMPLETO PRINCIPIANTI | Come disegnare un volto con reference",
+     "chaine": "MitchSanna",
+     "vues": "172K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "8:17",
+     "avatar": "https://yt3.ggpht.com/Mm9gECuVOY7VcpBmbnabBHOIlkfdMsud89P9TgHZX8tUoS1AMVrCE7qAoRAu4E8l5dJWzxWdmQw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PORTRE ÇİZİLİR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UrxxRaEV9fI",
+     "titre": "Portre Nasıl Çizilir? Kimsenin Anlatmadıkları!",
+     "chaine": "AktaşBerk",
+     "vues": "33 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/rSgFZMrnQ_IdA18HCK5qole1Q_wg_zSdan5EewSrgUuHCT1Y6qFuTkTx3HxdFcUHgxaP5IKOExc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN RAJZOLJ",
+     [
+      {
+       "t": "PORTRÉT",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "afBCXnI869E",
+     "titre": "Portrérajzolás",
+     "chaine": "Váczi Gyula AMI képzőművészet",
+     "vues": "42 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "13:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBobP2s2E8K0NI7yt-5dpn4X-YkHajPw6inpIi6as=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NARYSOWAĆ",
+     [
+      {
+       "t": "TWARZ",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UQJWzBF9GT0",
+     "titre": "JAK NARYSOWAĆ TWARZ - PROPORCJE",
+     "chaine": "Maksym Maluje",
+     "vues": "915 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "8:25",
+     "avatar": "https://yt3.ggpht.com/NGDWlN63VpAQ5bWKhTS70UG22a7tESlUD97hn3Y8ANSmjE3R8ITCxDEMQptmNXqV71sP_sFReQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO DESENHAR",
+     [
+      {
+       "t": "UM ROSTO",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3KIRL3hJvQA",
+     "titre": "COMO DESENHAR ROSTO dicas simples",
+     "chaine": "Gui Arts",
+     "vues": "4,9 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/borLtNroRC3PeM1UvP5C66aqHgh_jOim6OaOlJnzx0BnOAWMp514XJNnsm3R_M5nw9S6aE8b=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DRAW",
+     [
+      {
+       "t": "IN PERSPECTIVE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "c1teaJw1QW8",
+     "titre": "How to Draw a Town in 1-Point Perspective",
+     "chaine": "The Art Academy",
+     "vues": "1.9M views",
+     "date": "5 years ago",
+     "duree": "14:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3RqhmiUzoEkQpILJUUabrzfjU3rI8wiqj6KN7V0sc6FU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DESSINER",
+     [
+      {
+       "t": "EN PERSPECTIVE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-sxP_slckBs",
+     "titre": "APPRENDRE LE DESSIN EN PERSPECTIVE - LES BASES",
+     "chaine": "Léo Dessin-création",
+     "vues": "777 k vues",
+     "date": "il y a 9 ans",
+     "duree": "14:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l1zeX40sZuLgGcOrZOk4Vk2P90GoT6wRY_jjXRa3tuE9I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ZEICHNEST DU",
+     [
+      {
+       "t": "PERSPEKTIVE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8OepC_2-emY",
+     "titre": "Perspektive für Anfänger | Ganz einfach zeichnen lernen 12",
+     "chaine": "artistravel",
+     "vues": "410.520 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "13:38",
+     "avatar": "https://yt3.ggpht.com/UDeyHX5_VZtZXHX_4UAk5WnoqXMOE56JGW_THU6KwrZF-zHfzmQ_ja0aIzgt9Fx0XJc-n2628Fo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME DISEGNARE",
+     [
+      {
+       "t": "IN PROSPETTIVA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8BRmOSEmnt8",
+     "titre": "Tutorial - Imparare a Disegnare la Prospettiva - Lezione 1 - Introduzione alla prospettiva centrale",
+     "chaine": "Claudio Casini Art",
+     "vues": "224K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "11:15",
+     "avatar": "https://yt3.ggpht.com/LkE86YUDyN-pHV0ANk0gvvXgX07UrNEfWrFFi4sFAau7bHQ2ulq8XR-0kvtYE8Z4KV07tm_E_pk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PERSPEKTİF ÇİZİLİR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aFOV2t_KDX8",
+     "titre": "TEK NOKTALI PERSPEKTİF ODA ÇİZİMİ - 1 KAÇIŞLI İÇ MEKAN ÇİZİMİ - MEHMET TURHAN",
+     "chaine": "Mehmet Turhan Çizimleri",
+     "vues": "21 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "4:56",
+     "avatar": "https://yt3.ggpht.com/JfkotAVohCPGv36buLjliOW8URzoYysuAXET5sicR0okS4YgGshQuLL2zevEl4R5Br-v-pT-xQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN RAJZOLJ",
+     [
+      {
+       "t": "PERSPEKTÍVÁT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ir6ZGMM2FEY",
+     "titre": "Rajzi alapok, kocka, perspektívikus rajz- rajztanulás sorozat Külüs László rajzaival -kezdőknek",
+     "chaine": "Külüs László",
+     "vues": "11 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "7:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kePv5dl1Eq6OMlJMMXbRYYuVu6UO7qNJdmME8N9cornOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK RYSOWAĆ",
+     [
+      {
+       "t": "PERSPEKTYWĘ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DDKthemuXAU",
+     "titre": "Perspektywa w rysunku",
+     "chaine": "Grafikowanie",
+     "vues": "164 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "18:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lQ4-Zpk2s1B4DdTm4S_jaf54LijHV9EC8Imr39jjT6kWc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO DESENHAR",
+     [
+      {
+       "t": "EM PERSPECTIVA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VLVK-fjt5Ks",
+     "titre": "Como desenhar com 1 ponto de fuga",
+     "chaine": "Amanda Nello",
+     "vues": "520 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "11:12",
+     "avatar": "https://yt3.ggpht.com/KYnqiEWrBSGKnMw8T8w8KHJOzkjpkVClF6U1qScBkcChrejxgNfPx-aDH4PtNFDjgxwhyfm2lg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO SEE",
+     [
+      {
+       "t": "THE WORLD",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "DIFFERENTLY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT VOIR",
+     [
+      {
+       "t": "LE MONDE",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "AUTREMENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SIEHST DU",
+     [
+      {
+       "t": "DIE WELT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ANDERS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME VEDERE",
+     [
+      {
+       "t": "IL MONDO",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "IN MODO DIVERSO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DÜNYAYA",
+     [
+      {
+       "t": "NASIL FARKLI",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "BAKILIR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN LÁSD",
+     [
+      {
+       "t": "MÁSHOGY",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "A VILÁGOT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK PATRZEĆ",
+     [
+      {
+       "t": "NA ŚWIAT",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "INACZEJ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO VER",
+     [
+      {
+       "t": "O MUNDO",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "DE OUTRO JEITO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SHADE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-WR-FyUQc6I",
+     "titre": "How to Shade with PENCIL for BEGINNERS",
+     "chaine": "RapidFireArt",
+     "vues": "11M views",
+     "date": "8 years ago",
+     "duree": "13:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjsK8XivmMoAUrw21tKFCpS4RYsHgCr2NdSXkIfoyJONs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "LES OMBRES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JL5p2gLBBxU",
+     "titre": "Dessiner les ombres et lumières au crayon - Astuce Dessin",
+     "chaine": "Dessindigo",
+     "vues": "120 k vues",
+     "date": "il y a 7 ans",
+     "duree": "8:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kWLKTl2ozkfeU5yY2Mvqa7r3DS9D3m9c1vG27VHTEB-Nk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SCHATTIEREN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k5i8ZWZ5F7w",
+     "titre": "Zeichnen lernen - basics 003 - Schatten/shadows (german narrated)",
+     "chaine": "richy drawings",
+     "vues": "459.002 Aufrufe",
+     "date": "vor 12 Jahren",
+     "duree": "15:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_msP3YTCyiYDRuskGw2Lb8SHJU1VYSaFUuySV-MDRPQvfs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL CHIAROSCURO",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xILu-H7BuHg",
+     "titre": "Come fare il CHIAROSCURO | Tutorial Tecnica",
+     "chaine": "Dietro l'Arte",
+     "vues": "85K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nJ5ief-VGh7v0GUqgGXbUGP_W-em1pINZ9lJ4C9mBugQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "GÖLGELENDİRİLİR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SFuzPScviwM",
+     "titre": "KARAKALEM GÖLGELENDİRME TEKNİKLERİ – 9 METOD",
+     "chaine": "Ece ile Sanat",
+     "vues": "75 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "11:12",
+     "avatar": "https://yt3.ggpht.com/k0P9_6ADYayo1pnz1NmrSm8x1QGj9p8JTlSvgJDLV6j2NBzDZLT6vBMx-WhCsnI-DbR9qTIRUQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "ÁRNYÉKOLJ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HskIMHI9L6g",
+     "titre": "Árnyékolás menete – satírozás és elmosás a gyakorlatban!",
+     "chaine": "Valdor Art Rajz- és Festőiskola",
+     "vues": "1,1 E megtekintés",
+     "date": "8 hónappal ezelőtt",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/-QRyB3VCqw_UzwynXRDx6tUVPkWY4pDQVATUJH4NgTjrvJ3BZIe8HG5At7BdiQf6UnP3VkRH-A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "CIENIOWAĆ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XeLgXhfSPKA",
+     "titre": "5 PODSTAWOWYCH ZASAD CIENIOWANIA",
+     "chaine": "creosfera",
+     "vues": "342 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "8:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nt8bLQCBOfYjYnvAsby32KpHaAmw2l67W7hdEzEpkWaw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "SOMBREAR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "soN1VitKOrE",
+     "titre": "Princípios do Sombreamento-Como sombrear seus desenhos (Fácil)",
+     "chaine": "LeoMK",
+     "vues": "237 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "6:36",
+     "avatar": "https://yt3.ggpht.com/Nvcu-3l9eEyavHLb1fVpNdysPTpTJBB5-czQEsrpBG4LF9TY9VUvCUJ7_PSxTpj_cy9oWuc62kw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

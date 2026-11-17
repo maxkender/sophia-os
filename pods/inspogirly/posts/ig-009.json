@@ -1,0 +1,164 @@
+{
+ "id": "ig-009",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps that make your life so much easier",
+  "fr": "les applis qui te simplifient la vie",
+  "es": "apps que te hacen la vida mucho más fácil",
+  "it": "app che ti semplificano tantissimo la vita",
+  "tr": "hayatını çok daha kolay yapan uygulamalar"
+ },
+ "legendes": {
+  "en": "apps that make your life so much easier #foryou #apps #lifehacks #thatgirl",
+  "fr": "les applis qui te simplifient la vie #foryou #apps #lifehacks #thatgirl",
+  "es": "apps que te hacen la vida mucho más fácil #foryou #apps #lifehacks #thatgirl",
+  "it": "app che ti semplificano tantissimo la vita #foryou #apps #lifehacks #thatgirl",
+  "tr": "hayatını çok daha kolay yapan uygulamalar #foryou #apps #lifehacks #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve au format de @iinspogiirly). Photos Seedream : planner-1, fille-14, bouquet-10. Applis (App Store US, 17/11) : AnyList (4,9 ★, 82 k avis), Sophia en 2e (cta A), Wanderlog (4,9 ★, 36 k), Insight Timer (4,9 ★, 449 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/planner-1.jpg",
+     "images/photos/fille-14.jpg",
+     "images/photos/bouquet-10.jpg"
+    ],
+    "titre": "apps that make your\nlife so much easier"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/planner-1.jpg",
+     "images/photos/fille-14.jpg",
+     "images/photos/bouquet-10.jpg"
+    ],
+    "titre": "les applis qui te\nsimplifient la vie"
+   },
+   "es": {
+    "photos": [
+     "images/photos/planner-1.jpg",
+     "images/photos/fille-14.jpg",
+     "images/photos/bouquet-10.jpg"
+    ],
+    "titre": "apps que te hacen la\nvida mucho más fácil"
+   },
+   "it": {
+    "photos": [
+     "images/photos/planner-1.jpg",
+     "images/photos/fille-14.jpg",
+     "images/photos/bouquet-10.jpg"
+    ],
+    "titre": "app che ti semplificano\ntantissimo la vita"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/planner-1.jpg",
+     "images/photos/fille-14.jpg",
+     "images/photos/bouquet-10.jpg"
+    ],
+    "titre": "hayatını çok daha\nkolay yapan uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/anylist",
+   "en": {
+    "nom": "anylist",
+    "texte": "a grocery list you share with your roommates, and you can save your favorite recipes in it"
+   },
+   "fr": {
+    "nom": "anylist",
+    "texte": "une liste de courses à partager avec tes colocs, avec aussi tes recettes préférées dedans"
+   },
+   "es": {
+    "nom": "anylist",
+    "texte": "una lista de la compra que compartes con tus compis de piso, y puedes guardar tus recetas favoritas"
+   },
+   "it": {
+    "nom": "anylist",
+    "texte": "una lista della spesa da condividere con le tue coinquiline, e ci puoi salvare le tue ricette preferite"
+   },
+   "tr": {
+    "nom": "anylist",
+    "texte": "ev arkadaşlarınla paylaştığın bir alışveriş listesi, en sevdiğin tarifleri de içine kaydedersin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/wanderlog",
+   "en": {
+    "nom": "wanderlog",
+    "texte": "you plan your whole trip with your friends, with every place and booking on one map"
+   },
+   "fr": {
+    "nom": "wanderlog",
+    "texte": "tu prépares tout ton voyage avec tes amies, avec chaque lieu et chaque réservation sur une seule carte"
+   },
+   "es": {
+    "nom": "wanderlog",
+    "texte": "planeas todo tu viaje con tus amigas, con cada sitio y cada reserva en un solo mapa"
+   },
+   "it": {
+    "nom": "wanderlog",
+    "texte": "organizzi tutto il viaggio con le amiche, con ogni posto e ogni prenotazione su una mappa"
+   },
+   "tr": {
+    "nom": "wanderlog",
+    "texte": "tüm seyahatini arkadaşlarınla planlarsın, her yer ve her rezervasyon tek bir haritada"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/insighttimer",
+   "en": {
+    "nom": "insight timer",
+    "texte": "thousands of free guided meditations and sleep sessions for when your mind is too loud"
+   },
+   "fr": {
+    "nom": "insight timer",
+    "texte": "des milliers de méditations guidées gratuites et de séances pour dormir quand ta tête est trop pleine"
+   },
+   "es": {
+    "nom": "insight timer",
+    "texte": "miles de meditaciones guiadas gratis y sesiones para dormir cuando tu mente no para"
+   },
+   "it": {
+    "nom": "insight timer",
+    "texte": "migliaia di meditazioni guidate gratuite e sessioni per dormire quando la testa non si ferma"
+   },
+   "tr": {
+    "nom": "insight timer",
+    "texte": "zihnin çok gürültülü olduğunda binlerce ücretsiz rehberli meditasyon ve uyku seansı"
+   }
+  }
+ ]
+}

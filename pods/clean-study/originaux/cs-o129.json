@@ -1,0 +1,44 @@
+{
+  "source_id": "cs-o129",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "abaa4c11-de70-43bc-bc9c-7fef2b3660df",
+  "titre": "fictional characters who would actually be great study role models (or not) my take #studytok #booktok #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "abaa4c11-de70-43bc-bc9c-7fef2b3660df"
+  ],
+  "notes": "Déclinaison G2 de abaa4c11 (la famille de notre cs-o042 : r 4,09 en turc), ligne 1 de la boîte, 2e déclinaison de la famille. Même promesse, autres mots que la famille et que cs-o124 : « fictional characters who would actually be great study role models (or not) my take ». Personnages neufs, aucun de cs-o042, cs-o124 ni du parent 21d54fb2 : Nancy Drew, Jo March, Annabeth Chase. Avis généraux, sans mépris. Slides des personnages sur des photos sans visage. Place micabo : slide 5 (se tester). Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "96b434c1",
+      "texte_overlay": "fictional characters who would actually be\ngreat study role models (or not)\nmy take",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b4e24911",
+      "texte_overlay": "nancy drew\n+ checks every clue, writes everything down\n− often skips the planning part\nverdict: copy her note-taking",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7748ad26",
+      "texte_overlay": "jo march\n+ writes every day, no matter what\n− starts ten things at once\nverdict: copy her daily habit, finish one thing first",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e566899c",
+      "texte_overlay": "annabeth chase\n+ plans ahead, loves to learn, reads a lot\n+ admits when she needs help\nverdict: role model",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f0c9a75b",
+      "texte_overlay": "my takeaway: notes like nancy, a daily habit like jo,\nand quiz yourself before every test like annabeth would.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    }
+  ]
+}

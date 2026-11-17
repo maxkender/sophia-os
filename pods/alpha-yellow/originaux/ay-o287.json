@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o287",
+ "type_bleo": "full_test",
+ "titre": "How to become the friend people go to for advice #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 5 et 10 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 5e full test. Accroches écrites : « How to become the friend people go to for advice » (retenue), « Why everyone asks you for advice » (écartée : pas de promesse), « Be the wise friend » (écartée : slogan).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5a58ed88-03c1-492d-b874-86486a9155d1",
+   "texte_overlay": "How to become the friend\npeople go to for advice",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Listen until they've finished. Most people jump in with solutions after ten seconds. Let them say everything first, the real problem usually comes at the end.",
+   "media_id": "02e431e4-4328-47de-b397-d0f2de98f31e"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ask what they want before advising. \"Do you want my opinion or do you just need to vent?\" This one question makes people trust you instantly.",
+   "media_id": "fe8def99-5ef9-4436-97cf-3f0fc5174c69"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Be honest, but kind. Say the hard thing gently. Friends come back to the person who tells them the truth without making them feel small.",
+   "media_id": "0482e129-3a59-4d06-8c8f-091bac36463b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Share what you've lived, not what you've read. \"When it happened to me, this helped.\" Real experience is more convincing than any quote.",
+   "media_id": "06e1a220-a5dd-4925-87ab-4350b5e537ef"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Know a little about a lot. I do five minutes a day of history, art or science, and it gives me more perspective when friends bring me their problems.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives me more perspective when friends bring me their problems.",
+   "media_id": "1dd3ccd7-457c-4277-ba61-b028e4b8a6ba"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep their secrets. What a friend tells you stays with you, always. One leak and they'll never open up to you again, and they'll tell others too.",
+   "media_id": "081ce4b6-f834-4242-afe2-2aa268a9b9fa"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Follow up later. \"How did the talk with your boss go?\" Checking in shows you care about the person, not just about giving good advice.",
+   "media_id": "0edd9c9e-fda3-4bd6-bbf1-986c22e52b1a"
+  }
+ ]
+}

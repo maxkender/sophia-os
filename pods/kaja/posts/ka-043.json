@@ -1,0 +1,824 @@
+{
+ "id": "ka-043",
+ "titre": {
+  "en": "10/10 skills to grow your own food",
+  "fr": "10/10 skills pour faire pousser ta nourriture",
+  "de": "10/10 Skills für dein eigenes Gemüse",
+  "it": "10/10 skill per coltivare il tuo cibo",
+  "tr": "10/10 kendi sebzeni yetiştir",
+  "hu": "10/10 készség a saját zöldségeidhez",
+  "pl": "10/10 umiejętności do własnego ogródka",
+  "pt-BR": "10/10 habilidades para plantar sua comida"
+ },
+ "legendes": {
+  "en": "10/10 skills to grow your own food #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour faire pousser ta nourriture #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für dein eigenes Gemüse #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill per coltivare il tuo cibo #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 kendi sebzeni yetiştir #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 készség a saját zöldségeidhez #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności do własnego ogródka #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades para plantar sua comida #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "Seventh Heaven",
+  "url": "https://www.tiktok.com/music/seventh-heaven-7359926862746355729"
+ },
+ "notes": "Full test (BLEO, 17/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le potager). Décor branche2. Son format court à 3 compétences plus l'étape Sophia (tomates, herbes aromatiques, compost), une vraie vidéo YouTube native par étape et par langue. Musique : « Seventh Heaven » de son manifeste. Sophia en étape 3, cta B, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS TO GROW",
+     "YOUR OWN",
+     "FOOD"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "FAIRE POUSSER",
+     "TA NOURRITURE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "DEIN EIGENES",
+     "GEMÜSE"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL PER",
+     "COLTIVARE",
+     "IL TUO CIBO"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "KENDİ",
+     "SEBZENİ",
+     "YETİŞTİR"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÉSZSÉGEK",
+     "A SAJÁT",
+     "ZÖLDSÉGEIDHEZ"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "DO WŁASNEGO",
+     "OGRÓDKA"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "PARA PLANTAR",
+     "SUA COMIDA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO GROW",
+     [
+      {
+       "t": "TOMATOES",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9w-7RoH_uic",
+     "titre": "Grow Lots of Tomatoes... Not Leaves // Complete Growing Guide",
+     "chaine": "Next Level Gardening",
+     "vues": "14M views",
+     "date": "7 years ago",
+     "duree": "21:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lYavj9fRNxIR3GajLn5xMYQNuyG2qOsMMe716doFXqNQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 months"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT PLANTER",
+     [
+      {
+       "t": "DES TOMATES",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_MOMnBl5uwE",
+     "titre": "Comment planter ses tomates [TUTO] ?",
+     "chaine": "Le potager d'Olivier",
+     "vues": "2,2 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBPm_7LJ0E3WbTen1JU8DMSGl-5T0BeiPl_LqiEEdhpQE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 mois"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO BAUST DU",
+     [
+      {
+       "t": "TOMATEN AN",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "spAHt7tMs4Y",
+     "titre": "Diese 9 Fehler unbedingt vermeiden! DAS mögen Tomaten gar nicht!",
+     "chaine": "Gartenzeile",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "4:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lYKlPrK8KBL0TagTtmEZR8WWequN_hsCS2WbKgHN0FDQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Monate"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME COLTIVARE",
+     [
+      {
+       "t": "I POMODORI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1oYHVOK9VJg",
+     "titre": "Coltivare POMODORI: 3 errori da non fare",
+     "chaine": "Orto Da Coltivare",
+     "vues": "1,4 Mln visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "11:52",
+     "avatar": "https://yt3.ggpht.com/bMUb7HFti4CpPMWCdI83JWuYA53a8Bn3ve9WZJOArezLa1G9rSB_yJFpESTNj54uv_NbCdvQWFQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 mesi"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "DOMATES YETİŞTİRİLİR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TiJu9e-5CN0",
+     "titre": "Domates Nasıl Sulanmalı? Sıcak Havada EN VERİMLİ Yöntem",
+     "chaine": "Bahçem Var",
+     "vues": "255 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "5:15",
+     "avatar": "https://yt3.ggpht.com/xTXUwgeBlGgISOKW4kTCe8GrdpG9bFhaZggO_wr1rQUeIOmGh6U-ChA5Bs0v5kCyGxuM3Tno=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ay"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TERMESSZ",
+     [
+      {
+       "t": "PARADICSOMOT",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9SMF3nDfH1M",
+     "titre": "Paradicsomtermesztés a Dél-Alföldön  | Főmenü mini",
+     "chaine": "Közmédia",
+     "vues": "969 megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "3:06",
+     "avatar": "https://yt3.ggpht.com/fbHIIKCinJyL-Cs9o85WXio3zBO0nvxQbiILwEST2RuKGK0WOdSOyWbFf1AryAY7HPNrHOWg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hónap"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UPRAWIAĆ",
+     [
+      {
+       "t": "POMIDORY",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CoC4FMTEbyU",
+     "titre": "Pomidory - Jak mieć udane zbiory - uprawa pomidorów przez cały sezon.",
+     "chaine": "ogród na co dzień",
+     "vues": "585 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "16:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kglqurLhukp-eYAw2QjOjfn40im4TxZNjBg0Px9dGrYkY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 miesiące"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO PLANTAR",
+     [
+      {
+       "t": "TOMATE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iYT3tN4gSFk",
+     "titre": "como plantar tomate .",
+     "chaine": "A vida na roça.",
+     "vues": "1,4 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:24",
+     "avatar": "https://yt3.ggpht.com/Jqj93cxjCgVx6fjEwOC4dZLLjCu2vHvMr643mFAzaAcarlAIm1aBr-tzrLUDdArGFPAiHHac=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 meses"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO GROW",
+     [
+      {
+       "t": "HERBS AT HOME",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W5oCcgGixR0",
+     "titre": "how to grow herbs at home without soil 🌿",
+     "chaine": "Audrie Storme",
+     "vues": "1M views",
+     "date": "6 years ago",
+     "duree": "7:03",
+     "avatar": "https://yt3.ggpht.com/K2oUxVzCKipO3oat2WEdwuXHj47mh2yjt5Z6UG-sqiMp1PfrZ6R14jCSu6OdV_E1Fj7rdS9m=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT PLANTER",
+     [
+      {
+       "t": "DES AROMATES",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6yvnAjQq_xY",
+     "titre": "Comment et quand planter du thym, persil, basilic, menthe, romarin en pot ?",
+     "chaine": "Les Artisans du Végétal",
+     "vues": "288 k vues",
+     "date": "il y a 11 ans",
+     "duree": "4:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUdk303q484OrJnzitCV5n2JBb6NkCIyU3h4tZ8V-Fy-o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ZIEHST DU",
+     [
+      {
+       "t": "KRÄUTER IM HAUS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TuYTYUzpGN0",
+     "titre": "Gärtnern im Haus im Winter - Aussaat und Ernte, Microgreens Keimsprossen Kräuter -  Indoorgardening",
+     "chaine": "SelfBio",
+     "vues": "214.984 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "16:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l9_JWHedvx11klMKEvlrZLNYXzjUisY1Lle-4T5AejFg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME COLTIVARE",
+     [
+      {
+       "t": "ERBE IN CASA",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LHsxRooX-gY",
+     "titre": "Piante Aromatiche - Coltiviamole in casa. Ecco come!",
+     "chaine": "Fabio Masotta - Giardini e Paesaggi",
+     "vues": "109K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9WN4NP0Ui1SHdUaBFu8GEE9DrRNutGzZSaMEpc4oHQNE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "FESLEĞEN YETİŞTİRİLİR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "og-J-FWHvRQ",
+     "titre": "FESLEĞEN NASIL YETİŞTİRİLİR❓FESLEĞEN NASIL EKİLİR, NASIL ÇOĞALTILIR VE NASIL BUDANIR❓",
+     "chaine": "Bir Kavanoz Kekik",
+     "vues": "62 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "11:14",
+     "avatar": "https://yt3.ggpht.com/ci48-LbNA5-kodPYWAFo5lJX5bx_b8SYQ7Icc4ku_gpObqcBBOtfeH_5OtkWNse7oNssuy04Jw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN NEVELJ",
+     [
+      {
+       "t": "FŰSZERNÖVÉNYT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7xwNgT_d79s",
+     "titre": "Zöld fűszerek nevelése az ablakban ,hogy nektek is legyen otthon! Legfőképpen koriander zöld :-)",
+     "chaine": "Mészi főz és barkácsol",
+     "vues": "9,5 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/vfQgy0zFn10Seoak3-ujqFCiakBetHyv9eK3aNkQzo2UM5OE9ZDeMIiPC8k96AyRjClGrO7b=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UPRAWIAĆ",
+     [
+      {
+       "t": "ZIOŁA W DOMU",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "t6ziQSKnqe4",
+     "titre": "6 Warzyw i Ziół Które Możesz Hodować BEZ KOŃCA W Domu",
+     "chaine": "Domowe sposoby na zdrowie",
+     "vues": "357 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mCpQFs74SzmpeE9YAU-J9pk34ZEom3nV12NzpmL_KN7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO PLANTAR",
+     [
+      {
+       "t": "COENTRO",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vQNk-ZLQ3BI",
+     "titre": "Como cultivar Coentro",
+     "chaine": "Cultivando",
+     "vues": "737 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "18:51",
+     "avatar": "https://yt3.ggpht.com/7n4MfV2RF-MsaJi5aWCEQzIWzyDn7osqoqEUPp0Rt1R0hF_e5Th3et7lF2s6L0RFjHpPiyVF=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO GROW",
+     [
+      {
+       "t": "YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT CULTIVER",
+     [
+      {
+       "t": "TON ESPRIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WÄCHST",
+     [
+      {
+       "t": "DEIN WISSEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME COLTIVARE",
+     [
+      {
+       "t": "LA TUA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ZİHNİNİ GELİŞTİRİRSİN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN FEJLESZD",
+     [
+      {
+       "t": "AZ ELMÉDET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ROZWIJAĆ",
+     [
+      {
+       "t": "SWÓJ UMYSŁ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO CULTIVAR",
+     [
+      {
+       "t": "SUA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "COMPOST",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mDIVpJgjoXQ",
+     "titre": "How To Make Compost At Home (WITH FULL UPDATES)",
+     "chaine": "Urban Gardening",
+     "vues": "7.2M views",
+     "date": "7 years ago",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/B7nd76rSHyycVkZgLQKA7nAZhZRq0N2LMMdog53WsVb2_OLxnDqGBPR7vu0XyhUdKl7TWrU-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 months"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN COMPOST",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lKAxBKRfL5A",
+     "titre": "Comment faire un compost en 20 jours !",
+     "chaine": "permaculture agroécologie etc...",
+     "vues": "1,8 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "7:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kZglQARnMSS4hYgPUdFXjAf2cXGH1MUZvodAEqimf2JgM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 mois"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "KOMPOST",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ebukQjrk-cQ",
+     "titre": "Kompost herstellen. Einfache & schnelle Methode! [~15 Schubkarren/Jahr]",
+     "chaine": "Experimente im Garten",
+     "vues": "348.079 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "7:08",
+     "avatar": "https://yt3.ggpht.com/jP7AGRlFeemWu4VRhR8nPaa2F-qnqBJ8HloBMFAOYYQ4SQ3WahUk3VNFmGoXs-aZArB0p7Ki=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Monate"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL COMPOST",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xzNJvkOcCbU",
+     "titre": "COME FARE IL COMPOST: COMPOSTIERA FAI DA TE",
+     "chaine": "Bosco di Ogigia",
+     "vues": "710K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUPBkPF0fNNpqnQTajyV5FCN0rZjWySDK5zibDTCuMw9I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 mesi"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KOMPOST YAPILIR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XAIASwU-r1E",
+     "titre": "Evde Kompost Yaptık. (Kompost Nedir. Kompost Nasıl Yapılır)",
+     "chaine": "Organik Hobi Bahçem",
+     "vues": "209 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "14:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLqN8UQT4zTWs22b9oUTXhxhmDNsRF7N8o8uHt7TxTtg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ay"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "KOMPOSZTÁLJ",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B8W1HG0cM-Q",
+     "titre": "Komposztálás szabályai lakásban - Greenman",
+     "chaine": "GREENMAN",
+     "vues": "8,7 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "9:17",
+     "avatar": "https://yt3.ggpht.com/SkqmkgE12Jo_siB3b7_4cAxR0XgY4sykqAg7JZ6cWDR4cUfe-p3zx5KFylvucpmaJlzp2BzvkaE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hónap"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "KOMPOST",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3Jg811n2ggc",
+     "titre": "Jak zrobić dobry kompost?",
+     "chaine": "Naturalnie o ogrodach",
+     "vues": "398 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "15:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m1AuEHdyHXJcZQyNzrW17We9KusdpNEe8eoe_5WoFedQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 miesiące"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "COMPOSTAGEM",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u52hqM-VmJo",
+     "titre": "COMO FAZER sua FAZENDA de MINHOCAS! #ManualMaker",
+     "chaine": "Manual do Mundo",
+     "vues": "954 mil visualizações",
+     "date": "há 11 meses",
+     "duree": "17:51",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 meses"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

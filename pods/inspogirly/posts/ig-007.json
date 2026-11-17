@@ -1,0 +1,169 @@
+{
+ "id": "ig-007",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7666816410114477344",
+  "vues": 2900000,
+  "publie_le": "2026-07-26",
+  "accroche": "back to school guide"
+ },
+ "titre": {
+  "en": "school apps every girl needs",
+  "fr": "les applis pour l'école que toute fille doit avoir",
+  "es": "apps para clase que toda chica necesita",
+  "it": "app per la scuola che ogni ragazza deve avere",
+  "tr": "her kızın ihtiyacı olan okul uygulamaları"
+ },
+ "legendes": {
+  "en": "school apps every girl needs #foryou #apps #school #thatgirl",
+  "fr": "les applis pour l'école que toute fille doit avoir #foryou #apps #school #thatgirl",
+  "es": "apps para clase que toda chica necesita #foryou #apps #school #thatgirl",
+  "it": "app per la scuola che ogni ragazza deve avere #foryou #apps #school #thatgirl",
+  "tr": "her kızın ihtiyacı olan okul uygulamaları #foryou #apps #school #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7483917283731966766"
+ },
+ "notes": "Preuve : son « back to school guide » du 26/07 (2,9 M, son plus gros tube), passé en liste d'applis pour l'école. Photos Seedream : bureau-1, fille-16-1, bouquet-8. Applis (App Store US, 17/11) : Structured (4,8 ★, 169 k avis), Sophia en 2e (cta A), Goodnotes (4,7 ★, 470 k ; prise de notes, pas une appli d'apprentissage), Rain Rain (4,8 ★, 138 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/bureau-1.jpg",
+     "images/photos/fille-16-1.jpg",
+     "images/photos/bouquet-8.jpg"
+    ],
+    "titre": "school apps\nevery girl needs"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/bureau-1.jpg",
+     "images/photos/fille-16-1.jpg",
+     "images/photos/bouquet-8.jpg"
+    ],
+    "titre": "les applis pour l'école\nque toute fille doit avoir"
+   },
+   "es": {
+    "photos": [
+     "images/photos/bureau-1.jpg",
+     "images/photos/fille-16-1.jpg",
+     "images/photos/bouquet-8.jpg"
+    ],
+    "titre": "apps para clase que\ntoda chica necesita"
+   },
+   "it": {
+    "photos": [
+     "images/photos/bureau-1.jpg",
+     "images/photos/fille-16-1.jpg",
+     "images/photos/bouquet-8.jpg"
+    ],
+    "titre": "app per la scuola che\nogni ragazza deve avere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/bureau-1.jpg",
+     "images/photos/fille-16-1.jpg",
+     "images/photos/bouquet-8.jpg"
+    ],
+    "titre": "her kızın ihtiyacı olan\nokul uygulamaları"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/structured",
+   "en": {
+    "nom": "structured",
+    "texte": "you see your whole day on a visual timeline, so planning classes and homework is easy"
+   },
+   "fr": {
+    "nom": "structured",
+    "texte": "tu vois toute ta journée sur une timeline, pour caser tes cours et tes devoirs"
+   },
+   "es": {
+    "nom": "structured",
+    "texte": "ves todo tu día en una línea de tiempo, así organizar clases y deberes es facilísimo"
+   },
+   "it": {
+    "nom": "structured",
+    "texte": "vedi tutta la tua giornata su una timeline, così organizzare lezioni e compiti diventa facile"
+   },
+   "tr": {
+    "nom": "structured",
+    "texte": "tüm gününü görsel bir zaman çizelgesinde görürsün, böylece dersleri ve ödevleri planlamak çok kolay"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/goodnotes",
+   "en": {
+    "nom": "goodnotes",
+    "texte": "you take handwritten notes on your ipad and keep every notebook and pdf in one place"
+   },
+   "fr": {
+    "nom": "goodnotes",
+    "texte": "tu prends des notes à la main sur ton ipad et tu gardes tous tes cahiers au même endroit"
+   },
+   "es": {
+    "nom": "goodnotes",
+    "texte": "tomas apuntes a mano en tu ipad y guardas todos tus cuadernos en un mismo sitio"
+   },
+   "it": {
+    "nom": "goodnotes",
+    "texte": "prendi appunti a mano sull'ipad e tieni tutti i tuoi quaderni in un unico posto"
+   },
+   "tr": {
+    "nom": "goodnotes",
+    "texte": "ipad'inde elle not alırsın, tüm defterlerini ve pdf'lerini tek bir yerde tutarsın"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/rainrain",
+   "en": {
+    "nom": "rain rain",
+    "texte": "you mix rain and nature sounds to focus while you study or to fall asleep at night"
+   },
+   "fr": {
+    "nom": "rain rain",
+    "texte": "tu mélanges des bruits de pluie et de nature pour te concentrer en révisant ou pour t'endormir le soir"
+   },
+   "es": {
+    "nom": "rain rain",
+    "texte": "mezclas sonidos de lluvia y naturaleza para concentrarte al estudiar o para dormirte por la noche"
+   },
+   "it": {
+    "nom": "rain rain",
+    "texte": "mescoli suoni di pioggia e natura per concentrarti quando studi o per dormire"
+   },
+   "tr": {
+    "nom": "rain rain",
+    "texte": "ders çalışırken odaklanmak ya da uykuya dalmak için yağmur ve doğa seslerini karıştırırsın"
+   }
+  }
+ ]
+}

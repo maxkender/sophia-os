@@ -12,12 +12,20 @@
  "titre": {
   "fr": "mes règles pour bien bosser à la bibli",
   "es": "mis reglas para estudiar bien en la biblio",
-  "tr": "kütüphanede verimli çalışma kurallarım"
+  "tr": "kütüphanede verimli çalışma kurallarım",
+  "en": "my rules for studying well at the library",
+  "de": "meine Regeln, um in der Bibliothek gut zu lernen",
+  "it": "le mie regole per studiare bene in biblioteca",
+  "pt-BR": "minhas regras pra estudar bem na biblioteca"
  },
  "legendes": {
   "fr": "enregistre-le pour ta prochaine session à la bibli 📚 #bibliotheque #revisions #studytok #thatgirl #etudiante",
   "es": "guárdalo para tu próxima sesión en la biblio 📚 #biblioteca #estudiar #studytok #thatgirl #universidad",
-  "tr": "bir sonraki kütüphane günün için kaydet 📚 #kütüphane #ders #studytok #thatgirl #üniversite"
+  "tr": "bir sonraki kütüphane günün için kaydet 📚 #kütüphane #ders #studytok #thatgirl #üniversite",
+  "en": "save it for your next library session 📚 #library #studying #studytok #thatgirl #college",
+  "de": "speicher es für deine nächste Bibliothekssession 📚 #bibliothek #lernen #studytok #thatgirl #uni",
+  "it": "salvalo per la prossima sessione in biblioteca 📚 #biblioteca #studiare #studytok #thatgirl #università",
+  "pt-BR": "salva pra sua próxima sessão na biblioteca 📚 #biblioteca #estudos #studytok #thatgirl #faculdade"
  },
  "musique": {
   "titre": "domestic wolves",
@@ -75,6 +83,62 @@
      "interligne": 1,
      "y": 880
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "my rules for",
+     "lignes": [
+      "STUDYING WELL",
+      "AT THE LIBRARY"
+     ],
+     "taille": 104,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 940
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "meine Regeln für",
+     "lignes": [
+      "GUTES LERNEN",
+      "IN DER BIBLIOTHEK"
+     ],
+     "taille": 100,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 940
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "le mie regole per",
+     "lignes": [
+      "STUDIARE BENE",
+      "IN BIBLIOTECA"
+     ],
+     "taille": 112,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 940
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "minhas regras pra",
+     "lignes": [
+      "ESTUDAR BEM",
+      "NA BIBLIOTECA"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "taille_script": 84,
+     "y": 940
+    }
    }
   },
   {
@@ -125,6 +189,58 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "come early in the morning.",
+     "texte": "the best seats are free and it stays quiet until noon.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "komm früh am Morgen.",
+     "texte": "die besten Plätze sind frei und bis Mittag ist es ruhig.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "vieni presto la mattina.",
+     "texte": "i posti migliori sono liberi e la calma dura fino a mezzogiorno.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "chegue cedo de manhã.",
+     "texte": "os melhores lugares estão livres e o silêncio dura até o meio-dia.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   },
   {
@@ -169,6 +285,58 @@
      "y": 300,
      "titre": "50 dakikalık bloklarla çalış.",
      "texte": "sonra 10 dakika mola: ayağa kalk, masandan uzaklaş.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "work in 50-min blocks.",
+     "texte": "then a 10-min break, standing up, away from your table.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "lern in 50-Minuten-Blöcken.",
+     "texte": "dann 10 Min. Pause, im Stehen, weg vom Tisch.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "lavora a blocchi di 50 min.",
+     "texte": "poi 10 min di pausa, in piedi, lontana dal tavolo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "estude em blocos de 50 min.",
+     "texte": "depois 10 min de pausa, em pé, longe da mesa.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -248,6 +416,98 @@
       "zoom": 1
      }
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "test yourself before the next chapter.",
+     "texte": "i put my lesson into micabo and do the quiz. if i miss something, i only reread that part.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "teste dich vor dem nächsten Kapitel.",
+     "texte": "ich packe den Stoff in micabo und mache das Quiz. wenn ich etwas falsch habe, lese ich nur diese Stelle nochmal.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "mettiti alla prova prima del capitolo dopo.",
+     "texte": "metto la lezione su micabo e faccio il quiz. se sbaglio, rileggo solo quel pezzo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "se teste antes do próximo capítulo.",
+     "texte": "coloco a aula no micabo e faço o quiz. se erro, releio só aquele trecho.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
    }
   },
   {
@@ -292,6 +552,58 @@
      "y": 300,
      "titre": "çantanı bir gece önceden hazırla.",
      "texte": "kalem kutusu, fosforlu kalemler, ayraçlar: oturunca hiçbir şey eksik olmaz.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pack your bag the night before.",
+     "texte": "pencil case, highlighters, bookmarks: once you sit down, nothing’s missing.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "pack deine Tasche am Vorabend.",
+     "texte": "Federmäppchen, Textmarker, Lesezeichen: wenn du sitzt, fehlt nichts.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "prepara la borsa la sera prima.",
+     "texte": "astuccio, evidenziatori, segnalibri: una volta seduta, non manca niente.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "arrume a bolsa na noite anterior.",
+     "texte": "estojo, marca-textos, marcadores: sentou, não falta nada.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -348,12 +660,68 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "tidy up before you leave.",
+     "texte": "and write tomorrow’s first task. you’ll start again without thinking.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "räum alles auf, bevor du gehst.",
+     "texte": "und schreib die erste Aufgabe für morgen auf. du legst los, ohne nachzudenken.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "metti tutto in ordine prima di andare.",
+     "texte": "e scrivi il primo compito di domani. ripartirai senza pensarci.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "arrume tudo antes de ir embora.",
+     "texte": "e anote a primeira tarefa de amanhã. você recomeça sem pensar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   }
  ],
  "mises_en_scene_notees": [
   "a83da81b-2434-485c-8069-f4db3b953794",
   "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
-  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49"
  ]
 }

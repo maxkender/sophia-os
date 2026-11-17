@@ -1,0 +1,259 @@
+{
+ "id": "dr-013",
+ "format": "liste",
+ "titre": {
+  "en": "5 philosophy ideas that genuinely rewire your brain",
+  "de": "5 philosophische ideen, die dein gehirn neu verdrahten",
+  "it": "5 idee filosofiche che ti ricablano il cervello",
+  "pt-BR": "5 ideias da filosofia que reprogramam seu cérebro",
+  "tr": "beynini yeniden kuran 5 felsefi fikir",
+  "sv": "5 filosofiska idéer som programmerar om din hjärna",
+  "nl": "5 filosofische ideeën die je brein herbedraden"
+ },
+ "legendes": {
+  "en": "#philosophy #niche #smarttok #lockedin",
+  "de": "#philosophie #denken #wissen #lernen",
+  "it": "#filosofia #pensiero #cultura #imparare",
+  "pt-BR": "#filosofia #pensamento #conhecimento #aprender",
+  "tr": "#felsefe #düşünce #bilgi #öğrenmek",
+  "sv": "#filosofi #tänkande #kunskap #lärande",
+  "nl": "#filosofie #denken #kennis #leren"
+ },
+ "musique": {
+  "titre": "оригинальный звук - butazer",
+  "url": "https://www.tiktok.com/music/original-sound-7648276161688062742"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : le bateau de Thésée chez Plutarque (Vie de Thésée, Ier-IIe s.) ; la dichotomie du contrôle (Épictète, Manuel, ancien esclave) ; le voile d'ignorance (Rawls, Théorie de la justice, 1971) ; l'éternel retour (Nietzsche, Le Gai Savoir, 1882). Tableaux AIC : Jongkind (« Entrance to the Port of Honfleur »), Manet (« Beggar with Oysters (Philosopher) »), Vernet (« Morning »), Courbet (« An Alpine Scene ») ; couverture Seedream. Sophia en item 3 sur 5 (cta C), écran quiz traduit. 7 langues.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 philosophy ideas that genuinely rewire your brain",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(read slowly)"
+   },
+   "de": {
+    "titre": "5 philosophische ideen, die dein gehirn neu verdrahten",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(langsam lesen)"
+   },
+   "it": {
+    "titre": "5 idee filosofiche che ti ricablano il cervello",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(leggi piano)"
+   },
+   "pt-BR": {
+    "titre": "5 ideias da filosofia que reprogramam seu cérebro",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(leia devagar)"
+   },
+   "tr": {
+    "titre": "beynini yeniden kuran 5 felsefi fikir",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(yavaş oku)"
+   },
+   "sv": {
+    "titre": "5 filosofiska idéer som programmerar om din hjärna",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(läs långsamt)"
+   },
+   "nl": {
+    "titre": "5 filosofische ideeën die je brein herbedraden",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(lees langzaam)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The ship of Theseus",
+    "texte": "replace every plank of a ship, one by one. is it still the same ship? plutarch wrote about it almost 2,000 years ago. now ask it about yourself",
+    "image": "images/port-voilier.jpg"
+   },
+   "de": {
+    "titre": "Das Schiff des Theseus",
+    "texte": "ersetz jede planke eines schiffs, eine nach der anderen. ist es noch dasselbe schiff? plutarch schrieb darüber vor fast 2.000 jahren. jetzt frag das über dich selbst",
+    "image": "images/port-voilier.jpg"
+   },
+   "it": {
+    "titre": "La nave di Teseo",
+    "texte": "sostituisci ogni asse di una nave, una alla volta. è ancora la stessa nave? plutarco ne scriveva quasi 2.000 anni fa. ora chiedilo di te stesso",
+    "image": "images/port-voilier.jpg"
+   },
+   "pt-BR": {
+    "titre": "O navio de Teseu",
+    "texte": "troque cada tábua de um navio, uma por uma. ainda é o mesmo navio? plutarco escreveu sobre isso há quase 2.000 anos. agora pergunte isso sobre você",
+    "image": "images/port-voilier.jpg"
+   },
+   "tr": {
+    "titre": "Theseus'un gemisi",
+    "texte": "bir geminin her tahtasını tek tek değiştir. hâlâ aynı gemi mi? plutark bunu neredeyse 2.000 yıl önce yazdı. şimdi aynı soruyu kendine sor",
+    "image": "images/port-voilier.jpg"
+   },
+   "sv": {
+    "titre": "Theseus skepp",
+    "texte": "byt ut varje planka på ett skepp, en i taget. är det fortfarande samma skepp? plutarchos skrev om det för nästan 2 000 år sedan. ställ nu frågan om dig själv",
+    "image": "images/port-voilier.jpg"
+   },
+   "nl": {
+    "titre": "Het schip van Theseus",
+    "texte": "vervang elke plank van een schip, een voor een. is het nog hetzelfde schip? plutarchus schreef er bijna 2.000 jaar geleden over. stel die vraag nu over jezelf",
+    "image": "images/port-voilier.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The dichotomy of control",
+    "texte": "epictetus, a former slave who became a stoic teacher: some things are up to you, most aren't. spend your energy only on the first kind",
+    "image": "images/philosophe-manet-2.jpg"
+   },
+   "de": {
+    "titre": "Die Dichotomie der Kontrolle",
+    "texte": "epiktet, ein ehemaliger sklave und später stoischer lehrer: manches liegt bei dir, das meiste nicht. steck deine energie nur in die erste sorte",
+    "image": "images/philosophe-manet-2.jpg"
+   },
+   "it": {
+    "titre": "La dicotomia del controllo",
+    "texte": "epitteto, ex schiavo diventato maestro stoico: alcune cose dipendono da te, la maggior parte no. metti la tua energia solo nelle prime",
+    "image": "images/philosophe-manet-2.jpg"
+   },
+   "pt-BR": {
+    "titre": "A dicotomia do controle",
+    "texte": "epicteto, um ex-escravo que virou professor estoico: algumas coisas dependem de você, a maioria não. gaste sua energia só com as primeiras",
+    "image": "images/philosophe-manet-2.jpg"
+   },
+   "tr": {
+    "titre": "Kontrol ikiliği",
+    "texte": "epiktetos, stoacı bir öğretmen olan eski bir köle: bazı şeyler sana bağlı, çoğu değil. enerjini sadece ilk türe harca",
+    "image": "images/philosophe-manet-2.jpg"
+   },
+   "sv": {
+    "titre": "Kontrollens dikotomi",
+    "texte": "epiktetos, en före detta slav som blev stoisk lärare: vissa saker beror på dig, de flesta inte. lägg din energi bara på den första sorten",
+    "image": "images/philosophe-manet-2.jpg"
+   },
+   "nl": {
+    "titre": "De dichotomie van controle",
+    "texte": "epictetus, een voormalige slaaf die stoïcijns leraar werd: sommige dingen liggen bij jou, de meeste niet. steek je energie alleen in de eerste soort",
+    "image": "images/philosophe-manet-2.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. philosophy is one of its topics",
+    "telephone": "quiz"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "was ich statt scrollen öffne: eine lektion, ein quiz, fertig. philosophie ist eines der themen",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "quello che apro invece di scrollare: una lezione, un quiz, fine. la filosofia è uno degli argomenti",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. filosofia é um dos assuntos",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. felsefe de konularından biri",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "det jag öppnar i stället för att scrolla: en lektion, ett quiz, klart. filosofi är ett av ämnena",
+    "telephone": "quiz"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "wat ik open in plaats van scrollen: één les, één quiz, klaar. filosofie is een van de onderwerpen",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The veil of ignorance",
+    "texte": "john rawls, 1971: design a fair society without knowing who you'll be in it. rich or poor, healthy or sick. which rules would you choose?",
+    "image": "images/brume-vernet.jpg"
+   },
+   "de": {
+    "titre": "Der Schleier des Nichtwissens",
+    "texte": "john rawls, 1971: entwirf eine gerechte gesellschaft, ohne zu wissen, wer du darin sein wirst. reich oder arm, gesund oder krank. welche regeln würdest du wählen?",
+    "image": "images/brume-vernet.jpg"
+   },
+   "it": {
+    "titre": "Il velo d'ignoranza",
+    "texte": "john rawls, 1971: progetta una società giusta senza sapere chi sarai al suo interno. ricco o povero, sano o malato. quali regole sceglieresti?",
+    "image": "images/brume-vernet.jpg"
+   },
+   "pt-BR": {
+    "titre": "O véu da ignorância",
+    "texte": "john rawls, 1971: crie uma sociedade justa sem saber quem você vai ser nela. rico ou pobre, saudável ou doente. que regras você escolheria?",
+    "image": "images/brume-vernet.jpg"
+   },
+   "tr": {
+    "titre": "Cehalet peçesi",
+    "texte": "john rawls, 1971: içinde kim olacağını bilmeden adil bir toplum tasarla. zengin ya da yoksul, sağlıklı ya da hasta. hangi kuralları seçerdin?",
+    "image": "images/brume-vernet.jpg"
+   },
+   "sv": {
+    "titre": "Okunnighetens slöja",
+    "texte": "john rawls, 1971: utforma ett rättvist samhälle utan att veta vem du blir i det. rik eller fattig, frisk eller sjuk. vilka regler skulle du välja?",
+    "image": "images/brume-vernet.jpg"
+   },
+   "nl": {
+    "titre": "De sluier van onwetendheid",
+    "texte": "john rawls, 1971: ontwerp een eerlijke samenleving zonder te weten wie je erin zult zijn. rijk of arm, gezond of ziek. welke regels zou je kiezen?",
+    "image": "images/brume-vernet.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Eternal recurrence",
+    "texte": "nietzsche: imagine living your life again, exactly the same, forever. would that thought crush you or make you happy? the answer says a lot",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "de": {
+    "titre": "Die ewige Wiederkunft",
+    "texte": "nietzsche: stell dir vor, du lebst dein leben noch einmal, genau gleich, für immer. würde dich der gedanke erdrücken oder glücklich machen? die antwort sagt viel",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "it": {
+    "titre": "L'eterno ritorno",
+    "texte": "nietzsche: immagina di rivivere la tua vita, identica, per sempre. il pensiero ti schiaccerebbe o ti renderebbe felice? la risposta dice molto",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "pt-BR": {
+    "titre": "O eterno retorno",
+    "texte": "nietzsche: imagine viver sua vida de novo, exatamente igual, para sempre. esse pensamento te esmagaria ou te faria feliz? a resposta diz muito",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "tr": {
+    "titre": "Bengi dönüş",
+    "texte": "nietzsche: hayatını tıpatıp aynı şekilde, sonsuza dek yeniden yaşadığını düşün. bu düşünce seni ezer mi, mutlu mu eder? cevap çok şey söyler",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "sv": {
+    "titre": "Den eviga återkomsten",
+    "texte": "nietzsche: tänk dig att du lever ditt liv igen, exakt likadant, för evigt. skulle tanken krossa dig eller göra dig lycklig? svaret säger mycket",
+    "image": "images/montagne-courbet.jpg"
+   },
+   "nl": {
+    "titre": "De eeuwige terugkeer",
+    "texte": "nietzsche: stel je voor dat je je leven opnieuw leeft, precies hetzelfde, voor altijd. zou die gedachte je verpletteren of gelukkig maken? het antwoord zegt veel",
+    "image": "images/montagne-courbet.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

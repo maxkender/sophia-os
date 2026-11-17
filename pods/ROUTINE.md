@@ -87,6 +87,16 @@ baissent. Désormais :
   (`musique_repetee`).
 Les seuils sont dans `reglages.bleo.podz.repetition`.
 
+**Toute la banque, sans tri de fond (Adrien, 17/11).** Trop de podz n'ont pris
+qu'une infime partie de leur banque. Fini les filtres de contenu : personnes
+connues, cigarettes, alcool, marques et logos, écrans, filigranes, images
+sombres, tout est accepté. Une seule limite demeure : la slide de l'appli
+(Sophia, micabo…) n'est jamais posée sur une personne reconnaissable. Jamais
+deux fois la même image dans un deck, et le guichet garde `images_recentes`
+(14 jours). Les règles d'image d'un AGENT.md (ambiance, lumière, fille de
+dos…) sont un style à préférer, jamais une raison d'écarter une image : prends
+largement dans toute la banque.
+
 ### 4.1 Lire la boîte
 
 `npm run boite` donne, dans l'ordre :

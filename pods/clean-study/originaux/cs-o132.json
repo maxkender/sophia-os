@@ -1,0 +1,44 @@
+{
+  "source_id": "cs-o132",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "670a6846-7ed3-42ee-9176-f3621965648c",
+  "titre": "toxic reminders for when everyone's out and you have a test monday #studytok #studymotivation #school",
+  "musique_titre": "som original",
+  "musique_url": "https://www.tiktok.com/music/som-original-7320546915438430982",
+  "inspirations": [
+    "670a6846-7ed3-42ee-9176-f3621965648c"
+  ],
+  "notes": "Déclinaison G1 de 670a6846 (notre cs-o031 : r 3,33 en allemand), ligne 4 de la boîte. Accroche du parent mot pour mot. « Toxic » = rivalité avec soi-même, jamais avec les amis qui sortent. Rappels neufs, aucun de cs-o031 : la soirée finit, la note reste ; dimanche soir tu seras soulagée ou paniquée ; se tester 30 minutes ce soir (place micabo, slide 4) ; la prochaine sortie sera meilleure sans culpabilité. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b551edc4",
+      "texte_overlay": "toxic reminders for when everyone's out\nand you have a test monday",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4197506b",
+      "texte_overlay": "the party ends at 2am.\nthe grade stays on your report card.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1e905931",
+      "texte_overlay": "sunday night you'll either be relaxed or panicking.\nyou're choosing which one right now.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "ac9b5835",
+      "texte_overlay": "30 minutes of quizzing yourself tonight.\nthen decide if you still feel unprepared.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "9ce613cf",
+      "texte_overlay": "next weekend, you go out with zero guilt.\nTHAT's the fun version.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    }
+  ]
+}

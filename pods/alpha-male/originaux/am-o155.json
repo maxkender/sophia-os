@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o155",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f96c76ef-507c-4ae6-8b5a-f430482dd345",
+ "titre": "30 things you must do alone to truly know yourself #men #alone #selfimprovement #growth #mindset",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [
+  "f96c76ef-507c-4ae6-8b5a-f430482dd345"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G1 de la ligne 27 (parent f96c76ef, @millyjhino, langue source en). Accroche du parent mot pour mot. Même format que le parent : cinq choses par slide sur 6 slides. 30 choses neuves, ni du parent ni de nos « alone » (am-o032, am-o051, am-o055, am-o060). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 7) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2195950f",
+   "texte_overlay": "30 things you must do alone\nto truly know yourself",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596811410944920843/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "194fcf3e",
+   "texte_overlay": "1. Watch a sunrise.\n2. Eat at a bar counter.\n3. Visit a museum.\n4. Take a train somewhere new.\n5. Sit by water for an hour.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596811410944920843/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6b897095",
+   "texte_overlay": "6. Walk across your city.\n7. Go to the cinema.\n8. Cook a three-course dinner.\n9. Write a letter to your future self.\n10. Climb a hill at sunset.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596811410944920843/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4b9c9684",
+   "texte_overlay": "11. Learn a new skill.\n12. Read a full book in a day.\n13. Learn one new thing daily.\n14. Spend a day offline.\n15. Plan your next five years.",
+   "texte_sophia": "11. Learn a new skill.\n12. Read a full book in a day.\n13. Learn daily on the Sophia app.\n14. Spend a day offline.\n15. Plan your next five years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596811410944920843/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f2218e89",
+   "texte_overlay": "16. Run your longest distance.\n17. Try a class where you know no one.\n18. Fix something broken.\n19. Go camping for a night.\n20. Swim in the sea.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596811410944920843/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2ee38a7b",
+   "texte_overlay": "21. Celebrate a win quietly.\n22. Forgive someone in your head.\n23. Sit with a hard feeling.\n24. Say no without explaining.\n25. Clean your space slowly.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596811410944920843/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5fff8564",
+   "texte_overlay": "26. Take a long drive.\n27. Visit where you grew up.\n28. Make a decision without asking.\n29. Thank yourself out loud.\n30. Start something you've put off.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7596811410944920843/7.jpg"
+  }
+ ]
+}

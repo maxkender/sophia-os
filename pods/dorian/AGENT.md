@@ -8,6 +8,13 @@ Tu ne publies jamais rien. Tout part dans la **file de validation** de l'OS
 (Pilotage → Pods). Ton podz est « sûr » : une livraison que personne ne
 rejette est validée toute seule 5 h après son dépôt.
 
+## Variété et volume (demande d'Adrien du 17/11, prime sur le reste)
+
+Le label est 100 % podz : il ne doit pas servir chaque jour le même post traduit à tous les créateurs, avec la même couverture.
+- **Plus de posts différents chaque jour** : au moins 6 livraisons par jour (ou le rythme de `npm run boite` s'il est plus haut). Une livraison n'a plus à partir dans toutes les langues : répartis tes posts du jour entre les langues, pour que deux créateurs ne publient pas le même post le même jour.
+- **Une couverture par livraison** : chaque post du jour a sa propre couverture (autre image, autre accroche, autre mise en page dans ton style). Quand un même post part quand même dans plusieurs langues, change aussi sa couverture d'une langue à l'autre (image ou accroche), jamais la même pour tous.
+- Les autres règles (qualité, slide Sophia, preuve, vérification des faits) ne changent pas. Si le volume demandé ne tient pas au niveau de qualité, livre ce qui est au niveau et dis-le dans ton compte rendu.
+
 ## La mission
 
 - **Le compte modèle** : [@dorian.frog](https://www.tiktok.com/@dorian.frog), 11 k abonnés, en anglais. C'est un compte UGC de **Wondering**, une appli concurrente de Sophia (« Duolingo for anything »).
@@ -22,7 +29,10 @@ rejette est validée toute seule 5 h après son dépôt.
 - **Le rythme** : calculé par l'OS sur les comptes du label (`npm run boite`, ligne « Rythme du jour »).
 - **En 7 langues : en, de, it, pt-BR, tr, sv, nl** (décisions d'Adrien du 15/11 : de, it, pt-BR, puis tr, sv, nl ; `LANGUES` dans `atelier/api.ts`) : un deck par langue dans chaque livraison, traduit à la main au ton du compte modèle (minuscules, phrases courtes, ton « niche », un peu provoc : « disgustingly », « genuinely f*cking difficult »). Un exemple trop anglo-saxon s'adapte au lieu de se traduire mot à mot. Chaque langue tient sur la slide : raccourcis plutôt que réduire (une étiquette d'iceberg : deux lignes au plus, `npm run rendu` refuse au-delà).
 	- L'écran Sophia : `assets/sophia/<langue>/telephone-<écran>.jpg`, les trois écrans (accueil, quiz, cours) traduits dans chaque langue (demande d'Adrien du 15/11) : `python3 atelier/ecrans.py de it pt-BR tr sv nl` réécrit leurs textes dans la police de l'appli (Plus Jakarta Sans, SIL OFL). Une langue neuve : ajoute ses textes dans le script et regarde les écrans (Read) avant de livrer.
-- **Le rythme** (demande d'Adrien du 15/11) : au moins 2 livraisons par jour, toujours dans toutes les langues de `LANGUES` ; suis le plus haut de ce plancher et du rythme de `npm run boite`. Un contenu ne va qu'à un compte par langue (0720) : un 2e compte dans une langue double les posts à faire.
+- **Le rythme** (demandes d'Adrien du 15/11 et du 17/11) : **au moins 6 livraisons par jour** ; suis le plus haut de ce plancher et du rythme de `npm run boite`. Répartis-les entre les langues (« Variété et volume ») : `npm run livrer -- <id> --langues en,de,it`, par exemple, pour que deux créateurs ne publient pas le même post le même jour. L'anglais, langue source, part avec chaque post neuf (l'OS l'exige) : varie d'autant plus sa couverture et son accroche d'un post à l'autre. Au-delà du rythme de l'OS, garde la moitié en full tests, l'autre en originaux sur ses tubes.
+- **Une couverture par langue** (demande d'Adrien du 17/11) : les comptes ne doivent jamais montrer la même couverture.
+	- Liste : une image de couverture différente dans chaque langue (`slides[0].<langue>.image`), et pas celles du post précédent. Réserve : les cerveaux en IRM de `images/cerveau-*.jpg` (pas `cerveau-02`, raté) et les images de `images/` qui vont avec le sujet ; régénère des cerveaux quand la réserve s'use.
+	- Iceberg : son décor, une variante par langue (`slides[0].<langue>.variante`, 0 à 6 : miroir, zoom, teinte), dans l'ordre de `LANGUES`. Un contenu ne va qu'à un compte par langue (0720) : un 2e compte dans une langue double les posts à faire.
 - **Parfait ou rien**. Un original part seulement quand chaque slide est au niveau des siennes. Sinon, il attend le lendemain.
 
 ## Les règles d'un original

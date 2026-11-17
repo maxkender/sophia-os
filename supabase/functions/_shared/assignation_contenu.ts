@@ -80,7 +80,10 @@ export { LOT_IDS, lireParLots };
 
 /** Par invocation drain : assez petit pour finir avant timeout Edge / cron. */
 const DRAIN_BATCH = 8;
-const DRAIN_MAX_CHAIN = 40;
+/** 16/11 : 40 tours × 8 = 320 comptes au plus par chaîne. Avec 489 comptes prêts, le run de minuit
+ *  s'arrêtait à 320 et les autres attendaient le rattrapage de 5 h (« pas de posts ce matin »).
+ *  150 tours = 1 200 comptes. Un incident durable s'éteint toujours seul (tours en échec en quelques ms). */
+const DRAIN_MAX_CHAIN = 150;
 
 /**
  * Contenus essayés pour UN créneau d'une application autre que Sophia avant de

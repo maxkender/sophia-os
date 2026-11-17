@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o244",
+ "type_bleo": "full_test",
+ "titre": "mental shifts that make you completely unbothered #unbothered #mindset #peace #selfimprovement #mentalhealth",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). full test BLEO : accroche jamais faite (format « mental shifts that make you completely X »). cta A. Slide Sophia en position 3.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2b5b3fb8-4105-4dee-8e29-cce69838c148",
+   "texte_overlay": "mental shifts that make\nyou completely unbothered",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4e3b300d-1c66-4195-b5f3-9c9a9d221eb5",
+   "texte_overlay": "it's not about me\n\nmost people's moods have nothing to do with you. a short reply or a cold look is usually about their day, so you don't have to carry it around with you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5553117e-4eda-40f2-96b1-bf757298e37f",
+   "texte_overlay": "feed your mind better\n\na mind full of interesting things has no room left for small drama. give it a myth, a planet or a painting each day, and petty things lose their grip on you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg",
+   "texte_sophia": "feed your mind better\n\ni used to replay every little comment. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and small drama simply stopped taking up space in my head."
+  },
+  {
+   "position": 4,
+   "media_id": "4f1bf413-9b35-4a60-8a59-0c39f0177a75",
+   "texte_overlay": "will this matter in a year\n\nask yourself if this will matter in a year. almost nothing does, and that one question turns huge stressful moments into small things you can shrug off.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5cc3cfae-f95b-4527-8161-983c57d6c77b",
+   "texte_overlay": "you can't control everyone\n\nyou control your actions, not other people's opinions. once you truly accept that, you stop wasting energy trying to make everyone see you the right way.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "60b72455-09ec-4726-8b6f-52afde8ae6bc",
+   "texte_overlay": "peace over winning\n\nyou don't have to win every argument or have the last word. choosing peace over being right is the quiet secret of every person who seems calm and unbothered.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

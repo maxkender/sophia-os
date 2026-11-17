@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o291",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man look instantly put together #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "ENDO SMOKE",
+ "musique_url": "https://www.tiktok.com/music/endo-smoke-7053758651309606914",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 5 et 10 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 5e full test. Accroches écrites : « Things that make a man look instantly put together » (retenue), « Small details that make you look expensive » (écartée : proche du thème « classy » déjà fait), « Grooming basics for men » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5ab3b62f-e2d0-46c0-8077-85ecbaa398c4",
+   "texte_overlay": "Things that make a man\nlook instantly put together",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7679890123126885665/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Clothes that actually fit. Shoulders in the right place, trousers at the right length. Fit matters more than brand or price, every single time.",
+   "media_id": "4448d55e-d3d0-4a85-ad96-740ff20315e9"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Clean, simple shoes. White sneakers kept white, leather shoes polished. People look at your shoes more than you'd think. Get things tailored, it's cheap.",
+   "media_id": "48173c77-388d-414e-a142-5b3abda3842f"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "A fresh haircut every few weeks. A regular trim keeps you looking sharp even on the days you don't make much effort. Keep them clean, always.",
+   "media_id": "488aa8e6-e303-4f4f-b56d-54d832a4b8aa"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Good posture. Shoulders back, head up, slow steps. The same outfit looks completely different on a man who stands tall. Book the next one before you leave.",
+   "media_id": "53983d3f-1d95-4fb6-bbc2-acf2dba959f7"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I looked fine but had little to say. After: five minutes a day of history, art or science, and I feel as sharp as I look. Every day.",
+   "texte_sophia": "Before: I looked fine but had little to say. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I feel as sharp as I look.",
+   "media_id": "7228a990-f1ba-4066-b2fe-e7af7849653c"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "A watch or one simple accessory. Not flashy, just chosen with care. One small detail shows you pay attention to how you present yourself.",
+   "media_id": "5a2e3331-01f9-402a-9193-62fc065387b8"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "A clean smell. Fresh shirt, deodorant, a light scent. Smelling good is the most underrated part of looking put together. Few men get it right.",
+   "media_id": "5bd2f958-518b-417c-91c2-5640dd3f8b0f"
+  }
+ ]
+}

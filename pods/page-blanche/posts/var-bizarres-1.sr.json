@@ -1,0 +1,716 @@
+{
+ "post_id": "var-bizarres-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "5 čudnih navika koje prijaju tvom mozgu"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(naučno dokazano)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685736268617059616_1.jpg",
+      "boite": [
+       98,
+       412,
+       636,
+       492
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "understand it's all your fault"
+     ],
+     "fr": "accepte que [[tout est de ta faute]]",
+     "texte": "škrabaj tokom [[dosadnih poziva]]"
+    },
+    "T2": {
+     "en": [
+      "your job, your body, your grades, your habits, your",
+      "position it's all your fault"
+     ],
+     "fr": "ton taf, ton corps, tes notes, tes habitudes, ta place, [[c'est ta faute]]",
+     "texte": "izgleda kao da uopšte ne slušaš, a zapravo je [[potpuno obrnuto]]"
+    },
+    "T3": {
+     "en": [
+      "that sounds harsh, but",
+      "it's actually good news"
+     ],
+     "fr": "dur à entendre, mais c'est une bonne nouvelle",
+     "texte": "škrabači su [[zapamtili više]]"
+    },
+    "T4": {
+     "en": [
+      "if it's your fault, it's also",
+      "in your control, you don't",
+      "have to be the person",
+      "you were yesterday, you",
+      "can change"
+     ],
+     "fr": "si c'est ta faute, c'est aussi [[entre tes mains]], rien ne t'oblige à rester la personne d'hier, tu peux changer",
+     "texte": "u jednom istraživanju, iz dosadne telefonske poruke od onih koji su samo slušali. škrabanje ne da mislima da odlutaju"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 238,
+      "l": 697,
+      "h": 58
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 238,
+       "l": 697,
+       "h": 58,
+       "base": 283
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 345,
+      "l": 819,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 345,
+       "l": 819,
+       "h": 39,
+       "base": 373
+      },
+      {
+       "x": 40,
+       "y": 390,
+       "l": 391,
+       "h": 36,
+       "base": 418
+      }
+     ],
+     "pas": 45,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 466,
+      "y": 411,
+      "l": 523,
+      "h": 517
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 498,
+      "l": 370,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 498,
+       "l": 367,
+       "h": 35,
+       "base": 526
+      },
+      {
+       "x": 37,
+       "y": 541,
+       "l": 369,
+       "h": 37,
+       "base": 569
+      }
+     ],
+     "pas": 43,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 34,
+      "y": 657,
+      "l": 404,
+      "h": 212
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 657,
+       "l": 375,
+       "h": 38,
+       "base": 685
+      },
+      {
+       "x": 34,
+       "y": 702,
+       "l": 404,
+       "h": 36,
+       "base": 730
+      },
+      {
+       "x": 37,
+       "y": 746,
+       "l": 354,
+       "h": 36,
+       "base": 774
+      },
+      {
+       "x": 36,
+       "y": 790,
+       "l": 394,
+       "h": 35,
+       "base": 818
+      },
+      {
+       "x": 36,
+       "y": 834,
+       "l": 188,
+       "h": 35,
+       "base": 862
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "say no to almost everything"
+     ],
+     "fr": "dis [[non]] à presque tout",
+     "texte": "obraćaj se sebi [[svojim imenom]]"
+    },
+    "T2": {
+     "en": [
+      "warren buffett said really successful people say",
+      "no to almost everything"
+     ],
+     "fr": "selon warren buffett, ceux qui réussissent vraiment [[disent non à presque tout]]",
+     "texte": "kad te stisne stres, pričaj sa sobom kao sa nekim koga voliš"
+    },
+    "T3": {
+     "en": [
+      "stop being a people's",
+      "pleaser"
+     ],
+     "fr": "[[arrête de plaire à tout le monde]]",
+     "texte": "znam, zvuči malo [[ludo]] na prvu"
+    },
+    "T4": {
+     "en": [
+      "you'll have less time for",
+      "what actually matters"
+     ],
+     "fr": "sinon t'as [[moins de temps]] pour l'essentiel",
+     "texte": "ali istraživanja kažu da [[smiruje]]"
+    },
+    "T5": {
+     "en": [
+      "protect your time like",
+      "it's the most valuable",
+      "thing you have"
+     ],
+     "fr": "protège ton temps comme [[ce que t'as de plus précieux]]",
+     "texte": "tvoje ime pravi malo distance između tebe i problema"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7700916867665284385_3.jpg",
+      "boite": [
+       591,
+       361,
+       421,
+       600
+      ]
+     }
+    }
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 43,
+      "y": 236,
+      "l": 696,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 236,
+       "l": 696,
+       "h": 56,
+       "base": 278
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 351,
+      "l": 778,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 351,
+       "l": 777,
+       "h": 37,
+       "base": 379
+      },
+      {
+       "x": 40,
+       "y": 395,
+       "l": 387,
+       "h": 37,
+       "base": 423
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 449,
+      "y": 405,
+      "l": 547,
+      "h": 507
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 484,
+      "l": 349,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 45,
+       "y": 484,
+       "l": 349,
+       "h": 36,
+       "base": 512
+      },
+      {
+       "x": 45,
+       "y": 528,
+       "l": 122,
+       "h": 35,
+       "base": 556
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 614,
+      "l": 378,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 614,
+       "l": 378,
+       "h": 36,
+       "base": 642
+      },
+      {
+       "x": 46,
+       "y": 659,
+       "l": 350,
+       "h": 35,
+       "base": 687
+      }
+     ],
+     "pas": 45,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 740,
+      "l": 347,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 48,
+       "y": 740,
+       "l": 342,
+       "h": 36,
+       "base": 768
+      },
+      {
+       "x": 48,
+       "y": 783,
+       "l": 344,
+       "h": 36,
+       "base": 811
+      },
+      {
+       "x": 45,
+       "y": 827,
+       "l": 242,
+       "h": 36,
+       "base": 855
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "uči manje, ali [[svaki dan]]"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "kratke sesije kroz više dana pamte se mnogo bolje od velikog bubanja. to je [[raspoređeno učenje]]"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "ranije beskrajno skrolovanje, sad kad sam već na telefonu svaki dan naučim ponešto, danas zašto je renesansa počela u Italiji, u [[aplikaciji Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "dont go on your phone first thing in the",
+      "morning"
+     ],
+     "fr": "touche pas à ton tel [[dès le réveil]]",
+     "texte": "[[zapiši sve što te brine]] neposredno pred ispit"
+    },
+    "T2": {
+     "en": [
+      "messages, news, tiktok, you're reacting to",
+      "everyone else before you've even got out of bed"
+     ],
+     "fr": "messages, actus, tiktok, tu réagis [[à tout le monde]] avant même de sortir du lit",
+     "texte": "deluje kao najgora ideja pred sam test, ali [[razbistri glavu]]"
+    },
+    "T3": {
+     "en": [
+      "your brain gets a hit of",
+      "dopamine before you've",
+      "done anything"
+     ],
+     "fr": "ton cerveau prend [[un shot de dopamine]] avant que t'aies rien fait",
+     "texte": "briga ti pojede prostor u glavi koji ti treba da [[jasno razmišljaš]]"
+    },
+    "T4": {
+     "en": [
+      "and the rest of your",
+      "day feels boring. give",
+      "yourself the first 30",
+      "minutes without your",
+      "phone"
+     ],
+     "fr": "et le reste de ta journée [[paraît fade]]. offre-toi 30 minutes sans ton tel au réveil",
+     "texte": "u jednom istraživanju, učenici pod stresom koji su pred test zapisali strahove [[prošli su bolje]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 222,
+      "l": 992,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 222,
+       "l": 989,
+       "h": 57,
+       "base": 266
+      },
+      {
+       "x": 38,
+       "y": 291,
+       "l": 210,
+       "h": 55,
+       "base": 335
+      }
+     ],
+     "pas": 69,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 382,
+      "l": 786,
+      "h": 82
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 382,
+       "l": 682,
+       "h": 36,
+       "base": 410
+      },
+      {
+       "x": 40,
+       "y": 424,
+       "l": 786,
+       "h": 40,
+       "base": 452
+      }
+     ],
+     "pas": 42,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 40,
+      "y": 495,
+      "l": 507,
+      "h": 560
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 568,
+      "y": 536,
+      "l": 392,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 569,
+       "y": 536,
+       "l": 367,
+       "h": 39,
+       "base": 564
+      },
+      {
+       "x": 568,
+       "y": 580,
+       "l": 392,
+       "h": 36,
+       "base": 608
+      },
+      {
+       "x": 569,
+       "y": 624,
+       "l": 231,
+       "h": 36,
+       "base": 652
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 566,
+      "y": 731,
+      "l": 346,
+      "h": 211
+     },
+     "lignes": [
+      {
+       "x": 566,
+       "y": 731,
+       "l": 320,
+       "h": 37,
+       "base": 759
+      },
+      {
+       "x": 566,
+       "y": 775,
+       "l": 346,
+       "h": 37,
+       "base": 803
+      },
+      {
+       "x": 566,
+       "y": 818,
+       "l": 318,
+       "h": 37,
+       "base": 846
+      },
+      {
+       "x": 567,
+       "y": 862,
+       "l": 342,
+       "h": 36,
+       "base": 890
+      },
+      {
+       "x": 567,
+       "y": 907,
+       "l": 102,
+       "h": 35,
+       "base": 935
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "žvaći žvaku dok učiš, [[ozbiljno ti kažem]]"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "neka istraživanja povezuju žvakanje žvake sa [[većom budnošću]] i dužom pažnjom na dosadnim zadacima"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "vilica ti radi, telo ostaje [[malo budnije]] i misli ti mnogo manje lutaju tokom učenja"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "drži paklicu žvaka pored svojih beleški"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[najlakša na listi]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

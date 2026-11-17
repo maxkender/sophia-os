@@ -1,0 +1,169 @@
+{
+ "id": "ig-005",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7664476696686382368",
+  "vues": 505200,
+  "publie_le": "2026-07-20",
+  "accroche": "things actually worth your money"
+ },
+ "titre": {
+  "en": "apps actually worth your money",
+  "fr": "les applis qui valent vraiment le coup",
+  "es": "apps que de verdad valen la pena",
+  "it": "app che valgono davvero la pena",
+  "tr": "gerçekten parasına değen uygulamalar"
+ },
+ "legendes": {
+  "en": "apps actually worth your money #foryou #apps #worthit #thatgirl",
+  "fr": "les applis qui valent vraiment le coup #foryou #apps #worthit #thatgirl",
+  "es": "apps que de verdad valen la pena #foryou #apps #worthit #thatgirl",
+  "it": "app che valgono davvero la pena #foryou #apps #worthit #thatgirl",
+  "tr": "gerçekten parasına değen uygulamalar #foryou #apps #worthit #thatgirl"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7632460805073570574"
+ },
+ "notes": "Preuve : son « things actually worth your money » du 20/07 (505 k), passé en liste d'applis. Photos Seedream : cafe-1, fille-15-1, bouquet-6. Applis (App Store US, 17/11) : Spotify (4,8 ★, 43 M avis), Pilates | Down Dog (4,9 ★, 10 k), Sophia en 3e (cta B), BetterSleep (4,7 ★, 391 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/cafe-1.jpg",
+     "images/photos/fille-15-1.jpg",
+     "images/photos/bouquet-6.jpg"
+    ],
+    "titre": "apps actually\nworth your money"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/cafe-1.jpg",
+     "images/photos/fille-15-1.jpg",
+     "images/photos/bouquet-6.jpg"
+    ],
+    "titre": "les applis qui valent\nvraiment le coup"
+   },
+   "es": {
+    "photos": [
+     "images/photos/cafe-1.jpg",
+     "images/photos/fille-15-1.jpg",
+     "images/photos/bouquet-6.jpg"
+    ],
+    "titre": "apps que de verdad\nvalen la pena"
+   },
+   "it": {
+    "photos": [
+     "images/photos/cafe-1.jpg",
+     "images/photos/fille-15-1.jpg",
+     "images/photos/bouquet-6.jpg"
+    ],
+    "titre": "app che valgono\ndavvero la pena"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/cafe-1.jpg",
+     "images/photos/fille-15-1.jpg",
+     "images/photos/bouquet-6.jpg"
+    ],
+    "titre": "gerçekten parasına\ndeğen uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/spotify",
+   "en": {
+    "nom": "spotify",
+    "texte": "all your music and podcasts in one place, and premium means no ads and you can listen offline"
+   },
+   "fr": {
+    "nom": "spotify",
+    "texte": "toute ta musique et tes podcasts au même endroit, et avec premium tu n'as plus de pubs et tu écoutes hors ligne"
+   },
+   "es": {
+    "nom": "spotify",
+    "texte": "toda tu música y tus podcasts en un solo sitio, y con premium no hay anuncios y escuchas sin conexión"
+   },
+   "it": {
+    "nom": "spotify",
+    "texte": "tutta la tua musica e i tuoi podcast in un posto solo, e con premium niente pubblicità e ascolti offline"
+   },
+   "tr": {
+    "nom": "spotify",
+    "texte": "tüm müziklerin ve podcast'lerin tek bir yerde, premium ile reklam yok ve çevrim dışı dinleyebilirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/downdog",
+   "en": {
+    "nom": "down dog",
+    "texte": "a brand new pilates workout every time you open it, to do at home on your mat"
+   },
+   "fr": {
+    "nom": "down dog",
+    "texte": "une nouvelle séance de pilates à chaque fois que tu l'ouvres, à faire chez toi sur ton tapis"
+   },
+   "es": {
+    "nom": "down dog",
+    "texte": "una sesión de pilates nueva cada vez que la abres, para hacer en casa sobre tu esterilla"
+   },
+   "it": {
+    "nom": "down dog",
+    "texte": "un allenamento di pilates sempre nuovo ogni volta che la apri, da fare a casa"
+   },
+   "tr": {
+    "nom": "down dog",
+    "texte": "her açtığında yepyeni bir pilates antrenmanı, evde kendi matının üstünde yapabilirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "short lessons written by actual professors, you learn something new in just 10 minutes a day"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "lecciones cortas escritas por profesores de verdad, para aprender algo nuevo cada día en 10 minutos"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/bettersleep",
+   "en": {
+    "nom": "bettersleep",
+    "texte": "you mix calming sounds and sleep stories to fall asleep faster, and it tracks your sleep"
+   },
+   "fr": {
+    "nom": "bettersleep",
+    "texte": "tu mélanges des sons apaisants et des histoires pour t'endormir plus vite, et elle suit ton sommeil"
+   },
+   "es": {
+    "nom": "bettersleep",
+    "texte": "mezclas sonidos relajantes e historias para dormirte antes, y sigue tu sueño"
+   },
+   "it": {
+    "nom": "bettersleep",
+    "texte": "mescoli suoni rilassanti e storie per addormentarti prima, e segue il tuo sonno"
+   },
+   "tr": {
+    "nom": "bettersleep",
+    "texte": "daha hızlı uyumak için rahatlatıcı sesleri ve uyku hikayelerini karıştırırsın, uykunu da takip eder"
+   }
+  }
+ ]
+}

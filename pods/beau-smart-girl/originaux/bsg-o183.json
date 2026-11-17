@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o183",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en écoutant un podcast d'histoire chaque jour pendant un mois #histoire #podcast #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : le podcast d'histoire quotidien, récit « je ». Aucun podcast nommé. Accroches écrites : « ce que j'ai appris en écoutant un podcast d'histoire chaque jour pendant un mois » (retenue : défi concret), « les meilleurs podcasts » (écartée : liste de marques), « apprendre en écoutant » (écartée : vague). Aucun fait daté. Routine du 17/11 sur BLEO (par_jour passé à 9 ; règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 3 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 5 full tests. Lignes sautées : 5 (« validé par les neurosciences »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "37b74747",
+      "texte_overlay": "ce que j'ai appris en écoutant\nun podcast d'histoire chaque jour\npendant un mois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "37bdd019",
+      "texte_overlay": "1. les trajets passent trop vite\n\nje restais dans le bus\npour finir l'épisode.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "381a93d4",
+      "texte_overlay": "2. l'histoire, c'est des histoires\n\ndes trahisons, des amours, des coups de chance.\nmieux que n'importe quelle série.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "382ab05d",
+      "texte_overlay": "3. on retient en écoutant\n\nla voix, le ton, la musique.\nje me souviens de tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "388664bf",
+      "texte_overlay": "4. ça donne envie de lire\n\nà la fin du mois, j'avais une liste de livres\nsur trois époques.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "99cc1a64",
+      "texte_overlay": "5. la curiosité ne s'arrête plus\n\navant, je pensais que l'histoire, c'était fini pour moi après le lycée.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque jour j'en veux plus.",
+      "texte_sophia": "5. la curiosité ne s'arrête plus\n\navant, je pensais que l'histoire, c'était fini pour moi après le lycée.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque jour j'en veux plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "388a2490",
+      "texte_overlay": "tu écoutes quoi dans les transports ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

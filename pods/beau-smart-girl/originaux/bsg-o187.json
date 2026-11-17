@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o187",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3f9eca4f-51d4-4d0e-8cc2-d0ed3ab93fd3",
+  "titre": "papa, j'arrête mes études d'histoire… je veux créer une appli pour aider les jeunes à se cultiver !! #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "3f9eca4f-51d4-4d0e-8cc2-d0ed3ab93fd3"
+  ],
+  "notes": "G1, déclinaison de 3f9eca4f (« papa, j'arrête mes études d'histoire, je veux créer une appli pour aider les jeunes à se cultiver », génération 0 ; meilleur passage hr 2,6 k vues, r 2,01), en français. Format récit du parent (dialogue), CTA dans la dernière bulle. Aucune promesse invérifiable sur l'appli (ni nombre de profs, ni chiffres) ; l'étymologie de Sophia (sagesse en grec) est sûre. Fait vérifié le 6/11 sur https://en.wikipedia.org/wiki/Eiffel_Tower : plus haute structure humaine du monde jusqu'au Chrysler Building en 1930. Routine du 17/11 sur BLEO (par_jour passé à 9 ; règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 3 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 5 full tests. Lignes sautées : 5 (« validé par les neurosciences »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "efd472aa",
+      "texte_overlay": "papa, j'arrête mes études d'histoire…\nje veux créer une appli\npour aider les jeunes à se cultiver !!",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "eff41b51",
+      "texte_overlay": "et tu crois vraiment\nque les jeunes veulent apprendre ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f01d1d8e",
+      "texte_overlay": "oui. on passe des heures à scroller.\net si quelques minutes\nservaient à apprendre l'histoire, l'art, les sciences ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f034bece",
+      "texte_overlay": "et elle va s'appeler comment ?\n\nd'un mot grec qui veut dire sagesse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f069c178",
+      "texte_overlay": "et tu vas leur apprendre quoi ?\n\ndes histoires vraies et courtes.\ncomme la tour eiffel, la plus haute construction du monde jusqu'en 1930.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f076d350",
+      "texte_overlay": "bon.\net qu'est-ce qui te manque alors ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "985ebf53",
+      "texte_overlay": "des jeunes qui ont envie\nde remplacer le scroll\npar un peu de culture chaque matin !!",
+      "texte_sophia": "des jeunes qui ont envie\nde remplacer le scroll\npar l'appli Sophia chaque matin !!",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

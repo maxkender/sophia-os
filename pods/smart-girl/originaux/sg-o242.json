@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o242",
+ "type_bleo": "full_test",
+ "titre": "november traditions from around the world #november #traditions #culture #smartgirl #travel",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Full test 2/6 (la jauge en demande 6 sur 18) : accroche jamais faite chez nous (« november » et « tradition » absent des accroches de donnees/label.json). Accroches écrites : « november traditions from around the world » (retenue : de saison, culture générale), « autumn festivals you've never heard of » (écartée : moins précise), « how the world celebrates in november » (écartée : plus plate). Dates vérifiées : Día de los Muertos 1-2/11, Bonfire Night 5/11 (complot des poudres de 1605), Saint-Martin 11/11 (lanternes), Shichi-Go-San 15/11 (enfants de 3, 5 et 7 ans), Loy Krathong à la pleine lune de novembre, Thanksgiving le 4e jeudi. Sophia à la fin comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3faea998",
+   "texte_overlay": "november traditions from\naround the world",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ea112019",
+   "texte_overlay": "mexico\n\nday of the dead, 1–2 november:\naltars, marigolds and memories.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8d86cc9d",
+   "texte_overlay": "england\n\nbonfire night, 5 november:\nfireworks for a failed plot of 1605.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a6b5cd5b",
+   "texte_overlay": "germany\n\nst. martin's day, 11 november:\nchildren walk with paper lanterns.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6acc2a5d",
+   "texte_overlay": "japan\n\nshichi-go-san, 15 november:\nchildren aged 3, 5 and 7\nvisit a shrine.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a100af05",
+   "texte_overlay": "thailand\n\nloy krathong: little floating\ncandles under the full moon.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d01c7cc7",
+   "texte_overlay": "the united states\n\nthanksgiving, on the fourth\nthursday of november.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c7fee34f",
+   "texte_overlay": "swap ten minutes of scrolling\nfor one new tradition a day.",
+   "texte_sophia": "swap ten minutes of scrolling\nfor one story a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

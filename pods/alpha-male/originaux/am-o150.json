@@ -1,0 +1,75 @@
+{
+ "source_id": "am-o150",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "002290bb-fbad-48f2-b407-9174bf90a8e1",
+ "titre": "10 things I wish I knew at a young age #lifelessons #men #mindset #selfimprovement #advice",
+ "musique_titre": "realization",
+ "musique_url": "https://www.tiktok.com/music/realization-7489031318131918849",
+ "inspirations": [
+  "002290bb-fbad-48f2-b407-9174bf90a8e1"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G1 de la ligne 18 (parent 002290bb, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. » puis une phrase forte et une ligne. Leçons neuves, aucune du parent (clout, parler, cercle, confiance, argent, se prouver, douleur, profondeur, prêt, choix) ni de am-o028 ou am-o111. Dix leçons sur 9 slides (la dernière en porte deux). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url : slides présentes du parent (4, 8, 10 manquantes : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8a6e2b5a",
+   "texte_overlay": "10 things I wish I knew\nat a young age",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7d4dba4e",
+   "texte_overlay": "1.\nPeople forget your mistakes\nfaster than you do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7575049b",
+   "texte_overlay": "2.\nYour first job won't be your last.\nLearn everything you can.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "01953e45",
+   "texte_overlay": "3.\nYour parents' advice makes sense\naround 30. Listen earlier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1e8638d2",
+   "texte_overlay": "4.\nShowing up beats talent\nmost of the time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1b3ed21a",
+   "texte_overlay": "5.\nCuriosity keeps you young.\nLearn one thing every day.",
+   "texte_sophia": "5.\nCuriosity keeps you young.\nI learn one thing a day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0efb702f",
+   "texte_overlay": "6.\nReal friends are rare.\nKeep the ones you have.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/9.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "15d0e153",
+   "texte_overlay": "7.\nYou don't need to have it\nall figured out.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/11.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "001380b3",
+   "texte_overlay": "8.\nMornings shape your life\nmore than nights.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/2.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "0758b8b8",
+   "texte_overlay": "9.\nComparison steals your joy.\n\n10.\nStart before you feel ready.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7524829173030899000/3.jpg"
+  }
+ ]
+}

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o185",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en lançant un club de lecture avec mes amies #lecture #booktok #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : le club de lecture entre amies, récit « je ». Accroches écrites : « ce que j'ai appris en lançant un club de lecture avec mes amies » (retenue : expérience sociale, enregistrable), « comment créer un club de lecture » (écartée : sec), « lire à plusieurs » (écartée : vague). Aucun fait daté. Routine du 17/11 sur BLEO (par_jour passé à 9 ; règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 3 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 5 full tests. Lignes sautées : 5 (« validé par les neurosciences »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "97da08e7",
+      "texte_overlay": "ce que j'ai appris en lançant\nun club de lecture avec mes amies",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "97dd0b74",
+      "texte_overlay": "1. un livre court pour commencer\n\n150 pages, pas plus.\ntout le monde le finit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9846a522",
+      "texte_overlay": "2. chacune choisit à son tour\n\non lit des livres\nqu'on n'aurait jamais ouverts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "98c3ea4c",
+      "texte_overlay": "3. on ne lit pas toutes le même livre\n\net c'est là que les discussions\ndeviennent passionnantes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "98d114ec",
+      "texte_overlay": "4. le goûter compte autant que le livre\n\nun thé, un gâteau, un salon.\nc'est notre rendez-vous du mois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "98556c61",
+      "texte_overlay": "5. j'arrive toujours avec des idées\n\navant, je n'avais rien à dire après la dernière page.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'arrive avec mille questions.",
+      "texte_sophia": "5. j'arrive toujours avec des idées\n\navant, je n'avais rien à dire après la dernière page.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'arrive avec mille questions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "99277777",
+      "texte_overlay": "tu rejoindrais un club de lecture ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

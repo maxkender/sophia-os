@@ -1,0 +1,257 @@
+{
+ "post_id": "original-085",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "näin lopetat iltaskrollauksen"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(klo 22:n rutiini)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7683630825610513686_2.jpg",
+      "boite": [
+       522,
+       483,
+       522,
+       393
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "21.30: [[valot himmeälle]]"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "kattovalo pois, yksi lämmin lamppu päälle. himmeä valo kertoo keholle, että [[päivä on ohi]], ja sänky alkaa voittaa feedin"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "[[vain lamput]]. ei mitään kirkasta, sinistä tai katosta"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "et tarvitse yhtään tahdonvoimaa. painat vaan katkaisijaa ja loppu hoituu itsestään"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write your thoughts down",
+      "every night"
+     ],
+     "fr": "note ce que t'as en tête [[chaque soir]]",
+     "texte": "21.45: kirjoita [[3 asiaa päivästä]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy",
+      "and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "tes pensées paraissent [[floues et en vrac]] jusqu'à ce que tu [[les écrives]]",
+     "texte": "yksi hyvä, yksi hauska ja yksi uusi juttu. [[kaksi minuuttia, max]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to finish a",
+      "thought instead of jumping",
+      "to the next one"
+     ],
+     "fr": "écrire t'oblige à finir une pensée au lieu de sauter à la suivante",
+     "texte": "vihko yöpöydälle, kynä ja [[nolla näyttöjä]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before bed is",
+      "proven to be enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "même 5 min avant de dormir, c'est [[prouvé]], ça suffit pour [[avoir les idées plus claires]]",
+     "texte": "kun päivä on paperilla, [[pää lakkaa pyörittämästä sitä]] heti kun käyt makuulle"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "klo 22: [[5 min oppimista]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "viimeinen asia, jonka näet puhelimessa, [[tulee mukaasi sänkyyn]], joten valitse se tarkoituksella"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "yksi lyhyt oppitunti, ei [[vielä yhtä videota]], joka venyy tunniksi"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "kun se on tehty, [[puhelin laitetaan pois]]. ei viimeistä tsekkausta, ei autoplayta, ei mitään kesken"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "illan 5 minuuttini: miksi renessanssi alkoi italiasta, [[Sophia-sovelluksessa]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "laturi [[makuuhuoneen ulkopuolelle]]"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "keittiö, eteinen, mikä tahansa paikka, johon et yllä sängystä. jos se nukkuu tyynysi vieressä, [[se voittaa joka ilta]]"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "hanki [[oikea herätyskello]]. halvinkin käy"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "et ikinä tarvinnut puhelinta herätykseen. ja aamulla [[ensimmäinen asia, jonka näet, ei ole näyttö]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "[[paperikirja]] ennen unta"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[10 sivua riittää]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "ei ilmoituksia, ei autoplayta, vain sivuja lampun alla. valitse jotain [[hidasta ja helppoa]], sitä ei tarvitse lukea loppuun tänään"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "useimpina iltoina [[nukahdat kesken luvun]], ja se on koko pointti"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

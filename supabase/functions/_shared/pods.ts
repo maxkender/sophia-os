@@ -15,6 +15,7 @@ import {
   scoreStockable,
 } from "./pertinence_apps.ts";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
+import { lireParLots } from "./lots.ts";
 import { chargerPrompt } from "./supabase.ts";
 import { passagesPourTier, type Tier } from "./tierlist.ts";
 import { sonderSchemaTiersApplication, TABLE_TIERS_APPLICATION } from "./tiers_application.ts";
@@ -79,14 +80,20 @@ export async function contenusLivresHorsLangue(supabase: Supabase, langue: strin
   const { data: livres, error } = await supabase.from("contenus").select("id").eq("livre", true);
   if (error || !livres?.length) return new Set();
   const ids = (livres as { id: string }[]).map((c) => c.id);
-  const { data: decks, error: e2 } = await supabase
-    .from("contenu_langues")
-    .select("contenu_id, slides")
-    .in("langue", languesDeckLivre(langue))
-    .in("contenu_id", ids);
-  if (e2) return new Set();
+  // Par lots : plus de 400 contenus livrés le 16/11, un seul in() faisait échouer minuit.
+  let decks: { contenu_id: string; slides: Partial<SlideLivree>[] | null }[];
+  try {
+    decks = await lireParLots(ids, "decks livrés", (lot) =>
+      supabase
+        .from("contenu_langues")
+        .select("contenu_id, slides")
+        .in("langue", languesDeckLivre(langue))
+        .in("contenu_id", lot));
+  } catch {
+    return new Set();
+  }
   const servables = new Set(
-    ((decks ?? []) as { contenu_id: string; slides: Partial<SlideLivree>[] | null }[])
+    decks
       .filter((d) => deckLivrePret(d.slides))
       .map((d) => d.contenu_id),
   );
@@ -205,15 +212,20 @@ export async function contenusLivresHorsApplication(
   const { data: livres, error } = await supabase.from("contenus").select("id").eq("livre", true);
   if (error || !livres?.length) return new Set();
   const ids = (livres as { id: string }[]).map((c) => c.id);
-  const { data: decks, error: e2 } = await supabase
-    .from("contenu_langue_decks")
-    .select("contenu_id, statut, slides")
-    .eq("variante", app.slug)
-    .in("langue", languesDeckLivre(langue))
-    .in("contenu_id", ids);
-  if (e2) return new Set();
+  let decks: { contenu_id: string; statut: string; slides: Partial<SlideLivree>[] | null }[];
+  try {
+    decks = await lireParLots(ids, "decks d'application livrés", (lot) =>
+      supabase
+        .from("contenu_langue_decks")
+        .select("contenu_id, statut, slides")
+        .eq("variante", app.slug)
+        .in("langue", languesDeckLivre(langue))
+        .in("contenu_id", lot));
+  } catch {
+    return new Set();
+  }
   const servables = new Set(
-    ((decks ?? []) as { contenu_id: string; statut: string; slides: Partial<SlideLivree>[] | null }[])
+    decks
       .filter((d) => d.statut === "pret" && deckLivrePret(d.slides))
       .map((d) => d.contenu_id),
   );

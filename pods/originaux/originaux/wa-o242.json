@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o242",
+ "type_bleo": "full_test",
+ "titre": "tiny habits that make you more disciplined than most #discipline #habits #selfimprovement #productivity #mindset",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "201d7a90-5b9d-4dc9-8e6d-0fac8d8a7691"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 201d7a90). full test BLEO : accroche jamais faite (format « tiny habits that make you more X than most »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a18327d-49bb-4946-81d7-435c34b13ba3",
+   "texte_overlay": "tiny habits that make you\nmore disciplined than most",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "22324317-c7a9-4170-9128-61efee926dc1",
+   "texte_overlay": "doing the hard thing first\n\nstart your day with the task you're most likely to avoid. once it's done, every other task feels lighter, and you prove to yourself that you keep your word.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2b212c60-7fed-4e3f-8ef1-b3734e804c93",
+   "texte_overlay": "the two minute start\n\nwhen you don't feel like doing something, promise yourself just two minutes. starting is the hardest part, and most of the time you happily keep going much longer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2ed1f1d4-dae0-4b96-b427-556958f0b1af",
+   "texte_overlay": "a daily small promise\n\nkeep one small promise to yourself every day, like 5 minutes of learning something new. every kept promise adds up, and discipline slowly becomes who you are.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/4.jpg",
+   "texte_sophia": "a daily small promise\n\ni keep one small promise a day: 5 minutes on one lesson in the Sophia app, a planet or a painting. keeping that tiny streak made me disciplined in everything else."
+  },
+  {
+   "position": 5,
+   "media_id": "2b633cf6-7657-4d09-aec0-27eda879f724",
+   "texte_overlay": "preparing the night before\n\nlay out your clothes and write tomorrow's first task before bed. fewer decisions in the morning means less chance for laziness to win the morning argument.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "074f5c33-f689-4282-be1e-19a1e9886dcd",
+   "texte_overlay": "phone in another room\n\nleave your phone in another room while you work or study. discipline is much easier when the biggest distraction in your life is simply out of your reach.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/6.jpg"
+  }
+ ]
+}

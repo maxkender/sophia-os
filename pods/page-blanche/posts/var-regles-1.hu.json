@@ -1,0 +1,277 @@
+{
+ "post_id": "var-regles-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "a telefonos szabályaim, [[amik tényleg beváltak]]"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(miután minden detoxom elbukott)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701398929807641888_3.jpg",
+      "boite": [
+       730,
+       560,
+       298,
+       262
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become genuinely interested in people"
+     ],
+     "fr": "intéresse-toi [[vraiment aux gens]]",
+     "texte": "vacsoránál a telók [[középre kerülnek]]"
+    },
+    "T2": {
+     "en": [
+      "most people listen just long enough to figure out what they’re",
+      "going to say next"
+     ],
+     "fr": "la plupart des gens écoutent juste le temps de trouver [[ce qu'ils vont répondre]]",
+     "texte": "ha a barátaimmal vagyok, mindenki lefordítva egymásra rakja a telefonját az asztalon"
+    },
+    "T3": {
+     "en": [
+      "ask better questions,",
+      "remember small details,",
+      "and follow up on things",
+      "people told you weeks",
+      "ago"
+     ],
+     "fr": "pose de meilleures questions, retiens les petits détails et [[reviens dessus]] des semaines plus tard",
+     "texte": "aki elsőként nyúl az övéért, [[az fizeti a desszertet]]. eddig senki nem fizetett, mert senki nem akar az lenni"
+    },
+    "T4": {
+     "en": [
+      "making someone feel",
+      "understood is more",
+      "memorable than having",
+      "the best story"
+     ],
+     "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
+     "texte": "tényleg beszélgetünk, senki nem kapcsol ki, és hazaérve [[az egész estére emlékszem]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "",
+     "texte": "már [[nem filmezem le az egészet]]"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "",
+     "texte": "koncertek, vacsorák, naplementék: mindent kijelzőn át néztem, és a videókat sosem nyitottam meg újra"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "",
+     "texte": "most [[egy fotót]] csinálok, elteszem a telót, és tényleg körülnézek"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to watch",
+      "something while you eat is destroying your attention",
+      "span"
+     ],
+     "fr": "",
+     "texte": "a vicces az, hogy ezekre a pillanatokra most sokkal jobban emlékszem, mert [[tényleg jelen voltam]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "[[előbb egy lecke]], utána a feed"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "mielőtt bármit megnyitnék, amiben feed van, adok az agyamnak [[5 perc valódi tartalmat]]. ha utána még görgetnék, oké"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "a legtöbbször [[már nincs kedvem]]."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "a görgetés vágya az első percben a leghangosabb. adj neki [[valamit, amin rágódhat]], és magától elcsitul"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "ma: miért Itáliában kezdődött a reneszánsz, 5 perc [[a Sophia appban]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "research your dream life"
+     ],
+     "fr": "potasse [[ta vie de rêve]]",
+     "texte": "[[szem elől]], amíg dolgozom"
+    },
+    "T2": {
+     "en": [
+      "most people know what they want but never look up",
+      "how to get it"
+     ],
+     "fr": "tout le monde sait [[ce qu'il veut]], personne cherche comment l'avoir",
+     "texte": "az asztalon, még lefordítva is, [[ötpercenként]] magához hívott"
+    },
+    "T3": {
+     "en": [
+      "the job, the city, the skills,",
+      "whatever. look up exactly",
+      "what it takes and who's",
+      "already done it"
+     ],
+     "fr": "le job, la ville, les compétences, peu importe. cherche [[exactement ce qu'il faut]] et qui l'a déjà fait",
+     "texte": "egy zárt fiókban tényleg elfelejtem, hogy létezik, és [[egy óra fókusz]] újra normálisnak tűnik"
+    },
+    "T4": {
+     "en": [
+      "it turns a vague dream",
+      "into a list of things to",
+      "learn"
+     ],
+     "fr": "ton rêve flou devient [[une liste de trucs à apprendre]]",
+     "texte": "a fiók épp annyira macerás, [[hogy elgondolkodjak]]"
+    },
+    "T5": {
+     "en": [
+      "and learning stops feeling like school when it's for your",
+      "own life"
+     ],
+     "fr": "et apprendre, ça fait plus école quand [[c'est pour ta vie à toi]]",
+     "texte": "és minden üzenet ott vár még, [[amikor újra előveszem a telót]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "develop opinions of your own"
+     ],
+     "fr": "forge-toi [[tes propres avis]]",
+     "texte": "néha [[simán otthon hagyom]]"
+    },
+    "T2": {
+     "en": [
+      "agreeing with everyone",
+      "might make you easy to",
+      "like, but it rarely makes you",
+      "memorable"
+     ],
+     "fr": "être d'accord avec tout le monde, ça te rend sympa, mais [[rarement mémorable]]",
+     "texte": "egy kör a pékségig, egy kávé valakivel, egy este a városban: [[semmi telefon, nulla]]"
+    },
+    "T3": {
+     "en": [
+      "form your own views,",
+      "explain why you believe",
+      "them, and disagree",
+      "without getting defensive"
+     ],
+     "fr": "fais-toi ton avis, explique pourquoi tu le penses, et [[sache contredire sans te braquer]]",
+     "texte": "az első tíz percben a kezem folyton egy üres zsebbe nyúl. aztán ez [[szépen elmúlik]]"
+    },
+    "T4": {
+     "en": [
+      "charisma comes from having a personality people can",
+      "actually get a read on"
+     ],
+     "fr": "le charisme, c'est avoir une personnalité que les gens [[arrivent à cerner]]",
+     "texte": "és könnyebben jövök haza, mintha [[igazi szünetet tartottam volna]] mások életétől"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

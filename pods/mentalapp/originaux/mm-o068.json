@@ -1,0 +1,658 @@
+{
+ "id": "mm-o068",
+ "titre": "tier list of Weekend habits",
+ "position_app": 2,
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4e01dfc7-58bf-48e1-a8ba-1fd81c85e880",
+ "legendes": {
+  "en": "weekend habits, ranked by how you feel on monday #weekend #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les habitudes du week-end, classées selon ton lundi #weekend #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "wochenendgewohnheiten, gerankt danach, wie du dich am montag fühlst #wochenende #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "hábitos de finde, clasificados según cómo te sientes el lunes #finde #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "abitudini del weekend, in base a come ti senti il lunedì #weekend #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "hafta sonu alışkanlıkları, pazartesi nasıl hissettirdiğine göre #haftasonu #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "hábitos de fim de semana, classificados por como você fica na segunda #fimdesemana #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "weekendowe nawyki według tego, jak czujesz się w poniedziałek #weekend #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "hétvégi szokások, aszerint rangsorolva, milyen a hétfőd #hétvége #mentalmaxxing #tierlist #önfejlesztés"
+ },
+ "couverture": {
+  "image": {
+   "src": "7696594173863955730/1",
+   "boite": [
+    190,
+    320,
+    710,
+    525
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
+  },
+  "gros": {
+   "en": "Weekend",
+   "fr": "habitudes",
+   "de": "Wochenend-",
+   "es": "hábitos",
+   "it": "abitudini",
+   "tr": "hafta sonu",
+   "pt-BR": "hábitos",
+   "pl": "weekendowe",
+   "hu": "hétvégi"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "du week-end",
+   "de": "gewohnheiten",
+   "es": "de finde",
+   "it": "del weekend",
+   "tr": "alışkanlıkları",
+   "pt-BR": "de fim de semana",
+   "pl": "nawyki",
+   "hu": "szokások"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla",
+  "pt-BR": "me prova o contrário",
+  "pl": "udowodnij, że się mylę",
+  "hu": "cáfolj meg"
+ },
+ "pied": {
+  "en": "how was your sunday?",
+  "fr": "c’était comment ton dimanche ?",
+  "de": "wie war dein sonntag?",
+  "es": "¿qué tal tu domingo?",
+  "it": "com’è andata la tua domenica?",
+  "tr": "pazarın nasıl geçti?",
+  "pt-BR": "como foi seu domingo?",
+  "pl": "jak tam twoja niedziela?",
+  "hu": "milyen volt a vasárnapod?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "monday thanks you",
+    "fr": "ton lundi te remercie",
+    "de": "dein montag dankt dir",
+    "es": "tu lunes lo agradece",
+    "it": "il lunedì ti ringrazia",
+    "tr": "pazartesin teşekkür eder",
+    "pt-BR": "sua segunda agradece",
+    "pl": "lepszy poniedziałek",
+    "hu": "a hétfőd hálás lesz"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "hiking",
+      "fr": "randonnée",
+      "de": "wandern",
+      "es": "senderismo",
+      "it": "trekking",
+      "tr": "doğa yürüyüşü",
+      "pt-BR": "trilha",
+      "pl": "wędrówka",
+      "hu": "túrázás"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "long workout",
+      "fr": "longue séance",
+      "de": "langes|workout",
+      "es": "entreno largo",
+      "it": "allenamento|lungo",
+      "tr": "uzun|antrenman",
+      "pt-BR": "treino longo",
+      "pl": "długi trening",
+      "hu": "hosszú edzés"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "planning|the week",
+      "fr": "préparer|la semaine",
+      "de": "die woche|planen",
+      "es": "planear|la semana",
+      "it": "pianificare|la settimana",
+      "tr": "haftayı|planlamak",
+      "pt-BR": "planejar|a semana",
+      "pl": "planowanie|tygodnia",
+      "hu": "a hét|megtervezése"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "great",
+    "fr": "top",
+    "de": "top",
+    "es": "genial",
+    "it": "top",
+    "tr": "harika",
+    "pt-BR": "top",
+    "pl": "super",
+    "hu": "szuper"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "brunch at home",
+      "fr": "brunch|à la maison",
+      "de": "brunch|zu hause",
+      "es": "brunch|en casa",
+      "it": "brunch|a casa",
+      "tr": "evde brunch",
+      "pt-BR": "brunch|em casa",
+      "pl": "brunch|w domu",
+      "hu": "brunch|otthon"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "reading|in a café",
+      "fr": "lire|dans un café",
+      "de": "lesen|im café",
+      "es": "leer en|un café",
+      "it": "leggere|al bar",
+      "tr": "kafede|kitap okumak",
+      "pt-BR": "ler num|café",
+      "pl": "czytanie|w kawiarni",
+      "hu": "olvasás|egy kávézóban"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "dog walk",
+      "fr": "balade|avec le chien",
+      "de": "gassi gehen",
+      "es": "pasear|al perro",
+      "it": "passeggiata|col cane",
+      "tr": "köpek|gezdirmek",
+      "pt-BR": "passear|com o cachorro",
+      "pl": "spacer|z psem",
+      "hu": "séta|a kutyával"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "sun outside",
+      "fr": "soleil dehors",
+      "de": "sonne|draußen",
+      "es": "salir al sol",
+      "it": "sole fuori",
+      "tr": "dışarıda|güneş",
+      "pt-BR": "sol lá fora",
+      "pl": "słońce|na dworze",
+      "hu": "kint a napon"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien",
+    "de": "gut",
+    "es": "bien",
+    "it": "bene",
+    "tr": "iyi",
+    "pt-BR": "bom",
+    "pl": "dobre",
+    "hu": "jó"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "board games",
+      "fr": "jeux|de société",
+      "de": "brettspiele",
+      "es": "juegos|de mesa",
+      "it": "giochi|da tavolo",
+      "tr": "kutu oyunları",
+      "pt-BR": "jogos|de tabuleiro",
+      "pl": "planszówki",
+      "hu": "társas-|játékok"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "record shop",
+      "fr": "disquaire",
+      "de": "plattenladen",
+      "es": "tienda|de discos",
+      "it": "negozio|di dischi",
+      "tr": "plakçı",
+      "pt-BR": "loja|de discos",
+      "pl": "sklep|z płytami",
+      "hu": "lemezbolt"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "deep clean",
+      "fr": "grand ménage",
+      "de": "großputz",
+      "es": "limpieza|a fondo",
+      "it": "pulizie|a fondo",
+      "tr": "büyük|temizlik",
+      "pt-BR": "faxina|geral",
+      "pl": "wielkie|sprzątanie",
+      "hu": "nagytakarítás"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "yoga",
+      "fr": "yoga",
+      "de": "yoga",
+      "es": "yoga",
+      "it": "yoga",
+      "tr": "yoga",
+      "pt-BR": "yoga",
+      "pl": "joga",
+      "hu": "jóga"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "depends",
+    "fr": "ça dépend",
+    "de": "kommt drauf an",
+    "es": "depende",
+    "it": "dipende",
+    "tr": "duruma göre",
+    "pt-BR": "depende",
+    "pl": "zależy",
+    "hu": "attól függ"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "cinema",
+      "fr": "ciné",
+      "de": "kino",
+      "es": "cine",
+      "it": "cinema",
+      "tr": "sinema",
+      "pt-BR": "cinema",
+      "pl": "kino",
+      "hu": "mozi"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "sleeping|till 11",
+      "fr": "dormir|jusqu’à 11h",
+      "de": "pennen|bis 11",
+      "es": "dormir|hasta las 11",
+      "it": "dormire|fino alle 11",
+      "tr": "11’e kadar|uyumak",
+      "pt-BR": "dormir|até 11h",
+      "pl": "spanie|do 11",
+      "hu": "alvás|11-ig"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping",
+      "de": "shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş",
+      "pt-BR": "compras",
+      "pl": "zakupy",
+      "hu": "vásárlás"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "café hopping",
+      "fr": "tournée|des cafés",
+      "de": "café-hopping",
+      "es": "ruta de|cafeterías",
+      "it": "giro|dei caffè",
+      "tr": "kafe kafe|gezmek",
+      "pt-BR": "rolê|de cafés",
+      "pl": "rundka|po kawiarniach",
+      "hu": "kávézó-|túra"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "costs you",
+    "fr": "te coûte",
+    "de": "kostet dich",
+    "es": "te cuesta",
+    "it": "ti costa",
+    "tr": "bedeli var",
+    "pt-BR": "te custa caro",
+    "pl": "kosztuje cię",
+    "hu": "megfizetsz érte"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming|all day",
+      "fr": "gaming|toute la journée",
+      "de": "gaming den|ganzen tag",
+      "es": "gaming|todo el día",
+      "it": "gaming tutto|il giorno",
+      "tr": "bütün gün|gaming",
+      "pt-BR": "gaming|o dia todo",
+      "pl": "gaming|cały dzień",
+      "hu": "gaming|egész nap"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "takeout|again",
+      "fr": "encore|à emporter",
+      "de": "schon wieder|takeaway",
+      "es": "pedir comida|otra vez",
+      "it": "ancora|delivery",
+      "tr": "yine|paket servis",
+      "pt-BR": "delivery|de novo",
+      "pl": "znowu|na wynos",
+      "hu": "megint|rendelős kaja"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube|marathon",
+      "fr": "marathon|youtube",
+      "de": "youtube-|marathon",
+      "es": "maratón|de youtube",
+      "it": "maratona|youtube",
+      "tr": "youtube|maratonu",
+      "pt-BR": "maratona|de youtube",
+      "pl": "maraton|youtube",
+      "hu": "youtube-|maraton"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "posting|everything",
+      "fr": "tout poster",
+      "de": "alles|posten",
+      "es": "subirlo|todo",
+      "it": "postare|tutto",
+      "tr": "her şeyi|paylaşmak",
+      "pt-BR": "postar|tudo",
+      "pl": "wrzucanie|wszystkiego",
+      "hu": "mindent|posztolni"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "lost weekend",
+   "fr": "week-end perdu",
+   "de": "verschenkt",
+   "es": "finde perdido",
+   "it": "weekend perso",
+   "tr": "boşa gitti",
+   "pt-BR": "fds perdido",
+   "pl": "weekend w plecy",
+   "hu": "oda a hétvége"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose reels",
+     "es": "reels sin fin",
+     "it": "reels infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim",
+     "pl": "nieskończone|reelsy",
+     "hu": "végtelen reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "wett-apps",
+     "es": "apps de|apuestas",
+     "it": "app di|scommesse",
+     "tr": "bahis|uygulamaları",
+     "pt-BR": "apps de|aposta",
+     "pl": "apki|bukmacherskie",
+     "hu": "fogadós|appok"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twoja opcja|(komentuj)",
+     "hu": "a te opciód|(kommentelj)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 : déclinaison G1 de mm-o013 (« tier list of Weekend habits », fr 2,3 k, r 2,71), titre mot pour mot, autres items, autre couverture (le cerveau scotché). Parent déclaré : la version Sophia (4e01dfc7). cta A. 9 langues."
+}

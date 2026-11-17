@@ -6,7 +6,9 @@ export const POD = "remakes_kaja";
 /** Le compte refait : Kaja, l'appli concurrente de Sophia (« Duolingo, mais pour tout »), et ses listes « 10/10 skills ». */
 export const COMPTE_SOURCE = "kaja.learn";
 /** Les langues livrées : l'anglais d'abord, puis le français et l'allemand (décision d'Adrien du 4/11). Déclarées à l'OS (0654) : l'attribution des comptes les lit, n'y mets que ce que tu sais vraiment faire. */
-export const LANGUES = ["en", "fr", "de"] as const;
+// 16/11 (Adrien) : un compte par langue sur 8 langues ; cette liste est déclarée à l'OS à chaque `npm run boite`
+// et remplace `pods.langues` : n'en retire pas une langue qui a un compte.
+export const LANGUES = ["en", "fr", "de", "it", "tr", "hu", "pt-BR", "pl"] as const;
 /** La langue du deck de base déposé (l'OS l'exige dans `decks`). */
 export const LANGUE_SOURCE = "en";
 

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o252",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c44bc19e-e006-4bb4-8484-10650d618e4e",
+ "titre": "12 \"normal\" habits that are actually quietly toxic #toxichabits #selfimprovement #smartgirl #mindset #habits",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 6 de la boîte (parent c44bc19e, langue source el) : accroche reformulée (« 12 \"normal\" habits that are actually quietly toxic »), les douze habitudes du parent deux par deux. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3fe75b14",
+   "texte_overlay": "12 \"normal\" habits that are\nactually quietly toxic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "967d02d4",
+   "texte_overlay": "1. checking your phone while\nsomeone talks to you\n\n2. bonding only by complaining",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "93505485",
+   "texte_overlay": "3. treating gossip as entertainment\n\n4. jokes at someone's expense",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f0823674",
+   "texte_overlay": "5. saying yes to everything\n\n6. losing sleep to look busy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ecec83ec",
+   "texte_overlay": "7. posting your whole life\nfor strangers\n\n8. comparing yourself to everyone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5e78411a",
+   "texte_overlay": "9. pretending to know everything\n\n10. never saying sorry",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "eda31165",
+   "texte_overlay": "11. never being alone\nwith your thoughts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "4e874375",
+   "texte_overlay": "12. scrolling until 2am\n\ni replaced it with one\nshort lesson in bed.",
+   "texte_sophia": "12. scrolling until 2am\n\ni replaced it with one lesson\nin bed on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/8.jpg"
+  }
+ ]
+}

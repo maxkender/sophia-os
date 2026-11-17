@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o241",
+ "type_bleo": "full_test",
+ "titre": "habits of people who are never bored #boredom #curiosity #habits #selfimprovement #mindset",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "1b1d2c9b-cc3f-44c0-be6e-9c71dab18dcf"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 1b1d2c9b). full test BLEO : accroche jamais faite (format « habits of people who are never X »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1168b344-cc4f-4c79-92d4-0e35a8116830",
+   "texte_overlay": "habits of people who\nare never bored",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "04203405-bd90-4042-a178-3862fecbb747",
+   "texte_overlay": "they notice small things\n\nthey pay attention to the details others walk past: an odd building, a strange bird, a funny sign. the world is full of tiny stories for anyone who looks closely.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0fa4463e-07db-4b81-965f-921e62a62307",
+   "texte_overlay": "they keep a project going\n\nthey always have something on the go, like a garden, a sketchbook or a model to build. a slow personal project turns empty evenings into something to look forward to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0de6f8dc-f2b2-4d69-8e85-ce3de9e73e27",
+   "texte_overlay": "they learn a little daily\n\npeople who are never bored always have one new idea to think about: a myth, a planet, a painting. they collect them on purpose, a few minutes every single day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/4.jpg",
+   "texte_sophia": "they learn a little daily\n\ni used to get bored so easily. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and my mind always has something interesting to chew on."
+  },
+  {
+   "position": 5,
+   "media_id": "18b460bd-e9d3-494a-a8d1-581cf6e33cab",
+   "texte_overlay": "they ask good questions\n\nthey turn every conversation into a little adventure by asking people what they love and why. other people's lives are endlessly fascinating if you really ask.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "21d8c296-cc13-480a-9678-5d0d08fcd9da",
+   "texte_overlay": "they enjoy doing nothing\n\nthey can sit on a bench and watch the world without reaching for a phone. being comfortable with quiet moments means boredom has nothing to grab onto.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/6.jpg"
+  }
+ ]
+}

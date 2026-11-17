@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-013",
+  "titre": "Every man loves himself more than all others, yet values his own opinion of himself less than the opinion of others. #stoicism #marcusaurelius #selfrespect #quotes",
+  "source_phrase": "Marcus Aurelius, Meditations, 12.4 (Long translation, tightened)",
+  "type_bleo": "full_test",
+  "musique_titre": "sleep walk.",
+  "notes": "cta A",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "229cd61b",
+      "texte_overlay": "Every man loves himself more than all others,",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7693979539008982290/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2620f1ae",
+      "texte_overlay": "yet values his own opinion of himself",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7691816367493795079/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "29cf1007",
+      "texte_overlay": "less than the opinion of others.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692100623914847495/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2980d1a3",
+      "texte_overlay": "Marcus Aurelius, Meditations.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696702040797367558/2.jpg",
+      "texte_sophia": "Marcus Aurelius was emperor of Rome when he wrote this. I read it this morning on Sophia."
+    }
+  ]
+}

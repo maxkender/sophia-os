@@ -1,0 +1,169 @@
+{
+ "id": "ig-001",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7698007507851152672",
+  "vues": 1300000,
+  "publie_le": "2026-10-18",
+  "accroche": "4 apps every girl needs"
+ },
+ "titre": {
+  "en": "4 apps every girl needs",
+  "fr": "4 applis que toute fille doit avoir",
+  "es": "4 apps que toda chica necesita",
+  "it": "4 app che ogni ragazza deve avere",
+  "tr": "her kızın ihtiyacı olan 4 uygulama"
+ },
+ "legendes": {
+  "en": "4 apps every girl needs #foryou #app #apps #thatgirl",
+  "fr": "4 applis que toute fille doit avoir #foryou #app #apps #thatgirl",
+  "es": "4 apps que toda chica necesita #foryou #app #apps #thatgirl",
+  "it": "4 app che ogni ragazza deve avere #foryou #app #apps #thatgirl",
+  "tr": "her kızın ihtiyacı olan 4 uygulama #foryou #app #apps #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Preuve : son « 4 apps every girl needs » du 18/10 (1,3 M vues, 6,5 % d'enregistrements), même couverture et mêmes slides. Photos Seedream (images/photos) : trousse-1, fille-2, bouquet-2. Applis (App Store, 16/11) : Whering (4,7 ★, 12 k avis), Sophia en 2e (cta A), Shuffles by Pinterest (4,8 ★, 44 k avis), Waterllama (4,9 ★, 165 k avis). Aucune appli de cycle (demande d'Adrien du 16/11). 16/11 : traduit en fr, es, it, tr (demande d'Adrien via BLEO) ; mêmes applis, présentes sur les 4 App Store locaux (Whering n'a pas d'interface en turc).",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/trousse-1.jpg",
+     "images/photos/fille-2.jpg",
+     "images/photos/bouquet-2.jpg"
+    ],
+    "titre": "4 apps every\ngirl needs"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/trousse-1.jpg",
+     "images/photos/fille-2.jpg",
+     "images/photos/bouquet-2.jpg"
+    ],
+    "titre": "4 applis que toute\nfille doit avoir"
+   },
+   "es": {
+    "photos": [
+     "images/photos/trousse-1.jpg",
+     "images/photos/fille-2.jpg",
+     "images/photos/bouquet-2.jpg"
+    ],
+    "titre": "4 apps que toda\nchica necesita"
+   },
+   "it": {
+    "photos": [
+     "images/photos/trousse-1.jpg",
+     "images/photos/fille-2.jpg",
+     "images/photos/bouquet-2.jpg"
+    ],
+    "titre": "4 app che ogni\nragazza deve avere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/trousse-1.jpg",
+     "images/photos/fille-2.jpg",
+     "images/photos/bouquet-2.jpg"
+    ],
+    "titre": "her kızın ihtiyacı\nolan 4 uygulama"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/whering",
+   "en": {
+    "nom": "whering",
+    "texte": "you can upload photos of your clothes, plan outfits and see what you actually wear"
+   },
+   "fr": {
+    "nom": "whering",
+    "texte": "tu peux prendre tes vêtements en photo, créer tes tenues et voir ce que tu portes vraiment"
+   },
+   "es": {
+    "nom": "whering",
+    "texte": "puedes subir fotos de tu ropa, planear tus outfits y ver lo que de verdad te pones"
+   },
+   "it": {
+    "nom": "whering",
+    "texte": "puoi caricare le foto dei tuoi vestiti, pianificare gli outfit e vedere cosa metti davvero"
+   },
+   "tr": {
+    "nom": "whering",
+    "texte": "kıyafetlerini fotoğraflayıp kombin hazırlayabilir ve en çok neyi giydiğini görebilirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/shuffles",
+   "en": {
+    "nom": "shuffles",
+    "texte": "you can cut out anything from your pictures and make aesthetic collages and moodboards"
+   },
+   "fr": {
+    "nom": "shuffles",
+    "texte": "tu peux découper ce que tu veux dans tes photos et créer des collages et des moodboards aesthetic"
+   },
+   "es": {
+    "nom": "shuffles",
+    "texte": "puedes recortar lo que quieras de tus fotos y crear collages y moodboards aesthetic"
+   },
+   "it": {
+    "nom": "shuffles",
+    "texte": "puoi ritagliare quello che vuoi dalle tue foto e creare collage e moodboard aesthetic"
+   },
+   "tr": {
+    "nom": "shuffles",
+    "texte": "fotoğraflarından istediğin her şeyi kesip estetik kolajlar ve moodboard'lar yapabilirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/waterllama",
+   "en": {
+    "nom": "waterllama",
+    "texte": "reminds you to drink water during the day, and you fill up cute little characters as you go"
+   },
+   "fr": {
+    "nom": "waterllama",
+    "texte": "elle te rappelle de boire de l'eau dans la journée, et tu remplis des petits personnages trop mignons"
+   },
+   "es": {
+    "nom": "waterllama",
+    "texte": "te recuerda beber agua durante el día, y vas llenando personajitos muy monos"
+   },
+   "it": {
+    "nom": "waterllama",
+    "texte": "ti ricorda di bere acqua durante il giorno, e intanto riempi dei piccoli personaggi molto carini"
+   },
+   "tr": {
+    "nom": "waterllama",
+    "texte": "gün içinde su içmeni hatırlatır, içtikçe de minik tatlı karakterleri doldurursun"
+   }
+  }
+ ]
+}

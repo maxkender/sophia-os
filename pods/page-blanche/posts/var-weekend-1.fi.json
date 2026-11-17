@@ -1,0 +1,259 @@
+{
+ "post_id": "var-weekend-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "top 5 tapaa pilata ihan jokainen aamusi"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(karu totuus) omasta kokemuksesta"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7696836327026724128_6.jpg",
+      "boite": [
+       64,
+       805,
+       320,
+       231
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "paina [[torkkua]] 6 kertaa putkeen"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[vielä 5 minuuttia]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "herätys soi 7, sitten 7.09, 7.18, 7.27. jokainen torkku on liian lyhyt lepoon mutta just tarpeeksi pitkä [[tuhoamaan sut]]"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "nyt oot myöhässä JA väsyneempi kuin klo 7. [[täydellistä!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "NO social media for the first",
+      "hour"
+     ],
+     "fr": "ZÉRO réseau social la première heure",
+     "texte": "nappaa puhelin [[silmät vielä kiinni]]"
+    },
+    "T2": {
+     "en": [
+      "no scrolling, no youtube,",
+      "no tiktok for the first hour"
+     ],
+     "fr": "pas de scroll, ni youtube, ni tiktok dès le réveil",
+     "texte": "47 ilmoitusta ennen kuin jalat edes osuu lattiaan"
+    },
+    "T3": {
+     "en": [
+      "short-form content gives",
+      "your brain rapid reward",
+      "after reward, frying your",
+      "dopamine receptors and",
+      "making slower tasks feel",
+      "painfully dull"
+     ],
+     "fr": "les vidéos courtes bombardent ton cerveau de récompenses, ça [[te grille les récepteurs à dopamine]] et tout ce qui est plus lent te paraît d'un ennui mortel",
+     "texte": "aivot on just ja just hereillä ja jo [[hukkumassa]] ryhmächatteihin, työmeiliin ja jonkun tuntemattoman aamupalavideoon. mikä alku"
+    },
+    "T4": {
+     "en": [
+      "to win your day, win your",
+      "morning"
+     ],
+     "fr": "[[gagne ta matinée, t'as gagné ta journée]]",
+     "texte": "[[ahdistus]] jo ennen hampaiden pesua"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "aloita päivä [[nollalla uudella idealla]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "aivot saa aamupalaksi pelkkiä lyhyitä videoita, ei muuta"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "pää ei oo koskaan yhtä virkeä kuin herätessä, joten [[tuhlaa se]] videoihin, jotka unohdat klo 9 mennessä"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "oot sängyssä puhelimella kuitenkin, eikö?"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "joten [[älä missään nimessä avaa Sophia-sovellusta]] 5 minuutiksi italian renessanssin pariin"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "jätä aamupala väliin [[joka ikinen päivä]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "musta kahvi tyhjään vatsaan lasketaan ateriaksi, eikö?"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "klo 10.30 mennessä [[kädet tärisee ja on hirveä nälkä]], joten ryöstät automaatin"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "ja puoleenpäivään mennessä [[tiuskit ihmisille]], jotka ei tehneet mitään. klassikko"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "lähde kotoa [[10 minuuttia myöhässä]]"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "avaimet, puhelin, toinen kenkä jalassa, paahtoleipä suussa"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "juokse junaan, myöhästy silti ja saavu [[hikisenä ja hengästyneenä]]"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "sitten,"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "kerro kaikille, että [[et vaan oo aamuihminen]], ja toista huomenna!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

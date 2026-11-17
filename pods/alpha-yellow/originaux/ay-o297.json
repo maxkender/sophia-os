@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o297",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "52d537dd-3656-4c57-a004-962de759d1eb",
+ "titre": "How To Become Ridiculously Social #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "52d537dd-3656-4c57-a004-962de759d1eb"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 9 de la boîte (52d537dd, no 5,1 k r 2,64) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (maison, énergie, relier les gens, dire oui, créer l'événement).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c62f9742-f7d2-4967-9913-441dfc9f47a7",
+   "texte_overlay": "How To Become\nRidiculously Social",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7695465258047065351/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Learn three names in every new group. Use them in the first five minutes. Remembering names makes people warm up to you right away.",
+   "media_id": "c3b45aa1-db7c-423a-8939-2761694964d0"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Talk to the people you see every day. The barista, your neighbour, the gym regular. Small daily chats build social confidence without pressure.",
+   "media_id": "c504539f-f768-46b7-afda-f289bceaae96"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Have a go-to question. \"What's keeping you busy these days?\" It works with anyone and opens much better conversations than \"what do you do?\"",
+   "media_id": "c6010241-851d-4c2d-8cc1-bc3db1a854a0"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Leave conversations on a high. Don't wait for the awkward silence. End while it's fun and people will want to talk to you again. Try it this week.",
+   "media_id": "c601623d-dccb-44f7-9e7e-5db1eba756aa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: I avoided parties because I didn't know what to say. After: five minutes a day of history, art or science, and I always have stories.",
+   "texte_sophia": "Before: I avoided parties because I didn't know what to say. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have stories.",
+   "media_id": "bfa8b97a-8655-45b0-a308-1f4c5b9d5d71"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Follow up after you meet someone. \"Great talking yesterday, let's grab a coffee.\" Most people never do, so it makes you stand out.",
+   "media_id": "c830a122-163d-4dfe-937f-5f729194dd51"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Join a team or a club. Football, chess, climbing. A shared activity gives you a group of friends without having to start from scratch.",
+   "media_id": "d167eed1-467e-4608-8c99-dd3b3ddf359e"
+  }
+ ]
+}

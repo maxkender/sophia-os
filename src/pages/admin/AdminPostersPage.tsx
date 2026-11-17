@@ -126,6 +126,7 @@ import type {
 } from "@/features/moteur/types";
 import { localeDate } from "@/locales/localeDate";
 import { BoutonDelierSlack } from "@/features/slack/BoutonDelierSlack";
+import { VueTableauPosteurs } from "@/features/posteurs/VueTableauPosteurs";
 
 // Carte des zones : d3-geo et le fond de carte dans un morceau à part.
 const CarteZones = React.lazy(() => import("@/features/hiring/CarteZones"));
@@ -801,6 +802,8 @@ export function AdminPostersPage() {
   // Cohorte et tri dans l'adresse : un lien partagé ouvre la même cohorte.
   const [params, setParams] = useSearchParams();
   const filtreCohorte = params.get("cohorte") ?? "";
+  // 17/11 (Max) : la vue tableau (labels × pays), dans l'adresse comme les autres filtres.
+  const vueTableau = params.get("vue") === "tableau";
   const triParam = params.get("tri") as TriPosters | null;
   const tri: TriPosters = triParam && TRIS_POSTERS.includes(triParam) ? triParam : "phase";
   const majParam = (cle: string, valeur: string) =>
@@ -908,7 +911,8 @@ export function AdminPostersPage() {
       new Date(`${jour}T12:00:00Z`),
     );
 
-  const [ficheId, setFicheId] = React.useState<string | null>(null);
+  // 17/11 : ?fiche=<id> ouvre la fiche (lien « nouvel onglet » de la vue tableau).
+  const [ficheId, setFicheId] = React.useState<string | null>(() => params.get("fiche"));
   const [ficheCompteId, setFicheCompteId] = React.useState<string | null>(null);
 
   // « Créer le premier compte » d'une fiche sans compte : même choix de
@@ -2277,8 +2281,17 @@ export function AdminPostersPage() {
       {ajout === "poster" && formulairePoster}
       {ajout === "recruteur" && formulaireRecruteur}
 
-      {barreFiltres}
-      {liste}
+      <div className="flex gap-2" data-testid="bascule-vue-posteurs">
+        <Button size="sm" variant={vueTableau ? "outline" : "default"} onClick={() => majParam("vue", "")}>Liste</Button>
+        <Button size="sm" variant={vueTableau ? "default" : "outline"} onClick={() => majParam("vue", "tableau")}>Vue tableau</Button>
+      </div>
+
+      {vueTableau ? <VueTableauPosteurs /> : (
+        <>
+          {barreFiltres}
+          {liste}
+        </>
+      )}
 
       {fiche && (
         <ModalFiche

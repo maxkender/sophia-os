@@ -1,0 +1,625 @@
+{
+ "id": "dr-016",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of science nerd hobbies",
+  "de": "Der Eisberg der Wissenschaftsnerd-Hobbys",
+  "it": "Iceberg degli hobby da nerd della scienza",
+  "pt-BR": "Iceberg de hobbies de nerd de ciência",
+  "tr": "Bilim meraklılarının hobi buzdağı",
+  "sv": "Isberget av vetenskapsnördens hobbyer",
+  "nl": "IJsberg van hobby's van wetenschapsnerds"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #sciencenerd #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #wissenschaft #selbstverbesserung",
+  "it": "#iceberg #hobby #scienza #crescitapersonale",
+  "pt-BR": "#iceberg #hobbies #ciência #autoconhecimento",
+  "tr": "#buzdağı #hobi #bilim #kişiselgelişim",
+  "sv": "#isberg #hobbyer #vetenskap #självutveckling",
+  "nl": "#ijsberg #hobbys #wetenschap #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "QUANTUM (Slowed) - PHNKR & dnvn & Phonk King",
+  "url": "https://www.tiktok.com/music/QUANTUM-Slowed-7550638068775438337"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « science nerd hobbies ». Sophia au 2e étage (« daily sophia lessons », icône). Objets Seedream. Couverture : son décor, une variante par langue (miroir, zoom, teinte ; demande d'Adrien du 17/11). 7 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "science nerd hobbies",
+    "variante": 0
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Wissenschaftsnerd-Hobbys",
+    "variante": 1
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da nerd della scienza",
+    "variante": 2
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de nerd de ciência",
+    "variante": 3
+   },
+   "tr": {
+    "haut": "Bilim meraklılarının",
+    "bas": "hobi buzdağı",
+    "variante": 4
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "vetenskapsnördens hobbyer",
+    "variante": 5
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van wetenschapsnerds",
+    "variante": 6
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "astronomy",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "documentaries",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "science books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "coding",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "microscopy",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "rock collecting",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "chemistry sets",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "morse code",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "building radios",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "fossil hunting",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "lockpicking",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "physics podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "plate tectonics",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "reading the original papers",
+       "image": "images/objets/parchemin.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "astronomie",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "dokus",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "sachbücher",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "schach",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "coden",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "mikroskop",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "steine sammeln",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "chemie zu hause",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "morsecode",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "radios bauen",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "fossilien suchen",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "schlösser knacken",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "physik-podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "tektonik",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "originalpaper lesen",
+       "image": "images/objets/parchemin.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "documentari",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "libri di scienza",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "scacchi",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "coding",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "microscopia",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "minerali",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "piccolo chimico",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "alfabeto morse",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "costruire radio",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "cercare fossili",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "scassinare lucchetti",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "podcast di fisica",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "tettonica a placche",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "leggere le fonti",
+       "image": "images/objets/parchemin.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "docs",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "livros de ciência",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "xadrez",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "programar",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "microscopia",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "colecionar pedras",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "kit de química",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "código morse",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "montar rádios",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "caçar fósseis",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "abrir cadeados",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "podcasts de física",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "tectônica de placas",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "ler os artigos",
+       "image": "images/objets/parchemin.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "belgeseller",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "bilim kitapları",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "kodlama",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "mikroskop",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "taş toplamak",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "kimya seti",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "mors alfabesi",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "radyo yapmak",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "fosil avı",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "kilit açmak",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "fizik podcastleri",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "levha tektoniği",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "orijinal makaleler",
+       "image": "images/objets/parchemin.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "dokumentärer",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "läsa vetenskap",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "koda",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "mikroskop",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "samla stenar",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "kemilådor",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "morsekod",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "bygga radio",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "leta fossil",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "dyrka lås",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "fysikpoddar",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "plattektonik",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "läsa forskningen",
+       "image": "images/objets/parchemin.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "sterrenkunde",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "docu's",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "wetenschap lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "coderen",
+       "image": "images/objets/ordinateur.png"
+      },
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "microscopie",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "stenen verzamelen",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "proefjes doen",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "morsecode",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "radio's bouwen",
+       "image": "images/objets/radio-ancienne.png"
+      },
+      {
+       "t": "fossielen zoeken",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "sloten openen",
+       "image": "images/objets/cadenas.png"
+      },
+      {
+       "t": "fysica-podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "aardplaten",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "de originele papers lezen",
+       "image": "images/objets/parchemin.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

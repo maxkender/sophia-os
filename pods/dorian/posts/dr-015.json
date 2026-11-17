@@ -1,0 +1,299 @@
+{
+ "id": "dr-015",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694420862384016660",
+  "vues": 205800,
+  "publie_le": "2026-10-08",
+  "accroche": "5 niche skills that'll boost your superiority complex"
+ },
+ "titre": {
+  "en": "5 niche skills that make you disgustingly interesting",
+  "de": "5 nischen-skills, mit denen du jeden raum gewinnst",
+  "it": "5 skill di nicchia che ti rendono interessantissimo",
+  "pt-BR": "5 habilidades nichadas que te deixam interessante demais",
+  "tr": "seni odadaki en ilginç kişi yapan 5 niş beceri",
+  "sv": "5 nischade färdigheter som gör dig sjukt intressant",
+  "nl": "5 niche skills die je walgelijk interessant maken"
+ },
+ "legendes": {
+  "en": "#niche #superioritycomplex #lockedin #selfimprovement",
+  "de": "#skills #wissen #lernen #selbstverbesserung",
+  "it": "#skill #cultura #imparare #crescitapersonale",
+  "pt-BR": "#habilidades #conhecimento #aprender #autodesenvolvimento",
+  "tr": "#beceri #bilgi #öğrenmek #kişiselgelişim",
+  "sv": "#färdigheter #kunskap #lärande #självutveckling",
+  "nl": "#skills #kennis #leren #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "Retake (Remix) - gabriawll",
+  "url": "https://www.tiktok.com/music/Retake-Remix-7626391158171633665"
+ },
+ "notes": "Original sur sa liste « 5 niche skills that'll boost your superiority complex » (206 k) : même format (difficulté /50), nos compétences à nous (pas ses items). Faits : le problème des accordeurs de piano de Fermi ; constellations adaptées en pt-BR (Croix du Sud, Scorpion : ciel de l'hémisphère sud). Images : ciel étoilé Seedream ; tableaux AIC Breton (« The Song of the Lark »), Magnasco, Renoir (« Woman at the Piano »). Couverture : un cerveau en IRM différent par langue (demande d'Adrien du 17/11). Sophia en item 3 sur 5 (cta B), écran quiz traduit. 7 langues.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche skills that make you disgustingly interesting",
+    "image": "images/cerveau-01.jpg",
+    "legende": "(all free)"
+   },
+   "de": {
+    "titre": "5 nischen-skills, mit denen du jeden raum gewinnst",
+    "image": "images/cerveau-03.jpg",
+    "legende": "(alles gratis)"
+   },
+   "it": {
+    "titre": "5 skill di nicchia che ti rendono interessantissimo",
+    "image": "images/cerveau-04.jpg",
+    "legende": "(tutto gratis)"
+   },
+   "pt-BR": {
+    "titre": "5 habilidades nichadas que te deixam interessante demais",
+    "image": "images/cerveau-05.jpg",
+    "legende": "(tudo de graça)"
+   },
+   "tr": {
+    "titre": "seni odadaki en ilginç kişi yapan 5 niş beceri",
+    "image": "images/cerveau-06.jpg",
+    "legende": "(hepsi ücretsiz)"
+   },
+   "sv": {
+    "titre": "5 nischade färdigheter som gör dig sjukt intressant",
+    "image": "images/cerveau-07.jpg",
+    "legende": "(allt gratis)"
+   },
+   "nl": {
+    "titre": "5 niche skills die je walgelijk interessant maken",
+    "image": "images/cerveau-08.jpg",
+    "legende": "(allemaal gratis)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Naming constellations",
+    "texte": "learn ten. start with orion, cassiopeia and the big dipper. one clear night and you'll never look at the sky the same way",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
+   },
+   "de": {
+    "titre": "Sternbilder erkennen",
+    "texte": "lern zehn. fang mit orion, kassiopeia und dem großen wagen an. eine klare nacht, und du siehst den himmel nie wieder gleich",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
+   },
+   "it": {
+    "titre": "Riconoscere le costellazioni",
+    "texte": "imparane dieci. inizia con orione, cassiopea e il grande carro. una notte limpida e non guarderai più il cielo allo stesso modo",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
+   },
+   "pt-BR": {
+    "titre": "Reconhecer constelações",
+    "texte": "aprenda dez. comece com órion, escorpião e o cruzeiro do sul. uma noite limpa e você nunca mais olha o céu do mesmo jeito",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
+   },
+   "tr": {
+    "titre": "Takımyıldızlarını tanımak",
+    "texte": "on tane öğren. avcı, kraliçe ve büyükayı ile başla. tek bir açık gece ve gökyüzüne bir daha asla aynı gözle bakmazsın",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
+   },
+   "sv": {
+    "titre": "Känna igen stjärnbilder",
+    "texte": "lär dig tio. börja med orion, cassiopeja och karlavagnen. en klar natt, och du ser aldrig himlen på samma sätt igen",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
+   },
+   "nl": {
+    "titre": "Sterrenbeelden herkennen",
+    "texte": "leer er tien. begin met orion, cassiopeia en de grote beer. één heldere nacht en je kijkt nooit meer hetzelfde naar de lucht",
+    "image": "images/ciel-etoile.jpg",
+    "difficulte": "12/50"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Reciting a poem by heart",
+    "texte": "pick one you love, 14 lines max. learn two lines a day. in a week you'll own something nobody can take from you",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   },
+   "de": {
+    "titre": "Ein Gedicht auswendig",
+    "texte": "nimm eins, das du liebst, höchstens 14 zeilen. lern zwei zeilen am tag. nach einer woche hast du etwas, das dir keiner nehmen kann",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   },
+   "it": {
+    "titre": "Una poesia a memoria",
+    "texte": "scegline una che ami, massimo 14 versi. impara due versi al giorno. in una settimana avrai qualcosa che nessuno può toglierti",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   },
+   "pt-BR": {
+    "titre": "Um poema de cor",
+    "texte": "escolha um que você ama, no máximo 14 versos. decore dois versos por dia. em uma semana você tem algo que ninguém tira de você",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   },
+   "tr": {
+    "titre": "Ezbere bir şiir",
+    "texte": "sevdiğin, en fazla 14 dizelik bir şiir seç. günde iki dize ezberle. bir haftada kimsenin senden alamayacağı bir şeyin olur",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   },
+   "sv": {
+    "titre": "En dikt utantill",
+    "texte": "välj en du älskar, högst 14 rader. lär dig två rader om dagen. på en vecka äger du något som ingen kan ta ifrån dig",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   },
+   "nl": {
+    "titre": "Een gedicht uit je hoofd",
+    "texte": "kies er een waar je van houdt, maximaal 14 regels. leer twee regels per dag. na een week heb je iets dat niemand je kan afpakken",
+    "image": "images/glaneuse-couchant.jpg",
+    "difficulte": "20/50"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "it's like a tiny lecture every morning: history, philosophy, science, economics. you'll always have something to talk about",
+    "telephone": "quiz",
+    "difficulte": "5/50"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "wie eine kleine vorlesung jeden morgen: geschichte, philosophie, wissenschaft, wirtschaft. du hast immer etwas zu erzählen",
+    "telephone": "quiz",
+    "difficulte": "5/50"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "come una piccola lezione universitaria ogni mattina: storia, filosofia, scienze, economia. avrai sempre qualcosa di cui parlare",
+    "telephone": "quiz",
+    "difficulte": "5/50"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "tipo uma mini aula toda manhã: história, filosofia, ciência, economia. você sempre vai ter assunto",
+    "telephone": "quiz",
+    "difficulte": "5/50"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "her sabah minik bir ders gibi: tarih, felsefe, bilim, ekonomi. her zaman konuşacak bir şeyin olur",
+    "telephone": "quiz",
+    "difficulte": "5/50"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "som en liten föreläsning varje morgon: historia, filosofi, vetenskap, ekonomi. du har alltid något att prata om",
+    "telephone": "quiz",
+    "difficulte": "5/50"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie. je hebt altijd iets om over te praten",
+    "telephone": "quiz",
+    "difficulte": "5/50"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "History in 60 seconds",
+    "texte": "who, what, and why it mattered, in one minute. try the fall of rome or the printing press. it's harder than it sounds",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
+   },
+   "de": {
+    "titre": "Geschichte in 60 Sekunden",
+    "texte": "wer, was und warum es wichtig war, in einer minute. versuch's mit dem fall roms oder dem buchdruck. schwerer, als es klingt",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
+   },
+   "it": {
+    "titre": "La storia in 60 secondi",
+    "texte": "chi, cosa e perché contava, in un minuto. prova con la caduta di roma o la stampa. è più difficile di quanto sembri",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
+   },
+   "pt-BR": {
+    "titre": "História em 60 segundos",
+    "texte": "quem, o quê e por que importou, em um minuto. tente a queda de roma ou a prensa de gutenberg. é mais difícil do que parece",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
+   },
+   "tr": {
+    "titre": "60 saniyede tarih",
+    "texte": "kim, ne ve neden önemliydi, bir dakikada. roma'nın çöküşünü ya da matbaayı dene. göründüğünden zor",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
+   },
+   "sv": {
+    "titre": "Historia på 60 sekunder",
+    "texte": "vem, vad och varför det spelade roll, på en minut. testa roms fall eller boktryckarkonsten. det är svårare än det låter",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
+   },
+   "nl": {
+    "titre": "Geschiedenis in 60 seconden",
+    "texte": "wie, wat en waarom het ertoe deed, in één minuut. probeer de val van rome of de boekdrukkunst. moeilijker dan het klinkt",
+    "image": "images/scene-historique.jpg",
+    "difficulte": "30/50"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Fermi estimates",
+    "texte": "how many piano tuners work in chicago? enrico fermi trained students to crack questions like this with rough, logical guesses. it rewires how you think",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   },
+   "de": {
+    "titre": "Fermi-Schätzungen",
+    "texte": "wie viele klavierstimmer arbeiten in chicago? enrico fermi brachte studenten bei, solche fragen mit groben, logischen schätzungen zu knacken. das verändert, wie du denkst",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   },
+   "it": {
+    "titre": "Stime di Fermi",
+    "texte": "quanti accordatori di pianoforti lavorano a chicago? enrico fermi insegnava a risolvere domande così con stime rapide e logiche. ti cambia il modo di pensare",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   },
+   "pt-BR": {
+    "titre": "Estimativas de Fermi",
+    "texte": "quantos afinadores de piano trabalham em chicago? enrico fermi ensinava os alunos a resolver perguntas assim com estimativas rápidas e lógicas. muda seu jeito de pensar",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   },
+   "tr": {
+    "titre": "Fermi tahminleri",
+    "texte": "chicago'da kaç piyano akortçusu çalışır? enrico fermi öğrencilerine bu tür soruları kaba ama mantıklı tahminlerle çözmeyi öğretirdi. düşünme şeklini değiştirir",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   },
+   "sv": {
+    "titre": "Fermiuppskattningar",
+    "texte": "hur många pianostämmare jobbar i chicago? enrico fermi lärde studenter att knäcka sådana frågor med grova, logiska gissningar. det ändrar hur du tänker",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   },
+   "nl": {
+    "titre": "Fermi-schattingen",
+    "texte": "hoeveel pianostemmers werken er in chicago? enrico fermi leerde studenten zulke vragen te kraken met ruwe, logische schattingen. het verandert hoe je denkt",
+    "image": "images/pianiste-renoir.jpg",
+    "difficulte": "35/50"
+   }
+  }
+ ]
+}

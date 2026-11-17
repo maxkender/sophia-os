@@ -1,0 +1,413 @@
+{
+ "id": "mm-o067",
+ "titre": "tier list of Dopamine sources pt3 (final)",
+ "position_app": 2,
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "015a132c-deaf-4b50-9017-c9970ea8ae9e",
+ "legendes": {
+  "en": "dopamine sources tier list, final part #dopamine #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "tier list des sources de dopamine, dernière partie #dopamine #mentalmaxxing #tierlist #developpementpersonnel"
+ },
+ "couverture": {
+  "image": {
+   "src": "7687663666392583432/1",
+   "boite": [
+    128,
+    498,
+    824,
+    450
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des"
+  },
+  "gros": {
+   "en": "Dopamine",
+   "fr": "sources de"
+  },
+  "bas": {
+   "en": "sources pt3 (final)",
+   "fr": "dopamine 3 (fin)"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "fr": "note mon classement"
+ },
+ "pied": {
+  "en": "what’s missing from all 3 parts?",
+  "fr": "il manque quoi dans les 3 parties ?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "real, earned",
+    "fr": "vrai, mérité"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      662,
+      239,
+      102,
+      99
+     ],
+     "t": {
+      "en": "a new PR",
+      "fr": "un nouveau|record"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "a day|in nature",
+      "fr": "une journée|dans la nature"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      880,
+      1092,
+      120,
+      125
+     ],
+     "t": {
+      "en": "mastering|a skill",
+      "fr": "maîtriser|un truc"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "walking",
+      "fr": "marcher"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "deep sleep",
+      "fr": "sommeil|profond"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "meditation",
+      "fr": "méditation"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "pet time",
+      "fr": "temps avec|l’animal"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      5,
+      185,
+      195
+     ],
+     "t": {
+      "en": "good food",
+      "fr": "bonne bouffe"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      756,
+      697,
+      104,
+      107
+     ],
+     "t": {
+      "en": "vinyl",
+      "fr": "vinyle"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "neutral",
+    "fr": "neutre"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "coffee",
+      "fr": "café"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "movies",
+      "fr": "films"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "espresso",
+      "fr": "espresso"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "cheap",
+    "fr": "toc"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "junk food",
+      "fr": "malbouffe"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming",
+      "fr": "gaming"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "likes",
+      "fr": "les likes"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube",
+      "fr": "youtube"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "useless",
+   "fr": "inutile"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "3am scrolling",
+     "fr": "scroller à 3h"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 : déclinaison G1 du remake 7688926567183027474 (« tier list of Dopamine sources pt3 (final) », es 6,2 k, r 6,16), titre mot pour mot, en tier list originale (autres images, autre couverture). Parent déclaré : la version Sophia (015a132c). cta B. 9 langues."
+}

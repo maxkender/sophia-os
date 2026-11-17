@@ -1,0 +1,413 @@
+{
+ "id": "mm-o068",
+ "titre": "tier list of Weekend habits",
+ "position_app": 2,
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4e01dfc7-58bf-48e1-a8ba-1fd81c85e880",
+ "legendes": {
+  "en": "weekend habits, ranked by how you feel on monday #weekend #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les habitudes du week-end, classées selon ton lundi #weekend #mentalmaxxing #tierlist #developpementpersonnel"
+ },
+ "couverture": {
+  "image": {
+   "src": "7696594173863955730/1",
+   "boite": [
+    190,
+    320,
+    710,
+    525
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des"
+  },
+  "gros": {
+   "en": "Weekend",
+   "fr": "habitudes"
+  },
+  "bas": {
+   "en": "habits",
+   "fr": "du week-end"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire"
+ },
+ "pied": {
+  "en": "how was your sunday?",
+  "fr": "c’était comment ton dimanche ?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "monday thanks you",
+    "fr": "ton lundi te remercie"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "hiking",
+      "fr": "randonnée"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "long workout",
+      "fr": "longue séance"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "planning|the week",
+      "fr": "préparer|la semaine"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "great",
+    "fr": "top"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "brunch at home",
+      "fr": "brunch|à la maison"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "reading|in a café",
+      "fr": "lire|dans un café"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "dog walk",
+      "fr": "balade|avec le chien"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "sun outside",
+      "fr": "soleil dehors"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "board games",
+      "fr": "jeux|de société"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "record shop",
+      "fr": "disquaire"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "deep clean",
+      "fr": "grand ménage"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "yoga",
+      "fr": "yoga"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "depends",
+    "fr": "ça dépend"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "cinema",
+      "fr": "ciné"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "sleeping|till 11",
+      "fr": "dormir|jusqu’à 11h"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "café hopping",
+      "fr": "tournée|des cafés"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "costs you",
+    "fr": "te coûte"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming|all day",
+      "fr": "gaming|toute la journée"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "takeout|again",
+      "fr": "encore|à emporter"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube|marathon",
+      "fr": "marathon|youtube"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "posting|everything",
+      "fr": "tout poster"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "lost weekend",
+   "fr": "week-end perdu"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 : déclinaison G1 de mm-o013 (« tier list of Weekend habits », fr 2,3 k, r 2,71), titre mot pour mot, autres items, autre couverture (le cerveau scotché). Parent déclaré : la version Sophia (4e01dfc7). cta A. 9 langues."
+}

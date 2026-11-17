@@ -1,0 +1,412 @@
+{
+ "id": "mm-o069",
+ "titre": "tier list of Hobbies for introverts",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "hobbies for introverts, ranked #introvert #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les hobbies pour introvertis, classés #introverti #mentalmaxxing #tierlist #developpementpersonnel"
+ },
+ "couverture": {
+  "image": {
+   "src": "7699644186470976786/1",
+   "boite": [
+    198,
+    378,
+    684,
+    738
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des"
+  },
+  "gros": {
+   "en": "Introvert",
+   "fr": "hobbies"
+  },
+  "bas": {
+   "en": "hobbies",
+   "fr": "d’introverti"
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "fr": "note mon classement"
+ },
+ "pied": {
+  "en": "what’s your solo hobby?",
+  "fr": "c’est quoi ton hobby solo ?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "perfect alone",
+    "fr": "parfait en solo"
+   },
+   "cases": [
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "reading",
+      "fr": "lire"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner"
+     }
+    },
+    {
+     "app": true
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "great",
+    "fr": "top"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "long walks",
+      "fr": "longues|marches"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "lifting",
+      "fr": "la muscu"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "vinyl|collecting",
+      "fr": "collection|de vinyles"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "archery",
+      "fr": "tir à l’arc"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "yoga",
+      "fr": "yoga"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "making|playlists",
+      "fr": "faire|des playlists"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "pet care",
+      "fr": "s’occuper|d’un animal"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      596,
+      552,
+      92,
+      96
+     ],
+     "t": {
+      "en": "gardening",
+      "fr": "jardinage"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "okay",
+    "fr": "ça passe"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "film nights",
+      "fr": "soirées|ciné"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "café hopping",
+      "fr": "tournée|des cafés"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "pc building",
+      "fr": "monter un pc"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "not a hobby",
+    "fr": "pas un hobby"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "ranked games",
+      "fr": "parties|classées"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "watching|vlogs",
+      "fr": "regarder|des vlogs"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "posting",
+      "fr": "poster"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "snacking",
+      "fr": "grignoter"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "drains you",
+   "fr": "te vide"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 : full test (type_bleo full_test), thème hobbies pour introvertis, jamais fait chez nous. cta B. 9 langues."
+}

@@ -10,11 +10,13 @@ const api = vi.hoisted(() => ({
   saisirLotRuul: vi.fn(),
   payerLotRuul: vi.fn(),
   rapprocherLotRuul: vi.fn(),
+  validerLigneRuul: vi.fn(),
+  devisLotRuul: vi.fn(),
   changerStatutRuul: vi.fn(),
 }));
 vi.mock("./api", () => api);
 
-import { lignesCsvLot, lireExportRuul } from "./logique";
+import { descriptionLigneRuul, lignesCsvLot, lignesCsvRuul, lireExportRuul } from "./logique";
 import { PaieRuul } from "./PaieRuul";
 
 function rendu() {
@@ -59,6 +61,7 @@ describe("Paie Ruul", () => {
       rapprochement: null,
       lignes: [{
         poster_id: "p1", nom: "Ana Test", ruul_email: "ana@test.zz", pays: "IT", total: 20, alertes: ["1er paiement", "rattrapage"],
+        ruul_onboarding: "READY", valide: false, a_verifier: ["rattrapage (semaine du 26/10)"],
         semaines: [
           { id: "a", semaine: "2026-10-26", montant: 10, rattrapage: true, statut: "a_payer", nb_comptes: 1, faits: 14, prevus: 14, paye_at: null, ecart: null },
           { id: "b", semaine: "2026-11-02", montant: 10, rattrapage: false, statut: "a_payer", nb_comptes: 1, faits: 14, prevus: 14, paye_at: null, ecart: null },
@@ -68,18 +71,27 @@ describe("Paie Ruul", () => {
         { poster_id: "p2", nom: "Bo Test", ruul_statut: "invite", ruul_compte: "invited", semaine: "2026-11-02", montant: 7, raison: "x" },
         { poster_id: "p3", nom: "Cy Test", ruul_statut: "invite", ruul_compte: "invited", semaine: "2026-11-02", montant: 0, raison: "0 post" },
       ],
-      totaux: { payable: 20, nb_payable: 1, en_attente: 7, nb_en_attente: 1 },
+      totaux: { payable: 20, nb_payable: 1, en_attente: 7, nb_en_attente: 1, a_valider: 1, pret: 0, nb_pret: 0 },
+      devis: { env: "prod", currency: "EUR", lignes: 1, net_usd: 20, payment: { total: 18.9 } },
     });
+    api.validerLigneRuul.mockResolvedValue({ ok: true, lignes: 2 });
     rendu();
     const lot = await screen.findByTestId("lot-ruul");
     expect(within(lot).getByTestId("alertes-ruul")).toHaveTextContent("Ana Test : rattrapage");
     // 0705 : 2 totaux, et la liste « en attente » (Invited qui ont posté) avec le montant dû.
     expect(within(lot).getByTestId("total-payable")).toHaveTextContent("20.00 $");
     expect(within(lot).getByTestId("total-attente")).toHaveTextContent("7.00 $");
-    expect(within(lot).getByTestId("totaux-ruul")).toHaveTextContent("Payable maintenant (Active) · 1 posteur(s)");
+    expect(within(lot).getByTestId("totaux-ruul")).toHaveTextContent("Payable (READY) · 1 posteur(s)");
+    expect(within(lot).getByTestId("total-frais")).toHaveTextContent("18.90 EUR");
     const attente = within(lot).getByTestId("reportes-ruul");
-    expect(attente).toHaveTextContent("En attente : pas encore Active (7.00 $)");
-    expect(attente).toHaveTextContent("Bo Test · semaine du 2/11 · 7.00 $ · Invited");
+    expect(attente).toHaveTextContent("En attente : pas encore READY (7.00 $)");
+    expect(attente).toHaveTextContent("Bo Test · semaine du 2/11 · 7.00 $ · x");
+    // 0737 : la ligne inhabituelle attend l'OK de Max.
+    const aValider = within(lot).getByTestId("a-valider-ruul");
+    expect(aValider).toHaveTextContent("Ana Test · 20.00 $ · rattrapage (semaine du 26/10)");
+    fireEvent.click(within(aValider).getByRole("button", { name: "OK" }));
+    await waitFor(() => expect(api.validerLigneRuul).toHaveBeenCalledWith("p1", "2026-11-02", true));
+    expect(within(lot).getByTestId("lignes-ruul")).toHaveTextContent("28 / 28");
     expect(attente).not.toHaveTextContent("Cy Test");
     fireEvent.change(within(lot).getByLabelText("Numéro de facture Ruul"), { target: { value: "INV-1" } });
     fireEvent.click(within(lot).getByRole("button", { name: "Saisi" }));
@@ -92,7 +104,21 @@ describe("Paie Ruul", () => {
       { id: "1", semaine: "2026-10-26", montant: 10, rattrapage: true, statut: "a_payer", nb_comptes: 1, faits: 1, prevus: 1, paye_at: null, ecart: null },
       { id: "2", semaine: "2026-11-02", montant: 10, rattrapage: false, statut: "a_payer", nb_comptes: 1, faits: 1, prevus: 1, paye_at: null, ecart: null },
     ] }])).toEqual([["Ana", "a@b.cc", "26/10 (rattrapage) + 2/11", "20.00"]]);
+    expect(descriptionLigneRuul("2026-11-16", 14, 10)).toBe("Vik Studios — week of Nov 16 : 14 posts + 10 $ bonus");
+    expect(lignesCsvRuul("2026-11-16", [
+      { poster_id: "p", nom: "Ana", ruul_email: " A@B.cc ", pays: "IT", total: 14, alertes: [], ruul_onboarding: "READY", valide: true, bonus: 0,
+        semaines: [{ id: "1", semaine: "2026-11-16", montant: 14, rattrapage: false, statut: "a_payer", nb_comptes: 1, faits: 1, prevus: 14, paye_at: null, ecart: null }] },
+      { poster_id: "q", nom: "Bo", ruul_email: "b@b.cc", pays: "IT", total: 7, alertes: [], ruul_onboarding: "READY", valide: false, semaines: [] },
+      { poster_id: "r", nom: "Cy", ruul_email: "c@b.cc", pays: "IT", total: 7, alertes: [], ruul_onboarding: "PENDING_KYC", semaines: [] },
+    ])).toEqual([["a@b.cc", "Vik Studios — week of Nov 16 : 1 post", "14.00", "USD"]]);
     expect(lireExportRuul('Name;E-mail;Amount (USD)\n"Ana";a@b.cc;"$20,00"\n')).toEqual([{ email: "a@b.cc", montant: "20.00" }]);
+    expect(descriptionLigneRuul("2026-11-16", 14, 10)).toBe("Vik Studios — week of Nov 16 : 14 posts + 10 $ bonus");
+    expect(lignesCsvRuul("2026-11-16", [
+      { poster_id: "p", nom: "Ana", ruul_email: " A@B.cc ", pays: "IT", total: 14, alertes: [], ruul_onboarding: "READY", valide: true, bonus: 0,
+        semaines: [{ id: "1", semaine: "2026-11-16", montant: 14, rattrapage: false, statut: "a_payer", nb_comptes: 1, faits: 1, prevus: 14, paye_at: null, ecart: null }] },
+      { poster_id: "q", nom: "Bo", ruul_email: "b@b.cc", pays: "IT", total: 7, alertes: [], ruul_onboarding: "READY", valide: false, semaines: [] },
+      { poster_id: "r", nom: "Cy", ruul_email: "c@b.cc", pays: "IT", total: 7, alertes: [], ruul_onboarding: "PENDING_KYC", semaines: [] },
+    ])).toEqual([["a@b.cc", "Vik Studios — week of Nov 16 : 1 post", "14.00", "USD"]]);
     expect(lireExportRuul("a,b\n1,2")).toEqual({ erreur: "colonnes email et montant introuvables" });
   });
 });

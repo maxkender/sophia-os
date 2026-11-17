@@ -8,6 +8,7 @@ import { telechargerCsv, versCsv } from "@/lib/csv";
 
 import {
   changerStatutRuul,
+  devisLotRuul,
   libelleArret,
   lireLotRuul,
   lirePosteursRuul,
@@ -16,9 +17,11 @@ import {
   preparerLotRuul,
   rapprocherLotRuul,
   saisirLotRuul,
+  validerLigneRuul,
+  type LigneLot,
   type PosteurRuul,
 } from "./api";
-import { dollars, jourMois, LIBELLE_STATUT, lignesCsvLot, lireExportRuul } from "./logique";
+import { dollars, jourMois, LIBELLE_STATUT, lignesCsvRuul, lireExportRuul } from "./logique";
 
 const CLES = [["ruul-tableau"], ["ruul-posteurs"], ["ruul-lot"]];
 
@@ -176,6 +179,16 @@ function LigneAjouter({ p, onAgir }: { p: PosteurRuul; onAgir: (p: PosteurRuul, 
   );
 }
 
+const LIBELLE_ONBOARDING_COURT: Record<string, string> = {
+  READY: "READY",
+  PENDING_AGREEMENTS: "contrats à signer",
+  PENDING_COLLECTION_ACCOUNT: "banque à ajouter",
+  PENDING_KYC: "identité à faire",
+  NOT_REGISTERED: "compte pas activé",
+};
+
+const somme = (l: LigneLot, f: (s: LigneLot["semaines"][number]) => number) => l.semaines.reduce((t, s) => t + f(s), 0);
+
 function LotRuulCarte() {
   const q = useQuery({ queryKey: ["ruul-lot"], queryFn: () => lireLotRuul() });
   const rafraichir = useRafraichir();
@@ -191,13 +204,15 @@ function LotRuulCarte() {
   // 0705 : la liste « en attente » = les reportés avec un montant dû (les 0 $ de la semaine n'y sont pas).
   const enAttente = d.reportes.filter((r) => Number(r.montant) > 0);
   const attente = enAttente.reduce((s, r) => s + Number(r.montant), 0);
+  const aValider = d.lignes.filter((l) => l.valide === false);
+  const devis = d.devis ?? null;
 
-  const agir = async (f: () => Promise<{ ok: boolean; erreur?: string } & Record<string, unknown>>, ok: string) => {
+  const agir = async (f: () => Promise<{ ok: boolean; erreur?: string; error?: string } & Record<string, unknown>>, ok: string) => {
     setOccupe(true);
     setMessage(null);
     try {
       const r = await f();
-      setMessage(r.ok ? ok : `Impossible : ${r.erreur}`);
+      setMessage(r.ok ? ok : `Impossible : ${r.erreur ?? r.error}`);
       await rafraichir();
     } catch (e) {
       setMessage((e as Error).message);
@@ -221,25 +236,52 @@ function LotRuulCarte() {
         <CardTitle>À payer sur Ruul · semaine du {jourMois(d.semaine)}</CardTitle>
         <CardDescription>
           {statut ? `Lot ${statut}${d.lot?.facture ? ` · facture ${d.lot.facture}` : ""} · ` : "Lot pas encore préparé · "}
-          {d.lignes.length} posteur(s) · <b>{dollars(total)}</b>. Seuls les posteurs « Active » dans Ruul y entrent ; les autres attendent et
-          passent au lot du lundi suivant dès qu'ils sont Active.
+          {d.lignes.length} posteur(s) · <b>{dollars(total)}</b>. Même calcul que la paie Upwork. Seuls les posteurs READY chez Ruul
+          y entrent ; les autres attendent et passent au lundi suivant dès qu'ils sont READY. Les lignes inhabituelles attendent ton OK.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <div className="grid gap-3 sm:grid-cols-2" data-testid="totaux-ruul">
+        <div className="grid gap-3 sm:grid-cols-3" data-testid="totaux-ruul">
           <div className="rounded-lg border border-emerald-500/40 bg-emerald-500/5 px-3 py-2">
             <div className="text-2xl font-semibold" data-testid="total-payable">{dollars(d.totaux?.payable ?? total)}</div>
             <div className="text-xs text-muted-foreground">
-              Payable maintenant (Active) · {d.totaux?.nb_payable ?? d.lignes.length} posteur(s)
+              Payable (READY) · {d.totaux?.nb_payable ?? d.lignes.length} posteur(s)
+              {d.totaux?.pret !== undefined ? ` · prêt à envoyer ${dollars(d.totaux.pret)} (${d.totaux.nb_pret ?? 0})` : ""}
             </div>
           </div>
           <div className="rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2">
             <div className="text-2xl font-semibold" data-testid="total-attente">{dollars(d.totaux?.en_attente ?? attente)}</div>
             <div className="text-xs text-muted-foreground">
-              En attente (Invited, pas encore Active) · {d.totaux?.nb_en_attente ?? new Set(enAttente.map((r) => r.poster_id)).size} posteur(s)
+              En attente (pas encore READY) · {d.totaux?.nb_en_attente ?? new Set(enAttente.map((r) => r.poster_id)).size} posteur(s)
+            </div>
+          </div>
+          <div className="rounded-lg border px-3 py-2" data-testid="total-frais">
+            <div className="text-2xl font-semibold">
+              {devis?.payment.total != null ? `${Number(devis.payment.total).toFixed(2)} ${devis.currency}` : "—"}
+            </div>
+            <div className="text-xs text-muted-foreground">
+              {devis
+                ? `Total à virer, frais Ruul compris (${devis.lignes} ligne(s), ${dollars(devis.net_usd)} nets)${devis.env === "sandbox" ? " · SANDBOX" : ""}`
+                : "Total avec les frais : clique « Calculer les frais »"}
             </div>
           </div>
         </div>
+        {aValider.length > 0 ? (
+          <div className="space-y-1 rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2 text-sm" data-testid="a-valider-ruul">
+            <p className="font-medium">À valider avant l'envoi ({aValider.length})</p>
+            {aValider.map((l) => (
+              <div key={l.poster_id} className="flex flex-wrap items-center gap-2">
+                <span>{l.nom} · {dollars(l.total)} · {(l.a_verifier ?? []).join(" · ")}</span>
+                {statut === "prepare" ? (
+                  <Button size="sm" variant="outline" disabled={occupe}
+                    onClick={() => void agir(() => validerLigneRuul(l.poster_id, d.semaine, true), `${l.nom} : validé.`)}>
+                    OK
+                  </Button>
+                ) : null}
+              </div>
+            ))}
+          </div>
+        ) : null}
         {alertes.length > 0 ? (
           <ul className="space-y-0.5 rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2 text-sm" data-testid="alertes-ruul">
             {alertes.map((a) => <li key={a}>⚠ {a}</li>)}
@@ -251,9 +293,16 @@ function LotRuulCarte() {
               {statut ? "Recalculer le lot" : "Préparer le lot"}
             </Button>
           ) : null}
+          {statut === "prepare" && (d.totaux?.nb_pret ?? 0) > 0 ? (
+            <Button size="sm" variant="outline" disabled={occupe}
+              onClick={() => void agir(() => devisLotRuul(d.semaine), "Frais calculés par Ruul (rien n'est créé chez Ruul).")}>
+              Calculer les frais
+            </Button>
+          ) : null}
           {d.lignes.length > 0 ? (
-            <Button size="sm" variant="outline" onClick={() => telechargerCsv(`ruul-${d.semaine}.csv`, versCsv(["Nom", "Email Ruul", "Semaine(s)", "Montant ($)"], lignesCsvLot(d.lignes)))}>
-              Export CSV
+            <Button size="sm" variant="outline"
+              onClick={() => telechargerCsv(`ruul-${d.semaine}.csv`, versCsv(["email", "description", "amount", "currency"], lignesCsvRuul(d.semaine, d.lignes)))}>
+              Export CSV (format Ruul)
             </Button>
           ) : null}
           {statut === "prepare" && d.lignes.length > 0 ? (
@@ -284,42 +333,55 @@ function LotRuulCarte() {
         {message ? <p className="text-sm" role="status">{message}</p> : null}
         {d.lignes.length > 0 ? (
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm" data-testid="lignes-ruul">
               <thead>
                 <tr className="border-b text-left text-xs text-muted-foreground">
-                  {["Nom", "Email Ruul", "Semaine(s)", "Montant", "Alertes"].map((h) => <th key={h} className="py-2 pr-3">{h}</th>)}
+                  {["Nom", "Email Ruul", "Statut Ruul", "Comptes", "Posts faits / prévus", "Tarif", "Retenue", "Bonus", "Semaine(s)", "TOTAL net", "OK"].map((h) => (
+                    <th key={h} className="py-2 pr-3">{h}</th>
+                  ))}
                 </tr>
               </thead>
               <tbody>
-                {d.lignes.map((l) => (
-                  <tr key={l.poster_id} className="border-b border-border/40 align-top">
-                    <td className="py-1.5 pr-3 font-medium">{l.nom}</td>
-                    <td className="py-1.5 pr-3">{l.ruul_email ?? <span className="text-destructive">manquant</span>}</td>
-                    <td className="py-1.5 pr-3 text-xs">
-                      {l.semaines.map((s) => (
-                        <div key={s.id}>
-                          {jourMois(s.semaine)} : {dollars(s.montant)}{s.rattrapage ? " · rattrapage" : ""}{s.paye_at ? " · payé" : ""}
-                          {s.ecart ? <span className="text-destructive"> · {s.ecart}</span> : null}
-                        </div>
-                      ))}
-                    </td>
-                    <td className="py-1.5 pr-3">{dollars(l.total)}</td>
-                    <td className="py-1.5 pr-3 text-xs">{l.alertes.join(" · ")}</td>
-                  </tr>
-                ))}
+                {d.lignes.map((l) => {
+                  const bonus = l.semaines.flatMap((s) => s.bonus_detail ?? []);
+                  const tarifs = [...new Set(l.semaines.map((s) => s.tarif).filter((t) => t != null))];
+                  return (
+                    <tr key={l.poster_id} className="border-b border-border/40 align-top">
+                      <td className="py-1.5 pr-3 font-medium">{l.nom}</td>
+                      <td className="py-1.5 pr-3">{l.ruul_email ?? <span className="text-destructive">manquant</span>}</td>
+                      <td className="py-1.5 pr-3">{l.ruul_onboarding ? LIBELLE_ONBOARDING_COURT[l.ruul_onboarding] ?? l.ruul_onboarding : "—"}</td>
+                      <td className="py-1.5 pr-3 tabular-nums">{Math.max(0, ...l.semaines.map((s) => Number(s.nb_comptes ?? 0)))}</td>
+                      <td className="py-1.5 pr-3 tabular-nums">{somme(l, (s) => Number(s.faits ?? 0))} / {somme(l, (s) => Number(s.prevus ?? 0))}</td>
+                      <td className="py-1.5 pr-3 tabular-nums">{tarifs.length ? tarifs.map((t) => `${t} $`).join(", ") : "—"}</td>
+                      <td className="py-1.5 pr-3 tabular-nums">{somme(l, (s) => Number(s.retenue ?? 0)) ? dollars(somme(l, (s) => Number(s.retenue ?? 0))) : "—"}</td>
+                      <td className="py-1.5 pr-3 text-xs">
+                        {bonus.length ? bonus.map((b, i) => <div key={i}>{b.type} : {dollars(b.montant)}{b.detail ? ` (${b.detail})` : ""}</div>) : "—"}
+                      </td>
+                      <td className="py-1.5 pr-3 text-xs">
+                        {l.semaines.map((s) => (
+                          <div key={s.id}>
+                            {jourMois(s.semaine)} : {dollars(s.montant)}{s.rattrapage ? " · rattrapage" : ""}{s.paye_at ? " · payé" : ""}
+                            {s.ecart ? <span className="text-destructive"> · {s.ecart}</span> : null}
+                          </div>
+                        ))}
+                      </td>
+                      <td className="py-1.5 pr-3 font-semibold tabular-nums">{dollars(l.total)}</td>
+                      <td className="py-1.5 pr-3 text-xs">{l.valide === false ? <span className="text-amber-600">à valider</span> : "✓"}</td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
         ) : null}
         {enAttente.length > 0 ? (
           <div className="text-sm" data-testid="reportes-ruul">
-            <p className="font-medium">En attente : pas encore Active ({dollars(attente)})</p>
-            <p className="text-xs text-muted-foreground">Ajoutés au paiement du lundi suivant dès qu'ils passent Active dans Ruul.</p>
+            <p className="font-medium">En attente : pas encore READY ({dollars(attente)})</p>
+            <p className="text-xs text-muted-foreground">Ajoutés au paiement du lundi suivant dès qu'ils sont READY chez Ruul.</p>
             <ul className="mt-1 space-y-0.5 text-xs">
               {enAttente.map((r) => (
                 <li key={`${r.poster_id}:${r.semaine}`}>
-                  {r.nom} · semaine du {jourMois(r.semaine)} · <b>{dollars(r.montant)}</b> ·{" "}
-                  {r.ruul_compte === "invited" ? "Invited" : r.raison ?? LIBELLE_STATUT[r.ruul_statut ?? "aucun"]}
+                  {r.nom} · semaine du {jourMois(r.semaine)} · <b>{dollars(r.montant)}</b> · {r.raison ?? LIBELLE_STATUT[r.ruul_statut ?? "aucun"]}
                 </li>
               ))}
             </ul>

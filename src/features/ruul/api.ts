@@ -42,6 +42,13 @@ export interface SemaineLot {
   prevus: number | null;
   paye_at: string | null;
   ecart: string | null;
+  /** 0737 : le calcul de la paie Upwork (paie_calculer_v3). */
+  tarif?: number | null;
+  retenue?: number | null;
+  bonus?: number;
+  bonus_detail?: { type: string; montant: number; detail: string | null }[] | null;
+  a_verifier?: string[];
+  valide?: boolean;
 }
 
 export interface LigneLot {
@@ -52,6 +59,11 @@ export interface LigneLot {
   semaines: SemaineLot[];
   total: number;
   alertes: string[];
+  /** 0737 : statut d'onboarding lu chez Ruul, ce qui attend l'OK de Max, et si c'est validé. */
+  ruul_onboarding?: string | null;
+  bonus?: number;
+  a_verifier?: string[];
+  valide?: boolean;
 }
 
 export interface Reporte {
@@ -69,6 +81,10 @@ export interface Reporte {
 export interface TotauxRuul {
   payable: number;
   nb_payable: number;
+  /** 0737 : posteurs qui attendent l'OK de Max ; lignes prêtes à partir (READY et validées). */
+  a_valider?: number;
+  pret?: number;
+  nb_pret?: number;
   en_attente: number;
   nb_en_attente: number;
 }
@@ -80,6 +96,17 @@ export interface LotRuul {
   lignes: LigneLot[];
   reportes: Reporte[];
   totaux?: TotauxRuul;
+  /** 0737 : le devis Ruul (POST /payouts/calculate) : le total à virer, frais compris. */
+  devis?: DevisRuul | null;
+  devis_at?: string | null;
+}
+
+export interface DevisRuul {
+  env: string;
+  currency: string;
+  lignes: number;
+  net_usd: number;
+  payment: { total?: number | null; subtotal?: number | null; ruulCommissionFee?: number | null; gatewayFee?: number | null; vatTotal?: number | null };
 }
 
 export interface TableauRuul {
@@ -107,6 +134,10 @@ export const saisirLotRuul = (semaine: string, facture: string) => rpc<Retour>("
 export const payerLotRuul = (semaine: string) => rpc<Retour & { payes?: number }>("ruul_lot_payer", { p_semaine: semaine });
 export const rapprocherLotRuul = (semaine: string, lignes: { email: string; montant: string }[]) =>
   rpc<Retour & { ecarts?: number }>("ruul_lot_rapprocher", { p_semaine: semaine, p_lignes: lignes });
+export const validerLigneRuul = (poster: string, semaine: string, ok: boolean) =>
+  rpc<Retour & { lignes?: number }>("ruul_ligne_valider", { p_poster: poster, p_semaine: semaine, p_ok: ok });
+export const devisLotRuul = (semaine: string) =>
+  invoke<{ ok: boolean; error?: string; devis?: DevisRuul }>("ruul-api", { action: "devis", semaine });
 export const changerStatutRuul = (poster: string, statut: StatutRuul | null, email?: string | null) =>
   rpc<Retour>("ruul_statut_changer", { p_poster: poster, p_statut: statut, p_email: email ?? null });
 

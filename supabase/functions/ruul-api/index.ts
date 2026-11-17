@@ -44,8 +44,9 @@ export async function noterAppel(
 /** La société qui paie : celle du réglage, sinon la première de GET /companies (alors notée dans le réglage). */
 async function societe(supabase: Supabase, reglage: ReglageRuulApi): Promise<{ id: number | null; erreur: string | null }> {
   if (reglage.company_id) return { id: reglage.company_id, erreur: null };
-  const r = await appelRuul<Array<{ id: number; name: string; status: string }>>(reglage.env, "GET", "/companies");
-  const liste = Array.isArray(r.data) ? r.data : [];
+  // La réponse est { data: [...] } (RuulApiListCompaniesResponseDto).
+  const r = await appelRuul<{ data: Array<{ id: number; name: string; status: string }> }>(reglage.env, "GET", "/companies");
+  const liste = Array.isArray(r.data?.data) ? r.data!.data : [];
   await noterAppel(supabase, reglage.env, "companies", r, { societes: liste.map((c) => ({ id: c.id, name: c.name, status: c.status })) });
   if (!r.ok) return { id: null, erreur: r.erreur };
   if (liste.length !== 1) return { id: null, erreur: `${liste.length} sociétés chez Ruul : choisir company_id dans le réglage ruul_api` };

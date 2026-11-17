@@ -4783,6 +4783,32 @@
    },
    "notes": "full test BLEO (quand tu bloques), 7 langues es it tr hu hr fi da, couverture par langue; cta A",
    "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-086",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#conversation #communication #smartpeople",
+   "musique": {
+    "titre": "kagefumi",
+    "auteur": "-",
+    "original": true,
+    "id": "7402610556690860833",
+    "url_tiktok": "https://www.tiktok.com/music/x-7402610556690860833"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7680975889932225814_1",
+    "2": "7707332670765813025_5",
+    "3": "7708068157784591649_2",
+    "4": "7683541501007252758_5",
+    "5": "7707332670765813025_2",
+    "6": "7708068157784591649_6"
+   },
+   "notes": "full test BLEO (briller en conversation), 7 langues fr en de sr el lt bg, couverture par langue; cta C",
+   "type_bleo": "full_test"
   }
  ]
 }

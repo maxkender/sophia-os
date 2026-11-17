@@ -2,9 +2,9 @@
 #
 # Écrit un lot d'originaux (originaux/<id>.json) à partir d'un fichier de decks
 # (liste D, voir plus bas) et choisit les images et les sons selon les règles
-# du 12/11 : toute la banque, rien de livré par le podz depuis 14 jours, pas de
-# quasi-doublon visuel (image retournée comprise), pas d'image du compte
-# supermaxing (filigrane), slide Sophia sans visage reconnaissable, et des sons
+# du 12/11 et du 17/11 : toute la banque sans tri de fond, rien de livré par le
+# podz depuis 14 jours, pas de quasi-doublon dans le lot (image retournée
+# comprise), slide Sophia sans visage reconnaissable, et des sons
 # qui tournent parmi les moins utilisés des 20 dernières livraisons.
 #
 # Le fichier du jour définit D = [dict(sid, typ, parent, hook, notes, cta, ref,
@@ -32,13 +32,6 @@ SONS = [
   ("twin tribes monolith Dexter Morgan Super Slow", "https://www.tiktok.com/music/twin-tribes-monolith-dexter-morgan-super-7401614052290169605"),
   ("addiction - Slowed", "https://www.tiktok.com/music/addiction-slowed-7631225786641336336"),
 ]
-# légendes à écarter partout (image) ; « woman » etc. : pas de visage de femme en couverture
-BAD = ["cigarette", "smok", "pill", "supermaxing", "quote", "title", "caption", "words", "text", "logo", "watermark",
-       "square", "border", "illustration", "painting", "drawing", "cartoon", "screenshot", "poster", "classroom",
-       "student", "school", "microphone", "reporter", "crowd", "close-up", "closeup", "batman", "joker", "superhero",
-       "statue", "teenager", "woman", "girl", "women", "naked", "nude", "child", "kid", "baby", "blood", "gun",
-       "weapon", "knife", "alcohol", "beer", "wine", "drunk", "drink", "whisk", "cocktail", "wine glass", "restaurant", "collage", "church", "pew",
-       "blackboard", "red carpet", "party", "lamborghini", "white car", "white sports car", "godfather"]
 # slide Sophia : pas de personne de face
 SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimming", "underwater", "diving", "laptop",
            "desk", "book", "coffee", "flat lay", "tennis court", "lighthouse", "skyline", "mountain", "landscape",
@@ -86,12 +79,11 @@ def main():
   avant = sorted(f for f in glob.glob("originaux/ay-o*.json") if int(f[-8:-5]) < premier)[-200:]
   recents = {s["media_id"][:8] for f in avant for s in json.load(open(f))["slides"]}
   exclus = set(ns.get("EXCLUS", []))
-  # images vues avec cigarette, alcool, pilules, enfants... sur un aperçu : jamais reprises
-  if os.path.exists("atelier/exclues.json"): exclus |= set(json.load(open("atelier/exclues.json")))
   sons20 = [json.load(open(f))["musique_url"] for f in avant[-20:]]
 
   def leg(k): return (IM[k].get("legende") or "").lower()
-  def ok(k): return COMPTE.get(IM[k]["contenu_id"]) != "supermaxing" and not any(b in leg(k) for b in BAD)
+  # toute la banque, sans tri de fond (Adrien, 17/11, pods/ROUTINE.md §4) : aucun filtre de contenu
+  def ok(k): return True
   def dist(a, b):
     pa, pb = FP[a]["px"], FP[b]["px"]
     fl = [pb[r * 24 + (23 - c)] for r in range(32) for c in range(24)]
@@ -101,11 +93,11 @@ def main():
   def libre(k):
     if k not in IM or k not in FP or k in recents or k in exclus or k in pris: return False
     if any(dist(k, t) < 12 for t in pris): return False
-    return not any(dist(k, t) < 9 for t in recents_fp)
+    return True
   def lum(k): return FP[k]["lum"]
-  couv = sorted([k for k in IM if IM[k]["est_hook"] and k in FP and 12 <= lum(k) < 95 and ok(k)], key=lambda k: (lum(k) > 50, IM[k]["used_count"], k))
-  corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and 15 <= lum(k) < 110 and ok(k)], key=lambda k: (IM[k]["used_count"], k))
-  soph = sorted([k for k in IM if k in FP and lum(k) < 130 and COMPTE.get(IM[k]["contenu_id"]) != "supermaxing"
+  couv = sorted([k for k in IM if IM[k]["est_hook"] and k in FP and ok(k)], key=lambda k: (not 12 <= lum(k) < 95, IM[k]["used_count"], k))
+  corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and ok(k)], key=lambda k: (IM[k]["used_count"], k))
+  soph = sorted([k for k in IM if k in FP and lum(k) < 130  
                  and any(w in leg(k) for w in SOPH_OK) and not any(w in leg(k) for w in SOPH_NON)
                  and not (re.search(r"\b(man|men|person|people|boy|guy|player)\b", leg(k))
                           and not any(w in leg(k) for w in ["back to the camera", "silhouette", "swimming", "underwater", "diving", "surfer"]))],

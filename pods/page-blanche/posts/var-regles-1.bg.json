@@ -1,0 +1,277 @@
+{
+ "post_id": "var-regles-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5 things i did that fixed my",
+      "phone addiction"
+     ],
+     "fr": "5 trucs qui ont guéri mon addiction au tel",
+     "texte": "моите правила за телефона, [[които наистина издържаха]]"
+    },
+    "T2": {
+     "en": [
+      "(from 14 hours",
+      "screen time to 3)"
+     ],
+     "fr": "(de 14 h d'écran par jour à 3)",
+     "texte": "(след всеки провален детокс)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701398929807641888_3.jpg",
+      "boite": [
+       730,
+       560,
+       298,
+       262
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "become genuinely interested in people"
+     ],
+     "fr": "intéresse-toi [[vraiment aux gens]]",
+     "texte": "на вечеря телефоните [[в средата]]"
+    },
+    "T2": {
+     "en": [
+      "most people listen just long enough to figure out what they’re",
+      "going to say next"
+     ],
+     "fr": "la plupart des gens écoutent juste le temps de trouver [[ce qu'ils vont répondre]]",
+     "texte": "когато излизам с приятели, всички редим телефоните един върху друг с екрана надолу"
+    },
+    "T3": {
+     "en": [
+      "ask better questions,",
+      "remember small details,",
+      "and follow up on things",
+      "people told you weeks",
+      "ago"
+     ],
+     "fr": "pose de meilleures questions, retiens les petits détails et [[reviens dessus]] des semaines plus tard",
+     "texte": "който пръв посегне към своя, [[черпи десерта]]. досега никой не е платил, защото никой не иска да е този човек"
+    },
+    "T4": {
+     "en": [
+      "making someone feel",
+      "understood is more",
+      "memorable than having",
+      "the best story"
+     ],
+     "fr": "donner à quelqu'un [[l'impression d'être compris]] marque plus que la meilleure anecdote",
+     "texte": "наистина си говорим, никой не се отнася, и се прибирам [[с цялата вечер в главата]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching youtube while eating"
+     ],
+     "fr": "",
+     "texte": "вече [[не снимам абсолютно всичко]]"
+    },
+    "T2": {
+     "en": [
+      "not being able to eat without youtube is one of our",
+      "generation's worst habits, it rots your brain"
+     ],
+     "fr": "",
+     "texte": "концерти, вечери, залези: гледах половината си живот през екран и никога не отварях тези видеа отново"
+    },
+    "T3": {
+     "en": [
+      "every boring moment",
+      "gets numbed with",
+      "content before you",
+      "learn to sit in it"
+     ],
+     "fr": "",
+     "texte": "сега правя [[една снимка]], прибирам телефона и наистина се оглеждам"
+    },
+    "T4": {
+     "en": [
+      "i know it's hard, but understand that having to watch",
+      "something while you eat is destroying your attention",
+      "span"
+     ],
+     "fr": "",
+     "texte": "смешното е, че помня тези моменти много по-добре, защото [[наистина ги живея]], вместо да ги снимам"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "[[първо урок]], после скролване"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "преди да отворя каквото и да е с фийд, давам на мозъка си [[5 минути нещо истинско]]. ако после още искам да скролвам, добре"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "в повечето дни [[вече не искам]]."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "желанието за скрол е най-силно в първата минута. дай му [[нещо за дъвчене]] и то утихва само от себе си"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "днес: защо Ренесансът започва в Италия, 5 минути в [[приложението Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "research your dream life"
+     ],
+     "fr": "potasse [[ta vie de rêve]]",
+     "texte": "[[скрит]], докато работя"
+    },
+    "T2": {
+     "en": [
+      "most people know what they want but never look up",
+      "how to get it"
+     ],
+     "fr": "tout le monde sait [[ce qu'il veut]], personne cherche comment l'avoir",
+     "texte": "на бюрото, дори обърнат, ме викаше [[на всеки пет минути]]"
+    },
+    "T3": {
+     "en": [
+      "the job, the city, the skills,",
+      "whatever. look up exactly",
+      "what it takes and who's",
+      "already done it"
+     ],
+     "fr": "le job, la ville, les compétences, peu importe. cherche [[exactement ce qu'il faut]] et qui l'a déjà fait",
+     "texte": "в затворено чекмедже буквално забравям, че съществува, и [[час фокус]] пак изглежда нормално"
+    },
+    "T4": {
+     "en": [
+      "it turns a vague dream",
+      "into a list of things to",
+      "learn"
+     ],
+     "fr": "ton rêve flou devient [[une liste de trucs à apprendre]]",
+     "texte": "чекмеджето е точно толкова неудобно, [[че да се замисля]]"
+    },
+    "T5": {
+     "en": [
+      "and learning stops feeling like school when it's for your",
+      "own life"
+     ],
+     "fr": "et apprendre, ça fait plus école quand [[c'est pour ta vie à toi]]",
+     "texte": "и всички съобщения още си стоят там, [[когато пак го извадя]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "develop opinions of your own"
+     ],
+     "fr": "forge-toi [[tes propres avis]]",
+     "texte": "понякога [[го оставям вкъщи]]"
+    },
+    "T2": {
+     "en": [
+      "agreeing with everyone",
+      "might make you easy to",
+      "like, but it rarely makes you",
+      "memorable"
+     ],
+     "fr": "être d'accord avec tout le monde, ça te rend sympa, mais [[rarement mémorable]]",
+     "texte": "кратка разходка до фурната, кафе с някого, цяла вечер навън: [[никакъв телефон]]"
+    },
+    "T3": {
+     "en": [
+      "form your own views,",
+      "explain why you believe",
+      "them, and disagree",
+      "without getting defensive"
+     ],
+     "fr": "fais-toi ton avis, explique pourquoi tu le penses, et [[sache contredire sans te braquer]]",
+     "texte": "първите десет минути ръката ми постоянно търси празния джоб. после това [[просто минава]]"
+    },
+    "T4": {
+     "en": [
+      "charisma comes from having a personality people can",
+      "actually get a read on"
+     ],
+     "fr": "le charisme, c'est avoir une personnalité que les gens [[arrivent à cerner]]",
+     "texte": "и се прибирам с по-лека глава, след [[истинска почивка]] от чуждите животи"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

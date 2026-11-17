@@ -1,7 +1,8 @@
 import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, X } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { lireBrouillonsSamedi, lundiDuProchainSamedi } from "@/features/ckd/decisions/semaineComptes";
 import { aujourdhuiParis } from "@/features/moteur/cohortes";
@@ -9,9 +10,10 @@ import { supabase } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
 
 /**
- * 17/11 (Max) : la « vue tableau » des posteurs. Lignes = labels, colonnes = pays ; dans chaque case, les
- * comptes actifs de ce label et de ce pays, avec le lien TikTok, le lien de la fiche (nouvel onglet), la
- * couleur du classement (star → mauvaises vues) et la décision préparée pour samedi (Kill, Recreate…).
+ * 17/11 (Max) : la « vue tableau » des posteurs, plein écran. Lignes = labels, colonnes = pays ; chaque compte
+ * actif est une petite case au prénom du posteur, colorée par tranche de vues (moyenne par post, dernier relevé),
+ * cerclée si une décision est préparée pour samedi. Un clic ouvre le détail (TikTok, fiche dans un nouvel onglet).
+ * Les labels se masquent pour alléger la lecture ; la taille des cases se règle.
  */
 
 export type Classement = "star" | "bien" | "passable" | "mauvaises_vues" | "inactif";
@@ -26,6 +28,8 @@ export interface CompteTableau {
   classement: Classement;
   cohorte: string | null;
   canal: "upwork" | "ruul";
+  /** Vues moyennes par post au dernier relevé (null : pas encore relevé). */
+  vues_post?: number | null;
 }
 
 interface LigneBrute {
@@ -36,6 +40,13 @@ interface LigneBrute {
   classement: Classement | null;
   profiles: { prenom: string | null; nom: string | null; cohorte_lundi: string | null; canal_paie: string | null; is_active: boolean } | null;
   compte_labels: { labels: { id: string; nom: string } | null }[] | null;
+}
+
+/** Le dernier relevé de chaque compte : vues moyennes par post (0742, admin). */
+async function lireVuesParPost(): Promise<Map<string, number>> {
+  const { data, error } = await supabase.rpc("comptes_vues_par_post");
+  if (error) throw error;
+  return new Map(((data ?? []) as { compte_id: string; vues_post: number }[]).map((r) => [r.compte_id, Number(r.vues_post)]));
 }
 
 export async function lireComptesTableau(): Promise<CompteTableau[]> {
@@ -52,6 +63,7 @@ export async function lireComptesTableau(): Promise<CompteTableau[]> {
     lignes.push(...((data ?? []) as unknown as LigneBrute[]));
     if ((data ?? []).length < 1000) break;
   }
+  const vues = await lireVuesParPost().catch(() => new Map<string, number>());
   return lignes
     .filter((l) => l.profiles?.is_active !== false)
     .map((l) => ({
@@ -64,16 +76,30 @@ export async function lireComptesTableau(): Promise<CompteTableau[]> {
       classement: l.classement ?? "passable",
       cohorte: l.profiles?.cohorte_lundi ?? null,
       canal: l.profiles?.canal_paie === "ruul" ? "ruul" : "upwork",
+      vues_post: vues.get(l.id) ?? null,
     }));
 }
 
-export const COULEUR_CLASSEMENT: Record<Classement, string> = {
-  star: "border-amber-400 bg-amber-100 dark:bg-amber-500/20",
-  bien: "border-emerald-300 bg-emerald-50 dark:bg-emerald-500/10",
-  passable: "border-border bg-background",
-  mauvaises_vues: "border-red-300 bg-red-50 dark:bg-red-500/15",
-  inactif: "border-zinc-300 bg-zinc-100 text-muted-foreground dark:bg-zinc-500/15",
-};
+/** Les tranches de vues moyennes par post, de la plus faible à la plus forte (un éventail de couleurs). */
+export const TRANCHES: readonly { min: number; libelle: string; classe: string }[] = [
+  { min: 0, libelle: "< 300", classe: "bg-red-600 text-white" },
+  { min: 300, libelle: "300 – 1k", classe: "bg-orange-500 text-white" },
+  { min: 1_000, libelle: "1k – 2k", classe: "bg-amber-400 text-black" },
+  { min: 2_000, libelle: "2k – 5k", classe: "bg-yellow-300 text-black" },
+  { min: 5_000, libelle: "5k – 10k", classe: "bg-lime-400 text-black" },
+  { min: 10_000, libelle: "10k – 20k", classe: "bg-emerald-500 text-white" },
+  { min: 20_000, libelle: "20k – 50k", classe: "bg-sky-500 text-white" },
+  { min: 50_000, libelle: "50k – 100k", classe: "bg-indigo-600 text-white" },
+  { min: 100_000, libelle: "100k +", classe: "bg-fuchsia-600 text-white" },
+];
+const SANS_VUES = "bg-zinc-200 text-zinc-600 dark:bg-zinc-700 dark:text-zinc-300";
+
+export function tranche(vues: number | null | undefined): number {
+  if (vues == null) return -1;
+  let i = 0;
+  for (let k = 0; k < TRANCHES.length; k++) if (vues >= TRANCHES[k]!.min) i = k;
+  return i;
+}
 
 export const LIBELLE_CLASSEMENT: Record<Classement, string> = {
   star: "⭐ Star",
@@ -108,13 +134,14 @@ export function filtrer(comptes: CompteTableau[], f: Filtres): CompteTableau[] {
     (!r || c.nom.toLowerCase().includes(r) || (c.handle ?? "").toLowerCase().includes(r)));
 }
 
-/** Lignes (labels) et colonnes (pays), triées du plus fourni au moins fourni ; une case = ses comptes. */
-export function grille(comptes: CompteTableau[]) {
+/** Lignes (labels) et colonnes (pays), du plus fourni au moins fourni ; dans une case, les plus vus d'abord. */
+export function grille(comptes: CompteTableau[], labelsMasques: ReadonlySet<string> = new Set()) {
   const cases = new Map<string, CompteTableau[]>();
   const parLabel = new Map<string, { nom: string; n: number }>();
   const parPays = new Map<string, number>();
   for (const c of comptes) {
-    const labels = c.labels.length ? c.labels : [{ id: "_", nom: "Sans label" }];
+    const labels = (c.labels.length ? c.labels : [{ id: "_", nom: "Sans label" }]).filter((l) => !labelsMasques.has(l.id));
+    if (labels.length === 0) continue;
     for (const l of labels) {
       const cle = `${l.id}|${c.pays}`;
       cases.set(cle, [...(cases.get(cle) ?? []), c]);
@@ -124,10 +151,14 @@ export function grille(comptes: CompteTableau[]) {
   }
   const labels = [...parLabel.entries()].sort((a, b) => b[1].n - a[1].n || a[1].nom.localeCompare(b[1].nom)).map(([id, v]) => ({ id, ...v }));
   const pays = [...parPays.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([code, n]) => ({ code, n }));
-  const ordre: Record<Classement, number> = { star: 0, bien: 1, passable: 2, mauvaises_vues: 3, inactif: 4 };
   const dans = (label: string, p: string) =>
-    [...(cases.get(`${label}|${p}`) ?? [])].sort((a, b) => ordre[a.classement] - ordre[b.classement] || (a.handle ?? "").localeCompare(b.handle ?? ""));
+    [...(cases.get(`${label}|${p}`) ?? [])].sort((a, b) => (b.vues_post ?? -1) - (a.vues_post ?? -1) || a.nom.localeCompare(b.nom));
   return { labels, pays, dans };
+}
+
+/** Tous les labels présents (pour les masquer), du plus fourni au moins fourni. */
+export function tousLesLabels(comptes: CompteTableau[]): { id: string; nom: string; n: number }[] {
+  return grille(comptes).labels;
 }
 
 function nomPays(code: string): string {
@@ -138,105 +169,211 @@ function nomPays(code: string): string {
   }
 }
 
-function PuceCompte({ c, choix }: { c: CompteTableau; choix: string | undefined }) {
-  const fiche = `/admin/posters?fiche=${c.poster_id}`;
+const vuesTexte = (v: number | null | undefined) =>
+  v == null ? "pas encore relevé" : v >= 1000 ? `${(v / 1000).toFixed(v >= 10_000 ? 0 : 1)}k vues / post` : `${v} vues / post`;
+
+const TAILLES = [
+  { case: "h-4 w-10 text-[8px]", col: "min-w-24" },
+  { case: "h-5 w-14 text-[9px]", col: "min-w-32" },
+  { case: "h-6 w-[4.5rem] text-[10px]", col: "min-w-40" },
+  { case: "h-8 w-24 text-xs", col: "min-w-52" },
+] as const;
+
+function lireMasques(): Set<string> {
+  try {
+    return new Set(JSON.parse(localStorage.getItem("posteurs-tableau-labels-masques") ?? "[]") as string[]);
+  } catch {
+    return new Set();
+  }
+}
+
+function Case({ c, choix, taille, onOuvrir }: { c: CompteTableau; choix: string | undefined; taille: number; onOuvrir: () => void }) {
+  const t = tranche(c.vues_post);
+  const prenom = c.nom.split(" ")[0] ?? c.nom;
+  const decision = choix && choix !== "keep" ? LIBELLE_CHOIX[choix] : undefined;
   return (
-    <div className={cn("rounded border px-1.5 py-1 text-xs leading-tight", COULEUR_CLASSEMENT[c.classement])} data-compte={c.compte_id} data-classement={c.classement}>
-      <div className="flex items-center gap-1">
-        {c.handle ? (
-          <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" className="font-medium underline-offset-2 hover:underline" title="Ouvrir le TikTok">
-            @{c.handle}
-          </a>
-        ) : (
-          <span className="text-muted-foreground">sans @</span>
-        )}
-        <a href={fiche} target="_blank" rel="noreferrer" className="ml-auto text-muted-foreground hover:text-foreground" title={`Fiche de ${c.nom} (nouvel onglet)`} aria-label={`Fiche de ${c.nom}`}>
-          <ExternalLink className="size-3" />
-        </a>
-      </div>
-      <div className="truncate text-[11px] text-muted-foreground">{c.nom}{c.canal === "ruul" ? " · Ruul" : ""}</div>
-      {choix && choix !== "keep" && LIBELLE_CHOIX[choix] && (
-        <div className={cn("mt-0.5 rounded px-1 text-[10px] font-semibold", choix.startsWith("kill") ? "bg-red-600 text-white" : "bg-sky-600 text-white")} data-testid="choix-samedi">
-          {LIBELLE_CHOIX[choix]}
-        </div>
+    <button
+      type="button"
+      onClick={onOuvrir}
+      data-compte={c.compte_id}
+      data-tranche={t}
+      title={`${c.nom}${c.handle ? ` · @${c.handle}` : ""} · ${vuesTexte(c.vues_post)}${decision ? ` · ${decision}` : ""}`}
+      className={cn(
+        "truncate rounded-[3px] px-1 text-left font-medium leading-none",
+        TAILLES[taille]!.case,
+        t < 0 ? SANS_VUES : TRANCHES[t]!.classe,
+        decision && (choix!.startsWith("kill") ? "ring-2 ring-black ring-offset-1 dark:ring-white" : "ring-2 ring-sky-700 ring-offset-1"),
+        c.classement === "inactif" && "opacity-50",
       )}
+    >
+      {decision && choix!.startsWith("kill") ? "✕ " : ""}{prenom}
+    </button>
+  );
+}
+
+function Detail({ c, choix, onFermer }: { c: CompteTableau; choix: string | undefined; onFermer: () => void }) {
+  const t = tranche(c.vues_post);
+  return (
+    <div className="fixed bottom-4 right-4 z-[60] w-72 space-y-2 rounded-lg border bg-card p-3 text-sm shadow-lifted" data-testid="detail-compte">
+      <div className="flex items-start gap-2">
+        <div className="flex-1">
+          <p className="font-semibold">{c.nom}</p>
+          <p className="text-xs text-muted-foreground">{c.handle ? `@${c.handle}` : "sans @"} · {nomPays(c.pays)} · {c.canal === "ruul" ? "Ruul" : "Upwork"}</p>
+        </div>
+        <button type="button" onClick={onFermer} aria-label="Fermer le détail" className="text-muted-foreground hover:text-foreground"><X className="size-4" /></button>
+      </div>
+      <p>
+        <span className={cn("rounded px-1.5 py-0.5 text-xs", t < 0 ? SANS_VUES : TRANCHES[t]!.classe)}>{vuesTexte(c.vues_post)}</span>
+        <span className="ml-2 text-xs text-muted-foreground">{LIBELLE_CLASSEMENT[c.classement]}</span>
+      </p>
+      <p className="text-xs text-muted-foreground">{c.labels.map((l) => l.nom).join(", ") || "Sans label"}</p>
+      {choix && choix !== "keep" && LIBELLE_CHOIX[choix] && (
+        <p className={cn("rounded px-1.5 py-0.5 text-xs font-semibold text-white", choix.startsWith("kill") ? "bg-red-600" : "bg-sky-600")} data-testid="choix-samedi">
+          {LIBELLE_CHOIX[choix]}
+        </p>
+      )}
+      <div className="flex gap-2">
+        {c.handle && (
+          <Button asChild size="sm" variant="outline">
+            <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer">TikTok <ExternalLink className="size-3" /></a>
+          </Button>
+        )}
+        <Button asChild size="sm">
+          <a href={`/admin/posters?fiche=${c.poster_id}`} target="_blank" rel="noreferrer" aria-label={`Fiche de ${c.nom}`}>Fiche <ExternalLink className="size-3" /></a>
+        </Button>
+      </div>
     </div>
   );
 }
 
-export function VueTableauPosteurs() {
+export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
   const lundi = lundiDuProchainSamedi(aujourdhuiParis());
   const comptes = useQuery({ queryKey: ["posteurs-tableau"], queryFn: lireComptesTableau });
   const brouillons = useQuery({ queryKey: ["samedi-brouillons", lundi], queryFn: () => lireBrouillonsSamedi(lundi) });
   const [f, setF] = React.useState<Filtres>({ cohorte: "", canal: "", classement: "", recherche: "" });
+  const [masques, setMasques] = React.useState<Set<string>>(lireMasques);
+  const [taille, setTaille] = React.useState(1);
+  const [ouvert, setOuvert] = React.useState<string | null>(null);
+  const [labelsOuverts, setLabelsOuverts] = React.useState(false);
   const tous = comptes.data ?? [];
   const cohortes = [...new Set(tous.map((c) => c.cohorte).filter((x): x is string => !!x))].sort().reverse();
   const visibles = filtrer(tous, f);
-  const g = grille(visibles);
+  const labels = tousLesLabels(visibles);
+  const g = grille(visibles, masques);
   const choixDe = (id: string) => brouillons.data?.get(id)?.choix;
+  const detail = ouvert ? tous.find((c) => c.compte_id === ouvert) : undefined;
 
-  if (comptes.isLoading) return <p className="text-sm text-muted-foreground">Chargement du tableau…</p>;
-  if (comptes.error) return <p className="text-sm text-destructive">{(comptes.error as Error).message}</p>;
+  const basculer = (id: string) => {
+    const m = new Set(masques);
+    if (m.has(id)) m.delete(id);
+    else m.add(id);
+    setMasques(m);
+    try {
+      localStorage.setItem("posteurs-tableau-labels-masques", JSON.stringify([...m]));
+    } catch {
+      /* stockage indisponible : le choix vaut pour cette visite */
+    }
+  };
+
+  React.useEffect(() => {
+    const echap = (e: KeyboardEvent) => {
+      if (e.key !== "Escape") return;
+      if (ouvert) setOuvert(null);
+      else onFermer?.();
+    };
+    window.addEventListener("keydown", echap);
+    return () => window.removeEventListener("keydown", echap);
+  }, [ouvert, onFermer]);
 
   return (
-    <div className="space-y-3" data-testid="vue-tableau-posteurs">
-      <div className="flex flex-wrap items-center gap-2">
-        <select aria-label="Cohorte" className="h-9 rounded-md border bg-background px-2 text-sm" value={f.cohorte} onChange={(e) => setF({ ...f, cohorte: e.target.value })}>
+    <div className="fixed inset-0 z-50 flex flex-col bg-background" data-testid="vue-tableau-posteurs">
+      <div className="flex flex-wrap items-center gap-2 border-b px-3 py-2">
+        <span className="font-semibold">Posteurs · vue tableau</span>
+        <select aria-label="Cohorte" className="h-8 rounded-md border bg-background px-2 text-xs" value={f.cohorte} onChange={(e) => setF({ ...f, cohorte: e.target.value })}>
           <option value="">Toutes les cohortes</option>
           {cohortes.map((c) => <option key={c} value={c}>Cohorte du {c.slice(8, 10)}/{c.slice(5, 7)}</option>)}
           <option value="aucune">Sans cohorte</option>
         </select>
-        <select aria-label="Paie" className="h-9 rounded-md border bg-background px-2 text-sm" value={f.canal} onChange={(e) => setF({ ...f, canal: e.target.value as Filtres["canal"] })}>
+        <select aria-label="Paie" className="h-8 rounded-md border bg-background px-2 text-xs" value={f.canal} onChange={(e) => setF({ ...f, canal: e.target.value as Filtres["canal"] })}>
           <option value="">Upwork et Ruul</option>
           <option value="upwork">Upwork</option>
           <option value="ruul">Ruul</option>
         </select>
-        <select aria-label="Classement" className="h-9 rounded-md border bg-background px-2 text-sm" value={f.classement} onChange={(e) => setF({ ...f, classement: e.target.value as Filtres["classement"] })}>
+        <select aria-label="Classement" className="h-8 rounded-md border bg-background px-2 text-xs" value={f.classement} onChange={(e) => setF({ ...f, classement: e.target.value as Filtres["classement"] })}>
           <option value="">Tous les classements</option>
           {(Object.keys(LIBELLE_CLASSEMENT) as Classement[]).map((k) => <option key={k} value={k}>{LIBELLE_CLASSEMENT[k]}</option>)}
         </select>
-        <Input aria-label="Rechercher" placeholder="Nom ou @" className="h-9 w-44" value={f.recherche} onChange={(e) => setF({ ...f, recherche: e.target.value })} />
-        <span className="text-sm text-muted-foreground">{visibles.length} comptes</span>
+        <Input aria-label="Rechercher" placeholder="Nom ou @" className="h-8 w-36 text-xs" value={f.recherche} onChange={(e) => setF({ ...f, recherche: e.target.value })} />
+        <Button size="sm" variant={masques.size ? "default" : "outline"} onClick={() => setLabelsOuverts(!labelsOuverts)} data-testid="bouton-labels">
+          Labels{masques.size ? ` (${masques.size} masqué${masques.size > 1 ? "s" : ""})` : ""}
+        </Button>
+        <label className="flex items-center gap-1 text-xs text-muted-foreground">
+          Taille
+          <input type="range" min={0} max={TAILLES.length - 1} value={taille} onChange={(e) => setTaille(Number(e.target.value))} aria-label="Taille des cases" />
+        </label>
+        <span className="text-xs text-muted-foreground">{visibles.length} comptes</span>
+        {onFermer && (
+          <Button size="sm" variant="outline" className="ml-auto" onClick={onFermer}><X className="size-4" /> Fermer</Button>
+        )}
       </div>
-      <div className="flex flex-wrap gap-2 text-xs">
-        {(Object.keys(LIBELLE_CLASSEMENT) as Classement[]).map((k) => (
-          <span key={k} className={cn("rounded border px-1.5 py-0.5", COULEUR_CLASSEMENT[k])}>{LIBELLE_CLASSEMENT[k]}</span>
-        ))}
-        <span className="text-muted-foreground">· décision du samedi {lundi.slice(8, 10)}/{lundi.slice(5, 7)} + 5 j : à préparer dans la fiche</span>
+      {labelsOuverts && (
+        <div className="flex flex-wrap gap-1 border-b px-3 py-2" data-testid="choix-labels">
+          {labels.map((l) => (
+            <button key={l.id} type="button" onClick={() => basculer(l.id)} aria-pressed={!masques.has(l.id)}
+              className={cn("rounded-full border px-2 py-0.5 text-xs", masques.has(l.id) ? "text-muted-foreground line-through opacity-60" : "bg-foreground text-background")}>
+              {l.nom} ({l.n})
+            </button>
+          ))}
+          {masques.size > 0 && (
+            <button type="button" className="px-2 text-xs underline" onClick={() => { setMasques(new Set()); try { localStorage.removeItem("posteurs-tableau-labels-masques"); } catch { /* rien */ } }}>
+              Tout afficher
+            </button>
+          )}
+        </div>
+      )}
+      <div className="flex flex-wrap items-center gap-1 px-3 py-1.5 text-[11px]" data-testid="legende-vues">
+        <span className="text-muted-foreground">Vues moyennes par post :</span>
+        {TRANCHES.map((t) => <span key={t.min} className={cn("rounded px-1.5 py-0.5", t.classe)}>{t.libelle}</span>)}
+        <span className={cn("rounded px-1.5 py-0.5", SANS_VUES)}>pas relevé</span>
+        <span className="ml-2 text-muted-foreground">✕ cerclé noir = Kill samedi · cerclé bleu = autre décision ({lundi.slice(8, 10)}/{lundi.slice(5, 7)}) · clic = détail</span>
       </div>
-      <div className="max-h-[75vh] overflow-auto rounded-md border">
-        <table className="border-separate border-spacing-0 text-sm">
-          <thead>
-            <tr>
-              <th className="sticky left-0 top-0 z-30 min-w-40 border-b border-r bg-background p-2 text-left">Label \ Pays</th>
-              {g.pays.map((p) => (
-                <th key={p.code} className="sticky top-0 z-20 min-w-44 border-b bg-background p-2 text-left font-semibold" title={p.code}>
-                  {nomPays(p.code)} <span className="font-normal text-muted-foreground">({p.n})</span>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {g.labels.map((l) => (
-              <tr key={l.id}>
-                <th className="sticky left-0 z-10 border-b border-r bg-background p-2 text-left align-top font-semibold">
-                  {l.nom} <span className="font-normal text-muted-foreground">({l.n})</span>
-                </th>
-                {g.pays.map((p) => {
-                  const dedans = g.dans(l.id, p.code);
-                  return (
-                    <td key={p.code} className="border-b p-1 align-top">
-                      <div className="flex flex-col gap-1">
-                        {dedans.map((c) => <PuceCompte key={c.compte_id} c={c} choix={choixDe(c.compte_id)} />)}
-                      </div>
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {comptes.isLoading ? <p className="p-4 text-sm text-muted-foreground">Chargement du tableau…</p>
+        : comptes.error ? <p className="p-4 text-sm text-destructive">{(comptes.error as Error).message}</p>
+        : (
+          <div className="min-h-0 flex-1 overflow-auto">
+            <table className="w-full border-separate border-spacing-0 text-xs">
+              <thead>
+                <tr>
+                  <th className="sticky left-0 top-0 z-30 border-b border-r bg-background px-2 py-1 text-left">Label \ Pays</th>
+                  {g.pays.map((p) => (
+                    <th key={p.code} className={cn("sticky top-0 z-20 border-b bg-background px-1 py-1 text-left font-semibold", TAILLES[taille]!.col)} title={p.code}>
+                      {nomPays(p.code)} <span className="font-normal text-muted-foreground">{p.n}</span>
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {g.labels.map((l) => (
+                  <tr key={l.id}>
+                    <th className="sticky left-0 z-10 whitespace-nowrap border-b border-r bg-background px-2 py-1 text-left align-top font-semibold">
+                      {l.nom} <span className="font-normal text-muted-foreground">{l.n}</span>
+                    </th>
+                    {g.pays.map((p) => (
+                      <td key={p.code} className="border-b border-r border-border/40 p-1 align-top">
+                        <div className="flex flex-wrap gap-0.5">
+                          {g.dans(l.id, p.code).map((c) => (
+                            <Case key={c.compte_id} c={c} choix={choixDe(c.compte_id)} taille={taille} onOuvrir={() => setOuvert(c.compte_id)} />
+                          ))}
+                        </div>
+                      </td>
+                    ))}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+      {detail && <Detail c={detail} choix={choixDe(detail.compte_id)} onFermer={() => setOuvert(null)} />}
     </div>
   );
 }

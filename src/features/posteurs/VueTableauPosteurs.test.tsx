@@ -63,7 +63,7 @@ describe("Posteurs → vue tableau (17/11)", () => {
 });
 
 describe("Posteurs → vue tableau : rendu", () => {
-  it("plein écran, petites cases au prénom colorées par vues, détail au clic (TikTok, fiche), labels masquables", async () => {
+  it("cases colorées par vues avec le @ (TikTok) et la fiche (nouvel onglet), labels masquables", async () => {
     m.lignes = COMPTES.map((c, i) => ({
       id: c.compte_id, poster_id: c.poster_id, handle_tiktok: c.handle, pays: c.pays.toLowerCase(), classement: c.classement,
       profiles: { prenom: ["Ana", "Bea", "Cy", "Dan"][i], nom: "B", cohorte_lundi: c.cohorte, canal_paie: c.canal, is_active: true },
@@ -74,25 +74,23 @@ describe("Posteurs → vue tableau : rendu", () => {
     const onFermer = vi.fn();
     const qc = new QueryClient({ defaultOptions: { queries: { retry: false } } });
     render(<QueryClientProvider client={qc}><VueTableauPosteurs onFermer={onFermer} /></QueryClientProvider>);
-    const bea = await screen.findByRole("button", { name: /Bea/ });
+    const tiktok = await screen.findByRole("link", { name: "@faible.fr" });
+    expect(tiktok.getAttribute("href")).toBe("https://www.tiktok.com/@faible.fr");
+    const bea = tiktok.closest("[data-compte]") as HTMLElement;
     expect(bea.dataset.tranche).toBe("0");
-    expect(bea.textContent).toBe("✕ Bea");
-    expect(bea.textContent).not.toContain("@");
-    expect((screen.getByRole("button", { name: "Ana" }) as HTMLElement).dataset.tranche).toBe("6");
-    fireEvent.click(bea);
-    const detail = screen.getByTestId("detail-compte");
-    expect(within(detail).getByRole("link", { name: /TikTok/ }).getAttribute("href")).toBe("https://www.tiktok.com/@faible.fr");
-    const fiche = within(detail).getByLabelText("Fiche de Bea B");
+    expect(within(bea).getByTestId("choix-samedi").textContent).toContain("Kill samedi");
+    expect(bea.textContent).toContain("Bea B");
+    expect((screen.getByRole("link", { name: "@star.fr" }).closest("[data-compte]") as HTMLElement).dataset.tranche).toBe("6");
+    const fiche = within(bea).getByLabelText("Fiche de Bea B");
     expect(fiche.getAttribute("href")).toBe("/admin/posters?fiche=p2");
     expect(fiche.getAttribute("target")).toBe("_blank");
-    expect(within(detail).getByTestId("choix-samedi").textContent).toBe("Kill samedi");
     fireEvent.click(screen.getByTestId("bouton-labels"));
     fireEvent.click(within(screen.getByTestId("choix-labels")).getByRole("button", { name: /alpha_male/ }));
-    expect(screen.queryByRole("button", { name: "Dan" })).toBeNull();
-    expect(screen.getByRole("button", { name: "Ana" })).toBeTruthy();
+    expect(screen.queryByRole("link", { name: "@alpha.fr" })).toBeNull();
+    expect(screen.getByRole("link", { name: "@star.fr" })).toBeTruthy();
     fireEvent.change(screen.getByLabelText("Classement"), { target: { value: "star" } });
-    expect(screen.queryByRole("button", { name: /Bea/ })).toBeNull();
-    fireEvent.click(screen.getByRole("button", { name: /Fermer$/ }));
+    expect(screen.queryByRole("link", { name: "@faible.fr" })).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: /Retour à la liste/ }));
     expect(onFermer).toHaveBeenCalled();
   });
 });

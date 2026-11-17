@@ -11,8 +11,9 @@ import { cn } from "@/lib/utils";
 
 /**
  * 17/11 (Max) : la « vue tableau » des posteurs, plein écran. Lignes = labels, colonnes = pays ; chaque compte
- * actif est une petite case au prénom du posteur, colorée par tranche de vues (moyenne par post, dernier relevé),
- * cerclée si une décision est préparée pour samedi. Un clic ouvre le détail (TikTok, fiche dans un nouvel onglet).
+ * actif est une petite case (@ et nom du posteur), colorée par tranche de vues (moyenne par post, dernier relevé),
+ * cerclée si une décision est préparée pour samedi ; le @ ouvre le TikTok, ↗ la fiche (nouvel onglet). Le menu de gauche
+ * et la barre du haut restent visibles.
  * Les labels se masquent pour alléger la lecture ; la taille des cases se règle.
  */
 
@@ -173,10 +174,10 @@ const vuesTexte = (v: number | null | undefined) =>
   v == null ? "pas encore relevé" : v >= 1000 ? `${(v / 1000).toFixed(v >= 10_000 ? 0 : 1)}k vues / post` : `${v} vues / post`;
 
 const TAILLES = [
-  { case: "h-4 w-10 text-[8px]", col: "min-w-24" },
-  { case: "h-5 w-14 text-[9px]", col: "min-w-32" },
-  { case: "h-6 w-[4.5rem] text-[10px]", col: "min-w-40" },
-  { case: "h-8 w-24 text-xs", col: "min-w-52" },
+  { case: "w-24 text-[8px]", icone: "size-2", col: "min-w-[6.5rem]" },
+  { case: "w-28 text-[9px]", icone: "size-2.5", col: "min-w-[7.5rem]" },
+  { case: "w-36 text-[10px]", icone: "size-3", col: "min-w-[9.5rem]" },
+  { case: "w-44 text-xs", icone: "size-3", col: "min-w-[11.5rem]" },
 ] as const;
 
 function lireMasques(): Set<string> {
@@ -187,60 +188,40 @@ function lireMasques(): Set<string> {
   }
 }
 
-function Case({ c, choix, taille, onOuvrir }: { c: CompteTableau; choix: string | undefined; taille: number; onOuvrir: () => void }) {
+function Case({ c, choix, taille }: { c: CompteTableau; choix: string | undefined; taille: number }) {
   const t = tranche(c.vues_post);
-  const prenom = c.nom.split(" ")[0] ?? c.nom;
   const decision = choix && choix !== "keep" ? LIBELLE_CHOIX[choix] : undefined;
+  const kill = !!decision && choix!.startsWith("kill");
+  const T = TAILLES[taille]!;
   return (
-    <button
-      type="button"
-      onClick={onOuvrir}
+    <div
       data-compte={c.compte_id}
       data-tranche={t}
-      title={`${c.nom}${c.handle ? ` · @${c.handle}` : ""} · ${vuesTexte(c.vues_post)}${decision ? ` · ${decision}` : ""}`}
+      title={`${c.nom}${c.handle ? ` · @${c.handle}` : ""} · ${vuesTexte(c.vues_post)} · ${LIBELLE_CLASSEMENT[c.classement]}${decision ? ` · ${decision}` : ""}`}
       className={cn(
-        "truncate rounded-[3px] px-1 text-left font-medium leading-none",
-        TAILLES[taille]!.case,
+        "rounded-[3px] px-1 py-0.5 leading-tight",
+        T.case,
         t < 0 ? SANS_VUES : TRANCHES[t]!.classe,
-        decision && (choix!.startsWith("kill") ? "ring-2 ring-black ring-offset-1 dark:ring-white" : "ring-2 ring-sky-700 ring-offset-1"),
+        decision && (kill ? "ring-2 ring-black ring-offset-1 dark:ring-white" : "ring-2 ring-sky-700 ring-offset-1"),
         c.classement === "inactif" && "opacity-50",
       )}
     >
-      {decision && choix!.startsWith("kill") ? "✕ " : ""}{prenom}
-    </button>
-  );
-}
-
-function Detail({ c, choix, onFermer }: { c: CompteTableau; choix: string | undefined; onFermer: () => void }) {
-  const t = tranche(c.vues_post);
-  return (
-    <div className="fixed bottom-4 right-4 z-[60] w-72 space-y-2 rounded-lg border bg-card p-3 text-sm shadow-lifted" data-testid="detail-compte">
-      <div className="flex items-start gap-2">
-        <div className="flex-1">
-          <p className="font-semibold">{c.nom}</p>
-          <p className="text-xs text-muted-foreground">{c.handle ? `@${c.handle}` : "sans @"} · {nomPays(c.pays)} · {c.canal === "ruul" ? "Ruul" : "Upwork"}</p>
-        </div>
-        <button type="button" onClick={onFermer} aria-label="Fermer le détail" className="text-muted-foreground hover:text-foreground"><X className="size-4" /></button>
-      </div>
-      <p>
-        <span className={cn("rounded px-1.5 py-0.5 text-xs", t < 0 ? SANS_VUES : TRANCHES[t]!.classe)}>{vuesTexte(c.vues_post)}</span>
-        <span className="ml-2 text-xs text-muted-foreground">{LIBELLE_CLASSEMENT[c.classement]}</span>
-      </p>
-      <p className="text-xs text-muted-foreground">{c.labels.map((l) => l.nom).join(", ") || "Sans label"}</p>
-      {choix && choix !== "keep" && LIBELLE_CHOIX[choix] && (
-        <p className={cn("rounded px-1.5 py-0.5 text-xs font-semibold text-white", choix.startsWith("kill") ? "bg-red-600" : "bg-sky-600")} data-testid="choix-samedi">
-          {LIBELLE_CHOIX[choix]}
-        </p>
-      )}
-      <div className="flex gap-2">
-        {c.handle && (
-          <Button asChild size="sm" variant="outline">
-            <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer">TikTok <ExternalLink className="size-3" /></a>
-          </Button>
+      <div className="flex items-center gap-0.5">
+        {c.handle ? (
+          <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" className="truncate font-semibold hover:underline" title="Ouvrir le TikTok">
+            @{c.handle}
+          </a>
+        ) : (
+          <span className="truncate opacity-70">sans @</span>
         )}
-        <Button asChild size="sm">
-          <a href={`/admin/posters?fiche=${c.poster_id}`} target="_blank" rel="noreferrer" aria-label={`Fiche de ${c.nom}`}>Fiche <ExternalLink className="size-3" /></a>
-        </Button>
+        <a href={`/admin/posters?fiche=${c.poster_id}`} target="_blank" rel="noreferrer" aria-label={`Fiche de ${c.nom}`} title={`Fiche de ${c.nom} (nouvel onglet)`}
+          className="ml-auto shrink-0 opacity-80 hover:opacity-100">
+          <ExternalLink className={T.icone} />
+        </a>
+      </div>
+      <div className="truncate opacity-85">
+        {decision && <span className="font-bold" data-testid="choix-samedi">{kill ? "✕ " : "↻ "}{decision} · </span>}
+        {c.nom}{c.canal === "ruul" ? " · Ruul" : ""}
       </div>
     </div>
   );
@@ -253,7 +234,6 @@ export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
   const [f, setF] = React.useState<Filtres>({ cohorte: "", canal: "", classement: "", recherche: "" });
   const [masques, setMasques] = React.useState<Set<string>>(lireMasques);
   const [taille, setTaille] = React.useState(1);
-  const [ouvert, setOuvert] = React.useState<string | null>(null);
   const [labelsOuverts, setLabelsOuverts] = React.useState(false);
   const tous = comptes.data ?? [];
   const cohortes = [...new Set(tous.map((c) => c.cohorte).filter((x): x is string => !!x))].sort().reverse();
@@ -261,7 +241,6 @@ export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
   const labels = tousLesLabels(visibles);
   const g = grille(visibles, masques);
   const choixDe = (id: string) => brouillons.data?.get(id)?.choix;
-  const detail = ouvert ? tous.find((c) => c.compte_id === ouvert) : undefined;
 
   const basculer = (id: string) => {
     const m = new Set(masques);
@@ -277,16 +256,14 @@ export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
 
   React.useEffect(() => {
     const echap = (e: KeyboardEvent) => {
-      if (e.key !== "Escape") return;
-      if (ouvert) setOuvert(null);
-      else onFermer?.();
+      if (e.key === "Escape") onFermer?.();
     };
     window.addEventListener("keydown", echap);
     return () => window.removeEventListener("keydown", echap);
-  }, [ouvert, onFermer]);
+  }, [onFermer]);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col bg-background" data-testid="vue-tableau-posteurs">
+    <div className="fixed inset-x-0 bottom-0 top-14 z-20 flex flex-col border-t bg-background lg:left-64" data-testid="vue-tableau-posteurs">
       <div className="flex flex-wrap items-center gap-2 border-b px-3 py-2">
         <span className="font-semibold">Posteurs · vue tableau</span>
         <select aria-label="Cohorte" className="h-8 rounded-md border bg-background px-2 text-xs" value={f.cohorte} onChange={(e) => setF({ ...f, cohorte: e.target.value })}>
@@ -313,7 +290,7 @@ export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
         </label>
         <span className="text-xs text-muted-foreground">{visibles.length} comptes</span>
         {onFermer && (
-          <Button size="sm" variant="outline" className="ml-auto" onClick={onFermer}><X className="size-4" /> Fermer</Button>
+          <Button size="sm" variant="outline" className="ml-auto" onClick={onFermer}><X className="size-4" /> Retour à la liste</Button>
         )}
       </div>
       {labelsOuverts && (
@@ -335,7 +312,7 @@ export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
         <span className="text-muted-foreground">Vues moyennes par post :</span>
         {TRANCHES.map((t) => <span key={t.min} className={cn("rounded px-1.5 py-0.5", t.classe)}>{t.libelle}</span>)}
         <span className={cn("rounded px-1.5 py-0.5", SANS_VUES)}>pas relevé</span>
-        <span className="ml-2 text-muted-foreground">✕ cerclé noir = Kill samedi · cerclé bleu = autre décision ({lundi.slice(8, 10)}/{lundi.slice(5, 7)}) · clic = détail</span>
+        <span className="ml-2 text-muted-foreground">✕ cerclé noir = Kill samedi · cerclé bleu = autre décision ({lundi.slice(8, 10)}/{lundi.slice(5, 7)}) · @ = TikTok · ↗ = fiche (nouvel onglet)</span>
       </div>
       {comptes.isLoading ? <p className="p-4 text-sm text-muted-foreground">Chargement du tableau…</p>
         : comptes.error ? <p className="p-4 text-sm text-destructive">{(comptes.error as Error).message}</p>
@@ -362,7 +339,7 @@ export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
                       <td key={p.code} className="border-b border-r border-border/40 p-1 align-top">
                         <div className="flex flex-wrap gap-0.5">
                           {g.dans(l.id, p.code).map((c) => (
-                            <Case key={c.compte_id} c={c} choix={choixDe(c.compte_id)} taille={taille} onOuvrir={() => setOuvert(c.compte_id)} />
+                            <Case key={c.compte_id} c={c} choix={choixDe(c.compte_id)} taille={taille} />
                           ))}
                         </div>
                       </td>
@@ -373,7 +350,6 @@ export function VueTableauPosteurs({ onFermer }: { onFermer?: () => void }) {
             </table>
           </div>
         )}
-      {detail && <Detail c={detail} choix={choixDe(detail.compte_id)} onFermer={() => setOuvert(null)} />}
     </div>
   );
 }

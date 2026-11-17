@@ -1,6 +1,6 @@
 {
  "compte": "sagace.fr",
- "maj_le": "2026-11-16",
+ "maj_le": "2026-11-17",
  "note": "Ses 17 diaporamas relevés le 15/11 (21/08 → 03/11), du plus vu au moins vu. Il recycle ses accroches (« Compétence 10/10 à apprendre avant 20 ans » deux fois, « … au lieu de scroller » trois fois) avec d'autres compétences : chaque post est un remake à part. `competences` : lues sur ses slides, avec la place de ses slides de fin (« ABONNE-TOI », « ENREGISTRE CE POST », « e-books ») qu'on ne refait jamais. Ses posts depuis le 24/09 (« e-books », 5 à 14 k) font bien moins que ceux d’août et du début septembre : refais d'abord les tubes. Ordre de travail : les `a_faire` de haut en bas.",
  "posts": [
   {
@@ -187,7 +187,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7659247530319891222"
    },
    "competences": "apprendre le piano, faire du skate, piloter, son premier marathon, jouer de la guitare ; ABONNE-TOI en fin",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-011 (17/11, livraison deaa4f84) : 8 langues, vidéos natives, Sophia en étape 4, cta B « UN SUJET / PAR JOUR »"
   },
   {
    "id": "7680302500674555169",
@@ -203,7 +204,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7541284794651527966"
    },
    "competences": "format « vidéos » sans titre d'étape : 5 techniques anti-flemme, la solitude, pourquoi ton cerveau remet à demain, la pub, l'effet de halo ; ABONNE-TOI en fin",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-012 (17/11, livraison 0f162aa7) : 8 langues, vidéos natives, Sophia en étape 4, cta C « RÉVEILLER / SA CURIOSITÉ »"
   },
   {
    "id": "7689580801020808480",

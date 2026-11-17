@@ -39,6 +39,10 @@ describe("ChecklistRuul (0592)", () => {
     expect(etatRuul({ ...base, ruul_invite: true })).toBe("invite");
     expect(etatRuul({ ...base, ruul_invite: true, ruul_compte: "invited" })).toBe("invite");
     expect(etatRuul({ ...base, ruul_invite: true, ruul_compte: "active" })).toBe("pret");
+    // 17/11 (API Ruul) : le statut lu chez Ruul l'emporte ; prêt seulement à READY.
+    expect(etatRuul({ ...base, ruul_compte: "active", ruul_onboarding: "PENDING_KYC" })).toBe("invite");
+    expect(etatRuul({ ...base, ruul_onboarding: "NOT_REGISTERED" })).toBe("invite");
+    expect(etatRuul({ ...base, ruul_onboarding: "READY" })).toBe("pret");
     expect(etatRuul({ ...base, ruul_invite: true, ruul_pret: true })).toBe("pret");
     api.lireMonOnboardingRuul.mockResolvedValue({ ...base });
     const { unmount } = rendu();

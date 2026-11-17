@@ -101,7 +101,8 @@ Le pilote `originaux/rh-o001.json` est l'exemple complet. Les champs :
 	
 	Ils sont concrets, avec une réplique, et **neufs** : jamais un item de la source recopié.
 - **Slide de fin** : une question qui fait commenter (« laquelle t'oses pas ? ») ou un appel à enregistrer.
-- **Images** : la banque du label (photos de bureau, autoportraits au miroir). Une personne en accroche, et une image différente à chaque slide.
+- **Images** : toute la banque du label (photos de bureau, autoportraits au miroir). Une personne en accroche, et une image différente à chaque slide.
+	- **Toute la banque, sans tri de fond (Adrien, 17/11, `pods/ROUTINE.md` §4)** : personnes connues, cigarettes, alcool, marques, logos, écrans, filigranes, images sombres sont acceptés. Seule limite : la slide de l'appli, jamais sur une personne reconnaissable. Ce qui suit est un style à préférer, jamais une raison d'écarter une image.
 - **Musique** : alterne au moins 5 sons (« Blue Lamp Window » était sur 126 contenus sur 180 au 12/11). Le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`).
 
 ## Les garde-fous propres au label RH

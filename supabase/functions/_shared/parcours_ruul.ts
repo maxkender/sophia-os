@@ -51,6 +51,54 @@ export function guideRuul(email: string | null, avant: string | null = "Sunday m
 }
 const BOUTON_RUUL = { texte: "Open Ruul", lien: LIEN_RUUL };
 
+/** 17/11 (Max, API Ruul) : ce qu'il reste à faire chez Ruul, selon le statut lu par l'API. */
+export function resteRuul(onboarding: string | null | undefined): string {
+  switch (onboarding) {
+    case "PENDING_KYC":
+      return "Next step: add your ID (2 minutes), then your bank account.";
+    case "PENDING_COLLECTION_ACCOUNT":
+      return "Next step: add your bank account.";
+    case "PENDING_AGREEMENTS":
+      return "Next step: sign the agreements.";
+    default:
+      return "Create your account, then add your ID and your bank account.";
+  }
+}
+
+/**
+ * 17/11 (Max, API Ruul) : avec un lien d'onboarding (POST /connect), un bloc court et le bouton « Open my Ruul setup »
+ * à la place du guide pas à pas. Sans lien (invitation automatique éteinte) : l'ancien guide, inchangé.
+ */
+export function blocRuul(d: { ruul_email: string | null; ruul_lien?: string | null; ruul_onboarding?: string | null }, avant: string | null): string {
+  if (!d.ruul_lien) return guideRuul(d.ruul_email, avant);
+  return [
+    "Set up Ruul — required to get paid (5 min): click « Open my Ruul setup » below.",
+    resteRuul(d.ruul_onboarding),
+    ...(avant ? [`Best done before ${avant}, so your first Monday pay isn't delayed.`] : []),
+    "You don't need Ruul to start posting — it's only to get paid.",
+    "How you get paid: every Monday, the money for the week you posted arrives in your Ruul space, then goes to your bank.",
+    "Problem with Ruul? Click Help in your dashboard.",
+  ].join("\n");
+}
+
+export function boutonRuul(d: { ruul_lien?: string | null }): { texte: string; lien: string } {
+  return d.ruul_lien ? { texte: "Open my Ruul setup", lien: d.ruul_lien } : BOUTON_RUUL;
+}
+
+/** 17/11 : l'objet de la relance Ruul, selon ce qu'il reste à faire. */
+export function objetRelanceRuul(onboarding: string | null | undefined): string {
+  switch (onboarding) {
+    case "PENDING_KYC":
+      return "Reminder: add your ID on Ruul to get paid";
+    case "PENDING_COLLECTION_ACCOUNT":
+      return "Reminder: add your bank account on Ruul to get paid";
+    case "PENDING_AGREEMENTS":
+      return "Reminder: sign the agreements on Ruul to get paid";
+    default:
+      return "Reminder: set up Ruul to get paid";
+  }
+}
+
 export const PHRASE_HELP = "Have a question or a problem? Don't reply to this email: click Help on your dashboard, you'll get an answer there.";
 
 export interface EtatParcours {
@@ -77,6 +125,8 @@ export interface EtatParcours {
   /** 0698 : la vérification d'identité lue dans Ruul (not_started | pending | approved | declined) et le nombre de refus. */
   identite?: string | null;
   identite_refus?: number;
+  /** 17/11 : le statut lu par l'API Ruul (READY = payable : plus de relance Ruul). */
+  ruul_onboarding?: string | null;
 }
 
 export type TypeParcours =
@@ -102,7 +152,7 @@ export function estPret(e: EtatParcours): boolean {
 }
 
 export function ruulPret(e: EtatParcours): boolean {
-  return e.ruul_statut === "pret" || e.ruul_statut === "paye_1x";
+  return e.ruul_statut === "pret" || e.ruul_statut === "paye_1x" || e.ruul_onboarding === "READY";
 }
 
 /** Aucune activité depuis la création : ni connexion, ni TikTok, ni warm-up, ni post. */
@@ -225,6 +275,9 @@ export interface DonneesEmail {
   ruul_email: string | null;
   /** 13/11 : le statut du compte dans Ruul (invited | active) : le texte de la relance Ruul en dépend. */
   ruul_compte?: string | null;
+  /** 17/11 (API Ruul) : le lien d'onboarding frais (< 48 h) et le statut lu chez Ruul. */
+  ruul_lien?: string | null;
+  ruul_onboarding?: string | null;
   abonnements: number | null;
   /** report : le nouveau lundi. */
   lundi?: string;
@@ -279,9 +332,9 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
           acces(d),
           `Before ${avant}:\n1. Log in to your dashboard.\n2. Create your TikTok account with the exact name above.\n3. Click « Start warmup » on your dashboard, follow at least 5 accounts and use TikTok normally.\n4. Join Slack.`,
           PHRASE_QUESTION_OS,
-          guideRuul(d.ruul_email, avant),
+          blocRuul(d, avant),
         ].join("\n\n"),
-        bouton: BOUTON_RUUL,
+        bouton: boutonRuul(d),
       };
     case "jamais_connecte":
       return {
@@ -312,6 +365,14 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
           "That's where you'll get news and tips from the team."].join("\n\n"),
       };
     case "ruul":
+      // 17/11 (API Ruul) : avec un lien, la relance dit ce qu'il reste à faire (ID, banque, contrats) + le bouton.
+      if (d.ruul_lien) {
+        return {
+          objet: objetRelanceRuul(d.ruul_onboarding),
+          corps: [bonjour(d), "Your Ruul account isn't ready yet, so we can't pay you.", blocRuul(d, avant)].join("\n\n"),
+          bouton: boutonRuul(d),
+        };
+      }
       // 13/11 (Max) : « Invited » dans Ruul : il s'inscrit lui-même sur app.ruul.io avec l'email exact.
       if (d.ruul_compte !== "active") {
         return {
@@ -355,21 +416,28 @@ export function emailParcours(type: Exclude<TypeParcours, "carte_ruul">, d: Donn
       return {
         objet: "Create your Ruul account to get paid",
         corps: [bonjour(d),
-          "We use Ruul to pay you. You don't need to wait for an email from Ruul: create your account now.",
-          guideRuul(d.ruul_email, avant),
+          d.ruul_lien ? "We use Ruul to pay you." : "We use Ruul to pay you. You don't need to wait for an email from Ruul: create your account now.",
+          blocRuul(d, avant),
           `You start posting on ${debut}. Keep setting up your dashboard and TikTok meanwhile.`].join("\n\n"),
-        bouton: BOUTON_RUUL,
+        bouton: boutonRuul(d),
       };
     case "samedi_ruul":
       return {
         objet: "Finish your Ruul account before Monday to be paid this week",
         corps: [bonjour(d),
           "Finish your Ruul account before Monday to be paid this week.",
-          guideRuul(d.ruul_email, null),
+          blocRuul(d, null),
           "If it's not done by Monday, your pay isn't lost: it's added to the next Monday once your account is ready."].join("\n\n"),
-        bouton: BOUTON_RUUL,
+        bouton: boutonRuul(d),
       };
     case "invite_b":
+      if (d.ruul_lien) {
+        return {
+          objet: "You're connected on Ruul: one last step to get paid",
+          corps: [bonjour(d), "Your Ruul account is connected.", blocRuul(d, null)].join("\n\n"),
+          bouton: boutonRuul(d),
+        };
+      }
       return {
         objet: "You're connected on Ruul: one last check to get paid",
         corps: [bonjour(d),

@@ -285,3 +285,6 @@ verify_jwt = false
 
 [functions.bot_propositions]
 verify_jwt = false
+
+[functions.ruul-api]
+verify_jwt = false

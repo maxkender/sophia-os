@@ -105,10 +105,9 @@ Le pilote `originaux/bsg-o001.json` est l'exemple complet. Les champs :
 	
 	Ils sont concrets, un peu bizarres, et **neufs** : jamais un item de la source recopié.
 - **Slide de fin** : une question qui fait commenter (« laquelle tu voles en premier ? ») ou « vole-moi une habitude, enregistre ».
-- **Images** : la banque du label.
-	- Une fille sur l'accroche (de dos, en train de lire, le visage peu visible), puis une image différente à chaque slide.
-	- Des bibliothèques, des musées, des cafés, des carnets et des livres, dans une lumière chaude.
-	- Jamais une image qui montre une appli, un écran lisible ou un texte.
+- **Images** : toute la banque du label, une image différente à chaque slide.
+	- **Toute la banque, sans tri de fond (Adrien, 17/11, `pods/ROUTINE.md` §4)** : personnes connues, cigarettes, alcool, marques, logos, écrans, filigranes, images sombres sont acceptés. Seule limite : la slide de l'appli, jamais sur une personne reconnaissable. Ce qui suit est un style à préférer, jamais une raison d'écarter une image.
+	- Style à préférer : une fille sur l'accroche ; des bibliothèques, des musées, des cafés, des carnets et des livres, dans une lumière chaude.
 - **Musique** : celle du schéma (« Probe » ou « Touch » de Daft Punk sur les gagnants de @studyavec_lea), en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label

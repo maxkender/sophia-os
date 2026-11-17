@@ -1,0 +1,479 @@
+{
+ "id": "mm-o072",
+ "titre": "Gym habits ranked",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "gym habits, from real gains to wasted time #gym #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les habitudes de salle, des vrais progrès au temps perdu #muscu #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "Gym-Gewohnheiten, von echten Gains bis Zeitverschwendung #gym #mentalmaxxing #tierlist #selbstverbesserung"
+ },
+ "couverture": {
+  "mise": "titre_haut",
+  "image": {
+   "src": "7690939244096834824/1",
+   "boite": [
+    255,
+    238,
+    550,
+    745
+   ]
+  },
+  "haut": {
+   "en": "",
+   "fr": "",
+   "de": ""
+  },
+  "gros": {
+   "en": "Gym habits",
+   "fr": "Habitudes muscu",
+   "de": "Gym-Gewohnheiten"
+  },
+  "bas": {
+   "en": "ranked",
+   "fr": "classées",
+   "de": "im Ranking"
+  },
+  "edition": {
+   "en": "discipline edition",
+   "fr": "édition discipline",
+   "de": "Disziplin-Edition"
+  },
+  "par_langue": {
+   "fr": {
+    "image": {
+     "src": "7697820355800370448/1",
+     "boite": [
+      222,
+      402,
+      636,
+      756
+     ]
+    },
+    "mise": "collage"
+   },
+   "de": {
+    "image": {
+     "src": "7699644186470976786/1",
+     "boite": [
+      198,
+      378,
+      684,
+      738
+     ]
+    },
+    "mise": "classique"
+   }
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "fr": "note mon classement",
+  "de": "bewerte mein Ranking"
+ },
+ "pied": {
+  "en": "what’s your gym non-negotiable?",
+  "fr": "c’est quoi ton non négociable ?",
+  "de": "was ist dein Gym-Muss?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "real gains",
+    "fr": "vrais progrès",
+    "de": "echte Gains"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "8h of sleep",
+      "fr": "8h de sommeil",
+      "de": "8 Std. Schlaf"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      255,
+      630,
+      185,
+      175
+     ],
+     "t": {
+      "en": "progressive|overload",
+      "fr": "surcharge|progressive",
+      "de": "progressive|Überlastung"
+     }
+    },
+    {
+     "app": true
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      365,
+      35,
+      125,
+      175
+     ],
+     "t": {
+      "en": "water",
+      "fr": "de l’eau",
+      "de": "Wasser"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      55,
+      5,
+      185,
+      195
+     ],
+     "t": {
+      "en": "real meals",
+      "fr": "vrais repas",
+      "de": "echte Mahlzeiten"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "a plan|on paper",
+      "fr": "un plan|sur papier",
+      "de": "ein Plan|auf Papier"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      870,
+      85,
+      150,
+      130
+     ],
+     "t": {
+      "en": "daily steps",
+      "fr": "marcher|tous les jours",
+      "de": "tägliche|Schritte"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "mobility",
+      "fr": "mobilité",
+      "de": "Mobility"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "fr": "bien",
+    "de": "gut"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "gym playlist",
+      "fr": "playlist muscu",
+      "de": "Gym-Playlist"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalte Dusche"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "pre-gym coffee",
+      "fr": "café|avant la salle",
+      "de": "Kaffee|vorm Training"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "training log",
+      "fr": "carnet|de séance",
+      "de": "Trainings-|tagebuch"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "meh",
+    "fr": "bof",
+    "de": "naja"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      885,
+      658,
+      115,
+      122
+     ],
+     "t": {
+      "en": "supplements",
+      "fr": "compléments",
+      "de": "Supplements"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "new gym|clothes",
+      "fr": "nouvelles|tenues",
+      "de": "neue|Gym-Klamotten"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "rest days|×4",
+      "fr": "4 jours|de repos",
+      "de": "4 Ruhetage"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "fitness|videos",
+      "fr": "vidéos|fitness",
+      "de": "Fitness-|Videos"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "wasted time",
+    "fr": "temps perdu",
+    "de": "Zeitverschwendung"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "gym selfies",
+      "fr": "selfies|à la salle",
+      "de": "Gym-Selfies"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "scrolling|between sets",
+      "fr": "scroller|entre les séries",
+      "de": "Scrollen|zwischen Sätzen"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "post-gym|fast food",
+      "fr": "fast-food|après la salle",
+      "de": "Fast Food|nach dem Gym"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming|till 3am",
+      "fr": "jouer|jusqu’à 3h",
+      "de": "Zocken|bis 3 Uhr"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "kills progress",
+   "fr": "tue les progrès",
+   "de": "killt Fortschritt"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "fr": "reels sans fin",
+     "de": "endlose Reels"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "Doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "fr": "applis de paris",
+     "de": "Wett-Apps"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine Wahl|(kommentiere)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 (règle « Variété et volume ») : full test, accroche nouvelle en forme « X ranked ». Langues en, fr, de seulement, couverture propre à chaque langue (en : titre_haut guerrier, fr : collage DiCaprio, de : classique Bale). cta C (élément Sophia en 3e case du S+)."
+}

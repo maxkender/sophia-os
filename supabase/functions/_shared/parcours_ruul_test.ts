@@ -196,3 +196,33 @@ Deno.test("13/11 : « Active » dans Ruul = payable : plus de relance « Ruul pa
   const d = { prenom: "Ana", login: null, motDePasse: "x", dashboard: "https://os", handle: null, slack: "https://slack", cohorte_lundi: "2026-11-16", ruul_email: "a@b.c", abonnements: null, ruul_compte: "invited" };
   assertStringIncludes(emailParcours("ruul", d, "https://pret").corps, "You don't need Ruul to start posting — it's only to get paid. You're paid every Monday for the week you posted.");
 });
+
+Deno.test("17/11 API Ruul : avec un lien, bouton « Open my Ruul setup » et la prochaine étape selon le statut", () => {
+  const d = { prenom: "Eva", login: "eva@x.io", motDePasse: "x", dashboard: "https://os", handle: "eva.x", slack: "https://slack", cohorte_lundi: "2026-11-23", ruul_email: "eva@gmail.com", abonnements: 0 };
+  const lien = "https://app.ruul.io/embed/onboard?token=abc";
+  const b = emailParcours("bienvenue", { ...d, ruul_lien: lien, ruul_onboarding: "NOT_REGISTERED" }, "https://pret");
+  assertEquals(b.bouton, { texte: "Open my Ruul setup", lien });
+  assertStringIncludes(b.corps, "Set up Ruul — required to get paid (5 min)");
+  assertStringIncludes(b.corps, "You don't need Ruul to start posting");
+  assert(!b.corps.includes("app.ruul.io/register"));
+  const kyc = emailParcours("ruul", { ...d, ruul_lien: lien, ruul_onboarding: "PENDING_KYC" }, "https://pret");
+  assertEquals(kyc.objet, "Reminder: add your ID on Ruul to get paid");
+  assertStringIncludes(kyc.corps, "Next step: add your ID");
+  assertEquals(emailParcours("ruul", { ...d, ruul_lien: lien, ruul_onboarding: "PENDING_COLLECTION_ACCOUNT" }, "https://pret").objet, "Reminder: add your bank account on Ruul to get paid");
+  assertEquals(emailParcours("ruul", { ...d, ruul_lien: lien, ruul_onboarding: "PENDING_AGREEMENTS" }, "https://pret").objet, "Reminder: sign the agreements on Ruul to get paid");
+  assertEquals(emailParcours("invite_b", { ...d, ruul_lien: lien }, "https://pret").bouton?.texte, "Open my Ruul setup");
+  // Sans lien (invitation automatique éteinte) : l'ancien guide, inchangé.
+  const sans = emailParcours("bienvenue", d, "https://pret");
+  assertStringIncludes(sans.corps, "app.ruul.io/register");
+  assertEquals(sans.bouton?.texte, "Open Ruul");
+  for (const t of ["bienvenue", "ruul", "invite_a", "invite_b", "samedi_ruul"] as const) {
+    const e = emailParcours(t, { ...d, ruul_lien: lien, ruul_onboarding: "PENDING_KYC" }, "https://pret");
+    assert(!/\bbot\b|\bai\b/i.test(e.objet + e.corps), t);
+  }
+});
+
+Deno.test("17/11 API Ruul : READY chez Ruul = plus de relance Ruul", () => {
+  const e = base({ cohorte_lundi: "2026-11-16", ruul_compte: "invited", ruul_email_a_at: "2026-11-10T08:00:00Z", ruul_onboarding: "READY" });
+  const d = prochainEnvoi(e, jeudi, { bienvenue: false, v2: true });
+  assert(d?.type !== "ruul" && d?.type !== "invite_a" && d?.type !== "invite_b" && d?.type !== "carte_ruul");
+});

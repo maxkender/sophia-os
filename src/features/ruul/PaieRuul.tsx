@@ -9,6 +9,9 @@ import { telechargerCsv, versCsv } from "@/lib/csv";
 import {
   changerStatutRuul,
   creerPaiementRuul,
+  deciderVerifRuul,
+  importerHistoriqueRuul,
+  lireVerifRuul,
   devisLotRuul,
   libelleArret,
   lireLotRuul,
@@ -26,7 +29,7 @@ import {
 } from "./api";
 import { dollars, jourMois, LIBELLE_STATUT, lignesCsvRuul, lireExportRuul } from "./logique";
 
-const CLES = [["ruul-tableau"], ["ruul-posteurs"], ["ruul-lot"]];
+const CLES = [["ruul-tableau"], ["ruul-posteurs"], ["ruul-lot"], ["ruul-verif"]];
 
 /**
  * Page Paie → Ruul (0574) : les posteurs du site payés par Ruul. Le tableau
@@ -39,6 +42,7 @@ export function PaieRuul() {
       <TableauRuulBloc />
       <AjouterSurRuul />
       <LotRuulCarte />
+      <VerifRuulCarte />
     </div>
   );
 }
@@ -476,5 +480,67 @@ export function VirementRuul({ funding }: { funding: FundingRuul }) {
       ))}
       <p className="text-xs text-muted-foreground">Ruul paie chaque posteur dès que le virement arrive (et qu'il est READY).</p>
     </div>
+  );
+}
+
+/** 0740 : les semaines « à vérifier » (pas payées d'office) face à l'historique des paiements Ruul. */
+function VerifRuulCarte() {
+  const q = useQuery({ queryKey: ["ruul-verif"], queryFn: lireVerifRuul });
+  const rafraichir = useRafraichir();
+  const [message, setMessage] = React.useState<string | null>(null);
+  const [occupe, setOccupe] = React.useState(false);
+  const lignes = (q.data ?? []).filter((p) => (p.du ?? []).some((d) => d.verif));
+  if (q.error) return <p className="text-sm text-destructive">{(q.error as Error).message}</p>;
+  const agir = async (f: () => Promise<{ ok: boolean; erreur?: string; error?: string } & Record<string, unknown>>, ok: string) => {
+    setOccupe(true);
+    setMessage(null);
+    try {
+      const r = await f();
+      setMessage(r.ok ? ok : `Impossible : ${r.erreur ?? r.error}`);
+      await rafraichir();
+    } catch (e) {
+      setMessage((e as Error).message);
+    } finally {
+      setOccupe(false);
+    }
+  };
+  return (
+    <Card data-testid="verif-ruul">
+      <CardHeader>
+        <CardTitle>À vérifier avant de payer ({lignes.length})</CardTitle>
+        <CardDescription>
+          Semaines sorties du paiement en attendant ta décision, avec ce que Ruul a déjà versé à chacun (historique Ruul).
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3 text-sm">
+        <Button size="sm" variant="outline" disabled={occupe}
+          onClick={() => void agir(() => importerHistoriqueRuul(), "Historique Ruul importé.")}>
+          Importer l'historique Ruul
+        </Button>
+        {message ? <p role="status">{message}</p> : null}
+        {lignes.length === 0 ? <p className="text-muted-foreground">Rien à vérifier.</p> : lignes.map((p) => (
+          <div key={p.poster_id} className="space-y-1 rounded-lg border px-3 py-2" data-testid="verif-posteur">
+            <p className="font-medium">{p.nom} <span className="text-xs text-muted-foreground">{p.ruul_email}</span></p>
+            {(p.du ?? []).filter((d) => d.verif).map((d) => (
+              <div key={d.semaine} className="flex flex-wrap items-center gap-2">
+                <span>Semaine du {jourMois(d.semaine)} : <b>{dollars(d.montant)}</b> ({d.faits ?? 0} posts)</span>
+                <Button size="sm" variant="outline" disabled={occupe}
+                  onClick={() => void agir(() => deciderVerifRuul(p.poster_id, d.semaine, "payer"), `${p.nom} : semaine du ${jourMois(d.semaine)} au prochain lot.`)}>
+                  À payer
+                </Button>
+                <Button size="sm" variant="outline" disabled={occupe}
+                  onClick={() => void agir(() => deciderVerifRuul(p.poster_id, d.semaine, "deja_paye"), `${p.nom} : semaine du ${jourMois(d.semaine)} déjà payée.`)}>
+                  Déjà payé
+                </Button>
+              </div>
+            ))}
+            <p className="text-xs text-muted-foreground">
+              Ruul a déjà versé : {(p.ruul ?? []).length === 0 ? "rien (ou historique pas importé)" : (p.ruul ?? []).map((t) =>
+                `${t.date ? new Date(t.date).toLocaleDateString("fr-FR") : "?"} ${t.montant ?? "?"} ${t.devise ?? ""} ${t.statut ?? ""}${t.tno ? ` (#${t.tno})` : ""}`).join(" · ")}
+            </p>
+          </div>
+        ))}
+      </CardContent>
+    </Card>
   );
 }

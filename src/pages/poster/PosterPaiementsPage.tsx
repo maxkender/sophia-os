@@ -6,6 +6,7 @@ import { CalendarCheck, ExternalLink, IdCard, MessageCircle, Wallet } from "luci
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { lireCohorteAccueil } from "@/features/moteur/api";
+import { lireMesPaiementsRuul, type MaPaieRuul } from "@/features/ruul/api";
 import { useRegles } from "@/features/regles/api";
 import { finPremiereSemaineRuul, formaterJour, partiesParis, premierPaiementRuul } from "@/features/onboarding/datesRuul";
 
@@ -60,6 +61,8 @@ export function PosterPaiementsPage() {
           </CardContent>
         )}
       </Card>
+
+      <MesPaiements />
 
       <Card>
         <CardHeader>
@@ -124,5 +127,53 @@ export function PosterPaiementsPage() {
         )}
       </Card>
     </div>
+  );
+}
+
+const COULEUR_STATUT: Record<MaPaieRuul["statut"], string> = {
+  paid: "text-success",
+  processing: "text-primary",
+  scheduled: "text-muted-foreground",
+  waiting_setup: "text-warning",
+  problem: "text-destructive",
+  none: "text-muted-foreground",
+};
+
+/** 0738 : chaque semaine comptée, son montant, son détail et où en est le paiement. */
+export function MesPaiements() {
+  const { t, i18n } = useTranslation();
+  const q = useQuery({ queryKey: ["ruul-mes-paiements"], queryFn: lireMesPaiementsRuul });
+  const lignes = q.data ?? [];
+  return (
+    <Card data-testid="mes-paiements-ruul">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2 text-base">
+          <Wallet className="size-4 text-primary" />
+          {t("paiementsRuul.mesTitre")}
+        </CardTitle>
+        {!q.isPending && lignes.length === 0 ? <CardDescription>{t("paiementsRuul.mesVide")}</CardDescription> : null}
+      </CardHeader>
+      {lignes.length > 0 && (
+        <CardContent>
+          <ul className="divide-y text-sm">
+            {lignes.map((l) => (
+              <li key={l.semaine} className="flex flex-wrap items-baseline justify-between gap-2 py-2">
+                <div>
+                  <div className="font-medium">{t("paiementsRuul.semaine", { date: formaterJour(l.semaine, i18n.language) })}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {t("paiementsRuul.detail", { faits: l.faits ?? 0, prevus: l.prevus ?? 0, comptes: l.nb_comptes ?? 0 })}
+                    {Number(l.bonus) > 0 ? ` ${t("paiementsRuul.detailBonus", { bonus: Number(l.bonus) })}` : ""}
+                  </div>
+                </div>
+                <div className="text-right">
+                  <div className="font-semibold tabular-nums">{Number(l.total).toFixed(2)} $</div>
+                  <div className={`text-xs ${COULEUR_STATUT[l.statut]}`}>{t(`paiementsRuul.statut_${l.statut}`)}</div>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+      )}
+    </Card>
   );
 }

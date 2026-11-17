@@ -13,6 +13,10 @@
  *   POST { action: "mon_lien" }   le posteur connecté (bouton « Open my Ruul setup » du dashboard) : son lien frais.
  *   POST { action: "devis", semaine }   admin : POST /payouts/calculate sur les lignes prêtes du lot (READY, validées).
  *       Ne crée rien chez Ruul ; le total à virer (frais compris, en EUR) est gardé sur le lot.
+ *   POST { action: "payer", semaine }   MAX SEUL (réglage ruul_api.payeurs) : POST /payouts avec Idempotency-Key.
+ *       Ruul crée les factures et renvoie le virement à faire (montant, comptes, référence) : Max vire depuis Qonto.
+ *       Un envoi sans réponse claire est renvoyé à l'identique (même clé) : jamais deux paiements.
+ *   POST { action: "relire", semaine }   admin / cron : GET /payouts/{batchId} → statuts des lignes et virement.
  *
  * La clé (RUUL_API_KEY / RUUL_SANDBOX_API_KEY) reste dans les secrets ; elle n'apparaît jamais dans une réponse.
  */
@@ -174,6 +178,63 @@ async function devis(supabase: Supabase, corps: Record<string, unknown>) {
   return { ok: true, devis: d };
 }
 
+/** Créer le paiement Ruul du lot (Max seul). Rien ne part sans ce clic ; l'argent part quand Max vire. */
+async function payer(supabase: Supabase, userId: string, corps: Record<string, unknown>) {
+  const semaine = typeof corps.semaine === "string" ? corps.semaine : null;
+  if (!semaine || !/^\d{4}-\d{2}-\d{2}$/.test(semaine)) return { ok: false, error: "semaine manquante" };
+  const { data: rg } = await supabase.from("reglages").select("valeur").eq("cle", "ruul_api").maybeSingle();
+  const payeurs = ((rg?.valeur as { payeurs?: string[] } | null)?.payeurs ?? []);
+  if (!payeurs.includes(userId)) return { ok: false, error: "réservé à Max" };
+  const reglage = await lireReglage(supabase);
+  const soc = await societe(supabase, reglage);
+  if (!soc.id) return { ok: false, error: soc.erreur };
+  const lignes = await lignesAEnvoyer(supabase, semaine);
+  if (lignes.length === 0) return { ok: false, error: "aucune ligne prête (READY et validée)" };
+  if (lignes.length > 200) return { ok: false, error: `${lignes.length} lignes : 200 au plus par paiement Ruul` };
+  const { data: env, error: e1 } = await supabase.rpc("ruul_lot_envoi_preparer", {
+    p_semaine: semaine, p_user: userId, p_env: reglage.env, p_corps: corpsPayout(reglage.devise_facture, soc.id, semaine, lignes),
+  });
+  if (e1) throw new Error(e1.message);
+  const e = env as { ok: boolean; erreur?: string; deja?: number; cle?: string; corps?: unknown; env?: EnvRuul; renvoi?: boolean };
+  if (!e.ok) return { ok: false, error: e.erreur };
+  if (e.deja) return { ok: true, deja: true, batch: e.deja };
+  // Le renvoi après une coupure garde l'environnement du premier envoi (la clé n'existe que là-bas).
+  const envEnvoi: EnvRuul = e.env === "sandbox" ? "sandbox" : "prod";
+  const r = await appelRuul<Record<string, unknown>>(envEnvoi, "POST", "/payouts", { corps: e.corps, idempotence: e.cle });
+  await noterAppel(supabase, envEnvoi, "payouts", r, { semaine, lignes: lignes.length, renvoi: e.renvoi === true, batch: r.data?.batchId ?? null });
+  if (r.ok && r.data?.batchId) {
+    const { data: n, error: e2 } = await supabase.rpc("ruul_lot_batch_noter", { p_semaine: semaine, p_batch: r.data, p_user: userId });
+    if (e2) throw new Error(e2.message);
+    return { ok: true, env: envEnvoi, batch: r.data.batchId, funding: r.data.funding ?? null, noter: n };
+  }
+  // Refus net (validation, clé, droits, devise, débit) : le prochain clic repartira d'une clé neuve.
+  // Pas de réponse (réseau, 5xx) ou requête encore en cours : on garde la même clé pour le prochain clic.
+  const net = r.http >= 400 && r.http < 500 && r.code !== "request_in_flight";
+  if (net) await supabase.rpc("ruul_lot_envoi_refuse", { p_semaine: semaine, p_http: r.http, p_erreur: `${r.code ?? ""} ${r.erreur ?? ""}`.trim() });
+  return {
+    ok: false,
+    env: envEnvoi,
+    error: net
+      ? `Ruul a refusé (HTTP ${r.http}${r.code ? `, ${r.code}` : ""}) : ${r.erreur}`
+      : `pas de réponse claire de Ruul (${r.erreur ?? `HTTP ${r.http}`}) : reclique plus tard, le même envoi repartira sans doublon`,
+  };
+}
+
+/** Relire le paiement Ruul d'un lot : statuts des lignes, virement encore dû. */
+async function relire(supabase: Supabase, corps: Record<string, unknown>) {
+  const semaine = typeof corps.semaine === "string" ? corps.semaine : null;
+  if (!semaine) return { ok: false, error: "semaine manquante" };
+  const { data: lot } = await supabase.from("ruul_lots").select("ruul_batch_id, ruul_env").eq("semaine", semaine).maybeSingle();
+  if (!lot?.ruul_batch_id) return { ok: false, error: "pas de paiement Ruul sur ce lot" };
+  const env: EnvRuul = lot.ruul_env === "sandbox" ? "sandbox" : "prod";
+  const r = await appelRuul<Record<string, unknown>>(env, "GET", `/payouts/${lot.ruul_batch_id}`);
+  await noterAppel(supabase, env, "payout_lire", r, { semaine, batch: lot.ruul_batch_id });
+  if (!r.ok || !r.data) return { ok: false, error: r.erreur };
+  const { data: n, error } = await supabase.rpc("ruul_lot_batch_noter", { p_semaine: semaine, p_batch: r.data });
+  if (error) throw new Error(error.message);
+  return { ok: true, statut: r.data.status ?? null, noter: n };
+}
+
 Deno.serve(async (request) => {
   let corps: Record<string, unknown> = {};
   const brut = request.method === "POST" ? await request.text() : "";
@@ -197,6 +258,17 @@ Deno.serve(async (request) => {
       return json({ ok: false, error: "Something went wrong, please try again." }, 500);
     }
   }
+  // Créer le paiement Ruul : un admin connecté, et seulement ceux du réglage ruul_api.payeurs (Max).
+  if (corps.action === "payer") {
+    const acces = await assertRole(request, ["admin"]);
+    if (acces instanceof Response) return acces;
+    try {
+      return json(await payer(serviceClient(), acces.userId, corps));
+    } catch (e) {
+      console.error("[ruul-api] payer", messageErreur(e));
+      return json({ ok: false, error: messageErreur(e) }, 500);
+    }
+  }
   const refus = await assertAuthorised(request);
   if (refus) return refus;
   try {
@@ -208,6 +280,8 @@ Deno.serve(async (request) => {
         return json(await connect(supabase, corps));
       case "devis":
         return json(await devis(supabase, corps));
+      case "relire":
+        return json(await relire(supabase, corps));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }

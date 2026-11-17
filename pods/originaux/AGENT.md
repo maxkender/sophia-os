@@ -128,9 +128,10 @@ ou de déposer.
   - `cta C` : slide 4, autre phrase : « i do it with the Sophia app, one lesson
     a day, five minutes ».
 - **Pas de tiret long (—)** ni de point-virgule : la traduction les interdit.
-- **Images et inspiration** : les images ET les slides d'inspiration d'un même
-  post du top (position par position). Un post d'inspiration différent pour
-  chaque original.
+- **Images** : toute la banque du label (`npm run images -- --accroches`, `--cherche`), plus seulement celles du post d'inspiration. **Toute la banque, sans tri de fond (Adrien, 17/11, `pods/ROUTINE.md` §4)** : personnes connues, cigarettes, alcool, marques, logos, écrans, filigranes, images sombres sont acceptés. Seule limite : la slide de l'appli, jamais sur une personne reconnaissable. Ce qui suit est un style à préférer, jamais une raison d'écarter une image.
+- **Inspiration** : les slides d'inspiration d'un post du top (position par
+  position), pour poser le texte. Un post d'inspiration différent pour chaque
+  original.
 - **Musique** : plus toujours « Ballad to a Mexican Desert » (132 contenus sur 132 au 12/11, les posteurs l'ont remarqué). Alterne au moins 5 sons qui marchent en ce moment chez @mentoridaily et dans la niche. Le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`).
 
 ## Demandes types
@@ -161,9 +162,9 @@ normale : un original, comme « Écris N originaux » avec N = 1.
 
 ## Règles
 - **Tu proposes, l'humain valide.** Ne contourne jamais la file.
-- **Personnes sur les images** : les photos de la banque où l'on voit des
-  célébrités (acteurs, actrices) sont acceptées (Adrien, 28/10). Seule limite :
-  jamais de personne réelle sur la slide Sophia (`pods/ROUTINE.md`).
+- **Personnes sur les images** : toutes les photos de la banque sont acceptées,
+  célébrités comprises (Adrien, 28/10 et 17/11). Seule limite : jamais de
+  personne réelle sur la slide Sophia (`pods/ROUTINE.md`).
 - **Versions** : commite avant de réécrire un fichier existant.
 - **Git** : travaille sur ta branche, PR vers `main` limitée à `pods/originaux/`,
   merge-la. Tout changement hors de ce dossier : propose-le, ne le merge pas.

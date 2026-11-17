@@ -3730,6 +3730,86 @@
    "notes": "déclinaison G1 de 7705815524244081953; cta A",
    "type_bleo": "declinaison",
    "parent_contenu_id": "f4aa647b-9e6f-4137-8650-c1318a2870b3"
+  },
+  {
+   "post_id": "original-085",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#bedtimeroutine #sleep #phonefree",
+   "musique": {
+    "titre": "original sound - Sean | Bangkok Photographer",
+    "auteur": "Sean | Bangkok Photographer",
+    "original": true,
+    "id": "7670141900171217672",
+    "url_tiktok": "https://www.tiktok.com/music/x-7670141900171217672"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7683541501007252758_1",
+    "2": "7691336990419209505_6",
+    "3": "7707332670765813025_6",
+    "4": "7692093201968090401_4",
+    "5": "7691336990419209505_2",
+    "6": "7683630825610513686_6"
+   },
+   "notes": "full test BLEO (stop doomscroll au lit); cta B",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-bizarres-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brainhacks #studytips #science",
+   "musique": {
+    "titre": "The beginning by Flawed Mangoes slowed",
+    "auteur": "⠀",
+    "original": true,
+    "id": "7318739514535889697",
+    "url_tiktok": "https://www.tiktok.com/music/x-7318739514535889697"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7696836327026724128_1",
+    "2": "7705457734870699296_3",
+    "3": "7705457734870699296_2",
+    "4": "7689509565536177441_4",
+    "5": "7705457734870699296_5",
+    "6": "7685736268617059616_6"
+   },
+   "notes": "déclinaison G1 de original-015; cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "e24f2ad9-73d1-48f8-9922-56b87879ebfb"
+  },
+  {
+   "post_id": "var-regles-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#phonerules #digitaldetox #screentime",
+   "musique": {
+    "titre": "Better in the Dark",
+    "auteur": "Jordana & TV Girl",
+    "original": false,
+    "id": "7015372949901281281",
+    "url_tiktok": "https://www.tiktok.com/music/x-7015372949901281281"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7681048823824649494_1",
+    "2": "7696527080426655009_3",
+    "3": "7701398929807641888_2",
+    "4": "7691336990419209505_4",
+    "5": "7705815524244081953_5",
+    "6": "7696527080426655009_6"
+   },
+   "notes": "déclinaison G1 de original-014; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "78f5fe13-357a-4402-b358-249de336831c"
   }
  ]
 }

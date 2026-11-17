@@ -80,36 +80,37 @@
    "textes": {
     "T1": {
      "en": [
-      "study longer than you want to"
+      "write your thoughts down",
+      "every night"
      ],
-     "fr": "bosse [[même quand t'as plus envie]]",
-     "texte": "scrivi [[3 cose di oggi]]"
+     "fr": "note ce que t'as en tête [[chaque soir]]",
+     "texte": "21:45: scrivi [[3 cose di oggi]]"
     },
     "T2": {
      "en": [
-      "the useful part usually starts when your brain",
-      "wants to quit"
+      "your thoughts feel messy",
+      "and unclear until you try to",
+      "write them down"
      ],
-     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "fr": "tes pensées paraissent [[floues et en vrac]] jusqu'à ce que tu [[les écrives]]",
      "texte": "una bella, una divertente, una che hai imparato. [[due minuti, non di più]]"
     },
     "T3": {
      "en": [
-      "stay for another",
-      "20–30 minutes",
-      "after you feel",
-      "bored, distracted,",
-      "or restless"
+      "writing forces you to finish a",
+      "thought instead of jumping",
+      "to the next one"
      ],
-     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "fr": "écrire t'oblige à finir une pensée au lieu de sauter à la suivante",
      "texte": "un quaderno sul comodino, una penna e [[zero schermi]]"
     },
     "T4": {
      "en": [
-      "you're not just learning the subject, you're training",
-      "yourself to keep going when motivation disappears"
+      "even 5 minutes before bed is",
+      "proven to be enough to start",
+      "thinking more clearly"
      ],
-     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "fr": "même 5 min avant de dormir, c'est [[prouvé]], ça suffit pour [[avoir les idées plus claires]]",
      "texte": "quando la giornata è sulla carta, [[la testa smette di ripassarla]] appena ti metti a letto"
     }
    },

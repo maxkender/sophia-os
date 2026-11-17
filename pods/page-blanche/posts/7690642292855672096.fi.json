@@ -9,7 +9,7 @@
       "successful people"
      ],
      "fr": "10/10 traits méconnus des gens qui réussissent",
-     "texte": "10/10 harvinaista piirrettä tosi menestyneillä ihmisillä"
+     "texte": "10/10 harvinaista piirrettä tosi menestyneillä"
     },
     "T2": {
      "en": [
@@ -17,7 +17,7 @@
      ],
      "fr": "(la science le dit)",
      "alignement": "droite",
-     "texte": "(tiede sanoo)"
+     "texte": "(tieteen mukaan)"
     }
    },
    "images": {
@@ -41,7 +41,7 @@
       "they make decisions fast"
      ],
      "fr": "ils [[décident vite]]",
-     "texte": "he [[tekevät päätökset nopeasti]]"
+     "texte": "he [[päättävät nopeasti]]"
     },
     "T2": {
      "en": [
@@ -60,7 +60,7 @@
       "choice"
      ],
      "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
-     "texte": "he eivät mieti 3 viikkoa [[päätöstä, jonka voi perua]]"
+     "texte": "he eivät mieti 3 viikkoa [[päätöstä, jonka voi vielä perua]]"
     },
     "T4": {
      "en": [
@@ -163,7 +163,7 @@
       "centuries"
      ],
      "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]",
-     "texte": "sen sijaan he lukevat ideoita, jotka ovat [[kestäneet vuosikymmeniä]] tai [[vuosisatoja]]"
+     "texte": "he lukevat ajatuksia, jotka [[kestivät vuosikymmeniä]] tai [[vuosisatoja]]"
     },
     "T3": {
      "en": [
@@ -182,7 +182,7 @@
       "your apps until you read"
      ],
      "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "jos olet jumissa tiktokissa, kokeile [[Sophia-sovellusta]]: 5 min siitä, miksi renessanssi syntyi Italiassa"
+     "texte": "jumissa tiktokissa? kokeile [[Sophia-sovellusta]]: 5 min siitä, miksi renessanssi syntyi Italiassa"
     }
    },
    "images": {
@@ -220,7 +220,7 @@
       "working"
      ],
      "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
-     "texte": "useimmat tarvitsevat jatkuvasti todisteita siitä, että jokin toimii"
+     "texte": "useimmat haluavat koko ajan todisteita, että jokin toimii"
     },
     "T4": {
      "en": [
@@ -229,7 +229,7 @@
       "payoff to arrive."
      ],
      "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
-     "texte": "menestyneet ihmiset [[pysyvät johdonmukaisina tarpeeksi kauan]], jotta tulokset ehtivät tulla."
+     "texte": "menestyneet [[pysyvät johdonmukaisina tarpeeksi kauan]], jotta tulokset ehtivät tulla."
     }
    },
    "images": {
@@ -238,9 +238,9 @@
       "source": "sources/7696836327026724128_6.jpg",
       "boite": [
        47,
-       435,
-       465,
-       606
+       450,
+       240,
+       406
       ]
      }
     }
@@ -253,7 +253,7 @@
       "they obsess over leverage"
      ],
      "fr": "ils sont obsédés par [[l'effet de levier]]",
-     "texte": "he ovat koukussa [[vipuvaikutukseen]]"
+     "texte": "he jahtaavat [[vipuvaikutusta]]"
     },
     "T2": {
      "en": [
@@ -280,7 +280,7 @@
       "work harder, they’re trying"
      ],
      "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
-     "texte": "he eivät yritä vain painaa kovemmin, [[vaan saada työnsä skaalautumaan]]"
+     "texte": "he eivät yritä vain tehdä kovemmin töitä, [[vaan saada työnsä skaalautumaan]]"
     }
    },
    "images": {

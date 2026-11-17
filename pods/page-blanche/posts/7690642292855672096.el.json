@@ -9,7 +9,7 @@
       "successful people"
      ],
      "fr": "10/10 traits méconnus des gens qui réussissent",
-     "texte": "10/10 σπάνια χαρακτηριστικά πολύ πετυχημένων ανθρώπων"
+     "texte": "10/10 σπάνια γνωρίσματα πολύ πετυχημένων ανθρώπων"
     },
     "T2": {
      "en": [
@@ -17,7 +17,7 @@
      ],
      "fr": "(la science le dit)",
      "alignement": "droite",
-     "texte": "(το λέει η επιστήμη)"
+     "texte": "(λέει η επιστήμη)"
     }
    },
    "images": {
@@ -69,7 +69,7 @@
       "be changed later"
      ],
      "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
-     "texte": "αν το ρίσκο είναι μικρό, αποφασίζουν, κινούνται και διορθώνουν. [[η ταχύτητα μετράει πιο πολύ]] όταν μπορείς να αλλάξεις γνώμη μετά"
+     "texte": "αν το ρίσκο είναι μικρό, αποφασίζουν, κινούνται και διορθώνουν. [[η ταχύτητα μετράει πιο πολύ]] όταν μπορείς να το αλλάξεις μετά"
     }
    },
    "images": {
@@ -154,7 +154,7 @@
       "attention"
      ],
      "fr": "ils savent que le scroll infini [[leur bousille l'attention]]",
-     "texte": "ξέρουν ότι το ατελείωτο scroll στο tiktok [[τους τρώει την προσοχή]]"
+     "texte": "ξέρουν ότι το ατελείωτο scroll [[τους τρώει την προσοχή]]"
     },
     "T2b": {
      "en": [
@@ -173,7 +173,7 @@
       "nature"
      ],
      "fr": "de gens qui ont vraiment creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]",
-     "texte": "από ανθρώπους που σκέφτηκαν βαθιά την [[ψυχολογία]], την [[εξουσία]], τις [[επιχειρήσεις]] και την [[ανθρώπινη φύση]]"
+     "texte": "από ανθρώπους που σκέφτηκαν βαθιά για [[ψυχολογία]], [[εξουσία]], [[μπίζνες]] και [[ανθρώπινη φύση]]"
     },
     "T4": {
      "en": [
@@ -182,7 +182,7 @@
       "your apps until you read"
      ],
      "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "αν έχεις κολλήσει στο tiktok, δοκίμασε [[την εφαρμογή Sophia]]: 5 λεπτά για το γιατί η αναγέννηση ξεκίνησε στην ιταλία"
+     "texte": "αν κόλλησες στο tiktok, δοκίμασε [[την εφαρμογή Sophia]]: γιατί η αναγέννηση ξεκίνησε στην ιταλία"
     }
    },
    "images": {
@@ -238,9 +238,9 @@
       "source": "sources/7696836327026724128_6.jpg",
       "boite": [
        47,
-       435,
-       465,
-       606
+       450,
+       240,
+       406
       ]
      }
     }
@@ -272,7 +272,7 @@
       "automation, teams"
      ],
      "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
-     "texte": "λογισμικό, συστήματα, περιεχόμενο, κεφάλαιο, αυτοματισμοί, ομάδες"
+     "texte": "εργαλεία, συστήματα, περιεχόμενο, κεφάλαιο, αυτοματισμοί, ομάδες"
     },
     "T4": {
      "en": [

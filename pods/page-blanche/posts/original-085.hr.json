@@ -1,0 +1,256 @@
+{
+ "post_id": "original-085",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "kako prestati skrolati prije spavanja"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(rutina u 22 h)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7683630825610513686_2.jpg",
+      "boite": [
+       522,
+       483,
+       522,
+       393
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "21:30: [[prigušeno svjetlo]]"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "ugasi veliko svjetlo, upali jednu toplu lampu. prigušeno svjetlo govori tijelu da je [[dan gotov]], a krevet počinje pobjeđivati feed"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "[[samo lampe]]. ništa jako, ništa plavo, ništa sa stropa"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "za to ti ne treba snaga volje. samo pritisneš prekidač i ostalo ide samo od sebe"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "bosse [[même quand t'as plus envie]]",
+     "texte": "zapiši [[3 stvari iz dana]]"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "texte": "jednu lijepu, jednu smiješnu i jednu novu. [[najviše dvije minute]]"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "texte": "bilježnica na noćnom ormariću, olovka i [[nula ekrana]]"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "texte": "kad je dan na papiru, [[glava ga prestane vrtjeti]] čim legneš u krevet"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "22 h: [[5 min učenja]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "zadnje što vidiš na mobitelu [[ide s tobom u krevet]], zato to biraj svjesno"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "jedna kratka lekcija, a ne [[još jedan video]] koji postane sat vremena"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "kad završiš, [[mobitel ide dolje]]. bez zadnje provjere, bez autoplaya, ništa nedovršeno"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "mojih 5 minuta večeras: zašto je renesansa počela u italiji, u [[aplikaciji Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "punjač [[izvan spavaće sobe]]"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "kuhinja, hodnik, bilo gdje gdje ne dosežeš iz kreveta. ako spava pokraj jastuka, [[pobjeđuje svake večeri]]"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "nabavi [[pravu budilicu]]. i najjeftinija je dovoljna"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "mobitel ti nikad nije trebao kao budilica. a ujutro [[prvo što vidiš nije ekran]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "[[papirnata knjiga]] do gašenja svjetla"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[10 stranica je dovoljno]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "bez obavijesti, bez autoplaya, samo stranice pod lampom. odaberi nešto [[sporo i lagano]], ne moraš je završiti večeras"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "većinu večeri [[zaspiš usred poglavlja]], i baš je to poanta"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

@@ -17,7 +17,7 @@
      ],
      "fr": "(la science le dit)",
      "alignement": "droite",
-     "texte": "(nauka kaže)"
+     "texte": "(naučno dokazano)"
     }
    },
    "images": {
@@ -41,7 +41,7 @@
       "they make decisions fast"
      ],
      "fr": "ils [[décident vite]]",
-     "texte": "[[brzo donose odluke]]"
+     "texte": "oni [[brzo donose odluke]]"
     },
     "T2": {
      "en": [
@@ -50,7 +50,7 @@
       "forgiveness"
      ],
      "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
-     "texte": "uspešni ljudi [[ne odugovlače]]. [[ne traže dozvolu]], nego krenu i [[posle se izvine]]"
+     "texte": "uspešni ljudi [[ne odugovlače]]. [[ne čekaju da im neko da dozvolu]], nego krenu i [[posle se izvine]] ako treba"
     },
     "T3": {
      "en": [
@@ -113,7 +113,7 @@
       "massively"
      ],
      "fr": "protéger ton ego, ça rassure, mais ça [[te fait apprendre beaucoup moins vite]]",
-     "texte": "čuvanje ega deluje sigurno, ali [[drastično usporava učenje]]"
+     "texte": "čuvanje ega deluje sigurno, ali ti [[drastično usporava učenje]]"
     },
     "T4": {
      "en": [
@@ -146,7 +146,7 @@
       "by the greats"
      ],
      "fr": "ils lisent les classiques [[des grands auteurs]]",
-     "texte": "čitaju klasike [[velikih autora]]"
+     "texte": "čitaju klasike koje su napisali [[velikani]]"
     },
     "T2a": {
      "en": [
@@ -182,7 +182,7 @@
       "your apps until you read"
      ],
      "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "ne možeš bez tiktoka? probaj [[aplikaciju Sophia]]: 5 min o tome zašto je renesansa krenula iz Italije"
+     "texte": "ne možeš bez tiktoka? probaj 5 min u [[aplikaciji Sophia]]: zašto je renesansa krenula iz Italije"
     }
    },
    "images": {
@@ -201,7 +201,7 @@
       "no reward"
      ],
      "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
-     "texte": "izdrže [[dugo]] [[bez ikakve nagrade]]"
+     "texte": "mogu da izdrže [[dug period]] [[bez ikakve nagrade]]"
     },
     "T2": {
      "en": [
@@ -238,9 +238,9 @@
       "source": "sources/7696836327026724128_6.jpg",
       "boite": [
        47,
-       435,
-       465,
-       606
+       450,
+       240,
+       406
       ]
      }
     }
@@ -280,7 +280,7 @@
       "work harder, they’re trying"
      ],
      "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
-     "texte": "ne žele samo da rade više, [[žele da im se trud umnožava]]"
+     "texte": "ne trude se samo da rade više, [[trude se da im se trud višestruko isplati]]"
     }
    },
    "images": {

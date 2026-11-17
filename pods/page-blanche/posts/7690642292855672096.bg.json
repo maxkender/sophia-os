@@ -17,7 +17,7 @@
      ],
      "fr": "(la science le dit)",
      "alignement": "droite",
-     "texte": "(доказано от науката)"
+     "texte": "(според науката)"
     }
    },
    "images": {
@@ -41,7 +41,7 @@
       "they make decisions fast"
      ],
      "fr": "ils [[décident vite]]",
-     "texte": "[[решават бързо]]"
+     "texte": "[[вземат решенията си бързо]]"
     },
     "T2": {
      "en": [
@@ -50,7 +50,7 @@
       "forgiveness"
      ],
      "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
-     "texte": "успешните хора [[не отлагат]]. [[не искат разрешение]], а просто действат и [[после се извиняват]]"
+     "texte": "успешните хора [[не отлагат]]. [[не чакат някой да им разреши]], а просто действат и [[после се извиняват]]"
     },
     "T3": {
      "en": [
@@ -146,7 +146,7 @@
       "by the greats"
      ],
      "fr": "ils lisent les classiques [[des grands auteurs]]",
-     "texte": "четат класики [[от великите автори]]"
+     "texte": "четат класически книги [[от великите автори]]"
     },
     "T2a": {
      "en": [
@@ -182,7 +182,7 @@
       "your apps until you read"
      ],
      "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "ако не можеш да се откъснеш от tiktok, пробвай [[приложението Sophia]]: 5 мин за това защо ренесансът започва в италия"
+     "texte": "не можеш без tiktok? пробвай 5 мин [[в приложението Sophia]]: защо ренесансът започва в италия"
     }
    },
    "images": {
@@ -201,7 +201,7 @@
       "no reward"
      ],
      "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
-     "texte": "издържат [[дълго време]] [[без награда]]"
+     "texte": "издържат [[дълго време]] [[без никаква награда]]"
     },
     "T2": {
      "en": [
@@ -238,9 +238,9 @@
       "source": "sources/7696836327026724128_6.jpg",
       "boite": [
        47,
-       435,
-       465,
-       606
+       450,
+       240,
+       406
       ]
      }
     }
@@ -263,7 +263,7 @@
       "one hour of value"
      ],
      "fr": "ils cherchent toujours comment faire qu'[[une heure de boulot]] rapporte [[bien plus qu'une heure]]",
-     "texte": "постоянно търсят начини [[един час работа]] да носи [[повече от час стойност]]"
+     "texte": "постоянно търсят начини [[един час работа]] да носи [[много повече от час стойност]]"
     },
     "T3": {
      "en": [

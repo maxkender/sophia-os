@@ -9,7 +9,7 @@
       "successful people"
      ],
      "fr": "10/10 traits méconnus des gens qui réussissent",
-     "texte": "10/10 retų labai sėkmingų žmonių bruožų"
+     "texte": "10/10 mažai žinomų labai sėkmingų žmonių bruožų"
     },
     "T2": {
      "en": [
@@ -17,7 +17,7 @@
      ],
      "fr": "(la science le dit)",
      "alignement": "droite",
-     "texte": "(mokslo patvirtinta)"
+     "texte": "(mokslas sako)"
     }
    },
    "images": {
@@ -41,7 +41,7 @@
       "they make decisions fast"
      ],
      "fr": "ils [[décident vite]]",
-     "texte": "jie [[sprendimus priima greitai]]"
+     "texte": "[[greitai priima sprendimus]]"
     },
     "T2": {
      "en": [
@@ -50,7 +50,7 @@
       "forgiveness"
      ],
      "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
-     "texte": "sėkmingi žmonės [[neatidėlioja]]. jie [[neprašo leidimo]], o tiesiog daro ir [[atsiprašo vėliau]]"
+     "texte": "sėkmingi žmonės [[neatidėlioja]]. jie [[neprašo niekieno leidimo]], tiesiog ima ir daro, o [[atsiprašo jau vėliau]]"
     },
     "T3": {
      "en": [
@@ -121,7 +121,7 @@
       "nothing changes if nothing changes"
      ],
      "fr": "évoluer, c'est inconfortable, mais [[si tu changes rien, rien change]]",
-     "texte": "augti nepatogu, bet [[niekas nepasikeis, jei nieko nekeisi]]"
+     "texte": "augti nepatogu, bet [[niekas nepasikeis, jei tu nieko nekeisi]]"
     }
    },
    "images": {
@@ -146,7 +146,7 @@
       "by the greats"
      ],
      "fr": "ils lisent les classiques [[des grands auteurs]]",
-     "texte": "jie skaito [[didžiųjų autorių]] klasiką"
+     "texte": "jie skaito [[didžiųjų autorių]] klasikinius kūrinius"
     },
     "T2a": {
      "en": [
@@ -163,7 +163,7 @@
       "centuries"
      ],
      "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]",
-     "texte": "vietoj to jie skaito idėjas, kurios [[išgyveno dešimtmečius]] ar [[šimtmečius]]"
+     "texte": "vietoj to skaito idėjas, [[išgyvenusias dešimtmečius]] ar [[šimtmečius]]"
     },
     "T3": {
      "en": [
@@ -182,7 +182,7 @@
       "your apps until you read"
      ],
      "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "jei įstrigai tiktoke, išbandyk [[programėlę Sophia]]: 5 min apie tai, kodėl renesansas prasidėjo Italijoje"
+     "texte": "įstrigai tiktoke? 5 min pamoka [[programėlėje Sophia]]: kodėl renesansas prasidėjo Italijoje"
     }
    },
    "images": {
@@ -211,7 +211,7 @@
       "still look unimpressive"
      ],
      "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
-     "texte": "jie dirba toliau, kai [[niekas nežiūri]], niekas netampa viralu, o rezultatai vis dar [[neįspūdingi]]"
+     "texte": "jie dirba toliau, net kai [[niekas nežiūri]], niekas netampa viralu, o rezultatai vis dar [[neįspūdingi]]"
     },
     "T3": {
      "en": [
@@ -238,9 +238,9 @@
       "source": "sources/7696836327026724128_6.jpg",
       "boite": [
        47,
-       435,
-       465,
-       606
+       450,
+       240,
+       406
       ]
      }
     }
@@ -272,7 +272,7 @@
       "automation, teams"
      ],
      "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
-     "texte": "programos, sistemos, turinys, kapitalas, automatizacija, komandos"
+     "texte": "programos, sistemos, turinys, kapitalas, automatika, komandos"
     },
     "T4": {
      "en": [

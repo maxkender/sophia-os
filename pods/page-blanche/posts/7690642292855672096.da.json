@@ -17,7 +17,7 @@
      ],
      "fr": "(la science le dit)",
      "alignement": "droite",
-     "texte": "(videnskaben siger det)"
+     "texte": "(ifølge forskning)"
     }
    },
    "images": {
@@ -41,7 +41,7 @@
       "they make decisions fast"
      ],
      "fr": "ils [[décident vite]]",
-     "texte": "de [[træffer beslutninger hurtigt]]"
+     "texte": "de [[beslutter sig hurtigt]]"
     },
     "T2": {
      "en": [
@@ -182,7 +182,7 @@
       "your apps until you read"
      ],
      "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
-     "texte": "hvis du sidder fast i tiktok, så prøv [[Sophia-appen]]: 5 min om, hvorfor renæssancen startede i italien"
+     "texte": "sidder du fast i tiktok? prøv 5 min i [[Sophia-appen]]: hvorfor renæssancen startede i italien"
     }
    },
    "images": {
@@ -238,9 +238,9 @@
       "source": "sources/7696836327026724128_6.jpg",
       "boite": [
        47,
-       435,
-       465,
-       606
+       450,
+       240,
+       406
       ]
      }
     }

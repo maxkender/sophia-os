@@ -1,0 +1,693 @@
+{
+ "post_id": "var-bizarres-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 neuroscientist habits to",
+      "make you smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "beynine gizliden gizliye iyi gelen 5 tuhaf alışkanlık"
+    },
+    "T2": {
+     "en": [
+      "(neuroscientist approved)"
+     ],
+     "fr": "(validé par les neurosciences)",
+     "alignement": "droite",
+     "texte": "(bilim de onaylıyor)"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7685736268617059616_1.jpg",
+      "boite": [
+       98,
+       412,
+       636,
+       492
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "understand it's all your fault"
+     ],
+     "texte": "sıkıcı aramalarda [[karalama yap]]"
+    },
+    "T2": {
+     "en": [
+      "your job, your body, your grades, your habits, your",
+      "position it's all your fault"
+     ],
+     "texte": "dinlemiyormuşsun gibi görünür ama aslında [[tam tersi]]"
+    },
+    "T3": {
+     "en": [
+      "that sounds harsh, but",
+      "it's actually good news"
+     ],
+     "texte": "bir araştırmada karalama yapanlar [[daha çok hatırladı]]"
+    },
+    "T4": {
+     "en": [
+      "if it's your fault, it's also",
+      "in your control, you don't",
+      "have to be the person",
+      "you were yesterday, you",
+      "can change"
+     ],
+     "texte": "sıkıcı bir telefon mesajını, sadece oturup dinleyenlerden daha iyi. karalamak aklının başka yerlere kaymasını engeller"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 238,
+      "l": 697,
+      "h": 58
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 238,
+       "l": 697,
+       "h": 58,
+       "base": 283
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 39,
+      "y": 345,
+      "l": 819,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 39,
+       "y": 345,
+       "l": 819,
+       "h": 39,
+       "base": 373
+      },
+      {
+       "x": 40,
+       "y": 390,
+       "l": 391,
+       "h": 36,
+       "base": 418
+      }
+     ],
+     "pas": 45,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 466,
+      "y": 411,
+      "l": 523,
+      "h": 517
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 36,
+      "y": 498,
+      "l": 370,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 36,
+       "y": 498,
+       "l": 367,
+       "h": 35,
+       "base": 526
+      },
+      {
+       "x": 37,
+       "y": 541,
+       "l": 369,
+       "h": 37,
+       "base": 569
+      }
+     ],
+     "pas": 43,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 34,
+      "y": 657,
+      "l": 404,
+      "h": 212
+     },
+     "lignes": [
+      {
+       "x": 37,
+       "y": 657,
+       "l": 375,
+       "h": 38,
+       "base": 685
+      },
+      {
+       "x": 34,
+       "y": 702,
+       "l": 404,
+       "h": 36,
+       "base": 730
+      },
+      {
+       "x": 37,
+       "y": 746,
+       "l": 354,
+       "h": 36,
+       "base": 774
+      },
+      {
+       "x": 36,
+       "y": 790,
+       "l": 394,
+       "h": 35,
+       "base": 818
+      },
+      {
+       "x": 36,
+       "y": 834,
+       "l": 188,
+       "h": 35,
+       "base": 862
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "say no to almost everything"
+     ],
+     "texte": "kendine [[adınla]] seslen"
+    },
+    "T2": {
+     "en": [
+      "warren buffett said really successful people say",
+      "no to almost everything"
+     ],
+     "texte": "stres bastığında kendinle, sevdiğin birine konuşur gibi konuş"
+    },
+    "T3": {
+     "en": [
+      "stop being a people's",
+      "pleaser"
+     ],
+     "texte": "biraz [[delice]] geliyor"
+    },
+    "T4": {
+     "en": [
+      "you'll have less time for",
+      "what actually matters"
+     ],
+     "texte": "ama araştırmalar [[sakinleştirdiğini]] gösteriyor"
+    },
+    "T5": {
+     "en": [
+      "protect your time like",
+      "it's the most valuable",
+      "thing you have"
+     ],
+     "texte": "kendi adını kullanmak seninle sorun arasına biraz mesafe koyar"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 43,
+      "y": 236,
+      "l": 696,
+      "h": 56
+     },
+     "lignes": [
+      {
+       "x": 43,
+       "y": 236,
+       "l": 696,
+       "h": 56,
+       "base": 278
+      }
+     ],
+     "pas": 0,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 351,
+      "l": 778,
+      "h": 81
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 351,
+       "l": 777,
+       "h": 37,
+       "base": 379
+      },
+      {
+       "x": 40,
+       "y": 395,
+       "l": 387,
+       "h": 37,
+       "base": 423
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 449,
+      "y": 405,
+      "l": 547,
+      "h": 507
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 484,
+      "l": 349,
+      "h": 79
+     },
+     "lignes": [
+      {
+       "x": 45,
+       "y": 484,
+       "l": 349,
+       "h": 36,
+       "base": 512
+      },
+      {
+       "x": 45,
+       "y": 528,
+       "l": 122,
+       "h": 35,
+       "base": 556
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 46,
+      "y": 614,
+      "l": 378,
+      "h": 80
+     },
+     "lignes": [
+      {
+       "x": 46,
+       "y": 614,
+       "l": 378,
+       "h": 36,
+       "base": 642
+      },
+      {
+       "x": 46,
+       "y": 659,
+       "l": 350,
+       "h": 35,
+       "base": 687
+      }
+     ],
+     "pas": 45,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T5",
+     "type": "texte",
+     "boite": {
+      "x": 45,
+      "y": 740,
+      "l": 347,
+      "h": 123
+     },
+     "lignes": [
+      {
+       "x": 48,
+       "y": 740,
+       "l": 342,
+       "h": 36,
+       "base": 768
+      },
+      {
+       "x": 48,
+       "y": 783,
+       "l": 344,
+       "h": 36,
+       "base": 811
+      },
+      {
+       "x": 45,
+       "y": 827,
+       "l": 242,
+       "h": 36,
+       "base": 855
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "daha az çalış ama [[her gün]]"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "birkaç güne yayılmış kısa oturumlar, tek bir uzun inek çalışmadan çok daha kalıcı. buna [[aralıklı tekrar etkisi]] deniyor"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "eskiden durmadan scroll yapardım, şimdi zaten telefondaysam her gün biraz öğreniyorum, bugün rönesansın neden italya'da başladığını, [[Sophia uygulamasında]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "dont go on your phone first thing in the",
+      "morning"
+     ],
+     "texte": "sınavdan önce [[endişelerini yaz]]"
+    },
+    "T2": {
+     "en": [
+      "messages, news, tiktok, you're reacting to",
+      "everyone else before you've even got out of bed"
+     ],
+     "texte": "testten hemen önce en kötü fikir gibi duruyor ama [[kafanı boşaltıyor]]"
+    },
+    "T3": {
+     "en": [
+      "your brain gets a hit of",
+      "dopamine before you've",
+      "done anything"
+     ],
+     "texte": "endişe, [[net düşünmek]] için ihtiyacın olan zihinsel alanı yer"
+    },
+    "T4": {
+     "en": [
+      "and the rest of your",
+      "day feels boring. give",
+      "yourself the first 30",
+      "minutes without your",
+      "phone"
+     ],
+     "texte": "bir araştırmada, sınavdan önce birkaç dakika korkularını yazan stresli öğrenciler [[daha başarılı oldu]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   },
+   "geometrie": [
+    {
+     "id": "T1",
+     "type": "texte",
+     "boite": {
+      "x": 38,
+      "y": 222,
+      "l": 992,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 41,
+       "y": 222,
+       "l": 989,
+       "h": 57,
+       "base": 266
+      },
+      {
+       "x": 38,
+       "y": 291,
+       "l": 210,
+       "h": 55,
+       "base": 335
+      }
+     ],
+     "pas": 69,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T2",
+     "type": "texte",
+     "boite": {
+      "x": 40,
+      "y": 382,
+      "l": 786,
+      "h": 82
+     },
+     "lignes": [
+      {
+       "x": 42,
+       "y": 382,
+       "l": 682,
+       "h": 36,
+       "base": 410
+      },
+      {
+       "x": 40,
+       "y": 424,
+       "l": 786,
+       "h": 40,
+       "base": 452
+      }
+     ],
+     "pas": 42,
+     "alignement": "gauche"
+    },
+    {
+     "id": "I1",
+     "type": "image",
+     "boite": {
+      "x": 40,
+      "y": 495,
+      "l": 507,
+      "h": 560
+     }
+    },
+    {
+     "id": "T3",
+     "type": "texte",
+     "boite": {
+      "x": 568,
+      "y": 536,
+      "l": 392,
+      "h": 124
+     },
+     "lignes": [
+      {
+       "x": 569,
+       "y": 536,
+       "l": 367,
+       "h": 39,
+       "base": 564
+      },
+      {
+       "x": 568,
+       "y": 580,
+       "l": 392,
+       "h": 36,
+       "base": 608
+      },
+      {
+       "x": 569,
+       "y": 624,
+       "l": 231,
+       "h": 36,
+       "base": 652
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    },
+    {
+     "id": "T4",
+     "type": "texte",
+     "boite": {
+      "x": 566,
+      "y": 731,
+      "l": 346,
+      "h": 211
+     },
+     "lignes": [
+      {
+       "x": 566,
+       "y": 731,
+       "l": 320,
+       "h": 37,
+       "base": 759
+      },
+      {
+       "x": 566,
+       "y": 775,
+       "l": 346,
+       "h": 37,
+       "base": 803
+      },
+      {
+       "x": 566,
+       "y": 818,
+       "l": 318,
+       "h": 37,
+       "base": 846
+      },
+      {
+       "x": 567,
+       "y": 862,
+       "l": 342,
+       "h": 36,
+       "base": 890
+      },
+      {
+       "x": 567,
+       "y": 907,
+       "l": 102,
+       "h": 35,
+       "base": 935
+      }
+     ],
+     "pas": 44,
+     "alignement": "gauche"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "you reach for your phone the",
+      "second nothing is happening"
+     ],
+     "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
+     "texte": "ders çalışırken [[sakız çiğne]], ciddiyim"
+    },
+    "T2": {
+     "en": [
+      "waiting 30 seconds,",
+      "standing in a queue, sitting",
+      "in a lift, you instantly need",
+      "input"
+     ],
+     "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
+     "texte": "bazı araştırmalar sakız çiğnemeyi [[daha uyanık hissetmek]] ve sıkıcı işlerde daha uzun odaklanmakla ilişkilendiriyor"
+    },
+    "T3": {
+     "en": [
+      "boredom is where your",
+      "brain gets a chance to",
+      "wander, reflect and",
+      "connect ideas"
+     ],
+     "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
+     "texte": "çenen hareket ettikçe vücudun [[biraz daha uyanık]] kalıyor ve aklın daha az dağılıyor"
+    },
+    "T4": {
+     "en": [
+      "stop deleting every empty",
+      "moment"
+     ],
+     "fr": "[[arrête de remplir]] chaque temps mort",
+     "texte": "notlarının yanında bir paket bulundur"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[listenin en kolayı]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

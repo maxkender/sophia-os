@@ -122,7 +122,8 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	- Les photos de la banque où l'on voit une célébrité (acteurs et actrices de films et de séries) sont acceptées (décision d'Adrien du 28/10).
 	- **Jamais de personne réelle sur les slides où l'OS place micabo ou UnSwipe** : on ne prête pas une appli à une personne réelle (voir ci-dessous : une image sans personne).
 	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
-	- Jamais une image qui montre une appli, un écran lisible ou un texte.
+	- Jamais une image qui montre une appli lisible ou un texte.
+	- Les photos avec un écran (ordinateur, téléphone, tablette) ou une cigarette sont acceptées (décision d'Adrien du 17/11, la banque s'épuise) ; une marque ou une couverture de livre lisible reste à éviter quand on a le choix.
 - **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label

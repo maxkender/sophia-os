@@ -1,0 +1,297 @@
+{
+ "id": "dr-014",
+ "format": "liste",
+ "titre": {
+  "en": "5 inventions that are genuinely older than you think",
+  "de": "5 erfindungen, die viel älter sind, als du denkst",
+  "it": "5 invenzioni molto più antiche di quanto pensi",
+  "pt-BR": "5 invenções bem mais antigas do que você imagina",
+  "tr": "sandığından çok daha eski 5 icat",
+  "sv": "5 uppfinningar som är mycket äldre än du tror",
+  "nl": "5 uitvindingen die veel ouder zijn dan je denkt"
+ },
+ "legendes": {
+  "en": "#history #inventions #smarttok #lockedin",
+  "de": "#geschichte #erfindungen #wissen #fakten",
+  "it": "#storia #invenzioni #curiosità #cultura",
+  "pt-BR": "#história #invenções #curiosidades #conhecimento",
+  "tr": "#tarih #icatlar #bilgi #ilginçbilgiler",
+  "sv": "#historia #uppfinningar #fakta #kunskap",
+  "nl": "#geschiedenis #uitvindingen #weetjes #kennis"
+ },
+ "musique": {
+  "titre": "interruptor - Slowed - zero pill",
+  "url": "https://www.tiktok.com/music/interruptor-Slowed-7688046509887293456"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : distributeur d'eau bénite de Héron d'Alexandrie (Pneumatica, Ier s.) ; chasse d'eau de Harington (1596, installée pour Élisabeth Ire à Richmond ; le brevet de Cumming date de 1775) ; brevet de Bain (1843) avant le téléphone (1876) ; vers 1900, environ un tiers des voitures américaines électriques ; brai de bouleau mâché à Huseby Klev (Suède) il y a env. 10 000 ans, avec empreintes de dents. Images Seedream ; couverture : cerveau en IRM du pilote. Sophia en item 3 sur 6 (cta A), écran « cours » traduit. 7 langues.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 inventions that are genuinely older than you think",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(way older)"
+   },
+   "de": {
+    "titre": "5 erfindungen, die viel älter sind, als du denkst",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(viel älter)"
+   },
+   "it": {
+    "titre": "5 invenzioni molto più antiche di quanto pensi",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(molto più antiche)"
+   },
+   "pt-BR": {
+    "titre": "5 invenções bem mais antigas do que você imagina",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(bem mais antigas)"
+   },
+   "tr": {
+    "titre": "sandığından çok daha eski 5 icat",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(çok daha eski)"
+   },
+   "sv": {
+    "titre": "5 uppfinningar som är mycket äldre än du tror",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(mycket äldre)"
+   },
+   "nl": {
+    "titre": "5 uitvindingen die veel ouder zijn dan je denkt",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(veel ouder)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The vending machine",
+    "texte": "hero of alexandria described one in the 1st century: drop in a coin, and it poured out a measure of holy water",
+    "image": "images/distributeur-heron.jpg"
+   },
+   "de": {
+    "titre": "Der Verkaufsautomat",
+    "texte": "heron von alexandria beschrieb einen im 1. jahrhundert: münze rein, und er goss eine portion weihwasser aus",
+    "image": "images/distributeur-heron.jpg"
+   },
+   "it": {
+    "titre": "Il distributore automatico",
+    "texte": "erone di alessandria ne descrisse uno nel i secolo: inserivi una moneta e versava una dose di acqua santa",
+    "image": "images/distributeur-heron.jpg"
+   },
+   "pt-BR": {
+    "titre": "A máquina de venda",
+    "texte": "herão de alexandria descreveu uma no século i: você colocava uma moeda e ela soltava uma porção de água benta",
+    "image": "images/distributeur-heron.jpg"
+   },
+   "tr": {
+    "titre": "Otomat",
+    "texte": "iskenderiyeli heron 1. yüzyılda bir tane tarif etti: içine bir sikke atıyordun ve bir ölçü kutsal su akıtıyordu",
+    "image": "images/distributeur-heron.jpg"
+   },
+   "sv": {
+    "titre": "Varuautomaten",
+    "texte": "heron från alexandria beskrev en på 100-talet: man stoppade i ett mynt, och den hällde ut en skvätt vigvatten",
+    "image": "images/distributeur-heron.jpg"
+   },
+   "nl": {
+    "titre": "De automaat",
+    "texte": "heron van alexandrië beschreef er een in de 1e eeuw: gooi er een munt in en hij schonk een portie wijwater",
+    "image": "images/distributeur-heron.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The flushing toilet",
+    "texte": "john harington designed one in 1596 and installed one for queen elizabeth i. it took almost 200 years to catch on",
+    "image": "images/toilettes-1596.jpg"
+   },
+   "de": {
+    "titre": "Die Spültoilette",
+    "texte": "john harington entwarf 1596 eine und baute eine für königin elisabeth i. ein. es dauerte fast 200 jahre, bis sie sich durchsetzte",
+    "image": "images/toilettes-1596.jpg"
+   },
+   "it": {
+    "titre": "Il wc con lo sciacquone",
+    "texte": "john harington ne progettò uno nel 1596 e ne installò uno per la regina elisabetta i. ci vollero quasi 200 anni perché si diffondesse",
+    "image": "images/toilettes-1596.jpg"
+   },
+   "pt-BR": {
+    "titre": "A privada com descarga",
+    "texte": "john harington projetou uma em 1596 e instalou uma para a rainha elizabeth i. levou quase 200 anos pra pegar",
+    "image": "images/toilettes-1596.jpg"
+   },
+   "tr": {
+    "titre": "Sifonlu tuvalet",
+    "texte": "john harington 1596'da bir tane tasarladı ve kraliçe i. elizabeth için bir tane kurdu. yaygınlaşması neredeyse 200 yıl sürdü",
+    "image": "images/toilettes-1596.jpg"
+   },
+   "sv": {
+    "titre": "Vattentoaletten",
+    "texte": "john harington konstruerade en 1596 och installerade en åt drottning elizabeth i. det tog nästan 200 år innan den slog igenom",
+    "image": "images/toilettes-1596.jpg"
+   },
+   "nl": {
+    "titre": "Het doorspoeltoilet",
+    "texte": "john harington ontwierp er een in 1596 en bouwde er een voor koningin elizabeth i. het duurde bijna 200 jaar voor het aansloeg",
+    "image": "images/toilettes-1596.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. history, science, economics: a new topic every day",
+    "telephone": "cours"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. geschichte, wissenschaft, wirtschaft: jeden tag ein neues thema",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "10 minuti, una lezione scritta da un vero professore, poi un quiz per fissarla. storia, scienze, economia: ogni giorno un argomento nuovo",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. história, ciência, economia: um assunto novo por dia",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "10 dakika, gerçek bir profesörün yazdığı bir ders, sonra akılda kalsın diye bir quiz. tarih, bilim, ekonomi: her gün yeni bir konu",
+    "telephone": "cours"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "10 minuter, en lektion skriven av en riktig professor, sen ett quiz så att det fastnar. historia, vetenskap, ekonomi: ett nytt ämne varje dag",
+    "telephone": "cours"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "10 minuten, een les geschreven door een echte professor, daarna een quiz zodat het blijft hangen. geschiedenis, wetenschap, economie: elke dag een nieuw onderwerp",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The fax machine",
+    "texte": "alexander bain patented an early version in 1843, more than 30 years before the telephone",
+    "image": "images/fax-1843.jpg"
+   },
+   "de": {
+    "titre": "Das Faxgerät",
+    "texte": "alexander bain ließ 1843 eine frühe version patentieren, mehr als 30 jahre vor dem telefon",
+    "image": "images/fax-1843.jpg"
+   },
+   "it": {
+    "titre": "Il fax",
+    "texte": "alexander bain brevettò una prima versione nel 1843, più di 30 anni prima del telefono",
+    "image": "images/fax-1843.jpg"
+   },
+   "pt-BR": {
+    "titre": "O fax",
+    "texte": "alexander bain patenteou uma versão inicial em 1843, mais de 30 anos antes do telefone",
+    "image": "images/fax-1843.jpg"
+   },
+   "tr": {
+    "titre": "Faks makinesi",
+    "texte": "alexander bain ilk versiyonun patentini 1843'te aldı, telefondan 30 yıldan fazla önce",
+    "image": "images/fax-1843.jpg"
+   },
+   "sv": {
+    "titre": "Faxen",
+    "texte": "alexander bain patenterade en tidig version 1843, mer än 30 år före telefonen",
+    "image": "images/fax-1843.jpg"
+   },
+   "nl": {
+    "titre": "Het faxapparaat",
+    "texte": "alexander bain patenteerde een vroege versie in 1843, meer dan 30 jaar voor de telefoon",
+    "image": "images/fax-1843.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The electric car",
+    "texte": "around 1900, about a third of the cars on american roads ran on electricity",
+    "image": "images/voiture-electrique.jpg"
+   },
+   "de": {
+    "titre": "Das Elektroauto",
+    "texte": "um 1900 fuhr etwa ein drittel der autos auf amerikas straßen elektrisch",
+    "image": "images/voiture-electrique.jpg"
+   },
+   "it": {
+    "titre": "L'auto elettrica",
+    "texte": "intorno al 1900, circa un terzo delle auto sulle strade americane era elettrico",
+    "image": "images/voiture-electrique.jpg"
+   },
+   "pt-BR": {
+    "titre": "O carro elétrico",
+    "texte": "por volta de 1900, cerca de um terço dos carros nas ruas americanas era elétrico",
+    "image": "images/voiture-electrique.jpg"
+   },
+   "tr": {
+    "titre": "Elektrikli araba",
+    "texte": "1900 civarında amerikan yollarındaki arabaların yaklaşık üçte biri elektrikliydi",
+    "image": "images/voiture-electrique.jpg"
+   },
+   "sv": {
+    "titre": "Elbilen",
+    "texte": "runt år 1900 gick ungefär en tredjedel av bilarna på amerikanska vägar på el",
+    "image": "images/voiture-electrique.jpg"
+   },
+   "nl": {
+    "titre": "De elektrische auto",
+    "texte": "rond 1900 reed ongeveer een derde van de auto's op amerikaanse wegen elektrisch",
+    "image": "images/voiture-electrique.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Chewing gum",
+    "texte": "people in scandinavia chewed birch tar about 10,000 years ago. some pieces still have their tooth marks",
+    "image": "images/gomme-bouleau.jpg"
+   },
+   "de": {
+    "titre": "Kaugummi",
+    "texte": "in skandinavien kauten menschen schon vor etwa 10.000 jahren birkenpech. manche stücke haben noch ihre zahnabdrücke",
+    "image": "images/gomme-bouleau.jpg"
+   },
+   "it": {
+    "titre": "La gomma da masticare",
+    "texte": "in scandinavia si masticava catrame di betulla già circa 10.000 anni fa. alcuni pezzi hanno ancora i segni dei denti",
+    "image": "images/gomme-bouleau.jpg"
+   },
+   "pt-BR": {
+    "titre": "O chiclete",
+    "texte": "na escandinávia, as pessoas mascavam piche de bétula há uns 10.000 anos. alguns pedaços ainda têm marcas de dentes",
+    "image": "images/gomme-bouleau.jpg"
+   },
+   "tr": {
+    "titre": "Sakız",
+    "texte": "iskandinavya'da insanlar yaklaşık 10.000 yıl önce huş katranı çiğniyordu. bazı parçalarda hâlâ diş izleri var",
+    "image": "images/gomme-bouleau.jpg"
+   },
+   "sv": {
+    "titre": "Tuggummit",
+    "texte": "i skandinavien tuggade man björktjära för ungefär 10 000 år sedan. vissa bitar har fortfarande tandavtryck",
+    "image": "images/gomme-bouleau.jpg"
+   },
+   "nl": {
+    "titre": "Kauwgom",
+    "texte": "in scandinavië kauwden mensen zo'n 10.000 jaar geleden al op berkenteer. sommige stukjes hebben nog tandafdrukken",
+    "image": "images/gomme-bouleau.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

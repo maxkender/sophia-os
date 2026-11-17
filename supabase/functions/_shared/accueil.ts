@@ -147,7 +147,7 @@ export function hmParRegle(pays: string | null, langue: string | null, hms: read
 /** 12/11 : la langue principale d'un pays, quand aucun compte de ce pays n'existe encore. */
 export const LANGUE_DU_PAYS: Readonly<Record<string, string>> = {
   FR: "fr", BE: "fr", DE: "de", AT: "de", CH: "de", IT: "it", ES: "es", PT: "pt", BR: "pt-BR", CZ: "cs", NL: "nl", GR: "el",
-  HU: "hu", PL: "pl", RO: "ro", SE: "sv", TR: "tr", DK: "da", NO: "no", HR: "hr", SI: "sl", SK: "sk", RS: "sr", IL: "he",
+  HU: "hu", PL: "pl", RO: "ro", SE: "sv", TR: "tr", DK: "da", NO: "no", HR: "hr", SI: "sl", SK: "sk", RS: "sr", ME: "sr", BA: "sr", IL: "he",
   FI: "fi", EE: "et", BG: "bg", LT: "lt", LV: "lv", JP: "ja", KR: "ko",
 };
 

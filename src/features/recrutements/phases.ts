@@ -246,7 +246,7 @@ const MOTS_JOB_PAYS: Record<string, string[]> = {
   hr: ["croatia", "croatian", "croatie", "croate", "hrvatska"],
   sl: ["slovenia", "slovenian", "slovenie", "slovénie", "slovene", "slovène"],
   sk: ["slovakia", "slovak", "slovaquie", "slovaque"],
-  sr: ["serbia", "serbian", "serbie", "serbe"],
+  sr: ["serbia", "serbian", "serbie", "serbe", "montenegro", "montenegrin", "monténégro", "bosnia", "bosnian", "bosnie", "herzegovina"],
   ar: ["egypt", "egyptian", "egypte", "égypte", "arabic", "arabe", "saudi", "uae", "emirates"],
   he: ["israel", "israeli", "israël", "israelien", "hebrew", "hebreu", "hébreu"],
   fi: ["finland", "finnish", "finlande", "finnois", "suomi"],

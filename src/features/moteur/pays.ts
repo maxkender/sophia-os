@@ -142,6 +142,8 @@ export function paysParDefaut(langue: string | null | undefined): string | null 
  */
 export const PAYS_PROPOSES_LANGUE: Readonly<Record<string, readonly string[]>> = Object.freeze({
   de: ["DE", "AT", "CH"],
+  // 17/11 (Max) : Monténégro et Bosnie-Herzégovine, mêmes contenus serbes que la Serbie.
+  sr: ["RS", "ME", "BA"],
 });
 
 export function paysProposes(langue: string | null | undefined): readonly string[] | null {

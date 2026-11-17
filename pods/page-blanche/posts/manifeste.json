@@ -3678,6 +3678,58 @@
    "notes": "déclinaison G1 de original-043; cta C",
    "type_bleo": "declinaison",
    "parent_contenu_id": "1ce38110-9132-4866-871e-67e6fb335e9a"
+  },
+  {
+   "post_id": "original-084",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 5,
+   "legende": "#learning #brainhealth #selfimprovement",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7703619977630190881_1",
+    "2": "7703619977630190881_5",
+    "3": "7683541501007252758_5",
+    "4": "7698667830635400470_2",
+    "5": "7698667830635400470_5"
+   },
+   "notes": "full test BLEO (signes que tu deviens plus malin); cta A",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-culture-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7705815524244081953?variante=var-culture-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#culture #learning #habits",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7705815524244081953_1",
+    "2": "7680975889932225814_2",
+    "3": "7689918962905124129_2",
+    "4": "7689918962905124129_6",
+    "5": "7703619977630190881_4",
+    "6": "7703619977630190881_3"
+   },
+   "notes": "déclinaison G1 de 7705815524244081953; cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "f4aa647b-9e6f-4137-8650-c1318a2870b3"
   }
  ]
 }

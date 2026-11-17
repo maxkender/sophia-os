@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o244",
+ "type_bleo": "full_test",
+ "titre": "trees you should be able to name on a walk #trees #nature #autumn #smartgirl #walk",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta B. Full test 4/6 (la jauge en demande 6 sur 18) : accroche jamais faite chez nous (« tree » absent des accroches de donnees/label.json). Accroches écrites : « trees you should be able to name on a walk » (retenue : savoir concret, saison d'automne), « how to recognise trees by their leaves » (écartée : plus scolaire), « nature facts every woman should know » (écartée : trop large). Faits vérifiés : chênes millénaires, écorce du bouleau, ginkgo « fossile vivant » contemporain des dinosaures, marrons d'Inde, feuilles d'érable. Sophia au milieu sur le ginkgo (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f8f554e1",
+   "texte_overlay": "trees you should be able\nto name on a walk",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "7d6c0096",
+   "texte_overlay": "oak\n\nlobed leaves and acorns.\nsome live over 1,000 years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "53bbeea9",
+   "texte_overlay": "silver birch\n\nwhite, papery bark\nthat peels in strips.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "26fe70d7",
+   "texte_overlay": "weeping willow\n\nlong branches that hang\ndown to the water.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "254e26e0",
+   "texte_overlay": "ginkgo\n\nfan-shaped leaves. a living fossil\nthat grew alongside the dinosaurs.",
+   "texte_sophia": "ginkgo\n\nfan-shaped leaves. i learned it\ngrew alongside the dinosaurs\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f8ce7505",
+   "texte_overlay": "horse chestnut\n\nshiny conkers in\nspiky green shells.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4563a756",
+   "texte_overlay": "maple\n\nhand-shaped leaves that\nturn red in autumn.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "63f00dba",
+   "texte_overlay": "how many can you name?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

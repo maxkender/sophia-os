@@ -117,6 +117,9 @@ Décision du 17/10 : une tier list neuve de 2 slides dans le style du compte.
 - **Textes** : par langue ; `|` force un retour à la ligne, sinon une légende trop large se coupe seule. Mêmes règles que `posts/CONSIGNES.md`.
 - **Id** : `mm-o` + numéro, jamais réutilisé une fois validé ou rejeté.
 - **Flux** : `npm run original -- <id>`, relis la planche, montre-la à l'humain, puis `--deposer`. Validé, l'original entre au rang original.
+- **Varier les couvertures et les titres** (demande d'Adrien du 17/11) : deux tier lists à la suite ne se ressemblent jamais.
+  - **Couverture** : alterne les trois mises de `couverture.mise` (`atelier/original.ts`) : `classique` (« tier list of » / image / mot fort / suite), `titre_haut` (« Introvert hobbies » / « tier list », grande image, ligne `edition` facultative comme « productivity edition », petite frise S+ → F) et `collage` (image au centre, titre dessous, dix vignettes du tableau autour, comme « peak Mental » ou « locked in »). Change aussi d'image de couverture : pioche dans toutes les couvertures relevées (`sources/<id>/1.jpg`), pas toujours les mêmes.
+  - **Titre** : hors déclinaison G1 (titre du parent mot pour mot), varie la forme de l'accroche comme @mentalapp : « X tier list », « tier list of X », « X things », « how to fix your X », « everything you need to X », « X ranked », avec un mot qui accroche (« …maxxing », « peak », « locked in »).
 - **Format** : la **tier list de 2 slides** (`atelier/original.ts`), seule pour le test Sophia.
   - Le carrousel (`"format": "carrousel"`, `atelier/carrousel.ts`) existe encore, mais ses textes d'élément parlent d'UnSwipe (« After deleting them with UnSwipe ») et le format n'a pas marché : ne le relivre pas sans décision.
 - **CTA** (ROUTINE.md §4.5) : la légende « learn, then scroll (apps like Sophia) » est fixe, donc les versions varient par la place.

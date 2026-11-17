@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { lancerMetriques, statsComptes, statsPosts } from "@/features/moteur/api";
+import { FiltreApplication } from "@/features/moteur/FiltreApplication";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { BadgeClassement } from "@/features/moteur/BadgeClassement";
 import { rangClassement } from "@/features/moteur/classementComptes";
@@ -124,6 +125,7 @@ export function AdminAnalyticsPage() {
           <p className="text-sm text-muted-foreground">{t("analytics.subtitle")}</p>
         </div>
         <div className="flex flex-col items-end gap-1">
+          <FiltreApplication />
           <Button
             variant="outline"
             size="sm"

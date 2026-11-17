@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { Check, ChevronDown, ChevronRight, ExternalLink, Plus, RefreshCw, Search, Trash2 } from "lucide-react";
@@ -25,6 +25,7 @@ import { LabelEditor } from "@/features/moteur/LabelPicker";
 import {
   ajouterSourceALaFile,
   apercuOubliSource,
+  contenusParSource,
   creerSource,
   labelsDeLaSource,
   listerLabels,
@@ -36,7 +37,11 @@ import {
   type LigneJournalOubli,
   lireMajSourcesRun,
   performanceSources,
+  sourcesDeLaSemaine,
+  type SourceLundi,
 } from "@/features/moteur/api";
+import { etatSource, type EtatSource, type TonEtatSource } from "@/features/moteur/etatSource";
+import { lireFileSources, type SourceEnAttente } from "@/features/moteur/fileSources";
 import type { PerfSource } from "@/features/moteur/perfSource";
 import { CandidatsSourcesPanel } from "@/features/moteur/CandidatsSourcesPanel";
 import { RSource, RVsLabel } from "@/features/moteur/RSource";
@@ -626,7 +631,6 @@ function ReglagesSource({
             langue={source.langue}
             dejaImportee={Boolean(source.dernier_scrape_at)}
           />
-          <BoutonExtraire sourceId={source.id} handle={source.handle_tiktok} langue={source.langue} />
           <ImportLienSource sourceId={source.id} langueSource={source.langue} className="basis-full" />
           <Button size="sm" variant="outline" disabled={basculer.isPending} onClick={() => basculer.mutate()}>
             {source.is_active ? t("sources.deactivate") : t("sources.activate")}
@@ -652,6 +656,15 @@ function ReglagesSource({
             <OublierSource source={source} onFini={onOubli} className="basis-full" />
           </span>
         </div>
+        {/* « Extraire » reprend aussi les slideshows déjà en stock et les remet à
+            zéro (vues, pertinence, decks) : il sort de la rangée des boutons. */}
+        <details className="text-xs">
+          <summary className="cursor-pointer text-muted-foreground hover:text-foreground">{t("sources.plusActions")}</summary>
+          <div className="mt-2 space-y-1.5">
+            <p className="text-muted-foreground">{t("sources.extraireDanger")}</p>
+            <BoutonExtraire sourceId={source.id} handle={source.handle_tiktok} langue={source.langue} />
+          </div>
+        </details>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2">
@@ -769,10 +782,22 @@ function AjoutConjoint({ principal, niches }: { principal: CompteReference; nich
   );
 }
 
+const TON_ETAT: Record<TonEtatSource, string> = {
+  neutre: "text-muted-foreground",
+  attente: "text-foreground",
+  bon: "text-success-foreground",
+  alerte: "text-amber-700 dark:text-amber-400",
+};
+
+type OngletSources = "sources" | "file" | "propositions";
+const ONGLETS: OngletSources[] = ["sources", "file", "propositions"];
+
 /** Une ligne du tableau (le compte principal et ses conjoints), qui se déplie sur leurs réglages. */
 function LigneGroupe({
   groupe,
   perf,
+  stock,
+  etat,
   niches,
   ouvert,
   onBasculer,
@@ -780,6 +805,8 @@ function LigneGroupe({
 }: {
   groupe: GroupeSource;
   perf: PerfSource | undefined;
+  stock: { importes: number; valides: number } | undefined;
+  etat: EtatSource | undefined;
   niches: NicheLabel[];
   ouvert: boolean;
   onBasculer: () => void;
@@ -847,15 +874,30 @@ function LigneGroupe({
         <td className={cn(TD, "whitespace-nowrap text-right")} data-testid={`vs-label-${principal.handle_tiktok}`}>
           <RVsLabel perf={perf} />
         </td>
-        <td className={cn(TD, "whitespace-nowrap text-xs text-muted-foreground")}>
-          {principal.dernier_scrape_at
-            ? new Date(principal.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language), { day: "2-digit", month: "2-digit" })
-            : t("sources.jamais")}
+        <td className={cn(TD, "whitespace-nowrap text-right text-xs tabular-nums")} data-testid={`stock-${principal.handle_tiktok}`}>
+          {stock ? (
+            <>
+              <span className="font-medium">{stock.valides}</span>
+              <span className="text-muted-foreground"> / {stock.importes}</span>
+            </>
+          ) : (
+            <span className="text-muted-foreground">—</span>
+          )}
+        </td>
+        <td className={cn(TD, "text-xs")} data-testid={`etat-${principal.handle_tiktok}`}>
+          {etat && <span className={TON_ETAT[etat.ton]}>{t(`sources.etat.${etat.cle}`, etat.valeurs)}</span>}
+          <div className="text-muted-foreground">
+            {principal.dernier_scrape_at
+              ? t("sources.extraitLe", {
+                  date: new Date(principal.dernier_scrape_at).toLocaleDateString(localeDate(i18n.language), { day: "2-digit", month: "2-digit" }),
+                })
+              : t("sources.jamais")}
+          </div>
         </td>
       </tr>
       {ouvert && (
         <tr className="border-b border-border/40">
-          <td colSpan={7} className="pb-4 pt-1">
+          <td colSpan={8} className="pb-4 pt-1">
             <div className="space-y-5 rounded-lg bg-muted/30 p-4">
               <ReglagesSource source={principal} onOubli={onOubli} />
               <div className="space-y-3 border-t pt-4">
@@ -917,6 +959,37 @@ export function AdminSourcesPage() {
     queryFn: () => listerLabels(),
   });
   const perf = useQuery({ queryKey: ["performance-sources"], queryFn: performanceSources });
+  // L'état de chaque source : son stock, sa place dans la file, sa décision du lundi.
+  // Mêmes clés que les panneaux File et Lundi : une seule requête pour les deux.
+  const stocks = useQuery({ queryKey: ["contenus-par-source"], queryFn: contenusParSource });
+  const file = useQuery({ queryKey: ["sources-file"], queryFn: lireFileSources });
+  const semaine = useQuery({ queryKey: ["sources-lundi"], queryFn: sourcesDeLaSemaine });
+  const attenteParSource = React.useMemo(
+    () => new Map<string, SourceEnAttente>((file.data?.attente ?? []).map((a) => [a.compteReferenceId, a])),
+    [file.data],
+  );
+  const semaineParSource = React.useMemo(
+    () => new Map<string, SourceLundi>((semaine.data?.sources ?? []).map((l) => [l.compteReferenceId, l])),
+    [semaine.data],
+  );
+  const etatDe = (src: CompteReference): EtatSource => {
+    const att = attenteParSource.get(src.id);
+    const sem = semaineParSource.get(src.id);
+    return etatSource({
+      actif: src.is_active,
+      jamaisRelevee: !src.dernier_scrape_at,
+      essaiMax: src.essai_max ?? null,
+      essaiVerdict: src.essai_verdict ?? null,
+      importes: stocks.data?.[src.id]?.importes ?? 0,
+      postsMesures: perf.data?.[src.id]?.posts ?? 0,
+      mesuresMin: file.data?.reglages.essaiMesuresMin ?? 10,
+      attente: att ? { prevuLe: att.prevuLe } : null,
+      semaine: sem ? { decision: sem.decision, raison: sem.raison, lanceeLe: sem.lanceeLe } : null,
+    });
+  };
+  const [params, setParams] = useSearchParams();
+  const onglet: OngletSources = ONGLETS.find((o) => o === params.get("onglet")) ?? "sources";
+  const reg = file.data?.reglages;
   const [tri, setTri] = React.useState<"nom" | "r" | "label">("nom");
   const basculerTri = (cle: "r" | "label") => setTri((v) => (v === cle ? "nom" : cle));
   const valeurTri = (g: GroupeSource) => {
@@ -961,15 +1034,30 @@ export function AdminSourcesPage() {
 
       {ajout && <FormAjoutSource niches={niches.data ?? []} onFermer={() => setAjout(false)} />}
 
+      {/* La règle d'import, en une phrase : elle répond à « combien de posts ? ». */}
+      <p className="rounded-lg border bg-muted/30 px-3 py-2 text-xs text-muted-foreground" data-testid="sources-regle">
+        {t("sources.regle", { essai: reg?.essaiPosts ?? 30, mesures: reg?.essaiMesuresMin ?? 10, tranche: reg?.postsMaxParMaj ?? 100 })}
+      </p>
+
+      <Segments<OngletSources>
+        libelle={t("sources.onglets.libelle")}
+        actif={onglet}
+        onChange={(o) => setParams(o === "sources" ? {} : { onglet: o }, { replace: true })}
+        options={ONGLETS.map((o) => ({ cle: o, contenu: t(`sources.onglets.${o}`) }))}
+      />
+
       {majVisible && <MajSourcesPanel sources={toutes} />}
 
-      <CandidatsSourcesPanel niches={niches.data ?? []} />
+      {onglet === "propositions" && <CandidatsSourcesPanel niches={niches.data ?? []} />}
 
-      <FileSourcesPanel />
-
-      <ImportJobsPanel />
-
-      <LundiSourcesPanel />
+      {onglet === "file" && (
+        <>
+          <FileSourcesPanel />
+          <ImportJobsPanel />
+          <LundiSourcesPanel />
+          <ImportHistoriquePanel />
+        </>
+      )}
 
       {bilanOubli && (
         <div className="space-y-2 rounded-lg border bg-card p-4">
@@ -987,8 +1075,9 @@ export function AdminSourcesPage() {
         </div>
       )}
 
-      {groupes.length > 0 && <ChiffresSources groupes={groupes} />}
+      {onglet === "sources" && groupes.length > 0 && <ChiffresSources groupes={groupes} />}
 
+      {onglet === "sources" && (
       <Card>
         <CardHeader>
           <CardTitle>{t("sources.tableau.titre")}</CardTitle>
@@ -1049,7 +1138,13 @@ export function AdminSourcesPage() {
                       <Aide libelle={t("sources.tableau.vsLabel")}>{t("sources.vsLabelAide")}</Aide>
                     </span>
                   </th>
-                  <th className={TH}>{t("sources.tableau.extraction")}</th>
+                  <th className={cn(TH, "text-right normal-case")}>
+                    <span className="inline-flex items-center gap-1">
+                      <span className="uppercase tracking-wide">{t("sources.tableau.stock")}</span>
+                      <Aide libelle={t("sources.tableau.stock")}>{t("sources.tableau.stockAide")}</Aide>
+                    </span>
+                  </th>
+                  <th className={TH}>{t("sources.tableau.etat")}</th>
                 </tr>
               </thead>
               <tbody>
@@ -1058,6 +1153,8 @@ export function AdminSourcesPage() {
                     key={g.principal.id}
                     groupe={g}
                     perf={perf.data?.[g.principal.id]}
+                    stock={stocks.data?.[g.principal.id]}
+                    etat={etatDe(g.principal)}
                     niches={niches.data ?? []}
                     ouvert={ouverte === g.principal.id}
                     onBasculer={() => setOuverte((o) => (o === g.principal.id ? null : g.principal.id))}
@@ -1069,8 +1166,7 @@ export function AdminSourcesPage() {
           )}
         </CardContent>
       </Card>
-
-      <ImportHistoriquePanel />
+      )}
     </div>
   );
 }

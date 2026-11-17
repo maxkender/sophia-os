@@ -10,6 +10,7 @@ import { BarChart, type PointBarre } from "@/components/charts/BarChart";
 import { InlineBar } from "@/components/charts/InlineBar";
 import { abrege, exact, moyenneGlissante } from "@/components/charts/echelle";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { FiltreApplication } from "@/features/moteur/FiltreApplication";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -722,10 +723,13 @@ export function AdminPilotagePage() {
         title={t("pilotage.title")}
         description={aujourdhui}
         actions={
-          <Button size="sm" variant="outline" render={<Link to="/admin/labels" />}>
-            <Tags />
-            {t("pilotage.labelsApplications")}
-          </Button>
+          <>
+            <FiltreApplication />
+            <Button size="sm" variant="outline" render={<Link to="/admin/labels" />}>
+              <Tags />
+              {t("pilotage.labelsApplications")}
+            </Button>
+          </>
         }
       />
 

@@ -4,6 +4,33 @@ L'OS fabrique des slideshows qui promeuvent une application. Jusqu'ici :
 Sophia (culture générale). Désormais aussi : **Unswipe** (reprendre le contrôle
 de son temps). Ce document est la référence du modèle et de son déploiement.
 
+## À lire d'abord (mise à jour du 17/11)
+
+Trois choses ont changé depuis la rédaction de ce document :
+
+1. **Le classement des contenus, c'est BLEO, plus la tierlist** (`bleo.mode =
+   actif` depuis le 1/11, voir `docs/bleo.md`). La valeur d'un contenu est par
+   contenu × langue (`bleo_valeurs`) et **n'a pas d'application** : elle est
+   partagée par toutes les applications qui servent le contenu. L'application
+   ne fait que filtrer le tirage (`contenu_pertinences.eligible`). Les rangs et
+   budgets PAR APPLICATION décrits plus bas (`contenu_tiers_application`, 0270)
+   ne sont lus que par la tierlist de secours.
+2. **Plus de sélecteur d'application dans le menu latéral.** L'OS n'est pas
+   cloisonné par application. Les pages qui affichent une application à la
+   fois (Labels & applications, Pilotage, Statistiques, les prompts de
+   Traduction & placement) portent un filtre « Application » en haut de page
+   (`FiltreApplication`, même choix partagé qu'avant : `ApplicationContext`).
+3. **Une application s'ajoute depuis l'écran** : Labels & applications →
+   « Ajouter une application » (`creerApplication`). Elle naît inactive, toutes
+   langues, avec ses deux prompts vides ; un prompt vide vaut prompt absent
+   (pas de notation, activation refusée). Restent dans le code : sa liste de
+   concurrents (`_shared/concurrents.ts`) et son logo.
+
+**Un podz pour deux applications : à éviter.** Un original ouvert à une
+seconde application ne voit réécrire que sa slide d'appli, et la valeur BLEO
+est commune : les vues d'une application faussent le score de l'autre. Un
+label et un podz par application (comme Fathomly, Kaja, that_girl_study).
+
 ## 1. Le modèle
 
 - **Les comptes portent des LABELS, pas des applications.** Identité d'un compte
@@ -220,7 +247,8 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 - **Même contenu, deux applications** : autorisé, y compris sur le même compte,
   mais pas à moins de 7 jours d'écart (stats et doublons TikTok).
 - **Unswipe = slideshows classiques uniquement** : un compte UGC reste Sophia.
-- **Sélecteur d'application de l'admin** : filtre les prompts, les stats et la
+- **Filtre « Application »** (en haut des pages concernées ; avant le 17/11 :
+  un sélecteur dans le menu latéral) : filtre les prompts, les stats et la
   réserve. Plus les labels, sources, contenus ni comptes.
 - **Choix à la création d'un compte** (admin, Head of Ops, DM, HM : c'est le
   créateur qui est associé à une application, pas son recruteur). On ne

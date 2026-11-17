@@ -44,16 +44,12 @@ import {
   LifeBuoy,
 } from "lucide-react";
 
-import { LogoApplication } from "@/components/brand/LogoApplication";
 import { BandePause } from "@/features/auto/BandePause";
 import { type EntreeMenuAuto, MENU_AUTO } from "@/features/auto/pages";
 import { lireAujourdhui } from "@/features/auto/aujourdhui/api";
 import { useProblemes } from "@/features/auto/useProblemes";
 import { useAuth } from "@/features/auth/AuthContext";
 import { hoVoitLien } from "@/features/auth/pagesHeadOfOps";
-import { useApplication } from "@/features/moteur/ApplicationContext";
-import { nomApplication } from "@/features/moteur/applications";
-import { SelectApplication } from "@/features/moteur/SelectApplication";
 import { AppShell } from "./AppShell";
 import type { NavGroup } from "./Sidebar";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
@@ -73,7 +69,6 @@ const ICONES_MENU: Record<EntreeMenuAuto, LucideIcon> = {
 export function AdminLayout() {
   const { t } = useTranslation();
   const { role } = useAuth();
-  const { applications, slug, setSlug, application } = useApplication();
   const estHo = role === "head_of_ops";
   const parrainage = useParrainageActif();
   // Retours que des créateurs disent faux, en attente d'une vérification (0340).
@@ -114,32 +109,6 @@ export function AdminLayout() {
   return (
     <AppShell
       navLabel={estHo ? t("headOfOps.badge") : t("nav.admin")}
-      sidebarExtra={
-        applications.length > 0 ? (
-          <div className="space-y-1.5">
-            <p className="px-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-sidebar-foreground/70">
-              {t("applications.switcher")}
-            </p>
-            <div className="flex items-center gap-2">
-              {application && (
-                <LogoApplication slug={application.slug} taille="md" />
-              )}
-              <div className="min-w-0 flex-1">
-                <SelectApplication
-                  applications={applications}
-                  value={slug}
-                  onChange={setSlug}
-                />
-              </div>
-            </div>
-            {application && (
-              <p className="px-1 text-[10px] text-sidebar-foreground">
-                {t("applications.contexte", { nom: nomApplication(application) })}
-              </p>
-            )}
-          </div>
-        ) : undefined
-      }
       groups={filtrer([
         {
           items: [

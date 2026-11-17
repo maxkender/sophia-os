@@ -3864,13 +3864,30 @@ export const fr = {
     sources: {
       title: "Comptes de référence",
       subtitle:
-        "Tes comptes TikTok qui servent de matière première. Jamais visibles par les posters.",
+        "Les comptes TikTok dont on importe les slideshows. Jamais visibles par les posteurs.",
       handle: "Compte TikTok",
+      plusActions: "Plus d'actions",
+      extraireDanger:
+        "« Extraire » reprend tout le profil, y compris les slideshows déjà en stock : leurs vues, leur pertinence et leurs decks repartent de zéro. Pour ajouter les nouveaux posts, utilise « Mettre à jour ».",
+      regle:
+        "Source ajoutée dans un label qui a déjà des comptes : {{essai}} posts d'essai, jugés un lundi dès que {{mesures}} sont mesurés chez nous. Dans un label neuf : ses {{tranche}} posts les plus vus. Ensuite, {{tranche}} de plus par lundi, tant que la source marche chez nous.",
+      onglets: { libelle: "Partie de la page", sources: "Sources", file: "File et imports", propositions: "Propositions" },
+      etat: {
+        inactive: "Inactive",
+        file: "Dans la file, prévue le {{jour}}",
+        jamais: "Jamais importée",
+        essai: "Essai : {{importes}} sur {{max}} importés, {{mesures}} sur {{mesuresMin}} mesurés",
+        essaiRate: "Essai raté : bloquée à {{max}} posts",
+        pasRetenue: "Pas retenue cette semaine",
+        majAVenir: "Retenue : mise à jour à venir",
+        majFaite: "Mise à jour le {{jour}}",
+        aJour: "À jour",
+      },
       handleRequis: "Indique un @compte TikTok.",
-      niche: "Niche",
-      nicheChoisir: "Choisir une niche…",
-      nicheRequis: "Choisis une niche.",
-      nicheAucune: "Aucune niche pour l'instant —",
+      niche: "Label",
+      nicheChoisir: "Choisir un label…",
+      nicheRequis: "Choisis un label.",
+      nicheAucune: "Aucun label pour l'instant —",
       creerNiche: "crée-en dans Labels & applications",
       modeCompte: "Compte TikTok",
       modeLien: "Lien TikTok",
@@ -3936,7 +3953,7 @@ export const fr = {
       voix: "Prompt adapté (voix / ton de traduction)",
       voixPlaceholder: "Ex. : ton complice et direct, tutoiement, phrases courtes, pas d'anglicismes…",
       voixAide:
-        "Le registre à donner aux traductions de cette source. C'est ici qu'on adapte le ton par niche — pas sur le compte du poster.",
+        "Le registre à donner aux traductions de cette source. C'est ici qu'on adapte le ton par label — pas sur le compte du poster.",
       empty: "Aucun compte de référence.",
       inactive: "Inactif",
       activate: "Activer",
@@ -4185,12 +4202,15 @@ export const fr = {
         description: "Une ligne par compte principal, avec ses conjoints. Clique une ligne pour ses réglages.",
         source: "Source",
         langue: "Langue",
-        niche: "Niche",
+        niche: "Label",
         perf: "r · 30 j",
         vsLabel: "vs label",
+        stock: "Stock",
+        stockAide: "Slideshows gardés (validés) sur slideshows importés de cette source.",
+        etat: "État",
         extraction: "Dernière extraction",
-        recherche: "Chercher un @compte, une niche ou une langue",
-        rechercheCourt: "@compte, niche, langue",
+        recherche: "Chercher un @compte, un label ou une langue",
+        rechercheCourt: "@compte, label, langue",
         aucune: "Aucune source ne correspond.",
         details: "Réglages de @{{handle}}",
         conjoints: "+ {{liste}}",
@@ -7110,7 +7130,7 @@ export const fr = {
     },
     labels: {
       title: "Labels",
-      gestion: "Labels / niches",
+      gestion: "Labels",
       gestionDesc:
         "Pont entre contenus et créateurs.",
       nom: "Nom",
@@ -7798,7 +7818,7 @@ export const fr = {
       },
       placement: {
         titre: "Placement de {{nom}}",
-        aide: "Change d'application avec le sélecteur de la barre latérale. Le prompt dit la forme de la slide d'appli ; l'angle du label dit son fond.",
+        aide: "Change d'application avec le filtre « Application » en haut de la page. Le prompt dit la forme de la slide d'appli ; l'angle du label dit son fond.",
         regles: "Les règles des angles",
         filtre: "Filtrer les labels",
         filtres: {
@@ -7819,7 +7839,7 @@ export const fr = {
     prompts: {
       sectionApplication: "Propres à {{nom}}",
       application:
-        "Pertinence et placement de {{nom}} — change d'application avec le sélecteur de la barre latérale.",
+        "Pertinence et placement de {{nom}} — change d'application avec le filtre « Application » en haut de la page.",
       sansRepli:
         "Sans ces deux prompts, {{nom}} ne note ni ne place rien : le moteur ne reprend jamais le texte de Sophia à sa place.",
       pertinenceTitleApp: "Prompt — Pertinence {{nom}}",
@@ -8044,7 +8064,7 @@ export const fr = {
     angles: {
       titre: "Angles de placement — {{nom}}",
       description:
-        "Une consigne par label, ajoutée au prompt de placement de {{nom}} pour les slideshows de ce label (placement seulement, pas la pertinence). Change d'application avec le sélecteur de la barre latérale.",
+        "Une consigne par label, ajoutée au prompt de placement de {{nom}} pour les slideshows de ce label (placement seulement, pas la pertinence). Change d'application avec le filtre « Application » en haut de la page.",
       regleActif:
         "Actif : utilisé partout, tout le temps (préparation des decks, nuit, assignation). Au plus un par label : en activer un autre renvoie le précédent en test.",
       regleTest:
@@ -8091,7 +8111,15 @@ export const fr = {
         descCourte: "Clique une application pour choisir ses langues et lancer son rattrapage de pertinence.",
         colApp: "Application",
         colEtat: "État",
-        creationParMigration: "Une nouvelle application se crée par migration, avec ses deux prompts.",
+        etapes:
+          "Pour lancer une application : 1. l'ajouter ici (elle naît inactive) ; 2. écrire ses deux prompts (Configuration → Traduction & placement) et sa fiche (Fiches) ; 3. cocher ses labels plus haut ; 4. l'activer. Sa liste de concurrents et son logo restent à ajouter dans le code.",
+        ajout: {
+          bouton: "Ajouter une application",
+          nom: "Nom",
+          slug: "Identifiant",
+          creer: "Créer (inactive)",
+          aide: "L'application est créée inactive, avec ses deux prompts vides. Rien ne change en production tant qu'aucun label ne la sert.",
+        },
         sophiaVerrouillee: "Toujours active, toutes langues : identité des comptes, et repli de tout compte dont la répartition lui laisse une part (tous, sans répartition).",
         actif: "Active",
         inactif: "Inactive",
@@ -8101,7 +8129,7 @@ export const fr = {
         aucune: "Aucune",
         aucuneLangueAide: "Aucune langue : l'application n'est servie sur aucun compte.",
         promptsManquants:
-          "Impossible d'activer {{nom}} : prompt(s) vide(s) ou absent(s) — {{cles}}. Écris-les dans Réglages → Prompts (sélecteur sur {{nom}}).",
+          "Impossible d'activer {{nom}} : prompt(s) vide(s) ou absent(s) — {{cles}}. Écris-les dans Réglages → Prompts (filtre « Application » sur {{nom}}).",
         backfillTitre: "Rattrapage de pertinence",
         backfillAide:
           "Note pour {{nom}} les contenus déjà en stock dont un label la sert. À lancer avant l'activation : sans note éligible, un contenu n'entre pas dans son pool.",

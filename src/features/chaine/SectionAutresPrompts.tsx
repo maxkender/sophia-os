@@ -1,5 +1,6 @@
 import { useTranslation } from "react-i18next";
 
+import { FiltreApplication } from "@/features/moteur/FiltreApplication";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { clePromptPertinence, estSlugSophia, nomApplication } from "@/features/moteur/applications";
 import { PromptCommentMasterCard } from "@/features/commentMasters/PromptCommentMasterCard";
@@ -25,6 +26,7 @@ export function SectionAutresPrompts() {
   const sophia = estSlugSophia(slug);
   return (
     <div className="space-y-6" data-testid="section-autres">
+      <FiltreApplication />
       <div>
         <h2 className="text-sm font-semibold">{t("prompts.sectionApplication", { nom })}</h2>
         <p className="text-xs text-muted-foreground">{t("prompts.application", { nom })}</p>

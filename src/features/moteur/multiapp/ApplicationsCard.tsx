@@ -1,17 +1,22 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
-import { ChevronDown, ChevronRight } from "lucide-react";
+import { ChevronDown, ChevronRight, Plus } from "lucide-react";
 
 import { EtiquetteApplication } from "@/components/brand/LogoApplication";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { Switch } from "@/components/ui/switch";
 import { useAuth } from "@/features/auth/AuthContext";
 import { lirePrompt } from "@/features/moteur/api";
 import {
+  creerApplication,
+  SLUG_APPLICATION_VALIDE,
+  slugApplicationDepuisNom,
   lireEtatBackfillPertinence,
   lireTiersApplicationsDernierRun,
   majApplication,
@@ -337,9 +342,67 @@ function LigneApplication({
   );
 }
 
+/** Le formulaire « Ajouter une application » : un nom, un identifiant, et elle naît inactive. */
+function FormulaireApplication({ onFini }: { onFini: () => void }) {
+  const { t } = useTranslation();
+  const qc = useQueryClient();
+  const [nom, setNom] = React.useState("");
+  const [slug, setSlug] = React.useState("");
+  const [slugTouche, setSlugTouche] = React.useState(false);
+  const slugEffectif = slugTouche ? slug : slugApplicationDepuisNom(nom);
+  const valide = nom.trim().length > 0 && SLUG_APPLICATION_VALIDE.test(slugEffectif);
+  const creer = useMutation({
+    mutationFn: () => creerApplication({ nom, slug: slugEffectif }),
+    onSuccess: () => {
+      qc.invalidateQueries({ queryKey: ["applications"] });
+      onFini();
+    },
+  });
+  return (
+    <form
+      className="space-y-3 rounded-md border border-border/80 bg-muted/30 p-3"
+      data-testid="form-application"
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (valide) creer.mutate();
+      }}
+    >
+      <div className="flex flex-wrap items-end gap-3">
+        <div className="space-y-1">
+          <Label htmlFor="appNom">{t("multiApp.applications.ajout.nom")}</Label>
+          <Input id="appNom" value={nom} onChange={(e) => setNom(e.target.value)} required autoFocus />
+        </div>
+        <div className="space-y-1">
+          <Label htmlFor="appSlug">{t("multiApp.applications.ajout.slug")}</Label>
+          <Input
+            id="appSlug"
+            className="font-mono"
+            value={slugEffectif}
+            onChange={(e) => {
+              setSlugTouche(true);
+              setSlug(e.target.value);
+            }}
+            required
+          />
+        </div>
+        <div className="flex items-center gap-2">
+          <Button type="submit" disabled={!valide || creer.isPending}>
+            {creer.isPending ? t("common.saving") : t("multiApp.applications.ajout.creer")}
+          </Button>
+          <Button type="button" variant="ghost" onClick={onFini}>
+            {t("common.cancel")}
+          </Button>
+        </div>
+      </div>
+      <p className="text-[11px] text-muted-foreground">{t("multiApp.applications.ajout.aide")}</p>
+      {creer.isError && <p className="text-xs text-destructive">{messageErreur(creer.error)}</p>}
+    </form>
+  );
+}
+
 /**
- * Pilotage → Applications : une ligne par application (créées par migration,
- * jamais depuis l'écran). Interrupteur, langues ciblées et, hors Sophia, le
+ * Pilotage → Applications : une ligne par application (ajoutées par le bouton
+ * « Ajouter une application » depuis le 17/11 ; avant, par migration). Interrupteur, langues ciblées et, hors Sophia, le
  * rattrapage de pertinence du stock existant — à lancer AVANT l'activation,
  * sinon le pool de l'application est vide le premier soir.
  */
@@ -355,13 +418,26 @@ export function ApplicationsCard() {
     retry: false,
   });
 
+  const [ajout, setAjout] = React.useState(false);
+
   return (
     <Card>
       <CardHeader>
-        <CardTitle>{t("multiApp.applications.titre")}</CardTitle>
-        <CardDescription>{t("multiApp.applications.descCourte")}</CardDescription>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div className="space-y-1.5">
+            <CardTitle>{t("multiApp.applications.titre")}</CardTitle>
+            <CardDescription>{t("multiApp.applications.descCourte")}</CardDescription>
+          </div>
+          {!ajout && (
+            <Button size="sm" variant="outline" onClick={() => setAjout(true)}>
+              <Plus />
+              {t("multiApp.applications.ajout.bouton")}
+            </Button>
+          )}
+        </div>
       </CardHeader>
       <CardContent className="space-y-3">
+        {ajout && <FormulaireApplication onFini={() => setAjout(false)} />}
         {apps.isPending && <p className="text-sm text-muted-foreground">{t("common.loading")}</p>}
         {apps.isError && <p className="text-sm text-destructive">{messageErreur(apps.error)}</p>}
         {apps.data && (
@@ -383,7 +459,7 @@ export function ApplicationsCard() {
             </table>
           </div>
         )}
-        <p className="text-[11px] text-muted-foreground">{t("multiApp.applications.creationParMigration")}</p>
+        <p className="text-[11px] text-muted-foreground">{t("multiApp.applications.etapes")}</p>
       </CardContent>
     </Card>
   );

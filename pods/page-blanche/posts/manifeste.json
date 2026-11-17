@@ -3810,6 +3810,33 @@
    "notes": "déclinaison G1 de original-014; cta B",
    "type_bleo": "declinaison",
    "parent_contenu_id": "78f5fe13-357a-4402-b358-249de336831c"
+  },
+  {
+   "post_id": "var-soirees-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#eveningroutine #slowliving #phonefree",
+   "musique": {
+    "titre": "Love is in the Air, Pt. 2",
+    "auteur": "Rock Burwell",
+    "original": false,
+    "id": "7636876081187588097",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636876081187588097"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685340052989398275_1",
+    "2": "7694340359056313632_3",
+    "3": "7699939278847085857_2",
+    "4": "7699939278847085857_4",
+    "5": "7696527080426655009_4",
+    "6": "7699939278847085857_6"
+   },
+   "notes": "déclinaison G1 de original-042; cta C",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "c939e1a2-9427-4f3e-97c9-c6fe3b0fbfc6"
   }
  ]
 }

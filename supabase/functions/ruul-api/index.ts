@@ -11,11 +11,13 @@
  *       (< 48 h) ; le lien d'onboarding est gardé (ruul_liens). Éteint (ruul_api.connect_actif) : rien, sauf
  *       { poster_id, forcer: true } par l'admin (un essai sur une personne).
  *   POST { action: "mon_lien" }   le posteur connecté (bouton « Open my Ruul setup » du dashboard) : son lien frais.
+ *   POST { action: "devis", semaine }   admin : POST /payouts/calculate sur les lignes prêtes du lot (READY, validées).
+ *       Ne crée rien chez Ruul ; le total à virer (frais compris, en EUR) est gardé sur le lot.
  *
  * La clé (RUUL_API_KEY / RUUL_SANDBOX_API_KEY) reste dans les secrets ; elle n'apparaît jamais dans une réponse.
  */
 import { connecter, lienRuul } from "../_shared/ruul_connect.ts";
-import { appelRuul, type EnvRuul } from "../_shared/ruul_api.ts";
+import { appelRuul, descriptionLigne, descriptionLot, type EnvRuul } from "../_shared/ruul_api.ts";
 import { assertAuthorised, assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
@@ -91,7 +93,7 @@ async function connect(supabase: Supabase, corps: Record<string, unknown>) {
     const email = String(p.ruul_email).trim().toLowerCase();
     liste = [{ poster_id: un, email, prenom: (p.prenom as string | null)?.trim() || email.split("@")[0]!, nom: (p.nom as string | null)?.trim() || "-" }];
   } else {
-    const { data, error } = await supabase.rpc("ruul_connect_a_faire", { p_limite: 100 });
+    const { data, error } = await supabase.rpc("ruul_connect_a_faire", { p_limite: 40 });
     if (error) throw new Error(error.message);
     liste = (data ?? []) as typeof liste;
   }
@@ -103,12 +105,73 @@ async function connect(supabase: Supabase, corps: Record<string, unknown>) {
       bilan.par_statut[r.statut ?? "?"] = (bilan.par_statut[r.statut ?? "?"] ?? 0) + 1;
     }
     if (r.erreur) bilan.erreurs.push(`${p.email} : ${r.erreur}`);
+    // Ruul limite aussi à la minute : au premier refus, on s'arrête (le passage suivant reprend).
+    if (r.erreur && /throttl|too many|rate.?limit|429/i.test(r.erreur)) break;
     await pause(220); // Ruul : 5 connect par seconde au plus.
   }
   // Le journal : des compteurs, jamais les liens.
   await noterAppel(supabase, reglage.env, "connect", { http: 200, code: null, erreur: bilan.erreurs[0] ?? null, duree_ms: 0 },
     { a_faire: liste.length, ok: bilan.ok, erreurs: bilan.erreurs.length, par_statut: bilan.par_statut });
   return { ok: bilan.erreurs.length === 0, env: reglage.env, a_faire: liste.length, liens: bilan.ok, par_statut: bilan.par_statut, erreurs: bilan.erreurs.slice(0, 10) };
+}
+
+export interface LigneEnvoi {
+  poster_id: string;
+  email: string;
+  prenom: string;
+  nom: string;
+  montant: number;
+  posts: number;
+  bonus: number;
+  semaines: string[];
+}
+
+/** Le corps de POST /payouts (et /payouts/calculate) : montants nets en USD, facture en EUR (réglage). */
+export function corpsPayout(devise: string, companyId: number, semaine: string, lignes: LigneEnvoi[]) {
+  return {
+    companyId,
+    currencyCode: devise,
+    description: descriptionLot(semaine),
+    serviceFeePayer: "business",
+    items: lignes.map((l) => ({
+      email: l.email,
+      amount: Math.round(Number(l.montant) * 100) / 100,
+      payoutCurrency: "USD",
+      firstName: l.prenom,
+      lastName: l.nom,
+      description: descriptionLigne(semaine, Number(l.posts), Number(l.bonus)),
+    })),
+  };
+}
+
+export async function lignesAEnvoyer(supabase: Supabase, semaine: string): Promise<LigneEnvoi[]> {
+  const { data, error } = await supabase.rpc("ruul_lot_a_envoyer", { p_semaine: semaine });
+  if (error) throw new Error(error.message);
+  return (data ?? []) as LigneEnvoi[];
+}
+
+async function devis(supabase: Supabase, corps: Record<string, unknown>) {
+  const semaine = typeof corps.semaine === "string" ? corps.semaine : null;
+  if (!semaine || !/^\d{4}-\d{2}-\d{2}$/.test(semaine)) return { ok: false, error: "semaine manquante" };
+  const reglage = await lireReglage(supabase);
+  const soc = await societe(supabase, reglage);
+  if (!soc.id) return { ok: false, error: soc.erreur };
+  const lignes = await lignesAEnvoyer(supabase, semaine);
+  if (lignes.length === 0) return { ok: false, error: "aucune ligne prête (READY et validée)" };
+  if (lignes.length > 200) return { ok: false, error: `${lignes.length} lignes : 200 au plus par paiement Ruul` };
+  const r = await appelRuul<{ currency: string; payment: Record<string, number | string | null>; rows: unknown[] }>(
+    reglage.env, "POST", "/payouts/calculate", { corps: corpsPayout(reglage.devise_facture, soc.id, semaine, lignes) });
+  await noterAppel(supabase, reglage.env, "calculate", r, { semaine, lignes: lignes.length });
+  if (!r.ok || !r.data) return { ok: false, env: reglage.env, error: r.erreur ?? "réponse vide" };
+  const d = {
+    env: reglage.env,
+    currency: r.data.currency,
+    payment: r.data.payment,
+    lignes: lignes.length,
+    net_usd: Math.round(lignes.reduce((t, l) => t + Number(l.montant), 0) * 100) / 100,
+  };
+  await supabase.rpc("ruul_lot_noter_devis", { p_semaine: semaine, p_devis: d });
+  return { ok: true, devis: d };
 }
 
 Deno.serve(async (request) => {
@@ -143,6 +206,8 @@ Deno.serve(async (request) => {
         return json(await sync(supabase));
       case "connect":
         return json(await connect(supabase, corps));
+      case "devis":
+        return json(await devis(supabase, corps));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }

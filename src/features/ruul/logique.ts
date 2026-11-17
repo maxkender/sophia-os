@@ -17,6 +17,27 @@ export function jourMois(iso: string): string {
 
 export const dollars = (n: number) => `${Number(n).toFixed(2)} $`;
 
+const MOIS_EN = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+/** « Vik Studios — week of Nov 16 : 14 posts + 10 $ bonus » (la même phrase que l'envoi par l'API). */
+export function descriptionLigneRuul(lundi: string, posts: number, bonus: number): string {
+  const [, m, j] = lundi.split("-").map(Number);
+  const b = bonus > 0 ? ` + ${Math.round(bonus * 100) / 100} $ bonus` : "";
+  return `Vik Studios — week of ${MOIS_EN[(m ?? 1) - 1]} ${j} : ${posts} post${posts === 1 ? "" : "s"}${b}`;
+}
+
+/** Le CSV de secours au format Ruul (email, description, amount, currency) : les lignes READY et validées. */
+export function lignesCsvRuul(semaine: string, lignes: LigneLot[]): (string | number)[][] {
+  return lignes
+    .filter((l) => l.ruul_email && l.ruul_onboarding === "READY" && l.valide !== false && Number(l.total) >= 1)
+    .map((l) => [
+      l.ruul_email!.trim().toLowerCase(),
+      descriptionLigneRuul(semaine, l.semaines.reduce((t, s) => t + Number(s.faits ?? 0), 0), Number(l.bonus ?? 0)),
+      Number(l.total).toFixed(2),
+      "USD",
+    ]);
+}
+
 /** Le CSV du lot pour Ruul : une ligne par posteur. */
 export function lignesCsvLot(lignes: LigneLot[]): (string | number)[][] {
   return lignes.map((l) => [

@@ -50,6 +50,7 @@ import {
 } from "../_shared/ruul.ts";
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
 import { dansFenetre, type Decision, emailParcours, etatRuul, type EtatParcours, PARIS, prochainEnvoi, ruulPret, type TypeParcours } from "../_shared/parcours_ruul.ts";
 import { partiesLocales as partiesParis } from "../_shared/relances.ts";
 import { motDePasseRecrue } from "../_shared/mot_de_passe.ts";
@@ -659,6 +660,8 @@ function rendreEtape(e: EtatParcours, type: Exclude<TypeParcours, "carte_ruul">,
   const m = emailParcours(type, {
     prenom: e.prenom, login: e.login, motDePasse, dashboard: URL_DASHBOARD_OS, handle: e.handle, slack,
     cohorte_lundi: e.cohorte_lundi, ruul_email: e.email, ruul_compte: e.ruul_compte, abonnements: e.abonnements, lundi, numero,
+    // 17/11 (API Ruul) : le lien d'onboarding frais (bouton « Open my Ruul setup ») et le statut lu chez Ruul.
+    ruul_lien: (e as EtatParcours & { ruul_lien?: string | null }).ruul_lien ?? null, ruul_onboarding: e.ruul_onboarding ?? null,
     faites: {
       connexion: !!e.premiere_connexion_at, tiktok: e.tiktok_existe === true,
       warmup: !!e.warmup_started_at && (e.abonnements ?? 0) >= 5, slack: !!e.slack_user_id,
@@ -691,10 +694,14 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
   // Les posteurs que Max a mis de côté (« ne pas inviter ») ne reçoivent rien.
   const { data: exclus } = await supabase.from("profiles").select("id").eq("canal_paie", "ruul").eq("ruul_ne_pas_inviter", true);
   const deCote = new Set(((exclus ?? []) as { id: string }[]).map((x) => x.id));
+  // 17/11 (API Ruul) : le statut lu chez Ruul ; READY = payable, plus de relance Ruul.
+  const { data: onbs } = await supabase.from("profiles").select("id, ruul_onboarding").eq("canal_paie", "ruul").not("ruul_onboarding", "is", null);
+  const onboarding = new Map(((onbs ?? []) as { id: string; ruul_onboarding: string }[]).map((x) => [x.id, x.ruul_onboarding]));
   const maintenant = new Date();
   const bilan: Record<string, unknown>[] = [];
   for (const e of (data ?? []) as EtatParcours[]) {
     if (deCote.has(e.poster_id)) continue;
+    e.ruul_onboarding = onboarding.get(e.poster_id) ?? null;
     const id = identite.get(e.poster_id);
     if (id) { e.identite = id.identite; e.identite_refus = id.refus; }
     const d = prochainEnvoi(e, maintenant, { bienvenue, bienvenueDepuis, v2 });
@@ -713,6 +720,9 @@ async function parcours(supabase: Supabase, forcer: boolean, simuler = false) {
     par_type: bilan.reduce((acc: Record<string, number>, b) => ({ ...acc, [String(b.type)]: (acc[String(b.type)] ?? 0) + 1 }), {}), bilan,
   };
 }
+
+/** 17/11 : les emails qui contiennent le bloc Ruul (lien d'onboarding frais juste avant l'envoi). */
+const TYPES_AVEC_RUUL = new Set<string>(["bienvenue", "ruul", "invite_a", "invite_b", "samedi_ruul"]);
 
 async function executer(supabase: Supabase, e: EtatParcours, d: Decision & { numero?: number }, slack: string, v2 = false): Promise<Record<string, unknown>> {
   const noter = (ok: boolean, canaux: string[], erreur: string | null) =>
@@ -748,6 +758,9 @@ async function executer(supabase: Supabase, e: EtatParcours, d: Decision & { num
   if (v2 && !liens) {
     await noter(false, [], "jetons des liens : création impossible");
     return { poster: e.poster_id, type: d.type, cle: d.cle, ok: false, erreur: "jetons des liens" };
+  }
+  if (TYPES_AVEC_RUUL.has(d.type)) {
+    (e as EtatParcours & { ruul_lien?: string | null }).ruul_lien = await lienRuul(supabase, e.poster_id, await lireReglageConnect(supabase));
   }
   const m = rendreEtape(e, d.type, slack, d.lundi, numero, motDePasse, liens);
   const r = await envoyerEmail(e.email!, m.objet, m.html, m.texte, m.lienStop, ["ruul", "parcours", d.type]);

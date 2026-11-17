@@ -13,7 +13,7 @@ import { lireMesDeclarations } from "@/features/onboarding/cinqEtapesApi";
 import { enregistrerIdentiteRuul } from "@/features/moteur/api";
 import { cn } from "@/lib/utils";
 
-import { enregistrerMonEmailRuul, jeSuisPretRuul, lireMonOnboardingRuul, type MonOnboardingRuul } from "./api";
+import { enregistrerMonEmailRuul, jeSuisPretRuul, lireMonOnboardingRuul, monLienRuul, type MonOnboardingRuul } from "./api";
 
 export type EtapeRuul = "identite" | "email" | "tiktok" | "warmup" | "slack" | "ruul";
 export const ETAPES_RUUL_ONBOARDING: EtapeRuul[] = ["identite", "email", "tiktok", "warmup", "slack", "ruul"];
@@ -47,9 +47,41 @@ function jourMois(jour: string, langue: string): string {
  * n'est pas Active : pas encore invité (⏳, rien à faire) → invité (finir le compte) → prêt.
  */
 export function etatRuul(o: MonOnboardingRuul): "attente" | "invite" | "pret" {
-  if (o.ruul_pret || o.ruul_compte === "active") return "pret";
+  // 17/11 (API Ruul) : le statut lu chez Ruul l'emporte : prêt seulement à READY.
+  if (o.ruul_pret || o.ruul_onboarding === "READY") return "pret";
+  if (o.ruul_onboarding) return "invite";
+  if (o.ruul_compte === "active") return "pret";
   if (o.ruul_invite || o.ruul_compte === "invited") return "invite";
   return "attente";
+}
+
+/**
+ * 17/11 (Max, API Ruul) : « Set up Ruul — required to get paid (5 min) » et le bouton « Open my Ruul setup »,
+ * qui ouvre le lien d'onboarding frais (demandé au clic : il expire au bout de 72 h).
+ */
+export function SetupRuul({ onboarding }: { onboarding: string | null }) {
+  const { t } = useTranslation();
+  const ouvrir = useMutation({
+    mutationFn: monLienRuul,
+    onSuccess: (r) => {
+      if (r.url) window.open(r.url, "_blank", "noopener");
+    },
+  });
+  const reste = ["NOT_REGISTERED", "PENDING_KYC", "PENDING_COLLECTION_ACCOUNT", "PENDING_AGREEMENTS"].includes(onboarding ?? "")
+    ? onboarding! : "NOT_REGISTERED";
+  return (
+    <div className="space-y-1.5" data-testid="setup-ruul">
+      <p className="text-sm font-medium">{t("ruulOnboarding.ruulSetupTitre")}</p>
+      <p className="text-xs text-muted-foreground">{t(`ruulOnboarding.ruulReste.${reste}`)}</p>
+      <p className="text-xs text-muted-foreground">{t("ruulOnboarding.ruulPasBesoin")}</p>
+      <Button size="sm" className="h-8" loading={ouvrir.isPending} onClick={() => ouvrir.mutate()} data-testid="ouvrir-setup-ruul">
+        {t("ruulOnboarding.ruulSetupBouton")}
+      </Button>
+      {(ouvrir.isError || (ouvrir.isSuccess && !ouvrir.data.url && !ouvrir.data.ready)) && (
+        <p className="text-xs text-destructive">{t("ruulOnboarding.ruulSetupErreur")}</p>
+      )}
+    </div>
+  );
 }
 
 /** L'espace Ruul (connexion, identité, banque). */
@@ -225,8 +257,9 @@ export function ChecklistRuul() {
               ? t("ruulOnboarding.ruulInviteTexte", { email: o.ruul_email ?? o.email_candidature ?? "your email" })
               : t("ruulOnboarding.ruulAttenteTexte")}
           </p>
-          {ruul !== "pret" && <GuideRuul email={o.ruul_email ?? o.email_candidature ?? "your Ruul email"} />}
-          {ruul !== "pret" && (
+          {ruul !== "pret" && o.ruul_lien_auto && <SetupRuul onboarding={o.ruul_onboarding ?? null} />}
+          {ruul !== "pret" && !o.ruul_lien_auto && <GuideRuul email={o.ruul_email ?? o.email_candidature ?? "your Ruul email"} />}
+          {ruul !== "pret" && !o.ruul_lien_auto && (
             <span className="mt-1 inline-flex flex-wrap items-center gap-2">
               <Button asChild size="sm" className="h-8">
                 <a href={LIEN_RUUL} target="_blank" rel="noreferrer" data-testid="ouvrir-ruul">{t("ruulOnboarding.ouvrirRuul")}</a>

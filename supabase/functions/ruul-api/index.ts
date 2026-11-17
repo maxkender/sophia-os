@@ -6,10 +6,17 @@
  *       GET /companies (une fois, note company_id) puis GET /workmates (UN appel) → ruul_api_appliquer :
  *       statut, KYC, banque, statut d'onboarding de chaque posteur Ruul. Lecture seule chez Ruul.
  *
+ *   POST { action: "connect", poster_id?, forcer? }   cron toutes les heures (minute 14) ; admin.
+ *       Phase 2 : POST /connect (5 par seconde au plus) pour les posteurs Ruul actifs pas READY sans lien frais
+ *       (< 48 h) ; le lien d'onboarding est gardé (ruul_liens). Éteint (ruul_api.connect_actif) : rien, sauf
+ *       { poster_id, forcer: true } par l'admin (un essai sur une personne).
+ *   POST { action: "mon_lien" }   le posteur connecté (bouton « Open my Ruul setup » du dashboard) : son lien frais.
+ *
  * La clé (RUUL_API_KEY / RUUL_SANDBOX_API_KEY) reste dans les secrets ; elle n'apparaît jamais dans une réponse.
  */
+import { connecter, lienRuul } from "../_shared/ruul_connect.ts";
 import { appelRuul, type EnvRuul } from "../_shared/ruul_api.ts";
-import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
+import { assertAuthorised, assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Supabase = ReturnType<typeof serviceClient>;
 
@@ -71,20 +78,71 @@ async function sync(supabase: Supabase) {
   return { ok: true, env: reglage.env, company_id: soc.id, lus: liste.length, bilan };
 }
 
+const pause = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+async function connect(supabase: Supabase, corps: Record<string, unknown>) {
+  const reglage = await lireReglage(supabase);
+  const un = typeof corps.poster_id === "string" ? corps.poster_id : null;
+  if (!reglage.connect_actif && !(un && corps.forcer === true)) return { ok: true, env: reglage.env, ignore: "invitation automatique éteinte (ruul_api.connect_actif)" };
+  let liste: { poster_id: string; email: string; prenom: string; nom: string }[];
+  if (un) {
+    const { data: p } = await supabase.from("profiles").select("id, ruul_email, prenom, nom, canal_paie").eq("id", un).maybeSingle();
+    if (!p || p.canal_paie !== "ruul" || !p.ruul_email) return { ok: false, error: "pas un posteur Ruul avec un email Ruul" };
+    const email = String(p.ruul_email).trim().toLowerCase();
+    liste = [{ poster_id: un, email, prenom: (p.prenom as string | null)?.trim() || email.split("@")[0]!, nom: (p.nom as string | null)?.trim() || "-" }];
+  } else {
+    const { data, error } = await supabase.rpc("ruul_connect_a_faire", { p_limite: 100 });
+    if (error) throw new Error(error.message);
+    liste = (data ?? []) as typeof liste;
+  }
+  const bilan = { ok: 0, erreurs: [] as string[], par_statut: {} as Record<string, number> };
+  for (const p of liste) {
+    const r = await connecter(supabase, reglage.env, p);
+    if (r.url) {
+      bilan.ok++;
+      bilan.par_statut[r.statut ?? "?"] = (bilan.par_statut[r.statut ?? "?"] ?? 0) + 1;
+    }
+    if (r.erreur) bilan.erreurs.push(`${p.email} : ${r.erreur}`);
+    await pause(220); // Ruul : 5 connect par seconde au plus.
+  }
+  // Le journal : des compteurs, jamais les liens.
+  await noterAppel(supabase, reglage.env, "connect", { http: 200, code: null, erreur: bilan.erreurs[0] ?? null, duree_ms: 0 },
+    { a_faire: liste.length, ok: bilan.ok, erreurs: bilan.erreurs.length, par_statut: bilan.par_statut });
+  return { ok: bilan.erreurs.length === 0, env: reglage.env, a_faire: liste.length, liens: bilan.ok, par_statut: bilan.par_statut, erreurs: bilan.erreurs.slice(0, 10) };
+}
+
 Deno.serve(async (request) => {
-  const refus = await assertAuthorised(request);
-  if (refus) return refus;
   let corps: Record<string, unknown> = {};
+  const brut = request.method === "POST" ? await request.text() : "";
   try {
-    corps = await request.json();
+    corps = brut ? JSON.parse(brut) : {};
   } catch {
     /* corps vide */
   }
+  // Le posteur connecté : son propre lien (rien d'autre).
+  if (corps.action === "mon_lien") {
+    const acces = await assertRole(request, ["poster", "admin"]);
+    if (acces instanceof Response) return acces;
+    try {
+      const supabase = serviceClient();
+      const { data: p } = await supabase.from("profiles").select("canal_paie, ruul_onboarding").eq("id", acces.userId).maybeSingle();
+      if (!p || p.canal_paie !== "ruul") return json({ ok: false, error: "not a Ruul account" }, 400);
+      if (p.ruul_onboarding === "READY") return json({ ok: true, ready: true, url: null });
+      return json({ ok: true, ready: false, url: await lienRuul(supabase, acces.userId) });
+    } catch (e) {
+      console.error("[ruul-api] mon_lien", messageErreur(e));
+      return json({ ok: false, error: "Something went wrong, please try again." }, 500);
+    }
+  }
+  const refus = await assertAuthorised(request);
+  if (refus) return refus;
   try {
     const supabase = serviceClient();
     switch (corps.action) {
       case "sync":
         return json(await sync(supabase));
+      case "connect":
+        return json(await connect(supabase, corps));
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }

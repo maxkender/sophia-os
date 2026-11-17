@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o294",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4b1c178e-a684-4cde-878a-208022731b43",
+ "titre": "Pose tes limites : 4 répliques de haute valeur pour calmer les gens irrespectueux #developpementpersonnel #confiance #charisme #psychologie #amelioration",
+ "musique_titre": "cutting up",
+ "musique_url": "https://www.tiktok.com/music/cutting-up-7509290619085522945",
+ "inspirations": [
+  "4b1c178e-a684-4cde-878a-208022731b43"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 6 de la boîte (4b1c178e, fr), écrite en français, la langue source du parent (§4.3) : accroche du parent mot pour mot, coupes gardées. 4 situations neuves (aucune reprise : blague critique, coupure de parole, question indiscrète, colère). Ton calme, ni mépris ni agressivité.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "838d1b03-e3c5-4163-ab31-547690c922a8",
+   "texte_overlay": "Pose tes limites :\n4 répliques de haute valeur\npour calmer les gens\nirrespectueux",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Réplique 1 : face à quelqu'un qui te parle mal devant les autres. Reste calme et dis : « On en parle seul à seul si tu veux. » Tu gardes ta dignité sans offrir de spectacle.",
+   "media_id": "78fc4920-98e9-4943-95b4-ac3cc905c00c"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Réplique 2 : face à quelqu'un qui minimise tes efforts. Réponds simplement : « Ça m'a demandé beaucoup de travail, j'en suis fier. » Pas besoin de te défendre plus que ça.",
+   "media_id": "7fd1bcfd-7653-44c4-849d-022ba79a10a2"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Réplique 3 : face à quelqu'un qui te demande toujours des services. Dis gentiment : « Cette fois, je ne peux pas. » Une phrase courte, sans excuse, suffit.",
+   "media_id": "83eae723-5b66-419a-87d3-a111c1ef43f2"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Réplique 4 : face à quelqu'un qui te compare aux autres. Souris et dis : « Je préfère me comparer à moi l'an dernier. » La comparaison perd tout son poids.",
+   "media_id": "90fb2acb-110e-4f81-a5c2-2649f706583f"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Avant : je perdais mes moyens face aux gens difficiles. Après : cinq minutes d'histoire, d'art ou de science par jour, et une tête plus posée.",
+   "texte_sophia": "Avant : je perdais mes moyens face aux gens difficiles. Après : Je fais cinq minutes par jour sur une appli de micro-learning comme l'appli Sophia. Histoire, art, science. Une tête plus posée.",
+   "media_id": "85aa0d6d-45c8-4933-8a4a-395f6155ef0a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Le secret : le ton compte plus que les mots. Une voix calme et lente fait passer n'importe quelle limite sans créer de conflit. Respire avant de répondre.",
+   "media_id": "960b510d-c65e-452b-9989-243b51e58df1"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Pose tes limites tôt. Plus tu attends, plus c'est difficile. La première fois que quelque chose te dérange, c'est le bon moment pour le dire.",
+   "media_id": "982a7dd7-09d6-4f5c-8fc2-3d3c03460537"
+  }
+ ]
+}

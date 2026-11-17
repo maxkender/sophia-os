@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o289",
+ "type_bleo": "full_test",
+ "titre": "How to get your life back on track in 30 days #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 5 et 10 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 5e full test. Accroches écrites : « How to get your life back on track in 30 days » (retenue), « The 30 day reset every man needs » (écartée : plus vague), « Fix your life in a month » (écartée : promesse trop grosse).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1b357394-f869-450a-a0e5-6e56dfbf0333",
+   "texte_overlay": "How to get your life back\non track in 30 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Week one: fix your sleep. Same bedtime, same wake-up time, no phone in bed. Everything else gets easier once your body is properly rested.",
+   "media_id": "1610e036-aa53-42c2-a776-2e341ea688d2"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Week one, too: clean your space. Your room, your car, your desktop. A clear environment makes it much easier to think clearly. Fresh start, fresh head.",
+   "media_id": "176625ef-4738-461e-b4ab-770d04210056"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Week two: move every day. A walk, a run, a short workout. You don't need a perfect plan, you need to show up for thirty minutes daily.",
+   "media_id": "1926fe93-8bae-4d33-baed-6244be45457e"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Week three: cut one thing that drains you. Late-night drinking, a toxic group chat, endless gaming. Removing one bad habit frees a lot of energy.",
+   "media_id": "1b11e197-f353-410a-90b9-451410f55dfe"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Every day for 30 days: five minutes of history, art or science. Learning something new each morning reminds you that you're growing again.",
+   "texte_sophia": "Every day for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Learning something new each morning reminds you that you're growing again.",
+   "media_id": "6901fbdc-237c-4e68-b879-a99e41d90be7"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Week four: reconnect with people. Call your parents, message an old friend, plan a dinner. Getting back on track is easier with people around you.",
+   "media_id": "1be254dd-2d73-4792-9f6f-79dec9c18fdd"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Day thirty: write down what changed. Seeing your progress on paper is what makes you keep going for the next thirty days and beyond.",
+   "media_id": "1e4ad037-5e9e-4e46-b289-5f21d73dd8a7"
+  }
+ ]
+}

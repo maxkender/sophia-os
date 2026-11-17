@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o290",
+ "type_bleo": "full_test",
+ "titre": "Lessons men learn from living abroad #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7525666038534081293",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 3 à 5 et 10 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 10 lignes utilisables pour 11 déclinaisons, d'où un 5e full test. Accroches écrites : « Lessons men learn from living abroad » (retenue), « What moving abroad teaches you » (écartée : moins direct), « Why every man should live abroad once » (écartée : injonction).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4b89342e-5877-4890-9901-7e56a6e6076d",
+   "texte_overlay": "Lessons men learn\nfrom living abroad",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652781448931314977/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "You learn how small your problems are. Seeing how others live, work and struggle puts your own worries into perspective very quickly.",
+   "media_id": "262bd76b-e3b7-45e4-8985-227067159710"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "You learn to be comfortable alone. New city, no friends, no family. You discover you can build a life from nothing, and that confidence stays forever.",
+   "media_id": "28d037c9-404e-469a-a666-7f6667507c5b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "You learn that people are mostly kind. Strangers help you with directions, papers, a broken phone. Living abroad restores your faith in people.",
+   "media_id": "2b6ca4c1-e273-444d-be17-e7645311fa45"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "You learn to laugh at your mistakes. Wrong word, wrong bus, wrong food. When you're new everywhere, being embarrassed stops being a big deal.",
+   "media_id": "375fb22c-5d26-4f1e-88c0-f0e13dca5281"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "You learn to stay curious. I do five minutes a day of history, art or science, and it helps me understand every new place I live in.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It helps me understand every new place I live in.",
+   "media_id": "6d6fb6af-33bc-4b7a-9eaf-bc6bae8435c3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "You learn the value of home. Your mother's cooking, your old friends, your language. Distance teaches you what really matters to you.",
+   "media_id": "38b0ea11-8230-402d-8aff-9c0f65454b6b"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "You learn to adapt fast. New rules, new food, new habits. A man who has lived abroad is rarely thrown off by change again. Nothing scares you as much.",
+   "media_id": "40f17a85-b45b-4b6f-bb8d-197a0acfed0a"
+  }
+ ]
+}

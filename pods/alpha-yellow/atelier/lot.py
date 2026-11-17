@@ -41,7 +41,9 @@ BAD = ["cigarette", "smok", "pill", "supermaxing", "quote", "title", "caption", 
        "blackboard", "red carpet", "party", "lamborghini", "white car", "white sports car", "godfather"]
 # slide Sophia : pas de personne de face
 SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimming", "underwater", "diving", "laptop",
-           "desk", "book", "coffee", "flat lay", "tennis court", "lighthouse", "skyline", "mountain", "landscape"]
+           "desk", "book", "coffee", "flat lay", "tennis court", "lighthouse", "skyline", "mountain", "landscape",
+           "beach", "sunset", "sky", "forest", "lake", "river", "road", "bridge", "building", "field", "clouds", "plate",
+           "notebook", "chess", "piano", "guitar", "watch", "sea"]
 SOPH_NON = ["edge of a swimming pool", "face", "portrait", "smiling", "looking at the camera", "two people", "three people",
             "group", "woman", "girl", "child", "showroom", "mercedes", "car"]
 
@@ -98,11 +100,11 @@ def main():
   recents_fp = [k for k in recents if k in FP]
   def libre(k):
     if k not in IM or k not in FP or k in recents or k in exclus or k in pris: return False
-    if any(dist(k, t) < 16 for t in pris): return False
-    return not any(dist(k, t) < 12 for t in recents_fp)
+    if any(dist(k, t) < 12 for t in pris): return False
+    return not any(dist(k, t) < 9 for t in recents_fp)
   def lum(k): return FP[k]["lum"]
-  couv = sorted([k for k in IM if IM[k]["est_hook"] and k in FP and 12 <= lum(k) < 70 and ok(k)], key=lambda k: (lum(k) > 50, IM[k]["used_count"], k))
-  corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and 20 <= lum(k) < 90 and ok(k)], key=lambda k: (IM[k]["used_count"], k))
+  couv = sorted([k for k in IM if IM[k]["est_hook"] and k in FP and 12 <= lum(k) < 95 and ok(k)], key=lambda k: (lum(k) > 50, IM[k]["used_count"], k))
+  corps = sorted([k for k in IM if not IM[k]["est_hook"] and k in FP and 15 <= lum(k) < 110 and ok(k)], key=lambda k: (IM[k]["used_count"], k))
   soph = sorted([k for k in IM if k in FP and lum(k) < 130 and COMPTE.get(IM[k]["contenu_id"]) != "supermaxing"
                  and any(w in leg(k) for w in SOPH_OK) and not any(w in leg(k) for w in SOPH_NON)
                  and not (re.search(r"\b(man|men|person|people|boy|guy|player)\b", leg(k))

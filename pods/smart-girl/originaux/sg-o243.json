@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o243",
+ "type_bleo": "full_test",
+ "titre": "the names of the full moons and where they come from #moon #fullmoon #astronomy #smartgirl #nature",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 3/6 (la jauge en demande 6 sur 18) : accroche jamais faite chez nous (« moon » absent des accroches de donnees/label.json). Accroches écrites : « the names of the full moons and where they come from » (retenue : poétique et instructive), « what each full moon is called » (écartée : plus sèche), « moon facts nobody taught you » (écartée : trop large). Noms nord-américains de l'almanach (wolf, pink, strawberry, harvest, beaver, cold) et leur origine vérifiés. Sophia sur le dernier nom à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "230e5f0b",
+   "texte_overlay": "the names of the full moons\nand where they come from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9db70891",
+   "texte_overlay": "wolf moon, january\n\nnamed for wolves heard\nhowling in winter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f5a46fc7",
+   "texte_overlay": "pink moon, april\n\nnamed after early pink wildflowers,\nnot the colour of the moon.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a0ffa86c",
+   "texte_overlay": "strawberry moon, june\n\nthe season to pick\nwild strawberries.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "45af78c9",
+   "texte_overlay": "harvest moon\n\nthe full moon closest to the\nautumn equinox.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5cf977fb",
+   "texte_overlay": "beaver moon, november\n\nwhen beavers finish\ntheir winter dams.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "5ee222cd",
+   "texte_overlay": "cold moon, december\n\nthe longest nights\nof the year.",
+   "texte_sophia": "cold moon, december\n\nthe longest nights of the year.\ni learn one fact like this a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b2bcac21",
+   "texte_overlay": "save this for the\nnext full moon",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

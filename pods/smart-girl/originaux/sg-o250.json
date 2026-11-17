@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o250",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ec38fc98-99a1-45ef-874b-086a4061567c",
+ "titre": "start these before you turn 18 #teenagers #habits #smartgirl #adviceforteens #growingup",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "632d2be2-8d6f-4ec6-8753-1c4a41516421"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 4 de la boîte (parent ec38fc98, langue source tr) : accroche reformulée (« start these before you turn 18 »), les six conseils du parent (journal, trois plats, dire non, un train seule, le sommeil, apprendre au-delà de l'école). Sophia comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8a773597",
+   "texte_overlay": "start these before\nyou turn 18",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fe148f72",
+   "texte_overlay": "1. keep a journal\n\nyou'll love reading it at 25.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "54000fcc",
+   "texte_overlay": "2. learn to cook three meals\n\na breakfast, a soup, a pasta.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d1ce95a7",
+   "texte_overlay": "3. learn to say no\n\npolitely, without long excuses.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f1925a8f",
+   "texte_overlay": "4. take a train somewhere\nalone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "03d334bc",
+   "texte_overlay": "5. protect your sleep\n\nyour brain saves what you\nlearned while you sleep.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e94c5a27",
+   "texte_overlay": "6. learn beyond school\n\nfive minutes a day of something\nnew instead of one more scroll.",
+   "texte_sophia": "6. learn beyond school\n\nfive minutes a day on an app\nlike Sophia instead of\none more scroll.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "5c2dfb4d",
+   "texte_overlay": "save this and send it\nto your sister",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  }
+ ]
+}

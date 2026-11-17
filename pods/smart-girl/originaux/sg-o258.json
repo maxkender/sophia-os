@@ -1,0 +1,81 @@
+{
+ "source_id": "sg-o258",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "56b1869d-c467-4039-b13f-85201886471e",
+ "titre": "10/10 scientific concepts you must understand #science #smartgirl #psychology #physics #learning",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "56b1869d-c467-4039-b13f-85201886471e"
+ ],
+ "notes": "cta A. Déclinaison G1 de la ligne 37 de la boîte (parent 56b1869d, langue source de) : accroche du parent mot pour mot (« 10 10 » écrit 10/10). Concepts du parent (neuroplasticité, effet observateur, entropie, simple exposition, relativité, Pareto, épigénétique, règle de Hebb) plus l'effet placebo, et les intérêts composés du savoir. Sophia sur le dernier à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3ec8d88b",
+   "texte_overlay": "10/10 scientific concepts\nyou must understand",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1ee9e952",
+   "texte_overlay": "1. neuroplasticity\n\nyour brain physically rewires\nitself through what you repeat.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b7981067",
+   "texte_overlay": "2. the observer effect\n\nin physics, measuring something\ncan change it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e6221fac",
+   "texte_overlay": "3. entropy\n\nleft alone, everything drifts\ntoward disorder.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3983e82f",
+   "texte_overlay": "4. the mere-exposure effect\n\nwe tend to like things more\nthe more often we see them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "c35f35b3",
+   "texte_overlay": "5. relativity\n\ntime and space are not absolute.\nthey depend on how you move.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "a4772a80",
+   "texte_overlay": "6. the pareto principle\n\nroughly 80% of results come\nfrom 20% of the effort.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "fac337a7",
+   "texte_overlay": "7. epigenetics\n\nyour environment can switch\ngenes on and off.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "8e6ef52c",
+   "texte_overlay": "8. hebb's rule\n\nneurons that fire together\nwire together.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/9.jpg"
+  },
+  {
+   "position": 10,
+   "media_id": "eac82f24",
+   "texte_overlay": "9. the placebo effect\n\nbelieving a treatment works\ncan make you feel better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/10.jpg"
+  },
+  {
+   "position": 11,
+   "media_id": "803f4d07",
+   "texte_overlay": "10. compound knowledge\n\nsmall daily lessons add up\nfaster than you think.",
+   "texte_sophia": "10. compound knowledge\n\ni do one five-minute lesson\na day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7687569778080599317/11.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o256",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "104a9ee5-631d-4054-a6e8-c25f1422f2b9",
+ "titre": "୨୧ 5 words to helps expand your vocabulary #vocabulary #words #smartgirl #english #wordoftheday",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "104a9ee5-631d-4054-a6e8-c25f1422f2b9"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 18 de la boîte (parent 104a9ee5, langue source de) : accroche du parent mot pour mot avec ୨୧ (« to helps » gardé). Les mots du parent en anglais (pernicious, capricious, rebarbative, fecund) et erudite à la place de « culture générale ». Sophia au milieu sur erudite (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ca5feeb0",
+   "texte_overlay": "୨୧ 5 words to helps\nexpand your vocabulary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599726046170090774/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6ec69ad3",
+   "texte_overlay": "pernicious\n\nharmful, often in a slow\nand subtle way\n\nthe rumour had a\npernicious effect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599726046170090774/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "bc8e7232",
+   "texte_overlay": "capricious\n\nchanging suddenly\nand unpredictably\n\nher mood was capricious.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599726046170090774/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "1f5795c1",
+   "texte_overlay": "erudite\n\nwell read, deeply learned\n\nshe sounded erudite\non every topic.",
+   "texte_sophia": "erudite\n\nwell read, deeply learned\n\nshe got there one lesson\na day on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599726046170090774/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "eef60cec",
+   "texte_overlay": "rebarbative\n\nunpleasant, off-putting\n\nthe tone of the essay\nwas rebarbative.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599726046170090774/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7f99c748",
+   "texte_overlay": "fecund\n\nfertile, rich in ideas\n\nit was a fecund year\nfor her writing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599726046170090774/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b4526c3c",
+   "texte_overlay": "follow for more\ndaily words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7599726046170090774/7.jpg"
+  }
+ ]
+}

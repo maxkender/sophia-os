@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o257",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "477811bf-4162-4085-9376-c01e3fd4bb41",
+ "titre": "୨୧ 5 hobbies that will make you incredibly smart and fun #hobbies #smartgirl #selfimprovement #learning #fun",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "477811bf-4162-4085-9376-c01e3fd4bb41"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 31 de la boîte (parent 477811bf, langue source en) : accroche du parent mot pour mot avec ୨୧. Les cinq hobbies du parent (débat, étymologie, jeux de stratégie, micro-apprentissage, impro). Sophia au milieu sur le micro-apprentissage (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d879f7a6",
+   "texte_overlay": "୨୧ 5 hobbies that will make\nyou incredibly smart and fun",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672060719810006294/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "bc29d522",
+   "texte_overlay": "1. debating\n\n• watch debates and study\nthe strongest arguments\n• argue the side you disagree with",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672060719810006294/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8800ca5f",
+   "texte_overlay": "2. etymology\n\n• look up where interesting\nwords come from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672060719810006294/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bb5066a3",
+   "texte_overlay": "3. strategy games\n\n• chess, go, or any game\nthat makes you think ahead",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672060719810006294/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8eb36f9e",
+   "texte_overlay": "4. daily micro-learning\n\n• five minutes of a new\nsubject every morning",
+   "texte_sophia": "4. daily micro-learning\n\n• five minutes a day on a\nmicro-learning app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672060719810006294/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f4b1ca46",
+   "texte_overlay": "5. improv theatre\n\n• build stories from random prompts\n• learn to react quickly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672060719810006294/5.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "365484de",
+   "texte_overlay": "which one are you\ntrying first?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7672060719810006294/5.jpg"
+  }
+ ]
+}

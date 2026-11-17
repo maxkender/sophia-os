@@ -1,0 +1,1309 @@
+{
+ "id": "sg-009",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 qui te rendent plus intelligent",
+  "en": "10/10 skills that make you smarter",
+  "de": "10/10 Skills, die dich klüger machen",
+  "it": "Abilità 10/10 che ti rendono più intelligente",
+  "pt-BR": "Habilidades 10/10 que te deixam mais inteligente",
+  "tr": "Seni daha zeki yapan 10/10 beceriler",
+  "ro": "Abilități 10/10 care te fac mai deștept",
+  "cs": "Dovednosti 10/10, které tě udělají chytřejším"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui te rendent plus intelligent #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that make you smarter #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die dich klüger machen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che ti rendono più intelligente #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que te deixam mais inteligente #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Seni daha zeki yapan 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care te fac mai deștept #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které tě udělají chytřejším #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - rithu",
+  "url": "https://www.tiktok.com/music/original-sound-7514851905760512799"
+ },
+ "notes": "Full test du 16/11 (accroche neuve au format de @sagace.fr) : 5 compétences « cerveau » (mémoriser, esprit critique, prendre de bonnes notes, résoudre un sudoku, rester concentré), une vraie vidéo native par langue (miniatures avec célébrités écartées : Sherlock, Bill Gates, Anya Taylor-Joy). Sophia en étape 4 sur 7 (cta C : « DEVENIR / CULTIVÉ », ce que j'ouvre au lieu de scroller).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "QUI TE RENDENT",
+      "cap": 93
+     },
+     {
+      "t": "PLUS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "INTELLIGENT",
+      "cap": 150
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "THAT MAKE YOU",
+      "cap": 93
+     },
+     {
+      "t": "SMARTER",
+      "couleur": "brun",
+      "cap": 230
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DIE DICH",
+      "cap": 93
+     },
+     {
+      "t": "KLÜGER",
+      "couleur": "brun",
+      "cap": 250
+     },
+     {
+      "t": "MACHEN",
+      "cap": 150
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CHE TI RENDONO",
+      "cap": 93
+     },
+     {
+      "t": "PIÙ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "INTELLIGENTE",
+      "cap": 140
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "QUE TE DEIXAM",
+      "cap": 93
+     },
+     {
+      "t": "MAIS",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "INTELIGENTE",
+      "cap": 150
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "SENİ DAHA",
+      "cap": 110
+     },
+     {
+      "t": "ZEKİ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "YAPAN",
+      "cap": 110
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CARE TE FAC",
+      "cap": 93
+     },
+     {
+      "t": "MAI",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "DEȘTEPT",
+      "cap": 160
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 130
+     },
+     {
+      "t": "KTERÉ TĚ UDĚLAJÍ",
+      "cap": 85
+     },
+     {
+      "t": "CHYTŘEJŠÍM",
+      "couleur": "brun",
+      "cap": 180
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "MÉMORISER",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "N'IMPORTE QUOI"
+    ],
+    "video": {
+     "id": "ZChiC6IVBlc",
+     "titre": "Le Guide ULTIME du Palais de Mémoire",
+     "chaine": "Céline De Luca | Memory Athlete",
+     "vues": "13 k vues",
+     "date": "il y a 2 ans",
+     "duree": "12:38",
+     "avatar": "https://yt3.ggpht.com/toJp_olB_UmIYTtM52R3ywLPNjuMtvunoe1Cnl8uaBxFJV-5sFQEya0vWhSTcZzAOes7_JAA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "MEMORIZE",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "ANYTHING"
+    ],
+    "video": {
+     "id": "3vlpQHJ09do",
+     "titre": "How to Memorize Fast and Easily // Mind Palace: Build a Memory Palace",
+     "chaine": "Ron White Memory Expert - Memory Training & Brain Training",
+     "vues": "1.5M views",
+     "date": "11 years ago",
+     "duree": "6:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nw8c0VMj8E_xfwYPZdw9reBaHZpBbS0D-bfnjVNKnfnQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SICH ALLES",
+     [
+      {
+       "t": "MERKEN",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hfsEV6WOFUY",
+     "titre": "Loci Methode - Erste Schritte zum Gedächtnispalast",
+     "chaine": "Niels Cimpa",
+     "vues": "138.215 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "8:46",
+     "avatar": "https://yt3.ggpht.com/aIGzzscYq8dFCBxn4UACJwqOcmE25SggKOxONpKEtbZU5htx75hcfOvtyYwtaTFY0-DzATa8lGw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "MEMORIZZARE",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "QUALSIASI COSA"
+    ],
+    "video": {
+     "id": "LC0JO1a3DA8",
+     "titre": "IL PALAZZO DELLA MEMORIA🏰 spiegato dal CAMPIONE DEL MONDO",
+     "chaine": "Andrea Muzii",
+     "vues": "502K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "15:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "MEMORIZAR",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "QUALQUER COISA"
+    ],
+    "video": {
+     "id": "IRMNnl7ou50",
+     "titre": "COMO CRIAR UM PALÁCIO DA MEMÓRIA [ TÉCNICA DE MEMORIZAÇÃO ]",
+     "chaine": "Renato Alves Memorização",
+     "vues": "75 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "10:33",
+     "avatar": "https://yt3.ggpht.com/YMt7kHoEllBVJFS8a2gBbW0N1MPlaigbjDIqTtDzVmYWxgBHhutw0QChaY9YgKRRU9jWMlL3vA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYİ",
+     [
+      {
+       "t": "EZBERLEMEK",
+       "couleur": "#3d6fb6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hCuz6tfRKec",
+     "titre": "Hafıza Sarayı: En Güçlü Hafıza Tekniği",
+     "chaine": "Abdullah Yılmaz",
+     "vues": "25 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/e18eawTJglhdRd0A1N8pBfBmkSS7b6LaYFgLKbHiGDeVOoKx7qB1oXZmLXl_Yj51XGN4-nLhSQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ȚII MINTE",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "ORICE"
+    ],
+    "video": {
+     "id": "D4xrV-DVAN4",
+     "titre": "Cum sa memorezi mai simplu si rapid - Invata usor si rapid pentru Bacalaureat sau Admitere!",
+     "chaine": "Vlad Cristian Costache (Education Pill RO)",
+     "vues": "751 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "6:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCUAhgM1rODJfdFQs5wEsY50nvDuq9eWYKs_9Qrb0QCTU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZAPAMATOVAT SI",
+       "couleur": "#3d6fb6"
+      }
+     ],
+     "COKOLIV"
+    ],
+    "video": {
+     "id": "2Z90jKwNzmA",
+     "titre": "JAK SI VYTVOŘIT PAMĚŤOVÉ PALÁCE ?",
+     "chaine": "NejFake",
+     "vues": "42 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "3:43",
+     "avatar": "https://yt3.ggpht.com/Z2yobM9VBydKTqZ-OkdQktbJHTJikGJaKXQEVWwPlu6bt3xzgoZjeTXtUfLDbivKOEu0Wk4nPGQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "AVOIR UN",
+     [
+      {
+       "t": "ESPRIT CRITIQUE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1c1jZQ9Bkq0",
+     "titre": "Ep10 Raisonner de façon correcte (Testez votre logique)",
+     "chaine": "Hygiène Mentale",
+     "vues": "788 k vues",
+     "date": "il y a 10 ans",
+     "duree": "9:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_5p4DuOamPdAVIKMeIYLZgTZkivYP00jLaWJyQKB5_Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "THINK",
+     [
+      {
+       "t": "CRITICALLY",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dItUGF8GdTw",
+     "titre": "5 tips to improve your critical thinking - Samantha Agoos",
+     "chaine": "TED-Ed",
+     "vues": "12M views",
+     "date": "10 years ago",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/PKUi-Lc3VFjUfsIhjK3n-FJDNBf-XQLdg4G4bv4fPFF96D3MVnkbub9ePpLoWdmdFgl5I1Zd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KRITISCH",
+       "couleur": "#c2393d"
+      }
+     ],
+     "DENKEN"
+    ],
+    "video": {
+     "id": "lXopPluYPnQ",
+     "titre": "Wir müssen lernen selbst zu denken! | Immanuel Kant | Gert Scobel",
+     "chaine": "3sat NANO",
+     "vues": "60.282 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "23:26",
+     "avatar": "https://yt3.ggpht.com/bEvAVf-SfdByKIzvlfDp0MfaoL2kdOCevd6nHuXqcQvm6eNatewnHMTE29MW2ah9QnabB3I9Yn8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AVERE",
+     [
+      {
+       "t": "SPIRITO CRITICO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GBxJj4nVmTA",
+     "titre": "Come si sviluppa il pensiero critico?",
+     "chaine": "RIP Extra",
+     "vues": "16K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "10:14",
+     "avatar": "https://yt3.ggpht.com/Q2fb7ijrwd-CFha9Q6BrBKasS2w0XAvJ4dTXfy1qYUGxSOO5WEoRu44xyB-CnAxeJ-duOfphV44=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER",
+     [
+      {
+       "t": "PENSAMENTO CRÍTICO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HQWujwSz6Gs",
+     "titre": "Como Desenvolver Pensamento Crítico (Mesmo Se Você Acha Que Já Pensa)",
+     "chaine": "Filosofatos",
+     "vues": "567 mil visualizações",
+     "date": "há 11 meses",
+     "duree": "20:36",
+     "avatar": "https://yt3.ggpht.com/NGLECO3OvT4a5H4SS9hjTPPdIVimaC37QozXhwtn1jcG7vcrz4FYSxV_K5gQo3VOb7fRSGYqRQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ELEŞTİREL",
+       "couleur": "#c2393d"
+      }
+     ],
+     "DÜŞÜNMEK"
+    ],
+    "video": {
+     "id": "Bb4BhUdz1b4",
+     "titre": "eleştirel düşünme",
+     "chaine": "Dilara Tunes",
+     "vues": "21 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "17:39",
+     "avatar": "https://yt3.ggpht.com/Tq7epFrf256NQBkC5NLF2hOR89-ZvRl6KUb5ys1NzAVtcqK7AWEyWeRySmJO_kU9D-EQjrm5=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ GÂNDEȘTI",
+     [
+      {
+       "t": "CRITIC",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l7jVTS4dvDs",
+     "titre": "Ce e gândirea critică?",
+     "chaine": "Podcastul de Filosofie",
+     "vues": "32 K vizionări",
+     "date": "acum 1 an",
+     "duree": "27:20",
+     "avatar": "https://yt3.ggpht.com/Ehx6GXkMBgiEqhqGC7iv2NB-FJuZsfjvjNwSDD4lGc0Jrnko7lMxUSeaMmV31ccIH_Dwxc5UYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "KRITICKY",
+       "couleur": "#c2393d"
+      }
+     ],
+     "MYSLET"
+    ],
+    "video": {
+     "id": "WfZCvBP9eXI",
+     "titre": "Kritické myšlení - Co je to kritické myšlení a dobroser? #krimys",
+     "chaine": "Petr Ludwig / Konec prokrastinace [CZE]",
+     "vues": "54 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "7:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvPRe7YBmTElumr56C033VOJFK5m2tNM2md390rKPkIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "DEVENIR",
+     [
+      {
+       "t": "CULTIVÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BECOME",
+     [
+      {
+       "t": "WELL-READ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WERDE",
+     [
+      {
+       "t": "GEBILDET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DIVENTARE",
+     [
+      {
+       "t": "COLTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FICAR",
+     [
+      {
+       "t": "MAIS CULTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DAHA",
+     [
+      {
+       "t": "KÜLTÜRLÜ OL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DEVII",
+     [
+      {
+       "t": "CULT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "BÝT",
+     [
+      {
+       "t": "SEČTĚLÝ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PRENDRE",
+     [
+      {
+       "t": "DE BONNES NOTES",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Yn-gTD-05x4",
+     "titre": "LA METHODE CORNELL : La prise de note EFFICACE",
+     "chaine": "Potion de vie",
+     "vues": "278 k vues",
+     "date": "il y a 6 ans",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/oPrmxkiJmLHPnGHUkxkmxzIsRafICCEzdhcHcflATzZVBNkpW1Bm7L3ubg0d4WHROLKY4hjXfxw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "TAKE",
+     [
+      {
+       "t": "SMART NOTES",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xSYnGhlnzyw",
+     "titre": "How to study efficiently: The Cornell Notes Method",
+     "chaine": "English with Emma · engVid",
+     "vues": "2M views",
+     "date": "10 years ago",
+     "duree": "13:50",
+     "avatar": "https://yt3.ggpht.com/DpwP3tVJ46V5cqDoifu8EiLWV5AXVR5P2nhRGz8Lrzn57LREsk3aQr5QVSaIYKHb2buAwTll=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "RICHTIG",
+       "couleur": "#3f8f4e"
+      }
+     ],
+     "MITSCHREIBEN"
+    ],
+    "video": {
+     "id": "i6bJRVVl26Q",
+     "titre": "Mit Mitschriften lernen & Zeit sparen // Cornell Methode",
+     "chaine": "Rebecca Elizabeth",
+     "vues": "66.577 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "9:41",
+     "avatar": "https://yt3.ggpht.com/H_dOhH1z2e785_-viZQ0wXzZtcjG0raJQ_hGaGV9c_7ZQ7FirAKnLxMyRzlvUJtqvvLDyLBgAg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PRENDERE",
+     [
+      {
+       "t": "BUONI APPUNTI",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wdC-jMsp2aA",
+     "titre": "Come PRENDERE APPUNTI… sul serio!",
+     "chaine": "Alessandro de Concini - ADC",
+     "vues": "219K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "11:11",
+     "avatar": "https://yt3.ggpht.com/O7Guse7uMO170W2Dakwlc-rgyB5XEcYgeBUVDxVLdM494piW1YVfHSKsAX3IRx9xtG_648z1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "BOAS ANOTAÇÕES",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9xOpICxrxAE",
+     "titre": "COMO FAZER ANOTAÇÕES DO JEITO CERTO - 7 de 7 - Método Cornell de Anotação Passo a Passo",
+     "chaine": "Professor Piccini",
+     "vues": "159 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "11:17",
+     "avatar": "https://yt3.ggpht.com/MDMTj0pQOrDdHW0gWaclnQOLM3xU2rlTGTZcSH1pPJdGwIRP5ABSoedWkIpqPGcBy4lG9rap2Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DOĞRU",
+     [
+      {
+       "t": "NOT ALMAK",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HFE6qJjY1u4",
+     "titre": "Odaklanmak için not tutma teknikleri - Cornell Metodu",
+     "chaine": "Barış Özcan",
+     "vues": "802 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdtLLPQnErbtjn6tO4tKFLvOEE-jYjYRbhNvzrcFJZh8xd=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ IEI",
+     [
+      {
+       "t": "NOTIȚE BUNE",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YrnE-BEnZfg",
+     "titre": "Notițe și cum să reții mai ușor! De la o studentă la medicină",
+     "chaine": "Ana Bella Official",
+     "vues": "266 K vizionări",
+     "date": "acum 8 ani",
+     "duree": "7:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3ebcRW_6G30nN01CYrPbmiPGd8u03yvxuxNwlEYDv1JU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "DĚLAT SI",
+     [
+      {
+       "t": "DOBRÉ POZNÁMKY",
+       "couleur": "#3f8f4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XepMto_j9m8",
+     "titre": "14 TIPŮ jak se efektivně učit a jak si píšu poznámky //STUDY WITH ME 📚",
+     "chaine": "Sofia Skalkos",
+     "vues": "110 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "15:46",
+     "avatar": "https://yt3.ggpht.com/ua9Ab59sedoVw_0gLUBdKUBX8mTDIJdn7nvQ8FQqw3fB7En94GUhrHFMeCig73CPW3ZWnk3xIw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉSOUDRE",
+     [
+      {
+       "t": "UN SUDOKU",
+       "couleur": "#8e5cb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8NIQ-rkS7is",
+     "titre": "Comment résoudre un sudoku difficile ?",
+     "chaine": "Comment ?",
+     "vues": "75 k vues",
+     "date": "il y a 1 an",
+     "duree": "6:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpS46BgY1Dkp34p1wnB_EYyASHhBnUx739D7TdwOeuGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SOLVE",
+     [
+      {
+       "t": "A SUDOKU",
+       "couleur": "#8e5cb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kvU9_MVAiE0",
+     "titre": "How to Play Sudoku for Absolute Beginners",
+     "chaine": "Learn Something",
+     "vues": "2.8M views",
+     "date": "8 years ago",
+     "duree": "8:00",
+     "avatar": "https://yt3.ggpht.com/WnNfcfe-7CU9iowL8UDJDxlVt8V6L3cMvZ0Dn0TvR1S_yGEr2aotV6tLUrxvyDaBp0eF6NXc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "SUDOKUS",
+       "couleur": "#8e5cb5"
+      }
+     ],
+     "LÖSEN"
+    ],
+    "video": {
+     "id": "BvwsFUWozzs",
+     "titre": "Schweres Sudoku lösen - Wir knobeln die Zahlen aus",
+     "chaine": "Der Sudoku Kanal",
+     "vues": "37.919 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "23:41",
+     "avatar": "https://yt3.ggpht.com/HuvtCUBasUlP3Dq0sFKYXlzg6XccQb_2tNmbFVqNskwCI_DZTN8ywswJip9jjznrDrFgt9nQMg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RISOLVERE",
+     [
+      {
+       "t": "UN SUDOKU",
+       "couleur": "#8e5cb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N_pOilzvGv4",
+     "titre": "Come si GIOCA a SUDOKU? - È così difficile?",
+     "chaine": "Giulio",
+     "vues": "38K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "11:04",
+     "avatar": "https://yt3.ggpht.com/1DFaZA4VHuDKG5GpheYiUledDbXB6phkOBn4VeCQKvo3b_UubAkNLvXClDAzstaYghP2RkTvuio=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "RESOLVER",
+     [
+      {
+       "t": "UM SUDOKU",
+       "couleur": "#8e5cb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_ZFLYbU8U0o",
+     "titre": "🔥 Como Resolver Qualquer Sudoku (Técnica Simples e Eficiente)",
+     "chaine": "Treine Sua Mente",
+     "vues": "264 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "13:51",
+     "avatar": "https://yt3.ggpht.com/G8GSR8YWKvXG5P9iYVyIyKyaiwR-cvnVjUaBS_y_gm2yjIp65JAmdiqqRzR12_cmgMIsD7p4KA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SUDOKU",
+       "couleur": "#8e5cb5"
+      }
+     ],
+     "ÇÖZMEK"
+    ],
+    "video": {
+     "id": "JiVZlJePEkI",
+     "titre": "Sudoku Nasıl Oynanır? - Zeka Oyunları",
+     "chaine": "Bilişim Günlüğüm",
+     "vues": "250 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/mmZxV6Bdh4Y_TPYs8iZXZcohVhxOh8Fjc6rxMuENKpMfdhWMalLfzm0jg2O1Lc134rnyo9972Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ REZOLVI",
+     [
+      {
+       "t": "UN SUDOKU",
+       "couleur": "#8e5cb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cqNig-XbWvU",
+     "titre": "SUDOKU pentru INCEPATORI  #sudoku",
+     "chaine": "Amalia Vasile",
+     "vues": "50 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "17:01",
+     "avatar": "https://yt3.ggpht.com/utulyzhV5STSI8fITK3-1qAWf5m8vaglnDurWIuUGD3roBblJ__7IgwZwXrYIo5Hms3FvFo3rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "LUŠTIT",
+     [
+      {
+       "t": "SUDOKU",
+       "couleur": "#8e5cb5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KBvwzWFxSCw",
+     "titre": "SUDOKU – 1. díl – PRAVIDLA",
+     "chaine": "DushanCz",
+     "vues": "17 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m7_tc39we-tDWllfvoTMNO9XkAZ6z-EYHm5DTZSrPuJg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RESTER",
+     [
+      {
+       "t": "CONCENTRÉ",
+       "couleur": "#d9a51c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1b9kiAWkTR8",
+     "titre": "Comment se concentrer en 2mns (Astuce de Fabien Olicard)",
+     "chaine": "FabienOlicard",
+     "vues": "1 M de vues",
+     "date": "il y a 10 ans",
+     "duree": "4:41",
+     "avatar": "https://yt3.ggpht.com/hOu5CGjWlGlRYry-hXYT20RX4D5XkZcxJ_DOfkz24oK2-UQKLSJjhkhdaZtSxcY2eS8X8PVr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semaine pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "STAY",
+     [
+      {
+       "t": "FOCUSED",
+       "couleur": "#d9a51c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZXHrPfWJcCI",
+     "titre": "How To Fix Your Attention Span (Before It's Too Late)",
+     "chaine": "Daniel Pink",
+     "vues": "4.8M views",
+     "date": "11 months ago",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/5PInKEMXGsnpIwuhgdx15zXdcdl81NBMh5PqYVLsjaqFjJtNUE49xK1PavaCsph_XhbwxMGr-Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 week to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KONZENTRIERT",
+       "couleur": "#d9a51c"
+      }
+     ],
+     "BLEIBEN"
+    ],
+    "video": {
+     "id": "OPI8wR87fqg",
+     "titre": "So könnt ihr eure Konzentration verbessern! | Quarks Dimension Ralph",
+     "chaine": "Quarks Dimension Ralph",
+     "vues": "141.036 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:22",
+     "avatar": "https://yt3.ggpht.com/TWwkTB8iRu6fJXo0cHUkHMVghpV1j3jCIdyRaAaQMhywwWKcNr-R-Fqc9Uxrhxy8HzYZt0Wjxg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RESTARE",
+     [
+      {
+       "t": "CONCENTRATO",
+       "couleur": "#d9a51c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bqb3ZXHg9ps",
+     "titre": "Come concentrarsi al meglio: 3 tecniche (dalle neuroscienze)",
+     "chaine": "Marco Montemagno",
+     "vues": "103K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "3:11",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 settimana per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MANTER O",
+     [
+      {
+       "t": "FOCO",
+       "couleur": "#d9a51c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gHXDnm6dnJc",
+     "titre": "COMO MELHORAR O FOCO E A CONCENTRAÇÃO?",
+     "chaine": "DOUTOR AJUDA",
+     "vues": "313 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVg8GVA7dOXyB8g285Sj7lG9mOpjnmrOj2dsU_Wv9NBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "ODAKLANMAYI",
+       "couleur": "#d9a51c"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "hr-ki-YcSG4",
+     "titre": "Odaklanma problemimi böyle çözdüm",
+     "chaine": "Baraneemo",
+     "vues": "883 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/r9g4Dmmovuf6grAbeRBleqnbmpERRHj_eUhEc1djR30wRHOy8XeOHhXBRgr4iweHLIk5cvHVn7M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 hafta"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ RĂMÂI",
+     [
+      {
+       "t": "CONCENTRAT",
+       "couleur": "#d9a51c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q4Sr31VdK8I",
+     "titre": "Cum sa-ti Maresti Capacitatea de Concentrare",
+     "chaine": "Gabriel Manolache Life & Mind Coach",
+     "vues": "2,6 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "45:24",
+     "avatar": "https://yt3.ggpht.com/lKAgAQ4-efARFeKy4-cT-kNqZJlq1KdA2bYIaGKDra4ss_htoalokb7xf-Xj5KztFw4D3cUP=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDRŽET SI",
+     [
+      {
+       "t": "SOUSTŘEDĚNÍ",
+       "couleur": "#d9a51c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_aynoTib00E",
+     "titre": "Proč se nemůžete soustředit (a co s tím dělat)",
+     "chaine": "Jirka vysvětluje věci",
+     "vues": "701 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "21:32",
+     "avatar": "https://yt3.ggpht.com/45TQhzumjQEpjfvFplXejdijXUKmKPyQLJEe9k3Z95VddEQJ-qJfuLi1V_car5tq74RSBN8uGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
+   }
+  }
+ ]
+}

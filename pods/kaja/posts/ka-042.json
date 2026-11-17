@@ -1,0 +1,822 @@
+{
+ "id": "ka-042",
+ "titre": {
+  "en": "10/10 workout skills for home",
+  "fr": "10/10 exercices à faire chez toi",
+  "de": "10/10 Übungen für zuhause",
+  "it": "10/10 esercizi da fare a casa",
+  "tr": "10/10 evde yapabileceğin egzersizler",
+  "hu": "10/10 gyakorlat otthonra",
+  "pl": "10/10 ćwiczeń do zrobienia w domu",
+  "pt-BR": "10/10 exercícios para fazer em casa"
+ },
+ "legendes": {
+  "en": "10/10 workout skills for home #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 exercices à faire chez toi #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Übungen für zuhause #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 esercizi da fare a casa #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 evde yapabileceğin egzersizler #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 gyakorlat otthonra #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 ćwiczeń do zrobienia w domu #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 exercícios para fazer em casa #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "LOOSE CANNON",
+  "url": "https://www.tiktok.com/music/loose-cannon-7188203306077014827"
+ },
+ "notes": "Full test (BLEO, 17/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le sport à la maison). Décor branche. Son format court à 3 compétences plus l'étape Sophia (gainage, corde à sauter, squat), une vraie vidéo YouTube native par étape et par langue. Musique : « LOOSE CANNON » de son manifeste. Sophia en étape 3, cta C, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "WORKOUT",
+     "SKILLS",
+     "FOR HOME"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "EXERCICES",
+     "À FAIRE",
+     "CHEZ TOI"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "ÜBUNGEN FÜR",
+     "ZUHAUSE"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "ESERCIZI",
+     "DA FARE",
+     "A CASA"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "EVDE",
+     "YAPABİLECEĞİN",
+     "EGZERSİZLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "GYAKORLATOK",
+     "OTTHONRA"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "ĆWICZENIA",
+     "DO ZROBIENIA",
+     "W DOMU"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "EXERCÍCIOS",
+     "PARA FAZER",
+     "EM CASA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "A PLANK",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pSHjTRCQxIw",
+     "titre": "How To: Plank",
+     "chaine": "ScottHermanFitness",
+     "vues": "22M views",
+     "date": "17 years ago",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_laqwvM297OYyE92D0sXD9_G4VecqO2i1sVhP5Mcn00CQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "LE GAINAGE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TlGnFPWrwes",
+     "titre": "La vérité sur GAINAGE ( et c'est pas joli ! conseil kiné )",
+     "chaine": "Major Mouvement",
+     "vues": "3,1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "7:03",
+     "avatar": "https://yt3.ggpht.com/A3BpGqL6TLtFs_bInd2JYC8lcrWO8ICblsSkrS2yLkpkgpTNRUv-SgWJQVYGu2GAj46rVvuQ2os=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "DEN PLANK",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "va4JgmVNTPQ",
+     "titre": "Plank Challenge Bauch Workout - Starker Straffer Bauch in nur 4 Minuten #plank4change",
+     "chaine": "Mady Morrison",
+     "vues": "2,5 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_myyDZtX1Ueod8MSB3WcWMNOF1Kv9v7c9W6wgY6M7PN6AQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL PLANK",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TaW-98B31AE",
+     "titre": "SMETTI di fare plank in questo modo (10 errori peggiori)",
+     "chaine": "Captain Workout",
+     "vues": "1,5 Mln visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "4:11",
+     "avatar": "https://yt3.ggpht.com/bMbbZ__MiXiTVY-0Bh4JPZUYglpWAJH8uy7G14wfVoOAZsckaBOQ19EcOvYbm1GaGMjSa7zWLw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PLANK YAPILIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dp6xCq2ASAY",
+     "titre": "Plank Egzersizi Nasıl Yapılır? (Doğru Form & Seviyeler)",
+     "chaine": "Egzersiz Rehberim - Ege Berk BÜYÜKSU",
+     "vues": "3,1 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "2:20",
+     "avatar": "https://yt3.ggpht.com/j2KXLAM0-abYfdcx8xUyk0QoGVwqhhcaRoW4CdjoQclkl47s8VLp4lOijm43g0pLR7Kl-AxRCA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN CSINÁLD",
+     [
+      {
+       "t": "A PLANKOT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "igDVm5Rpf8I",
+     "titre": "Gyógytornász szemmel | PLANK",
+     "chaine": "R-Fit Klub",
+     "vues": "109 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "6:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kgmus7K_CeWNUdW57SHDBW-DhxvqtPhJC1ZfzvEzV_IQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ROBIĆ",
+     [
+      {
+       "t": "DESKĘ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y1hXARQhHZM",
+     "titre": "PLANK - 99% ludzi robi to ćwiczenie ŹLE !!!",
+     "chaine": "KURA WORKOUT",
+     "vues": "390 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "6:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kyJsOrmE_BCSLZ9ymMj8p1Ss5kXcODs86uKw2KogFYeKQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "PRANCHA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q8lGZnwF0gU",
+     "titre": "O Que Acontece com o Corpo se fizer Prancha TODO DIA",
+     "chaine": "Laércio Refundini",
+     "vues": "1,2 mi visualizações",
+     "date": "há 1 ano",
+     "duree": "11:37",
+     "avatar": "https://yt3.ggpht.com/8VKpRZ5bAecygMoiAfLTfevM1O9Tj9EwsiUAz5io9wFgmxxulpwASvdFZA0DPyefNFh4xHqKncI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "JUMP ROPE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u3zgHI8QnqE",
+     "titre": "How To Jump Rope | The Right Way | Well+Good",
+     "chaine": "Well+Good",
+     "vues": "2.6M views",
+     "date": "7 years ago",
+     "duree": "2:44",
+     "avatar": "https://yt3.ggpht.com/UZBHMmU2EHTirptCzvC1f77o7e_QKrL7lz5V84AUuGpZR7KOqxNDf1gUgsLy7-wcf0L2oKYWbg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "SAUTER À LA CORDE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Zvk23rzlJnU",
+     "titre": "Apprendre à sauter à la corde",
+     "chaine": "Mon Coach de Fitness",
+     "vues": "644 k vues",
+     "date": "il y a 10 ans",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kwLWqllY8VQ5dDDDkWwALhgmRtGH8CdIRG3HhzFu5AhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SEILSPRINGEN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "knPJFWz0YKU",
+     "titre": "Richtig Seilspringen lernen | Fitness & Kraftsport | Sport-Thieme",
+     "chaine": "Sport-Thieme",
+     "vues": "275.866 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "1:19",
+     "avatar": "https://yt3.ggpht.com/dd_h0HCxojP88dcOErhKv9U7eydw-YNSDgn6pguc5K_oDs3VHJulffi7LHdU8G9MSJoEQrmNdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "SALTARE LA CORDA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cdNDboiq61U",
+     "titre": "SALTO DELLA CORDA: TUTORIAL A-B-C PER IMPARARE",
+     "chaine": "Umberto Miletto",
+     "vues": "748K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "5:56",
+     "avatar": "https://yt3.ggpht.com/AUKpvJrq-OscBwT_duwhyqBS7rGLtFCEkpEHtkozkHZxSqW6_eRk7q6U02UBEhFsRWSduFZVVg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "İP ATLANIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YhtA8RnvxIs",
+     "titre": "Nasıl İp Atlanır? #ipatlama",
+     "chaine": "Sağlıklı Hoca",
+     "vues": "169 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "7:52",
+     "avatar": "https://yt3.ggpht.com/t7GU2RV2_uNqmqvq4DxRVGpZJ3JvJu3QgkKRJPoH2qkgf5PYmADwXqnVmIouu97FUDKLcXhIDw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "UGRÓKÖTELEZZ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d3KZUo7rNRg",
+     "titre": "Ugrókötél: az alapok",
+     "chaine": "Kormány Krisz",
+     "vues": "52 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "8:23",
+     "avatar": "https://yt3.ggpht.com/cDKhS_6bm1VX8RphiIVY5n6OyL0Ef1qVR0gJLmIfEZR30hIjgH6YjVBf3YvsjeYxTTlmP640=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK SKAKAĆ",
+     [
+      {
+       "t": "NA SKAKANCE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iWjLIKmkvNI",
+     "titre": "Jak Skakać na Skakance ♦ Instrukcje dla Początkujących",
+     "chaine": "fitappy2",
+     "vues": "664 tys. wyświetleń",
+     "date": "15 lat temu",
+     "duree": "4:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mqIriYNSrFoVgKddhJtXi1v8KGEkzifUNdSZ1IJg5vMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "PULAR CORDA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bB2BMeZTygg",
+     "titre": "Pular corda para iniciantes - Forma correta, erros comuns e progressões",
+     "chaine": "PedroFelipeFit",
+     "vues": "1,5 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "9:30",
+     "avatar": "https://yt3.ggpht.com/1UqCq9mNNsvgby0ze97ocs2eOSRE-OBdvJy1n_glZhNE_PhZJWQzoVhPVuC6J1lMyDL2WHHxHA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO TRAIN",
+     [
+      {
+       "t": "YOUR BRAIN TOO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ENTRAÎNER",
+     [
+      {
+       "t": "TON CERVEAU AUSSI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TRAINIERST DU",
+     [
+      {
+       "t": "AUCH DEINEN KOPF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME ALLENARE",
+     [
+      {
+       "t": "ANCHE IL CERVELLO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "BEYNİNİ DE ÇALIŞTIRIRSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN EDZD",
+     [
+      {
+       "t": "AZ AGYAD IS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK TRENOWAĆ",
+     [
+      {
+       "t": "TEŻ MÓZG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO TREINAR",
+     [
+      {
+       "t": "O CÉREBRO TAMBÉM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SQUAT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YaXPRqUwItQ",
+     "titre": "How To Do Perfect SQUAT | FITNESS SPECIAL | SQUATS For Beginners | WORKOUT VIDEO",
+     "chaine": "Mind Body Soul",
+     "vues": "5.1M views",
+     "date": "9 years ago",
+     "duree": "2:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_liPpXtTuunTLRi6fBCRXveBcgAouStgldY-gDOS7bmLaE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN SQUAT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xqvCmoLULNY",
+     "titre": "Tutoriel d'exercices - Squat",
+     "chaine": "XHIT Daily",
+     "vues": "3,9 M de vues",
+     "date": "il y a 14 ans",
+     "duree": "0:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_llQZHnNbdZSpv1JCxbN9DjQBEH8wjqCqHZZjdDT-3Kmq0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "KNIEBEUGEN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u-G8nn6crRA",
+     "titre": "Kniebeugen richtig ausführen: 6 Tipps für saubere Squats ohne Gewicht | Sport-Thieme",
+     "chaine": "Sport-Thieme",
+     "vues": "661.632 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "4:55",
+     "avatar": "https://yt3.ggpht.com/dd_h0HCxojP88dcOErhKv9U7eydw-YNSDgn6pguc5K_oDs3VHJulffi7LHdU8G9MSJoEQrmNdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "LO SQUAT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xfyxEaUWo3M",
+     "titre": "Squat",
+     "chaine": "LUMOWELL - Benessere360",
+     "vues": "1,1 Mln visualizzazioni",
+     "date": "14 anni fa",
+     "duree": "2:18",
+     "avatar": "https://yt3.ggpht.com/HknOje5L57FyCsYQKeZZnLpZ7NzsU-dslZQK2PHuQJ7WpY59mlujnkYL-R6nyw1FQwssjhxR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "SQUAT YAPILIR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EI2kwv_jmMY",
+     "titre": "Doğru Squat Nasıl Yapılır ? Haftanın Hareketi",
+     "chaine": "Ayşegül Demirsoy",
+     "vues": "1,5 Mn görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/Q1k4F03PwLLKEjhMR4C-Pq9yWlbgasjskhcHBkme-56zXd_96rvVoEixuikoZJm4XXpwE1LK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "GUGGOLJ",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GZFcDQC9NSg",
+     "titre": "Guggolás alapok Molnár Petivel",
+     "chaine": "Shop.Builder.hu webáruház",
+     "vues": "39 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/Ul8QC2HnhGA4npgVL-LE8wX2QrIc8R508FH2nS-19Z_ETNN8TyjIVJvoPYbi0aVE0KD9X0eTbzI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ROBIĆ",
+     [
+      {
+       "t": "PRZYSIADY",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aX7aE0meWcY",
+     "titre": "PRZYSIAD - POPRAW PODSTAWY I TYPOWE BŁĘDY",
+     "chaine": "Szymon Moszny",
+     "vues": "416 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "13:47",
+     "avatar": "https://yt3.ggpht.com/fHaC0_vC-523r-yf6E8KELpAjyYUokPVYqUerwi1PoMP6FuPDk8YMNE0NQuxsG4mwV6kZ9HZOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "AGACHAMENTO",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1hwfU_uSQ2k",
+     "titre": "Desafio 50 Agachamentos [Exercício de Bumbum e Pernas]",
+     "chaine": "Roberta's Gym Brasil",
+     "vues": "10 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "3:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mlZRukBUiLRgPC3h852rspJlHYs0MlarJ1lUKwQHp9MA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

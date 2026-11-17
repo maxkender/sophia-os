@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o243",
+ "type_bleo": "full_test",
+ "titre": "things you only learn after spending time alone #solitude #selfgrowth #lifelessons #mindset #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "0fbd8952-b847-4dad-9c8b-f55a4b057f92"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 0fbd8952). full test BLEO : accroche jamais faite (format « things you only learn after X »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "2511b98c-2ca0-4e60-976e-7137f6f69f3c",
+   "texte_overlay": "things you only learn after\nspending time alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "336b7772-09b9-4c84-919e-c2b08c0319a7",
+   "texte_overlay": "your own taste\n\nwithout other people's opinions around, you find out what music, food and places you truly love. many people discover they've been quietly living someone else's taste.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "3f45dc85-471c-4858-9d9c-f3377890a134",
+   "texte_overlay": "how loud your thoughts are\n\nsilence shows you the stories your mind tells all day. once you can hear them clearly, you can finally choose which ones truly deserve your attention.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0f3b9b00-7ff4-4065-87d6-25b5db7e846c",
+   "texte_overlay": "that you're good company\n\nthe first quiet evenings feel strange, then slowly they feel like a treat. learning to enjoy your own company is one of the most freeing things there is.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "403f89a0-d36f-4a96-9ebf-194f7fbcfc13",
+   "texte_overlay": "how curious you are\n\nalone time shows you what you really want to learn about, from stars to old myths. feeding that curiosity a little each day makes solitude feel warm and rich.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/5.jpg",
+   "texte_sophia": "how curious you are\n\nalone time showed me how curious i am. the Sophia app turns it into one short lesson a day, a star or a myth, and those 5 minutes make my quiet evenings feel so rich."
+  },
+  {
+   "position": 6,
+   "media_id": "4d2cb1a8-5c15-4084-b8d2-a68589e8ec5d",
+   "texte_overlay": "who really matters\n\nwhen you step back from constant plans, you notice who checks on you and who you miss. solitude quietly shows you which people truly belong in your life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o245",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "925d6156-a6c3-40dd-9097-310860a77f71",
+ "titre": "psychology facts that explain how people really think #psychology #facts #humanbehavior #mindset #selfimprovement",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "77ba092a-c1a5-4eb2-81e6-8f50f0b21037"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 77ba092a). déclinaison G2 de « psychology facts that will change how you see people » (parent 925d6156). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "40d663c6-9cec-4efc-871d-681da698d071",
+   "texte_overlay": "psychology facts that explain\nhow people really think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4dc16231-1c5c-4e17-8be9-51b85a37e754",
+   "texte_overlay": "the halo effect\n\nwe assume that someone who is good at one thing is good at everything. knowing this helps you judge people more fairly and see through first impressions.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "688c9140-8d98-4684-a5f0-a4d668bdad35",
+   "texte_overlay": "the reciprocity rule\n\nwhen someone is kind to us, we feel a strong urge to return it. small kind gestures build far more lasting goodwill than big, impressive ones ever really do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0524c00f-524c-43d6-aee7-5e3748ce2f33",
+   "texte_overlay": "the curiosity effect\n\nwe see curious people as warmer and more trustworthy than others. learning one new thing every day quietly changes how people see you and want to talk to you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/4.jpg",
+   "texte_sophia": "the curiosity effect\n\nwe see curious people as warmer. the Sophia app turns curiosity into one short lesson a day, a planet or a painting, and people notice how much more interesting you become."
+  },
+  {
+   "position": 5,
+   "media_id": "ec0b2026-a2c9-47e7-bad8-fe754d17f880",
+   "texte_overlay": "the mere exposure effect\n\npeople tend to like things simply because they see them often. that's why familiar faces feel friendlier, and why showing up regularly matters so much.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "15a9892d-ac6d-43cf-b4df-1789da7590a9",
+   "texte_overlay": "the spotlight effect\n\npeople notice your mistakes far less than you think. everyone is busy worrying about their own spotlight, so you can relax and stop overthinking yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667226011062275350/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o246",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "9c858631-c5b5-41f6-99cc-6ac6436f1f6d",
+ "titre": "unusual things truly confident people do in public #confidence #psychology #socialskills #selfimprovement #habits",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "1b1d2c9b-cc3f-44c0-be6e-9c71dab18dcf"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 1b1d2c9b). déclinaison G2 de « bizarre things confident people do that nobody notices » (parent 9c858631). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7fc401e0-ce6d-43fe-ac40-a0444493ad31",
+   "texte_overlay": "unusual things truly confident\npeople do in public",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6d21d100-0d56-4137-8389-3f673e14e00b",
+   "texte_overlay": "they choose the visible seat\n\nthey sit in the middle of the room instead of hiding in a corner. picking a seat where people can see you, without making a fuss, is a quiet sign of ease.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0029174e-3f21-49f5-83b3-193f572cda79",
+   "texte_overlay": "they eat slowly\n\nthey enjoy their food at their own pace, even when everyone else is rushing. not matching other people's speed shows they're comfortable in their own rhythm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "092d5aab-7737-495d-b463-f60bfe57b28c",
+   "texte_overlay": "they let pauses happen\n\na few seconds of silence after they speak doesn't bother them. they don't rush to fill it, and that calm makes everything they say feel more important.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "661f85d2-6961-45a9-a955-91af652d919a",
+   "texte_overlay": "they keep learning\n\nconfident people stay curious about everything and learn something small each day, a strange fact or a famous painting. that steady growth keeps them calm and sure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/5.jpg",
+   "texte_sophia": "they keep learning\n\nthey stay curious and learn something small every day. the Sophia app turns it into one short lesson a day, a strange fact or a painting, and it keeps confidence steady."
+  },
+  {
+   "position": 6,
+   "media_id": "16d4036d-6381-4e0e-97c5-3da294dbcfaa",
+   "texte_overlay": "they ask for clarity\n\nthey say sorry, what do you mean, without any embarrassment. asking someone to explain instead of nodding along is something only secure people really do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662675843797306646/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o249",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "03c8fe3a-e63b-4608-9b43-5691bf71dbd6",
+ "titre": "5 things that will pull you out of your dopamine addiction #dopamine #dopaminedetox #screentime #habits #selfimprovement",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). déclinaison G1 de « 5 things that will pull you out of your dopamine addiction » (parent 03c8fe3a). cta B. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "86331bce-252b-4165-af23-e5b329f804f4",
+   "texte_overlay": "5 things that will pull you\nout of your dopamine addiction",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0de82b05-e8d3-4e57-baaa-7b530db0f2e0",
+   "texte_overlay": "boredom walks\n\nwalk without your phone, headphones or a destination. let your brain crave stimulation until it remembers how to create its own ideas and find calm again.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0ec9578f-f9e0-447a-bfea-53a4965a5267",
+   "texte_overlay": "analog mornings\n\nspend the first hour of the day with no screens at all. write with a pen, stretch, look out of the window, and let your brain reset its reward system.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "851682c5-d4f7-4d06-b912-d16c612f5bcf",
+   "texte_overlay": "swapping, not just stopping\n\nreplace a few minutes of scrolling with a slower kind of reward, like learning something real about a planet or a myth. slow rewards rebuild your patience.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg",
+   "texte_sophia": "swapping, not just stopping\n\nswap scrolling for a slower reward. the Sophia app turns learning into one short lesson a day, a planet or a myth, and those 5 minutes feel far better than another feed."
+  },
+  {
+   "position": 5,
+   "media_id": "00a4338e-e1bf-41fa-a175-229a40552740",
+   "texte_overlay": "single tasking\n\ndo one thing at a time with zero distractions for twenty five minutes. eat without scrolling, shower without a podcast, and feel your focus slowly come back.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d95bdaa-c7ec-44d1-9d2e-8fa6a3aaddfa",
+   "texte_overlay": "adding friction\n\ndelete the apps you can't stop opening, log out and put your phone in another room. make quick dopamine hits inconvenient until your brain stops begging for them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

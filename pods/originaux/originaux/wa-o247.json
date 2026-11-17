@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o247",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a8fa5717-5374-46b4-b555-97bcd475e283",
+ "titre": "odd hobbies that quietly turn you into a genius #genius #hobbies #intelligence #learning #selfimprovement",
+ "musique_titre": "worry (ultra slowed)",
+ "musique_url": "https://www.tiktok.com/music/worry-ultra-slowed-7654785567999739913",
+ "inspirations": [
+  "201d7a90-5b9d-4dc9-8e6d-0fac8d8a7691"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 201d7a90). déclinaison G2 de « 5 strange hobbies to make you disguistingly intelligent » (parent a8fa5717). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "829d44c6-f927-4be7-ba41-33a2c4bbe235",
+   "texte_overlay": "odd hobbies that quietly\nturn you into a genius",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "05b81340-2ff4-463c-b7fb-4b02664c9e2f",
+   "texte_overlay": "reading famous letters\n\nread the private letters of writers and scientists. their letters show how great minds really doubted, argued and changed their minds along the way to greatness.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0cce5596-67a7-4205-89e3-79b707c47330",
+   "texte_overlay": "spotting cloud types\n\nlearn the names of ten types of cloud and look for them on walks. it trains you to notice, and suddenly the whole sky becomes a book you can actually read.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "40a987f1-6fce-45b9-9743-a7345bf9a47e",
+   "texte_overlay": "one lesson a day\n\ni used to only know my own subject. learning one small thing every day about art, history and science changed how i think and how quickly i connect new ideas.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/4.jpg",
+   "texte_sophia": "one lesson a day\n\ni used to only know my own subject. now i spend 5 minutes a day on one lesson in the Sophia app, art, history, science, and i connect ideas i never connected before."
+  },
+  {
+   "position": 5,
+   "media_id": "a1af0f74-47ce-4f89-b8e4-ca7016bd19bc",
+   "texte_overlay": "translating lyrics\n\ntranslate a song in a language you don't speak. you pick up words, grammar and a little culture at once, and the song becomes so much more meaningful.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "52f9d077-aeb2-4aaf-a53e-41a0ac4f982b",
+   "texte_overlay": "memory palaces\n\npicture a familiar room and place things you want to remember in it. this ancient trick is how memory champions remember long lists, and anyone can learn it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7655642357919911190/6.jpg"
+  }
+ ]
+}

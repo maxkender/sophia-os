@@ -1,18 +1,18 @@
 {
  "source_id": "sg-o241",
  "type_bleo": "full_test",
- "titre": "chess words that make you sound like you actually play #chess #strategy #smartgirl #hobbies #learning",
+ "titre": "chess moves every beginner should know #chess #strategy #smartgirl #hobbies #learning",
  "musique_titre": "salvatore",
  "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
  "inspirations": [
   "905ac33d-906a-4223-9d93-29df2e258b6f"
  ],
- "notes": "cta B. Full test 1/6 (la jauge en demande 6 sur 18) : accroche jamais faite chez nous (« chess » absent des accroches de donnees/label.json). Accroches écrites : « chess words that make you sound like you actually play » (retenue : vocabulaire + hobby, le registre qui marche), « why every smart girl should learn chess » (écartée : moins concrète), « chess openings to know » (écartée : trop technique). Termes vérifiés : en passant, zugzwang, fianchetto, gambit, pat (stalemate = nulle), roque (seul coup à deux pièces). Sophia au milieu sur un fait (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "notes": "cta B. Full test 1/6 (la jauge en demande 6 sur 18) : accroche jamais faite chez nous (« chess » absent des accroches de donnees/label.json). Accroches écrites : « chess moves every beginner should know » (retenue : hobby concret ; « chess words that make you sound like you actually play » refusée en theme_gagnant, trop proche de « words that make you sound well spoken »), « why every smart girl should learn chess » (écartée : moins concrète), « chess openings to know » (écartée : trop technique). Termes vérifiés : en passant, zugzwang, fianchetto, gambit, pat (stalemate = nulle), roque (seul coup à deux pièces). Sophia au milieu sur un fait (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
  "slides": [
   {
    "position": 1,
    "media_id": "fa8be5f3",
-   "texte_overlay": "chess words that make you\nsound like you actually play",
+   "texte_overlay": "chess moves every\nbeginner should know",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
   },
   {

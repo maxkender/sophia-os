@@ -118,12 +118,11 @@ Le pilote `originaux/cs-o001.json` est l'exemple complet. Les champs :
 	Ils sont concrets et **neufs** : jamais un item de la source recopié. Vérifie dans `donnees/label.json` que l'idée n'y est pas déjà.
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Le style gagnant : bureaux, cahiers, ordinateurs, cafés, bibliothèques, filles de dos.
-	- Pas une image déjà prise par un autre original : les mêmes comptes publient tous les posts du label. Regarde `used_count` dans `donnees/images.json` et les `media_id` de `originaux/`.
+	- **Toute la banque, sans tri de fond (Adrien, 17/11, `pods/ROUTINE.md` §4)** : personnes connues, cigarettes, alcool, marques, logos, écrans, filigranes, images sombres sont acceptés. Seule limite : la slide de l'appli, jamais sur une personne reconnaissable. Ce qui suit est un style à préférer, jamais une raison d'écarter une image. Une image déjà prise par un autre original revient après 14 jours (le guichet s'en charge).
 	- Les photos de la banque où l'on voit une célébrité (acteurs et actrices de films et de séries) sont acceptées (décision d'Adrien du 28/10).
 	- **Jamais de personne réelle sur les slides où l'OS place micabo ou UnSwipe** : on ne prête pas une appli à une personne réelle (voir ci-dessous : une image sans personne).
 	- Sur les items où l'OS placera micabo ou UnSwipe : une image sans personne.
-	- Jamais une image qui montre une appli lisible ou un texte.
-	- Les photos avec un écran (ordinateur, téléphone, tablette) ou une cigarette sont acceptées (décision d'Adrien du 17/11, la banque s'épuise) ; une marque ou une couverture de livre lisible reste à éviter quand on a le choix.
+	- Écrans, cigarettes, marques, couvertures de livre lisibles : acceptés (Adrien, 17/11).
 - **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label

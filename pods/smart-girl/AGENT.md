@@ -111,8 +111,7 @@ Le pilote `originaux/sg-o001.json` est l'exemple complet. Les champs :
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Les captures de *Gilmore Girls* font le style de @gilmoreobssesed : tu peux les utiliser comme ses gagnants.
 	- **Jamais sur la slide Sophia** : on ne prête pas une recommandation d'appli à une personne réelle. Pour la slide Sophia, prends une image sans personne reconnaissable (livres, bureau, café, bibliothèque).
-	- Jamais une image qui montre une appli, un écran lisible ou un texte.
-	- Écarte aussi les marques visibles (logos, sacs, cosmétiques) et les pubs. En revanche, l'alcool, les calories et les voitures sont acceptés (Adrien, 17/11).
+	- **Toute la banque, sans tri de fond (Adrien, 17/11, `pods/ROUTINE.md` §4)** : personnes connues, cigarettes, alcool, marques, logos, écrans, filigranes, images sombres sont acceptés. Seule limite : la slide de l'appli, jamais sur une personne reconnaissable. Ce qui suit est un style à préférer, jamais une raison d'écarter une image.
 	- Une image déjà livrée revient dans `npm run images` après 14 jours : la banque, c'est tout `donnees/images.json`. N'écarte pas toute image livrée une fois.
 	- Si la banque manque d'images, l'action `photos` du guichet cherche les photos sans visage de toute la banque de l'OS, dont celles de beau_smart_girl. Une photo retenue à l'œil entre dans ta banque par `ajouter_image` : JPEG 9:16 recadré, 720 px de large au moins, sans métadonnées, légende en anglais, 40 par jour au plus (Adrien, 17/11).
 - **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).

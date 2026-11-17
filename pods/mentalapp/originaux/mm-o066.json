@@ -1,0 +1,658 @@
+{
+ "id": "mm-o066",
+ "titre": "tier list of Dopamine detox moves pt2",
+ "position_app": 2,
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "43b86883-e4de-4698-b6bf-bf5f6b356f38",
+ "legendes": {
+  "en": "dopamine detox moves that actually work, part 2 #dopaminedetox #mentalmaxxing #tierlist #selfimprovement",
+  "fr": "les moves de détox dopamine qui marchent, partie 2 #detoxdopamine #mentalmaxxing #tierlist #developpementpersonnel",
+  "de": "dopamin-detox-moves, die wirklich wirken, teil 2 #dopamindetox #mentalmaxxing #tierlist #selbstverbesserung",
+  "es": "moves de detox de dopamina que sí funcionan, parte 2 #detoxdopamina #mentalmaxxing #tierlist #superacionpersonal",
+  "it": "mosse detox da dopamina che funzionano davvero, parte 2 #detoxdopamina #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "gerçekten işe yarayan dopamin detoksu hamleleri, 2. kısım #dopamindetoksu #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "moves de detox de dopamina que funcionam de verdade, parte 2 #detoxdedopamina #mentalmaxxing #tierlist #desenvolvimentopessoal",
+  "pl": "ruchy na detoks dopaminowy, które serio działają, część 2 #detoksdopaminowy #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "dopamin detox lépések, amik tényleg működnek, 2. rész #dopamindetox #mentalmaxxing #tierlist #önfejlesztés"
+ },
+ "couverture": {
+  "image": {
+   "src": "7691308606603447559/1",
+   "boite": [
+    250,
+    300,
+    630,
+    516
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "fr": "tier list des",
+   "de": "Tierlist der",
+   "es": "tier list de",
+   "it": "tier list delle",
+   "tr": "tier list:",
+   "pt-BR": "tier list de",
+   "pl": "tier list:",
+   "hu": "tier list:"
+  },
+  "gros": {
+   "en": "Dopamine",
+   "fr": "moves de",
+   "de": "Dopamin-",
+   "es": "detox de",
+   "it": "mosse detox",
+   "tr": "dopamin",
+   "pt-BR": "detox",
+   "pl": "detoks",
+   "hu": "dopamin"
+  },
+  "bas": {
+   "en": "detox moves pt2",
+   "fr": "détox dopamine 2",
+   "de": "Detox-Moves 2",
+   "es": "dopamina pt2",
+   "it": "da dopamina 2",
+   "tr": "detoksu 2",
+   "pt-BR": "de dopamina pt2",
+   "pl": "dopaminowy 2",
+   "hu": "detox lépések 2"
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "fr": "prouve-moi le contraire",
+  "de": "beweis mir das gegenteil",
+  "es": "demuéstrame lo contrario",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla",
+  "pt-BR": "me prova o contrário",
+  "pl": "udowodnij, że się mylę",
+  "hu": "cáfolj meg"
+ },
+ "pied": {
+  "en": "which one did you try?",
+  "fr": "t’as testé lequel ?",
+  "de": "welchen hast du getestet?",
+  "es": "¿cuál probaste?",
+  "it": "quale hai provato?",
+  "tr": "hangisini denedin?",
+  "pt-BR": "qual você testou?",
+  "pl": "który z nich robisz?",
+  "hu": "melyiket próbáltad?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "resets you",
+    "fr": "te remet à zéro",
+    "de": "resettet dich",
+    "es": "te resetea",
+    "it": "ti resetta",
+    "tr": "seni sıfırlar",
+    "pt-BR": "te reseta",
+    "pl": "resetuje cię",
+    "hu": "lenulláz"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "a phone-free|morning",
+      "fr": "un matin|sans téléphone",
+      "de": "ein morgen|ohne handy",
+      "es": "una mañana|sin móvil",
+      "it": "una mattina|senza telefono",
+      "tr": "telefonsuz|bir sabah",
+      "pt-BR": "uma manhã|sem celular",
+      "pl": "poranek|bez telefonu",
+      "hu": "egy reggel|telefon nélkül"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      870,
+      85,
+      150,
+      130
+     ],
+     "t": {
+      "en": "10k steps",
+      "fr": "10k pas",
+      "de": "10k schritte",
+      "es": "10k pasos",
+      "it": "10k passi",
+      "tr": "10k adım",
+      "pt-BR": "10k passos",
+      "pl": "10k kroków",
+      "hu": "10k lépés"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "a paper book",
+      "fr": "un livre papier",
+      "de": "ein echtes|buch",
+      "es": "un libro|en papel",
+      "it": "un libro|di carta",
+      "tr": "kâğıt kitap",
+      "pt-BR": "livro físico",
+      "pl": "papierowa|książka",
+      "hu": "papírkönyv"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "fr": "fort",
+    "de": "stark",
+    "es": "fuerte",
+    "it": "forte",
+    "tr": "güçlü",
+    "pt-BR": "forte",
+    "pl": "mocne",
+    "hu": "erős"
+   },
+   "cases": [
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      695,
+      236,
+      114,
+      152
+     ],
+     "t": {
+      "en": "cold shower",
+      "fr": "douche froide",
+      "de": "kalt duschen",
+      "es": "ducha fría",
+      "it": "doccia fredda",
+      "tr": "soğuk duş",
+      "pt-BR": "banho gelado",
+      "pl": "zimny prysznic",
+      "hu": "hideg zuhany"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "lifting",
+      "fr": "la muscu",
+      "de": "krafttraining",
+      "es": "pesas",
+      "it": "palestra",
+      "tr": "spor salonu",
+      "pt-BR": "musculação",
+      "pl": "siłownia",
+      "hu": "súlyzózás"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "sitting|in silence",
+      "fr": "rester|en silence",
+      "de": "in stille|sitzen",
+      "es": "estar|en silencio",
+      "it": "stare|in silenzio",
+      "tr": "sessizce|oturmak",
+      "pt-BR": "ficar|em silêncio",
+      "pl": "siedzieć|w ciszy",
+      "hu": "csendben|ülni"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "sunlight",
+      "fr": "soleil",
+      "de": "sonnenlicht",
+      "es": "luz del sol",
+      "it": "luce del sole",
+      "tr": "güneş ışığı",
+      "pt-BR": "luz do sol",
+      "pl": "słońce",
+      "hu": "napfény"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "solid",
+    "fr": "solide",
+    "de": "solide",
+    "es": "sólido",
+    "it": "solido",
+    "tr": "sağlam",
+    "pt-BR": "sólido",
+    "pl": "solidne",
+    "hu": "stabil"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "cooking",
+      "fr": "cuisiner",
+      "de": "kochen",
+      "es": "cocinar",
+      "it": "cucinare",
+      "tr": "yemek yapmak",
+      "pt-BR": "cozinhar",
+      "pl": "gotowanie",
+      "hu": "főzés"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "one album,|no skips",
+      "fr": "un album,|sans zapper",
+      "de": "ein album,|ohne skippen",
+      "es": "un álbum|sin saltar",
+      "it": "un album,|senza skip",
+      "tr": "bir albüm,|atlamadan",
+      "pt-BR": "um álbum|sem pular",
+      "pl": "jeden album|bez skipów",
+      "hu": "egy album|skip nélkül"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "clean desk",
+      "fr": "bureau rangé",
+      "de": "aufgeräumter|schreibtisch",
+      "es": "escritorio|ordenado",
+      "it": "scrivania|in ordine",
+      "tr": "düzenli masa",
+      "pt-BR": "mesa|arrumada",
+      "pl": "czyste biurko",
+      "hu": "tiszta asztal"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "chess",
+      "fr": "échecs",
+      "de": "schach",
+      "es": "ajedrez",
+      "it": "scacchi",
+      "tr": "satranç",
+      "pt-BR": "xadrez",
+      "pl": "szachy",
+      "hu": "sakk"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "half a fix",
+    "fr": "à moitié",
+    "de": "halbe lösung",
+    "es": "a medias",
+    "it": "a metà",
+    "tr": "yarım çözüm",
+    "pt-BR": "pela metade",
+    "pl": "połowicznie",
+    "hu": "félmegoldás"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      569,
+      849,
+      99,
+      106
+     ],
+     "t": {
+      "en": "app timers",
+      "fr": "minuteurs|d’applis",
+      "de": "app-timer",
+      "es": "límites|de apps",
+      "it": "timer|delle app",
+      "tr": "ekran süresi|limiti",
+      "pt-BR": "timer|de apps",
+      "pl": "limity|w apkach",
+      "hu": "app|időzítők"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "lofi all day",
+      "fr": "lofi toute|la journée",
+      "de": "lofi den|ganzen tag",
+      "es": "lofi todo|el día",
+      "it": "lofi tutto|il giorno",
+      "tr": "bütün gün|lofi",
+      "pt-BR": "lofi o|dia todo",
+      "pl": "lofi|cały dzień",
+      "hu": "lofi|egész nap"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "one coffee",
+      "fr": "un seul café",
+      "de": "nur ein kaffee",
+      "es": "un solo café",
+      "it": "un solo caffè",
+      "tr": "tek kahve",
+      "pt-BR": "um café só",
+      "pl": "jedna kawa",
+      "hu": "csak egy kávé"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "long naps",
+      "fr": "longues|siestes",
+      "de": "lange|nickerchen",
+      "es": "siestas|largas",
+      "it": "pisolini|lunghi",
+      "tr": "uzun|şekerlemeler",
+      "pt-BR": "cochilos|longos",
+      "pl": "długie|drzemki",
+      "hu": "hosszú|szundik"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "barely helps",
+    "fr": "aide à peine",
+    "de": "hilft kaum",
+    "es": "apenas ayuda",
+    "it": "aiuta poco",
+    "tr": "pek yaramaz",
+    "pt-BR": "mal ajuda",
+    "pl": "ledwo pomaga",
+    "hu": "alig segít"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "sleeping in",
+      "fr": "grasse mat",
+      "de": "ausschlafen",
+      "es": "dormir|hasta tarde",
+      "it": "dormire|fino a tardi",
+      "tr": "geç kalkmak",
+      "pt-BR": "dormir|até tarde",
+      "pl": "spanie|do południa",
+      "hu": "délig alvás"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      416,
+      850,
+      116,
+      86
+     ],
+     "t": {
+      "en": "cheat days",
+      "fr": "cheat days",
+      "de": "cheat days",
+      "es": "cheat days",
+      "it": "cheat days",
+      "tr": "cheat days",
+      "pt-BR": "cheat days",
+      "pl": "cheat days",
+      "hu": "cheat days"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "shopping",
+      "fr": "shopping",
+      "de": "shopping",
+      "es": "compras",
+      "it": "shopping",
+      "tr": "alışveriş",
+      "pt-BR": "compras",
+      "pl": "zakupy",
+      "hu": "vásárlás"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "“useful”|youtube",
+      "fr": "youtube|« utile »",
+      "de": "„nützliches“|youtube",
+      "es": "youtube|“útil”",
+      "it": "youtube|“utile”",
+      "tr": "“faydalı”|youtube",
+      "pt-BR": "youtube|“útil”",
+      "pl": "„przydatny”|youtube",
+      "hu": "„hasznos”|youtube"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "fake detox",
+   "fr": "fausse détox",
+   "de": "fake-detox",
+   "es": "detox falso",
+   "it": "finto detox",
+   "tr": "sahte detoks",
+   "pt-BR": "detox fake",
+   "pl": "fake detoks",
+   "hu": "kamu detox"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "detox,|then binge",
+     "fr": "détox,|puis rechute",
+     "de": "detox,|dann binge",
+     "es": "detox,|luego recaída",
+     "it": "detox,|poi abbuffata",
+     "tr": "detoks,|sonra kaçamak",
+     "pt-BR": "detox e|depois recaída",
+     "pl": "detoks,|potem binge",
+     "hu": "detox,|aztán binge"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     272,
+     853,
+     90,
+     94
+    ],
+    "t": {
+     "en": "switching|apps",
+     "fr": "changer|d’appli",
+     "de": "apps|wechseln",
+     "es": "cambiar|de app",
+     "it": "cambiare|app",
+     "tr": "uygulama|değiştirmek",
+     "pt-BR": "trocar|de app",
+     "pl": "zmiana|apki",
+     "hu": "appot|váltani"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "fr": "doomscrolling",
+     "de": "doomscrolling",
+     "es": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "fr": "ton choix|(commente)",
+     "de": "deine wahl|(kommentiere)",
+     "es": "tu opción|(comenta)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)",
+     "pl": "twoja opcja|(komentuj)",
+     "hu": "a te opciód|(kommentelj)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 : déclinaison G1 de mm-o027 (« tier list of Dopamine detox moves pt2 », de 5,3 k, r 5,68), titre mot pour mot, autres items, autre couverture (Tom Hardy au bouquet). Parent déclaré : la version Sophia (43b86883), la boîte donnant le contenu UnSwipe rejeté. cta A. 9 langues."
+}

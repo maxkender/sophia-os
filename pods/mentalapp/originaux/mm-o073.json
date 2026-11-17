@@ -1,0 +1,521 @@
+{
+ "id": "mm-o073",
+ "titre": "Focus killers ranked",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "what really kills your focus, ranked #focus #mentalmaxxing #tierlist #selfimprovement",
+  "it": "cosa uccide davvero la tua concentrazione #concentrazione #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "odağını gerçekten öldüren şeyler #odak #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "o que realmente mata seu foco #foco #mentalmaxxing #tierlist #desenvolvimentopessoal"
+ },
+ "couverture": {
+  "mise": "collage",
+  "image": {
+   "src": "7691710452002327826/1",
+   "boite": [
+    210,
+    400,
+    660,
+    690
+   ]
+  },
+  "haut": {
+   "en": "",
+   "it": "",
+   "tr": "tier list:",
+   "pt-BR": ""
+  },
+  "gros": {
+   "en": "Focus killers",
+   "it": "killer del focus",
+   "tr": "odak katilleri",
+   "pt-BR": "assassinos do foco"
+  },
+  "bas": {
+   "en": "ranked",
+   "it": "in classifica",
+   "tr": "sıralaması",
+   "pt-BR": "ranqueados"
+  },
+  "par_langue": {
+   "it": {
+    "image": {
+     "src": "7686526569703017735/1",
+     "boite": [
+      300,
+      318,
+      610,
+      600
+     ]
+    },
+    "mise": "titre_haut"
+   },
+   "tr": {
+    "image": {
+     "src": "7699644186470976786/1",
+     "boite": [
+      198,
+      378,
+      684,
+      738
+     ]
+    },
+    "mise": "classique"
+   },
+   "pt-BR": {
+    "image": {
+     "src": "7690939244096834824/1",
+     "boite": [
+      255,
+      238,
+      550,
+      745
+     ]
+    },
+    "mise": "titre_haut"
+   }
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "it": "dimostrami il contrario",
+  "tr": "aksini kanıtla",
+  "pt-BR": "me prova o contrário"
+ },
+ "pied": {
+  "en": "which one gets you every time?",
+  "it": "quale ti frega ogni volta?",
+  "tr": "seni her seferinde hangisi yakalıyor?",
+  "pt-BR": "qual te pega toda vez?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "focus-proof",
+    "it": "a prova di focus",
+    "tr": "odak dostu",
+    "pt-BR": "à prova de foco"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone in|another room",
+      "it": "telefono|in un’altra stanza",
+      "tr": "telefon|başka odada",
+      "pt-BR": "celular|em outro cômodo"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "8h of sleep",
+      "it": "8 ore di sonno",
+      "tr": "8 saat uyku",
+      "pt-BR": "8h de sono"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "one clear|goal",
+      "it": "un solo|obiettivo",
+      "tr": "tek net|hedef",
+      "pt-BR": "uma meta|clara"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "harmless",
+    "it": "innocuo",
+    "tr": "zararsız",
+    "pt-BR": "inofensivo"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      365,
+      35,
+      125,
+      175
+     ],
+     "t": {
+      "en": "water",
+      "it": "acqua",
+      "tr": "su",
+      "pt-BR": "água"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "silence",
+      "it": "silenzio",
+      "tr": "sessizlik",
+      "pt-BR": "silêncio"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "clean desk",
+      "it": "scrivania|in ordine",
+      "tr": "temiz masa",
+      "pt-BR": "mesa|arrumada"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "daylight",
+      "it": "luce naturale",
+      "tr": "gün ışığı",
+      "pt-BR": "luz do dia"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "small leak",
+    "it": "piccola fuga",
+    "tr": "küçük kaçak",
+    "pt-BR": "pequeno vazamento"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "third coffee",
+      "it": "terzo caffè",
+      "tr": "üçüncü kahve",
+      "pt-BR": "terceiro café"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "music|with lyrics",
+      "it": "musica|con testo",
+      "tr": "sözlü müzik",
+      "pt-BR": "música|com letra"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "snacking",
+      "it": "sgranocchiare",
+      "tr": "atıştırmak",
+      "pt-BR": "beliscar"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "long naps",
+      "it": "pisolini|lunghi",
+      "tr": "uzun|şekerleme",
+      "pt-BR": "cochilos|longos"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "big leak",
+    "it": "grande fuga",
+    "tr": "büyük kaçak",
+    "pt-BR": "grande vazamento"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "notifications",
+      "it": "notifiche",
+      "tr": "bildirimler",
+      "pt-BR": "notificações"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube|in the background",
+      "it": "youtube|in sottofondo",
+      "tr": "arka planda|youtube",
+      "pt-BR": "youtube|de fundo"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "heavy lunch",
+      "it": "pranzo pesante",
+      "tr": "ağır öğle|yemeği",
+      "pt-BR": "almoço pesado"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "online|shopping",
+      "it": "shopping|online",
+      "tr": "online|alışveriş",
+      "pt-BR": "compras|online"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "focus gone",
+    "it": "focus finito",
+    "tr": "odak bitti",
+    "pt-BR": "foco acabou"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "“one” match",
+      "it": "“una” partita",
+      "tr": "“tek” maç",
+      "pt-BR": "“só uma”|partida"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "group chats",
+      "it": "chat|di gruppo",
+      "tr": "grup|sohbetleri",
+      "pt-BR": "grupos|de conversa"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "late nights",
+      "it": "notti tarde",
+      "tr": "geç saatler",
+      "pt-BR": "dormir tarde"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a series|while working",
+      "it": "serie|mentre lavori",
+      "tr": "çalışırken|dizi",
+      "pt-BR": "série|trabalhando"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "focus killer",
+   "it": "killer del focus",
+   "tr": "odak katili",
+   "pt-BR": "mata o foco"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "it": "reel infiniti",
+     "tr": "bitmeyen reels",
+     "pt-BR": "reels sem fim"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "it": "app di scommesse",
+     "tr": "bahis|uygulamaları",
+     "pt-BR": "apps de aposta"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 (règle « Variété et volume ») : full test, accroche nouvelle en forme « X ranked ». Langues en, it, tr, pt-BR, couverture propre à chaque langue (en : collage Waltz, it : titre_haut silhouette, tr : classique Bale, pt-BR : titre_haut guerrier). cta A."
+}

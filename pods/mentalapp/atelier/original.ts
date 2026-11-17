@@ -41,7 +41,16 @@ export type Original = {
    * - « collage » : l'image au centre, le titre dessous, et dix vignettes du
    *   tableau (avec leur légende) tout autour.
    */
-  couverture: { mise?: "classique" | "titre_haut" | "collage"; image: Recadrage; haut: ParLangue; gros: ParLangue; bas: ParLangue; edition?: ParLangue };
+  couverture: {
+    mise?: "classique" | "titre_haut" | "collage";
+    image: Recadrage;
+    haut: ParLangue;
+    gros: ParLangue;
+    bas: ParLangue;
+    edition?: ParLangue;
+    /** Couverture propre à une langue (règle « Variété et volume » du 17/11) : autre image, autre mise. */
+    par_langue?: Partial<Record<Langue, { image?: Recadrage; mise?: "classique" | "titre_haut" | "collage" }>>;
+  };
   titre_tableau: ParLangue;
   pied: ParLangue;
   /** Rangs du tableau principal (S+ à D), puis le rang F à part, sous un « + ». */
@@ -138,8 +147,9 @@ export async function rendreOriginal(o: Original, langue: Langue, icone: Image):
   const x1 = c1.getContext("2d");
   x1.fillStyle = FOND;
   x1.fillRect(0, 0, L, H);
-  const cv = o.couverture;
-  const mise = cv.mise ?? "classique";
+  const propre = o.couverture.par_langue?.[langue];
+  const cv = { ...o.couverture, ...(propre?.image ? { image: propre.image } : {}) };
+  const mise = propre?.mise ?? cv.mise ?? "classique";
   if (mise === "titre_haut") {
     centree(x1, cv.gros[langue], L / 2, 220, 150, 200, 980, ENCRE, -0.03);
     centree(x1, cv.bas[langue], L / 2, 320, 90, 200, 940, ENCRE, -0.02);

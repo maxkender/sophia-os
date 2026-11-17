@@ -13,7 +13,7 @@
  "fathom": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
  "clean-study": { "par_jour": 6 },
  "kaja": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite" },
- "plony": { "par_jour": 2 },
+ "plony": { "par_jour": 0, "pause": true, "motif": "en pause depuis le 17/11 (demande d'Adrien) : ses 13 comptes sont passés au label History, Plony n'a plus de compte ; routine du matin coupée, guichet fermé (pods.actif = false)" },
  "sagace": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 15/11 (0724), en test" },
  "dorian": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 15/11 (0729), en test" },
  "appshelf": { "rythme": "calculé par l'OS (lot 4, 5/11) : npm run boite ; lancé le 15/11 (0730), en test" },

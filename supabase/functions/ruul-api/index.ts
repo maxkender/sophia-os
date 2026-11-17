@@ -17,6 +17,7 @@
  *       Ruul crée les factures et renvoie le virement à faire (montant, comptes, référence) : Max vire depuis Qonto.
  *       Un envoi sans réponse claire est renvoyé à l'identique (même clé) : jamais deux paiements.
  *   POST { action: "relire", semaine }   admin / cron : GET /payouts/{batchId} → statuts des lignes et virement.
+ *   POST { action: "relire_tous" }   cron horaire (filet des webhooks) : relit les paiements Ruul pas encore soldés.
  *
  * La clé (RUUL_API_KEY / RUUL_SANDBOX_API_KEY) reste dans les secrets ; elle n'apparaît jamais dans une réponse.
  */
@@ -282,6 +283,12 @@ Deno.serve(async (request) => {
         return json(await devis(supabase, corps));
       case "relire":
         return json(await relire(supabase, corps));
+      case "relire_tous": {
+        const { data: lots } = await supabase.from("ruul_lots").select("semaine").not("ruul_batch_id", "is", null).eq("statut", "saisi").limit(10);
+        const res = [];
+        for (const l of lots ?? []) res.push({ semaine: l.semaine, ...(await relire(supabase, { semaine: l.semaine })) });
+        return json({ ok: true, lots: res });
+      }
       default:
         return json({ ok: false, error: "action inconnue" }, 400);
     }

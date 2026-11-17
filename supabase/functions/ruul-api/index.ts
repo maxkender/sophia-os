@@ -17,6 +17,8 @@
  *       Ruul crée les factures et renvoie le virement à faire (montant, comptes, référence) : Max vire depuis Qonto.
  *       Un envoi sans réponse claire est renvoyé à l'identique (même clé) : jamais deux paiements.
  *   POST { action: "relire", semaine }   admin / cron : GET /payouts/{batchId} → statuts des lignes et virement.
+ *   POST { action: "transactions" }   admin : GET /transactions (toutes les pages, 50 par page) → ruul_transactions,
+ *       l'historique de ce que Ruul a déjà payé (lecture seule chez Ruul).
  *   POST { action: "relire_tous" }   cron horaire (filet des webhooks) : relit les paiements Ruul pas encore soldés.
  *
  * La clé (RUUL_API_KEY / RUUL_SANDBOX_API_KEY) reste dans les secrets ; elle n'apparaît jamais dans une réponse.
@@ -221,6 +223,34 @@ async function payer(supabase: Supabase, userId: string, corps: Record<string, u
   };
 }
 
+/** L'historique Ruul : toutes les transactions de la société, page par page (lecture seule). */
+async function transactions(supabase: Supabase) {
+  const reglage = await lireReglage(supabase);
+  const soc = await societe(supabase, reglage);
+  if (!soc.id) return { ok: false, error: soc.erreur };
+  let page = 1;
+  let lues = 0;
+  let lignes = 0;
+  let total = 0;
+  for (; page <= 20; page++) {
+    const r = await appelRuul<{ data: unknown[]; total: number }>(reglage.env, "GET", "/transactions", { query: { page, limit: 50, companyId: soc.id } });
+    if (!r.ok || !r.data) {
+      await noterAppel(supabase, reglage.env, "transactions", r, { page });
+      return { ok: false, error: r.erreur, lues, lignes };
+    }
+    const data = Array.isArray(r.data.data) ? r.data.data : [];
+    total = Number(r.data.total ?? 0);
+    const { data: n, error } = await supabase.rpc("ruul_transactions_importer", { p_data: data });
+    if (error) throw new Error(error.message);
+    lues += data.length;
+    lignes += Number(n ?? 0);
+    if (data.length < 50 || lues >= total) break;
+    await pause(1500); // lectures : 50 par minute au plus.
+  }
+  await noterAppel(supabase, reglage.env, "transactions", { http: 200, code: null, erreur: null, duree_ms: 0 }, { lues, lignes, total, pages: page });
+  return { ok: true, env: reglage.env, lues, lignes, total };
+}
+
 /** Relire le paiement Ruul d'un lot : statuts des lignes, virement encore dû. */
 async function relire(supabase: Supabase, corps: Record<string, unknown>) {
   const semaine = typeof corps.semaine === "string" ? corps.semaine : null;
@@ -283,6 +313,8 @@ Deno.serve(async (request) => {
         return json(await devis(supabase, corps));
       case "relire":
         return json(await relire(supabase, corps));
+      case "transactions":
+        return json(await transactions(supabase));
       case "relire_tous": {
         const { data: lots } = await supabase.from("ruul_lots").select("semaine").not("ruul_batch_id", "is", null).eq("statut", "saisi").limit(10);
         const res = [];

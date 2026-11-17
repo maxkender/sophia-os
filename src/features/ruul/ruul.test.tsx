@@ -15,6 +15,9 @@ const api = vi.hoisted(() => ({
   creerPaiementRuul: vi.fn(),
   relirePaiementRuul: vi.fn(),
   changerStatutRuul: vi.fn(),
+  lireVerifRuul: vi.fn(),
+  deciderVerifRuul: vi.fn(),
+  importerHistoriqueRuul: vi.fn(),
 }));
 vi.mock("./api", () => api);
 
@@ -40,6 +43,7 @@ beforeEach(() => {
   api.lirePosteursRuul.mockResolvedValue([posteur({}), posteur({ poster_id: "p2", nom: "Bo Test", ruul_statut: "invite", ajoute_at: "2026-11-09T10:00:00Z", relances: 1 })]);
   api.changerStatutRuul.mockResolvedValue({ ok: true });
   api.preparerLotRuul.mockResolvedValue({ ok: true });
+  api.lireVerifRuul.mockResolvedValue([]);
   api.saisirLotRuul.mockResolvedValue({ ok: true });
 });
 
@@ -132,6 +136,24 @@ describe("Paie Ruul", () => {
     expect(within(p).getByTestId("virement-ruul")).toHaveTextContent("À virer depuis Qonto : 13.50 EUR · référence à mettre sur le virement : REF123");
     expect(within(p).getByTestId("virement-ruul")).toHaveTextContent("IBANXX00TEST");
     expect(screen.queryByTestId("creer-paiement-ruul")).toBeNull();
+  });
+
+  it("0740 : une semaine à vérifier, l'historique Ruul, « Déjà payé »", async () => {
+    api.lireLotRuul.mockResolvedValue({ semaine: "2026-11-09", lot: null, rapprochement: null, lignes: [], reportes: [] });
+    api.lireVerifRuul.mockResolvedValue([{
+      poster_id: "p1", nom: "Ana Test", ruul_email: "ana@test.zz", ruul_onboarding: "READY", total_du: 14, a_verifier: 7, ruul_paye: 20,
+      du: [{ semaine: "2026-10-26", montant: 7, faits: 10, statut: "reporte", verif: "à vérifier" },
+           { semaine: "2026-11-16", montant: 7, faits: 14, statut: "a_payer", verif: null }],
+      ruul: [{ tno: "123", date: "2026-11-02T10:00:00Z", montant: 20, devise: "USD", statut: "PAID", description: "x" }],
+    }]);
+    api.deciderVerifRuul.mockResolvedValue({ ok: true, lignes: 1 });
+    rendu();
+    const carte = await screen.findByTestId("verif-posteur");
+    expect(carte).toHaveTextContent("Semaine du 26/10 : 7.00 $ (10 posts)");
+    expect(carte).not.toHaveTextContent("16/11");
+    expect(carte).toHaveTextContent("20 USD PAID (#123)");
+    fireEvent.click(within(carte).getByRole("button", { name: "Déjà payé" }));
+    await waitFor(() => expect(api.deciderVerifRuul).toHaveBeenCalledWith("p1", "2026-10-26", "deja_paye"));
   });
 
   it("CSV du lot et lecture de l'export Ruul", () => {

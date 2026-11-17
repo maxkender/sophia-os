@@ -168,6 +168,23 @@ export const creerPaiementRuul = (semaine: string) =>
   invoke<{ ok: boolean; error?: string; deja?: boolean; batch?: number; env?: string }>("ruul-api", { action: "payer", semaine });
 export const relirePaiementRuul = (semaine: string) =>
   invoke<{ ok: boolean; error?: string; statut?: string }>("ruul-api", { action: "relire", semaine });
+/** 0740 : ce qui reste dû face à ce que Ruul a déjà payé, et la décision de Max sur une semaine à vérifier. */
+export interface VerifRuul {
+  poster_id: string;
+  nom: string;
+  ruul_email: string | null;
+  ruul_onboarding: string | null;
+  du: { semaine: string; montant: number; faits: number | null; statut: string; verif: string | null }[] | null;
+  total_du: number | null;
+  a_verifier: number | null;
+  ruul: { tno: string | null; date: string | null; montant: number | null; devise: string | null; statut: string | null; description: string | null }[] | null;
+  ruul_paye: number | null;
+}
+export const lireVerifRuul = () => rpc<VerifRuul[]>("ruul_verif_liste");
+export const deciderVerifRuul = (poster: string, semaine: string, decision: "payer" | "deja_paye", note?: string) =>
+  rpc<Retour & { lignes?: number }>("ruul_verif_decider", { p_poster: poster, p_semaine: semaine, p_decision: decision, p_note: note ?? null });
+export const importerHistoriqueRuul = () =>
+  invoke<{ ok: boolean; error?: string; lues?: number; lignes?: number; total?: number }>("ruul-api", { action: "transactions" });
 export const validerLigneRuul = (poster: string, semaine: string, ok: boolean) =>
   rpc<Retour & { lignes?: number }>("ruul_ligne_valider", { p_poster: poster, p_semaine: semaine, p_ok: ok });
 export const devisLotRuul = (semaine: string) =>

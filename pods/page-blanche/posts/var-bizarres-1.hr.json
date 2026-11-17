@@ -57,7 +57,7 @@
       "position it's all your fault"
      ],
      "fr": "ton taf, ton corps, tes notes, tes habitudes, ta place, [[c'est ta faute]]",
-     "texte": "izgleda kao da ne slušaš, a zapravo je [[obrnuto]]"
+     "texte": "izgleda kao da uopće ne slušaš, a zapravo je [[potpuno obrnuto]]"
     },
     "T3": {
      "en": [
@@ -65,7 +65,7 @@
       "it's actually good news"
      ],
      "fr": "dur à entendre, mais c'est une bonne nouvelle",
-     "texte": "u jednom istraživanju, oni koji su škrabali [[zapamtili su više]]"
+     "texte": "škrabači su [[zapamtili više]]"
     },
     "T4": {
      "en": [
@@ -76,7 +76,7 @@
       "can change"
      ],
      "fr": "si c'est ta faute, c'est aussi [[entre tes mains]], rien ne t'oblige à rester la personne d'hier, tu peux changer",
-     "texte": "iz dosadne telefonske poruke od onih koji su samo sjedili i slušali. škrabanje ne da mislima da odlutaju"
+     "texte": "u jednom istraživanju, iz dosadne telefonske poruke od onih koji su samo slušali. škrabanje ne da mislima da odlutaju"
     }
    },
    "images": {
@@ -244,7 +244,7 @@
       "pleaser"
      ],
      "fr": "[[arrête de plaire à tout le monde]]",
-     "texte": "zvuči malo [[ludo]]"
+     "texte": "znam, zvuči malo [[ludo]] na prvu"
     },
     "T4": {
      "en": [
@@ -475,7 +475,7 @@
       "morning"
      ],
      "fr": "touche pas à ton tel [[dès le réveil]]",
-     "texte": "[[zapiši svoje brige]] prije ispita"
+     "texte": "[[zapiši sve što te brine]] neposredno prije ispita"
     },
     "T2": {
      "en": [
@@ -503,7 +503,7 @@
       "phone"
      ],
      "fr": "et le reste de ta journée [[paraît fade]]. offre-toi 30 minutes sans ton tel au réveil",
-     "texte": "u jednom istraživanju, učenici pod stresom koji su par minuta prije testa zapisali svoje strahove [[prošli su bolje]]"
+     "texte": "u jednom istraživanju, učenici pod stresom koji su prije testa zapisali strahove [[prošli su bolje]]"
     }
    },
    "images": {
@@ -670,7 +670,7 @@
       "second nothing is happening"
      ],
      "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
-     "texte": "žvači žvaku dok učiš, [[ozbiljno]]"
+     "texte": "žvači žvaku dok učiš, [[ozbiljno ti kažem]]"
     },
     "T2": {
      "en": [
@@ -690,7 +690,7 @@
       "connect ideas"
      ],
      "fr": "l'ennui, c'est le moment où ton cerveau peut divaguer, réfléchir et faire des liens",
-     "texte": "čeljust ti radi, tijelo ostaje [[malo budnije]] i misli ti manje lutaju"
+     "texte": "čeljust ti radi, tijelo ostaje [[malo budnije]] i misli ti puno manje lutaju tijekom učenja"
     },
     "T4": {
      "en": [

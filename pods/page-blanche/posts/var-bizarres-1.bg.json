@@ -49,7 +49,7 @@
       "understand it's all your fault"
      ],
      "fr": "accepte que [[tout est de ta faute]]",
-     "texte": "драскай по време на [[скучни разговори]]"
+     "texte": "драскай, [[докато говориш]]"
     },
     "T2": {
      "en": [
@@ -65,7 +65,7 @@
       "it's actually good news"
      ],
      "fr": "dur à entendre, mais c'est une bonne nouvelle",
-     "texte": "в едно изследване драскащите [[запомниха повече]]"
+     "texte": "драскащите [[запомниха повече]]"
     },
     "T4": {
      "en": [
@@ -76,7 +76,7 @@
       "can change"
      ],
      "fr": "si c'est ta faute, c'est aussi [[entre tes mains]], rien ne t'oblige à rester la personne d'hier, tu peux changer",
-     "texte": "от скучно телефонно съобщение от тези, които просто седяха и слушаха. драскането не оставя мислите ти да се разсеят"
+     "texte": "в едно изследване, от скучно съобщение, отколкото тези, които само слушаха. драскането не дава на ума да избяга"
     }
    },
    "images": {
@@ -252,7 +252,7 @@
       "what actually matters"
      ],
      "fr": "sinon t'as [[moins de temps]] pour l'essentiel",
-     "texte": "но изследванията показват, че [[успокоява]]"
+     "texte": "но според изследванията [[успокоява]]"
     },
     "T5": {
      "en": [
@@ -261,7 +261,7 @@
       "thing you have"
      ],
      "fr": "protège ton temps comme [[ce que t'as de plus précieux]]",
-     "texte": "името ти създава малко дистанция между теб и проблема"
+     "texte": "името ти създава дистанция между теб и проблема"
     }
    },
    "images": {
@@ -447,7 +447,7 @@
       "decades thinking deeply"
      ],
      "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
-     "texte": "кратки сесии, разпределени в няколко дни, се запомнят много по-добре от едно дълго зубрене. това е [[ефектът на разпределеното учене]]"
+     "texte": "кратки сесии в няколко дни се запомнят по-добре от едно дълго зубрене. това е [[разпределеното учене]]"
     },
     "T3": {
      "en": [
@@ -459,7 +459,7 @@
       "20 minutes"
      ],
      "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
-     "texte": "преди скролвах безкрай, сега, щом така или иначе съм на телефона, всеки ден научавам по малко, днес защо Ренесансът започва в Италия, в [[приложението Sophia]]"
+     "texte": "преди скролвах безкрай, сега на телефона всеки ден научавам по малко, днес защо Ренесансът започва в Италия, в [[приложението Sophia]]"
     }
    },
    "images": {
@@ -475,7 +475,7 @@
       "morning"
      ],
      "fr": "touche pas à ton tel [[dès le réveil]]",
-     "texte": "[[запиши тревогите си]] преди изпит"
+     "texte": "[[запиши всичко, което те тревожи]] точно преди изпит"
     },
     "T2": {
      "en": [
@@ -492,7 +492,7 @@
       "done anything"
      ],
      "fr": "ton cerveau prend [[un shot de dopamine]] avant que t'aies rien fait",
-     "texte": "тревогата изяжда мястото, което ти трябва, за да [[мислиш ясно]]"
+     "texte": "тревогата заема мястото, нужно ти, за да [[мислиш ясно]]"
     },
     "T4": {
      "en": [
@@ -503,7 +503,7 @@
       "phone"
      ],
      "fr": "et le reste de ta journée [[paraît fade]]. offre-toi 30 minutes sans ton tel au réveil",
-     "texte": "в едно изследване стресирани ученици, които няколко минути преди теста описаха страховете си, [[се представиха по-добре]]"
+     "texte": "в едно изследване стресирани ученици, описали страховете си преди теста, [[се справиха по-добре]]"
     }
    },
    "images": {
@@ -680,7 +680,7 @@
       "input"
      ],
      "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
-     "texte": "някои изследвания свързват дъвченето на дъвка с [[повече бдителност]] и по-дълъг фокус при скучни задачи"
+     "texte": "някои изследвания свързват дъвката с [[повече бдителност]] при скучни задачи"
     },
     "T3": {
      "en": [

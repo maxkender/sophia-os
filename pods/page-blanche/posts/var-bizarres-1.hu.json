@@ -65,7 +65,7 @@
       "it's actually good news"
      ],
      "fr": "dur à entendre, mais c'est une bonne nouvelle",
-     "texte": "egy kutatásban a firkálók [[többet jegyeztek meg]]"
+     "texte": "a firkálók [[többet jegyeztek meg]]"
     },
     "T4": {
      "en": [
@@ -76,7 +76,7 @@
       "can change"
      ],
      "fr": "si c'est ta faute, c'est aussi [[entre tes mains]], rien ne t'oblige à rester la personne d'hier, tu peux changer",
-     "texte": "egy unalmas telefonüzenetből, mint akik csak ültek és hallgattak. a firkálás megakadályozza, hogy elkalandozz"
+     "texte": "egy kutatásban egy unalmas telefonüzenetből, mint akik csak hallgattak. a firkálás nem hagy elkalandozni"
     }
    },
    "images": {
@@ -261,7 +261,7 @@
       "thing you have"
      ],
      "fr": "protège ton temps comme [[ce que t'as de plus précieux]]",
-     "texte": "a saját neved egy kis távolságot teremt közted és a probléma között"
+     "texte": "a neved egy kis távolságot teremt közted és a gond között"
     }
    },
    "images": {
@@ -437,7 +437,7 @@
       "decades thinking deeply"
      ],
      "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
-     "texte": "a több napra elosztott rövid alkalmak sokkal jobban megmaradnak, mint egy nagy magolás. ez az [[elosztott tanulás hatása]]"
+     "texte": "rövid alkalmak több napon át jobban megmaradnak, mint egy nagy magolás. ez az [[elosztott tanulás]]"
     },
     "T3": {
      "en": [
@@ -449,7 +449,7 @@
       "20 minutes"
      ],
      "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
-     "texte": "régen csak görgettem, most ha már úgyis a telefonomon vagyok, minden nap tanulok egy kicsit, ma azt, miért Olaszországban kezdődött a reneszánsz, [[a Sophia appban]]"
+     "texte": "régen csak görgettem, most a telefonon minden nap tanulok egy kicsit, ma azt, miért Olaszországban indult a reneszánsz, [[a Sophia appban]]"
     }
    },
    "images": {
@@ -465,7 +465,7 @@
       "morning"
      ],
      "fr": "touche pas à ton tel [[dès le réveil]]",
-     "texte": "vizsga előtt [[írd le az aggodalmaidat]]"
+     "texte": "[[írd le minden aggodalmadat]] közvetlenül a vizsga előtt"
     },
     "T2": {
      "en": [
@@ -482,7 +482,7 @@
       "done anything"
      ],
      "fr": "ton cerveau prend [[un shot de dopamine]] avant que t'aies rien fait",
-     "texte": "az aggódás elveszi a helyet a fejedben, ami a [[tiszta gondolkodáshoz]] kell"
+     "texte": "az aggódás elveszi a helyet a [[tiszta gondolkodás]] elől"
     },
     "T4": {
      "en": [
@@ -493,7 +493,7 @@
       "phone"
      ],
      "fr": "et le reste de ta journée [[paraît fade]]. offre-toi 30 minutes sans ton tel au réveil",
-     "texte": "egy kutatásban a stresszes diákok, akik a teszt előtt pár percig leírták a félelmeiket, [[jobban teljesítettek]]"
+     "texte": "egy kutatásban a stresszes diákok, akik a teszt előtt leírták a félelmeiket, [[jobban teljesítettek]]"
     }
    },
    "images": {

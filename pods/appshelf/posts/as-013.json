@@ -1,0 +1,207 @@
+{
+ "id": "as-013",
+ "fond": "images/c13-couv.jpg",
+ "titre": {
+  "en": "five apps for a soft morning",
+  "es": "cinco apps para una mañana suave",
+  "it": "cinque app per un mattino dolce",
+  "pt-BR": "cinco apps pra uma manhã leve"
+ },
+ "legendes": {
+  "en": "slow, soft mornings before the day gets loud ☀️ #morningroutine #apprecommendations #softlife #cuteapps",
+  "es": "mañanas lentas y suaves antes de que el día se ponga ruidoso ☀️ #rutinademañana #appsrecomendadas #softlife #appsbonitas",
+  "it": "mattine lente e dolci prima che la giornata diventi rumorosa ☀️ #routinemattutina #appconsigliate #softlife #appcarine",
+  "pt-BR": "manhãs lentas e leves antes do dia ficar barulhento ☀️ #rotinadamanha #dicasdeapps #softlife #appsfofos"
+ },
+ "musique": {
+  "titre": "Paper Sunburst - Nina Cross",
+  "url": "https://www.tiktok.com/music/original-7685295435000317967"
+ },
+ "notes": "Full test (accroche neuve au format de son tube « five apps / … ») : « five apps / for a soft morning », style carte. Applis vérifiées us, es, it, br : I am, Down Dog, Sophia (3e, cta A), Headspace, Five Minute Journal. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c13-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "for a soft morning"
+   },
+   "es": {
+    "photos": [
+     "images/c13-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para una mañana suave"
+   },
+   "it": {
+    "photos": [
+     "images/c13-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per un mattino dolce"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c13-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra uma manhã leve"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "I am",
+    "dossier": "images/applis/i-am",
+    "note": "Short affirmations on your lock screen all day. A tiny reminder to be kind to yourself",
+    "fond": "images/c13-miroir.jpg"
+   },
+   "es": {
+    "nom": "I am",
+    "dossier": "images/applis/i-am",
+    "note": "Afirmaciones cortas en tu pantalla de bloqueo todo el día. Un pequeño recordatorio para tratarte bien",
+    "fond": "images/c13-miroir.jpg"
+   },
+   "it": {
+    "nom": "I am",
+    "dossier": "images/applis/i-am",
+    "note": "Brevi affermazioni sulla schermata di blocco tutto il giorno. Un piccolo promemoria per volerti bene",
+    "fond": "images/c13-miroir.jpg"
+   },
+   "pt-BR": {
+    "nom": "I am",
+    "dossier": "images/applis/i-am",
+    "note": "Afirmações curtas na tela de bloqueio o dia todo. Um lembretinho pra você se tratar com carinho",
+    "fond": "images/c13-miroir.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Down Dog",
+    "dossier": "images/applis/down-dog",
+    "note": "A new yoga class every time you open it: you choose the length, the level and the music",
+    "fond": "images/c13-yoga.jpg"
+   },
+   "es": {
+    "nom": "Down Dog",
+    "dossier": "images/applis/down-dog",
+    "note": "Una clase de yoga nueva cada vez que la abres: eliges la duración, el nivel y la música",
+    "fond": "images/c13-yoga.jpg"
+   },
+   "it": {
+    "nom": "Down Dog",
+    "dossier": "images/applis/down-dog",
+    "note": "Una nuova lezione di yoga ogni volta che la apri: scegli durata, livello e musica",
+    "fond": "images/c13-yoga.jpg"
+   },
+   "pt-BR": {
+    "nom": "Down Dog",
+    "dossier": "images/applis/down-dog",
+    "note": "Uma aula de yoga nova toda vez que você abre: você escolhe a duração, o nível e a música",
+    "fond": "images/c13-yoga.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day",
+    "fond": "images/c13-cafe.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día",
+    "fond": "images/c13-cafe.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno",
+    "fond": "images/c13-cafe.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia",
+    "fond": "images/c13-cafe.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Headspace",
+    "dossier": "images/applis/headspace",
+    "note": "Short guided meditations with cute animations. Five minutes before checking my phone",
+    "fond": "images/c13-couv.jpg"
+   },
+   "es": {
+    "nom": "Headspace",
+    "dossier": "images/applis/headspace",
+    "note": "Meditaciones guiadas cortas con animaciones monísimas. Cinco minutos antes de mirar el móvil",
+    "fond": "images/c13-couv.jpg"
+   },
+   "it": {
+    "nom": "Headspace",
+    "dossier": "images/applis/headspace",
+    "note": "Brevi meditazioni guidate con animazioni carinissime. Cinque minuti prima di guardare il telefono",
+    "fond": "images/c13-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Headspace",
+    "dossier": "images/applis/headspace",
+    "note": "Meditações guiadas curtas com animações fofas. Cinco minutos antes de olhar o celular",
+    "fond": "images/c13-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Five Minute Journal",
+    "dossier": "images/applis/five-minute-journal",
+    "note": "Three things you're grateful for in the morning, three good moments at night. It really takes five minutes",
+    "fond": "images/c13-carnet.jpg"
+   },
+   "es": {
+    "nom": "Five Minute Journal",
+    "dossier": "images/applis/five-minute-journal",
+    "note": "Tres cosas por las que das gracias por la mañana, tres buenos momentos por la noche. De verdad son cinco minutos",
+    "fond": "images/c13-carnet.jpg"
+   },
+   "it": {
+    "nom": "Five Minute Journal",
+    "dossier": "images/applis/five-minute-journal",
+    "note": "Tre cose per cui sei grata al mattino, tre bei momenti la sera. Ci vogliono davvero cinque minuti",
+    "fond": "images/c13-carnet.jpg"
+   },
+   "pt-BR": {
+    "nom": "Five Minute Journal",
+    "dossier": "images/applis/five-minute-journal",
+    "note": "Três coisas pelas quais você é grata de manhã, três momentos bons à noite. Leva mesmo cinco minutos",
+    "fond": "images/c13-carnet.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "type_bleo": "full_test"
+}

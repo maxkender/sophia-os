@@ -1,0 +1,212 @@
+{
+ "id": "as-012",
+ "fond": "images/c12-couv.jpg",
+ "titre": {
+  "en": "cute and helpful apps you should try",
+  "es": "monas y útiles apps que debes probar",
+  "it": "carine e utili app da provare",
+  "pt-BR": "fofos e úteis apps pra testar"
+ },
+ "legendes": {
+  "en": "been finding such cute apps lately, hope you give some a try ☺️ #cuteapps #apprecommendations #kawaii #ios",
+  "es": "últimamente encuentro apps monísimas, ojalá pruebes alguna ☺️ #appsbonitas #appsrecomendadas #kawaii #ios",
+  "it": "ultimamente trovo app carinissime, spero ne provi qualcuna ☺️ #appcarine #appconsigliate #kawaii #ios",
+  "pt-BR": "ando achando uns apps muito fofos, espero que você teste algum ☺️ #appsfofos #dicasdeapps #kawaii #ios"
+ },
+ "musique": {
+  "titre": "ピクセルみたいな世界 - てるてるぼうず",
+  "url": "https://www.tiktok.com/music/original-7681978611162810395"
+ },
+ "notes": "Preuve : « cute and helpful / apps you should try » (14,7 k, 19/10 ; 3,8 % d'enregistrements), style carte. Applis vérifiées us, es, it, br : Mininote, Sophia (2e, cta C), Gratitude, Tamagotchi Adventure Kingdom, (Not Boring) Weather. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c12-couv.jpg"
+    ],
+    "titre": "cute and helpful",
+    "sous": "apps you should try"
+   },
+   "es": {
+    "photos": [
+     "images/c12-couv.jpg"
+    ],
+    "titre": "monas y útiles",
+    "sous": "apps que debes probar"
+   },
+   "it": {
+    "photos": [
+     "images/c12-couv.jpg"
+    ],
+    "titre": "carine e utili",
+    "sous": "app da provare"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c12-couv.jpg"
+    ],
+    "titre": "fofos e úteis",
+    "sous": "apps pra testar"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Mininote",
+    "dossier": "images/applis/mininote",
+    "note": "A cute diary where you pick a little mood face for each day and write as much or as little as you want",
+    "fond": "images/c12-carnet.jpg"
+   },
+   "es": {
+    "nom": "Mininote",
+    "dossier": "images/applis/mininote",
+    "note": "Un diario monísimo donde eliges una carita de humor para cada día y escribes lo que te apetezca",
+    "fond": "images/c12-carnet.jpg"
+   },
+   "it": {
+    "nom": "Mininote",
+    "dossier": "images/applis/mininote",
+    "note": "Un diario carinissimo dove scegli una faccina dell'umore per ogni giorno e scrivi quanto vuoi",
+    "fond": "images/c12-carnet.jpg"
+   },
+   "pt-BR": {
+    "nom": "Mininote",
+    "dossier": "images/applis/mininote",
+    "note": "Um diário fofo onde você escolhe uma carinha de humor pra cada dia e escreve o quanto quiser",
+    "fond": "images/c12-carnet.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done",
+    "fond": "images/c12-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo",
+    "fond": "images/c12-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito",
+    "fond": "images/c12-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto",
+    "fond": "images/c12-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Gratitude",
+    "dossier": "images/applis/gratitude",
+    "note": "A gratitude journal with affirmations and a vision board. Three good things a day changes everything",
+    "fond": "images/c12-lit.jpg"
+   },
+   "es": {
+    "nom": "Gratitude",
+    "dossier": "images/applis/gratitude",
+    "note": "Un diario de gratitud con afirmaciones y un vision board. Tres cosas buenas al día lo cambian todo",
+    "fond": "images/c12-lit.jpg"
+   },
+   "it": {
+    "nom": "Gratitude",
+    "dossier": "images/applis/gratitude",
+    "note": "Un diario della gratitudine con affermazioni e una vision board. Tre cose belle al giorno cambiano tutto",
+    "fond": "images/c12-lit.jpg"
+   },
+   "pt-BR": {
+    "nom": "Gratitude",
+    "dossier": "images/applis/gratitude",
+    "note": "Um diário de gratidão com afirmações e um quadro dos sonhos. Três coisas boas por dia mudam tudo",
+    "fond": "images/c12-lit.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Tamagotchi",
+    "dossier": "images/applis/tamagotchi",
+    "note": "The cutest little adventure game: help Mametchi make friends and decorate your camp, a few minutes at a time",
+    "fond": "images/c12-jeu.jpg"
+   },
+   "es": {
+    "nom": "Tamagotchi",
+    "dossier": "images/applis/tamagotchi",
+    "note": "El juego de aventuras más mono: ayuda a Mametchi a hacer amigos y decora tu campamento, unos minutos cada vez",
+    "fond": "images/c12-jeu.jpg"
+   },
+   "it": {
+    "nom": "Tamagotchi",
+    "dossier": "images/applis/tamagotchi",
+    "note": "Il gioco d'avventura più tenero: aiuta Mametchi a farsi amici e decora il tuo accampamento, pochi minuti alla volta",
+    "fond": "images/c12-jeu.jpg"
+   },
+   "pt-BR": {
+    "nom": "Tamagotchi",
+    "dossier": "images/applis/tamagotchi",
+    "note": "O jogo de aventura mais fofo: ajude o Mametchi a fazer amigos e decore seu acampamento, uns minutinhos por vez",
+    "fond": "images/c12-jeu.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "(Not Boring) Weather",
+    "dossier": "images/applis/not-boring-weather",
+    "note": "A weather app that looks like a little 3D video game: you can feel the rain and hear the thunder",
+    "fond": "images/c12-pluie.jpg"
+   },
+   "es": {
+    "nom": "(Not Boring) Weather",
+    "dossier": "images/applis/not-boring-weather",
+    "note": "Una app del tiempo que parece un videojuego en 3D: casi sientes la lluvia y oyes los truenos",
+    "fond": "images/c12-pluie.jpg"
+   },
+   "it": {
+    "nom": "(Not Boring) Weather",
+    "dossier": "images/applis/not-boring-weather",
+    "note": "Un'app del meteo che sembra un piccolo videogioco in 3D: senti la pioggia e il rumore dei tuoni",
+    "fond": "images/c12-pluie.jpg"
+   },
+   "pt-BR": {
+    "nom": "(Not Boring) Weather",
+    "dossier": "images/applis/not-boring-weather",
+    "note": "Um app de clima que parece um joguinho em 3D: dá pra sentir a chuva e ouvir os trovões",
+    "fond": "images/c12-pluie.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7698461984185961759",
+  "vues": 14700,
+  "publie_le": "2026-10-19",
+  "accroche": "cute and helpful apps you should try"
+ }
+}

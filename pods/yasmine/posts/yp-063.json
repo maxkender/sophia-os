@@ -1,0 +1,782 @@
+{
+ "id": "yp-063",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/photo/7670976729481088278",
+  "vues": 12400,
+  "enregistrements": 215,
+  "publie_le": "2026-08-06",
+  "titre": "RATING STUDY HACKS worth it or not worth it?"
+ },
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f3f1fd42-1158-4abc-928e-4f187f2487a6",
+ "titre": {
+  "fr": "astuces de révision : celles qui valent le coup (et les autres)",
+  "en": "study hacks: the ones worth it (and the ones that aren’t)",
+  "es": "trucos de estudio: los que valen la pena (y los que no)",
+  "de": "Lerntricks: die sich lohnen (und die anderen)",
+  "it": "trucchi per studiare: quelli che valgono davvero (e gli altri)",
+  "pt-BR": "truques de estudo: os que valem a pena (e os que não)",
+  "tr": "ders taktikleri: işe yarayanlar (ve yaramayanlar)"
+ },
+ "legendes": {
+  "fr": "tu en fais combien ? 📝 #revisions #studyhacks #studytok #thatgirl #astuces",
+  "en": "how many do you do? 📝 #studyhacks #studytips #studytok #thatgirl #studying",
+  "es": "¿cuántos haces? 📝 #estudiar #studyhacks #studytok #thatgirl #trucos",
+  "de": "wie viele machst du? 📝 #lerntipps #studyhacks #studytok #thatgirl #lernen",
+  "it": "quanti ne fai? 📝 #studiare #studyhacks #studytok #thatgirl #consigli",
+  "pt-BR": "quantos você faz? 📝 #estudos #studyhacks #studytok #thatgirl #dicas",
+  "tr": "kaçını yapıyorsun? 📝 #ders #studyhacks #studytok #thatgirl #taktik"
+ },
+ "musique": {
+  "titre": "the american dawn",
+  "url": "https://www.tiktok.com/music/the-american-dawn-7423045556513703952"
+ },
+ "fond": {
+  "media_id": "62cba85a-998d-47cd-9c41-0594bd358142",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bdfa6af8-bb1e-43bf-bd78-bef23c5e1bab/2-upscale.jpg?v=1792188703337",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-017 (« je note des astuces de révision : ça vaut le coup ou pas ?, partie 3 », gagnante : 2,3 k en tr, r 2,83), 3e sur 3 : même promesse (des astuces notées sur 10), autre accroche, 6 astuces jamais notées au label, photos et son neufs. cta A : micabo dans la note 10/10, sans capture. 7 langues",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "CELLES QUI",
+      "VALENT",
+      "LE COUP"
+     ],
+     "taille": 160,
+     "interligne": 1,
+     "texte_bas": "(et les autres)📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "script_haut": "astuces de révision :",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "THE ONES",
+      "WORTH IT"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "texte_bas": "(and the ones that aren’t)📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "script_haut": "study hacks:",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LOS QUE",
+      "VALEN LA",
+      "PENA"
+     ],
+     "taille": 160,
+     "interligne": 1,
+     "texte_bas": "(y los que no)📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "script_haut": "trucos de estudio:",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DIE SICH",
+      "LOHNEN"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "texte_bas": "(und die anderen)📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "script_haut": "Lerntricks:",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "QUELLI CHE",
+      "VALGONO",
+      "DAVVERO"
+     ],
+     "taille": 150,
+     "interligne": 1,
+     "texte_bas": "(e gli altri)📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "script_haut": "trucchi per studiare:",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "OS QUE",
+      "VALEM A",
+      "PENA"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "texte_bas": "(e os que não)📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "script_haut": "truques de estudo:",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DERS TAKTİKLERİ:",
+      "İŞE YARAYANLAR"
+     ],
+     "taille": 100,
+     "interligne": 1,
+     "texte_bas": "(ve yaramayanlar)📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2a7dce37-7481-4586-bd27-f51fe0a45df1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/c0b59ffd-a53a-48b6-b976-e8f5dcb4a901/5.jpg?v=1787141087836",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "réviser en musique lofi🎧",
+     "texte": "6/10\nparfait pour les exercices. pour apprendre un cours nouveau, le silence gagne.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "studying to lofi music🎧",
+     "texte": "6/10\ngreat for practice problems. to learn a new lesson, silence wins.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "estudiar con música lofi🎧",
+     "texte": "6/10\nperfecto para ejercicios. para aprender un tema nuevo, gana el silencio.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mit Lofi-Musik lernen🎧",
+     "texte": "6/10\nperfekt für Übungen. für neuen Stoff gewinnt die Stille.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "studiare con musica lofi🎧",
+     "texte": "6/10\nperfetta per gli esercizi. per una lezione nuova vince il silenzio.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "estudar com música lofi🎧",
+     "texte": "6/10\nperfeito pra exercícios. pra aprender matéria nova, o silêncio ganha.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "lofi müzikle çalışmak🎧",
+     "texte": "6/10\nalıştırmalar için mükemmel. yeni bir konuyu öğrenirken sessizlik kazanır.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5ae8d2ff-55a4-4c56-a66b-043e0488b485",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ce687bed-bad9-4786-8950-034be58407dc/8.png?v=1790692179792",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "le palais de mémoire🏛️",
+     "texte": "8/10\nranger les infos dans les pièces de ta maison. long à mettre en place, redoutable pour les listes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "the memory palace🏛️",
+     "texte": "8/10\nplacing facts in the rooms of your house. slow to set up, unbeatable for lists.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "el palacio de la memoria🏛️",
+     "texte": "8/10\nguardar la información en las habitaciones de tu casa. cuesta montarlo, pero con las listas es imbatible.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "der Gedächtnispalast🏛️",
+     "texte": "8/10\nInfos in den Zimmern deiner Wohnung ablegen. dauert, bis es sitzt, aber für Listen unschlagbar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "il palazzo della memoria🏛️",
+     "texte": "8/10\nsistemare le informazioni nelle stanze di casa tua. lungo da costruire, imbattibile per gli elenchi.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "o palácio da memória🏛️",
+     "texte": "8/10\nguardar as informações nos cômodos da sua casa. demora pra montar, imbatível pra listas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "hafıza sarayı🏛️",
+     "texte": "8/10\nbilgileri evinin odalarına yerleştirmek. kurması zaman alıyor ama listeler için rakipsiz.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "7f620c8f-c406-4384-9008-fc87f7a3d095",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/26b19584-46cc-4229-a08e-f08683abe1c4/2.jpg?v=1791725418074",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "la to-do list de la veille📋",
+     "texte": "9/10\n3 lignes le soir, et le matin tu démarres sans réfléchir.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "the night-before to-do list📋",
+     "texte": "9/10\n3 lines at night, and in the morning you start without thinking.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "la lista de tareas de la noche anterior📋",
+     "texte": "9/10\n3 líneas por la noche y por la mañana empiezas sin pensar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "die To-do-Liste am Vorabend📋",
+     "texte": "9/10\n3 Zeilen am Abend, und morgens legst du ohne Nachdenken los.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "la to-do list della sera prima📋",
+     "texte": "9/10\n3 righe la sera, e la mattina parti senza pensarci.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "a lista de tarefas da véspera📋",
+     "texte": "9/10\n3 linhas à noite, e de manhã você começa sem pensar.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "bir gece önceden yapılacaklar listesi📋",
+     "texte": "9/10\nakşamdan 3 satır, sabah düşünmeden başlıyorsun.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "11b69fcc-54ef-40e2-b16b-d93b4a994dc5",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ce5bc6ec-aaa5-46e7-840f-00140d0cc78d/5.png?v=1790692123221",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "me faire interroger par une appli🧠",
+     "texte": "10/10\nje mets mes cours dans micabo, il me pose des questions et revient sur ce que je rate.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "getting quizzed by an app🧠",
+     "texte": "10/10\ni put my lessons into micabo, it asks me questions and comes back to what i get wrong.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "que una app me pregunte🧠",
+     "texte": "10/10\nmeto mis clases en micabo, me hace preguntas y vuelve a lo que fallo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mich von einer App abfragen lassen🧠",
+     "texte": "10/10\nich packe meinen Stoff in micabo, es stellt mir Fragen und kommt auf meine Fehler zurück.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "farmi interrogare da un’app🧠",
+     "texte": "10/10\nmetto le lezioni su micabo, mi fa domande e torna su quello che sbaglio.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ser testada por um app🧠",
+     "texte": "10/10\ncoloco minhas aulas no micabo, ele me faz perguntas e volta no que eu erro.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "bir uygulamaya kendimi sınatmak🧠",
+     "texte": "10/10\nderslerimi micabo’ya koyuyorum, bana soru soruyor ve yanlışlarıma geri dönüyor.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a8b75ae3-4e44-4147-af17-56f193c33e28",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/12a7280a-ddf9-43d8-9636-d4b41653680c/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "réviser 6 h d’affilée😵",
+     "texte": "2/10\naprès 2 h, tu lis sans rien retenir. 3 sessions courtes valent mieux.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "studying 6 hours straight😵",
+     "texte": "2/10\nafter 2 hours you’re reading without retaining anything. 3 short sessions are better.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "estudiar 6 h seguidas😵",
+     "texte": "2/10\ndespués de 2 h lees sin retener nada. mejor 3 sesiones cortas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "6 Stunden am Stück lernen😵",
+     "texte": "2/10\nnach 2 Stunden liest du, ohne etwas zu behalten. lieber 3 kurze Einheiten.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "studiare 6 ore di fila😵",
+     "texte": "2/10\ndopo 2 ore leggi senza ricordare niente. meglio 3 sessioni brevi.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "estudar 6 h seguidas😵",
+     "texte": "2/10\ndepois de 2 h você lê sem guardar nada. melhor 3 sessões curtas.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "6 saat aralıksız çalışmak😵",
+     "texte": "2/10\n2 saatten sonra hiçbir şey akılda kalmadan okuyorsun. 3 kısa oturum daha iyi.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "d2d6adbf-0f20-4d38-a8c1-61c0748264c8",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/df5445f3-2312-4735-be1d-7bfe4e9c3c40/5.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "un stylo de couleur par matière🖊️",
+     "texte": "5/10\njoli, mais ça ne fait rien retenir. utile seulement pour retrouver tes notes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "one pen color per subject🖊️",
+     "texte": "5/10\npretty, but it doesn’t help you remember. only useful for finding your notes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "es": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "un color de boli por asignatura🖊️",
+     "texte": "5/10\nqueda bonito, pero no ayuda a recordar. solo sirve para encontrar tus apuntes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "eine Stiftfarbe pro Fach🖊️",
+     "texte": "5/10\nhübsch, aber du merkst dir dadurch nichts. hilft nur, deine Notizen wiederzufinden.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "un colore di penna per materia🖊️",
+     "texte": "5/10\ncarino, ma non aiuta a ricordare. utile solo per ritrovare gli appunti.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "uma cor de caneta por matéria🖊️",
+     "texte": "5/10\nfica bonito, mas não ajuda a lembrar. só serve pra achar suas anotações.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "tr": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "her ders için bir kalem rengi🖊️",
+     "texte": "5/10\ngüzel görünüyor ama akılda tutmaya yardım etmiyor. sadece notlarını bulmaya yarıyor.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   }
+  }
+ ]
+}

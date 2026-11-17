@@ -12,12 +12,20 @@
  "titre": {
   "fr": "le bac, vu par ta grande sœur",
   "es": "selectividad según tu hermana mayor",
-  "tr": "ablandan sınav tavsiyeleri"
+  "tr": "ablandan sınav tavsiyeleri",
+  "en": "finals, seen by your big sister",
+  "de": "das Abi, aus Sicht deiner großen Schwester",
+  "it": "la maturità vista da tua sorella maggiore",
+  "pt-BR": "o vestibular visto pela sua irmã mais velha"
  },
  "legendes": {
   "fr": "tout ce que j’aurais voulu qu’on me dise 🤍 #bac #terminale #studytok #thatgirl #conseils",
   "es": "todo lo que me habría gustado que me dijeran 🤍 #selectividad #bachillerato #studytok #thatgirl #consejos",
-  "tr": "keşke bana da söyleselerdi dediğim her şey 🤍 #yks #sınav #studytok #thatgirl #tavsiye"
+  "tr": "keşke bana da söyleselerdi dediğim her şey 🤍 #yks #sınav #studytok #thatgirl #tavsiye",
+  "en": "everything i wish someone had told me 🤍 #finals #seniorYear #studytok #thatgirl #advice",
+  "de": "alles, was ich gern gewusst hätte 🤍 #abitur #abi #studytok #thatgirl #tipps",
+  "it": "tutto quello che avrei voluto sapere 🤍 #maturità #scuola #studytok #thatgirl #consigli",
+  "pt-BR": "tudo o que eu queria que tivessem me dito 🤍 #vestibular #enem #studytok #thatgirl #dicas"
  },
  "musique": {
   "titre": "original sound",
@@ -36,8 +44,8 @@
   {
    "type": "couverture",
    "photo": {
-    "media_id": "2ce3c5b8-5aa1-4e7e-9200-12d8824cadc4",
-    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/06b26b31-7602-4ba3-a4d1-0668c6703bbe/7.jpg?v=1790606894713",
+    "media_id": "13e7b9ab-7997-4077-9f52-75590d6e528a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/56536d51-53ef-482f-8c99-815eb0c4cee2/6.png?v=1785365400620",
     "cadrage": {
      "x": 0.5,
      "y": 0.5
@@ -95,6 +103,71 @@
      "interligne": 1,
      "y": 520,
      "texte_bas": "geçen yıl öğrendiklerim",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "FINALS,",
+      "SEEN BY YOUR",
+      "BIG SISTER"
+     ],
+     "taille": 118,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "what i learned last year",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "DAS ABI,",
+      "AUS SICHT",
+      "DEINER GROSSEN",
+      "SCHWESTER"
+     ],
+     "taille": 96,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "was ich letztes Jahr gelernt habe",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LA MATURITÀ",
+      "VISTA DA TUA",
+      "SORELLA"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "quello che ho imparato l’anno scorso",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "O VESTIBULAR",
+      "VISTO PELA SUA",
+      "IRMÃ MAIS VELHA"
+     ],
+     "taille": 100,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "o que eu aprendi no ano passado",
      "texte_bas_x": 540,
      "texte_bas_taille": 40
     }
@@ -162,6 +235,70 @@
      "couleur": "jaune",
      "sous": [
       "tek sayfa. sığmıyorsa ayıklamamışsın demektir."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "one summary per chapter,",
+      "no more."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "one page. if it overflows, you haven’t sorted it."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "eine Zusammenfassung pro Kapitel,",
+      "nicht mehr."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "eine Seite. wenn’s nicht passt, hast du nicht sortiert."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "un riassunto per capitolo,",
+      "non di più."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "una pagina. se non basta, non hai scelto."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "um resumo por capítulo,",
+      "não mais."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "uma página. se não cabe, você não filtrou."
      ],
      "taille_sous": 28
     }
@@ -255,6 +392,110 @@
       "y": 0.45
      }
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "study by asking",
+      "yourself questions."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "i put my lessons into micabo: it makes quizzes,",
+      "i see right away what’s missing."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lern, indem du dir",
+      "Fragen stellst."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "ich packe meinen Stoff in micabo: es macht Quiz daraus,",
+      "ich sehe sofort, was fehlt."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "studia facendoti",
+      "delle domande."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "metto le lezioni su micabo: mi fa dei quiz,",
+      "vedo subito cosa manca."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "estude se fazendo",
+      "perguntas."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "coloco minhas aulas no micabo: ele faz quizzes,",
+      "vejo na hora o que falta."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
    }
   },
   {
@@ -319,6 +560,70 @@
      "couleur": "jaune",
      "sous": [
       "aynanın ya da bir arkadaşının karşısında."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "practice your oral exam",
+      "out loud."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "in front of a mirror or a friend, not in your head."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "übe die mündliche Prüfung",
+      "laut."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "vor dem Spiegel oder einer Freundin, nicht im Kopf."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "prepara l’orale",
+      "ad alta voce."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "davanti allo specchio o a un’amica, non nella testa."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "treine a apresentação",
+      "em voz alta."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "na frente do espelho ou de uma amiga, não na cabeça."
      ],
      "taille_sous": 28
     }
@@ -389,6 +694,70 @@
      ],
      "taille_sous": 28
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "don’t study",
+      "in bed."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "your brain ends up mixing up work and sleep."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "lern nicht",
+      "im Bett."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "dein Kopf verwechselt sonst Arbeit und Schlaf."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "non studiare",
+      "a letto."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "il cervello finisce per confondere studio e sonno."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "não estude",
+      "na cama."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "seu cérebro acaba confundindo estudo e sono."
+     ],
+     "taille_sous": 28
+    }
    }
   },
   {
@@ -453,6 +822,70 @@
      "couleur": "jaune",
      "sous": [
       "stresli olsan bile. aç karnına her şeyi unutursun."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "eat before",
+      "every exam."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "even if you’re stressed. on an empty stomach, it all goes."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "iss vor",
+      "jeder Prüfung."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "auch wenn du gestresst bist. mit leerem Magen ist alles weg."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "mangia prima",
+      "di ogni esame."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "anche se sei in ansia. a stomaco vuoto, vola via tutto."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "coma antes",
+      "de cada prova."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "mesmo nervosa. de estômago vazio, some tudo."
      ],
      "taille_sous": 28
     }
@@ -523,12 +956,80 @@
      ],
      "taille_sous": 28
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "a bad grade",
+      "isn’t the end."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "there’s always a plan b, and it’s often better."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "eine schlechte Note",
+      "ist nicht das Ende."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "es gibt immer einen Plan B, und oft ist er besser."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "un brutto voto",
+      "non è la fine."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "c’è sempre un piano b, e spesso è meglio."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "uma nota ruim",
+      "não é o fim."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "sempre tem um plano b, e muitas vezes é melhor."
+     ],
+     "taille_sous": 28
+    }
    }
   }
  ],
  "mises_en_scene_notees": [
   "a83da81b-2434-485c-8069-f4db3b953794",
   "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
-  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49"
  ]
 }

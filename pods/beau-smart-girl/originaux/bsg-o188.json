@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o188",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c056b053-0b39-45b2-bae7-191c605585a7",
+  "titre": "୨ৎ how to start your self love journey #selflove #thatgirl",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "c056b053-0b39-45b2-bae7-191c605585a7"
+  ],
+  "notes": "G1, déclinaison de c056b053 (« ୨ৎ how to start your self love journey », génération 0 ; meilleur passage tr 26 k vues, r 12,66), en anglais. cta A (avant / après sur le dernier item). Le ୨ৎ du parent reste en slide 1 (refus accroche_differente sans le glyphe, le 3/11). Items neufs (rien de repris du parent : ni « pas besoin d'être réparée », ni journal, ni promesses, ni vie qu'on aime). Aucun conseil médical. Routine du 17/11 sur BLEO (par_jour passé à 9 ; règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 3 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 5 full tests. Lignes sautées : 5 (« validé par les neurosciences »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f0899c3c",
+      "texte_overlay": "୨ৎ how to start\nyour self love journey",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f08c84c3",
+      "texte_overlay": "1. talk to yourself like a friend\n\nwould you say that to her?\nthen don't say it to you.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f0a79141",
+      "texte_overlay": "2. celebrate tiny wins\n\na chapter read, a walk taken.\nwrite them down every night.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "f12a8722",
+      "texte_overlay": "3. spend time with yourself on purpose\n\na café, a museum, a long walk.\nget to know the girl you are.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f13e9972",
+      "texte_overlay": "4. protect your mornings\n\nthe first hour sets the tone.\nmake it kind.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "97b8510a",
+      "texte_overlay": "5. grow something inside you\n\nbefore, i looked for my worth in other people's eyes.\nnow i learn one new thing every morning. and i'm proud of who i'm becoming.",
+      "texte_sophia": "5. grow something inside you\n\nbefore, i looked for my worth in other people's eyes.\nnow i open the Sophia app every morning. and i'm proud of who i'm becoming.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f14431cb",
+      "texte_overlay": "which step are you on?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

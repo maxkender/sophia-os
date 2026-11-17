@@ -1,0 +1,264 @@
+{
+ "id": "dr-012",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7693311352689118485",
+  "vues": 293200,
+  "publie_le": "2026-10-05",
+  "accroche": "5 niche habits of superintelligent people"
+ },
+ "titre": {
+  "en": "5 niche habits of people who seem to know everything",
+  "de": "5 nischige gewohnheiten von leuten, die alles wissen",
+  "it": "5 abitudini di nicchia di chi sembra sapere tutto",
+  "pt-BR": "5 hábitos nichados de quem parece saber de tudo",
+  "tr": "her şeyi biliyor gibi görünenlerin 5 niş alışkanlığı",
+  "sv": "5 nischade vanor hos folk som verkar kunna allt",
+  "nl": "5 niche gewoontes van mensen die alles weten"
+ },
+ "legendes": {
+  "en": "#niche #superintelligence #lockedin #selfimprovement",
+  "de": "#wissen #lernen #gewohnheiten #selbstverbesserung",
+  "it": "#cultura #imparare #abitudini #crescitapersonale",
+  "pt-BR": "#conhecimento #aprender #hábitos #autodesenvolvimento",
+  "tr": "#bilgi #öğrenmek #alışkanlık #kişiselgelişim",
+  "sv": "#kunskap #lärande #vanor #självutveckling",
+  "nl": "#kennis #leren #gewoontes #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "son original - leonardo®",
+  "url": "https://www.tiktok.com/music/son-original-7086074390672149254"
+ },
+ "notes": "Original sur sa liste « 5 niche habits of superintelligent people » (293 k) : même accroche « 5 niche habits of … », nos habitudes à nous (pas sa liste « stupid questions »). Tableaux AIC (domaine public) : suiveur de Frans Hals (« Portrait of an Artist »), portrait moghol (« Portrait of an Artist or Scholar »), Church (« View of Cotopaxi »), Raeburn (« Portrait of a Man with Gray Hair ») ; couverture Seedream. Sophia en item 3 sur 5 (cta B), écran accueil traduit. 7 langues.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche habits of people who seem to know everything",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(it's a habit, not a gift)"
+   },
+   "de": {
+    "titre": "5 nischige gewohnheiten von leuten, die alles wissen",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(gewohnheit, kein talent)"
+   },
+   "it": {
+    "titre": "5 abitudini di nicchia di chi sembra sapere tutto",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(è un'abitudine, non un dono)"
+   },
+   "pt-BR": {
+    "titre": "5 hábitos nichados de quem parece saber de tudo",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(é hábito, não dom)"
+   },
+   "tr": {
+    "titre": "her şeyi biliyor gibi görünenlerin 5 niş alışkanlığı",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(yetenek değil, alışkanlık)"
+   },
+   "sv": {
+    "titre": "5 nischade vanor hos folk som verkar kunna allt",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(en vana, inte en gåva)"
+   },
+   "nl": {
+    "titre": "5 niche gewoontes van mensen die alles weten",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(een gewoonte, geen gave)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Ask why twice",
+    "texte": "when something sounds obvious, ask why. then ask why again. the second answer is where real understanding starts",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "de": {
+    "titre": "Frag zweimal warum",
+    "texte": "wenn etwas offensichtlich klingt, frag warum. dann frag noch mal warum. bei der zweiten antwort fängt echtes verstehen an",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "it": {
+    "titre": "Chiedi perché due volte",
+    "texte": "quando una cosa sembra ovvia, chiediti perché. poi chiedilo di nuovo. è alla seconda risposta che inizia la vera comprensione",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "pt-BR": {
+    "titre": "Pergunte por quê duas vezes",
+    "texte": "quando algo parece óbvio, pergunte por quê. depois pergunte de novo. é na segunda resposta que começa o entendimento de verdade",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "tr": {
+    "titre": "İki kez neden diye sor",
+    "texte": "bir şey apaçık görünüyorsa neden diye sor. sonra yine sor. gerçek anlayış ikinci cevapta başlar",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "sv": {
+    "titre": "Fråga varför två gånger",
+    "texte": "när något låter självklart, fråga varför. fråga sen varför igen. det är vid andra svaret som riktig förståelse börjar",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "nl": {
+    "titre": "Vraag twee keer waarom",
+    "texte": "als iets vanzelfsprekend klinkt, vraag waarom. vraag dan nog een keer waarom. bij het tweede antwoord begint echt begrip",
+    "image": "images/homme-chapeau.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Read the footnotes",
+    "texte": "skip the summary and go to the source it cites. the details nobody repeats are hiding there",
+    "image": "images/lecteur-moghol.jpg"
+   },
+   "de": {
+    "titre": "Lies die Fußnoten",
+    "texte": "überspring die zusammenfassung und geh zur quelle, die sie zitiert. dort stecken die details, die keiner wiederholt",
+    "image": "images/lecteur-moghol.jpg"
+   },
+   "it": {
+    "titre": "Leggi le note",
+    "texte": "salta il riassunto e vai alla fonte che cita. i dettagli che nessuno ripete sono nascosti lì",
+    "image": "images/lecteur-moghol.jpg"
+   },
+   "pt-BR": {
+    "titre": "Leia as notas de rodapé",
+    "texte": "pule o resumo e vá direto à fonte citada. os detalhes que ninguém repete estão escondidos lá",
+    "image": "images/lecteur-moghol.jpg"
+   },
+   "tr": {
+    "titre": "Dipnotları oku",
+    "texte": "özeti geç ve alıntılanan kaynağa git. kimsenin tekrarlamadığı ayrıntılar orada saklı",
+    "image": "images/lecteur-moghol.jpg"
+   },
+   "sv": {
+    "titre": "Läs fotnoterna",
+    "texte": "hoppa över sammanfattningen och gå till källan den citerar. detaljerna som ingen upprepar gömmer sig där",
+    "image": "images/lecteur-moghol.jpg"
+   },
+   "nl": {
+    "titre": "Lees de voetnoten",
+    "texte": "sla de samenvatting over en ga naar de bron die erin staat. daar zitten de details die niemand herhaalt",
+    "image": "images/lecteur-moghol.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "it's like a tiny lecture every morning: history, philosophy, science, economics. 10 minutes, one quiz, a new topic tomorrow",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "wie eine kleine vorlesung jeden morgen: geschichte, philosophie, wissenschaft, wirtschaft. 10 minuten, ein quiz, morgen ein neues thema",
+    "telephone": "accueil"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "come una piccola lezione universitaria ogni mattina: storia, filosofia, scienze, economia. 10 minuti, un quiz, domani un argomento nuovo",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "tipo uma mini aula toda manhã: história, filosofia, ciência, economia. 10 minutos, um quiz, e amanhã um assunto novo",
+    "telephone": "accueil"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "texte": "her sabah minik bir ders gibi: tarih, felsefe, bilim, ekonomi. 10 dakika, bir quiz, yarın yeni bir konu",
+    "telephone": "accueil"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "som en liten föreläsning varje morgon: historia, filosofi, vetenskap, ekonomi. 10 minuter, ett quiz, ett nytt ämne i morgon",
+    "telephone": "accueil"
+   },
+   "nl": {
+    "titre": "Elke dag een les op Sophia",
+    "texte": "een soort mini-college elke ochtend: geschiedenis, filosofie, wetenschap, economie. 10 minuten, één quiz, morgen een nieuw onderwerp",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Learn the names of things",
+    "texte": "the tree on your street, the volcano in the painting, the style of the building you walk past. names turn the world into something you can think about",
+    "image": "images/paysage-palmiers.jpg"
+   },
+   "de": {
+    "titre": "Lern die Namen der Dinge",
+    "texte": "der baum in deiner straße, der vulkan auf dem gemälde, der stil des hauses, an dem du vorbeigehst. namen machen die welt zu etwas, über das du nachdenken kannst",
+    "image": "images/paysage-palmiers.jpg"
+   },
+   "it": {
+    "titre": "Impara i nomi delle cose",
+    "texte": "l'albero della tua via, il vulcano nel quadro, lo stile del palazzo davanti a cui passi. i nomi trasformano il mondo in qualcosa su cui pensare",
+    "image": "images/paysage-palmiers.jpg"
+   },
+   "pt-BR": {
+    "titre": "Aprenda o nome das coisas",
+    "texte": "a árvore da sua rua, o vulcão do quadro, o estilo do prédio por onde você passa. os nomes transformam o mundo em algo sobre o que pensar",
+    "image": "images/paysage-palmiers.jpg"
+   },
+   "tr": {
+    "titre": "Şeylerin adını öğren",
+    "texte": "sokağındaki ağaç, tablodaki yanardağ, önünden geçtiğin binanın tarzı. isimler dünyayı üzerine düşünebileceğin bir şeye çevirir",
+    "image": "images/paysage-palmiers.jpg"
+   },
+   "sv": {
+    "titre": "Lär dig vad saker heter",
+    "texte": "trädet på din gata, vulkanen i målningen, stilen på huset du går förbi. namn gör världen till något du kan tänka på",
+    "image": "images/paysage-palmiers.jpg"
+   },
+   "nl": {
+    "titre": "Leer hoe dingen heten",
+    "texte": "de boom in je straat, de vulkaan op het schilderij, de stijl van het gebouw waar je langs loopt. namen maken van de wereld iets waar je over kunt nadenken",
+    "image": "images/paysage-palmiers.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "One topic, one week",
+    "texte": "pick a topic and stay on it for seven days: a war, a planet, a painter. depth is what makes knowledge stick",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "de": {
+    "titre": "Ein Thema, eine Woche",
+    "texte": "such dir ein thema und bleib sieben tage dran: ein krieg, ein planet, ein maler. tiefe ist das, was wissen hängen bleiben lässt",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "it": {
+    "titre": "Un argomento, una settimana",
+    "texte": "scegli un argomento e restaci sette giorni: una guerra, un pianeta, un pittore. è la profondità che fa restare il sapere",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "pt-BR": {
+    "titre": "Um assunto, uma semana",
+    "texte": "escolha um assunto e fique nele por sete dias: uma guerra, um planeta, um pintor. é a profundidade que faz o conhecimento ficar",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "tr": {
+    "titre": "Bir konu, bir hafta",
+    "texte": "bir konu seç ve yedi gün onunla kal: bir savaş, bir gezegen, bir ressam. bilgiyi kalıcı yapan derinliktir",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "sv": {
+    "titre": "Ett ämne, en vecka",
+    "texte": "välj ett ämne och stanna i det i sju dagar: ett krig, en planet, en målare. det är djupet som får kunskap att fastna",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "nl": {
+    "titre": "Eén onderwerp, één week",
+    "texte": "kies een onderwerp en blijf er zeven dagen bij: een oorlog, een planeet, een schilder. diepgang zorgt dat kennis blijft hangen",
+    "image": "images/portrait-raeburn.jpg"
+   }
+  }
+ ]
+}

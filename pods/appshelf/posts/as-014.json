@@ -1,0 +1,270 @@
+{
+ "id": "as-014",
+ "fond": "images/c14-fond.jpg",
+ "titre": {
+  "en": "my slow night apps after a long day",
+  "es": "mis apps de noche tranquila después de un día largo",
+  "it": "le mie app per sere lente dopo una lunga giornata",
+  "pt-BR": "meus apps de noite tranquila depois de um dia longo"
+ },
+ "legendes": {
+  "en": "how i wind down after a long day 🌙 #nightroutine #apprecommendations #cozy #selfcare",
+  "es": "cómo desconecto después de un día largo 🌙 #rutinadenoche #appsrecomendadas #cozy #autocuidado",
+  "it": "come mi rilasso dopo una lunga giornata 🌙 #routineserale #appconsigliate #cozy #selfcare",
+  "pt-BR": "como eu desacelero depois de um dia longo 🌙 #rotinadanoite #dicasdeapps #cozy #autocuidado"
+ },
+ "musique": {
+  "titre": "sippin' with u - Malia B.",
+  "url": "https://www.tiktok.com/music/sippin-with-u-7666602353542252561"
+ },
+ "notes": "Full test (accroche neuve au format de son « my most used apps ») : « my slow night apps / after a long day », style bibliotheque. Applis vérifiées us, es, it, br : Microsoft To Do, Sophia (2e, cta B), Journal, BetterSleep, Pocket Casts. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c14-bain.jpg",
+     "images/c14-bougie.jpg",
+     "images/c14-fenetre.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "my"
+      },
+      {
+       "t": "slow",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "night",
+       "style": "clair"
+      },
+      {
+       "t": "apps"
+      }
+     ]
+    ],
+    "pastille": "after a long day"
+   },
+   "es": {
+    "photos": [
+     "images/c14-bain.jpg",
+     "images/c14-bougie.jpg",
+     "images/c14-fenetre.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "mis"
+      },
+      {
+       "t": "noches",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "más",
+       "style": "clair"
+      },
+      {
+       "t": "lentas"
+      }
+     ]
+    ],
+    "pastille": "después de un día largo"
+   },
+   "it": {
+    "photos": [
+     "images/c14-bain.jpg",
+     "images/c14-bougie.jpg",
+     "images/c14-fenetre.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "le mie"
+      },
+      {
+       "t": "sere",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "più",
+       "style": "clair"
+      },
+      {
+       "t": "lente"
+      }
+     ]
+    ],
+    "pastille": "dopo una lunga giornata"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c14-bain.jpg",
+     "images/c14-bougie.jpg",
+     "images/c14-fenetre.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "minhas"
+      },
+      {
+       "t": "noites",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "mais",
+       "style": "clair"
+      },
+      {
+       "t": "lentas"
+      }
+     ]
+    ],
+    "pastille": "depois de um dia longo"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Microsoft To Do",
+    "dossier": "images/applis/microsoft-to-do",
+    "note": "I plan tomorrow before bed with 'My Day', so I wake up knowing exactly what to start with"
+   },
+   "es": {
+    "nom": "Microsoft To Do",
+    "dossier": "images/applis/microsoft-to-do",
+    "note": "Planifico el día siguiente antes de dormir con 'Mi día', y me despierto sabiendo por dónde empezar"
+   },
+   "it": {
+    "nom": "Microsoft To Do",
+    "dossier": "images/applis/microsoft-to-do",
+    "note": "Pianifico il giorno dopo prima di dormire con 'Il mio giorno', e mi sveglio sapendo da dove iniziare"
+   },
+   "pt-BR": {
+    "nom": "Microsoft To Do",
+    "dossier": "images/applis/microsoft-to-do",
+    "note": "Eu planejo o dia seguinte antes de dormir com 'Meu dia' e acordo sabendo por onde começar"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Journal",
+    "dossier": "images/applis/journal",
+    "note": "Apple's journal app: it suggests moments from your day, your photos, places and songs, so you never start from a blank page"
+   },
+   "es": {
+    "nom": "Journal",
+    "dossier": "images/applis/journal",
+    "note": "El diario de Apple: te sugiere momentos de tu día, fotos, lugares y canciones, para no empezar nunca de cero"
+   },
+   "it": {
+    "nom": "Journal",
+    "dossier": "images/applis/journal",
+    "note": "Il diario di Apple: ti suggerisce momenti della giornata, foto, luoghi e canzoni, così non parti mai da zero"
+   },
+   "pt-BR": {
+    "nom": "Journal",
+    "dossier": "images/applis/journal",
+    "note": "O diário da Apple: sugere momentos do seu dia, fotos, lugares e músicas, pra você nunca começar do zero"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "BetterSleep",
+    "dossier": "images/applis/bettersleep",
+    "note": "Mix your own sleep sounds, rain, waves, soft piano, and fall asleep to them every night"
+   },
+   "es": {
+    "nom": "BetterSleep",
+    "dossier": "images/applis/bettersleep",
+    "note": "Mezcla tus propios sonidos para dormir, lluvia, olas, piano suave, y duérmete con ellos cada noche"
+   },
+   "it": {
+    "nom": "BetterSleep",
+    "dossier": "images/applis/bettersleep",
+    "note": "Mixa i tuoi suoni per dormire, pioggia, onde, pianoforte leggero, e addormentati con loro ogni sera"
+   },
+   "pt-BR": {
+    "nom": "BetterSleep",
+    "dossier": "images/applis/bettersleep",
+    "note": "Misture seus próprios sons pra dormir, chuva, ondas, piano suave, e pegue no sono com eles toda noite"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Pocket Casts",
+    "dossier": "images/applis/pocket-casts",
+    "note": "My favorite podcast player: clean, with sleep timer and speed control for my evening episodes"
+   },
+   "es": {
+    "nom": "Pocket Casts",
+    "dossier": "images/applis/pocket-casts",
+    "note": "Mi reproductor de pódcasts favorito: limpio, con temporizador para dormir y velocidad para mis episodios de la noche"
+   },
+   "it": {
+    "nom": "Pocket Casts",
+    "dossier": "images/applis/pocket-casts",
+    "note": "Il mio player di podcast preferito: pulito, con timer per dormire e velocità per gli episodi della sera"
+   },
+   "pt-BR": {
+    "nom": "Pocket Casts",
+    "dossier": "images/applis/pocket-casts",
+    "note": "Meu app de podcast favorito: limpo, com timer pra dormir e controle de velocidade pros episódios da noite"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

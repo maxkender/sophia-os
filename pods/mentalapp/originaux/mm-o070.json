@@ -1,0 +1,520 @@
+{
+ "id": "mm-o070",
+ "titre": "tier list of Evening habits",
+ "position_app": 2,
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "39a0ed92-e64f-4ef6-9882-c04cf5bda2e9",
+ "legendes": {
+  "en": "evening habits that decide your tomorrow #eveningroutine #mentalmaxxing #tierlist #selfimprovement",
+  "it": "abitudini serali che decidono il tuo domani #routineserale #mentalmaxxing #tierlist #crescitapersonale",
+  "tr": "yarınını belirleyen akşam alışkanlıkları #akşamrutini #mentalmaxxing #tierlist #kişiselgelişim",
+  "pt-BR": "hábitos da noite que decidem seu amanhã #rotinanoturna #mentalmaxxing #tierlist #desenvolvimentopessoal"
+ },
+ "couverture": {
+  "mise": "classique",
+  "image": {
+   "src": "7686887215430896904/1",
+   "boite": [
+    300,
+    280,
+    420,
+    560
+   ]
+  },
+  "haut": {
+   "en": "tier list of",
+   "it": "tier list delle",
+   "tr": "tier list:",
+   "pt-BR": "tier list de"
+  },
+  "gros": {
+   "en": "Evening",
+   "it": "abitudini",
+   "tr": "akşam",
+   "pt-BR": "hábitos"
+  },
+  "bas": {
+   "en": "habits",
+   "it": "serali",
+   "tr": "alışkanlıkları",
+   "pt-BR": "da noite"
+  },
+  "par_langue": {
+   "it": {
+    "image": {
+     "src": "7695464528787623176/1",
+     "boite": [
+      150,
+      260,
+      820,
+      560
+     ]
+    },
+    "mise": "collage"
+   },
+   "pt-BR": {
+    "image": {
+     "src": "7694665011779685650/1",
+     "boite": [
+      390,
+      270,
+      350,
+      560
+     ]
+    }
+   },
+   "tr": {
+    "image": {
+     "src": "7692811167261248775/1",
+     "boite": [
+      134,
+      280,
+      746,
+      588
+     ]
+    }
+   }
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "it": "vota la mia classifica",
+  "tr": "sıralamamı puanla",
+  "pt-BR": "avalia meu ranking"
+ },
+ "pied": {
+  "en": "what’s your last hour like?",
+  "it": "com’è la tua ultima ora?",
+  "tr": "son saatin nasıl geçiyor?",
+  "pt-BR": "como é sua última hora?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "sleep comes easy",
+    "it": "dormi subito",
+    "tr": "kolay uyutur",
+    "pt-BR": "sono vem fácil"
+   },
+   "cases": [
+    {
+     "app": true
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "a novel",
+      "it": "un romanzo",
+      "tr": "bir roman",
+      "pt-BR": "um romance"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      896,
+      866,
+      164,
+      126
+     ],
+     "t": {
+      "en": "herbal tea",
+      "it": "tisana",
+      "tr": "bitki çayı",
+      "pt-BR": "chá"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone|in the kitchen",
+      "it": "telefono|in cucina",
+      "tr": "telefon|mutfakta",
+      "pt-BR": "celular|na cozinha"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "it": "forte",
+    "tr": "güçlü",
+    "pt-BR": "forte"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "hot shower",
+      "it": "doccia calda",
+      "tr": "sıcak duş",
+      "pt-BR": "banho quente"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "short walk",
+      "it": "passeggiata",
+      "tr": "kısa yürüyüş",
+      "pt-BR": "caminhada"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "stretching",
+      "it": "stretching",
+      "tr": "esneme",
+      "pt-BR": "alongamento"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "3 goals|for tomorrow",
+      "it": "3 obiettivi|per domani",
+      "tr": "yarın için|3 hedef",
+      "pt-BR": "3 metas|pra amanhã"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "good",
+    "it": "bene",
+    "tr": "iyi",
+    "pt-BR": "bom"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      592,
+      556,
+      122,
+      84
+     ],
+     "t": {
+      "en": "light dinner",
+      "it": "cena leggera",
+      "tr": "hafif akşam|yemeği",
+      "pt-BR": "jantar leve"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "slow music",
+      "it": "musica lenta",
+      "tr": "yavaş müzik",
+      "pt-BR": "música calma"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      439,
+      550,
+      100,
+      84
+     ],
+     "t": {
+      "en": "pet cuddles",
+      "it": "coccole|al gatto",
+      "tr": "kedi|sevmek",
+      "pt-BR": "carinho|no pet"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      613,
+      701,
+      75,
+      106
+     ],
+     "t": {
+      "en": "a chess|puzzle",
+      "it": "un puzzle|di scacchi",
+      "tr": "satranç|bulmacası",
+      "pt-BR": "um desafio|de xadrez"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "depends",
+    "it": "dipende",
+    "tr": "duruma göre",
+    "pt-BR": "depende"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "one episode",
+      "it": "un episodio",
+      "tr": "bir bölüm",
+      "pt-BR": "um episódio"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "podcast|in bed",
+      "it": "podcast|a letto",
+      "tr": "yatakta|podcast",
+      "pt-BR": "podcast|na cama"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "late snack",
+      "it": "spuntino|tardivo",
+      "tr": "gece|atıştırması",
+      "pt-BR": "lanche tarde"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "8pm nap",
+      "it": "pisolino|alle 20",
+      "tr": "20.00’de|şekerleme",
+      "pt-BR": "cochilo|às 20h"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "costs you",
+    "it": "ti costa",
+    "tr": "sana pahalıya",
+    "pt-BR": "te custa caro"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "evening coffee",
+      "it": "caffè serale",
+      "tr": "akşam kahvesi",
+      "pt-BR": "café à noite"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "one more|match",
+      "it": "un’altra|partita",
+      "tr": "bir maç|daha",
+      "pt-BR": "mais uma|partida"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube|in bed",
+      "it": "youtube|a letto",
+      "tr": "yatakta|youtube",
+      "pt-BR": "youtube|na cama"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "midnight|takeout",
+      "it": "delivery|a mezzanotte",
+      "tr": "gece yarısı|sipariş",
+      "pt-BR": "delivery|à meia-noite"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "ruins tomorrow",
+   "it": "rovina domani",
+   "tr": "yarını mahveder",
+   "pt-BR": "estraga amanhã"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     421,
+     863,
+     91,
+     84
+    ],
+    "t": {
+     "en": "reels in bed",
+     "it": "reel a letto",
+     "tr": "yatakta reels",
+     "pt-BR": "reels na cama"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "it": "doomscrolling",
+     "tr": "doomscrolling",
+     "pt-BR": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "it": "app di scommesse",
+     "tr": "bahis|uygulamaları",
+     "pt-BR": "apps de aposta"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "it": "la tua scelta|(commenta)",
+     "tr": "senin seçimin|(yorum yap)",
+     "pt-BR": "sua opção|(comenta)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 (règle « Variété et volume ») : déclinaison G1 de mm-o023 (« tier list of Evening habits »), parent Sophia 39a0ed92. Langues en, it, tr, pt-BR seulement, couverture propre à chaque langue (en : moine au skate, tr : moine sur la voiture, it : collage du pape DJ, pt-BR : silhouette aura). cta A. Refusé le 17/11 (accroche_voisine avec « tier list of Weekend habits ») : à déposer demain."
+}

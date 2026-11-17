@@ -1,0 +1,525 @@
+{
+ "id": "mm-o071",
+ "titre": "Sleep schedule fixes tier list",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "how to actually fix your sleep schedule #sleep #mentalmaxxing #tierlist #selfimprovement",
+  "pl": "jak naprawdę naprawić rytm snu #sen #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "így hozd helyre az alvásritmusod #alvás #mentalmaxxing #tierlist #önfejlesztés",
+  "es": "cómo arreglar de verdad tu horario de sueño #sueño #mentalmaxxing #tierlist #superacionpersonal"
+ },
+ "couverture": {
+  "mise": "titre_haut",
+  "image": {
+   "src": "7705592407714254081/1",
+   "boite": [
+    200,
+    380,
+    650,
+    490
+   ]
+  },
+  "haut": {
+   "en": "",
+   "pl": "",
+   "hu": "",
+   "es": ""
+  },
+  "gros": {
+   "en": "Sleep schedule",
+   "pl": "Rytm snu",
+   "hu": "Alvásritmus",
+   "es": "Horario de sueño"
+  },
+  "bas": {
+   "en": "fixes tier list",
+   "pl": "tier list napraw",
+   "hu": "javítás tier list",
+   "es": "tier list de arreglos"
+  },
+  "edition": {
+   "en": "no more 3am scrolling",
+   "pl": "koniec scrolla o 3 w nocy",
+   "hu": "nincs több hajnali görgetés",
+   "es": "se acabó el scroll a las 3"
+  },
+  "par_langue": {
+   "pl": {
+    "image": {
+     "src": "7698939556371975431/1",
+     "boite": [
+      252,
+      402,
+      606,
+      726
+     ]
+    }
+   },
+   "hu": {
+    "image": {
+     "src": "7686526569703017735/1",
+     "boite": [
+      300,
+      318,
+      610,
+      600
+     ]
+    },
+    "mise": "collage"
+   },
+   "es": {
+    "image": {
+     "src": "7693198322500259090/1",
+     "boite": [
+      265,
+      425,
+      580,
+      815
+     ]
+    }
+   }
+  }
+ },
+ "titre_tableau": {
+  "en": "prove me wrong",
+  "pl": "udowodnij, że się mylę",
+  "hu": "cáfolj meg",
+  "es": "demuéstrame lo contrario"
+ },
+ "pied": {
+  "en": "what time do you fall asleep?",
+  "pl": "o której zasypiasz?",
+  "hu": "hánykor alszol el?",
+  "es": "¿a qué hora te duermes?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "fixes it",
+    "pl": "naprawia",
+    "hu": "megoldja",
+    "es": "lo arregla"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "morning|sunlight",
+      "pl": "poranne|słońce",
+      "hu": "reggeli|napfény",
+      "es": "sol de|la mañana"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "same wake-up|time",
+      "pl": "stała|pobudka",
+      "hu": "ugyanakkor|kelni",
+      "es": "misma hora|de despertar"
+     }
+    },
+    {
+     "app": true
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "no phone|in bed",
+      "pl": "bez telefonu|w łóżku",
+      "hu": "telefon nélkül|az ágyban",
+      "es": "sin móvil|en la cama"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "pl": "mocne",
+    "hu": "erős",
+    "es": "fuerte"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "daytime|training",
+      "pl": "trening|w dzień",
+      "hu": "nappali|edzés",
+      "es": "entrenar|de día"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      896,
+      866,
+      164,
+      126
+     ],
+     "t": {
+      "en": "herbal tea",
+      "pl": "herbata|ziołowa",
+      "hu": "gyógytea",
+      "es": "infusión"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      289,
+      393,
+      79,
+      107
+     ],
+     "t": {
+      "en": "warm shower",
+      "pl": "ciepły|prysznic",
+      "hu": "meleg zuhany",
+      "es": "ducha caliente"
+     }
+    },
+    {
+     "src": "7687225533431565586/2",
+     "boite": [
+      443,
+      241,
+      140,
+      112
+     ],
+     "t": {
+      "en": "reading",
+      "pl": "czytanie",
+      "hu": "olvasás",
+      "es": "leer"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "helps",
+    "pl": "pomaga",
+    "hu": "segít",
+    "es": "ayuda"
+   },
+   "cases": [
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "breathing",
+      "pl": "oddychanie",
+      "hu": "légzés",
+      "es": "respirar"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      508,
+      631,
+      113,
+      172
+     ],
+     "t": {
+      "en": "evening walk",
+      "pl": "wieczorny|spacer",
+      "hu": "esti séta",
+      "es": "paseo|nocturno"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "calm music",
+      "pl": "spokojna|muzyka",
+      "hu": "nyugis zene",
+      "es": "música|tranquila"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "cool room",
+      "pl": "chłodny pokój",
+      "hu": "hűvös szoba",
+      "es": "cuarto fresco"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "meh",
+    "pl": "takie sobie",
+    "hu": "hát",
+    "es": "meh"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "short naps",
+      "pl": "krótkie|drzemki",
+      "hu": "rövid alvás",
+      "es": "siestas cortas"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      760,
+      258,
+      115,
+      92
+     ],
+     "t": {
+      "en": "weekend|sleep-in",
+      "pl": "odsypianie|w weekend",
+      "hu": "hétvégi|alvás",
+      "es": "dormir más|el finde"
+     }
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      643,
+      20,
+      168,
+      150
+     ],
+     "t": {
+      "en": "one coffee|before noon",
+      "pl": "kawa|przed 12",
+      "hu": "egy kávé|dél előtt",
+      "es": "un café|antes de las 12"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      769,
+      401,
+      111,
+      102
+     ],
+     "t": {
+      "en": "a movie|in bed",
+      "pl": "film|w łóżku",
+      "hu": "film|az ágyban",
+      "es": "peli|en la cama"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "ruins it",
+    "pl": "psuje",
+    "hu": "tönkreteszi",
+    "es": "lo arruina"
+   },
+   "cases": [
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      54,
+      866,
+      146,
+      106
+     ],
+     "t": {
+      "en": "late coffee",
+      "pl": "późna kawa",
+      "hu": "késői kávé",
+      "es": "café tarde"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "gaming|till 2am",
+      "pl": "gry|do 2:00",
+      "hu": "gaming|hajnal 2-ig",
+      "es": "jugar|hasta las 2"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      601,
+      847,
+      99,
+      106
+     ],
+     "t": {
+      "en": "late|fast food",
+      "pl": "fast food|w nocy",
+      "hu": "éjjeli|gyorskaja",
+      "es": "comida rápida|de noche"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube|in bed",
+      "pl": "youtube|w łóżku",
+      "hu": "youtube|az ágyban",
+      "es": "youtube|en la cama"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "never sleep",
+   "pl": "zero snu",
+   "hu": "alvás nincs",
+   "es": "cero sueño"
+  },
+  "cases": [
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     421,
+     863,
+     91,
+     84
+    ],
+    "t": {
+     "en": "reels in bed",
+     "pl": "reelsy|w łóżku",
+     "hu": "reels|az ágyban",
+     "es": "reels|en la cama"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling",
+     "es": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "pl": "bukmacherka",
+     "hu": "fogadós appok",
+     "es": "apps de apuestas"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "pl": "twój wybór|(skomentuj)",
+     "hu": "a te tipped|(kommenteld)",
+     "es": "tu opción|(comenta)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 17/11 (règle « Variété et volume ») : full test, accroche nouvelle en forme « X tier list ». Langues en, pl, hu, es seulement, couverture titre_haut (en : iceberg, pl : Bale au casque, es : l’homme au fauteuil) et collage (hu : silhouette). cta C (élément Sophia en 3e case du S+)."
+}

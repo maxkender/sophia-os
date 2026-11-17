@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o184",
+  "type_bleo": "full_test",
+  "titre": "comment je me forge mes propres opinions (au lieu de répéter celles des autres) #culture #pourtoi",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Première accroche « les habitudes des filles qui ont toujours un avis intéressant » refusée par le guichet (theme_gagnant, trop proche de « les habitudes … volées aux filles toujours parfaites ») ; réécrite en récit « je » : « comment je me forge mes propres opinions (au lieu de répéter celles des autres) ». Aucun fait daté. Routine du 17/11 sur BLEO (par_jour passé à 9 ; règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 3 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 5 full tests. Lignes sautées : 5 (« validé par les neurosciences »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "39409607",
+      "texte_overlay": "comment je me forge mes propres opinions\n(au lieu de répéter celles des autres)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f0c8e4f0",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "9688b905",
+      "texte_overlay": "1. je lis au-delà du titre\n\nl'article entier, pas juste la phrase partagée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "968f451c",
+      "texte_overlay": "2. j'écoute l'autre camp\n\nun avis qu'on comprend\nn'est plus un avis qui fait peur.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "969a9f8d",
+      "texte_overlay": "3. j'ose dire je ne sais pas\n\net je reviens avec une réponse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "973fa63e",
+      "texte_overlay": "4. je relie les sujets entre eux\n\nl'histoire, l'art, l'actualité.\ntout se répond.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "976d53eb",
+      "texte_overlay": "5. je change d'avis sans honte\n\nc'est la preuve que je réfléchis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "97ca0b58",
+      "texte_overlay": "et toi, comment tu te fais ton avis ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

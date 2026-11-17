@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o181",
+  "type_bleo": "full_test",
+  "titre": "comment je me suis mise à la philosophie (sans rien y comprendre au début) #philosophie #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : débuter en philo, récit « je ». Accroches écrites : « comment je me suis mise à la philosophie (sans rien y comprendre au début) » (retenue : aveu, accessible), « les philosophes à lire » (écartée : liste à vérifier), « la philo pour les nulles » (écartée : dévalorise). Aucun fait daté. Routine du 17/11 sur BLEO (par_jour passé à 9 ; règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 3 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 5 full tests. Lignes sautées : 5 (« validé par les neurosciences »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "360bde2c",
+      "texte_overlay": "comment je me suis mise à la philosophie\n(sans rien y comprendre au début)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "374ecefe",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3615bf16",
+      "texte_overlay": "1. je suis partie d'une question, pas d'un auteur\n\nqu'est-ce qu'une vie réussie ?\nensuite, j'ai cherché qui y avait répondu.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3619b1ad",
+      "texte_overlay": "2. j'ai lu les textes courts d'abord\n\nlettres, dialogues, petits essais.\nles gros livres attendront.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "364128e6",
+      "texte_overlay": "3. je relis une page trois fois\n\nla première, je ne comprends rien.\nla troisième, tout s'éclaire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "36a06682",
+      "texte_overlay": "4. j'en parle à table\n\nune question posée au dîner\nvaut tous les cours.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "36a06f97",
+      "texte_overlay": "5. j'accepte de ne pas tout comprendre\n\nles philosophes eux-mêmes\nn'étaient pas d'accord entre eux.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "36d07805",
+      "texte_overlay": "tu as une question qui te trotte dans la tête ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

@@ -9,7 +9,17 @@
   "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen",
   "it": "3 abitudini che ripagano per tutta la vita",
   "pt-BR": "3 hábitos que valem a pena para a vida toda",
-  "es-419": "3 hábitos que te sirven toda la vida"
+  "es-419": "3 hábitos que te sirven toda la vida",
+  "cs": "3 návyky, které se vyplatí na celý život",
+  "sk": "3 návyky, ktoré sa oplatia na celý život",
+  "hr": "3 navike koje se isplate za cijeli život",
+  "sl": "3 navade, ki se obrestujejo vse življenje",
+  "hu": "3 szokás, ami egy életen át megtérül",
+  "nl": "3 gewoontes die zich je hele leven terugbetalen",
+  "pl": "3 nawyki, które procentują przez całe życie",
+  "ro": "3 obiceiuri care te răsplătesc toată viața",
+  "sv": "3 vanor som lönar sig hela livet",
+  "tr": "Ömür boyu karşılığını veren 3 alışkanlık"
  },
  "legendes": {
   "en": "3 Habits That Pay Off For Life #selfimprovement #learnontiktok #selfmastery",
@@ -18,13 +28,23 @@
   "de": "3 Gewohnheiten, die sich ein Leben lang auszahlen #selbstverbesserung #lernenmittiktok #gewohnheiten",
   "it": "3 abitudini che ripagano per tutta la vita #crescitapersonale #imparacontiktok #abitudini",
   "pt-BR": "3 hábitos que valem a pena para a vida toda #desenvolvimentopessoal #aprendanotiktok #hábitos",
-  "es-419": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos"
+  "es-419": "3 hábitos que te sirven toda la vida #desarrollopersonal #aprendeentiktok #hábitos",
+  "cs": "3 návyky, které se vyplatí na celý život #návyky #seberozvoj #vzdělávání",
+  "sk": "3 návyky, ktoré sa oplatia na celý život #návyky #sebarozvoj #vzdelávanie",
+  "hr": "3 navike koje se isplate za cijeli život #navike #osobnirazvoj #učenje",
+  "sl": "3 navade, ki se obrestujejo vse življenje #navade #osebnarast #učenje",
+  "hu": "3 szokás, ami egy életen át megtérül #szokások #önfejlesztés #tanulás",
+  "nl": "3 gewoontes die zich je hele leven terugbetalen #gewoontes #zelfontwikkeling #leren",
+  "pl": "3 nawyki, które procentują przez całe życie #nawyki #rozwójosobisty #nauka",
+  "ro": "3 obiceiuri care te răsplătesc toată viața #obiceiuri #dezvoltarepersonală #învățare",
+  "sv": "3 vanor som lönar sig hela livet #vanor #självutveckling #lärande",
+  "tr": "Ömür boyu karşılığını veren 3 alışkanlık #alışkanlıklar #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7636068211729599264"
  },
- "notes": "cta C. Déclinaison G1 de fa-056 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Habits That Pay Off For Life »), traductions du parent ; autres étapes (course, Sophia, journal), autre CTA, autre son (0671). Sophia à l'étape 2 comme le parent. Langues des comptes du label (7), vidéos natives par langue.",
+ "notes": "cta C. Déclinaison G1 de fa-056 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Habits That Pay Off For Life »), traductions du parent ; autres étapes (course, Sophia, journal), autre CTA, autre son (0671). Sophia à l'étape 2 comme le parent. Langues des comptes du label (7), vidéos natives par langue. 17/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr (en sl, l'étape journal devient le journal de gratitude, faute de vidéo native sur le journal).",
  "slides": [
   {
    "type": "couverture",
@@ -147,6 +167,176 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "3 NÁVYKY",
+       "bronze": true
+      }
+     ],
+     "KTERÉ SE VYPLATÍ",
+     [
+      {
+       "t": "NA CELÝ ŽIVOT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "3 NÁVYKY",
+       "bronze": true
+      }
+     ],
+     "KTORÉ SA OPLATIA",
+     [
+      {
+       "t": "NA CELÝ ŽIVOT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "3 NAVIKE",
+       "bronze": true
+      }
+     ],
+     "KOJE SE ISPLATE",
+     [
+      {
+       "t": "ZA CIJELI ŽIVOT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "3 NAVADE",
+       "bronze": true
+      }
+     ],
+     "KI SE OBRESTUJEJO",
+     [
+      {
+       "t": "VSE ŽIVLJENJE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "3 SZOKÁS",
+       "bronze": true
+      }
+     ],
+     "AMI EGY ÉLETEN ÁT",
+     [
+      {
+       "t": "MEGTÉRÜL",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "3 GEWOONTES",
+       "bronze": true
+      }
+     ],
+     "DIE ZICH JE HELE LEVEN",
+     [
+      {
+       "t": "TERUGBETALEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "3 NAWYKI",
+       "bronze": true
+      }
+     ],
+     "KTÓRE PROCENTUJĄ",
+     [
+      {
+       "t": "PRZEZ CAŁE ŻYCIE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "3 OBICEIURI",
+       "bronze": true
+      }
+     ],
+     "CARE TE RĂSPLĂTESC",
+     [
+      {
+       "t": "TOATĂ VIAȚA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "3 VANOR",
+       "bronze": true
+      }
+     ],
+     "SOM LÖNAR SIG",
+     [
+      {
+       "t": "HELA LIVET",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "ÖMÜR BOYU",
+       "bronze": true
+      }
+     ],
+     "KARŞILIĞINI VEREN",
+     [
+      {
+       "t": "3 ALIŞKANLIK",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -255,6 +445,156 @@
      "duree": "17:19",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kYf6yz2VdprFSCb7RwQt2TZm6_7C1k62qtlNVhSAkVWjI=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "ZAČNI",
+     "BĚHAT"
+    ],
+    "video": {
+     "id": "DXYOzQ-kpAk",
+     "titre": "Jak začít běhat | Vše o běhání",
+     "chaine": "Sportisimo Česká republika",
+     "vues": "157 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lya351Wf5-ipuFMgutNBCdTAeYX781bxijZoJFm93IkRM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ZAČNI",
+     "BEHAŤ"
+    ],
+    "video": {
+     "id": "H3TnPCfi7Uo",
+     "titre": "AKO ZAČAŤ BEHAŤ | Ak chceš začať behať, stačí ti len jedna vec...",
+     "chaine": "Lukáš Ottinger",
+     "vues": "3,3 tis. zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "13:09",
+     "avatar": "https://yt3.ggpht.com/v4P9n4yjkwG-TVhNZABroTQjwv7vHgLEDwCFgCMW1DgvoW8FBC2VplKN_RmeIl3b2Dm3bFJs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "POČNI",
+     "TRČATI"
+    ],
+    "video": {
+     "id": "0V8jVNLB-To",
+     "titre": "KAKO NAUČITI TRČATI",
+     "chaine": "GosponCoach",
+     "vues": "1,1 tis. pregleda",
+     "date": "prije 3 godine",
+     "duree": "1:34",
+     "avatar": "https://yt3.ggpht.com/2KN-iqxK-5v6G9PObT9w1RhQoECpPTIo9eAQ_QyKqAFYE2DeBdgMPLXLKgteDLjW7ShXJo_NBg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "ZAČNI",
+     "TEČI"
+    ],
+    "video": {
+     "id": "r3nsA1sunwk",
+     "titre": "Koristni nasveti, kako pričeti s tekom?",
+     "chaine": "Trener, atlet, športnik, Gašper Predanič",
+     "vues": "392 ogledov",
+     "date": "pred 3 leti",
+     "duree": "2:19",
+     "avatar": "https://yt3.ggpht.com/8JJpkVZBDR9waT63dbKc6antHhuHJR_qIOL74l54I_4StmaEPCqSoWHjt63L1aDQ1iB5rdlz=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "KEZDJ EL",
+     "FUTNI"
+    ],
+    "video": {
+     "id": "c9XFHSvjd5o",
+     "titre": "Hogyan kezdj el futni? - 23 tipp kezdő futóknak",
+     "chaine": "Futólépés",
+     "vues": "57 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "19:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kzECXArR-TGIICHv0fkQ1vCyxR-ZThJD5-gLV4xyVFrg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "BEGIN MET",
+     "HARDLOPEN"
+    ],
+    "video": {
+     "id": "1kLB41vSF4M",
+     "titre": "4 tips als je begint met hardlopen",
+     "chaine": "Running Holland",
+     "vues": "2,4K weergaven",
+     "date": "9 jaar geleden",
+     "duree": "1:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU72mL3ocztigxk7yQpp61K40ZePYKvjsErcrXOnV1UA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZACZNIJ",
+     "BIEGAĆ"
+    ],
+    "video": {
+     "id": "j3GjGElUdN0",
+     "titre": "Jak zacząć biegać? Poradnik dla początkujących! 🏃‍♂️💨",
+     "chaine": "Michał Wrzosek",
+     "vues": "426 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "15:31",
+     "avatar": "https://yt3.ggpht.com/BBYiocm0G2Va3Nx3-cxwqk38toCLbk6iuh0R2m0ImgLWYUrUtAc45_TdKH4DDCPilu7xoXyZ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNCEPE",
+     "SĂ ALERGI"
+    ],
+    "video": {
+     "id": "P5tcsSHDso4",
+     "titre": "7 lucruri de care să ții cont dacă începi alergarea în 2026",
+     "chaine": "Nicu Aleargă",
+     "vues": "3,9 K de vizionări",
+     "date": "acum 1 an",
+     "duree": "6:10",
+     "avatar": "https://yt3.ggpht.com/KpWjGFp5rWsty9KnEfMVTq6Ce77SLZIMgn7JyWJD9dj5u_k8z-eWVbKcydSYwrdHsiikDiw1XA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "BÖRJA",
+     "SPRINGA"
+    ],
+    "video": {
+     "id": "LKKco_DyxtE",
+     "titre": "MINA BÄSTA LÖPTIPS FÖR NYBÖRJARE",
+     "chaine": "Fanny & Patrik",
+     "vues": "8 321 visningar",
+     "date": "för 2 år sen",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/so-Y46uueItgfwfNUxwpEaO0QLCODAChUDbEzKkP5Eigb2kHiDzqFDqQ6ZCnUTBIbQ-bGhBV=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "KOŞMAYA",
+     "BAŞLA"
+    ],
+    "video": {
+     "id": "exP2QvDnzww",
+     "titre": "Koşuya nasıl başlarım. Yürü-koş tekniği",
+     "chaine": "Asla Durma",
+     "vues": "179 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "10:12",
+     "avatar": "https://yt3.ggpht.com/gEx1s674dnu05r3JC5weXwCKiDl5kXGbfHCBUpc5oYSSL3um3djZamLtma-FqBj7qoDnkUxs1Aw=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -348,6 +688,136 @@
      "texte": [
       "lo que abro",
       "en lugar de scrollear."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "UČ SE",
+     "KAŽDÝ DEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "UČ SA",
+     "KAŽDÝ DEŇ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "čo otváram",
+      "namiesto scrollovania."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "UČI",
+     "SVAKI DAN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ono što otvaram",
+      "umjesto skrolanja."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "UČI SE",
+     "VSAK DAN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kar odprem",
+      "namesto skrolanja."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ",
+     "MINDEN NAP"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER",
+     "ELKE DAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wat ik open",
+      "in plaats van te scrollen."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "UCZ SIĘ",
+     "CODZIENNIE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otwieram",
+      "zamiast scrollowania."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ",
+     "ÎN FIECARE ZI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG",
+     "VARJE DAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "det jag öppnar",
+      "i stället för att scrolla."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER GÜN",
+     "ÖĞREN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
      ]
     }
    }
@@ -457,6 +927,156 @@
      "date": "hace 2 años",
      "duree": "11:53",
      "avatar": "https://yt3.ggpht.com/teuevM7HuT6ap1FW50v80NmmwmuNJhyKiWhznSEmFleIqPES39v7MksSKi4sLDPTn2C0u87D_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "PIŠ SI",
+     "DENÍK"
+    ],
+    "video": {
+     "id": "_Y6KHwlUuUY",
+     "titre": "10 minut denně = šťastnější život? Psaní do deníku přinese VELKÉ změny (ty pozitivní)",
+     "chaine": "Svůj Rozvoj",
+     "vues": "2,6 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "4:11",
+     "avatar": "https://yt3.ggpht.com/DQi8h_Dr8gpNeS02YVqlf_7waV-2tSWbnlSc3WLk5sr97h0kKH11oyAydi1XZYMGKXTgvx-H=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "PÍŠ SI",
+     "DENNÍK"
+    ],
+    "video": {
+     "id": "WX23EV3VB1g",
+     "titre": "3 DÔVODY, PREČO SI PÍSAŤ DENNÍK - Výhody denníka",
+     "chaine": "Growth",
+     "vues": "6 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "3:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtbW3GwN17iM7J5UZLsX7mKMof-7zoGk9D0T5055xlSHI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "PIŠI",
+     "DNEVNIK"
+    ],
+    "video": {
+     "id": "WNzwJWwgXkY",
+     "titre": "Pisanje i vodjenje dnevnika popravlja tvoj život?",
+     "chaine": "Viktor Jeremic",
+     "vues": "1,5 tis. pregleda",
+     "date": "prije 1 godinu",
+     "duree": "11:40",
+     "avatar": "https://yt3.ggpht.com/A6pZ4qw4hjm-jmqj4SM_WheoWPXyUWzlRn_0cA7A0ssFT43p_5SJAi_BlDHMzdhyYvjAViJQV7k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "PIŠI DNEVNIK",
+     "HVALEŽNOSTI"
+    ],
+    "video": {
+     "id": "zswD2KtMLrs",
+     "titre": "Dnevnik hvaležnosti - Ines Šinko",
+     "chaine": "HVALEŽNOST DUŠE",
+     "vues": "126 ogledov",
+     "date": "pred 7 leti",
+     "duree": "16:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6Osnng5s3_HK2uMnXB8Y7dmQ4MEOjK4TKx90cMJ0oDeU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "ÍRJ",
+     "NAPLÓT"
+    ],
+    "video": {
+     "id": "vEQuJ3ylp5g",
+     "titre": "Hogyan írj naplót effektíven (ezt tanultam 365 nap után...)",
+     "chaine": "Online Marketinges",
+     "vues": "11 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "10:32",
+     "avatar": "https://yt3.ggpht.com/7i5S6q-725NNFmAIwY1g_8iJbV7rmRyS8TZccgJgjPA_PXhkED0O7kPsAzG-L6dAfLZ_S1ueCQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "HOUD EEN",
+     "DAGBOEK BIJ"
+    ],
+    "video": {
+     "id": "wuP0pTi95g4",
+     "titre": "Dagboek schrijven voor beginners. 9 tips.",
+     "chaine": "de esdoorn",
+     "vues": "1,1K weergaven",
+     "date": "3 jaar geleden",
+     "duree": "9:30",
+     "avatar": "https://yt3.ggpht.com/rI5FBEcU0Bk08hbcZJjvuScP9kJXv9JhKfxX25dO5baeBmJ1cM2zu7iQ5YSPNeLkSd-dD2erbk0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "PROWADŹ",
+     "DZIENNIK"
+    ],
+    "video": {
+     "id": "uV5Lc_fYHF8",
+     "titre": "jak zacząć journaling i NIE rzucić go po tygodniu? 💌 moje metody, akcesoria i rutyna",
+     "chaine": "Patrycja Kołowska",
+     "vues": "3,8 tys. wyświetleń",
+     "date": "8 mies. temu",
+     "duree": "16:36",
+     "avatar": "https://yt3.ggpht.com/9Jb99K1T6Wt5dexb4PoNz4WmunY9jZYleVM12RxqFPVbFktcV6c-co6mHPXDDdiKz497l9WnEQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ȚINE UN",
+     "JURNAL"
+    ],
+    "video": {
+     "id": "nObRMLIAYHM",
+     "titre": "Jurnal de recunoștință. Scris terapeutic. Știință și soluții practice / Starea Sănătății #89",
+     "chaine": "Starea Sănătății",
+     "vues": "13 K de vizionări",
+     "date": "acum 1 an",
+     "duree": "23:05",
+     "avatar": "https://yt3.ggpht.com/kMW1ItmKTkiQrDmFOiYHHDFi-sbahh9ipjdCieh6PiTt3mmV7fX3fxmwq8qmKV5ikKdyXxRT7JM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SKRIV",
+     "DAGBOK"
+    ],
+    "video": {
+     "id": "lBUa-5WqGiY",
+     "titre": "60 SEKUNDER | Så här skriver du en dagbok",
+     "chaine": "Orka plugga",
+     "vues": "4 884 visningar",
+     "date": "för 2 år sen",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/eFeJvCPtTbru08tvAYBziM02blJMxcSn5mjfaNDo-I-iR1B3_xFdm9FOhelCi2-z2g0W4Gq98A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "GÜNLÜK",
+     "TUT"
+    ],
+    "video": {
+     "id": "AMrY7q2glQ4",
+     "titre": "Nasıl Günlük Tutulur - Günlük Tutmanın En Basit Yolu",
+     "chaine": "İlgili Adam",
+     "vues": "123 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "3:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lp_UelgwuaIA3NJ0_hx62DXLtffOQulrPdnh1IHld-WQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -1,0 +1,623 @@
+{
+ "id": "dr-011",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698126851037875477",
+  "vues": 2000000,
+  "publie_le": "2026-10-18",
+  "accroche": "Iceberg of Autistic hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of history nerd hobbies",
+  "de": "Der Eisberg der Geschichtsnerd-Hobbys",
+  "it": "Iceberg degli hobby da nerd di storia",
+  "pt-BR": "Iceberg de hobbies de nerd de história",
+  "tr": "Tarih meraklılarının hobi buzdağı",
+  "sv": "Isberget av historienördens hobbyer",
+  "nl": "IJsberg van hobby's van geschiedenisnerds"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #historynerd #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #geschichte #selbstverbesserung",
+  "it": "#iceberg #hobby #storia #crescitapersonale",
+  "pt-BR": "#iceberg #hobbies #história #autoconhecimento",
+  "tr": "#buzdağı #hobi #tarih #kişiselgelişim",
+  "sv": "#isberg #hobbyer #historia #självutveckling",
+  "nl": "#ijsberg #hobbys #geschiedenis #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "original sound - KRIS",
+  "url": "https://www.tiktok.com/music/original-sound-7697351034850560771"
+ },
+ "notes": "Original sur son iceberg à 2 M (« Iceberg of Autistic hobbies »), sujet « history nerd ». Sophia au 2e étage (« a sophia lesson a day », icône). Fond : la chute de Constantinople (1453) ; en turc, « istanbul'un fethi », le point de vue turc. Objets Seedream. 7 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "history nerd hobbies"
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Geschichtsnerd-Hobbys"
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da nerd di storia"
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de nerd de história"
+   },
+   "tr": {
+    "haut": "Tarih meraklılarının",
+    "bas": "hobi buzdağı"
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "historienördens hobbyer"
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van geschiedenisnerds"
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "history books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "documentaries",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "museum trips",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "old maps",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "a sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "coin collecting",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "tin soldiers",
+       "image": "images/objets/soldats-plomb.png"
+      }
+     ],
+     [
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "greek myths",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "roman history",
+       "image": "images/objets/casque-romain.png"
+      },
+      {
+       "t": "medieval reenactment",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "primary sources",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "genealogy",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "morse code",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "the fall of constantinople",
+       "image": "images/objets/canon.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "geschichte lesen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "dokus",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "ins museum",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "alte karten",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "schach",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "münzen sammeln",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "zinnsoldaten",
+       "image": "images/objets/soldats-plomb.png"
+      }
+     ],
+     [
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "griechische mythen",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "römische geschichte",
+       "image": "images/objets/casque-romain.png"
+      },
+      {
+       "t": "ritterspiele",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "alte quellen",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "stammbaum",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "morsecode",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "der fall konstantinopels",
+       "image": "images/objets/canon.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "libri di storia",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "documentari",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "musei",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "mappe antiche",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "scacchi",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "monete antiche",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "soldatini",
+       "image": "images/objets/soldats-plomb.png"
+      }
+     ],
+     [
+      {
+       "t": "calligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "miti greci",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "storia romana",
+       "image": "images/objets/casque-romain.png"
+      },
+      {
+       "t": "rievocazioni medievali",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "fonti originali",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "genealogia",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "alfabeto morse",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "la caduta di costantinopoli",
+       "image": "images/objets/canon.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "livros de história",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "documentários",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "museus",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "mapas antigos",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "xadrez",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "moedas antigas",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "soldadinhos de chumbo",
+       "image": "images/objets/soldats-plomb.png"
+      }
+     ],
+     [
+      {
+       "t": "caligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "mitos gregos",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "história romana",
+       "image": "images/objets/casque-romain.png"
+      },
+      {
+       "t": "recriação medieval",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "fontes primárias",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "genealogia",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "código morse",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "a queda de constantinopla",
+       "image": "images/objets/canon.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "tarih kitapları",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "belgeseller",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "müzeler",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "eski haritalar",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "eski paralar",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "kurşun askerler",
+       "image": "images/objets/soldats-plomb.png"
+      }
+     ],
+     [
+      {
+       "t": "kaligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "yunan mitleri",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "roma tarihi",
+       "image": "images/objets/casque-romain.png"
+      },
+      {
+       "t": "ortaçağ canlandırma",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "birincil kaynaklar",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "soy ağacı",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "mors alfabesi",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "istanbul'un fethi",
+       "image": "images/objets/canon.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "läsa historia",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "dokumentärer",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "museer",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "gamla kartor",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "samla mynt",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "tennsoldater",
+       "image": "images/objets/soldats-plomb.png"
+      }
+     ],
+     [
+      {
+       "t": "kalligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "grekiska myter",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "romersk historia",
+       "image": "images/objets/casque-romain.png"
+      },
+      {
+       "t": "medeltidslajv",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "primärkällor",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "släktträd",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "morsekod",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "konstantinopels fall",
+       "image": "images/objets/canon.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "geschiedenis lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "docu's",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "musea",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "oude kaarten",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "munten verzamelen",
+       "image": "images/objets/pieces-antiques.png"
+      },
+      {
+       "t": "tinnen soldaatjes",
+       "image": "images/objets/soldats-plomb.png"
+      }
+     ],
+     [
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "griekse mythen",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "romeinse geschiedenis",
+       "image": "images/objets/casque-romain.png"
+      },
+      {
+       "t": "ridderspelen",
+       "image": "images/objets/heaume.png"
+      }
+     ],
+     [
+      {
+       "t": "oude bronnen",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "stamboom",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "morsecode",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "de val van constantinopel",
+       "image": "images/objets/canon.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ]
+}

@@ -44,9 +44,16 @@ jobs:
         with:
           node-version: "20"
 
+      # Version figée : avec `latest`, l'action interroge l'API GitHub sans
+      # jeton pour trouver la dernière release et tombe sur la limite de
+      # requêtes (« Failed to resolve latest Supabase CLI release: rate limit
+      # exceeded », 16/11 et 17/11). Une version précise télécharge
+      # directement l'archive, sans appel à l'API. 3.2.0 = version qui a
+      # déployé le 17/11 ; monter à la main en vérifiant les options de
+      # `functions deploy` (--project-ref est déprécié depuis la v3, retiré en v4).
       - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          version: 3.2.0
 
       - name: Choisir les fonctions
         id: choix

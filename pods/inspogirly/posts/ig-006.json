@@ -1,0 +1,169 @@
+{
+ "id": "ig-006",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7692844471393799457",
+  "vues": 117000,
+  "publie_le": "2026-10-04",
+  "accroche": "christmas wishlist inspo"
+ },
+ "titre": {
+  "en": "christmas apps every girl needs",
+  "fr": "les applis de noël que toute fille doit avoir",
+  "es": "apps navideñas que toda chica necesita",
+  "it": "app di natale che ogni ragazza deve avere",
+  "tr": "her kızın ihtiyacı olan yılbaşı uygulamaları"
+ },
+ "legendes": {
+  "en": "christmas apps every girl needs #foryou #apps #christmas #wishlist",
+  "fr": "les applis de noël que toute fille doit avoir #foryou #apps #christmas #wishlist",
+  "es": "apps navideñas que toda chica necesita #foryou #apps #christmas #wishlist",
+  "it": "app di natale che ogni ragazza deve avere #foryou #apps #christmas #wishlist",
+  "tr": "her kızın ihtiyacı olan yılbaşı uygulamaları #foryou #apps #christmas #wishlist"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7417313522791353094"
+ },
+ "notes": "Preuve : son « christmas wishlist inspo » du 04/10 (117 k), passé en liste d'applis (novembre). Photos Seedream : cadeaux-1, fille-11, bouquet-7. Applis (App Store US, 17/11) : Giftful (4,8 ★, 117 k avis), Sophia en 2e (cta C), Dazz Cam (4,8 ★, 118 k), Christmas Countdown! (4,8 ★, 72 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/cadeaux-1.jpg",
+     "images/photos/fille-11.jpg",
+     "images/photos/bouquet-7.jpg"
+    ],
+    "titre": "christmas apps\nevery girl needs"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/cadeaux-1.jpg",
+     "images/photos/fille-11.jpg",
+     "images/photos/bouquet-7.jpg"
+    ],
+    "titre": "les applis de noël\nque toute fille doit avoir"
+   },
+   "es": {
+    "photos": [
+     "images/photos/cadeaux-1.jpg",
+     "images/photos/fille-11.jpg",
+     "images/photos/bouquet-7.jpg"
+    ],
+    "titre": "apps navideñas que\ntoda chica necesita"
+   },
+   "it": {
+    "photos": [
+     "images/photos/cadeaux-1.jpg",
+     "images/photos/fille-11.jpg",
+     "images/photos/bouquet-7.jpg"
+    ],
+    "titre": "app di natale che ogni\nragazza deve avere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/cadeaux-1.jpg",
+     "images/photos/fille-11.jpg",
+     "images/photos/bouquet-7.jpg"
+    ],
+    "titre": "her kızın ihtiyacı olan\nyılbaşı uygulamaları"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/giftful",
+   "en": {
+    "nom": "giftful",
+    "texte": "you save things you want from any store into one wishlist and share it with your family"
+   },
+   "fr": {
+    "nom": "giftful",
+    "texte": "tu ranges ce que tu veux de n'importe quel site dans une seule wishlist et tu la partages avec ta famille"
+   },
+   "es": {
+    "nom": "giftful",
+    "texte": "guardas lo que quieres de cualquier tienda en una wishlist y la compartes"
+   },
+   "it": {
+    "nom": "giftful",
+    "texte": "salvi le cose che vuoi da qualsiasi negozio in un'unica wishlist e la condividi con la tua famiglia"
+   },
+   "tr": {
+    "nom": "giftful",
+    "texte": "her mağazadan istediğin şeyleri tek bir listeye kaydedip ailenle paylaşırsın"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, con un quiz cortito después para que se te quede"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/dazz",
+   "en": {
+    "nom": "dazz cam",
+    "texte": "a vintage film camera on your phone, so your christmas pictures look like real film"
+   },
+   "fr": {
+    "nom": "dazz cam",
+    "texte": "un appareil photo argentique vintage sur ton téléphone, pour que tes photos de noël aient l'air de vraies pellicules"
+   },
+   "es": {
+    "nom": "dazz cam",
+    "texte": "una cámara de carrete vintage en tu móvil, para que tus fotos de navidad parezcan de película de verdad"
+   },
+   "it": {
+    "nom": "dazz cam",
+    "texte": "una macchina fotografica vintage a pellicola sul telefono, così le foto di natale sembrano vere foto analogiche"
+   },
+   "tr": {
+    "nom": "dazz cam",
+    "texte": "telefonunda vintage bir film kamerası, yılbaşı fotoğrafların gerçek film gibi görünür"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/countdown",
+   "en": {
+    "nom": "christmas countdown",
+    "texte": "it counts the days, hours and even seconds until christmas, with a cute little santa"
+   },
+   "fr": {
+    "nom": "christmas countdown",
+    "texte": "elle compte les jours, les heures et même les secondes avant noël, avec un père noël trop mignon"
+   },
+   "es": {
+    "nom": "christmas countdown",
+    "texte": "cuenta los días, las horas y hasta los segundos que faltan para navidad, con un papá noel monísimo"
+   },
+   "it": {
+    "nom": "christmas countdown",
+    "texte": "conta i giorni, le ore e perfino i secondi che mancano a natale, con un babbo natale"
+   },
+   "tr": {
+    "nom": "christmas countdown",
+    "texte": "yılbaşına kalan günleri, saatleri, hatta saniyeleri sayar, yanında da tatlı bir noel baba"
+   }
+  }
+ ]
+}

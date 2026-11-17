@@ -111,8 +111,9 @@ Le pilote `originaux/am-o001.json` est l'exemple complet. Les champs :
 - **Images** : la banque du label, une image différente à chaque slide.
 	- Le style gagnant : intérieurs sombres, voitures, villes la nuit, paysages, hommes de dos.
 	- **Les photos de célébrités sont acceptées** (sportif, acteur, chanteur), en illustration (décision d'Adrien, 28/10). Jamais sur la slide Sophia.
+	- **Tout le reste de la banque est accepté** sur les slides hors Sophia (décision d'Adrien, 17/11) : armes, cigarettes, logos et marques, filigranes (SELFSCULPT…), argent, gestes (doigt d'honneur), images sombres (démon…), et la même scène sous deux identifiants différents. Ne remplace pas une image pour ça.
 	- La slide Sophia : une image **sans personne** (salon, bureau, bibliothèque, paysage).
-	- Jamais une image qui montre une appli, un écran lisible ou un texte.
+	- Jamais une image qui montre une appli ou un écran lisible.
 - **Musique** : celle du schéma, en alternant : le guichet refuse un son déjà sur 6 de tes 20 dernières livraisons (`musique_repetee`), et une image livrée depuis 14 jours (`images_recentes`, voir `ROUTINE.md`).
 
 ## Les garde-fous propres au label

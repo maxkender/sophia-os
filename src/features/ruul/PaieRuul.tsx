@@ -8,6 +8,7 @@ import { telechargerCsv, versCsv } from "@/lib/csv";
 
 import {
   changerStatutRuul,
+  creerPaiementRuul,
   devisLotRuul,
   libelleArret,
   lireLotRuul,
@@ -16,8 +17,10 @@ import {
   payerLotRuul,
   preparerLotRuul,
   rapprocherLotRuul,
+  relirePaiementRuul,
   saisirLotRuul,
   validerLigneRuul,
+  type FundingRuul,
   type LigneLot,
   type PosteurRuul,
 } from "./api";
@@ -266,6 +269,21 @@ function LotRuulCarte() {
             </div>
           </div>
         </div>
+        {d.lot?.ruul_batch_id ? (
+          <div className="space-y-2 text-sm" data-testid="paiement-ruul">
+            <p>
+              Paiement Ruul n° <b>{d.lot.ruul_batch_id}</b>{d.lot.ruul_env === "sandbox" ? " (SANDBOX)" : ""} · statut <b>{d.lot.ruul_statut ?? "?"}</b>
+              {d.lot.ruul_resume?.byStatus
+                ? ` · ${Object.entries(d.lot.ruul_resume.byStatus).map(([k, n]) => `${n} ${k}`).join(", ")}`
+                : ""}
+            </p>
+            {d.lot.ruul_funding ? <VirementRuul funding={d.lot.ruul_funding} /> : null}
+          </div>
+        ) : d.lot?.ruul_envoi?.resultat === "inconnu" ? (
+          <p className="text-sm text-amber-700" data-testid="envoi-inconnu">
+            Le dernier envoi à Ruul n'a pas eu de réponse claire. Reclique « Créer le paiement Ruul » : le même envoi repart, sans doublon.
+          </p>
+        ) : null}
         {aValider.length > 0 ? (
           <div className="space-y-1 rounded-lg border border-amber-500/40 bg-amber-500/5 px-3 py-2 text-sm" data-testid="a-valider-ruul">
             <p className="font-medium">À valider avant l'envoi ({aValider.length})</p>
@@ -297,6 +315,26 @@ function LotRuulCarte() {
             <Button size="sm" variant="outline" disabled={occupe}
               onClick={() => void agir(() => devisLotRuul(d.semaine), "Frais calculés par Ruul (rien n'est créé chez Ruul).")}>
               Calculer les frais
+            </Button>
+          ) : null}
+          {statut === "prepare" && !d.lot?.ruul_batch_id && ((devis && (d.totaux?.nb_pret ?? 0) > 0) || d.lot?.ruul_envoi?.resultat === "inconnu") ? (
+            <Button
+              size="sm"
+              disabled={occupe}
+              data-testid="creer-paiement-ruul"
+              onClick={() => {
+                const dus = devis?.payment.total != null ? Number(devis.payment.total).toFixed(2) : "?";
+                if (!window.confirm(`Créer le paiement Ruul : ${d.totaux?.nb_pret} posteur(s), ${dollars(d.totaux?.pret ?? 0)} nets, ${dus}${devis ? ` ${devis.currency}` : ""} à virer frais compris. Ruul crée les factures ; l'argent part seulement quand tu fais le virement. Continuer ?`)) return;
+                void agir(() => creerPaiementRuul(d.semaine), "Paiement créé chez Ruul : fais le virement ci-dessous depuis Qonto.");
+              }}
+            >
+              Créer le paiement Ruul
+            </Button>
+          ) : null}
+          {d.lot?.ruul_batch_id ? (
+            <Button size="sm" variant="outline" disabled={occupe}
+              onClick={() => void agir(() => relirePaiementRuul(d.semaine), "Statuts relus chez Ruul.")}>
+              Relire chez Ruul
             </Button>
           ) : null}
           {d.lignes.length > 0 ? (
@@ -399,5 +437,44 @@ function LotRuulCarte() {
         ) : null}
       </CardContent>
     </Card>
+  );
+}
+
+const LIBELLE_CHAMP: Record<string, string> = {
+  beneficiaryName: "Bénéficiaire",
+  bankName: "Banque",
+  iban: "IBAN",
+  ibanAccountNumber: "IBAN",
+  bic: "BIC",
+  swift: "SWIFT",
+  swiftBicCode: "BIC / SWIFT",
+  accountNumber: "N° de compte",
+  routingNumber: "Routing",
+  sortCode: "Sort code",
+  bankAddress: "Adresse de la banque",
+  beneficiaryAddress: "Adresse du bénéficiaire",
+};
+
+/** 0738 : le virement à faire depuis Qonto pour financer le paiement Ruul (montant, compte, référence). */
+export function VirementRuul({ funding }: { funding: FundingRuul }) {
+  const comptes = funding.accounts ?? [];
+  return (
+    <div className="space-y-2 rounded-lg border border-sky-500/40 bg-sky-500/5 px-3 py-2 text-sm" data-testid="virement-ruul">
+      <p className="font-medium">
+        À virer depuis Qonto : <b>{funding.dueAmount != null ? `${Number(funding.dueAmount).toFixed(2)} ${funding.currency ?? ""}` : "?"}</b>
+        {funding.reference ? <> · référence à mettre sur le virement : <b className="font-mono">{funding.reference}</b></> : null}
+      </p>
+      {comptes.filter((c) => !funding.currency || !c.currency || c.currency === funding.currency).map((c, i) => (
+        <dl key={i} className="grid grid-cols-[auto_1fr] gap-x-3 text-xs">
+          {Object.entries(c.accountDetails ?? {}).filter(([, v]) => v).map(([k, v]) => (
+            <React.Fragment key={k}>
+              <dt className="text-muted-foreground">{LIBELLE_CHAMP[k] ?? k}</dt>
+              <dd className="font-mono">{v}</dd>
+            </React.Fragment>
+          ))}
+        </dl>
+      ))}
+      <p className="text-xs text-muted-foreground">Ruul paie chaque posteur dès que le virement arrive (et qu'il est READY).</p>
+    </div>
   );
 }

@@ -12,6 +12,8 @@ const api = vi.hoisted(() => ({
   rapprocherLotRuul: vi.fn(),
   validerLigneRuul: vi.fn(),
   devisLotRuul: vi.fn(),
+  creerPaiementRuul: vi.fn(),
+  relirePaiementRuul: vi.fn(),
   changerStatutRuul: vi.fn(),
 }));
 vi.mock("./api", () => api);
@@ -97,6 +99,39 @@ describe("Paie Ruul", () => {
     fireEvent.click(within(lot).getByRole("button", { name: "Saisi" }));
     await waitFor(() => expect(api.saisirLotRuul).toHaveBeenCalledWith("2026-11-02", "INV-1"));
     expect(api.payerLotRuul).not.toHaveBeenCalled();
+  });
+
+  it("0738 : créer le paiement Ruul (confirmation), puis le virement à faire", async () => {
+    const base = {
+      semaine: "2026-11-16", rapprochement: null, reportes: [],
+      lignes: [{ poster_id: "p1", nom: "Ana Test", ruul_email: "ana@test.zz", pays: "IT", total: 14, alertes: [], ruul_onboarding: "READY", valide: true,
+        semaines: [{ id: "a", semaine: "2026-11-16", montant: 14, rattrapage: false, statut: "a_payer", nb_comptes: 1, faits: 14, prevus: 14, paye_at: null, ecart: null }] }],
+      totaux: { payable: 14, nb_payable: 1, en_attente: 0, nb_en_attente: 0, a_valider: 0, pret: 14, nb_pret: 1 },
+    };
+    api.lireLotRuul.mockResolvedValue({ ...base, lot: { id: "l", statut: "prepare", facture: null, total: 14, nb: 1, paye_at: null },
+      devis: { env: "prod", currency: "EUR", lignes: 1, net_usd: 14, payment: { total: 13.5 } } });
+    api.creerPaiementRuul.mockResolvedValue({ ok: true, batch: 42 });
+    const confirmer = vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendu();
+    fireEvent.click(await screen.findByTestId("creer-paiement-ruul"));
+    expect(confirmer.mock.calls[0]![0]).toContain("13.50 EUR à virer frais compris");
+    await waitFor(() => expect(api.creerPaiementRuul).toHaveBeenCalledWith("2026-11-16"));
+    confirmer.mockRestore();
+  });
+
+  it("0738 : le paiement créé montre le virement (montant, référence, IBAN)", async () => {
+    api.lireLotRuul.mockResolvedValue({
+      semaine: "2026-11-16", rapprochement: null, reportes: [], lignes: [],
+      lot: { id: "l", statut: "saisi", facture: "Ruul 42", total: 14, nb: 1, paye_at: null, ruul_batch_id: 42, ruul_env: "prod", ruul_statut: "AWAITING_FUNDING",
+        ruul_resume: { rows: 1, byStatus: { AWAITING_FUNDING: 1 } },
+        ruul_funding: { currency: "EUR", dueAmount: 13.5, reference: "REF123", accounts: [{ currency: "EUR", accountDetails: { beneficiaryName: "Ruul", iban: "XX00TEST" } }] } },
+    });
+    rendu();
+    const p = await screen.findByTestId("paiement-ruul");
+    expect(p).toHaveTextContent("Paiement Ruul n° 42 · statut AWAITING_FUNDING · 1 AWAITING_FUNDING");
+    expect(within(p).getByTestId("virement-ruul")).toHaveTextContent("À virer depuis Qonto : 13.50 EUR · référence à mettre sur le virement : REF123");
+    expect(within(p).getByTestId("virement-ruul")).toHaveTextContent("IBANXX00TEST");
+    expect(screen.queryByTestId("creer-paiement-ruul")).toBeNull();
   });
 
   it("CSV du lot et lecture de l'export Ruul", () => {

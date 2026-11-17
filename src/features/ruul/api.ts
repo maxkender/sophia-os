@@ -91,7 +91,17 @@ export interface TotauxRuul {
 
 export interface LotRuul {
   semaine: string;
-  lot: { id: string; statut: "prepare" | "saisi" | "paye" | "rapproche"; facture: string | null; total: number; nb: number; paye_at: string | null } | null;
+  lot: {
+    id: string; statut: "prepare" | "saisi" | "paye" | "rapproche"; facture: string | null; total: number; nb: number; paye_at: string | null;
+    /** 0738 : le paiement créé chez Ruul et le virement à faire. */
+    ruul_batch_id?: number | null;
+    ruul_env?: string | null;
+    ruul_statut?: string | null;
+    ruul_funding?: FundingRuul | null;
+    ruul_resume?: { rows?: number; byStatus?: Record<string, number> } | null;
+    ruul_cree_at?: string | null;
+    ruul_envoi?: { resultat?: string; erreur?: string; essais?: number } | null;
+  } | null;
   rapprochement: { email: string; nom: string | null; attendu: number | null; ruul: number | null; resultat: string }[] | null;
   lignes: LigneLot[];
   reportes: Reporte[];
@@ -99,6 +109,14 @@ export interface LotRuul {
   /** 0737 : le devis Ruul (POST /payouts/calculate) : le total à virer, frais compris. */
   devis?: DevisRuul | null;
   devis_at?: string | null;
+}
+
+export interface FundingRuul {
+  method?: string;
+  currency?: string;
+  dueAmount?: number | null;
+  reference?: string | null;
+  accounts?: { type?: string; currency?: string; country?: string; accountDetails?: Record<string, string | undefined> }[];
 }
 
 export interface DevisRuul {
@@ -134,6 +152,22 @@ export const saisirLotRuul = (semaine: string, facture: string) => rpc<Retour>("
 export const payerLotRuul = (semaine: string) => rpc<Retour & { payes?: number }>("ruul_lot_payer", { p_semaine: semaine });
 export const rapprocherLotRuul = (semaine: string, lignes: { email: string; montant: string }[]) =>
   rpc<Retour & { ecarts?: number }>("ruul_lot_rapprocher", { p_semaine: semaine, p_lignes: lignes });
+/** 0738 : la paie de la semaine vue par le posteur. */
+export interface MaPaieRuul {
+  semaine: string;
+  total: number;
+  bonus: number;
+  faits: number | null;
+  prevus: number | null;
+  nb_comptes: number | null;
+  statut: "paid" | "processing" | "scheduled" | "waiting_setup" | "problem" | "none";
+  paye_at: string | null;
+}
+export const lireMesPaiementsRuul = () => rpc<MaPaieRuul[]>("ruul_mes_paiements");
+export const creerPaiementRuul = (semaine: string) =>
+  invoke<{ ok: boolean; error?: string; deja?: boolean; batch?: number; env?: string }>("ruul-api", { action: "payer", semaine });
+export const relirePaiementRuul = (semaine: string) =>
+  invoke<{ ok: boolean; error?: string; statut?: string }>("ruul-api", { action: "relire", semaine });
 export const validerLigneRuul = (poster: string, semaine: string, ok: boolean) =>
   rpc<Retour & { lignes?: number }>("ruul_ligne_valider", { p_poster: poster, p_semaine: semaine, p_ok: ok });
 export const devisLotRuul = (semaine: string) =>

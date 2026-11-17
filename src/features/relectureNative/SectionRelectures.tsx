@@ -25,7 +25,7 @@ function dateCourte(iso: string | null, langue: string) {
 
 /**
  * Relecture native → Relectures (0631) : par langue, les posts publiés
- * envoyés aux relecteurs (le samedi, 15 par langue, ou tout de suite avec
+ * envoyés aux relecteurs (le mercredi, 15 par langue, ou tout de suite avec
  * le bouton), ce qu'ils en ont fait (note, slides réécrites, remarque), et
  * la part de slides reprises, qui doit baisser quand la boucle marche.
  */

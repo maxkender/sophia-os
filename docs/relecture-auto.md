@@ -172,6 +172,18 @@ dans `/admin/reviews`) :
   chaque matin (rapport du 23/10) ;
 - jamais pour un post déjà reviewé ou passé à la main dans la file.
 
+**Première semaine de posts d'une cohorte : pas de limite de fréquence (16/11).**
+Du lundi de la cohorte du créateur (`profiles.cohorte_lundi`) au dimanche, tous
+ses retours partent : ni « un par nuit », ni délai de 3 jours
+(`estPremiereSemaine`, `sansLimite` de `choisirRetoursAEnvoyer`). C'est la
+semaine où il apprend. Restent : le post déjà reviewé ou passé à la main, le
+post au-delà de 5 000 vues et l'écart léger (pas de brouillon, donc rien à
+envoyer). Sauf les labels 100 % podz (`labels_100_podz`) : leurs slides sont
+livrées en images, il n'y a rien à retaper ; ils gardent les règles habituelles
+(et, livrés, n'ont de toute façon pas de slide comparable). À partir du 2ᵉ lundi,
+les règles habituelles reprennent, retours de la première semaine compris dans
+le délai.
+
 **Rattraper une nuit ratée** : `{ "envoyer": { "jour": "AAAA-MM-JJ" } }` envoie
 les retours de ce jour hors de la fenêtre horaire, avec les mêmes règles
 (interrupteur, un par créateur, délai de 3 jours) ; seulement pour les 3
@@ -181,6 +193,14 @@ derniers jours, un vieux retour n'a plus de sens.
 run est refusé (402), les posts restent en file sans compter de tentative
 (erreur « Apify sans crédit… ») et la relecture reprend seule quand le crédit
 revient. Avant, six refus suffisaient à les passer tous en échec.
+
+**Jeton Apify refusé** (401 « user-or-token-not-found », du 12/11 11 h au 13/11
+5 h) : même protection que le crédit. Les posts restent en file sans compter de
+tentative (erreur « Apify refuse le jeton… »). Cette nuit-là, les 608 posts du
+12/11 étaient passés en échec « trop de tentatives de scrape » sans qu'un run
+ait démarré, et aucun retour n'était parti. Le drain s'arrête à 05:58 UTC : si
+le jeton revient après, rattraper par `{ "envoyer": { "jour": … } }` une fois
+la file vidée.
 
 `relectures_auto.envoi` garde ce que l'envoi a fait de chaque relecture
 (« envoye » avec `review_id`, ou la raison du non-envoi), affiché sur le banc.

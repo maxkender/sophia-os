@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o133",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ea166db2-f1dd-4659-afbc-71e120405460",
+ "titre": "5 loneliest drives a man could ever take #men #life #feelings #growth #mindset",
+ "musique_titre": "i dont like sand",
+ "musique_url": "https://www.tiktok.com/music/i-dont-like-sand-7504007316666993430",
+ "inspirations": [
+  "ea166db2-f1dd-4659-afbc-71e120405460"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 16/11. Déclinaison G1 de la ligne 5 (parent ea166db2, langue source en ; boîte : « 5 loneliest drives a man could ever take »). Accroche du parent mot pour mot. Format du parent : « N. The drive… : » puis trois lignes et une phrase. Trajets neufs, aucun du parent (après le dernier ami, devant la maison d'enfance, après un refus d'emploi, devenu ce qu'il ne voulait pas être, partir pour toujours). Ton doux, rien de violent. Lignes 6, 7 et 8 (santé, manifestation, argent), 2 (argent) et 4 (nuits sombres : vol, bagarre) sautées. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 6) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "066eba77",
+   "texte_overlay": "5 loneliest drives a man\ncould ever take",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2355726e",
+   "texte_overlay": "1. The Drive Home From the Airport\nAlone:\n\nThe empty passenger seat.\nThe goodbye still in your chest.\nThe radio too loud.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "031fa068",
+   "texte_overlay": "2. The Drive After Your Last Shift\nat a Job You Loved:\n\nThe badge on the dash.\nThe parking lot in the mirror.\nA chapter closed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0a456360",
+   "texte_overlay": "3. The Drive to Your Parents'\nWhen They Need Help:\n\nThe roles quietly flipped.\nYou're the one they call now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9b8217f2",
+   "texte_overlay": "4. The Drive After You Decided\nto Change Everything:\n\nNew habits. New plan.\nA lesson a day.\nNobody knows yet. You do.",
+   "texte_sophia": "4. The Drive After You Decided\nto Change Everything:\n\nNew habits. A lesson a day\non the Sophia app.\nNobody knows yet. You do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0fe08346",
+   "texte_overlay": "5. The Drive Home After\nYou Finally Made It:\n\nThe same road as always.\nIt just looks different now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7704046092073094407/6.jpg"
+  }
+ ]
+}

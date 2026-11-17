@@ -9,12 +9,22 @@
  "titre": {
   "en": "10/10 skills you can learn",
   "fr": "10/10 compétences que tu peux apprendre",
-  "de": "10/10 Skills, die du lernen kannst"
+  "de": "10/10 Skills, die du lernen kannst",
+  "it": "10/10 abilità che puoi imparare",
+  "tr": "10/10 öğrenebileceğin beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz",
+  "pl": "10/10 umiejętności, których możesz się nauczyć",
+  "pt-BR": "10/10 habilidades que você pode aprender"
  },
  "legendes": {
   "en": "10/10 skills you can learn #skills #selfimprovement #learnontiktok",
   "fr": "10/10 compétences que tu peux apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
-  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 abilità che puoi imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin beceriler #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności, których możesz się nauczyć #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades que você pode aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
  },
  "musique": {
   "titre": "original sound",
@@ -44,6 +54,39 @@
      "SKILLS, DIE",
      "DU LERNEN",
      "KANNST"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "ABILITÀ",
+     "CHE PUOI",
+     "IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "ÖĞRENEBİLECEĞİN",
+     "BECERİLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÉSZSÉG, AMIT",
+     "MEGTANULHATSZ"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI,",
+     "KTÓRYCH MOŻESZ",
+     "SIĘ NAUCZYĆ"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "QUE VOCÊ",
+     "PODE APRENDER"
     ]
    }
   },
@@ -117,6 +160,121 @@
     "sous": [
      "10-30 Min."
     ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "CONVERSAZIONE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JY6ugOKzFBs",
+     "titre": "Come PARLARE BENE con le persone: 10+ REGOLE PRATICHE per parlare con CHIUNQUE",
+     "chaine": "Elena Tee",
+     "vues": "445K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "9:46",
+     "avatar": "https://yt3.ggpht.com/dNuWRJg5y19kBrUFxjwo2TFHkjsagBNRB-7x020iXlDanZH7zOhSW6TCccdhvhEuJEBaYNL-mA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "SOHBET EDİLİR",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rbh7u_OOn-Y",
+     "titre": "KONUŞACAK KONU BULMAK VE SOHBET ETME BECERİSİ KAZANMAK",
+     "chaine": "Beyhan Budak",
+     "vues": "235 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "9:42",
+     "avatar": "https://yt3.ggpht.com/CuslZcad93sGBkQlQOcPs7W_2UKO6aB9290uMqQRQWik4WOeSbo7OJojA6suqIsihiFoPY5VLOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "BESZÉLGESS",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Fl_Lp8wMmsQ",
+     "titre": "Hogyan beszélj BÁRKIVEL természetesen (Kínos csend nélkül)",
+     "chaine": "Vezesd A Jövőt",
+     "vues": "1,2 E megtekintés",
+     "date": "11 hónappal ezelőtt",
+     "duree": "12:36",
+     "avatar": "https://yt3.ggpht.com/9FSjRfLs7aF4DTjCMM7UBGDxAksAPeXvSijGuDeybN1XjCA7-9aB5Je-qmLPXtGosDqoCzQ0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK PROWADZIĆ",
+     [
+      {
+       "t": "SMALL TALK",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JdGo-U381pc",
+     "titre": "SMALL TALK bez tajemnic - jak zagadać do każdego i spokojnie poznawać ludzi",
+     "chaine": "Andrzej Tucholski",
+     "vues": "84 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "14:12",
+     "avatar": "https://yt3.ggpht.com/T3JnqohqaZWzUolVT_WPEgC5WaCGS6VTb8lhcT0UViwzWebjhQcAoPxGaaB6CI0uSOnuaotWeA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "PUXAR ASSUNTO",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5MelvOkaD-M",
+     "titre": "7 formas de você PUXAR ASSUNTO em uma CONVERSA",
+     "chaine": "Cá me disse",
+     "vues": "689 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "8:12",
+     "avatar": "https://yt3.ggpht.com/tFF2eqE1wX873MoVzRzEU4n4udBR541KuUyTnf65kZYdjVONoti6wbPAhgH2OF6US9PABqymGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
    }
   },
   {
@@ -189,6 +347,121 @@
     "sous": [
      "1-2 Stunden"
     ]
+   },
+   "it": {
+    "titre": [
+     "COME VINCERE",
+     [
+      {
+       "t": "OGNI DISCUSSIONE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A_Vgf2y6hyg",
+     "titre": "Come vincere ogni DISCUSSIONE - Fallacie Argomentative (ep.2)",
+     "chaine": "Andrea Muzii",
+     "vues": "27K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lyQzE5qg9qAwCsMsdr_rauz5jXgX19RfpBlqJ4QKri5n4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "TARTIŞMA KAZANILIR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CQOMDfDP3_w",
+     "titre": "Tartışma Kazanma Sanatı",
+     "chaine": "Tinko",
+     "vues": "69 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "8:20",
+     "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN GYŐZZ",
+     [
+      {
+       "t": "MEG BÁRKIT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dJfX76uGAJ8",
+     "titre": "13 pszichológiai trükk, amivel bárkit meggyőzhetsz",
+     "chaine": "Tudástár Klub",
+     "vues": "192 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "11:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9O8l32wzNxCGROpzANlVY7ad0Py_c6yQkL70fkmsIjA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK WYGRAĆ",
+     [
+      {
+       "t": "KAŻDĄ DYSKUSJĘ",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GsZmIPBJYys",
+     "titre": "JAK WYGRAĆ KAŻDĄ DYSKUSJĘ (8 chwytów erystycznych) feat. A. Schopenhauer",
+     "chaine": "Orestes Kowalski",
+     "vues": "488 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "13:35",
+     "avatar": "https://yt3.ggpht.com/U0bP_5uSRmFUATcS5CpZ2OM3_of9J375OsuPtgHngpugq_uVHtjbnJ-DcY6pcPrltxsTz4xGpA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO VENCER",
+     [
+      {
+       "t": "QUALQUER DEBATE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VQ13oWYcVLw",
+     "titre": "Como Vencer Qualquer Debate sem Precisar Ter Razão | Schopenhauer | Seja Uma Pessoa Melhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "246 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "8:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
    }
   },
   {
@@ -255,6 +528,111 @@
     },
     "sous": [
      "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME ESSERE",
+     [
+      {
+       "t": "INTERESSANTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "İLGİNÇ OLUNUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN LEGYÉL",
+     [
+      {
+       "t": "ÉRDEKES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK BYĆ",
+     [
+      {
+       "t": "CIEKAWYM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO SER",
+     [
+      {
+       "t": "INTERESSANTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
     ]
    }
   },
@@ -327,6 +705,121 @@
     },
     "sous": [
      "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME AVERE",
+     [
+      {
+       "t": "LA RISPOSTA PRONTA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KP9fP14blmA",
+     "titre": "Come Avere la Risposta Sempre Pronta (fai questo esercizio)",
+     "chaine": "Dr. Gennaro Romagnoli • PsiNel",
+     "vues": "222K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "16:07",
+     "avatar": "https://yt3.ggpht.com/a1ZQ536AuvTAtkG2f-TbrUqtipxoQV3FGGhtuutEspW6co4W9BOOPU3Xcj6LTij2-AYmJKsjz5U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "HAZIRCEVAP OLUNUR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CJ5Ghy4zT6c",
+     "titre": "Hazırcevap olmanın 10 etkili yöntemi. - Diksiyon dersleri",
+     "chaine": "Diksiyon - Eray Özden AKÇA",
+     "vues": "264 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "7:30",
+     "avatar": "https://yt3.ggpht.com/R_-dTJM56W1nXUwhrETNX1GrQk8F4MKfAQ4--Zcin1sAwQZFAvEYLnuJ92wdvGeF7PxrMB__qg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN BESZÉLJ",
+     [
+      {
+       "t": "MAGABIZTOSAN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JvKW1IGhHr0",
+     "titre": "Beszélj Magabiztosan - Fejleszd a Beszédkészségedet!",
+     "chaine": "Kapcsoló",
+     "vues": "31 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "6:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nXzsbP9go7OKHnQ3rM4-Z5FY5Y7TeVBwIE42gmbvh4mA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ODPOWIADAĆ",
+     [
+      {
+       "t": "NA ZACZEPKI",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MRHwZ7zggts",
+     "titre": "Jak reagować na głupie odzywki innych - 4 konkretne przypadki - atak słowny",
+     "chaine": "Alex Barszczewski - Życie Pełne Życia",
+     "vues": "123 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "11:18",
+     "avatar": "https://yt3.ggpht.com/84jn3vRRzdi0Pk6zTIHkSBBE2abEpB2JOtxWxn8O4CiQOuiJUDXvjFWnxzu2JykkTnFCeVhK1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO RESPONDER",
+     [
+      {
+       "t": "A UM INSULTO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oOdJhr0M2cs",
+     "titre": "Como REAGIR a UM INSULTO de Forma Inteligente (EM 6 PASSOS SIMPLES)",
+     "chaine": "ProativaMente",
+     "vues": "2,1 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0hLlmDYRu1EwuwFRKGCJqhh_KzUg0fIwMpJa5g1PP9Pc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
     ]
    }
   }

@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o138",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a5fac439-a8ef-40d2-8234-465c1c109cef",
+ "titre": "5 low-effort habits that give you control #selfimprovement #discipline #men #mindset #habits",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "a5fac439-a8ef-40d2-8234-465c1c109cef"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 16/11. Déclinaison G1 de la ligne 16 (parent a5fac439, @selfsculpt_, langue source en). Accroche du parent mot pour mot. Format du parent : « N. TITRE EN CAPITALES » puis deux ou trois lignes. Habitudes neuves, aucune du parent (10 minutes plus tôt, un carnet, ranger le soir, automatiser). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 6) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "87f7ed00",
+   "texte_overlay": "5 LOW-EFFORT HABITS THAT\nGIVE YOU CONTROL",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7635308407993502998/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1e941665",
+   "texte_overlay": "1. MAKE YOUR BED.\nTwo minutes.\nThe first win of the day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7635308407993502998/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "049eef13",
+   "texte_overlay": "2. PREP TOMORROW TONIGHT.\nClothes out. Bag packed.\nMorning you will thank you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7635308407993502998/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "176c1890",
+   "texte_overlay": "3. ONE APP-FREE HOUR.\nEvery evening. Phone in a drawer.\nYour head gets quiet.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7635308407993502998/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "3422a7c0",
+   "texte_overlay": "4. WALK AFTER DINNER.\nTen minutes outside.\nThe day settles.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7635308407993502998/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3103a9df",
+   "texte_overlay": "5. ONE LESSON A DAY.\nFive minutes of learning.\nProof you're still growing.",
+   "texte_sophia": "5. ONE LESSON A DAY.\nI do 5 minutes on the Sophia app.\nProof I'm still growing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7635308407993502998/6.jpg"
+  }
+ ]
+}

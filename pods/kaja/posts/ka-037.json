@@ -1,0 +1,347 @@
+{
+ "id": "ka-037",
+ "titre": {
+  "en": "10/10 tricks to show your friends",
+  "fr": "10/10 tricks à montrer à tes potes",
+  "de": "10/10 Tricks für deine Freunde"
+ },
+ "legendes": {
+  "en": "10/10 tricks to show your friends #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 tricks à montrer à tes potes #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Tricks für deine Freunde #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Solitude",
+  "url": "https://www.tiktok.com/music/solitude-7355730432355502096"
+ },
+ "notes": "Full test (BLEO, 16/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (des tours à montrer). Décor branche2, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia, jamais faites chez nous : mélanger les cartes comme un pro, faire tourner un ballon sur le doigt, le yo-yo. Musique : « Solitude » de son manifeste (une seule fois chez nous, ka-023), pour alterner. Sophia en étape 3 « HOW TO ALWAYS HAVE A FUN FACT » : cta B, « 5 min a day ». Vraies vidéos : en Jason Parker, Coach Nick, Hunter Yoyo ; fr MagieExpliquée, Brisco Basket Freestyle, Tristan ; de Matthias Berger, Paul Gudde, Jonglierversand.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "TRICKS TO",
+     "SHOW YOUR",
+     "FRIENDS"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "TRICKS À",
+     "MONTRER À",
+     "TES POTES"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "TRICKS",
+     "FÜR DEINE",
+     "FREUNDE"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SHUFFLE",
+     [
+      {
+       "t": "CARDS LIKE A PRO",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NdCia_d1u5c",
+     "titre": "How to shuffle cards for beginners // Riffle Shuffle with Bridge in the hands tutorial",
+     "chaine": "Jason Parker",
+     "vues": "4M views",
+     "date": "7 years ago",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/cHunnVr-52XnDIdM3izDltpnOvykNKpbTeXQ880tofpzjPtfOBu1aX2aHIOkNwi8Z5_1ofZ-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT MÉLANGER",
+     [
+      {
+       "t": "LES CARTES",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "boLx4T2-GeQ",
+     "titre": "Apprendre le Mélange Américain : Le Guide Complet (Débutant à Pro)",
+     "chaine": "MagieExpliquée",
+     "vues": "433 k vues",
+     "date": "il y a 6 ans",
+     "duree": "11:18",
+     "avatar": "https://yt3.ggpht.com/D3ST3O40NnJpFKDE_44oVzN9ZASnx4Mas8MalZXbvYSxUHxEmNlZFHC-4AJ3OcI7vhJwewcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MISCHST DU",
+     [
+      {
+       "t": "KARTEN WIE EIN PROFI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_0ZvbGYo_eM",
+     "titre": "RIFFLE SHUFFLE + BRIDGE - KARTEN MISCHEN LERNEN FÜR TRICKS - #2 Zauberei-Basics",
+     "chaine": "Matthias Berger",
+     "vues": "893.527 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mfIVFyDA9WIbV7yGj8_wmldW0ymBEI5Fu9lzIXDrwmXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Tage"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SPIN",
+     [
+      {
+       "t": "A BALL ON",
+       "couleur": "#ec8713"
+      }
+     ],
+     [
+      {
+       "t": "YOUR FINGER",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "861h5e9gqQ0",
+     "titre": "How to Spin A Ball on Your Finger (FASTEST METHOD!!!)",
+     "chaine": "Coach Nick",
+     "vues": "1.8M views",
+     "date": "7 years ago",
+     "duree": "6:15",
+     "avatar": "https://yt3.ggpht.com/q00SZBNxGwwGw45QAOkTSizc8SfWaomAZs3NN8RT3ZTEOu9Qr770vUdP0SuPJpv26M_vAmuvOnU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 days"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "TOURNER UN BALLON",
+       "couleur": "#ec8713"
+      }
+     ],
+     [
+      {
+       "t": "SUR TON DOIGT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "t5_fCU85iUs",
+     "titre": "COMMENT FAIRE TOURNER LE BALLON SUR SON DOIGT ! (Spinning détaillé)",
+     "chaine": "Brisco Basket Freestyle",
+     "vues": "269 k vues",
+     "date": "il y a 10 ans",
+     "duree": "5:45",
+     "avatar": "https://yt3.ggpht.com/2iZDYWSVP6ZBrhlvga-leh0fJjsaTnRC_CYAOdKquxb1XFyShb6CTFhfX80bwEChrzeT9q2l=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 jours"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO DREHST DU",
+     [
+      {
+       "t": "DEN BALL AUF",
+       "couleur": "#ec8713"
+      }
+     ],
+     [
+      {
+       "t": "DEM FINGER",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "MdbtuJ1JrIc",
+     "titre": "Wie drehe ich den BALL auf dem Finger? Freestyle Friday Part 1",
+     "chaine": "Paul Gudde Basketball",
+     "vues": "121.381 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUdIsOOlOz1d-3zAmgqdDsWC6oWuVjMMvwE4uMEWD4Gw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Tage"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO ALWAYS",
+     [
+      {
+       "t": "HAVE A FUN FACT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "TOUJOURS UN FUN FACT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO HAST DU IMMER",
+     [
+      {
+       "t": "EINEN FUN FACT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO DO",
+     [
+      {
+       "t": "YOYO TRICKS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7Rl8CB-hW00",
+     "titre": "6 Yoyo Tricks Every Beginner Should Learn",
+     "chaine": "Hunter Yoyo and Spotlight Yoyo",
+     "vues": "260K views",
+     "date": "2 years ago",
+     "duree": "4:49",
+     "avatar": "https://yt3.ggpht.com/5snHnGptQMsg4Tm5i0taDXVhPBYXj-ry8W49l8xT5YESAz2jBIQgpqdjxPE-3LugKEBy0QJi3g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 week"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DU YOYO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yXk7BKalTFQ",
+     "titre": "2H POUR APPRENDRE DES TRICKS DE YOYO (et c'est grave stylé) 🪀",
+     "chaine": "Tristan",
+     "vues": "326 k vues",
+     "date": "il y a 5 ans",
+     "duree": "10:47",
+     "avatar": "https://yt3.ggpht.com/IYFLHlts6otgttBODD3tzjJwA-17QGATTvKEUCth1G1Du_cADiVYbFbbb8KqSDZNUPY5SItamYU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semaine"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "JOJO-TRICKS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kxuWRrnYOQI",
+     "titre": "5 Responsive Yoyo Tricks für Anfänger | Tutorial | Jonglierversand",
+     "chaine": "Jonglierversand",
+     "vues": "84.750 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nsL4YCkmnw-cMuDY1YaMsXCGeKMrlr4outRdH_xh0FWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

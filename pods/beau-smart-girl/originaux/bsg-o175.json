@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o175",
+  "type_bleo": "full_test",
+  "titre": "mon carnet de curiosités : ce que j'y note et pourquoi ça a tout changé #carnet #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : le carnet de curiosités, récit « je ». Accroches écrites : « mon carnet de curiosités : ce que j'y note et pourquoi ça a tout changé » (retenue : objet concret, rubriques), « comment tenir un carnet » (écartée : trop proche du journal de bsg-o118), « mes notes du jour » (écartée : vague). Fait vérifié le 12/11 sur https://en.wikipedia.org/wiki/Pont_Neuf : « the oldest standing bridge across the river Seine in Paris ». Routine du 16/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 et 9 de la boîte se déclinent proprement, donc 2 déclinaisons et 6 full tests. Lignes sautées : 2 (« validé par les neurosciences »), 3 (accroche illisible), 4, 7 et 8 (« backed by science », bienfaits santé invérifiables), 5 (« enterimarnt »), 6 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "255d67f0",
+      "texte_overlay": "mon carnet de curiosités :\nce que j'y note\net pourquoi ça a tout changé",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "2564f72b",
+      "texte_overlay": "1. les mots que je ne connais pas\n\nentendus dans la journée.\nje cherche le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2573a905",
+      "texte_overlay": "2. les questions bêtes\n\npourquoi le ciel est bleu, d'où vient le mot lundi.\nles meilleures questions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2598e2b4",
+      "texte_overlay": "3. une anecdote par jour\n\nce matin, j'ai appris que le pont-neuf, malgré son nom, est le plus vieux pont de paris sur la seine.\nje l'ai racontée trois fois dans la journée.",
+      "texte_sophia": "3. une anecdote par jour\n\nce matin, l'appli Sophia m'a appris que le pont-neuf, malgré son nom, est le plus vieux pont de paris sur la seine.\nje l'ai racontée trois fois dans la journée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "25898939",
+      "texte_overlay": "4. les livres et les films qu'on me conseille\n\navec le nom de la personne.\nje lui en reparle après.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "25b2d3c6",
+      "texte_overlay": "5. ce que j'ai vu de beau\n\nune lumière, une façade, une phrase.\nles jours gris, je relis cette page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "7f27f0dc",
+      "texte_overlay": "tu tiens un carnet, toi ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

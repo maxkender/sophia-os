@@ -1,0 +1,259 @@
+{
+ "post_id": "var-weekend-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "top 5 būdai sugadinti kiekvieną rytą"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(skaudi tiesa) iš patirties"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7696836327026724128_6.jpg",
+      "boite": [
+       64,
+       805,
+       320,
+       231
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "spausk [[atidėti]] 6 kartus iš eilės"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[dar 5 minutės]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "žadintuvas skamba 7, paskui 7:09, 7:18, 7:27. kiekvienas snaudulys per trumpas pailsėti, bet kaip tik toks, kad tave [[pribaigtų]]"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "dabar vėluoji IR nuovargis didesnis nei 7 val. [[tobula!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "NO social media for the first",
+      "hour"
+     ],
+     "fr": "ZÉRO réseau social la première heure",
+     "texte": "griebk telefoną [[dar neatmerkus akių]]"
+    },
+    "T2": {
+     "en": [
+      "no scrolling, no youtube,",
+      "no tiktok for the first hour"
+     ],
+     "fr": "pas de scroll, ni youtube, ni tiktok dès le réveil",
+     "texte": "47 pranešimai, dar nepalietus kojomis grindų"
+    },
+    "T3": {
+     "en": [
+      "short-form content gives",
+      "your brain rapid reward",
+      "after reward, frying your",
+      "dopamine receptors and",
+      "making slower tasks feel",
+      "painfully dull"
+     ],
+     "fr": "les vidéos courtes bombardent ton cerveau de récompenses, ça [[te grille les récepteurs à dopamine]] et tout ce qui est plus lent te paraît d'un ennui mortel",
+     "texte": "smegenys vos pabudo, o jau [[skęsta]] grupiniuose pokalbiuose, darbo laiške ir nepažįstamojo pusryčių vaizdo įraše. puiki pradžia"
+    },
+    "T4": {
+     "en": [
+      "to win your day, win your",
+      "morning"
+     ],
+     "fr": "[[gagne ta matinée, t'as gagné ta journée]]",
+     "texte": "[[nerimas]] dar prieš valantis dantis"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "apprends [[au lieu de scroller]]",
+     "texte": "pradėk dieną su [[nula naujų minčių]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content destroys your attention span"
+     ],
+     "fr": "les vidéos courtes [[te bousillent la concentration]]",
+     "texte": "smegenys pusryčiams gauna tik trumpus video, nieko daugiau"
+    },
+    "T3": {
+     "en": [
+      "books force you to stay with",
+      "one idea, remember what",
+      "came before, and actually",
+      "think"
+     ],
+     "fr": "apprendre te force à suivre une idée, à retenir ce qui précède et à vraiment réfléchir",
+     "texte": "galva niekada nebūna šviežesnė nei pabudus, tai [[iššvaistyk ją]] video, kuriuos pamirši iki 9"
+    },
+    "T4": {
+     "en": [
+      "i used to struggle with",
+      "doomscrolling too much"
+     ],
+     "fr": "[[avant, je doomscrollais]] beaucoup trop",
+     "texte": "vis tiek guli lovoje su telefonu, ar ne?"
+    },
+    "T5": {
+     "en": [
+      "until i found this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "puis j'ai remplacé le scroll par [[5 min par jour sur l'appli Sophia]]",
+     "texte": "tai [[jokiu būdu neatidaryk Sophia programėlės]] 5 minutėms apie renesansą italijoje"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "nevalgyk pusryčių [[kiekvieną dieną]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "juoda kava tuščiu skrandžiu skaitosi kaip valgis, ar ne?"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "iki 10:30 jau [[drebi ir mirštai iš bado]], tai apiplėši užkandžių automatą"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "o iki pietų jau [[rėki ant žmonių]], kurie nieko blogo nepadarė. klasika"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop checking your phone constantly"
+     ],
+     "fr": "arrête de checker ton tel [[H24]]",
+     "texte": "išeik iš namų [[10 minučių per vėlai]]"
+    },
+    "T2": {
+     "en": [
+      "instagram, tiktok, snapchat, random notifications"
+     ],
+     "fr": "instagram, tiktok, snapchat, notifs en tout genre",
+     "texte": "raktai, telefonas, vienas batas, skrebutis burnoje"
+    },
+    "T3": {
+     "en": [
+      "you're not going to miss",
+      "anything important by not",
+      "going on your phone!!"
+     ],
+     "fr": "tu vas [[rien rater d'important]] si tu vas pas sur ton tel!!",
+     "texte": "bėk į traukinį, vis tiek nespėk ir atvyk [[prakaituotu veidu ir be kvapo]]"
+    },
+    "T4": {
+     "en": [
+      "relax,"
+     ],
+     "fr": "relax,",
+     "texte": "tada,"
+    },
+    "T5": {
+     "en": [
+      "keep your phone away",
+      "when working/studying",
+      "until you're taking a break"
+     ],
+     "fr": "[[range ton tel quand tu bosses/révises]] jusqu'à ta pause",
+     "texte": "sakyk visiems, kad [[tiesiog nesi rytinis žmogus]], ir rytoj viską pakartok!!"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

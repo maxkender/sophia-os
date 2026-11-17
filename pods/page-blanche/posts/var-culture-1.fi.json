@@ -1,0 +1,254 @@
+{
+ "post_id": "var-culture-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "disgustingly educated"
+     ],
+     "fr": "10/10 habitudes pour avoir une culture indécente",
+     "texte": "10/10 tapaa säädyttömän laajaan yleissivistykseen"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience backed)"
+     ],
+     "fr": "(prouvé par la science)",
+     "texte": "(tieteellisesti todistettu)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705377890921205025_7.jpg",
+      "boite": [
+       41,
+       395,
+       425,
+       411
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "1. Stop taking your phone",
+      "everywhere with you"
+     ],
+     "fr": "1. Arrête de traîner ton tel [[partout]] avec toi",
+     "alignement": "gauche",
+     "texte": "ota selvää [[heti kun kysymys herää]]"
+    },
+    "T2": {
+     "en": [
+      "You don't need your",
+      "phone to go",
+      "to the bathroom,",
+      "stop taking it with",
+      "you everywhere!!"
+     ],
+     "fr": "T'as pas besoin de ton tel pour aller aux toilettes, arrête de le traîner partout !!",
+     "texte": "uteliaisuus auttaa aivoja muistamaan, joten selvitä asia heti, älä huomenna"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop always listening",
+      "to music"
+     ],
+     "fr": "arrête [[la musique non-stop]]",
+     "texte": "lepää [[kun olet oppinut jotain]]"
+    },
+    "T2": {
+     "en": [
+      "stop filling every empty second with podcasts,",
+      "music, youtube, or scrolling"
+     ],
+     "fr": "arrête de combler [[le moindre blanc]] avec podcasts, musique, youtube ou scroll",
+     "texte": "tunnin, luvun tai videon jälkeen älä hyppää suoraan puhelimeen"
+    },
+    "T3": {
+     "en": [
+      "your brain",
+      "needs quiet",
+      "time to connect",
+      "ideas, replay",
+      "information, and",
+      "actually form its",
+      "own thought"
+     ],
+     "fr": "ton cerveau a besoin de calme pour faire des liens, digérer les infos et [[vraiment avoir ses propres idées]]",
+     "texte": "tutkimusten mukaan muutama hiljainen minuutti heti perään auttaa aivoja [[oikeasti muistamaan sen]]"
+    },
+    "T4": {
+     "en": [
+      "instead of constantly reacting to",
+      "someone else’s"
+     ],
+     "fr": "au lieu de [[toujours réagir]] à [[celles des autres]]",
+     "texte": "sen sijaan, että [[hautaisit sen]] 50 uuden videon alle"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7707332670765813025_3.jpg",
+      "boite": [
+       62,
+       560,
+       574,
+       383
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things that are difficult",
+      "on purpose"
+     ],
+     "fr": "force-toi à apprendre [[des trucs difficiles]]",
+     "texte": "selitä se [[kuin 10-vuotiaalle]]"
+    },
+    "T2": {
+     "en": [
+      "if everything you consume is",
+      "easy, your brain has no",
+      "reason to adapt"
+     ],
+     "fr": "si tout ce que tu regardes est facile, ton cerveau a zéro raison de progresser",
+     "texte": "jos et osaa sanoa sitä yksinkertaisesti, et vielä oikeasti ymmärrä sitä"
+    },
+    "T3": {
+     "en": [
+      "read harder books, study",
+      "unfamiliar topics, solve",
+      "problems without",
+      "immediately searching the",
+      "answer"
+     ],
+     "fr": "lis des livres plus costauds, plonge dans des sujets inconnus, résous des problèmes sans googler direct",
+     "texte": "luvun tai dokumentin jälkeen kerro se ääneen kaverille, äidillesi tai vaikka peilille"
+    },
+    "T4": {
+     "en": [
+      "cognitive effort is the point"
+     ],
+     "fr": "tout l'intérêt, c'est l'effort",
+     "texte": "aukot näkyvät [[heti]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "ouvre un bouquin [[au lieu de scroller]]",
+     "texte": "opi [[jotain uutta]] joka päivä"
+    },
+    "T2": {
+     "en": [
+      "reading makes you hold attention, remember",
+      "details, and build the picture in your own head"
+     ],
+     "fr": "lire t'apprend à [[tenir ton attention]], retenir les détails et [[te faire le film]] dans ta tête",
+     "texte": "vähän joka päivä toimii paremmin kuin kaikki kerralla, aivot [[muistavat enemmän]]"
+    },
+    "T3": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, swap",
+      "some of your scrolling for",
+      "books"
+     ],
+     "fr": "si tu veux [[un cerveau plus vif]], remplace une partie de ton [[scroll par des livres]]",
+     "texte": "ja hetket, kun olet jo puhelimella, ovat [[helpoin paikka]] mahduttaa se"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i",
+      "read for 20 minutes"
+     ],
+     "fr": "avant je [[doomscrollais]], maintenant dès que je dégaine mon tel, j'apprends un truc en [[5 min sur l'appli Sophia]]",
+     "texte": "ennen scrollasin loputtomiin, nyt kun olen puhelimella joka tapauksessa, opin 5 minuutissa miksi renessanssi syntyi Italiassa [[Sophia-sovelluksessa]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop watching everything",
+      "at 2x speed"
+     ],
+     "fr": "arrête de tout regarder [[en vitesse x2]]",
+     "texte": "laske puhelin [[ja mene nukkumaan]]"
+    },
+    "T2": {
+     "en": [
+      "you watch everything at 2x",
+      "and feel like you're learning",
+      "so much"
+     ],
+     "fr": "tu regardes tout en x2 et t'as l'impression [[d'apprendre plein de trucs]]",
+     "texte": "scrollaat sängyssä kahteen asti ja sitten [[mitään ei jää mieleen]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain never gets",
+      "time to actually think"
+     ],
+     "fr": "mais ton cerveau a jamais le temps de [[vraiment réfléchir]]",
+     "texte": "unessa aivot [[tallentavat sen, mitä opit]]"
+    },
+    "T4": {
+     "en": [
+      "and normal speed starts to",
+      "feel boring. why are you",
+      "rushing to finish a tiktok?"
+     ],
+     "fr": "et la vitesse normale [[te saoule]]. [[pourquoi tu te presses de finir un tiktok ?]]",
+     "texte": "vähemmän unta, vähemmän muistia. [[fiksuin tapa on mennä nukkumaan]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703982934369324320_6.jpg",
+      "boite": [
+       44,
+       547,
+       482,
+       529
+      ]
+     }
+    }
+   }
+  }
+ }
+}

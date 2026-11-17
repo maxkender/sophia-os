@@ -1,0 +1,672 @@
+{
+ "id": "yp-062",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je m’organise avec 3 exams la même semaine",
+  "en": "how i get organized with 3 exams in one week",
+  "es": "cómo me organizo con 3 exámenes la misma semana",
+  "de": "so organisiere ich mich bei 3 Prüfungen in einer Woche",
+  "it": "come mi organizzo con 3 esami nella stessa settimana",
+  "pt-BR": "como eu me organizo com 3 provas na mesma semana",
+  "tr": "aynı hafta 3 sınavım varken nasıl planlıyorum"
+ },
+ "legendes": {
+  "fr": "tu vas y arriver 🤍 #examens #revisions #studytok #thatgirl #organisation",
+  "en": "you’ve got this 🤍 #exams #finals #studytok #thatgirl #studytips",
+  "es": "vas a poder 🤍 #examenes #estudiar #studytok #thatgirl #organizacion",
+  "de": "du schaffst das 🤍 #prüfungen #lernen #studytok #thatgirl #organisation",
+  "it": "ce la farai 🤍 #esami #studiare #studytok #thatgirl #organizzazione",
+  "pt-BR": "você vai conseguir 🤍 #provas #estudos #studytok #thatgirl #organizacao",
+  "tr": "başaracaksın 🤍 #sınav #ders #studytok #thatgirl #planlama"
+ },
+ "musique": {
+  "titre": "marys_theme.mp4",
+  "url": "https://www.tiktok.com/music/marys_theme-mp4-6944861458211621638"
+ },
+ "fond": {
+  "media_id": "5c1aae45-cd28-463f-9991-88aa53fcc2de",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/8fcc0a76-38db-4d3c-9a94-7b618b0854f8/6.jpg?v=1787141532108",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je me teste chaque soir », sans capture. 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "comment je m’organise avec",
+     "lignes": [
+      "3 EXAMS",
+      "LA MÊME",
+      "SEMAINE"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "how i get organized with",
+     "lignes": [
+      "3 EXAMS",
+      "IN ONE",
+      "WEEK"
+     ],
+     "taille": 170,
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cómo me organizo con",
+     "lignes": [
+      "3 EXÁMENES",
+      "LA MISMA",
+      "SEMANA"
+     ],
+     "taille": 150,
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "so organisiere ich mich bei",
+     "lignes": [
+      "3 PRÜFUNGEN",
+      "IN EINER",
+      "WOCHE"
+     ],
+     "taille": 140,
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "come mi organizzo con",
+     "lignes": [
+      "3 ESAMI",
+      "NELLA STESSA",
+      "SETTIMANA"
+     ],
+     "taille": 130,
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "como eu me organizo com",
+     "lignes": [
+      "3 PROVAS",
+      "NA MESMA",
+      "SEMANA"
+     ],
+     "taille": 160,
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AYNI HAFTA",
+      "3 SINAVIM",
+      "VARKEN NASIL",
+      "PLANLIYORUM"
+     ],
+     "taille": 110,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "16d728fb-cbfa-4537-a84c-a22d49370f4a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/6c8f41b3-99ef-4593-af8c-5bf1a8f3fb08/2.jpg?v=1791726235993",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je fais la liste de tout📋",
+      "texte": "chaque chapitre de chaque matière, sur une seule feuille. tout voir d’un coup fait moins peur.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i list everything📋",
+      "texte": "every chapter of every subject on one sheet. seeing it all at once is less scary.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lo apunto todo📋",
+      "texte": "cada tema de cada asignatura en una sola hoja. verlo todo junto asusta menos.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich schreibe alles auf📋",
+      "texte": "jedes Kapitel jedes Fachs auf ein Blatt. alles auf einmal zu sehen macht weniger Angst.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "faccio la lista di tutto📋",
+      "texte": "ogni capitolo di ogni materia su un solo foglio. vedere tutto insieme fa meno paura.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "faço a lista de tudo📋",
+      "texte": "cada capítulo de cada matéria numa folha só. ver tudo de uma vez assusta menos.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her şeyi listeliyorum📋",
+      "texte": "her dersin her ünitesi tek bir kâğıtta. hepsini birden görmek daha az korkutuyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "3efbe9fb-5add-411f-ba7d-32e21883283b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55376335-ad2b-47dc-8aa1-03b3d6241fce/3.jpg?v=1791725368688",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je commence par l’exam le plus proche⏳",
+      "texte": "mais 20 min par jour sur les deux autres, pour ne rien oublier.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i start with the closest exam⏳",
+      "texte": "but 20 min a day on the other two so nothing slips.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "empiezo por el examen más cercano⏳",
+      "texte": "pero 20 min al día con los otros dos para no olvidar nada.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich fange mit der nächsten Prüfung an⏳",
+      "texte": "aber 20 Min. am Tag für die anderen zwei, damit nichts verloren geht.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "comincio dall’esame più vicino⏳",
+      "texte": "ma 20 min al giorno sugli altri due, per non dimenticare niente.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "começo pela prova mais próxima⏳",
+      "texte": "mas 20 min por dia nas outras duas, pra não esquecer nada.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "en yakın sınavdan başlıyorum⏳",
+      "texte": "ama diğer ikisine de günde 20 dakika, hiçbir şey unutulmasın diye.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "0b0cd57b-9e2a-4811-bef2-39190f31ba4e",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/da44381c-698a-48a2-b501-8a7f1d24a60b/4-upscale.jpg?v=1790498427547",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je me teste chaque soir🧠",
+      "texte": "je mets les 3 matières dans micabo et je fais un quiz mélangé. je vois tout de suite laquelle est en retard.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i test myself every night🧠",
+      "texte": "i put all 3 subjects into micabo and do a mixed quiz. i see right away which one is behind.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "me pongo a prueba cada noche🧠",
+      "texte": "meto las 3 asignaturas en micabo y hago un quiz mezclado. veo enseguida cuál va atrasada.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich teste mich jeden Abend🧠",
+      "texte": "ich packe alle 3 Fächer in micabo und mache ein gemischtes Quiz. ich sehe sofort, welches hinterherhinkt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mi metto alla prova ogni sera🧠",
+      "texte": "metto le 3 materie su micabo e faccio un quiz misto. vedo subito quale è indietro.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "me testo toda noite🧠",
+      "texte": "coloco as 3 matérias no micabo e faço um quiz misturado. vejo na hora qual está atrasada.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her akşam kendimi test ediyorum🧠",
+      "texte": "3 dersi de micabo’ya koyup karışık test çözüyorum. hangisinin geride kaldığını hemen görüyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2a74e9da-b936-4371-a1b2-e1ec4e7208cf",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/50704682-8ae1-4496-9638-3379e8b16ac9/2.jpg?v=1787141562941",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je dors 8 h, même cette semaine😴",
+      "texte": "une nuit blanche coûte plus de points qu’elle n’en rapporte.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i sleep 8 hours, even that week😴",
+      "texte": "an all-nighter costs you more points than it earns.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "duermo 8 h, incluso esa semana😴",
+      "texte": "una noche en vela te quita más puntos de los que te da.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich schlafe 8 Stunden, auch in dieser Woche😴",
+      "texte": "eine durchgemachte Nacht kostet mehr Punkte, als sie bringt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "dormo 8 ore, anche quella settimana😴",
+      "texte": "una notte in bianco ti costa più punti di quanti te ne fa guadagnare.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "durmo 8 h, até nessa semana😴",
+      "texte": "virar a noite custa mais pontos do que rende.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "o hafta bile 8 saat uyuyorum😴",
+      "texte": "uykusuz bir gece kazandırdığından fazla puan kaybettirir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "2ae02b4f-d7ff-4700-856f-fd380288c486",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/16e465e2-48fa-4dd2-b29f-1b26ecdb1a87/5.jpg?v=1790609041414",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je prépare mes affaires la veille🎒",
+      "texte": "convocation, stylos, eau. le matin, zéro décision à prendre.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i pack my bag the night before🎒",
+      "texte": "exam pass, pens, water. zero decisions in the morning.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "preparo mis cosas la noche antes🎒",
+      "texte": "documentación, bolis, agua. por la mañana, cero decisiones.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich packe meine Sachen am Vorabend🎒",
+      "texte": "Ausweis, Stifte, Wasser. morgens null Entscheidungen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "preparo le mie cose la sera prima🎒",
+      "texte": "documento, penne, acqua. la mattina, zero decisioni.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "arrumo minhas coisas na véspera🎒",
+      "texte": "documento, canetas, água. de manhã, zero decisões.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "eşyalarımı bir gece önceden hazırlıyorum🎒",
+      "texte": "sınav belgesi, kalemler, su. sabah karar vermek yok.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "25f7f656-8769-42f4-b020-c3de32bdf9f7",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fe74bdf9-be52-4983-8e53-4345e2ffbe3e/2.jpg?v=1790678212140",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je souffle après chaque épreuve🌿",
+      "texte": "1 h sans réviser, puis je passe à la suivante. pas de bilan de l’exam fini.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i breathe after each exam🌿",
+      "texte": "1 hour off, then on to the next one. no rehashing the one that’s done.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "respiro después de cada examen🌿",
+      "texte": "1 h sin estudiar y paso al siguiente. nada de repasar el que ya terminó.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich atme nach jeder Prüfung durch🌿",
+      "texte": "1 Stunde Pause, dann die nächste. kein Grübeln über die, die vorbei ist.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "respiro dopo ogni esame🌿",
+      "texte": "1 ora di pausa, poi passo al prossimo. niente rimuginare su quello finito.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "respiro depois de cada prova🌿",
+      "texte": "1 h sem estudar e passo pra próxima. nada de remoer a que já foi.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "her sınavdan sonra nefes alıyorum🌿",
+      "texte": "1 saat mola, sonra sıradakine geçiyorum. biten sınavı düşünmek yok.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je m’organise avec 3 exams la même semaine"
+ }
+}

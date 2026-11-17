@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o173",
+  "type_bleo": "full_test",
+  "titre": "comment je parle de mes lectures sans avoir l'air prétentieuse #lecture #booktok #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Accroche jamais faite chez nous : parler culture sans frimer. Accroches écrites : « comment je parle de mes lectures sans avoir l'air prétentieuse » (retenue : peur commune, concrète), « parler de livres » (écartée : sec), « ne pas passer pour une intello » (écartée : négatif). Aucun fait daté. Routine du 16/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 et 9 de la boîte se déclinent proprement, donc 2 déclinaisons et 6 full tests. Lignes sautées : 2 (« validé par les neurosciences »), 3 (accroche illisible), 4, 7 et 8 (« backed by science », bienfaits santé invérifiables), 5 (« enterimarnt »), 6 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "22255921",
+      "texte_overlay": "comment je parle de mes lectures\nsans avoir l'air prétentieuse",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "801f2654",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "222569d2",
+      "texte_overlay": "1. je raconte une scène, pas le résumé\n\nle moment qui m'a fait rire ou pleurer.\ntout le monde aime une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "22f73716",
+      "texte_overlay": "2. je dis pourquoi ça m'a plu\n\npas pourquoi c'est un chef-d'œuvre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "22fa5ea1",
+      "texte_overlay": "3. je demande ce que l'autre lit\n\net j'écoute vraiment la réponse.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "23001324",
+      "texte_overlay": "4. j'avoue quand j'ai trouvé ça ennuyeux\n\nmême un classique.\nla franchise met tout le monde à l'aise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "231524c1",
+      "texte_overlay": "5. je prête le livre\n\nau lieu d'en parler pendant une heure.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "23bd4dcc",
+      "texte_overlay": "c'est quoi ton dernier livre ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

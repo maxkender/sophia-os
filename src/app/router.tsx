@@ -1,4 +1,6 @@
 import { PageLienEmail } from "@/features/liens/PageLienEmail";
+import { PageQuestionnaire } from "@/features/questionnaire/PageQuestionnaire";
+import { PageQuestionnaires } from "@/features/questionnaire/PageQuestionnaires";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { SetPasswordPage } from "@/features/auth/SetPasswordPage";
@@ -120,6 +122,8 @@ export function AppRouter() {
       <Route path="/set-password" element={<SetPasswordPage />} />
       {/* 0696 : les liens des emails aux posteurs (jeton à usage unique), sans connexion. */}
       <Route path="/r/:action" element={<PageLienEmail />} />
+      {/* 15/11 : le questionnaire public, par lien, sans connexion. */}
+      <Route path="/questionnaire/:slug" element={<PageQuestionnaire />} />
 
       <Route element={<ProtectedRoute />}>
         <Route path="/" element={<Accueil />} />
@@ -185,6 +189,8 @@ export function AppRouter() {
               <Route path="/admin/auto/problemes-v2" element={<PageProblemesV2 />} />
               {/* 12/11 (Support propre) : le bot du support (tester, catalogue, tests, suivi), admin seulement. */}
               <Route path="/admin/bot" element={<PageBot />} />
+              {/* 15/11 : les questionnaires (lien, réponses, pop-up ciblé), admin seulement. */}
+              <Route path="/admin/questionnaires" element={<PageQuestionnaires />} />
               <Route path="/admin/minuit" element={<AdminMinuitPage />} />
               <Route path="/admin/posts" element={<Navigate to="/admin/calendrier" replace />} />
               <Route path="/admin/analytics" element={<AdminAnalyticsPage />} />

@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o178",
+  "type_bleo": "full_test",
+  "titre": "comment je rends mes trajets en transports utiles (et presque agréables) #transports #culture #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test, cta B (l'anecdote du jour en item 3). Accroche jamais faite chez nous : les trajets utiles, méthode « je ». Accroches écrites : « comment je rends mes trajets en transports utiles (et presque agréables) » (retenue : douleur quotidienne, concrète), « que faire dans le métro » (écartée : vague), « 1 h de trajet par jour » (écartée : chiffre à tenir). Fait vérifié le 6/11 sur https://en.wikipedia.org/wiki/Louvre : « The museum opened on 10 August 1793 ». Routine du 16/11 sur BLEO (règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 2 full tests et 6 déclinaisons ; seules les lignes 1 et 9 de la boîte se déclinent proprement, donc 2 déclinaisons et 6 full tests. Lignes sautées : 2 (« validé par les neurosciences »), 3 (accroche illisible), 4, 7 et 8 (« backed by science », bienfaits santé invérifiables), 5 (« enterimarnt »), 6 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "82185ba0",
+      "texte_overlay": "comment je rends mes trajets en transports utiles\n(et presque agréables)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "821bb575",
+      "texte_overlay": "1. un livre de poche dans chaque sac\n\nle trajet devient un chapitre.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "8239e3ea",
+      "texte_overlay": "2. je révise une fiche par station\n\ntrois stations, trois fiches.\nà l'arrivée, c'est fait.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "df3c6001",
+      "texte_overlay": "3. j'apprends une anecdote\n\nce matin, j'ai appris que le louvre a ouvert comme musée en 1793, avant c'était un palais.\nje l'ai racontée à l'arrivée.",
+      "texte_sophia": "3. j'apprends une anecdote\n\nce matin, l'appli Sophia m'a appris que le louvre a ouvert comme musée en 1793, avant c'était un palais.\nje l'ai racontée à l'arrivée.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "825675c3",
+      "texte_overlay": "4. je regarde les gens et j'imagine leur histoire\n\nmeilleur exercice d'écriture du monde.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "82cd5e46",
+      "texte_overlay": "5. je ne fais rien, parfois\n\nregarder la fenêtre.\nc'est là que viennent les idées.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "8329ee42",
+      "texte_overlay": "c'est quoi ton rituel dans les transports ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

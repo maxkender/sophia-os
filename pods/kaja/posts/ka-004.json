@@ -9,12 +9,22 @@
  "titre": {
   "en": "10/10 skills you can learn",
   "fr": "10/10 skills que tu peux apprendre",
-  "de": "10/10 Skills, die du lernen kannst"
+  "de": "10/10 Skills, die du lernen kannst",
+  "it": "10/10 abilità che puoi imparare",
+  "tr": "10/10 öğrenebileceğin beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz",
+  "pl": "10/10 umiejętności, których możesz się nauczyć",
+  "pt-BR": "10/10 habilidades que você pode aprender"
  },
  "legendes": {
   "en": "10/10 skills you can learn #skills #selfimprovement #learnontiktok",
   "fr": "10/10 skills que tu peux apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
-  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 abilità che puoi imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin beceriler #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności, których możesz się nauczyć #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades que você pode aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
  },
  "musique": {
   "titre": "Earrings",
@@ -44,6 +54,39 @@
      "SKILLS, DIE",
      "DU LERNEN",
      "KANNST"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "ABILITÀ",
+     "CHE PUOI",
+     "IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "ÖĞRENEBİLECEĞİN",
+     "BECERİLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÉSZSÉG, AMIT",
+     "MEGTANULHATSZ"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI,",
+     "KTÓRYCH MOŻESZ",
+     "SIĘ NAUCZYĆ"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "QUE VOCÊ",
+     "PODE APRENDER"
     ]
    }
   },
@@ -117,6 +160,121 @@
     "sous": [
      "10-30 Min."
     ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "CONQUISTARE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7K_XS1jfd7s",
+     "titre": "Come conquistare la mente di una donna",
+     "chaine": "Psicologa Giada Ave",
+     "vues": "548K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/GWNaxFs_sS1KfwSv0P5BhASdwQ0t53Emnz3tBNb9on9Q98jf-V98yxp16IH2AKConguJTmfEv0c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "FLÖRT EDİLİR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qsEjekDDM_c",
+     "titre": "FLÖRT USTASI OLMANIN 5 TEMEL ADIMI",
+     "chaine": "İnce İşler",
+     "vues": "364 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "10:10",
+     "avatar": "https://yt3.ggpht.com/VJUgW6OENH09AZX1PY856WJYrmJHjz0-fRMs0DFxpZejBaukHlxPlAWdQZq354WTDOG1WnftOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "FLÖRTÖLJ",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jESDLe6Yajw",
+     "titre": "10 flörtölési trükk",
+     "chaine": "PSZICHO PARTNER",
+     "vues": "23 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "10:33",
+     "avatar": "https://yt3.ggpht.com/BQyZxJHgAESlFs76XA2jRcMeh0HPx0bs4zBzcSsKU_SqevZ0rxgmuK2h_fcHqvo9moSVZpKlHQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "FLIRTOWAĆ",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xmRwH-0gi9U",
+     "titre": "Jak flirtować z facetem w codziennych sytuacjach – 3 zasady udanego flirtu! | Anna Szlęzak",
+     "chaine": "Anna Szlęzak",
+     "vues": "328 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "8:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nx4s6AIo11euxoqNfP186Z7WZTI3VyrVt2dhoWVlD-d54=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "FLERTAR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3bo5nab2TfI",
+     "titre": "COMO FLERTAR | 7 dicas FÁCEIS para FLERTAR sem passar vergonha",
+     "chaine": "Tháta",
+     "vues": "1,2 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "11:27",
+     "avatar": "https://yt3.ggpht.com/XS-z5AYXF5xP4cXRUcAQ6DwlviE63c3AObtvWEPgk7Losgkq7Zit1f4OdUwDs40jeyX4IivJHYg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
    }
   },
   {
@@ -189,6 +347,121 @@
     "sous": [
      "10-30 Min."
     ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "CUCINARE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z5RfnQzpJ2w",
+     "titre": "9 TRUCCHI IN CUCINA CHE AVREI VOLUTO CONOSCERE PRIMA - essenziali per iniziare",
+     "chaine": "Cooker Girl",
+     "vues": "158K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "9:10",
+     "avatar": "https://yt3.ggpht.com/WREk3YNldWzh5uTNywlooN5diJNRF3D7xD5VB7IdS3GTEwKqYUow0rymnlbQfUkN4TDxBh9uUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "YEMEK YAPILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K6uLIkoPODg",
+     "titre": "YEMEK YAPMAYI ÖĞRENMEK İSTEYENLERE SIFIRDAN DETAYLI ANLATIYORUM | DIŞARIDAN SAĞLIKSIZ YEMEKLERE SON",
+     "chaine": "Sadık Kılıç",
+     "vues": "151 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/Mfx0RRPl7s95oELIqV2l6we0DeFmXPN0hnvDB0U8d1SCYHP5Qx2_Ns3-BmpynMgJIJUGJ7UaIYs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "FŐZZ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fEkEdsrsdXw",
+     "titre": "DIY főzés kezdőknek (Multiverzum)",
+     "chaine": "M5",
+     "vues": "293 megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "3:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCOmLMKjlUzf_ZIe5Z5bbm2pdtwjFPPHPw6fgnMaC2Kw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "GOTOWAĆ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6BuXvwcJwj0",
+     "titre": "Kurs gotowania  lek. 1  A Ty jak smażysz mięso ? / Oddaszfartucha",
+     "chaine": "Tomasz Strzelczyk ODDASZFARTUCHA",
+     "vues": "544 tys. wyświetleń",
+     "date": "4 lata temu",
+     "duree": "7:00",
+     "avatar": "https://yt3.ggpht.com/V08hSI5i3DCQvdP_G9jPZwHhwv3RqloFvokIe6RVpzgbNJ24jGtusBNRkdvxqYutPsybGFlS0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "COZINHAR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OnGBXf-_xCU",
+     "titre": "21 Truques de Cozinha Que Aprendi Em Restaurantes",
+     "chaine": "FoodMakers",
+     "vues": "1 mi visualizações",
+     "date": "há 2 anos",
+     "duree": "13:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJ5TaAK0m3ZfgoZpHVC8F1plAjpHbbQj0sTUr-unJ1jg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
    }
   },
   {
@@ -255,6 +528,111 @@
     },
     "sous": [
      "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME NON ESSERE",
+     [
+      {
+       "t": "MAI NOIOSO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL ASLA",
+     [
+      {
+       "t": "SIKICI OLMAZSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN NE LEGYÉL",
+     [
+      {
+       "t": "SOHA UNALMAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NIGDY",
+     [
+      {
+       "t": "NIE NUDZIĆ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO NUNCA",
+     [
+      {
+       "t": "SER CHATO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
     ]
    }
   },
@@ -328,6 +706,121 @@
     "sous": [
      "10-30 Min."
     ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "BALLARE",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gE8lkaLf_N8",
+     "titre": "4 PASSI BASE PER BALLARE IN DISCOTECA - TUTORIAL",
+     "chaine": "Choros Ballet",
+     "vues": "1 Mln visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "5:06",
+     "avatar": "https://yt3.ggpht.com/dCz9LlbPdVpD4UFYt2II2vWfD8upDPBzm5wKnwmA_yOyz3jETOPJ1iCFZ5ysGJd9LXDjsBcFpw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "DANS EDİLİR",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4vyMEq9L_cI",
+     "titre": "YENİ BAŞLAYANLAR İÇİN DANS #DANCEHALL BASİT HAREKETLER ( KOLAY DANSLAR )",
+     "chaine": "ERHAN KIRCA DANCE ACADEMY",
+     "vues": "223 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "9:18",
+     "avatar": "https://yt3.ggpht.com/tJKGGozJ6rbQvP6FQEB8325JKSgQ_M3Wxzd_WQokK6KD5mllWSu-S1X_XBy_bhLMJpYuxLS3rg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "TÁNCOLJ",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mD-nb6OOFks",
+     "titre": "Tánclépések kezdőknek | Ábrahám Viktor - tánciskola",
+     "chaine": "Ábrahám Viktor - Tánciskola",
+     "vues": "219 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lRTnKWV0TVVI6manYpqyBRIFdeFiHOCgDBqCw8AlI9Gg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "TAŃCZYĆ",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ypQ9QskkclI",
+     "titre": "Naucz się tańczyć! Taniec Użytkowy I 2na1 I Poziom Podstawowy I  - lekcja testowa",
+     "chaine": "Wedding Dance at Home",
+     "vues": "1 mln wyświetleń",
+     "date": "6 lat temu",
+     "duree": "2:03",
+     "avatar": "https://yt3.ggpht.com/GfldUTfkS7chHfjfan9That1zD6pkyBosq8Wxbk8n9NiYr9YK5xpiPT4aPCOs58lMosyY1Dy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "DANÇAR",
+       "couleur": "#f4eb11"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W8NsE5E8_iQ",
+     "titre": "PASSOS BÁSICOS PARA INICIANTES #1 | Aprenda a dançar | Passos de dança | Taty Macieski",
+     "chaine": "Taty Macieski",
+     "vues": "1,5 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "3:22",
+     "avatar": "https://yt3.ggpht.com/IxnVoy6m3o6gvLFSp_dREHM7XBNFBIKvldV_sIjBP7ctnyVSEDc1QiyELOMG4k3Fck8NzUZF=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
    }
   },
   {
@@ -399,6 +892,125 @@
     },
     "sous": [
      "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "DIFENDERSI",
+       "couleur": "#e1a777"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PVHTysMpqGY",
+     "titre": "LE 4 AGGRESSIONI PIÙ COMUNI: come difendersi || Manuel Spadaccini",
+     "chaine": "Manuel Spadaccini KMA",
+     "vues": "957K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "12:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k7b0jwRBgPmghMoag02KxHp9yv-ly5NX1l3zaZz-LF5O0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KENDİNİ SAVUNURSUN",
+       "couleur": "#e1a777"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9xltWC_X1WQ",
+     "titre": "Bunları Bilmezsen NET Dayak Yersin!",
+     "chaine": "Savunma Sanatları Akademisi",
+     "vues": "406 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "4:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mamAJiSehCT0To9i9QZrhgAXxxVUwO_B1IAa2u517UmY8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "VÉDD MEG MAGAD",
+       "couleur": "#e1a777"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VMETDk6pj_8",
+     "titre": "Fonák támadás védése - Ju-jitsu alapok",
+     "chaine": "SamanSport",
+     "vues": "2,1 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/Y31ZATTzdB2oduRiJM4xGr4DefoAAvf4PrsTNk8WhjQPgcByxdCZyOUUL_D6Z2guNiI5mtDe=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK SIĘ",
+     [
+      {
+       "t": "BRONIĆ",
+       "couleur": "#e1a777"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T0A9tpscho8",
+     "titre": "Kurs samoobrony  #1 Jak się zachować gdy ktoś jest agresywny",
+     "chaine": "Zaliczone na 5!",
+     "vues": "1 mln wyświetleń",
+     "date": "10 lat temu",
+     "duree": "15:47",
+     "avatar": "https://yt3.ggpht.com/foM69HCs8viCVVnUeWSq7G8T1mzF89cEsY9cki7Ir_2SBydDt1iiObt9mJvZtLNC1HZ6MyVjug=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ],
+    "tailles": [
+     170,
+     170
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "LUTAR",
+       "couleur": "#e1a777"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CUrWCip3890",
+     "titre": "Como Aprender a Lutar em Casa - Um Guia Prático",
+     "chaine": "Kevistenic",
+     "vues": "1 mi visualizações",
+     "date": "há 1 ano",
+     "duree": "7:01",
+     "avatar": "https://yt3.ggpht.com/hCKEFf3oOR3095nPrg4UB2gvjai2hFHe5mRgKDgkITGT78Xtv1j1ot5iS_pHIsZzUlm83Vci-4o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
     ]
    }
   }

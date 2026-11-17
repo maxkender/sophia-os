@@ -9,12 +9,22 @@
  "titre": {
   "en": "10/10 skills you can learn",
   "fr": "10/10 compétences que tu peux apprendre",
-  "de": "10/10 Skills, die du lernen kannst"
+  "de": "10/10 Skills, die du lernen kannst",
+  "it": "10/10 abilità che puoi imparare",
+  "tr": "10/10 öğrenebileceğin beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz",
+  "pl": "10/10 umiejętności, których możesz się nauczyć",
+  "pt-BR": "10/10 habilidades que você pode aprender"
  },
  "legendes": {
   "en": "10/10 skills you can learn #skills #selfimprovement #learnontiktok",
   "fr": "10/10 compétences que tu peux apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
-  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+  "de": "10/10 Skills, die du lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 abilità che puoi imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin beceriler #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 készség, amit megtanulhatsz #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności, których możesz się nauczyć #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades que você pode aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
  },
  "musique": {
   "titre": "sonido original",
@@ -44,6 +54,39 @@
      "SKILLS, DIE",
      "DU LERNEN",
      "KANNST"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "ABILITÀ",
+     "CHE PUOI",
+     "IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "ÖĞRENEBİLECEĞİN",
+     "BECERİLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÉSZSÉG, AMIT",
+     "MEGTANULHATSZ"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI,",
+     "KTÓRYCH MOŻESZ",
+     "SIĘ NAUCZYĆ"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "QUE VOCÊ",
+     "PODE APRENDER"
     ]
    }
   },
@@ -117,6 +160,121 @@
     "sous": [
      "1-2 Wochen"
     ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "L'OLLIE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9nWMi9Cbgmw",
+     "titre": "Come fare OLLIE (Skate Tutorial ITA)",
+     "chaine": "Vincent Morello Skateboarding",
+     "vues": "313K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/kn-wqAm76JAujECzfp8hPlCNOrqSSd4vVrahoMKVN2FztZVt2yoYSKkBIc6LyTOZp-Ikrpe4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "OLLIE YAPILIR",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w8knyml0Y1w",
+     "titre": "Ollie Nasıl Yapılır! [Kaykay Nasıl Sürülür]",
+     "chaine": "Tuna Özsoy",
+     "vues": "113 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "10:47",
+     "avatar": "https://yt3.ggpht.com/nenigceom6iWbgHKDDqcQtOj7atM6qBNzusi05Hs72M3jaIjlYCbz8KNUmtVe5ujgQVndgeZ0JI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "OLLIE-ZZ",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sm3b10rM1gE",
+     "titre": "Hogyan tanulj meg OLLIE-zni! | DeszkAlapok",
+     "chaine": "AFK Légió",
+     "vues": "42 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "6:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lPCLP1wC0ibkGKNlMPi0jN53Lw7dtTfIK43Y7vOEv7_g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "OLLIE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jP5im-ZtF1c",
+     "titre": "Jak Zrobić OLLIE Internetowa Szkoła Deskorolki (odc. 5)",
+     "chaine": "Forum Deskorolkowe",
+     "vues": "350 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "12:48",
+     "avatar": "https://yt3.ggpht.com/jYr1yxGgpS9ZcAfWloytaBoEZK4jEaAoj7ShBaOofLEJuXhIKootlgtt2lcIrT5Ofa5Rt9GF=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO MANDAR",
+     [
+      {
+       "t": "UM OLLIE",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pf8JXjOuSRQ",
+     "titre": "COMO MANDAR OLLIE - Skate para Iniciantes",
+     "chaine": "SKTBR",
+     "vues": "1,6 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "7:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ko_SLtLYqoCkYcW0FmH3ZKfeiMxV-Y3RAfFGSQR-RpKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
    }
   },
   {
@@ -188,6 +346,121 @@
     },
     "sous": [
      "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "LA VERTICALE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JYUW88FHPdE",
+     "titre": "Come fare la verticale PASSO PER PASSO - Verticale SENZA MURO e verticale A MURO",
+     "chaine": "unCome.it",
+     "vues": "499K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPykmnNTAQ-ujgIRwWT08fkuPNsINDpqCgng6_FeBp0xI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "AMUT YAPILIR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ORoW1ETNagU",
+     "titre": "4 Egzersiz ile AMUT Yap - Sıfır Malzeme İle AMUT Nasıl Yapılır?",
+     "chaine": "Damla Karahasan",
+     "vues": "346 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "7:37",
+     "avatar": "https://yt3.ggpht.com/f8IzcnxoAJGbAykJEfJ4qkkasH7mSUjCMCxYKtvFK9N0ri_0wmrCgEpNGkTrgr5s-Bn9uwWMhA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "ÁLLJ KÉZEN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1rZswBaJveE",
+     "titre": "HOGYAN KELL KÉZENÁLLNI I A JÓ KÉZENÁLLÁS TITKAI I HOGYAN ÁLLJ TOVÁBB KÉZEN",
+     "chaine": "Viki Vanyi",
+     "vues": "99 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/OpUgM9uSQKfH3Jerd3EindgxAVi1H0biLJw0Hm91stdjCU8ELk7koN3piYttbYEgFlIHZLa9V4k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK STANĄĆ",
+     [
+      {
+       "t": "NA RĘKACH",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xV4GieKLD5k",
+     "titre": "Jak zrobić stanie na rękach?",
+     "chaine": "wformie24.pl",
+     "vues": "1,1 mln wyświetleń",
+     "date": "9 lat temu",
+     "duree": "4:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m6buwZgGXm9qtxkre2opJiBu1mCIpjwHmG0lbdnBeCeg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "PARADA DE MÃO",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V9iN0GBfd_s",
+     "titre": "Parada de mãos por onde começar?",
+     "chaine": "Calistenia Brasil",
+     "vues": "196 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "21:18",
+     "avatar": "https://yt3.ggpht.com/--3pWirPcieRS4t9R_VCedkGTQNEf384KkP5mugsTWPR4RVOSSm6llTfxbcAzan2maeii9HO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
     ]
    }
   },
@@ -274,6 +547,141 @@
     "sous": [
      "5 Min. am Tag"
     ]
+   },
+   "it": {
+    "titre": [
+     "COME AVERE",
+     [
+      {
+       "t": "SEMPRE QUALCOSA",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "DA DIRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL HER ZAMAN",
+     [
+      {
+       "t": "KONUŞACAK",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "BİR ŞEYİN OLUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN LEGYEN",
+     [
+      {
+       "t": "MINDIG MIRŐL",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "BESZÉLNED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZAWSZE",
+     [
+      {
+       "t": "MIEĆ O CZYM",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ROZMAWIAĆ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO TER",
+     [
+      {
+       "t": "SEMPRE ASSUNTO",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "PRA CONVERSAR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
    }
   },
   {
@@ -345,6 +753,121 @@
     },
     "sous": [
      "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "CANTARE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "k8Ab1J99L8Q",
+     "titre": "COME CANTARE BENE SUBITO",
+     "chaine": "Cantare R&B",
+     "vues": "262K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "4:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m1Mz29feJup2dLf3qGiSS9FT-ppVYtFxrsbNMQhv-fiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ŞARKI SÖYLENİR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pO2L4wX9QbY",
+     "titre": "10 adımda şarkı söyleme ipuçları | İzgi Gültekin Vokal Dersi #1",
+     "chaine": "Müzik Üniversitesi",
+     "vues": "115 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "10:32",
+     "avatar": "https://yt3.ggpht.com/IOH4hVib8oikng9Y_9EQRiBaPnOYJV82abbYrrmjRsYDKaGubad80hPeGUbvWt1TXYhHFElrCw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "ÉNEKELJ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VU4Ea0IvpfI",
+     "titre": "Hogyan legyél profi énekes? • 10 TIPP kezdőknek I SINGSPIRATION I Hajdu Klára",
+     "chaine": "Hajdu Klára",
+     "vues": "23 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "5:03",
+     "avatar": "https://yt3.ggpht.com/G4Fy-3AoM8lPHgHVGmpBfGxvylwvSZ3nDcFybaRmzKAYdnLT0jqPSO4FYOwK6fUV5oA85cDg8J4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "ŚPIEWAĆ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Mh4Py9yLSAo",
+     "titre": "JAK ŚPIEWAĆ CZYSTO?",
+     "chaine": "Gosia Sacała",
+     "vues": "252 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "14:58",
+     "avatar": "https://yt3.ggpht.com/fYuQCdPSMPNPLgfoiQl87Mm-ty7aUoKQcyN1JHSJG60wD66enVLqFqC_81aLFPQTwdH6rWmVtgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "CANTAR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "be2t3N5wgBI",
+     "titre": "COMO COMEÇAR A CANTAR: Primeiros Passos | Aula de Canto",
+     "chaine": "Cifra Club",
+     "vues": "2,8 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "9:39",
+     "avatar": "https://yt3.ggpht.com/8VnmfIL6fFhhvUex818rd9t9sv9TkvvbQJKOMMRsCxan-NTdNSiboXjIK4HS48wpYMU6cQHg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
     ]
    }
   }

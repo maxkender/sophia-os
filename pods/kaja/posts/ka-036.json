@@ -1,0 +1,345 @@
+{
+ "id": "ka-036",
+ "titre": {
+  "en": "10/10 outdoor skills to learn",
+  "fr": "10/10 skills outdoor à apprendre",
+  "de": "10/10 Outdoor-Skills zum Lernen"
+ },
+ "legendes": {
+  "en": "10/10 outdoor skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills outdoor à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Outdoor-Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Cortex - Huit Octobre 1971",
+  "url": "https://www.tiktok.com/music/cortex-huit-octobre-1971-6943741223941245701"
+ },
+ "notes": "Full test (BLEO, 16/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le plein air). Décor falaise, en en, fr et de. Son format court à 3 compétences plus l'étape Sophia, jamais faites chez nous : lancer une canne à pêche, bloc d'escalade, surf. Musique : « Cortex – Huit Octobre 1971 » de son manifeste, jamais pris, pour alterner. Sophia en étape 3 « HOW TO LEARN SOMETHING NEW EVERY DAY » : cta A, « 5 min a day ». Vraies vidéos : en Fishing with Nat, Bouldering Bobat, Barefoot Surf ; fr Aminiakk Fishing, Vincent Grimpe, Waved ; de Fishing-King, Lauf des Lebens, Andi.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "OUTDOOR",
+     "SKILLS TO",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS",
+     "OUTDOOR"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "OUTDOOR-",
+     "SKILLS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO CAST",
+     [
+      {
+       "t": "A FISHING ROD",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yoauPIoxT5E",
+     "titre": "How to Cast and Use a Fishing Rod for Beginners - Open Faced Spinning Reel",
+     "chaine": "Fishing with Nat",
+     "vues": "519K views",
+     "date": "2 years ago",
+     "duree": "2:41",
+     "avatar": "https://yt3.ggpht.com/AdDeARziDgQKj6nHTNReCZxa__6d5XZWK5luBJkR_evkAmYPeXYBJhJsC2IXd75EJkCfKLTwYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT LANCER",
+     [
+      {
+       "t": "UNE CANNE À PÊCHE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B7DAa7haI94",
+     "titre": "DÉBUTANT 2 PÊCHE #4 : Apprendre a bien LANCER avec sa canne à PÊCHE",
+     "chaine": "Aminiakk Fishing",
+     "vues": "235 k vues",
+     "date": "il y a 7 ans",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/EeAkolMmlyvlMgdbNvc9JWEfQKsJFSpyrORM72oyEK8RvZq5TBw17pIhwFeWnNUR2sL68gvCVg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRFST DU",
+     [
+      {
+       "t": "DIE ANGEL AUS",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HmmtUTRZz-8",
+     "titre": "Angel auswerfen - wie geht's? | Die 3 besten Wurftechniken!! | www.fishing-king.de",
+     "chaine": "Fishing-King",
+     "vues": "333.116 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "8:27",
+     "avatar": "https://yt3.ggpht.com/ZFZbIItBGJdcs0aCeIeQcKFmJwK2OSyI18E4PZSY6SNszNTUjZ38UTp5eeTRkMjkjrSHjRWu9fk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "BOULDER",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b2v4brHpdxY",
+     "titre": "TOP 10 Tips for Beginner Boulderers",
+     "chaine": "Bouldering Bobat",
+     "vues": "3M views",
+     "date": "8 years ago",
+     "duree": "5:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k0k8tmpNhZYbcsLSWc3NIlPkZ1Oh71edu6XKkHyyoJRb8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT DÉBUTER",
+     [
+      {
+       "t": "L'ESCALADE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lgdTIS457Oc",
+     "titre": "10 CONSEILS POUR DÉBUTANT EN ESCALADE",
+     "chaine": "Vincent Grimpe",
+     "vues": "268 k vues",
+     "date": "il y a 5 ans",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/xrEZa8-l8DaEjHBo7XPJvEBU4iRKUULwB7t_MDSH1adpQbQyiMSW9JN2l-qhTGoNfl6Mv1Re1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "BOULDERN",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5F_JDm1VWH8",
+     "titre": "Bouldern | 10 Technik Tipps & Tricks für Anfänger",
+     "chaine": "Lauf des Lebens",
+     "vues": "193.545 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_llQ5cyYm13dV3afBCYtHdnTyMtHKNJInY26vo_yM3z2g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "SOMETHING NEW",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "EVERY DAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "UN TRUC NOUVEAU",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "CHAQUE JOUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "JEDEN TAG",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "ETWAS NEUES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SURF",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PBmijBB57Go",
+     "titre": "How to Surf | 7 Tips Beginners Need to Know to Start Surfing",
+     "chaine": "Barefoot Surf",
+     "vues": "1.4M views",
+     "date": "6 years ago",
+     "duree": "10:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVYvlJvdlRgzewUbXAWwLXhCZ3lZIbQMDktkp3ihRhBeg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 week"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "SURFER",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lm7X-2CtgrA",
+     "titre": "Comment PRENDRE UNE VAGUE EN SURF  - Tutoriel surf débutant",
+     "chaine": "Waved",
+     "vues": "268 k vues",
+     "date": "il y a 5 ans",
+     "duree": "7:14",
+     "avatar": "https://yt3.ggpht.com/fDpNUETNpJPEL5P3XaSfK20pERUwrcFI9jf7JKCZHHIVSxqOgn1ZSEcZBA4GNpYfgveAhNRS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semaine"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "SURFEN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "37mStRQgGtg",
+     "titre": "SURFEN LERNEN in 7 Tagen! Surfcamp Portugal (Selbstexperiment)",
+     "chaine": "Andi",
+     "vues": "36.199 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "8:18",
+     "avatar": "https://yt3.ggpht.com/DdGBqskbYoP9J42fR868iRoX5RJyclKFaFu4UohujFmP-TEygoH3y_BFrQjxKQobraBSC8CU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

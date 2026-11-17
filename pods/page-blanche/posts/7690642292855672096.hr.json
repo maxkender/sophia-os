@@ -1,0 +1,301 @@
+{
+ "post_id": "7690642292855672096",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "10/10 rijetkih osobina jako uspješnih ljudi"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(znanost kaže)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_1.jpg",
+      "boite": [
+       88,
+       383,
+       760,
+       539
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "oni [[brzo donose odluke]]"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "uspješni ljudi [[ne odugovlače]]. [[ne čekaju da im netko da dopuštenje]], nego krenu i [[poslije se ispričaju]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "ne razmišljaju 3 tjedna o [[izboru koji se može promijeniti]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "ako je rizik mali, odluče, krenu i usput isprave. [[brzina je najvažnija]] kad odluku kasnije možeš promijeniti"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697728269335924001_3.jpg",
+      "boite": [
+       40,
+       435,
+       508,
+       560
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "fr": "ils [[s'en fichent d'avoir l'air bêtes]]",
+     "texte": "[[uopće im ne smeta ako ispadnu glupi]]"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "fr": "ils posent des questions bêtes, se lancent avant d'être prêts et [[disent quand ils savent pas]]",
+     "texte": "postavljaju osnovna pitanja, probaju prije nego što se osjećaju spremno i [[priznaju kad nešto ne znaju]]"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "fr": "protéger ton ego, ça rassure, mais ça [[te fait apprendre beaucoup moins vite]]",
+     "texte": "čuvanje ega djeluje sigurno, ali [[drastično usporava učenje]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "fr": "évoluer, c'est inconfortable, mais [[si tu changes rien, rien change]]",
+     "texte": "rast je neugodan, ali [[ako ništa ne mijenjaš, ništa se ne mijenja]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703525134610566433_5.jpg",
+      "boite": [
+       46,
+       492,
+       578,
+       392
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they read classic books written",
+      "by the greats"
+     ],
+     "fr": "ils lisent les classiques [[des grands auteurs]]",
+     "texte": "čitaju klasike koje su napisali [[velikani]]"
+    },
+    "T2a": {
+     "en": [
+      "they know endless tiktok scrolling rots their",
+      "attention"
+     ],
+     "fr": "ils savent que le scroll infini [[leur bousille l'attention]]",
+     "texte": "znaju da beskonačno skrolanje tiktoka [[uništava pažnju]]"
+    },
+    "T2b": {
+     "en": [
+      "instead, they read ideas that",
+      "survived decades or",
+      "centuries"
+     ],
+     "fr": "alors ils lisent des idées [[qui tiennent depuis des siècles]]",
+     "texte": "pa čitaju ideje koje su [[preživjele desetljeća]] ili [[stoljeća]]"
+    },
+    "T3": {
+     "en": [
+      "from people who thought",
+      "deeply about psychology,",
+      "power, business, and human",
+      "nature"
+     ],
+     "fr": "de gens qui ont vraiment creusé [[la psycho]], [[le pouvoir]], [[le business]] et [[la nature humaine]]",
+     "texte": "od ljudi koji su duboko promišljali [[psihologiju]], [[moć]], [[posao]] i [[ljudsku prirodu]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re stuck on tiktok, you",
+      "can try readup which blocks",
+      "your apps until you read"
+     ],
+     "fr": "si t'es scotchée à tiktok, remplace ton scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "ne možeš bez tiktoka? probaj 5 min u [[aplikaciji Sophia]]: zašto je renesansa krenula iz Italije"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   },
+   "scissions": {
+    "T2": 2
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they tolerate long periods with",
+      "no reward"
+     ],
+     "fr": "ils tiennent [[longtemps]] [[sans récompense]]",
+     "texte": "izdrže [[dugo razdoblje]] [[bez ikakve nagrade]]"
+    },
+    "T2": {
+     "en": [
+      "they can keep working when",
+      "nobody is watching, nothing",
+      "is going viral, and the results",
+      "still look unimpressive"
+     ],
+     "fr": "ils continuent à bosser quand [[personne regarde]], que rien ne fait le buzz et que les résultats [[font pas rêver]]",
+     "texte": "rade dalje i kad [[nitko ne gleda]], kad ništa ne postaje viralno i kad rezultati još [[ne izgledaju impresivno]]"
+    },
+    "T3": {
+     "en": [
+      "most people need constant",
+      "proof that something is",
+      "working"
+     ],
+     "fr": "la plupart des gens veulent sans arrêt la preuve que ça marche",
+     "texte": "većini ljudi stalno treba dokaz da nešto funkcionira"
+    },
+    "T4": {
+     "en": [
+      "successful people can stay",
+      "consistent long enough for the",
+      "payoff to arrive."
+     ],
+     "fr": "ceux qui réussissent [[restent réguliers assez longtemps]] pour que ça finisse par payer.",
+     "texte": "uspješni ljudi [[ostanu dosljedni dovoljno dugo]] da se trud na kraju isplati."
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702412215902571809_6.jpg",
+      "boite": [
+       603,
+       463,
+       225,
+       385
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "fr": "ils sont obsédés par [[l'effet de levier]]",
+     "texte": "opsjednuti su [[skaliranjem]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "fr": "ils cherchent toujours comment faire qu'[[une heure de boulot]] rapporte [[bien plus qu'une heure]]",
+     "texte": "stalno traže načine da [[sat vremena rada]] donese [[više od sat vremena vrijednosti]]"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
+     "texte": "softver, sustavi, sadržaj, kapital, automatizacija, timovi"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
+     "texte": "ne trude se samo raditi više, [[trude se da im se trud višestruko isplati]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7689509565536177441_3.jpg",
+      "boite": [
+       513,
+       347,
+       465,
+       589
+      ]
+     }
+    }
+   }
+  }
+ }
+}

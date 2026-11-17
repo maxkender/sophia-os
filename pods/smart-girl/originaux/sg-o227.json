@@ -1,0 +1,56 @@
+{
+ "source_id": "sg-o227",
+ "type_bleo": "full_test",
+ "titre": "fascinating women history forgot to tell you about #womeninhistory #history #smartgirl #inspiration #learning",
+ "musique_titre": "i love this song",
+ "musique_url": "https://www.tiktok.com/music/i-love-this-song-7305905594472024865",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Full test 4/5 (la jauge en demande 5 sur 17) : accroche jamais faite chez nous (« in history » et « fascinating women » absent des accroches de donnees/label.json). Accroches écrites : « fascinating women history forgot to tell you about » (retenue : récit, admiration, faits vérifiables), « women who changed history » (écartée : voisine de « women who changed art history »), « inspiring women » (écartée : vague). Faits vérifiés : Ada Lovelace écrit le premier algorithme pour la machine analytique (1843) ; Hedy Lamarr co-brevète en 1942 un système de saut de fréquence ; Rosalind Franklin et le cliché 51 de l'ADN ; Hypatie, mathématicienne d'Alexandrie ; Nellie Bly fait le tour du monde en 72 jours (1889-1890). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "958b57ab",
+   "texte_overlay": "fascinating women history\nforgot to tell you about",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "66c9fcc1",
+   "texte_overlay": "ada lovelace\n\nwrote the first computer\nprogram, in 1843.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "26aede01",
+   "texte_overlay": "hedy lamarr\n\nhollywood star and inventor\nof a frequency-hopping system.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "d278a4af",
+   "texte_overlay": "rosalind franklin\n\nher photo 51 revealed the\nshape of dna.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1b7977ea",
+   "texte_overlay": "hypatia\n\nmathematician and teacher\nin ancient alexandria.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5e5ae869",
+   "texte_overlay": "nellie bly\n\ntravelled around the world\nin 72 days, in 1889.",
+   "texte_sophia": "nellie bly\n\naround the world in 72 days.\ni learn a story like this every\nday on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cddcfcd8",
+   "texte_overlay": "which one inspires you most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  }
+ ]
+}

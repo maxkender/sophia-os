@@ -1,3 +1,4 @@
+import { lireParLots } from "../_shared/lots.ts";
 import {
   abregerPourJournal,
   aRenouveler,
@@ -82,6 +83,7 @@ import {
 import {
   ACTIONS_PAYEES,
   choisirCanari,
+  motifInhabituel,
   classerErreur,
   ecartsCanari,
   ecartsReconciliation,
@@ -1224,22 +1226,21 @@ async function chargerLignes(
   const raisonDe = new Map(brutes.map((b) => [String(b.id), (b.raison as string | null) ?? null]));
   // Les comptes actifs de chaque ligne (Double en warm-up compris) : l'écart avec la milestone financée.
   const comptesDe = new Map(brutes.map((b) => [String(b.id), Array.isArray(b.detail_comptes) ? b.detail_comptes.length : Number(b.nb_comptes ?? 1)]));
-  const posteurs = brutes.map((l) => l.poster_id);
-  const [{ data: profils }, { data: paysComptes }] = posteurs.length
-    ? await Promise.all([
-      supabase.from("profiles").select("id, upwork_contract_id, canal_paie").in("id", posteurs),
-      supabase.from("comptes").select("poster_id, pays").in("poster_id", posteurs),
-    ])
-    : [{ data: [] }, { data: [] }];
+  const posteurs = [...new Set(brutes.map((l) => String(l.poster_id)))];
+  // 16/11 : par lots de 100, et une lecture ratée arrête tout (avant : 386 posteurs d'un coup, l'erreur
+  // ignorée, aucun contrat lu, et la paie auto passait pour « rien à payer »).
+  const [profils, paysComptes] = await Promise.all([
+    lireParLots(posteurs, "paie : profils", (lot) => supabase.from("profiles").select("id, upwork_contract_id, canal_paie").in("id", lot)),
+    lireParLots(posteurs, "paie : comptes", (lot) => supabase.from("comptes").select("poster_id, pays").in("poster_id", lot).limit(900)),
+  ]);
   const contratDe = new Map((profils ?? []).map((p) => [p.id as string, (p.upwork_contract_id as string | null) ?? null]));
   // 0574 : les posteurs Ruul sont payés par le lot Ruul, jamais par l'API Upwork.
   const ruul = new Set((profils ?? []).filter((p) => p.canal_paie === "ruul").map((p) => p.id as string));
   const paysDe = new Map<string, (string | null)[]>();
   for (const c of paysComptes ?? []) paysDe.set(String(c.poster_id), [...(paysDe.get(String(c.poster_id)) ?? []), (c.pays as string | null) ?? null]);
   const contrats = [...new Set([...contratDe.values()].filter(Boolean))] as string[];
-  const { data: orgs } = contrats.length
-    ? await supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", contrats)
-    : { data: [] };
+  const orgs = await lireParLots(contrats, "paie : contrats", (lot) =>
+    supabase.from("upwork_contrats").select("contrat_id, organisation_id").in("contrat_id", lot));
   const tenantDe = new Map((orgs ?? []).map((o) => [String(o.contrat_id), (o.organisation_id as string | null) ?? null]));
   const lignes = fusionnerParContrat(brutes.map((brute) => ({
     id: brute.id, poster_id: brute.poster_id, poster_nom: brute.poster_nom, action: brute.action,
@@ -1651,6 +1652,11 @@ async function testFermeture(supabase: Supabase, par: string | null, contratId: 
     raison_obligatoire: requis.some((n) => /reason/i.test(n)),
   };
   await noter(supabase, { par, action: "test_fermeture_bilan", contrat: contratId, reponse: { etapes, bilan }, erreur });
+  // 16/11 : le résultat reste (la réponse brute est purgée après 24 h) ; c'est lui qui autorise les fins de contrat.
+  await supabase.from("reglages").upsert(
+    { cle: "test_fermeture", valeur: { at: new Date().toISOString(), contrat: contratId, contrat_ferme: erreur === null && bilan.contrat_ferme === true } },
+    { onConflict: "cle" },
+  );
   return { ok: erreur === null, error: erreur ?? undefined, etapes, bilan };
 }
 
@@ -2173,6 +2179,7 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
     const finis = reessaisFinis(maintenant, semaine);
     const reprises: { l: LigneAuto; v: PaiementApi }[] = [];
     const nouvelles: LigneAuto[] = [];
+    let bilanInhabituels = 0;
     for (const l of lignes) {
       const x = l.ids[0] ? verrouDe.get(l.ids[0]) : undefined;
       if (x) {
@@ -2199,9 +2206,19 @@ async function paieAuto(supabase: Supabase, par: string | null, o: { lancer?: bo
         }
         continue;
       }
+      // 16/11 (Max) : seule la paie normale part seule ; un montant inhabituel attend son OK (Payroll → Pay).
+      const inhabituel = aRenommer(l) ? null : motifInhabituel(l, r.plafond_ligne);
+      if (inhabituel) {
+        await aFaire(supabase, {
+          cle: `paie:${semaine}:${l.ids[0]}`, titre: `Paie ${l.poster_nom ?? l.poster_id} : attend ton OK`,
+          detail: `${inhabituel} — à payer depuis Payroll si c'est bon`, poster_id: l.poster_id, contrat_id: l.contrat_id, semaine,
+        });
+        bilanInhabituels++;
+        continue;
+      }
       nouvelles.push(l);
     }
-    const bilan = { semaine, reprises: 0, payees: 0, reessais: 0, a_verifier: 0, refusees: 0, rien: 0 };
+    const bilan = { semaine, reprises: 0, payees: 0, reessais: 0, a_verifier: 0, refusees: 0, rien: 0, attendent_ok: bilanInhabituels };
     const compter = (i: Issue) => {
       if (i.resultat === "paye" || i.resultat === "deja_payee") bilan.payees++;
       else if (i.resultat === "reessai") bilan.reessais++;
@@ -4654,14 +4671,24 @@ async function traiterArrets(supabase: Supabase, par: string | null) {
  * contrat sans erreur ? Sinon, aucune fermeture par l'API.
  */
 async function fermetureTestee(supabase: Supabase): Promise<boolean> {
+  // 16/11 : le résultat du dernier test, gardé dans Réglages (la réponse brute de l'API est purgée après
+  // 24 h, conditions de l'API : depuis le 31/10, plus aucun contrat n'était fermé, faute de preuve).
+  const { data: r } = await supabase.from("reglages").select("valeur").eq("cle", "test_fermeture").maybeSingle();
+  const garde = r?.valeur as { contrat_ferme?: boolean } | null | undefined;
+  if (garde && typeof garde.contrat_ferme === "boolean") return garde.contrat_ferme;
   const { data } = await supabase
     .from("upwork_appels")
-    .select("erreur, reponse")
+    .select("at, erreur, reponse")
     .eq("action", "test_fermeture_bilan")
     .order("at", { ascending: false })
     .limit(1);
-  const d = (data ?? [])[0] as { erreur: string | null; reponse: { bilan?: { contrat_ferme?: boolean } } | null } | undefined;
-  return !!d && !d.erreur && d.reponse?.bilan?.contrat_ferme === true;
+  const d = (data ?? [])[0] as { at: string; erreur: string | null; reponse: { bilan?: { contrat_ferme?: boolean } } | null } | undefined;
+  if (!d || d.erreur) return false;
+  if (d.reponse) return d.reponse.bilan?.contrat_ferme === true;
+  // Réponse purgée : la preuve est une vraie fermeture réussie par l'API après ce test.
+  const { count } = await supabase.from("upwork_appels").select("id", { count: "exact", head: true })
+    .in("action", ["fermer_contrat", "sans_posteur_fermer"]).is("erreur", null).gt("at", d.at);
+  return (count ?? 0) > 0;
 }
 
 /**
@@ -4783,6 +4810,19 @@ async function finsDeContrat(supabase: Supabase, par: string | null, reel: boole
         }
         if (semaine === "zero" && plan.rembourser.length) {
           nouvelles.push(etape("remboursement", "a_faire", `Ask for a refund : ${decrireJalons(plan.rembourser)} (liste de paie)`));
+        }
+        // 16/11 (Max) : une milestone encore financée au Kill → « payer ou rembourser » dans sa liste.
+        if (reel && plan.rembourser.length) {
+          const { data: pr } = await supabase.from("profiles").select("prenom, nom").eq("id", f.poster_id).maybeSingle();
+          const nom = [pr?.prenom, pr?.nom].filter(Boolean).join(" ") || f.poster_id;
+          await aFaire(supabase, {
+            cle: `kill:${f.poster_id}:${f.semaine}`,
+            titre: `Kill ${nom} : milestone financée, payer ou rembourser`,
+            detail: semaine === "zero"
+              ? `${decrireJalons(plan.rembourser)} : rien n'est dû pour la semaine, demander le remboursement ; le contrat se termine`
+              : `${decrireJalons(plan.rembourser)} : la payer ou demander le remboursement, puis terminer le contrat`,
+            poster_id: f.poster_id, contrat_id: f.contrat_id, semaine: f.semaine,
+          });
         }
         const fin = planFinContrat(plan, semaine);
         if (!fin.fermer) {

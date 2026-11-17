@@ -1,0 +1,270 @@
+{
+ "id": "as-010",
+ "fond": "images/c10-fond.jpg",
+ "titre": {
+  "en": "my sunday reset apps for a calm week",
+  "es": "mi domingo de reset para una semana tranquila",
+  "it": "la mia domenica di reset per una settimana serena",
+  "pt-BR": "meu domingo de reset pra uma semana tranquila"
+ },
+ "legendes": {
+  "en": "clean home, full fridge, calm mind ☁️ #sundayreset #apprecommendations #cleaningmotivation #cuteapps",
+  "es": "casa limpia, nevera llena, mente tranquila ☁️ #resetdedomingo #appsrecomendadas #limpieza #appsbonitas",
+  "it": "casa pulita, frigo pieno, mente serena ☁️ #resetdomenicale #appconsigliate #pulizie #appcarine",
+  "pt-BR": "casa limpa, geladeira cheia, cabeça tranquila ☁️ #resetdedomingo #dicasdeapps #faxina #appsfofos"
+ },
+ "musique": {
+  "titre": "sippin' with u - Malia B.",
+  "url": "https://www.tiktok.com/music/sippin-with-u-7666602353542252561"
+ },
+ "type_bleo": "full_test",
+ "notes": "Full test (accroche neuve, au format de son « my most used apps ») : « my sunday reset apps / for a calm week », style bibliotheque. Applis vérifiées us, es, it, br : Tody, Sophia (2e, cta A), Bring!, Paprika, Spendee. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c10-soir.jpg",
+     "images/c10-panier.jpg",
+     "images/c10-bougie.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "my"
+      },
+      {
+       "t": "sunday",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "reset",
+       "style": "clair"
+      },
+      {
+       "t": "apps"
+      }
+     ]
+    ],
+    "pastille": "for a calm week"
+   },
+   "es": {
+    "photos": [
+     "images/c10-soir.jpg",
+     "images/c10-panier.jpg",
+     "images/c10-bougie.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "mi"
+      },
+      {
+       "t": "domingo",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "de",
+       "style": "clair"
+      },
+      {
+       "t": "reset"
+      }
+     ]
+    ],
+    "pastille": "para una semana tranquila"
+   },
+   "it": {
+    "photos": [
+     "images/c10-soir.jpg",
+     "images/c10-panier.jpg",
+     "images/c10-bougie.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "la mia"
+      },
+      {
+       "t": "domenica",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "di",
+       "style": "clair"
+      },
+      {
+       "t": "reset"
+      }
+     ]
+    ],
+    "pastille": "per una settimana serena"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c10-soir.jpg",
+     "images/c10-panier.jpg",
+     "images/c10-bougie.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "meu"
+      },
+      {
+       "t": "domingo",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "de",
+       "style": "clair"
+      },
+      {
+       "t": "reset"
+      }
+     ]
+    ],
+    "pastille": "pra uma semana tranquila"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Tody",
+    "dossier": "images/applis/tody",
+    "note": "Cleaning by room, with a little bar that shows what needs doing. No more cleaning everything at once"
+   },
+   "es": {
+    "nom": "Tody",
+    "dossier": "images/applis/tody",
+    "note": "Limpieza por habitaciones, con una barrita que te enseña qué toca. Se acabó limpiarlo todo de golpe"
+   },
+   "it": {
+    "nom": "Tody",
+    "dossier": "images/applis/tody",
+    "note": "Le pulizie stanza per stanza, con una barra che ti mostra cosa serve. Basta pulire tutto in una volta"
+   },
+   "pt-BR": {
+    "nom": "Tody",
+    "dossier": "images/applis/tody",
+    "note": "Faxina por cômodo, com uma barrinha que mostra o que precisa ser feito. Chega de limpar tudo de uma vez"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Bring!",
+    "dossier": "images/applis/bring",
+    "note": "A shared grocery list with cute icons: whoever's at the store sees exactly what's missing"
+   },
+   "es": {
+    "nom": "Bring!",
+    "dossier": "images/applis/bring",
+    "note": "Una lista de la compra compartida con iconos bonitos: quien esté en el súper ve justo lo que falta"
+   },
+   "it": {
+    "nom": "Bring!",
+    "dossier": "images/applis/bring",
+    "note": "Una lista della spesa condivisa con icone carine: chi è al supermercato vede subito cosa manca"
+   },
+   "pt-BR": {
+    "nom": "Bring!",
+    "dossier": "images/applis/bring",
+    "note": "Uma lista de compras compartilhada com ícones fofos: quem estiver no mercado vê na hora o que falta"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Paprika",
+    "dossier": "images/applis/paprika",
+    "note": "Saves recipes from any website, plans your meals for the week and builds the grocery list for you"
+   },
+   "es": {
+    "nom": "Paprika",
+    "dossier": "images/applis/paprika",
+    "note": "Guarda recetas de cualquier web, planifica tus comidas de la semana y te hace la lista de la compra"
+   },
+   "it": {
+    "nom": "Paprika",
+    "dossier": "images/applis/paprika",
+    "note": "Salva ricette da qualsiasi sito, pianifica i pasti della settimana e ti prepara la lista della spesa"
+   },
+   "pt-BR": {
+    "nom": "Paprika",
+    "dossier": "images/applis/paprika",
+    "note": "Salva receitas de qualquer site, planeja suas refeições da semana e monta a lista de compras pra você"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Spendee",
+    "dossier": "images/applis/spendee",
+    "note": "See where your money goes with colorful charts, and set budgets that are easy to stick to"
+   },
+   "es": {
+    "nom": "Spendee",
+    "dossier": "images/applis/spendee",
+    "note": "Mira a dónde va tu dinero con gráficos de colores y pon presupuestos fáciles de cumplir"
+   },
+   "it": {
+    "nom": "Spendee",
+    "dossier": "images/applis/spendee",
+    "note": "Vedi dove vanno i tuoi soldi con grafici colorati e imposta budget facili da rispettare"
+   },
+   "pt-BR": {
+    "nom": "Spendee",
+    "dossier": "images/applis/spendee",
+    "note": "Veja pra onde vai seu dinheiro com gráficos coloridos e crie orçamentos fáceis de seguir"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ]
+}

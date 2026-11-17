@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o230",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ec38fc98-99a1-45ef-874b-086a4061567c",
+ "titre": "habits to build before you turn 18 #teenagers #habits #smartgirl #thatgirl #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "632d2be2-8d6f-4ec6-8753-1c4a41516421"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 2 de la boîte (parent ec38fc98, langue source en) : accroche reformulée (« things you should start doing before turning 18 » → « habits to build before you turn 18 »), même promesse. Le parent est la version turque de notre sg-o124 ; habitudes neuves (écrire des lettres, apprendre une recette de famille, ranger sa chambre le dimanche, écouter un album entier, faire du bénévolat, lire chaque soir). Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e7b0e0db",
+   "texte_overlay": "habits to build before\nyou turn 18",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "31ae698b",
+   "texte_overlay": "1. write letters to the people\nyou love",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7ec43832",
+   "texte_overlay": "2. learn one family recipe",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "ea38d1fc",
+   "texte_overlay": "3. a sunday reset of your room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "863683ba",
+   "texte_overlay": "4. listen to full albums",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "063aef2c",
+   "texte_overlay": "5. volunteer once a month",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "855c30a4",
+   "texte_overlay": "6. learn a little every night",
+   "texte_sophia": "6. learn a little every night.\ni use a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3708518c",
+   "texte_overlay": "send this to your younger sister",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  }
+ ]
+}

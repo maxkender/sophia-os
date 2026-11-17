@@ -6,6 +6,7 @@ import {
   type SourceContenu,
 } from "../_shared/ab_circuits.ts";
 import { extraireCorrections } from "../_shared/corrections_natives.ts";
+import { consoliderRegles } from "../_shared/regles_natives.ts";
 import type { SlideDeck } from "../_shared/deck_langue.ts";
 import { assurerDeckPourLangue } from "../_shared/import_contenu.ts";
 import { ID_SOPHIA } from "../_shared/multi_app.ts";
@@ -26,6 +27,13 @@ import { assertAuthorised, json, messageErreur, serviceClient } from "../_shared
  *
  *   { action: "lot_servir", langue? }
  *   { action: "corrections_extraire", langue?, max? }
+ *   { action: "regles_consolider", langue?, remplacer? }
+ *       → { ok: true, faites, sautees, echecs, restantes }
+ *     Les règles natives (0734) : fusionne, langue par langue, les règles
+ *     validées et les corrections retenues qu'elles ne couvrent pas encore en
+ *     une nouvelle version « proposee », à valider par l'admin. Cron
+ *     `regles-natives` le lundi, ou bouton (`langue`, `remplacer` : la version
+ *     en attente est remplacée).
  *       → { ok: true, faits: [{ langue, contenu_id, ok, raison? }], restants, langues }
  *     Le lot commun (0627) : pour chaque langue qui a un relecteur invité ou
  *     actif, et chaque contenu du lot sans duel pour le candidat du lot, prépare
@@ -78,6 +86,18 @@ Deno.serve(async (request) => {
       const langue = String(body?.langue ?? "").trim().toLowerCase() || null;
       const max = Number(body?.max);
       return json({ ok: true, ...(await extraireCorrections(supabase, { langue, max: Number.isFinite(max) ? max : undefined })) });
+    }
+
+    if (action === "regles_consolider") {
+      const langue = String(body?.langue ?? "").trim().toLowerCase() || null;
+      return json({
+        ok: true,
+        ...(await consoliderRegles(supabase, {
+          langue,
+          remplacer: Boolean(body?.remplacer),
+          auteur: langue ? "consolidation-bouton" : "consolidation-lundi",
+        })),
+      });
     }
 
     if (action === "lot_servir") {

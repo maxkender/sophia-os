@@ -1,0 +1,329 @@
+{
+ "id": "ka-038",
+ "titre": {
+  "en": "10/10 skills that make you look smart",
+  "fr": "10/10 skills pour avoir l'air d'un génie",
+  "de": "10/10 Skills, die dich schlau wirken lassen"
+ },
+ "legendes": {
+  "en": "10/10 skills that make you look smart #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour avoir l'air d'un génie #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills, die dich schlau wirken lassen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung"
+ },
+ "musique": {
+  "titre": "Duvet - Acoustic",
+  "url": "https://www.tiktok.com/music/duvet-acoustic-7031720036989421570"
+ },
+ "notes": "Full test (BLEO, 16/11) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (« look smart »). Prévu en déclinaison G1 de ka-001, refusé par le guichet (accroche voisine de ka-036 le même jour), donc refait en full test avec un titre neuf. Décor branche, des compétences jamais faites chez nous (harmonica, morse, sudoku), cta B, son (« Duvet » de son manifeste). Sophia en étape 3 « HOW TO SOUND SMART IN ANY CONVERSATION » : « 5 min a day ». Vraies vidéos : en Harmonica com, Felbify, Learn Something ; fr Guillaume Robin, Fabien Olicard, SudokuClub ; de Chris Kramer, LangeWissen, Raetsel Channel.",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "SKILLS THAT",
+     "MAKE YOU",
+     "LOOK SMART"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "AVOIR L'AIR",
+     "D'UN GÉNIE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS, DIE",
+     "DICH SCHLAU",
+     "WIRKEN LASSEN"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO PLAY",
+     [
+      {
+       "t": "HARMONICA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Zc-EcRFrxcA",
+     "titre": "Beginner Harmonica Lesson #1 (Your Very First Lesson)",
+     "chaine": "Harmonica com",
+     "vues": "4.3M views",
+     "date": "2 years ago",
+     "duree": "16:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCeD3QKI_YoZpEvdeGmz-zadqgOTy085440RtcrUVfvKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT JOUER",
+     [
+      {
+       "t": "DE L'HARMONICA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1yQt6Zd-oPQ",
+     "titre": "Le Meilleur Tuto Débutant pour Débutants à l'Harmonica !",
+     "chaine": "Guillaume Robin",
+     "vues": "584 k vues",
+     "date": "il y a 4 ans",
+     "duree": "11:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-lCe6mssF4x-gXuySG7D4V0yHa2A8GhqWmcYvk5rQWbOz=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SPIELST DU",
+     [
+      {
+       "t": "MUNDHARMONIKA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Xlbz70t2wqg",
+     "titre": "Mundharmonika für absolute Anfänger mit Chris Kramer - Einführung",
+     "chaine": "Chris Kramer",
+     "vues": "249.003 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "13:53",
+     "avatar": "https://yt3.ggpht.com/65MegpOnHxHDiwBYY-EP0qv-9KyaxFJ5BHwfRwu_MMK_tY5daYtBRDrYfSkhscRSOgrqNOSe=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO LEARN",
+     [
+      {
+       "t": "MORSE CODE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QAd2Weqz1fk",
+     "titre": "How I learned MORSE CODE IN 10 MINUTES | learn fast",
+     "chaine": "Felbify",
+     "vues": "846K views",
+     "date": "5 years ago",
+     "duree": "3:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k8xMBaS-6TPaB0MGQmNGma8DSRpJ5xcRng9KFttdZKcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "LE MORSE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F4N15Vr-D8A",
+     "titre": "JE VOUS DEBLOQUE UNE COMPETENCE DANS LE CERVEAU #2 ! Le morse",
+     "chaine": "FabienOlicard",
+     "vues": "264 k vues",
+     "date": "il y a 6 ans",
+     "duree": "14:21",
+     "avatar": "https://yt3.ggpht.com/hOu5CGjWlGlRYry-hXYT20RX4D5XkZcxJ_DOfkz24oK2-UQKLSJjhkhdaZtSxcY2eS8X8PVr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "DAS MORSEALPHABET",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q6vhjmTlLt8",
+     "titre": "Morsezeichen lernen: So geht's ganz einfach!",
+     "chaine": "LangeWissen",
+     "vues": "105.619 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "5:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l8V-n_Iu_2ytdBoOlD188RZdSRWoSwJlH2ZHAKxW7lgA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min."
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO SOUND SMART",
+     [
+      {
+       "t": "IN ANY CONVERSATION",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR L'AIR",
+     [
+      {
+       "t": "CULTIVÉ PARTOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO KLINGST DU",
+     [
+      {
+       "t": "IN JEDEM GESPRÄCH KLUG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SOLVE",
+     [
+      {
+       "t": "A SUDOKU",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kvU9_MVAiE0",
+     "titre": "How to Play Sudoku for Absolute Beginners",
+     "chaine": "Learn Something",
+     "vues": "2.8M views",
+     "date": "8 years ago",
+     "duree": "8:00",
+     "avatar": "https://yt3.ggpht.com/WnNfcfe-7CU9iowL8UDJDxlVt8V6L3cMvZ0Dn0TvR1S_yGEr2aotV6tLUrxvyDaBp0eF6NXc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RÉSOUDRE",
+     [
+      {
+       "t": "UN SUDOKU",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "V5KPwFRVl3U",
+     "titre": "Comment jouer au sudoku ? (meilleur explication)",
+     "chaine": "SudokuClub",
+     "vues": "47 k vues",
+     "date": "il y a 2 ans",
+     "duree": "5:11",
+     "avatar": "https://yt3.ggpht.com/LiTit2nfhq2K6q4Rdi1uJAEpjrC8BbYNe9beOSgklx24IGtwL2VVVsKuzYQLe1q7jHYMg7S7788=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LÖST DU",
+     [
+      {
+       "t": "EIN SUDOKU",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VV6ux8NQDt0",
+     "titre": "SUDOKU - einfach erklärt auf Deutsch | Raetsel - Channel",
+     "chaine": "Raetsel Channel",
+     "vues": "54.916 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/eK77ZGWeZIt7NDe_JdHWrhZUyiYbTCkPN04fQ2ARWF9hTvI78MWJTkCnlyX8uDLT3YaH9AVTyg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

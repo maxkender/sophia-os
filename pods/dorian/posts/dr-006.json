@@ -1,0 +1,623 @@
+{
+ "id": "dr-006",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7697385698168524053",
+  "vues": 417400,
+  "publie_le": "2026-10-16",
+  "accroche": "Iceberg of ADHD hobbies (*requested update)"
+ },
+ "titre": {
+  "en": "Iceberg of overthinker hobbies",
+  "de": "Der Eisberg der Overthinker-Hobbys",
+  "it": "Iceberg degli hobby da overthinker",
+  "pt-BR": "Iceberg de hobbies de quem pensa demais",
+  "tr": "Fazla düşünenlerin hobi buzdağı",
+  "sv": "Isberget av hobbyer för grubblare",
+  "nl": "IJsberg van hobby's van overdenkers"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #overthinking #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #overthinking #selbstverbesserung",
+  "it": "#iceberg #hobby #overthinking #crescitapersonale",
+  "pt-BR": "#iceberg #hobbies #overthinking #autoconhecimento",
+  "tr": "#buzdağı #hobi #fazladüşünmek #kişiselgelişim",
+  "sv": "#isberg #hobbyer #överanalys #självutveckling",
+  "nl": "#ijsberg #hobbys #overthinken #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "Retake (Slowed) - gabriawll",
+  "url": "https://www.tiktok.com/music/Retake-Slowed-7626391140129589249"
+ },
+ "notes": "Original sur son iceberg « Iceberg of ADHD hobbies (*requested update) » (417 k) : même format, sujet « overthinker ». Sophia au 2e étage (« one sophia lesson a day », icône). Le hobby du fond, « the roman empire », reprend le mème. Objets Seedream (images/objets/). 7 langues.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "overthinker hobbies"
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Overthinker-Hobbys"
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da overthinker"
+   },
+   "pt-BR": {
+    "haut": "Iceberg de",
+    "bas": "hobbies de quem pensa demais"
+   },
+   "tr": {
+    "haut": "Fazla düşünenlerin",
+    "bas": "hobi buzdağı"
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "hobbyer för grubblare"
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van overdenkers"
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "long walks",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "reading books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "tea rituals",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "one sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "puzzles",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "documentaries",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "writing letters",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "astronomy",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "reading philosophy",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "sorting bookshelves",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "learning morse code",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "the roman empire",
+       "image": "images/objets/casque-romain.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "tagebuch schreiben",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "spazieren gehen",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "bücher lesen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "tee-rituale",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schach",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "jeden tag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "puzzeln",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "dokus",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "klavier",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "briefe schreiben",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "astronomie",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "philosophie lesen",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "bücherregal sortieren",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "morsecode lernen",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "das römische reich",
+       "image": "images/objets/casque-romain.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "scrivere un diario",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "lunghe passeggiate",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "leggere libri",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "il rito del tè",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "scacchi",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "podcast",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "puzzle",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "documentari",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "pianoforte",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "scrivere lettere",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "leggere filosofia",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "riordinare la libreria",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "imparare il morse",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "l'impero romano",
+       "image": "images/objets/casque-romain.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "pt-BR": {
+    "etages": [
+     [
+      {
+       "t": "escrever um diário",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "caminhadas longas",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "ler livros",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "rituais de chá",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "xadrez",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "sophia todo dia",
+       "image": "sophia"
+      },
+      {
+       "t": "quebra-cabeça",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "documentários",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "escrever cartas",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "ler filosofia",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "organizar a estante",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "aprender código morse",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "o império romano",
+       "image": "images/objets/casque-romain.png"
+      }
+     ]
+    ],
+    "question": "discorda?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "günlük tutmak",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "uzun yürüyüşler",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "kitap okumak",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "çay keyfi",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "satranç",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "podcast",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "yapboz",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "belgeseller",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "piyano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "mektup yazmak",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "felsefe okumak",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "kitaplık düzenlemek",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "mors alfabesi",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "roma imparatorluğu",
+       "image": "images/objets/casque-romain.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "skriva dagbok",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "långa promenader",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "läsa böcker",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "te-ritualer",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "poddar",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "pussel",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "dokumentärer",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "skriva brev",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "astronomi",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "läsa filosofi",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "sortera bokhyllan",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "lära sig morse",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "romarriket",
+       "image": "images/objets/casque-romain.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "dagboek schrijven",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "wandelen",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "boeken lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "theerituelen",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "puzzelen",
+       "image": "images/objets/puzzle.png"
+      }
+     ],
+     [
+      {
+       "t": "docu's",
+       "image": "images/objets/tele-vintage.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "brieven schrijven",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "sterrenkunde",
+       "image": "images/objets/telescope.png"
+      }
+     ],
+     [
+      {
+       "t": "filosofie lezen",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "boekenkast sorteren",
+       "image": "images/objets/etagere.png"
+      },
+      {
+       "t": "morse leren",
+       "image": "images/objets/manipulateur-morse.png"
+      }
+     ],
+     [
+      {
+       "t": "het romeinse rijk",
+       "image": "images/objets/casque-romain.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ]
+}

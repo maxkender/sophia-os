@@ -1,0 +1,193 @@
+{
+ "id": "ig-002",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7698007507851152672",
+  "vues": 1300000,
+  "publie_le": "2026-10-18",
+  "accroche": "4 apps every girl needs"
+ },
+ "titre": {
+  "en": "5 apps every girl needs",
+  "fr": "5 applis que toute fille doit avoir",
+  "es": "5 apps que toda chica necesita",
+  "it": "5 app che ogni ragazza deve avere",
+  "tr": "her kızın ihtiyacı olan 5 uygulama"
+ },
+ "legendes": {
+  "en": "5 apps every girl needs #foryou #app #apps #thatgirl",
+  "fr": "5 applis que toute fille doit avoir #foryou #app #apps #thatgirl",
+  "es": "5 apps que toda chica necesita #foryou #app #apps #thatgirl",
+  "it": "5 app che ogni ragazza deve avere #foryou #app #apps #thatgirl",
+  "tr": "her kızın ihtiyacı olan 5 uygulama #foryou #app #apps #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Preuve : son « 4 apps every girl needs » du 18/10 (1,3 M, 6,5 % d'enregistrements), en 5 applis. Photos Seedream : trousse-3, fille-3, bouquet-3. Applis (App Store US, 16/11) : Tezza (4,7 ★, 48 k avis), Finch (4,9 ★, 776 k), Sophia en 3e (cta B), Locket (4,8 ★, 593 k), DailyBean (4,8 ★, 71 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/trousse-3.jpg",
+     "images/photos/fille-3.jpg",
+     "images/photos/bouquet-3.jpg"
+    ],
+    "titre": "5 apps every\ngirl needs"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/trousse-3.jpg",
+     "images/photos/fille-3.jpg",
+     "images/photos/bouquet-3.jpg"
+    ],
+    "titre": "5 applis que toute\nfille doit avoir"
+   },
+   "es": {
+    "photos": [
+     "images/photos/trousse-3.jpg",
+     "images/photos/fille-3.jpg",
+     "images/photos/bouquet-3.jpg"
+    ],
+    "titre": "5 apps que toda\nchica necesita"
+   },
+   "it": {
+    "photos": [
+     "images/photos/trousse-3.jpg",
+     "images/photos/fille-3.jpg",
+     "images/photos/bouquet-3.jpg"
+    ],
+    "titre": "5 app che ogni\nragazza deve avere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/trousse-3.jpg",
+     "images/photos/fille-3.jpg",
+     "images/photos/bouquet-3.jpg"
+    ],
+    "titre": "her kızın ihtiyacı\nolan 5 uygulama"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/tezza",
+   "en": {
+    "nom": "tezza",
+    "texte": "you can edit your photos with soft vintage presets so your whole feed looks aesthetic"
+   },
+   "fr": {
+    "nom": "tezza",
+    "texte": "tu peux retoucher tes photos avec des filtres doux et vintage pour que tout ton feed soit aesthetic"
+   },
+   "es": {
+    "nom": "tezza",
+    "texte": "puedes editar tus fotos con filtros vintage muy suaves y tener un feed súper aesthetic"
+   },
+   "it": {
+    "nom": "tezza",
+    "texte": "puoi modificare le tue foto con filtri morbidi e vintage così tutto il tuo feed è aesthetic"
+   },
+   "tr": {
+    "nom": "tezza",
+    "texte": "fotoğraflarını yumuşak vintage filtrelerle düzenleyip akışını estetik yapabilirsin"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/finch",
+   "en": {
+    "nom": "finch",
+    "texte": "you take care of a little bird by doing small self-care tasks every day"
+   },
+   "fr": {
+    "nom": "finch",
+    "texte": "tu prends soin d'un petit oiseau en faisant chaque jour de petites tâches de self-care"
+   },
+   "es": {
+    "nom": "finch",
+    "texte": "cuidas a un pajarito haciendo pequeñas tareas de autocuidado cada día"
+   },
+   "it": {
+    "nom": "finch",
+    "texte": "ti prendi cura di un uccellino facendo piccoli gesti di self-care ogni giorno"
+   },
+   "tr": {
+    "nom": "finch",
+    "texte": "her gün küçük öz bakım görevleri yaparak minik bir kuşa bakıyorsun"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "short lessons written by actual professors, you learn something new in just 10 minutes a day"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "lecciones cortas escritas por profesores de verdad, para aprender algo nuevo cada día en 10 minutos"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/locket",
+   "en": {
+    "nom": "locket",
+    "texte": "your best friends' photos show up live on a little widget on your home screen"
+   },
+   "fr": {
+    "nom": "locket",
+    "texte": "les photos de tes meilleures amies apparaissent en direct dans un petit widget sur ton écran d'accueil"
+   },
+   "es": {
+    "nom": "locket",
+    "texte": "las fotos de tus mejores amigas aparecen al instante en un widget de tu pantalla"
+   },
+   "it": {
+    "nom": "locket",
+    "texte": "le foto delle tue migliori amiche compaiono in diretta in un piccolo widget sul telefono"
+   },
+   "tr": {
+    "nom": "locket",
+    "texte": "en yakın arkadaşlarının fotoğrafları ana ekranındaki küçük bir widget'ta anında ortaya çıkar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/dailybean",
+   "en": {
+    "nom": "dailybean",
+    "texte": "you track your mood and your day in a few taps, without writing anything"
+   },
+   "fr": {
+    "nom": "dailybean",
+    "texte": "tu notes ton humeur et ta journée en quelques clics, sans rien avoir à écrire"
+   },
+   "es": {
+    "nom": "dailybean",
+    "texte": "apuntas tu estado de ánimo y tu día en pocos toques, sin tener que escribir nada"
+   },
+   "it": {
+    "nom": "dailybean",
+    "texte": "segni il tuo umore e la tua giornata in pochi tocchi, senza dover scrivere niente"
+   },
+   "tr": {
+    "nom": "dailybean",
+    "texte": "ruh halini ve gününü birkaç dokunuşla kaydedersin, hiçbir şey yazmana gerek yok"
+   }
+  }
+ ]
+}

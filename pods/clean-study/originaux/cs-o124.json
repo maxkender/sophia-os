@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o124",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "abaa4c11-de70-43bc-bc9c-7fef2b3660df",
+  "titre": "would these famous fictional students really be good study role models? my honest review #studytok #school #booktok",
+  "musique_titre": "Lemon Glow",
+  "musique_url": "https://www.tiktok.com/music/lemon-glow-5000000001353635772",
+  "inspirations": [
+    "abaa4c11-de70-43bc-bc9c-7fef2b3660df"
+  ],
+  "notes": "Déclinaison G2 de abaa4c11 (la famille de notre cs-o042 : r 3,72 en turc), ligne 2 de la boîte. Même promesse (des personnages connus sont-ils de vrais modèles pour étudier, avis personnel), autres mots : « would these famous fictional students really be good study role models? my honest review ». Personnages neufs, aucun de cs-o042 (Rory, Elle, Paris, Matilda) ni du parent 21d54fb2 (Blair, Hermione, Spencer) : Lisa Simpson, Velma Dinkley, Belle. Avis généraux, sans mépris. Pour ne pas prêter un personnage au visage d'une autre actrice, les slides des personnages sont des photos sans visage. Place micabo : slide 5 (se tester). Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "7dcb01ab",
+      "texte_overlay": "would these famous fictional students really be\ngood study role models? my honest review",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "92fd2b5a",
+      "texte_overlay": "lisa simpson\n+ loves learning, reads everything, always prepared\n− takes every bad grade very hard\nverdict: role model, with more self-kindness",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "d643a14c",
+      "texte_overlay": "velma dinkley\n+ solves everything with research and clues\n+ stays calm when everyone panics\nverdict: role model. be the one who checks the facts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "42cfffb6",
+      "texte_overlay": "belle\n+ reads for fun, curious about the whole world\n− not much of a study schedule\nverdict: copy her curiosity, add a planner",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "84501399",
+      "texte_overlay": "my takeaway: curious like belle, calm like velma,\nand quiz yourself on your notes like lisa would.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3d95df57",
+      "texte_overlay": "and like all of them: no scrolling during study time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

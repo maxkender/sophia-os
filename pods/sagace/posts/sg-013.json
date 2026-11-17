@@ -1,0 +1,1310 @@
+{
+ "id": "sg-013",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 qui impressionnent tout le monde",
+  "en": "10/10 skills that impress everyone",
+  "de": "10/10-Skills, die alle beeindrucken",
+  "it": "Abilità 10/10 che impressionano tutti",
+  "pt-BR": "Habilidades 10/10 que impressionam todo mundo",
+  "tr": "Herkesi etkileyen 10/10 beceriler",
+  "ro": "Abilități 10/10 care impresionează pe toată lumea",
+  "cs": "Dovednosti 10/10, které ohromí každého"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui impressionnent tout le monde #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that impress everyone #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die alle beeindrucken #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che impressionano tutti #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que impressionam todo mundo #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Herkesi etkileyen 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care impresionează pe toată lumea #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které ohromí každého #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - m - m",
+  "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
+ },
+ "notes": "Full test du 17/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 qui impressionnent tout le monde », sa couverture (brun/noir, tailles de son post à 482 k ; 3 lignes en de et tr). 5 compétences : jongler à 3 balles, beatbox, langue des signes (celle de chaque pays : LSF, ASL, DGS, LIS, Libras, TİD, LSR, ČZJ), dessiner un portrait, grue en origami. 40 vraies vidéos natives, aucune reprise d'un autre post. Sophia en étape 4 sur 7 (cta A : « AVOIR RÉPONSE / À TOUT »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUI",
+      "cap": 169
+     },
+     {
+      "t": "IMPRESSIONNENT",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "TOUT LE MONDE",
+      "cap": 120
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAT",
+      "cap": 169
+     },
+     {
+      "t": "IMPRESS",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "EVERYONE",
+      "cap": 120
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "DIE ALLE",
+      "cap": 120
+     },
+     {
+      "t": "BEEINDRUCKEN",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "CHE",
+      "cap": 169
+     },
+     {
+      "t": "IMPRESSIONANO",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "TUTTI",
+      "cap": 120
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE",
+      "cap": 169
+     },
+     {
+      "t": "IMPRESSIONAM",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "TODO MUNDO",
+      "cap": 120
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "HERKESİ",
+      "cap": 169
+     },
+     {
+      "t": "ETKİLEYEN",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 144,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "CARE",
+      "cap": 169
+     },
+     {
+      "t": "IMPRESIONEAZĂ",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "PE TOATĂ LUMEA",
+      "cap": 120
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTERÉ",
+      "cap": 169
+     },
+     {
+      "t": "OHROMÍ",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "KAŽDÉHO",
+      "cap": 120
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "JONGLER",
+       "couleur": "#e2572b"
+      }
+     ],
+     "À 3 BALLES"
+    ],
+    "video": {
+     "id": "1AwZr-uhuZ8",
+     "titre": "TUTO JONGLER À 3 BALLES (simple, basique)",
+     "chaine": "Jean-Manu",
+     "vues": "412 k vues",
+     "date": "il y a 15 ans",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/O6uKo7Cn67sZ_Lvj4Xsozc3mie-rOnaGy_UDKmciuIUFj7qe1u3oeYXMqDvFmQsFJAwdSdWhCb8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semaine pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "JUGGLE",
+       "couleur": "#e2572b"
+      }
+     ],
+     "3 BALLS"
+    ],
+    "video": {
+     "id": "dCYDZDlcO6g",
+     "titre": "Learn to JUGGLE 3 BALLS - Beginner Tutorial",
+     "chaine": "Taylor Tries",
+     "vues": "2.8M views",
+     "date": "7 years ago",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOzROZXubZiy5eJJBW8B3zaYPN9Zkqd6TLUmUd1XMTwcY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 week to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "JONGLIEREN",
+       "couleur": "#e2572b"
+      }
+     ],
+     "MIT 3 BÄLLEN"
+    ],
+    "video": {
+     "id": "NBTDBL3Iq2Y",
+     "titre": "Jonglieren mit 3 Bällen | Jonglieren lernen | Tutorial | Jonglierversand.de | Sophia",
+     "chaine": "Jonglierversand",
+     "vues": "322.904 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "4:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nsL4YCkmnw-cMuDY1YaMsXCGeKMrlr4outRdH_xh0FWw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "GIOCOLERIA",
+       "couleur": "#e2572b"
+      }
+     ],
+     "CON 3 PALLINE"
+    ],
+    "video": {
+     "id": "Y8OBT5ofc2g",
+     "titre": "COME FARE il GIOCOLIERE con 3 PALLINE (in soli 3 minuti!) || Geocolerie d'appartamento",
+     "chaine": "Geo il Giocoliere",
+     "vues": "109K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgWeUiTgxRJgwfWc3pEiVV5j_UkeSqNw0WNCwDw7-iMg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 settimana per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "MALABARISMO",
+       "couleur": "#e2572b"
+      }
+     ],
+     "COM 3 BOLINHAS"
+    ],
+    "video": {
+     "id": "9pi9ZctiGu0",
+     "titre": "Como fazer malabarismo com 3 bolinhas em 3 passos",
+     "chaine": "Manual do Mundo",
+     "vues": "1,2 mi visualizações",
+     "date": "há 14 anos",
+     "duree": "6:06",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "3 TOPLA",
+     [
+      {
+       "t": "JONGLÖRLÜK",
+       "couleur": "#e2572b"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yfpqH5ig_1Y",
+     "titre": "Jonglörlük 3 Top Nasıl Çevirilir",
+     "chaine": "Enes Özen 2",
+     "vues": "117 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNCnz-2ZB31RgMLJ4iTrJ8WFSKlEZgmSCuZwXMgl4Hiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 hafta"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ JONGLEZI",
+       "couleur": "#e2572b"
+      }
+     ],
+     "CU 3 MINGI"
+    ],
+    "video": {
+     "id": "q7YGTsB8DIs",
+     "titre": "Cum să jonglezi cu 3 mingi: Cascade",
+     "chaine": "Jonglator",
+     "vues": "11 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "4:28",
+     "avatar": "https://yt3.ggpht.com/qatgY5Oceiy_Fap1RRxaSuF9Qh1amlBqIBsisaayNmruQQfy14HyKrAosOnMDSuOKCNn_w8JQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ŽONGLOVAT",
+       "couleur": "#e2572b"
+      }
+     ],
+     "SE 3 MÍČKY"
+    ],
+    "video": {
+     "id": "gahv1_gS9jY",
+     "titre": "🤹‍♂️ Jak na žonglování se 3 & 2 míčky? To zvládneš! | FYFT.cz",
+     "chaine": "FYFT",
+     "vues": "45 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/sddxRMGkrNIv0Pb4JCGs0lHz5KTnC14BcBugdJMr6QePRyNuI7ccdgKPn4lEns26tDNgnEx7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "DU BEATBOX",
+       "couleur": "#2e9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yl1UVxfWDbQ",
+     "titre": "TUTO BEATBOX #1 - APPRENDRE FACILEMENT LE 1ER SON (KICK)",
+     "chaine": "Le Svendro",
+     "vues": "417 k vues",
+     "date": "il y a 8 ans",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nODXV1xmrIeGT0sWZp64me8_fP5vXnG1g4DIK8BpfLJw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN TO",
+     [
+      {
+       "t": "BEATBOX",
+       "couleur": "#2e9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "X2bzi7sUnnM",
+     "titre": "How To Beatbox For Beginners: Learn The Basics (Part 1)",
+     "chaine": "TylaDubya",
+     "vues": "549K views",
+     "date": "2 years ago",
+     "duree": "8:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mvNPBuANS8jGq7Lr3qypiNemKS_F1kBv6Zg-1V0CSL8w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "BEATBOXEN",
+       "couleur": "#2e9a4a"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "slGs_d59bx8",
+     "titre": "Beatbox lernen für [ANFÄNGER] | #1 KICK",
+     "chaine": "Beatbox Germany",
+     "vues": "103.595 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "4:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpYaeDQb24G6w5eJOtBBbWyDqgkeXB4znuR23uitE6nA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "BEATBOX",
+       "couleur": "#2e9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "npLuIHnXfVw",
+     "titre": "COME IMPARARE LE BASI DEL BEATBOX IN 5 MINUTI",
+     "chaine": "BlackRoll • Beatbox",
+     "vues": "25K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/W89S_nlD60IQ5lStOOCSjZGeA2M-Oc69TZeVdL3PqVfY446WM1shvjRe079iwJgSdnDfstBwnA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER",
+     [
+      {
+       "t": "BEATBOX",
+       "couleur": "#2e9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uYFaKjjhgUM",
+     "titre": "Como fazer BEATBOX: 3 batidas básicas p/ iniciantes",
+     "chaine": "EU VIVO ISSO",
+     "vues": "228 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "10:05",
+     "avatar": "https://yt3.ggpht.com/9NUwUZ50pGras3wo0-Gd34EH5lH0VfPCgJQvqjoC94fIy9tlTtoxvtvM52xxOOWOSzJYiWhm7w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BEATBOX",
+       "couleur": "#2e9a4a"
+      }
+     ],
+     "YAPMAK"
+    ],
+    "video": {
+     "id": "ZIDlsQk-Lqo",
+     "titre": "BEATBOX NASIL YAPILIR ? Detaylı Anlatım ( Ana Sesler ve Önemli Bilgiler )",
+     "chaine": "Beatbox",
+     "vues": "419 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "6:38",
+     "avatar": "https://yt3.ggpht.com/SIAwJRHwm-2GDJlOzo-ql2MQwxr9mEgGjgcXPhobxuX7QePKQk24miMHhdldIDebLL721OSTKg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "BEATBOX",
+       "couleur": "#2e9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DqIIg59ncr8",
+     "titre": "Cum sa faci Beatbox : Episodul #1",
+     "chaine": "Bogdan Ciubotaru (bmb43)",
+     "vues": "471 K vizionări",
+     "date": "acum 12 ani",
+     "duree": "4:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n2wvS3Pl4xAdnutgT0MPyBAI2TRqiyxuT0h9xMUtn9MrIe=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE",
+     [
+      {
+       "t": "BEATBOX",
+       "couleur": "#2e9a4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vMtchcxQN_k",
+     "titre": "Základy Beatboxu | B C K | bass drum, hi-hat a rimshot | 3 základní zvuky | beatbox tutorial",
+     "chaine": "Dalibor Neuwirt",
+     "vues": "12 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "6:08",
+     "avatar": "https://yt3.ggpht.com/cniFsc7Zai-PGRjQMiMaOr5ccHgyAYSorHpag7lKSwB0Ipc35h3p_x9_quv8MKiJ3OF-kSnQqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "AVOIR RÉPONSE",
+     [
+      {
+       "t": "À TOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HAVE AN ANSWER",
+     [
+      {
+       "t": "FOR EVERYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "AUF ALLES",
+     [
+      {
+       "t": "EINE ANTWORT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AVERE UNA RISPOSTA",
+     [
+      {
+       "t": "A TUTTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER RESPOSTA",
+     [
+      {
+       "t": "PRA TUDO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYE",
+     [
+      {
+       "t": "CEVAP VEREBİLMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ AI RĂSPUNS",
+     [
+      {
+       "t": "LA ORICE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MÍT ODPOVĚĎ",
+     [
+      {
+       "t": "NA VŠECHNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PARLER LA",
+     [
+      {
+       "t": "LANGUE DES SIGNES",
+       "couleur": "#7b4bb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kyuD8YcTWdE",
+     "titre": "Cours Langue des Signes pour tenir une conversation en LSF",
+     "chaine": "Marie Littlebunbao",
+     "vues": "929 k vues",
+     "date": "il y a 8 ans",
+     "duree": "3:21",
+     "avatar": "https://yt3.ggpht.com/-i-04S323icvhMI6woik-9A4KqmUKGomZMCExl1QKxuvxWQSLax84kvOi2cYlR4-yk4hFjmry1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "SIGN LANGUAGE",
+       "couleur": "#7b4bb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0FcwzMq4iWg",
+     "titre": "25 ASL Signs You Need to Know | ASL Basics | American Sign Language for Beginners",
+     "chaine": "Learn How to Sign",
+     "vues": "13M views",
+     "date": "5 years ago",
+     "duree": "6:34",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mjylWENsAjiqg9Ctp5NmnDOSyEtVO0KV44Mfk_XOBh1n8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "GEBÄRDENSPRACHE",
+       "couleur": "#7b4bb3"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "y5H_aRpWch4",
+     "titre": "Gebärdensprache lernen: Begrüßung | Cindy Klink",
+     "chaine": "Cindy Klink",
+     "vues": "418.012 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "5:13",
+     "avatar": "https://yt3.ggpht.com/bWj0wYU_Q_2k2gDR8qmLO0C9XLpyXeDnRACa14aS0DAHuePe48bncQcQg3InLkviHoHDUZDU0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PARLARE LA",
+     [
+      {
+       "t": "LINGUA DEI SEGNI",
+       "couleur": "#7b4bb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d37r-4qmAwg",
+     "titre": "Corso di LIS ONLINE PER PRINCIPIANTI | COME PRESENTARSI IN LIS | la_LISegnante",
+     "chaine": "la_LISegnante",
+     "vues": "66K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "13:51",
+     "avatar": "https://yt3.ggpht.com/FigST9W-B4k-7d61X1x2flDK6nZRENisW6tyvS_oqTTbKY9daDVzdmURj7LXGlt4Y0o9ElKk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FALAR",
+     [
+      {
+       "t": "LIBRAS",
+       "couleur": "#7b4bb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Xv42hOmddjU",
+     "titre": "20 Sinais Básicos de Libras: Aprenda a se Comunicar com Surdos em Minutos! | Débora Libras",
+     "chaine": "Débora Libras",
+     "vues": "29 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "6:45",
+     "avatar": "https://yt3.ggpht.com/1JlcjIeqwBfeiQyAzQAzx1YQ7SHJD-AnSt_N0LYFTeOu-7SsCRe62NBsaGqOzLed05fVEgBCOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İŞARET DİLİ",
+       "couleur": "#7b4bb3"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "6SbkkwtI-m0",
+     "titre": "Temel İletişim Cümleleri - İşaret Dili Öğreniyorum",
+     "chaine": "EGO Bilgi",
+     "vues": "167 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "1:35",
+     "avatar": "https://yt3.ggpht.com/FV90ESXfNI1Z9AJz4UraiMoLHiVLd9Ch1TzfZWfxGq6yhPn5cq5FywczD4j18_hjO_RuuUUZpYs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ VORBEȘTI",
+     [
+      {
+       "t": "LIMBA SEMNELOR",
+       "couleur": "#7b4bb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ttOBzCUg2So",
+     "titre": "ABC (limba semnelor române)",
+     "chaine": "Asociația LSR",
+     "vues": "48 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "1:26",
+     "avatar": "https://yt3.ggpht.com/Fr1kKsr5zpp59jSdfBqHQhknmSf0acptv7PatxxD2OMyQY8lXw06AhXpqY_QU0yKbbNH6xDul-o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MLUVIT",
+     [
+      {
+       "t": "ZNAKOVÝM JAZYKEM",
+       "couleur": "#7b4bb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1BN4Pus2gO4",
+     "titre": "Minislovník znakového jazyka #1",
+     "chaine": "Nadační fond Dar sluchu",
+     "vues": "98 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lwAeitg_jqFuMKDf2M8YztdhPJVX9rJNg1u_u4izFTfA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "DESSINER",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "UN PORTRAIT"
+    ],
+    "video": {
+     "id": "777wDV7QdUo",
+     "titre": "APPRENDRE À DESSINER UN VISAGE SIMPLE (DEBUTANT)",
+     "chaine": "Apprendre à Dessiner",
+     "vues": "704 k vues",
+     "date": "il y a 3 ans",
+     "duree": "7:37",
+     "avatar": "https://yt3.ggpht.com/fPLVxfprU2jffNQlDjWe0---wAqtcXfhVq9zN8h6cMTy3buTDiLH0qacd8lAK454EPEUIH9V7Xo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "DRAW",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "A FACE"
+    ],
+    "video": {
+     "id": "gT5zBXuKO3I",
+     "titre": "How To: Draw Face | Easy Beginner Proportion Tutorial",
+     "chaine": "Lazy Arts",
+     "vues": "7.1M views",
+     "date": "5 years ago",
+     "duree": "16:04",
+     "avatar": "https://yt3.ggpht.com/e7M4UXvM1Rr3vLzhd4Y2vIOkOSK7LfRW738RgL82pu4itJMVv93Ji14uILvblQVzKyPEO6Zm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "GESICHTER",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "ZEICHNEN"
+    ],
+    "video": {
+     "id": "boxcjyDy0f0",
+     "titre": "einfaches Gesicht zeichnen | Schritt für Schritt TUTORIAL | Theresas Artwork",
+     "chaine": "Theresas Artwork",
+     "vues": "102.355 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "12:20",
+     "avatar": "https://yt3.ggpht.com/694bSDWobzmlbJFhuuN7pg7SVjLQNfH4awT037lf4iWrK5-Y48-FNlSRBGY94fT7NGgsifLRdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "DISEGNARE",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "UN VOLTO"
+    ],
+    "video": {
+     "id": "n088uhs2xrc",
+     "titre": "Come disegnare un viso - il metodo PIU' USATO e PRATICO",
+     "chaine": "Disegnatu",
+     "vues": "167K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/lmUwHYpbUlDbgKnTFtoYR1KuPm2O0xu-0bqqhNso86BXryez9VwlSVgig3nNJ28-uX-ij9hnoA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "DESENHAR",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "UM ROSTO"
+    ],
+    "video": {
+     "id": "3KIRL3hJvQA",
+     "titre": "COMO DESENHAR ROSTO dicas simples",
+     "chaine": "Gui Arts",
+     "vues": "4,9 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/borLtNroRC3PeM1UvP5C66aqHgh_jOim6OaOlJnzx0BnOAWMp514XJNnsm3R_M5nw9S6aE8b=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PORTRE",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "ÇİZMEK"
+    ],
+    "video": {
+     "id": "R_COdmO13hY",
+     "titre": "Basit Portre Çizimi, Karakalem, Basit Çizim",
+     "chaine": "Ali Özcivan",
+     "vues": "1,1 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "16:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mQe2wIaITqA53QiklJXl7rMOxtY0kaRsp3dFaLGKOF0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ DESENEZI",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "UN PORTRET"
+    ],
+    "video": {
+     "id": "FF839wSN_rU",
+     "titre": "Cum se deseneaza un portret cu Andrei Radu (partea 1)",
+     "chaine": "Andrei Radu Meditatii la Desen",
+     "vues": "42 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "29:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_md8kaP0DaPBke2-5YnOOi5x5w75RnF0yR5_X6NR7Fpcgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "NAKRESLIT",
+       "couleur": "#c98a2b"
+      }
+     ],
+     "OBLIČEJ"
+    ],
+    "video": {
+     "id": "wgblBeXZsTY",
+     "titre": "Jak nakreslit obličej? český tutorial",
+     "chaine": "DzejnArt",
+     "vues": "240 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "4:36",
+     "avatar": "https://yt3.ggpht.com/pQrG1dOixppD2vXEVmaDbslHGhAyB_qpDQ-RG5b8UELZkYbkGdouc3xgX5WINKo_zlKMEbuRXQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UNE",
+     [
+      {
+       "t": "GRUE EN ORIGAMI",
+       "couleur": "#3a7bc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bZcl8eKG3HU",
+     "titre": "Origami ! La Grue traditionnelle [HD]",
+     "chaine": "L'Atelier de Thomas",
+     "vues": "785 k vues",
+     "date": "il y a 10 ans",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/7rqyaoG0qMafPaa37JOyZuskBzwZwWDID-RyfsEDqJbxEY2gmT_3MVh4iWynPbYT7QbO3UXI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FOLD A",
+     [
+      {
+       "t": "PAPER CRANE",
+       "couleur": "#3a7bc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KfnyopxdJXQ",
+     "titre": "How To Make a Paper Crane - Origami Crane Step by Step - Easy",
+     "chaine": "Origami Tsunami",
+     "vues": "13M views",
+     "date": "12 years ago",
+     "duree": "8:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0NLs7H4Z94DZ6238uVavckWOfsvFolDv-G8QJpXImvA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN",
+     [
+      {
+       "t": "ORIGAMI-KRANICH",
+       "couleur": "#3a7bc8"
+      }
+     ],
+     "FALTEN"
+    ],
+    "video": {
+     "id": "fN5h15uVit0",
+     "titre": "Den berühmten Origami Kranich falten | Einfache Anleitung | Origami Kraniche als DIY Glücksbringer",
+     "chaine": "Ronja Ready DIY",
+     "vues": "27.540 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "8:12",
+     "avatar": "https://yt3.ggpht.com/KRxbkTfAC60oJJT_4XWAFls9_yDhR6jLX_apOSF5ZiDLay50kQpVPSOjvLkkP9SHAiYzxa69SPk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE UNA",
+     [
+      {
+       "t": "GRU ORIGAMI",
+       "couleur": "#3a7bc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "J12yYZAq5j4",
+     "titre": "Gru / Tsuru - Origami Giapponesi Tutorial",
+     "chaine": "The Japanese Dreams",
+     "vues": "56K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkrTlhEwGc9d-AzhsN9rarhaDacIy8JbEd52pMJa2IfgI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UM",
+     [
+      {
+       "t": "TSURU",
+       "couleur": "#3a7bc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "inSjGLXuynM",
+     "titre": "Origami: TSURU - Passo a passo",
+     "chaine": "Art e origamis",
+     "vues": "201 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k7D9t6vWLl8uML7vzcQCoTOhCwLUJ_3-JL6o2VFF9WgA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ORİGAMİ",
+     [
+      {
+       "t": "TURNA KUŞU",
+       "couleur": "#3a7bc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "94D9fl1bwxg",
+     "titre": "ORİGAMİ TURNA KUŞU YAPIMI",
+     "chaine": "Origami Kültür",
+     "vues": "39 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "4:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n_IJIchyobXfhsh78nJXjRE6BqGFrGQs6RhL-0NQoulig=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI UN",
+     [
+      {
+       "t": "COCOR DIN HÂRTIE",
+       "couleur": "#3a7bc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7G98IyvHkhU",
+     "titre": "Cocor din Hartie. Cum sa faci o pasare origami",
+     "chaine": "Lucruri din Hartie Pas cu Pas",
+     "vues": "24 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "6:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mkNX45qfCfLyWKTDqDUEFU5TC40WV771IrRIGs0q6R7Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SLOŽIT",
+     [
+      {
+       "t": "JEŘÁBA Z PAPÍRU",
+       "couleur": "#3a7bc8"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i4so8LDrS_s",
+     "titre": "Jak složit origami jeřába (česky a jednoduše)",
+     "chaine": "Smida3",
+     "vues": "200 tis. zhlédnutí",
+     "date": "před 14 lety",
+     "duree": "9:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZDZB3Wz6cJBiGSP_JVDedkmKZ6C2KZuUdLw6rjOmS_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  }
+ ]
+}

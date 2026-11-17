@@ -1,0 +1,1367 @@
+{
+ "id": "sg-011",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7678300054616116512",
+  "vues": 25000,
+  "publie_le": "2026-08-26",
+  "accroche": "10 compétence 10/10 que tu peux apprendre en 1 mois."
+ },
+ "titre": {
+  "fr": "10 compétences 10/10 que tu peux apprendre en 1 mois",
+  "en": "10/10 skills you can learn in 1 month",
+  "de": "10/10-Skills, die du in 1 Monat lernen kannst",
+  "it": "Abilità da 10/10 che puoi imparare in 1 mese",
+  "pt-BR": "Habilidades nota 10 que você pode aprender em 1 mês",
+  "tr": "1 ayda öğrenebileceğin 10/10 beceriler",
+  "ro": "Abilități de 10/10 pe care le poți învăța într-o lună",
+  "cs": "Dovednosti na 10/10, které se naučíš za 1 měsíc"
+ },
+ "legendes": {
+  "fr": "10 compétences 10/10 que tu peux apprendre en 1 mois #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills you can learn in 1 month #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die du in 1 Monat lernen kannst #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità da 10/10 che puoi imparare in 1 mese #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades nota 10 que você pode aprender em 1 mês #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "1 ayda öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități de 10/10 pe care le poți învăța într-o lună #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti na 10/10, které se naučíš za 1 měsíc #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - afc.lp",
+  "url": "https://www.tiktok.com/music/original-sound-7659247530319891222"
+ },
+ "notes": "Routine du 17/11. Son post à 25 k (« 10 compétence 10/10 que tu peux apprendre en 1 mois. ») : ancienne couverture refaite avec l'actuelle, ses 4 lignes brun/noir (« QUE TU PEUX » rétabli, il manquait « peux »), fautes corrigées (« APRRENDRE », « ≈60 heures par jour »). Ses 5 compétences dans son ordre (piano, skate, piloter, marathon, guitare), ses couleurs et ses temps sur deux lignes. D'autres vraies vidéos que les siennes (Maxime Pardo, Joseph Garbaccio, Matpilote, THIBAULT, La Guitare avec Alexandre), natives dans chaque langue. Sophia en étape 4 sur 7 (cta B : « UN SUJET / PAR JOUR »), sa slide « ABONNE-TOI » retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 140
+     },
+     {
+      "t": "QUE TU PEUX",
+      "cap": 120
+     },
+     {
+      "t": "APPRENDRE",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "EN UN MOIS",
+      "cap": 135
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "YOU CAN",
+      "cap": 125
+     },
+     {
+      "t": "LEARN",
+      "couleur": "brun",
+      "cap": 230
+     },
+     {
+      "t": "IN ONE MONTH",
+      "cap": 130
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS,",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "DIE DU IN",
+      "cap": 120
+     },
+     {
+      "t": "EINEM MONAT",
+      "couleur": "brun",
+      "cap": 170
+     },
+     {
+      "t": "LERNEN KANNST",
+      "cap": 115
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "CHE PUOI",
+      "cap": 120
+     },
+     {
+      "t": "IMPARARE",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "IN UN MESE",
+      "cap": 135
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 140
+     },
+     {
+      "t": "QUE VOCÊ PODE",
+      "cap": 110
+     },
+     {
+      "t": "APRENDER",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "EM UM MÊS",
+      "cap": 135
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "BİR AYDA",
+      "couleur": "brun",
+      "cap": 170
+     },
+     {
+      "t": "ÖĞRENEBİLECEĞİN",
+      "cap": 105
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 180
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 145
+     },
+     {
+      "t": "PE CARE LE POȚI",
+      "cap": 105
+     },
+     {
+      "t": "ÎNVĂȚA",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "ÎNTR-O LUNĂ",
+      "cap": 130
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "couleur": "brun",
+      "cap": 140
+     },
+     {
+      "t": "KTERÉ SE",
+      "cap": 120
+     },
+     {
+      "t": "NAUČÍŠ",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "ZA MĚSÍC",
+      "cap": 135
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "LE PIANO",
+       "couleur": "#c4482a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "n7lOJNYGYvw",
+     "titre": "Apprendre le piano (Guide complet pour les débutants) 🎹",
+     "chaine": "Piano en ligne",
+     "vues": "3,8 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "11:12",
+     "avatar": "https://yt3.ggpht.com/6_riXyM6yXLauXbrsvAKLfF-rQcBBadJpMWxhtzG-nTLDOb9lPcv8NRQmCuBZ-ErkzNbR2jEypQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈40 h pour apprendre",
+     "1h30/jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "THE PIANO",
+       "couleur": "#c4482a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tEtukfFv3Wk",
+     "titre": "How To Play Piano (Beginner Piano Lesson)",
+     "chaine": "Pianote",
+     "vues": "4.4M views",
+     "date": "2 years ago",
+     "duree": "15:29",
+     "avatar": "https://yt3.ggpht.com/KnAqBxitYyFiFqxvkbuxqFIWTReKTYH0Pd0v9yipyspqyQP0cNISESMjJlHaLwHcGiAQ1rbmOA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈40 hours to learn",
+     "1.5 h/day"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "KLAVIER",
+       "couleur": "#c4482a"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "gMQC5sJaVN8",
+     "titre": "Klavier lernen - Deine 1. Klavierstunde",
+     "chaine": "Klavier lernen (werdemusiker.de)",
+     "vues": "2,5 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "22:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_njDXQmFjISEo22W_rsfQv2Q2bIbLZvEvlxbws4EOB_Mw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈40 Stunden zum Lernen",
+     "1,5 Std./Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "IL PIANOFORTE",
+       "couleur": "#c4482a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ggxTJoacvN0",
+     "titre": "PIANOFORTE da AUTODIDATTA (1) 🎹 IMPARARE IL PIANO da SOLI",
+     "chaine": "Patrick Trentini",
+     "vues": "179K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "14:37",
+     "avatar": "https://yt3.ggpht.com/zcWoW7L6qntMq8VwTzpR6lfeWsD_k8f_8DryMDFbXy9jvXLTXWCzG-kdrSgSpwPhsMQSGp77dg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈40 ore per imparare",
+     "1h30 al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "PIANO",
+       "couleur": "#c4482a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "W5B1oI58XWo",
+     "titre": "Como tocar Piano Fácil (Aula 1 para Iniciantes com PDF)",
+     "chaine": "Milo Andreo",
+     "vues": "711 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "21:03",
+     "avatar": "https://yt3.ggpht.com/aJfkpFXzYA5Trwhfkl5DcBHgT0U2edFA7n9xDirt592OyLMhvWswjUfq911CYxQARwhJBFI4DQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈40 horas para aprender",
+     "1h30 por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PİYANO",
+       "couleur": "#c4482a"
+      }
+     ],
+     "ÇALMAK"
+    ],
+    "video": {
+     "id": "vM4m8jWGi_E",
+     "titre": "Piyano Çalmaya Nasıl Başlanır ( En Kolay Yöntemler)",
+     "chaine": "Melih Gökçe",
+     "vues": "85 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "10:04",
+     "avatar": "https://yt3.ggpht.com/JvLaEePLfewLGGT2BNoS7iAq0rgz01Nrn11K2tFUh7D2I2RO7K2tTUtfdqohMdiN9ChrQ5ynXg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için ≈40 saat",
+     "günde 1,5 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CÂNȚI",
+     [
+      {
+       "t": "LA PIAN",
+       "couleur": "#c4482a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iJbSoGuoAvI",
+     "titre": "ÎNVAȚĂ să cânți la PIAN în 5 pași",
+     "chaine": "Tutoriale Pian",
+     "vues": "41 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "5:22",
+     "avatar": "https://yt3.ggpht.com/__tgZOfRnF_emDMoCpdGxslYv6bkqg1dypFxj6GmEBlF2qToxKSVA3jnbogmBNK0xFFsTuKElw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈40 de ore de învățat",
+     "1h30 pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "HRÁT",
+     [
+      {
+       "t": "NA KLAVÍR",
+       "couleur": "#c4482a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "wBvtWMiHtuk",
+     "titre": "Jak začít hrát na piano úplně od začátku - první, co se musíte naučit",
+     "chaine": "Piano s Filipem",
+     "vues": "186 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "12:21",
+     "avatar": "https://yt3.ggpht.com/hmMUiaBNZl8MMvikV8t9Ql4SZyuAaMcL0MJJI1rzoTfMkrHxFLG_2-bX_IFlsoz5r2ImwRq4zg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈40 hodin na naučení",
+     "1,5 h denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À FAIRE",
+       "couleur": "#c8be4c"
+      }
+     ],
+     "DU SKATE"
+    ],
+    "video": {
+     "id": "3RESTyRDmAk",
+     "titre": "Apprendre le skateboard pour débutant - RAPIDEMENT et FACILEMENT",
+     "chaine": "Jean Postec",
+     "vues": "38 k vues",
+     "date": "il y a 2 ans",
+     "duree": "23:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kWwQ9lWnr7vL9nLC6nuIwZL2Qp7tvYDGe71zUpGZi77u0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 h pour apprendre",
+     "2h/jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN TO",
+     [
+      {
+       "t": "SKATEBOARD",
+       "couleur": "#c8be4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KTJnEIipufg",
+     "titre": "How to Skateboard for Beginners | Footing, Pushing, Stopping, Turning, Cracks & Curbs | Tactics",
+     "chaine": "Tactics Boardshop",
+     "vues": "2.3M views",
+     "date": "6 years ago",
+     "duree": "7:58",
+     "avatar": "https://yt3.ggpht.com/YuVXr1ujY_rx7m0eZF3t79a-VmoiSDXDnREpJFfGyBN70i-Ah9-ObRB9Yqc6OMbTu_Vpq8QO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 hours to learn",
+     "2 h/day"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "SKATEBOARD",
+       "couleur": "#c8be4c"
+      }
+     ],
+     "FAHREN"
+    ],
+    "video": {
+     "id": "UC9ekLKq8cc",
+     "titre": "Skateboard fahren lernen Skateboard Tricks für Anfänger",
+     "chaine": "Tom Cat Skateboarding",
+     "vues": "455.381 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "23:20",
+     "avatar": "https://yt3.ggpht.com/j-kaUruD1zzaqcIkM0wMvKOZQLgnBAfA0PO-qNSlfPsiaSrIVPSfc8g_WALAe5AiyJCrMogfwmQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 Stunden zum Lernen",
+     "2 Std./Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ANDARE",
+     [
+      {
+       "t": "IN SKATE",
+       "couleur": "#c8be4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "270o2K0OY00",
+     "titre": "Skateboard: Ecco come iniziare. Tutorial per principianti ITA. Spingere-Frenare-Curvare.",
+     "chaine": "Vagaboarder",
+     "vues": "199K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "7:33",
+     "avatar": "https://yt3.ggpht.com/3dMrhDth2NIkXiYiPjqgNvBvezLSy38f_rgYrEJuMIwpJfsa63e3JwhhXxhiIdW6TGJOxFDi0w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 ore per imparare",
+     "2h al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ANDAR DE",
+     [
+      {
+       "t": "SKATE",
+       "couleur": "#c8be4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Wf6jOfwFC34",
+     "titre": "Como Remar, Fazer Curva e Frear no Skate - Skate para Iniciantes",
+     "chaine": "SKTBR",
+     "vues": "2,5 mi visualizações",
+     "date": "há 7 anos",
+     "duree": "9:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ko_SLtLYqoCkYcW0FmH3ZKfeiMxV-Y3RAfFGSQR-RpKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 horas para aprender",
+     "2h por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KAYKAY",
+       "couleur": "#c8be4c"
+      }
+     ],
+     "SÜRMEK"
+    ],
+    "video": {
+     "id": "A43lUXTkaCE",
+     "titre": "KAYKAY NASIL KAYILIR?",
+     "chaine": "Tuna Özsoy",
+     "vues": "940 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/nenigceom6iWbgHKDDqcQtOj7atM6qBNzusi05Hs72M3jaIjlYCbz8KNUmtVe5ujgQVndgeZ0JI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için ≈60 saat",
+     "günde 2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ MERGI",
+     [
+      {
+       "t": "PE SKATE",
+       "couleur": "#c8be4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UJTHDi4VgZs",
+     "titre": "TUTORIAL : Primii pași pe placa de freestyle  / Part 1",
+     "chaine": "Marius Constantin",
+     "vues": "12 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "9:11",
+     "avatar": "https://yt3.ggpht.com/4qpZU82QexhNDt-c_PouGLt-Q3aUNoJpKScGnCuDkTyCQOUnrJ98XN4ud2eStwzY1Wn_qSBrtQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 de ore de învățat",
+     "2h pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "JEZDIT",
+     [
+      {
+       "t": "NA SKATU",
+       "couleur": "#c8be4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T1Tpk-2W0Us",
+     "titre": "Základy jízdy na skateboardu / POPRVÉ NA SKEJTU - Honza Kaňůrek",
+     "chaine": "Jan Kanurek",
+     "vues": "215 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "20:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nS59-YP-YFLZW6qTWl40HFqy0Jcoj3upQB-KzjCTziZmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 hodin na naučení",
+     "2 h denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "UN SUJET",
+     [
+      {
+       "t": "PAR JOUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "ONE TOPIC",
+     [
+      {
+       "t": "A DAY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN THEMA",
+     [
+      {
+       "t": "PRO TAG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "UN ARGOMENTO",
+     [
+      {
+       "t": "AL GIORNO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "UM ASSUNTO",
+     [
+      {
+       "t": "POR DIA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÜNDE",
+     [
+      {
+       "t": "BİR KONU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "UN SUBIECT",
+     [
+      {
+       "t": "PE ZI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "JEDNO TÉMA",
+     [
+      {
+       "t": "DENNĚ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À PILOTER",
+       "couleur": "#3f88cf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w5B_knM3Lvk",
+     "titre": "COMMENT DEVENIR PILOTE DE LIGNE EN 2026 ?",
+     "chaine": "PilotHugz",
+     "vues": "53 k vues",
+     "date": "il y a 3 ans",
+     "duree": "14:59",
+     "avatar": "https://yt3.ggpht.com/BEoeoPkZS71r2ZfkI5APsrAxjAShv6r-HB4c4sQMXWuOY9XLR6hx8QSLwoyAvd5TVNzMFMi8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈300 h pour apprendre",
+     "10h/jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO FLY",
+       "couleur": "#3f88cf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "D-nOuNU9LcQ",
+     "titre": "How To Become a Pilot (Step-By-Step Guide)",
+     "chaine": "Pilot Institute Airplanes",
+     "vues": "759K views",
+     "date": "2 years ago",
+     "duree": "11:02",
+     "avatar": "https://yt3.ggpht.com/nqXx8Zv_YK4jtJTn8YNB8J7r4dmc2m-lfUJszjaScp4jtQ_4_YJvNL2T8TwTfphUfXRkxvOR4A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈300 hours to learn",
+     "10 h/day"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FLIEGEN",
+       "couleur": "#3f88cf"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "DajzwX6qLrU",
+     "titre": "Pilotenausbildung - jetzt Pilot werden? AeroNews",
+     "chaine": "AeroNewsGermany",
+     "vues": "131.615 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "14:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTCuohO5XLDYZB_mOO9eitaS8VtFqn42S3UShjXBRdnqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈300 Stunden zum Lernen",
+     "10 Std./Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A PILOTARE",
+       "couleur": "#3f88cf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oEMjYc71LY4",
+     "titre": "Diventare PILOTI DI LINEA: tutto quello che devi sapere.",
+     "chaine": "The Italian Pilot",
+     "vues": "18K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "11:02",
+     "avatar": "https://yt3.ggpht.com/FnHzqDukkGDLyGKxq1X5K8w06Ii_BMTr89VvUkoqN9KRakY6yIYPuHD_RZNAmbTmD2rMInL4eO0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈300 ore per imparare",
+     "10h al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A PILOTAR",
+       "couleur": "#3f88cf"
+      }
+     ]
+    ],
+    "video": {
+     "id": "M7i-37cPfxM",
+     "titre": "Quais São os Caminhos para Se Tornar Piloto de Aeronave?",
+     "chaine": "Aero Por Trás da Aviação",
+     "vues": "583 mil visualizações",
+     "date": "há 8 anos",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/1_jkMPt_TqslJFWR_2jV0LGay0Dbcnase3PloY8ab359OfGQY6eMWBMHqyDnMKZDMwrtOl-9wg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈300 horas para aprender",
+     "10h por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "UÇAK",
+       "couleur": "#3f88cf"
+      }
+     ],
+     "KULLANMAK"
+    ],
+    "video": {
+     "id": "n852PjCHETQ",
+     "titre": "Nasıl Pilot Olunur? Pilotluk mesleği ile ilgili bilinmesi gerekenler",
+     "chaine": "TERFİ TV",
+     "vues": "294 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mybKBskbf_PZC_TsiV2FyI_VZ9qTmc76C8V9snq5vbP7o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için ≈300 saat",
+     "günde 10 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ PILOTEZI",
+       "couleur": "#3f88cf"
+      }
+     ],
+     "UN AVION"
+    ],
+    "video": {
+     "id": "rQQlrb6sd0M",
+     "titre": "Cât costă să devii pilot de avion - Cavaleria.ro",
+     "chaine": "Cavaleria.ro",
+     "vues": "137 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ksqs2s3fjaK8787eGgCGIRyC3ulQjt_ItUoK8y2MN-cTM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈300 de ore de învățat",
+     "10h pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PILOTOVAT",
+       "couleur": "#3f88cf"
+      }
+     ],
+     "LETADLO"
+    ],
+    "video": {
+     "id": "21SLahYaIEc",
+     "titre": "Jak se stát pilotem? - Jet For Trip",
+     "chaine": "Jet For Trip",
+     "vues": "7,6 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "13:48",
+     "avatar": "https://yt3.ggpht.com/6Jy8I1aH03A0qdEeb6SDZbpJBYmjpU4zVvEnpomEnTU9zMypIAzOCy_pS3kJSkIoeOGDJbbK7g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈300 hodin na naučení",
+     "10 h denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "SON PREMIER",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATHON"
+    ],
+    "video": {
+     "id": "Zvuwr4JjpEM",
+     "titre": "MARATHON : Tout ce que tu dois savoir pour le réussir !",
+     "chaine": "Running Addict",
+     "vues": "206 k vues",
+     "date": "il y a 1 an",
+     "duree": "15:29",
+     "avatar": "https://yt3.ggpht.com/zxJqY61mhOVZk3Mcs4T-hHPbO0KZm3GaOsH4sIAn0TVIYJa35a_pV-Oj1rX1DK_NPzonnvq70Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 h pour apprendre",
+     "2h/jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "RUN",
+     [
+      {
+       "t": "YOUR FIRST",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATHON"
+    ],
+    "video": {
+     "id": "3IqKhHUZwpg",
+     "titre": "How To Train For (AND SMASH) Your First Marathon - Ultimate Beginner's Guide",
+     "chaine": "Ben Parkes",
+     "vues": "175K views",
+     "date": "10 months ago",
+     "duree": "12:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDy4ZoQqcj7DiO_-1z6j2Y6Nu_PvFESGAsJagEM5FdPg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 hours to learn",
+     "2 h/day"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "DEINEN ERSTEN",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATHON LAUFEN"
+    ],
+    "video": {
+     "id": "MRKsCe7_Sek",
+     "titre": "DER ERSTE MARATHON | 40 Tipps",
+     "chaine": "Franziska Schöbel",
+     "vues": "52.201 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "19:28",
+     "avatar": "https://yt3.ggpht.com/X3Frsfr0JX8nWxdRUyeu_7MQNN3cl26XXiX0o3AWbhO_Kv6H1lp6TmwKdf_KsoamY0wwrXUwnQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 Stunden zum Lernen",
+     "2 Std./Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CORRERE",
+     [
+      {
+       "t": "LA PRIMA",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATONA"
+    ],
+    "video": {
+     "id": "TZQvG7V78Ug",
+     "titre": "DA 0 ALLA MARATONA 🏃🏻 | Come ho corso 42 km per la prima volta",
+     "chaine": "Leonardo Urbani",
+     "vues": "94K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "22:43",
+     "avatar": "https://yt3.ggpht.com/kONuB3j8nCggJnlkRR63jQAByVn33Sd9PWfyGmYQFawNu_rN7Tkc16BZTiDYopEiUXufw8kVlQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 ore per imparare",
+     "2h al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "CORRER",
+     [
+      {
+       "t": "SUA PRIMEIRA",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATONA"
+    ],
+    "video": {
+     "id": "acCZb8Ee0k8",
+     "titre": "10 DICAS PARA QUEM VAI CORRER A PRIMEIRA MARATONA",
+     "chaine": "Programa Fôlego",
+     "vues": "142 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "14:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUXL2d5L75cGNaL4oW2sLvYBOV4_nZrdGLDQHqpSBZTA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 horas para aprender",
+     "2h por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İLK",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATONUNU KOŞMAK"
+    ],
+    "video": {
+     "id": "bN3Zi0cRMUs",
+     "titre": "İlk MARATON, Püf Noktalar, Nelere Dikkat Edilmeli!",
+     "chaine": "A'dan Z'ye Koşu",
+     "vues": "24 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "15:20",
+     "avatar": "https://yt3.ggpht.com/ZT073TaJzVZajJL1vsH20lH1ENWKXrIPEash6xe_wmlWUcoFqW7BYPhRQyozKAMkZZEJvRxHJfI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için ≈60 saat",
+     "günde 2 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ALERGI",
+     [
+      {
+       "t": "PRIMUL",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATON"
+    ],
+    "video": {
+     "id": "ndDDb8m3yRg",
+     "titre": "321sport VLOG: pregătirea pentru primul maraton [episodul #2]",
+     "chaine": "321sport",
+     "vues": "3 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "12:50",
+     "avatar": "https://yt3.ggpht.com/2a3Lz3IPkTI0xB4TGQpQcNOtdvlUi402eJwy6T-rlxW3-5UwTBDMhifkh9ugmXXxF92f_YL_iqM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 de ore de învățat",
+     "2h pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZABĚHNOUT",
+     [
+      {
+       "t": "SVŮJ PRVNÍ",
+       "couleur": "#4a6494"
+      }
+     ],
+     "MARATON"
+    ],
+    "video": {
+     "id": "6FB8XiUEw9o",
+     "titre": "TÉMA: Jak uběhnout svůj první maraton?",
+     "chaine": "Hodinky 365 smart",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "1:04:07",
+     "avatar": "https://yt3.ggpht.com/IpMWUSH8qNNYJhLNq1ulLTE4x7RnoTpZE8Q4agB4g4Q5svtyXti1CsimarISy997AbyqMNir__E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈60 hodin na naučení",
+     "2 h denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À JOUER DE",
+       "couleur": "#dc6a4c"
+      }
+     ],
+     "LA GUITARE"
+    ],
+    "video": {
+     "id": "oauWS306RgA",
+     "titre": "TON PREMIER COURS DE GUITARE !",
+     "chaine": "Evan Tremorin",
+     "vues": "180 k vues",
+     "date": "il y a 5 ans",
+     "duree": "12:01",
+     "avatar": "https://yt3.ggpht.com/9OeQ20lYWRwM_z-zu8ZuvuxRh_55IMvUniUZy-291h1SADSRM-DH85UY-4_yw86XrQFct1jW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈30 h pour apprendre",
+     "1h/jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO PLAY",
+       "couleur": "#dc6a4c"
+      }
+     ],
+     "THE GUITAR"
+    ],
+    "video": {
+     "id": "BBz-Jyr23M4",
+     "titre": "Guitar Lesson 1 - Absolute Beginner? Start Here! [Free 10 Day Starter Course]",
+     "chaine": "Andy Guitar",
+     "vues": "39M views",
+     "date": "10 years ago",
+     "duree": "16:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU3JrPpx35JfjrJ7I1Ta4Il7w7eLhwwIqpGFPKxz9jkrhy=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈30 hours to learn",
+     "1 h/day"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "GITARRE",
+       "couleur": "#dc6a4c"
+      }
+     ],
+     "SPIELEN"
+    ],
+    "video": {
+     "id": "fwJ7knXMLj4",
+     "titre": "Gitarre lernen für Anfänger - Deine erste Gitarrenstunde - einfach & auf Deutsch",
+     "chaine": "Gitarre lernen (werdemusiker.de)",
+     "vues": "3,3 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "35:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l2oifu8pRIRvGh8eRjWF_FJVHNTfELGrPW7Y7zLBSImA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈30 Stunden zum Lernen",
+     "1 Std./Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SUONARE",
+     [
+      {
+       "t": "LA CHITARRA",
+       "couleur": "#dc6a4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3Xb_HGl9_D8",
+     "titre": "LEZIONI DI CHITARRA PRINCIPIANTI | Come imparare a suonare la Chitarra - Primi accordi Lez 1",
+     "chaine": "Alessandro Giordani",
+     "vues": "909K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "10:07",
+     "avatar": "https://yt3.ggpht.com/Z-WARfDX62uEwnYMeof9VJUs1H_t6qaK2ay4P4WAyLBMEVpHFNXsGqh3oK7Hod-28nwZGICywg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈30 ore per imparare",
+     "1h al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TOCAR",
+     [
+      {
+       "t": "VIOLÃO",
+       "couleur": "#dc6a4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "__sefyJqVaY",
+     "titre": "Como tocar violão em 10 minutos",
+     "chaine": "Hebert Freire",
+     "vues": "2,9 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "10:01",
+     "avatar": "https://yt3.ggpht.com/i89Eda1aZcF6SgPj_4pRBcaAZUg5XywqpwB0B7xkk54ml1VlJxo0UipQ8EERsOSdkadKl8FZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈30 horas para aprender",
+     "1h por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "GİTAR",
+       "couleur": "#dc6a4c"
+      }
+     ],
+     "ÇALMAK"
+    ],
+    "video": {
+     "id": "OIv6vwylSf4",
+     "titre": "7 GÜNDE GİTAR NASIL ÇALINIR? - Gitar Dersi #1",
+     "chaine": "Onur Art",
+     "vues": "4,2 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "23:32",
+     "avatar": "https://yt3.ggpht.com/X17rXQXxr23tWjfnGqFvy0ChzJfiM1r7rkkLeblXjZJYywGVLUW0SjJZr57eoe0sQP0p9X0pdQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için ≈30 saat",
+     "günde 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CÂNȚI",
+     [
+      {
+       "t": "LA CHITARĂ",
+       "couleur": "#dc6a4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CQ7tGC56mzE",
+     "titre": "Lectii de chitara pentru incepatori .Lectia  1  Acordurile E, Am , C",
+     "chaine": "Sandy Guitar",
+     "vues": "409 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m9KZiOBuPsxMx24pH4ClPsHbd599-VzGcf5wwDovnSXsw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈30 de ore de învățat",
+     "1h pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "HRÁT",
+     [
+      {
+       "t": "NA KYTARU",
+       "couleur": "#dc6a4c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m374lVq86wg",
+     "titre": "1. lekce kytary, kytara pro začátečníky, Když jsem já sloužil",
+     "chaine": "Michaela Medek",
+     "vues": "367 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "10:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mUuIAmquf-saJDmZ-Bw5oMFozgcV1Y3N7L7Ws-QEdRLZE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈30 hodin na naučení",
+     "1 h denně"
+    ]
+   }
+  }
+ ]
+}

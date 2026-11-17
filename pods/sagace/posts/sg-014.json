@@ -1,0 +1,1293 @@
+{
+ "id": "sg-014",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 pour être indépendant",
+  "en": "10/10 skills to be independent",
+  "de": "10/10-Skills, um unabhängig zu sein",
+  "it": "Abilità 10/10 per essere indipendente",
+  "pt-BR": "Habilidades 10/10 para ser independente",
+  "tr": "Bağımsız olmak için 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să fii independent",
+  "cs": "Dovednosti 10/10, díky kterým budeš samostatný"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour être indépendant #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to be independent #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, um unabhängig zu sein #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per essere indipendente #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para ser independente #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Bağımsız olmak için 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să fii independent #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, díky kterým budeš samostatný #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "PULL UP - Internet Girl",
+  "url": "https://www.tiktok.com/music/pull-up-7362000806738298897"
+ },
+ "notes": "Full test du 17/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 pour être indépendant », sa couverture (décor, lignes brun/noir, 3 lignes en fr/en/it/pt-BR/ro/tr, 4 en de/cs), 5 compétences de vie autonome (déboucher un évier, recoudre un bouton, réparer une crevaison, percer un mur, cuisiner pour la semaine), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta B : « APPRENDRE / PAR SOI-MÊME »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "POUR ÊTRE",
+      "cap": 169
+     },
+     {
+      "t": "INDÉPENDANT",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO BE",
+      "cap": 169
+     },
+     {
+      "t": "INDEPENDENT",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "UM",
+      "cap": 169
+     },
+     {
+      "t": "UNABHÄNGIG",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ZU SEIN",
+      "cap": 120
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PER ESSERE",
+      "cap": 169
+     },
+     {
+      "t": "INDIPENDENTE",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA SER",
+      "cap": 169
+     },
+     {
+      "t": "INDEPENDENTE",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "BAĞIMSIZ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "OLMAK İÇİN",
+      "cap": 93
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CA SĂ FII",
+      "cap": 169
+     },
+     {
+      "t": "INDEPENDENT",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "DÍKY KTERÝM",
+      "cap": 93
+     },
+     {
+      "t": "BUDEŠ",
+      "cap": 169
+     },
+     {
+      "t": "SAMOSTATNÝ",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DÉBOUCHER",
+     [
+      {
+       "t": "UN ÉVIER",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FYZ4hyFZeYg",
+     "titre": "Comment déboucher un évier ? - Le Tuto",
+     "chaine": "HomeServe France",
+     "vues": "88 k vues",
+     "date": "il y a 3 ans",
+     "duree": "2:19",
+     "avatar": "https://yt3.ggpht.com/ht8y4VIJllFkKOjn-ssTWxG-gdtaQi78aj70Z_vqRuhn5OlLWWr__S-GJf9YValDuKIrukPMVIg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "UNCLOG",
+     [
+      {
+       "t": "A SINK",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hySkwXMn0pA",
+     "titre": "How to Unclog a Sink -- The Right Way",
+     "chaine": "Home Repair Tutor",
+     "vues": "3.6M views",
+     "date": "13 years ago",
+     "duree": "10:09",
+     "avatar": "https://yt3.ggpht.com/lWPJ3DMMdga9H2Yj3MSpkGMlXkyKm2yg1eTLMZHIXpBzWolzmuMFykjYNLJmjtjU8rfsOVPGkw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "ABFLUSS",
+     [
+      {
+       "t": "FREI MACHEN",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_AeDojh4Sgk",
+     "titre": "Abfluss verstopft was hilft? 6 hilfreiche Tipps zur Abflussreinigung.",
+     "chaine": "M1Molter - Der Heimwerker",
+     "vues": "518.200 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "13:39",
+     "avatar": "https://yt3.ggpht.com/hfNoCsYW_IwWU9XRNH6TbPUV0AXqPx6c4UQaO6qGTtYVejF-i6mbMjdl4cPF3ieBD4lyQ3PGvaQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "STURARE",
+     [
+      {
+       "t": "IL LAVANDINO",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "l-6xT1e9UhQ",
+     "titre": "COME STURARE UN LAVANDINO (senza inondare casa...)",
+     "chaine": "Dada e Marcolino",
+     "vues": "302K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/Kz_NGDxEsmCsKXgaDKwY6VB6vBUu52OU6z4DVI5dqZSun0kikR6Whp_ZuGKI1s9pguTE7RvD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DESENTUPIR",
+     [
+      {
+       "t": "A PIA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xnM280ffPHs",
+     "titre": "COMO DESENTUPIR PIA DA COZINHA EM 3 MINUTOS! (É muito fácil)",
+     "chaine": "Hidráulica Fácil",
+     "vues": "503 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/E7i_Swhd5-lwjsgdriPOX026jRaeJuT5nvQsFvqZFCA7l1NpLazGVQACCakMp1EIYwbc-R36Lw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "TIKALI LAVABOYU",
+     [
+      {
+       "t": "AÇMAK",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sU-Rq8ZmsqQ",
+     "titre": "2 Dakikada Tıkanmış Lavabo Nasıl Açılır? & Gider Açma Yöntemi",
+     "chaine": "Macit Tesisat",
+     "vues": "83 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "4:04",
+     "avatar": "https://yt3.ggpht.com/12r-_5xZI4i8AIxLGNIMntEeehfPBXAJ2fePSoii1YdO17mbdOIN5ag2AlzCoyJrdg88C468cPo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DESFUNZI",
+     [
+      {
+       "t": "CHIUVETA",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mmxmNAxFXhY",
+     "titre": "Desfundare scurgere bucatarie",
+     "chaine": "Mesteru' Dexter",
+     "vues": "279 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/CVHEVf7dbHmRgZEqp5U-RKnXuv3j2VAUh155zNtIUUpsifeWRhWjrFWQ5fAK52lfDsxLdEfcZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYČISTIT",
+     [
+      {
+       "t": "UCPANÝ ODPAD",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Dt3GOZ_legA",
+     "titre": "Čištění odpadu svépomocí (umyvadlo, dřez, vana)",
+     "chaine": "Vidlák",
+     "vues": "138 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "9:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mV5t6qU04Wa7F6EuLGLthaWjHX1L1wKE86NuitYNNO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RECOUDRE",
+     [
+      {
+       "t": "UN BOUTON",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "llbxQ_J5oQ8",
+     "titre": "Comment recoudre un bouton",
+     "chaine": "Largeot & Coltin",
+     "vues": "174 k vues",
+     "date": "il y a 6 ans",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/eB4JgkeFSSIkFnsfiXtWADDIVhl57JZB3saVNeWy3UWWmW0NHpJh4FVM4KvFeU7AZcNaZHpcpQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SEW ON",
+     [
+      {
+       "t": "A BUTTON",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Du6gq3ks0SQ",
+     "titre": "How to Sew a Button - for Absolute BEGINNERS",
+     "chaine": "Treasurie",
+     "vues": "1.4M views",
+     "date": "9 years ago",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nsm5h4ak8aGF1z7bMGczsEGHh55FlFXHf0OincGrMHNIE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN KNOPF",
+     [
+      {
+       "t": "ANNÄHEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "34NZtWTYd7Y",
+     "titre": "Knopf annähen - So geht's ganz einfach!",
+     "chaine": "Karins Herzenssachen",
+     "vues": "261.952 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "2:22",
+     "avatar": "https://yt3.ggpht.com/bGxaV-gIsl-QQWMOlfs0MkdrFHpi3JMx-onK50kpjYqUOOKZss4CbbHhhNbmTlH9pgunB3OfTw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ATTACCARE",
+     [
+      {
+       "t": "UN BOTTONE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gfUVuG2nkO4",
+     "titre": "COME CUCIRE UN BOTTONE | Tutorial cucito base",
+     "chaine": "Feeling Felt",
+     "vues": "148K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "3:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5TPXhDU7L5sX5QRIpRNUI0gVkOji-QxANUDizIY-AWg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PREGAR",
+     [
+      {
+       "t": "UM BOTÃO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yfpxiPbF1Lk",
+     "titre": "COMO PREGAR BOTÃO? - 4 formas simples de pregar botões",
+     "chaine": "Flávia Pinheiro Atelier",
+     "vues": "62 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "6:48",
+     "avatar": "https://yt3.ggpht.com/yJr0k2AorOe53gwG4gNqzBMbWb8mXcmxa23swor3z0X8HHkltQxGcOhtX22THX9q0mGaXhIh=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "DÜĞME",
+     [
+      {
+       "t": "DİKMEK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N_zfaDzoyd8",
+     "titre": "Dügme Nasıl Dikilir",
+     "chaine": "Çeyizhanem",
+     "vues": "149 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "2:25",
+     "avatar": "https://yt3.ggpht.com/d96ix7zdoloFaeL-RuSbKR7WJC8QtrP7PfC05f_5lMs_4s9oNp2-BfXsrBYt06DXbgN6eHp5LpY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ COSI",
+     [
+      {
+       "t": "UN NASTURE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q8Sz6k9f0W0",
+     "titre": "Cum coasem un năsturel",
+     "chaine": "Diana C",
+     "vues": "17 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "2:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpsV2-DKgGHwUvGuFaC6Q1ArICqUtyeii7q7uQfxljjiIB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PŘIŠÍT",
+     [
+      {
+       "t": "KNOFLÍK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NhizuBU68qo",
+     "titre": "Jak přišít knoflík se 4 dírkami",
+     "chaine": "Černá kočka",
+     "vues": "19 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "12:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mUbKbY2FsHqBNlFKT0qDPs90Xuivx0B77ZQ-M4sxH0HFU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "PAR SOI-MÊME",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "ON YOUR OWN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SELBST",
+     [
+      {
+       "t": "LERNEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "DA SOLO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "SOZINHO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KENDİ KENDİNE",
+     [
+      {
+       "t": "ÖĞRENMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "SINGUR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UČIT SE",
+     [
+      {
+       "t": "SÁM",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉPARER",
+     [
+      {
+       "t": "UNE CREVAISON",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6RUlHgNPlUA",
+     "titre": "Comment réparer une crevaison et changer une chambre à air | Tuto",
+     "chaine": "GCN en Français",
+     "vues": "260 k vues",
+     "date": "il y a 6 ans",
+     "duree": "4:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mS-Z7E6GmNfYJbKIQAg4QGQLX9fhkfgGTPNa8dyBE3sw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FIX",
+     [
+      {
+       "t": "A FLAT TIRE",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "58STtUM-Wow",
+     "titre": "How to Fix a Flat Tire on a Bicycle",
+     "chaine": "Park Tool",
+     "vues": "705K views",
+     "date": "10 years ago",
+     "duree": "6:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mv82BL3GFB-3ROTc7XGHtVHjTeGE1jKpB7Ldv4M5BKm-k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINEN PLATTEN",
+     [
+      {
+       "t": "FLICKEN",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bpxdgn-fIiU",
+     "titre": "Fahrradschlauch flicken? So repariert ihr euren Reifen in wenigen Schritten | ADAC",
+     "chaine": "ADAC",
+     "vues": "91.434 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "15:52",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RIPARARE",
+     [
+      {
+       "t": "UNA FORATURA",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "H1a5xYRBrT0",
+     "titre": "COME RIPARARE LA CAMERA D'ARIA DELLA BICI",
+     "chaine": "BiciFaidate.it®",
+     "vues": "208K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/CixJCqba5eBot4SoNctf-DNHH2I9rmQ-0OZTm3-AqP2Q1Cqss2xel9c-hD3f9SmxoggN590D=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "REMENDAR",
+     [
+      {
+       "t": "UM PNEU FURADO",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1Wn_C96Efts",
+     "titre": "PNEU FURADO??? Aprenda Como Remendar  - BIKE D2",
+     "chaine": "BIKE D2",
+     "vues": "145 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "6:49",
+     "avatar": "https://yt3.ggpht.com/54ZGCuIEmBiwiuYNrKab5gs2r_u4VuxV1V13VmI6xis519fxoVMfjFzHzJYmKwf4LmaZLs7W=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "PATLAK LASTİĞİ",
+     [
+      {
+       "t": "YAMAMAK",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Z8iQgMw02TQ",
+     "titre": "Bisiklet lastik tamir kiti seti nasıl kullanılır | Patlak bisiklet lastiği tamir nasıl yapılır",
+     "chaine": "İsmâil Hakkı FEYZİOĞLU",
+     "vues": "94 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "8:28",
+     "avatar": "https://yt3.ggpht.com/H6RWz_R9JL1jr5GHZLJTClebiNBBpl_zatDwr9ENN8E9BpNodTOgFykPr7K2ncHxu7uX-8-brg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ REPARI",
+     [
+      {
+       "t": "O PANĂ",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qfq8Ot6_WZ8",
+     "titre": "Trei metode cum sa repari o pana de bicicleta",
+     "chaine": "Bike Geek",
+     "vues": "35 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "9:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-NtGi6-OZa7nM-4LIKPO44GOVt5JEhiE7vctY0GocvA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZALEPIT",
+     [
+      {
+       "t": "PÍCHLOU DUŠI",
+       "couleur": "#e07a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dc3yv_esDf4",
+     "titre": "Jak zalepit duši - RADÍ ŠTĚRBA KOLA",
+     "chaine": "SterbaBike",
+     "vues": "225 tis. zhlédnutí",
+     "date": "před 14 lety",
+     "duree": "4:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nAQGamelipj8fRESAC0v1WHvwlsvFSPbrKMhrcR2WiU1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "PERCER",
+       "couleur": "#d0a239"
+      }
+     ],
+     "UN MUR"
+    ],
+    "video": {
+     "id": "TBDreyB8JGk",
+     "titre": "TUTO Percer un mur",
+     "chaine": "Conseils pagesjaunes (ex Ooreka)",
+     "vues": "204 k vues",
+     "date": "il y a 9 ans",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/S_eglwV5Rtdfxaa5kqEokE5lf7j7BxPVtwWi3ud17uqZZ4OHS8OHVwyxkYx6yynDQ7qceX5MUTY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "DRILL",
+       "couleur": "#d0a239"
+      }
+     ],
+     "INTO A WALL"
+    ],
+    "video": {
+     "id": "jHcUqR1Q1qw",
+     "titre": "Drilling Tips and Tricks (and mistakes to avoid)",
+     "chaine": "The Building Sheriff",
+     "vues": "545K views",
+     "date": "7 years ago",
+     "duree": "5:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l8jqbRE4FVrh68TUpWBwDXK1WdsD2DSyd88suc9nCsag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "BOHREN",
+       "couleur": "#d0a239"
+      }
+     ],
+     "UND DÜBELN"
+    ],
+    "video": {
+     "id": "N6zoW9QjvZg",
+     "titre": "Dübel in die Wand Befestigen ✅ ULTIMATIVE ANLEITUNG: Wie ein Loch richtig Bohren für Anfänger???",
+     "chaine": "ProblemLöserTV",
+     "vues": "241.740 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "4:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l4rB9v9M3H40FAO_ot9fY7KVcqiRBRDM4Xle4jVS_l41c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "FORARE",
+       "couleur": "#d0a239"
+      }
+     ],
+     "IL MURO"
+    ],
+    "video": {
+     "id": "yAQN0JBN_Iw",
+     "titre": "Come fare i fori al muro con il trapano. Quali tasselli usare e come sceglierli. Avvitatore. Fischer",
+     "chaine": "Riccardo Muscarella",
+     "vues": "300K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "11:09",
+     "avatar": "https://yt3.ggpht.com/iiap1b8LPF0s-x_XT_lTbf1hyiJfvSZK8Sl3KTteAErTNYMzXpLl5lMDm5z8h9wLgfsqrElY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "FURAR",
+       "couleur": "#d0a239"
+      }
+     ],
+     "A PAREDE"
+    ],
+    "video": {
+     "id": "NHvsKp94sdE",
+     "titre": "COMO FURAR PAREDE do jeito certo",
+     "chaine": "Manual do Mundo",
+     "vues": "2,9 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "12:08",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "DUVARA",
+       "couleur": "#d0a239"
+      }
+     ],
+     "DÜBEL TAKMAK"
+    ],
+    "video": {
+     "id": "8IukcJOTIKw",
+     "titre": "Duvara Dübel Nasıl Takılır? Pratik Plastik Dübel Nasıl Takılır.",
+     "chaine": "Benim Evim",
+     "vues": "129 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/y7Rj4Ns8CKYJ9qXKT5Za0sGi4GCiyob85xrr37CrqujsTegK50rdMufseKu4bA-j5XEhtiSOAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ DAI GĂURI",
+       "couleur": "#d0a239"
+      }
+     ],
+     "ÎN PERETE"
+    ],
+    "video": {
+     "id": "MYZLNguI_x4",
+     "titre": "10 Secrete Pentru Folosirea Bormasinii Masinii De Gaurit Si Insurubat Tutorial",
+     "chaine": "Constantin Barbu",
+     "vues": "110 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "10:56",
+     "avatar": "https://yt3.ggpht.com/sZnZ5ix3UKWFXBpUzpUqGkJzM6YeNw06f3KRs0yqNP-NTRSgwwdZIpkJdj_4WvZlPOtuBlzw_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "VRTAT",
+       "couleur": "#d0a239"
+      }
+     ],
+     "DO ZDI"
+    ],
+    "video": {
+     "id": "npR7nXNFsqM",
+     "titre": "Práce s hmoždinkami (Dílna pro začátečníky)",
+     "chaine": "Dominik Shaim",
+     "vues": "36 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "9:30",
+     "avatar": "https://yt3.ggpht.com/Dp59uLRwnfEjV7X4XI8UYQUXV3gpLsKGww4h2tcMEIG7gcfIkA8o_bbv3mt2fUTKhqO4Hic1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CUISINER",
+     [
+      {
+       "t": "POUR LA SEMAINE",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZualDnEH00M",
+     "titre": "MEAL PREP : 1 semaine de repas healthy en 1h (Organisation, Menu + Liste de courses)",
+     "chaine": "Amandine Poggioli",
+     "vues": "356 k vues",
+     "date": "il y a 8 mois",
+     "duree": "19:10",
+     "avatar": "https://yt3.ggpht.com/Yf3edUDyxfn0w1bKSpCrVzlbA0Ij3VFaAqKEckQoL6wKQlFsFhNN_VTMt0hic0VhYKPznHHGoDE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "COOK",
+     [
+      {
+       "t": "FOR THE WEEK",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NO-EbXMB4gc",
+     "titre": "How to Become a Meal Prep Pro this Year | The Beginner's Guide to Meal Prep",
+     "chaine": "Josh Cortis",
+     "vues": "2.4M views",
+     "date": "3 years ago",
+     "duree": "16:33",
+     "avatar": "https://yt3.ggpht.com/G4yvPiiqy6VIQ1I5JyWPpepLl2e-yFh7C0xjkvurZGM07XdqoT-iMm8G7GvymlaPmVX7BbH0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "VORKOCHEN",
+     [
+      {
+       "t": "FÜR DIE WOCHE",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qtORzPnmmPk",
+     "titre": "MEAL PREP für die Arbeit - eine Woche gesund essen (Tipps vom Ernährungsberater)",
+     "chaine": "Ken kocht - einfach besser essen",
+     "vues": "22.603 Aufrufe",
+     "date": "vor 4 Monaten",
+     "duree": "10:29",
+     "avatar": "https://yt3.ggpht.com/Ad-Rll7AJWUfW6Wljw13LRQcHPnwxtmea12dBYSU0jVAtCQWIVhcZ6yszbBza2_RcrBpaWuvPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CUCINARE",
+     [
+      {
+       "t": "PER LA SETTIMANA",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PZEnZyNT9G8",
+     "titre": "Meal Prep: 10 pasti sani in 1 Ora 🕒 | Ricette veloci per la settimana",
+     "chaine": "Cotto al Dente",
+     "vues": "209K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "11:06",
+     "avatar": "https://yt3.ggpht.com/Z9rbvULW-eGL4TRms72EVGpWGNSlxW0wp5vsKjfyDor26xs4JK5ClwCOAQ-iPyNZUrpbfQ25=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PREPARAR",
+     [
+      {
+       "t": "AS MARMITAS",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HOaJ6ak8hrA",
+     "titre": "COMO EU FAÇO AS MARMITAS DA SEMANA (CARDÁPIO COMPLETO, FÁCIL E SAUDÁVEL)",
+     "chaine": "Mariana Bovolon",
+     "vues": "190 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "11:54",
+     "avatar": "https://yt3.ggpht.com/oExQWoqvgdmBN_Wj-LvDOeeg_Pe6orNvBj4aPTrCroLnMNvlqX97oxjrASyHJnFaBUqGXgRA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HAFTALIK YEMEK",
+     [
+      {
+       "t": "HAZIRLAMAK",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8M0S1_B-Wdg",
+     "titre": "Tek Seferde Hallet, 5 Gün Rahat Et! Hafta İçine 5 Günlük Yemek Planı 🗓️ (Türkçe Meal Prep)",
+     "chaine": "Yemek.com",
+     "vues": "392 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "18:51",
+     "avatar": "https://yt3.ggpht.com/IFImen8L8nEuZt_lo7YCzNS761j-Sl6-rzjhxwNczBZkxhU1Z4x8kxa4O1oEgp-Aczth8DU3Pw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ GĂTEȘTI",
+     [
+      {
+       "t": "PE O SĂPTĂMÂNĂ",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P53y8pr3Qmk",
+     "titre": "MEAL PREP pt O SAPTAMANA cu DOAR 3,67 LEI | Liceu, Facultate, Munca",
+     "chaine": "Nicolas Aesthetics",
+     "vues": "80 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "10:02",
+     "avatar": "https://yt3.ggpht.com/4_yNHaPlbLzpxEB4s6u_0jUhQIDUx1pXg9Ga0rz_fmLCw0MhWN96993C_cGEYjFMRGfy_ppfjw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVAŘIT",
+     [
+      {
+       "t": "NA CELÝ TÝDEN",
+       "couleur": "#4f8a3c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OM5bM9smhVw",
+     "titre": "Přestaňte se vymlouvat a připravte si jídlo na celý týden!",
+     "chaine": "Chili Ta",
+     "vues": "82 tis. zhlédnutí",
+     "date": "před 4 týdny",
+     "duree": "14:03",
+     "avatar": "https://yt3.ggpht.com/-d9bxNJfVatYvshwvQyJbkEPxMbkzCuai5dIzM_MnaU_phjr0mxp5mqzGpnDJYiRh7L_LTjL=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  }
+ ]
+}

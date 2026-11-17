@@ -23,6 +23,7 @@ Une fois par session : `npm install`.
 | --- | --- |
 | `npm run sources` | télécharge les slides d'origine des posts du manifeste dans `sources/` (identiques d'une fois à l'autre) |
 | `npm run sources -- --compte amayareading` | scrape le compte et ajoute ses nouveaux slideshows au manifeste (statut `nouveau`) |
+| `npm run sources -- --compte mind.in.motionx --max 60 --banque` | source scrapable « banque photo » (ajoutée le 17/11) : même format page blanche, statut `banque` et champ `compte` au manifeste. Ses photos servent aux originaux et aux déclinaisons ; ses posts ne sont pas à reprendre. Écarte ses slides d'appli (Perfect Day, captures d'écran de verrouillage) et ses célébrités (acteurs de séries, etc.) |
 | `npm run geometrie -- sources <sortie>` | blocs détectés + images annotées (T = texte, I = image) pour transcrire un nouveau post |
 | `npm run rendu -- sources posts/<id>.<langue>.json <sortie> <langue>` | rend un post dans une langue ; rapport des débordements |
 | `npm run livrer -- sources <id\|all> --langues <l1,l2>` | rend et DÉPOSE dans la file de validation de l'OS |

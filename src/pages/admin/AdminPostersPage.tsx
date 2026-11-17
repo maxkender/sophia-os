@@ -2286,7 +2286,7 @@ export function AdminPostersPage() {
         <Button size="sm" variant={vueTableau ? "default" : "outline"} onClick={() => majParam("vue", "tableau")}>Vue tableau</Button>
       </div>
 
-      {vueTableau ? <VueTableauPosteurs /> : (
+      {vueTableau ? <VueTableauPosteurs onFermer={() => majParam("vue", "")} /> : (
         <>
           {barreFiltres}
           {liste}

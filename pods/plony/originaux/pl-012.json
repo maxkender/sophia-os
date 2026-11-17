@@ -1,0 +1,35 @@
+{
+  "source_id": "pl-012",
+  "titre": "Love does not consist in gazing at each other, but in looking outward together in the same direction. #love #relationships #saintexupery #quotes",
+  "source_phrase": "Antoine de Saint-Exupéry, Wind, Sand and Stars (Terre des hommes, 1939)",
+  "type_bleo": "full_test",
+  "musique_titre": "Naima",
+  "notes": "cta B",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "1e0e8495",
+      "texte_overlay": "Love does not consist",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7696302485417381138/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a09c3b4",
+      "texte_overlay": "in gazing at each other,",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7700825033760836882/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1b81b2ee",
+      "texte_overlay": "but in looking outward together in the same direction.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7698987888490401042/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "030b346d",
+      "texte_overlay": "Antoine de Saint-Exupéry, Wind, Sand and Stars.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694498114564197640/2.jpg",
+      "texte_sophia": "Today's 5 minutes on Sophia: the pilot who wrote The Little Prince."
+    }
+  ]
+}

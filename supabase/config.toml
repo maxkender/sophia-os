@@ -288,3 +288,6 @@ verify_jwt = false
 
 [functions.ruul-api]
 verify_jwt = false
+
+[functions.ruul-webhook]
+verify_jwt = false

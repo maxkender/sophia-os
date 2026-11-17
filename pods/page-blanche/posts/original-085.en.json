@@ -1,0 +1,257 @@
+{
+ "post_id": "original-085",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become",
+      "smart again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "how to stop doomscrolling before bed"
+    },
+    "T2": {
+     "en": [
+      "(science-backed sources)"
+     ],
+     "fr": "(prouvé par la science)",
+     "alignement": "droite",
+     "texte": "(the 10pm routine)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7683630825610513686_2.jpg",
+      "boite": [
+       522,
+       483,
+       522,
+       393
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "comparing yourself to others"
+     ],
+     "fr": "te comparer aux autres",
+     "texte": "9:30pm: [[lights down low]]"
+    },
+    "T2": {
+     "en": [
+      "you’re comparing your everyday life to someone",
+      "else’s best moments, biggest wins, and carefully",
+      "edited highlights"
+     ],
+     "fr": "tu compares [[ton quotidien]] aux meilleurs moments des autres, leurs plus grosses réussites, [[leurs photos bien retouchées]]",
+     "texte": "big light off, one warm lamp on. dim light tells your body [[the day is over]] and your bed starts to look better than the feed"
+    },
+    "T3": {
+     "en": [
+      "it makes your own",
+      "progress feel smaller",
+      "than it actually is"
+     ],
+     "fr": "du coup tes progrès [[ont l'air plus petits qu'en vrai]]",
+     "texte": "[[lamps only]]. nothing bright, nothing blue, nothing overhead"
+    },
+    "T4": {
+     "en": [
+      "use other people as",
+      "proof of what’s possible,",
+      "not as a reason to feel",
+      "behind"
+     ],
+     "fr": "les autres te montrent [[ce qui est possible]], pas que t'es en retard",
+     "texte": "it's a signal you don't need any willpower for. you just flip a switch and let it work"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write your thoughts down",
+      "every night"
+     ],
+     "fr": "note ce que t'as en tête [[chaque soir]]",
+     "texte": "9:45pm: write [[3 things from today]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy",
+      "and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "tes pensées paraissent [[floues et en vrac]] jusqu'à ce que tu [[les écrives]]",
+     "texte": "one good thing, one funny thing, one thing you learned. [[two minutes, tops]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to finish a",
+      "thought instead of jumping",
+      "to the next one"
+     ],
+     "fr": "écrire t'oblige à finir une pensée au lieu de sauter à la suivante",
+     "texte": "a paper notebook on the nightstand, a pen, and [[no screen involved]]"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before bed is",
+      "proven to be enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "même 5 min avant de dormir, c'est [[prouvé]], ça suffit pour [[avoir les idées plus claires]]",
+     "texte": "once the day is on paper, [[your head stops replaying it]] the second you lie down in bed"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "start reading everyday"
+     ],
+     "fr": "apprends un truc [[chaque jour]]",
+     "texte": "10pm: [[5 min of learning]]"
+    },
+    "T2": {
+     "en": [
+      "scrolling feeds you",
+      "constant dopamine and",
+      "burns your dopamine",
+      "receptors"
+     ],
+     "fr": "le scroll t'envoie [[de la dopamine non-stop]] et [[crame tes récepteurs]]",
+     "texte": "the last thing you see on your phone [[follows you into bed]], so pick it on purpose"
+    },
+    "T3": {
+     "en": [
+      "i use readup to block my",
+      "apps for 20 minutes until i",
+      "read"
+     ],
+     "fr": "perso j'ai remplacé mon scroll par [[5 min sur l'appli Sophia]]",
+     "texte": "one short lesson, not [[one more video]] that turns into an hour"
+    },
+    "T4": {
+     "en": [
+      "reading forces you to hold",
+      "attention, remember",
+      "details, and follow one",
+      "idea for longer"
+     ],
+     "fr": "apprendre, ça t'oblige à [[te concentrer]], [[retenir des détails]] et suivre une idée jusqu'au bout",
+     "texte": "when it's done, [[the phone goes down]]. no last check, no autoplay, nothing left to finish"
+    },
+    "T5": {
+     "en": [
+      "even a little every day is",
+      "enough to start rebuilding",
+      "your attention span"
+     ],
+     "fr": "même un petit peu par jour suffit à [[réparer ta concentration]]",
+     "texte": "tonight's 5 min: why the renaissance started in italy, on [[the Sophia app]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "waiting until you feel ready"
+     ],
+     "fr": "attendre [[d'être prête]]",
+     "texte": "charger [[out of the bedroom]]"
+    },
+    "T2": {
+     "en": [
+      "putting things off feels harmless in the moment,",
+      "but it slowly becomes your default response to",
+      "anything difficult"
+     ],
+     "fr": "repousser les choses, [[ça paraît pas grave]] sur le moment, mais petit à petit ça devient [[ton réflexe dès que c'est dur]]",
+     "texte": "kitchen, hallway, anywhere you can't reach from bed. if it sleeps next to your pillow, [[it wins every single night]]"
+    },
+    "T3": {
+     "en": [
+      "the longer you",
+      "avoid something,",
+      "the heavier it feels"
+     ],
+     "fr": "plus tu repousses un truc, plus il [[pèse lourd]]",
+     "texte": "get a [[real alarm clock]]. the cheapest one works"
+    },
+    "T4": {
+     "en": [
+      "start before you feel ready. your 20s disappear",
+      "quickly when everything important keeps getting",
+      "pushed to “tomorrow”"
+     ],
+     "fr": "commence [[avant d'être prête]]. [[tes 20 ans passent à toute vitesse]] si tout ce qui compte est toujours remis à “demain”",
+     "texte": "your phone was never needed as an alarm. and in the morning, [[the first thing you see isn't a screen]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go to bed embarrassingly early"
+     ],
+     "fr": "couche-toi [[à une heure de mamie]]",
+     "texte": "a [[paper book]] until lights out"
+    },
+    "T2": {
+     "en": [
+      "you need sleep"
+     ],
+     "fr": "[[t'as besoin de dormir]]",
+     "texte": "[[10 pages is plenty]]"
+    },
+    "T3": {
+     "en": [
+      "adults generally need",
+      "around 7–9 hours, and",
+      "consistently cutting",
+      "that short wrecks",
+      "attention, mood and",
+      "self-control"
+     ],
+     "fr": "un adulte a besoin de 7 à 9 h en moyenne, et en dormir moins tout le temps [[bousille ta concentration]], ton humeur et ta volonté",
+     "texte": "no notifications, no autoplay, just pages under the lamp. pick something [[slow and easy]], it doesn't have to be finished tonight"
+    },
+    "T4": {
+     "en": [
+      "an 11pm bedtime is",
+      "less exciting than fixing",
+      "your life tired"
+     ],
+     "fr": "dodo à 23 h, c'est pas glamour, mais c'est mieux que vivre crevée",
+     "texte": "most nights you'll [[fall asleep mid-chapter]], and that's the whole point"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

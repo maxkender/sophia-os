@@ -1,0 +1,1322 @@
+{
+ "id": "sg-006",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7676494598587419937",
+  "vues": 81500,
+  "publie_le": "2026-08-21",
+  "accroche": "Les compétences 10/10 que tu peux apprendre en un jour"
+ },
+ "titre": {
+  "fr": "Les compétences 10/10 que tu peux apprendre en un jour",
+  "en": "10/10 skills you can learn in one day",
+  "de": "10/10-Skills, die du an einem Tag lernen kannst",
+  "it": "Abilità da 10/10 che puoi imparare in un giorno",
+  "pt-BR": "Habilidades nota 10 que você pode aprender em um dia",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceriler",
+  "ro": "Abilități de 10/10 pe care le poți învăța într-o zi",
+  "cs": "Dovednosti na 10/10, které se naučíš za jeden den"
+ },
+ "legendes": {
+  "fr": "Les compétences 10/10 que tu peux apprendre en un jour #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills you can learn in one day #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die du an einem Tag lernen kannst #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità da 10/10 che puoi imparare in un giorno #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades nota 10 que você pode aprender em um dia #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități de 10/10 pe care le poți învăța într-o zi #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti na 10/10, které se naučíš za jeden den #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "sonido original - Lexn🧛🏽",
+  "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
+ },
+ "notes": "Son post à 81,5 k (21/08), refait le 16/11 en 8 langues. Couverture actuelle (la sienne était l'ancienne) avec ses 4 lignes « COMPÉTENCES / QUE TU PEUX / APPRENDRE / EN UNE JOURNÉE », la ligne orange passée en brun. Ses 5 compétences dans son ordre (nuages, calcul mental, forêt, omelette, cravate), d'autres vraies vidéos natives que les siennes (MétéoMédia, LesCoursSimples, Brut, Robb Report, Pratiks). Sophia en étape 4 sur 7 (cta C : « NOURRIR / SON CERVEAU »), sa slide « ENREGISTRE CE POST » retirée.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 138
+     },
+     {
+      "t": "QUE TU PEUX",
+      "cap": 120
+     },
+     {
+      "t": "APPRENDRE",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "EN UNE JOURNÉE",
+      "cap": 118
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 138
+     },
+     {
+      "t": "YOU CAN",
+      "cap": 120
+     },
+     {
+      "t": "LEARN",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "IN ONE DAY",
+      "cap": 118
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE DU",
+      "cap": 138
+     },
+     {
+      "t": "AN EINEM TAG",
+      "cap": 120
+     },
+     {
+      "t": "LERNEN",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "KANNST",
+      "cap": 118
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 138
+     },
+     {
+      "t": "CHE PUOI",
+      "cap": 120
+     },
+     {
+      "t": "IMPARARE",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "IN UN GIORNO",
+      "cap": 118
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 138
+     },
+     {
+      "t": "QUE VOCÊ PODE",
+      "cap": 120
+     },
+     {
+      "t": "APRENDER",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "EM UM DIA",
+      "cap": 118
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "BİR GÜNDE",
+      "cap": 138
+     },
+     {
+      "t": "ÖĞRENEBİLECEĞİN",
+      "couleur": "brun",
+      "cap": 175
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 138
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 138
+     },
+     {
+      "t": "PE CARE LE POȚI",
+      "cap": 120
+     },
+     {
+      "t": "ÎNVĂȚA",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "ÎNTR-O ZI",
+      "cap": 118
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "cap": 138
+     },
+     {
+      "t": "KTERÉ SE",
+      "cap": 120
+     },
+     {
+      "t": "NAUČÍŠ",
+      "couleur": "brun",
+      "cap": 190
+     },
+     {
+      "t": "ZA JEDEN DEN",
+      "cap": 118
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "LIRE LES NUAGES",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jk8MdFC-ytc",
+     "titre": "Quels sont les différents types de nuages ? - C'est Pas Sorcier",
+     "chaine": "C'est pas sorcier",
+     "vues": "186 k vues",
+     "date": "il y a 10 ans",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mM6iBpwKwzyyA6sGUzXdRgJbsEY_9RzW5m8GCkbqwgoHM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "READ THE CLOUDS",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I00vcHLJXCc",
+     "titre": "How To Predict The Weather By Looking At The Clouds",
+     "chaine": "ZoneA",
+     "vues": "1.6M views",
+     "date": "9 years ago",
+     "duree": "6:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nTFRoLT0pyRLNXVTgATr2_Hiasoc8K0xsyH6M9g4a4nZY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WIE MAN",
+     [
+      {
+       "t": "WOLKEN LIEST",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9dnjVVjE3NU",
+     "titre": "Das Wetter anhand der Wolken vorhersagen! (Mod.: Adrienne Jeske)",
+     "chaine": "wetternet",
+     "vues": "8919 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m-g8jKv-IJoAFqEQrYUrw3K7aYOPUEsBfdCjC4L3-S9d0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "LEGGERE LE NUVOLE",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UIo0hXMYb6Q",
+     "titre": "Guida Completa alle NUVOLE: Prevedere il Tempo in Mare",
+     "chaine": "Radio Di Bordo",
+     "vues": "6,4K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "5:15",
+     "avatar": "https://yt3.ggpht.com/vEpDbR0Ub5VBW75mrLk7cyB7zeeM_RcU-s1D_wnE6-4kUTqa0PjDpwiaT6Dc_qaEkMM7iHOVQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "LER AS NUVENS",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sM52W25-IyY",
+     "titre": "Explicando o Tempo - Conheça os 10 tipos de nuvens!",
+     "chaine": "Climatempo",
+     "vues": "414 mil visualizações",
+     "date": "há 12 anos",
+     "duree": "4:04",
+     "avatar": "https://yt3.ggpht.com/gTCOW5AN0x8aynnmFEvMkAsBLs2xgPF2-DV1-TSYxifANp1Y95hIbmTjY7SVdWFEQLIBGj7jYQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "BULUTLARI",
+       "couleur": "#3a9bd9"
+      }
+     ],
+     "OKUMAK"
+    ],
+    "video": {
+     "id": "skZK29xKl34",
+     "titre": "Denizde Bu Bulutu Görürsen 30 Dakikan Var (HAVA OKUMAYI ÖĞREN!)",
+     "chaine": "Amatör Denizcilik",
+     "vues": "10 B görüntüleme",
+     "date": "8 ay önce",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/78i4FG2mPRXgGqpWmabF7cn_qxpl81fObDq5SqlIbIswWoWoPkeLLas4Xzde3f6P1XOC8SD1pA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 2-3 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CUM SĂ",
+     [
+      {
+       "t": "CITEȘTI NORII",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "p38-eBKbBmE",
+     "titre": "Formarea norilor: Tipuri de nori și cum să-i identifici",
+     "chaine": "Sounding / Nature",
+     "vues": "10 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "7:56",
+     "avatar": "https://yt3.ggpht.com/SXehAVgEr3LQJEXbR5Vej1OLZfST_ASesSec3BA6Meftw8fIyv_6F9p3R7CFrAhDdcqR_-SKeA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "ČÍST MRAKY",
+       "couleur": "#3a9bd9"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UtNRqb_d2TA",
+     "titre": "Jak Funguje Počasí? Vznik Větru, Deště, Mraků a Předpověď Počasí krok za krokem!",
+     "chaine": "WebMaxi CZ",
+     "vues": "22 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "17:51",
+     "avatar": "https://yt3.ggpht.com/y2V9hWIXBSYTH0Tzsju16wjbg_Z15h93IM9_WbDT3rd7T4Vec0WQHYW9N4mqf1Af7b_RQxUduA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DEVENIR",
+     [
+      {
+       "t": "MONSTRUEUX",
+       "couleur": "#e0262b"
+      }
+     ],
+     "EN CALCUL MENTAL"
+    ],
+    "video": {
+     "id": "3gvi7IaqBAc",
+     "titre": "Comment Multiplier n'Importe Quel Nombre Mentalement et Facilement (Fabien Olicard)",
+     "chaine": "FabienOlicard",
+     "vues": "1,3 M de vues",
+     "date": "il y a 9 ans",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/hOu5CGjWlGlRYry-hXYT20RX4D5XkZcxJ_DOfkz24oK2-UQKLSJjhkhdaZtSxcY2eS8X8PVr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "GET",
+     [
+      {
+       "t": "INSANELY FAST",
+       "couleur": "#e0262b"
+      }
+     ],
+     "AT MENTAL MATH"
+    ],
+    "video": {
+     "id": "DNCzcxZs_pc",
+     "titre": "How I learned to Calculate Extremely Fast",
+     "chaine": "Mike Shake",
+     "vues": "2.9M views",
+     "date": "6 years ago",
+     "duree": "5:18",
+     "avatar": "https://yt3.ggpht.com/hwvI1O8McRLvbbFfa_H2pz7tDjtps_xfVQcKe72O0Qqi8dPzliVJSoNcYeeFv6jpryIuqEeFFQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "IM KOPFRECHNEN",
+     [
+      {
+       "t": "UNSCHLAGBAR",
+       "couleur": "#e0262b"
+      }
+     ],
+     "WERDEN"
+    ],
+    "video": {
+     "id": "x6uEFwe9ilo",
+     "titre": "Super SCHNELL Kopfrechnen – Genialer Trick",
+     "chaine": "MathemaTrick",
+     "vues": "706.038 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/ugyuS-QZor_23jIe3iTM7zBQD80i8pDIES7gam-yVES2m-kUnzoQLTOpcBAFrqsrk0qlRw8Psw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "DIVENTARE",
+     [
+      {
+       "t": "MOSTRUOSO",
+       "couleur": "#e0262b"
+      }
+     ],
+     "NEL CALCOLO MENTALE"
+    ],
+    "video": {
+     "id": "K52AtgQhdDo",
+     "titre": "Calcolo Mentale Rapido - Addizioni e Sottrazioni",
+     "chaine": "Luigi Manca",
+     "vues": "244K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/NkJAVDX0NxKjaWBQLlwbnBVS7FR3iTCWPmPGFlwxEi_vthjAVJ-uptIz9Jssd-eTNlZbt8Y-Iw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "VIRAR UM",
+     [
+      {
+       "t": "MONSTRO",
+       "couleur": "#e0262b"
+      }
+     ],
+     "NO CÁLCULO MENTAL"
+    ],
+    "video": {
+     "id": "G1rPXzy1Qfk",
+     "titre": "Dicas de Cálculo Mental | Adição, Subtração, Multiplicação e Divisão",
+     "chaine": "Reducática",
+     "vues": "59 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mchLebazSuM7qv6aKAwRkfJBZqTiKH_6nFfU0WmVJx_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ZİHİNDEN İŞLEMDE",
+     [
+      {
+       "t": "CANAVAR",
+       "couleur": "#e0262b"
+      }
+     ],
+     "OLMAK"
+    ],
+    "video": {
+     "id": "VEprphPmLoY",
+     "titre": "AŞIRI Hızlı Nasıl HESAPLAMA Yapılır? 🔢⚡(Zihinden Yapacağın 5 İşlem Hilesi!)",
+     "chaine": "Tinko",
+     "vues": "259 B görüntüleme",
+     "date": "1 ay önce",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/gSCyvKIg29AcMEcmVBZBlAfffmtjT3mSgYo3FV-cPjjDHWPHDHChEWDDVs_jj0DUuOe76myeC8o=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 3-4 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ DEVII",
+     [
+      {
+       "t": "MONSTRUOS",
+       "couleur": "#e0262b"
+      }
+     ],
+     "LA CALCUL MENTAL"
+    ],
+    "video": {
+     "id": "-TyT5YTZbqg",
+     "titre": "TRUCURI PENTRU ÎNMULȚIRI RAPIDE DIN MINTE",
+     "chaine": "CASA STIINTEI",
+     "vues": "8,3 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "8:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k-T6Vc-Wpzi3PccPWzEotQt96HXEevGlznP6hrIkmQ5tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 ore ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "STÁT SE",
+     [
+      {
+       "t": "MONSTREM",
+       "couleur": "#e0262b"
+      }
+     ],
+     "V POČÍTÁNÍ Z HLAVY"
+    ],
+    "video": {
+     "id": "Fgf-pXLRZFE",
+     "titre": "Násobení velkých čísel bez kalkulačky",
+     "chaine": "Broker Consulting - Palmovka",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 12 lety",
+     "duree": "1:17",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mbgPeUYpNkhx94ykDihqq6xHtIVu8yfYGt-Fl1O2Uj3A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3-4 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "NOURRIR",
+     [
+      {
+       "t": "SON CERVEAU",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FEED",
+     [
+      {
+       "t": "YOUR BRAIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEIN GEHIRN",
+     [
+      {
+       "t": "FÜTTERN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "NUTRIRE",
+     [
+      {
+       "t": "IL CERVELLO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ALIMENTAR",
+     [
+      {
+       "t": "O CÉREBRO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BEYNİNİ",
+     [
+      {
+       "t": "BESLEMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI HRĂNEȘTI",
+     [
+      {
+       "t": "CREIERUL",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAKRMIT",
+     [
+      {
+       "t": "SVŮJ MOZEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "S'ORIENTER EN",
+     [
+      {
+       "t": "FORÊT",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CgYa19Yqjl4",
+     "titre": "7 Techniques Pour Trouver Le Nord Sans Boussole",
+     "chaine": "Kinred",
+     "vues": "6 k vues",
+     "date": "il y a 4 ans",
+     "duree": "5:47",
+     "avatar": "https://yt3.ggpht.com/6bLzaeqpg7KgAHVDPsa8ayE_oUntylQENkSkhPjyR89fV4WfH93MlAQCdOpXdXBlvKV_kePBl1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FIND YOUR WAY",
+     [
+      {
+       "t": "IN THE WOODS",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ktpUHOtdqB8",
+     "titre": "THIS is how to navigate in a forest – correctly",
+     "chaine": "The Map Reading Company",
+     "vues": "569K views",
+     "date": "2 years ago",
+     "duree": "22:56",
+     "avatar": "https://yt3.ggpht.com/sH_gBi1FTAQMLU-llHDVLc_pQlEa5Vuw520HWX-qisSmfahgKpPl5g_nsIYqzC9EvLP78_U0_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SICH IM WALD",
+     [
+      {
+       "t": "ORIENTIEREN",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "epJLKx2PKxo",
+     "titre": "Survival Grundlagen: Navigation & Orientierung ohne Kompass, Karte oder GPS",
+     "chaine": "Team-Survival | Realistisches Survival Training",
+     "vues": "111.345 Aufrufe",
+     "date": "vor 13 Jahren",
+     "duree": "5:57",
+     "avatar": "https://yt3.ggpht.com/aokJtzm72rDDo-_8gw96q93hdjUk8sM91g48NOSfHn3kOZnoJQ6Ffxx2rkNxRDhhhWRaL3Wzcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ORIENTARSI",
+     [
+      {
+       "t": "NEL BOSCO",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nWzeb6OhneM",
+     "titre": "Se Ti Perdi Nel Bosco Ecco Cosa Devi Fare",
+     "chaine": "Orientamento in Montagna",
+     "vues": "94K visualizzazioni",
+     "date": "6 mesi fa",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/g4OIEVQXV5xAVD1zThZa368NSKW5DCR8zVta1qRzw3b8nEFhBZGR-Avz351zTBVt85siEI871A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SE ORIENTAR",
+     [
+      {
+       "t": "NA MATA",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mYKO93TbRe0",
+     "titre": "ORIENTAÇÃO SEM BÚSSOLA - COMO ENCONTRAR OS PONTOS CARDEAIS",
+     "chaine": "Edson Rodrigues DESBRAVADOR",
+     "vues": "224 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "8:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_llTP4AxBuJtTjcpAuXPlZQAV1JfLQ5dAd-tSkcGqa2DSs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ORMANDA",
+     [
+      {
+       "t": "YÖN BULMAK",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fL3x97MhLNY",
+     "titre": "Doğada yön bulma yöntemleri - Yön bulma teknikleri",
+     "chaine": "Kenan Kesmez",
+     "vues": "87 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "5:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nNVn2DzlaliRus8aVkeP-q4INUhsK-g5Pds8kI_s_17D4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 1 saat"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ TE ORIENTEZI",
+     [
+      {
+       "t": "ÎN PĂDURE",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XVRh6Hth5Mc",
+     "titre": "M-am rătăcit în pădure? Ghid de orientare fără busolă și fără hartă",
+     "chaine": "By foot in Romania",
+     "vues": "4,1 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_meNmh1ZsRT1X9maOP7F5Sc04b-m6mNS1EM-DysG2JMiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ORIENTOVAT SE",
+     [
+      {
+       "t": "V LESE",
+       "couleur": "#2fa84f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5gbJjDaSNDI",
+     "titre": "Přežití-orientace podle přírodních ukazatelů",
+     "chaine": "milivans",
+     "vues": "19 tis. zhlédnutí",
+     "date": "před 14 lety",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nvlz87bRuWaRH7j-o7O_DekospaiRbnetNMbf09LKVXg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE UNE OMELETTE",
+     [
+      {
+       "t": "COMME UN CHEF",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sasZG5mqZ_E",
+     "titre": "Préparation d'une omelette nature par le chef Éric Robert. french omelet recipe",
+     "chaine": "Cuisine française et d'ailleurs",
+     "vues": "209 k vues",
+     "date": "il y a 6 ans",
+     "duree": "3:15",
+     "avatar": "https://yt3.ggpht.com/LX3EWoOMPRCwkcYYlPU2F0f_tEVRIWkrvtYjlGRq3PHqem9InkX3L9A4EyIIxNP-6ZJbluGtMQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MAKE AN OMELETTE",
+     [
+      {
+       "t": "LIKE A CHEF",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P9QnMKLTfjc",
+     "titre": "The Perfect Omelette EVERYTIME! | Chef Jean-Pierre",
+     "chaine": "Chef Jean-Pierre",
+     "vues": "721K views",
+     "date": "4 years ago",
+     "duree": "7:50",
+     "avatar": "https://yt3.ggpht.com/r8w7YwJiYUG9wUIN8yIbrft8suo-tIfgL7C2_orRkpv7rINERB7-elYgqA1KZyAJ8GeHv1tGwss=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EIN OMELETT",
+     [
+      {
+       "t": "WIE EIN PROFI",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "oI_UaaMI9hA",
+     "titre": "Das BESTE Omelett selber machen (Rezept) - so geht's schnell & einfach!",
+     "chaine": "JANNIK kocht - leckere Rezepte!",
+     "vues": "295.894 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "4:10",
+     "avatar": "https://yt3.ggpht.com/DKPnDdtpy7DcS-LCZX--0_TRv33YgcpDXSW0DVzJgemBuHMUyIqR5vIAa2aAqLyR2S5ROGSVkQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE UNA FRITTATA",
+     [
+      {
+       "t": "DA CHEF",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1_zBGihs5Mc",
+     "titre": "Come fare la FRITTATA PERFETTA alta e soffice: cottura e 3 errori da evitare 🍳✨",
+     "chaine": "Cookist",
+     "vues": "143K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "3:27",
+     "avatar": "https://yt3.ggpht.com/WPNJIVZN7XwPf0_7encqZocDjPzLB6Niz0H8JEQbIx2lFChAG1zFEqBbrzMZUo_m4rHm3KlqbJk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER UMA OMELETE",
+     [
+      {
+       "t": "DE CHEF",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6qvpKBGK1-s",
+     "titre": "DESCOMPLICANDO A OMELETE PERFEITA | Mohamad Hindi",
+     "chaine": "Mohamad Hindi",
+     "vues": "62 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/0ZPN6lLPDhWfMyqjDtuVZ4pWkaLiaNjUMXqnZUo4MmpmLwqyBezVu6FOKxfgrGLlj5D665HW3P0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ŞEF GİBİ",
+     [
+      {
+       "t": "OMLET YAPMAK",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "U_ZtQMcfqjk",
+     "titre": "Omlet Tarifi - Sade Omlet Nasıl Yapılır",
+     "chaine": "Orhan Sef TV",
+     "vues": "169 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "2:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lrvRZNmj0gBdShOQQqgkzmBiJrQEgeDl_XcWgyLqbz7_A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 30 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI OMLETĂ",
+     [
+      {
+       "t": "CA UN CHEF",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fxmrV1J4NPQ",
+     "titre": "Cum se face omleta perfecta | Bucataras TV",
+     "chaine": "Bucataras TV",
+     "vues": "652 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mdv6lf5Fpwpm8Bwn3dO26qi3pJLXWsKZlT_qcHE29Il2I=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UDĚLAT OMELETU",
+     [
+      {
+       "t": "JAKO ŠÉFKUCHAŘ",
+       "couleur": "#d9b52c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "c5mo0OV741Y",
+     "titre": "Omeleta - Roman Paulus - Kulinářská Akademie Lidlu",
+     "chaine": "Kuchyně Lidlu",
+     "vues": "281 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "3:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnHNf9fovCFxmB1zs1daJyyEKBWmYOXRObn13YH-Q1TaE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 minut na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE",
+     [
+      {
+       "t": "UN NŒUD",
+       "couleur": "#b77bd6"
+      }
+     ],
+     "DE CRAVATE"
+    ],
+    "video": {
+     "id": "mrwNKOEKdU4",
+     "titre": "Comment faire un nœud de cravate en 2 minutes (facile) 👔",
+     "chaine": "Bonnegueule",
+     "vues": "510 k vues",
+     "date": "il y a 4 ans",
+     "duree": "2:14",
+     "avatar": "https://yt3.ggpht.com/UdECfkFA8IQqNo8kBQDywZ21Rw0HmhL5Rn5C2Vw7oMvTswbAE5JOi0g2SmG1UDlvTcXIUSeVaw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "TIE A TIE",
+       "couleur": "#b77bd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0_FY3v_ie08",
+     "titre": "How to Tie a Tie - The Half Windsor Knot (Easy Method)",
+     "chaine": "Reef Knots",
+     "vues": "1.3M views",
+     "date": "4 years ago",
+     "duree": "2:36",
+     "avatar": "https://yt3.ggpht.com/5G51RTf2fteqIY31jWSVjtwCgSbCgfI2RR29-eccJLpUp3hIoeDxRZf0aX3PYVzUROz10M1s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE KRAWATTE",
+     [
+      {
+       "t": "BINDEN",
+       "couleur": "#b77bd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bEBHM75E1sk",
+     "titre": "Krawatte binden für Anfänger: Der einfache Krawattenknoten in 1 Minute",
+     "chaine": "Breuninger",
+     "vues": "1,1 Mio. Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "1:25",
+     "avatar": "https://yt3.ggpht.com/9hnEIs2gcN3AOnmWOdyiiqQefG-kOKtLg1JccbvJyTfJiqx9nm6tJr1wnrNNXYEeeJDK6ptuSQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE",
+     [
+      {
+       "t": "IL NODO",
+       "couleur": "#b77bd6"
+      }
+     ],
+     "ALLA CRAVATTA"
+    ],
+    "video": {
+     "id": "HtOHVFo6L1c",
+     "titre": "Nodo Cravatta Semplice - Tiro a Quattro (Four in Hand)",
+     "chaine": "Valentino Spinato",
+     "vues": "492K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "1:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtCiiR3zvUrZjzlHYmCTsp9fYiuArqZ_NC94yWpyDeEa4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DAR",
+     [
+      {
+       "t": "NÓ",
+       "couleur": "#b77bd6"
+      }
+     ],
+     "NA GRAVATA"
+    ],
+    "video": {
+     "id": "xRqjl1YSG98",
+     "titre": "Como dar Nó em Gravata. Fácil, Elegante e Simples! 5 Passo a Passo. MUITO FACIL. How to Tie a Tie.",
+     "chaine": "by Andre Sav Andre",
+     "vues": "23 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "3:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n7-dZes7AbmXbh_QFTXpNoWgDs2-3TpDnzkYOiIx20ag=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KRAVAT",
+     [
+      {
+       "t": "BAĞLAMAK",
+       "couleur": "#b77bd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Wg2eYcJTjCg",
+     "titre": "Kravat Nasıl Bağlanır - Kolay ve Hızlı",
+     "chaine": "Bıdık Amca",
+     "vues": "384 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "2:01",
+     "avatar": "https://yt3.ggpht.com/5oqUmyEqr8D9VBVl7ZH70K3VQndM2omgSewZnxx7ErQIfKldNbNiY3Xwo80X4j4mzWAUX2Eo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "öğrenmek için 15 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI",
+     [
+      {
+       "t": "NODUL",
+       "couleur": "#b77bd6"
+      }
+     ],
+     "LA CRAVATĂ"
+    ],
+    "video": {
+     "id": "l2Ynqd5zhv0",
+     "titre": "Cum se face nodul la cravata | Nodul simplu si nodul Windsor",
+     "chaine": "Men'sConceptRO",
+     "vues": "1 mil. vizionări",
+     "date": "acum 9 ani",
+     "duree": "3:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nM_jnkeyX4e3n2XK4j4_zQJ0Qs52Pr_opAAnOsC5HH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 min ca să înveți"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UVÁZAT SI",
+     [
+      {
+       "t": "KRAVATU",
+       "couleur": "#b77bd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q2tE_BcG6-I",
+     "titre": "VÁZÁNÍ KRAVATY | Jak uvázat kravatu - jednoduše",
+     "chaine": "johanmadr",
+     "vues": "1,1 mil. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "2:22",
+     "avatar": "https://yt3.ggpht.com/-DpAkjd5vjKPQMME8Ke1SxNQ9ExH347EX3PyxtptRCpvRli8xj3fVTSEoo4Gqgqc5QC-PEnB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "15 minut na naučení"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,1312 @@
+{
+ "id": "sg-008",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 que l'école ne t'apprend pas",
+  "en": "10/10 skills school will never teach you",
+  "de": "10/10-Skills, die dir die Schule nie beibringt",
+  "it": "Abilità 10/10 che la scuola non ti insegna",
+  "pt-BR": "Habilidades 10/10 que a escola não te ensina",
+  "tr": "Okulun sana öğretmediği 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care școala nu te învață",
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 que l'école ne t'apprend pas #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills school will never teach you #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die dir die Schule nie beibringt #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che la scuola non ti insegna #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que a escola não te ensina #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Okulun sana öğretmediği 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care școala nu te învață #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které tě škola nikdy nenaučí #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - クリスティーナ",
+  "url": "https://www.tiktok.com/music/original-sound-6863714000329657093"
+ },
+ "notes": "Full test du 16/11 (accroche neuve au format de @sagace.fr, sans post source) : « Compétences 10/10 que l'école ne t'apprend pas », couverture sur son décor (4 lignes noir/brun, 3 en turc). 5 compétences de vie universelles (changer une roue, réussir un entretien, gérer son stress, lire deux fois plus vite, apprendre à coder), vraies vidéos natives dans les 8 langues. Sophia en étape 4 sur 7 (cta B : « COMBLER / SES LACUNES »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 111
+     },
+     {
+      "t": "QUE L'ÉCOLE",
+      "cap": 160,
+      "couleur": "brun"
+     },
+     {
+      "t": "NE T'APPREND",
+      "cap": 120
+     },
+     {
+      "t": "PAS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 150
+     },
+     {
+      "t": "SCHOOL",
+      "cap": 230,
+      "couleur": "brun"
+     },
+     {
+      "t": "WILL NEVER",
+      "cap": 130
+     },
+     {
+      "t": "TEACH YOU",
+      "cap": 190,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS, DIE DIR",
+      "cap": 110
+     },
+     {
+      "t": "DIE SCHULE",
+      "cap": 180,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIE",
+      "cap": 150
+     },
+     {
+      "t": "BEIBRINGT",
+      "cap": 200,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 140
+     },
+     {
+      "t": "CHE LA SCUOLA",
+      "cap": 140,
+      "couleur": "brun"
+     },
+     {
+      "t": "NON TI",
+      "cap": 140
+     },
+     {
+      "t": "INSEGNA",
+      "cap": 240,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 111
+     },
+     {
+      "t": "QUE A ESCOLA",
+      "cap": 150,
+      "couleur": "brun"
+     },
+     {
+      "t": "NÃO TE",
+      "cap": 140
+     },
+     {
+      "t": "ENSINA",
+      "cap": 250,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "OKULUN SANA",
+      "cap": 120
+     },
+     {
+      "t": "ÖĞRETMEDİĞİ",
+      "cap": 170,
+      "couleur": "brun"
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 150
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 130
+     },
+     {
+      "t": "PE CARE ȘCOALA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NU TE",
+      "cap": 150
+     },
+     {
+      "t": "ÎNVAȚĂ",
+      "cap": 215,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI,",
+      "cap": 111
+     },
+     {
+      "t": "KTERÉ TĚ ŠKOLA",
+      "cap": 130,
+      "couleur": "brun"
+     },
+     {
+      "t": "NIKDY",
+      "cap": 150
+     },
+     {
+      "t": "NENAUČÍ",
+      "cap": 220,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "CHANGER",
+     [
+      {
+       "t": "UNE ROUE",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BtoUrJdUgb0",
+     "titre": "Comment changer une roue de voiture ?",
+     "chaine": "Antoine Waag",
+     "vues": "677 k vues",
+     "date": "il y a 11 ans",
+     "duree": "4:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_Nap43OrA87w5VZxp40Hi4-e6WGt1rASNLszbaN1hINg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CHANGE",
+     [
+      {
+       "t": "A TIRE",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-fXXwZKDL9s",
+     "titre": "How To Change a Flat Tire",
+     "chaine": "Americas Drivers Ed",
+     "vues": "5.8M views",
+     "date": "11 years ago",
+     "duree": "1:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_msBiIcYkICseEPCTsTfsFNt8YnFswV2WOtDsWyNtWA8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "EINEN REIFEN",
+       "couleur": "#3a6ea5"
+      }
+     ],
+     "WECHSELN"
+    ],
+    "video": {
+     "id": "ymMB_Vt4lUg",
+     "titre": "Reifenpanne: Rad selbst wechseln 🔧 Anleitung in 7 Schritten | ADAC",
+     "chaine": "ADAC",
+     "vues": "64.518 Aufrufe",
+     "date": "vor 1 Monat",
+     "duree": "4:47",
+     "avatar": "https://yt3.ggpht.com/4uDr7_zjMUFl83VnBDaz9oKwHA7cqD2m3Lp1pxDzSSowYOj03t4i2CgPPRs_eAIQcDVuZgv68g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "CAMBIARE",
+     [
+      {
+       "t": "UNA GOMMA",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lsFDoYGZg3Y",
+     "titre": "Come cambiare la ruota fuori uso con il ruotino in meno di 4 minuti",
+     "chaine": "Cammi Gomme S.r.l.",
+     "vues": "151K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "3:44",
+     "avatar": "https://yt3.ggpht.com/v9cLnGZdCv0bed-z4wDs8yP3iDQmub6_MPKLoQ0KgWc28r-oYUwhyAHFpvGkLS5z9HGzoWvr=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TROCAR",
+     [
+      {
+       "t": "UM PNEU",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tqJJrASSzFs",
+     "titre": "Como trocar pneu furado em 7 passos! É FÁCIL!",
+     "chaine": "AutoPapo",
+     "vues": "142 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "7:23",
+     "avatar": "https://yt3.ggpht.com/H8VEo0gkhhLs5UzOvVJ-wFdosX2q6ZLsk38xQF4rHKljFd758GBhcqQ7ZR9liblAsB7ZzCTJAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "LASTİK",
+     [
+      {
+       "t": "DEĞİŞTİRMEK",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8pOb4A95ibk",
+     "titre": "LASTİK NASIL DEĞİŞTİRİLİR ? DETAYLI ANLATIM",
+     "chaine": "Zafer Aksoy Akademi",
+     "vues": "301 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "10:52",
+     "avatar": "https://yt3.ggpht.com/Au0t-5UnHVL9stIETQhQTdMisZOzXDqEMey3FPws53-wO2_VoA1PgA3GPX83FI83osdHGqH2MxE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SCHIMBI",
+     [
+      {
+       "t": "O ROATĂ",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "M3xJlNNvHT8",
+     "titre": "Cum se Schimba o Roata in 5 Pasi Simpli",
+     "chaine": "Tutoriale AUTO",
+     "vues": "76 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "7:56",
+     "avatar": "https://yt3.ggpht.com/hID1hrVNuuVgCcIDRzNRVl7klsbRnphasRo-G6tAEudVK2DvbSeDyYOfq6a9A5SW46j8oGkOUA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYMĚNIT",
+     [
+      {
+       "t": "KOLO",
+       "couleur": "#3a6ea5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "m2OGvfzwvVo",
+     "titre": "DIY Jak vyměnit kolo u auta čili jak přezout auto",
+     "chaine": "Wekon",
+     "vues": "42 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "4:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ndL9rvXZiiIxUkkM_8atqW1fa4zz9h2zjkp3_B8XtHx70=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RÉUSSIR",
+     [
+      {
+       "t": "UN ENTRETIEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "AYtAhi-YE9U",
+     "titre": "Entretien d'embauche présentez vous : comment se présenter en 2 minutes (exemples)",
+     "chaine": "Y.GAUTIER, Coach Emploi, oral de concours et +",
+     "vues": "3 M de vues",
+     "date": "il y a 14 ans",
+     "duree": "3:48",
+     "avatar": "https://yt3.ggpht.com/6VFGyIhmE_WlsY1NX72-uJ1vKPhbzVDA-4yyQlwokfmiHHrn-2_uwt6_ZYgImBs3WGOv8zdD=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "ACE",
+     [
+      {
+       "t": "A JOB INTERVIEW",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DHDrj0_bMQ0",
+     "titre": "How to Ace an Interview: 5 Tips from a Harvard Career Advisor",
+     "chaine": "Harvard Extension School",
+     "vues": "2.7M views",
+     "date": "13 years ago",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/WWokqBhiLyfSm6Sa06_5nkZMD76KD0RhTKbtsmZo0XlG9i2kMyKdlERbUtCXkWNYM3cde7MXXA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DAS VORSTELLUNGS-",
+     [
+      {
+       "t": "GESPRÄCH",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TM9Rcp8kMIM",
+     "titre": "SELBSTPRÄSENTATION: So überzeugst du im VORSTELLUNGSGESPRÄCH 💫🚀",
+     "chaine": "StepUp! Coaching & Karrieretipps",
+     "vues": "953.456 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/qlWWHJRFiM8CDsMlJHrMULhyGkEIODG6yb402QR8Q_t8dP_qLs7e59t3GDphhaUJ5ITDXkJ9Ew=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "SUPERARE",
+     [
+      {
+       "t": "UN COLLOQUIO",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "T9RLS20wBxw",
+     "titre": "Colloquio di lavoro: le 4 Regole d'Oro",
+     "chaine": "Marco Montemagno",
+     "vues": "333K visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "2:50",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "MANDAR BEM",
+     [
+      {
+       "t": "NA ENTREVISTA",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UNUEG31hIDg",
+     "titre": "3 COISAS QUE RECRUTADORES AMAM ESCUTAR NA ENTREVISTA DE EMPREGO | o que falar na entrevista",
+     "chaine": "Hackeando a Carreira",
+     "vues": "1,6 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/MTbv5uwyo2eNowDzA_9waGWu67UBmOlCwxxZcjExjV9xB1XBRBj4YHsFC21K6DqkVIGjAVFOHA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İŞ GÖRÜŞMESİNİ",
+     [
+      {
+       "t": "GEÇMEK",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "za4fu5uvl1Y",
+     "titre": "MÜLAKAT SORULARI NASIL CEVAPLANIR? | Kendinden Bahseder Misin?",
+     "chaine": "Assessment Systems",
+     "vues": "408 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l2PrAeFBWkRDMMFJzZkKQ_IxIUsZ3PePj5d9AyTHDOOQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ TRECI",
+     [
+      {
+       "t": "UN INTERVIU",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "b9RRjZylhSY",
+     "titre": "5 întrebări dificile din interviul de angajare",
+     "chaine": "Career Invest",
+     "vues": "87 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nV0BgFfz9YJb6ehmVoPNXrmlb8RcUeRtLUGhrYoCvGKA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ZVLÁDNOUT",
+     [
+      {
+       "t": "POHOVOR",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9tbi2-TZaKg",
+     "titre": "POHOVOR - CO NEŘÍKAT U PRACOVNÍHO POHOVORU",
+     "chaine": "Kristyna Ševčíková",
+     "vues": "59 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "6:07",
+     "avatar": "https://yt3.ggpht.com/moPMS4B6LoTjjnOaKp4zatk8sM4cNO7D_7NRH0NwfhQVUN0WWj3XsHI8wS2RIEtoS5Rgun9k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-3 hodiny na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "COMBLER",
+     [
+      {
+       "t": "SES LACUNES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FILL",
+     [
+      {
+       "t": "THE GAPS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "WISSENS-",
+     [
+      {
+       "t": "LÜCKEN FÜLLEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COLMARE",
+     [
+      {
+       "t": "LE LACUNE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TAPAR",
+     [
+      {
+       "t": "AS LACUNAS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "EKSİKLERİNİ",
+     [
+      {
+       "t": "KAPATMAK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI ACOPERI",
+     [
+      {
+       "t": "GOLURILE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "DOPLNIT SI",
+     [
+      {
+       "t": "MEZERY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "GÉRER",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "SON STRESS"
+    ],
+    "video": {
+     "id": "G23tw4UGPis",
+     "titre": "Comment arrêter de stresser (pour de bon)",
+     "chaine": "Charlie Haid",
+     "vues": "794 k vues",
+     "date": "il y a 2 ans",
+     "duree": "12:55",
+     "avatar": "https://yt3.ggpht.com/pLqbD1B1VFBfarRFjXGmlZ0VlgM41NtuDNGzHn-pE_AdjygM-4_7R6VmKSYEz94igVhw3Kv96I8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "MANAGE",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "YOUR STRESS"
+    ],
+    "video": {
+     "id": "Bk2-dKH2Ta4",
+     "titre": "How to Manage Stress as a Student",
+     "chaine": "Med School Insiders",
+     "vues": "786K views",
+     "date": "6 years ago",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/u-HzltuKtE_y3KqRS_ea2ThRDENTgFzDuRFQHPBVoZcmnriMBWc5u-1xHLh1QA9peeMs8HIS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "STRESS",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "ABBAUEN"
+    ],
+    "video": {
+     "id": "3lxOd_Y0fFQ",
+     "titre": "Stress abbauen: 6 einfache Schritte aus Ernährung, Schlaf und Bewegung",
+     "chaine": "Dr. med. Heinz Bry",
+     "vues": "23.501 Aufrufe",
+     "date": "vor 2 Jahren",
+     "duree": "8:18",
+     "avatar": "https://yt3.ggpht.com/THcnSuISXhw6ppXsuW-rHjfsydN8CLCHE4FO_HwJ_ksAYgk7IMVrVU_nKNjvMMnjqHxm27e1=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "GESTIRE",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "LO STRESS"
+    ],
+    "video": {
+     "id": "IUVSCD07bFc",
+     "titre": "Come gestire lo stress e l’ansia stimolando il nervo vago",
+     "chaine": "Dott. Nicola Triglione",
+     "vues": "32K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "8:31",
+     "avatar": "https://yt3.ggpht.com/2LvAq4BhEU6DR4ZX-6wI0EAYqE4ojQsjsocZoOXqmm9KXY06SP1HMMZf66IUTNfvezLnlpc5mw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "CONTROLAR",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "O ESTRESSE"
+    ],
+    "video": {
+     "id": "zpQOCJVuF50",
+     "titre": "Como aliviar o estresse do dia a dia",
+     "chaine": "Drauzio Varella",
+     "vues": "92 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "7:58",
+     "avatar": "https://yt3.ggpht.com/eKO6HupEds-Nnin2SJBUqojJww8qz6k76qWrKVZGJ3wYxBvRmtmjtfhd8UfFTyoYFgL99xr8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "STRESİ",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "YÖNETMEK"
+    ],
+    "video": {
+     "id": "Z2OmDikhr1A",
+     "titre": "7 dakikada “beynimizi strese sokan 7 durum” ve hal çareleri..",
+     "chaine": "Sinan Canan",
+     "vues": "222 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "7:01",
+     "avatar": "https://yt3.ggpht.com/7LGYvujkmipCet-I6f-PobQBS5_yj3hC0-sHURg5r-Iub7lVrx9qco7Lre6gOk5bDM0Z1wzwmw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ GESTIONEZI",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "STRESUL"
+    ],
+    "video": {
+     "id": "VSs6LDwWVdQ",
+     "titre": "Cum scazi nivelul de CORTIZOL | Tot ce trebuie să știi despre STRES",
+     "chaine": "Doctor Mihail",
+     "vues": "239 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "38:55",
+     "avatar": "https://yt3.ggpht.com/qr39hN1rt730-nEAreSHLVEFa6HBlysRhG8wrat7cjVqURRfYnnI3A0gSTy02jkRbIIIyjSPN5Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZVLÁDAT",
+       "couleur": "#4f8a5b"
+      }
+     ],
+     "STRES"
+    ],
+    "video": {
+     "id": "4dELRd6wAlw",
+     "titre": "JAK ZVLÁDNOUT STRES?",
+     "chaine": "Svět podle Katky",
+     "vues": "103 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n3QNTRtjfZ8abqceios_vH32D6pxNwyADakWHt4wUHXMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LIRE",
+     [
+      {
+       "t": "DEUX FOIS PLUS VITE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "moVDnlXeJuQ",
+     "titre": "Comment lire deux fois plus vite grâce à la Lecture Rapide, conseil du vice-champion du monde",
+     "chaine": "Passion d'Apprendre",
+     "vues": "65 k vues",
+     "date": "il y a 7 ans",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nqQFL6aXrNcso302DQAcn38PovrB8emeB-r3IdGxV5pA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "READ",
+     [
+      {
+       "t": "TWICE AS FAST",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KJ2Lvi9kG2Q",
+     "titre": "How to Read Faster",
+     "chaine": "Mark Manson",
+     "vues": "5.1M views",
+     "date": "5 years ago",
+     "duree": "16:45",
+     "avatar": "https://yt3.ggpht.com/PrLwcAUFcEp7_Y_CXqooqTmTi9HgcGH-ITcELFsYxZ6MVqG9DrHcSDZe0UCxmzHnUBvqdzlTWQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DOPPELT SO",
+     [
+      {
+       "t": "SCHNELL LESEN",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uAyvjBuSmbQ",
+     "titre": "2x schneller lesen in 2 Tagen Trick - Speedreading | Selbstexperiment",
+     "chaine": "Tomary",
+     "vues": "510.249 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "10:07",
+     "avatar": "https://yt3.ggpht.com/gxG8Y9l8Dfg0hOL42zFA2g2c2NsmvFHun4_DpPjAHMGT7uKHRC2meCAM0EhEYPgucJPB8V70cvk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "LEGGERE",
+     [
+      {
+       "t": "PIÙ VELOCE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tlncCP4eAuQ",
+     "titre": "Come LEGGERE più VELOCEMENTE (e ricordare ciò che si legge)",
+     "chaine": "Surry",
+     "vues": "225K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "11:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nKSRSgnzoAAtnNeukrhHB7UlKRIfHIt_yzzODq1C4O9SY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "LER",
+     [
+      {
+       "t": "MAIS RÁPIDO",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-sgniVvpCQM",
+     "titre": "Como Ler Mais Rápido - As 3 ÚNICAS Formas de Acelerar sua Leitura",
+     "chaine": "Expertise Aprendizagem",
+     "vues": "220 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "7:10",
+     "avatar": "https://yt3.ggpht.com/Ebkz5fsk3RwaaNF0TH_sdJKzYlU7U5vB-rEkCLyu1aAp48WkteFH0nZPCRCwxsw3lMkmooYS=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İKİ KAT",
+     [
+      {
+       "t": "HIZLI OKUMAK",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Gz5pr8wW2P8",
+     "titre": "Haftada Nasıl 4 Kitap Okunur? | Uygulanabilir Hızlı Okuma Teknikleri !",
+     "chaine": "Cansu Canan Özgen",
+     "vues": "243 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "10:08",
+     "avatar": "https://yt3.ggpht.com/ghQZBODNcSHsJW1FH9MfB1GdK_CJxC5HWT553BEcANq4UlpK3PxJg8ZlOJpA8kJCOz5vkOqj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ CITEȘTI",
+     [
+      {
+       "t": "MAI REPEDE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y9cN3yiu6Zc",
+     "titre": "Citire rapida | 4 Tehnici de citire rapida",
+     "chaine": "Beni Rusu",
+     "vues": "11 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kCvLs9WlREgio2pKoA0b2ZFX6-K8puTHpTncke1PodMtw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ČÍST",
+     [
+      {
+       "t": "DVAKRÁT RYCHLEJI",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tjT7VWcD6v0",
+     "titre": "Jak číst rychle?",
+     "chaine": "Radši Knihu",
+     "vues": "24 tis. zhlédnutí",
+     "date": "před 8 lety",
+     "duree": "11:45",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9h0utANH3JAMPm9B4c3TsSvG-Ru9tlZmKKVIbrSY4bb8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 10 hodin na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À CODER",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Fi5NcGYNKlw",
+     "titre": "Comment apprendre à CODER en partant de ZÉRO",
+     "chaine": "Développeur Libre",
+     "vues": "980 k vues",
+     "date": "il y a 4 ans",
+     "duree": "12:42",
+     "avatar": "https://yt3.ggpht.com/Z1u-d5bEqSZIMAAjngTlMkB1MG6w-v7hQTSBrr1MdRLP2qWmTPmBM-u8f8QKj9lC_-jIuTadHA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO CODE",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bJzb-RuUcMU",
+     "titre": "How To Learn Programming for BEGINNERS! (2022/2023)",
+     "chaine": "CroatCode",
+     "vues": "8.2M views",
+     "date": "8 years ago",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/GawRTLT1hnkkhRGf-UGzoQLZShsG1h-WcSYz9_tSAr5GS9k1RZsWLw8M9xL3rN3S28ZuNfWn_uY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "PROGRAMMIEREN",
+       "couleur": "#7a4fb3"
+      }
+     ],
+     "LERNEN"
+    ],
+    "video": {
+     "id": "JG-gofSMWGw",
+     "titre": "PROGRAMMIEREN LERNEN - So startest du!",
+     "chaine": "Programmieren lernen",
+     "vues": "418.598 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "10:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh1hKt9hjsPwNfCgE_3EPrrXuBOJwvL_Kftar4JqIiFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A PROGRAMMARE",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "UL4HQq6Sv04",
+     "titre": "Vuoi imparare a programmare? NON fare questo ERRORE!",
+     "chaine": "Alberto Olla",
+     "vues": "67K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lxyYLgRiLt1LTTmPOvcYFl7Bo8GbaQ2bHl0I70-VlkNIk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A PROGRAMAR",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "C-AA7wX-Lqc",
+     "titre": "por ONDE COMEÇAR na PROGRAMAÇÃO?!",
+     "chaine": "CriaScript",
+     "vues": "331 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "7:16",
+     "avatar": "https://yt3.ggpht.com/G8BFeDJpuGWTUs1gO4HE67g6oroFJom_EtQDB__afj-yZQrtg3dnh3luNaUPz9vx0PM0pyIB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KODLAMA",
+       "couleur": "#7a4fb3"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "CAJVeKhdO6U",
+     "titre": "Baştan Başlasaydım Kodlamayı Nasıl Öğrenirdim?",
+     "chaine": "Kerem Ersöz",
+     "vues": "468 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "6:39",
+     "avatar": "https://yt3.ggpht.com/fEEZM4-6terh_zC-TViAYsXJaQGfJAIyIA6yi4PBpeUahdrmXrx7xIasbXitXhR3RSFSRtngMA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "PROGRAMARE",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "U1AOfJDYz9c",
+     "titre": "Cum să înveți PROGRAMARE singur, DE LA ZERO?",
+     "chaine": "akawashi",
+     "vues": "34 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "15:44",
+     "avatar": "https://yt3.ggpht.com/JSHgn2uWiMFevlIk0QBk05pV0khPe1V71IIPQZ1aKNCPi6DeDqyQMnW7xOueoQZfB8FMcL6cQg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 de ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "PROGRAMOVAT",
+       "couleur": "#7a4fb3"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iSXqU9C3zMI",
+     "titre": "21. Jak dlouho trvá, než se naučím programovat a získám práci? | ENGETO",
+     "chaine": "ENGETO",
+     "vues": "15 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "4:06",
+     "avatar": "https://yt3.ggpht.com/KvS8h8a_RfMPzufZ3PGmS9il1MZVcGyneJUi4NUMdMsI6CrTblwPgI_442vzkvaqaiPwkZtnYw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "≈ 100 hodin na naučení"
+    ]
+   }
+  }
+ ]
+}

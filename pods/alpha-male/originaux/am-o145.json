@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o145",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c6428525-6464-4820-bb36-9df0a633a573",
+ "titre": "How to fully restart your life in the next 90 days #men #discipline #selfimprovement #reset #mindset",
+ "musique_titre": "the sopranos audio",
+ "musique_url": "https://www.tiktok.com/music/the-sopranos-audio-7454354398911744814",
+ "inspirations": [
+  "c6428525-6464-4820-bb36-9df0a633a573"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G2 de la ligne 1 (parent c6428525 = notre am-o052, langue source en). Même promesse reformulée (« How to fully restart your life in the next 90 days »). Même format : « Titre | Domaine: » puis puces. Domaines neufs, aucun de am-o052 (matins, entourage, esprit, suivi) : corps, maison, temps, carrière. Rien de médical. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url de am-o052 (slides 1 à 4) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0caac2fa",
+   "texte_overlay": "How to fully restart your life\nin the next 90 days",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e3437d9f",
+   "texte_overlay": "Rebuild your body | Movement:\n•Train three times a week, no excuses.\n•Walk every day, even 20 minutes.\n•Learn to cook five simple meals.\n•Same bedtime most nights.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "019256aa",
+   "texte_overlay": "Reset your home | Space:\n•Throw out what you don't use.\n•One clean surface you protect.\n•Make your bed every morning.\n•A place for everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0dcca707",
+   "texte_overlay": "Guard your time | Focus:\n•Delete the app you waste most time on.\n•One hour a day for your main goal.\n•Learn something new daily.\n•Say no faster.",
+   "texte_sophia": "Guard your time | Focus:\n•Delete the app you waste most time on.\n•One hour a day for your main goal.\n•A lesson a day on the Sophia app.\n•Say no faster.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4d9f2e44",
+   "texte_overlay": "Level up your work | Career:\n•Ask for feedback every two weeks.\n•Learn one skill your field needs.\n•Show up early, leave nothing half-done.\n•Help someone else win.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7527721310714219781/2.jpg"
+  }
+ ]
+}

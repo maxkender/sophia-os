@@ -1,0 +1,45 @@
+{
+ "source_id": "am-o154",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ecd10198-ba88-48ec-862c-5fbb9d3191b9",
+ "titre": "4 temporary pleasures a man must break #men #discipline #selfimprovement #habits #mindset",
+ "musique_titre": "dźwięk oryginalny",
+ "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "inspirations": [
+  "ecd10198-ba88-48ec-862c-5fbb9d3191b9"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G1 de la ligne 26 (parent ecd10198, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Plaisir » puis une phrase. Plaisirs neufs, aucun du parent (écrans, fast food, procrastination, relations d'un soir). Rien de médical. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 5) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "106eb4f5",
+   "texte_overlay": "4 temporary pleasures\na man must break",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "026615c0",
+   "texte_overlay": "1. The snooze button\n\nTen more minutes steal\nthe best hour of the day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "001cd438",
+   "texte_overlay": "2. Impulse buying\n\nThe thrill lasts a day.\nThe receipt lasts a month.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "48b2c625",
+   "texte_overlay": "3. Mindless scrolling\n\nSwap it for something that\nteaches you. Same break,\nsharper mind.",
+   "texte_sophia": "3. Mindless scrolling\n\nSwap it for a lesson on the\nSophia app. Same break,\nsharper mind.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02b7867a",
+   "texte_overlay": "4. Winning every argument\n\nBeing right feels good for a minute.\nKeeping the friend lasts years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/5.jpg"
+  }
+ ]
+}

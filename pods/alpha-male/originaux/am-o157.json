@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o157",
+ "type_bleo": "full_test",
+ "titre": "Job interview rules every young man should know #men #career #jobinterview #confidence #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Full test du jour (2 sur 5, jauge : 5 sur 16). Accroche jamais faite chez nous : aucun « job interview » dans donnees/label.json. Conseils concrets, rien sur le salaire. Différent de « Rules for your first real job » (am-o129) : avant d'être embauché. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url : le post source de am-o042 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1bacb960",
+   "texte_overlay": "Job interview rules every\nyoung man should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "01b2f534",
+   "texte_overlay": "1. Arrive 10 minutes early\n\nNot 30. Not 1.\nWait nearby if needed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2dd780e2",
+   "texte_overlay": "2. Dress one step above\n\nLook like you already\nwork there, on a good day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "06b2399d",
+   "texte_overlay": "3. Bring your own questions\n\n\"What does success look like\nin this role?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d9eca1d5",
+   "texte_overlay": "4. Firm handshake, eye contact\n\nThe first five seconds count.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5109d930",
+   "texte_overlay": "5. Know the company\n\nWhat they do, who they serve.\nTen minutes of research shows.",
+   "texte_sophia": "5. Know the company\n\nUse a micro-learning app\nlike the Sophia app to\nbrush up on their field.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7607721847295216898/6.jpg"
+  }
+ ]
+}

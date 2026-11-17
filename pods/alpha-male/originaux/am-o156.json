@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o156",
+ "type_bleo": "full_test",
+ "titre": "How to be the best man at a wedding #men #wedding #bestman #friendship #respect",
+ "musique_titre": "angels",
+ "musique_url": "https://www.tiktok.com/music/angels-7439542776280451089",
+ "inspirations": [],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Full test du jour (1 sur 5, jauge : 5 sur 16). Accroche jamais faite chez nous : aucun « wedding » ni « best man » dans donnees/label.json. Le savoir-vivre d'un rôle précis, entre hommes. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url : le post source de am-o010 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "159529df",
+   "texte_overlay": "How to be the best man\nat a wedding",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2c7efdb3",
+   "texte_overlay": "1. Handle the logistics\n\nRings, timing, cars.\nThe groom shouldn't think about it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "15fc3946",
+   "texte_overlay": "2. Keep the speech short\n\nThree minutes. One story.\nNothing embarrassing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "15e60bfb",
+   "texte_overlay": "3. Stay sober enough\nto help\n\nYou're on duty until\nthe last guest leaves.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a038de4b",
+   "texte_overlay": "4. Get people dancing\n\nFirst one on the floor.\nThe room follows.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "4f2b4ecb",
+   "texte_overlay": "5. Know the couple's story\n\nHow they met, what they love.\nWrite it down early.",
+   "texte_sophia": "5. Know the couple's story\n\nI found speech ideas\non the Sophia app too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  }
+ ]
+}

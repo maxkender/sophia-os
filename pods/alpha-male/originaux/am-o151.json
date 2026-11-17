@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o151",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "64bdc851-9bee-463a-be74-8225300ed7b5",
+ "titre": "5 daily habits that will improved your life #habits #selfimprovement #men #discipline #mindset",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7433882494992599813",
+ "inspirations": [
+  "64bdc851-9bee-463a-be74-8225300ed7b5"
+ ],
+ "notes": "cta A. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G1 de la ligne 19 (parent 64bdc851, @selfsculpt_, langue source en). Accroche du parent mot pour mot (faute comprise). Format du parent : « N. Habitude. » puis une phrase. Habitudes neuves, aucune du parent (lit fait, écrire ses pensées, 30 minutes de mouvement, apprendre, chose difficile tôt). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 6) vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ed76e3f6",
+   "texte_overlay": "5 daily habits that will\nimproved your life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493052172293147926/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "19cfd015",
+   "texte_overlay": "1. Drink a glass of water\nwhen you wake up.\nA simple start before coffee.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493052172293147926/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "380db5ef",
+   "texte_overlay": "2. Walk after lunch.\nTen minutes clears the\nafternoon fog.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493052172293147926/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "248e8f7b",
+   "texte_overlay": "3. Phone away an hour\nbefore bed.\nYour evening gets quieter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493052172293147926/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0fafa900",
+   "texte_overlay": "4. Reach out to one person.\nA message, a call, a coffee.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493052172293147926/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "25f7f656",
+   "texte_overlay": "5. Learn something small.\nFive minutes, every day.",
+   "texte_sophia": "5. Learn something small.\nUse a micro-learning app\nlike the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7493052172293147926/6.jpg"
+  }
+ ]
+}

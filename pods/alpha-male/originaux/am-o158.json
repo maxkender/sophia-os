@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o158",
+ "type_bleo": "full_test",
+ "titre": "How to show up for a friend in the hospital #men #friendship #respect #loyalty #selfimprovement",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Full test du jour (3 sur 5, jauge : 5 sur 16). Accroche jamais faite chez nous : aucun « hospital » dans donnees/label.json. Gestes simples de présence, aucun conseil médical. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url : le post source de am-o034 (format de référence), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "16b1b5bb",
+   "texte_overlay": "How to show up for a friend\nin the hospital",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0a6c1712",
+   "texte_overlay": "1. Text before you visit\n\n\"Up for company today?\"\nLet him choose.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "013cf1d1",
+   "texte_overlay": "2. Bring something small\n\nA snack he likes,\na charger, a magazine.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "53a92f4c",
+   "texte_overlay": "3. Bring good stories\n\nSomething funny,\nsomething interesting.\nTake his mind off it.",
+   "texte_sophia": "3. Bring good stories\n\nA fun fact from the Sophia app.\nTake his mind off it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "eb7b5d8b",
+   "texte_overlay": "4. Keep it short\n\nTwenty minutes is enough.\nRest matters.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "3185bf2e",
+   "texte_overlay": "5. Come back\n\nThe first visit is easy.\nThe third one counts.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7609286012627373334/6.jpg"
+  }
+ ]
+}

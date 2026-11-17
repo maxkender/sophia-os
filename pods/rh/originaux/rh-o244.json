@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o244",
+ "type_bleo": "full_test",
+ "titre": "comment je prépare un entretien en 48 heures #entretien #rechercheemploi #emploi #preparation #jobtips",
+ "musique_titre": "Reflection on Peace",
+ "musique_url": "https://www.tiktok.com/music/reflection-on-peace-7449413744872032272",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 7. Full test : accroche jamais faite chez nous (préparer un entretien en 48 h). Inspirations reprises de rh-o235. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c265f0c9",
+   "texte_overlay": "comment je prépare\nun entretien\nen 48 heures",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1fb44a78",
+   "texte_overlay": "j-2, le matin\nje relis l'offre et je surligne 3 missions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "f1159f33",
+   "texte_overlay": "j-2, le soir\nj'écris 3 histoires vraies : un succès, un raté, un conflit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "28cb54ba",
+   "texte_overlay": "j-1, le matin\nje lis les dernières nouvelles de la boîte sur son site",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "45d053df",
+   "texte_overlay": "j-1, le soir\nje prépare 2 questions à leur poser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "794781f5",
+   "texte_overlay": "le jour j\nj'arrive 10 minutes avant et je relis mes 3 histoires",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7827b9d9",
+   "texte_overlay": "pendant les trajets\nj'apprends un truc à raconter si on parle d'autre chose",
+   "texte_sophia": "pendant les trajets\nj'apprends un truc à raconter si on parle d'autre chose. utilise l'appli Sophia 5 minutes, ça marche",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "3a6dfc7e",
+   "texte_overlay": "ton prochain entretien, c'est quand ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

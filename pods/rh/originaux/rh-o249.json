@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o249",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c231dbd5-60c0-42be-b1ac-74d217097719",
+ "titre": "les leçons de ma première cheffe que j'applique encore aujourd'hui #manager #travail #carriere #emploi #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 6. Déclinaison G2 de la ligne #3 (parent c231dbd5) : même promesse, autres mots et autres leçons. Inspirations reprises de rh-o100. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a35158be",
+   "texte_overlay": "les leçons de ma première cheffe\nque j'applique encore\naujourd'hui",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ba733f79",
+   "texte_overlay": "elle disait « merci » par écrit\net jamais en copie de tout le monde",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ddfab895",
+   "texte_overlay": "elle relisait chaque mail important le lendemain matin\navant de l'envoyer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0c7a4cd5",
+   "texte_overlay": "elle arrivait en réunion avec une seule question\net elle la posait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "510a1823",
+   "texte_overlay": "elle disait « je ne sais pas » sans gêne\net elle revenait avec la réponse",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "9d871bb3",
+   "texte_overlay": "elle avait toujours un truc intéressant à raconter\nelle apprenait un peu chaque jour",
+   "texte_sophia": "elle avait toujours un truc intéressant à raconter\nelle apprenait un peu chaque jour. utilise l'appli Sophia 5 minutes, tu feras pareil",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "cfc79a56",
+   "texte_overlay": "elle ne répondait plus aux mails après 19h\net personne ne lui en voulait",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "ccf8baf6",
+   "texte_overlay": "c'est quoi la leçon que tu gardes ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

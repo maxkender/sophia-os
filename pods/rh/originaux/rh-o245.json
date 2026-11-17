@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o245",
+ "type_bleo": "full_test",
+ "titre": "mes règles de télétravail après 2 ans à la maison #teletravail #travail #routine #productivite #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (règles de télétravail). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "13b5123d",
+   "texte_overlay": "mes règles de télétravail\naprès 2 ans\nà la maison",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "70a8c07b",
+   "texte_overlay": "je m'habille comme si je sortais\nmême sans caméra",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "cf478bb1",
+   "texte_overlay": "un coin pour travailler\net le canapé reste le canapé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "39982779",
+   "texte_overlay": "je dis bonjour sur le chat de l'équipe\nchaque matin, ça change tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f7f1ba1e",
+   "texte_overlay": "une vraie pause déjeuner\nloin de l'écran",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e4d67a35",
+   "texte_overlay": "ma pause de 15h\nun café, une fenêtre, 5 minutes pour apprendre un truc",
+   "texte_sophia": "ma pause de 15h\nun café, une fenêtre, 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "bdd761d8",
+   "texte_overlay": "je ferme l'ordi à la même heure\net je le range",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "17d63c3a",
+   "texte_overlay": "laquelle tu ne fais pas ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

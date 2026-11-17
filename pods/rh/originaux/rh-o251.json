@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o251",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "0530a7bf-2e20-42d6-993c-628f5f0e4b06",
+ "titre": "ex-rh : je note vos réponses d'entretien de 1 à 10 (sans pitié), partie 2 #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Déclinaison G1 de la ligne #6 (parent 0530a7bf) : accroche du parent mot pour mot, autres réponses notées. Inspirations reprises de rh-o050. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0bf19a3f",
+   "texte_overlay": "ex-rh : je note vos réponses d'entretien\nde 1 à 10\n(sans pitié)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d38c24b3",
+   "texte_overlay": "« je suis quelqu'un de très motivé »\n3/10\ntout le monde le dit. montre-le avec un exemple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "61a71987",
+   "texte_overlay": "« je n'ai pas de point faible »\n1/10\non arrête l'écoute ici",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "42bba6b1",
+   "texte_overlay": "« j'ai raté un délai, j'ai prévenu tôt et j'ai proposé un plan »\n8/10\nhonnête, et tu montres comment tu réagis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "86ee78c7",
+   "texte_overlay": "« je suis venue à pied pour voir le quartier »\n7/10\npetit détail, on s'en souvient",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a3ade5ad",
+   "texte_overlay": "« je lis, je fais du sport, et j'apprends un peu d'économie chaque jour »\n9/10\nconcret, et on peut en parler",
+   "texte_sophia": "« je lis, je fais du sport, et j'apprends un peu d'économie chaque jour »\n9/10\nmes 3 trucs : un livre, la salle, 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2b1ce512",
+   "texte_overlay": "« c'est quoi les horaires ? » en première question\n2/10\nla question est légitime. pas en premier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d0dd7083",
+   "texte_overlay": "note ta réponse à « pourquoi vous ? »\nen commentaire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

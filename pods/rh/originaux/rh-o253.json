@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o253",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "3a8d7126-869a-4b26-b4df-72427020aa11",
+ "titre": "les petites habitudes qui font qu'on se souvient de toi dans une boîte (sans faire d'heures sup), partie 2 #travail #carriere #reseau #emploi #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne #8 (parent 3a8d7126) : accroche du parent mot pour mot, autres habitudes. Inspirations reprises de rh-o066. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c16f8c98",
+   "texte_overlay": "les petites habitudes\nqui font qu'on se souvient de toi dans une boîte\n(sans faire d'heures sup)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ba551803",
+   "texte_overlay": "tu poses la question que tout le monde se pose\nen réunion, une fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9cf9d11a",
+   "texte_overlay": "tu présentes les nouveaux\nmême si ce n'est pas ton rôle",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "008401d5",
+   "texte_overlay": "tu notes les anniversaires d'arrivée\n« ça fait un an que t'es là ! »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "185be545",
+   "texte_overlay": "tu partages un truc utile\nun article, un outil, ce que tu as appris ce matin",
+   "texte_sophia": "tu partages un truc utile\nun article, un outil, ce que j'ai appris en 5 minutes sur l'appli Sophia ce matin",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f75c5c6d",
+   "texte_overlay": "tu tiens tes délais\net tu préviens quand tu ne peux pas",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "6e43a704",
+   "texte_overlay": "laquelle tu fais déjà ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

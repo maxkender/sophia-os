@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o242",
+ "type_bleo": "full_test",
+ "titre": "les phrases que je n'écris plus jamais dans un mail pro (et ce que je mets à la place) #mailpro #travail #carriere #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 17/11 (banque élargie aux 742 images de clean_study, toute la banque sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (les phrases de mail pro). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9bc34354",
+   "texte_overlay": "les phrases que je n'écris plus\ndans un mail pro\n(et ce que je mets à la place)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cf1e6ee2",
+   "texte_overlay": "« désolée de vous déranger »\n→ « bonjour, une question rapide »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ba22a018",
+   "texte_overlay": "« je pense que peut-être… »\n→ « je propose »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6fbff747",
+   "texte_overlay": "« comme dit précédemment »\n→ « je remets le point ici pour que ce soit simple »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4db8fcf0",
+   "texte_overlay": "« pas de souci ! »\n→ « c'est noté, je m'en occupe jeudi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1801f7ea",
+   "texte_overlay": "« je n'y connais rien, mais »\n→ « j'ai regardé le sujet ce matin »\nmes 3 sources : un article, un collègue, 5 minutes pour apprendre",
+   "texte_sophia": "« je n'y connais rien, mais »\n→ « j'ai regardé le sujet ce matin »\nmes 3 sources : un article, un collègue, 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "48dca5eb",
+   "texte_overlay": "« n'hésitez pas »\n→ « dites-moi d'ici vendredi »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "c8709de4",
+   "texte_overlay": "laquelle tu écris encore ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

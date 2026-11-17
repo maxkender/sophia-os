@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o189",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "d8677a3b-bfa8-4d2b-8077-d371d0ddd395",
+  "titre": "୨୧ things you should never have to apologise for #confidence #thatgirl",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "d8677a3b-bfa8-4d2b-8077-d371d0ddd395"
+  ],
+  "notes": "G1, déclinaison de d8677a3b (« ୨୧ things you should never have to apologise for », génération 0 ; meilleur passage it 2,4 k vues, r 2,21), en anglais. cta B (l'anecdote du jour en item 3). Le ୨୧ du parent reste en slide 1. Items neufs (rien de repris du parent : ni dire non, ni être soi-même, ni avoir des besoins, ni s'éloigner). Fait vérifié le 8/11 sur https://en.wikipedia.org/wiki/Symphony_No._1_(Mozart) : « written in August or September 1764 at the age of only eight ». Routine du 17/11 sur BLEO (par_jour passé à 9 ; règle 0671 : images neuves de toute la banque vérifiées sur planche, son en rotation). Jauge : 3 full tests et 6 déclinaisons ; seules les lignes 1 à 4 de la boîte se déclinent proprement, donc 4 déclinaisons et 5 full tests. Lignes sautées : 5 (« validé par les neurosciences »), 6 (accroche illisible), 7 (« backed by science »), 8 (« enterimarnt »), 9 (« other then »). Aucune personne ni texte lisible sur la slide Sophia.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "f146b950",
+      "texte_overlay": "୨୧ things you should never\nhave to apologise for",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "f15a69c4",
+      "texte_overlay": "1. asking a question\n\nthe 'silly' question\nis usually the one everyone was thinking.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "f15d274b",
+      "texte_overlay": "2. loving what you love\n\nopera, old films, astronomy.\nyour passions are not 'too much'.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "98917964",
+      "texte_overlay": "3. being curious about everything\n\nthis morning i learned that mozart wrote his first symphony when he was only eight.\ncuriosity starts early. it never has to stop.",
+      "texte_sophia": "3. being curious about everything\n\nthis morning, the Sophia app taught me that mozart wrote his first symphony when he was only eight.\ncuriosity starts early. it never has to stop.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f15de4ed",
+      "texte_overlay": "4. taking your time\n\nto answer, to decide, to grow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "f160a9eb",
+      "texte_overlay": "5. outgrowing old versions of yourself\n\nchanging means you're learning.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "f171ce7d",
+      "texte_overlay": "which one did you need to hear today?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

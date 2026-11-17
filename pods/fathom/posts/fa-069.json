@@ -9,7 +9,17 @@
   "de": "3 Fragen, die dich umhauen",
   "it": "3 domande che ti apriranno la mente",
   "pt-BR": "3 perguntas que vão explodir sua mente",
-  "es-419": "3 preguntas que te volarán la cabeza"
+  "es-419": "3 preguntas que te volarán la cabeza",
+  "cs": "3 otázky, ze kterých ti vybuchne hlava",
+  "sk": "3 otázky, z ktorých ti vybuchne hlava",
+  "hr": "3 pitanja od kojih će ti eksplodirati mozak",
+  "sl": "3 vprašanja, ob katerih ti bo eksplodirala glava",
+  "hu": "3 kérdés, amitől felrobban az agyad",
+  "nl": "3 vragen die je hoofd laten ontploffen",
+  "pl": "3 pytania, od których wybuchnie ci głowa",
+  "ro": "3 întrebări care îți vor da peste cap mintea",
+  "sv": "3 frågor som får hjärnan att explodera",
+  "tr": "Aklını uçuracak 3 soru"
  },
  "legendes": {
   "en": "3 Questions That Will Blow Your Mind #science #learnontiktok #curiosity",
@@ -18,13 +28,23 @@
   "de": "3 Fragen, die dich umhauen #wissenschaft #lernenmittiktok #neugier",
   "it": "3 domande che ti apriranno la mente #scienza #imparacontiktok #curiosità",
   "pt-BR": "3 perguntas que vão explodir sua mente #ciência #aprendanotiktok #curiosidades",
-  "es-419": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades"
+  "es-419": "3 preguntas que te volarán la cabeza #ciencia #aprendeentiktok #curiosidades",
+  "cs": "3 otázky, ze kterých ti vybuchne hlava #věda #zajímavosti #vzdělávání",
+  "sk": "3 otázky, z ktorých ti vybuchne hlava #veda #zaujímavosti #vzdelávanie",
+  "hr": "3 pitanja od kojih će ti eksplodirati mozak #znanost #zanimljivosti #učenje",
+  "sl": "3 vprašanja, ob katerih ti bo eksplodirala glava #znanost #zanimivosti #učenje",
+  "hu": "3 kérdés, amitől felrobban az agyad #tudomány #érdekességek #tanulás",
+  "nl": "3 vragen die je hoofd laten ontploffen #wetenschap #weetjes #leren",
+  "pl": "3 pytania, od których wybuchnie ci głowa #nauka #ciekawostki #wiedza",
+  "ro": "3 întrebări care îți vor da peste cap mintea #știință #curiozități #învățare",
+  "sv": "3 frågor som får hjärnan att explodera #vetenskap #kuriosa #lärande",
+  "tr": "Aklını uçuracak 3 soru #bilim #ilginçbilgiler #öğrenme"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7471146905687395114"
  },
- "notes": "cta B. Déclinaison G1 de fa-058 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Questions That Will Blow Your Mind »), traductions du parent ; autres questions (bâillement, nuit noire, temps ; en allemand, ciel bleu à la place du bâillement : pas de vidéo native propre), autre CTA, autre son (0671). Sophia à l'étape 3 comme le parent. Langues des comptes du label (7), vidéos natives par langue.",
+ "notes": "cta B. Déclinaison G1 de fa-058 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Questions That Will Blow Your Mind »), traductions du parent ; autres questions (bâillement, nuit noire, temps ; en allemand, ciel bleu à la place du bâillement : pas de vidéo native propre), autre CTA, autre son (0671). Sophia à l'étape 3 comme le parent. Langues des comptes du label (7), vidéos natives par langue. 17/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, la question change dans certaines langues (ciel bleu en sl, hu, nl, sv et hr ; trou noir en sk, hr, sl, hu et nl).",
  "slides": [
   {
    "type": "couverture",
@@ -148,6 +168,176 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "3 OTÁZKY",
+       "bronze": true
+      }
+     ],
+     "ZE KTERÝCH TI",
+     [
+      {
+       "t": "VYBUCHNE HLAVA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "3 OTÁZKY",
+       "bronze": true
+      }
+     ],
+     "Z KTORÝCH TI",
+     [
+      {
+       "t": "VYBUCHNE HLAVA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "3 PITANJA",
+       "bronze": true
+      }
+     ],
+     "OD KOJIH ĆE TI",
+     [
+      {
+       "t": "EKSPLODIRATI MOZAK",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "3 VPRAŠANJA",
+       "bronze": true
+      }
+     ],
+     "OB KATERIH TI BO",
+     [
+      {
+       "t": "EKSPLODIRALA GLAVA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "3 KÉRDÉS",
+       "bronze": true
+      }
+     ],
+     "AMITŐL",
+     [
+      {
+       "t": "FELROBBAN AZ AGYAD",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "3 VRAGEN",
+       "bronze": true
+      }
+     ],
+     "DIE JE HOOFD LATEN",
+     [
+      {
+       "t": "ONTPLOFFEN",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "3 PYTANIA",
+       "bronze": true
+      }
+     ],
+     "OD KTÓRYCH",
+     [
+      {
+       "t": "WYBUCHNIE CI GŁOWA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "3 ÎNTREBĂRI",
+       "bronze": true
+      }
+     ],
+     "CARE ÎȚI VOR DA",
+     [
+      {
+       "t": "PESTE CAP MINTEA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "3 FRÅGOR",
+       "bronze": true
+      }
+     ],
+     "SOM FÅR HJÄRNAN",
+     [
+      {
+       "t": "ATT EXPLODERA",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "AKLINI",
+       "bronze": true
+      }
+     ],
+     "UÇURACAK",
+     [
+      {
+       "t": "3 SORU",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -255,6 +445,156 @@
      "date": "hace 8 años",
      "duree": "5:48",
      "avatar": "https://yt3.ggpht.com/nehTFfi2o1UAld9fmPEbhuut8yTBNFsFUENdRm_eGGRA0kbnodhcBb5PwjfaCKaZdtU8W3OxjU0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "PROČ",
+     "ZÍVÁME?"
+    ],
+    "video": {
+     "id": "XkwK7KNm_po",
+     "titre": "Proč zíváme? | What the Fact?",
+     "chaine": "iVysílání",
+     "vues": "79 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/JjEa1rPjLKddbAY6_h6n87cJhmn3pMVwcT1q8gTAdr6hRfszGIl0LQcMMCJE78lYV9CUy0FqTyk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "PREČO JE ZÍVANIE",
+     "NÁKAZLIVÉ?"
+    ],
+    "video": {
+     "id": "MmJzPfTtdDY",
+     "titre": "Prečo je ZÍVANIE NÁKAZLIVÉ? 😳",
+     "chaine": "Klarisa",
+     "vues": "53 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "8:32",
+     "avatar": "https://yt3.ggpht.com/hYwFeO6KNSJwqKKC2wua7mXpININCzCw67RXvWDnQ71iPKO1FUCv7Ch6tkQ3q7Dw1pUMoh5mzA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZAŠTO",
+     "ZIJEVAMO?"
+    ],
+    "video": {
+     "id": "BaY8uPcU91M",
+     "titre": "Zašto zijevamo i zašto je zarazno?",
+     "chaine": "Naratonac",
+     "vues": "617 pregleda",
+     "date": "prije 10 dana",
+     "duree": "12:15",
+     "avatar": "https://yt3.ggpht.com/gegIVXkIOI5iU8FMzPidOiiCNY1nuxHUjjwFcQl6ohjHg_7kTowoolo61yOUf988lq9tFbbmog=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "ZAKAJ JE",
+     "NEBO MODRO?"
+    ],
+    "video": {
+     "id": "Y1gfpDLrJ34",
+     "titre": "Zakaj je nebo modro - Čarovnija narave",
+     "chaine": "Čarovnija Narave",
+     "vues": "184 ogledov",
+     "date": "pred 4 leti",
+     "duree": "1:39",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mR-lokTmmuAhWl1OsDbyNf9c9E4fq0-AMU9TGDHFMyAg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "MIÉRT KÉK",
+     "AZ ÉG?"
+    ],
+    "video": {
+     "id": "jUuzuuk2G3s",
+     "titre": "Miért kék az ég, ha a levegő átlátszó?",
+     "chaine": "Hogyan működik? Röviden - Tömören",
+     "vues": "90 E megtekintés",
+     "date": "1 hónappal ezelőtt",
+     "duree": "10:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZjJHsimRK4hKYxpVog02432bIh2nt1wJGpUp7XlQzxgQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "WAAROM IS DE",
+     "LUCHT BLAUW?"
+    ],
+    "video": {
+     "id": "4P0U7qz-stc",
+     "titre": "Waarom is de lucht blauw?",
+     "chaine": "questjunior",
+     "vues": "10K weergaven",
+     "date": "7 jaar geleden",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kkl96VybirGTxAGsUXXNnO58tc8aymj8I9-asA2chPufw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "DLACZEGO",
+     "ZIEWAMY?"
+    ],
+    "video": {
+     "id": "k5DcBHg2cMc",
+     "titre": "Dlaczego ziewamy?",
+     "chaine": "emce□",
+     "vues": "106 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "4:52",
+     "avatar": "https://yt3.ggpht.com/xR3a5m0VMCZS0nvRDoZTnSRU-Y9ttKzu1Gn1uYii5bscZ3r7h-cNM9pqs5oKgio6N52IFwyWwQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "DE CE",
+     "CĂSCĂM?"
+    ],
+    "video": {
+     "id": "GTf77ByLvWs",
+     "titre": "De ce căscăm? | Desene animate pentru copii în română | Orășelul Rotund",
+     "chaine": "Oraselul Rotund",
+     "vues": "1,3 K de vizionări",
+     "date": "acum 4 săptămâni",
+     "duree": "4:29",
+     "avatar": "https://yt3.ggpht.com/oOOJda0X41D2GHltUcNlfq3gv9gn5x7JhmlUuXMIHSU0SZo0S6amln9WOgC13pR6BcP3IDLf=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "VARFÖR ÄR",
+     "HIMLEN BLÅ?"
+    ],
+    "video": {
+     "id": "o4aO6onnKOg",
+     "titre": "Varför är himlen blå och varför blir ljuset rödaktigt i solnedgång? Levande frågelådan nr.1, del 12",
+     "chaine": "naturvetenskapitGU",
+     "vues": "1 632 visningar",
+     "date": "för 8 år sen",
+     "duree": "4:37",
+     "avatar": "https://yt3.ggpht.com/xqLhMB4JO9E58QN4qWqUVwUymudezFBi9n5QWVKvbW0n6VYYFqMPRKi1nln7kc5hRb_KpjXAgg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "NEDEN",
+     "ESNERİZ?"
+    ],
+    "video": {
+     "id": "U9Yx9jw8qVA",
+     "titre": "Esneyeceksin, Şimdi: Bu Videoyu Esnemeden İzlemek Neden Bu Kadar Zor?",
+     "chaine": "Evrim Ağacı",
+     "vues": "425 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "13:12",
+     "avatar": "https://yt3.ggpht.com/yy48QgMLjlpIqzRqWM-ecSuL6g8KggV2pi8YS7wNzkugZHH_-eNNxJ5-BenWWYp-K8gUliIpwVo=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -364,6 +704,156 @@
      "duree": "32:54",
      "avatar": "https://yt3.ggpht.com/9qR665_6QZwyQprE_CPsAvz6teqiVBt3HaTyIXniYF1r1zPGYNhfRA9D0tTN5gt_dIpuYi2O=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "PROČ JE",
+     "V NOCI TMA?"
+    ],
+    "video": {
+     "id": "z11sB1hqM0w",
+     "titre": "Proč není noční obloha jasná jako Slunce? Olbersův paradox | Noční věda",
+     "chaine": "Noční toulky",
+     "vues": "1,2 tis. zhlédnutí",
+     "date": "před 1 měsícem",
+     "duree": "21:35",
+     "avatar": "https://yt3.ggpht.com/vMtC6srTrwsKC5cgRBrt5kiepw58wxCktvfHT_a8bwjvSkYgRqOWr7Bsx1MYkvLohbhZU0XJYlk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ČO JE",
+     "ČIERNA DIERA?"
+    ],
+    "video": {
+     "id": "s1PI9WKuXFM",
+     "titre": "Čierne diery: Tajomstvo najextrémnejších objektov vesmíru",
+     "chaine": "Cesta vesmírom",
+     "vues": "2,4 tis. zhliadnutí",
+     "date": "pred 8 mesiacmi",
+     "duree": "4:36",
+     "avatar": "https://yt3.ggpht.com/MmCt5lhp5n-rvJbwx_kWrN3osKbTw9__GVF_YXca5hrNGPbXN7PIL4B8540a4dHUEzQfkal6=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ŠTO JE",
+     "CRNA RUPA?"
+    ],
+    "video": {
+     "id": "XSheIYkM_Sw",
+     "titre": "Što je crna rupa?",
+     "chaine": "Astroučionica",
+     "vues": "3,3 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "1:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n_Khoy5XjN8UQ06XjI4svWOaepSUO6RxekFgcqfmvEbXk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "KAJ JE",
+     "ČRNA LUKNJA?"
+    ],
+    "video": {
+     "id": "JVjyzsn5kOQ",
+     "titre": "Črne luknje",
+     "chaine": "Znanje za spanje",
+     "vues": "1 tis. ogledov",
+     "date": "pred 1 letom",
+     "duree": "38:25",
+     "avatar": "https://yt3.ggpht.com/CfXE2aAYFFMS3NnokwGOfrYKdyJ7IjsgkNtBQLAl2ooqU8XfHbLnwpSwDbSh8rS3gJya8VWb_w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "MI AZ A",
+     "FEKETE LYUK?"
+    ],
+    "video": {
+     "id": "IHVJa7NbKEQ",
+     "titre": "Fekete lyukak: világok teremtői és pusztítói",
+     "chaine": "Hogyan működik? Röviden - Tömören",
+     "vues": "906 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "17:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZjJHsimRK4hKYxpVog02432bIh2nt1wJGpUp7XlQzxgQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "WAT IS EEN",
+     "ZWART GAT?"
+    ],
+    "video": {
+     "id": "Lq8dV8FUlrM",
+     "titre": "Wat is een zwart gat?",
+     "chaine": "Clipphanger",
+     "vues": "167K weergaven",
+     "date": "8 jaar geleden",
+     "duree": "1:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxxIwZDguWdNA0eOuAKrxr9WaAPS2CdDh77Sm868TP9A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "DLACZEGO W NOCY",
+     "JEST CIEMNO?"
+    ],
+    "video": {
+     "id": "-L_hmXZBK3g",
+     "titre": "Paradoks Olbersa czyli dlaczego w nocy jest ciemno?",
+     "chaine": "NaukowoTV",
+     "vues": "125 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "6:09",
+     "avatar": "https://yt3.ggpht.com/61mwkACXW5SOZKM_NXmMdf1INJ63rQhlxSFZNT88KNkOyJ2LcHMuxmexwwL9GOE8Mz0sfQzS=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "DE CE E ÎNTUNERIC",
+     "NOAPTEA?"
+    ],
+    "video": {
+     "id": "7XCgjpOwGZw",
+     "titre": "De ce este cerul întunecat noaptea?",
+     "chaine": "5 Chestii Interesante",
+     "vues": "75 K de vizionări",
+     "date": "acum 7 ani",
+     "duree": "3:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lW12DS5ePICv46zaTK0SQxpQNdE9_QrxMg9NC5tqmPaSA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "VARFÖR ÄR DET",
+     "MÖRKT PÅ NATTEN?"
+    ],
+    "video": {
+     "id": "booLdRUkhuE",
+     "titre": "Varför är det sjukt mörkt på natten?",
+     "chaine": "Kvant-Kattis",
+     "vues": "139 visningar",
+     "date": "för 8 år sen",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lu1uU8uGaICFFikrVi-6gJ25n14QP6yYFPR-3S61cEwA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "GECE NEDEN",
+     "KARANLIK?"
+    ],
+    "video": {
+     "id": "tYSstDz5tog",
+     "titre": "Gece Gökyüzü Neden Karanlıktır ? Basit Bilim Serisi",
+     "chaine": "Feza Gezginleri",
+     "vues": "4,1 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "3:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mHuFxzi8NYXoODYXWjmZAZfULLbtEcFhBe1ZzYcGnczSg=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -457,6 +947,136 @@
      "texte": [
       "5 minutos al día",
       "para saber un poco de todo."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "JEDNA NOVÁ OTÁZKA",
+     "DENNĚ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut denně",
+      "a víš trochu o všem."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "JEDNA NOVÁ OTÁZKA",
+     "DENNE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minút denne",
+      "a vieš trochu o všetkom."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "JEDNO PITANJE",
+     "DNEVNO"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuta dnevno",
+      "da znaš ponešto o svemu."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "ENO VPRAŠANJE",
+     "NA DAN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut na dan",
+      "da veš malo o vsem."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "NAPI EGY",
+     "KÉRDÉS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "napi 5 perc,",
+      "hogy mindenről tudj egy kicsit."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "ELKE DAG",
+     "EEN VRAAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuten per dag",
+      "om van alles iets te weten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "JEDNO PYTANIE",
+     "DZIENNIE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minut dziennie,",
+      "by wiedzieć trochę o wszystkim."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "O ÎNTREBARE",
+     "PE ZI"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minute pe zi",
+      "ca să știi câte puțin din toate."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "EN FRÅGA",
+     "OM DAGEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "5 minuter om dagen",
+      "för att kunna lite om allt."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "GÜNDE",
+     "BİR SORU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "günde 5 dakika,",
+      "her şeyden biraz bilmek için."
      ]
     }
    }
@@ -566,6 +1186,156 @@
      "date": "hace 7 años",
      "duree": "14:03",
      "avatar": "https://yt3.ggpht.com/SSwjoANvuIj6vwUl8KDoeZ13WJTkqPbg2dmaVjurBwbcsWWyaBeupnNWaZk6owVkLnJ31gU1Cw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "CO JE",
+     "ČAS?"
+    ],
+    "video": {
+     "id": "zdOI4tij2To",
+     "titre": "Čas a jeho měření - Fyzika ZŠ",
+     "chaine": "Petr Němec",
+     "vues": "16 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "14:32",
+     "avatar": "https://yt3.ggpht.com/4bcalJrDdADRaO7UPD-n54IxCIDZdd9y1lUw4tffbHPJ1px_Mv94p6wI9Xaz57MkHAegUlL3iQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ČO JE",
+     "ČAS?"
+    ],
+    "video": {
+     "id": "nVB3yPo3Sv4",
+     "titre": "Čo je to čas?",
+     "chaine": "Dejepis Inak",
+     "vues": "66 tis. zhliadnutí",
+     "date": "pred 10 rokmi",
+     "duree": "7:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBhPYPYBuXMMfPWSRC6JZOBAV6bf_dcjVoY-LR2lUzLFw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZAŠTO JE",
+     "NEBO PLAVO?"
+    ],
+    "video": {
+     "id": "my9HtR1ZOqY",
+     "titre": "Znanost u pet S01 E20 - Zašto je nebo plavo, trava zelena, a mi se ne vidimo u mraku? (za djecu)",
+     "chaine": "Ivica Puljak",
+     "vues": "5,8 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "41:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mT06PxcfK68IJJv-wfP3vPz5aqZZ9C35_xRmRkAIT6yAg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "KAJ JE",
+     "ČAS?"
+    ],
+    "video": {
+     "id": "X3mRoJxK9Fk",
+     "titre": "02. Kaj je čas",
+     "chaine": "Creative Focus",
+     "vues": "111 ogledov",
+     "date": "pred 8 leti",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/p0y5dykGpxWFS0SLFv4mLU0vFFO0WYFiyDQnPXf2BQ60weGPyos_A8p7DK8pw8AFGI4dnpJwxw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "MI AZ",
+     "IDŐ?"
+    ],
+    "video": {
+     "id": "qt3nf4Gc-Ks",
+     "titre": "Az Univerzum legfurcsább jelensége:  AZ IDŐ - Kozmosz",
+     "chaine": "Kozmosz",
+     "vues": "336 E megtekintés",
+     "date": "8 hónappal ezelőtt",
+     "duree": "14:51",
+     "avatar": "https://yt3.ggpht.com/QSRZBSE1CihRtY6ottS-eOVOt7hcXWjTSQGKa4ZzbnnrSqGzO_6hxOEAY7qPiThS6eDUuV1AW5o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "WAT IS",
+     "TIJD?"
+    ],
+    "video": {
+     "id": "HhcDsMx8rIk",
+     "titre": "Tijd is een illusie (Bevestigd)",
+     "chaine": "Het Verborgen Heelal",
+     "vues": "9,3K weergaven",
+     "date": "7 maanden geleden",
+     "duree": "1:01:04",
+     "avatar": "https://yt3.ggpht.com/1IafEaA0nLS06mUGG5I6qzjydDziJZS3Z2TeiK8MlWDk_6PEcT8ON9JLyiNTcLPpR2_25LTFaA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "CZYM JEST",
+     "CZAS?"
+    ],
+    "video": {
+     "id": "O9EPWmjQIbc",
+     "titre": "Czym jest czas?",
+     "chaine": "Fizyka bez zamulania",
+     "vues": "187 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "32:24",
+     "avatar": "https://yt3.ggpht.com/iTJb_Yl9u1mEFAl_GxjS8cJRxeGmpnhdsmZD2yb8vQKH_EyG3YtKiRaCRa6BzbxNgSbCZyFsiA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CE ESTE",
+     "TIMPUL?"
+    ],
+    "video": {
+     "id": "EalAz2houW8",
+     "titre": "Ce Este TIMPUL",
+     "chaine": "Science Facts",
+     "vues": "40 K de vizionări",
+     "date": "acum 7 ani",
+     "duree": "10:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nVYXYgkTqRIAfSM0AoIszRxsNtE0NjFLlFppMrKKku344B=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "VAD ÄR",
+     "TID?"
+    ],
+    "video": {
+     "id": "oRhaGhPnb5U",
+     "titre": "Vad är tid? | Smartare Varje Dag",
+     "chaine": "Smartare Varje Dag",
+     "vues": "1 222 visningar",
+     "date": "för 12 år sen",
+     "duree": "7:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lWnLfUBE8kJSnAzcz0rY9j5N0SZiKdgc1-B-MHyJWKpA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZAMAN",
+     "NEDİR?"
+    ],
+    "video": {
+     "id": "jEUVhAvqgmA",
+     "titre": "Zaman Hakkında Ne Biliyoruz?",
+     "chaine": "Evrim Ağacı",
+     "vues": "1,7 Mn görüntüleme",
+     "date": "2 ay önce",
+     "duree": "29:28",
+     "avatar": "https://yt3.ggpht.com/yy48QgMLjlpIqzRqWM-ecSuL6g8KggV2pi8YS7wNzkugZHH_-eNNxJ5-BenWWYp-K8gUliIpwVo=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -1,0 +1,57 @@
+{
+ "source_id": "am-o149",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "f7c30061-836d-45c5-839d-e39b5163ee67",
+ "titre": "6 hobbies that make you noticeably manlier #men #hobbies #selfimprovement #discipline #mindset",
+ "musique_titre": "Interstellar",
+ "musique_url": "https://www.tiktok.com/music/interstellar-7396002037526710273",
+ "inspirations": [
+  "f7c30061-836d-45c5-839d-e39b5163ee67"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G1 de la ligne 16 (parent f7c30061, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Hobby » puis une ou deux phrases. Hobbies neufs, aucun du parent (arts martiaux, lecture, musculation, sujets inconnus, compétence qui paie, bénévolat). Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url : slides présentes du parent (5 manquante : 400), vérifiées en 200.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d2c2c99f",
+   "texte_overlay": "6 hobbies that make you\nnoticeably manlier",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646478984066354439/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "31cf392b",
+   "texte_overlay": "1. Hiking\n\nLong trails teach patience.\nThe summit can't be rushed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646478984066354439/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "127c7616",
+   "texte_overlay": "2. Cooking\n\nFeeding people well is\nan old kind of strength.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646478984066354439/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "02f47ecf",
+   "texte_overlay": "3. Woodworking\n\nMeasure twice, cut once.\nYou learn to slow down.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646478984066354439/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "182e6897",
+   "texte_overlay": "4. Learning something new\nevery day\n\nHistory, science, art.\nA sharp mind is attractive.",
+   "texte_sophia": "4. Learning something new\nevery day\n\nI use the Sophia app,\n5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646478984066354439/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0c4fd4f6",
+   "texte_overlay": "5. Open-water swimming\n\nCold, deep, calm.\nYou learn to breathe\nunder pressure.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646478984066354439/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "3a475b4f",
+   "texte_overlay": "6. Chess\n\nThink three moves ahead.\nLose with grace.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7646478984066354439/2.jpg"
+  }
+ ]
+}

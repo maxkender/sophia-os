@@ -1,0 +1,41 @@
+{
+  "source_id": "cs-o127",
+  "type_bleo": "full_test",
+  "titre": "how i memorize history dates without losing my mind #studytok #studytips #history",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 17/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« memorize dates » absent du label). Accroches écrites : « how i memorize history dates without losing my mind » (retenue : un besoin précis et très partagé), « history study hacks » (écartée : vague), « remember any date forever » (écartée : promesse fausse). Gestes vrais : une frise à la main, chaque date avec une cause et une conséquence, se tester dans le désordre (place micabo, slide 4), revenir sur la frise 3 jours après. Banque presque épuisée (aucune image livrée depuis 14 jours) : posts de 5 slides. Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "8c2f83a2",
+      "texte_overlay": "how i memorize history dates\nwithout losing my mind",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a75be43d",
+      "texte_overlay": "i draw one timeline by hand.\nseeing the gaps between dates helps a lot.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a9f94460",
+      "texte_overlay": "every date gets a cause and a consequence.\na story is easier to remember than a number.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2c8d464c",
+      "texte_overlay": "i quiz myself in random order.\nevent → date, then date → event.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "db2d28b2",
+      "texte_overlay": "3 days later, i redraw the timeline from memory.\nwhatever's missing gets a color.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "source_id": "cs-o128",
+  "type_bleo": "full_test",
+  "titre": "how i stopped losing points on homework i forgot to hand in #studytok #studytips #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [],
+  "notes": "Full test (BLEO). Accroche jamais faite chez nous. Accroches écrites : « how i stopped losing points on homework i forgot to hand in » (retenue : une perte de points évitable et très partagée), « never forget homework again » (écartée : promesse absolue), « my homework system » (écartée : plate). Gestes vrais : un seul endroit pour noter, la date de rendu plutôt que la date du cours, une pochette « à rendre », se tester sur le devoir avant de le rendre (place micabo, slide 4). Images choisies à la main dans toute la banque (rien de livré depuis 14 jours), son alterné. Le label ne sert que micabo : une seule place d'appli, sur une photo d'objet sans personne.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "bc53a961",
+      "texte_overlay": "how i stopped losing points on homework\ni forgot to hand in",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "e1b0eab0",
+      "texte_overlay": "one place for every assignment. one.\nnot my hand, not a random page.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "ead0d925",
+      "texte_overlay": "i write the DUE date, not the day it was given.\nthat's the date that matters.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8e1ac696",
+      "texte_overlay": "before handing it in, i quiz myself on it.\nhomework is also revision.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "eb4f19e5",
+      "texte_overlay": "a \"to hand in\" folder that lives in my bag.\nfinished = in the folder. tonight.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    }
+  ]
+}

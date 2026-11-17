@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o246",
+ "type_bleo": "full_test",
+ "titre": "history facts that break your sense of time #history #facts #smartgirl #didyouknow #culture",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 6/6 (la jauge en demande 6 sur 18) : accroche jamais faite chez nous (« older » et « sense of time » absent des accroches de donnees/label.json). Accroches écrites : « history facts that break your sense of time » (retenue : curiosité forte), « things that are older than you think » (écartée : déjà vue ailleurs), « history facts that sound fake » (écartée : clickbait). Faits vérifiés : Oxford enseigne depuis 1096, Tenochtitlan fondée en 1325 ; Cléopâtre (-30) plus proche de 1969 que de la Grande Pyramide (vers -2560) ; mammouths de l'île Wrangel jusque vers -2000 ; requins (~450 Ma) avant les arbres (~385 Ma) ; fax de Bain breveté en 1843, téléphone en 1876 ; dernière guillotine en France en 1977. Sophia sur le dernier item à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "32a92317",
+   "texte_overlay": "history facts that break\nyour sense of time",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "adf638df",
+   "texte_overlay": "oxford university is older\nthan the aztec empire.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "6c6f8354",
+   "texte_overlay": "cleopatra lived closer to the\nmoon landing than to the\nbuilding of the great pyramid.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "424955a6",
+   "texte_overlay": "woolly mammoths were still alive\nwhen the pyramids were built.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a39c9e11",
+   "texte_overlay": "sharks are older than trees.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "83fc2592",
+   "texte_overlay": "the fax machine was invented\nbefore the telephone.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "45705491",
+   "texte_overlay": "france's last execution by\nguillotine was in 1977.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "91d1e924",
+   "texte_overlay": "i collect one fact like this\nevery morning.",
+   "texte_sophia": "i collect one fact like this\nevery morning on a micro-learning\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "851873a0",
+   "texte_overlay": "which one surprised you most?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/9.jpg"
+  }
+ ]
+}

@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o249",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e0eabc10-4dec-47c1-bd9c-91ac40501ac4",
+ "titre": "the quiet laws of etiquette graceful women live by #etiquette #elegance #smartgirl #manners #grace",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 3 de la boîte (parent e0eabc10, langue source hu) : accroche reformulée (« the quiet laws of etiquette graceful women live by »), les règles du parent regroupées par moment comme lui (présence, à table, conversation, en ligne, invitée, caractère). Sophia comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f1bc5f81",
+   "texte_overlay": "the quiet laws of etiquette\ngraceful women live by",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "af788fa6",
+   "texte_overlay": "presence\n\nwalk slower. sit up straight.\nspeak a little softer.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c2d6246b",
+   "texte_overlay": "at the table\n\nnapkin on your lap. wait until\neveryone has been served.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cb9db40c",
+   "texte_overlay": "in conversation\n\nremember names. ask one more\nquestion. never interrupt.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fac6cc6d",
+   "texte_overlay": "online\n\nreply kindly, not quickly.\nno voice notes to strangers.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "73eb8448",
+   "texte_overlay": "as a guest\n\nnever arrive empty-handed.\noffer to help clear the table.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d71f9c13",
+   "texte_overlay": "character\n\nbe on time. keep your promises.\nreturn what you borrow.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dbf3a387",
+   "texte_overlay": "and trade ten minutes of scrolling\nfor something worth knowing.",
+   "texte_sophia": "and trade ten minutes of scrolling\nfor one lesson on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "c0e41530",
+   "texte_overlay": "save this and pick one\nfor this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/9.jpg"
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o241",
+ "type_bleo": "full_test",
+ "titre": "chess moves every beginner should know #chess #strategy #smartgirl #hobbies #learning",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/6 (la jauge en demande 6 sur 18) : accroche jamais faite chez nous (« chess » absent des accroches de donnees/label.json). Accroches écrites : « chess moves every beginner should know » (retenue : hobby concret ; « chess words that make you sound like you actually play » refusée en theme_gagnant, trop proche de « words that make you sound well spoken »), « why every smart girl should learn chess » (écartée : moins concrète), « chess openings to know » (écartée : trop technique). Termes vérifiés : en passant, zugzwang, fianchetto, gambit, pat (stalemate = nulle), roque (seul coup à deux pièces). Sophia au milieu sur un fait (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "fa8be5f3",
+   "texte_overlay": "chess moves every\nbeginner should know",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "b3e661a7",
+   "texte_overlay": "en passant\n\nthe strange pawn capture most\nbeginners have never seen.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "edc251a7",
+   "texte_overlay": "zugzwang\n\nwhen every move you could\nmake will make things worse.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "62c12adb",
+   "texte_overlay": "fianchetto\n\ndeveloping a bishop onto\nthe long diagonal.",
+   "texte_sophia": "fianchetto\n\ndeveloping a bishop onto the\nlong diagonal. i learned it in a\nfive-minute lesson on an\napp like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "16160256",
+   "texte_overlay": "gambit\n\ngiving up a piece early\nto gain the upper hand.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "aa6fa7df",
+   "texte_overlay": "stalemate\n\nno legal move, but not in check:\nthe game ends in a draw.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1cfa89f4",
+   "texte_overlay": "castling\n\nthe only move where\ntwo pieces move at once.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d8ffe4ba",
+   "texte_overlay": "which one did you\nalready know?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

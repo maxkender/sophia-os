@@ -1,6 +1,6 @@
 {
  "compte": "sagace.fr",
- "maj_le": "2026-11-15",
+ "maj_le": "2026-11-17",
  "note": "Ses 17 diaporamas relevés le 15/11 (21/08 → 03/11), du plus vu au moins vu. Il recycle ses accroches (« Compétence 10/10 à apprendre avant 20 ans » deux fois, « … au lieu de scroller » trois fois) avec d'autres compétences : chaque post est un remake à part. `competences` : lues sur ses slides, avec la place de ses slides de fin (« ABONNE-TOI », « ENREGISTRE CE POST », « e-books ») qu'on ne refait jamais. Ses posts depuis le 24/09 (« e-books », 5 à 14 k) font bien moins que ceux d’août et du début septembre : refais d'abord les tubes. Ordre de travail : les `a_faire` de haut en bas.",
  "posts": [
   {
@@ -102,7 +102,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7229869367767485227"
    },
    "competences": "jongler, faire un avion en papier qui vole longtemps, le moonwalk, siffler avec les doigts, faire un backflip ; ABONNE-TOI en fin",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "motif": "accroche déjà dans le label (sg-005, sg-001, sg-002/sg-004) : seulement en déclinaison depuis la boîte (ROUTINE §5.3)"
   },
   {
    "id": "7683955324025408801",
@@ -118,7 +119,8 @@
     "url": "https://www.tiktok.com/music/pull-up-7362000806738298897"
    },
    "competences": "arrêter de procrastiner, parler avec éloquence, dire non, ABONNE-TOI au milieu, gérer les conflits, comprendre les intérêts composés (même accroche que le post à 482 k, d'autres compétences)",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "motif": "accroche déjà dans le label (sg-005, sg-001, sg-002/sg-004) : seulement en déclinaison depuis la boîte (ROUTINE §5.3)"
   },
   {
    "id": "7676494598587419937",
@@ -134,7 +136,8 @@
     "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
    },
    "competences": "lire les nuages, devenir monstrueux en calcul mental, s'orienter en forêt, faire une omelette comme un chef, faire un nœud de cravate ; « ENREGISTRE CE POST » en fin (ancienne couverture, 10/10 plus gros)",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-006 (16/11, livraison 41920500) : 8 langues, vidéos natives, Sophia en étape 4, cta C « NOURRIR / SON CERVEAU »"
   },
   {
    "id": "7683245134854556960",
@@ -150,7 +153,8 @@
     "url": "https://www.tiktok.com/music/son-original-psycho-7668282687572462358"
    },
    "competences": "comprendre les intérêts composés, psychologie inversée, capter l'attention, vendre n'importe quoi, bien utiliser l'IA ; ABONNE-TOI en fin",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-007 (16/11, livraison 9c23ba3e) : 8 langues, vidéos natives, Sophia en étape 4, cta A « S'INSTRUIRE / CHAQUE JOUR »"
   },
   {
    "id": "7677186836392840481",
@@ -166,7 +170,8 @@
     "url": "https://www.tiktok.com/music/sonido-original-7637325514269838098"
    },
    "competences": "résoudre un Rubik's cube, faire une bonne première impression, faire un massage cardiaque, apprendre une langue rapidement, aiguiser un couteau ; « ENREGISTRE CE POST » en fin (ancienne couverture)",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "motif": "accroche déjà dans le label (sg-005, sg-001, sg-002/sg-004) : seulement en déclinaison depuis la boîte (ROUTINE §5.3)"
   },
   {
    "id": "7678300054616116512",
@@ -182,7 +187,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7659247530319891222"
    },
    "competences": "apprendre le piano, faire du skate, piloter, son premier marathon, jouer de la guitare ; ABONNE-TOI en fin",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-011 (17/11, livraison deaa4f84) : 8 langues, vidéos natives, Sophia en étape 4, cta B « UN SUJET / PAR JOUR »"
   },
   {
    "id": "7680302500674555169",
@@ -198,7 +204,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7541284794651527966"
    },
    "competences": "format « vidéos » sans titre d'étape : 5 techniques anti-flemme, la solitude, pourquoi ton cerveau remet à demain, la pub, l'effet de halo ; ABONNE-TOI en fin",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-012 (17/11, livraison 0f162aa7) : 8 langues, vidéos natives, Sophia en étape 4, cta C « RÉVEILLER / SA CURIOSITÉ »"
   },
   {
    "id": "7689580801020808480",

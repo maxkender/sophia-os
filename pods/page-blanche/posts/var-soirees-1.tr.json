@@ -134,7 +134,7 @@
       "in the morning"
      ],
      "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
-     "texte": "[[gerçekten uykun gelene kadar]] yatağa girme"
+     "texte": "[[gerçekten uykun gelene kadar]] yatağa hiç girme"
     },
     "T2": {
      "en": [
@@ -190,7 +190,7 @@
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "bir tablo, bir bilgi, biraz tarih, [[bilmediğin herhangi bir şey]]"
+     "texte": "bir tablo, bir bilgi, [[biraz tarih]]"
     },
     "T3": {
      "en": [

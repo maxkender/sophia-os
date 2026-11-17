@@ -17,7 +17,7 @@
      ],
      "fr": "(version niche #2)",
      "alignement": "droite",
-     "texte": "(без да спиш по-малко)"
+     "texte": "(без да губиш сън)"
     }
    },
    "images": {
@@ -183,14 +183,14 @@
       "read books that expand your mind"
      ],
      "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
-     "texte": "научи [[нещо ново]] всяка вечер"
+     "texte": "научи [[нещо ново]] всяка една вечер"
     },
     "T2": {
      "en": [
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "картина, факт, малко история, [[нещо непознато за теб]]"
+     "texte": "картина, факт, [[малко история]]"
     },
     "T3": {
      "en": [

@@ -1,0 +1,215 @@
+{
+ "post_id": "original-084",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour réveiller ton cerveau",
+     "texte": "σημάδια ότι το μυαλό σου όντως εξελίσσεται"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(approuvé par la science)",
+     "texte": "(ακόμα κι αν δεν το νιώθεις)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703619977630190881_2.jpg",
+      "boite": [
+       42,
+       530,
+       532,
+       364
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop trying to multitask"
+     ],
+     "fr": "arrête [[le multitâche]]",
+     "texte": "καταλαβαίνεις [[τι δεν ξέρεις]]"
+    },
+    "T2": {
+     "en": [
+      "texting, watching youtube, and doing homework",
+      "isn't doing 3 things at once"
+     ],
+     "fr": "texter, mater des vidéos, faire tes devoirs : c'est pas [[3 trucs à la fois]]",
+     "texte": "δεν κουνάς πια απλά το κεφάλι, θες [[να καταλάβεις πώς δουλεύει]]"
+    },
+    "T3": {
+     "en": [
+      "a stanford study",
+      "found heavy",
+      "multitaskers get",
+      "worse at",
+      "ignoring",
+      "distractions"
+     ],
+     "fr": "une étude de stanford montre que les pros du multitâche [[se laissent plus distraire]]",
+     "texte": "νιώθεις ότι ξέρεις λιγότερα από πριν. δεν ισχύει, απλά [[τώρα βλέπεις τα κενά]]"
+    },
+    "T4": {
+     "en": [
+      "pick one thing and finish it before",
+      "you start the next"
+     ],
+     "fr": "choisis un truc et [[finis-le]] avant d'attaquer le suivant",
+     "texte": "και ένα κενό που βλέπεις [[μπορείς να το καλύψεις]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read CLASSIC books"
+     ],
+     "fr": "lis des CLASSIQUES",
+     "texte": "μαθαίνεις [[για πλάκα]]"
+    },
+    "T4": {
+     "en": [
+      "one study found that just 6",
+      "minutes of reading reduced",
+      "stress levels by up to 68%"
+     ],
+     "fr": "une étude a montré que 6 minutes de lecture suffisent à [[faire baisser le stress jusqu'à 68 %]]",
+     "texte": "σήμερα έμαθες κάτι και [[δεν σε ανάγκασε κανείς]]. ούτε εργασία, ούτε τεστ, μόνο περιέργεια"
+    },
+    "T5": {
+     "en": [
+      "if you struggle getting off your",
+      "phone and reading books, i",
+      "recommend ReadUp, it blocks",
+      "your doomscrolling apps until",
+      "you read"
+     ],
+     "fr": "si t'as du mal à lâcher ton tel, perso j'ai remplacé mon scroll par 5 min sur l'appli Sophia, un truc nouveau chaque jour",
+     "texte": "παλιά έκανα μόνο scroll. τώρα, αφού είμαι ήδη στο κινητό, μαθαίνω γιατί η αναγέννηση ξεκίνησε στην ιταλία, [[σε 5 λεπτά στην εφαρμογή Sophia]]"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "I1",
+      "T2",
+      "T3",
+      "T7",
+      "T8",
+      "T9",
+      "T10",
+      "I3",
+      "T11",
+      "T6"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "surround yourself with smarter",
+      "people"
+     ],
+     "fr": "entoure-toi de [[gens plus calés que toi]]",
+     "texte": "αλλάζεις γνώμη [[πιο γρήγορα από πριν]]"
+    },
+    "T2": {
+     "en": [
+      "you absorb the room",
+      "you’re in"
+     ],
+     "fr": "tu [[deviens ton entourage]]",
+     "texte": "[[το λάθος]] πονάει λιγότερο"
+    },
+    "T3": {
+     "en": [
+      "smart people push back",
+      "on weak takes and make",
+      "you explain what you",
+      "actually mean"
+     ],
+     "fr": "les gens calés démontent tes avis bancals et t'obligent à [[préciser ta pensée]]",
+     "texte": "όταν κάποιος έχει καλύτερο επιχείρημα, δεν πεισμώνεις. λες [[οκ, έχει δίκιο]]"
+    },
+    "T4": {
+     "en": [
+      "seek out people who know more than you and ask",
+      "them questions, not people who just agree with you"
+     ],
+     "fr": "va vers ceux [[qui en savent plus que toi]] et questionne-les, [[pas ceux qui te disent toujours oui]]",
+     "texte": "προτιμάς [[να το καταλάβεις σωστά]] από το να κερδίσεις τη συζήτηση, και έτσι ακριβώς συνεχίζεις να μαθαίνεις"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself get bored",
+      "every day"
+     ],
+     "fr": "laisse-toi [[t'ennuyer chaque jour]]",
+     "texte": "βαριέσαι [[πολύ πιο σπάνια]]"
+    },
+    "T2": {
+     "en": [
+      "leave one part of your day with no podcast, no",
+      "music, and no phone"
+     ],
+     "fr": "garde [[un moment par jour]] sans podcast, sans musique, sans tel",
+     "texte": "μια αίθουσα αναμονής ή ένα μεγάλο ταξίδι γίνονται [[χρόνος για σκέψη]]"
+    },
+    "T3": {
+     "en": [
+      "boredom is",
+      "when your brain",
+      "sorts what it",
+      "took in and links",
+      "ideas together",
+      "on its own"
+     ],
+     "fr": "l'ennui, c'est quand ton cerveau range ce qu'il a absorbé et [[relie les idées]] tout seul",
+     "texte": "το μυαλό σου έχει περισσότερο υλικό, οπότε [[συνδέεις ιδέες]] από εντελώς άσχετα θέματα"
+    },
+    "T4": {
+     "en": [
+      "that’s where your best ideas",
+      "actually show up"
+     ],
+     "fr": "c'est là que tes [[meilleures idées]] te [[viennent]]",
+     "texte": "και ξαφνικά [[όλα δένουν]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

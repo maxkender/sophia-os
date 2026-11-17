@@ -17,7 +17,7 @@
      ],
      "fr": "(version niche #2)",
      "alignement": "droite",
-     "texte": "(kevesebb alvás nélkül)"
+     "texte": "(és alszol eleget)"
     }
    },
    "images": {
@@ -82,7 +82,7 @@
       "stop watching youtube while eating"
      ],
      "fr": "[[lâche youtube]] pendant les repas",
-     "texte": "zuhanyozz le, [[amint hazaérsz]]"
+     "texte": "zuhanyozz le [[rögtön, amint hazaérsz]]"
     },
     "T2": {
      "en": [
@@ -134,7 +134,7 @@
       "in the morning"
      ],
      "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
-     "texte": "ne bújj ágyba, [[amíg tényleg nem vagy álmos]]"
+     "texte": "ne feküdj be az ágyba, [[amíg nem vagy tényleg álmos]]"
     },
     "T2": {
      "en": [
@@ -151,7 +151,7 @@
       "without your phone"
      ],
      "fr": "passe [[les 30 premières minutes]] sans ton tel",
-     "texte": "maradj [[ülve]], széken, asztalnál, akár a földön"
+     "texte": "maradj [[ülve]]: széken, asztalnál, akár a földön is"
     },
     "T4": {
      "en": [
@@ -190,7 +190,7 @@
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "egy festmény, egy tény, egy kis történelem, [[bármi, amit nem tudtál]]"
+     "texte": "egy festmény, egy tény, [[kis történelem]]"
     },
     "T3": {
      "en": [

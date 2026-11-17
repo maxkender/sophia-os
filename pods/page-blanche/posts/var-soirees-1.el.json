@@ -17,7 +17,7 @@
      ],
      "fr": "(version niche #2)",
      "alignement": "droite",
-     "texte": "(χωρίς λιγότερο ύπνο)"
+     "texte": "(με τον ίδιο ύπνο)"
     }
    },
    "images": {
@@ -142,7 +142,7 @@
       "now it’s notifications and other people’s lives"
      ],
      "fr": "ce que tu vois en premier conditionne ta journée, et là c'est [[des notifs et la vie des autres]]",
-     "texte": "μόλις ξαπλώσεις με το κινητό στο χέρι, το μυαλό σου το θεωρεί ήδη τέλος της μέρας"
+     "texte": "μόλις ξαπλώσεις με το κινητό στο χέρι, το μυαλό σου το θεωρεί ήδη τέλος της μέρας και κλείνει"
     },
     "T3": {
      "en": [
@@ -190,7 +190,7 @@
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "ένας πίνακας, ένα γεγονός, λίγη ιστορία, [[ό,τι δεν ήξερες]]"
+     "texte": "ένας πίνακας, ένα γεγονός, [[λίγη ιστορία]]"
     },
     "T3": {
      "en": [
@@ -217,7 +217,7 @@
       "until i read for 20 minutes"
      ],
      "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
-     "texte": "αντί για βραδινό scroll: σταυρόλεξο, ένα τηλέφωνο και [[η εφαρμογή Sophia]] όταν πιάνω κινητό. απόψε: γιατί η Αναγέννηση άρχισε στην Ιταλία"
+     "texte": "αντί για scroll: σταυρόλεξο, ένα τηλέφωνο και [[η εφαρμογή Sophia]] όταν πιάνω κινητό. απόψε: γιατί η Αναγέννηση άρχισε στην Ιταλία"
     },
     "T6": {
      "en": [
@@ -239,7 +239,7 @@
       "meditate for 10 minutes"
      ],
      "fr": "[[médite]] 10 minutes",
-     "texte": "μαγείρεψε [[κάτι νέο]]"
+     "texte": "μαγείρεψε [[κάτι καινούργιο]]"
     },
     "T2": {
      "en": [

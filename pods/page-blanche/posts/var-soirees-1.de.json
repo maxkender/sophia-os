@@ -134,7 +134,7 @@
       "in the morning"
      ],
      "fr": "arrête de checker ton tel [[dès que t'ouvres les yeux]]",
-     "texte": "geh erst ins Bett, [[wenn du schlafen willst]]"
+     "texte": "geh erst ins Bett, [[wenn du wirklich müde bist]]"
     },
     "T2": {
      "en": [
@@ -151,7 +151,7 @@
       "without your phone"
      ],
      "fr": "passe [[les 30 premières minutes]] sans ton tel",
-     "texte": "bleib [[aufrecht]], auf dem Stuhl, am Schreibtisch, auf dem Boden"
+     "texte": "bleib [[aufrecht]], auf dem Stuhl, am Schreibtisch, am Boden"
     },
     "T4": {
      "en": [
@@ -159,7 +159,7 @@
       "reacting to whatever your phone throws at you"
      ],
      "fr": "tu commences la journée par [[ce que t'as choisi]], pas en réagissant à [[tout ce que ton tel te balance]]",
-     "texte": "um 20 Uhr hinlegen heißt, der ganze Abend wird [[ein langes, verschwommenes Scrollen]], an das du dich nicht erinnerst"
+     "texte": "um 20 Uhr hinlegen heißt, der ganze Abend wird [[ein langes, verschwommenes Scrollen]], das du vergisst"
     }
    },
    "images": {
@@ -190,7 +190,7 @@
       "read psychology, philosophy, history, and classic literature"
      ],
      "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
-     "texte": "ein Gemälde, ein Fakt, ein Stück Geschichte, [[irgendwas Neues]]"
+     "texte": "ein Gemälde, ein Fakt, [[etwas Geschichte]]"
     },
     "T3": {
      "en": [
@@ -199,7 +199,7 @@
       "nature, and the world"
      ],
      "fr": "plus tu comprends les gens, la nature humaine et le monde",
-     "texte": "eine neue Idee am Abend ist besser, als den Tag in Dauerschleife abzuspielen"
+     "texte": "eine neue Idee am Abend ist besser, als den Tag immer wieder abzuspulen"
     },
     "T4": {
      "en": [
@@ -217,7 +217,7 @@
       "until i read for 20 minutes"
      ],
      "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
-     "texte": "was mein Abend-Scrollen ersetzt hat: Kreuzworträtsel, ein Anruf und [[die Sophia-App]], wenn ich doch zum Handy greife. heute: der Urknall"
+     "texte": "was mein Abend-Scrollen ersetzt: Kreuzworträtsel, ein Anruf und [[die Sophia-App]], wenn ich doch zum Handy greife. heute: der Urknall"
     },
     "T6": {
      "en": [
@@ -239,7 +239,7 @@
       "meditate for 10 minutes"
      ],
      "fr": "[[médite]] 10 minutes",
-     "texte": "koch [[mal was Neues]]"
+     "texte": "koch [[mal was ganz Neues]]"
     },
     "T2": {
      "en": [
@@ -265,7 +265,7 @@
       "self-control"
      ],
      "fr": "celle qui gère [[ta concentration et ton self-control]]",
-     "texte": "ein neues Gericht [[macht den Abend besonders]], er wirkt länger"
+     "texte": "ein neues Gericht [[macht den Abend besonders]] und länger"
     }
    },
    "images": {

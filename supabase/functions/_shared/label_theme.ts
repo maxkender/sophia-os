@@ -51,3 +51,22 @@ export function genreDuLabel(nomOuSlug: string | null | undefined): Genre | null
   if (s.includes("male") || s.includes("homme") || s.includes("alpha")) return "homme";
   return null;
 }
+
+/**
+ * Thème des MOTS du @ et de la bio : plus fin que `ThemeLabel`, qui règle aussi
+ * le genre et la banque de photos de profil et ne doit donc pas bouger.
+ * Un label d'études, de carrière, de psycho ou de philo a ses propres mots ;
+ * les autres gardent ceux de leur `ThemeLabel`.
+ */
+export type ThemeMots = ThemeLabel | "etude" | "carriere" | "psycho" | "philo";
+
+export function themeMotsDuLabel(nomOuSlug: string | null | undefined): ThemeMots {
+  const s = normaliserLabel(nomOuSlug ?? "");
+  if (s.includes("study") || s.includes("etud")) return "etude";
+  if (s === "rh" || s.startsWith("rh_") || s.includes("career") || s.includes("carriere")) {
+    return "carriere";
+  }
+  if (s.includes("psych") || s.includes("mental")) return "psycho";
+  if (s.includes("plony") || s.includes("stoi") || s.includes("philo")) return "philo";
+  return themeDuLabel(nomOuSlug);
+}

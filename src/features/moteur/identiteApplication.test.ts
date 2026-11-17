@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { readFileSync } from "node:fs";
-import { resolve } from "node:path";
+
+import { EMOJIS_BIO, PHRASES_BIO } from "../../../supabase/functions/_shared/persona_bios";
+import {
+  MOTS_PAR_THEME,
+  MOTS_UNIVERSELS,
+  NOMS_PAR_LANGUE,
+} from "../../../supabase/functions/_shared/persona_donnees";
 
 import { LANGUES_CIBLES, langueInitiale } from "./langues";
 import {
@@ -23,28 +28,29 @@ describe("langue initiale", () => {
 });
 
 // L'identité d'un compte (prénom, @, bio) est Sophia pour TOUS les comptes,
-// quelle que soit l'application promue : persona.ts doit couvrir chaque langue
-// cible, sinon un compte créé dans une langue oubliée reçoit des prénoms
-// anglais.
+// quelle que soit l'application promue : les listes doivent couvrir chaque
+// langue cible, sinon un compte créé dans une langue oubliée reçoit des
+// prénoms, des mots et une bio en anglais.
 describe("identité Sophia", () => {
-  it("aligne persona.ts (Sophia) sur les mêmes langues cibles", () => {
-    const src = readFileSync(
-      resolve(process.cwd(), "supabase/functions/_shared/persona.ts"),
-      "utf8",
-    );
-    const themes = ["alpha_male", "smart_girl", "clean_girl", "cinema", "anciens", "default"];
+  it("couvre chaque langue cible : prénoms, noms, mots de chaque thème, bios", () => {
+    const themes = Object.keys(MOTS_PAR_THEME);
+    expect(themes).toEqual(Object.keys(MOTS_UNIVERSELS));
     for (const code of LANGUES_CIBLES) {
-      // Une variante régionale (`es-419`, `pt-BR`) est une clé à tiret : elle
-      // ne peut s'écrire qu'entre guillemets en TS, d'où le `"?` optionnel.
-      expect(src, `prénoms ${code}`).toMatch(
-        new RegExp(`\\n  "?${code}"?: \\{\\n    prenomsH:`),
-      );
+      const jeu = NOMS_PAR_LANGUE[code];
+      expect(jeu, `prénoms ${code}`).toBeDefined();
+      expect(jeu!.prenomsH.length, `prénoms H ${code}`).toBeGreaterThanOrEqual(40);
+      expect(jeu!.prenomsF.length, `prénoms F ${code}`).toBeGreaterThanOrEqual(40);
+      expect(jeu!.noms.length, `noms ${code}`).toBeGreaterThanOrEqual(20);
       for (const theme of themes) {
-        const start = src.indexOf(`  ${theme}: {`);
-        expect(start, theme).toBeGreaterThan(-1);
-        const bloc = src.slice(start, start + 9000);
-        expect(bloc, `${theme}.${code}`).toMatch(new RegExp(`\\n    "?${code}"?: \\[`));
+        const mots = MOTS_PAR_THEME[theme as keyof typeof MOTS_PAR_THEME][code];
+        expect(mots?.length ?? 0, `${theme}.${code}`).toBeGreaterThanOrEqual(10);
       }
+      for (const phrases of Object.values(PHRASES_BIO[code] ?? {})) {
+        expect(phrases.length, `bios ${code}`).toBeGreaterThanOrEqual(3);
+      }
+      expect(Object.keys(PHRASES_BIO[code] ?? {}), `bios ${code}`).toEqual(
+        Object.keys(EMOJIS_BIO),
+      );
     }
   });
 });

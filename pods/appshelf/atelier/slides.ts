@@ -273,16 +273,28 @@ function surligne(ctx: Ctx, t: string, cx: number, base: number, taille: number,
  */
 async function couvertureCarte(ctx: Ctx, c: Couverture) {
   remplir(ctx, await image(c.photos[0]), 0, 0, L, H);
-  fenetre(ctx, 233, 673, 615, 383);
+  // La fenêtre fait 615 px ; elle s'élargit (900 px au plus) pour un titre plus
+  // long, comme sur son « cute and helpful » : on élargit, on ne réduit pas.
   let s = 100;
   ctx.font = `${s}px "${POLICE.titre}"`;
   ctx.letterSpacing = `${-0.05 * s}px`;
-  while (ctx.measureText(c.titre ?? "").width > 560 && s > 50) {
+  const largeurTitre = () => ctx.measureText(c.titre ?? "").width;
+  while (largeurTitre() > 820 && s > 50) {
     if (s <= 88) throw new Error(`couverture : « ${c.titre} » ne tient pas dans la fenêtre, raccourcis-le`);
     s -= 2;
     ctx.font = `${s}px "${POLICE.titre}"`;
     ctx.letterSpacing = `${-0.05 * s}px`;
   }
+  const wTitre = largeurTitre();
+  ctx.letterSpacing = "0px";
+  ctx.font = `62px "${POLICE.texte}"`;
+  ctx.letterSpacing = `${-0.03 * 62}px`;
+  const largeurSous = c.sous ? ctx.measureText(c.sous).width : 0;
+  const l = Math.min(900, Math.max(615, Math.round(wTitre + 70), Math.round(Math.min(largeurSous, 760) + 75)));
+  ctx.letterSpacing = "0px";
+  fenetre(ctx, Math.round(540 - l / 2), 673, l, 383);
+  ctx.font = `${s}px "${POLICE.titre}"`;
+  ctx.letterSpacing = `${-0.05 * s}px`;
   ctx.fillStyle = COULEUR.noir;
   ctx.textAlign = "center";
   ctx.fillText(c.titre ?? "", 540, 880);
@@ -290,7 +302,7 @@ async function couvertureCarte(ctx: Ctx, c: Couverture) {
   if (c.sous) {
     let t = 62;
     ctx.font = `${t}px "${POLICE.texte}"`;
-    while (ctx.measureText(c.sous).width > 540 && t > 30) ctx.font = `${(t -= 2)}px "${POLICE.texte}"`;
+    while (ctx.measureText(c.sous).width > l - 75 && t > 30) ctx.font = `${(t -= 2)}px "${POLICE.texte}"`;
     if (t < 52) throw new Error(`couverture : « ${c.sous} » ne tient pas dans la fenêtre, raccourcis-le`);
     surligne(ctx, c.sous, 540, 953, t, COULEUR.rose, COULEUR.roseBande);
   }

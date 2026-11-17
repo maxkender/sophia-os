@@ -1,0 +1,255 @@
+{
+ "id": "as-011",
+ "fond": "images/c11-fond.jpg",
+ "titre": {
+  "en": "apps that make you better at getting things done",
+  "es": "apps que te hacen mejor para sacar todo adelante",
+  "it": "app che ti rendono migliore a finire le cose",
+  "pt-BR": "apps que te deixam melhor em fazer as coisas"
+ },
+ "legendes": {
+  "en": "the apps that actually help me get stuff done 📚 #productivity #apprecommendations #darkacademia #studytok",
+  "es": "las apps que de verdad me ayudan a hacer las cosas 📚 #productividad #appsrecomendadas #darkacademia #estudiante",
+  "it": "le app che mi aiutano davvero a fare le cose 📚 #produttività #appconsigliate #darkacademia #studentessa",
+  "pt-BR": "os apps que realmente me ajudam a fazer as coisas 📚 #produtividade #dicasdeapps #darkacademia #estudante"
+ },
+ "musique": {
+  "titre": "last sip - Malia B.",
+  "url": "https://www.tiktok.com/music/original-7660064882242390032"
+ },
+ "notes": "Preuve : « apps that make you better / at getting things done » (16,7 k, 30/09), son style bibliothèque (une photo plein cadre, fond de bibliothèque). Applis vérifiées us, es, it, br : TickTick, Adobe Scan, Sophia (3e, cta B), Google Keep, Alarmy. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c11-couv2.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps that make"
+      }
+     ],
+     [
+      {
+       "t": "you",
+       "style": "clair"
+      },
+      {
+       "t": "better",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "at getting things done"
+   },
+   "es": {
+    "photos": [
+     "images/c11-couv2.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps que te"
+      }
+     ],
+     [
+      {
+       "t": "hacen",
+       "style": "clair"
+      },
+      {
+       "t": "mejor",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "para sacar todo adelante"
+   },
+   "it": {
+    "photos": [
+     "images/c11-couv2.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "app che ti"
+      }
+     ],
+     [
+      {
+       "t": "rendono",
+       "style": "clair"
+      },
+      {
+       "t": "migliore",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "a finire le cose"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c11-couv2.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps que te"
+      }
+     ],
+     [
+      {
+       "t": "deixam",
+       "style": "clair"
+      },
+      {
+       "t": "melhor",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "em fazer as coisas"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "TickTick",
+    "dossier": "images/applis/ticktick",
+    "note": "To-dos, calendar and a little habit tracker in one app. Type 'gym tomorrow 7am' and it's planned"
+   },
+   "es": {
+    "nom": "TickTick",
+    "dossier": "images/applis/ticktick",
+    "note": "Tareas, calendario y un pequeño tracker de hábitos en una sola app. Escribes 'gym mañana 7h' y queda planificado"
+   },
+   "it": {
+    "nom": "TickTick",
+    "dossier": "images/applis/ticktick",
+    "note": "Attività, calendario e un piccolo habit tracker in un'unica app. Scrivi 'palestra domani alle 7' ed è pianificato"
+   },
+   "pt-BR": {
+    "nom": "TickTick",
+    "dossier": "images/applis/ticktick",
+    "note": "Tarefas, agenda e um mini app de hábitos num só. Você escreve 'academia amanhã 7h' e já fica planejado"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Adobe Scan",
+    "dossier": "images/applis/adobe-scan",
+    "note": "Turns any paper into a clean PDF in seconds: notes, forms, receipts. No more photos of documents"
+   },
+   "es": {
+    "nom": "Adobe Scan",
+    "dossier": "images/applis/adobe-scan",
+    "note": "Convierte cualquier papel en un PDF limpio en segundos: apuntes, formularios, tickets. Se acabaron las fotos de documentos"
+   },
+   "it": {
+    "nom": "Adobe Scan",
+    "dossier": "images/applis/adobe-scan",
+    "note": "Trasforma qualsiasi foglio in un PDF pulito in pochi secondi: appunti, moduli, scontrini. Basta foto ai documenti"
+   },
+   "pt-BR": {
+    "nom": "Adobe Scan",
+    "dossier": "images/applis/adobe-scan",
+    "note": "Transforma qualquer papel num PDF limpo em segundos: anotações, formulários, recibos. Chega de foto de documento"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Google Keep",
+    "dossier": "images/applis/google-keep",
+    "note": "Quick notes and checklists in colorful little cards, with reminders that pop up at the right time"
+   },
+   "es": {
+    "nom": "Google Keep",
+    "dossier": "images/applis/google-keep",
+    "note": "Notas rápidas y listas en tarjetas de colores, con recordatorios que saltan en el momento justo"
+   },
+   "it": {
+    "nom": "Google Keep",
+    "dossier": "images/applis/google-keep",
+    "note": "Note veloci e checklist in piccole schede colorate, con promemoria che arrivano al momento giusto"
+   },
+   "pt-BR": {
+    "nom": "Google Keep",
+    "dossier": "images/applis/google-keep",
+    "note": "Notas rápidas e checklists em cartõezinhos coloridos, com lembretes que aparecem na hora certa"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Alarmy",
+    "dossier": "images/applis/alarmy",
+    "note": "The alarm won't stop until you do a little mission: a photo, a few steps, a math problem. I'm finally up on time"
+   },
+   "es": {
+    "nom": "Alarmy",
+    "dossier": "images/applis/alarmy",
+    "note": "La alarma no para hasta que haces una mini misión: una foto, unos pasos, una cuenta. Por fin me levanto a la hora"
+   },
+   "it": {
+    "nom": "Alarmy",
+    "dossier": "images/applis/alarmy",
+    "note": "La sveglia non si ferma finché non fai una piccola missione: una foto, qualche passo, un calcolo. Finalmente mi alzo in orario"
+   },
+   "pt-BR": {
+    "nom": "Alarmy",
+    "dossier": "images/applis/alarmy",
+    "note": "O alarme só para quando você faz uma missãozinha: uma foto, uns passos, uma conta. Finalmente eu acordo na hora"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7691395690513042701",
+  "vues": 16700,
+  "publie_le": "2026-09-30",
+  "accroche": "apps that make you better at getting things done"
+ }
+}

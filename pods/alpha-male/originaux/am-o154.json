@@ -1,45 +1,69 @@
 {
  "source_id": "am-o154",
  "type_bleo": "declinaison",
- "parent_contenu_id": "ecd10198-ba88-48ec-862c-5fbb9d3191b9",
- "titre": "4 temporary pleasures a man must break #men #discipline #selfimprovement #habits #mindset",
- "musique_titre": "dźwięk oryginalny",
- "musique_url": "https://www.tiktok.com/music/dzwiek-oryginalny-7378481013607533345",
+ "parent_contenu_id": "014aa9ce-7bef-4778-9938-96b36566831e",
+ "titre": "Peak events in your early 20s #20s #men #life #growth #selfimprovement",
+ "musique_titre": "horizons",
+ "musique_url": "https://www.tiktok.com/music/horizons-7321516309459765250",
  "inspirations": [
-  "ecd10198-ba88-48ec-862c-5fbb9d3191b9"
+  "014aa9ce-7bef-4778-9938-96b36566831e"
  ],
- "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G1 de la ligne 26 (parent ecd10198, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Plaisir » puis une phrase. Plaisirs neufs, aucun du parent (écrans, fast food, procrastination, relations d'un soir). Rien de médical. Images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour), choisies dans toute la banque par légende puis vérifiées sur l'aperçu. reference_url du parent (slides 1 à 5) vérifiées en 200.",
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 17/11. Déclinaison G1 de la ligne 28 (parent 014aa9ce, @millyjhino, langue source en, rang S+). Remplace une première version (G1 de ecd10198, « 4 temporary pleasures a man must break ») refusée au guichet en accroche_voisine avec « 7 Laws a Man Must Never Break » (am-o152). Accroche du parent mot pour mot. Format du parent : « N. » puis un moment en une phrase. Moments neufs, aucun du parent ; ton positif. Neuf moments sur 8 slides. Images neuves. reference_url du parent (slides 1 à 8) vérifiées en 200.",
  "slides": [
   {
    "position": 1,
    "media_id": "3db1b047",
-   "texte_overlay": "4 temporary pleasures\na man must break",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/1.jpg"
+   "texte_overlay": "Peak events in your early 20s",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/1.jpg"
   },
   {
    "position": 2,
-   "media_id": "026615c0",
-   "texte_overlay": "1. The snooze button\n\nTen more minutes steal\nthe best hour of the day.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/2.jpg"
+   "media_id": "68856b1d",
+   "texte_overlay": "1. Cooking your first real dinner\nfor friends, and everyone\nasks for seconds.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/2.jpg"
   },
   {
    "position": 3,
-   "media_id": "001cd438",
-   "texte_overlay": "2. Impulse buying\n\nThe thrill lasts a day.\nThe receipt lasts a month.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/3.jpg"
+   "media_id": "48b2c625",
+   "texte_overlay": "2. Paying a bill on time\nwithout anyone reminding you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/3.jpg"
   },
   {
    "position": 4,
-   "media_id": "48b2c625",
-   "texte_overlay": "3. Mindless scrolling\n\nSwap it for something that\nteaches you. Same break,\nsharper mind.",
-   "texte_sophia": "3. Mindless scrolling\n\nSwap it for a lesson on the\nSophia app. Same break,\nsharper mind.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/4.jpg"
+   "media_id": "6e2ee932",
+   "texte_overlay": "3. Your dad asking for your\nopinion for the first time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/4.jpg"
   },
   {
    "position": 5,
-   "media_id": "68856b1d",
-   "texte_overlay": "4. Winning every argument\n\nBeing right feels good for a minute.\nKeeping the friend lasts years.",
-   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7491044997924457783/5.jpg"
+   "media_id": "be08bae2",
+   "texte_overlay": "4. Taking a trip somewhere new\nwith money you earned yourself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "37ba9481",
+   "texte_overlay": "5. Realizing your best friend\nfrom school is still your\nbest friend.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "dc97c9d2",
+   "texte_overlay": "6. Fixing something yourself\ninstead of calling for help.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "b3cfa9cb",
+   "texte_overlay": "7. Learning something new just\nbecause you were curious,\nnot for a grade.",
+   "texte_sophia": "7. Learning something new just\nbecause you were curious.\nFor me, the Sophia app,\n5 minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "3805de54",
+   "texte_overlay": "8. Watching a sunrise because\nyou woke up early on purpose.\n\n9. The first time someone\ncalls you for advice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7577530580208766264/9.jpg"
   }
  ]
 }

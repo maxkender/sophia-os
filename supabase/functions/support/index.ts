@@ -6,6 +6,7 @@ import { emailReel, jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_
 import { lienMotDePasse, refusMotDePasseUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
 import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArrete, texteFin } from "../_shared/fin_collaboration.ts";
+import { type RapportSamedi, samediDe, texteRapportSamedi } from "../_shared/rapport_samedi.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import {
   CATEGORIES_PROBLEME,
@@ -128,6 +129,10 @@ Deno.serve(async (request) => {
           envoye_equipe: probleme || !b.sur, decision: b.decision, brouillon: b.brouillon, verdict: v,
         });
       }
+      case "rapport_samedi":
+        // 18/11 (Max) : kills, partie 3 : le rapport du samedi (OS + #a-os-tickets) ; « envoyer: false » = sans Slack.
+        if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
+        return json(await rapportSamedi(db, typeof body.samedi === "string" ? body.samedi : null, body.envoyer !== false));
       case "textes_fin":
         // 18/11 (Max) : kills, parties 1 et 2 : textes au posteur (page de fin, bandeau) et message de fin (cron */10).
         if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
@@ -843,6 +848,24 @@ async function bandeauBot(db: Db, poster: string | null): Promise<string | null>
   const { data } = await db.from("posteur_textes").select("texte_en, maj_at").eq("poster_id", poster).like("cle", "compte_arrete:%")
     .gte("maj_at", new Date(Date.now() - 21 * 86_400_000).toISOString()).order("maj_at", { ascending: false }).limit(1).maybeSingle();
   return (data?.texte_en as string | undefined) ?? null;
+}
+
+/** Kills, partie 3 : le rapport d'un samedi (par défaut le dernier), gardé pour la page de l'OS et posté dans #a-os-tickets. */
+async function rapportSamedi(db: Db, samedi: string | null, envoyer: boolean) {
+  const jour = samedi && /^\d{4}-\d{2}-\d{2}$/.test(samedi)
+    ? samedi
+    : samediDe(new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris" }).format(new Date()));
+  const { data, error } = await db.rpc("samedi_rapport", { p_samedi: jour });
+  if (error) throw new Error(error.message);
+  const r = data as RapportSamedi;
+  const { error: e1 } = await db.rpc("samedi_rapport_ecrire", { p_samedi: jour, p_contenu: r });
+  if (e1) throw new Error(e1.message);
+  if (!envoyer) return { ok: true, samedi: jour, envoye: false, rapport: r };
+  const jeton = jetonSlackFaq();
+  const texte = texteRapportSamedi(r, `${OS_URL}/admin/auto/rapport-kills`);
+  const res = jeton ? await posterSlack(jeton, CANAL_TICKETS, texte) : { ok: false, error: "jeton Slack absent" };
+  await db.rpc("samedi_rapport_slack", { p_samedi: jour, p_erreur: res.ok ? null : String(res.error ?? "échec") });
+  return { ok: true, samedi: jour, envoye: res.ok, erreur: res.ok ? null : res.error, complets: r.complets, partiels: r.comptes_partiels };
 }
 
 /** 18/11 (Max) : le message de fin ne part qu'aux arrêts à partir du 19/11 (jamais aux anciens). */

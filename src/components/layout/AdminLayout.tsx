@@ -66,6 +66,7 @@ const ICONES_MENU: Record<EntreeMenuAuto, LucideIcon> = {
   decisions: Gavel,
   paie: Wallet,
   paie_ruul: Landmark,
+  rapport_kills: ClipboardCheck,
   support: LifeBuoy,
   reglages: SlidersHorizontal,
 };

@@ -24,6 +24,7 @@ import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageBonus } from "@/features/bonus/PageBonus";
 import { AgentRuul, DernierImportRuul } from "@/features/ruul/AgentRuul";
 import { PagePaieRuul } from "@/features/ruul/PagePaieRuul";
+import { PageRapportKills } from "@/features/ckd/rapportKills/PageRapportKills";
 import { StatutsRuulApi } from "@/features/ruul/StatutsRuulApi";
 import { VueParcoursRuul } from "@/features/ruul/VueParcoursRuul";
 import { PageAjoutRuul, PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
@@ -197,6 +198,15 @@ export function PayrollPage() {
   return (
     <PageAuto cle="payroll">
       <AdminPaiePage />
+    </PageAuto>
+  );
+}
+
+/** 18/11 (Max) : le rapport des kills du samedi et le contrôle de toute la base. */
+export function RapportKillsPage() {
+  return (
+    <PageAuto cle="rapport_kills">
+      <PageRapportKills />
     </PageAuto>
   );
 }

@@ -2,10 +2,9 @@
  * bible — la « Bible des comptes » (18/11, Max), admin au sens strict seulement.
  *
  *   POST { action: "miniatures", id }
- *       Les 3 posts de référence d'une fiche : pour chaque lien de post, la miniature (oEmbed TikTok,
- *       champ thumbnail_url) est téléchargée tout de suite et copiée dans medias/bible/<handle>/ ; on
- *       n'affiche jamais une URL TikTok (elles expirent). Sans lien de post : les 3 posts les plus vus
- *       parmi les ~12 derniers du profil (scraper Apify déjà branché), avec les stats du profil.
+ *       19/11 : les 3 DERNIERS TikToks du compte (scraper Apify, ~12 derniers lus), avec les stats du profil ;
+ *       chaque miniature est téléchargée tout de suite et copiée dans medias/bible/<handle>/ (une URL TikTok
+ *       expire). Les liens déjà enregistrés servent en secours ; sinon l'erreur est notée sur la fiche.
  *   POST { action: "resoudre", urls }
  *       Les liens courts (vm.tiktok.com, vt.tiktok.com, tiktok.com/t/…) suivis jusqu'au vrai lien
  *       (@handle et, pour un post, son /video/ ou /photo/). 50 liens au plus ; rien n'est écrit.
@@ -13,7 +12,7 @@
  * N'écrit que dans bible_comptes (posts, miniatures, stats auto). Ne touche ni à l'import ni à rien d'autre.
  */
 import { downloadMedia, postsAvecImage } from "../_shared/apify.ts";
-import { cheminMiniature, estLienCourt, estLienPost, idPost, type PostBible, statsProfil, troisMeilleurs } from "../_shared/bible.ts";
+import { cheminMiniature, estLienCourt, estLienPost, type PostBible, statsProfil, troisDerniers } from "../_shared/bible.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -34,6 +33,21 @@ Deno.serve(async (request) => {
     if (body?.action === "resoudre") {
       const urls = (Array.isArray(body.urls) ? body.urls : []).filter((u: unknown): u is string => typeof u === "string").slice(0, 50);
       return json({ ok: true, liens: await Promise.all(urls.map(resoudre)) });
+    }
+    if (body?.action === "apercu") {
+      // Les miniatures déjà copiées, en data URL (admin) : pour un aperçu de la page hors du navigateur de l'OS.
+      const paths = (Array.isArray(body.paths) ? body.paths : [])
+        .filter((p: unknown): p is string => typeof p === "string" && p.startsWith("bible/")).slice(0, 40);
+      const images: Record<string, string> = {};
+      for (const p of paths) {
+        const { data } = await db.storage.from("medias").download(p);
+        if (!data) continue;
+        const octets = new Uint8Array(await data.arrayBuffer());
+        let binaire = "";
+        for (let i = 0; i < octets.length; i += 0x8000) binaire += String.fromCharCode(...octets.subarray(i, i + 0x8000));
+        images[p] = `data:${data.type || "image/jpeg"};base64,${btoa(binaire)}`;
+      }
+      return json({ ok: true, images });
     }
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (erreur) {
@@ -113,42 +127,36 @@ async function miniatures(db: Db, id: string) {
   if (error) throw new Error(error.message);
   if (!fiche) return { ok: false, error: "fiche introuvable" };
   const handle = fiche.handle as string;
-  let posts = ((fiche.posts ?? []) as PostBible[]).filter((p) => p?.url && estLienPost(p.url)).slice(0, 3);
-  // L'image que le scraper a vue pour chaque post (secours si oEmbed ne donne rien), le temps de la copier.
+  // 19/11 (Max) : les 3 DERNIERS TikToks du compte (le scraper lit les ~12 derniers), avec les stats du profil.
+  // Les liens déjà enregistrés ne servent qu'en secours, si le scraper ne répond pas.
+  const anciens = ((fiche.posts ?? []) as PostBible[]).filter((p) => p?.url && estLienPost(p.url)).slice(0, 3);
+  let posts: PostBible[] = [];
   const imageScraper = new Map<string, string>();
   let stats: Record<string, unknown> | null = null;
-  let source = "liens";
-
-  if (!posts.length) {
-    // Sans lien de post : les 3 plus vus des ~12 derniers, si le scraper répond.
-    if (!Deno.env.get("APIFY_TOKEN")) {
-      await db.rpc("bible_miniatures_ecrire", { p_id: id, p_posts: null, p_statut: "sans_liens", p_erreur: "ajouter 3 liens de posts", p_stats: null });
-      return { ok: true, statut: "sans_liens" };
-    }
+  let source = "derniers";
+  let erreurScraper: string | null = null;
+  if (Deno.env.get("APIFY_TOKEN")) {
     try {
       const recents = await postsAvecImage({ profiles: [handle], resultsPerPage: 12 });
       for (const p of recents) if (p.image) imageScraper.set(p.url, p.image);
       const profil = recents.map((p) => ({ url: p.url, vues: p.vues, createTime: p.createTime }));
       stats = statsProfil(profil, recents.find((p) => p.abonnes != null)?.abonnes ?? null);
-      posts = troisMeilleurs(profil).map((p) => ({ url: p.url, vues: p.vues }));
-      source = "scraper";
+      posts = troisDerniers(profil).map((p) => ({ url: p.url, vues: p.vues }));
     } catch (e) {
-      await db.rpc("bible_miniatures_ecrire", { p_id: id, p_posts: null, p_statut: "sans_liens", p_erreur: `ajouter 3 liens de posts (profil illisible : ${messageErreur(e).slice(0, 120)})`, p_stats: null });
-      return { ok: true, statut: "sans_liens" };
+      erreurScraper = `TikTok ne répond pas (${messageErreur(e).slice(0, 120)})`;
     }
-    if (!posts.length) {
-      await db.rpc("bible_miniatures_ecrire", { p_id: id, p_posts: null, p_statut: "sans_liens", p_erreur: "ajouter 3 liens de posts", p_stats: stats });
-      return { ok: true, statut: "sans_liens" };
-    }
-  } else if (Deno.env.get("APIFY_TOKEN")) {
-    // Liens donnés : une image de chaque post par le scraper (un seul passage pour les 3).
-    try {
-      for (const p of await postsAvecImage({ postURLs: posts.map((p) => p.url), resultsPerPage: 1 })) {
-        const idp = idPost(p.url);
-        const lien = posts.find((x) => idPost(x.url) === idp)?.url;
-        if (lien && p.image) imageScraper.set(lien, p.image);
-      }
-    } catch { /* oEmbed en secours */ }
+  } else {
+    erreurScraper = "scraper non configuré";
+  }
+  if (!posts.length && anciens.length) {
+    posts = anciens;
+    source = "liens";
+  }
+  if (!posts.length) {
+    await db.rpc("bible_miniatures_ecrire", {
+      p_id: id, p_posts: null, p_statut: "erreur", p_erreur: erreurScraper ?? "aucun TikTok trouvé sur ce compte", p_stats: stats,
+    });
+    return { ok: true, statut: "erreur" };
   }
 
   const sortie: PostBible[] = [];

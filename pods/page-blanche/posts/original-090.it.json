@@ -1,0 +1,302 @@
+{
+ "post_id": "original-090",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously disciplined"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra disciplinée",
+     "texte": "segnali che il tuo cervello deve staccare dal telefono"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(diciamocelo sinceramente)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681712370607082783_5.jpg",
+      "boite": [
+       0,
+       40,
+       530,
+       390
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "leggere [[3 volte la stessa riga]]"
+    },
+    "T2": {
+     "en": [
+      "youtube, podcasts, lectures, even voice notes from",
+      "your friends, everything gets sped up these days"
+     ],
+     "fr": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]",
+     "texte": "arrivi in fondo alla frase e ti accorgi che [[non ti è rimasto niente]], quindi ricominci. e di nuovo"
+    },
+    "T3": {
+     "en": [
+      "after a while,",
+      "anything at normal",
+      "speed starts to feel",
+      "painfully slow"
+     ],
+     "fr": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]",
+     "texte": "gli occhi sono sulla pagina, ma la testa [[è ancora nel feed]]"
+    },
+    "T4": {
+     "en": [
+      "so a real",
+      "conversation or a",
+      "book feels too",
+      "slow to focus on"
+     ],
+     "fr": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]",
+     "texte": "non è stupidità, la tua concentrazione [[è in riserva]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702218062526680350_3.jpg",
+      "boite": [
+       180,
+       527,
+       420,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "aprire app [[senza un motivo]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "sblocchi il telefono, apri un'app, la chiudi, ne apri un'altra e [[non ricordi più cosa cercavi]]. il pollice va col pilota automatico"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "[[dai al pollice]] di meglio da fare."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "la lezione di oggi: perché i re vestivano di porpora. ogni giorno scambio uno scroll con 5 minuti [[sull'app Sophia]]"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "stesso telefono, stessi 5 minuti, ma stavolta [[qualcosa ti resta davvero]]."
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build relationships with",
+      "people smarter than you"
+     ],
+     "fr": "entoure-toi de [[gens plus intelligents que toi]]",
+     "texte": "non reggi [[nemmeno 2 minuti di silenzio]]"
+    },
+    "T2": {
+     "en": [
+      "if you're always the",
+      "smartest person in the",
+      "room, you stop getting",
+      "better"
+     ],
+     "fr": "si t'es toujours la personne la plus calée de la pièce, tu [[progresses plus]]",
+     "texte": "doccia, passeggiata, piatti: deve sempre esserci [[un podcast o un video]] in sottofondo"
+    },
+    "T3": {
+     "en": [
+      "smart people make you",
+      "explain your ideas,",
+      "defend them, and see",
+      "where you're wrong"
+     ],
+     "fr": "les gens brillants te font [[expliquer tes idées]], les défendre et voir où tu te trompes",
+     "texte": "appena c'è silenzio arrivano i pensieri e [[sembrano stranamente rumorosi]]"
+    },
+    "T4": {
+     "en": [
+      "and you slowly start",
+      "picking up how they think"
+     ],
+     "fr": "et petit à petit, tu prends [[leur façon de penser]]",
+     "texte": "nel silenzio il cervello [[mette in ordine tutto]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705510532127673613_2.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "bosse [[même quand t'as plus envie]]",
+     "texte": "[[vibrazioni fantasma]] in tasca"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "texte": "controlli: [[nessun messaggio]]. a volte non ce l'hai nemmeno addosso"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "texte": "il cervello aspetta così tanto la prossima notifica che [[inizia a inventarsele]]"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "texte": "se la tua gamba vibra più del telefono, è il segnale per [[lasciarlo un po' in un'altra stanza]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703982934369324320_4.jpg",
+      "boite": [
+       505,
+       433,
+       503,
+       409
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take long walks",
+      "in the sun"
+     ],
+     "fr": "fais de longues balades [[au soleil]]",
+     "texte": "annoiarti [[fa quasi male]]"
+    },
+    "T2": {
+     "en": [
+      "sunlight is proven to wake your brain up and help",
+      "you sleep better at night"
+     ],
+     "fr": "c'est [[prouvé]] : le soleil réveille ton cerveau et t'aide à [[mieux dormir]] le soir",
+     "texte": "aspetti 3 minuti in coda alla cassa e la mano [[è già in tasca]]"
+    },
+    "T3": {
+     "en": [
+      "walking gets more",
+      "blood to your brain"
+     ],
+     "fr": "marcher, ça oxygène ton cerveau",
+     "texte": "ma è dalla noia [[che nascono le idee]]"
+    },
+    "T4": {
+     "en": [
+      "that's when your",
+      "mind wanders and",
+      "connects ideas"
+     ],
+     "fr": "c'est là que ton esprit divague et [[relie les idées]]",
+     "texte": "la mente vaga, collega le cose e [[diventa creativa]]"
+    },
+    "T5": {
+     "en": [
+      "darwin, nietzsche and steve jobs all did their best",
+      "thinking on long walks"
+     ],
+     "fr": "darwin, nietzsche et steve jobs trouvaient leurs [[meilleures idées]] en marchant",
+     "texte": "la prossima volta che ti annoi, [[resta lì un minuto]]. il tuo cervello ringrazierà"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705510532127673613_1.jpg",
+      "boite": [
+       96,
+       442,
+       620,
+       620
+      ]
+     }
+    }
+   }
+  }
+ }
+}

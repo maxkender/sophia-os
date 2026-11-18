@@ -1,0 +1,280 @@
+{
+ "post_id": "7707007603754290464",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "10/10 vaner der gør dig sygt disciplineret"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(videnskaben er enig)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7707424540049034509_1.jpg",
+      "boite": [
+       96,
+       540,
+       620,
+       620
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "drop at annoncere [[dine planer]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs à tout le monde te file [[un shot de dopamine]] avant d'avoir rien fait",
+     "texte": "når du fortæller alle om dine mål, kan du få [[et skud dopamin]], før du overhovedet har lavet noget"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kiff de l'ambition]], les compliments, et tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "du [[føler dig ambitiøs]], får ros og forestiller dig resultatet [[uden at gøre arbejdet]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "stop med at snakke om, hvad du vil gøre. forsvind, knok i stilhed og [[lad dine resultater tale for dig]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "stop med at skippe slides [[fordi du er doven]]"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens swipent ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "de fleste swiper bare gennem den slags slides og [[læser aldrig selve teksten]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler habitue ton cerveau à [[lire le titre et zapper]]",
+     "texte": "når du skimmer alt, lærer din hjerne at [[tage overskriften og gå videre]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration vaut mieux que celle de la plupart]]",
+     "texte": "hvis du stadig læser det her, [[er din koncentration bedre end de flestes]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "læs bøger [[i stedet for at scrolle]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te rappelles le tiktok que t'as vu [[y'a 5 scrolls]] ?",
+     "texte": "kan du huske den tiktok, du så [[for 5 scrolls siden]]?"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "[[præcis]]. korte videoer [[steger din koncentration]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je doomscrollais, maintenant je remplace le scroll par [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "før doomscrollede jeg, nu [[5 min på Sophia-appen]]: hvorfor renæssancen startede i italien"
+    },
+    "T5": {
+     "en": [
+      "get your focus back"
+     ],
+     "fr": "[[reprends ton focus]]",
+     "texte": "[[få dit fokus tilbage]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "kom ud af huset [[hver eneste dag]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24h sans mettre le nez dehors, tu végètes vite",
+     "texte": "24 timer indenfor gør det nemt at rådne op"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20–30 minutes]], idéalement en plein jour",
+     "texte": "kom ud [[mindst 20–30 minutter]], helst i dagslys"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, le soleil, changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "gåture, sollys og bare et skift af omgivelser kan give dig mere energi end endnu en times »hvile« i sengen"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[doomscroller c'est PAS du repos !!]]",
+     "texte": "[[doomscrolling er IKKE hvile!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[sans but précis]]",
+     "texte": "lær ting [[uden en åbenlys gevinst]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui t'intéresse vraiment",
+     "texte": "historie, filosofi, fysik, økonomi, sprog, alt det, der virkelig interesserer dig"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[chaque heure n'a pas à être rentable]]",
+     "texte": "[[ikke hver time skal tjene penge]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "une grosse culture G donne à ton cerveau plus d'idées à relier quand t'as un vrai problème à régler",
+     "texte": "bred viden giver din hjerne flere idéer at koble sammen, når du faktisk skal løse noget"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis [[c'est fun d'avoir de la culture !!]]",
+     "texte": "og så er det bare [[sjovt at vide en masse!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

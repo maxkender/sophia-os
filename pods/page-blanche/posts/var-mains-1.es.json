@@ -1,0 +1,303 @@
+{
+ "post_id": "var-mains-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "extremely disciplined"
+     ],
+     "fr": "",
+     "texte": "qué hacer con las [[manos]] en vez de agarrar el móvil"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience edition)"
+     ],
+     "fr": "",
+     "texte": "(dale paz a tus pulgares)",
+     "alignement": "droite"
+    },
+    "T3": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7654710190146604301_3.jpg",
+      "boite": [
+       0,
+       425,
+       1080,
+       820
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "let yourself be bored"
+     ],
+     "fr": "accepte de t'[[ennuyer]]",
+     "texte": "ordena [[un solo cajón]]"
+    },
+    "T2": {
+     "en": [
+      "every queue, walk and",
+      "bathroom break gets filled",
+      "with input now"
+     ],
+     "fr": "[[chaque]] file d'attente, balade, pause pipi : on remplit tout",
+     "texte": "no toda la habitación, solo un cajón. lo vacías, lo ordenas, lo doblas"
+    },
+    "T3": {
+     "en": [
+      "that sounds harmless, but",
+      "you're removing every",
+      "chance your attention has",
+      "to sit still"
+     ],
+     "fr": "ça a l'air de rien, mais ton attention n'a [[plus jamais l'occasion]] de se poser",
+     "texte": "tus manos trabajan y tu cabeza siente [[ese gustito de acabar algo]]"
+    },
+    "T4": {
+     "en": [
+      "spend 20–30 minutes a day with no podcast,",
+      "music, scrolling or second screen"
+     ],
+     "fr": "chaque jour, [[20-30 minutes]] sans podcast, musique, scroll ni deuxième écran",
+     "texte": "diez minutos, un resultado que se ve de verdad y [[cero ganas de coger el móvil]]"
+    },
+    "T5": {
+     "en": [
+      "listen to your thoughts"
+     ],
+     "fr": "[[écoute tes pensées]]",
+     "texte": "[[mañana, el siguiente]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705919537971023117_2.jpg",
+      "boite": [
+       585,
+       600,
+       400,
+       250
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop procrastinating and",
+      "make a first draft"
+     ],
+     "fr": "[[arrête de procrastiner]] et fais un premier jet",
+     "texte": "haz un sudoku o un crucigrama [[con boli]]"
+    },
+    "T2": {
+     "en": [
+      "an idiot in motion goes",
+      "further than a genius at",
+      "rest"
+     ],
+     "fr": "[[un idiot qui avance va plus loin qu'un génie assis]]",
+     "texte": "una cuadrícula en papel, un boli y nada que suene mientras [[piensas]]"
+    },
+    "T3": {
+     "en": [
+      "get the first draft out",
+      "first, even if it feels",
+      "embarrassing"
+     ],
+     "fr": "sors ton premier jet d'abord, [[même si t'as un peu honte]]",
+     "texte": "¿una casilla se resiste? no puedes buscarla, así que [[la saca tu cabeza]]"
+    },
+    "T4": {
+     "en": [
+      "once something exists, you can fix it. staring at a blank",
+      "page gives you nothing to improve"
+     ],
+     "fr": "une fois que t'as un truc, tu peux le corriger. une page blanche, y'a rien à améliorer",
+     "texte": "deja un libro de pasatiempos donde sueles dejar el móvil y haz [[uno]] cada vez que ibas a scrollear"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708388542627466529_7.jpg",
+      "boite": [
+       485,
+       698,
+       475,
+       470
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "write in a journal every day"
+     ],
+     "fr": "écris dans un [[journal]] [[tous les jours]]",
+     "texte": "hazte con [[una cámara desechable]]"
+    },
+    "T2": {
+     "en": [
+      "your thoughts feel messy and unclear until you try to",
+      "write them down"
+     ],
+     "fr": "dans ta tête tout est flou, jusqu'à ce que tu essaies de [[l'écrire]]",
+     "texte": "27 fotos, sin pantalla, sin repetir. solo disparas si [[merece la pena]]"
+    },
+    "T3": {
+     "en": [
+      "writing forces you to",
+      "slow down and actually",
+      "figure out what you",
+      "think"
+     ],
+     "fr": "écrire t'oblige à ralentir et à [[vraiment comprendre ce que tu penses]]",
+     "texte": "miras mucho más a tu alrededor, porque [[no puedes ver la foto]] al momento"
+    },
+    "T4": {
+     "en": [
+      "even 5 minutes before",
+      "bed is proven to be",
+      "enough to start",
+      "thinking more clearly"
+     ],
+     "fr": "5 minutes avant de dormir suffisent, c'est [[prouvé]], pour commencer à [[penser plus clair]]",
+     "texte": "y cuando te dan las fotos reveladas semanas después, [[es como un regalo]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705919537971023117_1.jpg",
+      "boite": [
+       100,
+       445,
+       610,
+       610
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis un livre [[au lieu de scroller]]",
+     "texte": "y si lo coges [[igualmente]]"
+    },
+    "T2": {
+     "en": [
+      "every hour you spend scrolling is an hour you could"
+     ],
+     "fr": "une heure de scroll, c'est une heure de moins pour [[muscler ton cerveau]]",
+     "texte": "a veces vuelves a él"
+    },
+    "T3": {
+     "en": [
+      "read 10 pages a day, even",
+      "when you don't feel like it"
+     ],
+     "fr": "[[lis 10 pages par jour]], même quand t'as pas envie",
+     "texte": "no pasa nada, pero [[elige qué abres]]"
+    },
+    "T4": {
+     "en": [
+      "you say you want to read",
+      "more, but get caught in the",
+      "algorithm every time"
+     ],
+     "fr": "tu dis que tu [[veux lire plus]], mais [[l'algo]] te happe à chaque fois",
+     "texte": "algo corto y de verdad, y luego lo dejas. [[sin feed]], sin bucle"
+    },
+    "T5": {
+     "en": [
+      "i used to doomscroll all day",
+      "but now use this thing that",
+      "blocks my apps until i read"
+     ],
+     "fr": "avant je scrollais H24, maintenant j'ouvre l'appli Sophia et j'apprends un truc en 5 min",
+     "texte": "antes, doomscroll. ahora aprendo por qué el cielo es azul en [[la app Sophia]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "go on long walks without music"
+     ],
+     "fr": "fais [[de longues balades sans musique]]",
+     "texte": "busca estrellas con [[un mapa del cielo]]"
+    },
+    "T2": {
+     "en": [
+      "most people fill every walk with podcasts or music",
+      "and think they're being productive"
+     ],
+     "fr": "tout le monde marche avec [[un podcast ou de la musique]] et se croit [[super productif]]",
+     "texte": "un mapa estelar barato, una noche despejada y el móvil dentro de casa. nada más"
+    },
+    "T3": {
+     "en": [
+      "but your brain only",
+      "starts thinking for",
+      "itself when nothing is",
+      "feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le nourrit]]",
+     "texte": "giras el mapa entre las manos hasta que [[las formas por fin encajan]]"
+    },
+    "T4": {
+     "en": [
+      "walk in silence, let your mind wander, and your best",
+      "ideas will come from walks"
+     ],
+     "fr": "marche en silence, laisse-toi rêvasser, [[tes meilleures idées]] viendront [[en marchant]]",
+     "texte": "la primera vez que encuentras una constelación sin ayuda, [[se siente enorme]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708388542627466529_6.jpg",
+      "boite": [
+       115,
+       705,
+       840,
+       460
+      ]
+     }
+    }
+   }
+  }
+ }
+}

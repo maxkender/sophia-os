@@ -1,0 +1,299 @@
+{
+ "post_id": "original-089",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "cómo aprender cualquier cosa [[más rápido]]"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(sin estudiar más)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701420855900867853_6.jpg",
+      "boite": [
+       504,
+       526,
+       530,
+       384
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "[[ponte a prueba]], no releas"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "releer los apuntes parece productivo porque todo te suena familiar, pero [[reconocer algo no es lo mismo que acordarte]] de verdad"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "cierra el libro y escribe en una hoja [[todo lo que recuerdes]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "el esfuerzo de sacarlo de tu cabeza es [[lo que hace que se quede]]. luego compara con tus apuntes y rellena solo los huecos que falten"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703972418016005390_2.jpg",
+      "boite": [
+       180,
+       468,
+       720,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "fr": "ils [[s'en fichent d'avoir l'air bêtes]]",
+     "texte": "[[explícalo en voz alta]] a otra persona"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "fr": "ils posent des questions bêtes, se lancent avant d'être prêts et [[disent quand ils savent pas]]",
+     "texte": "o a tu pared: como si se lo contaras a alguien que no sabe nada del tema, con [[tus palabras]]"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "fr": "protéger ton ego, ça rassure, mais ça [[te fait apprendre beaucoup moins vite]]",
+     "texte": "en cuanto te atascas, has encontrado [[justo lo que aún no entiendes]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "fr": "évoluer, c'est inconfortable, mais [[si tu changes rien, rien change]]",
+     "texte": "si no puedes decirlo fácil, [[vuelve a esa parte]] y repásala"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop sacrificing sleep"
+     ],
+     "fr": "sacrifie plus [[ton sommeil]]",
+     "texte": "[[espacia tus repasos]]"
+    },
+    "T2": {
+     "en": [
+      "your brain strengthens",
+      "memories and clears",
+      "out metabolic waste",
+      "while you sleep"
+     ],
+     "fr": "ton cerveau [[consolide tes souvenirs]] et fait le ménage pendant que tu dors",
+     "texte": "repasar un poco durante varios días [[se queda mejor]] que una sola noche de estudio intenso"
+    },
+    "T3": {
+     "en": [
+      "consistently getting",
+      "too little makes it",
+      "harder to focus, learn,",
+      "and make decisions"
+     ],
+     "fr": "en manque de sommeil, t'as plus de mal à te concentrer, à apprendre et à décider",
+     "texte": "repásalo al día siguiente, luego a los pocos días y otra vez [[a la semana]]"
+    },
+    "T4": {
+     "en": [
+      "if you want to think sharper, stop treating sleep like",
+      "optional downtime"
+     ],
+     "fr": "pour avoir l'esprit vif, arrête de traiter le sommeil comme [[une option]]",
+     "texte": "cada vez que casi lo olvidas y lo recuerdas, [[se fija un poco más]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701420855900867853_2.jpg",
+      "boite": [
+       40,
+       512,
+       511,
+       380
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books that expand your mind"
+     ],
+     "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
+     "texte": "aprende [[a trocitos, cada día]]"
+    },
+    "T2": {
+     "en": [
+      "read psychology, philosophy, history, and classic literature"
+     ],
+     "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
+     "texte": "poco al día rinde más que [[un atracón]]"
+    },
+    "T3": {
+     "en": [
+      "the more you understand",
+      "about people, human",
+      "nature, and the world"
+     ],
+     "fr": "plus tu comprends les gens, la nature humaine et le monde",
+     "texte": "las sesiones cortas cuestan menos de mantener y dan tiempo al cerebro"
+    },
+    "T4": {
+     "en": [
+      "the more you have to",
+      "contribute to a conversation"
+     ],
+     "fr": "plus t'as de quoi [[nourrir une conversation]]",
+     "texte": "y así no lo abandonas [[a la segunda semana]]"
+    },
+    "T5": {
+     "en": [
+      "i used to struggle with",
+      "stopping scrolling until i found",
+      "this thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
+     "texte": "antes hacía doomscroll, ahora con el móvil en la mano hago [[una lección de 5 min en la app Sophia]]. hoy: por qué el cielo es azul"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "fr": "ils sont obsédés par [[l'effet de levier]]",
+     "texte": "[[consúltalo con la almohada]]"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "fr": "ils cherchent toujours comment faire qu'[[une heure de boulot]] rapporte [[bien plus qu'une heure]]",
+     "texte": "mientras duermes, tu cerebro [[ordena y guarda]] lo que aprendiste durante el día"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
+     "texte": "así que repasa un poco [[justo antes de dormir]]"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
+     "texte": "una noche en vela [[te quita más de lo que te da]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7707061400576773389_3.jpg",
+      "boite": [
+       96,
+       510,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  }
+ }
+}

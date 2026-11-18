@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o137",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "84a23f4b-104f-413e-8c06-7af12a55e7ab",
+  "titre": "signs you're studying wrong (and what to do instead) #studytok #studytips #studymethod",
+  "musique_titre": "Dreamin'",
+  "musique_url": "https://www.tiktok.com/music/dreamin-6720081936129198081",
+  "inspirations": [
+    "84a23f4b-104f-413e-8c06-7af12a55e7ab"
+  ],
+  "notes": "Déclinaison G1 de 84a23f4b (notre cs-o036 : r 2,16 en turc), ligne 4 de la boîte. Accroche du parent mot pour mot. Signes neufs, aucun de cs-o036 (relire 3 fois, jamais testé, tout surligné, notifications, la veille seulement, corrections jamais refaites) : recopier ses notes au propre, étudier une seule matière par semaine, réviser en musique avec paroles, sauter les exercices difficiles, ne jamais se tester dans le désordre (place micabo, slide 6), étudier tard au lieu de dormir. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d7aac958",
+      "texte_overlay": "signs you're studying wrong\n(and what to do instead)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "0a314891",
+      "texte_overlay": "you spend an hour rewriting your notes neatly.\ninstead: 10 minutes rewriting, 50 minutes practicing.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4617d70f",
+      "texte_overlay": "you skip every exercise that looks hard.\ninstead: start with one hard one. that's where the points are.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6fa0295e",
+      "texte_overlay": "you study one subject all week, then switch.\ninstead: a bit of each subject every few days.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1f4ca7d9",
+      "texte_overlay": "you study with music that has lyrics.\ninstead: instrumental, or silence.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "9c442da1",
+      "texte_overlay": "you always quiz yourself in the same order.\ninstead: shuffle the questions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "4c733f52",
+      "texte_overlay": "you study until 1am before a test.\ninstead: stop, sleep. that's when it sticks.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

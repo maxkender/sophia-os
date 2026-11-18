@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o133",
+  "type_bleo": "full_test",
+  "titre": "how i study on the bus without wasting my commute #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 18/11 : 1 full test sur 6). Accroche jamais faite chez nous (« commute » absent des accroches du label). Accroches écrites : « how i study on the bus without wasting my commute » (retenue : un temps mort que beaucoup ont, une promesse concrète), « commute study hacks » (écartée : vague), « turn your bus ride into study time » (écartée : injonction). Gestes vrais : préparer de quoi réviser la veille, des fiches de poche, réciter dans sa tête, se tester sur la leçon du jour (place micabo, slide 5), écouter un podcast éducatif, garder le retour pour se reposer. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "c1b955b4",
+      "texte_overlay": "how i study on the bus\nwithout wasting my commute",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a944917d",
+      "texte_overlay": "i pack my bus material the night before.\nno deciding on the spot.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "cbe8ef67",
+      "texte_overlay": "pocket flashcards.\nsmall enough for one hand.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "24ec790d",
+      "texte_overlay": "i recite definitions in my head, eyes closed.\nlooks like napping. it's not.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "8ba5d8b1",
+      "texte_overlay": "on the way to school: a quick quiz on yesterday's lesson.\ni walk in warmed up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "3ead7c35",
+      "texte_overlay": "when i'm too tired to read: an educational podcast.\nstill counts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1d8c78af",
+      "texte_overlay": "the ride home is for resting.\nthat's part of the plan too.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

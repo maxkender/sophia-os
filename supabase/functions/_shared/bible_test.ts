@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { cheminMiniature, estLienCourt, estLienPost, handleDeLien, idPost, mediane, statsProfil, troisMeilleurs } from "./bible.ts";
+import { cheminMiniature, estLienCourt, estLienPost, handleDeLien, idPost, mediane, statsProfil, troisDerniers, troisMeilleurs } from "./bible.ts";
 
 Deno.test("bible : handle et post depuis un lien", () => {
   assertEquals(handleDeLien("https://www.tiktok.com/@CrushedEthereal"), "crushedethereal");
@@ -33,4 +33,14 @@ Deno.test("bible : liens courts", () => {
   assertEquals(estLienCourt("https://www.tiktok.com/t/ZTabc12/"), true);
   assertEquals(estLienCourt("https://www.tiktok.com/@a/video/7512345678901234567"), false);
   assertEquals(estLienCourt("https://vm.tiktok.com.evil.com/x"), false);
+});
+
+Deno.test("les 3 derniers TikToks (pas les plus vus)", () => {
+  const posts = [
+    { url: "https://www.tiktok.com/@a/video/7600000000000000001", vues: 9000, createTime: 100 },
+    { url: "https://www.tiktok.com/@a/video/7600000000000000002", vues: 10, createTime: 400 },
+    { url: "https://www.tiktok.com/@a/photo/7600000000000000003", vues: 20, createTime: 300 },
+    { url: "https://www.tiktok.com/@a/video/7600000000000000004", vues: 30, createTime: 200 },
+  ];
+  assertEquals(troisDerniers(posts).map((p) => p.createTime), [400, 300, 200]);
 });

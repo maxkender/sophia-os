@@ -55,6 +55,11 @@ export function troisMeilleurs(posts: PostProfil[]): PostProfil[] {
     .slice(0, 3);
 }
 
+/** 19/11 (Max) : les 3 derniers TikToks (les plus récents d'abord). */
+export function troisDerniers(posts: PostProfil[]): PostProfil[] {
+  return [...posts].filter((p) => estLienPost(p.url)).sort((a, b) => (b.createTime ?? 0) - (a.createTime ?? 0)).slice(0, 3);
+}
+
 export function mediane(valeurs: number[]): number | null {
   const v = valeurs.filter((x) => Number.isFinite(x)).sort((a, b) => a - b);
   if (!v.length) return null;

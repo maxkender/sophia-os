@@ -27,7 +27,7 @@ Cinq choses ont changé depuis la rédaction de ce document :
    concurrents (`_shared/concurrents.ts`) et son logo.
 
 4. **Les retours des relecteurs natifs savent pour quelle application ils
-   valent** (0743, 18/11). `corrections_natives.application_id` : NULL = une
+   valent** (0751, 18/11). `corrections_natives.application_id` : NULL = une
    correction de LANGUE, qui entre dans la traduction (commune à toutes les
    applications, `corrections_natives_bloc`) et dans les règles natives de la
    langue ; remplie = une correction propre à une application (prise sur la

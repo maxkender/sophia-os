@@ -7,7 +7,7 @@
  *    traduction d'une langue (fonction SQL `corrections_natives_bloc`, une
  *    seule source pour le moteur et l'aperçu de l'admin) : les corrections de
  *    LANGUE seulement, la traduction étant commune à toutes les applications ;
- *  - `chargerRetoursApplication` (0743) : celles qui sont propres à une
+ *  - `chargerRetoursApplication` (0751) : celles qui sont propres à une
  *    application, données au placement de cette application seulement ;
  *  - `extraireCorrections` : le découpage des remarques non traitées, vote
  *    par vote, puis des relectures simples faites (0631), par Gemini (action
@@ -67,12 +67,12 @@ ${lignes.join("\n")}`;
 }
 
 /**
- * Les corrections retenues PROPRES À UNE APPLICATION (0743), pour le placement
+ * Les corrections retenues PROPRES À UNE APPLICATION (0751), pour le placement
  * de cette application dans cette langue : celles prises sur la slide de
  * l'appli, de type `placement`, ou qui citent l'application. Les corrections de
  * langue (`application_id` NULL) passent, elles, par la traduction
  * (`chargerBlocCorrectionsNatives`), commune à toutes les applications.
- * `null` : aucun retour, ou lecture en échec (0743 pas encore appliquée).
+ * `null` : aucun retour, ou lecture en échec (0751 pas encore appliquée).
  */
 export async function chargerRetoursApplication(
   supabase: Supabase,

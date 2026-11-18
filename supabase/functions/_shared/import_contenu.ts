@@ -2030,7 +2030,7 @@ async function placerSophiaSurDeck(
   // Angle du label du contenu pour Sophia (angle_placement.ts) : vide tant
   // qu'aucun n'est saisi, et le prompt reste alors octet pour octet le même.
   const angle = await chargerAnglePlacement(supabase, contenu.id, ID_SOPHIA);
-  // Boucle de correction (0630, 0743) : les retours des relecteurs natifs
+  // Boucle de correction (0630, 0751) : les retours des relecteurs natifs
   // propres à Sophia dans cette langue suivent le prompt maître.
   const placement = await integrateSophia({
     masterPrompt: await promptAvecRetoursApplication(
@@ -2166,7 +2166,7 @@ export async function traduireBaseDeck(
   const scolaire = await regleLocalisationScolaire(supabase, langue);
   // Boucle de correction (0630) : les règles et corrections de LANGUE des
   // relecteurs natifs, en dernier pour peser sur le reste. Celles qui sont
-  // propres à une application (0743) n'y sont pas : cette traduction sert
+  // propres à une application (0751) n'y sont pas : cette traduction sert
   // toutes les applications, elles vont au placement de la leur.
   const retours = await chargerBlocCorrectionsNatives(supabase, langue);
   const regles = [base, scolaire, voix ? `Voix propre à cette source :\n${voix}` : null, retours]

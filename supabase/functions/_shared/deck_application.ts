@@ -451,7 +451,7 @@ async function cuire(
     : await chargerAnglePlacement(supabase, contenu.id, app.id);
   const traceAngle = angle ? { angle } : {};
   const placement = await integrerApplication({
-    // 0743 : les retours des relecteurs natifs propres à CETTE application dans
+    // 0751 : les retours des relecteurs natifs propres à CETTE application dans
     // cette langue. Aucun retour retenu : prompt identique à celui d'avant.
     masterPrompt: await promptAvecRetoursApplication(supabase, masterPrompt, langue, app.id),
     slides: baseCible.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),

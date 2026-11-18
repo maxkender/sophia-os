@@ -3,7 +3,7 @@
  * découpées en corrections atomiques (`corrections_natives`), retenues ou
  * écartées par l'admin. Une correction de LANGUE (`application_id` nul) entre
  * dans la traduction de la langue, commune à toutes les applications (bloc
- * `corrections_natives_bloc`). Une correction PROPRE À UNE APPLICATION (0743)
+ * `corrections_natives_bloc`). Une correction PROPRE À UNE APPLICATION (0751)
  * ne va qu'au placement de cette application. Écriture admin (RLS).
  */
 import { supabase } from "@/lib/supabase/client";
@@ -30,7 +30,7 @@ export interface CorrectionNative {
   explication: string | null;
   statut: StatutCorrection;
   /**
-   * 0743 : `null` = correction de langue (toutes les applications) ; sinon
+   * 0751 : `null` = correction de langue (toutes les applications) ; sinon
    * l'application à laquelle elle est propre. `undefined` : la colonne
    * n'existe pas encore en base (migration à appliquer).
    */
@@ -46,7 +46,7 @@ export interface CorrectionNative {
 
 const COLONNES = "id, langue, vote_id, duel_id, relecture_id, relecteur_id, version, slide, type, fautif, corrige, explication, statut, decide_le, created_at, updated_at";
 
-/** La colonne `application_id` manque tant que 0743 n'est pas appliquée. */
+/** La colonne `application_id` manque tant que 0751 n'est pas appliquée. */
 function colonneAbsente(error: { code?: string; message?: string } | null): boolean {
   return Boolean(error && (error.code === "42703" || error.code === "PGRST204" || /application_id/.test(error.message ?? "")));
 }
@@ -61,7 +61,7 @@ export async function listerCorrectionsNatives(langue: string): Promise<Correcti
       .order("created_at", { ascending: false })
       .limit(500);
   let { data, error } = await lire(`${COLONNES}, application_id`);
-  // Avant 0743 : la liste reste lisible, sans l'application.
+  // Avant 0751 : la liste reste lisible, sans l'application.
   if (colonneAbsente(error)) ({ data, error } = await lire(COLONNES));
   if (error) throw error;
   return (data ?? []).map((ligne) => {
@@ -106,7 +106,7 @@ export async function modifierCorrection(id: string, champs: { corrige: string |
   if (error) throw error;
 }
 
-/** Range une correction : `null` = toute la langue, sinon l'application à laquelle elle est propre (0743). */
+/** Range une correction : `null` = toute la langue, sinon l'application à laquelle elle est propre (0751). */
 export async function rangerCorrection(id: string, applicationId: string | null): Promise<void> {
   const { error } = await supabase
     .from("corrections_natives")

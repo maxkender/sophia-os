@@ -1,4 +1,5 @@
--- 0743 : les corrections natives savent pour quelle application elles valent.
+-- 0751 (appliquée en base sous le nom 0743_corrections_natives_par_application, numéro pris
+-- entre-temps sur main par 0743_support_corrections) : les corrections natives savent pour quelle application elles valent.
 --
 -- Décision d'Adrien du 17/11 : « j'abandonne l'idée d'avoir des fiches langue,
 -- ce que je veux, c'est les corrections natives », et constat du même jour :
@@ -42,7 +43,7 @@ alter table public.corrections_natives
   add column if not exists application_id uuid references public.applications (id) on delete set null;
 
 comment on column public.corrections_natives.application_id is
-  '0743 : NULL = correction de langue (toutes les applications) ; sinon correction propre à cette application (placement de cette application seulement).';
+  '0751 : NULL = correction de langue (toutes les applications) ; sinon correction propre à cette application (placement de cette application seulement).';
 
 create index if not exists corrections_natives_application
   on public.corrections_natives (langue, application_id) where statut = 'retenue';

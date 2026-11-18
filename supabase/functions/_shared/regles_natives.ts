@@ -113,7 +113,7 @@ export async function consoliderRegles(
     .from("corrections_natives")
     .select("id, langue, type, fautif, corrige, explication, created_at")
     .eq("statut", "retenue")
-    // 0743 : les règles d'une langue valent pour toutes les applications. Une
+    // 0751 : les règles d'une langue valent pour toutes les applications. Une
     // correction propre à une application n'y entre pas : elle va au placement
     // de son application (`chargerRetoursApplication`).
     .is("application_id", null)

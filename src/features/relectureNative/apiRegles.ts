@@ -42,13 +42,13 @@ export async function listerRegles(langue: string): Promise<VersionRegles[]> {
 /**
  * Les ids des corrections DE LANGUE retenues (pour compter celles que les
  * règles validées ne couvrent pas). Une correction propre à une application
- * (0743) n'entre pas dans les règles : elle va au placement de son application.
+ * (0751) n'entre pas dans les règles : elle va au placement de son application.
  */
 export async function idsCorrectionsRetenues(langue: string): Promise<string[]> {
   const lire = () =>
     supabase.from("corrections_natives").select("id").eq("langue", langue.toLowerCase()).eq("statut", "retenue").limit(5000);
   let { data, error } = await lire().is("application_id", null);
-  // Avant 0743 : pas de colonne, toutes les retenues comptent comme avant.
+  // Avant 0751 : pas de colonne, toutes les retenues comptent comme avant.
   if (error && (error.code === "42703" || /application_id/.test(error.message ?? ""))) ({ data, error } = await lire());
   if (error) throw error;
   return (data ?? []).map((c) => String(c.id));

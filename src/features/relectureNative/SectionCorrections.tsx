@@ -64,7 +64,7 @@ function LigneCorrection({ c }: { c: CorrectionNative }) {
     onSettled: () => void qc.invalidateQueries({ queryKey: CLE_CORRECTIONS }),
   });
   const nomRelecteur = [c.relecteur?.prenom, c.relecteur?.nom].filter(Boolean).join(" ");
-  // 0743 : pour qui vaut la correction. Toute la langue (traduction, toutes les
+  // 0751 : pour qui vaut la correction. Toute la langue (traduction, toutes les
   // applications) ou une application (son placement seulement).
   const { applications } = useApplication();
   const ranger = useMutation({

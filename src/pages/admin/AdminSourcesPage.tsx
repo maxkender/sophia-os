@@ -948,7 +948,7 @@ export function AdminSourcesPage() {
   const [ajout, setAjout] = React.useState(false);
   // 18/11 : « Importer » depuis la Bible des comptes ouvre ce même formulaire, pré-rempli (handle, label,
   // langue) avec la note pour l'import et l'angle en rappel. La logique d'import ne change pas.
-  const [params] = useSearchParams();
+  const [params, setParams] = useSearchParams();
   const bibleId = params.get("bible");
   const depuisBible = useQuery({
     queryKey: ["bible", "import", bibleId],
@@ -1012,7 +1012,6 @@ export function AdminSourcesPage() {
       semaine: sem ? { decision: sem.decision, raison: sem.raison, lanceeLe: sem.lanceeLe } : null,
     });
   };
-  const [params, setParams] = useSearchParams();
   const onglet: OngletSources = ONGLETS.find((o) => o === params.get("onglet")) ?? "sources";
   const reg = file.data?.reglages;
   const [tri, setTri] = React.useState<"nom" | "r" | "label">("nom");
@@ -1067,7 +1066,18 @@ export function AdminSourcesPage() {
       <Segments<OngletSources>
         libelle={t("sources.onglets.libelle")}
         actif={onglet}
-        onChange={(o) => setParams(o === "sources" ? {} : { onglet: o }, { replace: true })}
+        onChange={(o) =>
+          setParams(
+            (avant) => {
+              // Les autres paramètres (« bible », import pré-rempli) restent en place.
+              const suivant = new URLSearchParams(avant);
+              if (o === "sources") suivant.delete("onglet");
+              else suivant.set("onglet", o);
+              return suivant;
+            },
+            { replace: true },
+          )
+        }
         options={ONGLETS.map((o) => ({ cle: o, contenu: t(`sources.onglets.${o}`) }))}
       />
 

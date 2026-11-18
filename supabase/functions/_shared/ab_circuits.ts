@@ -322,7 +322,7 @@ const fiches: CircuitTraduction = {
     const label = await labelDuContenu(supabase, contenuId);
     // 18/11 : plus de fiche langue (décision d'Adrien du 17/11). La langue vient
     // des règles et corrections des relecteurs natifs, comme en production : le
-    // bloc de langue, puis les retours propres à l'application (0743).
+    // bloc de langue, puis les retours propres à l'application (0751).
     const [reglesLangue, retoursAppli, ficheLabel, ficheCta, ficheAppli, scolaire] = await Promise.all([
       chargerBlocCorrectionsNatives(supabase, langue),
       chargerRetoursApplication(supabase, langue, application.id),

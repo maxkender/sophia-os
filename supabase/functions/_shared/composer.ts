@@ -284,7 +284,7 @@ export async function avancerPost(supabase: Supabase, post: any): Promise<string
 
       const masterPrompt = (await chargerPrompt(supabase, clePromptPlacement(slugApp))) ?? "";
       const placement = await integrateSophia({
-        // 0743 : les retours natifs propres à l'application du compte.
+        // 0751 : les retours natifs propres à l'application du compte.
         masterPrompt: appCompte?.id
           ? await promptAvecRetoursApplication(supabase, masterPrompt, compte.langue, appCompte.id)
           : masterPrompt,

@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 
 import { CheckWarmup } from "@/features/ckd/decisions/CheckWarmup";
 import { ListeJeudi } from "@/features/ckd/decisions/ListeJeudi";
+import { DoublesJeudi } from "@/features/ckd/doublesJeudi/DoublesJeudi";
 import { ListeSamedi } from "@/features/ckd/decisions/ListeSamedi";
 
 const P = "problemes.rituels";
@@ -23,7 +24,8 @@ export function RituelsSemaine({ maintenant = new Date() }: { maintenant?: Date 
   const blocs = [
     { cle: "samedi", ouvert: j === 6 || j === 5, contenu: <ListeSamedi maintenant={maintenant} /> },
     { cle: "dimanche", ouvert: j === 7, contenu: <CheckWarmup /> },
-    { cle: "jeudi", ouvert: j === 4, contenu: <ListeJeudi maintenant={maintenant} /> },
+    // 18/11 (Max) : le doublement se décide le jeudi, sur la même page que le check de la cohorte.
+    { cle: "jeudi", ouvert: j === 4, contenu: <div className="space-y-6"><DoublesJeudi maintenant={maintenant} /><ListeJeudi maintenant={maintenant} /></div> },
   ];
   return (
     <div className="space-y-2" data-testid="rituels-semaine">

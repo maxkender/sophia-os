@@ -223,6 +223,10 @@ Deno.serve(async (request) => {
         return json({ ok: true, ignore: "prompt 17 : plus de nudge Slack le jeudi" });
       case "double_creer":
         return json(await doubleCreer(supabase, String(body.id ?? "")));
+      case "double_jeudi":
+        // 18/11 (Max) : le doublement du jeudi : le 2e compte d'une ligne validée OUI (doubles_jeudi).
+        if (acces.role !== "admin") return json({ ok: false, error: "réservé à Max" }, 403);
+        return json(await doubleJeudi(supabase, String(body.id ?? "")));
       case "recrutement":
         return json(await enregistrerRecrutement(supabase, body));
       case "rappel_lundi": {
@@ -569,6 +573,88 @@ async function doubleCreer(supabase: Supabase, propositionId: string) {
   const cree = await creerDeuxieme(supabase, propositionId);
   await supabase.from("posteur_messages").update({ erreur: cree.ok ? null : cree.error }).eq("id", m.id);
   return cree;
+}
+
+/** 18/11 : ce que le posteur lit sur son dashboard quand Max valide son 2e compte le jeudi (traduit ensuite). */
+export function texteDoubleJeudi(handle: string | null, lundi: string): string {
+  const compte = handle ? `@${handle.replace(/^@/, "")}` : "your account";
+  const jour = new Date(`${lundi}T12:00:00Z`).toLocaleDateString("en-GB", { day: "numeric", month: "short", timeZone: "UTC" });
+  return `Good news: ${compte} is doing great, so you now have a 2nd TikTok account on your dashboard. ` +
+    `Create it and start its warm-up today: it starts posting on Monday ${jour}. From that week, your weekly payment covers your 2 accounts.`;
+}
+
+/**
+ * 18/11 (Max) : le doublement du jeudi. Une ligne validée OUI (doubles_jeudi, statut a_creer) : le 2e compte est créé
+ * (même langue et pays, le label choisi, son application), le posteur est prévenu sur son dashboard dans sa langue ;
+ * il démarre le lendemain de son warm-up, avec la cohorte du lundi. Deux clics ne créent pas deux comptes.
+ */
+async function doubleJeudi(supabase: Supabase, id: string): Promise<{ ok: boolean; error?: string; compteId?: string; deja?: boolean }> {
+  if (!/^[0-9a-f-]{36}$/.test(id)) return { ok: false, error: "id invalide" };
+  const { data: d, error } = await supabase.from("doubles_jeudi")
+    .select("id, jeudi, compte_id, poster_id, statut, label_choisi_id, label_propose_id, nouveau_compte_id").eq("id", id).maybeSingle();
+  if (error) throw error;
+  if (!d) return { ok: false, error: "proposition introuvable" };
+  if (d.statut === "cree" && d.nouveau_compte_id) return { ok: true, compteId: String(d.nouveau_compte_id), deja: true };
+  if (d.statut !== "a_creer") return { ok: false, error: "pas validée (OUI), ou annulée" };
+  // Réserver : un seul appel crée le compte.
+  const { data: reserve } = await supabase.from("doubles_jeudi").update({ erreur: "création en cours" })
+    .eq("id", id).eq("statut", "a_creer").is("erreur", null).select("id");
+  if (!reserve?.length) return { ok: false, error: "création déjà en cours" };
+  const echec = async (m: string) => {
+    await supabase.rpc("jeudi_double_erreur", { p_id: id, p_erreur: m });
+    return { ok: false, error: m };
+  };
+  try {
+    const labelId = (d.label_choisi_id ?? d.label_propose_id) as string | null;
+    if (!labelId) return await echec("aucun label choisi pour le 2e compte");
+    const { data: ancien, error: e1 } = await supabase.from("comptes").select("id, langue, pays, posts_par_jour, handle_tiktok").eq("id", d.compte_id).single();
+    if (e1) throw e1;
+    const { data: label, error: e2 } = await supabase.from("labels").select("id, application_id").eq("id", labelId).single();
+    if (e2) throw e2;
+    const { data: app } = await supabase.from("applications").select("slug").eq("id", label.application_id).maybeSingle();
+    const slug = String(app?.slug ?? "sophia");
+    const cree = await appelerManageUsers({
+      action: "ajouter_compte",
+      userId: d.poster_id,
+      type_compte: "perso",
+      langue: ancien.langue,
+      ...(ancien.pays ? { pays: ancien.pays } : {}),
+      ...(ancien.posts_par_jour ? { posts_par_jour: ancien.posts_par_jour } : {}),
+      parts_applications: { [slug]: 100 },
+      label_id: labelId,
+    });
+    if (!cree.ok) {
+      return await echec(cree.incertain ? `création incertaine (${cree.error}) : vérifier les comptes du posteur avant de recommencer` : cree.error);
+    }
+    const { error: e3 } = await supabase.rpc("jeudi_double_cree", { p_id: id, p_compte: cree.compteId });
+    if (e3) throw e3;
+    // Le posteur est prévenu sur son dashboard (pop-up « info »), dans sa langue.
+    const lundi = ajouterJours(String(d.jeudi), 4);
+    const { data: langue } = await supabase.rpc("parrainage_langue_pays", { p_pays: ancien.pays });
+    const en = texteDoubleJeudi(ancien.handle_tiktok, lundi);
+    const texte = await traduireDouble(en, typeof langue === "string" ? langue : null);
+    await supabase.from("posteur_messages").upsert(
+      { poster_id: d.poster_id, compte_id: cree.compteId, type: "info", semaine: lundi, texte, visible_de: new Date().toISOString() },
+      { onConflict: "poster_id,type,semaine", ignoreDuplicates: true },
+    );
+    return { ok: true, compteId: cree.compteId };
+  } catch (e) {
+    return await echec(messageErreur(e));
+  }
+}
+
+async function traduireDouble(texte: string, langue: string | null): Promise<string> {
+  const l = (langue ?? "en").toLowerCase();
+  if (!l || l.startsWith("en")) return texte;
+  try {
+    const r = (await generateTextFast(
+      `Translate this message into the language whose ISO code is "${l}". Keep "@" handles, "TikTok" and dates' numbers unchanged. ` +
+        `Same meaning, natural and short, nothing added. Reply with the translation only.\n\n${texte}`,
+    )).trim().replace(/^["«“]+|["»”]+$/g, "");
+    return r && r.length < texte.length * 3 ? r : texte;
+  } catch {
+    return texte;
+  }
 }
 
 /**

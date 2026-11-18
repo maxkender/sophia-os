@@ -1,0 +1,89 @@
+/**
+ * 18/11 (Max) : le doublement du jeudi (0756). Les propositions de la semaine (40 au plus), la décision OUI / NON
+ * avec le label du 2e compte, la création du compte (fonction ckd), et ce qui démarre lundi par pays.
+ */
+import { invoke } from "@/features/moteur/api";
+import { supabase } from "@/lib/supabase/client";
+
+export interface PropositionDouble {
+  id: string;
+  compte_id: string;
+  poster_id: string;
+  poster_nom: string | null;
+  hm_nom: string | null;
+  pays: string | null;
+  langue: string | null;
+  handle: string | null;
+  label_nom: string | null;
+  app_nom: string | null;
+  star: boolean;
+  vues_med: number | null;
+  bons: number | null;
+  posts: number | null;
+  meilleur_url: string | null;
+  meilleur_vues: number | null;
+  label_propose_id: string | null;
+  label_choisi_id: string | null;
+  decision: "oui" | "non" | null;
+  statut: "propose" | "refuse" | "a_creer" | "cree" | "erreur" | "annule";
+  erreur: string | null;
+  nouveau_compte_id: string | null;
+  rang: number | null;
+}
+
+export interface LabelPossible {
+  label_id: string;
+  nom: string;
+  app_nom: string | null;
+  autre_app: boolean;
+  vues_med: number | null;
+}
+
+export interface LigneLundi {
+  pays: string;
+  nouveaux: number;
+  doubles: number;
+  total: number;
+}
+
+async function rpc<T>(nom: string, args: Record<string, unknown>): Promise<T> {
+  const { data, error } = await supabase.rpc(nom, args);
+  if (error) throw new Error(error.message);
+  return data as T;
+}
+
+export const lirePropositions = (jeudi: string) => rpc<PropositionDouble[]>("jeudi_doubles_lire", { p_jeudi: jeudi }).then((d) => d ?? []);
+export const preparerPropositions = (jeudi: string) => rpc<number>("jeudi_doubles_preparer", { p_jeudi: jeudi });
+export const lireLabelsPossibles = (compte: string) => rpc<LabelPossible[]>("jeudi_labels_possibles", { p_compte: compte }).then((d) => d ?? []);
+export const decider = (id: string, decision: "oui" | "non", label: string | null) =>
+  rpc<void>("jeudi_double_decider", { p_id: id, p_decision: decision, p_label: label });
+export const toutRefuser = (jeudi: string) => rpc<number>("jeudi_doubles_tout_refuser", { p_jeudi: jeudi });
+export const lireLundi = (jeudi: string) => rpc<LigneLundi[]>("jeudi_lundi_resume", { p_jeudi: jeudi }).then((d) => d ?? []);
+export const creerDeuxieme = (id: string) => invoke<{ ok: boolean; error?: string }>("ckd", { action: "double_jeudi", id });
+
+/** Le jeudi (AAAA-MM-JJ) de la semaine d'un jour donné. */
+export function jeudiDeLaSemaine(jour: string): string {
+  const d = new Date(`${jour}T12:00:00Z`);
+  const isodow = ((d.getUTCDay() + 6) % 7) + 1;
+  d.setUTCDate(d.getUTCDate() + (4 - isodow));
+  return d.toISOString().slice(0, 10);
+}
+
+export const ajouterJours = (jour: string, n: number): string => {
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+};
+
+/** Les compteurs du haut : proposés, OUI, NON, à décider. */
+export function compteurs(l: PropositionDouble[]) {
+  return {
+    total: l.length,
+    oui: l.filter((p) => p.decision === "oui").length,
+    non: l.filter((p) => p.decision === "non").length,
+    reste: l.filter((p) => !p.decision).length,
+  };
+}
+
+export const formaterVues = (n: number | null | undefined): string =>
+  n == null ? "—" : n >= 1_000_000 ? `${(n / 1_000_000).toFixed(1).replace(".0", "")} M` : n >= 1_000 ? `${(n / 1_000).toFixed(1).replace(".0", "")} k` : String(n);

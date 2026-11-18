@@ -12,12 +12,20 @@
  "titre": {
   "fr": "tout ce que j’ai appris en révisant à la bibli",
   "es": "todo lo que aprendí estudiando en la biblio",
-  "tr": "kütüphanede çalışırken öğrendiklerim"
+  "tr": "kütüphanede çalışırken öğrendiklerim",
+  "en": "everything i learned studying at the library",
+  "de": "alles, was ich beim Lernen in der Bibliothek gelernt habe",
+  "it": "tutto quello che ho imparato studiando in biblioteca",
+  "pt-BR": "tudo o que eu aprendi estudando na biblioteca"
  },
  "legendes": {
   "fr": "à tester dès ta prochaine session 📚 #bibliotheque #revisions #studytok #thatgirl #etudiante",
   "es": "pruébalo en tu próxima sesión 📚 #biblioteca #estudiar #studytok #thatgirl #universidad",
-  "tr": "bir sonraki çalışmanda dene 📚 #kütüphane #ders #studytok #thatgirl #üniversite"
+  "tr": "bir sonraki çalışmanda dene 📚 #kütüphane #ders #studytok #thatgirl #üniversite",
+  "en": "try it on your next session 📚 #library #studying #studytok #thatgirl #college",
+  "de": "probier’s bei deiner nächsten Session 📚 #bibliothek #lernen #studytok #thatgirl #uni",
+  "it": "provalo alla prossima sessione 📚 #biblioteca #studiare #studytok #thatgirl #università",
+  "pt-BR": "testa na sua próxima sessão 📚 #biblioteca #estudos #studytok #thatgirl #faculdade"
  },
  "musique": {
   "titre": "domestic wolves",
@@ -75,6 +83,62 @@
      "interligne": 1,
      "y": 770
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "what i learned",
+     "lignes": [
+      "STUDYING AT",
+      "THE LIBRARY"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 70,
+     "y": 1080
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "was ich gelernt habe",
+     "lignes": [
+      "BEIM LERNEN IN",
+      "DER BIBLIOTHEK"
+     ],
+     "taille": 110,
+     "interligne": 1,
+     "taille_script": 70,
+     "y": 1080
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "cosa ho imparato",
+     "lignes": [
+      "STUDIANDO IN",
+      "BIBLIOTECA"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 70,
+     "y": 1080
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "o que eu aprendi",
+     "lignes": [
+      "ESTUDANDO NA",
+      "BIBLIOTECA"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "taille_script": 70,
+     "y": 1080
+    }
    }
   },
   {
@@ -125,6 +189,58 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "switch seats for each subject.",
+     "texte": "one spot per class: your brain files the information better.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "wechsle den Platz für jedes Fach.",
+     "texte": "eine Ecke pro Fach: dein Kopf sortiert die Infos besser.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "cambia posto per ogni materia.",
+     "texte": "un angolo per ogni corso: il cervello ordina meglio le informazioni.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "troque de lugar a cada matéria.",
+     "texte": "um canto pra cada aula: seu cérebro organiza melhor as informações.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   },
   {
@@ -169,6 +285,58 @@
      "y": 300,
      "titre": "mümkünse bilgisayarını evde bırak.",
      "texte": "kâğıt üzerinde «sadece 2 dakika» diye sekme açamazsın.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "leave your laptop at home if you can.",
+     "texte": "on paper, you can’t open a tab for “just 2 minutes”.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "lass deinen Laptop zu Hause, wenn du kannst.",
+     "texte": "auf Papier kannst du keinen Tab „nur 2 Minuten“ öffnen.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "lascia il pc a casa se puoi.",
+     "texte": "sulla carta non puoi aprire una scheda “solo 2 minuti”.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "deixe o notebook em casa se puder.",
+     "texte": "no papel, não tem como abrir uma aba “só 2 minutinhos”.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -248,6 +416,98 @@
       "zoom": 1
      }
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "do mini quizzes between books.",
+     "texte": "i put the chapter into micabo and test myself. 5 min, then on to the next one.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "mach Mini-Quiz zwischen zwei Büchern.",
+     "texte": "ich packe das Kapitel in micabo und teste mich. 5 Min., dann das nächste.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "fai mini quiz tra un libro e l’altro.",
+     "texte": "metto il capitolo su micabo e mi metto alla prova. 5 min, poi passo al successivo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 150,
+     "titre": "faça mini quizzes entre um livro e outro.",
+     "texte": "coloco o capítulo no micabo e me testo. 5 min e passo pro próximo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    },
+    "photo": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.45,
+      "y": 1,
+      "zoom": 1
+     }
+    }
    }
   },
   {
@@ -292,6 +552,58 @@
      "y": 300,
      "titre": "bir arkadaşınla git ama sessizce.",
      "texte": "konuşmadan birbirinizi kollarsınız. kimse telefonunu çıkarmaya cesaret edemez.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "come with a friend, but in silence.",
+     "texte": "you keep each other in check without talking. nobody dares pull out their phone.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "komm mit einer Freundin, aber leise.",
+     "texte": "ihr passt aufeinander auf, ohne zu reden. keine traut sich, das Handy rauszuholen.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "vieni con un’amica, ma in silenzio.",
+     "texte": "vi controllate senza parlare. nessuna osa tirare fuori il telefono.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "vá com uma amiga, mas em silêncio.",
+     "texte": "vocês se vigiam sem falar. ninguém tem coragem de pegar o celular.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -348,12 +660,68 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "use the library’s books.",
+     "texte": "another textbook often explains it better than your notes.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "nutz die Bücher der Bibliothek.",
+     "texte": "ein anderes Lehrbuch erklärt es oft besser als dein Skript.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "approfitta dei libri della biblioteca.",
+     "texte": "un altro manuale spesso spiega meglio dei tuoi appunti.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "aproveite os livros da biblioteca.",
+     "texte": "outro livro muitas vezes explica melhor que a sua aula.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   }
  ],
  "mises_en_scene_notees": [
   "a83da81b-2434-485c-8069-f4db3b953794",
   "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
-  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49"
  ]
 }

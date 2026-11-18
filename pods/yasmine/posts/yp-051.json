@@ -12,12 +12,20 @@
  "titre": {
   "fr": "ce que ma grande sœur m’a dit avant mon bac",
   "es": "lo que me dijo mi hermana mayor antes de selectividad",
-  "tr": "ablamın sınavdan önce söyledikleri"
+  "tr": "ablamın sınavdan önce söyledikleri",
+  "en": "what my big sister told me before finals",
+  "de": "was meine große Schwester mir vor dem Abi gesagt hat",
+  "it": "cosa mi ha detto mia sorella maggiore prima della maturità",
+  "pt-BR": "o que minha irmã mais velha me disse antes do vestibular"
  },
  "legendes": {
   "fr": "elle avait raison sur tout 🤍 #bac #terminale #studytok #thatgirl #conseils",
   "es": "tenía razón en todo 🤍 #selectividad #bachillerato #studytok #thatgirl #consejos",
-  "tr": "her konuda haklıymış 🤍 #yks #sınav #studytok #thatgirl #tavsiye"
+  "tr": "her konuda haklıymış 🤍 #yks #sınav #studytok #thatgirl #tavsiye",
+  "en": "she was right about everything 🤍 #finals #seniorYear #studytok #thatgirl #advice",
+  "de": "sie hatte mit allem recht 🤍 #abitur #abi #studytok #thatgirl #tipps",
+  "it": "aveva ragione su tutto 🤍 #maturità #scuola #studytok #thatgirl #consigli",
+  "pt-BR": "ela tinha razão em tudo 🤍 #vestibular #enem #studytok #thatgirl #dicas"
  },
  "musique": {
   "titre": "original sound",
@@ -98,6 +106,71 @@
      "texte_bas_x": 540,
      "texte_bas_taille": 40
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "WHAT MY",
+      "BIG SISTER",
+      "TOLD ME"
+     ],
+     "taille": 124,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "before finals (and she was right)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "WAS MEINE",
+      "GROSSE",
+      "SCHWESTER",
+      "MIR SAGTE"
+     ],
+     "taille": 104,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "vor dem Abi (und sie hatte recht)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "COSA MI HA",
+      "DETTO MIA",
+      "SORELLA"
+     ],
+     "taille": 116,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "prima della maturità (e aveva ragione)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "O QUE MINHA",
+      "IRMÃ MAIS VELHA",
+      "ME DISSE"
+     ],
+     "taille": 100,
+     "interligne": 1,
+     "y": 520,
+     "texte_bas": "antes do vestibular (e ela tinha razão)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 40
+    }
    }
   },
   {
@@ -162,6 +235,70 @@
      "couleur": "jaune",
      "sous": [
       "yarım uygulanan plan, hiç plan olmamasından iyidir."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "make a plan,",
+      "even an imperfect one."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "a plan you half follow beats no plan."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach dir einen Plan,",
+      "auch einen unperfekten."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "ein halb befolgter Plan ist besser als keiner."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "fatti un programma,",
+      "anche imperfetto."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un piano seguito a metà è meglio di nessun piano."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "faça um cronograma,",
+      "mesmo imperfeito."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "um plano seguido pela metade é melhor que nenhum."
      ],
      "taille_sous": 28
     }
@@ -255,6 +392,110 @@
       "y": 0.45
      }
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "take a quiz break",
+      "between subjects."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "i put my lessons into micabo: 5 questions,",
+      "and i know if i can move on."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/en/parcours-iphone-8672a7fd.png",
+     "mise_en_scene": "8672a7fd-0cf0-438d-a238-9dc926276627",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "mach eine Quizpause",
+      "zwischen zwei Fächern."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "ich packe meinen Stoff in micabo: 5 Fragen,",
+      "und ich weiß, ob ich weitermachen kann."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/de/parcours-iphone-6faec9d2.png",
+     "mise_en_scene": "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "fai una pausa quiz",
+      "tra una materia e l’altra."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "metto le lezioni su micabo: 5 domande,",
+      "e so se posso andare avanti."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/it/parcours-iphone-f696da01.png",
+     "mise_en_scene": "f696da01-96bf-44da-8365-2c78e2c517f0",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "faça uma pausa de quiz",
+      "entre uma matéria e outra."
+     ],
+     "x": 540,
+     "y": 54,
+     "taille": 40,
+     "couleur": "brun",
+     "sous": [
+      "coloco minhas aulas no micabo: 5 perguntas,",
+      "e sei se posso seguir."
+     ],
+     "taille_sous": 26
+    },
+    "photo_bas": {
+     "media_id": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/mises-en-scene/micabo/pt/parcours-iphone-c041df08.png",
+     "mise_en_scene": "c041df08-1ae1-4879-b6c6-3a5891009c49",
+     "cadrage": {
+      "x": 0.5,
+      "y": 0.45
+     }
+    }
    }
   },
   {
@@ -319,6 +560,70 @@
      "couleur": "jaune",
      "sous": [
       "sevmediğin dersi bile: her puan önemli."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "don’t give up",
+      "on any subject."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "not even the one you hate: every point counts."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "gib kein Fach",
+      "auf."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "auch nicht das, das du hasst: jeder Punkt zählt."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "non mollare",
+      "nessuna materia."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "nemmeno quella che odi: ogni punto conta."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "não abandone",
+      "nenhuma matéria."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "nem a que você odeia: cada ponto conta."
      ],
      "taille_sous": 28
     }
@@ -389,6 +694,70 @@
      ],
      "taille_sous": 28
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "keep some evenings",
+      "study-free."
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "one friday off a week, no guilt."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "halte dir Abende",
+      "ohne Lernen frei."
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "ein freier Freitag pro Woche, ohne schlechtes Gewissen."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "tieniti delle serate",
+      "senza studio."
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "un venerdì libero a settimana, senza sensi di colpa."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "guarde algumas noites",
+      "sem estudo."
+     ],
+     "x": 540,
+     "y": 1400,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "uma sexta livre por semana, sem culpa."
+     ],
+     "taille_sous": 28
+    }
    }
   },
   {
@@ -453,6 +822,70 @@
      "couleur": "jaune",
      "sous": [
       "sınav belgesi, kalemler, su: sabah sıfır stres."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "pack your things",
+      "the night before."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "exam pass, pens, water: zero stress in the morning."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "pack deine Sachen",
+      "am Vorabend."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "Ausweis, Stifte, Wasser: null Stress am Morgen."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "prepara le tue cose",
+      "la sera prima."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "documento, penne, acqua: zero stress la mattina."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "arrume suas coisas",
+      "na véspera."
+     ],
+     "x": 540,
+     "y": 1040,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "documento, canetas, água: zero estresse de manhã."
      ],
      "taille_sous": 28
     }
@@ -523,12 +956,80 @@
      ],
      "taille_sous": 28
     }
+   },
+   "en": {
+    "legende": {
+     "lignes": [
+      "believe in yourself",
+      "more than your grades."
+     ],
+     "x": 540,
+     "y": 1300,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "on exam day, anything can still change."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "de": {
+    "legende": {
+     "lignes": [
+      "glaub an dich",
+      "mehr als an deine Noten."
+     ],
+     "x": 540,
+     "y": 1300,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "am Prüfungstag kann sich noch alles ändern."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "it": {
+    "legende": {
+     "lignes": [
+      "credi in te",
+      "più che nei tuoi voti."
+     ],
+     "x": 540,
+     "y": 1300,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "il giorno dell’esame tutto può ancora cambiare."
+     ],
+     "taille_sous": 28
+    }
+   },
+   "pt-BR": {
+    "legende": {
+     "lignes": [
+      "acredite em você",
+      "mais que nas suas notas."
+     ],
+     "x": 540,
+     "y": 1300,
+     "taille": 42,
+     "couleur": "jaune",
+     "sous": [
+      "no dia da prova, tudo ainda pode mudar."
+     ],
+     "taille_sous": 28
+    }
    }
   }
  ],
  "mises_en_scene_notees": [
   "a83da81b-2434-485c-8069-f4db3b953794",
   "42eefd6b-3616-4cc5-b459-bac326ebb5e0",
-  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae"
+  "6dcb1c35-5a94-4a23-bd1d-b1e10d1e3fae",
+  "8672a7fd-0cf0-438d-a238-9dc926276627",
+  "6faec9d2-0ef8-41d9-8c98-fa481af972ed",
+  "f696da01-96bf-44da-8365-2c78e2c517f0",
+  "c041df08-1ae1-4879-b6c6-3a5891009c49"
  ]
 }

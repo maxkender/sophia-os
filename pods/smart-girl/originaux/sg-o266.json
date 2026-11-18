@@ -1,0 +1,51 @@
+{
+ "source_id": "sg-o266",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "13122704-71ee-4b94-beb2-36f5dddbf98e",
+ "titre": "the 4 time rules that separate average from exceptional #timemanagement #productivity #smartgirl #discipline #focus",
+ "musique_titre": "music to watch boys to x i wanna be yours mashup",
+ "musique_url": "https://www.tiktok.com/music/music-to-watch-boys-to-x-i-wanna-be-yours-mashup-7406543618254703393",
+ "inspirations": [
+  "b053325f-c2e0-4f25-bfd4-6bd09358eddc"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 2 de la boîte (parent 13122704, langue source it) : accroche reformulée (« the 4 time rules that separate average from exceptional »), différente de sg-o247 ; les quatre règles du parent. Sophia comme rituel à la place du scroll sur les temps morts (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "40f81ce3",
+   "texte_overlay": "the 4 time rules that separate\naverage from exceptional",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d29b78df",
+   "texte_overlay": "rule 1: two minutes\n\nif it takes less than\ntwo minutes, do it now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0fc39a5a",
+   "texte_overlay": "rule 2: the frog first\n\nthe hardest task\nbefore anything else.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4391d2d8",
+   "texte_overlay": "rule 3: no dead time\n\nqueues and trains are for learning,\nnot for scrolling.",
+   "texte_sophia": "rule 3: no dead time\n\nin queues and trains, i open\nan app like Sophia instead\nof scrolling.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "197014e3",
+   "texte_overlay": "rule 4: 52/17\n\n52 minutes of focus,\n17 minutes of real rest.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f43bce24",
+   "texte_overlay": "which one will you\nstart with?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7601798463872847125/6.jpg"
+  }
+ ]
+}

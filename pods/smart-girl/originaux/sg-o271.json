@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o271",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c44bc19e-e006-4bb4-8484-10650d618e4e",
+ "titre": "habits everyone treats as normal that are secretly toxic #toxichabits #selfimprovement #smartgirl #mindset #habits",
+ "musique_titre": "salvatore",
+ "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 7 de la boîte (parent c44bc19e, langue source el) : accroche reformulée (« habits everyone treats as normal that are secretly toxic »), différente de sg-o114 et sg-o252 ; habitudes du parent une par slide. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "36ca5e4a",
+   "texte_overlay": "habits everyone treats as normal\nthat are secretly toxic",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5f8949ce",
+   "texte_overlay": "checking your phone while\nsomeone is talking",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ee54b57e",
+   "texte_overlay": "bonding only through complaints",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b68559a0",
+   "texte_overlay": "gossip as entertainment",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "5e9ee975",
+   "texte_overlay": "pretending to know everything\n\ncuriosity is more attractive.",
+   "texte_sophia": "pretending to know everything\n\ncuriosity is more attractive. i learn\none new thing a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f3dcd84e",
+   "texte_overlay": "saying yes to everything",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "766014c6",
+   "texte_overlay": "losing sleep to look busy",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "18ba41d8",
+   "texte_overlay": "scrolling until 2am",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "38aa8b39",
+   "texte_overlay": "which one are you quitting?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/9.jpg"
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o275",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "1c4bf22e-aa3b-4986-811f-8b4976ac99f9",
+ "titre": "୨୧ 5 more words to help expand your vocabulary #vocabulary #words #smartgirl #english #wordoftheday",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "1c4bf22e-aa3b-4986-811f-8b4976ac99f9"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 21 de la boîte (parent 1c4bf22e, langue source en) : accroche du parent mot pour mot avec ୨୧. Les mots du parent (lugubrious, ephemeral, peregrine, redolent) et sagacious ; prononciation et exemple comme lui. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c638e67a",
+   "texte_overlay": "୨୧ 5 more words to help\nexpand your vocabulary",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663156839823052054/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4a318683",
+   "texte_overlay": "lugubrious\n(loo-GOO-bree-us)\n\nlooking extremely sad\nand gloomy.\n\nhe wore a lugubrious smile.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663156839823052054/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8269c645",
+   "texte_overlay": "ephemeral\n(ih-FEM-er-ul)\n\nlasting a very short time.\n\nthe sunset's beauty\nwas ephemeral.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663156839823052054/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f54a0962",
+   "texte_overlay": "sagacious\n(suh-GAY-shus)\n\nwise, with sharp judgement.\n\nher sagacious advice\nsaved the day.",
+   "texte_sophia": "sagacious\n(suh-GAY-shus)\n\nwise, with sharp judgement.\n\nshe got sagacious one lesson a\nday on an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663156839823052054/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0de98481",
+   "texte_overlay": "peregrine\n(PAIR-uh-grin)\n\ntravelling far from\nplace to place.\n\na peregrine scholar.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663156839823052054/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7fe84db0",
+   "texte_overlay": "redolent\n(RED-uh-lent)\n\nstrongly reminding you\nof something.\n\nthe library was redolent\nof old paper.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663156839823052054/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "65c07665",
+   "texte_overlay": "follow for more\ndaily words",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663156839823052054/7.jpg"
+  }
+ ]
+}

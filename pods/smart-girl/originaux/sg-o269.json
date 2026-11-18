@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o269",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ec38fc98-99a1-45ef-874b-086a4061567c",
+ "titre": "things i wish i'd started before 18 #teenagers #habits #smartgirl #adviceforteens #growingup",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "632d2be2-8d6f-4ec6-8753-1c4a41516421"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 5 de la boîte (parent ec38fc98, langue source tr) : accroche reformulée (« things i wish i'd started before 18 »), différente de sg-o230 et sg-o250 ; conseils du parent. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d09146b9",
+   "texte_overlay": "things i wish i'd started\nbefore 18",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9117e710",
+   "texte_overlay": "a journal\n\nmy 25-year-old self\nwould love to read it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "912cfca7",
+   "texte_overlay": "cooking three real meals",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "fdfddd2f",
+   "texte_overlay": "learning beyond school",
+   "texte_sophia": "learning beyond school\n\nfive minutes a day on an app\nlike Sophia: art, history, science.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ab0b139c",
+   "texte_overlay": "saying no without\nlong excuses",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "186d6ae3",
+   "texte_overlay": "taking a train\nsomewhere alone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "078a2890",
+   "texte_overlay": "protecting my sleep",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "f360afde",
+   "texte_overlay": "send this to someone\nwho's 16",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  }
+ ]
+}

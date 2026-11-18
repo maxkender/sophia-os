@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o259",
+ "type_bleo": "full_test",
+ "titre": "architectural styles you can learn to recognise #architecture #arthistory #smartgirl #travel #culture",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Full test 1/6 (la jauge en demande 6 sur 19) : accroche jamais faite chez nous (« architectural » absent des accroches de donnees/label.json). Accroches écrites : « architectural styles you can learn to recognise » (retenue : savoir concret qui sert en voyage), « how to read a building » (écartée : trop abstraite), « old buildings explained » (écartée : plate). Repères vérifiés : gothique (arcs brisés, arcs-boutants), baroque (courbes, dorures, théâtre), néoclassique (colonnes, symétrie), art nouveau (lignes végétales), art déco (géométrie des années 1920), brutalisme (béton brut). Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "25fbaf75",
+   "texte_overlay": "architectural styles you\ncan learn to recognise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ec3ef0cb",
+   "texte_overlay": "gothic\n\npointed arches, flying buttresses,\nwindows that reach for the sky.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d2379f73",
+   "texte_overlay": "baroque\n\ncurves, gold and drama.\nbuilt to impress.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "24ec790d",
+   "texte_overlay": "neoclassical\n\ncolumns, symmetry, calm.\nancient greece, reborn.",
+   "texte_sophia": "neoclassical\n\ncolumns, symmetry, calm. i learned\nto spot it on an app like Sophia,\nfive minutes a day.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a1cf46f8",
+   "texte_overlay": "art nouveau\n\nflowing lines that look\nlike plants and vines.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "61eda726",
+   "texte_overlay": "art deco\n\nbold geometry and glamour\nof the 1920s.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "06498a14",
+   "texte_overlay": "brutalism\n\nraw concrete, heavy shapes,\nnothing hidden.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "78c0bbde",
+   "texte_overlay": "which one is your favourite?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

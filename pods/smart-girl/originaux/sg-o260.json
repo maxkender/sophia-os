@@ -1,0 +1,68 @@
+{
+ "source_id": "sg-o260",
+ "type_bleo": "full_test",
+ "titre": "what each planet is named after #planets #astronomy #mythology #smartgirl #space",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Full test 2/6 (la jauge en demande 6 sur 19) : accroche jamais faite chez nous (« planet » absent des accroches de donnees/label.json). Accroches écrites : « what each planet is named after » (retenue : astronomie + mythologie, curiosité), « the gods hiding in our solar system » (écartée : moins claire), « planet facts » (écartée : plate). Faits vérifiés : Mercure messager rapide, Vénus déesse de l'amour et planète la plus brillante, Mars dieu de la guerre et planète rouge, Jupiter roi des dieux et plus grande planète, Saturne dieu des semailles et du temps, Uranus seule planète au nom d'un dieu grec, Neptune dieu de la mer. Sophia sur le dernier item à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f7346670",
+   "texte_overlay": "what each planet\nis named after",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a80d9644",
+   "texte_overlay": "mercury\n\nthe messenger god:\nthe fastest planet around the sun.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "ceddc58e",
+   "texte_overlay": "venus\n\nthe goddess of love:\nthe brightest planet in our sky.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "00a04ce5",
+   "texte_overlay": "mars\n\nthe god of war:\nred like blood.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d611c7d2",
+   "texte_overlay": "jupiter\n\nthe king of the gods:\nthe largest planet of all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1ad60bf4",
+   "texte_overlay": "saturn\n\nthe roman god of\nharvest and time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "42fdaef0",
+   "texte_overlay": "uranus\n\nthe only one named after\na greek god: the sky itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "bc2e36c2",
+   "texte_overlay": "neptune\n\nthe god of the sea:\na deep blue world.",
+   "texte_sophia": "neptune\n\nthe god of the sea. i learn one\nstory like this a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "8e85e3c5",
+   "texte_overlay": "save this for your\nnext starry night",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/9.jpg"
+  }
+ ]
+}

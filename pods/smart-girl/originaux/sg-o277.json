@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o277",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "4329e982-d779-4cfc-ba6e-4120243b5a1e",
+ "titre": "my non negotiables as a law student #lawstudent #studytok #smartgirl #lawschool #studyessentials",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "4329e982-d779-4cfc-ba6e-4120243b5a1e"
+ ],
+ "notes": "cta C. Déclinaison G1 de la ligne 30 de la boîte (parent 4329e982, langue source sr) : accroche du parent mot pour mot. Les essentiels du parent (casque contre le bruit, agenda papier, un calendrier pour chaque échéance, surligneurs) sans nommer d'autre appli, et deux neufs (un café, une affaire célèbre lue chaque jour). Sophia comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "972fdc23",
+   "texte_overlay": "my non negotiables\nas a law student",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "30e872ba",
+   "texte_overlay": "noise-cancelling headphones\n\n• block the noise\n• study anywhere",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "96ab2c56",
+   "texte_overlay": "a paper planner\n\n• everything in one place",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f0301a66",
+   "texte_overlay": "one calendar for every deadline\n\n• never miss an exam",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b2850eea",
+   "texte_overlay": "highlighters\n\n• one colour per topic\n• faster revision",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e9699d1c",
+   "texte_overlay": "a strong coffee",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e6470a99",
+   "texte_overlay": "ten minutes of learning\ninstead of scrolling",
+   "texte_sophia": "ten minutes on an app like Sophia\ninstead of scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "640b5c23",
+   "texte_overlay": "what's yours?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670913934672563488/4.jpg"
+  }
+ ]
+}

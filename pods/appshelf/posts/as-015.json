@@ -1,0 +1,212 @@
+{
+ "id": "as-015",
+ "fond": "images/c15-couv.jpg",
+ "titre": {
+  "en": "cool apps you need to try",
+  "es": "apps geniales que tienes que probar",
+  "it": "app fighe da provare subito",
+  "pt-BR": "apps incríveis pra testar já"
+ },
+ "legendes": {
+  "en": "from a vintage film cam to collage moodboards, my favorite cool apps right now 📸 #cuteapps #apprecommendations #aesthetic #ios",
+  "es": "de una cámara analógica a moodboards de collage, mis apps favoritas ahora mismo 📸 #appsbonitas #appsrecomendadas #aesthetic #ios",
+  "it": "da una fotocamera vintage ai moodboard di collage, le mie app preferite del momento 📸 #appcarine #appconsigliate #aesthetic #ios",
+  "pt-BR": "de uma câmera analógica a moodboards de colagem, meus apps favoritos do momento 📸 #appsfofos #dicasdeapps #aesthetic #ios"
+ },
+ "musique": {
+  "titre": "pretty girl - Mofeny",
+  "url": "https://www.tiktok.com/music/original-7618105435387643905"
+ },
+ "notes": "Preuve : « cool apps / you need to try » (13,4 k, 05/11 ; 4,1 % d'enregistrements), style carte. Applis vérifiées us, es, it, br : Dazz Cam, Sophia (2e, cta C), Shuffles, Shazam, Unfold. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c15-couv.jpg"
+    ],
+    "titre": "cool apps",
+    "sous": "you need to try"
+   },
+   "es": {
+    "photos": [
+     "images/c15-couv.jpg"
+    ],
+    "titre": "apps geniales",
+    "sous": "que tienes que probar"
+   },
+   "it": {
+    "photos": [
+     "images/c15-couv.jpg"
+    ],
+    "titre": "app fighe",
+    "sous": "da provare subito"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c15-couv.jpg"
+    ],
+    "titre": "apps incríveis",
+    "sous": "pra testar já"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Dazz Cam",
+    "dossier": "images/applis/dazz-cam",
+    "note": "Turns your phone into a vintage film camera, with date stamps and light leaks. Every photo feels like a memory",
+    "fond": "images/c15-film.jpg"
+   },
+   "es": {
+    "nom": "Dazz Cam",
+    "dossier": "images/applis/dazz-cam",
+    "note": "Convierte tu móvil en una cámara analógica vintage, con fecha y destellos de luz. Cada foto parece un recuerdo",
+    "fond": "images/c15-film.jpg"
+   },
+   "it": {
+    "nom": "Dazz Cam",
+    "dossier": "images/applis/dazz-cam",
+    "note": "Trasforma il telefono in una macchina fotografica vintage, con data e luci soffuse. Ogni foto sembra un ricordo",
+    "fond": "images/c15-film.jpg"
+   },
+   "pt-BR": {
+    "nom": "Dazz Cam",
+    "dossier": "images/applis/dazz-cam",
+    "note": "Transforma seu celular numa câmera analógica vintage, com data e vazamentos de luz. Cada foto parece uma lembrança",
+    "fond": "images/c15-film.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done",
+    "fond": "images/c15-cafe.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo",
+    "fond": "images/c15-cafe.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito",
+    "fond": "images/c15-cafe.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto",
+    "fond": "images/c15-cafe.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Shuffles",
+    "dossier": "images/applis/shuffles",
+    "note": "Pinterest's collage app: cut out anything and make moodboards for outfits, rooms or your dream year",
+    "fond": "images/c15-collage.jpg"
+   },
+   "es": {
+    "nom": "Shuffles",
+    "dossier": "images/applis/shuffles",
+    "note": "La app de collages de Pinterest: recorta lo que quieras y crea moodboards de outfits, habitaciones o tu año soñado",
+    "fond": "images/c15-collage.jpg"
+   },
+   "it": {
+    "nom": "Shuffles",
+    "dossier": "images/applis/shuffles",
+    "note": "L'app di collage di Pinterest: ritagli qualsiasi cosa e crei moodboard di outfit, stanze o del tuo anno dei sogni",
+    "fond": "images/c15-collage.jpg"
+   },
+   "pt-BR": {
+    "nom": "Shuffles",
+    "dossier": "images/applis/shuffles",
+    "note": "O app de colagens do Pinterest: recorte o que quiser e monte moodboards de looks, quartos ou do seu ano dos sonhos",
+    "fond": "images/c15-collage.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Shazam",
+    "dossier": "images/applis/shazam",
+    "note": "Finally know the name of the song playing in the café, and save it straight to your playlist",
+    "fond": "images/c15-vinyle.jpg"
+   },
+   "es": {
+    "nom": "Shazam",
+    "dossier": "images/applis/shazam",
+    "note": "Por fin sabes cómo se llama la canción que suena en la cafetería, y la guardas directo en tu playlist",
+    "fond": "images/c15-vinyle.jpg"
+   },
+   "it": {
+    "nom": "Shazam",
+    "dossier": "images/applis/shazam",
+    "note": "Scopri finalmente il nome della canzone che suona al bar e salvala subito nella tua playlist",
+    "fond": "images/c15-vinyle.jpg"
+   },
+   "pt-BR": {
+    "nom": "Shazam",
+    "dossier": "images/applis/shazam",
+    "note": "Finalmente descubra o nome da música que está tocando no café e salve direto na sua playlist",
+    "fond": "images/c15-vinyle.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Unfold",
+    "dossier": "images/applis/unfold",
+    "note": "Pretty templates for stories and reels, so even a simple photo dump looks put together",
+    "fond": "images/c15-couv.jpg"
+   },
+   "es": {
+    "nom": "Unfold",
+    "dossier": "images/applis/unfold",
+    "note": "Plantillas bonitas para stories y reels, para que hasta un photo dump sencillo quede cuidado",
+    "fond": "images/c15-couv.jpg"
+   },
+   "it": {
+    "nom": "Unfold",
+    "dossier": "images/applis/unfold",
+    "note": "Template bellissimi per storie e reel, così anche un semplice photo dump sembra curato",
+    "fond": "images/c15-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Unfold",
+    "dossier": "images/applis/unfold",
+    "note": "Templates lindos pra stories e reels, pra até um photo dump simples ficar caprichado",
+    "fond": "images/c15-couv.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7704748268089117983",
+  "vues": 13400,
+  "publie_le": "2026-11-05",
+  "accroche": "cool apps you need to try"
+ }
+}

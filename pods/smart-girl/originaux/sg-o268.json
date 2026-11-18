@@ -1,0 +1,69 @@
+{
+ "source_id": "sg-o268",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "e0eabc10-4dec-47c1-bd9c-91ac40501ac4",
+ "titre": "etiquette laws nobody says out loud (but everyone notices) #etiquette #elegance #smartgirl #manners #grace",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7242352903993985818",
+ "inspirations": [
+  "70732d78-9991-421f-8ab3-292e196a5236"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 4 de la boîte (parent e0eabc10, langue source hu) : accroche reformulée (« etiquette laws nobody says out loud (but everyone notices) »), différente de sg-o229 et sg-o249 ; règles du parent une par slide. Sophia sur la dernière à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "e295b1e6",
+   "texte_overlay": "etiquette laws nobody says\nout loud (but everyone notices)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e2cfacc6",
+   "texte_overlay": "1. wait until everyone\nis served",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "4026990c",
+   "texte_overlay": "2. remember people's names",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "0777402d",
+   "texte_overlay": "3. never arrive empty-handed",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "1e85cf99",
+   "texte_overlay": "4. reply kindly, not quickly",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1dabb384",
+   "texte_overlay": "5. return what you borrow",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "88ab5f82",
+   "texte_overlay": "6. speak a little softer\nthan the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "df00d924",
+   "texte_overlay": "7. always have something\ninteresting to say\n\ni read one short story\nevery morning.",
+   "texte_sophia": "7. always have something\ninteresting to say\n\ni read one story every morning\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/8.jpg"
+  },
+  {
+   "position": 9,
+   "media_id": "8b094953",
+   "texte_overlay": "save this and pick one\nfor this week",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7682762456497720597/9.jpg"
+  }
+ ]
+}

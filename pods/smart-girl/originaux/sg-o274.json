@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o274",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "523ba35e-e70e-484e-a1ca-93fb6ba2c134",
+ "titre": "the european art of doing nothing #slowliving #dolcefarniente #europe #smartgirl #words",
+ "musique_titre": "original sound - ᯓsky✮",
+ "musique_url": "https://www.tiktok.com/music/original-sound-sky-7557769430395013904",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta B. Déclinaison G1 de la ligne 10 de la boîte (parent 523ba35e, langue source pl) : accroche du parent mot pour mot. Les mots du parent (dolce far niente, niksen, flâner, hygge, lagom). Sophia au milieu comme chez le parent (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "46f7bc68",
+   "texte_overlay": "the european art\nof doing nothing",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "30c79889",
+   "texte_overlay": "dolce far niente\n\nitalian: the sweetness\nof doing nothing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "751f9e0a",
+   "texte_overlay": "niksen\n\ndutch: doing nothing,\non purpose.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "cb4cf58d",
+   "texte_overlay": "every culture has a word for it.",
+   "texte_sophia": "every culture has a word for it.\ni learn one a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "bfe77522",
+   "texte_overlay": "flâner\n\nfrench: to wander\nwith no destination.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "2dff9a74",
+   "texte_overlay": "hygge\n\ndanish: the warmth of\na cosy moment.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "1979b9cf",
+   "texte_overlay": "lagom\n\nswedish: not too much,\nnot too little.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "9899869f",
+   "texte_overlay": "which one do you need\nthis weekend?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

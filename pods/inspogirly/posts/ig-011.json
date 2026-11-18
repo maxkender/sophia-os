@@ -1,0 +1,145 @@
+{
+ "id": "ig-011",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7698007507851152672",
+  "vues": 1300000,
+  "publie_le": "2026-10-18",
+  "accroche": "4 apps every girl needs"
+ },
+ "titre": {
+  "en": "3 apps every girl needs",
+  "fr": "3 applis que toute fille doit avoir",
+  "es": "3 apps que toda chica necesita",
+  "it": "3 app che ogni ragazza deve avere",
+  "tr": "her kızın ihtiyacı olan 3 uygulama"
+ },
+ "legendes": {
+  "en": "3 apps every girl needs #foryou #app #apps #thatgirl",
+  "fr": "3 applis que toute fille doit avoir #foryou #app #apps #thatgirl",
+  "es": "3 apps que toda chica necesita #foryou #app #apps #thatgirl",
+  "it": "3 app che ogni ragazza deve avere #foryou #app #apps #thatgirl",
+  "tr": "her kızın ihtiyacı olan 3 uygulama #foryou #app #apps #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Preuve : son « 4 apps every girl needs » du 18/10 (1,3 M), en 3 applis. Photos Seedream : soins-2, fille-19, bouquet-12. Applis (App Store US, 18/11) : Tangerine (4,7 ★, 6,6 k avis), Sophia en 2e (cta A), SuperCook (4,8 ★, 22 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/soins-2.jpg",
+     "images/photos/fille-19.jpg",
+     "images/photos/bouquet-12.jpg"
+    ],
+    "titre": "3 apps every\ngirl needs"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/soins-2.jpg",
+     "images/photos/fille-19.jpg",
+     "images/photos/bouquet-12.jpg"
+    ],
+    "titre": "3 applis que toute\nfille doit avoir"
+   },
+   "es": {
+    "photos": [
+     "images/photos/soins-2.jpg",
+     "images/photos/fille-19.jpg",
+     "images/photos/bouquet-12.jpg"
+    ],
+    "titre": "3 apps que toda\nchica necesita"
+   },
+   "it": {
+    "photos": [
+     "images/photos/soins-2.jpg",
+     "images/photos/fille-19.jpg",
+     "images/photos/bouquet-12.jpg"
+    ],
+    "titre": "3 app che ogni\nragazza deve avere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/soins-2.jpg",
+     "images/photos/fille-19.jpg",
+     "images/photos/bouquet-12.jpg"
+    ],
+    "titre": "her kızın ihtiyacı\nolan 3 uygulama"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/tangerine",
+   "en": {
+    "nom": "tangerine",
+    "texte": "you track your habits, your mood and your little self-care goals, all in one cute app"
+   },
+   "fr": {
+    "nom": "tangerine",
+    "texte": "tu suis tes habitudes, ton humeur et tes objectifs de self-care dans une seule appli"
+   },
+   "es": {
+    "nom": "tangerine",
+    "texte": "sigues tus hábitos, tu estado de ánimo y tus metas de autocuidado, todo en una app"
+   },
+   "it": {
+    "nom": "tangerine",
+    "texte": "segui le tue abitudini, il tuo umore e i tuoi obiettivi di self-care, tutto in un'app"
+   },
+   "tr": {
+    "nom": "tangerine",
+    "texte": "alışkanlıklarını, ruh halini ve öz bakım hedeflerini tek bir uygulamada takip edersin"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/supercook",
+   "en": {
+    "nom": "supercook",
+    "texte": "you add what's in your fridge and it shows you recipes you can make right now"
+   },
+   "fr": {
+    "nom": "supercook",
+    "texte": "tu ajoutes ce qu'il y a dans ton frigo et elle te montre des recettes à faire tout de suite"
+   },
+   "es": {
+    "nom": "supercook",
+    "texte": "añades lo que tienes en la nevera y te enseña recetas que puedes hacer ya"
+   },
+   "it": {
+    "nom": "supercook",
+    "texte": "aggiungi quello che hai in frigo e ti mostra le ricette che puoi fare subito"
+   },
+   "tr": {
+    "nom": "supercook",
+    "texte": "buzdolabındakileri eklersin, sana hemen yapabileceğin tarifleri gösterir"
+   }
+  }
+ ]
+}

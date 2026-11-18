@@ -1,0 +1,140 @@
+{
+ "id": "ig-014",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "cozy apps for winter nights",
+  "fr": "des applis cosy pour les soirs d'hiver",
+  "es": "apps acogedoras para las noches de invierno",
+  "it": "app cozy per le serate d'inverno",
+  "tr": "kış geceleri için sıcacık uygulamalar"
+ },
+ "legendes": {
+  "en": "cozy apps for winter nights #foryou #apps #cozy #winter",
+  "fr": "des applis cosy pour les soirs d'hiver #foryou #apps #cozy #winter",
+  "es": "apps acogedoras para las noches de invierno #foryou #apps #cozy #winter",
+  "it": "app cozy per le serate d'inverno #foryou #apps #cozy #winter",
+  "tr": "kış geceleri için sıcacık uygulamalar #foryou #apps #cozy #winter"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve, saison). Photos Seedream : hiver-1, fille-9-1 (banque), bouquet-15. Applis (App Store US, 18/11) : Calm (4,8 ★, 2 M avis), Sophia en 2e (cta A), Finch (4,9 ★, 776 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/hiver-1.jpg",
+     "images/photos/fille-9-1.jpg",
+     "images/photos/bouquet-15.jpg"
+    ],
+    "titre": "cozy apps for\nwinter nights"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/hiver-1.jpg",
+     "images/photos/fille-9-1.jpg",
+     "images/photos/bouquet-15.jpg"
+    ],
+    "titre": "des applis cosy pour\nles soirs d'hiver"
+   },
+   "es": {
+    "photos": [
+     "images/photos/hiver-1.jpg",
+     "images/photos/fille-9-1.jpg",
+     "images/photos/bouquet-15.jpg"
+    ],
+    "titre": "apps acogedoras para\nlas noches de invierno"
+   },
+   "it": {
+    "photos": [
+     "images/photos/hiver-1.jpg",
+     "images/photos/fille-9-1.jpg",
+     "images/photos/bouquet-15.jpg"
+    ],
+    "titre": "app cozy per le\nserate d'inverno"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/hiver-1.jpg",
+     "images/photos/fille-9-1.jpg",
+     "images/photos/bouquet-15.jpg"
+    ],
+    "titre": "kış geceleri için\nsıcacık uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/calm",
+   "en": {
+    "nom": "calm",
+    "texte": "sleep stories and soft music for cozy nights when you can't fall asleep"
+   },
+   "fr": {
+    "nom": "calm",
+    "texte": "des histoires et de la musique douce pour les soirs où tu n'arrives pas à t'endormir"
+   },
+   "es": {
+    "nom": "calm",
+    "texte": "cuentos para dormir y música suave para las noches en que no consigues dormirte"
+   },
+   "it": {
+    "nom": "calm",
+    "texte": "storie della buonanotte e musica dolce per le sere in cui non riesci ad addormentarti"
+   },
+   "tr": {
+    "nom": "calm",
+    "texte": "uyuyamadığın geceler için uyku hikayeleri ve yumuşak, sakin müzikler"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "a 10-minute lesson every day on history, philosophy or science, then a quiz so it actually sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "une leçon de 10 minutes par jour en histoire, philo ou sciences, puis un quiz pour que ça reste vraiment"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "una lección de 10 minutos al día de historia, filosofía o ciencia, y luego un quiz para que se te quede de verdad"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "una lezione di 10 minuti al giorno di storia, filosofia o scienze, poi un quiz così ti resta davvero"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün tarih, felsefe ya da bilim üzerine 10 dakikalık bir ders, sonra aklında kalsın diye kısa bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/finch",
+   "en": {
+    "nom": "finch",
+    "texte": "you take care of a little bird by doing small self-care tasks every day"
+   },
+   "fr": {
+    "nom": "finch",
+    "texte": "tu prends soin d'un petit oiseau en faisant chaque jour de petites tâches de self-care"
+   },
+   "es": {
+    "nom": "finch",
+    "texte": "cuidas a un pajarito haciendo pequeñas tareas de autocuidado cada día"
+   },
+   "it": {
+    "nom": "finch",
+    "texte": "ti prendi cura di un uccellino facendo piccoli gesti di self-care ogni giorno"
+   },
+   "tr": {
+    "nom": "finch",
+    "texte": "her gün küçük öz bakım görevleri yaparak minik bir kuşa bakıyorsun"
+   }
+  }
+ ]
+}

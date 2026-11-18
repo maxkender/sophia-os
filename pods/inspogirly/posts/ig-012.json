@@ -1,0 +1,164 @@
+{
+ "id": "ig-012",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps every girl needs in her 20s",
+  "fr": "les applis que toute fille doit avoir à 20 ans",
+  "es": "apps que toda chica necesita a los 20",
+  "it": "app che ogni ragazza deve avere a 20 anni",
+  "tr": "20'li yaşlarındaki her kızın ihtiyacı olan uygulamalar"
+ },
+ "legendes": {
+  "en": "apps every girl needs in her 20s #foryou #apps #20s #thatgirl",
+  "fr": "les applis que toute fille doit avoir à 20 ans #foryou #apps #20s #thatgirl",
+  "es": "apps que toda chica necesita a los 20 #foryou #apps #20s #thatgirl",
+  "it": "app che ogni ragazza deve avere a 20 anni #foryou #apps #20s #thatgirl",
+  "tr": "20'li yaşlarındaki her kızın ihtiyacı olan uygulamalar #foryou #apps #20s #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve au format de @iinspogiirly). Photos Seedream : cles-1, fille-20, bouquet-13. Applis (App Store US, 18/11) : Splid (4,9 ★, 4,2 k avis ; 7 k en es et it), Sophia en 2e (cta B), Day One (4,8 ★, 119 k), Planta (4,8 ★, 115 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/cles-1.jpg",
+     "images/photos/fille-20.jpg",
+     "images/photos/bouquet-13.jpg"
+    ],
+    "titre": "apps every girl\nneeds in her 20s"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/cles-1.jpg",
+     "images/photos/fille-20.jpg",
+     "images/photos/bouquet-13.jpg"
+    ],
+    "titre": "les applis que toute fille\ndoit avoir à 20 ans"
+   },
+   "es": {
+    "photos": [
+     "images/photos/cles-1.jpg",
+     "images/photos/fille-20.jpg",
+     "images/photos/bouquet-13.jpg"
+    ],
+    "titre": "apps que toda chica\nnecesita a los 20"
+   },
+   "it": {
+    "photos": [
+     "images/photos/cles-1.jpg",
+     "images/photos/fille-20.jpg",
+     "images/photos/bouquet-13.jpg"
+    ],
+    "titre": "app che ogni ragazza\ndeve avere a 20 anni"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/cles-1.jpg",
+     "images/photos/fille-20.jpg",
+     "images/photos/bouquet-13.jpg"
+    ],
+    "titre": "20'li yaşlarındaki her kızın\nihtiyacı olan uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/splid",
+   "en": {
+    "nom": "splid",
+    "texte": "you split trips and rent with your friends and it shows exactly who owes what"
+   },
+   "fr": {
+    "nom": "splid",
+    "texte": "tu partages les frais de voyage ou de coloc avec tes amies et elle te dit qui doit combien"
+   },
+   "es": {
+    "nom": "splid",
+    "texte": "divides los gastos de viajes o del piso con tus amigas y te dice quién debe qué"
+   },
+   "it": {
+    "nom": "splid",
+    "texte": "dividi le spese di viaggi o della casa con le amiche e ti dice chi deve cosa"
+   },
+   "tr": {
+    "nom": "splid",
+    "texte": "seyahat ya da ev masraflarını arkadaşlarınla bölersin, kimin ne borçlu olduğunu tek bakışta görürsün"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "short lessons written by actual professors, you learn something new in just 10 minutes a day"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "lecciones cortas escritas por profesores de verdad, para aprender algo nuevo cada día en 10 minutos"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/dayone",
+   "en": {
+    "nom": "day one",
+    "texte": "a private journal where you write about your day and add photos, so you never forget it"
+   },
+   "fr": {
+    "nom": "day one",
+    "texte": "un journal privé où tu racontes ta journée avec des photos, pour ne jamais l'oublier"
+   },
+   "es": {
+    "nom": "day one",
+    "texte": "un diario privado donde escribes tu día y añades fotos, para no olvidarlo nunca"
+   },
+   "it": {
+    "nom": "day one",
+    "texte": "un diario privato dove racconti la tua giornata con le foto, per non dimenticarla mai"
+   },
+   "tr": {
+    "nom": "day one",
+    "texte": "gününü yazıp fotoğraf eklediğin özel bir günlük, böylece hiçbir anı unutmazsın"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/planta",
+   "en": {
+    "nom": "planta",
+    "texte": "it tells you exactly when to water each plant so they actually stay alive"
+   },
+   "fr": {
+    "nom": "planta",
+    "texte": "elle te dit exactement quand arroser chaque plante pour qu'elles restent enfin en vie"
+   },
+   "es": {
+    "nom": "planta",
+    "texte": "te dice exactamente cuándo regar cada planta para que por fin sigan vivas"
+   },
+   "it": {
+    "nom": "planta",
+    "texte": "ti dice esattamente quando annaffiare ogni pianta così restano finalmente vive"
+   },
+   "tr": {
+    "nom": "planta",
+    "texte": "her bitkiyi tam olarak ne zaman sulaman gerektiğini söyler, böylece hepsi yaşamaya devam eder"
+   }
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o303",
+ "type_bleo": "full_test",
+ "titre": "How to stop wasting your evenings #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "son original",
+ "musique_url": "https://www.tiktok.com/music/son-original-7652123303897402145",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 4 à 7 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 11 lignes utilisables pour 12 déclinaisons, d'où un 5e full test. Accroches écrites : « How to stop wasting your evenings » (retenue), « What successful men do after work » (écartée : vu partout), « Your evenings decide your life » (écartée : sans promesse).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "034323ae-1fd1-4770-a82c-31e05f53a4f7",
+   "texte_overlay": "How to stop wasting\nyour evenings",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Decide your evening before it starts. One plan on the way home: gym, cooking, a call, a book. Evenings without a plan always end in scrolling.",
+   "media_id": "0242f71a-7909-4925-a018-f4bbc638ca5f"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Change clothes as soon as you get home. It tells your brain the workday is over, and you'll feel ready to do something for yourself.",
+   "media_id": "02764bc6-cfc0-40c6-ab9a-bcb5ede22d2e"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Cook a real dinner. Thirty minutes in the kitchen with music on is relaxing, cheaper and healthier than another delivery. Try it tonight and see.",
+   "media_id": "02ed0054-5d33-47ba-ab40-4f3ccba95928"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Leave your phone in another room for an hour. It's amazing how long an evening feels once your phone isn't in your hand. Then read for twenty minutes.",
+   "media_id": "030d5361-d001-4564-96e9-ce493da67546"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: my evenings disappeared into my phone. After: five minutes a day of history, art or science, and I go to bed feeling I used my time.",
+   "texte_sophia": "Before: my evenings disappeared into my phone. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I go to bed feeling I used my time.",
+   "media_id": "04388b7e-1fdb-44bf-9c0e-65e5b40657dd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "See people in real life once or twice a week. A walk with a friend or dinner with family beats any evening alone on the couch. Same time, every night.",
+   "media_id": "032aa128-0e7f-4b9e-9dc6-0d8d8302c1c1"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Wind down the same way every night. Dim lights, a shower, a few pages of a book. A calm routine makes you sleep better and wake up stronger.",
+   "media_id": "042cb565-92e1-4453-984c-a8217ee68b2b"
+  }
+ ]
+}

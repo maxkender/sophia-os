@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o170",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "06c489e9-ebd9-46b4-89e1-b5af1c33cca7",
+ "titre": "5 skills to invest in before age 29 #men #skills #selfimprovement #growth #mindset",
+ "musique_titre": "boohoo",
+ "musique_url": "https://www.tiktok.com/music/boohoo-7228135360868649774",
+ "inspirations": [
+  "06c489e9-ebd9-46b4-89e1-b5af1c33cca7"
+ ],
+ "notes": "cta B. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 18/11. Déclinaison G1 de la ligne 27 (parent 06c489e9, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Compétence: » puis lignes courtes. Compétences neuves, aucune du parent (goût, rendre le simple important, observation, récupération, apprendre). reference_url : slides présentes du parent (4 manquante : 400), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "82c44369",
+   "texte_overlay": "5 skills to invest in\nbefore age 29",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652462687779163400/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "a77c3047",
+   "texte_overlay": "1. Public speaking:\n\nToasts. Meetings. Interviews.\nThe man who speaks well\ngets heard.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652462687779163400/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "659cdde3",
+   "texte_overlay": "2. Cooking:\n\nHealthier, cheaper,\nand people love a man\nwho feeds them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652462687779163400/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "37fa27bf",
+   "texte_overlay": "3. Writing clearly:\n\nEmails, messages, plans.\nClear writing is clear thinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652462687779163400/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "4e14539b",
+   "texte_overlay": "4. Learning fast:\n\nThe skill behind all skills.\nA little every day.",
+   "texte_sophia": "4. Learning fast:\n\nThe skill behind all skills.\nI practise it daily on the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652462687779163400/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "86e6bfe4",
+   "texte_overlay": "5. Saying no:\n\nTo the wrong job,\nthe wrong plan,\nthe wrong people.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7652462687779163400/2.jpg"
+  }
+ ]
+}

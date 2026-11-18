@@ -1,0 +1,258 @@
+{
+ "id": "as-016",
+ "fond": "images/c16-plantes.jpg",
+ "titre": {
+  "en": "apps that keep me sane as an overthinker",
+  "es": "apps que me dan paz para cabezas que no paran",
+  "it": "app che mi danno pace per chi pensa troppo",
+  "pt-BR": "apps que me dão paz pra quem pensa demais"
+ },
+ "legendes": {
+  "en": "the little apps that quiet my brain 🌿 #overthinking #apprecommendations #selfcare #cozy",
+  "es": "las pequeñas apps que calman mi cabeza 🌿 #ansiedad #appsrecomendadas #autocuidado #cozy",
+  "it": "le piccole app che calmano la mia testa 🌿 #overthinking #appconsigliate #selfcare #cozy",
+  "pt-BR": "os apps que acalmam minha cabeça 🌿 #ansiedade #dicasdeapps #autocuidado #cozy"
+ },
+ "musique": {
+  "titre": "last sip - Malia B.",
+  "url": "https://www.tiktok.com/music/original-7660064882242390032"
+ },
+ "notes": "Full test (accroche neuve au format de son « my most used apps / as someone with ADHD ») : « apps that keep me sane / as an overthinker », style bibliotheque. Applis vérifiées us, es, it, br : Google Tasks, Me+, Sophia (3e, cta A), Planta, Letterboxd. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c16-fond.jpg",
+     "images/c16-nuit.jpg",
+     "images/c16-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps that"
+      }
+     ],
+     [
+      {
+       "t": "keep me",
+       "style": "clair"
+      },
+      {
+       "t": "sane",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "as an overthinker"
+   },
+   "es": {
+    "photos": [
+     "images/c16-fond.jpg",
+     "images/c16-nuit.jpg",
+     "images/c16-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps que"
+      }
+     ],
+     [
+      {
+       "t": "me dan",
+       "style": "clair"
+      },
+      {
+       "t": "paz",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "para cabezas que no paran"
+   },
+   "it": {
+    "photos": [
+     "images/c16-fond.jpg",
+     "images/c16-nuit.jpg",
+     "images/c16-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "app che"
+      }
+     ],
+     [
+      {
+       "t": "mi danno",
+       "style": "clair"
+      },
+      {
+       "t": "pace",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "per chi pensa troppo"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c16-fond.jpg",
+     "images/c16-nuit.jpg",
+     "images/c16-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps que"
+      }
+     ],
+     [
+      {
+       "t": "me dão",
+       "style": "clair"
+      },
+      {
+       "t": "paz",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "pra quem pensa demais"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Google Tasks",
+    "dossier": "images/applis/google-tasks",
+    "note": "My brain dump app: I write every little thing down, and my head finally feels lighter"
+   },
+   "es": {
+    "nom": "Google Tasks",
+    "dossier": "images/applis/google-tasks",
+    "note": "Mi app para vaciar la cabeza: apunto cada cosita y por fin siento la mente más ligera"
+   },
+   "it": {
+    "nom": "Google Tasks",
+    "dossier": "images/applis/google-tasks",
+    "note": "La mia app per svuotare la testa: scrivo ogni piccola cosa e finalmente mi sento più leggera"
+   },
+   "pt-BR": {
+    "nom": "Google Tasks",
+    "dossier": "images/applis/google-tasks",
+    "note": "Meu app pra esvaziar a cabeça: anoto cada coisinha e finalmente sinto a mente mais leve"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Me+",
+    "dossier": "images/applis/me-plus",
+    "note": "Ready-made routines for mornings, self-care and sleep, with a cute checklist to follow day by day"
+   },
+   "es": {
+    "nom": "Me+",
+    "dossier": "images/applis/me-plus",
+    "note": "Rutinas listas para la mañana, el autocuidado y el sueño, con una checklist bonita para seguir cada día"
+   },
+   "it": {
+    "nom": "Me+",
+    "dossier": "images/applis/me-plus",
+    "note": "Routine già pronte per il mattino, il self-care e il sonno, con una checklist carina da seguire ogni giorno"
+   },
+   "pt-BR": {
+    "nom": "Me+",
+    "dossier": "images/applis/me-plus",
+    "note": "Rotinas prontas pra manhã, autocuidado e sono, com um checklist fofo pra seguir todo dia"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Planta",
+    "dossier": "images/applis/planta",
+    "note": "Tells you exactly when to water each plant. Taking care of something small calms me down"
+   },
+   "es": {
+    "nom": "Planta",
+    "dossier": "images/applis/planta",
+    "note": "Te dice exactamente cuándo regar cada planta. Cuidar algo pequeño me calma"
+   },
+   "it": {
+    "nom": "Planta",
+    "dossier": "images/applis/planta",
+    "note": "Ti dice esattamente quando annaffiare ogni pianta. Prendermi cura di qualcosa di piccolo mi calma"
+   },
+   "pt-BR": {
+    "nom": "Planta",
+    "dossier": "images/applis/planta",
+    "note": "Diz exatamente quando regar cada planta. Cuidar de algo pequeno me acalma"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Letterboxd",
+    "dossier": "images/applis/letterboxd",
+    "note": "A diary for every movie I watch, with stars and little reviews. My favorite way to switch off"
+   },
+   "es": {
+    "nom": "Letterboxd",
+    "dossier": "images/applis/letterboxd",
+    "note": "Un diario de todas las pelis que veo, con estrellas y mini reseñas. Mi forma favorita de desconectar"
+   },
+   "it": {
+    "nom": "Letterboxd",
+    "dossier": "images/applis/letterboxd",
+    "note": "Un diario di ogni film che guardo, con stelle e mini recensioni. Il mio modo preferito per staccare"
+   },
+   "pt-BR": {
+    "nom": "Letterboxd",
+    "dossier": "images/applis/letterboxd",
+    "note": "Um diário de todo filme que eu assisto, com estrelas e mini resenhas. Meu jeito favorito de desligar"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

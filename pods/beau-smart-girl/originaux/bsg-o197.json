@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o197",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3f16a467-ce7c-41a0-8053-76d375a72f86",
+  "titre": "comment je suis passée de 2 à 30 livres par an #lecture #booktok #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [
+    "3f16a467-ce7c-41a0-8053-76d375a72f86"
+  ],
+  "notes": "G1, déclinaison de 3f16a467 (« comment je suis passée de 2 à 30 livres par an », génération 0 ; meilleur passage fr 2,4 k vues, r 2,31), en français. Famille de mon full test bsg-o133, gagnante. cta B. Items neufs (rien de repris de bsg-o133 : ni abandon à 50 pages, ni livres courts, ni livre dans le sac, ni carnet). Fait vérifié le 14/11 sur https://en.wikipedia.org/wiki/Agatha_Christie : « She is the best-selling novelist of all time, her books having sold more than two billion copies ». Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "46965537",
+      "texte_overlay": "comment je suis passée\nde 2 à 30 livres par an",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "38ba695d",
+      "texte_overlay": "1. j'ai remplacé la série du soir par un chapitre\n\nseulement en semaine.\nça suffit.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "7155a643",
+      "texte_overlay": "2. j'ai lu ce qui me plaisait vraiment\n\ndes polars, des romances, des biographies.\npas ce qu'il faut avoir lu.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2e93d8a0",
+      "texte_overlay": "3. j'ai commencé par les polars\n\nce matin, j'ai appris qu'agatha christie est la romancière la plus vendue de tous les temps.\nj'ai lu trois de ses livres en un mois.",
+      "texte_sophia": "3. j'ai commencé par les polars\n\nce matin, l'appli Sophia m'a appris qu'agatha christie est la romancière la plus vendue de tous les temps.\nj'ai lu trois de ses livres en un mois.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "0a838dad",
+      "texte_overlay": "4. j'ai rejoint une bibliothèque\n\ngratuit, et les dates de retour\nm'obligent à finir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "7be6ed6d",
+      "texte_overlay": "5. j'ai arrêté de compter\n\net c'est là que j'ai lu le plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "384ce4d8",
+      "texte_overlay": "et toi, combien cette année ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

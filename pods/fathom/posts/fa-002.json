@@ -12,7 +12,17 @@
   "de": "10/10 Skills, die du an einem Tag lernen kannst!",
   "it": "10/10 abilità che puoi imparare in un giorno!",
   "pt": "10/10 habilidades que você aprende em um dia!",
-  "fr": "10/10 compétences à apprendre en un jour !"
+  "fr": "10/10 compétences à apprendre en un jour !",
+  "cs": "10/10 dovedností, které se naučíš za jeden den!",
+  "sk": "10/10 zručností, ktoré sa naučíš za jeden deň!",
+  "hr": "10/10 vještina koje možeš naučiti u jednom danu!",
+  "sl": "10/10 veščin, ki se jih naučiš v enem dnevu!",
+  "hu": "10/10 készség, amit egy nap alatt megtanulhatsz!",
+  "nl": "10/10 skills die je in één dag kunt leren!",
+  "pl": "10/10 umiejętności do nauczenia w jeden dzień!",
+  "ro": "10/10 abilități pe care le înveți într-o zi!",
+  "sv": "10/10 färdigheter du kan lära dig på en dag!",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri!"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Day! #selfimprovement #learnontiktok #selfmastery",
@@ -20,13 +30,23 @@
   "de": "10/10 Skills, die du an einem Tag lernen kannst! #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
   "it": "10/10 abilità che puoi imparare in un giorno! #crescitapersonale #imparacontiktok #miglioramentopersonale",
   "pt": "10/10 habilidades que você aprende em um dia! #desenvolvimentopessoal #aprendanotiktok #autoconhecimento",
-  "fr": "10/10 compétences à apprendre en un jour ! #developpementpersonnel #apprendresurtiktok #culturegenerale"
+  "fr": "10/10 compétences à apprendre en un jour ! #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "cs": "10/10 dovedností, které se naučíš za jeden den! #dovednosti #seberozvoj #vzdělávání",
+  "sk": "10/10 zručností, ktoré sa naučíš za jeden deň! #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "10/10 vještina koje možeš naučiti u jednom danu! #vještine #osobnirazvoj #učenje",
+  "sl": "10/10 veščin, ki se jih naučiš v enem dnevu! #veščine #osebnarast #učenje",
+  "hu": "10/10 készség, amit egy nap alatt megtanulhatsz! #készségek #önfejlesztés #tanulás",
+  "nl": "10/10 skills die je in één dag kunt leren! #skills #zelfontwikkeling #leren",
+  "pl": "10/10 umiejętności do nauczenia w jeden dzień! #umiejętności #rozwójosobisty #nauka",
+  "ro": "10/10 abilități pe care le înveți într-o zi! #abilități #dezvoltarepersonală #învățare",
+  "sv": "10/10 färdigheter du kan lära dig på en dag! #färdigheter #självutveckling #lärande",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri! #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "sonido original",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "Sophia en carte d'appli à l'étape 3 « ANSWER RANDOM QUESTIONS », au milieu de la liste comme une compétence (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en affiche (une taille par ligne, le mot-clé en couleur) ; quatre compétences à nous, chacune avec une vraie vidéo sans grand visage.",
+ "notes": "Sophia en carte d'appli à l'étape 3 « ANSWER RANDOM QUESTIONS », au milieu de la liste comme une compétence (leur post n'avait pas de slide d'appli). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en affiche (une taille par ligne, le mot-clé en couleur) ; quatre compétences à nous, chacune avec une vraie vidéo sans grand visage. 18/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « jour de la semaine » devient la lecture rapide en cs, sk, hr, sl, hu, ro et sv, et les nuages deviennent le langage corporel en sk.",
  "slides": [
   {
    "type": "couverture",
@@ -101,6 +121,126 @@
      ],
      "COMPÉTENCES À",
      "APPRENDRE EN UN JOUR"
+    ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "DOVEDNOSTÍ, KTERÉ SE",
+     "NAUČÍŠ ZA JEDEN DEN"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZRUČNOSTÍ, KTORÉ SA",
+     "NAUČÍŠ ZA JEDEN DEŇ"
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VJEŠTINA KOJE MOŽEŠ",
+     "NAUČITI U JEDNOM DANU"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠČIN, KI SE JIH",
+     "NAUČIŠ V ENEM DNEVU"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KÉSZSÉG, AMIT EGY NAP",
+     "ALATT MEGTANULHATSZ"
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS DIE JE IN",
+     "ÉÉN DAG KUNT LEREN"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "UMIEJĘTNOŚCI DO",
+     "NAUCZENIA W JEDEN DZIEŃ"
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITĂȚI PE CARE",
+     "LE ÎNVEȚI ÎNTR-O ZI"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FÄRDIGHETER DU KAN",
+     "LÄRA DIG PÅ EN DAG"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "BİR GÜNDE",
+     "ÖĞRENEBİLECEĞİN BECERİ"
     ]
    }
   },
@@ -279,6 +419,246 @@
     "sous": [
      "1–2 heures pour apprendre."
     ]
+   },
+   "cs": {
+    "titre": [
+     "POZNEJ KAŽDÝ",
+     [
+      {
+       "t": "DRUH MRAKU",
+       "couleur": "#0231c5"
+      }
+     ],
+     "POHLEDEM NA NEBE"
+    ],
+    "video": {
+     "id": "1ghzNY8U1a8",
+     "titre": "Tipy, druhy a odrůdy mraků /TOP 10/",
+     "chaine": "Fiala Kokosová",
+     "vues": "785 zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/OVEnCs0wEKnliib-Hm80Ej-uKDISVwsA3s7CcO55j1jgXWjxHcQ9rlL8lA_fyhsPeU1qHfBPRQ8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 hodiny na naučení."
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ČÍTAJ",
+     [
+      {
+       "t": "REČ TELA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "KAŽDÉHO ČLOVEKA"
+    ],
+    "video": {
+     "id": "vDhifblYVVI",
+     "titre": "Klamstvo, stres, nervozitu, prezradia tieto gestá na hlave (REČ TELA)",
+     "chaine": "Tomáš Vepi",
+     "vues": "19 tis. zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "10:34",
+     "avatar": "https://yt3.ggpht.com/Gll-rBV43edXEesNUFwJx4WgfpKOEMyRMY6rsQwfpJZ9LTWNEGID_VRskor7ffEuksDDYibN=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 hodiny na naučenie."
+    ]
+   },
+   "hr": {
+    "titre": [
+     "PREPOZNAJ SVAKU",
+     [
+      {
+       "t": "VRSTU OBLAKA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "SAMO POGLEDOM"
+    ],
+    "video": {
+     "id": "lqHN4Bizx0M",
+     "titre": "Klasifikacija oblaka",
+     "chaine": "Geografska Besida!",
+     "vues": "2,3 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "4:09",
+     "avatar": "https://yt3.ggpht.com/Zg0mb1hgUkDLhnnI-eQxZTG01UnFfsf1XtqJ9SxV_ZAkvA3fgS30LMEjXb5F5ehDHr-G8OlZ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 sata za učenje."
+    ]
+   },
+   "sl": {
+    "titre": [
+     "PREPOZNAJ VSAKO",
+     [
+      {
+       "t": "VRSTO OBLAKA",
+       "couleur": "#0231c5"
+      }
+     ],
+     "LE S POGLEDOM"
+    ],
+    "video": {
+     "id": "zizcMHyI-2s",
+     "titre": "Vrste oblakov za izpit za čoln",
+     "chaine": "Spinaker.si",
+     "vues": "23 tis. ogledov",
+     "date": "pred 12 leti",
+     "duree": "2:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nvwnazIV11nzG2vr658HH4wX7G4tRm_tHFN4-al2gLGw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 uri učenja."
+    ]
+   },
+   "hu": {
+    "titre": [
+     "ISMERJ FEL",
+     [
+      {
+       "t": "MINDEN FELHŐT",
+       "couleur": "#0231c5"
+      }
+     ],
+     "EGY PILLANTÁSSAL"
+    ],
+    "video": {
+     "id": "NJiu9m4Z-os",
+     "titre": "OMSZ felhőatlasz (timelapse)",
+     "chaine": "HungaroMet Zrt. (MET HU)",
+     "vues": "21 E megtekintés",
+     "date": "13 évvel ezelőtt",
+     "duree": "12:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mL3DpngbIEHVmVyuucknb8KLPUWeNbzZkuCejUckmkldI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 óra megtanulni."
+    ]
+   },
+   "nl": {
+    "titre": [
+     "HERKEN ELK",
+     [
+      {
+       "t": "WOLKENTYPE",
+       "couleur": "#0231c5"
+      }
+     ],
+     "MET ÉÉN BLIK"
+    ],
+    "video": {
+     "id": "HxKB4jCW_-I",
+     "titre": "Wolken classificatie, type wolken zoals cumulus, stratus, cumulonimbus, cirrus :aardrijkskunde vwo",
+     "chaine": "Geographonic Aardrijkskundelessen",
+     "vues": "30K weergaven",
+     "date": "12 jaar geleden",
+     "duree": "6:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nKMqUMW6MhVnuyEOUl2wI_RsWuNg3tFl8uV_vl1EFaQw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 uur om te leren."
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ROZPOZNAJ",
+     [
+      {
+       "t": "KAŻDĄ CHMURĘ",
+       "couleur": "#0231c5"
+      }
+     ],
+     "JEDNYM SPOJRZENIEM"
+    ],
+    "video": {
+     "id": "y8GibZE9kJM",
+     "titre": "Sci Kariak #1. Typy i nazwy chmur",
+     "chaine": "Kariak",
+     "vues": "46 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "6:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mIYEki4kvv98EOYkzJmCeV3GMiqbxaF39Qodpi_w82h3c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 godziny nauki."
+    ]
+   },
+   "ro": {
+    "titre": [
+     "RECUNOAȘTE",
+     [
+      {
+       "t": "ORICE NOR",
+       "couleur": "#0231c5"
+      }
+     ],
+     "DINTR-O PRIVIRE"
+    ],
+    "video": {
+     "id": "XG_ui7K2fZQ",
+     "titre": "TOATE TIPURILE DE NORI EXPLICATE",
+     "chaine": "iti explic",
+     "vues": "344 de vizionări",
+     "date": "acum 8 luni",
+     "duree": "3:12",
+     "avatar": "https://yt3.ggpht.com/FjZZIpcykcV8U2AiYcrGKZmZcIE9TRl3hGM5U-9-GNnXLdEHRx7esYPg9banY-UD9ml2_fe_oQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 ore de învățat."
+    ]
+   },
+   "sv": {
+    "titre": [
+     "KÄNN IGEN",
+     [
+      {
+       "t": "VARJE MOLNTYP",
+       "couleur": "#0231c5"
+      }
+     ],
+     "MED EN BLICK"
+    ],
+    "video": {
+     "id": "BrDxcRAOdGI",
+     "titre": "Olika sorters moln",
+     "chaine": "Hedvig Francke",
+     "vues": "5 891 visningar",
+     "date": "för 10 år sen",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCl54gP_UNS1vl8NuoFXhHHPttZgOaRrd6wI4yk2dZQjU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1–2 timmar att lära sig."
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER",
+     [
+      {
+       "t": "BULUT TÜRÜNÜ",
+       "couleur": "#0231c5"
+      }
+     ],
+     "BİR BAKIŞTA TANI"
+    ],
+    "video": {
+     "id": "XdkeXHVNWZk",
+     "titre": "Bulut Tipleri",
+     "chaine": "Deniz Özgür",
+     "vues": "1,1 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mOA4C-KjaywSWjGzYz40M8roYtfP97m8mEI8sGalbHHVU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Öğrenmesi 1–2 saat."
+    ]
    }
   },
   {
@@ -456,6 +836,246 @@
     "sous": [
      "2–3 heures pour apprendre."
     ]
+   },
+   "cs": {
+    "titre": [
+     "ČTI",
+     [
+      {
+       "t": "DVAKRÁT",
+       "couleur": "#e3161d"
+      }
+     ],
+     "RYCHLEJI"
+    ],
+    "video": {
+     "id": "9SjsOybl344",
+     "titre": "Rychločtení",
+     "chaine": "metalearning_cz",
+     "vues": "64 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "8:37",
+     "avatar": "https://yt3.ggpht.com/sklMeGpRbBfRiYj67_fL9jmzhEbYcMHrumLEuA0QpMp05Bok0I0nPKkYcOejSsfnAHIbVRmuWA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučení."
+    ]
+   },
+   "sk": {
+    "titre": [
+     "ČÍTAJ",
+     [
+      {
+       "t": "DVAKRÁT",
+       "couleur": "#e3161d"
+      }
+     ],
+     "RÝCHLEJŠIE"
+    ],
+    "video": {
+     "id": "piB-PshUGWA",
+     "titre": "Ako čítať RÝCHLEJŠIE",
+     "chaine": "Dejepis Inak",
+     "vues": "69 tis. zhliadnutí",
+     "date": "pred 7 rokmi",
+     "duree": "10:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBhPYPYBuXMMfPWSRC6JZOBAV6bf_dcjVoY-LR2lUzLFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučenie."
+    ]
+   },
+   "hr": {
+    "titre": [
+     "ČITAJ",
+     [
+      {
+       "t": "DVA PUTA",
+       "couleur": "#e3161d"
+      }
+     ],
+     "BRŽE"
+    ],
+    "video": {
+     "id": "KJgIWFtIUag",
+     "titre": "TEHNIKE BRZO ČITANJE - Uvod u moć brzog čitanja",
+     "chaine": "tutor up",
+     "vues": "16 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "16:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUvGzq6RJowVQH8tRF4ncA-E33U0zfcbsQh4pHqr0QBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 sata za učenje."
+    ]
+   },
+   "sl": {
+    "titre": [
+     "BERI",
+     [
+      {
+       "t": "DVAKRAT",
+       "couleur": "#e3161d"
+      }
+     ],
+     "HITREJE"
+    ],
+    "video": {
+     "id": "K5g_J9lq7PQ",
+     "titre": "Tečaj hitrega branja",
+     "chaine": "Gabrijel Krizman",
+     "vues": "479 ogledov",
+     "date": "pred 15 leti",
+     "duree": "0:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kRSNfTPwo7hSRyJkz8W29B5VoxNOLoLC9xjxedr8VyQA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 ure učenja."
+    ]
+   },
+   "hu": {
+    "titre": [
+     "OLVASS",
+     [
+      {
+       "t": "KÉTSZER",
+       "couleur": "#e3161d"
+      }
+     ],
+     "GYORSABBAN"
+    ],
+    "video": {
+     "id": "L87NLyz1FpY",
+     "titre": "Egy könyv egy óra alatt? - Villámolvasás! - Működik?",
+     "chaine": "Tanulom Magam",
+     "vues": "109 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "17:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mk4-sIgdbmYJ9OxCU5-01xr8j-pdnrKsVK50fEZAft5w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 óra megtanulni."
+    ]
+   },
+   "nl": {
+    "titre": [
+     "WEET DE",
+     [
+      {
+       "t": "WEEKDAG",
+       "couleur": "#e3161d"
+      }
+     ],
+     "VAN ELKE DATUM"
+    ],
+    "video": {
+     "id": "OSqQu3__QvQ",
+     "titre": "Dag van de Week Bepalen - WisCAT Werkboek: Meten 10.9",
+     "chaine": "WisCAT Bijles",
+     "vues": "1,2K weergaven",
+     "date": "8 jaar geleden",
+     "duree": "9:44",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lbj18NntoyEUoeiCV_9-rVXpwPLneufl73MqKSqap_4FM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 uur om te leren."
+    ]
+   },
+   "pl": {
+    "titre": [
+     "ZNAJ",
+     [
+      {
+       "t": "DZIEŃ TYGODNIA",
+       "couleur": "#e3161d"
+      }
+     ],
+     "KAŻDEJ DATY"
+    ],
+    "video": {
+     "id": "qZGX8FDEaZk",
+     "titre": "ZNAJDŹ DZIEŃ TYGODNIA DLA DOWOLNEJ DATY - MATEMATYCZNIE",
+     "chaine": "slow matma",
+     "vues": "256 wyświetleń",
+     "date": "1 rok temu",
+     "duree": "8:29",
+     "avatar": "https://yt3.ggpht.com/e7cmVx3Ax0G7XufHZzODo1-BiX2yKeNf2LPTzSawBEJPqPAVjC9fPBiLM5aL83BUQzkaQBgZTCs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 godziny nauki."
+    ]
+   },
+   "ro": {
+    "titre": [
+     "CITEȘTE DE",
+     [
+      {
+       "t": "DOUĂ ORI",
+       "couleur": "#e3161d"
+      }
+     ],
+     "MAI REPEDE"
+    ],
+    "video": {
+     "id": "Y9cN3yiu6Zc",
+     "titre": "Citire rapida | 4 Tehnici de citire rapida",
+     "chaine": "Beni Rusu",
+     "vues": "11 K de vizionări",
+     "date": "acum 5 ani",
+     "duree": "4:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kCvLs9WlREgio2pKoA0b2ZFX6-K8puTHpTncke1PodMtw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 ore de învățat."
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÄS",
+     [
+      {
+       "t": "DUBBELT",
+       "couleur": "#e3161d"
+      }
+     ],
+     "SÅ SNABBT"
+    ],
+    "video": {
+     "id": "GNbzK9S98aI",
+     "titre": "8. Studieteknik - Om snabbläsning",
+     "chaine": "Campus Gotland",
+     "vues": "18 813 visningar",
+     "date": "för 12 år sen",
+     "duree": "26:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBn8IYR0842B14LeCK9OG6vy3d2fBqmZnP57oKrWSjMQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 timmar att lära sig."
+    ]
+   },
+   "tr": {
+    "titre": [
+     "HER TARİHİN",
+     [
+      {
+       "t": "HANGİ GÜN",
+       "couleur": "#e3161d"
+      }
+     ],
+     "OLDUĞUNU BİL"
+    ],
+    "video": {
+     "id": "Q_ks1TV5_bE",
+     "titre": "Herhangi bir tarihin hangi gün olduğnu bulma(Zeller Denklemi)",
+     "chaine": "arda abacık",
+     "vues": "566 B görüntüleme",
+     "date": "2 ay önce",
+     "duree": "4:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mJB3iqnncWIYZEU3j50xhNzudL_7tt3NwWte_s0LvBj8g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Öğrenmesi 2–3 saat."
+    ]
    }
   },
   {
@@ -602,6 +1222,196 @@
      "texte": [
       "apprends un truc nouveau chaque jour,",
       "en 5 minutes."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "ODPOVĚZ NA",
+     [
+      {
+       "t": "JAKOUKOLI",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "OTÁZKU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den něco nového,",
+      "za 5 minut."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "ODPOVEDZ NA",
+     [
+      {
+       "t": "AKÚKOĽVEK",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "OTÁZKU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň niečo nové,",
+      "za 5 minút."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "ODGOVORI NA",
+     [
+      {
+       "t": "SVAKO",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "PITANJE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "ODGOVORI NA",
+     [
+      {
+       "t": "VSAKO",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "VPRAŠANJE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "vsak dan se nauči nekaj novega,",
+      "v 5 minutah."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "VÁLASZOLJ",
+     [
+      {
+       "t": "BÁRMILYEN",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "KÉRDÉSRE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap valami újat,",
+      "5 perc alatt."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "BEANTWOORD",
+     [
+      {
+       "t": "ELKE",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "VRAAG"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "leer elke dag iets nieuws,",
+      "in 5 minuten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "ODPOWIEDZ NA",
+     [
+      {
+       "t": "KAŻDE",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "PYTANIE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie czegoś nowego,",
+      "w 5 minut."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "RĂSPUNDE LA",
+     [
+      {
+       "t": "ORICE",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "ÎNTREBARE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou în fiecare zi,",
+      "în 5 minute."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "SVARA PÅ",
+     [
+      {
+       "t": "ALLA",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "FRÅGOR"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt varje dag,",
+      "på 5 minuter."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER SORUYA",
+     [
+      {
+       "t": "CEVAP",
+       "couleur": "#1f4f14"
+      }
+     ],
+     "VER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni bir şey öğren,",
+      "5 dakikada."
      ]
     }
    }
@@ -781,6 +1591,246 @@
     "sous": [
      "3–5 heures pour apprendre."
     ]
+   },
+   "cs": {
+    "titre": [
+     "SLOŽ",
+     [
+      {
+       "t": "RUBIKOVU",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KOSTKU"
+    ],
+    "video": {
+     "id": "B1NyZI_uva4",
+     "titre": "Jak složit 3x3 Rubikovu kostku pro začátečníky | FYFT.cz",
+     "chaine": "FYFT",
+     "vues": "478 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "32:49",
+     "avatar": "https://yt3.ggpht.com/sddxRMGkrNIv0Pb4JCGs0lHz5KTnC14BcBugdJMr6QePRyNuI7ccdgKPn4lEns26tDNgnEx7=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 hodin na naučení."
+    ]
+   },
+   "sk": {
+    "titre": [
+     "POSKLADAJ",
+     [
+      {
+       "t": "RUBIKOVU",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KOCKU"
+    ],
+    "video": {
+     "id": "0_hQqnoIQPE",
+     "titre": "Skutočne najjednoduchší spôsob ako poskladať rubikovú kocku. pozri popis,druhé video,ako na žltú.",
+     "chaine": "Marek Krajčovič",
+     "vues": "365 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/O166dtOHE_WNYxS-9wRa6qfbvLz-VHvaJ8DIiUwKwGCPkH_1Mna9_9pB9Q15sRoCjJewKU7dwQE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 hodín na naučenie."
+    ]
+   },
+   "hr": {
+    "titre": [
+     "SLOŽI",
+     [
+      {
+       "t": "RUBIKOVU",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KOCKU"
+    ],
+    "video": {
+     "id": "r2JEev05mpk",
+     "titre": "Kako složiti Rubikovu kocku? (početnička metoda)",
+     "chaine": "Maja Zavišić",
+     "vues": "115 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxh3w-x1vh8bcy7j3XWNKRlUEl6FaR89HsNSyUww8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 sati za učenje."
+    ]
+   },
+   "sl": {
+    "titre": [
+     "SESTAVI",
+     [
+      {
+       "t": "RUBIKOVO",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KOCKO"
+    ],
+    "video": {
+     "id": "RQnt54AIb3c",
+     "titre": "Kako sestaviti Rubikovo kocko? (enostaven vodič)",
+     "chaine": "Nik Škrlec",
+     "vues": "604 tis. ogledov",
+     "date": "pred 8 leti",
+     "duree": "37:24",
+     "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 ur učenja."
+    ]
+   },
+   "hu": {
+    "titre": [
+     "RAKD KI A",
+     [
+      {
+       "t": "RUBIK",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KOCKÁT"
+    ],
+    "video": {
+     "id": "QPGLfKJubGA",
+     "titre": "Tanuld Meg Kirakni A Rubik Kockát 20 Perc Alatt | Rubik Kocka Kirakása Kezdőknek Egyszerűen Magyarul",
+     "chaine": "Rubik kocka - Rkocka",
+     "vues": "136 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "18:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgxUeV-bIdnPgufzxqs0VRrmeKkPiRSNDudd0evgh-Hw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 óra megtanulni."
+    ]
+   },
+   "nl": {
+    "titre": [
+     "LOS EEN",
+     [
+      {
+       "t": "RUBIK'S",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KUBUS OP"
+    ],
+    "video": {
+     "id": "TNaWwq78BK8",
+     "titre": "kubus oplossen beginners ★  Rubik's kubus oplossen in 6 min ★ Rubik's cube 3x3 puzzel",
+     "chaine": "Martin Haenen",
+     "vues": "2 mln. weergaven",
+     "date": "12 jaar geleden",
+     "duree": "6:44",
+     "avatar": "https://yt3.ggpht.com/qRpNdVx-BgpnLIsH76i8r07FkptHNsYCQBy1MTCxkUNJvnacOGocVsME8gUYQsNUAg6uaH1jPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 uur om te leren."
+    ]
+   },
+   "pl": {
+    "titre": [
+     "UŁÓŻ",
+     [
+      {
+       "t": "KOSTKĘ RUBIKA",
+       "couleur": "#4913cd"
+      }
+     ],
+     "W KILKA GODZIN"
+    ],
+    "video": {
+     "id": "3ErY8DbkGhw",
+     "titre": "Jak w najprostszy sposób rozwiązać klasyczną kostkę Rubika",
+     "chaine": "JASNA STRONA",
+     "vues": "3,9 mln wyświetleń",
+     "date": "7 lat temu",
+     "duree": "11:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGpISWVI2lHYt-kjYJC5OAh6gHZEXlfLFzDnZAt-vltc0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 godzin nauki."
+    ]
+   },
+   "ro": {
+    "titre": [
+     "REZOLVĂ",
+     [
+      {
+       "t": "CUBUL",
+       "couleur": "#4913cd"
+      }
+     ],
+     "RUBIK"
+    ],
+    "video": {
+     "id": "7Pp7S8UJeI0",
+     "titre": "Cum sa rezolvi Cubul Rubik in 9 MINUTE | Cea mai simpla metoda - Tutorial pentru incepatori",
+     "chaine": "Domnu' Puzzle - Cristian Leana",
+     "vues": "97 K de vizionări",
+     "date": "acum 1 an",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/jlhnq0Mmx_QH1mF-MM5FQRVY2CGuBaZUekAxo31pTSLF2C48buiMtQiDlx7wPwCJCgHsS4vm=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 ore de învățat."
+    ]
+   },
+   "sv": {
+    "titre": [
+     "LÖS EN",
+     [
+      {
+       "t": "RUBIKS",
+       "couleur": "#4913cd"
+      }
+     ],
+     "KUB"
+    ],
+    "video": {
+     "id": "WTbUjcWKKvs",
+     "titre": "Hur man löser Rubiks kub - Lättaste metoden (utan svåra algoritmer)",
+     "chaine": "Cuboss",
+     "vues": "903 512 visningar",
+     "date": "för 5 år sen",
+     "duree": "26:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLRaXJ2vtLAVNXM99YMzriS-UyrMkI_8b6okDvFilFa5M=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "3–5 timmar att lära sig."
+    ]
+   },
+   "tr": {
+    "titre": [
+     "BİR",
+     [
+      {
+       "t": "ZEKA KÜPÜ",
+       "couleur": "#4913cd"
+      }
+     ],
+     "ÇÖZ"
+    ],
+    "video": {
+     "id": "FoscW8F9kLU",
+     "titre": "ZEKA KÜPÜ NASIL ÇÖZÜLÜR (ÖĞRENME GARANTİLİ!)",
+     "chaine": "Tuna Özsoy",
+     "vues": "559 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "14:03",
+     "avatar": "https://yt3.ggpht.com/nenigceom6iWbgHKDDqcQtOj7atM6qBNzusi05Hs72M3jaIjlYCbz8KNUmtVe5ujgQVndgeZ0JI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Öğrenmesi 3–5 saat."
+    ]
    }
   },
   {
@@ -957,6 +2007,246 @@
     },
     "sous": [
      "2–3 heures pour apprendre."
+    ]
+   },
+   "cs": {
+    "titre": [
+     "KRESLI V",
+     [
+      {
+       "t": "PERSPEKTIVĚ",
+       "couleur": "#3256a0"
+      }
+     ],
+     "JEN TUŽKOU"
+    ],
+    "video": {
+     "id": "ND3nRFLMHSI",
+     "titre": "SKICÁŘ: PERSPEKTIVA 1 Jak nakreslit cokoliv...v jednoúběžníkové perspektivě.",
+     "chaine": "Nevzdělanci",
+     "vues": "39 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "36:45",
+     "avatar": "https://yt3.ggpht.com/WKqygxSzmzix3M0lpadsBxt-3scq4YJo4fX0kQZoucXIwJlKIV7945DoWHDL9LJRrINu-Wb7iw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučení."
+    ]
+   },
+   "sk": {
+    "titre": [
+     "KRESLI V",
+     [
+      {
+       "t": "PERSPEKTÍVE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "LEN CERUZKOU"
+    ],
+    "video": {
+     "id": "gShBssJL5tw",
+     "titre": "SERIÁL Materiály a techniky - S2 E2 - Perspektiva a jak s ní pracovat",
+     "chaine": "RENATA SCHWARZ",
+     "vues": "4,8 tis. zhliadnutí",
+     "date": "Streamované pred 6 rokmi",
+     "duree": "3:08:03",
+     "avatar": "https://yt3.ggpht.com/5ijxzRPkXhxeAqMWBg3sRKQ7PQktXoAkFMJft8u3zrqUutGNxCqqqKSGKZ7wKmcJRUlJRl0U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 hodiny na naučenie."
+    ]
+   },
+   "hr": {
+    "titre": [
+     "CRTAJ U",
+     [
+      {
+       "t": "PERSPEKTIVI",
+       "couleur": "#3256a0"
+      }
+     ],
+     "SAMO OLOVKOM"
+    ],
+    "video": {
+     "id": "iu_KyC3sQRc",
+     "titre": "LINEARNA PERSPEKTIVA- prostoručno, idealna soba/Draw a room single point perspective freehand art123",
+     "chaine": "Duško Rupčić",
+     "vues": "31 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "10:17",
+     "avatar": "https://yt3.ggpht.com/zvRzp6jrJKtETuwCwmlVwdr3xxPtXIamg6YtRH8dRx0uH9FOWELNuPjbA0fKeD0gjrwfjWbd3w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 sata za učenje."
+    ]
+   },
+   "sl": {
+    "titre": [
+     "RIŠI V",
+     [
+      {
+       "t": "PERSPEKTIVI",
+       "couleur": "#3256a0"
+      }
+     ],
+     "LE S SVINČNIKOM"
+    ],
+    "video": {
+     "id": "GNHtsI6J55U",
+     "titre": "RISANJE ULICE V ENOBEŽIŠČNI LINEARNI PERSPEKTIVI",
+     "chaine": "<3 ART",
+     "vues": "18 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "37:03",
+     "avatar": "https://yt3.ggpht.com/dyUjanLT80669wyoUBPSCNEV-URsSGmug5PfDzq0r1ojM88gilCXneLPpEo-DFcjj641tAklhg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 ure učenja."
+    ]
+   },
+   "hu": {
+    "titre": [
+     "RAJZOLJ",
+     [
+      {
+       "t": "PERSPEKTÍVÁBAN",
+       "couleur": "#3256a0"
+      }
+     ],
+     "EGY CERUZÁVAL"
+    ],
+    "video": {
+     "id": "8MrvLYTb47U",
+     "titre": "Egyiránypontos perspektíva",
+     "chaine": "István Havril",
+     "vues": "14 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "14:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh2Uby23lR_1UCfw6UineXXSQIqHeU-2-O_-9AXBB588E=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 óra megtanulni."
+    ]
+   },
+   "nl": {
+    "titre": [
+     "TEKEN IN",
+     [
+      {
+       "t": "PERSPECTIEF",
+       "couleur": "#3256a0"
+      }
+     ],
+     "MET EEN POTLOOD"
+    ],
+    "video": {
+     "id": "7tzCynborSg",
+     "titre": "Perspectief tekenen voor beginners #1: Centraal eenpuntspersperspectief met één verdwijnpunt",
+     "chaine": "Tekenen en Schilderen met Toon Nagtegaal (NL)",
+     "vues": "139K weergaven",
+     "date": "7 jaar geleden",
+     "duree": "15:50",
+     "avatar": "https://yt3.ggpht.com/U23U0S1eRMFdqJLwqdPwunhlsqLlW-5SVBg9Ei5L-saColIPIypH3am7C67U7JcSqpt037sXJg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 uur om te leren."
+    ]
+   },
+   "pl": {
+    "titre": [
+     "RYSUJ W",
+     [
+      {
+       "t": "PERSPEKTYWIE",
+       "couleur": "#3256a0"
+      }
+     ],
+     "SAMYM OŁÓWKIEM"
+    ],
+    "video": {
+     "id": "A14HWBS-ous",
+     "titre": "Jak rysować w PERSPEKTYWIE",
+     "chaine": "ilustratOLKA",
+     "vues": "22 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "21:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lVKl6KLTyhQnfDtZVpAwr09Pm5OHeFJFLQhWoXrmOXQHw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 godziny nauki."
+    ]
+   },
+   "ro": {
+    "titre": [
+     "DESENEAZĂ ÎN",
+     [
+      {
+       "t": "PERSPECTIVĂ",
+       "couleur": "#3256a0"
+      }
+     ],
+     "DOAR CU CREIONUL"
+    ],
+    "video": {
+     "id": "b3ykd7lN39s",
+     "titre": "Perspectiva la 1 punct de fuga cu Andrei Radu",
+     "chaine": "Andrei Radu Meditatii la Desen",
+     "vues": "59 K de vizionări",
+     "date": "acum 9 ani",
+     "duree": "4:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_md8kaP0DaPBke2-5YnOOi5x5w75RnF0yR5_X6NR7Fpcgg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 ore de învățat."
+    ]
+   },
+   "sv": {
+    "titre": [
+     "RITA I",
+     [
+      {
+       "t": "PERSPEKTIV",
+       "couleur": "#3256a0"
+      }
+     ],
+     "MED BARA EN PENNA"
+    ],
+    "video": {
+     "id": "fp4gqMVIS8k",
+     "titre": "Hur tecknar man perspektiv del 1",
+     "chaine": "Malmö Kulturskola",
+     "vues": "28 611 visningar",
+     "date": "för 4 år sen",
+     "duree": "5:09",
+     "avatar": "https://yt3.ggpht.com/-1qy-aTVhrAZ62Od3qRXXgQHzLXsu2BEx1EDjB2wC6TOZu_dKQ1q_UrUBdRzWyl97Z8xkJc4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2–3 timmar att lära sig."
+    ]
+   },
+   "tr": {
+    "titre": [
+     "SADECE KALEMLE",
+     [
+      {
+       "t": "PERSPEKTİF",
+       "couleur": "#3256a0"
+      }
+     ],
+     "ÇİZ"
+    ],
+    "video": {
+     "id": "xTedoip113c",
+     "titre": "1 noktalı perspektif çizimi / 1 kaçışlı perspektif çizimi / görsel sanatlar dersi etkinlikleri",
+     "chaine": "çizim yap",
+     "vues": "398 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "17:02",
+     "avatar": "https://yt3.ggpht.com/gjompIi86h56N4m1v3bs9N7_Ocgto50kgPEnkK23bUPN6KkRP6eec5g_wfc5hwtJVyqATEhB=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Öğrenmesi 2–3 saat."
     ]
    }
   }

@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o267",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c7cdd8f1-af58-412b-8fe6-329367728570",
+ "titre": "quietly attractive things that have nothing to do with looks #greenflags #attractive #smartgirl #standards #love",
+ "musique_titre": "original sound - stevelacyoffline",
+ "musique_url": "https://www.tiktok.com/music/original-sound-stevelacyoffline-7667284290392083221",
+ "inspirations": [
+  "8a36734a-febd-401f-b9e4-da9b3acae040"
+ ],
+ "notes": "cta B. Déclinaison G2 de la ligne 3 de la boîte (parent c7cdd8f1, langue source hu) : accroche reformulée (« quietly attractive things that have nothing to do with looks »), différente de sg-o248 ; détails du parent et neufs. Sophia au milieu (cta B). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5b72db00",
+   "texte_overlay": "quietly attractive things that\nhave nothing to do with looks",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "695f3807",
+   "texte_overlay": "remembering the little\nthings you said",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0636c749",
+   "texte_overlay": "asking how your day\nreally went",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "81af1f39",
+   "texte_overlay": "being curious about everything",
+   "texte_sophia": "being curious about everything\n\nthe kind who reads one lesson\na day on an app like Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "ede20658",
+   "texte_overlay": "saying \"i was wrong\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "17827e0e",
+   "texte_overlay": "getting excited about a museum",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "d244554f",
+   "texte_overlay": "being kind to strangers",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "0d760124",
+   "texte_overlay": "recommending a book\nthey loved",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7626951694739361045/4.jpg"
+  }
+ ]
+}

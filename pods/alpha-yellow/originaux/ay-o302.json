@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o302",
+ "type_bleo": "full_test",
+ "titre": "Things that make a man hard to replace #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Talk To You",
+ "musique_url": "https://www.tiktok.com/music/talk-to-you-7611595484184856577",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 4 à 7 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 11 lignes utilisables pour 12 déclinaisons, d'où un 5e full test. Accroches écrites : « Things that make a man hard to replace » (retenue), « How to become indispensable » (écartée : ton corporate), « Why some men are never forgotten » (écartée : proche de la ligne 15).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "028f6734-5730-4b47-909f-63cbc2981526",
+   "texte_overlay": "Things that make a man\nhard to replace",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "He solves problems instead of reporting them. \"Here's what went wrong and here's how I fixed it.\" Every team and every family needs that kind of man.",
+   "media_id": "00544b77-fa29-47cc-a6be-ed293be1a4df"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "He stays calm when everyone else panics. A steady voice in a crisis is rare. People remember who kept his head when things went wrong.",
+   "media_id": "0060baa5-9b02-4293-a811-39f3fe70facf"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "He keeps learning skills other people avoid. Cooking, basic repairs, first aid, handling money. Being useful in many situations makes you valuable everywhere.",
+   "media_id": "00a7abbe-f915-4e1d-8353-27f042cb9a3a"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "He makes people around him better. He shares what he knows, gives credit and helps others grow. Men like that are never easy to replace.",
+   "media_id": "010edc5f-e0ad-40d8-8b29-f6647caceafa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "He stays curious. I do five minutes a day of history, art or science, and that small daily habit keeps my mind sharp and my ideas fresh.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. That small daily habit keeps my mind sharp and my ideas fresh.",
+   "media_id": "02ec58cb-7c04-4415-a9dc-21b0f34469d3"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "He is loyal. To his friends, his partner, his word. Loyalty is getting rarer, which makes it more valuable than ever. Stay loyal, even when it costs you.",
+   "media_id": "011c2a12-c295-4ff8-a3cc-274573312039"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "He brings good energy. Not fake positivity, just warmth and a sense of humour. People want to keep someone who makes hard days lighter.",
+   "media_id": "024038cd-631c-461b-a0a3-27c5c3b38d66"
+  }
+ ]
+}

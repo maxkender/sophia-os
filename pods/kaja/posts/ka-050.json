@@ -1,0 +1,818 @@
+{
+ "id": "ka-050",
+ "titre": {
+  "en": "10/10 tech skills to learn",
+  "fr": "10/10 skills tech à apprendre",
+  "de": "10/10 Tech-Skills zum Lernen",
+  "it": "10/10 skill tech da imparare",
+  "tr": "10/10 öğrenebileceğin teknoloji becerisi",
+  "hu": "10/10 tech készség",
+  "pl": "10/10 umiejętności technicznych",
+  "pt-BR": "10/10 habilidades de tecnologia"
+ },
+ "legendes": {
+  "en": "10/10 tech skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills tech à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Tech-Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill tech da imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin teknoloji becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 tech készség #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności technicznych #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades de tecnologia #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7240852724106005291"
+ },
+ "notes": "Full test (BLEO, 18/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (les compétences tech). Décor branche. Son format court à 3 compétences plus l'étape Sophia (Excel, Python, créer un site web), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7240852724106005291 » de son manifeste. Sophia en étape 3, cta B, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "TECH",
+     "SKILLS TO",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS TECH",
+     "À APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "TECH-",
+     "SKILLS ZUM",
+     "LERNEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL TECH",
+     "DA IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "TEKNOLOJİ",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "TECH",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "TECHNICZNE"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "DE TECNOLOGIA"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO USE",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rwbho0CgEAE",
+     "titre": "The Beginner's Guide to Excel - Excel Basics Tutorial",
+     "chaine": "Technology for Teachers and Students",
+     "vues": "21M views",
+     "date": "9 years ago",
+     "duree": "21:47",
+     "avatar": "https://yt3.ggpht.com/GmBPCK65DWh0T27fEjzR7f1CTvQhxL11_D-OuK9EvSylp5XauvcfcuygquaD07fpf79qdgiX=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT UTILISER",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rvg-ZsAqInk",
+     "titre": "Apprendre Excel pour débutants - Les bases d'Excel",
+     "chaine": "Excel Formation",
+     "vues": "3,9 M de vues",
+     "date": "il y a 7 ans",
+     "duree": "11:23",
+     "avatar": "https://yt3.ggpht.com/6ue20Uq1NEtKtHwEny3-_qSNutZPzV5mcPOmMku11-bk3UFc50e0zYxRRMAY3gO-vfC7lWoCzw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Cs-DqdkJHZk",
+     "titre": "Excel Anfängerkurs: Die absoluten Grundlagen ohne Vorwissen",
+     "chaine": "Martin Goldmann - Tipps",
+     "vues": "310.289 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "21:40",
+     "avatar": "https://yt3.ggpht.com/90rNeZCmoFFwOlNjRHoK4q8t-OrTy543RFSh5-7YauYeHRfHblqmJbCzLLWnE0aPNnX8S6Gu=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME USARE",
+     [
+      {
+       "t": "EXCEL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dEkEfmK25Bs",
+     "titre": "Microsoft Excel: Impara ad usarlo in 10 minuti! (Corso per principianti)",
+     "chaine": "Microsoft ExpertZone Italia",
+     "vues": "238K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "13:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kuwIOmc7UoY-ZC88t0I-JqcRbNYfQSfjqWJPTlzzx_tHM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "EXCEL ÖĞRENİLİR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nE1SL7qb-ks",
+     "titre": "10 Dakikada Excel Öğren! – Hızlandırılmış Ücretsiz Excel Eğitimi",
+     "chaine": "Emre Akyüz",
+     "vues": "674 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "13:48",
+     "avatar": "https://yt3.ggpht.com/h3S6F8PsoRJ525vkcCxF8ajOwmO0rVP0WycWOpdwRH0NKjielIPaaEeY56RppwJRkqG03ADg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TANULJ",
+     [
+      {
+       "t": "EXCELT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-9_iMECopjY",
+     "titre": "Excel - Alapok [magyar nyelvű oktatóvideó] | Excel videosorozat 1. rész",
+     "chaine": "video LCZ",
+     "vues": "658 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "20:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtvoyfkol_VcNslvSu4JC-Lo_IkqTWJ4OS_aabkogWlg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK UŻYWAĆ",
+     [
+      {
+       "t": "EXCELA",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vDig2c7hbWw",
+     "titre": "Kurs Excel 2016 Dla Początkujących - Część 1 - Wstęp",
+     "chaine": "Złote Kursy",
+     "vues": "1,6 mln wyświetleń",
+     "date": "9 lat temu",
+     "duree": "11:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mgR5vQdr-vReV34L7mn1bX96dFyAZGQ7SNNdHM_N29OA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO USAR",
+     [
+      {
+       "t": "O EXCEL",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9QbIuIZMVUw",
+     "titre": "Como Fazer Planilha no Excel - Passo a Passo para Criar Planilhas do Zero no Nível Iniciante",
+     "chaine": "Ensina Frain",
+     "vues": "2,4 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "8:42",
+     "avatar": "https://yt3.ggpht.com/Mb2kiYZxO6YN-IcIDDyX34rh5FNM8dGX-a6UHW3My__cK3e8qPFGVvihjwlzF4k8Kp-fs7Vj1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO CODE",
+     [
+      {
+       "t": "IN PYTHON",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fWjsdhR3z3c",
+     "titre": "Learn Python in Less than 10 Minutes for Beginners (Fast & Easy)",
+     "chaine": "Indently",
+     "vues": "1.9M views",
+     "date": "5 years ago",
+     "duree": "10:30",
+     "avatar": "https://yt3.ggpht.com/68ZQuFvv8mZTJQD65biYl2BWjKKMxkDS5k_sIdAGpRY9-p1vYsqwE1jNMTDEveZoSpkfOpKG=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT APPRENDRE",
+     [
+      {
+       "t": "PYTHON",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2XPpdiA_J9o",
+     "titre": "Apprendre Python de A à Z",
+     "chaine": "OpenClassrooms en Français",
+     "vues": "59 k vues",
+     "date": "il y a 2 ans",
+     "duree": "14:58",
+     "avatar": "https://yt3.ggpht.com/_fAYkMPY9Hvs1Qq7ze9ZtbmVKYV32m_PU238a5Sra9RA6QwrKpG9I1AabyAD_Kv5ram1rILliA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "PROGRAMMIEREN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3_Goj0_DJfA",
+     "titre": "Programmieren Lernen: Die BESTE Methode (für Anfänger)",
+     "chaine": "Niklas Steenfatt",
+     "vues": "1,7 Mio. Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "23:46",
+     "avatar": "https://yt3.ggpht.com/-3NUqVqxSDHQ3bHDuXUj3Xd1wM2mqltFJzaRMXxtH-3Imb_JvPVeLfdPRmPcyC0MQafa-wredwg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME IMPARARE",
+     [
+      {
+       "t": "PYTHON",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zFA4pctRR1g",
+     "titre": "PYTHON TUTORIAL ITA - Impara Python in tempo RECORD!",
+     "chaine": "PitoneProgrammatore",
+     "vues": "192K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "5:30",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfYcjrC5PFl8Qr1_YBLq-sMr1sXHeuSB7Ljx_72Yv9sbo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PYTHON ÖĞRENİLİR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3-1MN1o1yp4",
+     "titre": "2 Dakikada Python | Python Nedir, Ne İşe Yarar, Nasıl Çalışır?",
+     "chaine": "ByteBloodz",
+     "vues": "11 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/bk13JvyelIDn48oJFdk6yxhi3pI6FFlBuAU4k1zqM035-dSnHCYqQvPKKF_RsyLxkjTX20ZoCQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TANULJ",
+     [
+      {
+       "t": "PYTHONT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YFbILqFuklI",
+     "titre": "Python programozás alapok - Bevezető [1]",
+     "chaine": "The Developer Guy - informatika oktatás",
+     "vues": "1,7 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/DsXtFdBpZ5ejumVEosCfVlhIblJzxVa0HQlHHseQThXHKV1lwnxyo8tvehFBHLDAIFKSY44bdUM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NAUCZYĆ SIĘ",
+     [
+      {
+       "t": "PYTHONA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BVZHxKL14T0",
+     "titre": "Python od podstaw (#1) Programowanie w Pythonie. Zaczynamy!",
+     "chaine": "Pasja informatyki",
+     "vues": "175 tys. wyświetleń",
+     "date": "4 lata temu",
+     "duree": "29:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_msCzkHI3hvGqHyvfxNdPt6fDV-4c00cGi8tzqWkr6K8L0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO APRENDER",
+     [
+      {
+       "t": "PYTHON",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4p7axLXXBGU",
+     "titre": "Aprenda Python em 10min (para Iniciantes)",
+     "chaine": "Hashtag Programação",
+     "vues": "1,2 mi visualizações",
+     "date": "há 4 anos",
+     "duree": "11:58",
+     "avatar": "https://yt3.ggpht.com/n5GUY-L5kuEeNCdK5g0FiVbhoAHQJxAI-3xxvPIm1Qb2zjfRHrqNp6dakUwKGZUfBiyBrWqJPW4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2-4 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "LEARN ANYTHING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "TOUT APPRENDRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "ALLES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME IMPARARE",
+     [
+      {
+       "t": "QUALSIASI COSA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "HER ŞEYİ ÖĞRENİRSİN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TANULJ",
+     [
+      {
+       "t": "MEG BÁRMIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NAUCZYĆ SIĘ",
+     [
+      {
+       "t": "WSZYSTKIEGO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO APRENDER",
+     [
+      {
+       "t": "QUALQUER COISA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO BUILD",
+     [
+      {
+       "t": "A WEBSITE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XV1cOGaZUq0",
+     "titre": "How To Create A Free Website - with Free Domain & Hosting",
+     "chaine": "Website Learners",
+     "vues": "11M views",
+     "date": "6 years ago",
+     "duree": "20:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nBkw8wpT6jglrHmh6VHiWmQ4Ul_pIZjcs_yUI5BvxXoPk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT CRÉER",
+     [
+      {
+       "t": "UN SITE WEB",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KsCUcBK9q14",
+     "titre": "Créer un site en HTML (1/5) - 3 minutes pour coder avec Micode",
+     "chaine": "Lumni",
+     "vues": "756 k vues",
+     "date": "il y a 9 ans",
+     "duree": "3:05",
+     "avatar": "https://yt3.ggpht.com/lc0DuveB7cxz3dOeBHx9XCJXq5osqhGEZMy1IxC7kN9TD5YB9JRPlAhazyH25jL3k5iCmROW=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "HTML",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q3MIitoSQkE",
+     "titre": "Lerne HTML in 20 Minuten",
+     "chaine": "Programmieren lernen",
+     "vues": "409.358 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "19:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh1hKt9hjsPwNfCgE_3EPrrXuBOJwvL_Kftar4JqIiFw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME CREARE",
+     [
+      {
+       "t": "UN SITO WEB",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TxcJ2drr554",
+     "titre": "TUTORIAL HTML E CSS ITA - Impararlo SUBITO! Corso RAPIDO per principianti in ITALIANO [2020]",
+     "chaine": "PitoneProgrammatore",
+     "vues": "266K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nfYcjrC5PFl8Qr1_YBLq-sMr1sXHeuSB7Ljx_72Yv9sbo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "WEB SİTESİ YAPILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lQcpPBECqUc",
+     "titre": "Basit Web Site Yapımı - Html Css Basit Web Site Yapımı",
+     "chaine": "Emin Başbayan",
+     "vues": "462 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "30:00",
+     "avatar": "https://yt3.ggpht.com/nB5DxTfLRYEVlE4Rz3gWgIub3So8QNc-FnlaD2s0PGitd2D8bDRSW8AxchlX93AfgkjFGGTNdV0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KÉSZÍTS",
+     [
+      {
+       "t": "WEBOLDALT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TFw4i6IqjtU",
+     "titre": "Webfejlesztés alapok abszolút kezdőknek | HTML",
+     "chaine": "zsoltech",
+     "vues": "96 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "40:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nx5ZRyHcvE2HuhNMe4Z9Bk8Kk5sOjWHE2m0t0CHkugnA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "STRONĘ WWW",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Yp3JgP-L3Yw",
+     "titre": "Jak zrobić stronę HTML w notatniku",
+     "chaine": "Marcin Sajda",
+     "vues": "428 tys. wyświetleń",
+     "date": "10 lat temu",
+     "duree": "7:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kw1npoETpbuj847IEvvnyz1ZYXli3NAE18brxSN7ckomI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO CRIAR",
+     [
+      {
+       "t": "UM SITE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "n_Etdr7Dbjs",
+     "titre": "HTML + CSS NA PRÁTICA 🔥 Faça seu primeiro site",
+     "chaine": "Adriana Saty",
+     "vues": "739 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "16:19",
+     "avatar": "https://yt3.ggpht.com/ARUy-QpaiVRdeBZueD-Dlyf6BPLmN0H5gyQ8_mv0UP9Z9ZSXL9nZqMvoVte423tnI699EoRc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

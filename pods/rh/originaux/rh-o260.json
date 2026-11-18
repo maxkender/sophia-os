@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o260",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "23a572f7-12b0-477a-9fef-ef37b885a217",
+ "titre": "ce que j'ai « exagéré » en entretien de stage (et comment je l'ai rendu vrai) #stage #entretien #etudiant #rechercheemploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 4. Déclinaison G2 de la ligne #3 (parent 23a572f7) : même promesse, autres mots. Chaque exagération est rendue vraie ensuite, rien d'inventé. Inspirations reprises de rh-o123. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "086be0a9",
+   "texte_overlay": "ce que j'ai « exagéré »\nen entretien de stage\n(et comment je l'ai rendu vrai)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "fe084c05",
+   "texte_overlay": "« je maîtrise excel »\nla vérité : les bases. j'ai fait 3 tutos la semaine d'avant",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7217d5a7",
+   "texte_overlay": "« j'aime travailler en équipe »\nla vérité : j'avais surtout fait des projets seule. j'ai demandé à rejoindre une asso",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "175e44ec",
+   "texte_overlay": "« je m'intéresse à votre secteur depuis longtemps »\nla vérité : depuis un mois. mais j'en apprenais un peu chaque jour",
+   "texte_sophia": "« je m'intéresse à votre secteur depuis longtemps »\nla vérité : depuis un mois. mais j'en apprenais un peu chaque jour, 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "f4a3e1c8",
+   "texte_overlay": "« je suis à l'aise à l'oral »\nla vérité : j'avais le trac. j'ai répété devant ma coloc",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0700beb0",
+   "texte_overlay": "à chaque fois, la même règle\nsi je le dis, je le rends vrai avant le premier jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b0131f98",
+   "texte_overlay": "t'as « exagéré » quoi, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/4.jpg"
+  }
+ ]
+}

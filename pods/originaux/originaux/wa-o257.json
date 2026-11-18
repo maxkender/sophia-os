@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o257",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "08205dcf-9d05-4b87-844e-e454559bae6e",
+ "titre": "weird habits that made me a morning person #morningroutine #morningperson #habits #selfimprovement #productivity",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "736f3336-6e8a-4f29-80fc-7497725ff488"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 736f3336). déclinaison G1 de « weird habits that made me a morning person » (parent 08205dcf). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "7fa555d5-2326-4e9c-8d7f-32d99f0c0c48",
+   "texte_overlay": "weird habits that made me\na morning person",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6efde576-ee20-4278-8564-727f916214ac",
+   "texte_overlay": "my alarm lives far away\n\ni keep my alarm on the other side of the room. walking over to turn it off means i'm already standing before my brain can start arguing with me about it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "7d66aac8-55b4-4159-a82e-856d55041190",
+   "texte_overlay": "a breakfast worth waking for\n\ni choose tomorrow's breakfast the night before. knowing something delicious is waiting makes leaving a warm bed so much easier on a cold, dark winter morning.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "47b62a9b-379a-4888-b445-6b1e638cb7b1",
+   "texte_overlay": "something new with coffee\n\ni spend 5 minutes with my coffee learning something new, and it makes waking up feel exciting instead of heavy. curiosity is a far better reason to get up than any alarm.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/4.jpg",
+   "texte_sophia": "something new with coffee\n\ni spend 5 minutes with my coffee on one lesson in the Sophia app, a myth or a planet. having something new to learn makes waking up feel exciting instead of heavy."
+  },
+  {
+   "position": 5,
+   "media_id": "2c00d1ea-891f-4988-b49b-3ff72269c033",
+   "texte_overlay": "the open window\n\ni open the window the moment i get up, whatever the weather. the fresh air wakes me up faster than any coffee and makes the whole room feel fresh and new.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bfeb66a6-b6eb-4531-9c9c-a6ca086f8cc6",
+   "texte_overlay": "same bedtime, every night\n\ni go to bed at the same time every night, weekends included. the secret to easy mornings was always the evening before, never the loud alarm clock itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664202199836249366/6.jpg"
+  }
+ ]
+}

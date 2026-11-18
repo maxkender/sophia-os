@@ -1,0 +1,36 @@
+{
+ "id": 342792525,
+ "nom": "IMDb: Movies & TV Shows",
+ "editeur": "IMDb",
+ "categorie": "Entertainment",
+ "note": 4.78843,
+ "avis": 549191,
+ "url": "https://apps.apple.com/us/app/imdb-movies-tv-shows/id342792525?uo=4",
+ "pays": {
+  "en": {
+   "nom": "IMDb: Movies & TV Shows",
+   "note": 4.78843,
+   "avis": 549191,
+   "captures_locales": false
+  },
+  "es": {
+   "nom": "IMDb Cine & TV",
+   "note": 4.75453,
+   "avis": 13081,
+   "captures_locales": false
+  },
+  "it": {
+   "nom": "IMDb Film & TV",
+   "note": 4.74373,
+   "avis": 10200,
+   "captures_locales": false
+  },
+  "pt-BR": {
+   "nom": "IMDb Cinema & TV",
+   "note": 4.84664,
+   "avis": 16158,
+   "captures_locales": false
+  }
+ },
+ "description": "IMDb is the world's most trusted source for movie ratings, TV show reviews, celebrity info, trailers, and entertainment news. Whether you're looking for what to watch tonight or tracking upcoming releases, IMDb helps you discover movies and TV shows tailored to you.\n\nFind where to watch any movie or TV show across your streaming services. Connect your preferred platforms, and IMDb shows you what's available to stream, rent, or buy in one place. Save titles to your Watchlist so you never lose track of what to watch next.\n\nRate movies and TV shows on a scale of 1-10 and join millions of fans shaping the IMDb Top 250 Movies and Top 250 TV Shows charts. Customize your Interests to get personalized recommendations, and enable alerts to know when titles on your Watchlist become available.\n\nExplore cast and crew details, read and write reviews, watch trailers, check box office results, and browse photo galleries. Stay current with entertainment news, Born Today features, and celebrity updates.\n\nIMDb is available worldwide in English, Spanish, German, French, Portuguese, Italian, Japanese, Korean, Chinese, Taiwanese, and Hindi. We love making IMDb better for fans. Share your feedback at: http://spr.ly/IMDbApp_iOS"
+}

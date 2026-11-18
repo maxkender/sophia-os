@@ -1,0 +1,140 @@
+{
+ "id": "ig-013",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps that feel illegal to know",
+  "fr": "des applis qui semblent illégales à connaître",
+  "es": "apps que parecen ilegales de conocer",
+  "it": "app che sembrano illegali da conoscere",
+  "tr": "bilmesi yasak gibi hissettiren uygulamalar"
+ },
+ "legendes": {
+  "en": "apps that feel illegal to know #foryou #apps #lifehacks #thatgirl",
+  "fr": "des applis qui semblent illégales à connaître #foryou #apps #lifehacks #thatgirl",
+  "es": "apps que parecen ilegales de conocer #foryou #apps #lifehacks #thatgirl",
+  "it": "app che sembrano illegali da conoscere #foryou #apps #lifehacks #thatgirl",
+  "tr": "bilmesi yasak gibi hissettiren uygulamalar #foryou #apps #lifehacks #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve). Photos Seedream : ecouteurs-1, fille-16-2 (banque, jamais utilisée en couverture), bouquet-14. Applis (App Store US, 18/11) : Night Sky (4,7 ★, 499 k avis), Sophia en 2e (cta C), InShot (4,8 ★, 2,5 M) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/ecouteurs-1.jpg",
+     "images/photos/fille-16-2.jpg",
+     "images/photos/bouquet-14.jpg"
+    ],
+    "titre": "apps that feel\nillegal to know"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/ecouteurs-1.jpg",
+     "images/photos/fille-16-2.jpg",
+     "images/photos/bouquet-14.jpg"
+    ],
+    "titre": "des applis qui semblent\nillégales à connaître"
+   },
+   "es": {
+    "photos": [
+     "images/photos/ecouteurs-1.jpg",
+     "images/photos/fille-16-2.jpg",
+     "images/photos/bouquet-14.jpg"
+    ],
+    "titre": "apps que parecen\nilegales de conocer"
+   },
+   "it": {
+    "photos": [
+     "images/photos/ecouteurs-1.jpg",
+     "images/photos/fille-16-2.jpg",
+     "images/photos/bouquet-14.jpg"
+    ],
+    "titre": "app che sembrano\nillegali da conoscere"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/ecouteurs-1.jpg",
+     "images/photos/fille-16-2.jpg",
+     "images/photos/bouquet-14.jpg"
+    ],
+    "titre": "bilmesi yasak gibi\nhissettiren uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/nightsky",
+   "en": {
+    "nom": "night sky",
+    "texte": "you point your phone at the sky and it tells you which stars and planets you're looking at"
+   },
+   "fr": {
+    "nom": "night sky",
+    "texte": "tu pointes ton téléphone vers le ciel et elle te dit quelles étoiles et planètes tu regardes"
+   },
+   "es": {
+    "nom": "night sky",
+    "texte": "apuntas el móvil al cielo y te dice qué estrellas y planetas estás mirando"
+   },
+   "it": {
+    "nom": "night sky",
+    "texte": "punti il telefono verso il cielo e ti dice quali stelle e pianeti hai sopra di te"
+   },
+   "tr": {
+    "nom": "night sky",
+    "texte": "telefonunu gökyüzüne tutarsın, hangi yıldızlara ve gezegenlere baktığını söyler"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, con un quiz cortito después para que se te quede"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/inshot",
+   "en": {
+    "nom": "inshot",
+    "texte": "you cut your videos, add music and text, and resize them for your stories"
+   },
+   "fr": {
+    "nom": "inshot",
+    "texte": "tu coupes tes vidéos, tu ajoutes de la musique et du texte, et tu les mets au format de tes stories"
+   },
+   "es": {
+    "nom": "inshot",
+    "texte": "cortas tus vídeos, añades música y texto, y los pones en el formato que quieras"
+   },
+   "it": {
+    "nom": "inshot",
+    "texte": "tagli i tuoi video, aggiungi musica e testo e li metti nel formato giusto"
+   },
+   "tr": {
+    "nom": "inshot",
+    "texte": "videolarını kesip müzik ve yazı ekler, story'lerin için istediğin boyuta getirirsin"
+   }
+  }
+ ]
+}

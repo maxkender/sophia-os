@@ -1,0 +1,281 @@
+{
+ "id": "dr-019",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of night owl hobbies",
+  "sv": "Isberget av nattugglans hobbyer",
+  "nl": "IJsberg van hobby's van nachtuilen"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #nightowl #lockedin #selfimprovement",
+  "sv": "#isberg #hobbyer #nattuggla #självutveckling",
+  "nl": "#ijsberg #hobbys #nachtuil #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "three tabs by chromas - thisischromas",
+  "url": "https://www.tiktok.com/music/three-tabs-7370815708128496416"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « night owl hobbies ». Sophia au 2e étage (« sophia before bed », icône). En, sv, nl seulement ; couverture : variantes 3, 4, 5.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "night owl hobbies",
+    "variante": 3
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "nattugglans hobbyer",
+    "variante": 4
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van nachtuilen",
+    "variante": 5
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "stargazing",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "late-night podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "midnight tea",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia before bed",
+       "image": "sophia"
+      },
+      {
+       "t": "quiet piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "online chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "coding at 1am",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "vinyl at midnight",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "owl spotting",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "writing poetry",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "night radio",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "moon phases",
+       "image": "images/objets/lampe-lune.png"
+      },
+      {
+       "t": "night photography",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "3am philosophy",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "watching the sunrise",
+       "image": "images/objets/reveil.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "titta på stjärnor",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "nattpoddar",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "te vid midnatt",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "skriva dagbok",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia på kvällen",
+       "image": "sophia"
+      },
+      {
+       "t": "tyst piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "schack online",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "koda kl. 1",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "vinyl vid midnatt",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "spana efter ugglor",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "skriva poesi",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "nattradio",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "månens faser",
+       "image": "images/objets/lampe-lune.png"
+      },
+      {
+       "t": "nattfoto",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "filosofi kl. 3",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "se soluppgången",
+       "image": "images/objets/reveil.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "sterren kijken",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "thee om middernacht",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "dagboek schrijven",
+       "image": "images/objets/carnet.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia voor het slapen",
+       "image": "sophia"
+      },
+      {
+       "t": "zachte piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "online schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "coderen om 1 uur",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "vinyl om middernacht",
+       "image": "images/objets/tourne-disque.png"
+      },
+      {
+       "t": "uilen spotten",
+       "image": "images/objets/jumelles.png"
+      },
+      {
+       "t": "gedichten schrijven",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "nachtradio",
+       "image": "images/objets/radio-ancienne.png"
+      }
+     ],
+     [
+      {
+       "t": "maanfases",
+       "image": "images/objets/lampe-lune.png"
+      },
+      {
+       "t": "foto's 's nachts",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "filosofie om 3 uur",
+       "image": "images/objets/livre-ancien.png"
+      }
+     ],
+     [
+      {
+       "t": "de zonsopgang",
+       "image": "images/objets/reveil.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

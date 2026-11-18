@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o262",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ee3dac98-bebd-4eb1-a961-1818a15450a5",
+ "titre": "les indices qui montrent que le recruteur t'a déjà choisie #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne #6 (parent ee3dac98) : même promesse, autres mots, autres indices. Inspirations reprises de rh-o158. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "aede46b6",
+   "texte_overlay": "les indices qui montrent\nque le recruteur\nt'a déjà choisie",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "420ab818",
+   "texte_overlay": "l'entretien dure plus longtemps que prévu\net il ne regarde pas l'heure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "95df39a1",
+   "texte_overlay": "il passe au « tu » sans s'en rendre compte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "62498a2c",
+   "texte_overlay": "il te demande tes disponibilités précises\npas juste « à peu près »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9ea256b7",
+   "texte_overlay": "il te parle des projets des 6 prochains mois\ncomme si t'étais déjà là",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "fae58376",
+   "texte_overlay": "il retient un détail que tu as dit\nmoi, c'était un truc que j'avais appris le matin même",
+   "texte_sophia": "il retient un détail que tu as dit\nmoi, c'était un truc que j'avais appris le matin même sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7947ec36",
+   "texte_overlay": "aucun indice ne remplace un oui.\nmais ça rassure",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dcbb7c62",
+   "texte_overlay": "t'as déjà eu ce feeling ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

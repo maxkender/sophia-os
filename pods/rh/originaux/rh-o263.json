@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o263",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fac64dca-a686-4ead-ba70-ac4a629fa004",
+ "titre": "ce que le recruteur dit, et ce qu'il a vraiment en tête #recrutement #entretien #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Venus and Flower",
+ "musique_url": "https://www.tiktok.com/music/venus-and-flower-7603351654578210832",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 4. Déclinaison G2 de la ligne #7 (parent fac64dca) : même promesse, autres mots, autres phrases. Inspirations reprises de rh-o150. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "4ed7995b",
+   "texte_overlay": "ce que le recruteur dit,\net ce qu'il a\nvraiment en tête",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6e1263ef",
+   "texte_overlay": "« vous avez vu la fiche de poste ? »\nen tête : est-ce qu'elle l'a lue en entier ?\ncite une mission précise",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "25baaa23",
+   "texte_overlay": "« vous êtes à l'aise avec l'imprévu ? »\nen tête : le planning change souvent\ndemande un exemple de semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "53b1dd21",
+   "texte_overlay": "« qu'est-ce qui vous intéresse en ce moment ? »\nen tête : est-ce qu'elle apprend encore ?\nparle d'un sujet précis",
+   "texte_sophia": "« qu'est-ce qui vous intéresse en ce moment ? »\nen tête : est-ce qu'elle apprend encore ?\nutilise l'appli Sophia 5 minutes par jour, t'auras toujours un sujet",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e1b0eab0",
+   "texte_overlay": "« on a beaucoup de candidatures »\nen tête : qu'est-ce qui la rend différente ?\nune phrase, un exemple",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5b9161d3",
+   "texte_overlay": "« vous avez d'autres pistes ? »\nen tête : on doit aller vite ou pas ?\nréponds honnêtement",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "e83e4f12",
+   "texte_overlay": "laquelle t'as déjà entendue ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/5.jpg"
+  }
+ ]
+}

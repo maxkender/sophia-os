@@ -1,0 +1,1297 @@
+{
+ "id": "sg-017",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 pour avoir confiance en toi",
+  "en": "10/10 skills to be more confident",
+  "de": "10/10-Skills für mehr Selbstvertrauen",
+  "it": "Abilità 10/10 per avere fiducia in te stesso",
+  "pt-BR": "Habilidades 10/10 para ter autoconfiança",
+  "tr": "Özgüvenini artıracak 10/10 beceriler",
+  "ro": "Abilități 10/10 ca să ai încredere în tine",
+  "cs": "Dovednosti 10/10 pro větší sebevědomí"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 pour avoir confiance en toi #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills to be more confident #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills für mehr Selbstvertrauen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 per avere fiducia in te stesso #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 para ter autoconfiança #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Özgüvenini artıracak 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 ca să ai încredere în tine #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10 pro větší sebevědomí #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - Jacob . P",
+  "url": "https://www.tiktok.com/music/original-sound-7579742033737239318"
+ },
+ "notes": "Full test du 18/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 pour avoir confiance en toi », sa couverture (décor, lignes brun/noir à ses tailles ; 3 lignes en en, de, pt-BR, tr et cs). 5 compétences : vaincre la timidité, avoir une voix posée, engager la conversation, sortir de sa zone de confort, arrêter de se comparer (le contact visuel écarté faute de vidéo native en ro et cs). Sophia en étape 4 sur 7, cta C, « AVOIR DES CHOSES / À RACONTER ». Vraies vidéos natives par langue.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "POUR AVOIR",
+      "cap": 169
+     },
+     {
+      "t": "CONFIANCE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "EN TOI",
+      "cap": 169
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "TO BE MORE",
+      "cap": 169
+     },
+     {
+      "t": "CONFIDENT",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "FÜR MEHR",
+      "cap": 169
+     },
+     {
+      "t": "SELBSTVERTRAUEN",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PER AVERE",
+      "cap": 169
+     },
+     {
+      "t": "FIDUCIA",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "IN TE STESSO",
+      "cap": 120
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PARA TER",
+      "cap": 169
+     },
+     {
+      "t": "AUTOCONFIANÇA",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "ÖZGÜVENİNİ",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ARTIRACAK",
+      "cap": 169
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 144
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "CA SĂ AI",
+      "cap": 169
+     },
+     {
+      "t": "ÎNCREDERE",
+      "couleur": "brun",
+      "cap": 283
+     },
+     {
+      "t": "ÎN TINE",
+      "cap": 169
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 144
+     },
+     {
+      "t": "PRO VĚTŠÍ",
+      "cap": 169
+     },
+     {
+      "t": "SEBEVĚDOMÍ",
+      "couleur": "brun",
+      "cap": 283
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "VAINCRE",
+     [
+      {
+       "t": "LA TIMIDITÉ",
+       "couleur": "#c23a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "2w4Pwe-ZAMU",
+     "titre": "7 CONSEILS POUR VAINCRE LA TIMIDITÉ (NE PLUS ÊTRE TIMIDE) | KAARAMOO",
+     "chaine": "Kaaramoo",
+     "vues": "769 k vues",
+     "date": "il y a 5 ans",
+     "duree": "15:34",
+     "avatar": "https://yt3.ggpht.com/CRHhc6bMWVGCc2HUnlMwjpkb2xojvSAX0mOLFOQBP-apH-Kq8x2Id7vjmyCJLq1v5HIMMCz2lA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs semaines"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BEAT",
+     [
+      {
+       "t": "SHYNESS",
+       "couleur": "#c23a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "I4I-nwdBjuw",
+     "titre": "How to Overcome Shyness",
+     "chaine": "The School of Life",
+     "vues": "1.6M views",
+     "date": "9 years ago",
+     "duree": "5:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ldJz69qUu_3sEO5c-lO5Cevt7X2gUE2YQ11iWAC-6TZFU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several weeks"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "SCHÜCHTERNHEIT",
+       "couleur": "#c23a3a"
+      }
+     ],
+     "ÜBERWINDEN"
+    ],
+    "video": {
+     "id": "gHOqOPWz6y0",
+     "titre": "Schüchternheit überwinden – 8 wirkungsvolle Tipps",
+     "chaine": "Dr. Wlodarek Life Coaching",
+     "vues": "126.285 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "14:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kb8Og70NnHbaowWKGQ6nijdAWk-rfSfQ3-edqYEaWiras=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "VINCERE",
+     [
+      {
+       "t": "LA TIMIDEZZA",
+       "couleur": "#c23a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "D8eOC62wsw8",
+     "titre": "Psicologia della Timidezza",
+     "chaine": "Psicologia Animata",
+     "vues": "103K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "7:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kkYKQ2yrI3WDfXlIk3ci2b0_CQXH5r8RipSkrgwIPXTw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più settimane"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "PERDER",
+     [
+      {
+       "t": "A TIMIDEZ",
+       "couleur": "#c23a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DV9JuNR0We8",
+     "titre": "COMO PERDER A TIMIDEZ | 11 Técnicas Que Funcionam!",
+     "chaine": "Saber Coletivo",
+     "vues": "582 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "6:51",
+     "avatar": "https://yt3.ggpht.com/erlt9WUyK0uunqj5y7i69ksZ67EWOtw1Jx_dt06FjCu6AuLuX3RtjYWdEVUNCNkZPAIcnag9mTo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de várias semanas"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "UTANGAÇLIĞI",
+       "couleur": "#c23a3a"
+      }
+     ],
+     "YENMEK"
+    ],
+    "video": {
+     "id": "ip-sFokVxKQ",
+     "titre": "UTANGAÇLIKTAN KURTULMA YOLLARI - Utangaçlık Nasıl Yenilir - Çekingenliği Yenmek",
+     "chaine": "Psk. Özlem Tokgöz Özsoylar",
+     "vues": "89 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "13:13",
+     "avatar": "https://yt3.ggpht.com/vtSd7IJceE39s8m0b88LHcshtJg5V-PxvzOTuEE57xQUY_FYBZIY_C0jY899uQVCj6f48zh0XpQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç hafta pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ SCAPI",
+     [
+      {
+       "t": "DE TIMIDITATE",
+       "couleur": "#c23a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZWH6lSKUT98",
+     "titre": "Cum sa scapi de TIMIDITATE - 5 tehnici de la Psiholog",
+     "chaine": "Alexandru Pleșea - Psiholog, Trainer",
+     "vues": "11 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "9:25",
+     "avatar": "https://yt3.ggpht.com/uMCRsdY56XWnIhpKLG2MbGDjnsfsaptHUkNWcqPpQAJoVaCUUWQs-cMSEfrN8YXNM_jfiP2w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva săptămâni"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "PŘESTAT",
+     [
+      {
+       "t": "SE STYDĚT",
+       "couleur": "#c23a3a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "09kITSIkw0c",
+     "titre": "Jak překonat stydlivost?!",
+     "chaine": "Jan Kohut",
+     "vues": "20 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "13:47",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik týdnů"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "AVOIR UNE",
+     [
+      {
+       "t": "VOIX POSÉE",
+       "couleur": "#2f7fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WqBygvU8vA8",
+     "titre": "3 conseils pour poser sa voix parlée",
+     "chaine": "Jean Sommer Coach Vocal",
+     "vues": "146 k vues",
+     "date": "il y a 9 ans",
+     "duree": "5:27",
+     "avatar": "https://yt3.ggpht.com/7UXIBBI9PjsAW9lLkCPyqehiy3ZX_QROXdA-HO9faiPzyp6LK3QBivhKBtMgQZ7r0maOXLsk9A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "SPEAK WITH",
+     [
+      {
+       "t": "A CALM VOICE",
+       "couleur": "#2f7fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "v1qD_sRIDv0",
+     "titre": "Watch this if you want to IMPROVE the way you sound...",
+     "chaine": "Vinh Giang",
+     "vues": "1.7M views",
+     "date": "2 years ago",
+     "duree": "1:57",
+     "avatar": "https://yt3.ggpht.com/9tb3n5juqeflrf4pSonU3AMOyFpVxqmmuhhUR1ikjiFWAY5idhFBAXmRHPojPbb85zQNIEz5FA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "EINE FESTE",
+     [
+      {
+       "t": "STIMME HABEN",
+       "couleur": "#2f7fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ih_hJel1pxE",
+     "titre": "Kraftvoll sprechen - drei Tipps für mehr Präsenz in der Stimme",
+     "chaine": "Doro Plutte",
+     "vues": "82.352 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "3:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nSTX4JjMznwEoiphpn6v-mECaxzVxou0CxL2lB-UoXxQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AVERE UNA",
+     [
+      {
+       "t": "VOCE SICURA",
+       "couleur": "#2f7fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KK4AWX6lA5g",
+     "titre": "Parlare Bene: 7 Esercizi per Parlare Meglio",
+     "chaine": "Dr. Gennaro Romagnoli • PsiNel",
+     "vues": "227K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "22:42",
+     "avatar": "https://yt3.ggpht.com/a1ZQ536AuvTAtkG2f-TbrUqtipxoQV3FGGhtuutEspW6co4W9BOOPU3Xcj6LTij2-AYmJKsjz5U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER UMA",
+     [
+      {
+       "t": "VOZ FIRME",
+       "couleur": "#2f7fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "il0losJX08c",
+     "titre": "Exercício Simples para Quem tem a Voz Fraca ou \"Para Dentro\"",
+     "chaine": "Encontre Sua Própria Voz - Roberto Mallet",
+     "vues": "1,7 mi visualizações",
+     "date": "há 11 anos",
+     "duree": "7:57",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k9Hx1sdcM66wM3MJ_YCAi_3Zy8GqdUdie1B4w0Gu3r9A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SESİNİ",
+       "couleur": "#2f7fd6"
+      }
+     ],
+     "ETKİLİ KULLANMAK"
+    ],
+    "video": {
+     "id": "fhCJNZ22e88",
+     "titre": "Sesimi beğenmiyorum. Sesimi nasıl etkili kullanabilirim? Evde diksiyon-2",
+     "chaine": "Diksiyon - Eray Özden AKÇA",
+     "vues": "448 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "9:10",
+     "avatar": "https://yt3.ggpht.com/R_-dTJM56W1nXUwhrETNX1GrQk8F4MKfAQ4--Zcin1sAwQZFAvEYLnuJ92wdvGeF7PxrMB__qg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "günde 10 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ AI O",
+     [
+      {
+       "t": "VOCE FERMĂ",
+       "couleur": "#2f7fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RrVU_V5XCS8",
+     "titre": "Care sunt exercițiile prin care vocea devine mai frumoasă❓",
+     "chaine": "Teodora Metiu",
+     "vues": "49 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "2:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loOJ_R8wzbIlWrvyHoFSbVhhD6JGj7E3Y9FgmPJc-2YR4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MÍT",
+     [
+      {
+       "t": "PEVNÝ HLAS",
+       "couleur": "#2f7fd6"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_K1CO61gLy0",
+     "titre": "Základy práce s hlasem | Pevnost hlasu a dechová opora | odkaz na celý kurz v popisu videa",
+     "chaine": "Dalibor Neuwirt",
+     "vues": "11 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "6:48",
+     "avatar": "https://yt3.ggpht.com/cniFsc7Zai-PGRjQMiMaOr5ccHgyAYSorHpag7lKSwB0Ipc35h3p_x9_quv8MKiJ3OF-kSnQqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "AVOIR DES CHOSES",
+     [
+      {
+       "t": "À RACONTER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "HAVE THINGS",
+     [
+      {
+       "t": "TO TALK ABOUT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "IMMER WAS",
+     [
+      {
+       "t": "ZU ERZÄHLEN HABEN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AVERE SEMPRE",
+     [
+      {
+       "t": "QUALCOSA DA DIRE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "TER SEMPRE",
+     [
+      {
+       "t": "O QUE CONTAR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "ANLATACAK",
+     [
+      {
+       "t": "ŞEYLERİN OLSUN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ AI MEREU",
+     [
+      {
+       "t": "CE POVESTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce deschid",
+      "în loc să dau scroll."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "MÍT VŽDY",
+     [
+      {
+       "t": "O ČEM MLUVIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "co otevírám",
+      "místo scrollování."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "ENGAGER",
+       "couleur": "#e0a526"
+      }
+     ],
+     "LA CONVERSATION"
+    ],
+    "video": {
+     "id": "WkvSV71E2S0",
+     "titre": "4 Astuces pour démarrer une conversation facilement",
+     "chaine": "Yann Piette",
+     "vues": "660 k vues",
+     "date": "il y a 5 ans",
+     "duree": "8:01",
+     "avatar": "https://yt3.ggpht.com/6fflfAPLuXOKHeqk5VocKdEbM1AZrzWS9nwd9FhMaRnCKyvlDH54ts52a4eXJEsZRLMtmuSNEg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "START",
+       "couleur": "#e0a526"
+      }
+     ],
+     "A CONVERSATION"
+    ],
+    "video": {
+     "id": "Z4_j1wPy-Ng",
+     "titre": "how I manage to start a conversation with anyone",
+     "chaine": "Improvement Pill",
+     "vues": "1.9M views",
+     "date": "2 years ago",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/K_l2GqyURyY31_GbPpwbBHjpCzyef3_4w0uHZ7S9OH7dmmeJcHxtbKfTZfVX9gB8InOt13Y7PQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "SMALLTALK",
+       "couleur": "#e0a526"
+      }
+     ],
+     "BEHERRSCHEN"
+    ],
+    "video": {
+     "id": "O_rbMGb4m34",
+     "titre": "Wie man Smalltalk meistert (auch Introvertierte)",
+     "chaine": "Logical Lemon",
+     "vues": "489.662 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "6:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mXwzCF70YX7CnGDjnK18lZ52cgti7IKnKC0Y4qojKKQg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "INIZIARE",
+       "couleur": "#e0a526"
+      }
+     ],
+     "UNA CONVERSAZIONE"
+    ],
+    "video": {
+     "id": "Wbay7kVRWt4",
+     "titre": "5 Modi Semplici Per Iniziare Una Conversazione",
+     "chaine": "L' Arte della Crescita Personale",
+     "vues": "120K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "6:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngFFazLGf0sjblEOn6g0mXYHRTaBFR0ROBG8Ye95iddw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PUXAR",
+       "couleur": "#e0a526"
+      }
+     ],
+     "ASSUNTO"
+    ],
+    "video": {
+     "id": "5MelvOkaD-M",
+     "titre": "7 formas de você PUXAR ASSUNTO em uma CONVERSA",
+     "chaine": "Cá me disse",
+     "vues": "689 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "8:12",
+     "avatar": "https://yt3.ggpht.com/tFF2eqE1wX873MoVzRzEU4n4udBR541KuUyTnf65kZYdjVONoti6wbPAhgH2OF6US9PABqymGg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SOHBET",
+       "couleur": "#e0a526"
+      }
+     ],
+     "BAŞLATMAK"
+    ],
+    "video": {
+     "id": "J2NrlRr_dlc",
+     "titre": "TANIMADIĞIN KİŞİLER İLE SOHBET BAŞLATMAK - Kişisel Gelişim Videoları",
+     "chaine": "Haluk TATAR",
+     "vues": "470 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "15:32",
+     "avatar": "https://yt3.ggpht.com/uCS_szCsKpaaeM7TVqjdNR9kuNbPv8nEtQxZ4m3mvrvKE_dX0l7_LQagL0coh-AX0pscoWTLPA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "SĂ ÎNCEPI",
+       "couleur": "#e0a526"
+      }
+     ],
+     "O CONVERSAȚIE"
+    ],
+    "video": {
+     "id": "beVljOJenlo",
+     "titre": "Cum sa mentii o conversatie",
+     "chaine": "Cristian Stan",
+     "vues": "55 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nPRh224MsnPnaurMfz4xgbZdq8MZM_h3VwMpb6VukNroU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZAČÍT",
+       "couleur": "#e0a526"
+      }
+     ],
+     "KONVERZACI"
+    ],
+    "video": {
+     "id": "isCi9GgD2mQ",
+     "titre": "Jak mluvit s kýmkoliv. Typologie lidí v praxi.",
+     "chaine": "Pavel Procházka",
+     "vues": "308 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "15:24",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SORTIR DE SA",
+     [
+      {
+       "t": "ZONE DE CONFORT",
+       "couleur": "#3a8f5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-eJdKtFfOF0",
+     "titre": "8 défis à relever pour sortir de sa zone de confort et être plus efficace.",
+     "chaine": "DeveloppementPerso",
+     "vues": "35 k vues",
+     "date": "il y a 5 ans",
+     "duree": "13:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzrbt7I64MwcODE5d55rYQHL2Ha2Lpsww2tgfLHSJEPkU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Entraînement sur plusieurs jours"
+    ]
+   },
+   "en": {
+    "titre": [
+     "LEAVE YOUR",
+     [
+      {
+       "t": "COMFORT ZONE",
+       "couleur": "#3a8f5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0h-IAlNjd4Q",
+     "titre": "How the comfort zone is ruining your life",
+     "chaine": "Better Ideas",
+     "vues": "3.1M views",
+     "date": "6 years ago",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNzBhztgwPy3i0rF0P7jTRjKtqcIdSZaHgr8lpvUae_g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "practice over several days"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DIE KOMFORTZONE",
+     [
+      {
+       "t": "VERLASSEN",
+       "couleur": "#3a8f5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HtzSDHNXYNQ",
+     "titre": "Wie die Komfortzone dein Leben ruiniert",
+     "chaine": "Dominik Lebersorger",
+     "vues": "51.176 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "10:21",
+     "avatar": "https://yt3.ggpht.com/2t8SleDvl9VXRq8_IkW-u313UvQO1kLh8zbOe2x6WMINivn1bykBL60gms2GWKneJhxhkUzfRg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "Übung über mehrere Tage"
+    ]
+   },
+   "it": {
+    "titre": [
+     "USCIRE DALLA",
+     [
+      {
+       "t": "ZONA DI COMFORT",
+       "couleur": "#3a8f5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ngxT3YCUVUE",
+     "titre": "Oltre i confini: uscire dalla zona di comfort | PSICHIATRA",
+     "chaine": "Antonino Tamburello",
+     "vues": "24K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "9:31",
+     "avatar": "https://yt3.ggpht.com/H6ecdAzSa4byloHVuaghL2K7o3ky7x2zwAEvsRFk6CSJW2ZU1AFJ7N4mqfW-EMrG7EQIPnN3Yg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "allenamento in più giorni"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "SAIR DA",
+     [
+      {
+       "t": "ZONA DE CONFORTO",
+       "couleur": "#3a8f5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "D9hzagefTHM",
+     "titre": "Como Sair da Zona de Conforto | Seja uma pessoa melhor | Life Pins",
+     "chaine": "Life Pins",
+     "vues": "96 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "5:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mYmfwDwjmdyip-Y1_nWeZOUoLfKSh952yfXfJY19RJAA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "treino ao longo de vários dias"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KONFOR ALANINDAN",
+       "couleur": "#3a8f5c"
+      }
+     ],
+     "ÇIKMAK"
+    ],
+    "video": {
+     "id": "ybuAtzo8XrY",
+     "titre": "Konfor Alanından Nasıl Çıkabilirsin? Ataletten Kurtul ve Sınırları Aş!  | Saadet Şen",
+     "chaine": "Saadet Şen",
+     "vues": "248 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "12:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmRgeOFrTGmlIPFFKf_LsP8TZybbB2tEh4gGtYUmCFX34=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "birkaç gün pratik"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ IEȘI DIN",
+     [
+      {
+       "t": "ZONA DE CONFORT",
+       "couleur": "#3a8f5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "OlnHK7Z6COU",
+     "titre": "Ieșirea din zona de confort - ușor de zis, greu de făcut?",
+     "chaine": "Psiholog Dr. Raluca Anton",
+     "vues": "7,5 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "7:43",
+     "avatar": "https://yt3.ggpht.com/_FxvAfxGRTDn4HkzSljalMbQXEvYoSMm9Iea707XqAR-pkwshTmolNN-3oZgwVFp0na-bUBeIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "exercițiu câteva zile"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VYSTOUPIT Z",
+     [
+      {
+       "t": "KOMFORTNÍ ZÓNY",
+       "couleur": "#3a8f5c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JHlFZAHBlds",
+     "titre": "DĚLEJTE KAŽDÝ DEN TĚŽKOU VĚC! PROČ? KOMFORTNÍ ZÓNA",
+     "chaine": "Myšlení Úspěšných",
+     "vues": "9,5 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "6:00",
+     "avatar": "https://yt3.ggpht.com/Gj2YewqtOjCruFRzvmuuHkCZLp9uiCQcXRNlU941lQxiXLN6ol_l-Y1l0LuHKO6wQdeb9NXT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "trénink několik dní"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "ARRÊTER",
+       "couleur": "#7b4fa0"
+      }
+     ],
+     "DE SE COMPARER"
+    ],
+    "video": {
+     "id": "PUvrTHInUDE",
+     "titre": "ARRÊTE de TE COMPARER aux autres : la définition de RÉUSSIR SA VIE",
+     "chaine": "David Laroche FR",
+     "vues": "75 k vues",
+     "date": "il y a 5 ans",
+     "duree": "8:59",
+     "avatar": "https://yt3.ggpht.com/XBE0kjauzD2dau0GXUUy9jpINQeTwpV9Qu4IQeDJtld-EwlmYp4TGdDQ87hqYlMYQuc1jBbUngo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 heures pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "STOP",
+       "couleur": "#7b4fa0"
+      }
+     ],
+     "COMPARING YOURSELF"
+    ],
+    "video": {
+     "id": "1f9IE3CkB4s",
+     "titre": "How to Stop Comparing Yourself to Others",
+     "chaine": "Therapy in a Nutshell",
+     "vues": "294K views",
+     "date": "2 years ago",
+     "duree": "16:31",
+     "avatar": "https://yt3.ggpht.com/AoSSzU4FYJnd23xQSz7UCnkh_px-lHVv2PdX-yRLXWnhf4XoZkXDLjWkj6wMzcM__C3uhzTHed8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hours to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "AUFHÖREN,",
+       "couleur": "#7b4fa0"
+      }
+     ],
+     "DICH ZU VERGLEICHEN"
+    ],
+    "video": {
+     "id": "OVz0ETcndfk",
+     "titre": "Selbstzweifel überwinden:  Dein Notfallplan für Vergleiche mit anderen",
+     "chaine": "Glücksdetektiv",
+     "vues": "79.223 Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "9:37",
+     "avatar": "https://yt3.ggpht.com/juomaG_-u0aydhVeCvb9FNkSoRu7NOvFVrpTzDblerCoSaUvLXszASOvuORCAB5UDd0aL3fLfw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 Stunden zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "SMETTERE",
+       "couleur": "#7b4fa0"
+      }
+     ],
+     "DI PARAGONARTI"
+    ],
+    "video": {
+     "id": "bAymm29AGec",
+     "titre": "Paragonarsi agli altri non è mai una strategia",
+     "chaine": "Marco Montemagno",
+     "vues": "79K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PARAR",
+       "couleur": "#7b4fa0"
+      }
+     ],
+     "DE SE COMPARAR"
+    ],
+    "video": {
+     "id": "y8klt957r2A",
+     "titre": "CHEGA DE SE COMPARAR | Fred Sem Edição #120",
+     "chaine": "Fred Elboni",
+     "vues": "86 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "14:18",
+     "avatar": "https://yt3.ggpht.com/CqLGuhKldT8HgJ_wAdJRhg7leesU9j4F_lJRARn9gDwYcxP-O7YXhPsRaJFNTQVS6kMbcvlLAg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 horas para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KENDİNİ",
+       "couleur": "#7b4fa0"
+      }
+     ],
+     "KIYASLAMAYI BIRAKMAK"
+    ],
+    "video": {
+     "id": "XHXqYxMJ524",
+     "titre": "Mutsuzluk Virüsü: KIYASLAMA",
+     "chaine": "Beyhan Budak",
+     "vues": "137 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "8:29",
+     "avatar": "https://yt3.ggpht.com/CuslZcad93sGBkQlQOcPs7W_2UKO6aB9290uMqQRQWik4WOeSbo7OJojA6suqIsihiFoPY5VLOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ NU TE MAI",
+     [
+      {
+       "t": "COMPARI",
+       "couleur": "#7b4fa0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hDTMH1npcRM",
+     "titre": "Cum sa nu te mai compari cu altii | 10 idei ca sa nu cazi in capcana comparatiei",
+     "chaine": "Andreea Balaban",
+     "vues": "92 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "30:19",
+     "avatar": "https://yt3.ggpht.com/RlNLbWt93_okJFjSS0E80t3RIWAF6n8oZfFeswCmXLlmiqocQOXLfjQ3K1Fdom7zqLz3tg05LA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 ore de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PŘESTAT SE",
+       "couleur": "#7b4fa0"
+      }
+     ],
+     "SROVNÁVAT"
+    ],
+    "video": {
+     "id": "SaBK4u0X6e4",
+     "titre": "Nesrovnávej se: Psychologie závisti a vděčnosti",
+     "chaine": "Cesta k sobě",
+     "vues": "1,8 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "13:46",
+     "avatar": "https://yt3.ggpht.com/4OYcq32xCO1MTcMLt1m7VCVLXDWjR_xngtq78oWPmqVbd0vVxhT3fcyIFY_M3E05K8SoJ1MS1Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "2 hodiny na naučení"
+    ]
+   }
+  }
+ ]
+}

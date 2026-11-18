@@ -4,7 +4,7 @@
  */
 import type { AppBible, CompteImporte, FicheBible, LabelBible, LabelPropose, NicheStatut, StatutBible } from "./types";
 
-export type Vue = "importes" | "attente" | "tous";
+export type Vue = "a_trier" | "importes" | "attente" | "tous";
 
 export interface Carte {
   cle: string;
@@ -28,13 +28,28 @@ export interface Carte {
   note: string | null;
   angle: string | null;
   miniatures: string[];
+  /** Le post TikTok de chaque miniature (même ordre), pour l'ouvrir d'un clic. */
+  liensPosts: (string | null)[];
   miniaturesManquantes: boolean;
+  /** « Autre app / idée » : l'app imaginée (texte libre). */
+  autreApp: string | null;
   ajoutePar: string | null;
   ajouteAt: string;
 }
 
-function miniaturesFiche(f: FicheBible): string[] {
-  return (f.posts ?? []).map((p) => p.miniature_url).filter((u): u is string => Boolean(u)).slice(0, 3);
+function miniaturesFiche(f: FicheBible): { urls: string[]; liens: (string | null)[] } {
+  const avec = (f.posts ?? []).filter((p) => p.miniature_url).slice(0, 3);
+  return { urls: avec.map((p) => p.miniature_url!), liens: avec.map((p) => p.url ?? null) };
+}
+
+/** Ni app, ni app en attente, ni label, ni idée d'app : « Non trié ». */
+export function estNonTrie(c: Carte): boolean {
+  return c.kind === "bible" && !c.appIds.length && !c.appsAttente.length && !c.labelId && !c.labelProposeId && !c.autreApp;
+}
+
+/** « Autre app / idée » : une app imaginée, sans app actuelle ni label. */
+export function estAutreApp(c: Carte): boolean {
+  return c.kind === "bible" && Boolean(c.autreApp) && !c.appIds.length && !c.labelId && !c.labelProposeId;
 }
 
 export function cartes(fiches: FicheBible[], importes: CompteImporte[], labels: LabelBible[], proposes: LabelPropose[], vue: Vue): Carte[] {
@@ -55,7 +70,8 @@ export function cartes(fiches: FicheBible[], importes: CompteImporte[], labels: 
         labelNom: f.label_id ? nomLabel.get(f.label_id)?.nom ?? null : f.label_propose_id ? nomPropose.get(f.label_propose_id) ?? null : null,
         statut: f.statut, nicheStatut: f.niche_statut, niche: f.niche, polyvalent: f.polyvalent, langue: f.langue, pays: f.pays,
         abonnes: f.abonnes, vuesMediane: f.vues_mediane, note: f.note_import, angle: f.angle,
-        miniatures: mins, miniaturesManquantes: mins.length < 3, ajoutePar: f.ajoute_par, ajouteAt: f.ajoute_at,
+        miniatures: mins.urls, liensPosts: mins.liens, miniaturesManquantes: mins.urls.length < 3, autreApp: f.autre_app ?? null,
+        ajoutePar: f.ajoute_par, ajouteAt: f.ajoute_at,
       });
     }
   }
@@ -64,8 +80,8 @@ export function cartes(fiches: FicheBible[], importes: CompteImporte[], labels: 
       const f = ficheParRef.get(r.compte_reference_id) ?? ficheParHandle.get(r.handle) ?? null;
       const label = r.labels[0] ?? null;
       const appsLabels = [...new Set(r.labels.flatMap((l) => nomLabel.get(l.id)?.apps ?? []))];
-      const minsFiche = f ? miniaturesFiche(f) : [];
-      const mins = minsFiche.length >= 3 ? minsFiche : r.slides.slice(0, 3);
+      const minsFiche = f ? miniaturesFiche(f) : { urls: [], liens: [] };
+      const mins = minsFiche.urls.length >= 3 ? minsFiche : { urls: r.slides.slice(0, 3), liens: (r.slides_posts ?? []).slice(0, 3) };
       out.push({
         cle: `r:${r.compte_reference_id}`, kind: "importe", handle: r.handle, bibleId: f?.id ?? null, refId: r.compte_reference_id,
         appIds: f?.application_ids?.length ? f.application_ids : appsLabels.length ? appsLabels : r.application_id ? [r.application_id] : [],
@@ -73,12 +89,13 @@ export function cartes(fiches: FicheBible[], importes: CompteImporte[], labels: 
         labelId: label?.id ?? null, labelProposeId: null, labelNom: label?.nom ?? null,
         statut: "importe", nicheStatut: f?.niche_statut ?? null, niche: f?.niche ?? r.niche, polyvalent: f?.polyvalent ?? r.labels.length > 1,
         langue: f?.langue ?? r.langue, pays: f?.pays ?? null, abonnes: f?.abonnes ?? null, vuesMediane: f?.vues_mediane ?? r.vues_mediane,
-        note: f?.note_import ?? null, angle: f?.angle ?? null, miniatures: mins, miniaturesManquantes: mins.length < 3,
+        note: f?.note_import ?? null, angle: f?.angle ?? null, miniatures: mins.urls, liensPosts: mins.liens,
+        miniaturesManquantes: mins.urls.length < 3, autreApp: f?.autre_app ?? null,
         ajoutePar: f?.ajoute_par ?? null, ajouteAt: f?.ajoute_at ?? r.ajoute_at,
       });
     }
   }
-  return out;
+  return vue === "a_trier" ? out.filter((c) => estNonTrie(c) || estAutreApp(c)) : out;
 }
 
 export interface Filtres {
@@ -143,6 +160,8 @@ export function grouper(liste: Carte[], apps: AppBible[], labels: LabelBible[], 
     g.total++;
   };
   for (const c of liste) {
+    // « Non trié » et « Autre app / idée » ont leurs propres sections, en haut de la galerie.
+    if (estNonTrie(c) || estAutreApp(c)) continue;
     let place = false;
     for (const id of c.appIds) {
       const a = apps.find((x) => x.id === id);

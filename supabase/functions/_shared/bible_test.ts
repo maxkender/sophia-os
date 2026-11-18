@@ -1,6 +1,6 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
-import { cheminMiniature, estLienPost, handleDeLien, idPost, mediane, statsProfil, troisMeilleurs } from "./bible.ts";
+import { cheminMiniature, estLienCourt, estLienPost, handleDeLien, idPost, mediane, statsProfil, troisMeilleurs } from "./bible.ts";
 
 Deno.test("bible : handle et post depuis un lien", () => {
   assertEquals(handleDeLien("https://www.tiktok.com/@CrushedEthereal"), "crushedethereal");
@@ -26,4 +26,11 @@ Deno.test("bible : les 3 plus vus des 12 derniers, et les stats", () => {
   assertEquals(s.abonnes, 5400);
   assertEquals(s.meilleur_post_vues, 1400);
   assertEquals(s.vues_mediane, 850);
+});
+
+Deno.test("bible : liens courts", () => {
+  assertEquals(estLienCourt("https://vm.tiktok.com/ZNdAbC123/"), true);
+  assertEquals(estLienCourt("https://www.tiktok.com/t/ZTabc12/"), true);
+  assertEquals(estLienCourt("https://www.tiktok.com/@a/video/7512345678901234567"), false);
+  assertEquals(estLienCourt("https://vm.tiktok.com.evil.com/x"), false);
 });

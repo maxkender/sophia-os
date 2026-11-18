@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { cartes, FILTRES_VIDES, filtrer, grouper, nombreCourt } from "./modele";
+import { cartes, estAutreApp, estNonTrie, FILTRES_VIDES, filtrer, grouper, nombreCourt } from "./modele";
 import type { AppBible, CompteImporte, FicheBible, LabelBible, LabelPropose } from "./types";
 
 const APPS: AppBible[] = [
@@ -16,7 +16,7 @@ const fiche = (p: Partial<FicheBible>): FicheBible => ({
   id: "f1", handle: "x", profil_url: null, statut: "a_trier", application_ids: [], apps_attente: [], label_id: null, label_propose_id: null,
   note_import: null, angle: null, niche_statut: null, niche: null, polyvalent: false, polyvalent_regles: [], langue: null, pays: null,
   abonnes: null, vues_mediane: null, meilleur_post_url: null, meilleur_post_vues: null, dernier_post_le: null, stats_source: null,
-  posts: [], miniatures_statut: null, miniatures_erreur: null, compte_reference_id: null, ajoute_par: "u1", ajoute_at: "2026-11-18", modifie_at: "2026-11-18",
+  posts: [], miniatures_statut: null, miniatures_erreur: null, compte_reference_id: null, autre_app: null, ajoute_par: "u1", ajoute_at: "2026-11-18", modifie_at: "2026-11-18",
   ...p,
 });
 
@@ -55,5 +55,20 @@ describe("Bible : galerie", () => {
     expect(filtrer(toutes, { ...FILTRES_VIDES, label: "p-anx" }).map((c) => c.handle)).toEqual(["sydneysynced"]);
     expect(nombreCourt(1_250_000)).toBe("1.3 M");
     expect(nombreCourt(12_400)).toBe("12 k");
+  });
+
+  it("non trié et autre app / idée : leurs sections, pas dans les groupes", () => {
+    const f2 = [
+      ...fiches,
+      fiche({ id: "f3", handle: "remistudy" }),
+      fiche({ id: "f4", handle: "miragefashion6", autre_app: "app habits / style" }),
+    ];
+    const t = cartes(f2, [IMPORTE], LABELS, PROPOSES, "a_trier");
+    expect(t.map((c) => [c.handle, estNonTrie(c), estAutreApp(c)])).toEqual([["remistudy", true, false], ["miragefashion6", false, true]]);
+    const g = grouper(cartes(f2, [IMPORTE], LABELS, PROPOSES, "tous"), APPS, LABELS, PROPOSES);
+    expect(g.flatMap((x) => x.labels.flatMap((l) => l.cartes.map((c) => c.handle)))).not.toContain("remistudy");
+    // Les miniatures d'un importé ouvrent leur post.
+    const imp = cartes([], [{ ...IMPORTE, slides_posts: ["p1", "p2", "p3"] }], LABELS, PROPOSES, "importes");
+    expect(imp[0]!.liensPosts).toEqual(["p1", "p2", "p3"]);
   });
 });

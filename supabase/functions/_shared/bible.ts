@@ -21,6 +21,11 @@ export function estLienPost(lien: string): boolean {
   return /^https?:\/\/(?:www\.|m\.)?tiktok\.com\/@[A-Za-z0-9._]{1,40}\/(?:video|photo)\/\d{8,25}/i.test(lien.trim());
 }
 
+/** Un lien court TikTok (à suivre pour connaître le compte). */
+export function estLienCourt(lien: string): boolean {
+  return /^https?:\/\/(?:vm|vt)\.tiktok\.com\/[A-Za-z0-9]+\/?$|^https?:\/\/(?:www\.)?tiktok\.com\/t\/[A-Za-z0-9]+\/?$/i.test(lien.trim());
+}
+
 export interface PostBible {
   url: string;
   miniature_path?: string | null;

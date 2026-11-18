@@ -17,7 +17,7 @@ import { supabase } from "@/lib/supabase/client";
 
 import { ChoixApps, ChoixLabel, ecrireRegles, lireRegles, SELECT } from "./AjoutComptes";
 import { lireHistorique, majFiche, proposerLabel, rafraichirMiniatures } from "./api";
-import { COULEUR_STATUT, Miniatures, Pastille } from "./CarteCompte";
+import { COULEUR_STATUT, HandleLien, Miniatures, Pastille } from "./CarteCompte";
 import { useBible, useRafraichirBible } from "./donnees";
 import { nombreCourt } from "./modele";
 import { nomLabelValide } from "./parse";
@@ -29,7 +29,7 @@ const LIBELLE_CHAMP: Record<string, string> = {
   statut: "statut", label_id: "label", label_propose_id: "label proposé", note_import: "note pour l'import", angle: "angle",
   application_ids: "apps", apps_attente: "apps en attente", niche_statut: "niché", niche: "niche", polyvalent: "polyvalent",
   polyvalent_regles: "règles polyvalent", langue: "langue", pays: "pays", posts: "posts", compte_reference_id: "compte de référence",
-  abonnes: "abonnés", vues_mediane: "vues médianes", miniatures_statut: "miniatures",
+  abonnes: "abonnés", vues_mediane: "vues médianes", miniatures_statut: "miniatures", autre_app: "idée d'app",
 };
 
 function resume(v: unknown): string {
@@ -50,7 +50,7 @@ export function FicheCompte({ ouverture, onFermer }: { ouverture: Ouverture; onF
           <>
             <SheetHeader>
               <SheetTitle className="flex items-center gap-2">
-                <a href={`https://www.tiktok.com/@${fiche?.handle ?? ref?.handle}`} target="_blank" rel="noreferrer" className="hover:underline">@{fiche?.handle ?? ref?.handle}</a>
+                <HandleLien handle={(fiche?.handle ?? ref?.handle)!} />
                 {fiche && <Pastille className={COULEUR_STATUT[fiche.statut]}>{LIBELLE_STATUT[fiche.statut]}</Pastille>}
                 {!fiche && ref && <Pastille className={COULEUR_STATUT.importe}>importé</Pastille>}
               </SheetTitle>
@@ -60,7 +60,7 @@ export function FicheCompte({ ouverture, onFermer }: { ouverture: Ouverture; onF
                 <Edition key={fiche.id + fiche.modifie_at} fiche={fiche} />
               ) : ref ? (
                 <div className="space-y-3 text-sm">
-                  <Miniatures urls={ref.slides} handle={ref.handle} />
+                  <Miniatures urls={ref.slides} liens={ref.slides_posts} handle={ref.handle} />
                   <p>Labels : {ref.labels.map((l) => l.nom).join(", ") || "—"} · langue {ref.langue ?? "—"} · {ref.posts} posts importés · vues médianes {nombreCourt(ref.vues_mediane)}</p>
                   <p className="text-muted-foreground">Compte de référence importé avant la bible : pas encore de fiche.</p>
                   <CreerFicheImporte refId={ref.compte_reference_id} handle={ref.handle} langue={ref.langue} labelId={ref.labels[0]?.id ?? null} appIds={[...new Set(ref.labels.flatMap((l) => labels.find((x) => x.id === l.id)?.apps ?? []))]} />
@@ -121,6 +121,7 @@ function Edition({ fiche }: { fiche: FicheBible }) {
         label_id: propose ? null : f.label_id, label_propose_id: propose ? labelProposeId : f.label_id ? null : f.label_propose_id,
         note_import: f.note_import || null, angle: f.angle || null, niche_statut: f.niche_statut, niche: f.niche || null,
         polyvalent: f.polyvalent, polyvalent_regles: f.polyvalent ? lireRegles(regles) : [], langue: f.langue || null, pays: f.pays || null,
+        autre_app: f.autre_app?.trim() || null,
         abonnes: f.abonnes, vues_mediane: f.vues_mediane, meilleur_post_url: f.meilleur_post_url || null,
         stats_source: f.abonnes !== fiche.abonnes || f.vues_mediane !== fiche.vues_mediane ? "manuel" : fiche.stats_source,
         posts, ...(postsChanges ? { miniatures_statut: "a_faire" as const } : {}),
@@ -154,7 +155,12 @@ function Edition({ fiche }: { fiche: FicheBible }) {
   return (
     <div className="space-y-4">
       <div className="space-y-2">
-        <Miniatures urls={(fiche.posts ?? []).map((p) => p.miniature_url).filter((u): u is string => Boolean(u))} handle={fiche.handle} manquantes />
+        <Miniatures
+          urls={(fiche.posts ?? []).filter((p) => p.miniature_url).map((p) => p.miniature_url!)}
+          liens={(fiche.posts ?? []).filter((p) => p.miniature_url).map((p) => p.url)}
+          handle={fiche.handle}
+          manquantes
+        />
         {fiche.miniatures_erreur && <p className="text-[11px] text-amber-700 dark:text-amber-300">{fiche.miniatures_erreur}</p>}
         <div className="flex flex-wrap gap-2">
           <Button size="sm" variant="outline" onClick={() => miniatures.mutate()} disabled={miniatures.isPending}>
@@ -192,6 +198,10 @@ function Edition({ fiche }: { fiche: FicheBible }) {
         <div className="space-y-1.5 sm:col-span-2">
           <Label className="text-xs">Apps visées</Label>
           <ChoixApps valeur={f.application_ids} attente={f.apps_attente} onChange={(ids) => maj({ application_ids: ids })} onAttente={(a) => maj({ apps_attente: a })} />
+        </div>
+        <div className="space-y-1.5 sm:col-span-2">
+          <Label className="text-xs">Autre app / idée (si le compte ne va dans aucune app actuelle)</Label>
+          <Input value={f.autre_app ?? ""} onChange={(e) => maj({ autre_app: e.target.value })} placeholder="app habits / style, app langues…" />
         </div>
         <div className="space-y-1.5 sm:col-span-2">
           <Label className="text-xs">Label</Label>

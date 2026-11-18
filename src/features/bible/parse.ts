@@ -21,10 +21,15 @@ export interface LigneLue {
   /** Les autres labels de la ligne (compte polyvalent). */
   autres: RegleSujet[];
   note: string;
+  /** Liens courts (vm.tiktok.com…) à résoudre avant d'enregistrer. */
+  courts: string[];
+  /** Ligne sans lien TikTok (texte libre, Instagram…) : ignorée, montrée à part. */
+  ignoree: boolean;
   erreur: string | null;
 }
 
-const URL_TIKTOK = /https?:\/\/(?:www\.|m\.|vm\.)?tiktok\.com\/[^\s,;]+/gi;
+const URL_TIKTOK = /https?:\/\/(?:www\.|m\.|vm\.|vt\.)?tiktok\.com\/[^\s,;]+/gi;
+const COURT = /^https?:\/\/(?:(?:vm|vt)\.tiktok\.com\/[A-Za-z0-9]+|(?:www\.)?tiktok\.com\/t\/[A-Za-z0-9]+)\/?$/i;
 const PROFIL = /tiktok\.com\/@([A-Za-z0-9._]{1,40})/i;
 const POST = /\/(?:video|photo)\/\d{8,25}/;
 const SNAKE = /^[a-z0-9]+(?:_[a-z0-9]+)+$/;
@@ -39,6 +44,7 @@ export function handleDe(texte: string): string | null {
 export function lireLigne(ligne: string, apps: AppBible[], labels: LabelBible[], appsAttenteConnues: string[] = []): LigneLue {
   const urls = [...ligne.matchAll(URL_TIKTOK)].map((m) => m[0]!.replace(/[).,;:]+$/, ""));
   let reste = ligne.replace(URL_TIKTOK, " ");
+  const courts = urls.filter((u) => COURT.test(u));
   const profil = urls.find((u) => PROFIL.test(u) && !POST.test(u)) ?? null;
   const posts = urls.filter((u) => POST.test(u)).slice(0, 3);
   let handle = handleDe(profil ?? posts[0] ?? "");
@@ -100,8 +106,9 @@ export function lireLigne(ligne: string, apps: AppBible[], labels: LabelBible[],
   const note = gardes.join(" ").replace(/\s+([,.;:!?])/g, "$1").replace(/^[\s,;:–-]+|[\s,;:–-]+$/g, "").trim();
   return {
     ligne, handle, profilUrl: handle ? profil ?? `https://www.tiktok.com/@${handle}` : null, posts, appIds, appsAttente,
-    labelId, labelPropose, autres, note,
-    erreur: handle ? null : "aucun lien de profil TikTok sur cette ligne",
+    labelId, labelPropose, autres, note, courts,
+    ignoree: !handle && !courts.length,
+    erreur: handle || courts.length ? null : "pas un lien TikTok : ligne ignorée",
   };
 }
 
@@ -112,4 +119,34 @@ export function lireLignes(texte: string, apps: AppBible[], labels: LabelBible[]
 /** Un nom de label proposé au bon format (snake_case). */
 export function nomLabelValide(nom: string): boolean {
   return /^[a-z0-9]+(?:_[a-z0-9]+)*$/.test(nom) && nom.length <= 60;
+}
+
+/** Le compte et le post d'un lien court résolu (https://www.tiktok.com/@x/video/123). */
+export function appliquerResolution(l: LigneLue, resolus: Record<string, string | null>): LigneLue {
+  if (!l.courts.length) return l;
+  const vrais = l.courts.map((c) => resolus[c]).filter((u): u is string => Boolean(u));
+  if (!vrais.length) return l.handle ? l : { ...l, erreur: "lien court illisible", ignoree: false };
+  const handle = l.handle ?? handleDe(vrais[0]!);
+  const posts = [...l.posts, ...vrais.filter((u) => POST.test(u))].slice(0, 3);
+  return { ...l, handle, profilUrl: handle ? `https://www.tiktok.com/@${handle}` : null, posts, erreur: handle ? null : "lien court illisible" };
+}
+
+/** Plusieurs lignes du même compte (ex. un lien par post) : une seule fiche, posts et notes réunis. */
+export function fusionner(lignes: LigneLue[]): LigneLue[] {
+  const out: LigneLue[] = [];
+  for (const l of lignes) {
+    const deja = l.handle ? out.find((x) => x.handle === l.handle) : null;
+    if (!deja) {
+      out.push(l);
+      continue;
+    }
+    deja.posts = [...new Set([...deja.posts, ...l.posts])].slice(0, 3);
+    deja.appIds = [...new Set([...deja.appIds, ...l.appIds])];
+    deja.appsAttente = [...new Set([...deja.appsAttente, ...l.appsAttente])];
+    deja.labelId ??= l.labelId;
+    if (!deja.labelId) deja.labelPropose ??= l.labelPropose;
+    deja.note = [deja.note, l.note].filter(Boolean).join(" ; ");
+    deja.ligne = `${deja.ligne}\n${l.ligne}`;
+  }
+  return out;
 }

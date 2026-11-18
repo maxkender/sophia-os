@@ -11,6 +11,7 @@ import { Input } from "@/components/ui/input";
 import { ajouterSourceALaFile, creerSource, setLabelsSource } from "@/features/moteur/api";
 
 import { SELECT } from "./AjoutComptes";
+import { HandleLien } from "./CarteCompte";
 import { majFiche } from "./api";
 import { useBible, useRafraichirBible } from "./donnees";
 import { type Carte, nombreCourt } from "./modele";
@@ -31,6 +32,7 @@ export function TableauBible({ liste, onOuvrir }: { liste: Carte[]; onOuvrir: (c
   const [sens, setSens] = React.useState<1 | -1>(-1);
   const [choix, setChoix] = React.useState<Set<string>>(new Set());
   const [message, setMessage] = React.useState<string | null>(null);
+  const [curseur, setCurseur] = React.useState(0);
 
   const valeur = (c: Carte): string | number => ({
     handle: c.handle, statut: c.statut, label: c.labelNom ?? "~", abonnes: c.abonnes ?? -1, vues: c.vuesMediane ?? -1, ajout: c.ajouteAt,
@@ -93,17 +95,30 @@ export function TableauBible({ liste, onOuvrir }: { liste: Carte[]; onOuvrir: (c
   return (
     <div className="space-y-3">
       <div className="flex flex-wrap items-center gap-3">
+        <Button
+          size="sm"
+          variant="outline"
+          disabled={!lignes.length}
+          onClick={() => {
+            // Les 10 profils suivants dans l'ordre du tableau (autorise les pop-ups pour l'OS si le navigateur en bloque).
+            const debut = curseur >= lignes.length ? 0 : curseur;
+            for (const c of lignes.slice(debut, debut + 10)) window.open(`https://www.tiktok.com/@${c.handle}`, "_blank", "noopener");
+            setCurseur(debut + 10);
+          }}
+        >
+          Ouvrir les 10 suivants {lignes.length ? `(${Math.min(curseur >= lignes.length ? 0 : curseur, lignes.length) + 1}–${Math.min((curseur >= lignes.length ? 0 : curseur) + 10, lignes.length)} / ${lignes.length})` : ""}
+        </Button>
         <Button size="sm" disabled={!choix.size || importerLot.isPending} onClick={() => importerLot.mutate()}>
           {importerLot.isPending ? "Import en cours…" : `Importer la sélection (${choix.size})`}
         </Button>
         {message && <p className="text-sm text-muted-foreground">{message}</p>}
       </div>
       <div className="overflow-x-auto rounded-xl border bg-card">
-        <table className="w-full min-w-[1000px] text-sm" data-testid="tableau-bible">
+        <table className="w-full min-w-[1250px] text-sm" data-testid="tableau-bible">
           <thead className="border-b">
             <tr className="[&>th]:px-3 [&>th]:pt-3">
               <Th>{""}</Th><Th t="handle">Compte</Th><Th t="statut">Statut</Th><Th>Apps</Th><Th t="label">Label</Th>
-              <Th>Note pour l'import</Th><Th>Angle</Th><Th t="abonnes">Abonnés</Th><Th t="vues">Vues méd.</Th><Th t="ajout">Ajouté</Th>
+              <Th>Lien</Th><Th>Note pour l'import</Th><Th>Angle</Th><Th t="abonnes">Abonnés</Th><Th t="vues">Vues méd.</Th><Th t="ajout">Ajouté</Th>
             </tr>
           </thead>
           <tbody>
@@ -121,7 +136,10 @@ export function TableauBible({ liste, onOuvrir }: { liste: Carte[]; onOuvrir: (c
                       })} />
                     )}
                   </td>
-                  <td><button type="button" className="font-medium hover:underline" onClick={() => onOuvrir(c)}>@{c.handle}</button></td>
+                  <td>
+                    <HandleLien handle={c.handle} />
+                    <button type="button" className="block text-[11px] text-muted-foreground hover:underline" onClick={() => onOuvrir(c)}>fiche</button>
+                  </td>
                   <td>
                     {f ? (
                       <select className={`${SELECT} h-8 min-w-28 text-xs`} value={f.statut} onChange={(e) => enregistrer.mutate({ id: f.id, patch: { statut: e.target.value as StatutBible } })}>
@@ -140,6 +158,7 @@ export function TableauBible({ liste, onOuvrir }: { liste: Carte[]; onOuvrir: (c
                       <span className="text-xs">{c.labelNom ?? "—"}{c.labelProposeId ? " (proposé)" : ""}</span>
                     )}
                   </td>
+                  <td className="whitespace-nowrap font-mono text-[11px] text-muted-foreground select-all">https://www.tiktok.com/@{c.handle}</td>
                   <td>{f ? <ChampTexte valeur={f.note_import} onSave={(v) => enregistrer.mutate({ id: f.id, patch: { note_import: v || null } })} /> : <span className="text-xs">{c.note ?? "—"}</span>}</td>
                   <td>{f ? <ChampTexte valeur={f.angle} onSave={(v) => enregistrer.mutate({ id: f.id, patch: { angle: v || null } })} /> : <span className="text-xs">{c.angle ?? "—"}</span>}</td>
                   <td className="text-xs tabular-nums">{nombreCourt(c.abonnes)}</td>

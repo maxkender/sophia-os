@@ -55,6 +55,8 @@ export interface FicheBible {
   miniatures_statut: "a_faire" | "ok" | "partiel" | "sans_liens" | "erreur" | null;
   miniatures_erreur: string | null;
   compte_reference_id: string | null;
+  /** « Autre app / idée » : l'app imaginée en texte libre (mode, langues, wellness…). */
+  autre_app: string | null;
   ajoute_par: string | null;
   ajoute_at: string;
   modifie_at: string;
@@ -81,6 +83,8 @@ export interface CompteImporte {
   ajoute_at: string;
   labels: { id: string; nom: string }[];
   slides: string[];
+  /** Le lien TikTok du post de chaque slide (même ordre). */
+  slides_posts?: (string | null)[];
   posts: number;
   vues_mediane: number | null;
   bible_id: string | null;

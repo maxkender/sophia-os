@@ -63,14 +63,14 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
           return (
             <div key={i} className="flex aspect-[9/16] flex-col items-center justify-center gap-1 rounded-lg bg-stone-100 p-1 text-center text-[9px] leading-tight text-stone-400 dark:bg-stone-800">
               {enCours ? <Loader2 className="size-3.5 animate-spin" /> : <ImageOff className="size-3.5" />}
-              {i === 1 && (enCours ? "en cours" : (m?.erreur ?? c.miniatures_erreur ?? "pas de TikTok"))}
+              {i === 1 && (enCours ? "en cours" : texteErreur(m ? m.erreur : c.miniatures_erreur, Boolean(m)))}
             </div>
           );
         })}
       </div>
 
-      {/* Les actions, au survol (et au clavier). */}
-      <div className="pointer-events-none absolute inset-x-2 top-2 flex flex-wrap justify-end gap-1 opacity-0 transition group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:opacity-100">
+      {/* Les actions, au survol (et au clavier), posées sur le bas des miniatures pour laisser le lien lisible. */}
+      <div className="pointer-events-none absolute inset-x-2 bottom-3 flex flex-wrap justify-center gap-1 opacity-0 transition group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:opacity-100">
         {c.etape === "a_importer" && <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
         {c.etape === "prochain_batch" && <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />}
         <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
@@ -79,6 +79,13 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
       </div>
     </article>
   );
+}
+
+/** L'erreur d'une miniature, en clair (« oEmbed 400 » → TikTok n'a pas rendu l'image). */
+function texteErreur(erreur: string | null | undefined, post: boolean): string {
+  if (!erreur) return post ? "image indisponible" : "pas de TikTok";
+  if (/oembed|^\d{3}$|HTTP \d{3}/i.test(erreur)) return "TikTok n'a pas rendu l'image";
+  return erreur;
 }
 
 function Action({ icone: Icone, libelle, titre, onClick, fort, danger }: { icone: typeof Tags; libelle?: string; titre?: string; onClick: () => void; fort?: boolean; danger?: boolean }) {

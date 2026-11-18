@@ -23,6 +23,7 @@ describe("menu admin (prompt 22)", () => {
       "/admin/auto/disputes",
       "/admin/auto/payroll",
       "/admin/auto/paie-ruul",
+      "/admin/auto/rapport-kills",
       "/admin/auto/bonus",
       "/admin/auto/candidats-ruul",
       "/admin/auto/cohortes-ruul",
@@ -41,7 +42,7 @@ describe("menu admin (prompt 22)", () => {
   });
 
   it("OS clair (12/11) : 7 entrées dans le menu, les autres pages rangées dans Réglages", () => {
-    expect(MENU_AUTO.map((m) => m.cle)).toEqual(["aujourdhui", "problemes", "posteurs", "ruul", "upwork", "decisions", "paie", "paie_ruul", "support", "reglages"]);
+    expect(MENU_AUTO.map((m) => m.cle)).toEqual(["aujourdhui", "problemes", "posteurs", "ruul", "upwork", "decisions", "rapport_kills", "paie", "paie_ruul", "support", "reglages"]);
     expect(source).toContain("items: MENU_AUTO.map((m) => ({");
     // Rien n'est perdu : chaque page est au menu ou dans Réglages.
     for (const p of PAGES_AUTO) {

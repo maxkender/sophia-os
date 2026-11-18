@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "aujourdhui" | "reglages" | "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "paie_ruul" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "upwork_ajouter" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs" | "cartes";
+export type PageAuto = "aujourdhui" | "reglages" | "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "paie_ruul" | "rapport_kills" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "upwork_ajouter" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs" | "cartes";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // 12/11 (OS clair) : ce que Max doit faire maintenant, et toutes les anciennes pages rangées.
@@ -29,6 +29,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "payroll", to: "/admin/auto/payroll" },
   // 18/11 (Max) : la paie Ruul sur sa page : le lot de la semaine, payés / pas prêts / exclus, l'historique.
   { cle: "paie_ruul", to: "/admin/auto/paie-ruul" },
+  // 18/11 (Max) : le rapport des kills du samedi et le contrôle de toute la base.
+  { cle: "rapport_kills", to: "/admin/auto/rapport-kills" },
   // 8/11 : les bonus (Comment Masters, parrainage, manuels), à valider puis envoyés au clic.
   { cle: "bonus", to: "/admin/auto/bonus" },
   // 9/11 (0577) : les posteurs du site payés par Ruul, de la candidature à la 1re paie.
@@ -63,7 +65,7 @@ export const HORS_MENU: readonly PageAuto[] = ["problems", "disputes"];
  * ouvertes (même adresse) et rangées dans Réglages › Anciennes pages : rien n'est supprimé.
  * Posteurs, Ruul, Décisions et Paie pointent vers les pages actuelles jusqu'à leur refonte.
  */
-export type EntreeMenuAuto = "aujourdhui" | "problemes" | "posteurs" | "ruul" | "upwork" | "decisions" | "paie" | "paie_ruul" | "support" | "reglages";
+export type EntreeMenuAuto = "aujourdhui" | "problemes" | "posteurs" | "ruul" | "upwork" | "decisions" | "rapport_kills" | "paie" | "paie_ruul" | "support" | "reglages";
 export const MENU_AUTO: readonly { cle: EntreeMenuAuto; to: string; page: PageAuto }[] = [
   { cle: "aujourdhui", to: "/admin/auto/aujourdhui", page: "aujourdhui" },
   // 13/11 (Max) : UNE page « Problèmes » dans le menu (🔴 urgent, 🤖 chez les bots, 📅 samedi).
@@ -72,6 +74,7 @@ export const MENU_AUTO: readonly { cle: EntreeMenuAuto; to: string; page: PageAu
   { cle: "ruul", to: "/admin/auto/ruul", page: "ruul_suivi" },
   { cle: "upwork", to: "/admin/auto/upwork-a-ajouter", page: "upwork_ajouter" },
   { cle: "decisions", to: "/admin/auto/decisions", page: "decisions" },
+  { cle: "rapport_kills", to: "/admin/auto/rapport-kills", page: "rapport_kills" },
   { cle: "paie", to: "/admin/auto/payroll", page: "payroll" },
   { cle: "paie_ruul", to: "/admin/auto/paie-ruul", page: "paie_ruul" },
   { cle: "support", to: "/admin/auto/support", page: "support" },

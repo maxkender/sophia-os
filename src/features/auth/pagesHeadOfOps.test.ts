@@ -39,6 +39,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/disputes",
   "/admin/auto/payroll",
   "/admin/auto/paie-ruul",
+  "/admin/auto/rapport-kills",
   "/admin/auto/bonus",
   "/admin/auto/candidats-ruul",
   "/admin/auto/cohortes-ruul",

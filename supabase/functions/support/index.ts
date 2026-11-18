@@ -30,6 +30,10 @@ import {
   accuseReception, texteBugMax, texteListeAdrien, texteTop10,
 } from "../_shared/bot_support.ts";
 import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
+import {
+  casDeCategorie, type CasFixe, detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, etatDashboardTexte,
+  ligneStatut, situation, TEXTES, texteStatut,
+} from "../_shared/support_regles.ts";
 
 /**
  * support (0671) — l'espace support : « Help » côté posteur, « Support » côté admin.
@@ -170,6 +174,10 @@ Deno.serve(async (request) => {
           canal: String(body.canal ?? ""), ts: String(body.ts ?? ""), auteur: String(body.auteur ?? ""), texte: String(body.texte ?? ""),
           nom: typeof body.nom === "string" ? body.nom : null, plateforme: body.plateforme === "ruul" || body.plateforme === "upwork" ? body.plateforme : null,
         }));
+      case "suivi":
+        // 17/11 (Max, point 8) : fermeture après 48 h sans retour, confirmation d'un arrêt une fois fait (cron support-suivi).
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await suiviSupport(db));
       case "tickets_regles":
         // 13/11 (refonte, 4 bis) : ✅ sur les tickets de #a-os-tickets → posteur prévenu (cron support-tickets-regles).
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -250,6 +258,9 @@ async function poserQuestion(db: Db, poster: string, texte: string, categorie: s
     await noterVu(db, poster, source, texte, `${source}:${crypto.randomUUID()}`);
     return { ok: true, id: null, reponse: "", envoye_equipe: false, muet: true, vu: true };
   }
+  // 17/11 (Max, point 8) : « ce n'est pas réglé » : la dernière demande est rouverte, pas une nouvelle.
+  const rouverte = await rouvrirSiPasRegle(db, poster, texte, source);
+  if (rouverte) return { ok: true, id: rouverte.id, reponse: rouverte.reponse, envoye_equipe: true, muet: false };
   // 12/11 (Support propre) : le bot v2 répond à tout ; il ne passe la main qu'à Adrien ou Max.
   const r = await deciderBot(db, { message: texte, source: "help", poster, profil: null, canal: source });
   const d = r.decision;
@@ -264,6 +275,7 @@ async function poserQuestion(db: Db, poster: string, texte: string, categorie: s
   if (error) throw new Error(`support_ajouter : ${error.message}`);
   const id = (data as { id: string })?.id ?? null;
   if (id) await noterDecision(db, id, d, action, r.regle_utilisee);
+  if (id) await apresDemande(db, { poster, demande: id, plan: r.plan, decision: d, source, texte });
   await noterControle(db, poster, id, source, regle ? r.texte : null, r.controle);
   if (id && d.niveau === "max") await alerterMax(db, id, { nom: (await fiche(db, poster))?.nom ?? "?", plateforme: r.plateforme ?? "upwork", categorie: d.categorie, texte, raison: "urgent", os: d.raison, action: d.reponse });
   return { ok: true, id, reponse: r.texte, envoye_equipe: !regle, muet: r.controle.muet };
@@ -421,6 +433,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
   let reponseBot: string | null = null;
   let d: DecisionBot | null = null;
   let ctlRes: ResultatControle | null = null;
+  let planProbleme: PlanRegles | undefined;
   let niveau: "bot" | "adrien" | "max";
   if (categorie === "paiement") {
     v = await verifier(categorie, texte, f, ctx);
@@ -432,7 +445,10 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     const r = await deciderBot(db, { message: `[${categorie}] ${texte}`, source: "help", poster, profil: null, canal: "help" });
     d = r.decision;
     ctlRes = r.controle;
+    planProbleme = r.plan;
     niveau = auto ? "bot" : d.niveau;
+    // 17/11 : la procédure d'arrêt est déjà lancée par la catégorie « arrêt » : pas une deuxième fois.
+    if (auto === "arret" && planProbleme) planProbleme = { ...planProbleme, arret: false };
     brouillon = r.controle.brouillon ?? (d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse);
     if (niveau === "bot" && !auto) reponseBot = r.texte;
   }
@@ -461,6 +477,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     }).eq("id", res.id);
   }
   if (res?.id && ctlRes) await noterControle(db, poster, res.id, "help", reponseBot, ctlRes);
+  if (res?.id && d && !res.fusion) await apresDemande(db, { poster, demande: res.id, plan: planProbleme, decision: d, source: "help", texte });
   if (res?.id && niveau === "max") {
     await alerterMax(db, res.id, {
       nom: f?.nom ?? "?", plateforme, categorie, texte, raison: categorie === "paiement" ? "paiement" : "urgent",
@@ -664,6 +681,8 @@ async function deciderBot(
       : Promise.resolve({ data: [] as { cree_at: string; categorie: string | null; texte: string; bot_reponse: string | null }[] }),
   ]);
   const plateforme: "ruul" | "upwork" | null = f?.plateforme ?? (fictif ? (o.profil!.plateforme === "ruul" ? "ruul" : "upwork") : null);
+  // 17/11 (Max, point 2) : le dashboard et le bot lisent la même source (support_etat_reel).
+  const etat = o.poster ? await etatReel(db, o.poster) : null;
   // 0680 : consignes, catalogue et documents lus exactement là où Support les montre.
   const sources = await chargerSourcesSupport(db, { plateforme, poster: o.poster });
   const entree = {
@@ -678,6 +697,7 @@ async function deciderBot(
     inconnu: !f && !fictif,
     consignes: sources.consignes,
     documents: sources.documents,
+    etat: o.poster ? etatDashboardTexte(etat) : "",
   };
   let decision: DecisionBot | null = null;
   if (eteint) {
@@ -718,8 +738,8 @@ async function deciderBot(
     finale.reponse = TEXTE_ON_VERIFIE;
     finale.action = null;
     finale.action_valeur = null;
-    controle.muet = true;
-    finale.raison = `${finale.raison} (fraude / litige / hors plateforme : à Max, sans réponse automatique)`.trim();
+    // 17/11 (Max, point 7) : jamais de réponse vide : « We're checking » part, la demande va à Max.
+    finale.raison = `${finale.raison} (fraude / litige / hors plateforme : à Max)`.trim();
   }
   // 0683 : pas payé + aucune paie connue (contrat pas relié, milestones illisibles) → on vérifie, Max tranche.
   if (o.source === "help" && f && plainteSansDonnees(o.message, plateforme, !f.derniere_paie) && finale.niveau !== "max") {
@@ -727,8 +747,11 @@ async function deciderBot(
     finale.reponse = TEXTE_ON_VERIFIE;
     finale.raison = `${finale.raison} (plainte de paie sans paie connue dans l'OS : à Max)`.trim();
   }
+  // 17/11 (Max) : les cas à réponse fixe, la vraie situation (arrêt / kill), l'écart dashboard, l'escalade utile.
+  const plan = await appliquerRegles(db, { message: o.message, poster: o.poster, plateforme, etat, decision: finale, historique: entree.historique, simulation: !!o.simulation });
   const regle = finale.regle ? (entree.catalogue.find((c) => c.id === finale.regle)?.question ?? finale.regle) : null;
   return {
+    plan,
     decision: finale,
     texte: signer(finale.reponse),
     regle_utilisee: regle,
@@ -747,6 +770,339 @@ async function deciderBot(
       meme_sujet: nbMemeSujet,
     },
   };
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// 17/11 (Max) : corrections du bot support. Cas à réponse fixe, vraie situation, incidents groupés, exception
+// Upwork, arrêts, demandes rouvertes et suivi. Les escalades passent toujours par la Boîte et #a-os-tickets.
+// ---------------------------------------------------------------------------------------------------------------
+
+/** Ce qui doit se passer après la réponse (écritures faites par apresDemande, jamais en simulation). */
+export interface PlanRegles {
+  cas: CasFixe | "statut" | "arret" | "ecart_dashboard" | null;
+  upwork: "demander" | "lien" | null;
+  lien: string | null;
+  doublon_de: string | null;
+  incident: { cle: string; titre: string; groupe_seul: boolean } | null;
+  arret: boolean;
+  incoherences: string[];
+  statut_posteur: string;
+  resume: string | null;
+  action_proposee: string | null;
+}
+
+/** La vraie situation du posteur (même source que son dashboard). Ne lève pas. */
+async function etatReel(db: Db, poster: string): Promise<EtatReel | null> {
+  const { data, error } = await db.rpc("support_etat_reel", { p_poster: poster });
+  if (error) console.warn(`[support] etat_reel : ${error.message}`);
+  return (data ?? null) as EtatReel | null;
+}
+
+/** Un texte fixe (anglais) dans la langue du message du posteur ; l'anglais tel quel ; en cas d'échec, l'anglais. */
+async function traduire(texte: string, langue: string | null | undefined): Promise<string> {
+  const l = (langue ?? "en").toLowerCase();
+  if (!l || l.startsWith("en")) return texte;
+  try {
+    const r = (await generateTextFast(
+      `Translate this message into the language whose ISO code is "${l}". Keep links, numbers, "$", "Upwork" and "Ruul" unchanged. ` +
+        `Same meaning, natural and short, nothing added. Reply with the translation only.\n\n${texte}`,
+    )).trim().replace(/^["«“]+|["»”]+$/g, "");
+    return r && r.length < texte.length * 3 ? r : texte;
+  } catch {
+    return texte;
+  }
+}
+
+/** Le motif interne d'un arrêt, en anglais clair, pour « because … ». */
+async function raisonEnClair(motif: string | null): Promise<string | null> {
+  if (!motif) return null;
+  try {
+    const r = (await generateTextFast(
+      `Rewrite this internal reason for stopping a TikTok poster's contract as a short plain English clause that can follow the word "because" ` +
+        `(e.g. "of missing posts", "you asked to stop", "the contract was ended on Upwork"). No names, no blame, 12 words max. Reply with the clause only.\n\n${motif}`,
+    )).trim().replace(/^because\s+/i, "").replace(/[.\s]+$/, "");
+    return r && r.length <= 140 ? r : null;
+  } catch {
+    return null;
+  }
+}
+
+/** « same issue as X » : la demande ouverte d'origine (7 derniers jours) d'un posteur nommé X. */
+async function demandeDOrigine(db: Db, nom: string, poster: string | null): Promise<string | null> {
+  const motif = nom.replace(/[%_]/g, "").trim();
+  if (motif.length < 2) return null;
+  const { data: profils } = await db.from("profiles").select("id").or(`prenom.ilike.%${motif}%,nom.ilike.%${motif}%`).limit(10);
+  const ids = (profils ?? []).map((p) => p.id as string).filter((id) => id !== poster);
+  if (!ids.length) return null;
+  const { data } = await db.from("support_demandes").select("id").in("poster_id", ids).in("statut", ["ouvert", "attente_posteur", "bot"])
+    .gte("cree_at", new Date(Date.now() - 7 * 86_400_000).toISOString()).order("cree_at", { ascending: false }).limit(1).maybeSingle();
+  return (data?.id as string | undefined) ?? null;
+}
+
+/**
+ * Les règles de Max après la décision du modèle (modifie la décision en place) : textes fixes traduits, vraie situation,
+ * écart dashboard, incident groupé, escalade utile. Rend le plan des écritures (apresDemande).
+ */
+async function appliquerRegles(
+  db: Db,
+  o: { message: string; poster: string | null; plateforme: "ruul" | "upwork" | null; etat: EtatReel | null; decision: DecisionBot; historique: { bot_reponse?: string | null }[]; simulation: boolean },
+): Promise<PlanRegles> {
+  const d = o.decision;
+  const plan: PlanRegles = {
+    cas: null, upwork: null, lien: null, doublon_de: null, incident: null, arret: false, incoherences: [],
+    statut_posteur: ligneStatut(o.etat), resume: d.resume ?? null, action_proposee: d.action_proposee ?? null,
+  };
+  const fixe = (texte: string, categorie: string) => {
+    d.reponse = texte;
+    d.niveau = "bot";
+    d.categorie = categorie;
+    d.action = null;
+    d.action_valeur = null;
+    d.risque = d.risque.filter((r) => r !== "argent_tiers" && r !== "hors_plateforme");
+  };
+  const attente = o.etat?.upwork_exception?.statut === "lien_attendu";
+  const det = detecterCas(o.message, { plateforme: o.plateforme, attenteLienUpwork: attente });
+  const cas = det.cas ?? casDeCategorie(d.categorie, o.plateforme);
+  if (cas === "lien_post") {
+    fixe(TEXTES.lien_post, "lien_post");
+    plan.incident = { cle: "lien_post", titre: "Liens de posts impossibles à ajouter", groupe_seul: true };
+  } else if (cas === "upwork_demande") {
+    fixe(TEXTES.upwork_demande, "paie_upwork");
+    plan.upwork = "demander";
+  } else if (cas === "upwork_lien" && det.lien) {
+    fixe(estProfilUpwork(det.lien) ? TEXTES.upwork_lien_ok : TEXTES.upwork_lien_invalide, "paie_upwork");
+    if (estProfilUpwork(det.lien)) {
+      plan.upwork = "lien";
+      plan.lien = det.lien;
+    }
+  } else if (cas === "parrainage_cash") {
+    fixe(TEXTES.parrainage_cash, "parrainage_cash");
+  } else if (cas === "meme_probleme" && det.meme_que) {
+    const origine = o.simulation ? null : await demandeDOrigine(db, det.meme_que, o.poster);
+    if (origine) {
+      fixe(TEXTES.meme_probleme, d.categorie);
+      plan.doublon_de = origine;
+    } else fixe(TEXTES.flou, "flou");
+  } else if (cas === "flou") {
+    fixe(TEXTES.flou, "flou");
+  }
+  if (cas && cas !== "pas_regle") plan.cas = cas;
+
+  // 6. Arrêts et kills : la vraie situation, jamais supposée.
+  if (!plan.cas && o.etat) {
+    const dejaAnnonce = o.historique.some((h) => /\b(stopped|ended|terminated|no longer active)\b/i.test(h.bot_reponse ?? ""));
+    const s = situation(o.etat, dejaAnnonce);
+    const demandeArret = estDemandeArret(o.message) || d.action === "arret";
+    const surLeStatut = demandeArret || estQuestionStatut(o.message) || d.categorie === "arret" || d.categorie === "statut";
+    if (surLeStatut) {
+      plan.incoherences = s.incoherences;
+      if (demandeArret && s.statut === "actif") {
+        fixe(TEXTES.arret_recu, "arret");
+        d.niveau = "adrien";
+        plan.cas = "arret";
+        plan.arret = true;
+        plan.resume = plan.resume ?? "Le posteur demande l'arrêt de son contrat.";
+        plan.action_proposee = `exécuter l'arrêt (désactiver le compte${o.etat.canal_paie === "upwork" && o.etat.contrat_upwork?.actif ? `, fermer le contrat Upwork ${o.etat.contrat_upwork.id}` : ""})`;
+      } else {
+        const t = texteStatut(s, s.statut === "kill" ? await raisonEnClair(s.raison) : null);
+        fixe(t ?? TEXTES.inactif_sans_raison, d.categorie === "arret" ? "arret" : "statut");
+        plan.cas = "statut";
+        if (!t) d.niveau = "adrien";
+      }
+      if (s.incoherences.length) {
+        d.niveau = "adrien";
+        plan.resume = `Incohérence de statut : ${s.incoherences.join(" ; ")}`;
+        plan.action_proposee = s.incoherences.some((x) => x.includes("contrat Upwork")) ? "fermer le contrat Upwork" : "vérifier le statut du posteur";
+      }
+    }
+  }
+
+  // 2. Le dashboard contredit ce que vit le posteur : bug de notre côté.
+  if (!plan.cas && d.ecart_dashboard) {
+    d.reponse = TEXTES.ecart_dashboard;
+    d.niveau = "adrien";
+    d.action = null;
+    plan.cas = "ecart_dashboard";
+    plan.resume = `Écart dashboard / données : ${d.ecart_detail ?? d.raison}`;
+    plan.action_proposee = plan.action_proposee ?? "bug dashboard à corriger";
+    plan.incident = { cle: "ecart_dashboard", titre: "Écart entre le dashboard et nos données", groupe_seul: false };
+  }
+
+  // 7. Un bug technique réel : regroupé avec les mêmes signalements du jour.
+  if (!plan.incident && d.niveau !== "bot" && d.bug_cle) {
+    plan.incident = { cle: d.bug_cle, titre: plan.resume ?? d.raison ?? d.bug_cle, groupe_seul: false };
+  }
+
+  // 5. La langue du message : les textes fixes sont traduits ; « We're checking » aussi.
+  if (plan.cas || d.reponse === TEXTE_ON_VERIFIE) d.reponse = await traduire(d.reponse, d.langue);
+  if (!d.reponse.trim()) d.reponse = await traduire(TEXTES.equipe, d.langue);
+  return plan;
+}
+
+/** Les écritures du plan, une fois la demande enregistrée. Ne lève pas. */
+async function apresDemande(
+  db: Db,
+  o: { poster: string | null; demande: string | null; plan: PlanRegles | undefined; decision: DecisionBot; source: string; texte: string },
+): Promise<string[]> {
+  const fait: string[] = [];
+  const { plan, decision: d } = o;
+  if (!plan || !o.demande) return fait;
+  try {
+    await db.from("support_demandes").update({
+      resume: plan.resume, action_proposee: plan.action_proposee, statut_posteur: plan.statut_posteur,
+    }).eq("id", o.demande);
+    const source = o.source === "slack_salon" || o.source === "slack_aide" ? "slack" : o.source;
+    if (o.poster && plan.upwork === "demander") {
+      const { error } = await db.rpc("upwork_exception_demander", { p_poster: o.poster, p_source: source, p_demande: o.demande });
+      fait.push(error ? `exception Upwork : ${error.message}` : "exception Upwork : lien attendu");
+    }
+    if (o.poster && plan.upwork === "lien" && plan.lien) {
+      const { data, error } = await db.rpc("upwork_exception_lien", { p_poster: o.poster, p_url: plan.lien, p_source: source });
+      fait.push(error ? `exception Upwork : ${error.message}` : `exception Upwork : ${(data as { statut?: string })?.statut ?? "?"} (page À ajouter sur Upwork)`);
+    }
+    if (plan.doublon_de) {
+      const maintenant = new Date().toISOString();
+      await db.from("support_messages").insert({ demande_id: plan.doublon_de, auteur: "posteur", auteur_id: o.poster, texte: `[même problème] ${o.texte}`.slice(0, 4000) });
+      await db.from("support_demandes").update({ doublon_de: plan.doublon_de, statut: "resolu", resolu_at: maintenant, resolu_par_bot: true, verdict_fermeture: "doublon" }).eq("id", o.demande);
+      const { data: orig } = await db.from("support_demandes").select("incident_id, categorie").eq("id", plan.doublon_de).maybeSingle();
+      if (orig?.incident_id) {
+        const { data: inc } = await db.from("support_incidents").select("cle, titre").eq("id", orig.incident_id).maybeSingle();
+        if (inc) plan.incident = { cle: inc.cle as string, titre: inc.titre as string, groupe_seul: false };
+      }
+      fait.push("rattachée à la demande d'origine (doublon)");
+    }
+    if (plan.incident) fait.push(await incidentAjouter(db, o.poster, o.demande, plan.incident, d.categorie));
+    if (o.poster && plan.arret) {
+      const r = await executerAction(db, o.poster, { action: "arret", action_valeur: null, reponse: d.reponse, raison: d.raison }, o.texte);
+      const etat = await etatReel(db, o.poster);
+      const contrat = etat?.contrat_upwork?.actif ? `contrat Upwork ${etat.contrat_upwork.id} actif` : "pas de contrat Upwork actif";
+      await db.rpc("probleme_ajouter", {
+        p_type: "arret_a_traiter", p_ref: `${o.poster}:arret:${o.demande}`, p_poster: o.poster, p_contrat: etat?.contrat_upwork?.id ?? null, p_categorie: "stop",
+        p_resume: "Arrêt à traiter", p_texte: `Le posteur demande l'arrêt (« ${o.texte.slice(0, 200)} »). Paie : ${etat?.canal_paie ?? "?"} ; ${contrat}.`,
+        p_at: new Date().toISOString(), p_lien: null, p_canal: "os", p_par: null,
+      });
+      await db.from("support_demandes").update({ suivi: "arret_attendu" }).eq("id", o.demande);
+      fait.push(`arrêt : ${r} ; carte « Arrêt à traiter »`);
+    }
+    if (o.poster && plan.incoherences.length) {
+      await db.rpc("probleme_ajouter", {
+        p_type: "incoherence_statut", p_ref: `${o.poster}:incoherence`, p_poster: o.poster, p_contrat: null, p_categorie: "stop",
+        p_resume: "Incohérence de statut", p_texte: plan.incoherences.join(" ; "), p_at: new Date().toISOString(), p_lien: null, p_canal: "os", p_par: null,
+      });
+      fait.push("incohérence signalée");
+    }
+  } catch (erreur) {
+    fait.push(`règles : ${messageErreur(erreur)}`);
+  }
+  return fait;
+}
+
+/**
+ * Un incident groupé par bug et par jour. Liens de posts : jamais d'escalade individuelle ; un seul ticket dans
+ * #a-os-tickets dès 2 posteurs (le même fil ensuite). Autres bugs : la 1re demande part en ticket comme avant ;
+ * les suivantes rejoignent son fil au lieu d'ouvrir un nouveau ticket.
+ */
+async function incidentAjouter(db: Db, poster: string | null, demande: string, inc: { cle: string; titre: string; groupe_seul: boolean }, categorie: string): Promise<string> {
+  const { data, error } = await db.rpc("support_incident_ajouter", { p_cle: inc.cle, p_titre: inc.titre, p_categorie: categorie, p_poster: poster, p_demande: demande });
+  if (error) return `incident : ${error.message}`;
+  const r = data as { id: string; nb: number; nouveau_posteur: boolean; ticket_at: string | null; ticket_ts: string | null };
+  const jeton = jetonSlackFaq();
+  const lire = async () => (await db.rpc("support_incident_lire", { p_id: r.id })).data as { titre: string; posteurs: { nom: string; plateforme: string }[]; messages: string[] } | null;
+  if (r.ticket_ts) {
+    // Le ticket existe : la demande le rejoint (✅ dessus préviendra aussi ce posteur).
+    await db.from("support_demandes").update({ ticket_at: r.ticket_at, ticket_slack_ts: r.ticket_ts }).eq("id", demande);
+    if (r.nouveau_posteur && jeton && poster) {
+      const f = await fiche(db, poster);
+      await posterSlack(jeton, CANAL_TICKETS, `+ ${f?.nom ?? "un posteur"} (${f?.plateforme === "ruul" ? "Ruul" : "Upwork"}) — même problème.`, r.ticket_ts);
+    }
+    return `incident ${inc.cle} (${r.nb} posteurs, ticket existant)`;
+  }
+  if (!inc.groupe_seul || r.nb < 2) return `incident ${inc.cle} (${r.nb} posteur${r.nb > 1 ? "s" : ""})`;
+  // Liens de posts : 2 posteurs ou plus le même jour → UN ticket pour l'équipe tech.
+  if (modeAction(await lireControle(db), "ticket_os") !== "agir" || !jeton) return `incident ${inc.cle} (${r.nb} posteurs, ticket pas envoyé : Contrôle ou jeton)`;
+  const i = await lire();
+  const texte = [
+    `🎫 Ticket (Support OS) — Incident groupé : ${i?.titre ?? inc.titre} (${r.nb} posteurs aujourd'hui)`,
+    ...(i?.posteurs ?? []).map((p) => `• ${p.nom} (${p.plateforme === "ruul" ? "Ruul" : "Upwork"})`),
+    ...(i?.messages ?? []).slice(0, 5).map((m) => `« ${m.replace(/\s+/g, " ")} »`),
+    "Réponse déjà envoyée à chacun : « As long as you posted, it's fine… » (pas d'escalade individuelle).",
+    `Action proposée : corriger le bug d'ajout du lien. Support : ${OS_URL}/admin/auto/support`,
+  ].join("\n");
+  const t = await posterSlack(jeton, CANAL_TICKETS, texte);
+  if (!t.ok) return `incident ${inc.cle} : ticket pas envoyé (${t.error})`;
+  const maintenant = new Date().toISOString();
+  await db.from("support_incidents").update({ ticket_at: maintenant, ticket_ts: t.ts ?? null }).eq("id", r.id);
+  const { data: inc2 } = await db.from("support_incidents").select("demandes").eq("id", r.id).maybeSingle();
+  const ids = ((inc2?.demandes ?? []) as string[]);
+  if (ids.length) await db.from("support_demandes").update({ ticket_at: maintenant, ticket_slack_ts: t.ts ?? null }).in("id", ids);
+  await journaliser(db, { qui: "cerveau_support", quoi: "ticket_os", poster_id: poster, demande_id: demande, resultat: `incident groupé ${inc.cle} : ticket envoyé (${r.nb} posteurs)` });
+  return `incident ${inc.cle} : ticket groupé envoyé (${r.nb} posteurs)`;
+}
+
+/**
+ * 8. Le posteur répond que ce n'est pas réglé : sa dernière demande (7 jours) est rouverte et repart en escalade avec
+ * le contexte, au lieu d'une nouvelle demande. Rend la réponse à lui envoyer, ou null.
+ */
+async function rouvrirSiPasRegle(db: Db, poster: string, texte: string, canal: string): Promise<{ id: string; reponse: string } | null> {
+  if (!estPasRegle(texte)) return null;
+  const { data: d } = await db.from("support_demandes").select("id, niveau, langue, statut")
+    .eq("poster_id", poster).in("statut", ["bot", "attente_posteur", "resolu"]).is("doublon_de", null)
+    .gte("cree_at", new Date(Date.now() - 7 * 86_400_000).toISOString()).order("cree_at", { ascending: false }).limit(1).maybeSingle();
+  if (!d?.id) return null;
+  const maintenant = new Date().toISOString();
+  await db.from("support_messages").insert({ demande_id: d.id, auteur: "posteur", auteur_id: poster, texte: texte.slice(0, 4000) });
+  await db.from("support_demandes").update({
+    statut: "ouvert", rouverte_at: maintenant, posteur_at: maintenant, maj_at: maintenant, resolu_at: null, verdict_fermeture: null,
+    niveau: d.niveau === "max" ? "max" : "adrien", remonte_par: "posteur", remonte_at: maintenant,
+    remonte_pourquoi: `Le posteur dit que ce n'est pas réglé (${canal}) : « ${texte.slice(0, 200)} »`,
+  }).eq("id", d.id);
+  await journaliser(db, { qui: "cerveau_support", quoi: "rouverte", poster_id: poster, canal, demande_id: d.id, resultat: "demande rouverte : pas réglée selon le posteur" });
+  return { id: d.id as string, reponse: signer(await traduire(TEXTES.rouverte, d.langue as string | null)) };
+}
+
+/**
+ * 8. Le suivi (cron support-suivi, toutes les heures) : sans réponse du posteur 48 h après une réponse qui règle le
+ * problème, la demande passe « résolu » (verdict rempli) ; un arrêt demandé est confirmé au posteur seulement
+ * une fois fait dans l'OS (comptes désactivés, contrat Upwork fermé si Upwork).
+ */
+// Le suivi ne ferme que les demandes arrivées sous les nouvelles règles : les anciennes demandes ouvertes
+// restent telles quelles tant que Max n'a pas dit de les fermer.
+const DEBUT_SUIVI = "2026-11-18T00:00:00Z";
+
+async function suiviSupport(db: Db) {
+  const il48h = new Date(Date.now() - 48 * 3_600_000).toISOString();
+  const maintenant = new Date().toISOString();
+  const bilan: Record<string, number> = { regle_bot: 0, regle_equipe: 0, pas_un_probleme: 0, arret_confirme: 0 };
+  // Réglées par le bot (réponse envoyée), sans retour du posteur depuis 48 h.
+  const { data: bots } = await db.from("support_demandes").select("id, categorie").eq("statut", "bot").is("suivi", null)
+    .gte("cree_at", DEBUT_SUIVI).lt("cree_at", il48h).or(`posteur_at.is.null,posteur_at.lt.${il48h}`).limit(200);
+  for (const d of (bots ?? []) as { id: string; categorie: string | null }[]) {
+    const verdict = d.categorie === "flou" || d.categorie === "salutation" ? "pas_un_probleme" : "regle_bot";
+    await db.from("support_demandes").update({ statut: "resolu", resolu_at: maintenant, resolu_par_bot: true, verdict_fermeture: verdict, maj_at: maintenant }).eq("id", d.id);
+    bilan[verdict]++;
+  }
+  // Réponse de l'équipe envoyée, sans retour du posteur depuis 48 h.
+  const { data: equipe } = await db.from("support_demandes").select("id, posteur_at, equipe_at").eq("statut", "attente_posteur").is("suivi", null).gte("cree_at", DEBUT_SUIVI)
+    .not("equipe_at", "is", null).lt("equipe_at", il48h).limit(200);
+  for (const d of (equipe ?? []) as { id: string; posteur_at: string | null; equipe_at: string }[]) {
+    if (d.posteur_at && d.posteur_at > d.equipe_at) continue;
+    await db.from("support_demandes").update({ statut: "resolu", resolu_at: maintenant, verdict_fermeture: "regle_equipe", maj_at: maintenant }).eq("id", d.id);
+    bilan.regle_equipe++;
+  }
+  // Arrêts demandés : la confirmation part seulement quand l'arrêt est fait.
+  const { data: arrets } = await db.from("support_demandes").select("id, poster_id, source, langue").eq("suivi", "arret_attendu").limit(50);
+  for (const d of (arrets ?? []) as { id: string; poster_id: string | null; source: string | null; langue: string | null }[]) {
+    if (!d.poster_id) continue;
+    const e = await etatReel(db, d.poster_id);
+    if (!e) continue;
+    const fait = e.comptes_actifs === 0 && !(e.canal_paie === "upwork" && e.contrat_upwork?.actif);
+    if (!fait) continue;
+    const m = await messageCanal(db, { id: d.id, poster_id: d.poster_id, source: d.source }, signer(await traduire(TEXTES.arret_confirme, d.langue)));
+    if (!m.ok) continue;
+    await db.from("support_demandes").update({ suivi: "arret_confirme", statut: "resolu", resolu_at: maintenant, verdict_fermeture: "regle_equipe", maj_at: maintenant }).eq("id", d.id);
+    bilan.arret_confirme++;
+  }
+  return { ok: true, ...bilan };
 }
 
 async function lancerTests(db: Db, ids: string[] | null) {
@@ -809,6 +1165,13 @@ async function messagesTraiter(db: Db) {
       await noterVu(db, c.poster_id, canal, texte, `probleme:${c.id}`);
       continue;
     }
+    const rouverte = await rouvrirSiPasRegle(db, c.poster_id, texte, canal);
+    if (rouverte) {
+      await db.from("support_demandes").update({ probleme_id: c.id }).eq("id", rouverte.id).is("probleme_id", null);
+      const envoi = await envoyerAuPosteur(db, c.poster_id, rouverte.reponse);
+      resultats.push({ probleme: c.id, niveau: "rouverte", envoi });
+      continue;
+    }
     const r = await deciderBot(db, { message: texte, source: "help", poster: c.poster_id, profil: null, canal: canal === "upwork" ? "upwork" : "slack" });
     const d = r.decision;
     if (d.categorie === "salutation") {
@@ -821,10 +1184,13 @@ async function messagesTraiter(db: Db) {
     if (parBot) {
       action = d.action ? await executerAction(db, c.poster_id, d, texte) : null;
       envoi = await envoyerAuPosteur(db, c.poster_id, r.texte);
+    } else if (!r.controle.muet) {
+      // 17/11 (Max, point 7) : chaque demande reçoit au minimum une réponse.
+      envoi = await envoyerAuPosteur(db, c.poster_id, r.texte);
     }
     const { data: aj, error: e } = await db.rpc("support_ajouter", {
       p: {
-        poster_id: c.poster_id, type: "question", categorie: d.categorie, texte, bot_reponse: parBot ? r.texte : null, source: canal,
+        poster_id: c.poster_id, type: "question", categorie: d.categorie, texte, bot_reponse: envoi !== "rien" ? r.texte : null, source: canal,
         bot_decision: d.niveau, brouillon: parBot ? null : brouillonDe(r), escalader: !parBot,
       },
     });
@@ -839,6 +1205,7 @@ async function messagesTraiter(db: Db) {
         raison: `${d.raison} (message ${src[0]?.canal ?? src[0]?.type ?? "?"} repris ; réponse : ${envoi})`, langue: d.langue,
       }).eq("id", id);
       await noterControle(db, c.poster_id, id, canal, parBot ? r.texte : null, r.controle);
+      await apresDemande(db, { poster: c.poster_id, demande: id, plan: r.plan, decision: d, source: canal, texte });
       if (d.niveau === "max") {
         const f = await fiche(db, c.poster_id);
         await alerterMax(db, id, {
@@ -955,19 +1322,35 @@ async function trierDemande(db: Db, id: string) {
 /** 12/11 (Max) : la demande part en ticket dans #a-os-tickets ; elle reste ouverte dans la Boîte. */
 async function envoyerTicket(db: Db, par: string | null, id: string, note: string | null) {
   const { data: d, error } = await db.from("support_demandes")
-    .select("id, poster_id, plateforme, categorie, texte, slack_canal, slack_ts, slack_user, ticket_at, ticket_slack_ts, source, capture, action_faite, auto_resultat, bot_reponse")
+    .select("id, poster_id, plateforme, categorie, texte, slack_canal, slack_ts, slack_user, ticket_at, ticket_slack_ts, source, capture, action_faite, auto_resultat, bot_reponse, resume, action_proposee, statut_posteur, langue, raison, incident_id")
     .eq("id", id).maybeSingle();
   if (error) throw new Error(error.message);
   if (!d) return { ok: false, error: "demande introuvable" };
   if (d.ticket_at) return { ok: true, deja: true, ticket_at: d.ticket_at };
+  // 17/11 (Max, point 7) : une demande d'un incident qui a déjà son ticket le rejoint (pas de 2e ticket).
+  if (d.incident_id) {
+    const { data: inc } = await db.from("support_incidents").select("ticket_at, ticket_ts").eq("id", d.incident_id).maybeSingle();
+    if (inc?.ticket_ts) {
+      await db.from("support_demandes").update({ ticket_at: inc.ticket_at, ticket_slack_ts: inc.ticket_ts, maj_at: new Date().toISOString() }).eq("id", id);
+      return { ok: true, deja: true, ticket_at: inc.ticket_at, incident: true };
+    }
+  }
   const jeton = jetonSlackFaq();
   if (!jeton) return { ok: false, error: "jeton Slack absent" };
   const f = d.poster_id ? await fiche(db, d.poster_id) : null;
   // 13/11 (refonte, 4 bis) : le ticket dit tout : posteur, canal, message exact, capture, ce que le bot a déjà essayé.
   const essaye = [d.auto_resultat, d.action_faite, d.bot_reponse ? `réponse : ${String(d.bot_reponse).slice(0, 200)}` : null].filter(Boolean).join(" · ");
   const capture = d.capture ? await lienCaptureSigne(db, String(d.capture)) : null;
-  const note2 = [note, `Canal : ${d.source ?? "help"}`, capture ? `Capture : ${capture}` : null, essaye ? `Déjà essayé : ${essaye}` : "Déjà essayé : rien"]
-    .filter(Boolean).join("\n");
+  // 17/11 (Max, point 7) : résumé, statut du posteur, ce que le bot a vérifié et répondu, action proposée, langue.
+  const note2 = [
+    d.resume ? `Résumé : ${d.resume}` : null,
+    d.statut_posteur ? `Statut du posteur : ${d.statut_posteur}` : null,
+    d.raison ? `Vérifié par le bot : ${String(d.raison).slice(0, 300)}` : null,
+    d.bot_reponse ? `Déjà répondu : ${String(d.bot_reponse).replace(/\s+/g, " ").slice(0, 200)}` : "Déjà répondu : rien",
+    d.action_proposee ? `Action proposée : ${d.action_proposee}` : null,
+    `Langue du posteur : ${d.langue ?? "?"}`,
+    note, `Canal : ${d.source ?? "help"}`, capture ? `Capture : ${capture}` : null, essaye ? `Déjà essayé : ${essaye}` : null,
+  ].filter(Boolean).join("\n");
   const texte = texteTicket({ ...d, nom: (f as { nom?: string } | null)?.nom ?? d.slack_user ?? null, note: note2 }, OS_URL);
   const r = await posterSlack(jeton, CANAL_TICKETS, texte);
   if (!r.ok) return { ok: false, error: erreurTicket(r.error ?? "inconnue") };
@@ -975,6 +1358,13 @@ async function envoyerTicket(db: Db, par: string | null, id: string, note: strin
   const { error: e } = await db.from("support_demandes")
     .update({ ticket_at: maintenant, ticket_slack_ts: r.ts ?? null, ticket_par: par, maj_at: maintenant }).eq("id", id);
   if (e) throw new Error(e.message);
+  // 17/11 : le ticket devient celui de l'incident ; les demandes du même bug le rejoignent.
+  if (d.incident_id && r.ts) {
+    await db.from("support_incidents").update({ ticket_at: maintenant, ticket_ts: r.ts }).eq("id", d.incident_id).is("ticket_ts", null);
+    const { data: inc } = await db.from("support_incidents").select("demandes").eq("id", d.incident_id).maybeSingle();
+    const autres = ((inc?.demandes ?? []) as string[]).filter((x) => x !== id);
+    if (autres.length) await db.from("support_demandes").update({ ticket_at: maintenant, ticket_slack_ts: r.ts }).in("id", autres).is("ticket_at", null);
+  }
   await journaliser(db, { qui: par ? "Max" : "cerveau_support", quoi: "ticket_os", poster_id: d.poster_id, canal: d.source ?? null, demande_id: id, resultat: "ticket envoyé dans #a-os-tickets" });
   // Le posteur est prévenu sur son canal (une fois).
   let posteur = "pas de posteur";
@@ -1312,6 +1702,12 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
     await noterVu(db, poster, "slack", texte, `slack:${o.canal}:${o.ts}`);
     return { ok: true, vu: true };
   }
+  const rouverte = poster ? await rouvrirSiPasRegle(db, poster, texte, "slack") : null;
+  if (rouverte) {
+    const jeton0 = jetonSlackFaq();
+    if (jeton0) await posterSlack(jeton0, o.canal, rouverte.reponse, o.ts);
+    return { ok: true, id: rouverte.id, rouverte: true };
+  }
   const r = await deciderBot(db, { message: texte, source: "slack_salon", poster, profil: null, canal: "slack" });
   const d = r.decision;
   if (d.categorie === "salutation" && poster) {
@@ -1328,8 +1724,9 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
       const dm = await ecrireAuPosteur(db, poster, r.texte, fetch, undefined, { malgreStop: "reponse" });
       envoi = dm.statut === "envoye" ? "message privé" : `message privé : ${"erreur" in dm ? dm.erreur : dm.statut}`;
       if (dm.statut === "envoye") await posterSlack(jeton, o.canal, "I've sent you a private message 👋", o.ts);
-    } else if (parBot || d.niveau === "max") {
-      const t = await posterSlack(jeton, o.canal, parBot ? r.texte : TEXTE_ON_VERIFIE, o.ts);
+    } else {
+      // 17/11 (Max, point 7) : chaque demande reçoit au minimum une réponse (dans sa langue).
+      const t = await posterSlack(jeton, o.canal, r.texte, o.ts);
       envoi = t.ok ? "fil" : `fil : ${t.error}`;
     }
   }
@@ -1348,6 +1745,7 @@ async function messageSlack(db: Db, o: { canal: string; ts: string; auteur: stri
       raison: `${d.raison} (salon Slack ; réponse : ${envoi})`, langue: d.langue, ...(parBot ? { statut: "bot" } : {}),
     }).eq("id", id);
     if (poster) await noterControle(db, poster, id, "slack", parBot ? r.texte : null, r.controle);
+    await apresDemande(db, { poster, demande: id, plan: r.plan, decision: d, source: "slack_salon", texte });
     if (d.niveau === "max") {
       await alerterMax(db, id, { nom: o.nom ?? "?", plateforme: o.plateforme ?? "upwork", categorie: d.categorie, texte, raison: "urgent", os: d.raison, action: brouillonDe(r) });
     }

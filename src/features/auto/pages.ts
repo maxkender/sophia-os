@@ -4,7 +4,7 @@
  * anciennes adresses, qui redirigent : aucun lien cassé.
  */
 
-export type PageAuto = "aujourdhui" | "reglages" | "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs" | "cartes";
+export type PageAuto = "aujourdhui" | "reglages" | "overview" | "recruits" | "cohorts" | "decisions" | "sent" | "received" | "needs" | "problems" | "disputes" | "payroll" | "bonus" | "candidats_ruul" | "cohortes_ruul" | "ruul_suivi" | "upwork_ajouter" | "faq" | "officielles" | "support" | "parrainage" | "slack" | "logs" | "cartes";
 
 export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   // 12/11 (OS clair) : ce que Max doit faire maintenant, et toutes les anciennes pages rangées.
@@ -34,6 +34,8 @@ export const PAGES_AUTO: readonly { cle: PageAuto; to: string }[] = [
   { cle: "cohortes_ruul", to: "/admin/auto/cohortes-ruul" },
   // 10/11 : Ruul, les posteurs à ajouter dans Ruul (puis le suivi complet, partie 6).
   { cle: "ruul_suivi", to: "/admin/auto/ruul" },
+  // 17/11 (Max) : les posteurs qui demandent à être payés par Upwork (exception), lien de profil vérifié par le support.
+  { cle: "upwork_ajouter", to: "/admin/auto/upwork-a-ajouter" },
   { cle: "faq", to: "/admin/auto/faq" },
   // 6/11 : les réponses validées par Max, que le bot FAQ et les 3 bots donnent en priorité.
   { cle: "officielles", to: "/admin/auto/reponses-officielles" },
@@ -59,13 +61,14 @@ export const HORS_MENU: readonly PageAuto[] = ["problems", "disputes"];
  * ouvertes (même adresse) et rangées dans Réglages › Anciennes pages : rien n'est supprimé.
  * Posteurs, Ruul, Décisions et Paie pointent vers les pages actuelles jusqu'à leur refonte.
  */
-export type EntreeMenuAuto = "aujourdhui" | "problemes" | "posteurs" | "ruul" | "decisions" | "paie" | "support" | "reglages";
+export type EntreeMenuAuto = "aujourdhui" | "problemes" | "posteurs" | "ruul" | "upwork" | "decisions" | "paie" | "support" | "reglages";
 export const MENU_AUTO: readonly { cle: EntreeMenuAuto; to: string; page: PageAuto }[] = [
   { cle: "aujourdhui", to: "/admin/auto/aujourdhui", page: "aujourdhui" },
   // 13/11 (Max) : UNE page « Problèmes » dans le menu (🔴 urgent, 🤖 chez les bots, 📅 samedi).
   { cle: "problemes", to: "/admin/auto/problemes", page: "needs" },
   { cle: "posteurs", to: "/admin/auto/recruits", page: "recruits" },
   { cle: "ruul", to: "/admin/auto/ruul", page: "ruul_suivi" },
+  { cle: "upwork", to: "/admin/auto/upwork-a-ajouter", page: "upwork_ajouter" },
   { cle: "decisions", to: "/admin/auto/decisions", page: "decisions" },
   { cle: "paie", to: "/admin/auto/payroll", page: "payroll" },
   { cle: "support", to: "/admin/auto/support", page: "support" },

@@ -1,4 +1,5 @@
 import { chargerBase, demanderAuCerveau, jetonSlackFaq, posterSlack } from "../_shared/faq_moteur.ts";
+import { brevoGet } from "../_shared/emails.ts";
 import { chargerSourcesSupport } from "../_shared/support_sources.ts";
 import { CANAL_TICKETS, erreurTicket, promptContexte, texteTicket } from "../_shared/support_ticket.ts";
 import { emailReel, jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_shared/email_entrant.ts";
@@ -174,6 +175,11 @@ Deno.serve(async (request) => {
           canal: String(body.canal ?? ""), ts: String(body.ts ?? ""), auteur: String(body.auteur ?? ""), texte: String(body.texte ?? ""),
           nom: typeof body.nom === "string" ? body.nom : null, plateforme: body.plateforme === "ruul" || body.plateforme === "upwork" ? body.plateforme : null,
         }));
+      case "brevo_entrants":
+        // 18/11 (Max) : la réception des emails ne marche plus depuis le 16/11 : ce que Brevo a reçu, et ses
+        // webhooks entrants (adresse, domaine). Lecture seule.
+        if (!admin) return json({ ok: false, error: "forbidden" }, 403);
+        return json(await brevoEntrants(String(body.depuis ?? "")));
       case "suivi":
         // 17/11 (Max, point 8) : fermeture après 48 h sans retour, confirmation d'un arrêt une fois fait (cron support-suivi).
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
@@ -1622,6 +1628,22 @@ async function analyserContexte(db: Db, id: string) {
  * traitée par le bot comme Help ; il reçoit la réponse par email et dans son chat Help. Une demande
  * déjà ouverte (moins de 7 jours) reçoit l'email dans son fil. Rien ne va à Adrien : tout va à Max.
  */
+async function brevoEntrants(depuis: string) {
+  const debut = /^\d{4}-\d{2}-\d{2}$/.test(depuis) ? depuis : new Date(Date.now() - 3 * 86_400_000).toISOString().slice(0, 10);
+  const fin = new Date().toISOString().slice(0, 10);
+  const webhooks = await brevoGet("/webhooks?type=inbound");
+  const events = await brevoGet(`/inbound/events?startDate=${debut}&endDate=${fin}&limit=100&sort=desc`);
+  const liste = ((events.data as { events?: { uuid: string; date: string; sender: string; recipient: string }[] } | null)?.events ?? []);
+  // Le détail (logs de livraison au webhook) des 5 plus récents.
+  const details = await Promise.all(liste.slice(0, 5).map(async (e) => (await brevoGet(`/inbound/events/${e.uuid}`)).data));
+  return {
+    ok: webhooks.ok && events.ok, erreurs: [webhooks.erreur, events.erreur].filter(Boolean),
+    webhooks: webhooks.data, nb_evenements: liste.length,
+    evenements: liste.map((e) => ({ uuid: e.uuid, date: e.date, destinataire: e.recipient, expediteur_domaine: String(e.sender ?? "").split("@")[1] ?? null })),
+    details,
+  };
+}
+
 async function emailsEntrants(db: Db, emails: ReturnType<typeof lireEmailsBrevo>) {
   const bilan: Record<string, unknown>[] = [];
   for (const e of emails) {

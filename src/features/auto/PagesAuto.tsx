@@ -23,6 +23,7 @@ import { SuiviParrainage } from "@/features/parrainageEmail/Branches";
 import { BonusLundi } from "@/features/bonus/BonusLundi";
 import { PageBonus } from "@/features/bonus/PageBonus";
 import { AgentRuul, DernierImportRuul } from "@/features/ruul/AgentRuul";
+import { PagePaieRuul } from "@/features/ruul/PagePaieRuul";
 import { StatutsRuulApi } from "@/features/ruul/StatutsRuulApi";
 import { VueParcoursRuul } from "@/features/ruul/VueParcoursRuul";
 import { PageAjoutRuul, PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
@@ -196,6 +197,15 @@ export function PayrollPage() {
   return (
     <PageAuto cle="payroll">
       <AdminPaiePage />
+    </PageAuto>
+  );
+}
+
+/** 18/11 (Max) : la paie Ruul sur sa page (lot de la semaine, payés / pas prêts / exclus, historique). */
+export function PaieRuulPage() {
+  return (
+    <PageAuto cle="paie_ruul">
+      <PagePaieRuul />
     </PageAuto>
   );
 }

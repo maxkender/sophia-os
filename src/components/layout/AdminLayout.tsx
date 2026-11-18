@@ -41,6 +41,7 @@ import {
   UserPlus,
   Briefcase,
   Wallet,
+  Landmark,
   Globe2,
   LifeBuoy,
 } from "lucide-react";
@@ -68,6 +69,7 @@ const ICONES_MENU: Record<EntreeMenuAuto, LucideIcon> = {
   upwork: Briefcase,
   decisions: Gavel,
   paie: Wallet,
+  paie_ruul: Landmark,
   support: LifeBuoy,
   reglages: SlidersHorizontal,
 };

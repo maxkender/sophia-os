@@ -34,6 +34,7 @@ import {
   DisputesPage,
   OverviewPage,
   PayrollPage,
+  PaieRuulPage,
   ReceivedPage,
   RecruitsPage,
   ReglesBotsPage,
@@ -154,6 +155,7 @@ export function AppRouter() {
             <Route path="/admin/auto/problems" element={<ProblemsPage />} />
             <Route path="/admin/auto/disputes" element={<DisputesPage />} />
             <Route path="/admin/auto/payroll" element={<PayrollPage />} />
+            <Route path="/admin/auto/paie-ruul" element={<PaieRuulPage />} />
             <Route path="/admin/auto/bonus" element={<BonusPage />} />
             <Route path="/admin/auto/candidats-ruul" element={<CandidatsRuulPage />} />
             <Route path="/admin/auto/cohortes-ruul" element={<CohortesRuulPage />} />

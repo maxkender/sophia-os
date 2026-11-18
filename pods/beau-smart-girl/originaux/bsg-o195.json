@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o195",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "030af5a4-dc19-49f1-85bf-82c3f39bb5b6",
+  "titre": "yoga poses that are good for your health #yoga #thatgirl",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [
+    "030af5a4-dc19-49f1-85bf-82c3f39bb5b6"
+  ],
+  "notes": "G1, déclinaison de 030af5a4 (« yoga poses that are good for your health », génération 0 ; meilleur passage tr 144 k vues, r 38,5), en anglais. cta B. Postures courantes décrites simplement, sans promesse médicale (ni dos, ni tension, ni maladie) : la sensation et la durée, avec « go gently ». Le parent est à r 38,5. Items neufs dans leur description. Fait vérifié le 5/11 sur https://en.wikipedia.org/wiki/Napoleon_complex : « This was the period's average adult male height ». Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4a370d80",
+      "texte_overlay": "yoga poses that are good\nfor your health",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "7ace4976",
+      "texte_overlay": "1. child's pose\n\nknees wide, forehead down, arms long.\nstay for a few slow breaths.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "27c5be06",
+      "texte_overlay": "2. downward dog\n\na long stretch from your hands to your heels.\nbend your knees if you need to.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "c549b431",
+      "texte_overlay": "3. legs up the wall\n\nthis morning i learned that napoleon was about average height for his time.\ni learned it lying like this. ten quiet minutes.",
+      "texte_sophia": "3. legs up the wall\n\nthis morning, the Sophia app taught me that napoleon was about average height for his time.\ni learned it lying like this. ten quiet minutes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "82c4947e",
+      "texte_overlay": "4. cat-cow\n\nround your back, then arch it.\nslowly, with your breath.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5348e6b9",
+      "texte_overlay": "5. seated forward fold\n\nreach, don't force.\ngo gently, always.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6780bd2b",
+      "texte_overlay": "save this for your next quiet evening.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

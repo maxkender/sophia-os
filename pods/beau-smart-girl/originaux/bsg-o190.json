@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o190",
+  "type_bleo": "full_test",
+  "titre": "les mots de tous les jours qui ont une histoire incroyable #etymologie #culture #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test, cta C (le défi de 7 jours en slide 2). Première accroche « les mots qui m'ont fait passer pour une fille cultivée » refusée par le guichet (theme_gagnant) ; réécrite sur une idée neuve : l'étymologie des mots du quotidien. Étymologies vérifiées le 18/11 sur le Wiktionnaire : salaire (« Du latin salarium (« solde »), partie de la solde des troupes romaines, versée en sal « sel » »), travail (« du latin tripālium … « instrument d'immobilisation et de torture à trois pieux » »), copain (« Altération populaire de compain (en ancien français, cas sujet de compagnon), soit « qui partage le même pain » »). « bureau » écarté : étymologie marquée incertaine. Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "edcaa37f",
+      "texte_overlay": "les mots de tous les jours\nqui ont une histoire incroyable",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "53f99a6f",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3eb691c2",
+      "texte_overlay": "1. salaire\n\nvient du latin salarium.\nune partie de la solde des soldats romains\nétait versée en sel.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2913463c",
+      "texte_overlay": "2. copain\n\nvient de compain :\ncelui qui partage le même pain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "27da04f9",
+      "texte_overlay": "3. travail\n\nvient du latin tripalium,\nun instrument de torture à trois pieux.\nça explique beaucoup de lundis.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2c486594",
+      "texte_overlay": "4. compagnon\n\nmême famille que copain.\nle même pain, encore.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "28a97734",
+      "texte_overlay": "5. on les dit cent fois par jour\n\nsans savoir d'où ils viennent.\nmaintenant, toi, tu sais.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "29517dd1",
+      "texte_overlay": "lequel tu racontes en premier ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

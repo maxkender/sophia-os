@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o305",
+ "type_bleo": "full_test",
+ "titre": "What strong men do after a bad day #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "twin tribes monolith Dexter Morgan Super Slow",
+ "musique_url": "https://www.tiktok.com/music/twin-tribes-monolith-dexter-morgan-super-7401614052290169605",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 4 à 7 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 11 lignes utilisables pour 12 déclinaisons, d'où un 5e full test. Accroches écrites : « What strong men do after a bad day » (retenue), « How to recover from a bad day » (écartée : plat), « Never let a bad day become a bad week » (écartée : slogan, gardé comme dernier item).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0c3d5dd9-9403-4a8e-b79e-bb72591826e8",
+   "texte_overlay": "What strong men do\nafter a bad day",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "They move their body. A run, a heavy workout, a long walk. Moving is the fastest way to get stress out of your head and out of your shoulders.",
+   "media_id": "05ef81f5-749e-489b-aafe-bac5c5aad354"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "They talk to someone they trust. A friend, a brother, a partner. Saying \"today was rough\" out loud already makes it lighter. Silence is a pause, never a problem.",
+   "media_id": "062574d4-10dd-469c-ae9f-67453ce479f7"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "They don't numb it with junk. No endless scrolling, no junk food binge. They choose something that actually makes them feel better tomorrow.",
+   "media_id": "0652324b-16b7-48a1-92d7-d4daa839a70c"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "They write down what happened. Two or three lines. Getting it on paper turns a mess of feelings into a problem you can actually solve.",
+   "media_id": "068764cc-5037-4fe4-a2a2-ef79e94d3b35"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "They feed their mind something good. I do five minutes a day of history, art or science, and it helps me see my problems from further away.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It helps me see my problems from further away.",
+   "media_id": "0963a6f7-747a-4700-96f8-f5c9fdd7b15d"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "They go to bed early. Most bad days look smaller after a good night's sleep. Rest is part of being strong. Tomorrow you'll see things more clearly and calmly.",
+   "media_id": "06b209d5-f706-454c-a39a-95847e56db1f"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "They start fresh the next morning. A bad day is just one day. They never let it turn into a bad week. Tomorrow is a new chance to show up as the man you want to be.",
+   "media_id": "06e43f7e-4540-4fa5-a173-33308352800d"
+  }
+ ]
+}

@@ -14,8 +14,9 @@ import { cn } from "@/lib/utils";
 
 import { DialogueAjout, DialogueLabel } from "./DialoguesBible";
 import {
-  type CarteLabel, changerCarte, changerEtape, type CompteBible, compterEtapes, type Etape, ETAPES, LIBELLE_BADGE, lireCartes, lireComptes,
-  marquerBatchImporte, modifierCompte, nomCarte, ranger, type Section, SECTIONS, supprimerCompte,
+  type CarteLabel, changerCarte, changerEtape, type CompteBible, compterEtapes, LIBELLE_BADGE, lireCartes, lireComptes,
+  marquerBatchImporte, mettreCorbeille, modifierCompte, nomCarte, ranger, restaurerCompte, type Section, SECTIONS, supprimerDefinitivement,
+  type Vue, VUES,
 } from "./moodboard";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 
@@ -39,7 +40,7 @@ export function PageBible() {
   const qc = useQueryClient();
   const comptes = useQuery({ queryKey: ["bible", "comptes"], queryFn: lireComptes });
   const cartes = useQuery({ queryKey: ["bible", "cartes"], queryFn: lireCartes });
-  const [etape, setEtape] = React.useState<Etape>("a_importer");
+  const [etape, setEtape] = React.useState<Vue>("a_importer");
   const [recherche, setRecherche] = React.useState("");
   const [section, setSection] = React.useState<Section | "sans" | "">("");
   const [podzer, setPodzer] = React.useState(false);
@@ -70,7 +71,9 @@ export function PageBible() {
     onEtape: (c, e) => void agir(c, () => changerEtape([c.id], e)),
     onChangerLabel: (c) => setARanger(c),
     onModifier: (c, p) => void agir(c, () => modifierCompte(c.id, p)),
-    onSupprimer: (c) => { if (window.confirm(`Supprimer @${c.handle} de la Bible ?`)) void agir(c, () => supprimerCompte(c.id)); },
+    onSupprimer: (c) => void agir(c, () => mettreCorbeille(c.id)),
+    onRestaurer: (c) => void agir(c, () => restaurerCompte(c.id)),
+    onSupprimerDefinitivement: (c) => { if (window.confirm(`Supprimer @${c.handle} pour de bon ? (On ne pourra plus le restaurer.)`)) void agir(c, () => supprimerDefinitivement(c.id)); },
   };
   const marquerImporte = async () => {
     if (!window.confirm(`Marquer les ${n.prochain_batch} comptes du batch comme importés ? (Ça ne change que la Bible.)`)) return;
@@ -93,7 +96,7 @@ export function PageBible() {
 
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div role="tablist" aria-label="Étape" className="inline-flex rounded-full bg-stone-100 p-1 dark:bg-stone-800">
-          {ETAPES.map((e) => (
+          {VUES.map((e) => (
             <button
               key={e.cle}
               role="tab"
@@ -117,7 +120,7 @@ export function PageBible() {
             onClick={() => setPodzer((x) => !x)}
             className={cn("h-9 rounded-full border px-3 text-sm transition", podzer ? "border-teal-600 bg-teal-50 text-teal-800" : "border-stone-200 bg-white text-stone-600 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900")}
           >
-            À podzer <span className="tabular-nums text-stone-400">{liste.filter((c) => c.etape === etape && c.a_podzer).length}</span>
+            À podzer <span className="tabular-nums text-stone-400">{liste.filter((c) => (etape === "corbeille" ? c.supprime_at : !c.supprime_at && c.etape === etape) && c.a_podzer).length}</span>
           </button>
           <select value={section} onChange={(e) => setSection(e.target.value as Section | "sans" | "")} className="h-9 rounded-full border border-stone-200 bg-white px-3 text-sm dark:border-stone-700 dark:bg-stone-900" aria-label="App">
             <option value="">Toutes les apps</option>
@@ -137,7 +140,7 @@ export function PageBible() {
 
       <div className="space-y-10 rounded-3xl bg-stone-50 p-4 sm:p-6 dark:bg-stone-950" data-testid="moodboard">
         {!comptes.isLoading && groupes.length === 0 && (
-          <p className="py-10 text-center text-sm text-stone-500">{etape === "prochain_batch" ? "Aucun compte dans le prochain batch : passe-les depuis « À importer »." : "Aucun compte ici."}</p>
+          <p className="py-10 text-center text-sm text-stone-500">{etape === "prochain_batch" ? "Aucun compte dans le prochain batch : passe-les depuis « À importer »." : etape === "corbeille" ? "La corbeille est vide." : "Aucun compte ici."}</p>
         )}
         {groupes.map((g) => {
           const s = SECTIONS.find((x) => x.cle === g.section)!;

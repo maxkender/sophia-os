@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o251",
+ "type_bleo": "full_test",
+ "titre": "small habits that make you feel rich without money #richlife #simpleliving #habits #selfcare #mindset",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "e43b547d-c9c4-4b40-a356-6e0362b01caf"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, e43b547d). full test BLEO : accroche jamais faite (format « small habits that make you feel X without Y »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d25bb1b0-ead6-437e-99a2-7df8abc2e56c",
+   "texte_overlay": "small habits that make you\nfeel rich without money",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c8a5af0b-3f03-4626-98d8-d52ad50ccefe",
+   "texte_overlay": "fresh flowers\n\nbuy one small bunch of cheap flowers each week. a little colour on the table makes an ordinary room feel cared for, and it costs less than a fancy coffee.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b24aef1d-adaa-419e-abbf-871de7926d70",
+   "texte_overlay": "slow breakfasts\n\nsit down for breakfast with a real cup and a plate instead of eating standing up. taking your time in the morning is a quiet luxury anyone can afford.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "95e9fed7-f5e3-4d65-b135-1172dd5ed1b1",
+   "texte_overlay": "a rich mind\n\nknowing a little about art, history and the stars makes you feel rich in a way money can't buy. 5 minutes of learning a day fills your mind with beautiful things to think about.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/4.jpg",
+   "texte_sophia": "a rich mind\n\nfeeling rich started with my mind. i spend 5 minutes a day on one lesson in the Sophia app, art, history, the stars, and i feel richer than any shopping trip ever made me."
+  },
+  {
+   "position": 5,
+   "media_id": "42c77acf-72d5-49eb-835a-30e1375b136d",
+   "texte_overlay": "free museums\n\nvisit free museums and galleries on quiet weekday afternoons. walking slowly past beautiful things is one of the most luxurious feelings in the world.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "5d5df416-a113-4af0-add4-745371d58edd",
+   "texte_overlay": "looking after what you own\n\npolish your shoes, iron your shirt and fold your clothes properly. caring for the things you already have makes them feel expensive, special and truly yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7665370115789163798/6.jpg"
+  }
+ ]
+}

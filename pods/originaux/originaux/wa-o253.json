@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o253",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "925d6156-a6c3-40dd-9097-310860a77f71",
+ "titre": "strange truths about the human mind most people never learn #psychology #brain #facts #humanbehavior #mindset",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "3fb47dcc-e11e-4fc0-8880-fff84cc80b3e"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 3fb47dcc). déclinaison G2 de « psychology facts that will change how you see people » (parent 925d6156). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "98237437-f4c9-4674-9c91-80ee03d680de",
+   "texte_overlay": "strange truths about the human\nmind most people never learn",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e394ca72-9b0b-459c-9809-ca957c05f8e6",
+   "texte_overlay": "the first impression trap\n\nwe judge people within seconds and then look for proof that we were right. knowing this helps you give people a fairer, kinder second chance before you decide.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "35ecd302-a796-4e54-a32c-b1e3841f71ec",
+   "texte_overlay": "the kindness loop\n\nwhen someone does us a small favour, we feel pulled to return it. tiny kind gestures create far more goodwill than grand, impressive ones ever really do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "f2ce4e01-2842-4325-aa04-328a82c2d4e2",
+   "texte_overlay": "curious minds look warmer\n\nwe naturally see curious people as warmer and easier to trust, so learning a little each day changes how people respond to you. curiosity is one of the most attractive traits a person can have.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/4.jpg",
+   "texte_sophia": "curious minds look warmer\n\nwe see curious people as warmer. i spend 5 minutes a day on one lesson in the Sophia app, a planet or a painting, and people respond to me with so much more warmth now."
+  },
+  {
+   "position": 5,
+   "media_id": "96c1559d-b755-4a02-9938-6365b8063df6",
+   "texte_overlay": "familiar feels friendly\n\nwe tend to like things simply because we've seen them before. it's why people you see every day slowly feel friendlier, even without a real conversation.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d3125df1-b036-49e5-8280-4b52cc35a603",
+   "texte_overlay": "nobody is watching that closely\n\npeople notice your small mistakes far less than you think. everyone is busy worrying about themselves, so you can relax a little and stop overthinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667595789329321238/6.jpg"
+  }
+ ]
+}

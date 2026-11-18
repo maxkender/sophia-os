@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o252",
+ "type_bleo": "full_test",
+ "titre": "signs you've outgrown your old life #growth #selfgrowth #change #mindset #selfimprovement",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "ed8b88ee-49fc-42e9-8fed-99228b32ac7a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ed8b88ee). full test BLEO : accroche jamais faite (format « signs you've outgrown X »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "9c52bf5f-0577-41cd-ab02-8600f1f2ae80",
+   "texte_overlay": "signs you've outgrown\nyour old life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ade5451a-76da-4cd3-a886-8aa12d00b688",
+   "texte_overlay": "old drama bores you\n\nthe gossip and arguments that used to grip you now feel tiring and pointless. losing interest in drama is one of the clearest signs that you've grown.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "d7afb7bd-ada1-46d6-b827-4ce984de0576",
+   "texte_overlay": "you crave quieter weekends\n\nnights out matter less, and slow mornings matter more. your idea of a good weekend has changed, and that's not boring, it's simply who you are becoming now.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "93a19948-d6ef-4bb1-b124-641d6de1993e",
+   "texte_overlay": "some friendships feel smaller\n\nyou love some old friends but the conversations feel stuck in the past. growing apart gently is natural, and it never erases the good times you shared.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b40c92e7-9e58-41be-bd04-b59854aecfef",
+   "texte_overlay": "you want to learn again\n\nyou suddenly want to understand things you ignored for years, from history to the stars. that new hunger to learn is your mind telling you it's ready for a bigger life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/5.jpg",
+   "texte_sophia": "you want to learn again\n\nyou want to learn again, history or the stars. the Sophia app turns it into one short lesson a day, and 5 minutes of curiosity each morning feels like a new beginning."
+  },
+  {
+   "position": 6,
+   "media_id": "70248706-f977-48b2-b349-08ba488d5426",
+   "texte_overlay": "your goals have changed\n\nthe things you used to chase no longer excite you. new goals feeling more honest and more personal is a sign that you finally know yourself so much better.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660160888577461526/6.jpg"
+  }
+ ]
+}

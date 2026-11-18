@@ -34,7 +34,7 @@
 --   public.corrections_natives ; rejouer `corrections_natives_bloc` et
 --   `regles_natives_a_consolider` de 0734 ; rejeter les versions 2 proposées ;
 --   la colonne peut rester.
--- Idempotente. À appliquer hors fenêtres de nuit.
+-- ✅ Appliquée le 2026-11-18 à 13 h UTC (MCP). Idempotente.
 
 set lock_timeout = '5s';
 

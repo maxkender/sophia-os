@@ -1,0 +1,56 @@
+{
+  "source_id": "cs-o135",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "8ae95cbc-51fa-4d51-867e-4873d998596f",
+  "titre": "i don't understand anything in class until the night before the test #studytok #studytips #school",
+  "musique_titre": "ghostin ariana grande",
+  "musique_url": "https://www.tiktok.com/music/ghostin-ariana-grande-7194159823079246597",
+  "inspirations": [
+    "8ae95cbc-51fa-4d51-867e-4873d998596f"
+  ],
+  "notes": "Déclinaison G1 de 8ae95cbc (notre cs-o029 : r 2,7 en français), ligne 2 de la boîte. Accroche du parent mot pour mot (sans les guillemets). Angle neuf : cs-o029 donnait un geste par matière pendant le cours ; ici ce qui se passe avant et juste après le cours, sans aucun geste de cs-o029 : lire le titre et les mots en gras la veille, une question écrite avant d'entrer, demander tout de suite quand on décroche, 5 questions sur le cours le soir même (place micabo, slide 5), refaire l'exemple du cours seul le lendemain. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "d6b51a27",
+      "texte_overlay": "\"i don't understand anything in class\nuntil the night before the test\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "780f3c8f",
+      "texte_overlay": "same. here's what changed it:",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4dab8723",
+      "texte_overlay": "the night before class, 5 minutes on the title and bold words.\nnothing is new when the teacher starts.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "9f866cb5",
+      "texte_overlay": "i walk in with one question already written.\ni listen for the answer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "e469a600",
+      "texte_overlay": "the evening after class: 5 questions on today's lesson.\nnotes closed.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5999d416",
+      "texte_overlay": "the moment i'm lost, i raise my hand.\nnot two weeks later.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "491e1459",
+      "texte_overlay": "next day, i redo the class example alone.\nif i can, i understood it.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

@@ -89,6 +89,9 @@ describe("page Bible", () => {
     fireEvent.click(within(tuile).getByRole("button", { name: "Retirer" }));
     await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c9"], "a_importer"));
     expect(screen.getByRole("button", { name: /Marquer le batch comme importé/ })).toBeInTheDocument();
+    // Un seul compte marqué importé, depuis le prochain batch.
+    fireEvent.click(within(tuile).getByRole("button", { name: "Importé" }));
+    await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c9"], "importe"));
   });
 });
 

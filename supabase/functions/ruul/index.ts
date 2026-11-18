@@ -49,6 +49,8 @@ import {
   semaineCourte,
 } from "../_shared/ruul.ts";
 import { avecPiedHelp } from "../_shared/relance_jour.ts";
+import { generateTextFast } from "../_shared/gemini.ts";
+import { estManque, OBJET_KYC, texteKyc } from "../_shared/ruul_kyc.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import { lienRuul, lireReglageConnect } from "../_shared/ruul_connect.ts";
 import { dansFenetre, type Decision, emailParcours, etatRuul, type EtatParcours, PARIS, prochainEnvoi, ruulPret, type TypeParcours } from "../_shared/parcours_ruul.ts";
@@ -173,6 +175,9 @@ Deno.serve(async (request) => {
     // 13/11 (Max) : une relance Ruul ponctuelle à une cohorte (« Invited » pas prêts) : la liste, puis l'envoi avec confirmer: true.
     if (body?.action === "relance_ruul") return json(await relanceRuul(supabase, body));
     // 0592 : « dimanche » (ancien nom de la tâche) et « soir » : la liste de tous les soirs.
+    // 18/11 (Max) : relance « finir son installation Ruul » (KYC, banque, inscription) : email + dashboard + Slack,
+    // dans la langue du posteur ; jeudi et samedi (cron), ou maintenant avec forcer: true ; simuler: true n'envoie rien.
+    if (body?.action === "kyc_relances") return json(await kycRelances(supabase, body?.forcer === true, body?.simuler === true));
     if (body?.action === "dimanche" || body?.action === "soir") return json(await listeSoir(supabase, body?.forcer === true));
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (e) {
@@ -405,6 +410,97 @@ async function envoyer(supabase: Supabase) {
     }
   }
   return { ok: true, envoyes: bilan.filter((b) => b.ok).length, echecs: bilan.filter((b) => !b.ok).length, bilan };
+}
+
+interface RelanceKyc {
+  poster_id: string;
+  prenom: string | null;
+  email: string | null;
+  ruul_email: string | null;
+  langue: string | null;
+  slack_user_id: string | null;
+  manque: string;
+  etape: string;
+}
+
+/** Traduit (une fois par langue et par cas) un texte de base anglais ; l'anglais si la traduction échoue. */
+async function traduireRuul(texte: string, langue: string | null, cache: Map<string, string>): Promise<string> {
+  const l = (langue ?? "en").toLowerCase();
+  if (!l || l.startsWith("en")) return texte;
+  const cle = `${l}:${texte}`;
+  const deja = cache.get(cle);
+  if (deja) return deja;
+  let sortie = texte;
+  try {
+    const r = (await generateTextFast(
+      `Translate this message into the language whose ISO code is "${l}". Keep "app.ruul.io", "{EMAIL}", "Ruul" and the button name "It's done" exactly as they are. ` +
+        `Same meaning, natural and short, nothing added. Reply with the translation only.\n\n${texte}`,
+    )).trim().replace(/^["«“]+|["»”]+$/g, "");
+    // Une traduction qui a perdu l'email ou le nom du bouton n'est pas gardée.
+    if (r && r.length < texte.length * 3 && (!texte.includes("{EMAIL}") || r.includes("{EMAIL}"))) sortie = r;
+  } catch { /* l'anglais */ }
+  cache.set(cle, sortie);
+  return sortie;
+}
+
+async function kycRelances(supabase: Supabase, forcer: boolean, simuler: boolean) {
+  const { data, error } = await supabase.rpc("ruul_kyc_relances_dues", { p_jour: null, p_forcer: forcer });
+  if (error) throw error;
+  const dues = (data ?? []) as RelanceKyc[];
+  const cache = new Map<string, string>();
+  const debut = Date.now();
+  const bilan: { poster: string; manque: string; canaux: string[]; erreur: string | null }[] = [];
+  const parManque: Record<string, number> = {};
+  for (const d of dues) {
+    parManque[d.manque] = (parManque[d.manque] ?? 0) + 1;
+    if (simuler) {
+      bilan.push({ poster: d.poster_id, manque: d.manque, canaux: [], erreur: null });
+      continue;
+    }
+    // Arrêt propre avant la limite de la fonction : le passage suivant reprend où on s'est arrêté.
+    if (Date.now() - debut > 110_000) break;
+    const manque = estManque(d.manque) ? d.manque : "identite";
+    // Le gabarit est traduit une fois par langue et par cas ; l'email exact est remis ensuite.
+    const texte = (await traduireRuul(texteKyc(manque, "{EMAIL}"), d.langue, cache)).replaceAll("{EMAIL}", d.ruul_email ?? d.email ?? "your email");
+    const prenom = (d.prenom ?? "").trim();
+    const canaux: string[] = [];
+    let erreur: string | null = null;
+    // 1. Le dashboard : une info du jour (« Got it » la ferme).
+    const jour = d.etape.slice(4);
+    const { error: eDash } = await supabase.from("posteur_messages").upsert(
+      { poster_id: d.poster_id, type: "info", semaine: jour, texte, visible_de: new Date().toISOString(), expire_at: new Date(Date.now() + 3 * 86_400_000).toISOString() },
+      { onConflict: "poster_id,type,semaine", ignoreDuplicates: true },
+    );
+    if (!eDash) canaux.push("dashboard");
+    else erreur = `dashboard : ${eDash.message}`;
+    // 2. L'email (adresse de contact), avec le lien d'arrêt des relances.
+    const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", d.poster_id).maybeSingle();
+    if (d.email && pr?.ruul_jeton) {
+      const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
+      const objet = await traduireRuul(OBJET_KYC, d.langue, cache);
+      const corps = avecPiedHelp(`${prenom ? `Hi ${prenom},\n\n` : ""}${texte}`);
+      const e = rendreEmailRuul({ objet, corps, bouton: { texte: "Open Ruul", lien: "https://app.ruul.io" }, lienStop });
+      const r = await envoyerEmail(d.email, objet, e.html, e.texte, lienStop, ["ruul", "kyc_relance", manque]);
+      if (r.ok) canaux.push("email");
+      else erreur = erreur ?? `email : ${r.erreur}`;
+    }
+    // 3. Le message privé Slack.
+    if (d.slack_user_id) {
+      const sl = await ecrireAuPosteur(supabase, d.poster_id, avecPiedHelp(texte));
+      if (sl.statut === "envoye") canaux.push("slack");
+      else erreur = erreur ?? `slack : ${"erreur" in sl ? String(sl.erreur) : sl.statut}`;
+    }
+    // Une ligne par jour, même en échec : jamais deux relances le même jour.
+    await supabase.from("ruul_email_relances").upsert({ poster_id: d.poster_id, etape: d.etape, canaux, erreur: canaux.length ? erreur : erreur ?? "aucun canal" });
+    bilan.push({ poster: d.poster_id, manque, canaux, erreur });
+  }
+  const parCanal = (c: string) => bilan.filter((b) => b.canaux.includes(c)).length;
+  return {
+    ok: true, simulation: simuler, dues: dues.length, traites: bilan.length, reste: dues.length - bilan.length, par_manque: parManque,
+    envoyes: { email: parCanal("email"), slack: parCanal("slack"), dashboard: parCanal("dashboard") },
+    sans_canal: bilan.filter((b) => !simuler && !b.canaux.length).length,
+    erreurs: bilan.filter((b) => b.erreur).slice(0, 20),
+  };
 }
 
 const SYNC_ESSAIS = 5;

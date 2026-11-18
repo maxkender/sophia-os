@@ -38,7 +38,8 @@ SOPH_OK = ["surf", "wave", "ocean", "back to the camera", "silhouette", "swimmin
            "beach", "sunset", "sky", "forest", "lake", "river", "road", "bridge", "building", "field", "clouds", "plate",
            "notebook", "chess", "piano", "guitar", "watch", "sea"]
 SOPH_NON = ["edge of a swimming pool", "face", "portrait", "smiling", "looking at the camera", "two people", "three people",
-            "group", "woman", "girl", "child", "showroom", "mercedes", "car"]
+            "group", "woman", "girl", "child", "showroom", "mercedes", "car",
+            "superman", "batman", "superhero", "spider", "cape", "costume", "actor", "celebrity"]
 
 CACHE = "donnees/cache/empreintes.json"
 

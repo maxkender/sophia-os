@@ -28,10 +28,16 @@ create table if not exists public.upwork_a_ajouter (
 create unique index if not exists upwork_a_ajouter_un_actif on public.upwork_a_ajouter (poster_id)
   where statut in ('lien_attendu', 'a_inviter', 'invite');
 alter table public.upwork_a_ajouter enable row level security;
-drop policy if exists upwork_a_ajouter_lire on public.upwork_a_ajouter;
-create policy upwork_a_ajouter_lire on public.upwork_a_ajouter for select using (public.is_admin());
-drop policy if exists upwork_a_ajouter_modifier on public.upwork_a_ajouter;
-create policy upwork_a_ajouter_modifier on public.upwork_a_ajouter for update using (public.is_admin()) with check (public.is_admin());
+do $pol$
+begin
+  if not exists (select 1 from pg_policies where tablename = 'upwork_a_ajouter' and policyname = 'upwork_a_ajouter_lire') then
+    create policy upwork_a_ajouter_lire on public.upwork_a_ajouter for select using (public.is_admin());
+  end if;
+  if not exists (select 1 from pg_policies where tablename = 'upwork_a_ajouter' and policyname = 'upwork_a_ajouter_modifier') then
+    create policy upwork_a_ajouter_modifier on public.upwork_a_ajouter for update using (public.is_admin()) with check (public.is_admin());
+  end if;
+end
+$pol$;
 grant select, update on public.upwork_a_ajouter to authenticated;
 
 -- La demande (le posteur veut être payé par Upwork) : une ligne « lien attendu », une seule active par posteur.
@@ -101,8 +107,13 @@ create table if not exists public.support_incidents (
   unique (cle, jour)
 );
 alter table public.support_incidents enable row level security;
-drop policy if exists support_incidents_lire on public.support_incidents;
-create policy support_incidents_lire on public.support_incidents for select using (public.is_admin());
+do $pol$
+begin
+  if not exists (select 1 from pg_policies where tablename = 'support_incidents' and policyname = 'support_incidents_lire') then
+    create policy support_incidents_lire on public.support_incidents for select using (public.is_admin());
+  end if;
+end
+$pol$;
 
 create or replace function public.support_incident_ajouter(p_cle text, p_titre text, p_categorie text, p_poster uuid, p_demande uuid)
 returns jsonb
@@ -176,8 +187,7 @@ begin
   return new;
 end;
 $function$;
-drop trigger if exists support_demandes_verdict_fermeture on public.support_demandes;
-create trigger support_demandes_verdict_fermeture before insert or update of statut, verdict_fermeture on public.support_demandes
+create or replace trigger support_demandes_verdict_fermeture before insert or update of statut, verdict_fermeture on public.support_demandes
   for each row execute function public.support_demandes_verdict_fermeture();
 
 -- 4. La vraie situation du posteur, lue au même endroit que le dashboard -----------------------------------------

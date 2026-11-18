@@ -42,6 +42,7 @@ const PAGES_DEMANDEES = [
   "/admin/auto/candidats-ruul",
   "/admin/auto/cohortes-ruul",
   "/admin/auto/ruul",
+  "/admin/auto/upwork-a-ajouter",
   "/admin/auto/faq",
   "/admin/auto/reponses-officielles",
   "/admin/auto/support",

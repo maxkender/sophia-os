@@ -25,6 +25,7 @@ import {
   CandidatsRuulPage,
   CohortesRuulPage,
   RuulSuiviPage,
+  UpworkAAjouterPage,
   LogsPage,
   NeedsYouAncienPage,
   NeedsYouPage,
@@ -156,6 +157,7 @@ export function AppRouter() {
             <Route path="/admin/auto/candidats-ruul" element={<CandidatsRuulPage />} />
             <Route path="/admin/auto/cohortes-ruul" element={<CohortesRuulPage />} />
             <Route path="/admin/auto/ruul" element={<RuulSuiviPage />} />
+            <Route path="/admin/auto/upwork-a-ajouter" element={<UpworkAAjouterPage />} />
             <Route path="/admin/auto/faq" element={<FaqPage />} />
             <Route path="/admin/auto/reponses-officielles" element={<ReponsesOfficiellesPage />} />
             <Route path="/admin/auto/support" element={<SupportPage />} />

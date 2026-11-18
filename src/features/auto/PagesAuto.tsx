@@ -42,6 +42,7 @@ import { PageProblemes } from "./PageProblemes";
 import { PageRecruits } from "./PageRecruits";
 import { PretLundi } from "./pret/PretLundi";
 import { ContratsTest } from "./test/ContratsTest";
+import { PageUpworkAAjouter } from "@/features/upworkAjouter/PageUpworkAAjouter";
 
 /**
  * Prompt 22 : les 9 pages de « Recruitment Automation ». Chacune reprend la
@@ -300,6 +301,14 @@ export function CohortesRuulPage() {
  * 10/11 : Ruul. En haut, la cohorte étape par étape et une ligne de pastilles
  * par posteur ; en bas, replié, l'agent Ruul et les imports (« Marquer ajouté »).
  */
+export function UpworkAAjouterPage() {
+  return (
+    <PageAuto cle="upwork_ajouter">
+      <PageUpworkAAjouter />
+    </PageAuto>
+  );
+}
+
 export function RuulSuiviPage() {
   return (
     <PageAuto cle="ruul_suivi">

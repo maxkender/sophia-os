@@ -24,13 +24,15 @@ export const TEXTES = {
   /** 7. Message vide ou flou. */
   flou: "What exactly is happening? You can send a screenshot.",
   meme_probleme: "Thanks, we've added you to the same issue. We'll update you there.",
+  /** 18/11 (Max) : le posteur se plaint de ne pas avoir de réponse : il escalade lui-même ou passe par Slack. */
+  pas_de_reponse: "Sorry for the wait. To escalate, click « I still need help » under our answer in Help, or post your question in Slack in #posting-help. The team will pick it up there.",
   /** 8. Le posteur dit que ce n'est pas réglé. */
   rouverte: "Sorry it's still not fixed. The team is looking at it again with everything you sent.",
   /** 7. Le minimum quand l'équipe doit regarder. */
   equipe: "Thanks, the team is looking into it. We'll get back to you here.",
 } as const;
 
-export type CasFixe = "lien_post" | "upwork_demande" | "upwork_lien" | "parrainage_cash" | "flou" | "meme_probleme" | "pas_regle" | null;
+export type CasFixe = "lien_post" | "upwork_demande" | "upwork_lien" | "parrainage_cash" | "flou" | "meme_probleme" | "pas_de_reponse" | "pas_regle" | null;
 
 /** 1. Le lien d'un post impossible à ajouter (plusieurs langues) : erreur sur « Mark as published », 2e post pas compté… */
 const LIEN_POST = new RegExp([
@@ -54,6 +56,9 @@ const PARRAINAGE_CASH = /(friend|referral|referred|refer|cousin|sister|brother|a
 const FLOU = /^(me\s+too|me\s+2|same(\s+(here|issue|problem|for\s+me))?|\+1|help(\s+me)?(\s+please|\s+pls)?|please\s+help|i\s+(have|got)\s+(a\s+)?(problem|issue)|(there\s+is\s+)?(a\s+)?problem|issue|not\s+working|it\s+doesn'?t\s+work|hello+|hi+|hey+|good\s+(morning|evening|afternoon)|moi\s+aussi|pareil|j'?ai\s+un\s+probl[eè]me|aide(\s+moi)?|bonjour|salut|yo\s+tambi[eé]n|igual|ayuda|hola|tengo\s+un\s+problema|anch'?io|aiuto|ciao|ho\s+un\s+problema|ich\s+auch|hilfe|hallo|eu\s+tamb[eé]m|ajuda|ol[aá]|ja\s+te[żz]|pomocy|cze[sś][cć]|[?!.\s]+)[\s!?.]*$/i;
 /** « same issue as X » : rattacher à la demande d'origine. */
 const MEME_QUE = /\bsame\s+(issue|problem|thing|bug)\s+(as|like)\s+(@?[\p{L}][\p{L}' .-]{1,40})/iu;
+
+/** 18/11 : « personne ne me répond » (plusieurs langues). */
+const PAS_DE_REPONSE = /\b(no(body|\s+one)\s+(is\s+)?(answer|repl(y|ies|ied)|respond|help|get(s|ting)?\s+back)\w*|(no|not\s+(any|an?))\s+(answer|reply|response)s?\s+(yet|from\s+you|from\s+anyone|to\s+my)|(still\s+)?(waiting|wait(ed)?)\s+(for\s+)?(an?\s+)?(answer|reply|response)|didn'?t\s+(get|receive)\s+(any\s+|an?\s+)?(answer|reply|response)|(never|nobody)\s+(answer|repl|respond)\w*|(you|team)\s+(are\s+)?(ignor|not\s+answer|not\s+repl|don'?t\s+answer|don'?t\s+repl|never\s+answer)\w*)|personne\s+ne\s+(me\s+)?r[ée]pond|pas\s+(de|eu\s+de)\s+r[ée]ponse|nadie\s+(me\s+)?(responde|contesta)|sin\s+respuesta|nessuno\s+(mi\s+)?risponde|nessuna\s+risposta|niemand\s+antwortet|keine\s+antwort|ningu[ée]m\s+(me\s+)?responde|sem\s+resposta/i;
 
 /** 8. « Ce n'est pas réglé ». */
 const PAS_REGLE = /(still|again|always)\s+(not|doesn'?t|isn'?t|can'?t|the\s+same|same\s+problem|broken|an?\s+(issue|error|problem))|(not|isn'?t|wasn'?t)\s+(fixed|solved|resolved|working)|didn'?t\s+(work|help|fix)|doesn'?t\s+work|same\s+(problem|issue|error)\s+(again|still)|toujours\s+(pas|le\s+même|un\s+probl)|pas\s+(réglé|résolu|corrigé)|sigue\s+(sin|igual|el\s+mismo)|no\s+(se\s+)?(ha\s+)?(resuelto|arreglado|funciona)|ancora\s+(non|lo\s+stesso)|non\s+(funziona|risolto)|immer\s+noch|funktioniert\s+(immer\s+)?nicht|ainda\s+n[aã]o/i;
@@ -85,6 +90,7 @@ export function detecterCas(message: string, o: { plateforme: "ruul" | "upwork" 
   if (PARRAINAGE_CASH.test(t)) return { cas: "parrainage_cash" };
   const meme = t.match(MEME_QUE);
   if (meme) return { cas: "meme_probleme", meme_que: meme[3]!.trim().replace(/^@/, "") };
+  if (PAS_DE_REPONSE.test(t)) return { cas: "pas_de_reponse" };
   if (FLOU.test(t)) return { cas: "flou" };
   if (LIEN_POST.test(t)) return { cas: "lien_post" };
   return { cas: null };

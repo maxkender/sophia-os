@@ -448,7 +448,7 @@ async function signalerProbleme(db: Db, poster: string, categorie: string, texte
     planProbleme = r.plan;
     niveau = auto ? "bot" : d.niveau;
     // 17/11 : la procédure d'arrêt est déjà lancée par la catégorie « arrêt » : pas une deuxième fois.
-    if (auto === "arret" && planProbleme) planProbleme = { ...planProbleme, arret: false };
+    // 18/11 : même passée par la procédure d'arrêt, la demande est notée (Kill pré-coché au samedi, idempotent).
     brouillon = r.controle.brouillon ?? (d.reponse === TEXTE_ON_VERIFIE ? null : d.reponse);
     if (niveau === "bot" && !auto) reponseBot = r.texte;
   }
@@ -885,6 +885,8 @@ async function appliquerRegles(
     } else fixe(TEXTES.flou, "flou");
   } else if (cas === "flou") {
     fixe(TEXTES.flou, "flou");
+  } else if (cas === "pas_de_reponse") {
+    fixe(TEXTES.pas_de_reponse, "pas_de_reponse");
   }
   if (cas && cas !== "pas_regle") plan.cas = cas;
 
@@ -897,8 +899,8 @@ async function appliquerRegles(
     if (surLeStatut) {
       plan.incoherences = s.incoherences;
       if (demandeArret && s.statut === "actif") {
+        // 18/11 (Max) : la demande d'arrêt va directement au Kill du samedi (pré-coché), rien n'est fermé avant.
         fixe(TEXTES.arret_recu, "arret");
-        d.niveau = "adrien";
         plan.cas = "arret";
         plan.arret = true;
         plan.resume = plan.resume ?? "Le posteur demande l'arrêt de son contrat.";
@@ -973,16 +975,11 @@ async function apresDemande(
     }
     if (plan.incident) fait.push(await incidentAjouter(db, o.poster, o.demande, plan.incident, d.categorie));
     if (o.poster && plan.arret) {
-      const r = await executerAction(db, o.poster, { action: "arret", action_valeur: null, reponse: d.reponse, raison: d.raison }, o.texte);
-      const etat = await etatReel(db, o.poster);
-      const contrat = etat?.contrat_upwork?.actif ? `contrat Upwork ${etat.contrat_upwork.id} actif` : "pas de contrat Upwork actif";
-      await db.rpc("probleme_ajouter", {
-        p_type: "arret_a_traiter", p_ref: `${o.poster}:arret:${o.demande}`, p_poster: o.poster, p_contrat: etat?.contrat_upwork?.id ?? null, p_categorie: "stop",
-        p_resume: "Arrêt à traiter", p_texte: `Le posteur demande l'arrêt (« ${o.texte.slice(0, 200)} »). Paie : ${etat?.canal_paie ?? "?"} ; ${contrat}.`,
-        p_at: new Date().toISOString(), p_lien: null, p_canal: "os", p_par: null,
-      });
+      // 18/11 (Max) : demande d'arrêt notée (relances coupées, Kill pré-coché au samedi suivant) ; rien n'est fermé
+      // maintenant : le samedi exécute le Kill, la confirmation part au posteur une fois l'arrêt fait (suiviSupport).
+      const { data: note, error } = await db.rpc("demande_arret_noter", { p_poster: o.poster, p_source: "message", p_raison: o.texte.slice(0, 500), p_reponse: null });
       await db.from("support_demandes").update({ suivi: "arret_attendu" }).eq("id", o.demande);
-      fait.push(`arrêt : ${r} ; carte « Arrêt à traiter »`);
+      fait.push(error ? `arrêt : ${error.message}` : note ? "arrêt : Kill pré-coché au samedi" : "arrêt : déjà demandé (Kill pré-coché au samedi)");
     }
     if (o.poster && plan.incoherences.length) {
       await db.rpc("probleme_ajouter", {

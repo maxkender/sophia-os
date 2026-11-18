@@ -1638,7 +1638,11 @@ async function brevoEntrants(depuis: string) {
   const details = await Promise.all(liste.slice(0, 5).map(async (e) => (await brevoGet(`/inbound/events/${e.uuid}`)).data));
   return {
     ok: webhooks.ok && events.ok, erreurs: [webhooks.erreur, events.erreur].filter(Boolean),
-    webhooks: webhooks.data, nb_evenements: liste.length,
+    // Jamais le jeton du webhook : seulement l'adresse, le domaine et les dates.
+    webhooks: ((webhooks.data as { webhooks?: Record<string, unknown>[] } | null)?.webhooks ?? []).map((w) => ({
+      url: w.url, domain: w.domain, events: w.events, createdAt: w.createdAt, modifiedAt: w.modifiedAt,
+    })),
+    nb_evenements: liste.length,
     evenements: liste.map((e) => ({ uuid: e.uuid, date: e.date, destinataire: e.recipient, expediteur_domaine: String(e.sender ?? "").split("@")[1] ?? null })),
     details,
   };

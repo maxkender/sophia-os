@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { CircleAlert, Gift, RefreshCw } from "lucide-react";
+import { CircleAlert, Gift, RefreshCw, Wallet } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -37,6 +37,9 @@ export const EN = {
   compris: "Got it",
   infoTitre: "Refer a friend 💸",
   parrainer: "Refer a friend",
+  // 18/11 : la relance « finir son installation Ruul » (même pop-up « info », autre titre et autre bouton).
+  ruulTitre: "Finish your Ruul setup",
+  ouvrirRuul: "Open Ruul",
 } as const;
 
 /**
@@ -87,6 +90,11 @@ function BandeauKill({ message }: { message: MonMessage }) {
   );
 }
 
+/** 18/11 : une info qui parle de l'installation Ruul (app.ruul.io), pas du parrainage. */
+export function estInfoRuul(texte: string | null | undefined): boolean {
+  return /app\.ruul\.io/i.test(texte ?? "");
+}
+
 /** 0568 : une info de l'équipe (parrainage) : « Got it » ou « Refer a friend » la ferme (et pose `lu_at`). */
 function Info({ message }: { message: MonMessage }) {
   const queryClient = useQueryClient();
@@ -98,15 +106,16 @@ function Info({ message }: { message: MonMessage }) {
     lu.mutate();
     window.setTimeout(() => document.querySelector('[data-testid="bloc-parrainer"]')?.scrollIntoView({ behavior: "smooth", block: "start" }), 300);
   };
+  const ruul = estInfoRuul(message.texte);
   return (
     <Dialog open disablePointerDismissal>
-      <DialogPopup showCloseButton={false} className="max-w-md" data-testid="popup-info">
+      <DialogPopup showCloseButton={false} className="max-w-md" data-testid={ruul ? "popup-ruul" : "popup-info"}>
         <DialogHeader>
           <div className="flex items-center gap-3">
-            <span className="flex size-10 items-center justify-center rounded-xl bg-success/15 text-success-foreground">
-              <Gift className="size-5" />
+            <span className={ruul ? "flex size-10 items-center justify-center rounded-xl bg-warning/15 text-warning-foreground" : "flex size-10 items-center justify-center rounded-xl bg-success/15 text-success-foreground"}>
+              {ruul ? <Wallet className="size-5" /> : <Gift className="size-5" />}
             </span>
-            <DialogTitle className="text-base">{EN.infoTitre}</DialogTitle>
+            <DialogTitle className="text-base">{ruul ? EN.ruulTitre : EN.infoTitre}</DialogTitle>
           </div>
         </DialogHeader>
         <DialogPanel>
@@ -117,9 +126,21 @@ function Info({ message }: { message: MonMessage }) {
           <Button variant="outline" disabled={lu.isPending} onClick={() => lu.mutate()}>
             {EN.compris}
           </Button>
-          <Button disabled={lu.isPending} onClick={parrainer}>
-            {EN.parrainer}
-          </Button>
+          {ruul ? (
+            <Button
+              disabled={lu.isPending}
+              onClick={() => {
+                lu.mutate();
+                window.open("https://app.ruul.io", "_blank", "noopener");
+              }}
+            >
+              {EN.ouvrirRuul}
+            </Button>
+          ) : (
+            <Button disabled={lu.isPending} onClick={parrainer}>
+              {EN.parrainer}
+            </Button>
+          )}
         </DialogFooter>
       </DialogPopup>
     </Dialog>

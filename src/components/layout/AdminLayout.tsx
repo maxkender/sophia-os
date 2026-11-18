@@ -170,6 +170,12 @@ export function AdminLayout() {
               description: t("navDesc.sources"),
             },
             {
+              to: "/admin/bible",
+              label: t("nav.bible"),
+              icon: BookOpen,
+              description: t("navDesc.bible"),
+            },
+            {
               to: "/admin/slideshows",
               label: t("nav.slideshows"),
               icon: ListOrdered,

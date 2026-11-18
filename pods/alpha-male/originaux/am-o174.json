@@ -1,0 +1,48 @@
+{
+ "source_id": "am-o174",
+ "type_bleo": "full_test",
+ "titre": "How to host a dinner people talk about for years #men #hosting #dinner #gentleman #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7652148333531663135",
+ "inspirations": [],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 18/11. Full test du jour (1 sur 5, jauge : 5 sur 18). Accroche jamais faite chez nous : aucun « host a dinner » ni « dinner party » dans donnees/label.json. reference_url : le post source de am-o010 (format de référence), vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "18a21628",
+   "texte_overlay": "How to host a dinner people\ntalk about for years",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "0e9da2e4",
+   "texte_overlay": "1. Cook one dish you've mastered\n\nNot five. One, done right.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/3.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "040312ba",
+   "texte_overlay": "2. Dim the lights\n\nCandles, warm lamps.\nMood is half the meal.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/4.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5c1d8e45",
+   "texte_overlay": "3. Bring a good story\n\nSomething you learned this week.\nConversation is the main course.",
+   "texte_sophia": "3. Bring a good story\n\nSomething I learned this week\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/5.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d57655e8",
+   "texte_overlay": "4. Pick the music before\nanyone arrives\n\nLow volume. No skipping.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "141c196d",
+   "texte_overlay": "5. Walk every guest to the door\n\nThe goodbye is part of the night.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689579601852468487/7.jpg"
+  }
+ ]
+}

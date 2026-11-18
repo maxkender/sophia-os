@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o258",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8dd9098b-26af-460c-a4bc-db5684f33c85",
+ "titre": "les signaux de mon manager qui m'ont fait comprendre qu'il était temps de partir #travail #manager #santementale #carriere #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "bf49b37f-8796-4620-b756-6e72ff8a68fe"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne #1 (parent 8dd9098b) : même promesse, autres mots et autres signaux. Inspirations reprises de rh-o208. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "135304a7",
+   "texte_overlay": "les signaux de mon manager\nqui m'ont fait comprendre\nqu'il était temps de partir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "420a5531",
+   "texte_overlay": "il annulait nos points individuels\nun sur deux, sans les décaler",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "9306d98a",
+   "texte_overlay": "il donnait mes dossiers à d'autres\nsans me prévenir",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "b1398d64",
+   "texte_overlay": "il répondait à mes idées par « on verra »\net on ne voyait jamais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "80f2d612",
+   "texte_overlay": "mes réussites passaient sous silence\nmes erreurs, en réunion",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "6211e68a",
+   "texte_overlay": "alors j'ai préparé la suite\nmon CV à jour, 3 contacts, et 5 minutes par jour pour apprendre",
+   "texte_sophia": "alors j'ai préparé la suite\nmon CV à jour, 3 contacts, et 5 minutes par jour sur l'appli Sophia pour apprendre",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/2.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ab838f59",
+   "texte_overlay": "un signal seul, ce n'est rien.\nquand ils s'accumulent, écoute-les",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/3.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "d6ea18fe",
+   "texte_overlay": "t'en es où, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617428546599849238/6.jpg"
+  }
+ ]
+}

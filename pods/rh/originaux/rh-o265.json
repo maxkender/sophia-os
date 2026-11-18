@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o265",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "7e39807b-3a96-4070-979a-35045c0d30a1",
+ "titre": "les 5 phrases qui m'ont aidée à me faire respecter en réunion (sans hausser le ton), partie 2 #travail #reunion #confiance #carriere #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G1 de la ligne #10 (parent 7e39807b) : accroche du parent mot pour mot, autres phrases. Inspirations reprises de rh-o188. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "27937c1c",
+   "texte_overlay": "les 5 phrases qui m'ont aidée\nà me faire respecter en réunion\n(sans hausser le ton)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8fb2d995",
+   "texte_overlay": "« je peux finir mon idée ? »\nsourire, et je continue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "019aa63e",
+   "texte_overlay": "« qu'est-ce qu'on décide, concrètement ? »\nquand ça tourne en rond",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "34ee82c6",
+   "texte_overlay": "« je ne suis pas d'accord, et voilà pourquoi »\nun désaccord avec une raison, on l'écoute",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "28be86eb",
+   "texte_overlay": "« je reviens vers toi avec un chiffre demain »\nplutôt que d'improviser",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "e038e203",
+   "texte_overlay": "« j'ai lu un truc là-dessus »\nune chose apprise le matin même, en 2 phrases",
+   "texte_sophia": "« j'ai lu un truc là-dessus »\nune chose apprise le matin même, en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b0bdb47a",
+   "texte_overlay": "le respect, ça se construit\nune réunion à la fois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "a6786f06",
+   "texte_overlay": "laquelle tu oses demain ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

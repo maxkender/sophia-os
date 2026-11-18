@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o257",
+ "type_bleo": "full_test",
+ "titre": "les trucs que j'ai arrêté de faire pendant ma recherche d'emploi (et ça a tout changé) #rechercheemploi #chomage #candidature #emploi #jobtips",
+ "musique_titre": "audio diretamente do Brasil",
+ "musique_url": "https://www.tiktok.com/music/audio-diretamente-do-brasil-7068394299125189382",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (ce qu'on arrête de faire pendant sa recherche). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0a6bccee",
+   "texte_overlay": "les trucs que j'ai arrêté de faire\npendant ma recherche d'emploi\n(et ça a tout changé)",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "310df0a4",
+   "texte_overlay": "envoyer le même CV partout\nmaintenant, je l'adapte en 10 minutes",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c2fdf02a",
+   "texte_overlay": "postuler à minuit\nje le fais le matin, relu à tête reposée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6d8e82f4",
+   "texte_overlay": "attendre une réponse sans rien faire\nje relance au bout d'une semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a844e80c",
+   "texte_overlay": "passer mes journées sur les offres\nje m'arrête à 2 heures par jour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "dcf829c1",
+   "texte_overlay": "me sentir en pause\nj'apprends un peu chaque jour, 5 minutes le matin",
+   "texte_sophia": "me sentir en pause\nj'apprends un peu chaque jour, 5 minutes le matin sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "ddeb6e44",
+   "texte_overlay": "tu cherches depuis combien de temps ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

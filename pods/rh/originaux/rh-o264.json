@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o264",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "56bba54c-9151-46bd-b840-bf6a518bea6e",
+ "titre": "la même question d'entretien, 3 niveaux de réponse : à fuir, correcte, parfaite (partie 2) #entretien #rechercheemploi #emploi #questionsentretien #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "496f8d72-9914-4320-89d8-1b580c74f5c9",
+  "81f87361-1b5b-44e1-ae7d-90c30674253a"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 4. Déclinaison G1 de la ligne #9 (parent 56bba54c) : accroche du parent mot pour mot, autres questions. Inspirations reprises de rh-o055. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "59787c1e",
+   "texte_overlay": "la même question d'entretien,\n3 niveaux de réponse :\nà fuir, correcte, parfaite",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "9f09f659",
+   "texte_overlay": "« pourquoi vous partez ? »\nà fuir : « mon chef est nul »\ncorrecte : « j'ai fait le tour »\nparfaite : « j'ai appris X, je cherche Y »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "38abcfc3",
+   "texte_overlay": "« votre plus grande réussite ? »\nà fuir : « je sais pas »\ncorrecte : « mon dernier projet »\nparfaite : un chiffre, une action, un résultat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a377d1da",
+   "texte_overlay": "« comment vous apprenez ? »\nà fuir : « je me débrouille »\ncorrecte : « en faisant »\nparfaite : « 3 sources : un collègue, un livre, 5 minutes par jour »",
+   "texte_sophia": "« comment vous apprenez ? »\nà fuir : « je me débrouille »\ncorrecte : « en faisant »\nparfaite : « 3 sources : un collègue, un livre, 5 minutes par jour sur l'appli Sophia »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "738aaecd",
+   "texte_overlay": "« vos prétentions ? »\nà fuir : « ce que vous voulez »\ncorrecte : un chiffre\nparfaite : une fourchette que tu as vérifiée",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7602569489464544534/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f8ed83bf",
+   "texte_overlay": "« vous avez un défaut ? »\nà fuir : « perfectionniste »\ncorrecte : un vrai défaut\nparfaite : un vrai défaut et ce que tu fais pour",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "2f1abeb4",
+   "texte_overlay": "t'es plutôt à fuir, correcte ou parfaite ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686513850799197473/8.jpg"
+  }
+ ]
+}

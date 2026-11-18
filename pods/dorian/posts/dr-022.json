@@ -1,0 +1,281 @@
+{
+ "id": "dr-022",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of language nerd hobbies",
+  "tr": "Dil meraklılarının hobi buzdağı",
+  "nl": "IJsberg van hobby's van taalnerds"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #languagelearning #lockedin #polyglot",
+  "tr": "#buzdağı #hobi #dilöğrenmek #kişiselgelişim",
+  "nl": "#ijsberg #hobbys #talenleren #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "Ashes and Embers - WATIWO LIA",
+  "url": "https://www.tiktok.com/music/Ashes-and-Embers-7569882137836849153"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « language nerd hobbies ». Sophia au 2e étage (« daily sophia lessons », icône). En, tr, nl seulement ; couverture : variantes 6, 0, 1.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "language nerd hobbies",
+    "variante": 6
+   },
+   "tr": {
+    "haut": "Dil meraklılarının",
+    "bas": "hobi buzdağı",
+    "variante": 0
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van taalnerds",
+    "variante": 1
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "foreign podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "flashcards",
+       "image": "images/objets/fiches.png"
+      },
+      {
+       "t": "pen pals",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "films with subtitles",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "dictionaries",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "vocab notebooks",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "grammar for fun",
+       "image": "images/objets/crayon-surligneur.png"
+      }
+     ],
+     [
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "etymology",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "morse code",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      }
+     ],
+     [
+      {
+       "t": "ancient greek",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "hieroglyphs",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "inventing words",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "speaking 5 languages",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "tr": {
+    "etages": [
+     [
+      {
+       "t": "yabancı podcastler",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "kelime kartları",
+       "image": "images/objets/fiches.png"
+      },
+      {
+       "t": "mektup arkadaşı",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "altyazılı filmler",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "her gün sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "sözlükler",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "kelime defteri",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "eğlencesine dilbilgisi",
+       "image": "images/objets/crayon-surligneur.png"
+      }
+     ],
+     [
+      {
+       "t": "latince öğrenmek",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "etimoloji",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "mors alfabesi",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "kaligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      }
+     ],
+     [
+      {
+       "t": "antik yunanca",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "hiyeroglifler",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "kelime icat etmek",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "5 dil konuşmak",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "katılmıyor musun?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "buitenlandse podcasts",
+       "image": "images/objets/casque-audio.png"
+      },
+      {
+       "t": "flashcards",
+       "image": "images/objets/fiches.png"
+      },
+      {
+       "t": "penvrienden",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "films met ondertiteling",
+       "image": "images/objets/tele-vintage.png"
+      }
+     ],
+     [
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "woordenboek",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "woordjes",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "grammatica voor de lol",
+       "image": "images/objets/crayon-surligneur.png"
+      }
+     ],
+     [
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "etymologie",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "morsecode",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      }
+     ],
+     [
+      {
+       "t": "oudgrieks",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "hiërogliefen",
+       "image": "images/objets/scarabee.png"
+      },
+      {
+       "t": "woorden verzinnen",
+       "image": "images/objets/plume.png"
+      }
+     ],
+     [
+      {
+       "t": "5 talen spreken",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

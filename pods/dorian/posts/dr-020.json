@@ -1,0 +1,136 @@
+{
+ "id": "dr-020",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7698306039745187073",
+  "vues": 568900,
+  "publie_le": "2026-10-19",
+  "accroche": "5 niche ways to disgustingly improve your critical thinking"
+ },
+ "titre": {
+  "en": "5 niche ways to disgustingly improve your focus",
+  "de": "5 nischen-methoden für einen absurd guten fokus",
+  "pt-BR": "5 jeitos nichados de deixar seu foco absurdo"
+ },
+ "legendes": {
+  "en": "#niche #focus #studytok #lockedin #selfimprovement",
+  "de": "#fokus #konzentration #lernen #selbstverbesserung",
+  "pt-BR": "#foco #concentração #estudos #autodesenvolvimento"
+ },
+ "musique": {
+  "titre": "original sound - ale",
+  "url": "https://www.tiktok.com/music/original-sound-7644418890860202765"
+ },
+ "notes": "Original sur sa liste à 569 k (« 5 niche ways to disgustingly improve your critical thinking ») : même accroche, sujet concentration. Faits : méthode Pomodoro (Cirillo, fin des années 80), Ward et al. 2017 (« Brain Drain » : la seule présence du téléphone réduit la mémoire de travail), coût de changement de tâche, effet aigu de l'exercice sur l'attention. Images : Seedream (minuteur, téléphone), tableaux AIC Buron (dr-001) et Cazin (« Landscape »). En, de, pt-BR seulement ; une couverture par langue. Sophia en item 3 sur 5 (cta A), écran accueil traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 niche ways to disgustingly improve your focus",
+    "image": "images/cerveau-bleu.jpg",
+    "legende": "(no supplements)"
+   },
+   "de": {
+    "titre": "5 nischen-methoden für einen absurd guten fokus",
+    "image": "images/cerveau-rouge.jpg",
+    "legende": "(ohne nahrungsergänzung)"
+   },
+   "pt-BR": {
+    "titre": "5 jeitos nichados de deixar seu foco absurdo",
+    "image": "images/cerveau-irm.jpg",
+    "legende": "(sem suplemento)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The 25-minute timer",
+    "texte": "work 25 minutes, break 5, repeat four times. francesco cirillo named the method after his tomato-shaped kitchen timer in the 80s",
+    "image": "images/minuteur-tomate.jpg"
+   },
+   "de": {
+    "titre": "Der 25-Minuten-Timer",
+    "texte": "25 minuten arbeiten, 5 pause, viermal wiederholen. francesco cirillo hat die methode in den 80ern nach seiner tomatenförmigen küchenuhr benannt",
+    "image": "images/minuteur-tomate.jpg"
+   },
+   "pt-BR": {
+    "titre": "O timer de 25 minutos",
+    "texte": "trabalhe 25 minutos, descanse 5, repita quatro vezes. francesco cirillo batizou o método nos anos 80 por causa do timer de cozinha em forma de tomate",
+    "image": "images/minuteur-tomate.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Phone in another room",
+    "texte": "not face down, in another room. a 2017 study found that a phone just sitting on the desk lowers your working memory, even on silent",
+    "image": "images/telephone-seul.jpg"
+   },
+   "de": {
+    "titre": "Handy in ein anderes Zimmer",
+    "texte": "nicht umgedreht, in ein anderes zimmer. eine studie von 2017 zeigte: ein handy, das nur auf dem tisch liegt, senkt dein arbeitsgedächtnis, auch lautlos",
+    "image": "images/telephone-seul.jpg"
+   },
+   "pt-BR": {
+    "titre": "Celular em outro cômodo",
+    "texte": "não virado pra baixo, em outro cômodo. um estudo de 2017 mostrou que só ter o celular na mesa reduz sua memória de trabalho, mesmo no silencioso",
+    "image": "images/telephone-seul.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "10 minutes, a lesson written by an actual professor, then a quiz so it sticks. a short workout for your attention",
+    "telephone": "accueil"
+   },
+   "de": {
+    "titre": "Eine Lektion am Tag auf Sophia",
+    "texte": "10 minuten, eine lektion von einem echten professor, dann ein quiz, damit es hängen bleibt. ein kurzes training für deine konzentration",
+    "telephone": "accueil"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "10 minutos, uma lição escrita por um professor de verdade, e depois um quiz pra fixar. um treino rápido pro seu foco",
+    "telephone": "accueil"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "One tab only",
+    "texte": "close everything except the one thing you're doing. every switch costs your brain a small restart. psychologists call it the switch cost",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "de": {
+    "titre": "Nur ein Tab",
+    "texte": "schließ alles außer dem, woran du gerade arbeitest. jeder wechsel kostet dein gehirn einen kleinen neustart. psychologen nennen das wechselkosten",
+    "image": "images/lectrice-buron.jpg"
+   },
+   "pt-BR": {
+    "titre": "Uma aba só",
+    "texte": "feche tudo menos o que você está fazendo. cada troca custa ao cérebro um pequeno reinício. os psicólogos chamam isso de custo de troca",
+    "image": "images/lectrice-buron.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Walk first",
+    "texte": "a 10-minute walk before deep work. short bouts of exercise have been shown to sharpen attention for a while afterwards",
+    "image": "images/chemin-campagne.jpg"
+   },
+   "de": {
+    "titre": "Erst spazieren",
+    "texte": "10 minuten spazieren vor konzentrierter arbeit. kurze bewegung schärft nachweislich für eine weile die aufmerksamkeit",
+    "image": "images/chemin-campagne.jpg"
+   },
+   "pt-BR": {
+    "titre": "Caminhe antes",
+    "texte": "uma caminhada de 10 minutos antes do trabalho pesado. exercícios curtos comprovadamente afiam a atenção por um tempo",
+    "image": "images/chemin-campagne.jpg"
+   }
+  }
+ ]
+}

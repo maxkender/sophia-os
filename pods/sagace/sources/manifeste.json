@@ -1,6 +1,6 @@
 {
  "compte": "sagace.fr",
- "maj_le": "2026-11-17",
+ "maj_le": "2026-11-18",
  "note": "Ses 17 diaporamas relevés le 15/11 (21/08 → 03/11), du plus vu au moins vu. Il recycle ses accroches (« Compétence 10/10 à apprendre avant 20 ans » deux fois, « … au lieu de scroller » trois fois) avec d'autres compétences : chaque post est un remake à part. `competences` : lues sur ses slides, avec la place de ses slides de fin (« ABONNE-TOI », « ENREGISTRE CE POST », « e-books ») qu'on ne refait jamais. Ses posts depuis le 24/09 (« e-books », 5 à 14 k) font bien moins que ceux d’août et du début septembre : refais d'abord les tubes. Ordre de travail : les `a_faire` de haut en bas.",
  "posts": [
   {
@@ -221,7 +221,8 @@
     "url": "https://www.tiktok.com/music/still-love-you-slowed--7673789140375472145"
    },
    "competences": "format « vidéos » : avoir une peau parfaite, avoir une odeur, la solitude, ABONNE-TOI au milieu, bien parler, arrêter une addiction ; « e-books » en fin",
-   "statut": "a_faire"
+   "statut": "a_faire",
+   "motif": "accroche presque identique à sg-012 (« Les vidéos 10/10 à absolument voir ») : seulement en déclinaison depuis la boîte"
   },
   {
    "id": "7689104304279473441",
@@ -253,7 +254,8 @@
     "url": "https://www.tiktok.com/music/jealousy-7681834526759799573"
    },
    "competences": "comment investir, l'argent infini, devenir riche en France, les principes de millionnaire, ABONNE-TOI au milieu, l'art de négocier ; « e-books » en fin",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-015 (18/11, livraison 32eaed14) : 8 langues, vidéos natives, Sophia en étape 4, cta A « INVESTIR / DANS SA TÊTE »"
   },
   {
    "id": "7703633246621420833",
@@ -269,7 +271,8 @@
     "url": "https://www.tiktok.com/music/original-sound-7694643248358492930"
    },
    "competences": "les bases en finance, captiver grâce à un montage, ABONNE-TOI au milieu, organiser ses journées, ouvrir son entreprise ; « e-books » en fin",
-   "statut": "a_faire"
+   "statut": "fait",
+   "motif": "sg-016 (18/11, livraison 043c4585) : 8 langues, vidéos natives, 5e compétence ajoutée (méditer), Sophia en étape 4, cta B « ÉLARGIR / SES HORIZONS »"
   },
   {
    "id": "7704018547965463841",

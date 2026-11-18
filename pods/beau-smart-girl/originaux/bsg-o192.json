@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o192",
+  "type_bleo": "full_test",
+  "titre": "comment j'organise mes week-ends pour qu'ils me rendent plus cultivée #weekend #culture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [],
+  "notes": "full test, cta B. Accroche jamais faite chez nous : le week-end organisé (les déclinaisons du dimanche parlaient d'habitudes chelous ; ici le week-end entier, en planning). Fait vérifié le 10/11 sur https://en.wikipedia.org/wiki/Palace_of_Versailles : « Louis XIII built a modest brick-and-stone hunting lodge in 1623 ». Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "60641ec3",
+      "texte_overlay": "comment j'organise mes week-ends\npour qu'ils me rendent plus cultivée",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "35ea9493",
+      "texte_overlay": "1. samedi matin : un marché ou une brocante\n\nles objets anciens racontent toujours une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "4c009fd7",
+      "texte_overlay": "2. samedi après-midi : un musée ou un château\n\nune seule salle, mais regardée vraiment.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "138c3ce2",
+      "texte_overlay": "3. je prépare la visite la veille\n\nce matin, j'ai appris que versailles n'était au départ qu'un pavillon de chasse de louis XIII, en 1623.\nje ne l'ai plus jamais regardé pareil.",
+      "texte_sophia": "3. je prépare la visite la veille\n\nce matin, l'appli Sophia m'a appris que versailles n'était au départ qu'un pavillon de chasse de louis XIII, en 1623.\nje ne l'ai plus jamais regardé pareil.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "4d832119",
+      "texte_overlay": "4. dimanche : un vieux film et un thé\n\nnoir et blanc, plaid, silence.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "2983e3e7",
+      "texte_overlay": "5. dimanche soir : j'écris ce que j'ai appris\n\ntrois lignes.\nmon week-end ne disparaît plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6f2b2d54",
+      "texte_overlay": "enregistre-le pour ce week-end.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

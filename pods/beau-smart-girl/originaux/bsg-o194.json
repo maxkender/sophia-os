@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o194",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "38999d59-ede9-47d4-bf96-615b403ae7de",
+  "titre": "ce que mon grand-père lecteur m'a appris sans jamais me faire la leçon #lecture #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [
+    "38999d59-ede9-47d4-bf96-615b403ae7de"
+  ],
+  "notes": "G2, déclinaison de 38999d59 (« les habitudes insolites que j'ai volées à mon grand-père qui a lu toute sa vie », G1 gagnante, génération 1 en français, c'est mon bsg-o100 ; meilleur passage de 1,8 k vues, r 3,09), en français. Accroche reformulée : « ce que mon grand-père lecteur m'a appris sans jamais me faire la leçon ». cta A (avant / après sur le dernier item). Items neufs (rien de repris de bsg-o100). Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "396e1744",
+      "texte_overlay": "ce que mon grand-père lecteur\nm'a appris\nsans jamais me faire la leçon",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "71d1140e",
+      "texte_overlay": "1. on peut relire un livre dix fois\n\nil disait qu'un bon livre change\nà chaque fois qu'on change.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "50036c85",
+      "texte_overlay": "2. les vieux livres sentent bon\n\nil m'emmenait chez les bouquinistes\nle dimanche matin.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "72bb78e9",
+      "texte_overlay": "3. on peut ne pas être d'accord avec un auteur\n\net continuer à l'aimer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "286bac5b",
+      "texte_overlay": "4. un livre se partage\n\nil laissait toujours un mot à la première page\npour la personne suivante.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "110baf5f",
+      "texte_overlay": "5. la curiosité n'a pas d'âge\n\navant, je pensais que lire, c'était pour l'école.\nmaintenant, j'apprends un truc sur le monde chaque matin. comme lui, je ne m'arrête plus.",
+      "texte_sophia": "5. la curiosité n'a pas d'âge\n\navant, je pensais que lire, c'était pour l'école.\nmaintenant, j'ouvre l'appli Sophia chaque matin. comme lui, je ne m'arrête plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "2a8111a8",
+      "texte_overlay": "vole-lui une habitude.\nlaquelle tu gardes ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

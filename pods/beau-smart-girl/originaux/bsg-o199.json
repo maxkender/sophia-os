@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o199",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "c8593abd-b387-41c0-9ee5-3897e46fab3e",
+  "titre": "how to be the smart academic girl in school #studytok #school",
+  "musique_titre": "son original - martin",
+  "musique_url": "https://www.tiktok.com/music/son-original-martin-7513636940659559170",
+  "inspirations": [
+    "c8593abd-b387-41c0-9ee5-3897e46fab3e"
+  ],
+  "notes": "G1, déclinaison de c8593abd (« how to be the smart academic girl in school », génération 0 ; meilleur passage tr 4,9 k vues, r 2,32), en anglais. cta C. Items neufs (rien de repris du parent : ni travail en plus, ni avance sur le cours, ni ponctualité, ni aider les autres, ni autre appli). Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "0610662c",
+      "texte_overlay": "how to be the smart academic girl\nin school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "c245426b",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one thing about the world every morning, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "28cd7a12",
+      "texte_overlay": "1. read beyond the syllabus\n\none extra article a week\nmakes your essays stand out.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4d1f5958",
+      "texte_overlay": "2. keep beautiful notes\n\nnot for aesthetics.\nbecause you'll want to reread them.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "786d0db7",
+      "texte_overlay": "3. sit where you can focus\n\nfront rows, away from the window.\nlittle choices, big difference.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "85ec2b5f",
+      "texte_overlay": "4. ask teachers what they love\n\ntheir favourite topic\nis usually the best lesson.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "03549bb7",
+      "texte_overlay": "5. rest before exams\n\nan early night beats\na last-minute all-nighter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "1162630d",
+      "texte_overlay": "save this for exam season.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

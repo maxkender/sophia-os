@@ -6,11 +6,14 @@
  *       champ thumbnail_url) est téléchargée tout de suite et copiée dans medias/bible/<handle>/ ; on
  *       n'affiche jamais une URL TikTok (elles expirent). Sans lien de post : les 3 posts les plus vus
  *       parmi les ~12 derniers du profil (scraper Apify déjà branché), avec les stats du profil.
+ *   POST { action: "resoudre", urls }
+ *       Les liens courts (vm.tiktok.com, vt.tiktok.com, tiktok.com/t/…) suivis jusqu'au vrai lien
+ *       (@handle et, pour un post, son /video/ ou /photo/). 50 liens au plus ; rien n'est écrit.
  *
  * N'écrit que dans bible_comptes (posts, miniatures, stats auto). Ne touche ni à l'import ni à rien d'autre.
  */
 import { scrapeStats } from "../_shared/apify.ts";
-import { cheminMiniature, estLienPost, type PostBible, statsProfil, troisMeilleurs } from "../_shared/bible.ts";
+import { cheminMiniature, estLienCourt, estLienPost, type PostBible, statsProfil, troisMeilleurs } from "../_shared/bible.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -28,12 +31,29 @@ Deno.serve(async (request) => {
       if (!/^[0-9a-f-]{36}$/.test(id)) return json({ ok: false, error: "id invalide" }, 400);
       return json(await miniatures(db, id));
     }
+    if (body?.action === "resoudre") {
+      const urls = (Array.isArray(body.urls) ? body.urls : []).filter((u: unknown): u is string => typeof u === "string").slice(0, 50);
+      return json({ ok: true, liens: await Promise.all(urls.map(resoudre)) });
+    }
     return json({ ok: false, error: "action inconnue" }, 400);
   } catch (erreur) {
     console.error("[bible]", messageErreur(erreur));
     return json({ ok: false, error: messageErreur(erreur) }, 500);
   }
 });
+
+/** Un lien court TikTok suivi jusqu'au vrai lien (sans les paramètres de suivi). */
+async function resoudre(url: string): Promise<{ url: string; resolu: string | null; erreur: string | null }> {
+  if (!estLienCourt(url)) return { url, resolu: null, erreur: "pas un lien court TikTok" };
+  try {
+    const r = await fetch(url, { redirect: "follow", headers: { "user-agent": NAVIGATEUR }, signal: AbortSignal.timeout(15_000) });
+    await r.body?.cancel();
+    const final = r.url.split("?")[0]!;
+    return /tiktok\.com\/@[A-Za-z0-9._]+/.test(final) ? { url, resolu: final, erreur: null } : { url, resolu: null, erreur: `redirigé vers ${final.slice(0, 80)}` };
+  } catch (e) {
+    return { url, resolu: null, erreur: messageErreur(e).slice(0, 120) };
+  }
+}
 
 /** La miniature d'un post par oEmbed (sans clé), téléchargée aussitôt. */
 async function miniatureOembed(lien: string): Promise<{ octets: Uint8Array; type: string }> {

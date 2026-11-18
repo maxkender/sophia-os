@@ -13,9 +13,9 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 
-import { ajouterFiche, chercherDoublon, type Doublon, type NouvelleFiche, rafraichirMiniatures } from "./api";
+import { ajouterFiche, chercherDoublon, type Doublon, type NouvelleFiche, rafraichirMiniatures, resoudreLiens } from "./api";
 import { appsAttenteConnues, useBible, useRafraichirBible } from "./donnees";
-import { handleDe, type LigneLue, lireLignes, nomLabelValide } from "./parse";
+import { appliquerResolution, fusionner, handleDe, type LigneLue, lireLignes, nomLabelValide } from "./parse";
 import { LIBELLE_STATUT, type NicheStatut, type RegleSujet, STATUTS, type StatutBible } from "./types";
 
 export const SELECT = "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring";
@@ -279,19 +279,27 @@ export function AjoutEnMasse({ onFermer, onOuvrirDoublon }: { onFermer: () => vo
   const rafraichir = useRafraichirBible();
   const [texte, setTexte] = React.useState("");
   const [lignes, setLignes] = React.useState<LigneApercu[] | null>(null);
+  const [ignorees, setIgnorees] = React.useState<string[]>([]);
   const [bilan, setBilan] = React.useState<string | null>(null);
 
   const apercu = useMutation({
     mutationFn: async () => {
       const lues = lireLignes(texte, apps, labels, appsAttenteConnues(fiches, proposes));
-      return await Promise.all(lues.map(async (l) => {
+      // Les liens courts (vm.tiktok.com…) sont suivis jusqu'au vrai @handle ; les lignes du même compte
+      // ne font qu'une fiche (leurs liens de posts deviennent ses posts de référence).
+      const courts = [...new Set(lues.flatMap((l) => l.courts))];
+      const resolus = await resoudreLiens(courts).catch(() => ({} as Record<string, string | null>));
+      const comptes = fusionner(lues.filter((l) => !l.ignoree).map((l) => appliquerResolution(l, resolus)));
+      const avecDoublons = await Promise.all(comptes.map(async (l) => {
         const d = l.handle ? await chercherDoublon(l.handle).catch(() => null) : null;
         const doublon = d && (d.bible_id || d.compte_reference_id) ? d : null;
         return { ...l, doublon, garder: !l.erreur && !doublon };
       }));
+      return { lignes: avecDoublons, ignorees: lues.filter((l) => l.ignoree).map((l) => l.ligne) };
     },
-    onSuccess: (l) => {
-      setLignes(l);
+    onSuccess: (r) => {
+      setLignes(r.lignes);
+      setIgnorees(r.ignorees);
       setBilan(null);
     },
   });
@@ -319,6 +327,7 @@ export function AjoutEnMasse({ onFermer, onOuvrirDoublon }: { onFermer: () => vo
       rafraichir();
       setBilan(`${faites.length} fiche${faites.length > 1 ? "s" : ""} créée${faites.length > 1 ? "s" : ""} : ${faites.map((h) => `@${h}`).join(", ")}.`);
       setLignes(null);
+      setIgnorees([]);
       setTexte("");
     },
     onError: (e) => setBilan((e as Error).message),
@@ -330,7 +339,7 @@ export function AjoutEnMasse({ onFermer, onOuvrirDoublon }: { onFermer: () => vo
     <Card>
       <CardHeader>
         <CardTitle className="text-base">Ajout en masse</CardTitle>
-        <CardDescription>Une ligne par compte : le lien donne le handle, l'app et le label sont reconnus, le reste va dans la note. Aperçu avant d'enregistrer.</CardDescription>
+        <CardDescription>Une ligne par compte : le lien donne le handle, l'app et le label sont reconnus, le reste va dans la note. Une simple liste de liens (même vm.tiktok.com) crée des fiches « à trier ». Aperçu avant d'enregistrer.</CardDescription>
         <CardAction><Button size="sm" variant="ghost" onClick={onFermer}>Fermer</Button></CardAction>
       </CardHeader>
       <CardContent className="space-y-3">
@@ -354,6 +363,7 @@ export function AjoutEnMasse({ onFermer, onOuvrirDoublon }: { onFermer: () => vo
                     <td className="py-2 pr-3"><input type="checkbox" checked={l.garder} disabled={Boolean(l.erreur || l.doublon)} onChange={(e) => maj(i, { garder: e.target.checked })} /></td>
                     <td className="py-2 pr-3">
                       {l.handle ? <span className="font-medium">@{l.handle}</span> : <span className="text-destructive">{l.erreur}</span>}
+                      {!l.appIds.length && !l.appsAttente.length && !l.labelId && !l.labelPropose && l.handle && <p className="text-[11px] text-muted-foreground">→ à trier</p>}
                       {l.posts.length > 0 && <p className="text-[11px] text-muted-foreground">{l.posts.length} lien(s) de post</p>}
                       {l.doublon && <MessageDoublon d={l.doublon} onOuvrir={onOuvrirDoublon} />}
                     </td>
@@ -386,6 +396,12 @@ export function AjoutEnMasse({ onFermer, onOuvrirDoublon }: { onFermer: () => vo
               </Button>
               <p className="text-xs text-muted-foreground">Les nouveaux labels sont créés « à valider » ; rien n'entre dans les vrais labels sans ton clic.</p>
             </div>
+          </div>
+        )}
+        {ignorees.length > 0 && (
+          <div className="rounded-md border border-dashed px-3 py-2 text-xs" data-testid="masse-ignorees">
+            <p className="font-medium">Ignorées (pas des liens TikTok) : {ignorees.length}</p>
+            <ul className="mt-1 list-inside list-disc text-muted-foreground">{ignorees.map((l, i) => <li key={i} className="break-all">{l}</li>)}</ul>
           </div>
         )}
         {bilan && <p className="text-sm text-muted-foreground">{bilan}</p>}

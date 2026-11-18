@@ -19,7 +19,7 @@ import { CarteCompte } from "./CarteCompte";
 import { appsAttenteConnues, useBible } from "./donnees";
 import { FicheCompte, type Ouverture } from "./FicheCompte";
 import { LabelsProposes } from "./LabelsProposes";
-import { type Carte, cartes, couleurApp, type Filtres, FILTRES_VIDES, filtrer, grouper, type Vue } from "./modele";
+import { type Carte, cartes, couleurApp, estAutreApp, estNonTrie, type Filtres, FILTRES_VIDES, filtrer, grouper, type Vue } from "./modele";
 import { TableauBible } from "./TableauBible";
 import { LIBELLE_STATUT, STATUTS } from "./types";
 
@@ -34,6 +34,9 @@ export function PageBible() {
   const toutes = cartes(b.fiches, b.importes, b.labels, b.proposes, "tous");
   const liste = filtrer(cartes(b.fiches, b.importes, b.labels, b.proposes, vue), filtres);
   const groupes = grouper(liste, b.apps, b.labels, b.proposes);
+  const nonTries = liste.filter(estNonTrie);
+  const autresApps = liste.filter(estAutreApp);
+  const aTrier = toutes.filter((c) => estNonTrie(c) || estAutreApp(c)).length;
   const ouvrir = (c: Carte) => setOuverture({ bibleId: c.bibleId, refId: c.refId });
   const ouvrirDoublon = (d: Doublon) => setOuverture({ bibleId: d.bible_id, refId: d.compte_reference_id });
   const maj = (p: Partial<Filtres>) => setFiltres((f) => ({ ...f, ...p }));
@@ -69,6 +72,7 @@ export function PageBible() {
             actif={vue}
             onChange={setVue}
             options={[
+              { cle: "a_trier", contenu: `À trier · ${aTrier}` },
               { cle: "importes", contenu: `Déjà importés · ${importes}` },
               { cle: "attente", contenu: `En attente d'import · ${enAttente}` },
               { cle: "tous", contenu: "Tous" },
@@ -117,6 +121,17 @@ export function PageBible() {
         </div>
       </div>
 
+      {aTrier > 0 && (
+        <button
+          type="button"
+          onClick={() => setVue("a_trier")}
+          className="w-full rounded-xl border border-amber-300 bg-amber-50 px-4 py-2 text-left text-sm font-medium text-amber-900 hover:bg-amber-100 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-100"
+          data-testid="compteur-a-trier"
+        >
+          {aTrier} compte{aTrier > 1 ? "s" : ""} à trier
+        </button>
+      )}
+
       {b.erreur && <p className="text-sm text-destructive">{b.erreur.message}</p>}
       {b.chargement && <p className="text-sm text-muted-foreground">Chargement…</p>}
 
@@ -124,8 +139,14 @@ export function PageBible() {
         <TableauBible liste={liste} onOuvrir={ouvrir} />
       ) : (
         <div className="space-y-10" data-testid="galerie-bible">
-          {vue !== "importes" && <LabelsProposes toutes={toutes} onOuvrir={ouvrir} />}
-          {!b.chargement && groupes.length === 0 && <p className="text-sm text-muted-foreground">Aucun compte avec ces filtres.</p>}
+          {nonTries.length > 0 && (
+            <SectionTri titre="Non trié" aide="Ajoutés sans app ni label. Choisis l'app puis le label : la carte part dans son groupe." cartes={nonTries} onOuvrir={ouvrir} testid="section-non-trie" />
+          )}
+          {autresApps.length > 0 && (
+            <SectionTri titre="Autre app / idée" aide="Des comptes qui ne vont dans aucune app actuelle (mode, langues, wellness…), avec l'app imaginée." cartes={autresApps} onOuvrir={ouvrir} testid="section-autre-app" />
+          )}
+          {vue !== "importes" && vue !== "a_trier" && <LabelsProposes toutes={toutes} onOuvrir={ouvrir} />}
+          {!b.chargement && groupes.length === 0 && !nonTries.length && !autresApps.length && <p className="text-sm text-muted-foreground">Aucun compte avec ces filtres.</p>}
           {groupes.map((g) => {
             const couleur = couleurApp(g.slug, g.cle);
             return (
@@ -158,5 +179,21 @@ export function PageBible() {
 
       <FicheCompte ouverture={ouverture} onFermer={() => setOuverture(null)} />
     </div>
+  );
+}
+
+function SectionTri({ titre, aide, cartes: liste, onOuvrir, testid }: { titre: string; aide: string; cartes: Carte[]; onOuvrir: (c: Carte) => void; testid: string }) {
+  return (
+    <section className="space-y-3 rounded-2xl border border-amber-200 bg-amber-50/40 p-3 sm:p-4 dark:border-amber-900 dark:bg-amber-950/10" data-testid={testid}>
+      <div>
+        <h2 className="flex items-center gap-2 text-lg font-semibold">
+          {titre} <span className="text-sm font-normal text-muted-foreground">{liste.length} compte{liste.length > 1 ? "s" : ""}</span>
+        </h2>
+        <p className="text-xs text-muted-foreground">{aide}</p>
+      </div>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {liste.map((c) => <CarteCompte key={c.cle} c={c} onOuvrir={onOuvrir} />)}
+      </div>
+    </section>
   );
 }

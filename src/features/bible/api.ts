@@ -153,3 +153,13 @@ export async function majLabelPropose(id: string, patch: Partial<LabelPropose>):
   const { error } = await supabase.from("labels_proposes").update(patch).eq("id", id);
   if (error) throw error;
 }
+
+/** Les liens courts (vm.tiktok.com…) suivis jusqu'au vrai lien, côté serveur. */
+export async function resoudreLiens(urls: string[]): Promise<Record<string, string | null>> {
+  if (!urls.length) return {};
+  const { data, error } = await supabase.functions.invoke("bible", { body: { action: "resoudre", urls } });
+  if (error) throw error;
+  const out: Record<string, string | null> = {};
+  for (const l of ((data as { liens?: { url: string; resolu: string | null }[] })?.liens ?? [])) out[l.url] = l.resolu;
+  return out;
+}

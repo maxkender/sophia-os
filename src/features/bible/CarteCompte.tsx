@@ -1,9 +1,11 @@
 /** 18/11 : une carte de la galerie : @handle, 3 miniatures 9:16 (nos copies), pastilles, stats, note et angle. */
-import { ImageOff } from "lucide-react";
+import * as React from "react";
+import { Check, Copy, ImageOff } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-import { type Carte, nombreCourt } from "./modele";
+import { type Carte, estAutreApp, estNonTrie, nombreCourt } from "./modele";
+import { TriRapide } from "./TriRapide";
 import { LIBELLE_STATUT, type StatutBible } from "./types";
 
 export const COULEUR_STATUT: Record<StatutBible, string> = {
@@ -18,20 +20,49 @@ export function Pastille({ className, children }: { className?: string; children
   return <span className={cn("inline-flex items-center rounded-full px-2 py-0.5 text-[11px] font-medium", className)}>{children}</span>;
 }
 
-export function Miniatures({ urls, handle, manquantes }: { urls: string[]; handle: string; manquantes?: boolean }) {
+/** Le @handle en entier, lien direct vers le profil (ouvre l'app TikTok sur téléphone), et « Copier ». */
+export function HandleLien({ handle, className }: { handle: string; className?: string }) {
+  const [copie, setCopie] = React.useState(false);
+  return (
+    <span className={cn("inline-flex min-w-0 items-center gap-1", className)}>
+      <a href={`https://www.tiktok.com/@${handle}`} target="_blank" rel="noreferrer" className="break-all font-semibold hover:underline" data-handle={handle}>
+        @{handle}
+      </a>
+      <button
+        type="button"
+        className="inline-flex shrink-0 items-center gap-0.5 rounded px-1 py-0.5 text-[10px] text-muted-foreground hover:bg-muted hover:text-foreground"
+        onClick={async (e) => {
+          e.stopPropagation();
+          try {
+            await navigator.clipboard.writeText(`@${handle}`);
+          } catch {
+            // Presse-papier refusé : rien à faire de plus, le handle reste sélectionnable.
+          }
+          setCopie(true);
+          window.setTimeout(() => setCopie(false), 1500);
+        }}
+        aria-label={`Copier @${handle}`}
+      >
+        {copie ? <><Check className="size-3" /> Copié</> : <><Copy className="size-3" /> Copier</>}
+      </button>
+    </span>
+  );
+}
+
+export function Miniatures({ urls, handle, manquantes, liens }: { urls: string[]; handle: string; manquantes?: boolean; liens?: (string | null)[] }) {
   const cases = [0, 1, 2];
   return (
     <div className="grid grid-cols-3 gap-1.5">
       {cases.map((i) => {
         const u = urls[i];
+        const lien = liens?.[i] ?? null;
+        const img = u ? <img src={u} alt={`@${handle}, post ${i + 1}`} loading="lazy" className="aspect-[9/16] w-full rounded-lg bg-muted object-cover" /> : null;
         return u ? (
-          <img
-            key={i}
-            src={u}
-            alt={`@${handle}, post ${i + 1}`}
-            loading="lazy"
-            className="aspect-[9/16] w-full rounded-lg bg-muted object-cover"
-          />
+          lien ? (
+            <a key={i} href={lien} target="_blank" rel="noreferrer" aria-label={`Ouvrir le post ${i + 1} de @${handle}`} className="block transition hover:opacity-90">{img}</a>
+          ) : (
+            <div key={i}>{img}</div>
+          )
         ) : (
           <div key={i} className="flex aspect-[9/16] w-full flex-col items-center justify-center gap-1 rounded-lg border border-dashed bg-muted/40 p-1 text-center text-[10px] text-muted-foreground">
             <ImageOff className="size-3.5" aria-hidden />
@@ -50,19 +81,12 @@ export function CarteCompte({ c, onOuvrir }: { c: Carte; onOuvrir: (c: Carte) =>
       data-carte={c.handle}
     >
       <div className="flex items-start justify-between gap-2">
-        <a
-          href={`https://www.tiktok.com/@${c.handle}`}
-          target="_blank"
-          rel="noreferrer"
-          className="min-w-0 truncate text-sm font-semibold hover:underline"
-        >
-          @{c.handle}
-        </a>
+        <HandleLien handle={c.handle} className="text-sm" />
         <Pastille className={COULEUR_STATUT[c.statut]}>{LIBELLE_STATUT[c.statut]}</Pastille>
       </div>
-      <button type="button" className="text-left" onClick={() => onOuvrir(c)} aria-label={`Ouvrir la fiche de @${c.handle}`}>
-        <Miniatures urls={c.miniatures} handle={c.handle} manquantes={c.kind === "bible" && c.miniaturesManquantes} />
-      </button>
+      <Miniatures urls={c.miniatures} liens={c.liensPosts} handle={c.handle} manquantes={c.kind === "bible" && c.miniaturesManquantes} />
+      {c.autreApp && <p className="text-[11px]"><span className="font-medium">Idée d'app : </span><span className="text-muted-foreground">{c.autreApp}</span></p>}
+      {c.bibleId && (estNonTrie(c) || estAutreApp(c)) && <TriRapide carte={c} />}
       <div className="flex flex-wrap gap-1">
         {c.nicheStatut === "oui" && <Pastille className="bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-200">100 % niché{c.niche ? ` · ${c.niche}` : ""}</Pastille>}
         {c.nicheStatut === "partiel" && <Pastille className="bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-200">niché partiel{c.niche ? ` · ${c.niche}` : ""}</Pastille>}
@@ -73,6 +97,9 @@ export function CarteCompte({ c, onOuvrir }: { c: Carte; onOuvrir: (c: Carte) =>
         <div><dt className="inline">Abonnés </dt><dd className="inline font-medium text-foreground">{nombreCourt(c.abonnes)}</dd></div>
         <div><dt className="inline">Vues méd. </dt><dd className="inline font-medium text-foreground">{nombreCourt(c.vuesMediane)}</dd></div>
       </dl>
+      <button type="button" onClick={() => onOuvrir(c)} className="self-start text-[11px] font-medium text-muted-foreground underline-offset-2 hover:text-foreground hover:underline">
+        Ouvrir la fiche
+      </button>
       {(c.note || c.angle) && (
         <div className="space-y-1 border-t pt-2 text-[11px] leading-snug">
           {c.note && <p><span className="font-medium">Import : </span><span className="text-muted-foreground">{c.note}</span></p>}

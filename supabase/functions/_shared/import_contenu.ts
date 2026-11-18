@@ -77,7 +77,7 @@ import {
   type PertinencesRapport,
   type PlacementSophia,
 } from "./pertinence_apps.ts";
-import { chargerBlocCorrectionsNatives, correctionsPlacementNatives } from "./corrections_natives.ts";
+import { chargerBlocCorrectionsNatives, promptAvecRetoursApplication } from "./corrections_natives.ts";
 import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { lireParLots, lireTout } from "./lots.ts";
 import { ID_SOPHIA, SLUG_SOPHIA } from "./multi_app.ts";
@@ -2030,18 +2030,19 @@ async function placerSophiaSurDeck(
   // Angle du label du contenu pour Sophia (angle_placement.ts) : vide tant
   // qu'aucun n'est saisi, et le prompt reste alors octet pour octet le même.
   const angle = await chargerAnglePlacement(supabase, contenu.id, ID_SOPHIA);
-  // Boucle de correction (0630) : les corrections de placement retenues des
-  // relecteurs natifs de la langue passent en premiers exemples.
-  const natives = await correctionsPlacementNatives(supabase, langue);
+  // Boucle de correction (0630, 0743) : les retours des relecteurs natifs
+  // propres à Sophia dans cette langue suivent le prompt maître.
   const placement = await integrateSophia({
-    masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
-    corrections: [
-      ...natives,
-      ...(corrections ?? []).map((c) => ({
-        original_text: c.texte_origine,
-        corrected_text: c.texte_corrige,
-      })),
-    ],
+    masterPrompt: await promptAvecRetoursApplication(
+      supabase,
+      (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
+      langue,
+      ID_SOPHIA,
+    ),
+    corrections: (corrections ?? []).map((c) => ({
+      original_text: c.texte_origine,
+      corrected_text: c.texte_corrige,
+    })),
     slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
     caption: contenu.titre ?? "",
     langue,
@@ -2163,8 +2164,10 @@ export async function traduireBaseDeck(
   const base =
     dedie ?? (langue === "fr" ? await chargerPrompt(supabase, "traduction") : undefined);
   const scolaire = await regleLocalisationScolaire(supabase, langue);
-  // Boucle de correction (0630) : les corrections retenues des relecteurs
-  // natifs de la langue, en dernier pour peser sur le reste.
+  // Boucle de correction (0630) : les règles et corrections de LANGUE des
+  // relecteurs natifs, en dernier pour peser sur le reste. Celles qui sont
+  // propres à une application (0743) n'y sont pas : cette traduction sert
+  // toutes les applications, elles vont au placement de la leur.
   const retours = await chargerBlocCorrectionsNatives(supabase, langue);
   const regles = [base, scolaire, voix ? `Voix propre à cette source :\n${voix}` : null, retours]
     .filter(Boolean)

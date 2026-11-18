@@ -2011,7 +2011,11 @@ export const fr = {
       corrections: {
         titre: "Corrections tirées des remarques des relecteurs",
         aide:
-          "Chaque remarque d'un relecteur est découpée en corrections : un fragment qui sonne traduit, ce qu'il aurait écrit, un type. Retiens celles qui valent pour toutes les traductions de la langue : elles entrent dans le prompt de traduction dès le prochain deck (et, pour le type placement, dans les exemples du placement). Écarte les autres. Le découpage tourne tout seul toutes les dix minutes, ou tout de suite avec le bouton.",
+          "Chaque remarque d'un relecteur est découpée en corrections : un fragment qui sonne traduit, ce qu'il aurait écrit, un type. Retiens celles qui valent pour toutes les traductions de la langue : elles entrent dans le prompt de traduction dès le prochain deck. Écarte les autres. Le découpage tourne tout seul toutes les dix minutes, ou tout de suite avec le bouton.",
+        vautPour: "Vaut pour",
+        touteLaLangue: "Toute la langue",
+        rangement:
+          "« Vaut pour » : une correction de langue entre dans la traduction de toutes les applications. Une correction rangée sous une application (prise sur la slide de l’appli, ou qui cite l’appli) ne va qu’au placement de cette application.",
         langue: "Langue",
         aucuneLangue: "Aucun relecteur natif : rien à découper.",
         extraire_zero: "Aucune remarque à découper",
@@ -2240,7 +2244,9 @@ export const fr = {
     fiches: {
       titre: "Fiches",
       description:
-        "Ce que lit la réécriture native pour chaque deck : la fiche CTA pose les règles communes, la fiche de l’appli dit quoi dire, la fiche de la langue comment le dire, la fiche du label où va l’appli dans ce type de deck. Rien ne touche la production tant que la réécriture native n’est pas allumée.",
+        "Ce que lit la réécriture native pour chaque deck : la fiche CTA pose les règles communes, la fiche de l’appli dit quoi dire, la fiche du label où va l’appli dans ce type de deck. Rien ne touche la production tant que la réécriture native n’est pas allumée.",
+            langueParRelecteurs:
+        "La langue n’a plus de fiche : ce sont les règles et corrections des relecteurs natifs (Relecture native → Règles).",
       versRelecture: "Relecture native",
       sortes: "Sortes de fiches",
       sorte: {

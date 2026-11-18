@@ -5,9 +5,10 @@
  *
  *  - `chargerBlocCorrectionsNatives` : le bloc ajouté aux règles de
  *    traduction d'une langue (fonction SQL `corrections_natives_bloc`, une
- *    seule source pour le moteur et l'aperçu de l'admin) ;
- *  - `correctionsPlacementNatives` : celles de type `placement`, en exemples
- *    « au lieu de / écris plutôt » du placement de l'appli ;
+ *    seule source pour le moteur et l'aperçu de l'admin) : les corrections de
+ *    LANGUE seulement, la traduction étant commune à toutes les applications ;
+ *  - `chargerRetoursApplication` (0743) : celles qui sont propres à une
+ *    application, données au placement de cette application seulement ;
  *  - `extraireCorrections` : le découpage des remarques non traitées, vote
  *    par vote, puis des relectures simples faites (0631), par Gemini (action
  *    `corrections_extraire` d'`ab-traduction`, cron `ab-corrections` ou
@@ -37,25 +38,72 @@ export async function chargerBlocCorrectionsNatives(supabase: Supabase, langue: 
   return typeof data === "string" && data.trim() ? data : null;
 }
 
-/** Les corrections retenues de type `placement`, au format des exemples du placement. */
-export async function correctionsPlacementNatives(
+/** Une correction retenue, sur une ligne : « au lieu de …, écris … » ou « évite … ». */
+function ligneRetour(c: { fautif: string; corrige: string | null; explication: string | null }): string {
+  const corrige = (c.corrige ?? "").trim();
+  const explication = (c.explication ?? "").trim();
+  return `- ${corrige ? `au lieu de « ${c.fautif.trim()} », écris « ${corrige} »` : `évite « ${c.fautif.trim()} »`}${
+    explication ? ` (${explication})` : ""
+  }`;
+}
+
+/** Le bloc des retours propres à une application. Pur : testé sans réseau. */
+export function blocRetoursApplication(
+  langue: string,
+  corrections: Array<{ fautif: string; corrige: string | null; explication: string | null }>,
+): string | null {
+  const vues = new Set<string>();
+  const lignes: string[] = [];
+  for (const c of corrections) {
+    const cle = c.fautif.trim().toLowerCase();
+    if (!cle || vues.has(cle)) continue;
+    vues.add(cle);
+    lignes.push(ligneRetour(c));
+  }
+  if (lignes.length === 0) return null;
+  return `=== RETOURS DES RELECTEURS NATIFS SUR LA SLIDE DE L'APPLI (${langue.toUpperCase()}) ===
+Des natifs ont relu nos slides d'appli dans cette langue et relevé ceci. Applique ces retours, et ne refais pas ces erreurs dans des phrases voisines :
+${lignes.join("\n")}`;
+}
+
+/**
+ * Les corrections retenues PROPRES À UNE APPLICATION (0743), pour le placement
+ * de cette application dans cette langue : celles prises sur la slide de
+ * l'appli, de type `placement`, ou qui citent l'application. Les corrections de
+ * langue (`application_id` NULL) passent, elles, par la traduction
+ * (`chargerBlocCorrectionsNatives`), commune à toutes les applications.
+ * `null` : aucun retour, ou lecture en échec (0743 pas encore appliquée).
+ */
+export async function chargerRetoursApplication(
   supabase: Supabase,
   langue: string,
-  max = 12,
-): Promise<Array<{ original_text: string | null; corrected_text: string }>> {
+  applicationId: string,
+  max = 40,
+): Promise<string | null> {
   const { data, error } = await supabase
     .from("corrections_natives")
-    .select("fautif, corrige")
+    .select("fautif, corrige, explication")
     .eq("langue", langue.toLowerCase())
     .eq("statut", "retenue")
-    .eq("type", "placement")
-    .not("corrige", "is", null)
+    .eq("application_id", applicationId)
     .order("created_at", { ascending: false })
     .limit(max);
-  if (error || !data) return [];
-  return (data as Array<{ fautif: string; corrige: string | null }>)
-    .filter((c) => (c.corrige ?? "").trim())
-    .map((c) => ({ original_text: c.fautif, corrected_text: String(c.corrige) }));
+  if (error) {
+    console.warn(`[corrections natives] retours ${langue} de l'application : ${messageErreur(error)}`);
+    return null;
+  }
+  return blocRetoursApplication(langue, (data ?? []) as Array<{ fautif: string; corrige: string | null; explication: string | null }>);
+}
+
+/** Le prompt maître d'un placement, suivi des retours natifs de l'application s'il y en a. */
+export async function promptAvecRetoursApplication(
+  supabase: Supabase,
+  masterPrompt: string,
+  langue: string,
+  applicationId: string,
+): Promise<string> {
+  const retours = await chargerRetoursApplication(supabase, langue, applicationId);
+  return retours ? `${masterPrompt}\n\n${retours}` : masterPrompt;
 }
 
 interface Slide {

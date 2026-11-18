@@ -6,7 +6,7 @@ de son temps). Ce document est la référence du modèle et de son déploiement.
 
 ## À lire d'abord (mise à jour du 17/11)
 
-Trois choses ont changé depuis la rédaction de ce document :
+Cinq choses ont changé depuis la rédaction de ce document :
 
 1. **Le classement des contenus, c'est BLEO, plus la tierlist** (`bleo.mode =
    actif` depuis le 1/11, voir `docs/bleo.md`). La valeur d'un contenu est par
@@ -25,6 +25,20 @@ Trois choses ont changé depuis la rédaction de ce document :
    langues, avec ses deux prompts vides ; un prompt vide vaut prompt absent
    (pas de notation, activation refusée). Restent dans le code : sa liste de
    concurrents (`_shared/concurrents.ts`) et son logo.
+
+4. **Les retours des relecteurs natifs savent pour quelle application ils
+   valent** (0743, 18/11). `corrections_natives.application_id` : NULL = une
+   correction de LANGUE, qui entre dans la traduction (commune à toutes les
+   applications, `corrections_natives_bloc`) et dans les règles natives de la
+   langue ; remplie = une correction propre à une application (prise sur la
+   slide de l'appli, de type placement, ou qui cite l'appli), donnée au seul
+   placement de cette application (`chargerRetoursApplication`, à la suite du
+   prompt maître). Rangée à l'insertion par un déclencheur, modifiable dans
+   Relecture native → Corrections (« Vaut pour »).
+5. **Plus de fiches langue** (décision d'Adrien du 17/11). La page Fiches n'a
+   plus que trois sortes (CTA, appli, label) ; le circuit de test « fiches »
+   lit à leur place les règles et corrections des relecteurs natifs. Les
+   lignes `bleo_fiches` de sorte `langue` restent en base, plus lues.
 
 **Un podz pour deux applications : à éviter.** Un original ouvert à une
 seconde application ne voit réécrire que sa slide d'appli, et la valeur BLEO

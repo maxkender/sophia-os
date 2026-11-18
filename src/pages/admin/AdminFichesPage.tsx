@@ -33,35 +33,29 @@ import { MarkdownLeger } from "@/features/fiches/MarkdownLeger";
 import { listerLabels } from "@/features/moteur/api";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { nomApplication } from "@/features/moteur/applications";
-import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import {
   CLE_FICHE_CTA,
   compterVersionsFiches,
   enregistrerFicheAppli,
   enregistrerFicheCta,
   enregistrerFicheLabel,
-  enregistrerFicheLangue,
   type FicheVersionnee,
   lireFicheCta,
-  listerExemplesNatifs,
   listerFichesAppli,
   listerFichesLabel,
-  listerFichesLangue,
 } from "@/features/relectureNative/api";
 import type { Ton } from "@/features/relectureNative/apparence";
-import { modeleFicheAppli, modeleFicheCta, modeleFicheLabel, modeleFicheLangue } from "@/features/relectureNative/logique";
+import { modeleFicheAppli, modeleFicheCta, modeleFicheLabel } from "@/features/relectureNative/logique";
 import { messageErreur } from "@/features/relectureNative/messageErreur";
 import { MiniBarre, Puce, TuileIcone } from "@/features/relectureNative/Puces";
-import { CLE_REQUETE_EXEMPLES } from "@/features/relectureNative/SectionExemplesNatifs";
 import { cn } from "@/lib/utils";
 
-type Sorte = "cta" | "appli" | "langue" | "label";
+type Sorte = "cta" | "appli" | "label";
 
 /** La fiche CTA d'abord : c'est l'intro, les règles communes à tous les decks. */
 const SORTES: ReadonlyArray<{ cle: Sorte; icone: LucideIcon; ton: Ton }> = [
   { cle: "cta", icone: Megaphone, ton: "orange" },
   { cle: "appli", icone: AppWindow, ton: "violet" },
-  { cle: "langue", icone: Languages, ton: "bleu" },
   { cle: "label", icone: Tags, ton: "vert" },
 ];
 
@@ -71,7 +65,6 @@ const HORODATAGE: Intl.DateTimeFormatOptions = { dateStyle: "short", timeStyle: 
 const CLES = {
   appli: ["fiches-appli"],
   versionsAppli: ["fiches-appli-versions"],
-  langue: ["fiches-langue"],
   label: ["fiches-label"],
   cta: ["fiche-cta"],
 } as const;
@@ -101,17 +94,10 @@ export function AdminFichesPage() {
 
   const fichesAppli = useQuery({ queryKey: CLES.appli, queryFn: listerFichesAppli });
   const versionsAppli = useQuery({ queryKey: CLES.versionsAppli, queryFn: compterVersionsFiches });
-  const fichesLangue = useQuery({ queryKey: CLES.langue, queryFn: listerFichesLangue });
   const fichesLabel = useQuery({ queryKey: CLES.label, queryFn: listerFichesLabel });
   const ficheCta = useQuery({ queryKey: CLES.cta, queryFn: lireFicheCta });
   const labels = useQuery({ queryKey: ["labels"], queryFn: () => listerLabels() });
-  const exemples = useQuery({ queryKey: CLE_REQUETE_EXEMPLES, queryFn: listerExemplesNatifs });
-
   const date = (iso: string) => new Date(iso).toLocaleDateString(i18n.language, { day: "2-digit", month: "2-digit" });
-  const exemplesPrets = new Map<string, number>();
-  for (const e of exemples.data ?? []) {
-    if (e.statut === "pret") exemplesPrets.set(e.langue, (exemplesPrets.get(e.langue) ?? 0) + 1);
-  }
 
   const entrees: Record<Sorte, Entree[]> = {
     appli: applications.map((a) => {
@@ -122,20 +108,6 @@ export function AdminFichesPage() {
         visuel: <LogoApplication slug={a.slug} taille="sm" decoratif />,
         ecrite: Boolean(f?.contenu.trim()),
         detail: f?.contenu.trim() ? t("fiches.versions", { count: versionsAppli.data?.[a.id] ?? 0 }) : t("fiches.jamais"),
-      };
-    }),
-    langue: LANGUES_CIBLES.map((code) => {
-      const f = fichesLangue.data?.find((x) => x.cle === code);
-      return {
-        cle: code,
-        nom: nomLangue(code),
-        visuel: (
-          <span className="text-lg leading-none" aria-hidden>
-            {drapeauLangue(code)}
-          </span>
-        ),
-        ecrite: Boolean(f?.contenu.trim()),
-        detail: t("fiches.exemples", { count: exemplesPrets.get(code) ?? 0 }),
       };
     }),
     label: (labels.data ?? []).map((l) => {
@@ -172,9 +144,9 @@ export function AdminFichesPage() {
     setParams(cle ? { sorte: s, cle } : { sorte: s }, { replace: true });
   };
 
-  const erreur = fichesAppli.error ?? fichesLangue.error ?? fichesLabel.error ?? ficheCta.error ?? labels.error;
+  const erreur = fichesAppli.error ?? fichesLabel.error ?? ficheCta.error ?? labels.error;
   const chargement =
-    fichesAppli.isPending || fichesLangue.isPending || fichesLabel.isPending || ficheCta.isPending || labels.isPending;
+    fichesAppli.isPending || fichesLabel.isPending || ficheCta.isPending || labels.isPending;
 
   return (
     <div className="space-y-6" data-testid="page-fiches">
@@ -185,7 +157,11 @@ export function AdminFichesPage() {
             {t("fiches.titre")}
           </span>
         }
-        description={t("fiches.description")}
+        description={
+          <>
+            {t("fiches.description")} {t("fiches.langueParRelecteurs")}
+          </>
+        }
         actions={
           <Button size="sm" variant="outline" render={<Link to="/admin/relecture-native" />}>
             <Languages />
@@ -194,7 +170,7 @@ export function AdminFichesPage() {
         }
       />
 
-      <div role="group" aria-label={t("fiches.sortes")} className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+      <div role="group" aria-label={t("fiches.sortes")} className="grid gap-3 sm:grid-cols-3">
         {SORTES.map(({ cle, icone, ton }) => {
           const total = entrees[cle].length;
           const faites = entrees[cle].filter((e) => e.ecrite).length;
@@ -295,13 +271,6 @@ export function AdminFichesPage() {
             slug={applications.find((a) => a.id === choisie.cle)?.slug ?? ""}
             fiche={fichesAppli.data?.find((f) => f.application_id === choisie.cle) ?? null}
             versions={versionsAppli.data?.[choisie.cle] ?? 0}
-          />
-        ) : sorte === "langue" ? (
-          <FicheLangue
-            key={choisie.cle}
-            langue={choisie.cle}
-            fiche={fichesLangue.data?.find((f) => f.cle === choisie.cle) ?? null}
-            exemples={exemplesPrets.get(choisie.cle) ?? 0}
           />
         ) : sorte === "label" ? (
           <FicheLabel key={choisie.cle} nom={choisie.cle} fiche={fichesLabel.data?.find((f) => f.cle === choisie.cle) ?? null} />
@@ -653,33 +622,6 @@ function FicheEcrite({
         </div>
       )}
     </CadreFiche>
-  );
-}
-
-function FicheLangue({ langue, fiche, exemples }: { langue: string; fiche: FicheVersionnee | null; exemples: number }) {
-  const { t, i18n } = useTranslation();
-  const nom = nomLangue(langue);
-  return (
-    <FicheEcrite
-      testId={`fiche-langue-${langue}`}
-      visuel={
-        <span className="text-2xl leading-none" aria-hidden>
-          {drapeauLangue(langue)}
-        </span>
-      }
-      titre={t("fiches.titreLangue", { nom })}
-      fiche={fiche}
-      badges={
-        <Puce icone={BookOpen} ton={exemples > 0 ? "violet" : "neutre"}>
-          {t("fiches.exemples", { count: exemples })}
-        </Puce>
-      }
-      texteVide={t("fiches.videLangue", { nom })}
-      aide={t("fiches.contenuAideLangue")}
-      modele={() => modeleFicheLangue(i18n.getFixedT("en")(`langues.${langue}`), langue)}
-      enregistrer={(contenu) => enregistrerFicheLangue(langue, contenu)}
-      cleRequete={CLES.langue}
-    />
   );
 }
 

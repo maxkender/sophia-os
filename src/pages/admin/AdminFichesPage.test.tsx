@@ -91,11 +91,10 @@ describe("AdminFichesPage", () => {
     enregistrerFicheCta.mockResolvedValue(undefined);
   });
 
-  it("réunit les quatre sortes de fiches, avec leur avancement", async () => {
+  it("réunit les trois sortes de fiches, avec leur avancement", async () => {
     rendre();
     const sortes = screen.getByRole("group", { name: "Sortes de fiches" });
     await waitFor(() => expect(within(sortes).getByRole("button", { name: /Applis/ })).toHaveTextContent("1 / 2"));
-    expect(within(sortes).getByRole("button", { name: /Langues/ })).toHaveTextContent(/1 \/ \d+/);
     expect(within(sortes).getByRole("button", { name: /Labels/ })).toHaveTextContent("1 / 2");
     expect(within(sortes).getByRole("button", { name: /^CTA/ })).toHaveTextContent("0 / 1");
     // La fiche CTA d'abord : c'est l'intro.
@@ -135,25 +134,12 @@ describe("AdminFichesPage", () => {
     expect((within(fiche).getByLabelText("Fiche (Markdown)") as HTMLTextAreaElement).value.startsWith("# micabo")).toBe(true);
   });
 
-  it("langues : une fiche par langue, la recherche, et l'écriture depuis le modèle", async () => {
+  it("plus de fiches langue : la sorte a disparu, la page renvoie aux relecteurs natifs", async () => {
     rendre("/admin/fiches?sorte=langue");
-    const liste = await screen.findByRole("list", { name: "Langues" });
-    fireEvent.change(screen.getByPlaceholderText("Chercher une langue…"), { target: { value: "turc" } });
-    expect(within(liste).getAllByRole("button")).toHaveLength(1);
-    fireEvent.click(within(liste).getByRole("button", { name: /Turc/ }));
-    const turc = await screen.findByTestId("fiche-langue-tr");
-    expect(within(turc).getByRole("heading", { name: "L'essentiel en 8 règles" })).toBeInTheDocument();
-    expect(turc).toHaveTextContent("Version 2");
-
-    fireEvent.change(screen.getByPlaceholderText("Chercher une langue…"), { target: { value: "allemand" } });
-    fireEvent.click(within(screen.getByRole("list", { name: "Langues" })).getByRole("button", { name: /Allemand/ }));
-    const allemand = await screen.findByTestId("fiche-langue-de");
-    expect(allemand).toHaveTextContent("2 exemples natifs");
-    fireEvent.click(within(allemand).getByRole("button", { name: "Écrire la fiche" }));
-    fireEvent.click(within(allemand).getByRole("button", { name: "Enregistrer" }));
-    await waitFor(() =>
-      expect(enregistrerFicheLangue).toHaveBeenCalledWith("de", expect.stringContaining("# Language sheet: German (de)")),
-    );
+    const sortes = screen.getByRole("group", { name: "Sortes de fiches" });
+    expect(within(sortes).queryByRole("button", { name: /Langues/ })).not.toBeInTheDocument();
+    expect(screen.getByText(/La langue n’a plus de fiche/)).toBeInTheDocument();
+    expect(listerFichesLangue).not.toHaveBeenCalled();
   });
 
   it("labels : la fiche se lit, se modifie, et un label sans fiche s'écrit depuis le modèle", async () => {

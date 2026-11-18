@@ -2011,6 +2011,10 @@ export const en = {
         titre: "Corrections drawn from reviewers' remarks",
         aide:
           "Each reviewer remark is cut into corrections: a fragment that sounds translated, what they would have written, a type. Keep the ones that hold for every translation in the language: they enter the translation prompt from the next deck on (and, for the placement type, the placement examples). Discard the others. Cutting runs on its own every ten minutes, or right away with the button.",
+        vautPour: "Applies to",
+        touteLaLangue: "The whole language",
+        rangement:
+          "“Applies to”: a language correction goes into the translation for every application. A correction filed under an application (taken from the app slide, or naming the app) only goes to that application’s placement.",
         langue: "Language",
         aucuneLangue: "No native reviewer: nothing to cut.",
         extraire_zero: "No remark to cut",
@@ -2237,7 +2241,9 @@ export const en = {
     fiches: {
       titre: "Sheets",
       description:
-        "What native rewriting reads for every deck: the CTA sheet sets the shared rules, the app sheet says what to say, the language sheet how to say it, the label sheet where the app goes in this kind of deck. Nothing touches production until native rewriting is switched on.",
+        "What native rewriting reads for every deck: the CTA sheet sets the shared rules, the app sheet says what to say, the label sheet where the app goes in this kind of deck. Nothing touches production until native rewriting is switched on.",
+            langueParRelecteurs:
+        "Language no longer has a sheet: it comes from the native reviewers’ rules and corrections (Native review → Rules).",
       versRelecture: "Native review",
       sortes: "Kinds of sheets",
       sorte: {

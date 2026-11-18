@@ -1,0 +1,526 @@
+{
+ "id": "mm-o074",
+ "titre": "Everything you need to lock in",
+ "position_app": 2,
+ "type_bleo": "full_test",
+ "legendes": {
+  "en": "everything you need to lock in, ranked #lockedin #mentalmaxxing #tierlist #selfimprovement",
+  "pl": "wszystko, czego potrzebujesz, żeby się skupić #lockedin #mentalmaxxing #tierlist #rozwojosobisty",
+  "hu": "minden, ami kell a fókuszhoz #lockedin #mentalmaxxing #tierlist #önfejlesztés",
+  "pt-BR": "tudo que você precisa pra focar de verdade #lockedin #mentalmaxxing #tierlist #desenvolvimentopessoal"
+ },
+ "couverture": {
+  "mise": "titre_haut",
+  "image": {
+   "src": "7696594173863955730/1",
+   "boite": [
+    190,
+    320,
+    710,
+    525
+   ]
+  },
+  "haut": {
+   "en": "",
+   "pl": "",
+   "hu": "",
+   "pt-BR": ""
+  },
+  "gros": {
+   "en": "Lock in",
+   "pl": "Skup się",
+   "hu": "Fókusz mód",
+   "pt-BR": "Modo foco"
+  },
+  "bas": {
+   "en": "everything you need",
+   "pl": "wszystko, czego trzeba",
+   "hu": "minden, ami kell",
+   "pt-BR": "tudo que você precisa"
+  },
+  "edition": {
+   "en": "no excuses edition",
+   "pl": "edycja bez wymówek",
+   "hu": "kifogások nélkül",
+   "pt-BR": "edição sem desculpas"
+  },
+  "par_langue": {
+   "pl": {
+    "image": {
+     "src": "7686887215430896904/1",
+     "boite": [
+      300,
+      280,
+      420,
+      560
+     ]
+    }
+   },
+   "hu": {
+    "image": {
+     "src": "7689665265591799048/1",
+     "boite": [
+      290,
+      246,
+      402,
+      616
+     ]
+    },
+    "mise": "collage"
+   },
+   "pt-BR": {
+    "image": {
+     "src": "7690401294120389889/1",
+     "boite": [
+      280,
+      50,
+      520,
+      430
+     ]
+    },
+    "mise": "classique"
+   }
+  }
+ },
+ "titre_tableau": {
+  "en": "rate my ranking",
+  "pl": "oceń mój ranking",
+  "hu": "értékeld a rangsorom",
+  "pt-BR": "avalia meu ranking"
+ },
+ "pied": {
+  "en": "what locks you in?",
+  "pl": "co cię skupia?",
+  "hu": "neked mi segít fókuszálni?",
+  "pt-BR": "o que te faz focar?"
+ },
+ "rangs": [
+  {
+   "lettre": "S+",
+   "fond": "#fb0200",
+   "texte": "#890000",
+   "sous": {
+    "en": "locks you in",
+    "pl": "pełne skupienie",
+    "hu": "teljes fókusz",
+    "pt-BR": "foco total"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      878,
+      905,
+      135,
+      95
+     ],
+     "t": {
+      "en": "real sleep",
+      "pl": "prawdziwy sen",
+      "hu": "rendes alvás",
+      "pt-BR": "sono de verdade"
+     }
+    },
+    {
+     "app": true
+    },
+    {
+     "src": "7686526569703017735/2",
+     "boite": [
+      676,
+      890,
+      142,
+      139
+     ],
+     "t": {
+      "en": "phone|out of sight",
+      "pl": "telefon|poza zasięgiem",
+      "hu": "telefon|szem elől",
+      "pt-BR": "celular|longe"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      266,
+      247,
+      117,
+      104
+     ],
+     "t": {
+      "en": "one goal|a day",
+      "pl": "jeden cel|dziennie",
+      "hu": "napi egy cél",
+      "pt-BR": "uma meta|por dia"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "A",
+   "fond": "#ff9f40",
+   "texte": "#6f2900",
+   "sous": {
+    "en": "strong",
+    "pl": "mocne",
+    "hu": "erős",
+    "pt-BR": "forte"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      325,
+      1078,
+      175,
+      160
+     ],
+     "t": {
+      "en": "training",
+      "pl": "trening",
+      "hu": "edzés",
+      "pt-BR": "treino"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      365,
+      35,
+      125,
+      175
+     ],
+     "t": {
+      "en": "water",
+      "pl": "woda",
+      "hu": "víz",
+      "pt-BR": "água"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      58,
+      362,
+      180,
+      146
+     ],
+     "t": {
+      "en": "sunlight",
+      "pl": "słońce",
+      "hu": "napfény",
+      "pt-BR": "sol"
+     }
+    },
+    {
+     "src": "7690401294120389889/2",
+     "boite": [
+      692,
+      855,
+      156,
+      144
+     ],
+     "t": {
+      "en": "clean desk",
+      "pl": "czyste biurko",
+      "hu": "tiszta asztal",
+      "pt-BR": "mesa limpa"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "B",
+   "fond": "#fadc7c",
+   "texte": "#6b530d",
+   "sous": {
+    "en": "helps",
+    "pl": "pomaga",
+    "hu": "segít",
+    "pt-BR": "ajuda"
+   },
+   "cases": [
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      860,
+      365,
+      165,
+      155
+     ],
+     "t": {
+      "en": "one coffee",
+      "pl": "jedna kawa",
+      "hu": "egy kávé",
+      "pt-BR": "um café"
+     }
+    },
+    {
+     "src": "7701153376846826760/1",
+     "boite": [
+      608,
+      1085,
+      145,
+      145
+     ],
+     "t": {
+      "en": "lofi",
+      "pl": "lofi",
+      "hu": "lofi",
+      "pt-BR": "lofi"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      776,
+      552,
+      104,
+      99
+     ],
+     "t": {
+      "en": "silence",
+      "pl": "cisza",
+      "hu": "csend",
+      "pt-BR": "silêncio"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      441,
+      398,
+      96,
+      104
+     ],
+     "t": {
+      "en": "breathing",
+      "pl": "oddech",
+      "hu": "légzés",
+      "pt-BR": "respiração"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "C",
+   "fond": "#fffd68",
+   "texte": "#565300",
+   "sous": {
+    "en": "meh",
+    "pl": "takie sobie",
+    "hu": "hát",
+    "pt-BR": "mais ou menos"
+   },
+   "cases": [
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      266,
+      405,
+      95,
+      98
+     ],
+     "t": {
+      "en": "naps",
+      "pl": "drzemki",
+      "hu": "szundi",
+      "pt-BR": "cochilos"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      430,
+      727,
+      114,
+      73
+     ],
+     "t": {
+      "en": "podcasts",
+      "pl": "podcasty",
+      "hu": "podcastok",
+      "pt-BR": "podcasts"
+     }
+    },
+    {
+     "src": "7689665265591799048/2",
+     "boite": [
+      265,
+      551,
+      102,
+      98
+     ],
+     "t": {
+      "en": "snacks",
+      "pl": "przekąski",
+      "hu": "nasi",
+      "pt-BR": "lanchinhos"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      662,
+      1087,
+      71,
+      89
+     ],
+     "t": {
+      "en": "new gear",
+      "pl": "nowy sprzęt",
+      "hu": "új cucc",
+      "pt-BR": "coisa nova"
+     }
+    }
+   ]
+  },
+  {
+   "lettre": "D",
+   "fond": "#bdfd85",
+   "texte": "#366b0d",
+   "sous": {
+    "en": "breaks it",
+    "pl": "psuje",
+    "hu": "elrontja",
+    "pt-BR": "quebra"
+   },
+   "cases": [
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      272,
+      853,
+      90,
+      94
+     ],
+     "t": {
+      "en": "notifications",
+      "pl": "powiadomienia",
+      "hu": "értesítések",
+      "pt-BR": "notificações"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      764,
+      860,
+      124,
+      92
+     ],
+     "t": {
+      "en": "gaming",
+      "pl": "gry",
+      "hu": "gaming",
+      "pt-BR": "games"
+     }
+    },
+    {
+     "src": "7692811167261248775/2",
+     "boite": [
+      759,
+      856,
+      120,
+      96
+     ],
+     "t": {
+      "en": "group chats",
+      "pl": "czaty|grupowe",
+      "hu": "csoportos|chatek",
+      "pt-BR": "grupos"
+     }
+    },
+    {
+     "src": "7688926567183027474/2",
+     "boite": [
+      599,
+      849,
+      116,
+      82
+     ],
+     "t": {
+      "en": "youtube",
+      "pl": "youtube",
+      "hu": "youtube",
+      "pt-BR": "youtube"
+     }
+    }
+   ]
+  }
+ ],
+ "f": {
+  "lettre": "F",
+  "fond": "#8685ed",
+  "texte": "#2c2d7c",
+  "sous": {
+   "en": "game over",
+   "pl": "koniec gry",
+   "hu": "vége",
+   "pt-BR": "fim de jogo"
+  },
+  "cases": [
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     597,
+     861,
+     86,
+     84
+    ],
+    "t": {
+     "en": "endless reels",
+     "pl": "reelsy|bez końca",
+     "hu": "végtelen reels",
+     "pt-BR": "reels sem fim"
+    }
+   },
+   {
+    "src": "7689665265591799048/2",
+    "boite": [
+     585,
+     1077,
+     98,
+     91
+    ],
+    "t": {
+     "en": "doomscrolling",
+     "pl": "doomscrolling",
+     "hu": "doomscrolling",
+     "pt-BR": "doomscrolling"
+    }
+   },
+   {
+    "src": "7692811167261248775/2",
+    "boite": [
+     258,
+     1067,
+     100,
+     109
+    ],
+    "t": {
+     "en": "betting apps",
+     "pl": "bukmacherka",
+     "hu": "fogadós appok",
+     "pt-BR": "apps de aposta"
+    }
+   },
+   {
+    "src": "7687225533431565586/2",
+    "boite": [
+     590,
+     1067,
+     70,
+     90
+    ],
+    "t": {
+     "en": "your option|(comment)",
+     "pl": "twój wybór|(skomentuj)",
+     "hu": "a te tipped|(kommenteld)",
+     "pt-BR": "sua opção|(comenta)"
+    }
+   }
+  ]
+ },
+ "notes": "routine du 18/11 (règle « Variété et volume ») : full test, accroche « everything you need to … » (forme de @mentalapp), thème locked in. Langues en, pl, hu, pt-BR, couverture propre à chaque langue (en : titre_haut cerveau scotché, pl : moine au skate, hu : collage chien, pt-BR : classique émoji). cta B (2e case du S+)."
+}

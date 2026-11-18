@@ -1,18 +1,18 @@
 {
  "source_id": "sg-o263",
  "type_bleo": "full_test",
- "titre": "how to make your handwriting look elegant #handwriting #penmanship #stationery #smartgirl #journaling",
+ "titre": "how to write by hand like it's 1900 #handwriting #penmanship #stationery #smartgirl #journaling",
  "musique_titre": "salvatore",
  "musique_url": "https://www.tiktok.com/music/salvatore-7287171432126532384",
  "inspirations": [
   "905ac33d-906a-4223-9d93-29df2e258b6f"
  ],
- "notes": "cta A. Full test 5/6 (la jauge en demande 6 sur 19) : accroche jamais faite chez nous (« handwriting look elegant » absent des accroches de donnees/label.json). Accroches écrites : « how to make your handwriting look elegant » (retenue : geste concret, très « that girl »), « calligraphy for beginners » (écartée : technique), « why you should write by hand » (écartée : proche de la lettre manuscrite déjà faite). Conseils classiques de calligraphie. Sophia sur le dernier item à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "notes": "cta A. Full test 5/6 (la jauge en demande 6 sur 19) : accroche jamais faite chez nous (« write by hand like it's 1900 » absent des accroches de donnees/label.json). Accroches écrites : « how to write by hand like it's 1900 » (retenue ; « how to make your handwriting look elegant » refusée en theme_gagnant, trop proche de « look 10x more attractive » : geste concret, très « that girl »), « calligraphy for beginners » (écartée : technique), « why you should write by hand » (écartée : proche de la lettre manuscrite déjà faite). Conseils classiques de calligraphie. Sophia sur le dernier item à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
  "slides": [
   {
    "position": 1,
    "media_id": "0adaafd0",
-   "texte_overlay": "how to make your handwriting\nlook elegant",
+   "texte_overlay": "how to write by hand\nlike it's 1900",
    "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
   },
   {

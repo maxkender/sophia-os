@@ -119,7 +119,11 @@ export interface EtatReel {
   cohorte: string | null;
   comptes: { handle: string | null; actif: boolean; non_renouveler: boolean | null; raison: string | null; le: string | null }[];
   comptes_actifs: number;
-  warmup: { pret: boolean | null; abonnements: number | null; existe: boolean | null; releve_at: string | null; debut: string | null } | null;
+  warmup: {
+    pret: boolean | null; abonnements: number | null; existe: boolean | null; releve_at: string | null; debut: string | null;
+    /** 0751 : le minuteur du bandeau du dashboard (statutWarmup) : fin du warm-up et statut. */
+    fin?: string | null; minuteur?: "attente" | "en_cours" | "termine" | null;
+  } | null;
   posts_aujourdhui: { prevus: number; publies: number } | null;
   posts_semaine: { prevus: number; publies: number; liens: number } | null;
   arret: { source: string | null; motif: string | null; le: string | null; statut: string | null; semaine: string | null } | null;
@@ -184,11 +188,42 @@ export function texteStatut(s: Situation, raisonClaire: string | null): string |
   return `Your account was stopped on ${dateCourte(s.le)} because ${raisonClaire.replace(/[.\s]+$/, "")}.${paie}`;
 }
 
+/** Le jour (AAAA-MM-JJ, Paris) des premiers posts : la règle du dashboard (premierJourPosts, rattrapage 04:00 UTC). */
+export function premierJourPostsParis(fin: string): string {
+  const jour = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Paris", year: "numeric", month: "2-digit", day: "2-digit" }).format(new Date(fin));
+  if (Date.parse(fin) <= Date.parse(`${jour}T04:00:00Z`)) return jour;
+  const d = new Date(`${jour}T12:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+/**
+ * 0751 (Max, 18/11) : le warm-up tel que le dashboard le montre. Le bandeau suit le minuteur du compte
+ * (à lancer, en cours jusqu'au lundi, terminé) ; l'étape « warm-up » du guide suit les abonnements validés.
+ * Le bot dit les deux, jamais « tout est OK » pendant que le bandeau dit « warm-up en cours ».
+ */
+export function texteWarmup(w: EtatReel["warmup"]): string {
+  if (!w) return "aucun compte actif";
+  const abonnements = w.pret ? "abonnements validés (étape cochée)" : `${w.abonnements ?? 0} abonnement(s) relevé(s), il en faut 5 (étape pas encore cochée)`;
+  const minuteur = w.minuteur ?? (w.pret ? "termine" : w.debut ? "en_cours" : "attente");
+  if (minuteur === "attente") return `pas lancé : le dashboard affiche le bouton « Start warm-up » ; ${abonnements}`;
+  if (minuteur === "en_cours") {
+    const premiers = w.fin ? `, premiers posts le ${dateCourte(premierJourPostsParis(w.fin))}` : "";
+    return `EN COURS (le dashboard affiche le bandeau warm-up)${premiers} ; ${abonnements} ; rien à faire de plus que continuer le warm-up`;
+  }
+  return w.pret ? "fini : le posteur reçoit ses posts" : `temps écoulé mais pas validé : ${abonnements}`;
+}
+
 /** Le statut du posteur en une ligne pour l'équipe (escalade). */
 export function ligneStatut(e: EtatReel | null): string {
   if (!e) return "posteur inconnu";
   const s = situation(e);
-  const warmup = e.warmup ? (e.warmup.pret ? "warm-up fini" : e.warmup.debut ? `warm-up en cours (${e.warmup.abonnements ?? 0} abonnements)` : "warm-up pas lancé") : null;
+  const w = e.warmup;
+  const minuteur = w ? w.minuteur ?? (w.pret ? "termine" : w.debut ? "en_cours" : "attente") : null;
+  const warmup = !w ? null
+    : minuteur === "attente" ? "warm-up pas lancé"
+    : minuteur === "en_cours" ? `warm-up en cours${w.fin ? ` (posts le ${premierJourPostsParis(w.fin)})` : ""}, ${w.pret ? "abonnements validés" : `${w.abonnements ?? 0}/5 abonnements`}`
+    : w.pret ? "warm-up fini" : `warm-up terminé mais pas validé (${w.abonnements ?? 0}/5 abonnements)`;
   return [
     s.statut === "kill" ? `kill${s.le ? ` le ${s.le.slice(0, 10)}` : ""}${s.raison ? ` (${s.raison})` : ""}` : s.statut === "arret_en_cours" ? "arrêt en cours" : "actif",
     warmup,
@@ -201,11 +236,10 @@ export function ligneStatut(e: EtatReel | null): string {
 /** Ce que le dashboard montre au posteur, en clair pour le modèle (il ne doit jamais le contredire). */
 export function etatDashboardTexte(e: EtatReel | null): string {
   if (!e) return "ÉTAT DU DASHBOARD : posteur inconnu.";
-  const w = e.warmup;
   return [
     "ÉTAT DU DASHBOARD (ce que le posteur voit, même source que sa page ; ne jamais le contredire) :",
     `- compte : ${e.actif && e.comptes_actifs > 0 ? "actif" : "désactivé"} (${e.comptes_actifs} compte(s) actif(s))`,
-    `- warm-up : ${w ? (w.pret ? "validé" : w.debut ? `en cours, ${w.abonnements ?? 0} abonnements relevés` : "pas lancé") : "aucun compte actif"}`,
+    `- warm-up : ${texteWarmup(e.warmup)}`,
     `- posts aujourd'hui : ${e.posts_aujourdhui?.publies ?? 0} publiés sur ${e.posts_aujourdhui?.prevus ?? 0} prévus`,
     `- posts cette semaine : ${e.posts_semaine?.publies ?? 0} publiés sur ${e.posts_semaine?.prevus ?? 0} prévus (${e.posts_semaine?.liens ?? 0} avec lien)`,
     `- canal de paie : ${e.canal_paie}${e.ruul ? ` (Ruul : ${e.ruul.onboarding ?? "?"})` : ""}`,

@@ -56,14 +56,27 @@ async function resoudre(url: string): Promise<{ url: string; resolu: string | nu
 }
 
 /** La miniature d'un post par oEmbed (sans clé), téléchargée aussitôt. */
-async function miniatureOembed(lien: string): Promise<{ octets: Uint8Array; type: string }> {
-  const r = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(lien)}`, {
-    headers: { "user-agent": NAVIGATEUR }, signal: AbortSignal.timeout(20_000),
-  });
-  if (!r.ok) throw new Error(`oEmbed ${r.status}`);
-  const o = (await r.json()) as { thumbnail_url?: string };
-  if (!o.thumbnail_url) throw new Error("oEmbed sans miniature");
-  return await telecharger(o.thumbnail_url);
+async function miniatureOembed(lien: string, secours?: string | null): Promise<{ octets: Uint8Array; type: string }> {
+  // Apify rend /video/ même pour un diaporama : on essaie aussi la forme /photo/, puis l'image du scraper.
+  const essais = [lien, lien.includes("/video/") ? lien.replace("/video/", "/photo/") : lien.replace("/photo/", "/video/")];
+  let derniere = "oEmbed sans miniature";
+  for (const u of essais) {
+    try {
+      const r = await fetch(`https://www.tiktok.com/oembed?url=${encodeURIComponent(u)}`, {
+        headers: { "user-agent": NAVIGATEUR }, signal: AbortSignal.timeout(20_000),
+      });
+      if (!r.ok) {
+        derniere = `oEmbed ${r.status}`;
+        continue;
+      }
+      const o = (await r.json()) as { thumbnail_url?: string };
+      if (o.thumbnail_url) return await telecharger(o.thumbnail_url);
+    } catch (e) {
+      derniere = messageErreur(e).slice(0, 80);
+    }
+  }
+  if (secours) return await telecharger(secours);
+  throw new Error(derniere);
 }
 
 async function telecharger(url: string): Promise<{ octets: Uint8Array; type: string }> {
@@ -87,6 +100,8 @@ async function miniatures(db: Db, id: string) {
   if (!fiche) return { ok: false, error: "fiche introuvable" };
   const handle = fiche.handle as string;
   let posts = ((fiche.posts ?? []) as PostBible[]).filter((p) => p?.url && estLienPost(p.url)).slice(0, 3);
+  // L'image que le scraper a vue pour chaque post (secours si oEmbed ne donne rien), le temps de la copier.
+  const imageScraper = new Map<string, string>();
   let stats: Record<string, unknown> | null = null;
   let source = "liens";
 
@@ -98,6 +113,7 @@ async function miniatures(db: Db, id: string) {
     }
     try {
       const recents = await scrapeStats(handle, 12);
+      for (const p of recents) if (p.imageUrls[0]) imageScraper.set(p.webVideoUrl, p.imageUrls[0]);
       const profil = recents.map((p) => ({ url: p.webVideoUrl, vues: p.stats.vues, createTime: p.createTime }));
       stats = statsProfil(profil, recents.find((p) => p.auteur.abonnes != null)?.auteur.abonnes ?? null);
       posts = troisMeilleurs(profil).map((p) => ({ url: p.url, vues: p.vues }));
@@ -115,7 +131,7 @@ async function miniatures(db: Db, id: string) {
   const sortie: PostBible[] = [];
   for (const [i, p] of posts.entries()) {
     try {
-      const image = await miniatureOembed(p.url);
+      const image = await miniatureOembed(p.url, imageScraper.get(p.url));
       const chemin = cheminMiniature(handle, p.url, i);
       sortie.push({ url: p.url, vues: p.vues ?? null, miniature_path: chemin, miniature_url: await copier(db, chemin, image), erreur: null });
     } catch (e) {

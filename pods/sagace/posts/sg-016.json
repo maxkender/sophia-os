@@ -1,0 +1,1246 @@
+{
+ "id": "sg-016",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7703633246621420833",
+  "vues": 6391,
+  "publie_le": "2026-11-02",
+  "accroche": "Compétence 10/10 qui peuvent changer ta vie."
+ },
+ "titre": {
+  "fr": "Compétences 10/10 qui peuvent changer ta vie",
+  "en": "10/10 skills that can change your life",
+  "de": "10/10 Skills, die dein Leben verändern können",
+  "it": "Competenze 10/10 che possono cambiarti la vita",
+  "pt-BR": "Habilidades 10/10 que podem mudar sua vida",
+  "tr": "Hayatını değiştirebilecek 10/10 beceriler",
+  "ro": "Abilități 10/10 care îți pot schimba viața",
+  "cs": "Dovednosti 10/10, které ti mohou změnit život"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui peuvent changer ta vie #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that can change your life #learnontiktok #selfimprovement #skills",
+  "de": "10/10 Skills, die dein Leben verändern können #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Competenze 10/10 che possono cambiarti la vita #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que podem mudar sua vida #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Hayatını değiştirebilecek 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care îți pot schimba viața #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které ti mohou změnit život #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - 11obby",
+  "url": "https://www.tiktok.com/music/original-sound-7694643248358492930"
+ },
+ "notes": "Remake de son post à 6,4 k (02/11, « Compétence 10/10 qui peuvent changer ta vie. ») : sa couverture brun/noir à ses tailles (135/108/199/163), « COMPETENCE » corrigé en « COMPÉTENCES ». Ses 4 compétences dans son ordre (bases en finance, captiver grâce à un montage, organiser ses journées, ouvrir son entreprise) avec ses couleurs, sans ligne de temps comme les siennes ; une 5e dans son esprit : apprendre à méditer (vert). D'autres vraies vidéos que les siennes (Les Geeks des Chiffres, Secrets de monteur pro « méthode cinématographique », Kaizen Lane « organiser ta journée », LExpertComptable), natives dans chaque langue. Sa slide « ABONNE-TOI » (au milieu) devient Sophia en étape 4 sur 7 (cta B : « ÉLARGIR / SES HORIZONS »), ses « e-books » retirés.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUI PEUVENT",
+      "cap": 108
+     },
+     {
+      "t": "CHANGER",
+      "cap": 199,
+      "couleur": "brun"
+     },
+     {
+      "t": "TA VIE",
+      "cap": 163
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAT CAN",
+      "cap": 108
+     },
+     {
+      "t": "CHANGE",
+      "cap": 199,
+      "couleur": "brun"
+     },
+     {
+      "t": "YOUR LIFE",
+      "cap": 163
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "DIE DEIN LEBEN",
+      "cap": 108
+     },
+     {
+      "t": "VERÄNDERN",
+      "cap": 199,
+      "couleur": "brun"
+     },
+     {
+      "t": "KÖNNEN",
+      "cap": 163
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "COMPETENZE",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "CHE POSSONO",
+      "cap": 108
+     },
+     {
+      "t": "CAMBIARTI",
+      "cap": 199,
+      "couleur": "brun"
+     },
+     {
+      "t": "LA VITA",
+      "cap": 163
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE PODEM",
+      "cap": 108
+     },
+     {
+      "t": "MUDAR",
+      "cap": 199,
+      "couleur": "brun"
+     },
+     {
+      "t": "SUA VIDA",
+      "cap": 163
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "HAYATINI",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "DEĞİŞTİREBİLECEK",
+      "cap": 108
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 199,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "CARE ÎȚI POT",
+      "cap": 108
+     },
+     {
+      "t": "SCHIMBA",
+      "cap": 199,
+      "couleur": "brun"
+     },
+     {
+      "t": "VIAȚA",
+      "cap": 163
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 135,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTERÉ TI MOHOU",
+      "cap": 108
+     },
+     {
+      "t": "ZMĚNIT",
+      "cap": 199,
+      "couleur": "brun"
+     },
+     {
+      "t": "ŽIVOT",
+      "cap": 163
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LES BASES",
+     [
+      {
+       "t": "EN FINANCE",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IKelzO7R3D0",
+     "titre": "Les bases des finances personnelles #1/2 (5 principes indispensables)",
+     "chaine": "Maxime PCO — Shoshin podcast",
+     "vues": "34 k vues",
+     "date": "il y a 5 ans",
+     "duree": "10:25",
+     "avatar": "https://yt3.ggpht.com/0Q7B-I0z7dCXzmZ0iIckIZrJ2YTAL14w-xIQiSj78bqudmBl72Uy8hvnFo5qMgtxbAtWHok6=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "THE BASICS",
+     [
+      {
+       "t": "OF FINANCE",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A9Xq3FGjpZA",
+     "titre": "Explaining Basic Financial Concepts YOU Should Understand",
+     "chaine": "EverythingProfessor",
+     "vues": "2.6M views",
+     "date": "1 year ago",
+     "duree": "12:14",
+     "avatar": "https://yt3.ggpht.com/PVwMkne1VXtCkmz8p-yHAxfLWi1TPu9lXeInYatfa6sr_nN5Q4gnIQSteRjMn4VrrSMalZcF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DIE BASICS",
+     [
+      {
+       "t": "DER FINANZEN",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dYDO0Pe-OG8",
+     "titre": "Was jeder über Finanzen wissen sollte, in nur 25 Min. (!)",
+     "chaine": "Finanzfluss",
+     "vues": "1,2 Mio. Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "24:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m8sm-xd_LgR6NPESlELpyxvjMUbo0wcNusQFd_rSXExtk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "LE BASI",
+     [
+      {
+       "t": "DI FINANZA",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QfukwyZYYOQ",
+     "titre": "Come, dove e quanto INVESTIRE i miei soldi? Impariamo le basi di FINANZA PERSONALE",
+     "chaine": "Will Media",
+     "vues": "287K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "12:52",
+     "avatar": "https://yt3.ggpht.com/ksdC5be1kdmy04UMTPQnfWxlmoRGgRUGHeBv0SmBMTGX25eVAxpLgLXeusybx6x1gnczN1g0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "O BÁSICO",
+     [
+      {
+       "t": "DE FINANÇAS",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HSXcvFVtsdM",
+     "titre": "Educação Financeira Básica: A REGRA DOS 3 FATORES",
+     "chaine": "Manual da Evolução",
+     "vues": "541 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "14:08",
+     "avatar": "https://yt3.ggpht.com/2EifavcuONZwFGZvB_jzkUVAKqFyP7QEEdmdDIh-stkr-T2ntwP1Ryx3jmHLfQ37a9BnUa6GOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "FİNANSIN",
+     [
+      {
+       "t": "TEMELLERİ",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KQ179EK_w7g",
+     "titre": "Tek Derste Finans ve Yatırımı Öğren",
+     "chaine": "Doç. Dr. Serkan Ünal",
+     "vues": "374 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "40:01",
+     "avatar": "https://yt3.ggpht.com/Wyez-G2OzNwEb8eO9TG9JAg66bhSHjmy8toS8jll7lkF54O7ANePf_1UE-EpYB12cmuzt2ZzEw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "BAZELE",
+     [
+      {
+       "t": "FINANȚELOR",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JqM2fxrEeNs",
+     "titre": "PRIMA REGULA IN EDUCATIA FINANCIARA - DACA O INCALCI, NU VEI AJUNGE BOGAT - AI MARE GRIJA",
+     "chaine": "ProActiverz | Gabriel BALU",
+     "vues": "19 K vizionări",
+     "date": "acum 4 ani",
+     "duree": "9:15",
+     "avatar": "https://yt3.ggpht.com/w1FKaEp0ZIAYybSjJU2ArrdV5YDWtlc8IaxxReoFSN8HoRD4nj0la5Lm7QvrP22N7zfqMJ0LTQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ZÁKLADY",
+     [
+      {
+       "t": "FINANCÍ",
+       "couleur": "#e0b090"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TMbH85TIVEY",
+     "titre": "7 kroků k finanční svobodě",
+     "chaine": "Frankieho finanční podcast",
+     "vues": "70 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "20:24",
+     "avatar": "https://yt3.ggpht.com/SJgYHRQvFAm82-S1V3KM-X_JU8Mo48mhOQB86SiFF5Ke8SmmMxM6MveVKqlkC0MeNMHrO9-psw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "CAPTIVER",
+       "couleur": "#404088"
+      }
+     ],
+     "GRÂCE À UN",
+     [
+      {
+       "t": "MONTAGE",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RhQbozy_tEk",
+     "titre": "La technique de Montage qui Vole votre ATTENTION",
+     "chaine": "Secrets de monteur pro",
+     "vues": "136 k vues",
+     "date": "il y a 1 an",
+     "duree": "10:46",
+     "avatar": "https://yt3.ggpht.com/9tJfsc-uKbmUkXePgiPZFK9n26tOxhVN1Jz8vhUzQYQH94xG2Z8EaY_qb1mpXbjmcoLzxAMr=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "HOOK",
+       "couleur": "#404088"
+      }
+     ],
+     "VIEWERS WITH",
+     [
+      {
+       "t": "EDITING",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sLgHqZSe2o0",
+     "titre": "How to edit SO good your viewers get addicted to your videos",
+     "chaine": "Learn By Leo",
+     "vues": "6M views",
+     "date": "2 years ago",
+     "duree": "14:32",
+     "avatar": "https://yt3.ggpht.com/Jh2uXR2shPWJnCQTBxVknXyc64ic34eYtQjq_51Jq0whS1rjt5EzNAm_Di4vzJ7Ah65sbGqONUA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "FESSELN",
+       "couleur": "#404088"
+      }
+     ],
+     "DURCH GUTEN",
+     [
+      {
+       "t": "SCHNITT",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "KTmVKuSwncA",
+     "titre": "Diese 10 Tipps machen dich sofort zum besseren Cutter (Davinci Resolve)",
+     "chaine": "Andreas Abb",
+     "vues": "113.708 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "15:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kCCkjqGDgO58zSaeyPCtPkB8dsTZxgDnpsdg5DfEpmW0w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "CATTURARE",
+       "couleur": "#404088"
+      }
+     ],
+     "CON IL",
+     [
+      {
+       "t": "MONTAGGIO",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3dinqSDD9UM",
+     "titre": "12 tecniche per montare i video COME DEI VERI PRO",
+     "chaine": "Gianmarco Capri",
+     "vues": "195K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "11:09",
+     "avatar": "https://yt3.ggpht.com/tieSAaTGBT0ziAU8_DId7xD6JYI7KL_n3flwNA72-7bHdnPW52lzLxsI_6hahlgA_2IyhyC8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "PRENDER",
+       "couleur": "#404088"
+      }
+     ],
+     "A ATENÇÃO COM",
+     [
+      {
+       "t": "EDIÇÃO",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gWfOdT8TK7E",
+     "titre": "Aprenda a EDITAR como um PROFISSIONAL",
+     "chaine": "Gabriel Saab",
+     "vues": "558 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "12:11",
+     "avatar": "https://yt3.ggpht.com/0SbThgJp-aUd-U8YshKTtdojxSf12OEdCt0cA1VCDnNXcSNGsKNLKBY7uZWXxClkG1888vP6=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KURGUYLA",
+       "couleur": "#404088"
+      }
+     ],
+     "İZLEYİCİYİ",
+     [
+      {
+       "t": "YAKALAMAK",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QHiiqIaySIo",
+     "titre": "SIFIRDAN Video Edit Nasıl Öğrenilir ve Editör Nasıl Olunur? 🔥 (Premiere Pro, Capcut vb...)",
+     "chaine": "Onur Naci Öztürkler",
+     "vues": "381 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "9:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lTlcejmADAbvsrgC9_Bek4QOWcg2aULGYsIe_2os0F7CY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "CAPTIVEAZĂ",
+       "couleur": "#404088"
+      }
+     ],
+     "PRINTR-UN",
+     [
+      {
+       "t": "MONTAJ",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "VGyYfpDkBRI",
+     "titre": "🎬 Tutorial Complet de Editare Video cu CapCut pentru Începători ✂️✨ pas cu pas in 16 minute",
+     "chaine": "Aidu",
+     "vues": "62 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "16:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh4zcY1ims9_M3uCtkRYl17QaUFx9zTqdTS6sEWTV8Mh4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZAUJMI",
+       "couleur": "#404088"
+      }
+     ],
+     "DÍKY",
+     [
+      {
+       "t": "STŘIHU",
+       "couleur": "#404088"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7FCnwQA8-vw",
+     "titre": "Kompletní průvodce střihem v CapCut pro úplné začátečníky",
+     "chaine": "Eliska Martynková Video",
+     "vues": "99 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "28:55",
+     "avatar": "https://yt3.ggpht.com/JHVW_EL445fHDouvNmj8mhb7iZjs2C22DFOd85himf-Vi-kIYunfsSAbGoVv-PzBB8-FetAn9w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "ÉLARGIR",
+     [
+      {
+       "t": "SES HORIZONS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "BROADEN",
+     [
+      {
+       "t": "YOUR HORIZONS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "DEINEN HORIZONT",
+     [
+      {
+       "t": "ERWEITERN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lern jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "AMPLIARE",
+     [
+      {
+       "t": "I TUOI ORIZZONTI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa di nuovo",
+      "ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "AMPLIAR",
+     [
+      {
+       "t": "SEUS HORIZONTES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "UFKUNU",
+     [
+      {
+       "t": "GENİŞLETMEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "LĂRGEȘTE-ȚI",
+     [
+      {
+       "t": "ORIZONTURILE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou",
+      "în fiecare zi."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "ROZŠÍŘIT SI",
+     [
+      {
+       "t": "OBZORY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den",
+      "něco nového."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     [
+      {
+       "t": "ORGANISER",
+       "couleur": "#5080b8"
+      }
+     ],
+     "SES JOURNÉES"
+    ],
+    "video": {
+     "id": "fSn2ibGxWwQ",
+     "titre": "Cette Méthode de Travail va EXPLOSER ta Productivité - Time Blocking",
+     "chaine": "Kaizen Lane",
+     "vues": "499 k vues",
+     "date": "il y a 4 ans",
+     "duree": "18:01",
+     "avatar": "https://yt3.ggpht.com/jGRdfMtabenZX9drlx9kReuDIk4IbGx7WAy3WF--AKv8MtOX31HyKyslri-wWHbV3hpgXk5FaYg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "PLAN",
+       "couleur": "#5080b8"
+      }
+     ],
+     "YOUR DAYS"
+    ],
+    "video": {
+     "id": "vAc0BzwzRFU",
+     "titre": "How to Plan Your Day in 10 Minutes (Step-by-Step)",
+     "chaine": "Miles Mochizuki",
+     "vues": "210K views",
+     "date": "1 year ago",
+     "duree": "21:13",
+     "avatar": "https://yt3.ggpht.com/8G80p4GNvgP8RG8QLCdTiegoIkLn5FiFe_QuPRth-iTufE7LrWm9kJEhOONMWymUYnE3mVrZCR0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "ORGANISIERE",
+       "couleur": "#5080b8"
+      }
+     ],
+     "DEINEN TAG"
+    ],
+    "video": {
+     "id": "r97cc8bRsOQ",
+     "titre": "So Planen Erfolgreiche Menschen Ihren Tag",
+     "chaine": "SONNENSEITE",
+     "vues": "136.298 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "9:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nZ-GzRG4mpwVYwngiXMRQ1q-bQ6xrQSHraHf3wRWalYg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     [
+      {
+       "t": "ORGANIZZARE",
+       "couleur": "#5080b8"
+      }
+     ],
+     "LE GIORNATE"
+    ],
+    "video": {
+     "id": "SVLJhQ3f6JA",
+     "titre": "Come Organizzare la Giornata - Metodo Semplice",
+     "chaine": "Leonardo Urbani",
+     "vues": "74K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "5:41",
+     "avatar": "https://yt3.ggpht.com/kONuB3j8nCggJnlkRR63jQAByVn33Sd9PWfyGmYQFawNu_rN7Tkc16BZTiDYopEiUXufw8kVlQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     [
+      {
+       "t": "ORGANIZAR",
+       "couleur": "#5080b8"
+      }
+     ],
+     "SEUS DIAS"
+    ],
+    "video": {
+     "id": "oQN371YOhaQ",
+     "titre": "Como dar conta de tudo — Dicas de produtividade e gestão do tempo",
+     "chaine": "Pedro Cooke",
+     "vues": "161 mil visualizações",
+     "date": "há 8 meses",
+     "duree": "17:44",
+     "avatar": "https://yt3.ggpht.com/4b1Rr82xwop3p25Sf7qAtefTDctkqFYyOFkLtxySridoBn4hk33JoIPA3CRd_fyvykrrGclF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "GÜNÜNÜ",
+       "couleur": "#5080b8"
+      }
+     ],
+     "PLANLAMAK"
+    ],
+    "video": {
+     "id": "d7L5Vc-YFNo",
+     "titre": "Verimli Plan Yapmak",
+     "chaine": "Gelişim Kutusu",
+     "vues": "154 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "4:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l31YBtOYRYpkwo46V0G2_yf2YR3B6CJz5MJ82_c_5EdVg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "ORGANIZAREA",
+       "couleur": "#5080b8"
+      }
+     ],
+     "ZILEI"
+    ],
+    "video": {
+     "id": "N8xcRRgv5Io",
+     "titre": "Cum Să Îți Organizezi Viața",
+     "chaine": "George Nedelcu",
+     "vues": "11 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "22:46",
+     "avatar": "https://yt3.ggpht.com/WeDLPbdvBL5cb6TTBcQdgVNzAgX4aX_aEiDAwwsMzKoizFVE6Mxs3zM91lI_maB8zjx37h1KrbE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "NAPLÁNUJ",
+       "couleur": "#5080b8"
+      }
+     ],
+     "SI DEN"
+    ],
+    "video": {
+     "id": "GRcVC6p9XqY",
+     "titre": "Jak si naplánovat den?! - nejlepší metoda time managementu",
+     "chaine": "Jan Kohut",
+     "vues": "9,8 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "11:18",
+     "avatar": "https://yt3.ggpht.com/s37LISB_ONA5BvXFfmkS-1UfHFptnsig3pqT9Cq_TlAtT8QaGNILfxtS_KNxauBsxRoaSQu65tA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "OUVRIR SON",
+     [
+      {
+       "t": "ENTREPRISE",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "GZ2RKkw0_wY",
+     "titre": "Comment créer son entreprise : Les étapes de la création d'entreprise.",
+     "chaine": "L'atelier Entreprise",
+     "vues": "291 k vues",
+     "date": "il y a 9 ans",
+     "duree": "4:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nU3Ah_qXDD5XNeR6FK8tDgCxC07OtWzJZkPQlJCo82QmQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "START YOUR",
+     [
+      {
+       "t": "BUSINESS",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JJyLynh5d6M",
+     "titre": "How to Actually Start Your Own Business (No-Bs Guide)",
+     "chaine": "Rise Above Reality",
+     "vues": "905K views",
+     "date": "1 year ago",
+     "duree": "11:01",
+     "avatar": "https://yt3.ggpht.com/OIrlsbaUzpMwVotdEjYotJRIZVl1D4YG7l7oYtFImsryxeKLk48CXgFOWHNiUXWYtJmPRBa7=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DEIN EIGENES",
+     [
+      {
+       "t": "UNTERNEHMEN",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5LznsgvEaTs",
+     "titre": "Selbstständig machen in 13 Schritten | Selbstständigkeit Grundlagen ganz einfach",
+     "chaine": "Steuerfit by NEUPLANER",
+     "vues": "150.996 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "12:50",
+     "avatar": "https://yt3.ggpht.com/DBw7wpEocKvHmORuaPfjJVd2oZGCAnLswb0vSgp3fq0rILmrvowPP8gg7Eb5hdpziA3JIVzV4g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "APRIRE LA",
+     [
+      {
+       "t": "TUA ATTIVITÀ",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xJd2wB26AxE",
+     "titre": "APRIRE UN'ATTIVITÀ IN PROPRIO DA ZERO: L'ERRORE N.1",
+     "chaine": "Gianluigi Ballarani",
+     "vues": "98K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "24:03",
+     "avatar": "https://yt3.ggpht.com/nhbTp5JhVF4RcF97lk4icWpFyQ7ZYbP0o4SA1U2PlIBxBvPox3QWZZ132b0FsfvYP7jRgkdtZQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "ABRIR SUA",
+     [
+      {
+       "t": "EMPRESA",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iyqzV6gT1Uc",
+     "titre": "COMO ESTRUTURAR UMA EMPRESA PEQUENA DESDE O INÍCIO",
+     "chaine": "Blog Abri Minha Empresa",
+     "vues": "140 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_niBzWAFDTNVNBNl0jDO2NemdrtkjJD78Rqpb2T1ZyTBA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "KENDİ",
+     [
+      {
+       "t": "ŞİRKETİNİ KUR",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r_0_2bS3t5k",
+     "titre": "Şahıs Şirketi: Avantajları ve Dezavantajları",
+     "chaine": "Mükellef",
+     "vues": "1 Mn görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "2:59",
+     "avatar": "https://yt3.ggpht.com/HTsSrg-pc9_HnJVIpZVlw-unpPJXF1qyVlHTic1VJKRaKCrOVEjevWj-ZFGVe_C_o85dCEpvHo8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI DESCHIZI",
+     [
+      {
+       "t": "O FIRMĂ",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tWiHAgFY_00",
+     "titre": "CUM SA DESCHIZI O FIRMA IN ROMANIA?",
+     "chaine": "Angel Ruja",
+     "vues": "130 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "14:11",
+     "avatar": "https://yt3.ggpht.com/Eq06l77Z0ZzyEF-PPpxqu7kx0P6uVCuAV3RJu_zDS6xP9ZWRPD9DuCmWfAAhqYT8r-NK4Xw3Tw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ZALOŽIT SI",
+     [
+      {
+       "t": "FIRMU",
+       "couleur": "#e80808"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F_WgWZ9bgDc",
+     "titre": "Jak začít podnikat? | KOVY",
+     "chaine": "Kovy",
+     "vues": "175 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "10:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k4ub1CHsSXWaP41R6iX0IAobJeWt69aZ7zedS3qUlBB14=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "APPRENDRE",
+     [
+      {
+       "t": "À MÉDITER",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PTsk8VHCZjM",
+     "titre": "10 minutes de MÉDITATION en pleine conscience pour débutants 🎧🎙 Cédric Michel",
+     "chaine": "Cédric Michel et Mieux Dormir 🎙️ Cédric Michel (nouvelle chaîne)",
+     "vues": "1,9 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "10:52",
+     "avatar": "https://yt3.ggpht.com/WBbkoKoF6j8wZXtYK992PBhWxyTM8SvsmIgsHYka9THeHDb9j66KEldT8rwKY7yk6D5OSiqNIQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "LEARN",
+     [
+      {
+       "t": "TO MEDITATE",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mMMerxh_12U",
+     "titre": "How To Meditate For Beginners - A Definitive Guide",
+     "chaine": "Improvement Pill",
+     "vues": "6M views",
+     "date": "9 years ago",
+     "duree": "5:55",
+     "avatar": "https://yt3.ggpht.com/K_l2GqyURyY31_GbPpwbBHjpCzyef3_4w0uHZ7S9OH7dmmeJcHxtbKfTZfVX9gB8InOt13Y7PQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "MEDITIEREN",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ockCQMt9kM0",
+     "titre": "Geführte Anfänger Meditation | 10 Minuten für jeden Tag",
+     "chaine": "Mady Morrison",
+     "vues": "7,8 Mio. Aufrufe",
+     "date": "vor 9 Jahren",
+     "duree": "11:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_myyDZtX1Ueod8MSB3WcWMNOF1Kv9v7c9W6wgY6M7PN6AQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "IMPARARE",
+     [
+      {
+       "t": "A MEDITARE",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Df9ADpxg-Zw",
+     "titre": "Come iniziare a meditare con successo (anche se non hai mai meditato prima) | Filippo Ongaro",
+     "chaine": "Dr. Filippo Ongaro",
+     "vues": "253K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "6:13",
+     "avatar": "https://yt3.ggpht.com/h6rUuIJy2Gq35UIFROwcxOtvJOCfAz8aCu2NCOgBpXes4U8lY1NHWYQGshWQtMBFisMSNKkP=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "APRENDER",
+     [
+      {
+       "t": "A MEDITAR",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1MrQPZuSs7A",
+     "titre": "Como meditar pela primeira vez? | Meditação de 5 minutos",
+     "chaine": "Eurekka",
+     "vues": "431 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/-OGsuHW-7cVvYgKV_QrtCCi4P9ChZDldJxt4yxjhypdeQ8yGfdv1OAn8eAPAae_6IMFYZl9TEes=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "MEDİTASYON",
+     [
+      {
+       "t": "YAPMAYI ÖĞREN",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Szu8r5Z6lNE",
+     "titre": "Meditasyon Nasıl Yapılır (hayatının her alanında seviye atla)",
+     "chaine": "Furkan Gönenç",
+     "vues": "56 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "9:41",
+     "avatar": "https://yt3.ggpht.com/rL08Kf3228uH0Z2Ni2ThJBIty5FpL1NvWltHs2yWJrPPOzsX1cglYD_Y-eQRQtFz91rOFkKB=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎNVEȚI",
+     [
+      {
+       "t": "SĂ MEDITEZI",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "whI61Ne_-zc",
+     "titre": "Cum sa meditezi! Ghid pentru incepatori „Totul despre Meditatie 3”",
+     "chaine": "TopSucces",
+     "vues": "58 K vizionări",
+     "date": "acum 7 ani",
+     "duree": "4:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpaVq-Pj6_nGqSz3TKZtxbIFsneeggw18x0AvHKHCYEn4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "NAUČIT SE",
+     [
+      {
+       "t": "MEDITOVAT",
+       "couleur": "#4a9a5a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "qwSt79cVUWM",
+     "titre": "Meditace pro Začátečníky",
+     "chaine": "Václav Tomanec",
+     "vues": "60 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "29:05",
+     "avatar": "https://yt3.ggpht.com/tLYKUsbAGp1IrLCBXdf8GRyggHVE0Ft19_E8Eb1c7shp6vtOFz5U9ID_T-18Om6GXeJXJaNrjg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

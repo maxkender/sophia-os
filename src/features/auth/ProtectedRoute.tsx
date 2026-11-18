@@ -8,6 +8,7 @@ import { FullPageLoader } from "@/components/layout/FullPageLoader";
 import { signOut } from "./api";
 import { ChangePasswordPage } from "./ChangePasswordPage";
 import { useAuth } from "./AuthContext";
+import { CompteInactif } from "@/features/fin/FinCollaboration";
 
 /** Compte existant mais pas encore activé par un admin. */
 function EnAttente() {
@@ -33,7 +34,8 @@ export function ProtectedRoute() {
   if (!user) return <Navigate to="/login" replace />;
 
   // profil null = provisioning encore en cours, on laisse passer le chargement.
-  if (profil && !profil.is_active) return <EnAttente />;
+  // 18/11 (Max) : un posteur killé ou parti à sa demande voit sa fin de collaboration (pas « en attente »).
+  if (profil && !profil.is_active) return <CompteInactif attente={<EnAttente />} />;
   if (!role) return <EnAttente />;
 
   // Le mot de passe reste celui donné par l'admin, le même pour tous : la

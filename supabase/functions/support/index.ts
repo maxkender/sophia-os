@@ -5,6 +5,7 @@ import { CANAL_TICKETS, erreurTicket, promptContexte, texteTicket } from "../_sh
 import { emailReel, jetonValide, lireEmailsBrevo, texteReponseEmail } from "../_shared/email_entrant.ts";
 import { lienMotDePasse, refusMotDePasseUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { envoyerEmailSite, rendreEmailRuul } from "../_shared/ruul.ts";
+import { type CasFin, estDemandePosteur, OBJET_FIN, raisonFixe, texteCompteArrete, texteFin } from "../_shared/fin_collaboration.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
 import {
   CATEGORIES_PROBLEME,
@@ -33,7 +34,7 @@ import {
 import { assertRole, json, messageErreur, secretCron, secretCronConnu, serviceClient } from "../_shared/supabase.ts";
 import {
   casDeCategorie, type CasFixe, detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, etatDashboardTexte,
-  ligneStatut, situation, TEXTES, texteStatut,
+  ligneStatut, type Situation, situation, TEXTES, texteStatut,
 } from "../_shared/support_regles.ts";
 
 /**
@@ -127,6 +128,10 @@ Deno.serve(async (request) => {
           envoye_equipe: probleme || !b.sur, decision: b.decision, brouillon: b.brouillon, verdict: v,
         });
       }
+      case "textes_fin":
+        // 18/11 (Max) : kills, parties 1 et 2 : textes au posteur (page de fin, bandeau) et message de fin (cron */10).
+        if (acces.role !== "admin") return json({ ok: false, error: "forbidden" }, 403);
+        return json(await textesFin(db, body.simuler === true));
       case "alertes":
         if (!admin) return json({ ok: false, error: "forbidden" }, 403);
         return json(await alertes(db));
@@ -819,6 +824,93 @@ async function traduire(texte: string, langue: string | null | undefined): Promi
   }
 }
 
+/** 18/11 : le texte de la page « collaboration terminée » (anglais), stocké s'il existe, sinon composé pareil. */
+async function texteFinBot(db: Db, poster: string | null, e: EtatReel, s: Situation): Promise<string | null> {
+  if (poster) {
+    const { data } = await db.from("posteur_textes").select("texte_en").eq("poster_id", poster).eq("cle", "fin").maybeSingle();
+    if (data?.texte_en) return data.texte_en as string;
+  }
+  if (!s.le) return null;
+  const cas: CasFin = estDemandePosteur(e.arret?.source, e.arret?.motif) ? "demande" : "kill";
+  const raison = cas === "demande" ? null : raisonFixe(s.raison) ?? await raisonEnClair(s.raison);
+  if (cas === "kill" && !raison) return null;
+  return texteFin(e, cas, s.le, raison);
+}
+
+/** 18/11 : un de ses deux comptes désactivé ces 3 dernières semaines : le texte du bandeau du dashboard. */
+async function bandeauBot(db: Db, poster: string | null): Promise<string | null> {
+  if (!poster) return null;
+  const { data } = await db.from("posteur_textes").select("texte_en, maj_at").eq("poster_id", poster).like("cle", "compte_arrete:%")
+    .gte("maj_at", new Date(Date.now() - 21 * 86_400_000).toISOString()).order("maj_at", { ascending: false }).limit(1).maybeSingle();
+  return (data?.texte_en as string | undefined) ?? null;
+}
+
+/** 18/11 (Max) : le message de fin ne part qu'aux arrêts à partir du 19/11 (jamais aux anciens). */
+const DEBUT_MESSAGE_FIN = Date.parse("2026-11-19T00:00:00Z");
+
+interface TexteFinAFaire {
+  poster_id: string; cle: string; cas: string; le: string | null; motif: string | null; compte_id: string | null; handle: string | null;
+  autre: string | null; montant: number | null; langue: string | null; email: string | null; envoye: boolean; texte_en: string | null;
+}
+
+/**
+ * Kills, parties 1 et 2 : les textes au posteur (page « collaboration terminée », bandeau « un de vos comptes… »),
+ * composés depuis la vraie situation (support_etat_reel), traduits dans sa langue et écrits (posteur_textes).
+ * Le message de fin part une seule fois, par email, avec le même contenu que la page. Cron toutes les 10 min.
+ */
+async function textesFin(db: Db, simuler: boolean) {
+  const { data, error } = await db.rpc("textes_fin_a_faire", { p_limite: 40 });
+  if (error) throw new Error(error.message);
+  const debut = Date.now();
+  const bilan = { lus: 0, ecrits: 0, envoyes: 0, erreurs: [] as string[], exemples: [] as { cle: string; langue: string | null; texte_en: string }[] };
+  for (const t of (data ?? []) as TexteFinAFaire[]) {
+    if (Date.now() - debut > 110_000) break;
+    bilan.lus++;
+    try {
+      if (!t.le) continue;
+      const raison = t.cas === "demande" ? null : raisonFixe(t.motif) ?? await raisonEnClair(t.motif);
+      let en: string;
+      if (t.cle === "fin") {
+        const etat = await etatReel(db, t.poster_id);
+        if (!etat) continue;
+        en = texteFin(etat, t.cas === "demande" ? "demande" : "kill", t.le, raison);
+      } else {
+        en = texteCompteArrete({ handle: t.handle, le: t.le, raison, autre: t.autre, montant: t.montant == null ? null : Number(t.montant) });
+      }
+      if (simuler) {
+        if (bilan.exemples.length < 6) bilan.exemples.push({ cle: t.cle.split(":")[0]!, langue: t.langue, texte_en: en });
+        continue;
+      }
+      let texte: string | null = null;
+      if (en === t.texte_en) {
+        const { data: ancien } = await db.from("posteur_textes").select("texte").eq("poster_id", t.poster_id).eq("cle", t.cle).maybeSingle();
+        texte = (ancien?.texte as string | undefined) ?? null;
+      }
+      texte = texte ?? await traduire(en, t.langue);
+      const { error: e1 } = await db.rpc("texte_poster_ecrire", { p_poster: t.poster_id, p_cle: t.cle, p_en: en, p_texte: texte, p_langue: t.langue });
+      if (e1) throw new Error(e1.message);
+      bilan.ecrits++;
+      // Le message de fin, une seule fois, aux arrêts récents seulement.
+      if (t.cle === "fin" && !t.envoye && Date.parse(t.le) >= DEBUT_MESSAGE_FIN) {
+        const c = await contactPosteur(db, t.poster_id);
+        let erreur: string | null = "pas d'email connu";
+        if (c.email) {
+          const objet = await traduire(OBJET_FIN, t.langue);
+          const e = rendreEmailRuul({ objet, titre: "Vik Studios", corps: texte.split("\n").join("\n\n"), lienStop: OS_URL, sansPied: true });
+          const r = await envoyerEmailSite(c.email, objet, e.html, e.texte, OS_URL, ["fin_collaboration"]);
+          erreur = r.ok ? null : String(r.erreur ?? "échec");
+        }
+        await db.rpc("texte_poster_envoye", { p_poster: t.poster_id, p_cle: "fin", p_erreur: erreur });
+        if (!erreur) bilan.envoyes++;
+        else bilan.erreurs.push(`${t.poster_id} : message de fin : ${erreur}`);
+      }
+    } catch (e) {
+      bilan.erreurs.push(`${t.poster_id} ${t.cle} : ${messageErreur(e).slice(0, 160)}`);
+    }
+  }
+  return { ok: true, simulation: simuler, ...bilan };
+}
+
 /** Le motif interne d'un arrêt, en anglais clair, pour « because … ». */
 async function raisonEnClair(motif: string | null): Promise<string | null> {
   if (!motif) return null;
@@ -912,7 +1004,10 @@ async function appliquerRegles(
         plan.resume = plan.resume ?? "Le posteur demande l'arrêt de son contrat.";
         plan.action_proposee = `exécuter l'arrêt (désactiver le compte${o.etat.canal_paie === "upwork" && o.etat.contrat_upwork?.actif ? `, fermer le contrat Upwork ${o.etat.contrat_upwork.id}` : ""})`;
       } else {
-        const t = texteStatut(s, s.statut === "kill" ? await raisonEnClair(s.raison) : null);
+        // 18/11 (Max) : exactement le texte de la page « collaboration terminée » / du bandeau du dashboard.
+        const t = s.statut === "kill"
+          ? await texteFinBot(db, o.poster, o.etat, s)
+          : (s.statut === "actif" ? await bandeauBot(db, o.poster) : null) ?? texteStatut(s, null);
         fixe(t ?? TEXTES.inactif_sans_raison, d.categorie === "arret" ? "arret" : "statut");
         plan.cas = "statut";
         if (!t) d.niveau = "adrien";

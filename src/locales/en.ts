@@ -1050,6 +1050,13 @@ export const en = {
       errorGeneric: "Something went wrong. Please try again.",
       logout: "Log out",
       pendingTitle: "Account pending",
+      // 18/11 (Max) : collaboration ended (kill or at the poster's request). The full text comes translated from the server.
+      finKill: "Your collaboration with Vik Studios has ended.",
+      finDemande: "Your contract ended at your request.",
+      finAide: "A question about a payment? Ask in Help.",
+      finHelp: "Open Help",
+      finRetour: "Back",
+      bandeauCompris: "Got it",
       pendingBody:
         "Your account exists but isn't activated yet. An administrator needs to approve it.",
       changeTitle: "Choose your password",

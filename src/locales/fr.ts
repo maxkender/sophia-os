@@ -1051,6 +1051,13 @@ export const fr = {
       errorGeneric: "Une erreur est survenue. Réessaie.",
       logout: "Déconnexion",
       pendingTitle: "Compte en attente",
+      // 18/11 (Max) : collaboration terminée (kill ou à la demande du posteur). Le texte complet vient traduit du serveur.
+      finKill: "Votre collaboration avec Vik Studios est terminée.",
+      finDemande: "Votre contrat s'est terminé à votre demande.",
+      finAide: "Une question sur un paiement ? Posez-la dans Help.",
+      finHelp: "Ouvrir Help",
+      finRetour: "Retour",
+      bandeauCompris: "Compris",
       pendingBody:
         "Ton compte existe mais n'est pas encore activé. Un administrateur doit le valider.",
       changeTitle: "Choisis ton mot de passe",

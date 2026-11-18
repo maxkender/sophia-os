@@ -6,18 +6,19 @@ import type { CarteLabel, CompteBible } from "./moodboard";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), marquerBatchImporte: vi.fn(), changerCarte: vi.fn(),
-  modifierNote: vi.fn(), supprimerCompte: vi.fn(),
+  modifierCompte: vi.fn(), supprimerCompte: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
 
-import { compterEtapes, handlesDuTexte, ranger, vuesCourtes } from "./moodboard";
+import { appsDe, compterEtapes, handlesDuTexte, ranger, REMARQUE_UGC, vuesCourtes } from "./moodboard";
+import { DialogueAjout } from "./DialoguesBible";
 import { PageBible } from "./PageBible";
 
 const carte = (o: Partial<CarteLabel>): CarteLabel => ({
   id: "k1", nom: "classic_girl_run", titre: null, section: "runvik", badge: "propose", description_da: "Coureuse en photo iPhone", label_id: null, ordre: 1, statut: "a_valider", ...o,
 });
 const compte = (o: Partial<CompteBible>): CompteBible => ({
-  id: "c1", handle: "compte.un", etape: "a_importer", label_propose_id: "k1", autres_cartes: [], note_import: null,
+  id: "c1", handle: "compte.un", etape: "a_importer", label_propose_id: "k1", autres_cartes: [], note_import: null, remarque: null, a_podzer: false,
   posts: [{ url: "https://www.tiktok.com/@compte.un/video/7600000000000000001", miniature_url: "https://img.test/1.jpg", vues: 4800000 }],
   miniatures_statut: "ok", miniatures_erreur: null, vues_mediane: 85000, meilleur_post_vues: 722000, abonnes: null, ajoute_at: "2026-11-19T10:00:00Z", ...o,
 });
@@ -40,6 +41,16 @@ describe("rangement du moodboard", () => {
     expect(g[2]!.total).toBe(1);
     expect(ranger(comptes, CARTES, { etape: "a_importer", recherche: "chia", section: "" }).flatMap((x) => x.cartes.flatMap((c) => c.comptes.map((y) => y.compte.handle)))).toEqual(["chiara"]);
     expect(compterEtapes(comptes)).toEqual({ a_importer: 4, prochain_batch: 1, importe: 0 });
+  });
+
+  it("filtre « À podzer », recherche dans la remarque, apps réunies sans doublon", () => {
+    const comptes = [compte({}), compte({ id: "c2", handle: "podz", a_podzer: true, remarque: REMARQUE_UGC })];
+    const handles = (f: Parameters<typeof ranger>[2]) => ranger(comptes, CARTES, f).flatMap((g) => g.cartes.flatMap((c) => c.comptes.map((x) => x.compte.handle)));
+    expect(handles({ etape: "a_importer", recherche: "", section: "", podzer: true })).toEqual(["podz"]);
+    expect(handles({ etape: "a_importer", recherche: "ugc", section: "" })).toEqual(["podz"]);
+    expect(appsDe(["sophia", "micabo", "sophia", "runvik"])).toEqual({
+      application_ids: ["00000000-0000-4000-8000-000000000001", "00000000-0000-4000-8000-000000000002"], apps_attente: ["Runvik – running"],
+    });
   });
 
   it("lit un collage de liens (profils, posts, @handle, liens courts)", () => {
@@ -78,5 +89,22 @@ describe("page Bible", () => {
     fireEvent.click(within(tuile).getByRole("button", { name: "Retirer" }));
     await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c9"], "a_importer"));
     expect(screen.getByRole("button", { name: /Marquer le batch comme importé/ })).toBeInTheDocument();
+  });
+});
+
+describe("ajout de comptes", () => {
+  it("plusieurs apps cochées, « À podzer », une remarque par compte (UGC en un clic)", async () => {
+    api.ajouterComptes.mockResolvedValue({ crees: ["un", "deux"], deja: [], ids: [] });
+    render(<DialogueAjout ouvert cartes={CARTES} onFermer={() => {}} onFini={() => {}} />);
+    fireEvent.change(screen.getByPlaceholderText(/compte1/), { target: { value: "https://www.tiktok.com/@un\n@deux" } });
+    fireEvent.click(screen.getByRole("button", { name: "Runvik" }));
+    fireEvent.click(screen.getByRole("button", { name: "Sophia" }));
+    fireEvent.click(screen.getByLabelText("À podzer"));
+    fireEvent.change(screen.getByLabelText("Remarque pour @deux"), { target: { value: "photos à refaire" } });
+    fireEvent.click(screen.getAllByRole("button", { name: "UGC" })[0]!);
+    fireEvent.click(screen.getByRole("button", { name: "Ajouter" }));
+    await waitFor(() => expect(api.ajouterComptes).toHaveBeenCalledWith(["un", "deux"], null, ["runvik", "sophia"], {
+      a_podzer: true, remarques: { un: REMARQUE_UGC, deux: "photos à refaire" },
+    }));
   });
 });

@@ -18,6 +18,7 @@ import { AppShell } from "./AppShell";
 import { useParrainageActif } from "@/features/bonus/parrainageActif";
 import { useAuth } from "@/features/auth/AuthContext";
 import { BandeauEmailRuul } from "@/features/ruul/BandeauEmailRuul";
+import { BandeauCompteArrete } from "@/features/fin/BandeauCompteArrete";
 import { BoutonHelp } from "@/features/support/BoutonHelp";
 import { QuestionnairePopup } from "@/features/questionnaire/QuestionnairePopup";
 
@@ -59,6 +60,8 @@ export function PosterLayout() {
       <BoutonHelp />
       {/* 10/11 : posteur Ruul sans email Ruul, en haut de l'espace. */}
       <BandeauEmailRuul />
+      {/* 18/11 (Max) : un de ses 2 comptes a été désactivé : en haut, jusqu'à « Got it ». */}
+      <BandeauCompteArrete />
       {/*
         11/11 : chaque pop-up dans sa SectionSure. Ils s'ouvrent par-dessus le
         calendrier et ne se ferment que par leur bouton : un pop-up qui plantait

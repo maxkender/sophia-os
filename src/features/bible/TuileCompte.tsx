@@ -16,6 +16,7 @@ export interface ActionsTuile {
   onChangerLabel: (c: CompteBible) => void;
   onModifier: (c: CompteBible, p: { note: string; remarque: string; a_podzer: boolean }) => void;
   onSupprimer: (c: CompteBible) => void;
+  onPodzer: (c: CompteBible, a_podzer: boolean) => void;
   onRestaurer: (c: CompteBible) => void;
   onSupprimerDefinitivement: (c: CompteBible) => void;
 }
@@ -39,12 +40,19 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
         <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" className="block break-all text-[13px] font-semibold leading-snug text-stone-900 hover:underline dark:text-stone-100">
           <span className="font-normal text-stone-400">tiktok.com/</span>@{c.handle}
         </a>
-        {(aussi || c.a_podzer) && (
-          <div className="mt-1 flex flex-wrap gap-1">
-            {c.a_podzer && <span className="inline-flex items-center gap-0.5 rounded-full bg-teal-50 px-1.5 py-px text-[10px] font-medium text-teal-700 ring-1 ring-teal-200"><Sparkles className="size-2.5" />à podzer</span>}
-            {aussi && <span className="inline-block rounded-full bg-stone-100 px-1.5 py-px text-[10px] text-stone-500 dark:bg-stone-800">aussi ici</span>}
-          </div>
-        )}
+        <div className="mt-1 flex flex-wrap items-center gap-1">
+          {/* La case « à podzer », toujours visible, d'un clic. */}
+          <label
+            className={cn(
+              "inline-flex cursor-pointer select-none items-center gap-1 rounded-full px-1.5 py-px text-[10px] font-medium ring-1 transition",
+              c.a_podzer ? "bg-teal-50 text-teal-700 ring-teal-300" : "bg-white text-stone-400 ring-stone-200 hover:text-stone-600 hover:ring-stone-300 dark:bg-stone-900",
+            )}
+          >
+            <input type="checkbox" checked={c.a_podzer} onChange={(e) => actions.onPodzer(c, e.target.checked)} className="size-3 accent-teal-600" aria-label={`À podzer : @${c.handle}`} />
+            {c.a_podzer && <Sparkles className="size-2.5" aria-hidden />}à podzer
+          </label>
+          {aussi && <span className="inline-block rounded-full bg-stone-100 px-1.5 py-px text-[10px] text-stone-500 dark:bg-stone-800">aussi ici</span>}
+        </div>
         {edition ? (
           <form className="mt-1.5 space-y-1" onSubmit={(e) => { e.preventDefault(); actions.onModifier(c, { note, remarque, a_podzer: podzer }); setEdition(false); }}>
             <input autoFocus value={note} onChange={(e) => setNote(e.target.value)} className="h-7 w-full rounded-md border px-2 text-xs" placeholder="Note (ex. pic 4,8 M)" aria-label="Note" />

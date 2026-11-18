@@ -6,7 +6,7 @@ import type { CarteLabel, CompteBible } from "./moodboard";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), marquerBatchImporte: vi.fn(), changerCarte: vi.fn(),
-  modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
+  modifierCompte: vi.fn(), marquerPodzer: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
 
@@ -89,6 +89,9 @@ describe("page Bible", () => {
     fireEvent.click(within(tuile).getByRole("button", { name: "Retirer" }));
     await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c9"], "a_importer"));
     expect(screen.getByRole("button", { name: /Marquer le batch comme importé/ })).toBeInTheDocument();
+    // La case « à podzer », d'un clic.
+    fireEvent.click(within(tuile).getByLabelText("À podzer : @deja.batch"));
+    await waitFor(() => expect(api.marquerPodzer).toHaveBeenCalledWith("c9", true));
     // Un seul compte marqué importé, depuis le prochain batch.
     fireEvent.click(within(tuile).getByRole("button", { name: "Importé" }));
     await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c9"], "importe"));

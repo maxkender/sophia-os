@@ -143,6 +143,12 @@ export async function modifierCompte(id: string, p: { note: string; remarque: st
   if (error) throw new Error(error.message);
 }
 
+/** La case « À podzer » d'un compte, d'un clic. */
+export async function marquerPodzer(id: string, a_podzer: boolean): Promise<void> {
+  const { error } = await supabase.from("bible_comptes").update({ a_podzer }).eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
 /** Les apps de plusieurs sections réunies (ids d'app et apps en attente, sans doublon). */
 export function appsDe(sections: Section[]): { application_ids: string[]; apps_attente: string[] } {
   const u = (x: string[]) => [...new Set(x)];

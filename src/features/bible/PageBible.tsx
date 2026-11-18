@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 import { DialogueAjout, DialogueLabel } from "./DialoguesBible";
 import {
   type CarteLabel, changerCarte, changerEtape, type CompteBible, compterEtapes, LIBELLE_BADGE, lireCartes, lireComptes,
-  marquerBatchImporte, mettreCorbeille, modifierCompte, nomCarte, ranger, restaurerCompte, type Section, SECTIONS, supprimerDefinitivement,
+  marquerBatchImporte, marquerPodzer, mettreCorbeille, modifierCompte, nomCarte, ranger, restaurerCompte, type Section, SECTIONS, supprimerDefinitivement,
   type Vue, VUES,
 } from "./moodboard";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
@@ -72,6 +72,7 @@ export function PageBible() {
     onChangerLabel: (c) => setARanger(c),
     onModifier: (c, p) => void agir(c, () => modifierCompte(c.id, p)),
     onSupprimer: (c) => void agir(c, () => mettreCorbeille(c.id)),
+    onPodzer: (c, v) => void agir(c, () => marquerPodzer(c.id, v)),
     onRestaurer: (c) => void agir(c, () => restaurerCompte(c.id)),
     onSupprimerDefinitivement: (c) => { if (window.confirm(`Supprimer @${c.handle} pour de bon ? (On ne pourra plus le restaurer.)`)) void agir(c, () => supprimerDefinitivement(c.id)); },
   };

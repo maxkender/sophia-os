@@ -8,6 +8,8 @@ import { supabase } from "@/lib/supabase/client";
 import { handleDe } from "./parse";
 
 export type Etape = "a_importer" | "prochain_batch" | "importe";
+/** Un onglet de la page : une étape, ou la corbeille. */
+export type Vue = Etape | "corbeille";
 export type Section = "runvik" | "micabo" | "sophia" | "idees";
 export type Badge = "existe" | "nouveau" | "propose" | "a_confirmer" | "idee";
 
@@ -16,6 +18,8 @@ export const ETAPES: readonly { cle: Etape; libelle: string }[] = [
   { cle: "prochain_batch", libelle: "Prochain batch" },
   { cle: "importe", libelle: "Importés" },
 ];
+
+export const VUES: readonly { cle: Vue; libelle: string }[] = [...ETAPES, { cle: "corbeille", libelle: "Corbeille" }];
 
 export const SECTIONS: readonly { cle: Section | "sans"; libelle: string; sous?: string }[] = [
   { cle: "runvik", libelle: "Runvik", sous: "running" },
@@ -58,6 +62,8 @@ export interface CompteBible {
   /** Une remarque de Max (ex. « UGC (vraie personne) : changer les images »). */
   remarque: string | null;
   a_podzer: boolean;
+  /** Mis à la corbeille (restaurable), null sinon. */
+  supprime_at?: string | null;
   posts: Miniature[];
   miniatures_statut: "a_faire" | "ok" | "partiel" | "sans_liens" | "erreur" | null;
   miniatures_erreur: string | null;
@@ -81,7 +87,7 @@ export interface CarteLabel {
   label_nom?: string | null;
 }
 
-const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, remarque, a_podzer, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
+const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, remarque, a_podzer, supprime_at, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
 
 export async function lireComptes(): Promise<CompteBible[]> {
   const { data, error } = await supabase.from("bible_comptes").select(COLONNES).order("ajoute_at").limit(3000);
@@ -146,8 +152,20 @@ export function appsDe(sections: Section[]): { application_ids: string[]; apps_a
   };
 }
 
-export async function supprimerCompte(id: string): Promise<void> {
-  const { error } = await supabase.from("bible_comptes").delete().eq("id", id);
+/** « Supprimer » : à la corbeille (restaurable). */
+export async function mettreCorbeille(id: string): Promise<void> {
+  const { error } = await supabase.from("bible_comptes").update({ supprime_at: new Date().toISOString() }).eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
+export async function restaurerCompte(id: string): Promise<void> {
+  const { error } = await supabase.from("bible_comptes").update({ supprime_at: null }).eq("id", id);
+  if (error) throw new Error(error.message);
+}
+
+/** Depuis la corbeille seulement : supprimé pour de bon. */
+export async function supprimerDefinitivement(id: string): Promise<void> {
+  const { error } = await supabase.from("bible_comptes").delete().eq("id", id).not("supprime_at", "is", null);
   if (error) throw new Error(error.message);
 }
 
@@ -168,8 +186,7 @@ export async function ajouterComptes(
   const nouveaux = handles.filter((h) => !deja.some((d) => d.handle === h));
   const ids: string[] = deja.map((d) => d.id);
   for (const d of deja) {
-    const maj = { ...lien, ...(apps ?? {}), ...(remarque(d.handle) ? { remarque: remarque(d.handle) } : {}), ...(opts.a_podzer ? { a_podzer: true } : {}) };
-    if (!Object.keys(maj).length) continue;
+    const maj = { supprime_at: null, ...lien, ...(apps ?? {}), ...(remarque(d.handle) ? { remarque: remarque(d.handle) } : {}), ...(opts.a_podzer ? { a_podzer: true } : {}) };
     const { error } = await supabase.from("bible_comptes").update(maj).eq("id", d.id);
     if (error) throw new Error(error.message);
   }
@@ -213,10 +230,11 @@ export interface Groupe {
 
 /** Range les comptes d'une étape : section → carte (dans l'ordre), « Sans label » en dernier. */
 export function ranger(
-  comptes: CompteBible[], cartes: CarteLabel[], filtre: { etape: Etape; recherche: string; section: Section | "sans" | ""; podzer?: boolean },
+  comptes: CompteBible[], cartes: CarteLabel[], filtre: { etape: Vue; recherche: string; section: Section | "sans" | ""; podzer?: boolean },
 ): Groupe[] {
   const q = filtre.recherche.trim().toLowerCase().replace(/^@/, "");
-  const visibles = comptes.filter((c) => c.etape === filtre.etape && (!filtre.podzer || c.a_podzer)
+  const visibles = comptes.filter((c) => (filtre.etape === "corbeille" ? Boolean(c.supprime_at) : !c.supprime_at && c.etape === filtre.etape)
+    && (!filtre.podzer || c.a_podzer)
     && (!q || c.handle.includes(q) || (c.note_import ?? "").toLowerCase().includes(q) || (c.remarque ?? "").toLowerCase().includes(q)));
   const parId = new Map(cartes.map((c) => [c.id, c]));
   return SECTIONS
@@ -241,11 +259,15 @@ export function ranger(
     .filter((g) => g.cartes.length > 0);
 }
 
-export const compterEtapes = (comptes: CompteBible[]): Record<Etape, number> => ({
-  a_importer: comptes.filter((c) => c.etape === "a_importer").length,
-  prochain_batch: comptes.filter((c) => c.etape === "prochain_batch").length,
-  importe: comptes.filter((c) => c.etape === "importe").length,
-});
+export const compterEtapes = (comptes: CompteBible[]): Record<Vue, number> => {
+  const vivants = comptes.filter((c) => !c.supprime_at);
+  return {
+    a_importer: vivants.filter((c) => c.etape === "a_importer").length,
+    prochain_batch: vivants.filter((c) => c.etape === "prochain_batch").length,
+    importe: vivants.filter((c) => c.etape === "importe").length,
+    corbeille: comptes.length - vivants.length,
+  };
+};
 
 /** « 4,8 M », « 317k ». */
 export function vuesCourtes(n: number | null | undefined): string | null {

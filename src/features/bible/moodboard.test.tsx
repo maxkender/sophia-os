@@ -6,7 +6,7 @@ import type { CarteLabel, CompteBible } from "./moodboard";
 
 const api = vi.hoisted(() => ({
   lireComptes: vi.fn(), lireCartes: vi.fn(), changerEtape: vi.fn(), marquerBatchImporte: vi.fn(), changerCarte: vi.fn(),
-  modifierCompte: vi.fn(), supprimerCompte: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
+  modifierCompte: vi.fn(), mettreCorbeille: vi.fn(), restaurerCompte: vi.fn(), supprimerDefinitivement: vi.fn(), ajouterComptes: vi.fn(), rafraichirMiniatures: vi.fn(),
 }));
 vi.mock("./moodboard", async (orig) => ({ ...(await orig<typeof import("./moodboard")>()), ...api }));
 
@@ -40,7 +40,7 @@ describe("rangement du moodboard", () => {
     expect(g[1]!.cartes[1]!.comptes[0]).toMatchObject({ aussi: true });
     expect(g[2]!.total).toBe(1);
     expect(ranger(comptes, CARTES, { etape: "a_importer", recherche: "chia", section: "" }).flatMap((x) => x.cartes.flatMap((c) => c.comptes.map((y) => y.compte.handle)))).toEqual(["chiara"]);
-    expect(compterEtapes(comptes)).toEqual({ a_importer: 4, prochain_batch: 1, importe: 0 });
+    expect(compterEtapes(comptes)).toEqual({ a_importer: 4, prochain_batch: 1, importe: 0, corbeille: 0 });
   });
 
   it("filtre « À podzer », recherche dans la remarque, apps réunies sans doublon", () => {
@@ -89,6 +89,27 @@ describe("page Bible", () => {
     fireEvent.click(within(tuile).getByRole("button", { name: "Retirer" }));
     await waitFor(() => expect(api.changerEtape).toHaveBeenCalledWith(["c9"], "a_importer"));
     expect(screen.getByRole("button", { name: /Marquer le batch comme importé/ })).toBeInTheDocument();
+  });
+});
+
+describe("corbeille", () => {
+  it("Supprimer met à la corbeille ; dans l'onglet Corbeille : Restaurer, et le compte n'est plus compté ailleurs", async () => {
+    api.lireCartes.mockResolvedValue(CARTES);
+    api.mettreCorbeille.mockResolvedValue(undefined);
+    api.restaurerCompte.mockResolvedValue(undefined);
+    api.lireComptes.mockResolvedValue([compte({}), compte({ id: "c8", handle: "jete", supprime_at: "2026-11-18T16:00:00Z" })]);
+    expect(compterEtapes([compte({}), compte({ id: "c8", supprime_at: "2026-11-18T16:00:00Z" })])).toEqual({ a_importer: 1, prochain_batch: 0, importe: 0, corbeille: 1 });
+    render(<QueryClientProvider client={new QueryClient({ defaultOptions: { queries: { retry: false } } })}><PageBible /></QueryClientProvider>);
+    expect(await screen.findByRole("tab", { name: /Corbeille 1/ })).toBeInTheDocument();
+    expect(screen.queryByText(/jete/)).toBeNull();
+    const tuile = screen.getByText(/compte\.un/).closest("[data-compte]") as HTMLElement;
+    fireEvent.click(within(tuile).getByRole("button", { name: "Supprimer" }));
+    await waitFor(() => expect(api.mettreCorbeille).toHaveBeenCalledWith("c1"));
+    fireEvent.click(screen.getByRole("tab", { name: /Corbeille/ }));
+    const jete = (await screen.findByText(/jete/)).closest("[data-compte]") as HTMLElement;
+    fireEvent.click(within(jete).getByRole("button", { name: "Restaurer" }));
+    await waitFor(() => expect(api.restaurerCompte).toHaveBeenCalledWith("c8"));
+    expect(within(jete).getByRole("button", { name: "Supprimer pour de bon" })).toBeInTheDocument();
   });
 });
 

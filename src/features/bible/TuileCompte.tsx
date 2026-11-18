@@ -4,7 +4,7 @@
  * Modifier la note, Supprimer.
  */
 import * as React from "react";
-import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -16,6 +16,8 @@ export interface ActionsTuile {
   onChangerLabel: (c: CompteBible) => void;
   onModifier: (c: CompteBible, p: { note: string; remarque: string; a_podzer: boolean }) => void;
   onSupprimer: (c: CompteBible) => void;
+  onRestaurer: (c: CompteBible) => void;
+  onSupprimerDefinitivement: (c: CompteBible) => void;
 }
 
 export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aussi?: boolean; actions: ActionsTuile; occupe?: boolean }) {
@@ -56,6 +58,7 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
                 À podzer
               </label>
               <div className="flex gap-1">
+                <button type="button" onClick={() => { setEdition(false); actions.onSupprimer(c); }} className="rounded-md px-1.5 text-xs text-red-600 hover:bg-red-50">Supprimer</button>
                 <button type="button" onClick={() => setEdition(false)} className="rounded-md px-2 text-xs text-stone-500">Annuler</button>
                 <button type="submit" className="rounded-md bg-stone-900 px-2 py-1 text-xs text-white">OK</button>
               </div>
@@ -99,11 +102,20 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
 
       {/* Les actions, au survol (et au clavier), posées sur le bas des miniatures pour laisser le lien lisible. */}
       <div className="pointer-events-none absolute inset-x-2 bottom-3 flex flex-wrap justify-center gap-1 opacity-0 transition group-focus-within:pointer-events-auto group-focus-within:opacity-100 group-hover:pointer-events-auto group-hover:opacity-100">
-        {c.etape === "a_importer" && <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
-        {c.etape === "prochain_batch" && <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />}
-        <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
-        <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
-        <Action icone={Trash2} titre="Supprimer" danger onClick={() => actions.onSupprimer(c)} />
+        {c.supprime_at ? (
+          <>
+            <Action icone={RotateCcw} libelle="Restaurer" fort onClick={() => actions.onRestaurer(c)} />
+            <Action icone={Trash2} libelle="Supprimer pour de bon" danger onClick={() => actions.onSupprimerDefinitivement(c)} />
+          </>
+        ) : (
+          <>
+            {c.etape === "a_importer" && <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
+            {c.etape === "prochain_batch" && <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />}
+            <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
+            <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
+            <Action icone={Trash2} libelle="Supprimer" danger onClick={() => actions.onSupprimer(c)} />
+          </>
+        )}
       </div>
     </article>
   );

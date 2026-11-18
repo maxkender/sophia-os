@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o258",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "03dd36f6-84d5-4fb6-b149-1e27acb8bad7",
+ "titre": "the 5 minute rules that make life feel lighter #rules #simpleliving #habits #mentalhealth #selfimprovement",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "a75d83ce-d4b7-4163-afdb-67f008a8f582"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, a75d83ce). déclinaison G1 de « the 5 minute rules that make life feel lighter » (parent 03dd36f6). cta A. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "da38c5b1-4292-48e5-a1dc-cc8097f04fad",
+   "texte_overlay": "the 5 minute rules that\nmake life feel lighter",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8f9efa38-c392-4bb7-8f98-83f98eb48d12",
+   "texte_overlay": "the two minute tidy\n\nif a small mess takes less than two minutes to clear, clear it now. a tidy space makes a calmer head, and you stop feeling behind on absolutely everything.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "48816e51-3107-470b-bd44-724418b1175b",
+   "texte_overlay": "the five minute walk\n\nwhen you feel stuck or anxious, walk for five minutes before you decide anything. moving changes your mood faster than any amount of overthinking ever will.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5bcd0abf-cef6-46bc-bbd3-a31a5add7c19",
+   "texte_overlay": "the one line diary\n\nbefore bed, write one sentence about your day and nothing more. a tiny habit you never skip beats a big, ambitious journal you abandon after just a week.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "242f0cbf-41db-41d1-8113-96b0f654fe55",
+   "texte_overlay": "the five minute lesson\n\nspend five minutes a day learning something just for fun, like a strange animal or a lost empire. small daily joys like this make ordinary days feel lighter.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/5.jpg",
+   "texte_sophia": "the five minute lesson\n\ni spend 5 minutes a day learning something just for fun, like a lost empire. i do it with the Sophia app, one lesson a day, and it makes ordinary days feel lighter."
+  },
+  {
+   "position": 6,
+   "media_id": "ed66d3aa-01c4-45ea-9fcd-32440a7a0599",
+   "texte_overlay": "the quick reply rule\n\nif a message takes less than five minutes to answer, answer it now. unanswered messages weigh on your mind far more than the few minutes they would take.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7661729531203439894/6.jpg"
+  }
+ ]
+}

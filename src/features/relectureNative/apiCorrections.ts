@@ -1,9 +1,10 @@
 /**
  * La boucle de correction (0630) : les remarques des relecteurs natifs
  * découpées en corrections atomiques (`corrections_natives`), retenues ou
- * écartées par l'admin. Les retenues entrent dans la traduction de la langue
- * (bloc `corrections_natives_bloc`) et, pour le type placement, dans les
- * exemples du placement. Écriture admin (RLS).
+ * écartées par l'admin. Une correction de LANGUE (`application_id` nul) entre
+ * dans la traduction de la langue, commune à toutes les applications (bloc
+ * `corrections_natives_bloc`). Une correction PROPRE À UNE APPLICATION (0751)
+ * ne va qu'au placement de cette application. Écriture admin (RLS).
  */
 import { supabase } from "@/lib/supabase/client";
 import { invoke } from "@/features/moteur/api";
@@ -28,6 +29,12 @@ export interface CorrectionNative {
   corrige: string | null;
   explication: string | null;
   statut: StatutCorrection;
+  /**
+   * 0751 : `null` = correction de langue (toutes les applications) ; sinon
+   * l'application à laquelle elle est propre. `undefined` : la colonne
+   * n'existe pas encore en base (migration à appliquer).
+   */
+  application_id?: string | null;
   decide_le: string | null;
   created_at: string;
   updated_at: string;
@@ -39,14 +46,23 @@ export interface CorrectionNative {
 
 const COLONNES = "id, langue, vote_id, duel_id, relecture_id, relecteur_id, version, slide, type, fautif, corrige, explication, statut, decide_le, created_at, updated_at";
 
+/** La colonne `application_id` manque tant que 0751 n'est pas appliquée. */
+function colonneAbsente(error: { code?: string; message?: string } | null): boolean {
+  return Boolean(error && (error.code === "42703" || error.code === "PGRST204" || /application_id/.test(error.message ?? "")));
+}
+
 /** Les corrections d'une langue, les plus récentes d'abord. */
 export async function listerCorrectionsNatives(langue: string): Promise<CorrectionNative[]> {
-  const { data, error } = await supabase
-    .from("corrections_natives")
-    .select(`${COLONNES}, relecteurs_natifs(profiles(prenom, nom)), ab_traduction_votes(remarque), relectures_posts(remarque, slides_corrigees)`)
-    .eq("langue", langue.toLowerCase())
-    .order("created_at", { ascending: false })
-    .limit(500);
+  const lire = (colonnes: string) =>
+    supabase
+      .from("corrections_natives")
+      .select(`${colonnes}, relecteurs_natifs(profiles(prenom, nom)), ab_traduction_votes(remarque), relectures_posts(remarque, slides_corrigees)`)
+      .eq("langue", langue.toLowerCase())
+      .order("created_at", { ascending: false })
+      .limit(500);
+  let { data, error } = await lire(`${COLONNES}, application_id`);
+  // Avant 0751 : la liste reste lisible, sans l'application.
+  if (colonneAbsente(error)) ({ data, error } = await lire(COLONNES));
   if (error) throw error;
   return (data ?? []).map((ligne) => {
     const l = ligne as unknown as Omit<CorrectionNative, "relecteur" | "remarque_source"> & {
@@ -90,6 +106,15 @@ export async function modifierCorrection(id: string, champs: { corrige: string |
   if (error) throw error;
 }
 
+/** Range une correction : `null` = toute la langue, sinon l'application à laquelle elle est propre (0751). */
+export async function rangerCorrection(id: string, applicationId: string | null): Promise<void> {
+  const { error } = await supabase
+    .from("corrections_natives")
+    .update({ application_id: applicationId, updated_at: new Date().toISOString() })
+    .eq("id", id);
+  if (error) throw error;
+}
+
 export async function supprimerCorrection(id: string): Promise<void> {
   const { error } = await supabase.from("corrections_natives").delete().eq("id", id);
   if (error) throw error;
@@ -119,7 +144,7 @@ export function extraireCorrections(langue: string, max = 8): Promise<BilanExtra
   return invoke<BilanExtraction>("ab-traduction", { action: "corrections_extraire", langue, max });
 }
 
-/** Le bloc que la traduction de la langue reçoit (corrections retenues), ou "" sans correction. */
+/** Le bloc que la traduction de la langue reçoit (règles et corrections de langue retenues), ou "" sans correction. */
 export async function blocCorrectionsNatives(langue: string): Promise<string> {
   const { data, error } = await supabase.rpc("corrections_natives_bloc", { p_langue: langue });
   if (error) throw error;

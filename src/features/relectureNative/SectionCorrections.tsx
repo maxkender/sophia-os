@@ -9,6 +9,8 @@ import { Label } from "@/components/ui/label";
 import { Replie } from "@/components/ui/replie";
 import { Segments } from "@/components/ui/segments";
 import { Textarea } from "@/components/ui/textarea";
+import { useApplication } from "@/features/moteur/ApplicationContext";
+import { nomApplication } from "@/features/moteur/applications";
 import { drapeauLangue, nomLangue } from "@/features/moteur/langues";
 import { messageErreur } from "@/features/bleo/format";
 
@@ -20,6 +22,7 @@ import {
   extraireCorrections,
   listerCorrectionsNatives,
   modifierCorrection,
+  rangerCorrection,
   supprimerCorrection,
   TYPES_CORRECTION,
   type CorrectionNative,
@@ -61,6 +64,13 @@ function LigneCorrection({ c }: { c: CorrectionNative }) {
     onSettled: () => void qc.invalidateQueries({ queryKey: CLE_CORRECTIONS }),
   });
   const nomRelecteur = [c.relecteur?.prenom, c.relecteur?.nom].filter(Boolean).join(" ");
+  // 0751 : pour qui vaut la correction. Toute la langue (traduction, toutes les
+  // applications) ou une application (son placement seulement).
+  const { applications } = useApplication();
+  const ranger = useMutation({
+    mutationFn: (applicationId: string | null) => rangerCorrection(c.id, applicationId),
+    onSettled: () => void qc.invalidateQueries({ queryKey: CLE_CORRECTIONS }),
+  });
 
   return (
     <li className="space-y-2 rounded-md border p-3" data-testid="correction" data-statut={c.statut}>
@@ -70,6 +80,25 @@ function LigneCorrection({ c }: { c: CorrectionNative }) {
         {c.version && <Badge variant="outline">{t(`relectureNative.corrections.version.${c.version}`)}</Badge>}
         <Badge variant="outline">{t(c.relecture_id ? "relectureNative.corrections.sourceRelecture" : "relectureNative.corrections.sourceDuel")}</Badge>
         {c.slide != null && <span className="text-muted-foreground">{t("relectureNative.corrections.slide", { n: c.slide })}</span>}
+        {c.application_id !== undefined && (
+          <label className="inline-flex items-center gap-1 text-muted-foreground">
+            {t("relectureNative.corrections.vautPour")}
+            <select
+              className="h-6 rounded border border-input bg-background px-1 text-xs text-foreground"
+              data-testid="correction-application"
+              value={c.application_id ?? ""}
+              disabled={ranger.isPending}
+              onChange={(e) => ranger.mutate(e.target.value || null)}
+            >
+              <option value="">{t("relectureNative.corrections.touteLaLangue")}</option>
+              {applications.map((a) => (
+                <option key={a.id} value={a.id}>
+                  {nomApplication(a)}
+                </option>
+              ))}
+            </select>
+          </label>
+        )}
         <span className="ml-auto text-muted-foreground">
           {t("relectureNative.corrections.par", { nom: nomRelecteur || "?", date: dateCourte(c.created_at, i18n.language) })}
         </span>
@@ -161,9 +190,9 @@ function LigneCorrection({ c }: { c: CorrectionNative }) {
             </Button>
           </>
         )}
-        {action.isError && (
+        {(action.isError || ranger.isError) && (
           <span role="alert" className="text-xs text-destructive">
-            {messageErreur(action.error)}
+            {messageErreur(action.error ?? ranger.error)}
           </span>
         )}
       </div>
@@ -238,6 +267,7 @@ export function SectionCorrections() {
       <div className="space-y-1">
         <h2 className="text-sm font-semibold">{t("relectureNative.corrections.titre")}</h2>
         <p className="text-xs text-muted-foreground">{t("relectureNative.corrections.aide")}</p>
+        <p className="text-xs text-muted-foreground">{t("relectureNative.corrections.rangement")}</p>
       </div>
       {erreur && (
         <p role="alert" className="text-sm text-destructive">

@@ -44,7 +44,7 @@ import { chargerAnglePlacement } from "./applications_moteur.ts";
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, type SlideDeck } from "./deck_langue.ts";
 import { callWithFallback, integrateSophia, LANGUES, normaliserHashtags, TEXT_MODELS, textOf } from "./gemini.ts";
-import { correctionsPlacementNatives } from "./corrections_natives.ts";
+import { chargerBlocCorrectionsNatives, chargerRetoursApplication, promptAvecRetoursApplication } from "./corrections_natives.ts";
 import { traduireBaseDeck } from "./import_contenu.ts";
 import { regleLocalisationScolaire } from "./localisation_scolaire.ts";
 import { ID_SOPHIA } from "./multi_app.ts";
@@ -273,8 +273,8 @@ interface FicheLue {
   contenu: string;
 }
 
-/** La dernière version d'une fiche de `bleo_fiches` (langue, label ou CTA). */
-async function chargerFicheVersionnee(supabase: Supabase, sorte: "langue" | "label" | "cta", cle: string): Promise<FicheLue | null> {
+/** La dernière version d'une fiche de `bleo_fiches` (label ou CTA ; les fiches langue ne sont plus lues depuis le 18/11). */
+async function chargerFicheVersionnee(supabase: Supabase, sorte: "label" | "cta", cle: string): Promise<FicheLue | null> {
   const { data } = await supabase
     .from("bleo_fiches")
     .select("cle, version, contenu")
@@ -316,18 +316,21 @@ function compterMentions(texte: string | null, nom: string): number {
 const fiches: CircuitTraduction = {
   id: "fiches",
   version: "fiches-1",
-  nom: "Réécriture native à travers les quatre fiches (langue, label, appli, CTA)",
+  nom: "Réécriture native à travers les trois fiches (label, appli, CTA) et les règles des relecteurs natifs",
   applications: ["sophia"],
   async ecrire({ supabase, contenuId, titre, langueSource, langue, application, deckSource, cta }) {
     const label = await labelDuContenu(supabase, contenuId);
-    const [ficheLangue, ficheLabel, ficheCta, ficheAppli, scolaire] = await Promise.all([
-      chargerFicheVersionnee(supabase, "langue", langue),
+    // 18/11 : plus de fiche langue (décision d'Adrien du 17/11). La langue vient
+    // des règles et corrections des relecteurs natifs, comme en production : le
+    // bloc de langue, puis les retours propres à l'application (0751).
+    const [reglesLangue, retoursAppli, ficheLabel, ficheCta, ficheAppli, scolaire] = await Promise.all([
+      chargerBlocCorrectionsNatives(supabase, langue),
+      chargerRetoursApplication(supabase, langue, application.id),
       label ? chargerFicheVersionnee(supabase, "label", label) : Promise.resolve(null),
       chargerFicheVersionnee(supabase, "cta", "commune"),
       chargerFicheAppli(supabase, application.id),
       regleLocalisationScolaire(supabase, langue),
     ]);
-    if (!ficheLangue) throw new Error(`pas de fiche langue pour ${langue}`);
     if (!ficheCta) throw new Error("pas de fiche CTA");
     if (!ficheAppli) throw new Error(`pas de fiche appli pour ${application.nom}`);
 
@@ -344,7 +347,7 @@ Tout le texte que tu produis doit être en ${nomLangue}, sans exception.
 
 Tu es le créateur natif qui tient ce compte TikTok. Tu reçois un slideshow écrit en ${nomSource} et tu écris la version ${nomLangue} que tu posterais toi-même : pas une traduction mot à mot, une réécriture qui garde exactement le propos, l'ordre et le nombre de slides, mais qui sonne comme un natif de ton pays. Tu places aussi l'appli ${application.nom} sur une slide, comme tu le ferais naturellement.
 
-Tu travailles avec quatre fiches. Elles font autorité. Quand elles se contredisent, l'ordre est : CTA (règles communes), appli (ce qu'on peut dire), label (le format de ce type de post et où va l'appli), langue (comment on écrit dans ta langue).
+Tu travailles avec trois fiches et les retours de relecteurs natifs. Ils font autorité. Quand ils se contredisent, l'ordre est : CTA (règles communes), appli (ce qu'on peut dire), label (le format de ce type de post et où va l'appli), relecteurs natifs (comment on écrit dans ta langue).
 
 === FICHE CTA (règles communes, version ${ficheCta.version}) ===
 ${ficheCta.contenu}
@@ -353,11 +356,8 @@ ${ficheCta.contenu}
 ${ficheAppli}
 
 === FICHE LABEL : ${label ?? "(aucun label)"}${ficheLabel ? ` (version ${ficheLabel.version})` : ""} ===
-${ficheLabel?.contenu ?? "Aucune fiche pour ce label : suis la fiche CTA et la fiche langue."}
-
-=== FICHE LANGUE : ${nomLangue} (version ${ficheLangue.version}) ===
-${ficheLangue.contenu}
-${scolaire ? `\n=== LOCALISATION SCOLAIRE ===\n${scolaire}\n` : ""}
+${ficheLabel?.contenu ?? "Aucune fiche pour ce label : suis la fiche CTA."}
+${reglesLangue ? `\n${reglesLangue}\n` : ""}${retoursAppli ? `\n${retoursAppli}\n` : ""}${scolaire ? `\n=== LOCALISATION SCOLAIRE ===\n${scolaire}\n` : ""}
 Contraintes fixes, vérifiées par le code :
 - une slide source = une slide écrite, même position ; les positions sont ${positions.join(", ")} ; la slide ${couverture} est la couverture (le hook) : elle garde son sens et ne porte jamais l'appli ;
 - l'appli est nommée « ${application.nom} » sur UNE seule slide, ${cible ? `la slide ${cible} (l'original y citait un produit concurrent)` : `la slide ${minCta} ou une suivante`}, et nulle part ailleurs ; aucun autre produit, service ou appli n'est cité ;
@@ -408,11 +408,13 @@ Réponds uniquement en JSON, sans bloc de code :
     return {
       slides,
       hashtags: normaliserHashtags(String(sortie.hashtags ?? "")),
-      versionFiche: ficheLangue.version,
+      versionFiche: ficheCta.version,
       modele: null,
       cta: cta ? { ...cta, refus } : null,
       controles: {
-        fiches: { langue: ficheLangue.version, label: ficheLabel?.version ?? null, cta: ficheCta.version, appli: true },
+        fiches: { label: ficheLabel?.version ?? null, cta: ficheCta.version, appli: true },
+        regles_natives: Boolean(reglesLangue),
+        retours_application: Boolean(retoursAppli),
         label,
         slide_cta: slideCta,
         forme_cta: sortie.forme_cta ? String(sortie.forme_cta) : null,
@@ -468,16 +470,17 @@ const production: CircuitTraduction = {
         .order("created_at", { ascending: false })
         .limit(40);
       angle = (await chargerAnglePlacement(supabase, contenuId, ID_SOPHIA)) ?? null;
-      const natives = await correctionsPlacementNatives(supabase, langue);
       const placement = await integrateSophia({
-        masterPrompt: (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
-        corrections: [
-          ...natives,
-          ...(corrections ?? []).map((c) => ({
-            original_text: c.texte_origine,
-            corrected_text: c.texte_corrige,
-          })),
-        ],
+        masterPrompt: await promptAvecRetoursApplication(
+          supabase,
+          (await chargerPrompt(supabase, clePromptPlacement("sophia"))) ?? "",
+          langue,
+          ID_SOPHIA,
+        ),
+        corrections: (corrections ?? []).map((c) => ({
+          original_text: c.texte_origine,
+          corrected_text: c.texte_corrige,
+        })),
         slides: deck.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
         caption: contenu?.titre ?? titre ?? "",
         langue,

@@ -57,6 +57,9 @@ export interface CompteReference {
   ordre_par_langue: Record<string, number>;
   is_active: boolean;
   dernier_scrape_at: string | null;
+  /** Essai d'une source neuve (0686) : plafond de posts tant qu'elle n'est pas jugée. */
+  essai_max?: number | null;
+  essai_verdict?: "tient" | "ne_tient_pas" | null;
   created_at: string;
 }
 

@@ -64,8 +64,9 @@ Règles d'écriture :
 - Regroupe ce qui se répète en une règle générale (« ne calque pas X : en ${nomLangue}, on dit Y »), suivie de ses exemples réels « au lieu de « … », écris « … » ». Les exemples gardent leurs fragments mot pour mot.
 - Pas de doublon : deux corrections qui disent la même chose donnent une seule ligne.
 - Si une nouvelle correction contredit une règle actuelle, la nouvelle l'emporte : réécris la règle dans son sens.
-- Rubriques, dans cet ordre, seulement celles qui ont du contenu : « Calques à éviter », « Registre et ton », « Vocabulaire », « La slide de l'appli », « Longueur des slides », « Majuscules et ponctuation », « Sens », « Divers ».
+- Rubriques, dans cet ordre, seulement celles qui ont du contenu : « Calques à éviter », « Registre et ton », « Vocabulaire », « Longueur des slides », « Majuscules et ponctuation », « Sens », « Divers ».
 - Les règles en français ; les exemples dans leur langue (${nomLangue}). Prescriptif, court, concret. N'invente aucune règle qui ne vienne pas des relevés.
+- Ces règles servent à toutes nos applications : n'écris aucune règle sur la slide de l'appli, et ne cite le nom d'aucune application.
 - Markdown simple : un titre « ### » par rubrique, une puce par règle, les exemples en sous-puces.
 
 ${precedentes ? `Règles actuelles :\n"""\n${precedentes}\n"""\n\n` : ""}Nouvelles corrections (${entree.nouvelles.length}) :
@@ -112,6 +113,10 @@ export async function consoliderRegles(
     .from("corrections_natives")
     .select("id, langue, type, fautif, corrige, explication, created_at")
     .eq("statut", "retenue")
+    // 0751 : les règles d'une langue valent pour toutes les applications. Une
+    // correction propre à une application n'y entre pas : elle va au placement
+    // de son application (`chargerRetoursApplication`).
+    .is("application_id", null)
     .order("created_at", { ascending: true })
     .limit(5000);
   if (options.langue) requete = requete.eq("langue", options.langue.toLowerCase());

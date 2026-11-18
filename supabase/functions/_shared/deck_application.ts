@@ -44,6 +44,7 @@ import { chargerAnglePlacement, schemaMultiAppPret } from "./applications_moteur
 import { clePromptPlacement } from "./applications.ts";
 import { baseDeTraduction, estDeckPret } from "./deck_langue.ts";
 import { integrerApplication, MOT_SOPHIA } from "./placement_application.ts";
+import { promptAvecRetoursApplication } from "./corrections_natives.ts";
 import { deckLivreApplication, estContenuLivre } from "./pods.ts";
 import { chargerPrompt, messageErreur } from "./supabase.ts";
 
@@ -450,7 +451,9 @@ async function cuire(
     : await chargerAnglePlacement(supabase, contenu.id, app.id);
   const traceAngle = angle ? { angle } : {};
   const placement = await integrerApplication({
-    masterPrompt,
+    // 0751 : les retours des relecteurs natifs propres à CETTE application dans
+    // cette langue. Aucun retour retenu : prompt identique à celui d'avant.
+    masterPrompt: await promptAvecRetoursApplication(supabase, masterPrompt, langue, app.id),
     slides: baseCible.map((s) => ({ position: s.position, text: s.texte_overlay ?? "" })),
     caption: contenu.titre ?? "",
     langue,

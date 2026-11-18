@@ -6,6 +6,7 @@ import { ChevronDown, ChevronRight, Plus, Trash2 } from "lucide-react";
 
 import { LogoApplication } from "@/components/brand/LogoApplication";
 import { PageHeader } from "@/components/layout/PageHeader";
+import { FiltreApplication } from "@/features/moteur/FiltreApplication";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -439,7 +440,7 @@ export function AdminLabelsPage() {
   const { t } = useTranslation();
   return (
     <div className="space-y-6">
-      <PageHeader title={t("labelsPage.title")} description={t("labelsPage.description")} />
+      <PageHeader title={t("labelsPage.title")} description={t("labelsPage.description")} actions={<FiltreApplication />} />
       <LabelsCard />
       <ApplicationsCard />
       <ReplisCard />

@@ -121,6 +121,48 @@ export async function majApplication(
   if (error) throw error;
 }
 
+/** Le slug d'une application : minuscules, chiffres, tirets (contrainte `applications_slug_format`). */
+export function slugApplicationDepuisNom(nom: string): string {
+  return nom
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^[^a-z]+|-+$/g, "")
+    .slice(0, 32);
+}
+
+export const SLUG_APPLICATION_VALIDE = /^[a-z][a-z0-9_-]{1,31}$/;
+
+/**
+ * Crée une application depuis l'écran (17/11 ; avant : une migration à la
+ * main). Elle naît INACTIVE, toutes langues, avec ses deux prompts VIDES
+ * (`pertinence_<slug>`, `placement_<slug>`) : rien ne change en production tant
+ * qu'aucun label ne la sert, et l'activation reste refusée tant que les
+ * prompts sont vides. Un prompt déjà présent (application recréée) est gardé.
+ * Restent dans le code : sa liste de concurrents et son logo.
+ */
+export async function creerApplication(input: { nom: string; slug: string }): Promise<void> {
+  const nom = input.nom.trim();
+  const slug = input.slug.trim();
+  if (!nom) throw new Error("Donne un nom à l'application.");
+  if (!SLUG_APPLICATION_VALIDE.test(slug)) {
+    throw new Error("Identifiant invalide : 2 à 32 caractères, minuscules, chiffres ou tirets, en commençant par une lettre.");
+  }
+  const { error } = await supabase.from("applications").insert({ slug, nom, actif: false, langues: null });
+  if (error) throw error;
+  const { error: errPrompts } = await supabase
+    .from("prompts")
+    .upsert(
+      [
+        { cle: `pertinence_${slug}`, contenu: "" },
+        { cle: `placement_${slug}`, contenu: "" },
+      ],
+      { onConflict: "cle", ignoreDuplicates: true },
+    );
+  if (errPrompts) throw errPrompts;
+}
+
 /** Tous les liens label → application (table de quelques dizaines de lignes). */
 export async function listerLiensLabels(): Promise<LienLabelApplicationRow[]> {
   const { data, error } = await supabase

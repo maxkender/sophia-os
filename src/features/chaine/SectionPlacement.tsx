@@ -9,6 +9,7 @@ import { Segments } from "@/components/ui/segments";
 import { listerLabels } from "@/features/moteur/api";
 import { listerAnglesPlacement } from "@/features/moteur/apiAngles";
 import { listerLiensLabels } from "@/features/moteur/apiMultiApp";
+import { FiltreApplication } from "@/features/moteur/FiltreApplication";
 import { useApplication } from "@/features/moteur/ApplicationContext";
 import { clePromptPlacement, estSlugSophia, nomApplication } from "@/features/moteur/applications";
 import { ANGLE_LONGUEUR_MAX, groupesAnglesApplication, MAX_ANGLES_TEST } from "@/features/moteur/multiapp/angles";
@@ -51,6 +52,7 @@ export function SectionPlacement() {
 
   return (
     <div className="space-y-4" data-testid="section-placement">
+      <FiltreApplication />
       <div className="space-y-1">
         <h2 className="text-sm font-semibold">{t("chaine.placement.titre", { nom })}</h2>
         <p className="text-xs text-muted-foreground">{t("chaine.placement.aide", { nom })}</p>

@@ -2013,6 +2013,10 @@ export const en = {
         titre: "Corrections drawn from reviewers' remarks",
         aide:
           "Each reviewer remark is cut into corrections: a fragment that sounds translated, what they would have written, a type. Keep the ones that hold for every translation in the language: they enter the translation prompt from the next deck on (and, for the placement type, the placement examples). Discard the others. Cutting runs on its own every ten minutes, or right away with the button.",
+        vautPour: "Applies to",
+        touteLaLangue: "The whole language",
+        rangement:
+          "“Applies to”: a language correction goes into the translation for every application. A correction filed under an application (taken from the app slide, or naming the app) only goes to that application’s placement.",
         langue: "Language",
         aucuneLangue: "No native reviewer: nothing to cut.",
         extraire_zero: "No remark to cut",
@@ -2239,7 +2243,9 @@ export const en = {
     fiches: {
       titre: "Sheets",
       description:
-        "What native rewriting reads for every deck: the CTA sheet sets the shared rules, the app sheet says what to say, the language sheet how to say it, the label sheet where the app goes in this kind of deck. Nothing touches production until native rewriting is switched on.",
+        "What native rewriting reads for every deck: the CTA sheet sets the shared rules, the app sheet says what to say, the label sheet where the app goes in this kind of deck. Nothing touches production until native rewriting is switched on.",
+            langueParRelecteurs:
+        "Language no longer has a sheet: it comes from the native reviewers’ rules and corrections (Native review → Rules).",
       versRelecture: "Native review",
       sortes: "Kinds of sheets",
       sorte: {
@@ -3862,11 +3868,28 @@ export const en = {
       subtitle:
         "Your TikTok accounts used as raw material. Never visible to posters.",
       handle: "TikTok account",
+      plusActions: "More actions",
+      extraireDanger:
+        "“Extract” re-reads the whole profile, including slideshows already in stock: their views, relevance and decks start again from zero. To add new posts, use “Update”.",
+      regle:
+        "Source added to a label that already has accounts: {{essai}} trial posts, judged on a Monday once {{mesures}} are measured on our accounts. In a new label: its {{tranche}} most viewed posts. Then {{tranche}} more each Monday, as long as the source performs on our accounts.",
+      onglets: { libelle: "Part of the page", sources: "Sources", file: "Queue and imports", propositions: "Suggestions" },
+      etat: {
+        inactive: "Inactive",
+        file: "In the queue, planned for {{jour}}",
+        jamais: "Never imported",
+        essai: "Trial: {{importes}} of {{max}} imported, {{mesures}} of {{mesuresMin}} measured",
+        essaiRate: "Trial failed: capped at {{max}} posts",
+        pasRetenue: "Not kept this week",
+        majAVenir: "Kept: update to come",
+        majFaite: "Updated on {{jour}}",
+        aJour: "Up to date",
+      },
       handleRequis: "Enter a TikTok @handle.",
-      niche: "Niche",
-      nicheChoisir: "Pick a niche…",
-      nicheRequis: "Pick a niche.",
-      nicheAucune: "No niche yet —",
+      niche: "Label",
+      nicheChoisir: "Pick a label…",
+      nicheRequis: "Pick a label.",
+      nicheAucune: "No label yet —",
       creerNiche: "create one in Labels & apps",
       modeCompte: "TikTok account",
       modeLien: "TikTok link",
@@ -3932,7 +3955,7 @@ export const en = {
       voix: "Tailored prompt (translation voice / tone)",
       voixPlaceholder: "E.g.: friendly and direct tone, second person, short sentences, no jargon…",
       voixAide:
-        "The register to give this source's translations. This is where you tune the tone per niche — not on the poster's account.",
+        "The register to give this source's translations. This is where you tune the tone per label — not on the poster's account.",
       empty: "No reference account.",
       inactive: "Inactive",
       activate: "Activate",
@@ -4179,12 +4202,15 @@ export const en = {
         description: "One row per main account, with its linked accounts. Click a row for its settings.",
         source: "Source",
         langue: "Language",
-        niche: "Niche",
+        niche: "Label",
         perf: "r · 30 d",
         vsLabel: "vs label",
+        stock: "Stock",
+        stockAide: "Slideshows kept (validated) out of slideshows imported from this source.",
+        etat: "Status",
         extraction: "Last extraction",
-        recherche: "Search an @account, a niche or a language",
-        rechercheCourt: "@account, niche, language",
+        recherche: "Search an @account, a label or a language",
+        rechercheCourt: "@account, label, language",
         aucune: "No source matches.",
         details: "Settings of @{{handle}}",
         conjoints: "+ {{liste}}",
@@ -7106,7 +7132,7 @@ export const en = {
     },
     labels: {
       title: "Labels",
-      gestion: "Labels / niches",
+      gestion: "Labels",
       gestionDesc:
         "Bridge between contents and creators.",
       nom: "Name",
@@ -7794,7 +7820,7 @@ export const en = {
       },
       placement: {
         titre: "{{nom}} placement",
-        aide: "Switch application with the sidebar selector. The prompt sets the form of the app slide; the label's angle sets its substance.",
+        aide: "Switch application with the “Application” filter at the top of the page. The prompt sets the form of the app slide; the label's angle sets its substance.",
         regles: "Angle rules",
         filtre: "Filter labels",
         filtres: {
@@ -7814,7 +7840,7 @@ export const en = {
     },
     prompts: {
       sectionApplication: "Specific to {{nom}}",
-      application: "Relevance and placement for {{nom}} — switch application with the sidebar selector.",
+      application: "Relevance and placement for {{nom}} — switch application with the “Application” filter at the top of the page.",
       sansRepli:
         "Without these two prompts, {{nom}} scores and places nothing: the engine never falls back to Sophia's text.",
       pertinenceTitleApp: "Prompt — {{nom}} relevance",
@@ -8039,7 +8065,7 @@ export const en = {
     angles: {
       titre: "Placement angles — {{nom}}",
       description:
-        "One instruction per label, added to the {{nom}} placement prompt for that label's slideshows (placement only, not relevance). Switch application with the sidebar selector.",
+        "One instruction per label, added to the {{nom}} placement prompt for that label's slideshows (placement only, not relevance). Switch application with the “Application” filter at the top of the page.",
       regleActif:
         "Active: used everywhere, all the time (deck preparation, night, assignment). At most one per label: activating another sends the previous one back to test.",
       regleTest:
@@ -8086,7 +8112,15 @@ export const en = {
         descCourte: "Click an app to pick its languages and run its relevance backfill.",
         colApp: "App",
         colEtat: "Status",
-        creationParMigration: "A new application is created by migration, with its two prompts.",
+        etapes:
+          "To launch an application: 1. add it here (it starts inactive); 2. write its two prompts (Configuration → Translation & placement) and its sheet (Sheets); 3. tick its labels above; 4. switch it on. Its competitor list and logo still have to be added in the code.",
+        ajout: {
+          bouton: "Add an application",
+          nom: "Name",
+          slug: "Identifier",
+          creer: "Create (inactive)",
+          aide: "The application is created inactive, with its two prompts empty. Nothing changes in production until a label serves it.",
+        },
         sophiaVerrouillee: "Always active, all languages: account identity, and fallback for any account whose split leaves it a share (all of them, without a split).",
         actif: "Active",
         inactif: "Inactive",
@@ -8096,7 +8130,7 @@ export const en = {
         aucune: "None",
         aucuneLangueAide: "No language: the application is served on no account.",
         promptsManquants:
-          "Cannot activate {{nom}}: empty or missing prompt(s) — {{cles}}. Write them in Settings → Prompts (selector on {{nom}}).",
+          "Cannot activate {{nom}}: empty or missing prompt(s) — {{cles}}. Write them in Settings → Prompts (“Application” filter on {{nom}}).",
         backfillTitre: "Relevance backfill",
         backfillAide:
           "Scores for {{nom}} the content already in stock whose label serves it. Run it before activation: without an eligible score, content does not enter its pool.",

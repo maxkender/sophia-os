@@ -9,7 +9,17 @@
   "de": "3 Fähigkeiten, mit denen du klüger wirkst",
   "it": "3 abilità che ti fanno sembrare più intelligente",
   "pt-BR": "3 habilidades que fazem você parecer mais inteligente",
-  "es-419": "3 habilidades que te hacen ver más inteligente"
+  "es-419": "3 habilidades que te hacen ver más inteligente",
+  "cs": "3 dovednosti, se kterými budeš vypadat chytřeji",
+  "sk": "3 zručnosti, vďaka ktorým budeš pôsobiť múdrejšie",
+  "hr": "3 vještine zbog kojih izgledaš pametnije",
+  "sl": "3 veščine, s katerimi deluješ pametneje",
+  "hu": "3 készség, amitől okosabbnak tűnsz",
+  "nl": "3 skills waardoor je slimmer overkomt",
+  "pl": "3 umiejętności, dzięki którym wypadasz mądrzej",
+  "ro": "3 abilități care te fac să pari mai inteligent",
+  "sv": "3 färdigheter som får dig att verka smartare",
+  "tr": "Seni daha zeki gösteren 3 beceri"
  },
  "legendes": {
   "en": "3 Skills That Make You Look Smarter #selfimprovement #learnontiktok #skills",
@@ -18,13 +28,23 @@
   "de": "3 Fähigkeiten, mit denen du klüger wirkst #selbstverbesserung #lernenmittiktok #skills",
   "it": "3 abilità che ti fanno sembrare più intelligente #crescitapersonale #imparacontiktok #abilità",
   "pt-BR": "3 habilidades que fazem você parecer mais inteligente #desenvolvimentopessoal #aprendanotiktok #habilidades",
-  "es-419": "3 habilidades que te hacen ver más inteligente #desarrollopersonal #aprendeentiktok #habilidades"
+  "es-419": "3 habilidades que te hacen ver más inteligente #desarrollopersonal #aprendeentiktok #habilidades",
+  "cs": "3 dovednosti, se kterými budeš vypadat chytřeji #dovednosti #seberozvoj #vzdělávání",
+  "sk": "3 zručnosti, vďaka ktorým budeš pôsobiť múdrejšie #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "3 vještine zbog kojih izgledaš pametnije #vještine #osobnirazvoj #učenje",
+  "sl": "3 veščine, s katerimi deluješ pametneje #veščine #osebnarast #učenje",
+  "hu": "3 készség, amitől okosabbnak tűnsz #készségek #önfejlesztés #tanulás",
+  "nl": "3 skills waardoor je slimmer overkomt #skills #zelfontwikkeling #leren",
+  "pl": "3 umiejętności, dzięki którym wypadasz mądrzej #umiejętności #rozwójosobisty #nauka",
+  "ro": "3 abilități care te fac să pari mai inteligent #abilități #dezvoltarepersonală #învățare",
+  "sv": "3 färdigheter som får dig att verka smartare #färdigheter #självutveckling #lärande",
+  "tr": "Seni daha zeki gösteren 3 beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "sonido original",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "cta A. Déclinaison G1 de fa-059 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Skills That Make You Look Smarter »), traductions du parent ; autres étapes (mémoire, échecs, Rubik's cube), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue.",
+ "notes": "cta A. Déclinaison G1 de fa-059 (boîte BLEO du 15/11) : titre du parent mot pour mot (« 3 Skills That Make You Look Smarter »), traductions du parent ; autres étapes (mémoire, échecs, Rubik's cube), autre CTA, autre son (0671). Sophia à l'étape 3. Langues des comptes du label (7), vidéos natives par langue. 18/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr (titres, couverture et légendes repris du parent fa-059).",
  "slides": [
   {
    "type": "couverture",
@@ -147,6 +167,176 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "3 DOVEDNOSTI",
+       "bronze": true
+      }
+     ],
+     "SE KTERÝMI BUDEŠ",
+     [
+      {
+       "t": "VYPADAT CHYTŘEJI",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "3 ZRUČNOSTI",
+       "bronze": true
+      }
+     ],
+     "VĎAKA KTORÝM BUDEŠ",
+     [
+      {
+       "t": "PÔSOBIŤ MÚDREJŠIE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "3 VJEŠTINE",
+       "bronze": true
+      }
+     ],
+     "ZBOG KOJIH",
+     [
+      {
+       "t": "IZGLEDAŠ PAMETNIJE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "3 VEŠČINE",
+       "bronze": true
+      }
+     ],
+     "S KATERIMI",
+     [
+      {
+       "t": "DELUJEŠ PAMETNEJE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "3 KÉSZSÉG",
+       "bronze": true
+      }
+     ],
+     "AMITŐL",
+     [
+      {
+       "t": "OKOSABBNAK TŰNSZ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "3 SKILLS",
+       "bronze": true
+      }
+     ],
+     "WAARDOOR JE",
+     [
+      {
+       "t": "SLIMMER OVERKOMT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "3 UMIEJĘTNOŚCI",
+       "bronze": true
+      }
+     ],
+     "DZIĘKI KTÓRYM",
+     [
+      {
+       "t": "WYPADASZ MĄDRZEJ",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "3 ABILITĂȚI",
+       "bronze": true
+      }
+     ],
+     "CARE TE FAC SĂ PARI",
+     [
+      {
+       "t": "MAI INTELIGENT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "3 FÄRDIGHETER",
+       "bronze": true
+      }
+     ],
+     "SOM FÅR DIG ATT",
+     [
+      {
+       "t": "VERKA SMARTARE",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "SENİ DAHA ZEKİ",
+       "bronze": true
+      }
+     ],
+     "GÖSTEREN",
+     [
+      {
+       "t": "3 BECERİ",
+       "bronze": true
+      }
+     ]
+    ]
    }
   },
   {
@@ -254,6 +444,156 @@
      "date": "hace 3 años",
      "duree": "3:51",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_klre8Ns1D4uOEd5PcmlKPLplGS-1aVaNij25xEwdgbQA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "ZAPAMATUJ SI",
+     "COKOLIV"
+    ],
+    "video": {
+     "id": "FNKMbJnrKR8",
+     "titre": "Paměťový palác: Jak si mozek trénují šampioni?",
+     "chaine": "Ambryho Projekt",
+     "vues": "53 zhlédnutí",
+     "date": "před 3 měsíci",
+     "duree": "9:04",
+     "avatar": "https://yt3.ggpht.com/Qnr7Pj6INusqAWCK-mzGpOcO8MVg6BnVsDPuI8_S0NBSxhCKuqmT74TjZRpK88Y9EuKKLnpE2A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "ZAPAMÄTAJ SI",
+     "ČOKOĽVEK"
+    ],
+    "video": {
+     "id": "qzrVC0gdwPY",
+     "titre": "Môžem použiť pamaťový palác pri učení slovíčok?",
+     "chaine": "AkoSaNaucit",
+     "vues": "643 zhliadnutí",
+     "date": "pred 13 rokmi",
+     "duree": "1:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMdo2uMfPCUh5bBD0LbdKm4cEvES28EU3erge324HOiQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZAPAMTI",
+     "BILO ŠTO"
+    ],
+    "video": {
+     "id": "LAWQ3Q3HWeI",
+     "titre": "TEHNIKE PAMĆENJA - memorijski principi - tehnike i teorija prisećanja",
+     "chaine": "tutor up",
+     "vues": "12 tis. pregleda",
+     "date": "prije 5 godina",
+     "duree": "15:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUvGzq6RJowVQH8tRF4ncA-E33U0zfcbsQh4pHqr0QBg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "ZAPOMNI SI",
+     "VSA IMENA"
+    ],
+    "video": {
+     "id": "00CZ46Qxf_A",
+     "titre": "Kako si zapomniti imena - 5 namigov in 1 tehnika (tehnike pomnjenja)",
+     "chaine": "Nik Škrlec",
+     "vues": "9,3 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "9:07",
+     "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "JEGYEZZ MEG",
+     "BÁRMIT"
+    ],
+    "video": {
+     "id": "8OIJZiW7U18",
+     "titre": "Memória Palota 01. Bevezetés",
+     "chaine": "SanFranciscobol Jottem",
+     "vues": "26 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "6:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nnGHodf1vSrp5_8prKdXijF8KrncPTb9xhbqqT6xdNafA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "ONTHOUD",
+     "ALLES"
+    ],
+    "video": {
+     "id": "F451z2rpny4",
+     "titre": "Beter studeren met het geheugenpaleis",
+     "chaine": "Schrijven met Beloftes",
+     "vues": "1,7K weergaven",
+     "date": "4 jaar geleden",
+     "duree": "4:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lBqFACC5siFy8YYDhThBbG1UMWAQaOWF-2XpJ-w6jypA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZAPAMIĘTAJ",
+     "WSZYSTKO"
+    ],
+    "video": {
+     "id": "s1qe5cwr99k",
+     "titre": "Jak szukać stacji w pałacu pamięci i łączyć je ze skojarzeniami?",
+     "chaine": "Dobra Pamięć",
+     "vues": "1,8 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/waZCUMT-xesTPzH3yCxE-Xqd9kn0dn_CqfrlM7mx0eHy9J5np8mO5QcyRD1uF5o6zVCiNp0h=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ȚINE MINTE",
+     "ORICE"
+    ],
+    "video": {
+     "id": "tolB7htVLD0",
+     "titre": "Cum să îți faci Castelul Memoriei (Cafeaua de Noapte)",
+     "chaine": "Eduard G",
+     "vues": "653 de vizionări",
+     "date": "acum 8 ani",
+     "duree": "8:02",
+     "avatar": "https://yt3.ggpht.com/EB91bMxsF6SN_RmTOgR30XGUkSmOUphBc-Bfs5lF6djYAsfyXmLLCCs7BbPOu8uywJOugqh36Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "MINNS",
+     "VAD SOM HELST"
+    ],
+    "video": {
+     "id": "8ZfLaT9EaeY",
+     "titre": "Skaffa ett superminne! - Lektion 2: Minnespalats (Del 1/2)",
+     "chaine": "Jonas von Essen",
+     "vues": "56 237 visningar",
+     "date": "för 11 år sen",
+     "duree": "11:02",
+     "avatar": "https://yt3.ggpht.com/1LU4E6FeJYEdj0QBS4j3bceDA7SWt8D2gcx1ubD7DHO6AKVM717N5uH30O-gg7otcJEoPsigew=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYİ",
+     "AKLINDA TUT"
+    ],
+    "video": {
+     "id": "hCuz6tfRKec",
+     "titre": "Hafıza Sarayı: En Güçlü Hafıza Tekniği",
+     "chaine": "Abdullah Yılmaz",
+     "vues": "25 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:49",
+     "avatar": "https://yt3.ggpht.com/e18eawTJglhdRd0A1N8pBfBmkSS7b6LaYFgLKbHiGDeVOoKx7qB1oXZmLXl_Yj51XGN4-nLhSQ=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -363,6 +703,155 @@
      "duree": "13:54",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lxTG5Rpl-2D2Co7WmmyCo_DVa1ZJsQZRjsLrj95qrrHw=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "HRAJ",
+     "ŠACHY"
+    ],
+    "video": {
+     "id": "AxaUKh9RwDM",
+     "titre": "Každý šachista MUSÍ znát tyto osvědčené principy",
+     "chaine": "Šachy s Kateřinou",
+     "vues": "72 tis. zhlédnutí",
+     "date": "před 5 lety",
+     "duree": "32:38",
+     "avatar": "https://yt3.ggpht.com/ENZnW9ACKxjwRdIAiDH2KOA-84UcEoPThB4j1CXfqq7e9ZpofmAjqtBw_aLjP78asc4t_0QVdaM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "HRAJ",
+     "ŠACH"
+    ],
+    "video": {
+     "id": "AKl3VWabZ2U",
+     "titre": "Obľúbená finta na začiatočníkov /pasce v otvorení/ 2020 |Bratislavská šachová akadémia|",
+     "chaine": "Sachova Akademia",
+     "vues": "39 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "6:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nwEpz7WyW9vqnXzg89cdpz3N8mHkFis3g04zt9fct53w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "IGRAJ",
+     "ŠAH"
+    ],
+    "video": {
+     "id": "g17sV6Q_ZVU",
+     "titre": "Kako Igrati Šah?",
+     "chaine": "e-kako portal",
+     "vues": "263 tis. pregleda",
+     "date": "prije 15 godina",
+     "duree": "4:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m3nrvanl1fBQ5e2hBstn7MLCL1-8oDYsAKgEE-SwRqgMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "IGRAJ",
+     "ŠAH"
+    ],
+    "video": {
+     "id": "Gfm1vwVs3nM",
+     "titre": "(SLO) osnove šahovske taktike",
+     "chaine": "Šahovski Kmet",
+     "vues": "3,1 tis. ogledov",
+     "date": "pred 7 leti",
+     "duree": "13:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nhopaIMutdzNOMQ65VUvZTZzLqKKAFfuAcAf_czQJ9kQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "SAKKOZZ"
+    ],
+    "video": {
+     "id": "44yI-8sUWz4",
+     "titre": "Hogyan kell sakkozni? - Játékszabályok",
+     "chaine": "video LCZ",
+     "vues": "130 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "45:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mtvoyfkol_VcNslvSu4JC-Lo_IkqTWJ4OS_aabkogWlg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "SPEEL",
+     "SCHAAK"
+    ],
+    "video": {
+     "id": "C-pktIlaJlg",
+     "titre": "Schaken: Gouden Regels van de  opening",
+     "chaine": "DeTorenRules",
+     "vues": "241K weergaven",
+     "date": "9 jaar geleden",
+     "duree": "5:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kN97a8_czOonaNuvpUTx4GNqlpCNP7iJ5eXV0nxMLzZA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "GRAJ",
+     "W SZACHY"
+    ],
+    "video": {
+     "id": "H0r8QBph9ug",
+     "titre": "Szachy. Schemat myślenia dla początkujących.",
+     "chaine": "Kanał Szachowy",
+     "vues": "46 tys. wyświetleń",
+     "date": "4 lata temu",
+     "duree": "29:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpUIKoaBMkxOAMwuVJkWh7SR_AEJjsrJStkU-XyU-5GA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "JOACĂ",
+     "ȘAH"
+    ],
+    "video": {
+     "id": "C27Ih6c03bs",
+     "titre": "Cum se muta piesele in jocul de SAH ???",
+     "chaine": "SAHISTII ROMANIEI",
+     "vues": "93 K de vizionări",
+     "date": "acum 5 ani",
+     "duree": "5:17",
+     "avatar": "https://yt3.ggpht.com/7_ZB7L9o7yxUA2ghJqiHiORVi8md0OVkomVMtaiSP-IHnFLIfFNzXcouYQOqUYaJEvt8P8iekfM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "SPELA",
+     "SCHACK"
+    ],
+    "video": {
+     "id": "AoK4H_8bkv8",
+     "titre": "Schackfyran för nybörjare   Del 1",
+     "chaine": "Schack i skolan",
+     "vues": "101 154 visningar",
+     "date": "för 12 år sen",
+     "duree": "19:18",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n0hsLdkzybeLxwqVP9fbPQi_X8TQdA7nO3ERvX81s=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "SATRANÇ",
+     "OYNA"
+    ],
+    "video": {
+     "id": "maFTIRH2nD8",
+     "titre": "SATRANÇ NASIL OYNANIR 🧐",
+     "chaine": "NASIL OYNANIR",
+     "vues": "1,7 Mn görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/bzzmk78nsVf32AHmIfKeYXdemACjK3hMYoKv19VbBIOqKjUv3S_2yB--4KdNDsWAOkUJ2y37TCU=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -456,6 +945,136 @@
      "texte": [
       "aprende algo nuevo cada día,",
       "en 5 minutos."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "VŽDY MĚJ",
+     "ZAJÍMAVOST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den něco nového,",
+      "za 5 minut."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "VŽDY MAJ",
+     "ZAUJÍMAVOSŤ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň niečo nové,",
+      "za 5 minút."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "UVIJEK IMAJ",
+     "ZANIMLJIVOST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "VEDNO IMEJ",
+     "ZANIMIVOST"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "vsak dan se nauči nekaj novega,",
+      "v 5 minutah."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "MINDIG LEGYEN",
+     "EGY ÉRDEKESSÉGED"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap valami újat,",
+      "5 perc alatt."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "HEB ALTIJD",
+     "EEN LEUK WEETJE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "leer elke dag iets nieuws,",
+      "in 5 minuten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "MIEJ ZAWSZE",
+     "CIEKAWOSTKĘ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie czegoś nowego,",
+      "w 5 minut."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "AI MEREU",
+     "O CURIOZITATE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou în fiecare zi,",
+      "în 5 minute."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "HA ALLTID",
+     "EN KUL GREJ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt varje dag,",
+      "på 5 minuter."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HEP BİR",
+     "İLGİNÇ BİLGİN OLSUN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni bir şey öğren,",
+      "5 dakikada."
      ]
     }
    }
@@ -565,6 +1184,156 @@
      "date": "hace 7 años",
      "duree": "11:42",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nMLEWxNh6DAng8uyCux9DtPpIKIaQyGqT6tgEQNjB0i1A=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "SLOŽ",
+     "RUBIKOVU KOSTKU"
+    ],
+    "video": {
+     "id": "B1NyZI_uva4",
+     "titre": "Jak složit 3x3 Rubikovu kostku pro začátečníky | FYFT.cz",
+     "chaine": "FYFT",
+     "vues": "478 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "32:49",
+     "avatar": "https://yt3.ggpht.com/sddxRMGkrNIv0Pb4JCGs0lHz5KTnC14BcBugdJMr6QePRyNuI7ccdgKPn4lEns26tDNgnEx7=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POSKLADAJ",
+     "RUBIKOVU KOCKU"
+    ],
+    "video": {
+     "id": "0_hQqnoIQPE",
+     "titre": "Skutočne najjednoduchší spôsob ako poskladať rubikovú kocku. pozri popis,druhé video,ako na žltú.",
+     "chaine": "Marek Krajčovič",
+     "vues": "365 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/O166dtOHE_WNYxS-9wRa6qfbvLz-VHvaJ8DIiUwKwGCPkH_1Mna9_9pB9Q15sRoCjJewKU7dwQE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "SLOŽI",
+     "RUBIKOVU KOCKU"
+    ],
+    "video": {
+     "id": "r2JEev05mpk",
+     "titre": "Kako složiti Rubikovu kocku? (početnička metoda)",
+     "chaine": "Maja Zavišić",
+     "vues": "115 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxh3w-x1vh8bcy7j3XWNKRlUEl6FaR89HsNSyUww8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "SESTAVI",
+     "RUBIKOVO KOCKO"
+    ],
+    "video": {
+     "id": "RQnt54AIb3c",
+     "titre": "Kako sestaviti Rubikovo kocko? (enostaven vodič)",
+     "chaine": "Nik Škrlec",
+     "vues": "604 tis. ogledov",
+     "date": "pred 8 leti",
+     "duree": "37:24",
+     "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "RAKD KI A",
+     "RUBIK-KOCKÁT"
+    ],
+    "video": {
+     "id": "QPGLfKJubGA",
+     "titre": "Tanuld Meg Kirakni A Rubik Kockát 20 Perc Alatt | Rubik Kocka Kirakása Kezdőknek Egyszerűen Magyarul",
+     "chaine": "Rubik kocka - Rkocka",
+     "vues": "136 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "18:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgxUeV-bIdnPgufzxqs0VRrmeKkPiRSNDudd0evgh-Hw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LOS EEN",
+     "RUBIK'S KUBUS OP"
+    ],
+    "video": {
+     "id": "TNaWwq78BK8",
+     "titre": "kubus oplossen beginners ★  Rubik's kubus oplossen in 6 min ★ Rubik's cube 3x3 puzzel",
+     "chaine": "Martin Haenen",
+     "vues": "2 mln. weergaven",
+     "date": "12 jaar geleden",
+     "duree": "6:44",
+     "avatar": "https://yt3.ggpht.com/qRpNdVx-BgpnLIsH76i8r07FkptHNsYCQBy1MTCxkUNJvnacOGocVsME8gUYQsNUAg6uaH1jPw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "UŁÓŻ",
+     "KOSTKĘ RUBIKA"
+    ],
+    "video": {
+     "id": "3ErY8DbkGhw",
+     "titre": "Jak w najprostszy sposób rozwiązać klasyczną kostkę Rubika",
+     "chaine": "JASNA STRONA",
+     "vues": "3,9 mln wyświetleń",
+     "date": "7 lat temu",
+     "duree": "11:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGpISWVI2lHYt-kjYJC5OAh6gHZEXlfLFzDnZAt-vltc0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "REZOLVĂ",
+     "CUBUL RUBIK"
+    ],
+    "video": {
+     "id": "7Pp7S8UJeI0",
+     "titre": "Cum sa rezolvi Cubul Rubik in 9 MINUTE | Cea mai simpla metoda - Tutorial pentru incepatori",
+     "chaine": "Domnu' Puzzle - Cristian Leana",
+     "vues": "97 K de vizionări",
+     "date": "acum 1 an",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/jlhnq0Mmx_QH1mF-MM5FQRVY2CGuBaZUekAxo31pTSLF2C48buiMtQiDlx7wPwCJCgHsS4vm=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÖS EN",
+     "RUBIKS KUB"
+    ],
+    "video": {
+     "id": "WTbUjcWKKvs",
+     "titre": "Hur man löser Rubiks kub - Lättaste metoden (utan svåra algoritmer)",
+     "chaine": "Cuboss",
+     "vues": "903 512 visningar",
+     "date": "för 5 år sen",
+     "duree": "26:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLRaXJ2vtLAVNXM99YMzriS-UyrMkI_8b6okDvFilFa5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZEKA KÜPÜNÜ",
+     "ÇÖZ"
+    ],
+    "video": {
+     "id": "FoscW8F9kLU",
+     "titre": "ZEKA KÜPÜ NASIL ÇÖZÜLÜR (ÖĞRENME GARANTİLİ!)",
+     "chaine": "Tuna Özsoy",
+     "vues": "559 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "14:03",
+     "avatar": "https://yt3.ggpht.com/nenigceom6iWbgHKDDqcQtOj7atM6qBNzusi05Hs72M3jaIjlYCbz8KNUmtVe5ujgQVndgeZ0JI=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -381,6 +381,26 @@ async function envoyer(supabase: Supabase) {
     }).eq("id", s.id);
     bilan.push({ poster: s.poster_id, etape: `site_${s.action}`, ok: r.ok, erreur: r.erreur });
   }
+  // 4 bis. 0749 : un posteur Ruul qui n'est plus dans le workspace Slack (compte désactivé, « cant_invite ») reçoit
+  // une fois le lien d'invitation ; ses salons passent « en attente qu'il rejoigne » et repartent quand il est relié.
+  const { data: aInviter } = await supabase.rpc("ruul_slack_a_inviter");
+  if ((aInviter ?? []).length) {
+    const lien = await lienSlackInvitation(supabase);
+    const cache = new Map<string, string>();
+    for (const p of (aInviter ?? []) as { poster_id: string; prenom: string | null; email: string | null; langue: string | null }[]) {
+      const { data: pr } = await supabase.from("profiles").select("ruul_jeton").eq("id", p.poster_id).maybeSingle();
+      if (!p.email || !pr?.ruul_jeton) continue;
+      const base = `To get the posting tips, answers and updates from the team, please join our Slack workspace with this link: ${lien} (use the same email as your dashboard).`;
+      const texte = await traduireRuul(base, p.langue, cache);
+      const objet = await traduireRuul("Join the Vik Studios Slack", p.langue, cache);
+      const lienStop = `${URL_FONCTION}?stop=${pr.ruul_jeton}`;
+      const prenom = (p.prenom ?? "").trim();
+      const e = rendreEmailRuul({ objet, corps: avecPiedHelp(`${prenom ? `Hi ${prenom},\n\n` : ""}${texte}`), bouton: { texte: "Join Slack", lien }, lienStop });
+      const r = await envoyerEmail(p.email, objet, e.html, e.texte, lienStop, ["ruul", "slack_invitation"]);
+      if (r.ok) await supabase.rpc("ruul_slack_invitation_noter", { p_poster: p.poster_id });
+      bilan.push({ poster: p.poster_id, etape: "slack_invitation", ok: r.ok, erreur: r.erreur });
+    }
+  }
   // 5. 0590 : l'email Ruul manquant, J+1, J+3, vendredi avant la 1re paie (interrupteur ruul_email_relances).
   if (!parcoursOn && await interrupteur(supabase, "ruul_email_relances")) {
     const { data: dues, error: errDues } = await supabase.rpc("ruul_email_relances_dues");

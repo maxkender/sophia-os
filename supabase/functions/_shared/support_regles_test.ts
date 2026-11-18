@@ -1,7 +1,7 @@
 import { assertEquals } from "jsr:@std/assert@1";
 
 import {
-  detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, ligneStatut, situation, TEXTES, texteStatut,
+  detecterCas, estDemandeArret, estPasRegle, estProfilUpwork, estQuestionStatut, type EtatReel, ligneStatut, premierJourPostsParis, situation, TEXTES, texteStatut, texteWarmup,
 } from "./support_regles.ts";
 
 const ruul = { plateforme: "ruul" as const, attenteLienUpwork: false };
@@ -87,4 +87,22 @@ Deno.test("18/11 : « personne ne répond » → escalader soi-même ou Slack", 
   ]) assertEquals(detecterCas(m, upwork).cas, "pas_de_reponse", m);
   assertEquals(detecterCas("When will I get paid?", upwork).cas, null);
   assertEquals(detecterCas("Can you answer this: how many posts per day?", upwork).cas, null);
+});
+
+// 0751 : le bot dit le warm-up comme le dashboard (minuteur du bandeau + abonnements de l'étape).
+Deno.test("texteWarmup : abonnements validés mais minuteur en cours → EN COURS, jamais « fini »", () => {
+  const t = texteWarmup({ pret: true, abonnements: 24, existe: true, releve_at: null, debut: "2026-11-17T17:08:18Z", fin: "2026-11-22T23:00:00Z", minuteur: "en_cours" });
+  assertEquals(t.startsWith("EN COURS"), true);
+  assertEquals(t.includes("23 Nov"), true);
+  assertEquals(t.includes("fini"), false);
+});
+Deno.test("texteWarmup : pas lancé, terminé validé, terminé pas validé", () => {
+  assertEquals(texteWarmup({ pret: false, abonnements: null, existe: null, releve_at: null, debut: null, fin: null, minuteur: "attente" }).startsWith("pas lancé"), true);
+  assertEquals(texteWarmup({ pret: true, abonnements: 9, existe: true, releve_at: null, debut: "2026-11-01", fin: "2026-11-09T23:00:00Z", minuteur: "termine" }).startsWith("fini"), true);
+  assertEquals(texteWarmup({ pret: false, abonnements: 2, existe: true, releve_at: null, debut: "2026-11-01", fin: "2026-11-09T23:00:00Z", minuteur: "termine" }).includes("2 abonnement"), true);
+  assertEquals(texteWarmup(null), "aucun compte actif");
+});
+Deno.test("premierJourPostsParis : fin dimanche 23:00 UTC (lundi 00:00 Paris) → lundi", () => {
+  assertEquals(premierJourPostsParis("2026-11-22T23:00:00Z"), "2026-11-23");
+  assertEquals(premierJourPostsParis("2026-11-23T10:00:00Z"), "2026-11-24");
 });

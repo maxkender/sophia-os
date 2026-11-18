@@ -4915,6 +4915,113 @@
    "notes": "déclinaison G1 de 7699939278847085857, fr en it tr el, couverture par langue; cta C",
    "type_bleo": "declinaison",
    "parent_contenu_id": "9f66082c-7190-4ec7-80d4-686740828890"
+  },
+  {
+   "post_id": "original-090",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#digitaldetox #brainrot #screentime",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7691007701127564576_1",
+    "2": "7703982934369324320_2",
+    "3": "7691336990419209505_4",
+    "4": "7707332670765813025_5",
+    "5": "7691007701127564576_6",
+    "6": "7707332670765813025_3"
+   },
+   "notes": "full test BLEO (ton cerveau a besoin d'une pause), en es de it tr, couverture par langue; cta B",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "var-grille-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7704304928449121568?variante=var-grille-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brainhealth #habits #focus",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "big sound selecta",
+    "original": true,
+    "id": "7239212554831104814",
+    "url_tiktok": "https://www.tiktok.com/music/x-7239212554831104814"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7704304928449121568_1",
+    "2": "7708456205689113889_2",
+    "3": "7708456205689113889_5",
+    "4": "7699899851747659041_6",
+    "5": "7699899851747659041_4",
+    "6": "7708456205689113889_6"
+   },
+   "notes": "déclinaison G1 de 7704304928449121568, fr de it hu sr, couverture par langue; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "d54e3568-27ee-499d-93b1-d9d996d21e97"
+  },
+  {
+   "post_id": "var-concentration-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7695416366886604064?variante=var-concentration-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#focus #concentration #attentionspan",
+   "musique": {
+    "titre": "deftones",
+    "auteur": "shmeswon",
+    "original": true,
+    "id": "7373989994559556385",
+    "url_tiktok": "https://www.tiktok.com/music/x-7373989994559556385"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7695416366886604064_1",
+    "2": "7688807102764092705_3",
+    "3": "7703619977630190881_5",
+    "4": "7703619977630190881_2",
+    "5": "7688807102764092705_5",
+    "6": "7688807102764092705_6"
+   },
+   "notes": "déclinaison G1 de 7695416366886604064, fr es de hu fi, couverture par langue; cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "c7b24f02-71dc-466a-a8e6-28e56234c46f"
+  },
+  {
+   "post_id": "var-mains-1",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#phonefree #hobbies #offline",
+   "musique": {
+    "titre": "Earrings",
+    "auteur": "Malcolm Todd",
+    "original": false,
+    "id": "7354423336196933649",
+    "url_tiktok": "https://www.tiktok.com/music/x-7354423336196933649"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7703525134610566433_1",
+    "2": "7685340052989398275_4",
+    "3": "7694340359056313632_3",
+    "4": "7699523873712164128_3",
+    "5": "7697728269335924001_4",
+    "6": "7704751322830064929_3"
+   },
+   "notes": "déclinaison G1 de original-067, fr en es tr hr, couverture par langue; cta A",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "bdf8016b-435a-4187-b2b1-d6531d7f0a2b"
   }
  ]
 }

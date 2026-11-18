@@ -597,3 +597,44 @@ export async function lireProfilApify(handle: string): Promise<{
     return { existe: null, abonnements: null, abonnes: null, videos: null, likes: null, erreur: `Apify : ${e instanceof Error ? e.message.slice(0, 120) : String(e)}` };
   }
 }
+
+
+export interface PostAvecImage {
+  url: string;
+  vues: number;
+  createTime: number | null;
+  /** Une image du post (couverture rapatriée par Apify, sinon 1re slide ou couverture TikTok) : à copier tout de suite. */
+  image: string | null;
+  abonnes: number | null;
+}
+
+/**
+ * 18/11 (Bible des comptes) : les posts d'un profil (ou des liens donnés) avec une image de chacun, pour une
+ * miniature. oEmbed TikTok refuse nos serveurs (400) : on demande la couverture à Apify (shouldDownloadCovers).
+ */
+export async function postsAvecImage(input: { profiles?: string[]; postURLs?: string[]; resultsPerPage: number }): Promise<PostAvecImage[]> {
+  const token = Deno.env.get("APIFY_TOKEN");
+  if (!token) throw new Error("APIFY_TOKEN manquant");
+  const response = await fetch(`https://api.apify.com/v2/acts/${ACTOR}/run-sync-get-dataset-items?token=${token}`, {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({
+      shouldDownloadSlideshowImages: false, shouldDownloadVideos: false, shouldDownloadCovers: true, proxyCountryCode: "None", ...input,
+    }),
+    signal: AbortSignal.timeout(120_000),
+  });
+  if (!response.ok) throw new Error(`Apify ${response.status}: ${(await response.text()).slice(0, 200)}`);
+  const items = (await response.json()) as ApifyItem[];
+  return items
+    .filter((i) => i.webVideoUrl)
+    .map((i) => {
+      const kv = (i.mediaUrls ?? []).find((u) => typeof u === "string" && !/\.mp4(\?|$)/i.test(u)) ?? null;
+      return {
+        url: i.webVideoUrl!,
+        vues: i.playCount ?? 0,
+        createTime: i.createTime ?? null,
+        image: i.covers?.[0] ?? kv ?? mergeImageUrls(i)[0] ?? i.videoMeta?.coverUrl ?? null,
+        abonnes: typeof i.authorMeta?.fans === "number" ? i.authorMeta.fans : null,
+      };
+    });
+}

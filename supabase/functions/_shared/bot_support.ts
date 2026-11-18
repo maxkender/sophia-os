@@ -17,6 +17,8 @@ export type ActionBot = "lien_mot_de_passe" | "renvoi_parrainage" | "pseudo_tikt
 export const ACTIONS: readonly ActionBot[] = ["lien_mot_de_passe", "renvoi_parrainage", "pseudo_tiktok", "email_ruul", "invitation_ruul", "arret", "lien_slack", "prevenir_max"];
 export const CATEGORIES_BOT = [
   "posting", "tiktok", "warmup", "login", "slack", "paie", "parrainage", "arret", "ruul", "upwork", "bug", "statut", "salutation", "autre",
+  // 17/11 (Max) : les cas à réponse fixe (support_regles.ts).
+  "lien_post", "paie_upwork", "parrainage_cash", "flou",
 ] as const;
 export const RISQUES = ["repetition", "enerve", "menace", "scam", "argent_tiers", "multi_comptes", "hors_plateforme"] as const;
 export type Risque = (typeof RISQUES)[number];
@@ -37,6 +39,14 @@ export interface DecisionBot {
   regle: string | null;
   risque: Risque[];
   raison: string;
+  /** 17/11 (Max, point 7) : l'escalade utile — le problème en une ligne, l'action proposée à l'équipe. */
+  resume?: string | null;
+  action_proposee?: string | null;
+  /** 17/11 (point 2) : ce que dit le posteur contredit le dashboard (bug de notre côté). */
+  ecart_dashboard?: boolean;
+  ecart_detail?: string | null;
+  /** 17/11 (point 7) : un bug technique réel, nommé pour regrouper les signalements du même jour. */
+  bug_cle?: string | null;
 }
 
 export interface EntreeBot {
@@ -54,6 +64,10 @@ export interface EntreeBot {
   consignes?: string[];
   /** 0680 : les documents de Support › Documents (Comment fonctionne Vik Studios, Poster Guide…). */
   documents?: { titre: string; texte: string }[];
+  /** 17/11 (point 2) : l'état du dashboard du posteur (support_etat_reel, même source que sa page). */
+  etat?: string;
+  /** 17/11 (point 5) : la langue du message, détectée sur le message (pas sur le pays). */
+  langue?: string | null;
 }
 
 export function promptBot(e: EntreeBot): string {
@@ -72,7 +86,7 @@ Plateforme de paie du posteur : ${plateforme}.${e.inconnu ? "\nCette personne es
 PROCÉDURE
 1. Lis sa fiche, ses données et ses demandes passées (ci-dessous).
 2. Classe le message (categorie).
-3. Réponds dans la langue du message (anglais par défaut), en 3 phrases au plus, simple, avec l'étape exacte qui lui manque d'après sa fiche.
+3. LANGUE : réponds TOUJOURS dans la langue du MESSAGE ci-dessous (détectée sur le message, jamais sur son pays ni son profil)${e.langue ? ` : ici « ${e.langue} »` : ""} ; en cas de doute, en anglais. Jamais une langue voisine (un message en slovène reçoit du slovène, pas du tchèque ni du croate). 3 phrases au plus, simple, avec l'étape exacte qui lui manque d'après sa fiche.
 4. Si une action de la liste règle le cas, choisis-la et dis-le dans la réponse. Actions possibles :
    lien_mot_de_passe (il n'arrive pas à se connecter ou a oublié son mot de passe : l'OS lui envoie par email son login et un lien personnel « Choose my password » ; ne donne JAMAIS de mot de passe), renvoi_parrainage (renvoyer l'email d'un parrainage),
    pseudo_tiktok (noter un nouveau pseudo TikTok ; action_valeur = le pseudo sans @),
@@ -85,7 +99,7 @@ PROCÉDURE
 
 NIVEAUX (un seul)
 - "bot" : tu as répondu et c'est réglé (questions du guide, étapes, TikTok, warm-up, login, Slack, quand/combien je suis payé avec les chiffres de l'OS, parrainage, arrêt, malade/absent, posts manqués selon la règle, statut, messages vides).
-- "adrien" : pas de règle, bug du dashboard que le catalogue ne couvre pas, personne introuvable après l'email, offre de HM mal faite, recrue à relier, demande de 2e compte TikTok, même problème pour la 3e fois.
+- "adrien" : SEULEMENT ce que tu ne peux pas régler seul : paie (montant manquant, facture non payée, jalon Upwork faux), bug technique réel, arrêt à exécuter, incohérence de statut, demande d'exception. Jamais un message vide ou flou.
 - "max" : SEULEMENT paiement non reçu alors que les données montrent la semaine payée ou due ; risque de double paie ; montant contesté après explication du calcul ; menace, litige, plainte publique, fraude (compte d'un ami, cash, plusieurs comptes, paiement hors plateforme).
 
 VÉRIFIER AVANT D'AFFIRMER (obligatoire)
@@ -100,11 +114,25 @@ VÉRIFIER AVANT D'AFFIRMER (obligatoire)
 - Un compte Ruul « Active » n'est PAS à créer : ne lui dis jamais de finir ou créer son compte Ruul.
 - DÉJÀ RÉPONDU : lis « demandes_help » (ce qu'il a demandé et ce qu'on lui a répondu). Ne te contredis jamais. S'il revient avec le même problème, ne répète pas la même réponse : cherche plus loin dans ses données ; à la 3e fois, niveau "adrien".
 - En salon Slack : si le message est personnel (paie, montant, compte), mets personnel = true : ta réponse lui part en message privé, jamais dans le salon.
-- Fraude, litige, menace, paiement hors plateforme : niveau "max", aucune réponse (reponse = "${TEXTE_ON_VERIFIE}").
+- Fraude, litige, menace, paiement hors plateforme : niveau "max", reponse = "${TEXTE_ON_VERIFIE}" (jamais de réponse vide).
+
+CAS À RÉPONSE FIXE (17/11, Max) — classe-les avec ces catégories, le code met la réponse exacte :
+- "lien_post" : il n'arrive pas à ajouter le lien de son post (erreur sur « Mark as published », 2e post pas compté, champ lien absent, « nothing planned for today » alors qu'il a posté, images qui changent après publication…). Niveau "bot", jamais d'escalade.
+- "paie_upwork" : un posteur Ruul demande à être payé par Upwork plutôt que par Ruul. On ne refuse plus : niveau "bot".
+- "parrainage_cash" : son filleul veut être payé en cash ou par lui. Niveau "bot" (jamais de cash, jamais d'un posteur à un autre).
+- "flou" : message vide ou flou (« me too », « help me », « I have a problem », « hello ») : niveau "bot", on lui demande ce qui se passe. Jamais d'escalade.
+
+DASHBOARD = HELP (une seule source de vérité)
+- L'ÉTAT DU DASHBOARD ci-dessous est exactement ce que le posteur voit. Ne dis jamais « tout est OK » si le dashboard montre un problème, ni l'inverse.
+- Si ce qu'il décrit contredit le dashboard d'une façon qui ne peut venir que de notre côté (ex. « nothing planned » alors que des posts sont prévus aujourd'hui, warm-up validé chez nous mais bloqué chez lui) : ecart_dashboard = true, ecart_detail = l'écart en une phrase, niveau "adrien".
+
+ARRÊTS ET KILLS : le code lit la vraie situation et répond lui-même ; ne dis jamais qu'un arrêt est fait, ni qu'il est arrêté, sans que l'OS le montre.
+
+ESCALADE (niveau "adrien" ou "max") : remplis "resume" (le problème en une ligne, en français) et "action_proposee" (ex. « fermer le contrat Upwork », « verser 14 $ », « bug dashboard à corriger »). Un bug technique réel : "bug_cle" = un nom court et stable du bug (ex. "mark_as_published_erreur"), le même pour tous ceux qui signalent le même bug.
 
 RÈGLES
-- Ruul : jamais d'Upwork. Upwork : jamais de Ruul, ne propose jamais Ruul.
-- Recrue Ruul qui veut être payée par Upwork, en cash ou via un ami : refus poli (la paie passe par Ruul, il peut arrêter avec STOP) ; ami ou cash = risque.
+- Ruul : ne parle d'Upwork que pour sa demande de paiement par Upwork (cas "paie_upwork"). Upwork : jamais de Ruul, ne propose jamais Ruul.
+- Paiement en cash ou par un ami (hors parrainage) : risque "argent_tiers".
 - Kill confirmé sur sa fiche (inactif) : message de fin poli.
 - Message vide (« Hii???? », « Hello hiring manager ») : bonjour + ses étapes restantes.
 - personnel = true si le message parle de SON compte, SA paie, SON contrat.
@@ -128,6 +156,8 @@ ${catalogue || "(vide)"}
 SA FICHE
 ${e.fiche}
 
+${e.etat ?? ""}
+
 ${e.contexte}
 
 SES DEMANDES PASSÉES
@@ -137,7 +167,7 @@ MESSAGE
 « ${e.message} »
 
 Réponds uniquement en JSON :
-{"langue": "en", "categorie": "${CATEGORIES_BOT.join("|")}", "personnel": false, "reponse": "...", "action": null, "action_valeur": null, "niveau": "bot|adrien|max", "regle": "id du catalogue ou titre de l'info utilisée, ou null", "risque": [], "raison": "une phrase en français pour l'équipe"}`;
+{"langue": "code ISO de la langue du MESSAGE (en, fr, sl…)", "categorie": "${CATEGORIES_BOT.join("|")}", "personnel": false, "reponse": "...", "action": null, "action_valeur": null, "niveau": "bot|adrien|max", "regle": "id du catalogue ou titre de l'info utilisée, ou null", "risque": [], "raison": "une phrase en français pour l'équipe", "resume": "le problème en une ligne, ou null", "action_proposee": "l'action proposée à l'équipe, ou null", "ecart_dashboard": false, "ecart_detail": null, "bug_cle": null}`;
 }
 
 export function lireDecision(brut: string): DecisionBot | null {
@@ -165,6 +195,11 @@ export function lireDecision(brut: string): DecisionBot | null {
     regle: o.regle == null || String(o.regle).trim().toLowerCase() === "null" ? null : String(o.regle).trim().slice(0, 200),
     risque: [...new Set(risque)],
     raison: String(o.raison ?? "").trim().slice(0, 400),
+    resume: o.resume == null || String(o.resume).trim().toLowerCase() === "null" ? null : String(o.resume).trim().slice(0, 300),
+    action_proposee: o.action_proposee == null || String(o.action_proposee).trim().toLowerCase() === "null" ? null : String(o.action_proposee).trim().slice(0, 300),
+    ecart_dashboard: o.ecart_dashboard === true,
+    ecart_detail: o.ecart_detail == null ? null : String(o.ecart_detail).trim().slice(0, 300) || null,
+    bug_cle: typeof o.bug_cle === "string" && /^[a-z0-9_]{3,60}$/.test(o.bug_cle.trim()) ? o.bug_cle.trim() : null,
   };
 }
 

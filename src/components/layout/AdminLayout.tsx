@@ -39,6 +39,7 @@ import {
   Tags,
   Users,
   UserPlus,
+  Briefcase,
   Wallet,
   Globe2,
   LifeBuoy,
@@ -60,6 +61,7 @@ const ICONES_MENU: Record<EntreeMenuAuto, LucideIcon> = {
   problemes: Siren,
   posteurs: Users,
   ruul: UserPlus,
+  upwork: Briefcase,
   decisions: Gavel,
   paie: Wallet,
   support: LifeBuoy,
@@ -135,6 +137,12 @@ export function AdminLayout() {
               label: t("nav.sources"),
               icon: AtSign,
               description: t("navDesc.sources"),
+            },
+            {
+              to: "/admin/bible",
+              label: t("nav.bible"),
+              icon: BookOpen,
+              description: t("navDesc.bible"),
             },
             {
               to: "/admin/slideshows",

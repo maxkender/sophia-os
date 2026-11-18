@@ -61,6 +61,7 @@ import { MajSourcesPanel } from "@/features/moteur/MajSourcesPanel";
 import { drapeauLangue, LANGUES_CIBLES, nomLangue } from "@/features/moteur/langues";
 import type { CompteReference, Label as NicheLabel } from "@/features/moteur/types";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/lib/supabase/client";
 import { aujourdhuiEnLettres, localeDate } from "@/locales/localeDate";
 
 const selectClass =
@@ -945,6 +946,30 @@ export function AdminSourcesPage() {
   const { t } = useTranslation();
   const [bilanOubli, setBilanOubli] = React.useState<BilanOubli | null>(null);
   const [ajout, setAjout] = React.useState(false);
+  // 18/11 : « Importer » depuis la Bible des comptes ouvre ce même formulaire, pré-rempli (handle, label,
+  // langue) avec la note pour l'import et l'angle en rappel. La logique d'import ne change pas.
+  const [params] = useSearchParams();
+  const bibleId = params.get("bible");
+  const depuisBible = useQuery({
+    queryKey: ["bible", "import", bibleId],
+    enabled: Boolean(bibleId),
+    queryFn: async () => {
+      const { data, error } = await supabase.from("bible_comptes").select("handle, label_id, langue, note_import, angle, application_ids, apps_attente").eq("id", bibleId!).maybeSingle();
+      if (error) throw error;
+      if (!data) return null;
+      const { data: apps } = await supabase.from("applications").select("id, nom").in("id", (data.application_ids as string[]) ?? []);
+      return {
+        handle: data.handle as string, nicheId: (data.label_id as string | null) ?? "", langue: (data.langue as string | null) ?? "",
+        rappel: {
+          apps: [...((apps ?? []) as { nom: string }[]).map((a) => a.nom), ...((data.apps_attente as string[]) ?? [])].join(", "),
+          note: data.note_import as string | null, angle: data.angle as string | null,
+        },
+      };
+    },
+  });
+  React.useEffect(() => {
+    if (depuisBible.data) setAjout(true);
+  }, [depuisBible.data]);
   const [majOuverte, setMajOuverte] = React.useState(false);
   const [recherche, setRecherche] = React.useState("");
   const [ouverte, setOuverte] = React.useState<string | null>(null);
@@ -1032,7 +1057,7 @@ export function AdminSourcesPage() {
         }
       />
 
-      {ajout && <FormAjoutSource niches={niches.data ?? []} onFermer={() => setAjout(false)} />}
+      {ajout && <FormAjoutSource key={bibleId ?? "vide"} niches={niches.data ?? []} onFermer={() => setAjout(false)} initial={depuisBible.data ?? undefined} />}
 
       {/* La règle d'import, en une phrase : elle répond à « combien de posts ? ». */}
       <p className="rounded-lg border bg-muted/30 px-3 py-2 text-xs text-muted-foreground" data-testid="sources-regle">
@@ -1171,14 +1196,21 @@ export function AdminSourcesPage() {
   );
 }
 /** Formulaire d'ajout : soit un compte TikTok, soit un lien TikTok isolé. */
-function FormAjoutSource({ niches, onFermer }: { niches: NicheLabel[]; onFermer: () => void }) {
+interface InitialImport {
+  handle: string;
+  nicheId: string;
+  langue: string;
+  rappel: { apps: string; note: string | null; angle: string | null };
+}
+
+function FormAjoutSource({ niches, onFermer, initial }: { niches: NicheLabel[]; onFermer: () => void; initial?: InitialImport }) {
   const { t } = useTranslation();
   const queryClient = useQueryClient();
   const [mode, setMode] = React.useState<"compte" | "lien">("compte");
-  const [handle, setHandle] = React.useState("");
+  const [handle, setHandle] = React.useState(initial?.handle ?? "");
   const [url, setUrl] = React.useState("");
-  const [nicheId, setNicheId] = React.useState("");
-  const [langue, setLangue] = React.useState("");
+  const [nicheId, setNicheId] = React.useState(initial?.nicheId ?? "");
+  const [langue, setLangue] = React.useState(initial?.langue ?? "");
   const [message, setMessage] = React.useState<string | null>(null);
 
   const nicheNom = niches.find((n) => n.id === nicheId)?.nom ?? "";
@@ -1249,6 +1281,14 @@ function FormAjoutSource({ niches, onFermer }: { niches: NicheLabel[]; onFermer:
         </CardAction>
       </CardHeader>
       <CardContent className="space-y-4">
+      {initial && (
+        <div className="space-y-1 rounded-md border border-violet-200 bg-violet-50/60 px-3 py-2 text-sm dark:border-violet-900 dark:bg-violet-950/20" data-testid="rappel-bible">
+          <p className="font-medium">Depuis la Bible des comptes : @{initial.handle}</p>
+          {initial.rappel.apps && <p className="text-xs">App : {initial.rappel.apps}</p>}
+          {initial.rappel.note && <p className="text-xs">Note pour l'import : {initial.rappel.note}</p>}
+          {initial.rappel.angle && <p className="text-xs">Angle de placement : {initial.rappel.angle}</p>}
+        </div>
+      )}
       <Segments
         libelle={t("sources.ajouterSource")}
         actif={mode}

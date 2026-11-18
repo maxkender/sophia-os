@@ -1,0 +1,299 @@
+{
+ "post_id": "original-089",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 niche traits of highly",
+      "successful people"
+     ],
+     "fr": "10/10 traits méconnus des gens qui réussissent",
+     "texte": "hogyan tanulj meg bármit [[sokkal gyorsabban]]"
+    },
+    "T2": {
+     "en": [
+      "(science-backed)"
+     ],
+     "fr": "(la science le dit)",
+     "alignement": "droite",
+     "texte": "(több tanulás nélkül)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701420855900867853_5.jpg",
+      "boite": [
+       40,
+       560,
+       510,
+       380
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they make decisions fast"
+     ],
+     "fr": "ils [[décident vite]]",
+     "texte": "[[kérdezd ki magad]] inkább"
+    },
+    "T2": {
+     "en": [
+      "successful people don’t procrastinate. they don’t",
+      "ask for permission, but instead act and ask for",
+      "forgiveness"
+     ],
+     "fr": "les gens qui réussissent [[remettent rien à plus tard]]. ils [[demandent pas la permission]] : ils foncent et [[s'excusent après]]",
+     "texte": "a jegyzeteid újraolvasása hasznosnak tűnik, mert minden ismerős, de valójában [[felismerni valamit nem ugyanaz, mint emlékezni rá]]"
+    },
+    "T3": {
+     "en": [
+      "they don’t spend 3",
+      "weeks thinking",
+      "about a reversible",
+      "choice"
+     ],
+     "fr": "ils passent pas 3 semaines à cogiter sur [[un choix réversible]]",
+     "texte": "csukd be a könyvet, és írd le egy lapra [[mindazt, amire emlékszel]]"
+    },
+    "T4": {
+     "en": [
+      "if the downside is small, they decide, act, and",
+      "adjust. speed matters most when decisions can",
+      "be changed later"
+     ],
+     "fr": "si le risque est petit, ils décident, foncent et ajustent. [[aller vite compte surtout]] quand tu peux changer d'avis après",
+     "texte": "az erőfeszítés, amivel előhúzod a fejedből, [[attól marad meg]]. utána vesd össze a jegyzeteiddel, és pótold, ami hiányzik"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703972418016005390_2.jpg",
+      "boite": [
+       180,
+       468,
+       720,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they get comfortable looking",
+      "stupid"
+     ],
+     "fr": "ils [[s'en fichent d'avoir l'air bêtes]]",
+     "texte": "[[magyarázd el hangosan]] valakinek"
+    },
+    "T2": {
+     "en": [
+      "they ask basic questions, try things before they feel",
+      "ready, and admit when they don’t know"
+     ],
+     "fr": "ils posent des questions bêtes, se lancent avant d'être prêts et [[disent quand ils savent pas]]",
+     "texte": "vagy a falnak: mintha olyannak mesélnéd, aki semmit sem tud róla, [[a saját szavaiddal]]"
+    },
+    "T3": {
+     "en": [
+      "protecting your",
+      "ego feels safe,",
+      "but it slows",
+      "learning down",
+      "massively"
+     ],
+     "fr": "protéger ton ego, ça rassure, mais ça [[te fait apprendre beaucoup moins vite]]",
+     "texte": "abban a pillanatban, ahol elakadsz, megtaláltad [[azt, amit még nem értesz]]"
+    },
+    "T4": {
+     "en": [
+      "growth feels uncomfortable, but",
+      "nothing changes if nothing changes"
+     ],
+     "fr": "évoluer, c'est inconfortable, mais [[si tu changes rien, rien change]]",
+     "texte": "ha nem tudod egyszerűen elmondani, [[menj vissza ahhoz a részhez]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop sacrificing sleep"
+     ],
+     "fr": "sacrifie plus [[ton sommeil]]",
+     "texte": "[[oszd el az ismétlést]]"
+    },
+    "T2": {
+     "en": [
+      "your brain strengthens",
+      "memories and clears",
+      "out metabolic waste",
+      "while you sleep"
+     ],
+     "fr": "ton cerveau [[consolide tes souvenirs]] et fait le ménage pendant que tu dors",
+     "texte": "több napra elosztva egy kis ismétlés [[jobban megmarad]], mint egy átmagolt éjszaka"
+    },
+    "T3": {
+     "en": [
+      "consistently getting",
+      "too little makes it",
+      "harder to focus, learn,",
+      "and make decisions"
+     ],
+     "fr": "en manque de sommeil, t'as plus de mal à te concentrer, à apprendre et à décider",
+     "texte": "nézd át másnap, aztán pár nappal később, majd még egyszer [[egy hét múlva]]"
+    },
+    "T4": {
+     "en": [
+      "if you want to think sharper, stop treating sleep like",
+      "optional downtime"
+     ],
+     "fr": "pour avoir l'esprit vif, arrête de traiter le sommeil comme [[une option]]",
+     "texte": "minden alkalommal, amikor majdnem elfelejted, de eszedbe jut, [[jobban rögzül]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7701420855900867853_2.jpg",
+      "boite": [
+       40,
+       512,
+       511,
+       380
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books that expand your mind"
+     ],
+     "fr": "lis des livres qui [[t'ouvrent l'esprit]]",
+     "texte": "tanulj [[kis adagokban, minden nap]]"
+    },
+    "T2": {
+     "en": [
+      "read psychology, philosophy, history, and classic literature"
+     ],
+     "fr": "lis de la psycho, de la philo, de l'histoire et [[des grands classiques]]",
+     "texte": "a napi kevés [[többet ér a ritka soknál]]"
+    },
+    "T3": {
+     "en": [
+      "the more you understand",
+      "about people, human",
+      "nature, and the world"
+     ],
+     "fr": "plus tu comprends les gens, la nature humaine et le monde",
+     "texte": "a rövid alkalmakat könnyebb tartani, és időt adnak az agyadnak"
+    },
+    "T4": {
+     "en": [
+      "the more you have to",
+      "contribute to a conversation"
+     ],
+     "fr": "plus t'as de quoi [[nourrir une conversation]]",
+     "texte": "és így tényleg [[nem hagyod abba a második héten]]"
+    },
+    "T5": {
+     "en": [
+      "i used to struggle with",
+      "stopping scrolling until i found",
+      "this thing that blocks my apps",
+      "until i read for 20 minutes"
+     ],
+     "fr": "ce qui me donne de quoi parler : un roman dans le train, des podcasts d'histoire et [[une leçon de 5 min sur l'appli Sophia]] quand je prends mon tel",
+     "texte": "régen csak görgettem, most ha már úgyis telefonozom, [[jön egy 5 perces lecke a Sophia appban]]. ma: miért Itáliában indult a reneszánsz"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "they obsess over leverage"
+     ],
+     "fr": "ils sont obsédés par [[l'effet de levier]]",
+     "texte": "[[aludj rá egyet]], komolyan"
+    },
+    "T2": {
+     "en": [
+      "they constantly look for",
+      "ways to make one hour of",
+      "work create more than",
+      "one hour of value"
+     ],
+     "fr": "ils cherchent toujours comment faire qu'[[une heure de boulot]] rapporte [[bien plus qu'une heure]]",
+     "texte": "amíg alszol, az agyad szépen [[rendezi és elraktározza]] mindazt, amit napközben tanultál"
+    },
+    "T3": {
+     "en": [
+      "software, systems,",
+      "content, capital,",
+      "automation, teams"
+     ],
+     "fr": "outils, systèmes, contenu, capital, automatisation, équipes",
+     "texte": "ezért ismételj egy kicsit [[közvetlenül lefekvés előtt]]"
+    },
+    "T4": {
+     "en": [
+      "they’re not just trying to",
+      "work harder, they’re trying"
+     ],
+     "fr": "pas juste bosser plus, mais [[démultiplier leurs efforts]]",
+     "texte": "egy átvirrasztott éjszaka [[többet vesz el, mint amennyit ad]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7707061400576773389_3.jpg",
+      "boite": [
+       96,
+       510,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  }
+ }
+}

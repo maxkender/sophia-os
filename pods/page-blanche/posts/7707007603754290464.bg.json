@@ -1,0 +1,280 @@
+{
+ "post_id": "7707007603754290464",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "10/10 навика за луда дисциплина"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(науката е съгласна)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7707424540049034509_2.jpg",
+      "boite": [
+       96,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "не обявявай [[плановете си]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs à tout le monde te file [[un shot de dopamine]] avant d'avoir rien fait",
+     "texte": "когато казваш целите си на всички, получаваш [[доза допамин]], преди изобщо да започнеш"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kiff de l'ambition]], les compliments, et tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "усещаш [[вкуса на амбицията]], получаваш похвали и виждаш резултата [[без капка работа]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "спри да говориш какво ще правиш. изчезни, работи тихо и [[остави резултатите да говорят вместо теб]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "спри да прескачаш слайдовете [[от мързел]]"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens swipent ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "повечето хора просто прелистват такива слайдове и [[никога не четат текста]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler habitue ton cerveau à [[lire le titre et zapper]]",
+     "texte": "като само прелистваш, мозъкът свиква [[да хваща заглавието и да бяга]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration vaut mieux que celle de la plupart]]",
+     "texte": "ако още четеш, [[концентрацията ти е по-добра от на повечето]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "чети книги [[вместо да скролваш]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te rappelles le tiktok que t'as vu [[y'a 5 scrolls]] ?",
+     "texte": "помниш ли кой тикток видя [[преди 5 скрола]]?"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "[[точно така]]. кратките видеа [[пържат концентрацията ти]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je doomscrollais, maintenant je remplace le scroll par [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "преди скролвах, сега [[5 мин в приложението Sophia]]: защо ренесансът тръгва от италия"
+    },
+    "T5": {
+     "en": [
+      "get your focus back"
+     ],
+     "fr": "[[reprends ton focus]]",
+     "texte": "[[върни си фокуса]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "излизай от вкъщи [[всеки божи ден]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24h sans mettre le nez dehors, tu végètes vite",
+     "texte": "24 часа вътре и лесно започваш да гниеш"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20–30 minutes]], idéalement en plein jour",
+     "texte": "излез навън [[поне 20–30 минути]], по-добре денем"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, le soleil, changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "разходка, слънце и смяна на обстановката ти дават повече енергия от още час „почивка“ в леглото"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[doomscroller c'est PAS du repos !!]]",
+     "texte": "[[скролването НЕ е почивка!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[sans but précis]]",
+     "texte": "учи неща [[без очевидна полза]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui t'intéresse vraiment",
+     "texte": "история, философия, физика, икономика, езици, каквото те вълнува истински"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[chaque heure n'a pas à être rentable]]",
+     "texte": "[[не всеки час трябва да носи пари]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "une grosse culture G donne à ton cerveau plus d'idées à relier quand t'as un vrai problème à régler",
+     "texte": "широките знания дават на мозъка повече идеи за свързване, когато наистина трябва да решиш нещо"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis [[c'est fun d'avoir de la culture !!]]",
+     "texte": "а и [[просто е яко да знаеш много!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

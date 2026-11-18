@@ -1,0 +1,280 @@
+{
+ "post_id": "7707007603754290464",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "10/10 įpročių beprotiškai disciplinai"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(mokslas sutinka)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7692093201968090401_2.jpg",
+      "boite": [
+       41,
+       384,
+       497,
+       512
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "nustok skelbti [[savo planus]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs à tout le monde te file [[un shot de dopamine]] avant d'avoir rien fait",
+     "texte": "kai visiems pasakoji apie savo tikslus, gauni [[dopamino dozę]], nors dar nieko nepadarei"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kiff de l'ambition]], les compliments, et tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "pajunti [[ambicijų skonį]], sulauki pagyrų ir jau įsivaizduoji galutinį rezultatą [[visai nepadirbėjus]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "nustok kalbėti apie tai, ką darysi. dink, dirbk tyliai ir [[leisk rezultatams kalbėti už tave]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "nustok praleidinėti skaidres [[iš tingulio]]"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens swipent ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "dauguma tokias skaidres tiesiog pervarto ir [[niekada neperskaito teksto]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler habitue ton cerveau à [[lire le titre et zapper]]",
+     "texte": "kai viską tik permeti akimis, smegenys pripranta [[pagauti antraštę ir eiti toliau]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration vaut mieux que celle de la plupart]]",
+     "texte": "jei vis dar skaitai, [[tavo dėmesys geresnis nei daugumos]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "skaityk knygas [[vietoj skrolinimo]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te rappelles le tiktok que t'as vu [[y'a 5 scrolls]] ?",
+     "texte": "ar pameni, kokį tiktoką matei [[prieš 5 skrolus]]?"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "[[būtent]]. trumpi video [[kepina tavo dėmesį]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je doomscrollais, maintenant je remplace le scroll par [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "anksčiau doomscrollinau, dabar [[5 min pamoka Sophia programėlėje]]: kodėl renesansas gimė italijoje"
+    },
+    "T5": {
+     "en": [
+      "get your focus back"
+     ],
+     "fr": "[[reprends ton focus]]",
+     "texte": "[[susigrąžink fokusą]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "išeik iš namų [[kiekvieną dieną]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24h sans mettre le nez dehors, tu végètes vite",
+     "texte": "kai 24 valandas sėdi viduje, labai lengva tiesiog supūti"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20–30 minutes]], idéalement en plein jour",
+     "texte": "išeik laukan [[bent 20–30 minučių]], geriausia dienos šviesoje"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, le soleil, changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "vaikščiojimas, saulė ir aplinkos pakeitimas duoda daugiau energijos nei dar viena valanda „poilsio“ lovoje"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[doomscroller c'est PAS du repos !!]]",
+     "texte": "[[doomscrollinimas NĖRA poilsis!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[sans but précis]]",
+     "texte": "mokykis dalykų [[be aiškios naudos]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui t'intéresse vraiment",
+     "texte": "istorija, filosofija, fizika, ekonomika, užsienio kalbos, bet kas, kas tave tikrai domina"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[chaque heure n'a pas à être rentable]]",
+     "texte": "[[ne kiekviena valanda turi nešti pinigų]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "une grosse culture G donne à ton cerveau plus d'idées à relier quand t'as un vrai problème à régler",
+     "texte": "platus išsilavinimas duoda smegenims daugiau idėjų, kurias gali sujungti, kai tikrai reikia ką nors išspręsti"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis [[c'est fun d'avoir de la culture !!]]",
+     "texte": "be to, [[tiesiog smagu daug žinoti!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

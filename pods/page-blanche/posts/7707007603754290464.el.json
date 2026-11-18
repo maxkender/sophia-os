@@ -1,0 +1,280 @@
+{
+ "post_id": "7707007603754290464",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "10/10 συνήθειες για αρρωστημένη πειθαρχία"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(η επιστήμη συμφωνεί)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702536129064570126_5.jpg",
+      "boite": [
+       180,
+       537,
+       720,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "μην ανακοινώνεις [[τα σχέδιά σου]]"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs à tout le monde te file [[un shot de dopamine]] avant d'avoir rien fait",
+     "texte": "όταν λες σε όλους τους στόχους σου, παίρνεις [[μια δόση ντοπαμίνης]] πριν κάνεις οτιδήποτε"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kiff de l'ambition]], les compliments, et tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "νιώθεις [[τη φιλοδοξία]], παίρνεις επαίνους και φαντάζεσαι το αποτέλεσμα [[χωρίς να έχεις δουλέψει]]"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "σταμάτα να λες τι θα κάνεις. εξαφανίσου, δούλεψε αθόρυβα και [[άσε τα αποτελέσματα να μιλήσουν]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "σταμάτα να προσπερνάς τα slides [[από τεμπελιά]]"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens swipent ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "οι περισσότεροι περνάνε τέτοια slides στο τσακ και [[δεν διαβάζουν ποτέ το κείμενο]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler habitue ton cerveau à [[lire le titre et zapper]]",
+     "texte": "όταν διαβάζεις στα πεταχτά, το μυαλό μαθαίνει να [[πιάνει τον τίτλο και να φεύγει]]"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration vaut mieux que celle de la plupart]]",
+     "texte": "αν το διαβάζεις, [[συγκεντρώνεσαι καλύτερα από τους πολλούς]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "read books instead of scrolling"
+     ],
+     "fr": "lis des livres [[au lieu de scroller]]",
+     "texte": "διάβαζε βιβλία [[αντί να σκρολάρεις]]"
+    },
+    "T2": {
+     "en": [
+      "do you remember what tiktok you saw",
+      "5 scrolls ago?"
+     ],
+     "fr": "tu te rappelles le tiktok que t'as vu [[y'a 5 scrolls]] ?",
+     "texte": "θυμάσαι ποιο tiktok είδες [[πριν από 5 σκρολ]];"
+    },
+    "T3": {
+     "en": [
+      "exactly. short form content",
+      "is frying your attention span"
+     ],
+     "fr": "[[exactement]]. les vidéos courtes [[te grillent l'attention]]",
+     "texte": "[[ακριβώς]]. τα σύντομα βίντεο [[σου καίνε τη συγκέντρωση]]"
+    },
+    "T4": {
+     "en": [
+      "i used to doomscroll but",
+      "now use this thing that",
+      "blocks my apps until i read",
+      "for 20 minutes"
+     ],
+     "fr": "avant je doomscrollais, maintenant je remplace le scroll par [[une leçon de 5 min sur l'appli Sophia]]",
+     "texte": "παλιά doomscroll, τώρα [[5 λεπτά στην εφαρμογή Sophia]]: πώς η ιταλία γέννησε την αναγέννηση"
+    },
+    "T5": {
+     "en": [
+      "get your focus back"
+     ],
+     "fr": "[[reprends ton focus]]",
+     "texte": "[[ξαναβρές τη συγκέντρωσή σου]]"
+    },
+    "T6": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "leave the house every single day"
+     ],
+     "fr": "sors de chez toi [[tous les jours]]",
+     "texte": "βγες από το σπίτι [[κάθε μέρα]]"
+    },
+    "T2": {
+     "en": [
+      "being indoors for 24",
+      "hours makes rotting",
+      "easy"
+     ],
+     "fr": "24h sans mettre le nez dehors, tu végètes vite",
+     "texte": "24 ώρες μέσα στο σπίτι σε κάνουν να λιώνεις"
+    },
+    "T3": {
+     "en": [
+      "get outside for at least",
+      "20–30 minutes, ideally",
+      "in daylight"
+     ],
+     "fr": "sors [[au moins 20–30 minutes]], idéalement en plein jour",
+     "texte": "βγες έξω [[τουλάχιστον 20–30 λεπτά]], ιδανικά με φως ημέρας"
+    },
+    "T4": {
+     "en": [
+      "walking, sunlight and",
+      "simply changing",
+      "environments can do",
+      "more for your energy",
+      "than another hour",
+      "“resting” in bed"
+     ],
+     "fr": "marcher, le soleil, changer de décor, ça te recharge plus qu'une heure de plus à « te reposer » au lit",
+     "texte": "η βόλτα, ο ήλιος κι ένα άλλο σκηνικό σε φορτίζουν πιο πολύ από άλλη μια ώρα «ξεκούρασης» στο κρεβάτι"
+    },
+    "T5": {
+     "en": [
+      "doomscrolling is NOT",
+      "resting!!"
+     ],
+     "fr": "[[doomscroller c'est PAS du repos !!]]",
+     "texte": "[[το doomscrolling ΔΕΝ είναι ξεκούραση!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn things with no obvious",
+      "payoff"
+     ],
+     "fr": "apprends des trucs [[sans but précis]]",
+     "texte": "μάθε πράγματα [[χωρίς άμεσο όφελος]]"
+    },
+    "T2": {
+     "en": [
+      "history, philosophy,",
+      "physics, economics,",
+      "languages, whatever",
+      "genuinely interests you"
+     ],
+     "fr": "histoire, philo, physique, éco, langues, tout ce qui t'intéresse vraiment",
+     "texte": "ιστορία, φιλοσοφία, φυσική, οικονομικά, γλώσσες, ό,τι σε ενδιαφέρει πραγματικά"
+    },
+    "T3": {
+     "en": [
+      "not every hour needs to",
+      "make money"
+     ],
+     "fr": "[[chaque heure n'a pas à être rentable]]",
+     "texte": "[[δεν χρειάζεται κάθε ώρα να βγάζει λεφτά]]"
+    },
+    "T4": {
+     "en": [
+      "broad knowledge gives your brain more ideas",
+      "to connect when you actually need to solve",
+      "something"
+     ],
+     "fr": "une grosse culture G donne à ton cerveau plus d'idées à relier quand t'as un vrai problème à régler",
+     "texte": "οι ευρείες γνώσεις δίνουν στο μυαλό σου περισσότερες ιδέες να συνδέσει όταν πρέπει να λύσεις κάτι"
+    },
+    "T5": {
+     "en": [
+      "also, it is just fun to be knowledgable!!"
+     ],
+     "fr": "et puis [[c'est fun d'avoir de la culture !!]]",
+     "texte": "και, απλά, [[είναι ωραίο να ξέρεις πολλά!!]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

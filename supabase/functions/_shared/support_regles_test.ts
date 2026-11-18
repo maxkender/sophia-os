@@ -78,3 +78,13 @@ Deno.test("6. la vraie situation : actif, kill (date, raison, paie), incohérenc
   assertEquals(situation(base, true).incoherences, ["compte actif dans l'OS alors qu'un arrêt lui a déjà été annoncé"]);
   assertEquals(ligneStatut(base), "actif · warm-up fini · cohorte du 2026-11-02 · Upwork · posts semaine 4/6");
 });
+
+Deno.test("18/11 : « personne ne répond » → escalader soi-même ou Slack", () => {
+  const upwork = { plateforme: "upwork" as const, attenteLienUpwork: false };
+  for (const m of [
+    "Nobody answers my messages!", "I'm still waiting for an answer since Monday", "I didn't get any reply to my question",
+    "You never answer", "Personne ne me répond", "Nadie me responde", "Nessuno mi risponde", "Ich habe keine Antwort bekommen",
+  ]) assertEquals(detecterCas(m, upwork).cas, "pas_de_reponse", m);
+  assertEquals(detecterCas("When will I get paid?", upwork).cas, null);
+  assertEquals(detecterCas("Can you answer this: how many posts per day?", upwork).cas, null);
+});

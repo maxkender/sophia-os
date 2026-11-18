@@ -12,19 +12,32 @@ as $function$
 declare
   v_auj date := (now() at time zone 'Europe/Paris')::date;
   v_posts uuid[];
-  v_n integer;
+  v_post uuid;
+  v_n integer := 0;
 begin
-  select coalesce(array_agg(distinct p.post_id) filter (where p.post_id is not null), '{}') into v_posts
-    from public.passages p
-   where p.compte_id = p_compte and p.date_publication_prevue > v_auj
-     and p.publie_url is null and p.publie_at is null and p.statut::text <> 'publie';
-  delete from public.passages p
-   where p.compte_id = p_compte and p.date_publication_prevue > v_auj
-     and p.publie_url is null and p.publie_at is null and p.statut::text <> 'publie';
-  get diagnostics v_n = row_count;
-  delete from public.posts po
-   where po.id = any(v_posts) and po.publie_at is null and po.publie_url is null
-     and not exists (select 1 from public.passages x where x.post_id = po.id);
+  -- Ne bloque jamais le kill : si une ligne liée empêche le retrait, on garde les posts et on continue.
+  begin
+    select coalesce(array_agg(distinct p.post_id) filter (where p.post_id is not null), '{}') into v_posts
+      from public.passages p
+     where p.compte_id = p_compte and p.date_publication_prevue > v_auj
+       and p.publie_url is null and p.publie_at is null and p.statut::text <> 'publie';
+    delete from public.passages p
+     where p.compte_id = p_compte and p.date_publication_prevue > v_auj
+       and p.publie_url is null and p.publie_at is null and p.statut::text <> 'publie';
+    get diagnostics v_n = row_count;
+  exception when others then
+    raise warning 'retirer_posts_futurs(%) : passages gardés (%)', p_compte, sqlerrm;
+    return -1;
+  end;
+  foreach v_post in array v_posts loop
+    begin
+      delete from public.posts po
+       where po.id = v_post and po.publie_at is null and po.publie_url is null
+         and not exists (select 1 from public.passages x where x.post_id = po.id);
+    exception when others then
+      raise warning 'retirer_posts_futurs(%) : post % gardé (%)', p_compte, v_post, sqlerrm;
+    end;
+  end loop;
   return v_n;
 end;
 $function$;

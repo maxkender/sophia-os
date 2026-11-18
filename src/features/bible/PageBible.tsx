@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 import { DialogueAjout, DialogueLabel } from "./DialoguesBible";
 import {
   type CarteLabel, changerCarte, changerEtape, type CompteBible, compterEtapes, type Etape, ETAPES, LIBELLE_BADGE, lireCartes, lireComptes,
-  marquerBatchImporte, modifierNote, nomCarte, ranger, type Section, SECTIONS, supprimerCompte,
+  marquerBatchImporte, modifierCompte, nomCarte, ranger, type Section, SECTIONS, supprimerCompte,
 } from "./moodboard";
 import { type ActionsTuile, TuileCompte } from "./TuileCompte";
 
@@ -42,6 +42,7 @@ export function PageBible() {
   const [etape, setEtape] = React.useState<Etape>("a_importer");
   const [recherche, setRecherche] = React.useState("");
   const [section, setSection] = React.useState<Section | "sans" | "">("");
+  const [podzer, setPodzer] = React.useState(false);
   const [ajout, setAjout] = React.useState(false);
   const [aRanger, setARanger] = React.useState<CompteBible | null>(null);
   const [occupes, setOccupes] = React.useState<Set<string>>(new Set());
@@ -50,7 +51,7 @@ export function PageBible() {
   const liste = comptes.data ?? [];
   const toutes = cartes.data ?? [];
   const n = compterEtapes(liste);
-  const groupes = ranger(liste, toutes, { etape, recherche, section });
+  const groupes = ranger(liste, toutes, { etape, recherche, section, podzer });
   const rafraichir = () => { void qc.invalidateQueries({ queryKey: ["bible"] }); };
 
   const agir = async (c: CompteBible, f: () => Promise<unknown>) => {
@@ -68,7 +69,7 @@ export function PageBible() {
   const actions: ActionsTuile = {
     onEtape: (c, e) => void agir(c, () => changerEtape([c.id], e)),
     onChangerLabel: (c) => setARanger(c),
-    onNote: (c, note) => void agir(c, () => modifierNote(c.id, note)),
+    onModifier: (c, p) => void agir(c, () => modifierCompte(c.id, p)),
     onSupprimer: (c) => { if (window.confirm(`Supprimer @${c.handle} de la Bible ?`)) void agir(c, () => supprimerCompte(c.id)); },
   };
   const marquerImporte = async () => {
@@ -110,6 +111,14 @@ export function PageBible() {
             <Search className="pointer-events-none absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-stone-400" aria-hidden />
             <input value={recherche} onChange={(e) => setRecherche(e.target.value)} placeholder="@handle" className="h-9 w-48 rounded-full border border-stone-200 bg-white pl-8 pr-3 text-sm dark:border-stone-700 dark:bg-stone-900" />
           </div>
+          <button
+            type="button"
+            aria-pressed={podzer}
+            onClick={() => setPodzer((x) => !x)}
+            className={cn("h-9 rounded-full border px-3 text-sm transition", podzer ? "border-teal-600 bg-teal-50 text-teal-800" : "border-stone-200 bg-white text-stone-600 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-900")}
+          >
+            À podzer <span className="tabular-nums text-stone-400">{liste.filter((c) => c.etape === etape && c.a_podzer).length}</span>
+          </button>
           <select value={section} onChange={(e) => setSection(e.target.value as Section | "sans" | "")} className="h-9 rounded-full border border-stone-200 bg-white px-3 text-sm dark:border-stone-700 dark:bg-stone-900" aria-label="App">
             <option value="">Toutes les apps</option>
             {SECTIONS.map((s) => <option key={s.cle} value={s.cle}>{s.libelle}</option>)}

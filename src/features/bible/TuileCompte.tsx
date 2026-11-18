@@ -4,23 +4,26 @@
  * Modifier la note, Supprimer.
  */
 import * as React from "react";
-import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, Tags, Trash2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 import type { CompteBible, Etape } from "./moodboard";
-import { vuesCourtes } from "./moodboard";
+import { REMARQUE_UGC, vuesCourtes } from "./moodboard";
 
 export interface ActionsTuile {
   onEtape: (c: CompteBible, etape: Etape) => void;
   onChangerLabel: (c: CompteBible) => void;
-  onNote: (c: CompteBible, note: string) => void;
+  onModifier: (c: CompteBible, p: { note: string; remarque: string; a_podzer: boolean }) => void;
   onSupprimer: (c: CompteBible) => void;
 }
 
 export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aussi?: boolean; actions: ActionsTuile; occupe?: boolean }) {
   const [edition, setEdition] = React.useState(false);
   const [note, setNote] = React.useState(c.note_import ?? "");
+  const [remarque, setRemarque] = React.useState(c.remarque ?? "");
+  const [podzer, setPodzer] = React.useState(c.a_podzer);
+  const ouvrir = () => { setNote(c.note_import ?? ""); setRemarque(c.remarque ?? ""); setPodzer(c.a_podzer); setEdition(true); };
   const minis = (c.posts ?? []).slice(0, 3);
   const enCours = c.miniatures_statut === "a_faire" || c.miniatures_statut === null;
   const stats = [c.vues_mediane != null ? `méd. ${vuesCourtes(c.vues_mediane)}` : null, c.meilleur_post_vues != null ? `pic ${vuesCourtes(c.meilleur_post_vues)}` : null].filter(Boolean).join(" · ");
@@ -34,18 +37,43 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
         <a href={`https://www.tiktok.com/@${c.handle}`} target="_blank" rel="noreferrer" className="block break-all text-[13px] font-semibold leading-snug text-stone-900 hover:underline dark:text-stone-100">
           <span className="font-normal text-stone-400">tiktok.com/</span>@{c.handle}
         </a>
-        {aussi && <span className="mt-0.5 inline-block rounded-full bg-stone-100 px-1.5 py-px text-[10px] text-stone-500 dark:bg-stone-800">aussi ici</span>}
+        {(aussi || c.a_podzer) && (
+          <div className="mt-1 flex flex-wrap gap-1">
+            {c.a_podzer && <span className="inline-flex items-center gap-0.5 rounded-full bg-teal-50 px-1.5 py-px text-[10px] font-medium text-teal-700 ring-1 ring-teal-200"><Sparkles className="size-2.5" />à podzer</span>}
+            {aussi && <span className="inline-block rounded-full bg-stone-100 px-1.5 py-px text-[10px] text-stone-500 dark:bg-stone-800">aussi ici</span>}
+          </div>
+        )}
         {edition ? (
-          <form className="mt-1 flex gap-1" onSubmit={(e) => { e.preventDefault(); actions.onNote(c, note); setEdition(false); }}>
-            <input autoFocus value={note} onChange={(e) => setNote(e.target.value)} className="h-7 min-w-0 flex-1 rounded-md border px-2 text-xs" placeholder="Note (ex. pic 4,8 M)" />
-            <button type="submit" className="rounded-md bg-stone-900 px-2 text-xs text-white">OK</button>
+          <form className="mt-1.5 space-y-1" onSubmit={(e) => { e.preventDefault(); actions.onModifier(c, { note, remarque, a_podzer: podzer }); setEdition(false); }}>
+            <input autoFocus value={note} onChange={(e) => setNote(e.target.value)} className="h-7 w-full rounded-md border px-2 text-xs" placeholder="Note (ex. pic 4,8 M)" aria-label="Note" />
+            <div className="flex gap-1">
+              <input value={remarque} onChange={(e) => setRemarque(e.target.value)} className="h-7 min-w-0 flex-1 rounded-md border px-2 text-xs" placeholder="Remarque (ex. changer les images)" aria-label="Remarque" />
+              <button type="button" onClick={() => setRemarque(REMARQUE_UGC)} title={REMARQUE_UGC} className="rounded-md bg-amber-50 px-1.5 text-[11px] font-medium text-amber-700 ring-1 ring-amber-200">UGC</button>
+            </div>
+            <div className="flex items-center justify-between gap-1">
+              <label className="flex items-center gap-1.5 text-xs text-stone-600">
+                <input type="checkbox" checked={podzer} onChange={(e) => setPodzer(e.target.checked)} className="size-3.5 accent-teal-600" />
+                À podzer
+              </label>
+              <div className="flex gap-1">
+                <button type="button" onClick={() => setEdition(false)} className="rounded-md px-2 text-xs text-stone-500">Annuler</button>
+                <button type="submit" className="rounded-md bg-stone-900 px-2 py-1 text-xs text-white">OK</button>
+              </div>
+            </div>
           </form>
         ) : (
-          (c.note_import || stats) && (
-            <p className="mt-0.5 text-[11px] leading-snug text-stone-500">
-              {c.note_import}{c.note_import && stats ? " · " : ""}{stats && <span className="text-stone-400">{stats}</span>}
-            </p>
-          )
+          <>
+            {(c.note_import || stats) && (
+              <p className="mt-0.5 text-[11px] leading-snug text-stone-500">
+                {c.note_import}{c.note_import && stats ? " · " : ""}{stats && <span className="text-stone-400">{stats}</span>}
+              </p>
+            )}
+            {c.remarque && (
+              <p className="mt-1 flex items-start gap-1 rounded-md bg-amber-50 px-1.5 py-1 text-[11px] leading-snug text-amber-800 dark:bg-amber-950/40 dark:text-amber-200">
+                <TriangleAlert className="mt-px size-3 shrink-0" aria-hidden />{c.remarque}
+              </p>
+            )}
+          </>
         )}
       </div>
 
@@ -74,7 +102,7 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
         {c.etape === "a_importer" && <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
         {c.etape === "prochain_batch" && <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />}
         <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
-        <Action icone={Pencil} titre="Modifier la note" onClick={() => { setNote(c.note_import ?? ""); setEdition(true); }} />
+        <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
         <Action icone={Trash2} titre="Supprimer" danger onClick={() => actions.onSupprimer(c)} />
       </div>
     </article>

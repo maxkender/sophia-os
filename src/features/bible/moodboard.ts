@@ -55,6 +55,9 @@ export interface CompteBible {
   label_propose_id: string | null;
   autres_cartes: string[];
   note_import: string | null;
+  /** Une remarque de Max (ex. « UGC (vraie personne) : changer les images »). */
+  remarque: string | null;
+  a_podzer: boolean;
   posts: Miniature[];
   miniatures_statut: "a_faire" | "ok" | "partiel" | "sans_liens" | "erreur" | null;
   miniatures_erreur: string | null;
@@ -78,7 +81,7 @@ export interface CarteLabel {
   label_nom?: string | null;
 }
 
-const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
+const COLONNES = "id, handle, etape, label_propose_id, autres_cartes, note_import, remarque, a_podzer, posts, miniatures_statut, miniatures_erreur, vues_mediane, meilleur_post_vues, abonnes, ajoute_at";
 
 export async function lireComptes(): Promise<CompteBible[]> {
   const { data, error } = await supabase.from("bible_comptes").select(COLONNES).order("ajoute_at").limit(3000);
@@ -125,9 +128,22 @@ export async function creerCarte(p: { nom: string; section: Section; description
   return data as unknown as CarteLabel;
 }
 
-export async function modifierNote(id: string, note: string): Promise<void> {
-  const { error } = await supabase.from("bible_comptes").update({ note_import: note.trim() || null }).eq("id", id);
+export const REMARQUE_UGC = "UGC (vraie personne) : changer les images";
+
+/** La note, la remarque et la case « À podzer » d'un compte. */
+export async function modifierCompte(id: string, p: { note: string; remarque: string; a_podzer: boolean }): Promise<void> {
+  const { error } = await supabase.from("bible_comptes")
+    .update({ note_import: p.note.trim() || null, remarque: p.remarque.trim() || null, a_podzer: p.a_podzer }).eq("id", id);
   if (error) throw new Error(error.message);
+}
+
+/** Les apps de plusieurs sections réunies (ids d'app et apps en attente, sans doublon). */
+export function appsDe(sections: Section[]): { application_ids: string[]; apps_attente: string[] } {
+  const u = (x: string[]) => [...new Set(x)];
+  return {
+    application_ids: u(sections.flatMap((s) => APP_SECTION[s].application_ids)),
+    apps_attente: u(sections.flatMap((s) => APP_SECTION[s].apps_attente)),
+  };
 }
 
 export async function supprimerCompte(id: string): Promise<void> {
@@ -135,22 +151,32 @@ export async function supprimerCompte(id: string): Promise<void> {
   if (error) throw new Error(error.message);
 }
 
-/** Ajoute (ou range, s'il y est déjà) chaque compte sous la carte choisie, à importer. Rend les ids touchés. */
-export async function ajouterComptes(handles: string[], carte: CarteLabel | null, section: Section | null): Promise<{ crees: string[]; deja: string[]; ids: string[] }> {
-  const apps = section ? APP_SECTION[section] : { application_ids: [], apps_attente: [] };
+/**
+ * Ajoute (ou range, s'il y est déjà) chaque compte sous la carte choisie, à importer, avec ses apps (une ou
+ * plusieurs), sa remarque et la case « À podzer ». Rend les ids touchés.
+ */
+export async function ajouterComptes(
+  handles: string[], carte: CarteLabel | null, sections: Section[],
+  opts: { a_podzer?: boolean; remarques?: Record<string, string> } = {},
+): Promise<{ crees: string[]; deja: string[]; ids: string[] }> {
+  const apps = sections.length ? appsDe(sections) : null;
   const lien = carte ? { label_propose_id: carte.id, label_id: carte.label_id } : {};
+  const remarque = (h: string) => opts.remarques?.[h]?.trim() || null;
   const { data: existants, error: e1 } = await supabase.from("bible_comptes").select("id, handle").in("handle", handles);
   if (e1) throw new Error(e1.message);
   const deja = (existants ?? []) as { id: string; handle: string }[];
   const nouveaux = handles.filter((h) => !deja.some((d) => d.handle === h));
   const ids: string[] = deja.map((d) => d.id);
-  if (deja.length && (carte || section)) {
-    const { error } = await supabase.from("bible_comptes").update({ ...lien, ...apps }).in("id", deja.map((d) => d.id));
+  for (const d of deja) {
+    const maj = { ...lien, ...(apps ?? {}), ...(remarque(d.handle) ? { remarque: remarque(d.handle) } : {}), ...(opts.a_podzer ? { a_podzer: true } : {}) };
+    if (!Object.keys(maj).length) continue;
+    const { error } = await supabase.from("bible_comptes").update(maj).eq("id", d.id);
     if (error) throw new Error(error.message);
   }
   if (nouveaux.length) {
     const { data, error } = await supabase.from("bible_comptes").insert(nouveaux.map((h) => ({
-      handle: h, profil_url: `https://www.tiktok.com/@${h}`, statut: "a_trier", etape: "a_importer", miniatures_statut: "a_faire", ...lien, ...apps,
+      handle: h, profil_url: `https://www.tiktok.com/@${h}`, statut: "a_trier", etape: "a_importer", miniatures_statut: "a_faire",
+      remarque: remarque(h), a_podzer: Boolean(opts.a_podzer), ...lien, ...(apps ?? { application_ids: [], apps_attente: [] }),
     }))).select("id");
     if (error) throw new Error(error.message);
     ids.push(...((data ?? []) as { id: string }[]).map((r) => r.id));
@@ -186,9 +212,12 @@ export interface Groupe {
 }
 
 /** Range les comptes d'une étape : section → carte (dans l'ordre), « Sans label » en dernier. */
-export function ranger(comptes: CompteBible[], cartes: CarteLabel[], filtre: { etape: Etape; recherche: string; section: Section | "sans" | "" }): Groupe[] {
+export function ranger(
+  comptes: CompteBible[], cartes: CarteLabel[], filtre: { etape: Etape; recherche: string; section: Section | "sans" | ""; podzer?: boolean },
+): Groupe[] {
   const q = filtre.recherche.trim().toLowerCase().replace(/^@/, "");
-  const visibles = comptes.filter((c) => c.etape === filtre.etape && (!q || c.handle.includes(q) || (c.note_import ?? "").toLowerCase().includes(q)));
+  const visibles = comptes.filter((c) => c.etape === filtre.etape && (!filtre.podzer || c.a_podzer)
+    && (!q || c.handle.includes(q) || (c.note_import ?? "").toLowerCase().includes(q) || (c.remarque ?? "").toLowerCase().includes(q)));
   const parId = new Map(cartes.map((c) => [c.id, c]));
   return SECTIONS
     .filter((s) => !filtre.section || filtre.section === s.cle)

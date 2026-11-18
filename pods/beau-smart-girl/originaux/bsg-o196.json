@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o196",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "3d2b51be-04e7-4481-a006-132fec16c947",
+  "titre": "୨୧ pt 2 how to be less socially awkward #confidence #thatgirl",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [
+    "3d2b51be-04e7-4481-a006-132fec16c947"
+  ],
+  "notes": "G1, déclinaison de 3d2b51be (« ୨୧ pt 2 how to be less socially awkward », génération 0 ; meilleur passage de 11,2 k vues, r 7,71), en anglais. cta C. Le ୨୧ du parent reste en slide 1. Items neufs (rien de repris du parent : ni se cacher, ni relances, ni silences, ni sujets prêts, ni s'excuser, ni small talk ; ni de bsg-o075). Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "454beedf",
+      "texte_overlay": "୨୧ pt 2\nhow to be less socially awkward",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "be251120",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one thing about the world every morning, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "51fabb14",
+      "texte_overlay": "1. arrive a little early\n\nsmall groups are easier\nthan walking into a full room.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "2642e7af",
+      "texte_overlay": "2. give yourself a job\n\nhelp set up, take photos, pour drinks.\nyou'll talk to everyone.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "29356ea4",
+      "texte_overlay": "3. use people's names\n\nonce, naturally.\nit makes every chat warmer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "4ee24aea",
+      "texte_overlay": "4. leave on a high note\n\nend the conversation while it's fun.\nnobody remembers the awkward goodbye.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "142f8d0d",
+      "texte_overlay": "5. forgive yourself on the way home\n\nnobody is replaying\nwhat you said as much as you are.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "382329f0",
+      "texte_overlay": "which one are you trying this week?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

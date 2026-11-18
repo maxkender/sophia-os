@@ -1,0 +1,286 @@
+{
+ "id": "dr-017",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of bookworm hobbies",
+  "de": "Der Eisberg der Bücherwurm-Hobbys",
+  "it": "Iceberg degli hobby da topo di biblioteca"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #booktok #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #booktok #bücherwurm",
+  "it": "#iceberg #hobby #booktok #lettura"
+ },
+ "musique": {
+  "titre": "Loving machine slowed instrumental - ew, gif",
+  "url": "https://www.tiktok.com/music/Loving-machine-7277055046490032942"
+ },
+ "notes": "Original sur son iceberg à 1,1 M (« Iceberg of ADHD hobbies »), sujet « bookworm ». Sophia au 2e étage (« sophia before bed », icône). En, de, it seulement (répartition « Variété et volume » du 17/11) ; couverture : variante du décor par langue (0, 1, 2).",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "bookworm hobbies",
+    "variante": 0
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Bücherwurm-Hobbys",
+    "variante": 1
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da topo di biblioteca",
+    "variante": 2
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "tea and a novel",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "quote journaling",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "sorting bookshelves",
+       "image": "images/objets/etagere.png"
+      }
+     ],
+     [
+      {
+       "t": "letter writing",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "sophia before bed",
+       "image": "sophia"
+      },
+      {
+       "t": "old editions",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "annotating books",
+       "image": "images/objets/crayon-surligneur.png"
+      }
+     ],
+     [
+      {
+       "t": "writing stories",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "reading till 3am",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "foreign novels",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "audiobooks",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "the classics",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "greek tragedy",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "writing a novel",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "pressed flowers",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "bücher lesen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "tee und roman",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "zitate sammeln",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "regale sortieren",
+       "image": "images/objets/etagere.png"
+      }
+     ],
+     [
+      {
+       "t": "briefe schreiben",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "sophia vorm schlafen",
+       "image": "sophia"
+      },
+      {
+       "t": "alte ausgaben",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "bücher annotieren",
+       "image": "images/objets/crayon-surligneur.png"
+      }
+     ],
+     [
+      {
+       "t": "geschichten schreiben",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "lesen bis 3 uhr",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "englische romane",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "hörbücher",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "die klassiker",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "griechische tragödien",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "einen roman schreiben",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "gepresste blumen",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "leggere libri",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "tè e romanzo",
+       "image": "images/objets/tasse-the.png"
+      },
+      {
+       "t": "diario di citazioni",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "riordinare la libreria",
+       "image": "images/objets/etagere.png"
+      }
+     ],
+     [
+      {
+       "t": "scrivere lettere",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "sophia prima di dormire",
+       "image": "sophia"
+      },
+      {
+       "t": "edizioni antiche",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "sottolineare libri",
+       "image": "images/objets/crayon-surligneur.png"
+      }
+     ],
+     [
+      {
+       "t": "scrivere storie",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "leggere fino alle 3",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "romanzi in lingua",
+       "image": "images/objets/globe-ancien.png"
+      },
+      {
+       "t": "audiolibri",
+       "image": "images/objets/casque-audio.png"
+      }
+     ],
+     [
+      {
+       "t": "i classici",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "tragedie greche",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "scrivere un romanzo",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ],
+     [
+      {
+       "t": "fiori pressati",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   }
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o198",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "5ef821bc-1979-4de4-bb22-bb07e418a2be",
+  "titre": "how to improve your social life #friendship #thatgirl",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "5ef821bc-1979-4de4-bb22-bb07e418a2be"
+  ],
+  "notes": "G1, déclinaison de 5ef821bc (« how to improve your social life », génération 0 ; meilleur passage tr 13,9 k vues, r 2,5), en anglais. cta A (avant / après sur le dernier item). Items neufs (rien de repris du parent : ni ne pas attendre la confiance, ni relancer, ni ne pas impressionner, ni invitations simples). Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "077b0a56",
+      "texte_overlay": "how to improve your social life",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "6b4d52a7",
+      "texte_overlay": "1. say yes to the second invitation\n\nthe first one is scary.\nthe second one is where friendships start.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "45601814",
+      "texte_overlay": "2. join something weekly\n\na choir, a book club, a class.\nseeing the same faces does the work.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4fea9795",
+      "texte_overlay": "3. be the one who plans\n\npeople love going out.\nthey just hate organising.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7864e71c",
+      "texte_overlay": "4. remember the small things\n\nher exam, his new job.\nask about it next time.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "1f6871d7",
+      "texte_overlay": "5. have something to share\n\nbefore, i never knew what to talk about.\nnow i learn one new thing every morning. and conversations just flow.",
+      "texte_sophia": "5. have something to share\n\nbefore, i never knew what to talk about.\nnow i open the Sophia app every morning. and conversations just flow.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "78468d1f",
+      "texte_overlay": "save this for the new semester.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

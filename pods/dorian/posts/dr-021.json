@@ -1,0 +1,149 @@
+{
+ "id": "dr-021",
+ "format": "liste",
+ "titre": {
+  "en": "5 facts about your brain that sound fake",
+  "it": "5 fatti sul tuo cervello che sembrano falsi",
+  "sv": "5 fakta om din hjärna som låter påhittade"
+ },
+ "legendes": {
+  "en": "#brain #neuroscience #smarttok #lockedin",
+  "it": "#cervello #neuroscienze #curiosità #cultura",
+  "sv": "#hjärnan #neurovetenskap #fakta #kunskap"
+ },
+ "musique": {
+  "titre": "original sound - childhoodminecraft",
+  "url": "https://www.tiktok.com/music/original-sound-7058179662219987717"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : cerveau ~2 % de la masse, ~20 % de l'énergie ; pas de nocicepteurs dans le tissu cérébral (chirurgie éveillée) ; ~86 milliards de neurones, ~100 000 milliards de synapses contre 100 à 400 milliards d'étoiles ; fibres myélinisées jusqu'à ~120 m/s ; le cervelet prédit le chatouillement (Blakemore). Images Seedream. En, it, sv seulement ; une couverture par langue (cerveau en ampoules, gravure, neurone). Sophia en item 3 sur 6 (cta B), écran quiz traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 facts about your brain that sound fake",
+    "image": "images/cerveau-energie.jpg",
+    "legende": "(they're not)"
+   },
+   "it": {
+    "titre": "5 fatti sul tuo cervello che sembrano falsi",
+    "image": "images/gravure-cerveau.jpg",
+    "legende": "(non lo sono)"
+   },
+   "sv": {
+    "titre": "5 fakta om din hjärna som låter påhittade",
+    "image": "images/neurone.jpg",
+    "legende": "(det är de inte)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "It burns 20% of your energy",
+    "texte": "your brain is about 2% of your body weight but burns about 20% of your energy. thinking hard is literally expensive",
+    "image": "images/cerveau-08.jpg"
+   },
+   "it": {
+    "titre": "Usa il 20% della tua energia",
+    "texte": "il cervello è circa il 2% del peso del corpo ma brucia circa il 20% della tua energia. pensare tanto costa, letteralmente",
+    "image": "images/cerveau-08.jpg"
+   },
+   "sv": {
+    "titre": "Den drar 20 % av din energi",
+    "texte": "hjärnan är ungefär 2 % av kroppsvikten men gör av med ungefär 20 % av din energi. att tänka hårt är bokstavligen dyrt",
+    "image": "images/cerveau-08.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "It can't feel pain",
+    "texte": "brain tissue has no pain receptors. that's why some surgeries are done while the patient is awake and talking",
+    "image": "images/cerveau-06.jpg"
+   },
+   "it": {
+    "titre": "Non sente dolore",
+    "texte": "il tessuto cerebrale non ha recettori del dolore. per questo alcuni interventi si fanno col paziente sveglio che parla",
+    "image": "images/cerveau-06.jpg"
+   },
+   "sv": {
+    "titre": "Den känner ingen smärta",
+    "texte": "hjärnvävnad saknar smärtreceptorer. därför görs vissa operationer medan patienten är vaken och pratar",
+    "image": "images/cerveau-06.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "it's like a tiny lecture every morning: history, philosophy, science, economics. 10 minutes, then a quiz",
+    "telephone": "quiz"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "come una piccola lezione universitaria ogni mattina: storia, filosofia, scienze, economia. 10 minuti, poi un quiz",
+    "telephone": "quiz"
+   },
+   "sv": {
+    "titre": "En lektion om dagen på Sophia",
+    "texte": "som en liten föreläsning varje morgon: historia, filosofi, vetenskap, ekonomi. 10 minuter, sen ett quiz",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "86 billion neurons",
+    "texte": "your brain has about 86 billion neurons, each connected to thousands of others. that's more connections than stars in our galaxy",
+    "image": "images/cerveau-07.jpg"
+   },
+   "it": {
+    "titre": "86 miliardi di neuroni",
+    "texte": "il cervello ha circa 86 miliardi di neuroni, ognuno collegato a migliaia di altri. sono più connessioni che stelle nella nostra galassia",
+    "image": "images/cerveau-07.jpg"
+   },
+   "sv": {
+    "titre": "86 miljarder nervceller",
+    "texte": "hjärnan har ungefär 86 miljarder nervceller, var och en kopplad till tusentals andra. det är fler kopplingar än stjärnor i vår galax",
+    "image": "images/cerveau-07.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Up to 400 km/h",
+    "texte": "some nerve signals travel at about 120 m/s, over 400 km/h. faster than a formula 1 car",
+    "image": "images/cerveau-04.jpg"
+   },
+   "it": {
+    "titre": "Fino a 400 km/h",
+    "texte": "alcuni segnali nervosi viaggiano a circa 120 m/s, oltre 400 km/h. più veloci di una formula 1",
+    "image": "images/cerveau-04.jpg"
+   },
+   "sv": {
+    "titre": "Upp till 400 km/h",
+    "texte": "vissa nervsignaler färdas i ungefär 120 m/s, över 400 km/h. snabbare än en formel 1-bil",
+    "image": "images/cerveau-04.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "You can't tickle yourself",
+    "texte": "your cerebellum predicts the touch before it happens, so the surprise is gone. no surprise, no tickle",
+    "image": "images/objets/plume.png"
+   },
+   "it": {
+    "titre": "Non puoi farti il solletico",
+    "texte": "il cervelletto prevede il tocco prima che arrivi, quindi la sorpresa sparisce. niente sorpresa, niente solletico",
+    "image": "images/objets/plume.png"
+   },
+   "sv": {
+    "titre": "Du kan inte kittla dig själv",
+    "texte": "lillhjärnan förutser beröringen innan den kommer, så överraskningen försvinner. ingen överraskning, inget kittel",
+    "image": "images/objets/plume.png"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

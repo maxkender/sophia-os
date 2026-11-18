@@ -1,0 +1,265 @@
+{
+ "post_id": "original-010",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to become smart",
+      "again"
+     ],
+     "fr": "10/10 habitudes pour retrouver ton cerveau",
+     "texte": "green flags hos folk, der er virkelig kloge"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(den diskrete klogskab)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7704456109053971726_3.jpg",
+      "boite": [
+       186,
+       524,
+       710,
+       442
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "have more conversations with",
+      "smart people"
+     ],
+     "fr": "traîne avec des gens plus calés que toi",
+     "texte": "de stiller faktisk [[opfølgende spørgsmål]]"
+    },
+    "T2": {
+     "en": [
+      "your surroundings shape",
+      "you"
+     ],
+     "fr": "ton entourage déteint sur toi",
+     "texte": "de venter ikke bare på at få ordet"
+    },
+    "T3": {
+     "en": [
+      "good conversations force",
+      "you to explain ideas,",
+      "defend assumptions, and",
+      "notice where your",
+      "thinking is weak"
+     ],
+     "fr": "une vraie discussion t'oblige à expliquer tes idées, à les défendre et à voir où ton raisonnement coince",
+     "texte": "de vil vide, hvordan din historie ender, hvad du mente, hvorfor du tænker sådan. det betyder, at [[de virkelig lyttede]]"
+    },
+    "T4": {
+     "en": [
+      "spend more time around people who know",
+      "things you don’t instead of people who agree",
+      "with everything you say"
+     ],
+     "fr": "entoure-toi de gens qui savent des trucs que tu sais pas, pas de gens qui te donnent raison sur tout",
+     "texte": "de fleste nikker og går videre. den, der stiller et spørgsmål mere, er [[nysgerrig på dig]], ikke på at lyde klog"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "protect your first 90 minutes"
+     ],
+     "fr": "protège tes [[90 premières minutes]]",
+     "texte": "de kan bare [[sidde i stilhed]]"
+    },
+    "T2": {
+     "en": [
+      "don’t spend your best attention on messages, email, or",
+      "scrolling"
+     ],
+     "fr": "gâche pas ton meilleur focus sur les messages, les mails ou le scroll",
+     "texte": "ingen musik, ingen podcast, ingen telefon, så snart der er en pause"
+    },
+    "T3": {
+     "en": [
+      "use the first 60–90 minutes",
+      "for the hardest thing you",
+      "need to move forward"
+     ],
+     "fr": "mets [[tes 60–90 premières minutes sur la tâche la plus dure]] pour avancer",
+     "texte": "en stille køretur eller en lang gåtur skræmmer dem ikke, [[det er der, de tænker]]"
+    },
+    "T4": {
+     "en": [
+      "once the day gets noisy,",
+      "that level of focus gets",
+      "much harder to recover"
+     ],
+     "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
+     "texte": "en behagelig stilhed med nogen er mærkeligt sjælden, og [[mærkeligt tiltrækkende]]"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop scrolling and start reading"
+     ],
+     "fr": "[[lâche ton tel]] et [[ouvre un livre]]",
+     "texte": "de kender [[mærkelige random facts]]"
+    },
+    "T2": {
+     "en": [
+      "short-form content keeps",
+      "your brain chasing novelty",
+      "every few seconds"
+     ],
+     "fr": "avec les vidéos courtes, ton cerveau veut du neuf [[toutes les 3 secondes]]",
+     "texte": "hvorfor blæksprutter har 3 hjerter, hvem der tog [[den allerførste selfie]]"
+    },
+    "T3": {
+     "en": [
+      "books force sustained",
+      "attention, memory and",
+      "imagination to stay",
+      "switched on"
+     ],
+     "fr": "un livre [[t'oblige]] à garder [[attention]], [[mémoire]] et [[imagination]] allumées",
+     "texte": "og de fortæller det som en sjov historie, aldrig som om de [[vil blære sig]]"
+    },
+    "T4": {
+     "en": [
+      "if you want your brain to",
+      "feel sharper again, replace",
+      "your scrolling with reading"
+     ],
+     "fr": "si tu veux [[retrouver un cerveau vif]], remplace ton scroll par de la lecture",
+     "texte": "det gør hver eneste samtale med dem [[lidt mere interessant]]"
+    },
+    "T5": {
+     "en": [
+      "i use readup to block my",
+      "apps until i read, or you",
+      "can move your phone to a",
+      "different room"
+     ],
+     "fr": "perso je remplace mon scroll par 5 min sur l'appli Sophia, sinon mets ton tel dans une autre pièce",
+     "texte": "nem vane at stjæle: byt ét scroll om dagen ud med en lektion på 5 min i [[Sophia-appen]]"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "practice rational thinking"
+     ],
+     "fr": "entraîne [[ta logique]]",
+     "texte": "de siger [[\"det ved jeg ikke\"]]"
+    },
+    "T2": {
+     "en": [
+      "stop blindly trusting the first explanation your brain",
+      "gives you"
+     ],
+     "fr": "arrête de [[gober direct]] la première explication de ton cerveau",
+     "texte": "og så slår de det op i stedet for [[at bluffe sig igennem]]"
+    },
+    "T3": {
+     "en": [
+      "write down predictions,",
+      "judge your biases,",
+      "actively argue against",
+      "your own opinion"
+     ],
+     "fr": "note tes prédictions, repère tes biais, et défends exprès [[l'avis contraire au tien]]",
+     "texte": "de lyder hellere usikre i 5 sekunder end at tage [[selvsikkert fejl]] i 5 år"
+    },
+    "T4": {
+     "en": [
+      "being smart matters",
+      "less if your reasoning is",
+      "full of blind spots"
+     ],
+     "fr": "le QI compte moins si ton raisonnement est plein d'angles morts",
+     "texte": "at indrømme et hul i din viden er [[den hurtigste vej til at fylde det]]"
+    },
+    "T5": {
+     "en": [
+      "don't make decisions when you're angry,",
+      "don't make promises when you're happy"
+     ],
+     "fr": "jamais de décision sous le coup de la colère, jamais de promesse sous le coup de la joie",
+     "texte": "falsk selvtillid er overalt, ærlig nysgerrighed er sjælden (og ret hot)"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "improve your communication",
+      "skills"
+     ],
+     "fr": "apprends à [[bien communiquer]]",
+     "texte": "de forklarer svære ting [[enkelt]]"
+    },
+    "T2": {
+     "en": [
+      "if you can't explain an idea",
+      "clearly, you probably don't",
+      "understand it deeply",
+      "enough"
+     ],
+     "fr": "si t'arrives pas à expliquer une idée simplement, c'est que [[tu l'as pas vraiment comprise]]",
+     "texte": "intet fagsprog, intet forsøg på at lyde klog, bare ord som [[en 12-årig kan følge med i]]"
+    },
+    "T3": {
+     "en": [
+      "practice writing, speaking,",
+      "storytelling, and teaching"
+     ],
+     "fr": "exerce-toi à écrire, parler, raconter et [[expliquer]]",
+     "texte": "med dem føles det [[trygt]] at spørge, aldrig dumt"
+    },
+    "T4": {
+     "en": [
+      "turning complicated",
+      "thoughts into simple",
+      "language forces your brain",
+      "to organise them properly"
+     ],
+     "fr": "dire un truc compliqué avec des mots simples, ça [[oblige ton cerveau]] à remettre de l'ordre dedans",
+     "texte": "du kan kun forklare noget enkelt, når du [[virkelig forstår det]], og det er det ægte flex"
+    }
+   },
+   "images": {
+    "I1": "garder"
+   }
+  }
+ }
+}

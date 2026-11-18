@@ -1,0 +1,264 @@
+{
+ "post_id": "var-reels-1",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "7 ways to stop doomscrolling",
+      "and reclaim your life"
+     ],
+     "fr": "7 trucs pour arrêter de scroller et reprendre ta vie",
+     "texte": "i quit [[reels]] for 30 days and kept a little diary"
+    },
+    "T2": {
+     "en": [
+      "from an",
+      "ex-chronic",
+      "scroller"
+     ],
+     "fr": "par une ex-accro au scroll",
+     "texte": "(what happened to my brain)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705190384011414797_2.jpg",
+      "boite": [
+       96,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "5. switched off all triggers"
+     ],
+     "fr": "5. j'ai viré les tentations",
+     "texte": "day 2: [[phantom buzzes]]"
+    },
+    "T2": {
+     "en": [
+      "i literally have 0",
+      "notifications on for all",
+      "my messaging",
+      "platforms"
+     ],
+     "fr": "j'ai littéralement 0 notif sur toutes mes applis de messagerie",
+     "texte": "felt my phone buzz in my pocket 6 times today. it was on my desk the whole time"
+    },
+    "T3": {
+     "en": [
+      "gives me no reason to",
+      "check until i want to"
+     ],
+     "fr": "du coup j'ouvre seulement quand j'en ai envie",
+     "texte": "my brain is [[waiting for a hit]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7706685736090668302_2.jpg",
+      "boite": [
+       96,
+       509,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "2. stopped watching youtube"
+     ],
+     "fr": "2. j'ai arrêté youtube",
+     "texte": "day 6: [[so, so bored]]"
+    },
+    "T2": {
+     "en": [
+      "on my phone when eating"
+     ],
+     "fr": "sur mon tel en mangeant",
+     "texte": "and then something shifted"
+    },
+    "T3": {
+     "en": [
+      "look i know it",
+      "feels impossible",
+      "but after trying it",
+      "for a few days",
+      "my mind feels",
+      "so much clearer"
+     ],
+     "fr": "je sais, ça paraît impossible, mais au bout de quelques jours j'avais la tête tellement plus claire",
+     "texte": "walked home with no music and no phone. my head was loud for 10 min, then [[it went quiet]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705190384011414797_1.jpg",
+      "boite": [
+       96,
+       540,
+       620,
+       620
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn to focus for hours"
+     ],
+     "fr": "apprends à bosser [[des heures]]",
+     "texte": "day 9: [[i'm actually present]]"
+    },
+    "T2": {
+     "en": [
+      "most people can barely work for 20",
+      "minutes without checking something"
+     ],
+     "fr": "la plupart des gens [[tiennent pas 20 minutes]] sans aller checker un truc",
+     "texte": "dinner with a friend and i [[really listened]], no screen anywhere near the table"
+    },
+    "T3": {
+     "en": [
+      "train yourself to",
+      "do 60–90 minutes",
+      "of uninterrupted",
+      "deep work"
+     ],
+     "fr": "entraîne-toi à bosser [[60 à 90 minutes]] à fond, sans aucune pause",
+     "texte": "noticed her new haircut in two seconds. a month ago i'd have missed it"
+    },
+    "T4": {
+     "en": [
+      "being able to concentrate while everyone",
+      "else is distracted is a ridiculous advantage"
+     ],
+     "fr": "savoir te concentrer quand tous les autres sont éparpillés, c'est un avantage de dingue",
+     "texte": "turns out half of what i called tiredness was just [[nonstop input]] from my feed"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7708931321120165151_4.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "4. started reading books instead"
+     ],
+     "fr": "4. j'apprends des trucs à la place",
+     "texte": "day 18: [[curious again]]"
+    },
+    "T2": {
+     "en": [
+      "i found an app that blocks",
+      "tiktok until I read for 30 minutes",
+      "and it's helped me finish three",
+      "books so far"
+     ],
+     "fr": "j'ai remplacé tiktok par 5 min par jour sur l'appli Sophia, et j'ai déjà appris plein de trucs",
+     "texte": "my reels break today turned into a lesson on why the renaissance started in italy. 5 minutes on [[the Sophia app]]"
+    }
+   },
+   "images": {
+    "I2": "sophia_appstore"
+   },
+   "zones": [
+    {
+     "elements": [
+      "T3",
+      "I1",
+      "T4",
+      "T5",
+      "T6",
+      "T7",
+      "I3"
+     ],
+     "action": "sophia_capture"
+    }
+   ]
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "get good at writing"
+     ],
+     "fr": "apprends à bien écrire",
+     "texte": "day 30: [[time slows down]]"
+    },
+    "T2": {
+     "en": [
+      "clear writing forces clear",
+      "thinking"
+     ],
+     "fr": "écrire clair, ça oblige à penser clair",
+     "texte": "my memory is back"
+    },
+    "T3": {
+     "en": [
+      "learn how to explain",
+      "complicated ideas",
+      "simply, write convincing",
+      "messages, and make",
+      "people actually care"
+     ],
+     "fr": "apprends à expliquer simplement des trucs compliqués, à convaincre par écrit et à [[toucher vraiment les gens]]",
+     "texte": "i can tell you what i did last tuesday. a month ago, whole weekends [[disappeared into my feed]]"
+    },
+    "T4": {
+     "en": [
+      "if you can write well, you'll be better at",
+      "marketing, leadership, sales, and building an",
+      "audience"
+     ],
+     "fr": "si tu sais écrire, tout devient plus simple : marketing, management, vente, et te créer une commu",
+     "texte": "the weirdest part? [[i don't even miss it]]. i was sure i'd crack after a week, and now the urge barely shows up"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7706685736090668302_6.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  }
+ }
+}

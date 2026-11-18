@@ -1,0 +1,820 @@
+{
+ "id": "ka-049",
+ "titre": {
+  "en": "10/10 sports skills to learn",
+  "fr": "10/10 gestes de sport à apprendre",
+  "de": "10/10 Sport-Skills zum Lernen",
+  "it": "10/10 gesti sportivi da imparare",
+  "tr": "10/10 öğrenebileceğin spor becerisi",
+  "hu": "10/10 sportkészség",
+  "pl": "10/10 umiejętności sportowych",
+  "pt-BR": "10/10 habilidades esportivas"
+ },
+ "legendes": {
+  "en": "10/10 sports skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 gestes de sport à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Sport-Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 gesti sportivi da imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin spor becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 sportkészség #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności sportowych #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades esportivas #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7486234767046773546"
+ },
+ "notes": "Full test (BLEO, 18/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (les gestes de sport). Décor falaise. Son format court à 3 compétences plus l'étape Sophia (tir au basket, service au tennis, service au volley ; en hongrois l'attaque au volley), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7486234767046773546 » de son manifeste. Sophia en étape 3, cta A, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "SPORTS",
+     "SKILLS TO",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "GESTES",
+     "DE SPORT À",
+     "APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SPORT-",
+     "SKILLS ZUM",
+     "LERNEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "GESTI",
+     "SPORTIVI DA",
+     "IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "SPOR",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "SPORT-",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "SPORTOWE"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "ESPORTIVAS"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SHOOT",
+     [
+      {
+       "t": "A BASKETBALL",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hFAj3Vx63S0",
+     "titre": "How To Shoot Tutorial (Professor's Techniques)",
+     "chaine": "Professor Live",
+     "vues": "3.3M views",
+     "date": "8 years ago",
+     "duree": "8:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lF9Eoo9FKGMHfylFETrmc81A9NVk61l3lZJp4-KThSJ04=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT TIRER",
+     [
+      {
+       "t": "AU BASKET",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "HDqPwovELqs",
+     "titre": "BASKET : COMMENT TIRER COMME UN PRO",
+     "chaine": "Upsilon Basketball",
+     "vues": "1,5 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "14:05",
+     "avatar": "https://yt3.ggpht.com/HlwLns9hEeX_43ef6DMJBNU5nKsy5NfviYtxXxOE1CXqu7No75lXGg4peKln1gYIFsC7fpXjqQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRFST DU",
+     [
+      {
+       "t": "IM BASKETBALL",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fYZroyqbWs8",
+     "titre": "FCB Basketball Tutorial - Folge 3: Shooting Basics feat. Steffen Hamann",
+     "chaine": "FC Bayern Basketball",
+     "vues": "269.764 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "5:21",
+     "avatar": "https://yt3.ggpht.com/_bY8Gs0LYWfJQKZjIDjgke6A7ouB7QH6VP7-ejXQB62FE6o1uq2zvBdsCiz_73LS5FdwAW3zyN8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME TIRARE",
+     [
+      {
+       "t": "A CANESTRO",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bEhDuk265Mo",
+     "titre": "La tecnica di tiro perfetta - Come tirare a canestro",
+     "chaine": "Howard Elite Basketball",
+     "vues": "3,6 Mln visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "8:10",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mgXQn9RhHvJ8LItxP9e0MG8rHfz8twxTS7XW2XqL6K7hc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ŞUT ATILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8rDcz2mRsSw",
+     "titre": "Basketbolda Şut Nasıl Atılır? Doğru Şut Formu | Antrenman",
+     "chaine": "Alihan Olcar",
+     "vues": "44 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "2:58",
+     "avatar": "https://yt3.ggpht.com/9-4llnOXYL9Ju56aZmNilXsF8sr5orUhNaYjbdV6hkNBIbvVfymq1yrwaemHxrXiKuNQfEQONsU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN DOBJ",
+     [
+      {
+       "t": "KOSÁRRA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IERFwro37UA",
+     "titre": "UBT - Dobótechnika fejlesztés 1.rész",
+     "chaine": "UBT Basketball Training",
+     "vues": "11 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "2:24",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nmL9tDQ1Xdcmcx7Z2dCRaTr2c46RK1N8TwPorDGlbK3Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK RZUCAĆ",
+     [
+      {
+       "t": "DO KOSZA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vQCg1yK0LDg",
+     "titre": "JAK NAUCZYŁEM SIĘ RZUCAĆ DO KOSZA",
+     "chaine": "keepthebeat",
+     "vues": "277 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "9:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mygOJOb02bc4LFFaAC5d53xZBL0sWee0_p_jYz-96F5Sc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ARREMESSAR",
+     [
+      {
+       "t": "NO BASQUETE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aUibLszj6Jg",
+     "titre": "NUNCA MAIS ERRE ARREMESSO NO BASQUETE. DESCUBRA COMO SE TORNAR UM CHUTADOR DE ELITE!",
+     "chaine": "Basquete pra vida",
+     "vues": "580 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "14:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_B-ZBDtvB9HvyS06uDl6dtv5VkQja2wCoXyoDtSem4g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SERVE",
+     [
+      {
+       "t": "IN TENNIS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YqgcykDGB2A",
+     "titre": "Beginner Tennis Lesson | Forehand, Backhand & Serve",
+     "chaine": "Intuitive Tennis",
+     "vues": "5.6M views",
+     "date": "6 years ago",
+     "duree": "18:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mpRkVjXsq0jssm0eNS7JhXRMp2FxHAg-OWgFRRLLG69Eo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT SERVIR",
+     [
+      {
+       "t": "AU TENNIS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "78QanS2eUNY",
+     "titre": "La technique de base pour le service au tennis [Team-Tennis.fr]",
+     "chaine": "Team-Tennis.fr",
+     "vues": "695 k vues",
+     "date": "il y a 10 ans",
+     "duree": "16:09",
+     "avatar": "https://yt3.ggpht.com/lH6_RqSBTUQh604Bh__O-AsAdzLO1KVKyWDzbdUTwL5BFDvjh_7812eiIfQFKvK006oMLHrG=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GELINGT DIR",
+     [
+      {
+       "t": "DER AUFSCHLAG",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ulUgSEbqkPU",
+     "titre": "Perfekter Tennis Aufschlag in 5 einfachen Schritten!",
+     "chaine": "Tenniswelt von Sven Bendlin",
+     "vues": "379.306 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "9:41",
+     "avatar": "https://yt3.ggpht.com/MYOjObG8Le88sjppCtCLuIAONDQeZzigwGjCfWQU81QegCj2qQcKy6jZUaPmd8j4KtrN2dPz=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME SERVIRE",
+     [
+      {
+       "t": "A TENNIS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "PxVn0psBMSQ",
+     "titre": "TENNIS-SERVIZIO IMPARALO COSI!!",
+     "chaine": "Marina Romea Tennis Roberto Babini",
+     "vues": "266K visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "8:24",
+     "avatar": "https://yt3.ggpht.com/00JpU6tIp6pACJR4534_0iTgiB0-LE0OhHg7yFAVmjXP_IqyMj3TxDk2x88-Ma5otSy-3X0i2sk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "TENİS SERVİSİ ATILIR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "EkuLmr-eOpU",
+     "titre": "Tenis Servis Nasıl Atılır? Yeni Başlayanlara Servis Eğitimi - Tenis Servisi",
+     "chaine": "Tennis Istanbul",
+     "vues": "179 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "7:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nPbQfgvaNcm57ZuYhvmwi-X6BuXNMmp6bTDvOoqlE8PPg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ADOGASS",
+     [
+      {
+       "t": "TENISZBEN",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "sJyPXFc6baM",
+     "titre": "5 perces tenisz adogatás gyorstalpaló",
+     "chaine": "Vörös György",
+     "vues": "6,3 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "5:49",
+     "avatar": "https://yt3.ggpht.com/3C0Qyp1Fl8LSdoTi5R0eWPsRy6xiEguar-IVGz4tNsJHJwC1uKgkqHShqEN1c-QnikNTEy-zD10=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK SERWOWAĆ",
+     [
+      {
+       "t": "W TENISIE",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_rrRl4ZeDPc",
+     "titre": "PODSTAWY SERWISU - NAUCZ SIĘ SERWOWAĆ KROK PO KROKU",
+     "chaine": "Arka Jordan - Twój internerowy instruktor tenisa. Nauka gry, sposoby na lepszą grę.",
+     "vues": "130 tys. wyświetleń",
+     "date": "9 lat temu",
+     "duree": "5:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_loXZHxU5hVU1gZunKriCMqaQCH7qbm_JyPRg46Ics8Ww=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO SACAR",
+     [
+      {
+       "t": "NO TÊNIS",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mr_YXJ3KekA",
+     "titre": "Como SACAR no TÊNIS - Fundamentos básicos do saque   |   Falasca Tennis",
+     "chaine": "Falasca Tennis",
+     "vues": "214 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "12:19",
+     "avatar": "https://yt3.ggpht.com/oIyWcox6HK26WigYbptosf0dxrGcKk9yT4G7hi-TEXqPZJxdpT_ZBTrqfvpO7_2DZoehNEo_EY8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO TRAIN",
+     [
+      {
+       "t": "YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ENTRAÎNER",
+     [
+      {
+       "t": "TON ESPRIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO TRAINIERST DU",
+     [
+      {
+       "t": "DEINEN GEIST",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME ALLENARE",
+     [
+      {
+       "t": "LA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ZİHNİNİ ÇALIŞTIRIRSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN EDZD",
+     [
+      {
+       "t": "AZ ELMÉD",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK TRENOWAĆ",
+     [
+      {
+       "t": "UMYSŁ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO TREINAR",
+     [
+      {
+       "t": "A MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO SERVE",
+     [
+      {
+       "t": "IN VOLLEYBALL",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "TDyvSUVM6tk",
+     "titre": "HOW TO OVERHAND SERVE FOR BEGINNERS!",
+     "chaine": "KoKo Volley",
+     "vues": "3.5M views",
+     "date": "9 years ago",
+     "duree": "8:22",
+     "avatar": "https://yt3.ggpht.com/wT9oUoKm0Zu7SszN584e61UnmfQpbR3cCABt6xPMqMCZmbtFQXUGaIW0lgn6tGCwPYONbeF2FIs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT SERVIR",
+     [
+      {
+       "t": "AU VOLLEY",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9HFkC-EDuFw",
+     "titre": "Mastering the Float Serve in Volleyball – The Complete 7-Minute Guide",
+     "chaine": "Arthur Jacquet",
+     "vues": "19 k vues",
+     "date": "il y a 9 mois",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/QQZkJGyUa-eOKfZFWBSuRSiJwOFUY_lSarcJCxKKKeGuDcMU8jQcRpz04rZbhQpHCsUSnYeR=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCHLÄGST DU",
+     [
+      {
+       "t": "IM VOLLEYBALL AUF",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QBsTNHmi5LY",
+     "titre": "Kurze Einführung in den Flatteraufschlag - Manuel Hartmann - Volleyball-TrainerMOOC - Teil 6/11",
+     "chaine": "Volleyball-TrainerMOOC",
+     "vues": "317.199 Aufrufe",
+     "date": "vor 6 Jahren",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nXY5IXiYRXT9VER827vsZWITQYoEGeKCPy1wUBzplzOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME BATTERE",
+     [
+      {
+       "t": "A PALLAVOLO",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "IrtxCIwqSzo",
+     "titre": "I fondamentali della pallavolo: la battuta",
+     "chaine": "Paluani",
+     "vues": "631K visualizzazioni",
+     "date": "14 anni fa",
+     "duree": "7:04",
+     "avatar": "https://yt3.ggpht.com/UhgLx9k9nUT_PR-qU0TPx7HsBKdem-_--A3jzqqAS9JC0-PvkjS1vBTivMGk5UnsRjBw5IpUE_g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "VOLEYBOL SERVİSİ ATILIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9TblH0BDeSI",
+     "titre": "Voleybol Teknikleri - Üstten Servis",
+     "chaine": "ESVoleybol",
+     "vues": "178 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "2:31",
+     "avatar": "https://yt3.ggpht.com/hk-5pCpNNCoS-mbqU_Ch_pdoHW-oJ_p87xp9r-4aEL577GQf9V77SJnZaqm1u9UAla0072vkog=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÜSS",
+     [
+      {
+       "t": "RÖPLABDÁBAN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Qy2paKudp-Y",
+     "titre": "Tanuljunk röplabdázni ütés",
+     "chaine": "jolah58",
+     "vues": "39 E megtekintés",
+     "date": "10 évvel ezelőtt",
+     "duree": "10:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nUZpAULsrxIUKE4ae6CqJmY2wxtvatpUXa9vUe_Bk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZAGRYWAĆ",
+     [
+      {
+       "t": "W SIATKÓWCE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w9J7_vsLAOo",
+     "titre": "zagrywka bezrotacyjna stacjonarna-podrzut i uderzenie piłki",
+     "chaine": "Mlodziezowa Siatkowka",
+     "vues": "153 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "3:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfHd7p1HZYvA0i79Jm8vxqhwdYvoAZ4vHbY7-zOgI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO SACAR",
+     [
+      {
+       "t": "NO VÔLEI",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "u7qtV9HN7Fs",
+     "titre": "SAQUE POR CIMA | PASSO A PASSO | VOLEIBOL",
+     "chaine": "FABI MAIS VÔLEI",
+     "vues": "1 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "12:56",
+     "avatar": "https://yt3.ggpht.com/trngea23_4R1mmrFh2aUXFD3ywALeAyD_PUIWBRBaw5cTlhmueDX956SwjaDHXOUgBf2_kfpcw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

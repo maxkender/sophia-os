@@ -1,0 +1,818 @@
+{
+ "id": "ka-047",
+ "titre": {
+  "en": "10/10 camping skills to learn",
+  "fr": "10/10 skills pour ton premier camping",
+  "de": "10/10 Camping-Skills",
+  "it": "10/10 skill da campeggio",
+  "tr": "10/10 kamp becerisi",
+  "hu": "10/10 kempingkészség",
+  "pl": "10/10 umiejętności na biwak",
+  "pt-BR": "10/10 habilidades para acampar"
+ },
+ "legendes": {
+  "en": "10/10 camping skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour ton premier camping #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Camping-Skills #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill da campeggio #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 kamp becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 kempingkészség #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności na biwak #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades para acampar #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "Cortex - Huit Octobre 1971",
+  "url": "https://www.tiktok.com/music/cortex-huit-octobre-1971-6943741223941245701"
+ },
+ "notes": "Full test (BLEO, 18/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le camping). Décor falaise. Son format court à 3 compétences plus l'étape Sophia (la tente, l'eau potable, le sac à dos), une vraie vidéo YouTube native par étape et par langue. Musique : « Cortex - Huit Octobre 1971 » de son manifeste. Sophia en étape 3, cta C, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "falaise",
+   "en": {
+    "lignes": [
+     "CAMPING",
+     "SKILLS TO",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "TON PREMIER",
+     "CAMPING"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "CAMPING-",
+     "SKILLS"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL DA",
+     "CAMPEGGIO"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "KAMP",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KEMPING-",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "UMIEJĘTNOŚCI",
+     "NA BIWAK"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "PARA ACAMPAR"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "PITCH A TENT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Pf2hmFeUsbY",
+     "titre": "Step - By - Step | How To Set Up a Tent",
+     "chaine": "NC State Parks",
+     "vues": "1.2M views",
+     "date": "8 years ago",
+     "duree": "4:48",
+     "avatar": "https://yt3.ggpht.com/7_gb4NYpsayBoXOXJFuqEiAk8DReEOrS37BFarOSyRq98kScD6whKy9Pdvp6E7rmjZvyB_UL=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RÉUSSIR",
+     [
+      {
+       "t": "TON BIVOUAC",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zz17iTwMgCc",
+     "titre": "PREMIER BIVOUAC, 11 ERREURS À ÉVITER ! (SPÉCIAL TENTE)",
+     "chaine": "Trek Attitude",
+     "vues": "232 k vues",
+     "date": "il y a 2 ans",
+     "duree": "9:03",
+     "avatar": "https://yt3.ggpht.com/BuTxYT4CiXtdyIaMNm9MfJLbnsrHcnlW81PNToXlgEyH59SxA_T0d0JWjZsmhI8jYsSTT4pyLfQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ZELTEST DU",
+     [
+      {
+       "t": "RICHTIG",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nQ8f6nmq95c",
+     "titre": "5 FEHLER, die Anfänger beim Zelten im Regen machen",
+     "chaine": "SASCHA",
+     "vues": "200.909 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "12:24",
+     "avatar": "https://yt3.ggpht.com/4pqsWf-90ghZmeQ3eFSAQdS7m4CxXisWs6FTV-cO8F7AFWroEl3lsEahE_L9ocBmdumZ4r1bJpU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME DORMIRE",
+     [
+      {
+       "t": "BENE IN TENDA",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F3hrOwAHHeI",
+     "titre": "10 ERRORI che DISTRUGGONO la tua NOTTE in TENDA",
+     "chaine": "Riccardo Brotto",
+     "vues": "30K visualizzazioni",
+     "date": "3 mesi fa",
+     "duree": "12:50",
+     "avatar": "https://yt3.ggpht.com/6fCl-UTnuQ7b8kBJuFqXXR7Ot4hOUQKlA8dZOYrZ4cf9aeRtvWwy2ub-0s0pt00UwBmiM5bfcA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ÇADIR KURULUR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ePlNjMJYJUE",
+     "titre": "4 Dakikada Çadır Nasıl Kurulur ?",
+     "chaine": "Hayatta Kalma Sanatı",
+     "vues": "72 B görüntüleme",
+     "date": "9 yıl önce",
+     "duree": "4:02",
+     "avatar": "https://yt3.ggpht.com/wGH3FyqXwsgezkU8gh3EndCN0Nc2SO9h0th10RvEQHb4dhiTWvR7AGK6SZtuyrbBxfIpB3U7kAQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÁLLÍTS",
+     [
+      {
+       "t": "SÁTRAT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P--SW7XeLq0",
+     "titre": "Hogyan állítsd fel a sátrat? - gyorstalpaló",
+     "chaine": "Marcello On Tour M.O.T.",
+     "vues": "36 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "14:28",
+     "avatar": "https://yt3.ggpht.com/IRWLbbmA0WN3xtmIBLUYYNJCvx-xOOi0KevxVoe3yNhK6r0mf5JBpfg6esv5i1yaKF3SzT2jhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ROZBIĆ",
+     [
+      {
+       "t": "NAMIOT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nb-Ln_Vqn2I",
+     "titre": "Jak rozłożyć i złożyć namiot typu POP-UP - poradnik",
+     "chaine": "TourSport.pl",
+     "vues": "183 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "1:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l36ujMi8h3az1TjBhr1JAi7DD0o9LsgLidw5_xQPf1sdc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO MONTAR",
+     [
+      {
+       "t": "UMA BARRACA",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZQVAB815nrk",
+     "titre": "Barraca de Camping MONTAGEM RÁPIDA e FÁCIL: A MELHOR OPÇÃO PARA ACAMPAR! [NATURE HIKE]",
+     "chaine": "Trilhados",
+     "vues": "486 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "19:25",
+     "avatar": "https://yt3.ggpht.com/H67w2-SY6D1uvs_mYvLfy2uAAq01qdG3wkgeP6pHved178QMY-c78Ajrq1RM8zrlW1Burv0jKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "FILTER WATER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nSBwJNDDUfc",
+     "titre": "Newly Discovered PRIMITIVE WATER FILTER! 100% Effective",
+     "chaine": "Clay Hayes",
+     "vues": "7.2M views",
+     "date": "2 years ago",
+     "duree": "14:38",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nclvC0n14LZyqyYbadFwJqRtp7fchZ7yiwtkBBPJ_uXj4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT TROUVER",
+     [
+      {
+       "t": "DE L'EAU POTABLE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ykrXbbNqqiE",
+     "titre": "[TUTOS] L'adjudant-chef Gatien vous dit tout sur la survie : épisode 3 \"l'eau\"",
+     "chaine": "Armée de Terre",
+     "vues": "263 k vues",
+     "date": "il y a 6 ans",
+     "duree": "4:29",
+     "avatar": "https://yt3.ggpht.com/TJAmMXVnAO7Z6rC-pTQX0I6okiHrGgZ2gq414273QU_xueWAsV9-hJwasOEQml3WpX4_Ft2d=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FILTERST DU",
+     [
+      {
+       "t": "WASSER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q0NzNpTB1ak",
+     "titre": "Outdoor Wasserfilter - Alles was du wissen musst!",
+     "chaine": "Stefan Berger",
+     "vues": "187.744 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "12:36",
+     "avatar": "https://yt3.ggpht.com/PxM1uwsVMDLmodmYRVJTQKDX8zIHeA8sDjJfkR3bZkgmCzM_j7No_cP8ZN633QtsBRY1I38Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME DEPURARE",
+     [
+      {
+       "t": "L'ACQUA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7hQdoaJ_JuQ",
+     "titre": "SOPRAVVIVENZA NEI BOSCHI depurare e potabilizzare l’acqua",
+     "chaine": "funCode",
+     "vues": "37K visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "2:34",
+     "avatar": "https://yt3.ggpht.com/KT8rSKRlmYjoT6z2NRyEGhTzFribC1ndp0Fmz8Nrsyu7ZyYO25cGvI1HJYv395wjhDaOfQAmsS4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "SU ARITILIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9KXON1sBiM4",
+     "titre": "Doğada su bulma ve arıtma yöntemleri. - Doğadaki İnsan 116. Bölüm",
+     "chaine": "Doğadaki İnsan",
+     "vues": "56 B görüntüleme",
+     "date": "8 yıl önce",
+     "duree": "3:17",
+     "avatar": "https://yt3.ggpht.com/6ACW78ZPa7S4CeUgTE2ms3SnW2tJCtQE4tDZ4JhBsUZCbvJ-7oPpJlrJ-iZ5RLvp-aG6FLfw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TISZTÍTS",
+     [
+      {
+       "t": "VIZET",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "BABm4jaRtZk",
+     "titre": "Buschcraft iskola 6.rész: A víztisztítás",
+     "chaine": "Tibor Antal",
+     "vues": "12 E megtekintés",
+     "date": "11 évvel ezelőtt",
+     "duree": "5:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lOTMD7CrLQ-edRS-gvPWn5HpvIPzvWuZslAbbOqaacONw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK OCZYŚCIĆ",
+     [
+      {
+       "t": "WODĘ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gdYvTtHkRHA",
+     "titre": "Co zrobic gdy zabranie czystej wody-  filtrowanie wody",
+     "chaine": "Adolf Kudlinski",
+     "vues": "748 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "5:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kcSjlfammoKnWUvcX5DKJ8tLKLOdxbZMN9JJIjUrKOhb8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO PURIFICAR",
+     [
+      {
+       "t": "ÁGUA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-arUkAt84Do",
+     "titre": "Água na Selva - Obtenção, Filtragem e Purificação (1oBIS de Manaus)",
+     "chaine": "Celso Cavallini",
+     "vues": "479 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "15:52",
+     "avatar": "https://yt3.ggpht.com/vz8Vx_VtIghUJmYffy-gc4BKO3WncUeFiXS9TXNpV2JKzGajhFMBg5jEeuYGnINqGObPz9roT4k=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "NEVER GET BORED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NE JAMAIS",
+     [
+      {
+       "t": "T'ENNUYER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRD DIR",
+     [
+      {
+       "t": "NIE LANGWEILIG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME NON",
+     [
+      {
+       "t": "ANNOIARTI MAI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL HİÇ",
+     [
+      {
+       "t": "SIKILMAZSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN NE",
+     [
+      {
+       "t": "UNATKOZZ SOHA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK NIGDY",
+     [
+      {
+       "t": "SIĘ NIE NUDZIĆ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO NUNCA",
+     [
+      {
+       "t": "FICAR ENTEDIADO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO PACK",
+     [
+      {
+       "t": "A BACKPACK",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jBDido6uX9k",
+     "titre": "How to Pack a Backpack || REI",
+     "chaine": "REI",
+     "vues": "974K views",
+     "date": "7 years ago",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lUHsFlWaQfLNKhYHZLgGcKJi5KSUr85H6SVO7smUbsrng=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "TON SAC",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "tSUCtdzRwQQ",
+     "titre": "Faire son sac pour le GR20: Objectif moins de 10 Kilos!",
+     "chaine": "GR20 Les conseils d'Alex",
+     "vues": "783 k vues",
+     "date": "il y a 8 ans",
+     "duree": "6:31",
+     "avatar": "https://yt3.ggpht.com/pMCbXpzwtcav4qz_dfuiq9QbBYzh74_5NzNiXNxt65_Oj7_8-DmjwI2aei9XvOPAB5iFLRQA5t4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO PACKST DU",
+     [
+      {
+       "t": "DEINEN RUCKSACK",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0wpOG9K5HV8",
+     "titre": "Wie packe ich meinen Wander-Rucksack richtig",
+     "chaine": "OASE alpin",
+     "vues": "338.536 Aufrufe",
+     "date": "vor 13 Jahren",
+     "duree": "7:07",
+     "avatar": "https://yt3.ggpht.com/0KhW-zatkAE6hXV5-TxnlZ8WSaXuy8NlcauktieFo9NhazX_m8y3-qJetjpNxoWlQgmc6WFt=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME INIZIARE",
+     [
+      {
+       "t": "IL TREKKING",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XAx4hEbXp9M",
+     "titre": "Ho fatto più di 1000 Trekking. Ecco cosa ho Imparato ⛰️",
+     "chaine": "Riccardo Brotto",
+     "vues": "69K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/6fCl-UTnuQ7b8kBJuFqXXR7Ot4hOUQKlA8dZOYrZ4cf9aeRtvWwy2ub-0s0pt00UwBmiM5bfcA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ÇANTA HAZIRLANIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RS8JfZEC_X0",
+     "titre": "Kamp Çantası NASIL Yerleştirilir? l TAKTİKLER /8",
+     "chaine": "Rehberin Dünyası",
+     "vues": "18 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "9:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kDxNsoORym0ks5WrETmZXYYH7fhdH2YDN4u_VQLuCHBI4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN PAKOLJ",
+     [
+      {
+       "t": "A HÁTIZSÁKBA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "e9KB6102W-c",
+     "titre": "Hogyan pakolj a hátizsákba vándortúrázáshoz? | Decathlon Magyarország",
+     "chaine": "Decathlon Magyarország",
+     "vues": "8,2 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/cR03zDxMi41RJNNf3vHrih1NA9AVijIfnNWGwVXOflW1lebN-pLra2ZHP_8DBOgR8RFzklv5=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK SPAKOWAĆ",
+     [
+      {
+       "t": "PLECAK",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ruXNIbEyoyM",
+     "titre": "Wstęp do bushcraftu. Jak dobrze spakować plecak do lasu | Oblicza lasów #82",
+     "chaine": "Echa Leśne",
+     "vues": "106 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "17:11",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kUy89TrsTuHPfXCHMgjphJOgyIundvGZlDvq2DhA_Hhg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ARRUMAR",
+     [
+      {
+       "t": "A MOCHILA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q0zk0p9JdKU",
+     "titre": "Como montar uma mochila para Acampamento, Trekking, Trilhas e Travessias.",
+     "chaine": "DESBRAVATUBE",
+     "vues": "173 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "27:20",
+     "avatar": "https://yt3.ggpht.com/M2j2l43Ha-O1PjFhxq6CELWJkX9-tji-Ul2CgHcflMWjTkY6qJyLiYmEyXjdu0rDsNox3vAj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

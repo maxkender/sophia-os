@@ -60,6 +60,7 @@ import { PageProblemesV2 } from "@/features/problemes/v2/PageProblemesV2";
 import { PageBot } from "@/features/bot/PageBot";
 import { AdminPilotagePage } from "@/pages/admin/AdminPilotagePage";
 import { AdminSourcesPage } from "@/pages/admin/AdminSourcesPage";
+import { PageBible } from "@/features/bible/PageBible";
 import { AdminPostersPage } from "@/pages/admin/AdminPostersPage";
 import { AdminBibliothequePage } from "@/pages/admin/AdminBibliothequePage";
 import { AdminUgcIaPage } from "@/pages/admin/AdminUgcIaPage";
@@ -201,6 +202,8 @@ export function AppRouter() {
               <Route path="/admin/pays" element={<PageDecisionPays />} />
               <Route path="/admin/quality-control" element={<PageQualite />} />
               <Route path="/admin/sources" element={<AdminSourcesPage />} />
+              {/* 18/11 : la Bible des comptes, admin au sens strict (pas le Head of Ops). */}
+              <Route path="/admin/bible" element={<PageBible />} />
               <Route path="/admin/contenus" element={<Navigate to="/admin/slideshows" replace />} />
               <Route path="/admin/slideshows" element={<AdminSlideshowsPage />} />
               <Route path="/admin/creation" element={<AdminCreationPage />} />

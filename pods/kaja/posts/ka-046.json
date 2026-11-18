@@ -1,0 +1,826 @@
+{
+ "id": "ka-046",
+ "titre": {
+  "en": "10/10 breakfast skills to learn",
+  "fr": "10/10 skills pour un petit-déj parfait",
+  "de": "10/10 Frühstücks-Skills",
+  "it": "10/10 skill per la colazione perfetta",
+  "tr": "10/10 kahvaltı becerisi",
+  "hu": "10/10 reggeli készség",
+  "pl": "10/10 umiejętności na idealne śniadanie",
+  "pt-BR": "10/10 habilidades para o café da manhã"
+ },
+ "legendes": {
+  "en": "10/10 breakfast skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour un petit-déj parfait #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Frühstücks-Skills #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill per la colazione perfetta #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 kahvaltı becerisi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 reggeli készség #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności na idealne śniadanie #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades para o café da manhã #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7505871624412482320"
+ },
+ "notes": "Full test (BLEO, 18/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (le petit-déjeuner). Décor branche. Son format court à 3 compétences plus l'étape Sophia (pancakes, omelette, latte art), une vraie vidéo YouTube native par étape et par langue. Musique : « original sound 7505871624412482320 » de son manifeste. Sophia en étape 3, cta A, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "BREAKFAST",
+     "SKILLS TO",
+     "LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "UN PETIT-DÉJ",
+     "PARFAIT"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "FRÜHSTÜCKS-",
+     "SKILLS"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL PER",
+     "LA COLAZIONE",
+     "PERFETTA"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "KAHVALTI",
+     "BECERİLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "REGGELI",
+     "KÉSZSÉGEK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "NA IDEALNE",
+     "ŚNIADANIE"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "PARA O CAFÉ",
+     "DA MANHÃ"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NCMKedZvnyI",
+     "titre": "How to Make Pancakes at Home | Easy Pancake Recipe",
+     "chaine": "Hands Touch",
+     "vues": "29M views",
+     "date": "6 years ago",
+     "duree": "2:33",
+     "avatar": "https://yt3.ggpht.com/o-fFfswDEpefJtBrOVNq6Ilt-IhZBvJCbnEujvXD8v36Lu3819FWptRfMaojT2NpGjYOH-CeWg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DES PANCAKES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7KTnT5w-dhg",
+     "titre": "Recette facile des pancakes moelleux par Hervé Cuisine",
+     "chaine": "Hervé Cuisine",
+     "vues": "4,5 M de vues",
+     "date": "il y a 16 ans",
+     "duree": "6:04",
+     "avatar": "https://yt3.ggpht.com/CtesnWt5qUmrXYKVCnLRSjOUpPgaodkFeIzWUEGrcWRfJQb7RypdKcg7ra49BLf3iOGhnU1yrCU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "7oxe09sBD88",
+     "titre": "Fluffige Pancakes | BakeClub",
+     "chaine": "BakeClub",
+     "vues": "7,5 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l5vjc1m-K_56XmWV7U4MZGPnRJ3L8mdf5lz-PuBjAlEKw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "I PANCAKE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fQgBBs0UCsw",
+     "titre": "PANCAKES GIAPPONESI con NUTELLA® Ricetta Facile di Benedetta - JAPANESE FLUFFY PANCAKES Easy Recipe",
+     "chaine": "Fatto in Casa da Benedetta",
+     "vues": "4,8 Mln visualizzazioni",
+     "date": "7 anni fa",
+     "duree": "6:25",
+     "avatar": "https://yt3.ggpht.com/9H-mqH7bg3p2YbjgO9kzFmQZhI3RGbne8qmfU8NOQsvWqWmL_4yR2I5swai5lSv8lGeyYFQ-CPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PANKEK YAPILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O2xWJcobcSY",
+     "titre": "İddialıyız! Deneyip Pişman Olan Görmedik 🙌🏻 Altın Pankek 🥞",
+     "chaine": "Nefis Yemek Tarifleri",
+     "vues": "36 Mn görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/tX0tJPs42-5_5cy9RbtEDs90jzkQuKvgWO3Hj-lzIG8aQdtME1ffs1jloPkNzBtFDZ0GNqY0rA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN SÜSS",
+     [
+      {
+       "t": "PALACSINTÁT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-8ocmWcnNeI",
+     "titre": "Gyors amerikai palacsinta recept | Nosalty",
+     "chaine": "Nosalty",
+     "vues": "297 E megtekintés",
+     "date": "8 évvel ezelőtt",
+     "duree": "0:56",
+     "avatar": "https://yt3.ggpht.com/aCM2OzrKY9tnGXJBSDpMpG_YoLpiRLSEnh7La10FkF90ds9SpObVKHwqwc8p-T2PMDHuqtxeQSU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "PANCAKES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "z6D4JISmYdY",
+     "titre": "Najlepszy przepis na PANCAKES 👌 delikatne i puszyste amerykańskie naleśniki 👍 pyszne śniadanie",
+     "chaine": "Sprint Cooking",
+     "vues": "2,2 mln wyświetleń",
+     "date": "6 lat temu",
+     "duree": "4:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIqa1VrZ4VZwZXaaCVFMHget4w9gSUQISWymUedOOCs9Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "PANQUECA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y1diZ4zsOZg",
+     "titre": "PANQUECA AMERICANA SUPER FÁCIL E RÁPIDA | Menino Prendado",
+     "chaine": "Menino Prendado",
+     "vues": "4,1 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/1B5rDFEnQnvOPK4SuoIiukxhNlWtZuyexzYWdGUHzUGzpkQWlTqJXnOGxHjxHd6KZBSs8e2R=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "AN OMELETTE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "y-Wr401Bio4",
+     "titre": "How to...Make a Perfect Omelette",
+     "chaine": "livelife365",
+     "vues": "16M views",
+     "date": "13 years ago",
+     "duree": "5:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nEyvL82YhGVeQ9sfLb1B8rD9xD8Q9D_43SSBYAwJZ2GA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT RÉUSSIR",
+     [
+      {
+       "t": "UNE OMELETTE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3tb9AVW5NaE",
+     "titre": "🥚 L'omelette",
+     "chaine": "Philippe Etchebest",
+     "vues": "1,2 M de vues",
+     "date": "il y a 2 ans",
+     "duree": "6:14",
+     "avatar": "https://yt3.ggpht.com/TETeWVwZ0hc-qP_wWMN74dFRRcZOipEhGJ4MegZgjgKoo47wv-9igEfwLlf2lVZx2LPCIAOO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GELINGT DIR",
+     [
+      {
+       "t": "DAS OMELETT",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5TgP19JtmJc",
+     "titre": "Das perfekte Omelett | Galileo Lunch Break",
+     "chaine": "Galileo",
+     "vues": "632.886 Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "4:35",
+     "avatar": "https://yt3.ggpht.com/jOOP8uUA5oWawWRaPnxVuNikKpZ9xzGBZh6opFnlTWe5ty78fcqi8kHUfW6pQP8CFn6JB-48nBs=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "LA FRITTATA",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4GQsu56ot_k",
+     "titre": "Come far venire la frittata alta e soffice | Ricetta segreta?",
+     "chaine": "Cucina Geek",
+     "vues": "1 Mln visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "10:10",
+     "avatar": "https://yt3.ggpht.com/iAS1aXC_Gr16n-ZcXZ02R2wvnwUZf_zWMkiNWoiG15fK6pfk7bsaxhMh2U5-Ku1N5pGrCoqRVQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "OMLET YAPILIR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nUaPQ5F9Uqk",
+     "titre": "Omlet Tarifi | NASIL YAPILIR?",
+     "chaine": "Nefis Yemek Tarifleri | Bugün Ne Pişirsem?",
+     "vues": "3,4 Mn görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/SlYKkIpSlt9fYd_LAEq1jWrCwR1hUmTnmw1oC7JpwiPz6K4_U-0q6rFIjYqo9occ6Zmo0fiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KÉSZÍTS",
+     [
+      {
+       "t": "OMLETTET",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JyD3SGF9yuc",
+     "titre": "A tökéletes omlett!",
+     "chaine": "Bede Robi Konyhája",
+     "vues": "15 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "4:56",
+     "avatar": "https://yt3.ggpht.com/j7-H9uDOUk_Go7fKXdsbt_MFAh85-RPHs-N3tWFzZGQRtk0rlR4woZfjC5R2B4ZZwKnrjXQE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "OMLET",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3HTbEWhpe9k",
+     "titre": "Puszysty omlet z 2 jaj 👌 pyszne i szybkie śniadanie w 10 minut 👍",
+     "chaine": "Sprint Cooking",
+     "vues": "781 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "3:36",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lIqa1VrZ4VZwZXaaCVFMHget4w9gSUQISWymUedOOCs9Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "OMELETE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gY4YpCyxV4Q",
+     "titre": "COMO FAZER OMELETE FÁCIL E RÁPIDA | Nandu Andrade",
+     "chaine": "Nandu Andrade",
+     "vues": "5,2 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "4:01",
+     "avatar": "https://yt3.ggpht.com/2FbWNovIrRhMblf6jjCYG6FUk5jswx1TXrZ12tMAOS9UhgO2O-4a3MHzlbbkN0TwHsmqM1-k5lY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO START",
+     [
+      {
+       "t": "YOUR DAY SMARTER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT COMMENCER",
+     [
+      {
+       "t": "TA JOURNÉE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO STARTEST DU",
+     [
+      {
+       "t": "KLÜGER IN DEN TAG",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME INIZIARE",
+     [
+      {
+       "t": "LA GIORNATA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "GÜNE NASIL",
+     [
+      {
+       "t": "DAHA AKILLI",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "BAŞLANIR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KEZDD",
+     [
+      {
+       "t": "OKOSABBAN A NAPOT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK MĄDRZE",
+     [
+      {
+       "t": "ZACZĄĆ DZIEŃ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO COMEÇAR",
+     [
+      {
+       "t": "O DIA MELHOR",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "LATTE ART",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SiefJJv-Qho",
+     "titre": "Latte Art For Beginners: How To Pour Heart (Latte Art Tutorial) 🖤",
+     "chaine": "European Coffee Trip",
+     "vues": "2.3M views",
+     "date": "5 years ago",
+     "duree": "8:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nM49iPvWnbfqU4I2dVG9bIDraDH6alsGYAIxrpwyOsXFY=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UN LATTE ART",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zo37Ze6xJXA",
+     "titre": "Latte art - Le coeur",
+     "chaine": "Café Barista",
+     "vues": "90 k vues",
+     "date": "il y a 6 ans",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/JGI_On9oJcMbotG6ijHxyQxOum1ier7l5xeW5j1QY0EVPtU4iiSWIkYon6SsoHuWWrQq1sNktis=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO GELINGT DIR",
+     [
+      {
+       "t": "LATTE ART",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_1V54v6pNCI",
+     "titre": "Der Latte Art Weltmeister enthüllt SEINE GEHEIMNISSE! 🤯 So machst du den PERFEKTEN Kaffee",
+     "chaine": "noz.de",
+     "vues": "50.290 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "10:31",
+     "avatar": "https://yt3.ggpht.com/PA5qohqABPnqdIUH5WaajRGf6L3NzLZzGlmMoqJVaOBvP4QFqteVXroN4QJ2Ptptik5ho8lPIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME MONTARE",
+     [
+      {
+       "t": "IL LATTE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "NIpmms8TnPw",
+     "titre": "Latte art - Come si monta il latte",
+     "chaine": "Santacruz Caffè",
+     "vues": "203K visualizzazioni",
+     "date": "5 anni fa",
+     "duree": "2:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m_xr_kQIXwWCJ-snYqVQuwbUX2wGj7iOWQ7gMPEPc5=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "LATTE ART YAPILIR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "B6dxQLbUNc0",
+     "titre": "LATTE ART NASIL YAPILIR? LATTE KÜLTÜRÜ NEDİR? Bölüm 1",
+     "chaine": "bir70bes",
+     "vues": "5,4 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/M6pZifPsgFPMZ3fmBoNOQjrISZ_0WQvzVNOHxcxT3oruyHer-S24Ai4_UCtRmpe5LuQWiW8fDJo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KÉSZÍTS",
+     [
+      {
+       "t": "LATTE ARTOT",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SGgfhq2tuhA",
+     "titre": "Latte Art: Így Kezdj! 🎨✨ Latte art kezdő tippek és trükkök | Cofffriends",
+     "chaine": "Cofffriends",
+     "vues": "7 E megtekintés",
+     "date": "2 évvel ezelőtt",
+     "duree": "18:10",
+     "avatar": "https://yt3.ggpht.com/z0zlPFa-EZFspQvd9vVkYLHevwc53CDvKWCtxg_U-450BC_JijpoS4ysaYoVSnbiyxBUd8vj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "LATTE ART",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "3Z6R1OztsT0",
+     "titre": "10 porad jak zrobić profesjonalny latte art – wzory na kawie krok po kroku",
+     "chaine": "Czajnikowy.pl - dobra herbata!",
+     "vues": "81 tys. wyświetleń",
+     "date": "8 lat temu",
+     "duree": "6:01",
+     "avatar": "https://yt3.ggpht.com/mMLaekdDKGz6xCHHt7YUb_kWnqoaKDocMvpgUK2dz9KwEC5nNri1sjWGBbkDtqCteR76ez-uQw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "LATTE ART",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "42Jh8hI-rvo",
+     "titre": "CORAÇÃO - APRENDA LATTE ART PASSO A PASSO (Desafio Latte na Tampinha)",
+     "chaine": "Unique Cafés",
+     "vues": "471 mil visualizações",
+     "date": "há 7 anos",
+     "duree": "8:59",
+     "avatar": "https://yt3.ggpht.com/OJ04cuJ8usMeY51nHBYahERKLCUerlG61m1CqkvksSEVGel1hwkqMErLHwL6NFafwyZaIxtVSQ0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

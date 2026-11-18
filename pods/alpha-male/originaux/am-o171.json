@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o171",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "06d43b23-cf07-4d7f-a536-a089fa30062a",
+ "titre": "5 Badass signs you're on the right path #men #mindset #growth #selfimprovement #discipline",
+ "musique_titre": "Elle Ta Tue Instrumental (Morena)",
+ "musique_url": "https://www.tiktok.com/music/elle-ta-tue-instrumental-morena-7430147882671508257",
+ "inspirations": [
+  "06d43b23-cf07-4d7f-a536-a089fa30062a"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 18/11. Déclinaison G1 de la ligne 28 (parent 06d43b23, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : un signe, puis deux ou trois lignes. Signes neufs, aucun du parent ni de nos « quietly winning » (am-o039, am-o112). reference_url du parent (slides 1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "8b1ec3b5",
+   "texte_overlay": "5 Badass signs you're\non the right path",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526978253546966277/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "00785930",
+   "texte_overlay": "You wake up without\ndreading the day.\n\nNot every day is easy.\nBut it's yours.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526978253546966277/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "0fafa900",
+   "texte_overlay": "Your friends push you.\n\nThey ask what you're building,\nnot where you're drinking.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526978253546966277/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4e217dfc",
+   "texte_overlay": "You're curious again.\n\nYou look things up.\nYou ask why.\nLearning feels good.",
+   "texte_sophia": "You're curious again.\n\nYou look things up on the\nSophia app. Learning feels good.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526978253546966277/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0ad0a319",
+   "texte_overlay": "You keep promises to yourself.\n\nThe workout, the early night,\nthe hard call.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526978253546966277/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "392e45bb",
+   "texte_overlay": "Old drama bores you.\n\nYou have better things to do.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7526978253546966277/6.jpg"
+  }
+ ]
+}

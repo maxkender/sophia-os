@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o168",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "02bf6ce3-45e0-4185-b6e9-37c4da824eb7",
+ "titre": "5 habits that make people respect you #men #respect #habits #selfimprovement #mindset",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7458397927627885334",
+ "inspirations": [
+  "02bf6ce3-45e0-4185-b6e9-37c4da824eb7"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 18/11. Déclinaison G1 de la ligne 23 (parent 02bf6ce3, @relatableoutof10, langue source en). Accroche du parent mot pour mot. Format du parent : « N. habitude » en une ligne. Habitudes neuves, aucune du parent (à l'heure, écouter jusqu'au bout, calme, tenir parole, apprendre). reference_url du parent (slides 1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "5fd8e086",
+   "texte_overlay": "5 habits that make people\nrespect you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617795986282302742/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "095a7afd",
+   "texte_overlay": "1. Treating waiters like\nyou treat your boss",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617795986282302742/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "15692881",
+   "texte_overlay": "2. Admitting mistakes\nbefore anyone finds them",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617795986282302742/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "2ad5373f",
+   "texte_overlay": "3. Knowing what you're\ntalking about",
+   "texte_sophia": "3. Knowing what you're talking\nabout. I learn a little every day\non the Sophia app.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617795986282302742/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "0a5b61b3",
+   "texte_overlay": "4. Keeping secrets that\naren't yours to share",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617795986282302742/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0ec14b42",
+   "texte_overlay": "5. Never bragging about\nwhat you have",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7617795986282302742/6.jpg"
+  }
+ ]
+}

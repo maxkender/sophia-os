@@ -1,0 +1,57 @@
+{
+ "source_id": "sg-o270",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "794afb51-db1e-4a50-be04-c428b9d2d07f",
+ "titre": "extracurriculars that tell admissions you belong in your major #college #extracurriculars #smartgirl #university #studytok",
+ "musique_titre": "som original",
+ "musique_url": "https://www.tiktok.com/music/som-original-7412607755946625798",
+ "inspirations": [
+  "632d2be2-8d6f-4ec6-8753-1c4a41516421"
+ ],
+ "notes": "cta C. Déclinaison G2 de la ligne 6 de la boîte (parent 794afb51, langue source de) : accroche reformulée (« extracurriculars that tell admissions you belong in your major »), différente de sg-o231 et sg-o251 ; filières du parent et nouvelles (sciences, médecine, philosophie). Sophia comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1d4f131f",
+   "texte_overlay": "extracurriculars that tell admissions\nyou belong in your major",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "d57063be",
+   "texte_overlay": "medicine\n\n• first-aid certificate\n• hospital volunteering\n• science olympiad",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "b82cb207",
+   "texte_overlay": "philosophy\n\n• debate club\n• philosophy reading group\n• essay competitions",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "6897dce4",
+   "texte_overlay": "history\n\n• museum volunteering\n• local archives\n• history society",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "81a9fcec",
+   "texte_overlay": "literature\n\n• school magazine\n• writing workshop\n• poetry readings",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0ceab8a1",
+   "texte_overlay": "every major\n\n• ten minutes of learning\ninstead of ten minutes of scrolling",
+   "texte_sophia": "every major\n\n• ten minutes on an app like Sophia\ninstead of ten minutes of scrolling",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "fbf87c15",
+   "texte_overlay": "save this for next year",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7670484957030141216/6.jpg"
+  }
+ ]
+}

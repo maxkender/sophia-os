@@ -1,0 +1,297 @@
+{
+ "post_id": "original-088",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 habits to make you",
+      "disgustingly disciplined"
+     ],
+     "fr": "10/10 habitudes pour avoir une discipline de malade",
+     "texte": "cosas que te están cansando sin que lo sepas"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "texte": "(y no es solo el sueño)",
+     "alignement": "droite"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681068766720953630_1.jpg",
+      "boite": [
+       280,
+       0,
+       500,
+       370
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop skipping slides because",
+      "you're lazy"
+     ],
+     "fr": "arrête de zapper les slides [[par flemme]]",
+     "texte": "tomar [[cien decisiones pequeñas]] al día"
+    },
+    "T2": {
+     "en": [
+      "most people swipe through slideshows like this",
+      "and never read the actual text"
+     ],
+     "fr": "la plupart des gens swipent ce genre de slides et [[lisent jamais le vrai texte]]",
+     "texte": "qué ponerte, qué comer, qué contestar. [[cada mini decisión gasta energía]]"
+    },
+    "T3": {
+     "en": [
+      "skimming",
+      "everything",
+      "trains your brain",
+      "to grab the",
+      "headline and",
+      "move on"
+     ],
+     "fr": "tout survoler habitue ton cerveau à [[lire le titre et zapper]]",
+     "texte": "por la noche tu cerebro [[ya no tiene gasolina]] y hasta lo fácil pesa"
+    },
+    "T4": {
+     "en": [
+      "if you’re still reading this, your",
+      "attention span is better than most"
+     ],
+     "fr": "si tu lis encore ça, [[ta concentration vaut mieux que celle de la plupart]]",
+     "texte": "decide lo aburrido una vez, como el desayuno, y [[guarda energía]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703695657198013710_3.jpg",
+      "boite": [
+       180,
+       494,
+       720,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take a long walk without music"
+     ],
+     "fr": "marche longtemps [[sans musique]]",
+     "texte": "[[ruido de fondo]] todo el día"
+    },
+    "T2": {
+     "en": [
+      "take a long walk (~1hr), but most people fill every walk",
+      "with podcasts or music and think they're being productive"
+     ],
+     "fr": "une marche d'1h, mais la plupart des gens la remplissent de [[podcasts ou de musique]] en croyant [[gagner du temps]]",
+     "texte": "un podcast al cocinar, una serie al comer, música en cada paseo. tu cerebro [[nunca descansa en silencio]]"
+    },
+    "T3": {
+     "en": [
+      "but your brain only starts",
+      "thinking for itself when",
+      "nothing is feeding it input"
+     ],
+     "fr": "mais ton cerveau [[pense par lui-même]] seulement quand [[plus rien ne le gave]]",
+     "texte": "aunque no lo escuches de verdad, [[tu cabeza lo sigue procesando]]"
+    },
+    "T4": {
+     "en": [
+      "your best ideas and",
+      "clearest mind will come",
+      "from walks, only when",
+      "you walk in silence"
+     ],
+     "fr": "tes [[meilleures idées]] et ta tête la plus claire viennent en marchant, [[seulement en silence]]",
+     "texte": "prueba un paseo o una comida en silencio. al principio es raro, luego [[la cabeza pesa menos]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703695657198013710_2.jpg",
+      "boite": [
+       180,
+       494,
+       720,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "learn from history's greatest minds"
+     ],
+     "fr": "inspire-toi [[des plus grands esprits]]",
+     "texte": "alimenta tu cabeza [[en vez de vaciarla]]"
+    },
+    "T2": {
+     "en": [
+      "read philosophy, history,",
+      "biographies and literature",
+      "from people who spent",
+      "decades thinking deeply"
+     ],
+     "fr": "lis de la philo, de l'histoire, des biographies et des romans de gens qui ont [[passé leur vie à réfléchir]]",
+     "texte": "el scroll sin fin es comida basura para el cerebro. 5 min sobre por qué el cielo es azul [[sí se quedan]]"
+    },
+    "T3": {
+     "en": [
+      "if you can't focus",
+      "because you get bored",
+      "and start scrolling, use",
+      "readup to block your",
+      "apps until you've read for",
+      "20 minutes"
+     ],
+     "fr": "si tu t'ennuies vite et que tu finis sur tiktok, commence par [[5 minutes par jour sur l'appli Sophia]]",
+     "texte": "lo que sustituyó mi scroll: un libro en la mesita, paseos sin cascos y [[la app Sophia]] cuando igual saco el móvil"
+    }
+   },
+   "images": {
+    "I1": "sophia_capture",
+    "I2": "sophia_appstore"
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "stop announcing your plans"
+     ],
+     "fr": "arrête d'annoncer [[tes projets]]",
+     "texte": "[[notificaciones]] todo el día"
+    },
+    "T2": {
+     "en": [
+      "telling everyone your goals can give you a hit of",
+      "dopamine before you've actually done anything"
+     ],
+     "fr": "annoncer tes objectifs à tout le monde te file [[un shot de dopamine]] avant d'avoir rien fait",
+     "texte": "cada vibración te roba la atención, aunque no la abras, y [[volver a concentrarte cuesta]]"
+    },
+    "T3": {
+     "en": [
+      "you get to feel",
+      "ambitious, receive",
+      "praise, and imagine",
+      "the end result",
+      "without putting in",
+      "the work"
+     ],
+     "fr": "t'as [[le kiff de l'ambition]], les compliments, et tu vois déjà le résultat [[sans avoir bossé]]",
+     "texte": "un día lleno de mini interrupciones [[agota más]] que una tarea larga y concentrada"
+    },
+    "T4": {
+     "en": [
+      "stop talking about what you're going to do. disappear,",
+      "put your head down, and let your results speak for you"
+     ],
+     "fr": "arrête de parler de ce que tu vas faire. disparais, bosse en silence et [[laisse tes résultats parler]]",
+     "texte": "apaga todo lo que no sea una persona real. casi todo puede esperar, y [[tu cerebro descansa]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703695657198013710_5.jpg",
+      "boite": [
+       180,
+       414,
+       720,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "see your friends in real life"
+     ],
+     "fr": "vois tes potes [[en vrai]]",
+     "texte": "[[pantallas]] antes de dormir"
+    },
+    "T2": {
+     "en": [
+      "most nights you scroll because you're",
+      "bored or lonely, not because it's fun"
+     ],
+     "fr": "la plupart des soirs, tu scrolles par [[ennui ou solitude]], pas parce que c'est fun",
+     "texte": "la luz y el contenido infinito a medianoche le dicen a tu cerebro que [[aún es de día]]"
+    },
+    "T3": {
+     "en": [
+      "watching their stories and",
+      "sending memes isn't the",
+      "same"
+     ],
+     "fr": "liker leurs stories et s'envoyer des memes, [[c'est pas pareil]]",
+     "texte": "te duermes más tarde y [[te levantas con la cabeza nublada]]"
+    },
+    "T4": {
+     "en": [
+      "make plans, go for food,",
+      "do anything offline",
+      "together"
+     ],
+     "fr": "prévois un truc, un resto, n'importe quoi [[ensemble, sans écran]]",
+     "texte": "baja las luces la última hora y [[deja que tus ojos descansen]]"
+    },
+    "T5": {
+     "en": [
+      ""
+     ],
+     "fr": "",
+     "texte": "",
+     "garder": true
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7681068766720953630_2.jpg",
+      "boite": [
+       560,
+       40,
+       566,
+       520
+      ]
+     }
+    }
+   }
+  }
+ }
+}

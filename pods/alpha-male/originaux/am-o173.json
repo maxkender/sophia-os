@@ -1,0 +1,51 @@
+{
+ "source_id": "am-o173",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a21d1cd7-75a3-4682-ada6-2724968e9ea9",
+ "titre": "5 brutal signs you've outgrown your father #men #father #family #growth #life",
+ "musique_titre": "Expansion",
+ "musique_url": "https://www.tiktok.com/music/expansion-7383085187666184209",
+ "inspirations": [
+  "a21d1cd7-75a3-4682-ada6-2724968e9ea9"
+ ],
+ "notes": "cta C. CTA : A = conseil « use a micro-learning app like the Sophia app », dernier item ; B = 1re personne, dernier item ; C = un item parmi d'autres au milieu, « on the Sophia app ». BLEO, 18/11. Déclinaison G1 de la ligne 16 (parent a21d1cd7, @millyjhino, langue source en). Accroche du parent mot pour mot. Format du parent : « N. Signe » puis lignes courtes. Signes neufs, aucun du parent (devenir son père, il vieillit, sa voix dans la tienne, premier accident de ton enfant, quelqu'un t'appelle papa) ; ton tendre, sans violence. reference_url du parent (slides 1 à 6) vérifiées en 200. Toute la banque, sans tri de fond (Adrien, 17/11) ; images neuves (aucune livrée depuis 14 jours, aucune partagée avec un autre post du jour) ; slide Sophia sans personne. ",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "01c4b49f",
+   "texte_overlay": "5 brutal signs you've\noutgrown your father",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694407379374411015/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "352aba59",
+   "texte_overlay": "1. You drive him now\n\nHe sits in the passenger seat.\nYou pick the route.\nHe doesn't argue anymore.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694407379374411015/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "03e3c4ae",
+   "texte_overlay": "2. He asks you for advice\n\nAbout his phone. His back.\nHis money. You realize\nthe roles have changed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694407379374411015/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "5a960d52",
+   "texte_overlay": "3. You explain things to him\n\nNews, history, how things work.\nHe listens like you used to.",
+   "texte_sophia": "3. You explain things to him\n\nI learn them on the Sophia app.\nHe listens like I used to.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694407379374411015/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02cc93bc",
+   "texte_overlay": "4. You pay for dinner\n\nHe reaches for his wallet.\nYou're faster.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694407379374411015/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a7101ea3",
+   "texte_overlay": "5. You forgive him\n\nFor the things he got wrong.\nHe was guessing too.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7694407379374411015/6.jpg"
+  }
+ ]
+}

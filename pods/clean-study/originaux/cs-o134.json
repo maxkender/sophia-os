@@ -1,0 +1,50 @@
+{
+  "source_id": "cs-o134",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "abaa4c11-de70-43bc-bc9c-7fef2b3660df",
+  "titre": "famous movie and book characters as study role models: yes or no? my opinion #studytok #booktok #school",
+  "musique_titre": "white mustang instrumental lana del rey",
+  "musique_url": "https://www.tiktok.com/music/white-mustang-instrumental-lana-del-rey-7459581558995929889",
+  "inspirations": [
+    "abaa4c11-de70-43bc-bc9c-7fef2b3660df"
+  ],
+  "notes": "Déclinaison G2 de abaa4c11 (la famille de notre cs-o042 : r 4,16 en turc), ligne 1 de la boîte, 3e et dernière déclinaison de la famille. Même promesse, autres mots que la famille, cs-o124 et cs-o129 : « famous movie and book characters as study role models: yes or no? my opinion ». Personnages neufs, aucun de cs-o042, cs-o124, cs-o129 ni du parent 21d54fb2 : Mia Thermopolis, Anne Shirley, Peter Parker. Avis généraux, sans mépris. Slides des personnages sur des photos (célébrités acceptées, mais pas de personne réelle prêtée à un personnage : la pioche est aléatoire, vérifiée à l'aperçu). Place micabo : slide 5. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b487823b",
+      "texte_overlay": "famous movie and book characters\nas study role models: yes or no?\nmy opinion",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "ccc76f08",
+      "texte_overlay": "mia thermopolis\n+ keeps going even when she's overwhelmed\n− panics before every big moment\nverdict: yes, with a calmer plan",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "1c27487f",
+      "texte_overlay": "anne shirley\n+ competitive in a healthy way, loves big words\n+ studies hard for what she wants\nverdict: yes. her rivalry made her better",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "fada3c53",
+      "texte_overlay": "peter parker\n+ genuinely loves science\n− always late, homework done at 2am\nverdict: copy his curiosity, not his schedule",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "ec9b6ec8",
+      "texte_overlay": "my takeaway: anne's drive, peter's curiosity,\nand quiz yourself every evening so you never panic like mia.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "71a3dcac",
+      "texte_overlay": "which character would you study with?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    }
+  ]
+}

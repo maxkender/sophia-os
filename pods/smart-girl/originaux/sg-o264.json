@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o264",
+ "type_bleo": "full_test",
+ "titre": "the original endings of fairy tales nobody told you #fairytales #grimm #darkacademia #smartgirl #literature",
+ "musique_titre": "Swan Lake 01 (Full Oke Normal Edition)(982830)",
+ "musique_url": "https://www.tiktok.com/music/swan-lake-01-full-oke-normal-edition-982-6940662992498919425",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta C. Full test 6/6 (la jauge en demande 6 sur 19) : accroche jamais faite chez nous (« fairy » absent des accroches de donnees/label.json). Accroches écrites : « the original endings of fairy tales nobody told you » (retenue : surprise, littérature), « dark fairy tale facts » (écartée : vague), « disney vs the original » (écartée : marque). Versions vérifiées : Andersen (la petite sirène devient écume), Grimm (sœurs de Cendrillon mutilées, souliers de fer rougis de la reine de Blanche-Neige, prince de Raiponce aveuglé par les épines), Perrault (le loup mange le Petit Chaperon rouge, sans chasseur), Basile pour la Belle au bois dormant. Sophia à la fin comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d848944c",
+   "texte_overlay": "the original endings of\nfairy tales nobody told you",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c0b8604c",
+   "texte_overlay": "the little mermaid\n\nshe doesn't marry the prince.\nshe turns into sea foam.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "97b4a874",
+   "texte_overlay": "cinderella\n\nin the grimm version, the birds\npeck out the sisters' eyes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "530beac0",
+   "texte_overlay": "snow white\n\nthe queen is made to dance\nin red-hot iron shoes.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d4246982",
+   "texte_overlay": "little red riding hood\n\nin perrault's version,\nno one comes to save her.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "7086dab1",
+   "texte_overlay": "rapunzel\n\nthe prince falls from the tower\nand is blinded by thorns.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "4dc733c4",
+   "texte_overlay": "sleeping beauty\n\nthe oldest version, by basile,\nis far darker than the films.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "7a0d32ef",
+   "texte_overlay": "one dark story a day beats\nan hour of scrolling.",
+   "texte_sophia": "one dark story a day beats an hour\nof scrolling. i find mine on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

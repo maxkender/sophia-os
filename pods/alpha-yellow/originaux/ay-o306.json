@@ -1,0 +1,62 @@
+{
+ "source_id": "ay-o306",
+ "type_bleo": "full_test",
+ "titre": "How to be more interesting than your phone #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "160f177c-81fd-42c7-b9a5-e88b092664f6"
+ ],
+ "notes": "cta B : avant/après, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). full test. Accroche jamais faite chez nous. Les lignes 4 à 7 de la boîte sont sautées (faute de frappe dans l'accroche à reprendre mot pour mot), la boîte n'a que 11 lignes utilisables pour 12 déclinaisons, d'où un 5e full test. Accroches écrites : « How to be more interesting than your phone » (retenue), « Why people check their phone when you talk » (écartée : négatif), « How to hold attention in a conversation » (écartée : plat).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0ca0ed9d-0915-405f-a66d-43f8ac73eaa9",
+   "texte_overlay": "How to be more interesting\nthan your phone",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7688441172787793184/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Ask questions that make people think. \"What's something you changed your mind about this year?\" Nobody reaches for their phone during a question like that.",
+   "media_id": "1d7859d9-ae08-4e14-a644-ce4004f318b7"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Tell stories with a twist. Start with the strange part: \"I got locked in a museum once.\" Curiosity beats any notification. Your attention is contagious.",
+   "media_id": "077708ec-caa5-44ad-bd04-b9b6b9465a8b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Put your own phone away first. Face down isn't enough, put it in your pocket. People mirror you, and they'll give you their attention back.",
+   "media_id": "07e3ba7d-86d7-4780-8fb9-9a03065fa3c8"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "React with real energy. Laugh, be surprised, ask \"no way, then what?\" People love talking to someone who's genuinely into the conversation.",
+   "media_id": "08dfb6e5-d4f2-4114-b0bf-c32d0495772e"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Before: people drifted to their phones when I talked. After: five minutes a day of history, art or science, and I always have a good story.",
+   "texte_sophia": "Before: people drifted to their phones when I talked. After: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. I always have a good story.",
+   "media_id": "0e8823f4-41db-45b5-8a63-f30450a6c690"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Suggest something to do. A walk, a game, a new place to eat. Doing something together is always more fun than scrolling side by side.",
+   "media_id": "092f090f-cefa-40a5-869a-26537326f5d8"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Keep it light and short. Don't lecture. Say the interesting part, then pass the conversation back. Good talkers make others want to talk too.",
+   "media_id": "09ae7f17-2b2e-40c9-8cd4-eda60c722114"
+  }
+ ]
+}

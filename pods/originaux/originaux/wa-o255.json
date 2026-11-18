@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o255",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "fce1dcc4-371c-48ae-8aaf-cac61a684216",
+ "titre": "hobbies that give you a fearless kind of confidence #confidence #fearless #hobbies #selfimprovement #mindset",
+ "musique_titre": "win again - slowed",
+ "musique_url": "https://www.tiktok.com/music/win-again-slowed-7601410032115681297",
+ "inspirations": [
+  "ff08dbe6-59fc-4d62-b938-c2fec3885344"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, ff08dbe6). déclinaison G2 de « hobbies that will make you dangerously confident » (parent fce1dcc4). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b3216210-7b4c-4202-b222-92ad90685a19",
+   "texte_overlay": "hobbies that give you a\nfearless kind of confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "e1b25525-9ffd-4200-bd07-3e0925e7fa2c",
+   "texte_overlay": "the honest compliment\n\ngive one sincere, specific compliment a day, out loud and face to face. people who see the good in others are the ones everyone quietly wants to be around.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a39c2ecb-1aa1-420c-af79-8696c59a8c79",
+   "texte_overlay": "finishing your sentences\n\nfor a week, don't let anyone finish your sentences for you. keep talking calmly to the end, and notice how quickly your voice starts to sound sure of itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "316cddb8-00de-429f-bfe7-2669ef785e55",
+   "texte_overlay": "having things to talk about\n\nspend 5 minutes a day learning something new instead of scrolling, and you'll never run out of things to say. confident people almost always have one interesting story ready.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/4.jpg",
+   "texte_sophia": "having things to talk about\n\ni spend 5 minutes a day learning something new instead of scrolling. i do it with the Sophia app, one lesson a day, and i never run out of interesting things to say."
+  },
+  {
+   "position": 5,
+   "media_id": "d92643ec-912f-4905-8234-237cddea0e12",
+   "texte_overlay": "recording yourself\n\nrecord yourself telling a short story once a week and listen back. you'll see what to improve, and you'll realise you sound far better than you think.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "40ac5f68-eeb9-41d6-a1ec-c0eba9f39698",
+   "texte_overlay": "one brave call a day\n\nmake one phone call a day that you'd normally avoid: a booking, a question, a friend. the nerves before are always so much worse than the call itself.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7658330612574473494/6.jpg"
+  }
+ ]
+}

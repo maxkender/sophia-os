@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o191",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en allant voir un opéra pour la première fois #opera #culture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test, cta A (avant / après sur le dernier item). Accroche jamais faite chez nous : le premier opéra, récit « je ». Accroches écrites : « ce que j'ai appris en allant voir un opéra pour la première fois » (retenue : première fois, accessible), « l'opéra pour les débutants » (écartée : sec), « l'opéra, c'est cher ? » (écartée : question molle). Aucun fait daté, aucun tarif. Routine du 18/11 sur BLEO (par_jour passé à 10 ; images prises dans toute la banque sans tri de fond, règle d'Adrien du 17/11 ; slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 3 full tests et 7 déclinaisons ; lignes 1 à 6 de la boîte déclinées, donc 6 déclinaisons et 4 full tests. Lignes sautées : 7 (« validé par les neurosciences »), 8 (« je notes »), 9 (accroche illisible), 10 (« backed by science »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "353833c9",
+      "texte_overlay": "ce que j'ai appris en allant voir\nun opéra pour la première fois",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "3476f6c1",
+      "texte_overlay": "1. on n'a pas besoin de comprendre les paroles\n\nil y a des surtitres.\net la musique raconte déjà tout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "2504c251",
+      "texte_overlay": "2. lire l'histoire avant change tout\n\ncinq minutes de résumé,\net on suit chaque scène.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "296081b5",
+      "texte_overlay": "3. les places pas chères existent\n\nen haut, sur le côté, le dernier jour.\non entend aussi bien.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "2b59a1d3",
+      "texte_overlay": "4. on a le droit de pleurer\n\npersonne ne regarde.\ntout le monde pleure aussi.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "07dc393c",
+      "texte_overlay": "5. on en ressort plus curieuse\n\navant, je pensais que l'opéra, ce n'était pas pour moi.\nmaintenant, j'apprends un truc sur le monde chaque matin. et j'ai déjà choisi le prochain.",
+      "texte_sophia": "5. on en ressort plus curieuse\n\navant, je pensais que l'opéra, ce n'était pas pour moi.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et j'ai déjà choisi le prochain.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6f2f7285",
+      "texte_overlay": "tu es déjà allée à l'opéra ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

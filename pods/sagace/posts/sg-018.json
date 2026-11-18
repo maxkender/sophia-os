@@ -1,0 +1,1313 @@
+{
+ "id": "sg-018",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "Compétences 10/10 qui te font gagner du temps",
+  "en": "10/10 skills that save you time",
+  "de": "10/10-Skills, die dir Zeit sparen",
+  "it": "Abilità 10/10 che ti fanno risparmiare tempo",
+  "pt-BR": "Habilidades 10/10 que te fazem ganhar tempo",
+  "tr": "Zaman kazandıran 10/10 beceriler",
+  "ro": "Abilități 10/10 care îți economisesc timp",
+  "cs": "Dovednosti 10/10, které ti ušetří čas"
+ },
+ "legendes": {
+  "fr": "Compétences 10/10 qui te font gagner du temps #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that save you time #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die dir Zeit sparen #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che ti fanno risparmiare tempo #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que te fazem ganhar tempo #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Zaman kazandıran 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 care îți economisesc timp #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které ti ušetří čas #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "original sound - m - m",
+  "url": "https://www.tiktok.com/music/original-sound-m-7638549822647159565"
+ },
+ "notes": "Full test du 18/11 (accroche neuve au format de @sagace.fr) : « Compétences 10/10 qui te font gagner du temps », sa couverture (décor, lignes brun/noir, « DU TEMPS » en brun géant ; 3 lignes en tr), 5 compétences qui font gagner du temps (raccourcis clavier, plier un t-shirt, puis Sophia, faire sa valise, ranger, se lever du premier coup), une vraie vidéo native par langue. Sophia en étape 4 sur 7 (cta A : « 5 MIN / BIEN INVESTIES »).",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUI TE FONT",
+      "cap": 120
+     },
+     {
+      "t": "GAGNER",
+      "cap": 169
+     },
+     {
+      "t": "DU TEMPS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "THAT SAVE",
+      "cap": 120
+     },
+     {
+      "t": "YOU",
+      "cap": 169
+     },
+     {
+      "t": "TIME",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "DIE DIR",
+      "cap": 120
+     },
+     {
+      "t": "ZEIT",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "SPAREN",
+      "cap": 169
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "CHE TI FANNO",
+      "cap": 120
+     },
+     {
+      "t": "RISPARMIARE",
+      "cap": 120
+     },
+     {
+      "t": "TEMPO",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "QUE TE FAZEM",
+      "cap": 120
+     },
+     {
+      "t": "GANHAR",
+      "cap": 169
+     },
+     {
+      "t": "TEMPO",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "ZAMAN",
+      "cap": 283,
+      "couleur": "brun"
+     },
+     {
+      "t": "KAZANDIRAN",
+      "cap": 120
+     },
+     {
+      "t": "BECERİLER",
+      "cap": 144,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "CARE ÎȚI",
+      "cap": 120
+     },
+     {
+      "t": "ECONOMISESC",
+      "cap": 120
+     },
+     {
+      "t": "TIMP",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "cap": 144,
+      "couleur": "brun"
+     },
+     {
+      "t": "KTERÉ TI",
+      "cap": 120
+     },
+     {
+      "t": "UŠETŘÍ",
+      "cap": 169
+     },
+     {
+      "t": "ČAS",
+      "cap": 283,
+      "couleur": "brun"
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "MAÎTRISER",
+     [
+      {
+       "t": "LES RACCOURCIS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "i0IPA0hfMe4",
+     "titre": "28 Raccourcis Clavier SECRETS et INDISPENSABLES ! ⌨",
+     "chaine": "Léo - TechMaker",
+     "vues": "1,1 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "11:18",
+     "avatar": "https://yt3.ggpht.com/wwCy41EXBNY-h82fP_V3Gv9hv7WkRa_mWMVn4_wMcNSdlUQXbpcaRNSP4DIDYMnGA5v2No_F_w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 heure pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "MASTER",
+     [
+      {
+       "t": "SHORTCUTS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "d_rH4uAm9MY",
+     "titre": "12 AMAZING Keyboard Shortcuts You Need to Know",
+     "chaine": "Lea David",
+     "vues": "1.4M views",
+     "date": "3 years ago",
+     "duree": "10:18",
+     "avatar": "https://yt3.ggpht.com/GmnBnU_2i-fbN_qPe7bjDzoPPRakwe9W8t8jZpQLMEfZoWe27vz90sras6m4gsBuRCQ-gu4C1g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hour to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "TASTENKÜRZEL",
+       "couleur": "#2f6db5"
+      }
+     ],
+     "BEHERRSCHEN"
+    ],
+    "video": {
+     "id": "dG36LTQFWu0",
+     "titre": "11 UNGLAUBLICHE Tastenkombinationen in Windows 🤯",
+     "chaine": "Jakob Neubauer",
+     "vues": "82.822 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:55",
+     "avatar": "https://yt3.ggpht.com/I-z_I0TrfOnHUCPCzusOT4mUvKw6BqtfEWHnbtJsAEbG-0Zkoq3LNDzlYAuSDY0gj-8DRKegBg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Stunde zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "USARE",
+     [
+      {
+       "t": "LE SCORCIATOIE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bOWSAzVKlb4",
+     "titre": "SCORCIATOIE DI TASTIERA: 7 trucchi per sembrare professionisti del PC",
+     "chaine": "AUTOFORMAZIONE DIGITALE",
+     "vues": "1,7K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:49",
+     "avatar": "https://yt3.ggpht.com/CGTaT3oEiwH2dHj8W2RBGtriPwXMrQOfA6r6YNzfwnKnvXGeclS-nYoe-9X2DN5hsTqL63sUkQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 ora per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DOMINAR",
+     [
+      {
+       "t": "OS ATALHOS",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "DGkTA4DgE0c",
+     "titre": "8 Atalhos de Teclado que Vão Facilitar Sua Vida no Computador! 🖥️",
+     "chaine": "Érika Melo",
+     "vues": "31 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "11:03",
+     "avatar": "https://yt3.ggpht.com/_70DwTDOzVH5ChClMH65TAHuVp2s5N-9MHvsn1g-14Vl10eYqMCZofpWFue6otZ1Ow0bT9m3dg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hora para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "KISAYOLLARI",
+       "couleur": "#2f6db5"
+      }
+     ],
+     "ÖĞRENMEK"
+    ],
+    "video": {
+     "id": "Mni9ac8uAhA",
+     "titre": "Bilmeniz Gereken 20 Klavye Kısayolu | Detaylı Anlatım",
+     "chaine": "TechWorm",
+     "vues": "94 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "11:31",
+     "avatar": "https://yt3.ggpht.com/AlZR6ERVMqFLiMHw4ZMEeUd4zcBUebjqxS0nXjOQQvunkUXesSuhzww4Nqu_DF5i47ol-edlyg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 saatte öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FOLOSEȘTI",
+     [
+      {
+       "t": "SCURTĂTURILE",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "xTI8Nlp8wv8",
+     "titre": "8 scurtături din tastatură utile în Windows (de care trebuie să știi)",
+     "chaine": "Cristian Florea",
+     "vues": "7,7 K vizionări",
+     "date": "acum 2 ani",
+     "duree": "9:03",
+     "avatar": "https://yt3.ggpht.com/cvjBQ4CJ_RDxwenu6Z7LMy1fF_j1IE3TwcERBGnZlnJMeqEqB56rmwQpsTCxe7qO8guIcysj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 oră de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "OVLÁDNOUT",
+     [
+      {
+       "t": "ZKRATKY",
+       "couleur": "#2f6db5"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rfArqi3sYQ0",
+     "titre": "10x Klávesové zkratky pro WIndows - tipy a triky!",
+     "chaine": "BatmanCZ",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 6 lety",
+     "duree": "4:19",
+     "avatar": "https://yt3.ggpht.com/SXFAF6bzna1HDcDQ-YQklus-6T_KUwqpDylV6MqpgOM8ymOYKn_T5rrNuE4dXkz1LXWGsVvuQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 hodina na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "PLIER UN T-SHIRT",
+     [
+      {
+       "t": "EN 5 SECONDES",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ix1HKglt3yk",
+     "titre": "Comment plier un t-shirt en 5 secondes - Astuce Pratique",
+     "chaine": "Pratiks",
+     "vues": "2,5 M de vues",
+     "date": "il y a 17 ans",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/lkMqn-NPmbpigbinjGK47Av0hMQCtujEYl8pOGYc1yEjU0xlL_p8mGb3A4sSE1g8SBXsOwbj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "FOLD A SHIRT",
+     [
+      {
+       "t": "IN 2 SECONDS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uz6rjbw0ZA0",
+     "titre": "How to Fold a Shirt in Under 2 Seconds",
+     "chaine": "DaveHax",
+     "vues": "42M views",
+     "date": "13 years ago",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0-S4FyOV8AQukNG3T6lS_Q7UUWa63cJ6lwHzZICRaChE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "T-SHIRT FALTEN",
+     [
+      {
+       "t": "IN 2 SEKUNDEN",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "RR-_hdSiiSc",
+     "titre": "T-Shirt falten in 2 Sekunden - schneller Trick! 👕",
+     "chaine": "Empfehlungsfuchs",
+     "vues": "221.293 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "1:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOBfDtfTE7Dy6tgJv5uttYKEax4QLu0-BTzat30JySdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "PIEGARE UNA MAGLIETTA",
+     [
+      {
+       "t": "IN 2 SECONDI",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6SPmkdIrvWw",
+     "titre": "3 metodi veloci per piegare un maglietta",
+     "chaine": "Michele Ramella",
+     "vues": "673K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nu0_1qH1cCqHwVC_RxfFqDBCahYYdO450DJwdjxgqSQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "DOBRAR CAMISETA",
+     [
+      {
+       "t": "EM 2 SEGUNDOS",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XizZ02LgNto",
+     "titre": "Dicas #2: Como dobrar a camiseta em 2 segundos | Igor Saringer",
+     "chaine": "Igor Saringer",
+     "vues": "26 mil visualizações",
+     "date": "há 13 anos",
+     "duree": "1:18",
+     "avatar": "https://yt3.ggpht.com/gA7gs7Jrx5rVZ_wPATmjXY78mhUOZxSovPhpfDuwD4VhYfR2MWX8DEtsJqQRB8f-vxqmuHwjfw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "2 SANİYEDE",
+       "couleur": "#c2393d"
+      }
+     ],
+     "TİŞÖRT KATLAMAK"
+    ],
+    "video": {
+     "id": "mItDH6mclhk",
+     "titre": "2 Saniyede Tişört Katlama",
+     "chaine": "MigrosTV",
+     "vues": "591 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "0:32",
+     "avatar": "https://yt3.ggpht.com/v8tvBQgwpbSKT1DeOQTrW58c9piWUw8bZnRGry_0W6E8QXg_ByycMyJzq94tyxtNjvlat_pvSw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ ÎMPĂTUREȘTI UN TRICOU",
+     [
+      {
+       "t": "ÎN 2 SECUNDE",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ND5MO0NBrXo",
+     "titre": "Cum impaturesti un tricou in 2 secunde. Metoda super-rapida de aranjare a hainelor",
+     "chaine": "Idei Practice",
+     "vues": "46 K vizionări",
+     "date": "acum 12 ani",
+     "duree": "0:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n70jlH_vSL2chQIl2oaF0l8TLhAYVVng8Clj_DV6U=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SLOŽIT TRIČKO",
+     [
+      {
+       "t": "ZA 2 SEKUNDY",
+       "couleur": "#c2393d"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6yhU8i3quSA",
+     "titre": "Jak složit tričko | skládání triček 4x jinak | návod rychle a názorně",
+     "chaine": "Žijeme minimalismem",
+     "vues": "21 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "6:41",
+     "avatar": "https://yt3.ggpht.com/TINCFXv_SocjVou3_KOXyRoOZgww64DtN5Ah-uLTphaEfVS2tjb17cfzCdeabgafBsGj1zMxGA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "5 MIN",
+     [
+      {
+       "t": "BIEN INVESTIES",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "5 MINUTES",
+     [
+      {
+       "t": "WELL SPENT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "5 MINUTEN",
+     [
+      {
+       "t": "GUT INVESTIERT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "5 MINUTI",
+     [
+      {
+       "t": "BEN SPESI",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "5 MINUTOS",
+     [
+      {
+       "t": "BEM INVESTIDOS",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "İYİ HARCANMIŞ",
+     [
+      {
+       "t": "5 DAKİKA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "5 MINUTE",
+     [
+      {
+       "t": "BINE INVESTITE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "5 MINUT",
+     [
+      {
+       "t": "DOBŘE INVESTOVANÝCH",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "FAIRE SA VALISE",
+     [
+      {
+       "t": "EN 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1efHVCybU6U",
+     "titre": "Tuto : comment bien faire sa valise",
+     "chaine": "Brut",
+     "vues": "280 k vues",
+     "date": "il y a 7 ans",
+     "duree": "3:47",
+     "avatar": "https://yt3.ggpht.com/hOyx1o7pvwZNexn88f1I51C0d9-6qaNRN4GPXQDAL55w--uZtcV-LVdey5NvwjTPo6rEz2_Zng=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "PACK A SUITCASE",
+     [
+      {
+       "t": "IN 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "abh6Mt_JP2g",
+     "titre": "How To Pack A Carry-On Suitcase For A Two-Week Trip",
+     "chaine": "LOST iN",
+     "vues": "1.5M views",
+     "date": "6 years ago",
+     "duree": "7:27",
+     "avatar": "https://yt3.ggpht.com/bOn0ftlPkFgCrdmDRorQibCHDQevHl_X5tlIG0m4FYBHihEfZ7HlH34PYLAKpuhEqc3HOpw9-g=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "KOFFER PACKEN",
+     [
+      {
+       "t": "IN 10 MIN.",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A3a-FQax8OI",
+     "titre": "6 Tipps: Koffer richtig packen - platzsparend & knitterfrei",
+     "chaine": "relaxdays",
+     "vues": "858.172 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "1:58",
+     "avatar": "https://yt3.ggpht.com/8zp_mtGoUH9czIPCb90gHMk2UqJS_7XxNxvsyiO7jYp1GkwZUbSqct9Hmwl0dV6-Z_6v_tQv=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "FARE LA VALIGIA",
+     [
+      {
+       "t": "IN 10 MINUTI",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-g_pEVNMPsI",
+     "titre": "7 trucchi per fare la valigia - Kudos 09/11/2017",
+     "chaine": "Rai",
+     "vues": "138K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/4vkb6G4l-GnHH9Irzgyt0rdExModabbOG5R2v3KTjAzjE5vwoQAPcGb9OBdvql3VI8eArv_19Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "FAZER A MALA",
+     [
+      {
+       "t": "EM 10 MIN",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "iisyCAIaaOI",
+     "titre": "Como ARRUMAR a MALA! 🎒 - Melhores DICAS e TRUQUES!",
+     "chaine": "Viajando",
+     "vues": "1,6 mi visualizações",
+     "date": "há 8 anos",
+     "duree": "5:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mZujrc1gKUJqfLs3uvrCUjvz6Ox3WFULxvYFMHVuQFtA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "10 DAKİKADA",
+       "couleur": "#e08a2e"
+      }
+     ],
+     "VALİZ HAZIRLAMAK"
+    ],
+    "video": {
+     "id": "f99LDhDVcWA",
+     "titre": "VALİZ HAZIRLAMA TEKNİKLERİ| VALİZİME HER ŞEYİ NASIL SIĞDIRIYORUM ? YURT İÇİN DOĞRU VALİZ DÜZENİ",
+     "chaine": "Melissa Özlü",
+     "vues": "62 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "14:37",
+     "avatar": "https://yt3.ggpht.com/LIKRHrPRIkzp2xfRT-12CPBgCcPHli0B0_wcyN8S94yUihW4gfpIxfQZ_OfDeI4ww6HQcJrE6ok=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ-ȚI FACI BAGAJUL",
+     [
+      {
+       "t": "ÎN 10 MINUTE",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fPRg0KbdJR4",
+     "titre": "Cum faci să îți încapă cât mai multe lucruri în bagaj",
+     "chaine": "Aventuristice",
+     "vues": "64 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "3:39",
+     "avatar": "https://yt3.ggpht.com/yVpCNxmAq3BqJN0d3Ea0U1mE7Uc_Yk5Fs_4jqkINmIHiyivB5ObXR2bB97bYvTVHj07725HH=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "SBALIT KUFR",
+     [
+      {
+       "t": "ZA 10 MINUT",
+       "couleur": "#e08a2e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Gp3V9LWKqew",
+     "titre": "Jak si efektivně zabalit do kufru na cca 5 dní dovolené",
+     "chaine": "Pepa.cz",
+     "vues": "66 tis. zhlédnutí",
+     "date": "před 9 lety",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmNi-MS6mSItfCFUDYG-B0JYazTG_CQMxfRlVyrB51n0c=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "30 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "RANGER SA CHAMBRE",
+     [
+      {
+       "t": "EN 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "cQAWzwC6f_Q",
+     "titre": "Comment RANGER sa CHAMBRE rapidement ?",
+     "chaine": "Dream in reality",
+     "vues": "934 k vues",
+     "date": "il y a 5 ans",
+     "duree": "9:27",
+     "avatar": "https://yt3.ggpht.com/BY7AT6i_RGJpc0CVCZADFWtscGq3pWt9wXrKFNJmgGXO042BYVL906oVm11ZnTO_qKm4eX69vw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "CLEAN YOUR ROOM",
+     [
+      {
+       "t": "IN 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8-KKbv_UYZ8",
+     "titre": "How to ACTUALLY Clean Your Room - Step By Step",
+     "chaine": "Maurice Moves",
+     "vues": "658K views",
+     "date": "6 years ago",
+     "duree": "7:58",
+     "avatar": "https://yt3.ggpht.com/h9R9uP7gXDr-mwXF3L8HS744RfCaR1qWQebxjUjX0ockVkq4VzhNLhbx6w6sXD_MD64L54UQmQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "AUFRÄUMEN",
+       "couleur": "#3f8f4a"
+      }
+     ],
+     "IN 15 MIN."
+    ],
+    "video": {
+     "id": "yFoghyHaD3A",
+     "titre": "AUFRÄUMEN - 10 Tipps und Tricks: Hacks um Ordnung zu schaffen & zu halten | Inken Rott",
+     "chaine": "Inken Rott",
+     "vues": "95.853 Aufrufe",
+     "date": "vor 5 Jahren",
+     "duree": "6:40",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m4dJZtWiM9fpuaG52F0r3O92PZZCdmkNBUheJSifMs1UE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 Min. zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "RIORDINARE CASA",
+     [
+      {
+       "t": "IN 15 MINUTI",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eH6569VSybs",
+     "titre": "Organizzazione CASA -  CAMERA PERFETTA E SEMPRE IN ORDINE",
+     "chaine": "Annalisa Stories",
+     "vues": "231K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "3:25",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nCLISnUClLHDyC61AK-4YmuHCy6nVJnEdzV2ovOlSSBKg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ARRUMAR O QUARTO",
+     [
+      {
+       "t": "EM 15 MIN",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "STzclg6odCk",
+     "titre": "8 TRUQUES SIMPLES E EFICIENTES PARA LIMPAR E ORGANIZAR O QUARTO RÁPIDO! Organize sem Frescuras",
+     "chaine": "Organize sem Frescuras!",
+     "vues": "81 mil visualizações",
+     "date": "há 5 anos",
+     "duree": "9:48",
+     "avatar": "https://yt3.ggpht.com/hNVG-mCodjhysT8CGQovB4ycSsCcQRtE9VKQefJvO8P9dt_IZlzdT6fh1yu2WHyM6wAb5csa=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "15 DAKİKADA",
+       "couleur": "#3f8f4a"
+      }
+     ],
+     "EVİ TOPLAMAK"
+    ],
+    "video": {
+     "id": "9Cy-vM21QNk",
+     "titre": "Ev Düzeni İçin 12 Pratik Bilgi | Uygun Fiyatlı ve Etkili Çözümler",
+     "chaine": "Edanur Eren",
+     "vues": "344 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "10:59",
+     "avatar": "https://yt3.ggpht.com/BVFomDjnuajVLMCYIGs8VkTVhvXDNQzjMnTHI6OyUp1m2bGagzqmrnhfGv2DA7NjZjDfmiu_Io4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 dakikada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ FACI CURAT",
+     [
+      {
+       "t": "ÎN 15 MINUTE",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Nqlp0_8N_ss",
+     "titre": "10 Trucuri pentru a face curăţenie rapid şi eficient",
+     "chaine": "Alex Dog",
+     "vues": "110 K vizionări",
+     "date": "acum 9 ani",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/cG7-PVa7ZfztE6_6bKWUXC1U2DqGgariJzlDieQuqfKRIDBlQsJsaObgm0nqjgT4HP894TQ6Lg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "UKLIDIT POKOJ",
+     [
+      {
+       "t": "ZA 15 MINUT",
+       "couleur": "#3f8f4a"
+      }
+     ]
+    ],
+    "video": {
+     "id": "1wESgxb8F8g",
+     "titre": "JAK NA ÚKLID POKOJE  /LEA",
+     "chaine": "L E A",
+     "vues": "34 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "13:16",
+     "avatar": "https://yt3.ggpht.com/q5rKwAEtYcjXF6bQIncOjKC8ugREE1EAvJIEKt11-AFhN7ecEa1R27W--bJI1MjQhjDBm_dA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "20 min na naučení"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "SE LEVER",
+     [
+      {
+       "t": "DU PREMIER COUP",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0kXifja0u1g",
+     "titre": "COMMENT SE LEVER TÔT FACILEMENT (5 ASTUCES)",
+     "chaine": "Emilio",
+     "vues": "569 k vues",
+     "date": "il y a 5 ans",
+     "duree": "11:21",
+     "avatar": "https://yt3.ggpht.com/NKv2f_MdR9cZPEeTwmr9M7kCB-w6SN4Zq9ENKN0yPk-AisjMvMkuhBG2kr7ZQ3Vng5Oil3A-=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semaine pour apprendre"
+    ]
+   },
+   "en": {
+    "titre": [
+     "WAKE UP",
+     [
+      {
+       "t": "WITHOUT SNOOZING",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "P6zcSFA7ymo",
+     "titre": "Should You Use The SNOOZE Button?",
+     "chaine": "AsapSCIENCE",
+     "vues": "5.7M views",
+     "date": "13 years ago",
+     "duree": "2:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kNsIkKkqyNZp2IEAcBxbULIIHDDBi49kvEk2mRmOHwjF0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 week to learn"
+    ]
+   },
+   "de": {
+    "titre": [
+     "AUFSTEHEN",
+     [
+      {
+       "t": "OHNE SNOOZE",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jDtcrvUonDc",
+     "titre": "Nie wieder SNOOZE drücken und morgens direkt aufstehen",
+     "chaine": "Coach Stef",
+     "vues": "68.701 Aufrufe",
+     "date": "vor 3 Jahren",
+     "duree": "6:11",
+     "avatar": "https://yt3.ggpht.com/xq3NSK7955nCqVKP_Qkqtbv1bmX0upU-tURqDpWT3ESSeS8cZNSDNmoQAHtTmsgzq0hrTipBAX8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 Woche zum Lernen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "ALZARSI",
+     [
+      {
+       "t": "AL PRIMO COLPO",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "odg0Z9gmq38",
+     "titre": "Come alzarsi presto la mattina",
+     "chaine": "Marco Montemagno",
+     "vues": "70K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "7:41",
+     "avatar": "https://yt3.ggpht.com/EOMbOyBvSy-zofGVKXy0JJ8RCbXZSXo9ZJHgFvCOqXe0LXx6q5WRZ4SecYtjZMtnjGUJlcU3=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 settimana per imparare"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "ACORDAR",
+     [
+      {
+       "t": "SEM SONECA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "gjLptl3TEeM",
+     "titre": "Por que você não consegue acordar cedo?",
+     "chaine": "Drauzio Varella",
+     "vues": "287 mil visualizações",
+     "date": "há 3 anos",
+     "duree": "4:05",
+     "avatar": "https://yt3.ggpht.com/eKO6HupEds-Nnin2SJBUqojJww8qz6k76qWrKVZGJ3wYxBvRmtmjtfhd8UfFTyoYFgL99xr8=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 semana para aprender"
+    ]
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "İLK ALARMDA",
+       "couleur": "#d0a239"
+      }
+     ],
+     "KALKMAK"
+    ],
+    "video": {
+     "id": "i8g2K5hP8Wo",
+     "titre": "SABAHLARI ERKEN KALKMANIN KOLAY YOLU",
+     "chaine": "Beyhan Budak",
+     "vues": "337 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "8:59",
+     "avatar": "https://yt3.ggpht.com/CuslZcad93sGBkQlQOcPs7W_2UKO6aB9290uMqQRQWik4WOeSbo7OJojA6suqIsihiFoPY5VLOg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 haftada öğrenilir"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "SĂ TE TREZEȘTI",
+     [
+      {
+       "t": "DIN PRIMA",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-TanHtr0b_8",
+     "titre": "CUM SĂ TE TREZEȘTI DEVREME ȘI LA TIMP DIMINEAȚA",
+     "chaine": "EDvIce",
+     "vues": "28 K vizionări",
+     "date": "acum 6 ani",
+     "duree": "5:05",
+     "avatar": "https://yt3.ggpht.com/KTQrceCQZMZPMxJiwfQgo03NLy3AjUg94TCBVKPjewSsOOMdv3IG8QtwKWeovrgmKRY77-Vl=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 săptămână de învățat"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "VSTÁT",
+     [
+      {
+       "t": "NA PRVNÍ BUDÍK",
+       "couleur": "#d0a239"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rbJDD4PdXZo",
+     "titre": "PROČ neumíme vstát hned po prvním budíku. A rady, jak ho přestat odkládat",
+     "chaine": "TEN SMLSAL",
+     "vues": "23 tis. zhlédnutí",
+     "date": "před 4 lety",
+     "duree": "3:10",
+     "avatar": "https://yt3.ggpht.com/Vb2C1XK4EMrIxrnsea6slnfYKPIkcaiyRqa4Izq9zSgl8XGXRIkBloYzM8Zk7x9xd_Xe0uo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1 týden na naučení"
+    ]
+   }
+  }
+ ]
+}

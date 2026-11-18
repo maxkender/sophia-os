@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o259",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "d7e62ed8-b0c5-4e22-aef0-fda8d81fb6c9",
+ "titre": "ma première semaine dans un nouveau job, en 5 messages courts #nouveaujob #travail #carriere #emploi #jobtips",
+ "musique_titre": "Gods creation",
+ "musique_url": "https://www.tiktok.com/music/gods-creation-7122459821244155906",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G2 de la ligne #2 (parent d7e62ed8) : même promesse, autres mots, messages différents de rh-o168 et rh-o247. Inspirations reprises de rh-o168. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f6bc78e5",
+   "texte_overlay": "ma première semaine\ndans un nouveau job,\nen 5 messages courts",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "4197506b",
+   "texte_overlay": "1. à la personne qui m'a formée\n« merci pour ton temps aujourd'hui, j'ai noté tout ça »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "5c1483df",
+   "texte_overlay": "2. à mon manager, le 2e jour\n« je préfère poser mes questions en une fois, on se voit 15 minutes vendredi ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "99dfcbc5",
+   "texte_overlay": "3. à un collègue qui m'a aidée\n« tu m'as fait gagner une heure, merci »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "b7a8e805",
+   "texte_overlay": "4. à moi-même, chaque soir\n1 truc compris sur la boîte, 1 truc appris en dehors",
+   "texte_sophia": "4. à moi-même, chaque soir\n1 truc compris sur la boîte, 1 truc appris en dehors. utilise l'appli Sophia 5 minutes pour le 2e",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "aa4b057b",
+   "texte_overlay": "5. à l'équipe, le vendredi\n« bon week-end, merci pour l'accueil »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "37ca0afe",
+   "texte_overlay": "court, gentil, précis.\nc'est tout",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "dc1bcd3a",
+   "texte_overlay": "tu commences un nouveau job bientôt ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,207 @@
+{
+ "id": "as-017",
+ "fond": "images/c17-couv.jpg",
+ "titre": {
+  "en": "five apps for your winter arc",
+  "es": "cinco apps para tu winter arc",
+  "it": "cinque app per il tuo winter arc",
+  "pt-BR": "cinco apps pra sua nova fase"
+ },
+ "legendes": {
+  "en": "winter arc starts now ❄️ #winterarc #apprecommendations #selfimprovement #habittracker",
+  "es": "el winter arc empieza ya ❄️ #winterarc #appsrecomendadas #mejorarme #habitos",
+  "it": "il winter arc inizia adesso ❄️ #winterarc #appconsigliate #crescitapersonale #abitudini",
+  "pt-BR": "a nova fase começa agora ✨ #novafase #dicasdeapps #autocuidado #habitos"
+ },
+ "musique": {
+  "titre": "i smell snow",
+  "url": "https://www.tiktok.com/music/i-smell-snow-7298967503537965867"
+ },
+ "notes": "Full test (accroche neuve au format de son tube « five apps / … » ; #winterarc vient de ses légendes) : « five apps / for your winter arc », style carte. pt-BR : novembre = été au Brésil, « pra sua nova fase ». Applis vérifiées us, es, it, br : LADDER, Nike Run Club, Sophia (3e, cta B), Dear Me, Habit Tracker. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c17-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "for your winter arc"
+   },
+   "es": {
+    "photos": [
+     "images/c17-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para tu winter arc"
+   },
+   "it": {
+    "photos": [
+     "images/c17-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per il tuo winter arc"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c17-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra sua nova fase"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "LADDER",
+    "dossier": "images/applis/ladder",
+    "note": "Strength workouts with a coach and a new plan every day, so I never wonder what to do at the gym",
+    "fond": "images/c17-gym.jpg"
+   },
+   "es": {
+    "nom": "LADDER",
+    "dossier": "images/applis/ladder",
+    "note": "Entrenamientos de fuerza con un coach y un plan nuevo cada día, para no dudar nunca qué hacer en el gym",
+    "fond": "images/c17-gym.jpg"
+   },
+   "it": {
+    "nom": "LADDER",
+    "dossier": "images/applis/ladder",
+    "note": "Allenamenti di forza con un coach e un piano nuovo ogni giorno, così non mi chiedo mai cosa fare in palestra",
+    "fond": "images/c17-gym.jpg"
+   },
+   "pt-BR": {
+    "nom": "LADDER",
+    "dossier": "images/applis/ladder",
+    "note": "Treinos de força com um coach e um plano novo todo dia, pra eu nunca ficar perdida na academia",
+    "fond": "images/c17-gym.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Nike Run Club",
+    "dossier": "images/applis/nike-run-club",
+    "note": "Guided runs with a coach in your ear, from 5 minutes to a whole plan. Cold mornings feel easier",
+    "fond": "images/c17-couv.jpg"
+   },
+   "es": {
+    "nom": "Nike Run Club",
+    "dossier": "images/applis/nike-run-club",
+    "note": "Carreras guiadas con un coach al oído, de 5 minutos a un plan entero. Las mañanas frías cuestan menos",
+    "fond": "images/c17-couv.jpg"
+   },
+   "it": {
+    "nom": "Nike Run Club",
+    "dossier": "images/applis/nike-run-club",
+    "note": "Corse guidate con un coach nelle orecchie, da 5 minuti a un piano intero. Le mattine fredde pesano meno",
+    "fond": "images/c17-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Nike Run Club",
+    "dossier": "images/applis/nike-run-club",
+    "note": "Corridas guiadas com um coach no ouvido, de 5 minutos a um plano inteiro. Fica bem mais fácil sair pra correr",
+    "fond": "images/c17-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks",
+    "fond": "images/c17-bureau.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede",
+    "fond": "images/c17-bureau.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero",
+    "fond": "images/c17-bureau.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade",
+    "fond": "images/c17-bureau.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Dear Me",
+    "dossier": "images/applis/dear-me",
+    "note": "A cute daily checklist for your routine and rituals, with small tips to make your days more organized",
+    "fond": "images/c17-the.jpg"
+   },
+   "es": {
+    "nom": "Dear Me",
+    "dossier": "images/applis/dear-me",
+    "note": "Una checklist diaria monísima para tu rutina y tus rituales, con pequeños consejos para organizar tus días",
+    "fond": "images/c17-the.jpg"
+   },
+   "it": {
+    "nom": "Dear Me",
+    "dossier": "images/applis/dear-me",
+    "note": "Una checklist quotidiana carinissima per routine e rituali, con piccoli consigli per organizzare le giornate",
+    "fond": "images/c17-the.jpg"
+   },
+   "pt-BR": {
+    "nom": "Dear Me",
+    "dossier": "images/applis/dear-me",
+    "note": "Um checklist diário fofo pra sua rotina e seus rituais, com dicas pra deixar seus dias mais organizados",
+    "fond": "images/c17-the.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Habit Tracker",
+    "dossier": "images/applis/habit-tracker",
+    "note": "Simple habits with reminders and streaks, and you can share them with a friend to keep each other going",
+    "fond": "images/c17-neige.jpg"
+   },
+   "es": {
+    "nom": "Habit Tracker",
+    "dossier": "images/applis/habit-tracker",
+    "note": "Hábitos sencillos con recordatorios y rachas, y puedes compartirlos con una amiga para motivaros",
+    "fond": "images/c17-neige.jpg"
+   },
+   "it": {
+    "nom": "Habit Tracker",
+    "dossier": "images/applis/habit-tracker",
+    "note": "Abitudini semplici con promemoria e serie, e puoi condividerle con un'amica per motivarvi a vicenda",
+    "fond": "images/c17-neige.jpg"
+   },
+   "pt-BR": {
+    "nom": "Habit Tracker",
+    "dossier": "images/applis/habit-tracker",
+    "note": "Hábitos simples com lembretes e sequências, e dá pra compartilhar com uma amiga pra uma motivar a outra",
+    "fond": "images/c17-neige.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "type_bleo": "full_test"
+}

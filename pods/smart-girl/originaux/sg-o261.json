@@ -1,0 +1,62 @@
+{
+ "source_id": "sg-o261",
+ "type_bleo": "full_test",
+ "titre": "where our strangest superstitions come from #superstitions #history #folklore #smartgirl #didyouknow",
+ "musique_titre": "The Spins",
+ "musique_url": "https://www.tiktok.com/music/The-Spins-6858383319357229057",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta C. Full test 3/6 (la jauge en demande 6 sur 19) : accroche jamais faite chez nous (« superstition » absent des accroches de donnees/label.json). Accroches écrites : « where our strangest superstitions come from » (retenue : histoire et folklore, curiosité), « superstitions explained » (écartée : sèche), « why we knock on wood » (écartée : un seul item). Origines données comme des légendes (« the story goes ») : esprits des arbres, miroir et sept ans chez les Romains, chats noirs et sorcellerie au Moyen Âge, « bless you » et l'âme qui s'échappe, échelle et triangle, sel jeté par-dessus l'épaule. Sophia à la fin comme rituel à la place du scroll (cta C). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "46ce5085",
+   "texte_overlay": "where our strangest\nsuperstitions come from",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "983f9198",
+   "texte_overlay": "knocking on wood\n\nthe story goes: to wake the\nkind spirits living in trees.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a986f1da",
+   "texte_overlay": "a broken mirror\n\nthe romans believed life\nrenewed every seven years.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "63f3a74a",
+   "texte_overlay": "black cats\n\nin the middle ages, people\nlinked them to witches.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "c77e6316",
+   "texte_overlay": "saying \"bless you\"\n\nan old belief that a sneeze\ncould let the soul escape.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "05b6381d",
+   "texte_overlay": "walking under a ladder\n\nbreaking the triangle it makes\nwas thought to invite bad luck.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "886aabd3",
+   "texte_overlay": "salt over your shoulder\n\nto throw it in the eye of\nthe devil behind you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e4d1c5d6",
+   "texte_overlay": "trade ten minutes of scrolling\nfor one curious story a day.",
+   "texte_sophia": "trade ten minutes of scrolling\nfor one curious story a day on\nan app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

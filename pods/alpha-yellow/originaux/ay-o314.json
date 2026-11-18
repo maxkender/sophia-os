@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o314",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6edd7323-2c01-438a-af31-c73152af6572",
+ "titre": "how to be the man everyone secretly wants to be like #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "6edd7323-2c01-438a-af31-c73152af6572"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 12 de la boîte (6edd7323, fr 10,4 k r 7,39) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (travail profond, un livre par semaine, parler clairement, soulever lourd, assumer ses erreurs). Aucune appli citée hors Sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e97e219-19ad-4058-9d93-4c6e513875be",
+   "texte_overlay": "how to be the man\neveryone secretly\nwants to be like",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Keep your life simple and organised. Clean room, clear calendar, few but good possessions. A calm, ordered life makes people curious about how you do it.",
+   "media_id": "16cd6576-7b26-4323-9f3a-15d8e2f6a8a3"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Have your own opinions. Read, think and decide for yourself. Men who don't just repeat what everyone says are quietly admired. Think before you share.",
+   "media_id": "16da3ee1-4048-429f-a6c2-b53632de8c7b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Be good with your money. Save, invest, spend on what matters. Financial calm gives you a freedom people notice. Pay yourself first every month, before spending on anything else.",
+   "media_id": "16ee5048-0f6b-44d6-ad4e-4f0084db5f99"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Treat women, kids and older people with respect. How you treat people who can't do anything for you shows your real character. Choose them well.",
+   "media_id": "173e7c62-4ac8-40f7-90ef-0507ace86fe8"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Stay a lifelong learner. I do five minutes a day of history, art or science, and it keeps me growing in a way people around me notice.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It keeps me growing in a way people around me notice.",
+   "media_id": "59ccdf44-2be0-43fb-9dbe-191b36ba99f1"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Keep a small group of real friends. Loyal, honest, ambitious. A man with good friends always seems richer than a man with many followers.",
+   "media_id": "176e046f-eee8-483e-8fe8-22a4cf8e20d4"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Stay humble. Help without telling everyone, win without bragging. Quiet success is the kind people secretly want for themselves. Let your results speak.",
+   "media_id": "17bc9faf-bfc6-4b8b-977f-2d5483cf324c"
+  }
+ ]
+}

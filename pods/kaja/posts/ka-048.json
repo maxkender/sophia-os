@@ -1,0 +1,824 @@
+{
+ "id": "ka-048",
+ "titre": {
+  "en": "10/10 skills to always look clean",
+  "fr": "10/10 skills pour avoir l'air soigné",
+  "de": "10/10 Skills für ein gepflegtes Auftreten",
+  "it": "10/10 skill per essere sempre in ordine",
+  "tr": "10/10 her zaman bakımlı görünmek için",
+  "hu": "10/10 készség az ápolt megjelenéshez",
+  "pl": "10/10 umiejętności, by zawsze wyglądać schludnie",
+  "pt-BR": "10/10 habilidades para andar sempre arrumado"
+ },
+ "legendes": {
+  "en": "10/10 skills to always look clean #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 skills pour avoir l'air soigné #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Skills für ein gepflegtes Auftreten #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 skill per essere sempre in ordine #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 her zaman bakımlı görünmek için #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 készség az ápolt megjelenéshez #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 umiejętności, by zawsze wyglądać schludnie #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 habilidades para andar sempre arrumado #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "Duvet - Acoustic",
+  "url": "https://www.tiktok.com/music/duvet-acoustic-7031720036989421570"
+ },
+ "notes": "Full test (BLEO, 18/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (avoir l'air soigné). Décor branche2. Son format court à 3 compétences plus l'étape Sophia (plier un t-shirt, enlever une tache, cirer ses chaussures ; en hongrois, sans vraie vidéo native sur les taches, l'étape devient l'entretien des vêtements), une vraie vidéo YouTube native par étape et par langue. Musique : « Duvet - Acoustic » de son manifeste. Sophia en étape 3, cta B, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "SKILLS TO",
+     "ALWAYS",
+     "LOOK CLEAN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "SKILLS POUR",
+     "AVOIR L'AIR",
+     "SOIGNÉ"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "SKILLS FÜR",
+     "EIN GEPFLEGTES",
+     "AUFTRETEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "SKILL PER",
+     "ESSERE SEMPRE",
+     "IN ORDINE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "HER ZAMAN",
+     "BAKIMLI",
+     "GÖRÜN"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KÉSZSÉGEK",
+     "AZ ÁPOLT",
+     "MEGJELENÉSHEZ"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "BY ZAWSZE",
+     "WYGLĄDAĆ",
+     "SCHLUDNIE"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HABILIDADES",
+     "PARA ANDAR",
+     "ARRUMADO"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO FOLD",
+     [
+      {
+       "t": "A T-SHIRT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "An0mFZ3enhM",
+     "titre": "How To Fold A T-shirt In 2 Seconds: Explained",
+     "chaine": "Videojug",
+     "vues": "9.5M views",
+     "date": "19 years ago",
+     "duree": "2:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lGgWDkry3NickdJ5RUSbsPQTr50i1ADv4FYet7muQv0wM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT PLIER",
+     [
+      {
+       "t": "UN T-SHIRT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Ix1HKglt3yk",
+     "titre": "Comment plier un t-shirt en 5 secondes - Astuce Pratique",
+     "chaine": "Pratiks",
+     "vues": "2,5 M de vues",
+     "date": "il y a 17 ans",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/lkMqn-NPmbpigbinjGK47Av0hMQCtujEYl8pOGYc1yEjU0xlL_p8mGb3A4sSE1g8SBXsOwbj=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FALTEST DU",
+     [
+      {
+       "t": "EIN T-SHIRT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "jt44itELG08",
+     "titre": "Wie falte ich ein T-Shirt in zwei Sekunden",
+     "chaine": "VOL.AT - Vorarlberg Online",
+     "vues": "532.170 Aufrufe",
+     "date": "vor 14 Jahren",
+     "duree": "0:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m4jslrk9EFW2IwMDYyEbrAVmlATvksKdRlvR4uHDJCgA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME PIEGARE",
+     [
+      {
+       "t": "UNA MAGLIETTA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6SPmkdIrvWw",
+     "titre": "3 metodi veloci per piegare un maglietta",
+     "chaine": "Michele Ramella",
+     "vues": "673K visualizzazioni",
+     "date": "12 anni fa",
+     "duree": "1:16",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nu0_1qH1cCqHwVC_RxfFqDBCahYYdO450DJwdjxgqSQQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "TİŞÖRT KATLANIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SiFBqqLK-oQ",
+     "titre": "TİŞÖRT KATLAMA | PRO İŞİ NASIL YAPILIR?",
+     "chaine": "Uras Benlioğlu",
+     "vues": "153 B görüntüleme",
+     "date": "12 yıl önce",
+     "duree": "1:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nrHeE62vcASXcVkfLg7kc0Xd4BdFQULbMBlQWNjUtNIYw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "HAJTOGASS RUHÁT",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6Nds7TDKNCM",
+     "titre": "Ruha hajtogatás | póló, nadrág, zakó, dzseki és gumis lepedő összehajtása",
+     "chaine": "Kívül Belül Boldogság",
+     "vues": "92 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "10:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k08srqVyXDRNsWCykvpwfXZbYVE7jwESK2qlHw71c4Dw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZŁOŻYĆ",
+     [
+      {
+       "t": "KOSZULKĘ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "-cvyMIBjsLk",
+     "titre": "jak złożyć koszulke w 2 sekundy",
+     "chaine": "łukasz wiergowski",
+     "vues": "575 tys. wyświetleń",
+     "date": "17 lat temu",
+     "duree": "2:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kTeuyRvVf2IhXW8_cw_2Obl-1NZ6nRxqp1dr46HAyWa6s=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO DOBRAR",
+     [
+      {
+       "t": "UMA CAMISETA",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZuwtswVTFIA",
+     "titre": "O jeito mais FÁCIL e rápido de dobrar uma camiseta",
+     "chaine": "Manual do Mundo",
+     "vues": "3,5 mi visualizações",
+     "date": "há 18 anos",
+     "duree": "0:54",
+     "avatar": "https://yt3.ggpht.com/eeXFm7_mIItuMYmrE9HRFjtwjXEG6Qvs7yJTZBdHmNyFwbi1v28gDd3tQ9JjzsjE1lSTOtb_=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "5 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "REMOVE STAINS",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dfJi49umT6U",
+     "titre": "How to Get (Almost) Every Kind of Stain Out of Your Clothes",
+     "chaine": "Rachael Ray Show",
+     "vues": "5.3M views",
+     "date": "8 years ago",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lvMRZgnqQGvq2ab3DORjuAXyeKoJgFoQaOgHZPVZKDqi29=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT ENLEVER",
+     [
+      {
+       "t": "UNE TACHE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4kB7Kam7hds",
+     "titre": "Enlever les taches des vêtements",
+     "chaine": "Guide Astuces",
+     "vues": "241 k vues",
+     "date": "il y a 9 ans",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/_4GW7rze-hKncVjknowWWGkPDoOek1XpwXvt8IIq5kvu8uaSY2HmDm4NLuC3Dn6jmypqfbuL=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO ENTFERNST DU",
+     [
+      {
+       "t": "JEDEN FLECK",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ujKhRMSPgTk",
+     "titre": "DAMIT entfernst du JEDEN Fleck 💥 (Funktioniert IMMER) 🤯",
+     "chaine": "Empfehlungsfuchs",
+     "vues": "315.285 Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nOBfDtfTE7Dy6tgJv5uttYKEax4QLu0-BTzat30JySdg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME TOGLIERE",
+     [
+      {
+       "t": "LE MACCHIE",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Eq9GAtECiz4",
+     "titre": "Come togliere le macchie dai vestiti | Mi Manda La Nonna ACE",
+     "chaine": "ACE Italia",
+     "vues": "2,7 Mln visualizzazioni",
+     "date": "10 anni fa",
+     "duree": "1:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kg-WUJrNYUHYW4d_qWcgrTRjsVa7IKdySAt4F1j_9QQI4=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "LEKE ÇIKARILIR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lmn5ZOMY-xc",
+     "titre": "RENKLİ çamaşırlardaki LEKELERi çıkarmak İÇİN bunu YAPIN! | RENKLİ kıyafetten leke nasıl çıkar?",
+     "chaine": "Usta Fikirler",
+     "vues": "58 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "8:58",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ngW8_9iOZYZTuXBbl_UalH445yE-zMcQDI44aEVO1_tg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TARTSD",
+     [
+      {
+       "t": "RENDBEN A RUHÁID",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YQWrAMeockg",
+     "titre": "Sportruha mosás tippek, hajtogatás és tárolás FANNA Polewear Fannival",
+     "chaine": "Kívül Belül Boldogság",
+     "vues": "1,5 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "12:56",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k08srqVyXDRNsWCykvpwfXZbYVE7jwESK2qlHw71c4Dw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK USUNĄĆ",
+     [
+      {
+       "t": "PLAMY",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dJw7NF-UPZQ",
+     "titre": "Plamy z potu i dezodorantu na ubraniach - jak je usunąć i jak im zapobiegać? | Ula Pedantula #262",
+     "chaine": "Ula Pedantula",
+     "vues": "324 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "8:56",
+     "avatar": "https://yt3.ggpht.com/ttih9JnLAn59lcaSTi1vtA6zINT_wX1vPU3VcXJh6tdvCmjwq1qxdh0tpB9X9HP7ARWZD_-LcQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO CLAREAR",
+     [
+      {
+       "t": "ROUPA BRANCA",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mEnj12hO0UY",
+     "titre": "COMO LAVAR ROUPA BRANCA AMARELADA e ENCARDIDA 🧺 sem lavar na máquina, sem esfregar na mão, SEM QBOA",
+     "chaine": "Se vira nos 50 - Receitas e Dicas",
+     "vues": "3,7 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "6:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l53wCFKPEB7ARz4t7ghcfrut-Z2ozeJt5FAz89BJTR-SM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "SOUND SMART",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "know a bit",
+      "about everything."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT AVOIR",
+     [
+      {
+       "t": "L'AIR CULTIVÉ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "en savoir un peu",
+      "sur tout."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO WIRKST DU",
+     [
+      {
+       "t": "GEBILDET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "von allem",
+      "ein bisschen wissen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME SEMBRARE",
+     [
+      {
+       "t": "COLTO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "sapere un po'",
+      "di tutto."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "KÜLTÜRLÜ GÖRÜNÜRSÜN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her şeyden",
+      "biraz bil."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TŰNJ",
+     [
+      {
+       "t": "MŰVELTNEK",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tudj egy kicsit",
+      "mindenről."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK BRZMIEĆ",
+     [
+      {
+       "t": "MĄDRZE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "wiedz po trochu",
+      "o wszystkim."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO PARECER",
+     [
+      {
+       "t": "INTELIGENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "saber um pouco",
+      "de tudo."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO POLISH",
+     [
+      {
+       "t": "YOUR SHOES",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "20Motb54GJI",
+     "titre": "How to Polish Your Leather Shoes | KIWI Shoe Care",
+     "chaine": "KIWI® Shoe Care UK",
+     "vues": "2.3M views",
+     "date": "11 years ago",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nFSD0NDGoU8IwykMAa-s3zundxQSMftW4RV35axlpfSw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT CIRER",
+     [
+      {
+       "t": "TES CHAUSSURES",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pGam3LMUYGg",
+     "titre": "Entretien chaussures en cuir Bexley : comment cirer ses chaussures en cuir ?",
+     "chaine": "Bexley",
+     "vues": "354 k vues",
+     "date": "il y a 11 ans",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/8xCfXcPeO_dx04a5sgVaogi7GRRTuwai9iR0IyvI62DrKQKLh_K64i_w0w99Yae35nuFNFmL9w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO PFLEGST DU",
+     [
+      {
+       "t": "DEINE SCHUHE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pLJBtmorOQc",
+     "titre": "Glattleder-Schuhpflege leicht gemacht",
+     "chaine": "ShoepassionTV",
+     "vues": "309.165 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "13:14",
+     "avatar": "https://yt3.ggpht.com/IzhC5GB8VMEK1Iy5GIdPSlmcCslce8Xp_PooTeTj-YWHzTK9glIqwm2KyBYtbdCh14OQ-_loMw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 Min."
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME LUCIDARE",
+     [
+      {
+       "t": "LE SCARPE",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "A-NOs6jw67E",
+     "titre": "COME LUCIDARE LE SCARPE",
+     "chaine": "Douglas Mortimer",
+     "vues": "156K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "9:52",
+     "avatar": "https://yt3.ggpht.com/aJ89bgadb56ScoedvlWmHcKvc0utgeoKSYS8lgWER1tgmCbJjmp_0rZ_U93lubsaMKyLaWDt=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "AYAKKABI BOYANIR",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aGUdaC8Jiqc",
+     "titre": "Deri Ayakkabı Nasıl Boyanır | Nasıl Cilalanır - Kadife Nasıl Atılır? | Sohbet Tadında",
+     "chaine": "Pasta Cila",
+     "vues": "4 B görüntüleme",
+     "date": "9 ay önce",
+     "duree": "12:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mymR-MbSZiXcxemf76BWkS2_J1h-FgBePsVD9r7FjOXZDjU4qX1ONi8S2eqHfN6i8s0w=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TISZTÍTSD",
+     [
+      {
+       "t": "A CIPŐD",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "dyfqPQPBuHA",
+     "titre": "Cipőtisztítás - Hófehérre - Házilag - Természetes módszerekkel - tRENDrakó #cipő #takarítás #tiktok",
+     "chaine": "tRENDrakó",
+     "vues": "31 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "19:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_njh7dRM5ggQKqQZA3vEfomudxufpZiMX7JCGvPhZuUhQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK WYPASTOWAĆ",
+     [
+      {
+       "t": "BUTY",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "8awmU_LBPBM",
+     "titre": "Pastowanie butów na błysk",
+     "chaine": "Czas Gentlemanów",
+     "vues": "130 tys. wyświetleń",
+     "date": "13 lat temu",
+     "duree": "12:37",
+     "avatar": "https://yt3.ggpht.com/mMqR6Q1NbitVrBq4tepOyw2bVwQKmMRuxcUBchPhIwUVcCzhJS8j5wfAKqEluEj8ID31i8KycA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ENGRAXAR",
+     [
+      {
+       "t": "O SAPATO",
+       "couleur": "#632227"
+      }
+     ]
+    ],
+    "video": {
+     "id": "rUQ1T9nllLY",
+     "titre": "Como Engraxar os Sapatos",
+     "chaine": "Engravatando",
+     "vues": "253 mil visualizações",
+     "date": "há 9 anos",
+     "duree": "2:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m0xGZGFzMDK5SYpXrZ0vNLDbx6CSjj2c4QEGlU8udt0Pk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "10-30 min"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

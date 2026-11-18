@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o273",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8edab31d-4e09-449d-a45a-6ce8702ea837",
+ "titre": "how to sound like the most confident person in the room #publicspeaking #confidence #smartgirl #speakbetter #communication",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7432356491992714016",
+ "inspirations": [
+  "577cae13-0359-486e-ac83-6c2d0d347df6"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 9 de la boîte (parent 8edab31d, langue source sr) : accroche reformulée (« how to sound like the most confident person in the room »), les six conseils du parent (pause, pas d'« excuse-moi mais », le prénom, une bonne question de relance, un souffle lent, toujours quelque chose de neuf à partager). Sophia sur le dernier item à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f437cfee",
+   "texte_overlay": "how to sound like the most\nconfident person in the room",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2814449b",
+   "texte_overlay": "1. pause before you answer\n\ntwo seconds sounds thoughtful,\nnot lost.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8876f0c7",
+   "texte_overlay": "2. drop \"sorry, but\"\n\nstart with your idea.\nit deserves its place.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "4c28d04e",
+   "texte_overlay": "3. use their name\n\nonce, naturally.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "42842532",
+   "texte_overlay": "4. ask one good follow-up\n\n\"why did you choose that?\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "f64f078e",
+   "texte_overlay": "5. breathe slowly before\nyou speak\n\none long breath steadies\na shaky voice.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "02a88aea",
+   "texte_overlay": "6. always have something new\nto share\n\ni find mine in five minutes\nof reading a day.",
+   "texte_sophia": "6. always have something new\nto share\n\ni find mine in five minutes a day\non an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "cc5d1150",
+   "texte_overlay": "save this before your\nnext presentation",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7669401402870877460/8.jpg"
+  }
+ ]
+}

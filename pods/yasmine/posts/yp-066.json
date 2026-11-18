@@ -1,0 +1,671 @@
+{
+ "id": "yp-066",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "mes petits rituels pour une session de révision cosy",
+  "en": "my little rituals for a cozy study session",
+  "es": "mis pequeños rituales para una sesión de estudio cozy",
+  "de": "meine kleinen Rituale für eine gemütliche Lernsession",
+  "it": "i miei piccoli rituali per una sessione di studio cozy",
+  "pt-BR": "meus pequenos rituais pra uma sessão de estudo aconchegante",
+  "tr": "rahat bir ders seansı için küçük ritüellerim"
+ },
+ "legendes": {
+  "fr": "l’hiver, c’est la saison des révisions cosy 🕯️ #revisions #cozy #studytok #thatgirl #rituels",
+  "en": "winter is cozy study season 🕯️ #cozystudy #studytok #thatgirl #studying #rituals",
+  "es": "el invierno es temporada de estudio cozy 🕯️ #estudiar #cozy #studytok #thatgirl #rituales",
+  "de": "Winter ist Zeit fürs gemütliche Lernen 🕯️ #lernen #cozy #studytok #thatgirl #rituale",
+  "it": "l’inverno è la stagione dello studio cozy 🕯️ #studiare #cozy #studytok #thatgirl #rituali",
+  "pt-BR": "inverno é temporada de estudar no aconchego 🕯️ #estudos #cozy #studytok #thatgirl #rituais",
+  "tr": "kış, rahat ders sezonu 🕯️ #ders #cozy #studytok #thatgirl #ritüel"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7575815280899656462"
+ },
+ "fond": {
+  "media_id": "dcc4ac43-9c08-481a-a14b-3d8fbc11245c",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/00ef8171-8281-428d-8d3a-24d3c5069750/1.jpg?v=1790680291682",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « un quiz pour démarrer », sans capture. 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UNE SESSION",
+      "DE RÉVISION",
+      "COSY"
+     ],
+     "taille": 150,
+     "script_haut": "mes petits rituels pour",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "A COZY",
+      "STUDY",
+      "SESSION"
+     ],
+     "taille": 170,
+     "script_haut": "my little rituals for",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UNA SESIÓN",
+      "DE ESTUDIO",
+      "COZY"
+     ],
+     "taille": 136,
+     "script_haut": "mis pequeños rituales para",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "EINE GEMÜTLICHE",
+      "LERNSESSION"
+     ],
+     "taille": 110,
+     "script_haut": "meine kleinen Rituale für",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UNA SESSIONE",
+      "DI STUDIO",
+      "COZY"
+     ],
+     "taille": 130,
+     "script_haut": "i miei piccoli rituali per",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "UMA SESSÃO",
+      "DE ESTUDO",
+      "ACONCHEGANTE"
+     ],
+     "taille": 104,
+     "script_haut": "meus pequenos rituais pra",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "RAHAT BİR",
+      "DERS SEANSI",
+      "İÇİN KÜÇÜK",
+      "RİTÜELLERİM"
+     ],
+     "taille": 110,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "f8d08102-fd2d-4ebd-9dab-e4e852ed3f7a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/d5eb97d9-fb1c-4261-9a37-57a8a4ed8286/5.jpg?v=1792601254243",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "j’allume une bougie🕯️",
+      "texte": "c’est mon signal : tant qu’elle brûle, je bosse.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i light a candle🕯️",
+      "texte": "it’s my signal: as long as it’s burning, i’m working.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "enciendo una vela🕯️",
+      "texte": "es mi señal: mientras arde, estudio.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich zünde eine Kerze an🕯️",
+      "texte": "das ist mein Signal: solange sie brennt, lerne ich.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "accendo una candela🕯️",
+      "texte": "è il mio segnale: finché brucia, studio.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "acendo uma vela🕯️",
+      "texte": "é o meu sinal: enquanto ela queima, eu estudo.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bir mum yakıyorum🕯️",
+      "texte": "bu benim işaretim: yandığı sürece çalışıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "a39b061c-850a-4b8f-8010-51256fcdc40c",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/b9888bb7-dac1-4ee9-a9d6-ff3ade27b39d/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une boisson chaude à côté☕",
+      "texte": "thé ou chocolat, et je ne me lève plus toutes les 10 min.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a warm drink next to me☕",
+      "texte": "tea or hot chocolate, and i stop getting up every 10 min.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una bebida caliente al lado☕",
+      "texte": "té o chocolate, y ya no me levanto cada 10 min.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ein warmes Getränk neben mir☕",
+      "texte": "Tee oder Kakao, und ich stehe nicht mehr alle 10 Min. auf.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una bevanda calda accanto☕",
+      "texte": "tè o cioccolata, e non mi alzo più ogni 10 min.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma bebida quente do lado☕",
+      "texte": "chá ou chocolate, e paro de levantar a cada 10 min.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "yanımda sıcak bir içecek☕",
+      "texte": "çay ya da sıcak çikolata, artık 10 dakikada bir kalkmıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "53dd5953-70b2-44d4-97e1-9257ac399d2b",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/a5a843df-3352-4aa0-b562-9beb1aa715d5/3.jpg?v=1790606800307",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une playlist sans paroles🎧",
+      "texte": "toujours la même : mon cerveau sait que c’est l’heure de travailler.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a playlist with no lyrics🎧",
+      "texte": "always the same one: my brain knows it’s time to work.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una playlist sin letra🎧",
+      "texte": "siempre la misma: mi cerebro sabe que toca estudiar.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "eine Playlist ohne Text🎧",
+      "texte": "immer dieselbe: mein Kopf weiß, dass Lernzeit ist.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una playlist senza parole🎧",
+      "texte": "sempre la stessa: il cervello sa che è ora di studiare.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma playlist sem letra🎧",
+      "texte": "sempre a mesma: meu cérebro sabe que é hora de estudar.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "sözsüz bir çalma listesi🎧",
+      "texte": "hep aynısı: beynim çalışma zamanı olduğunu biliyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "4a4213a0-93f9-44f1-aa07-e4fd1b093537",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/273cf077-0b95-475e-b7dd-a81a42574154/3.jpg?v=1790607929501",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un quiz pour démarrer🧠",
+      "texte": "5 questions sur micabo sur le cours d’hier. le plus dur, commencer, est fait.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a quiz to get started🧠",
+      "texte": "5 questions on micabo about yesterday’s lesson. the hardest part, starting, is done.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un quiz para arrancar🧠",
+      "texte": "5 preguntas en micabo sobre la clase de ayer. lo más difícil, empezar, ya está.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ein Quiz zum Einstieg🧠",
+      "texte": "5 Fragen in micabo zum Stoff von gestern. das Schwerste, der Anfang, ist geschafft.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un quiz per cominciare🧠",
+      "texte": "5 domande su micabo sulla lezione di ieri. la parte più difficile, iniziare, è fatta.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "um quiz pra começar🧠",
+      "texte": "5 perguntas no micabo sobre a aula de ontem. a parte mais difícil, começar, já foi.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "başlamak için bir test🧠",
+      "texte": "micabo’da dünkü dersten 5 soru. en zor kısım olan başlamak tamam.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "e7020874-7399-4817-ac36-a11a03890412",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/ea23edf2-0945-42cb-b513-8b61ea1169fb/4.jpg?v=1792591623278",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un plaid et une lumière douce💡",
+      "texte": "confortable, mais assise à un bureau. jamais au lit.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a blanket and soft light💡",
+      "texte": "comfy, but sitting at a desk. never in bed.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una manta y luz suave💡",
+      "texte": "cómoda, pero sentada en un escritorio. nunca en la cama.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "eine Decke und weiches Licht💡",
+      "texte": "gemütlich, aber am Schreibtisch. nie im Bett.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una coperta e una luce soffusa💡",
+      "texte": "comoda, ma seduta alla scrivania. mai a letto.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma manta e luz suave💡",
+      "texte": "confortável, mas sentada na mesa. nunca na cama.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bir battaniye ve yumuşak ışık💡",
+      "texte": "rahat ama masada oturarak. asla yatakta değil.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "79afd16f-68d8-429e-a607-d87bcfdea49d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/33a5294b-af1f-4d7a-af6f-ea45fc3c5393/4.jpg?v=1790607658858",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je range tout en finissant🧺",
+      "texte": "demain, je retrouve un bureau prêt à bosser.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i tidy up when i’m done🧺",
+      "texte": "tomorrow, my desk is ready to go.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lo recojo todo al terminar🧺",
+      "texte": "mañana me espera un escritorio listo.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich räume am Ende alles auf🧺",
+      "texte": "morgen wartet ein Schreibtisch, der bereit ist.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "metto in ordine quando finisco🧺",
+      "texte": "domani trovo una scrivania pronta.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "arrumo tudo quando termino🧺",
+      "texte": "amanhã encontro uma mesa pronta.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bitirince her şeyi topluyorum🧺",
+      "texte": "yarın beni hazır bir masa bekliyor.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "mes petits rituels pour une session de révision cosy"
+ }
+}

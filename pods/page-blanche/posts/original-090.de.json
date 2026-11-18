@@ -1,0 +1,302 @@
+{
+ "post_id": "original-090",
+ "slides": {
+  "1": {
+   "textes": {
+    "T1": {
+     "en": [
+      "10/10 hobbies to make you",
+      "dangerously disciplined"
+     ],
+     "fr": "10/10 hobbies pour devenir ultra disciplinée",
+     "texte": "woran du merkst, dass dein Gehirn eine Handypause braucht"
+    },
+    "T2": {
+     "en": [
+      "(neuroscience approved)"
+     ],
+     "fr": "(la science est d'accord)",
+     "alignement": "droite",
+     "texte": "(sei ehrlich zu dir)"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7697367634559421710_2.jpg",
+      "boite": [
+       60,
+       0,
+       1006,
+       740
+      ]
+     }
+    }
+   }
+  },
+  "2": {
+   "textes": {
+    "T1": {
+     "en": [
+      "watching everything at 2x speed"
+     ],
+     "fr": "tout regarder [[en vitesse x2]]",
+     "texte": "[[denselben Satz 3-mal]] lesen"
+    },
+    "T2": {
+     "en": [
+      "youtube, podcasts, lectures, even voice notes from",
+      "your friends, everything gets sped up these days"
+     ],
+     "fr": "vidéos, podcasts, cours, même les vocaux de tes potes, aujourd'hui [[tout passe en accéléré]]",
+     "texte": "du kommst am Satzende an und merkst, dass [[nichts hängen geblieben ist]], also fängst du von vorne an. und nochmal"
+    },
+    "T3": {
+     "en": [
+      "after a while,",
+      "anything at normal",
+      "speed starts to feel",
+      "painfully slow"
+     ],
+     "fr": "à force, tout ce qui passe à vitesse normale te paraît [[atrocement lent]]",
+     "texte": "deine Augen sind auf der Seite, dein Kopf [[noch im Feed]]"
+    },
+    "T4": {
+     "en": [
+      "so a real",
+      "conversation or a",
+      "book feels too",
+      "slow to focus on"
+     ],
+     "fr": "du coup une vraie discussion ou un livre, [[t'arrives plus à suivre]]",
+     "texte": "du bist nicht dumm, dein Fokus läuft nur [[auf Reserve]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7702218062526680350_3.jpg",
+      "boite": [
+       180,
+       527,
+       420,
+       450
+      ]
+     }
+    }
+   }
+  },
+  "3": {
+   "textes": {
+    "T1": {
+     "en": [
+      "scrolling whenever you're bored"
+     ],
+     "fr": "scroller [[dès que tu t'ennuies]]",
+     "texte": "Apps öffnen [[ohne jeden Grund]]"
+    },
+    "T2": {
+     "en": [
+      "you can lose 2–3 hours a day without even noticing,",
+      "then wonder why you have no time for the things you",
+      "care about"
+     ],
+     "fr": "tu perds facile [[2–3 h par jour sans t'en rendre compte]], puis tu te demandes pourquoi t'as [[jamais le temps]] pour [[ce qui compte]]",
+     "texte": "du entsperrst dein Handy, öffnest eine App, schließt sie, öffnest die nächste und [[weißt nicht mehr, was du wolltest]]. dein Daumen läuft auf Autopilot"
+    },
+    "T3": {
+     "en": [
+      "be deliberate with your",
+      "time."
+     ],
+     "fr": "[[reprends la main]] sur ton temps.",
+     "texte": "[[gib dem Daumen]] einen neuen Job."
+    },
+    "T4": {
+     "en": [
+      "i personally use readup to",
+      "block tiktok until i read for",
+      "20 minutes, which keeps",
+      "me from mindlessly scrolling"
+     ],
+     "fr": "perso j'ai remplacé mon scroll du soir par [[5 min sur l'appli Sophia]], du coup je scrolle plus dans le vide",
+     "texte": "heute ging's in 5 Minuten um den Urknall. ich tausche jeden Tag einmal Scrollen gegen eine Lektion in [[der Sophia-App]]"
+    },
+    "T5": {
+     "en": [
+      "your phone can wait until",
+      "you have done one thing",
+      "you meant to do."
+     ],
+     "fr": "ton tel peut bien attendre que t'aies fait [[un truc que t'avais prévu]].",
+     "texte": "gleiches Handy, gleiche 5 Minuten, aber diesmal [[bleibt wirklich was hängen]]."
+    }
+   },
+   "images": {
+    "I1": "sophia_capture"
+   }
+  },
+  "4": {
+   "textes": {
+    "T1": {
+     "en": [
+      "build relationships with",
+      "people smarter than you"
+     ],
+     "fr": "entoure-toi de [[gens plus intelligents que toi]]",
+     "texte": "du hältst [[nicht mal 2 Minuten Stille]] aus"
+    },
+    "T2": {
+     "en": [
+      "if you're always the",
+      "smartest person in the",
+      "room, you stop getting",
+      "better"
+     ],
+     "fr": "si t'es toujours la personne la plus calée de la pièce, tu [[progresses plus]]",
+     "texte": "Dusche, Spaziergang, Abwasch: irgendwo läuft immer [[ein Podcast oder ein Video]]"
+    },
+    "T3": {
+     "en": [
+      "smart people make you",
+      "explain your ideas,",
+      "defend them, and see",
+      "where you're wrong"
+     ],
+     "fr": "les gens brillants te font [[expliquer tes idées]], les défendre et voir où tu te trompes",
+     "texte": "sobald es still ist, kommen deine Gedanken und [[das fühlt sich komisch laut an]]"
+    },
+    "T4": {
+     "en": [
+      "and you slowly start",
+      "picking up how they think"
+     ],
+     "fr": "et petit à petit, tu prends [[leur façon de penser]]",
+     "texte": "in der Stille [[sortiert dein Gehirn alles]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705510532127673613_2.jpg",
+      "boite": [
+       584,
+       551,
+       400,
+       400
+      ]
+     }
+    }
+   }
+  },
+  "5": {
+   "textes": {
+    "T1": {
+     "en": [
+      "study longer than you want to"
+     ],
+     "fr": "bosse [[même quand t'as plus envie]]",
+     "texte": "[[Phantomvibrationen]] spüren"
+    },
+    "T2": {
+     "en": [
+      "the useful part usually starts when your brain",
+      "wants to quit"
+     ],
+     "fr": "le plus utile commence souvent quand [[ton cerveau veut lâcher]]",
+     "texte": "Handy gecheckt: [[keine Nachricht]]. manchmal liegt es nicht mal da"
+    },
+    "T3": {
+     "en": [
+      "stay for another",
+      "20–30 minutes",
+      "after you feel",
+      "bored, distracted,",
+      "or restless"
+     ],
+     "fr": "reste encore 20 à 30 min [[après]] avoir commencé à t'ennuyer ou à décrocher",
+     "texte": "dein Gehirn wartet so sehr auf den nächsten Ping, dass es [[sich welche ausdenkt]]"
+    },
+    "T4": {
+     "en": [
+      "you're not just learning the subject, you're training",
+      "yourself to keep going when motivation disappears"
+     ],
+     "fr": "t'apprends pas juste la matière, tu t'entraînes [[à continuer quand t'as plus de motivation]]",
+     "texte": "wenn dein Bein öfter vibriert als dein Handy, ist das dein Zeichen, [[es mal ins Nebenzimmer zu legen]]"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7703982934369324320_4.jpg",
+      "boite": [
+       505,
+       433,
+       503,
+       409
+      ]
+     }
+    }
+   }
+  },
+  "6": {
+   "textes": {
+    "T1": {
+     "en": [
+      "take long walks",
+      "in the sun"
+     ],
+     "fr": "fais de longues balades [[au soleil]]",
+     "texte": "Langeweile [[tut fast weh]]"
+    },
+    "T2": {
+     "en": [
+      "sunlight is proven to wake your brain up and help",
+      "you sleep better at night"
+     ],
+     "fr": "c'est [[prouvé]] : le soleil réveille ton cerveau et t'aide à [[mieux dormir]] le soir",
+     "texte": "3 Minuten in der Schlange und deine Hand ist [[schon in der Tasche]]"
+    },
+    "T3": {
+     "en": [
+      "walking gets more",
+      "blood to your brain"
+     ],
+     "fr": "marcher, ça oxygène ton cerveau",
+     "texte": "dabei entstehen [[aus Langeweile Ideen]]"
+    },
+    "T4": {
+     "en": [
+      "that's when your",
+      "mind wanders and",
+      "connects ideas"
+     ],
+     "fr": "c'est là que ton esprit divague et [[relie les idées]]",
+     "texte": "der Kopf schweift ab, verknüpft Dinge, [[wird kreativ]]"
+    },
+    "T5": {
+     "en": [
+      "darwin, nietzsche and steve jobs all did their best",
+      "thinking on long walks"
+     ],
+     "fr": "darwin, nietzsche et steve jobs trouvaient leurs [[meilleures idées]] en marchant",
+     "texte": "nächstes Mal, wenn dir langweilig ist: [[halt es kurz aus]]. dein Gehirn dankt es dir"
+    }
+   },
+   "images": {
+    "I1": {
+     "remplacer": {
+      "source": "sources/7705510532127673613_1.jpg",
+      "boite": [
+       96,
+       442,
+       620,
+       620
+      ]
+     }
+    }
+   }
+  }
+ }
+}

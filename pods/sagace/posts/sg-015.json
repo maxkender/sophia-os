@@ -1,0 +1,1198 @@
+{
+ "id": "sg-015",
+ "source": {
+  "url": "https://www.tiktok.com/@sagace.fr/video/7689938088386153760",
+  "vues": 7039,
+  "publie_le": "2026-09-26",
+  "accroche": "10/10 compétences que les riches ont."
+ },
+ "titre": {
+  "fr": "10/10 compétences que les riches ont.",
+  "en": "10/10 skills that the rich have",
+  "de": "10/10-Skills, die Reiche haben",
+  "it": "Abilità 10/10 che hanno i ricchi",
+  "pt-BR": "Habilidades 10/10 que os ricos têm",
+  "tr": "Zenginlerin sahip olduğu 10/10 beceriler",
+  "ro": "Abilități 10/10 pe care le au bogații",
+  "cs": "Dovednosti 10/10, které mají bohatí"
+ },
+ "legendes": {
+  "fr": "10/10 compétences que les riches ont. #apprendresurtiktok #learnontiktok #developpementpersonnel",
+  "en": "10/10 skills that the rich have #learnontiktok #selfimprovement #skills",
+  "de": "10/10-Skills, die Reiche haben #lernenmittiktok #persönlichkeitsentwicklung #skills",
+  "it": "Abilità 10/10 che hanno i ricchi #imparacontiktok #crescitapersonale #skills",
+  "pt-BR": "Habilidades 10/10 que os ricos têm #aprendanotiktok #desenvolvimentopessoal #habilidades",
+  "tr": "Zenginlerin sahip olduğu 10/10 beceriler #tiktoktaöğren #kişiselgelişim #beceriler",
+  "ro": "Abilități 10/10 pe care le au bogații #invatapetiktok #dezvoltarepersonala #abilitati",
+  "cs": "Dovednosti 10/10, které mají bohatí #učímesenatiktoku #osobnírozvoj #dovednosti"
+ },
+ "musique": {
+  "titre": "Jealousy - てんねんすい",
+  "url": "https://www.tiktok.com/music/jealousy-7681834526759799573"
+ },
+ "notes": "Routine du 18/11. Son post à 7 k (« 10/10 compétences que les riches ont. ») : sa couverture (COMPÉTENCE→COMPÉTENCES brun 124, QUE LES noir 145, RICHES brun 262, ONT noir 245, relevées sur la sienne), ses 5 étapes dans son ordre avec ses couleurs (vert, or, bleu nuit, vieux rose, rouge), sans ligne de temps comme les siennes ; « devenir riche en France » adapté au pays de chaque langue. Aucune de ses vidéos (Finary ×3, Kéo, Technique de Vente Edition) : de vraies vidéos natives par langue. Sa slide « ABONNE-TOI » (au milieu) devient Sophia en slide 4 sur 7 (après « L'ARGENT INFINI ») (cta A : « INVESTIR / DANS SA TÊTE »), ses « e-books » retirés.",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "lignes": [
+     {
+      "t": "COMPÉTENCES",
+      "couleur": "brun",
+      "cap": 124
+     },
+     {
+      "t": "QUE LES",
+      "cap": 145
+     },
+     {
+      "t": "RICHES",
+      "couleur": "brun",
+      "cap": 262
+     },
+     {
+      "t": "ONT",
+      "cap": 245
+     }
+    ]
+   },
+   "en": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "THAT THE",
+      "cap": 145
+     },
+     {
+      "t": "RICH",
+      "couleur": "brun",
+      "cap": 262
+     },
+     {
+      "t": "HAVE",
+      "cap": 245
+     }
+    ]
+   },
+   "de": {
+    "lignes": [
+     {
+      "t": "SKILLS",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "DIE",
+      "cap": 145
+     },
+     {
+      "t": "REICHE",
+      "couleur": "brun",
+      "cap": 262
+     },
+     {
+      "t": "HABEN",
+      "cap": 245
+     }
+    ]
+   },
+   "it": {
+    "lignes": [
+     {
+      "t": "ABILITÀ",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "CHE HANNO",
+      "cap": 145
+     },
+     {
+      "t": "I RICCHI",
+      "couleur": "brun",
+      "cap": 262
+     }
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     {
+      "t": "HABILIDADES",
+      "couleur": "brun",
+      "cap": 124
+     },
+     {
+      "t": "QUE OS",
+      "cap": 145
+     },
+     {
+      "t": "RICOS",
+      "couleur": "brun",
+      "cap": 262
+     },
+     {
+      "t": "TÊM",
+      "cap": 245
+     }
+    ]
+   },
+   "tr": {
+    "lignes": [
+     {
+      "t": "ZENGİNLERİN",
+      "couleur": "brun",
+      "cap": 200
+     },
+     {
+      "t": "SAHİP OLDUĞU",
+      "cap": 145
+     },
+     {
+      "t": "BECERİLER",
+      "couleur": "brun",
+      "cap": 200
+     }
+    ]
+   },
+   "ro": {
+    "lignes": [
+     {
+      "t": "ABILITĂȚI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "PE CARE LE AU",
+      "cap": 145
+     },
+     {
+      "t": "BOGAȚII",
+      "couleur": "brun",
+      "cap": 262
+     }
+    ]
+   },
+   "cs": {
+    "lignes": [
+     {
+      "t": "DOVEDNOSTI",
+      "couleur": "brun",
+      "cap": 150
+     },
+     {
+      "t": "KTERÉ MAJÍ",
+      "cap": 145
+     },
+     {
+      "t": "BOHATÍ",
+      "couleur": "brun",
+      "cap": 262
+     }
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "INVESTIR",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "K2PGWYX6aBQ",
+     "titre": "Comment INVESTIR en partant de zéro (GUIDE COMPLET)",
+     "chaine": "Matthias Baccino",
+     "vues": "263 k vues",
+     "date": "il y a 3 mois",
+     "duree": "58:44",
+     "avatar": "https://yt3.ggpht.com/JT80p1GkdzYVHUdQzLq4dB2ZrCzxH3vKPmOEud6f1bdWwSNzjqBXcIkBYZcymAQAqm8NnF_2eCc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "INVEST",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lNdOtlpmH5U",
+     "titre": "How to Invest for Beginners (2026)",
+     "chaine": "Ali Abdaal",
+     "vues": "3.5M views",
+     "date": "3 years ago",
+     "duree": "20:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m2xx6mCZwsyjARnkwBKJxEv0FqGxGS2NwWNkjWH__Smw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "RICHTIG",
+     [
+      {
+       "t": "INVESTIEREN",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "q7Zla6qz5Sk",
+     "titre": "So würde ich 2026 mit dem Investieren beginnen",
+     "chaine": "FINANZFOKUS",
+     "vues": "763.298 Aufrufe",
+     "date": "vor 11 Monaten",
+     "duree": "26:25",
+     "avatar": "https://yt3.ggpht.com/xQwRcLMJL0MU7qW5p1SkhnKdjuFnKBh0f3cp5OsjiP0gcOvlMsSDARQQ4MdXUOCgnMqxEgq2Mg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "COME",
+     [
+      {
+       "t": "INVESTIRE",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "0EnRtqjN2vc",
+     "titre": "Come INVESTIREI nel 2026 se Ricominciassi da ZERO oggi (il Piano Completo)",
+     "chaine": "Marco Casario",
+     "vues": "255K visualizzazioni",
+     "date": "10 mesi fa",
+     "duree": "21:18",
+     "avatar": "https://yt3.ggpht.com/07oJCaOyC8NnsgrrhikZcilP5-5rntKJw85cVZ18d_UHUN5SlTCmPE9yN2GCVpoFIII1aKDzUfc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "INVESTIR",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Q6x0xnI0uCg",
+     "titre": "AULA COMPLETA para INICIANTES que NÃO SABEM POR ONDE COMEÇAR a INVESTIR",
+     "chaine": "Primo Pobre",
+     "vues": "3 mi visualizações",
+     "date": "há 3 anos",
+     "duree": "20:21",
+     "avatar": "https://yt3.ggpht.com/Xxvah02LCiiaBuQ04C71Wnypcd3WaVEAZ3LpZOMI2Tlbh7ppcQGQdR1AT5MpzgTHPaTYKx-8Wg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "YATIRIM YAPILIR",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JiR1JE8mjZE",
+     "titre": "HERKES YATIRIM DİYOR, PEKİ NEREDEN VE NASIL BAŞLAMALI?",
+     "chaine": "Kuzzat Altay",
+     "vues": "135 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "15:20",
+     "avatar": "https://yt3.ggpht.com/VLTwceBlTynVAQJqtEAz6hA6POkVe7F_M6mzkPqc2KgGAHj-f32HSvN2JJl5k1JlK8EVms1d_g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CUM SĂ",
+     [
+      {
+       "t": "INVESTEȘTI",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "_Z0npOFpw3k",
+     "titre": "Investitii pentru incepatori explicate de la ZERO!",
+     "chaine": "Florin Rata",
+     "vues": "65 K vizionări",
+     "date": "acum 1 an",
+     "duree": "13:41",
+     "avatar": "https://yt3.ggpht.com/DtQOxm80o71MbVez5m_7ETxjlexAkr_ffJoFap3ToNIavCjaASSvwoKkVbi8e5z99N7dOnV4FKA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "INVESTOVAT",
+       "couleur": "#5a9c4e"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zMXSMrpXYKc",
+     "titre": "Jak investovat prvních 1000 Kč: Investování pro začátečníky",
+     "chaine": "Lukáš Investor",
+     "vues": "145 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "27:33",
+     "avatar": "https://yt3.ggpht.com/xZdovHq2apM_t4REwyEeIrv3ogX4LHOc7ow598nY7CLsipu1AGkeOMLkM6dQkLcYokcyewIJceQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "L'ARGENT",
+     [
+      {
+       "t": "INFINI",
+       "couleur": "#c99042"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6eO9ro8mbwo",
+     "titre": "Et Si Vous Aviez un Salaire de 1 000 000 000 € Par Mois ?! (en 360s)",
+     "chaine": "Poisson Fécond",
+     "vues": "2,5 M de vues",
+     "date": "il y a 8 ans",
+     "duree": "9:22",
+     "avatar": "https://yt3.ggpht.com/_Ns0Bzk-GB5brYu7UNGolj6ndKMUI-sRHX-USdQV9vqN9WI5ZPiqHt1P3wtiahqbQsiWIKG4vps=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     [
+      {
+       "t": "INFINITE",
+       "couleur": "#c99042"
+      }
+     ],
+     "MONEY"
+    ],
+    "video": {
+     "id": "PpyPB3BF-hQ",
+     "titre": "What Being a BILLIONAIRE Really Looks Like",
+     "chaine": "Johnny Harris",
+     "vues": "4M views",
+     "date": "11 months ago",
+     "duree": "36:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kswBDn49WW5IneVE-5RlKyud5GvdzyQQ5SJQyVvJ4S3pk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "UNENDLICH",
+       "couleur": "#c99042"
+      }
+     ],
+     "VIEL GELD"
+    ],
+    "video": {
+     "id": "BZKytx7NtEw",
+     "titre": "DEUTSCHLANDS MILLIONÄRE: Leben im Überfluss - Wie Superreiche ihre Millionen verprassen WELT HD DOKU",
+     "chaine": "WELT Doku",
+     "vues": "547.782 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "50:49",
+     "avatar": "https://yt3.ggpht.com/QWAxFI_Y8PO3odRAeE2navAUTV2iOhOAW1_UzrxQwInwNEA1Qn7rnb1SWJeVkdd0EjOyEuTl2Fk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "SOLDI",
+     [
+      {
+       "t": "INFINITI",
+       "couleur": "#c99042"
+      }
+     ]
+    ],
+    "video": {
+     "id": "kZa21P5gvJU",
+     "titre": "Se avessi un miliardo cosa faresti?",
+     "chaine": "Mr. RIP",
+     "vues": "32K visualizzazioni",
+     "date": "2 anni fa",
+     "duree": "9:01",
+     "avatar": "https://yt3.ggpht.com/X84ZjAHOheVLFPIRYDtSMffIvBxXq6nv8KJZ4oHqc1VaM55USaLtvjzNO1r62jUQyBzxYh6Ny4I=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "DINHEIRO",
+     [
+      {
+       "t": "INFINITO",
+       "couleur": "#c99042"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JdJmhq3Bw7I",
+     "titre": "Quanto custa 1 bilhão de dólares?",
+     "chaine": "Fatos Desconhecidos",
+     "vues": "125 mil visualizações",
+     "date": "há 6 anos",
+     "duree": "11:56",
+     "avatar": "https://yt3.ggpht.com/es4-wUr3hKOxQFgde6kIuRTURi_88xOozauHHTRJ_l6b21mPVcUBLobRsKIJ_LTLPV8RFV82=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "SONSUZ",
+       "couleur": "#c99042"
+      }
+     ],
+     "PARA"
+    ],
+    "video": {
+     "id": "dtvgK4Caz2k",
+     "titre": "Milyarder Olmak Sandığınız Gibi Değil.",
+     "chaine": "ALGI",
+     "vues": "25 B görüntüleme",
+     "date": "10 ay önce",
+     "duree": "14:21",
+     "avatar": "https://yt3.ggpht.com/dXmHGCT27CbVfjvhpC3WHvnCawoVv7sAuSWdaDde9_9Zv3Kvi4vN_7jV-HQswtXmJ0-du7a2_Cs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "BANI",
+     [
+      {
+       "t": "INFINIȚI",
+       "couleur": "#c99042"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ECsVo1C_73c",
+     "titre": "Am fost la MONACO să văd cum trăiesc MILIONARII !",
+     "chaine": "Andrei Verestiuc",
+     "vues": "150 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "20:28",
+     "avatar": "https://yt3.ggpht.com/1oandgWM1tN7Py-_JW-CXP9_j2ctaZRafzQoea-UC26pDNQMp8FGD-PjBeuR_X0aBs4zT5RgPg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "NEKONEČNO",
+       "couleur": "#c99042"
+      }
+     ],
+     "PENĚZ"
+    ],
+    "video": {
+     "id": "idLRdJ5KQck",
+     "titre": "ŽIVOT MILIONÁŘE | Je to opravdu tak super, jak si představujeme?",
+     "chaine": "TopTrendingCZ",
+     "vues": "180 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "5:19",
+     "avatar": "https://yt3.ggpht.com/mG8LB-MO23k7Luln7TjuHUdcg7mabYrgMm1xfUt2wVETMUyVWBMYUzyTsL3XKDNAxhQ0-DKa2g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "fr": {
+    "titre": [
+     "INVESTIR",
+     [
+      {
+       "t": "DANS SA TÊTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "des cours courts écrits",
+      "par de vrais profs."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "en": {
+    "titre": [
+     "INVEST",
+     [
+      {
+       "t": "IN YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "short lessons written",
+      "by real teachers."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "de": {
+    "titre": [
+     "IN DEINEN KOPF",
+     [
+      {
+       "t": "INVESTIEREN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kurze Kurse, geschrieben",
+      "von echten Lehrern."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "INVESTIRE",
+     [
+      {
+       "t": "NELLA TUA TESTA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "corsi brevi scritti",
+      "da veri professori."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "INVESTIR",
+     [
+      {
+       "t": "NA SUA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aulas curtas escritas",
+      "por professores de verdade."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "KAFANA",
+     [
+      {
+       "t": "YATIRIM YAP",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "gerçek öğretmenlerin",
+      "yazdığı kısa dersler."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "ro": {
+    "titre": [
+     "INVESTEȘTE",
+     [
+      {
+       "t": "ÎN MINTEA TA",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lecții scurte scrise",
+      "de profesori adevărați."
+     ]
+    },
+    "sous": [
+     "5 min pe zi"
+    ]
+   },
+   "cs": {
+    "titre": [
+     "INVESTUJ",
+     [
+      {
+       "t": "DO SVÉ HLAVY",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "krátké lekce od",
+      "skutečných učitelů."
+     ]
+    },
+    "sous": [
+     "5 min denně"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "DEVENIR",
+     [
+      {
+       "t": "RICHE",
+       "couleur": "#1b3054"
+      }
+     ],
+     "EN FRANCE"
+    ],
+    "video": {
+     "id": "cCKtMLlcJ_k",
+     "titre": "Comment s’enrichir en partant de 0 en 2026 ? (avec @Finary)",
+     "chaine": "Matthieu Louvet - S'investir",
+     "vues": "424 k vues",
+     "date": "il y a 9 mois",
+     "duree": "1:12:09",
+     "avatar": "https://yt3.ggpht.com/F1hFe5VWFyd-4zegI31SBX-ajrIUTA5w1qvyBVCC6j_HpqFNiAfBhyUCwiuMNxHqR1beLxnSh24=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "GET",
+     [
+      {
+       "t": "RICH",
+       "couleur": "#1b3054"
+      }
+     ],
+     "IN AMERICA"
+    ],
+    "video": {
+     "id": "nLWKWye7-kE",
+     "titre": "getting a $1M net worth is easy, actually",
+     "chaine": "easy, actually",
+     "vues": "834K views",
+     "date": "2 years ago",
+     "duree": "10:48",
+     "avatar": "https://yt3.ggpht.com/csTvPwNzaRWgjuVp1jwDhSe77wBZ3crmPihkrvybd217xnB5IrkgMKW7KmGw0oVS9E6ekpY0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     [
+      {
+       "t": "REICH",
+       "couleur": "#1b3054"
+      }
+     ],
+     "WERDEN IN",
+     "DEUTSCHLAND"
+    ],
+    "video": {
+     "id": "NFLOobHCs20",
+     "titre": "Reich werden in Deutschland ist unfassbar einfach!",
+     "chaine": "Andreas Baulig",
+     "vues": "14.633 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "17:01",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mBYtbmD5SIZhqDcXF0U-K6jHY36S-ETcx-SsvHPaEsHA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "DIVENTARE",
+     [
+      {
+       "t": "RICCO",
+       "couleur": "#1b3054"
+      }
+     ],
+     "IN ITALIA"
+    ],
+    "video": {
+     "id": "EF06Xlo621E",
+     "titre": "Come diventare ricchi con uno stipendio normale (in Italia)",
+     "chaine": "Giuseppe Castagna",
+     "vues": "173K visualizzazioni",
+     "date": "1 anno fa",
+     "duree": "11:19",
+     "avatar": "https://yt3.ggpht.com/rm_ed4yMgUnupEiKgQJ2ue-pn7jV_RGeeeUKonN2YUgpLCXX_Z8zx9iV_hQmGmq102OE7V0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "FICAR",
+     [
+      {
+       "t": "RICO",
+       "couleur": "#1b3054"
+      }
+     ],
+     "NO BRASIL"
+    ],
+    "video": {
+     "id": "Dip-S_pPL2E",
+     "titre": "é muito fácil ficar rico no Brasil (passo a passo)",
+     "chaine": "Miguel Expat",
+     "vues": "38 mil visualizações",
+     "date": "há 1 ano",
+     "duree": "13:59",
+     "avatar": "https://yt3.ggpht.com/g7eM-YfGl-9HQiDvlMLWBNaBPfBx4aykeugFj-DAToo1zWfdSfZizsmyZEL7alhS4SmDlcb0og=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "TÜRKİYE'DE",
+     [
+      {
+       "t": "ZENGİN",
+       "couleur": "#1b3054"
+      }
+     ],
+     "OLMAK"
+    ],
+    "video": {
+     "id": "r3sHVEG3Fbc",
+     "titre": "Türkiye’de Nasıl Zenginleşirsin?",
+     "chaine": "Yatırım 101",
+     "vues": "214 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "12:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n4_i69QPKcNmarafXxI3FLIYFAirr3q3IUD0IRtAtEylc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "SĂ TE",
+     [
+      {
+       "t": "ÎMBOGĂȚEȘTI",
+       "couleur": "#1b3054"
+      }
+     ],
+     "ÎN ROMÂNIA"
+    ],
+    "video": {
+     "id": "VAftjR43_Ns",
+     "titre": "7 Lectii Care M-au Făcut Un Milionar La 20 De Ani",
+     "chaine": "Rares Gaitan",
+     "vues": "8,6 K vizionări",
+     "date": "acum 3 ani",
+     "duree": "13:53",
+     "avatar": "https://yt3.ggpht.com/ahIKwkbv23ubGrX5eQnmIFgL_aEcNrQNCqNa1UYy4fNzIginuiEwaxJksCWvEs9OhuDY3zCZ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "ZBOHATNOUT",
+       "couleur": "#1b3054"
+      }
+     ],
+     "V ČESKU"
+    ],
+    "video": {
+     "id": "4oYF-QOOBms",
+     "titre": "Všechny způsoby, jak zbohatnout (vysvětleno)",
+     "chaine": "Adam vysvětluje svět",
+     "vues": "10 tis. zhlédnutí",
+     "date": "před 1 měsícem",
+     "duree": "9:41",
+     "avatar": "https://yt3.ggpht.com/F_w6OGNBRhIvT0yCNd_CADxzR-_MvI6dcpj4SIYdCSycPdfGtYD3AY4dnFHCvtLn-zmofoVR7NE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "LES",
+     [
+      {
+       "t": "PRINCIPES",
+       "couleur": "#bb7a57"
+      }
+     ],
+     "DE MILLIONNAIRE"
+    ],
+    "video": {
+     "id": "d5-jNSin40M",
+     "titre": "12 Habitudes Qui M'ont Rendu Millionnaire",
+     "chaine": "Max Piccinini",
+     "vues": "22 k vues",
+     "date": "il y a 1 an",
+     "duree": "25:52",
+     "avatar": "https://yt3.ggpht.com/jLv-wdhWbASkHSYsmV1j5V81BBKM89HA16V3FVpa4s3l8aV6WFZugUNBbps5nbyXDmwHyJeYd_w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "THE",
+     [
+      {
+       "t": "PRINCIPLES",
+       "couleur": "#bb7a57"
+      }
+     ],
+     "OF MILLIONAIRES"
+    ],
+    "video": {
+     "id": "Om7HyERm2ps",
+     "titre": "5 Millionaire Habits that Changed My Life",
+     "chaine": "Nischa",
+     "vues": "1M views",
+     "date": "3 years ago",
+     "duree": "8:01",
+     "avatar": "https://yt3.ggpht.com/UTzsuVUDKlGFKeO3ffJoqNnbUAEArzvf7bUaPNmNvRaOwSRJ7rLbvlthsI2rkcVEWHx5kkAoZm8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DIE",
+     [
+      {
+       "t": "PRINZIPIEN",
+       "couleur": "#bb7a57"
+      }
+     ],
+     "VON MILLIONÄREN"
+    ],
+    "video": {
+     "id": "ihCcoMJLvmc",
+     "titre": "Millionär erklärt: 17 kleine Gewohnheiten, die mich reich gemacht haben!",
+     "chaine": "Denis Kasper",
+     "vues": "48.073 Aufrufe",
+     "date": "vor 1 Jahr",
+     "duree": "17:50",
+     "avatar": "https://yt3.ggpht.com/--gvUyqwMBgVNOvRt3i6yxqLfpVuDcbtNskimPAWWzml5H9swlphSQvdlFTl4K7uZwbnMiiocQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "I",
+     [
+      {
+       "t": "PRINCIPI",
+       "couleur": "#bb7a57"
+      }
+     ],
+     "DEI MILIONARI"
+    ],
+    "video": {
+     "id": "hk2n4spkHEQ",
+     "titre": "ABITUDINI di SUCCESSO che mi hanno reso MILIONARIO",
+     "chaine": "Alfio Bardolla",
+     "vues": "17K visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "5:52",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mApl7UQsHjKJmv1bctEbn8i5G0mXjx6gzG_EKiLxN3Pnc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "OS",
+     [
+      {
+       "t": "PRINCÍPIOS",
+       "couleur": "#bb7a57"
+      }
+     ],
+     "DOS MILIONÁRIOS"
+    ],
+    "video": {
+     "id": "21UidsrK9d8",
+     "titre": "5 HÁBITOS QUE OS RICOS TÊM E VOCÊ DEVERIA TER TAMBÉM",
+     "chaine": "Bruno Perini - Você MAIS Rico",
+     "vues": "538 mil visualizações",
+     "date": "há 2 anos",
+     "duree": "26:03",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l6tUjwilRjMDBJ0p36NnmeSiU01y2N-4HZVS34VwheCrQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "MİLYONERLERİN",
+     [
+      {
+       "t": "İLKELERİ",
+       "couleur": "#bb7a57"
+      }
+     ]
+    ],
+    "video": {
+     "id": "O-zjWSNWFvg",
+     "titre": "Hayatımı Değiştiren 7 Milyoner Alışkanlığı",
+     "chaine": "Emir Şahin",
+     "vues": "15 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "12:04",
+     "avatar": "https://yt3.ggpht.com/E8tfFnDYTIi32RR2W92RWt1avqdmQHN5SeBMyhEtVAv-hyuju0RrUSVQ7vCcqyFXWJRLvlyW9g=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     [
+      {
+       "t": "PRINCIPIILE",
+       "couleur": "#bb7a57"
+      }
+     ],
+     "MILIONARILOR"
+    ],
+    "video": {
+     "id": "qDPpepVd2S4",
+     "titre": "Asa Arata Obiceiurile Unui MILIONAR!",
+     "chaine": "calindonca",
+     "vues": "15 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_njn0Xj4yL4e462DHSePEJZ_Q61oGVOW_YQtZMBU3hnDwE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     [
+      {
+       "t": "PRINCIPY",
+       "couleur": "#bb7a57"
+      }
+     ],
+     "MILIONÁŘŮ"
+    ],
+    "video": {
+     "id": "q1Gu4EteyCo",
+     "titre": "6 NÁVYKŮ TIŠE BOHATÝCH LIDÍ",
+     "chaine": "Úspěšná investorka",
+     "vues": "31 tis. zhlédnutí",
+     "date": "před 1 rokem",
+     "duree": "8:09",
+     "avatar": "https://yt3.ggpht.com/myGj4HY_tbxXsgrmAQGpeWpXcnZmM-HBhjw0E6ZLXvEzDsE8pWf4TeNl0bSOrBbc7xxlWKW6Wg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  },
+  {
+   "type": "etape",
+   "fr": {
+    "titre": [
+     "L'ART DE",
+     [
+      {
+       "t": "NÉGOCIER",
+       "couleur": "#be4e3f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "bLjed042OhE",
+     "titre": "L'art de la Négociation : Comment obtenir ce que vous voulez",
+     "chaine": "Laetitia Valstar",
+     "vues": "9,7 k vues",
+     "date": "il y a 11 mois",
+     "duree": "19:40",
+     "avatar": "https://yt3.ggpht.com/T4ekJ9CC5rF3i9qgauJ-xr2zOEW8AaiWGj5xj9nuMOKLJWfJL2NTJffQNtPAEIINEfu_orY3LnY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "en": {
+    "titre": [
+     "THE ART OF",
+     [
+      {
+       "t": "NEGOTIATION",
+       "couleur": "#be4e3f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "90svIa07ilQ",
+     "titre": "Every Negotiation Tactic & How To Use Them Yourself, Explained",
+     "chaine": "EverythingProfessor",
+     "vues": "794K views",
+     "date": "8 months ago",
+     "duree": "15:05",
+     "avatar": "https://yt3.ggpht.com/PVwMkne1VXtCkmz8p-yHAxfLWi1TPu9lXeInYatfa6sr_nN5Q4gnIQSteRjMn4VrrSMalZcF=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "de": {
+    "titre": [
+     "DIE KUNST DES",
+     [
+      {
+       "t": "VERHANDELNS",
+       "couleur": "#be4e3f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zMo7scdgoHU",
+     "titre": "Ankern: Mit diesem psychologischen Trick hast Du in jeder Verhandlung einen Vorteil",
+     "chaine": "Jack Nasher",
+     "vues": "84.187 Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nzK3M6hew3BuZK_cqdWt4Jm4HJJwY8WE1gYf79dCAye-o=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "it": {
+    "titre": [
+     "L'ARTE DI",
+     [
+      {
+       "t": "NEGOZIARE",
+       "couleur": "#be4e3f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "w_P4Cjw3O-w",
+     "titre": "Come Negoziare: I 4 principi di Harvard | Tecniche di trattativa",
+     "chaine": "Jacopo Tartaglia",
+     "vues": "38K visualizzazioni",
+     "date": "4 anni fa",
+     "duree": "8:41",
+     "avatar": "https://yt3.ggpht.com/mspf8SyB7FhsT15y4kkT_a81YLvHCKOiv3V6IoU4AIkmd3k8r3SgI0HnGgs7P3cFXgxTEVy8U98=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pt-BR": {
+    "titre": [
+     "A ARTE DE",
+     [
+      {
+       "t": "NEGOCIAR",
+       "couleur": "#be4e3f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vytQ08p1pgQ",
+     "titre": "Como NEGOCIAR Melhor | NEGOCIE como se sua vida dependesse disso | SejaUmaPessoaMelhor",
+     "chaine": "SejaUmaPessoaMelhor",
+     "vues": "119 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "6:35",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kBEKiwRwi0Fnd_43I8K9BP7JDviZrrCnjPcF2077o1K5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     [
+      {
+       "t": "PAZARLIK",
+       "couleur": "#be4e3f"
+      }
+     ],
+     "SANATI"
+    ],
+    "video": {
+     "id": "itXIldRYzvg",
+     "titre": "Nasıl Pazarlık Yapılır? Zorlu Pazarlıklar İçin Taktikler.",
+     "chaine": "Gülçin Karabiber",
+     "vues": "11 B görüntüleme",
+     "date": "5 yıl önce",
+     "duree": "12:51",
+     "avatar": "https://yt3.ggpht.com/wNkeq21QihmVBt1fN-wcCVI4p1Pq3fZl5kXJ5WhXs42Nay8eDcv_VbpGK1bLxuuPZocJNkFRZg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ARTA",
+     [
+      {
+       "t": "NEGOCIERII",
+       "couleur": "#be4e3f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "WRVv7byzzXs",
+     "titre": "9 tehnici simple pentru negocierea unui salariu mai mare",
+     "chaine": "Cristian Dascalu",
+     "vues": "28 K vizionări",
+     "date": "acum 5 ani",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/CNJm0Krl1X7qExVXjfivnKGlm-1VML8l3tO545iUouopP3J5lUS_SWqIczvr8b_46qYgYh5_Ksc=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "UMĚNÍ",
+     [
+      {
+       "t": "VYJEDNÁVAT",
+       "couleur": "#be4e3f"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Uop6YUW9F0k",
+     "titre": "Jak si vyjednat lepší cenu bytu v Praze",
+     "chaine": "Daniel Kotula",
+     "vues": "18 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "7:39",
+     "avatar": "https://yt3.ggpht.com/CimoF4NZFR7GxRhjTbygvUe95-o3iezAStp0ktCcMH3jUcrIKUS85tPO9vaGv7LYbIpqbMAQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   }
+  }
+ ]
+}

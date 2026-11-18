@@ -1,0 +1,63 @@
+{
+ "source_id": "rh-o256",
+ "type_bleo": "full_test",
+ "titre": "ce que je fais les 30 premières minutes de ma journée de boulot #routine #travail #productivite #carriere #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (les 30 premières minutes au travail). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "59b17b56",
+   "texte_overlay": "ce que je fais\nles 30 premières minutes\nde ma journée de boulot",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "ea0ddf80",
+   "texte_overlay": "je ne lis pas mes mails tout de suite\nj'écris d'abord mes 3 priorités",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "2fc780a5",
+   "texte_overlay": "je fais la tâche que je repousse\npendant 10 minutes, pas plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "e1e736ea",
+   "texte_overlay": "je dis bonjour en vrai\npas juste sur le chat",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "6ce94470",
+   "texte_overlay": "je regarde mon agenda\net je prépare une question par réunion",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d251bb23",
+   "texte_overlay": "je m'accorde 5 minutes\npour apprendre un truc qui n'a rien à voir",
+   "texte_sophia": "je m'accorde 5 minutes\npour apprendre un truc qui n'a rien à voir, sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "075e1180",
+   "texte_overlay": "et seulement après, les mails",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "85b6f53c",
+   "texte_overlay": "ta première tâche, c'est quoi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

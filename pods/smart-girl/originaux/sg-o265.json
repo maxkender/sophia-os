@@ -1,0 +1,63 @@
+{
+ "source_id": "sg-o265",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "72526617-5aa7-4c33-82de-f1581a8a2241",
+ "titre": "elegance lessons i learned from my grandmother #elegance #grandmother #smartgirl #oldmoney #classy",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7562980421013736214",
+ "inspirations": [
+  "905ac33d-906a-4223-9d93-29df2e258b6f"
+ ],
+ "notes": "cta A. Déclinaison G2 de la ligne 1 de la boîte (parent 72526617, langue source el) : accroche reformulée (« elegance lessons i learned from my grandmother »), les leçons du parent (s'asseoir droite, pas de téléphone à table, un mouchoir, les dimanches en famille, un merci écrit, « une femme qui lit ne s'ennuie jamais »). Sophia sur le dernier item à la première personne (cta A). CTA : cta A = dernier item, à la première personne ; cta B = au milieu du deck, sur un fait ou une histoire ; cta C = l'appli comme rituel à la place du scroll (« an app like Sophia »). Le texte de base ne cite jamais Sophia ; la version Sophia est dans texte_sophia.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "95637c0f",
+   "texte_overlay": "elegance lessons i learned\nfrom my grandmother",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "6b621671",
+   "texte_overlay": "\"sit up straight at the table.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "65559b01",
+   "texte_overlay": "\"the phone never goes\non the table.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "28496760",
+   "texte_overlay": "\"always carry a handkerchief.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "fa319d5b",
+   "texte_overlay": "\"sundays are for family.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "bb213c74",
+   "texte_overlay": "\"say thank you on paper.\"",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "7ce4099b",
+   "texte_overlay": "\"a woman who reads is never bored.\"\n\nshe read books. i give five\nminutes a day to something new.",
+   "texte_sophia": "\"a woman who reads is never bored.\"\n\nshe read books. i give five minutes\na day to an app like Sophia.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "e4abd189",
+   "texte_overlay": "save this and call\nyour grandmother",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671621634410777877/8.jpg"
+  }
+ ]
+}

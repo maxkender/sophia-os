@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o254",
+ "type_bleo": "full_test",
+ "titre": "ce que j'aurais aimé savoir avant de signer mon premier CDI #cdi #premierjob #travail #carriere #jobtips",
+ "musique_titre": "Aquarelle",
+ "musique_url": "https://www.tiktok.com/music/aquarelle-7476158515262818305",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 18/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (avant de signer son premier CDI). Sujet juridique traité en général. Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d58104a",
+   "texte_overlay": "ce que j'aurais aimé savoir\navant de signer\nmon premier CDI",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "5c4bd6cd",
+   "texte_overlay": "la période d'essai marche dans les 2 sens\ntoi aussi, tu peux dire non",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8dead4c4",
+   "texte_overlay": "le salaire brut n'est pas ce que tu touches\ndemande une estimation du net",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "72564da1",
+   "texte_overlay": "tout ce qui est promis à l'oral\ndemande-le par écrit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "02df15bd",
+   "texte_overlay": "les tickets resto, la mutuelle, le télétravail\nça compte autant que 100 € de plus",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d51fc35e",
+   "texte_overlay": "ton job ne doit pas être ta seule source d'apprentissage\nmoi, je garde 5 minutes par jour pour apprendre autre chose",
+   "texte_sophia": "ton job ne doit pas être ta seule source d'apprentissage\nmoi, je garde 5 minutes par jour sur l'appli Sophia pour apprendre autre chose",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "297aef80",
+   "texte_overlay": "tu as signé ton premier CDI à quel âge ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

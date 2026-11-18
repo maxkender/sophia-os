@@ -58,7 +58,44 @@
    "pl": "dopaminy 3",
    "hu": "források 3"
   },
-  "mise": "collage"
+  "mise": "collage",
+  "par_langue": {
+   "fr": {
+    "image": {
+     "src": "7691308606603447559/1",
+     "boite": [
+      250,
+      300,
+      630,
+      516
+     ]
+    },
+    "mise": "classique"
+   },
+   "de": {
+    "image": {
+     "src": "7695464528787623176/1",
+     "boite": [
+      150,
+      260,
+      820,
+      560
+     ]
+    }
+   },
+   "es": {
+    "image": {
+     "src": "7694665011779685650/1",
+     "boite": [
+      390,
+      270,
+      350,
+      560
+     ]
+    },
+    "mise": "classique"
+   }
+  }
  },
  "titre_tableau": {
   "en": "rate my ranking",
@@ -655,5 +692,5 @@
    }
   ]
  },
- "notes": "routine du 17/11 : déclinaison G1 du remake 7688926567183027474 (« tier list of Dopamine sources pt3 (final) », es 6,2 k, r 6,16), titre mot pour mot, en tier list originale (autres images, autre couverture). Parent déclaré : la version Sophia (015a132c). cta B. 9 langues. Refusé le 17/11 (accroche_voisine avec mm-o066, même jour) : à déposer demain."
+ "notes": "routine du 17/11 : déclinaison G1 du remake 7688926567183027474 (« tier list of Dopamine sources pt3 (final) », es 6,2 k, r 6,16), titre mot pour mot, en tier list originale (autres images, autre couverture). Parent déclaré : la version Sophia (015a132c). cta B. 9 langues. Refusé le 17/11 (accroche_voisine avec mm-o066, même jour) : à déposer demain. Livré le 18/11 en en, fr, de, es seulement, couverture propre à chaque langue (en : collage scanners, fr : Hardy, de : collage pape DJ, es : aura)."
 }

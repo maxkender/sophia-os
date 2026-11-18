@@ -1,0 +1,172 @@
+{
+ "id": "dr-018",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 languages that are genuinely f*cking difficult to learn",
+  "pt-BR": "5 idiomas difíceis pra c*ralho de aprender",
+  "tr": "öğrenmesi gerçekten çok zor 5 dil"
+ },
+ "legendes": {
+  "en": "#niche #languagelearning #polyglot #lockedin",
+  "pt-BR": "#idiomas #aprender #poliglota #nicho",
+  "tr": "#dilöğrenmek #yabancıdil #poliglot #niş"
+ },
+ "musique": {
+  "titre": "Room Full of Strangers - Danny Bluestone",
+  "url": "https://www.tiktok.com/music/Room-Full-of-Strangers-7689207966263953459"
+ },
+ "notes": "Original sur sa liste à 1,2 M (« 8 coding projects that are genuinely f*cking difficult ») : même structure (difficulté /50), sujet langues. Faits : catégories du Foreign Service Institute (finnois ~1 100 h, cat. III comme le turc ; coréen, arabe, japonais, mandarin ~2 200 h, cat. IV), hangul créé sous Sejong (1443), ~2 136 kanji jōyō, 4 tons du mandarin, 15 cas en finnois. Images AIC (domaine public) : La Farge (« Snow Field »), flasque Joseon, bol samanide à calligraphie (pas de page du Coran), Hokusai (« Cranes on snow-covered pine »), Xia Chang (bambous). En, pt-BR, tr seulement ; une couverture par langue. Sophia en item 3 sur 6 (cta C), écran « cours » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 languages that are genuinely f*cking difficult to learn",
+    "image": "images/cerveau-violet.jpg",
+    "legende": "(in class hours)"
+   },
+   "pt-BR": {
+    "titre": "5 idiomas difíceis pra c*ralho de aprender",
+    "image": "images/cerveau-vert.jpg",
+    "legende": "(em horas de aula)"
+   },
+   "tr": {
+    "titre": "öğrenmesi gerçekten çok zor 5 dil",
+    "image": "images/cerveau-hippocampe.jpg",
+    "legende": "(ders saatine göre)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Finnish",
+    "difficulte": "28/50",
+    "texte": "15 grammatical cases. one noun can take dozens of forms. the u.s. foreign service institute counts about 1,100 class hours for english speakers",
+    "image": "images/neige-nordique.jpg"
+   },
+   "pt-BR": {
+    "titre": "Finlandês",
+    "difficulte": "28/50",
+    "texte": "15 casos gramaticais. um substantivo pode ter dezenas de formas. o instituto de diplomatas dos eua estima umas 1.100 horas de aula pra quem fala inglês",
+    "image": "images/neige-nordique.jpg"
+   },
+   "tr": {
+    "titre": "Fince",
+    "difficulte": "28/50",
+    "texte": "15 hâl eki. bir isim düzinelerce biçim alabilir. abd dışişleri enstitüsü, ingilizce konuşanlar için yaklaşık 1.100 ders saati öngörüyor. türkçe de aynı grupta",
+    "image": "images/neige-nordique.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Korean",
+    "difficulte": "40/50",
+    "texte": "the alphabet takes a weekend: king sejong had it designed in the 15th century to be easy. the grammar and the politeness levels take years. about 2,200 hours",
+    "image": "images/flasque-coreenne.jpg"
+   },
+   "pt-BR": {
+    "titre": "Coreano",
+    "difficulte": "40/50",
+    "texte": "o alfabeto se aprende num fim de semana: o rei sejong mandou criá-lo no século 15 pra ser fácil. a gramática e os níveis de formalidade levam anos. umas 2.200 horas",
+    "image": "images/flasque-coreenne.jpg"
+   },
+   "tr": {
+    "titre": "Korece",
+    "difficulte": "40/50",
+    "texte": "alfabesi bir hafta sonunda öğrenilir: kral sejong onu 15. yüzyılda kolay olsun diye tasarlattı. dilbilgisi ve hitap biçimleri yıllar sürer. yaklaşık 2.200 saat",
+    "image": "images/flasque-coreenne.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "4/50",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. a warm-up for your brain before the hard stuff",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "difficulte": "4/50",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. um aquecimento pro cérebro antes das coisas difíceis",
+    "telephone": "cours"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "difficulte": "4/50",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. zor şeylerden önce beyne ısınma",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Arabic",
+    "difficulte": "44/50",
+    "texte": "written right to left, short vowels usually left out, and the spoken dialects differ a lot from the written standard. about 2,200 hours",
+    "image": "images/bol-calligraphie.jpg"
+   },
+   "pt-BR": {
+    "titre": "Árabe",
+    "difficulte": "44/50",
+    "texte": "escrito da direita pra esquerda, quase sem vogais curtas, e os dialetos falados são bem diferentes da língua escrita. umas 2.200 horas",
+    "image": "images/bol-calligraphie.jpg"
+   },
+   "tr": {
+    "titre": "Arapça",
+    "difficulte": "44/50",
+    "texte": "sağdan sola yazılır, kısa ünlüler çoğu zaman yazılmaz ve konuşulan lehçeler yazı dilinden çok farklıdır. yaklaşık 2.200 saat",
+    "image": "images/bol-calligraphie.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Japanese",
+    "difficulte": "46/50",
+    "texte": "three writing systems at once: hiragana, katakana and about 2,000 everyday kanji. about 2,200 hours",
+    "image": "images/grues-neige.jpg"
+   },
+   "pt-BR": {
+    "titre": "Japonês",
+    "difficulte": "46/50",
+    "texte": "três sistemas de escrita ao mesmo tempo: hiragana, katakana e uns 2.000 kanji do dia a dia. umas 2.200 horas",
+    "image": "images/grues-neige.jpg"
+   },
+   "tr": {
+    "titre": "Japonca",
+    "difficulte": "46/50",
+    "texte": "aynı anda üç yazı sistemi: hiragana, katakana ve günlük kullanımda yaklaşık 2.000 kanji. yaklaşık 2.200 saat",
+    "image": "images/grues-neige.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Mandarin",
+    "difficulte": "48/50",
+    "texte": "four tones, so one syllable can mean four different things. plus thousands of characters to read a newspaper. about 2,200 hours",
+    "image": "images/bambous-encre.jpg"
+   },
+   "pt-BR": {
+    "titre": "Mandarim",
+    "difficulte": "48/50",
+    "texte": "quatro tons, então uma sílaba pode ter quatro sentidos diferentes. e milhares de caracteres pra ler um jornal. umas 2.200 horas",
+    "image": "images/bambous-encre.jpg"
+   },
+   "tr": {
+    "titre": "Mandarin Çincesi",
+    "difficulte": "48/50",
+    "texte": "dört ton, yani bir hece dört farklı anlama gelebilir. bir de gazete okumak için binlerce karakter. yaklaşık 2.200 saat",
+    "image": "images/bambous-encre.jpg"
+   }
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o250",
+ "type_bleo": "full_test",
+ "titre": "things people with a quiet mind do differently #peace #calm #mindset #mentalhealth #selfimprovement",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "d2d4e7d3-a4d5-4e4d-be47-5d910115571c"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, d2d4e7d3). full test BLEO : accroche jamais faite (format « things people with a X do differently »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "f5e647a2-4628-4e98-997b-60482785d3db",
+   "texte_overlay": "things people with a\nquiet mind do differently",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "2aecc58b-e4a4-4eb2-9ac6-c1b9843d22fb",
+   "texte_overlay": "they single task\n\nthey do one thing at a time and give it their full attention. a mind that isn't split between five tabs feels calmer, works better and remembers more.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "613e2560-238b-4966-a41c-a671d5124fa0",
+   "texte_overlay": "they leave space in the day\n\nthey don't fill every minute with plans and noise. a few empty moments each day give their thoughts room to settle, like water slowly going clear and still.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "661a57e5-dda7-4ed0-bb08-73513d5ab5fe",
+   "texte_overlay": "they feed it gently\n\nthey give their mind something calm and interesting every day instead of endless noise: a constellation, a painting, a myth. a gently fed mind has far less room left for worry.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/4.jpg",
+   "texte_sophia": "they feed it gently\n\nmy mind used to feel crowded all day. now i spend 5 minutes a day on one lesson in the Sophia app, a constellation or a painting, and that small calm habit quiets everything."
+  },
+  {
+   "position": 5,
+   "media_id": "cdb15f61-f374-4656-ac69-b08fc994ed05",
+   "texte_overlay": "they let thoughts pass\n\nthey notice a worry, name it and let it go by instead of chasing it. not every thought needs an answer, and most of them leave on their own if you let them.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "356bbc40-ce6b-4888-806b-720a22b49eba",
+   "texte_overlay": "they protect their mornings\n\nthey keep the first half hour of the day quiet, with no news and no messages. a calm start makes it far easier to stay calm when the day gets loud and busy.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659842520733469974/6.jpg"
+  }
+ ]
+}

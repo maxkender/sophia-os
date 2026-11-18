@@ -1,0 +1,270 @@
+{
+ "id": "as-018",
+ "fond": "images/c18-friperie.jpg",
+ "titre": {
+  "en": "my cozy weekend apps for slow saturdays",
+  "es": "mis findes más cozy para sábados lentos",
+  "it": "i miei weekend più cozy per sabati lenti",
+  "pt-BR": "meu sábado mais cozy sem pressa nenhuma"
+ },
+ "legendes": {
+  "en": "slow saturdays, pancakes and movie nights 🎞️ #cozy #weekendvibes #apprecommendations #cuteapps",
+  "es": "sábados lentos, tortitas y noches de peli 🎞️ #cozy #findesemana #appsrecomendadas #appsbonitas",
+  "it": "sabati lenti, pancake e serate film 🎞️ #cozy #weekend #appconsigliate #appcarine",
+  "pt-BR": "sábado sem pressa, panqueca e noite de filme 🎞️ #cozy #fimdesemana #dicasdeapps #appsfofos"
+ },
+ "musique": {
+  "titre": "sippin' with u - Malia B.",
+  "url": "https://www.tiktok.com/music/sippin-with-u-7666602353542252561"
+ },
+ "notes": "Full test (accroche neuve au format de son « my most used apps ») : « my cozy weekend apps / for slow saturdays », style bibliotheque. Applis vérifiées us, es, it, br : Depop, Sophia (2e, cta C), IMDb, Lightroom, Pokémon Café ReMix. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c18-fond.jpg",
+     "images/c18-film.jpg",
+     "images/c18-cacao.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "my"
+      },
+      {
+       "t": "cozy",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "weekend",
+       "style": "clair"
+      },
+      {
+       "t": "apps"
+      }
+     ]
+    ],
+    "pastille": "for slow saturdays"
+   },
+   "es": {
+    "photos": [
+     "images/c18-fond.jpg",
+     "images/c18-film.jpg",
+     "images/c18-cacao.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "mis"
+      },
+      {
+       "t": "findes",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "más",
+       "style": "clair"
+      },
+      {
+       "t": "cozy"
+      }
+     ]
+    ],
+    "pastille": "para sábados lentos"
+   },
+   "it": {
+    "photos": [
+     "images/c18-fond.jpg",
+     "images/c18-film.jpg",
+     "images/c18-cacao.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "i miei"
+      },
+      {
+       "t": "weekend",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "più",
+       "style": "clair"
+      },
+      {
+       "t": "cozy"
+      }
+     ]
+    ],
+    "pastille": "per sabati lenti"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c18-fond.jpg",
+     "images/c18-film.jpg",
+     "images/c18-cacao.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "meu"
+      },
+      {
+       "t": "sábado",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "mais",
+       "style": "clair"
+      },
+      {
+       "t": "cozy"
+      }
+     ]
+    ],
+    "pastille": "sem pressa nenhuma"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Depop",
+    "dossier": "images/applis/depop",
+    "note": "Where I find vintage sweaters and sell what I don't wear anymore. Thrifting from bed on a Saturday"
+   },
+   "es": {
+    "nom": "Depop",
+    "dossier": "images/applis/depop",
+    "note": "Donde encuentro jerséis vintage y vendo lo que ya no me pongo. Segunda mano desde la cama un sábado"
+   },
+   "it": {
+    "nom": "Depop",
+    "dossier": "images/applis/depop",
+    "note": "Dove trovo maglioni vintage e vendo quello che non metto più. Il vintage dal letto il sabato mattina"
+   },
+   "pt-BR": {
+    "nom": "Depop",
+    "dossier": "images/applis/depop",
+    "note": "Onde eu acho suéteres vintage e vendo o que não uso mais. Garimpo direto da cama no sábado"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "IMDb",
+    "dossier": "images/applis/imdb",
+    "note": "My watchlist for movie nights, with ratings and where each film is streaming"
+   },
+   "es": {
+    "nom": "IMDb",
+    "dossier": "images/applis/imdb",
+    "note": "Mi lista para las noches de peli, con notas y dónde ver cada película"
+   },
+   "it": {
+    "nom": "IMDb",
+    "dossier": "images/applis/imdb",
+    "note": "La mia watchlist per le serate film, con voti e dove vedere ogni film"
+   },
+   "pt-BR": {
+    "nom": "IMDb",
+    "dossier": "images/applis/imdb",
+    "note": "Minha lista pras noites de filme, com notas e onde assistir cada um"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Lightroom",
+    "dossier": "images/applis/lightroom",
+    "note": "Editing my weekend photos with presets: one tap and they all match"
+   },
+   "es": {
+    "nom": "Lightroom",
+    "dossier": "images/applis/lightroom",
+    "note": "Edito las fotos del finde con presets: un toque y todas combinan"
+   },
+   "it": {
+    "nom": "Lightroom",
+    "dossier": "images/applis/lightroom",
+    "note": "Modifico le foto del weekend con i preset: un tocco e stanno tutte bene insieme"
+   },
+   "pt-BR": {
+    "nom": "Lightroom",
+    "dossier": "images/applis/lightroom",
+    "note": "Edito as fotos do fim de semana com presets: um toque e todas combinam"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Pokémon Café ReMix",
+    "dossier": "images/applis/pokemon-cafe",
+    "note": "A cozy little puzzle game where you serve drinks to Pokémon. Perfect with a coffee on a lazy morning"
+   },
+   "es": {
+    "nom": "Pokémon Café ReMix",
+    "dossier": "images/applis/pokemon-cafe",
+    "note": "Un juego de puzles muy cozy donde sirves bebidas a Pokémon. Perfecto con un café una mañana tranquila"
+   },
+   "it": {
+    "nom": "Pokémon Café ReMix",
+    "dossier": "images/applis/pokemon-cafe",
+    "note": "Un piccolo puzzle game cozy in cui servi bevande ai Pokémon. Perfetto con un caffè in una mattina pigra"
+   },
+   "pt-BR": {
+    "nom": "Pokémon Café ReMix",
+    "dossier": "images/applis/pokemon-cafe",
+    "note": "Um joguinho de quebra-cabeça bem cozy onde você serve bebidas pros Pokémon. Perfeito com um café numa manhã preguiçosa"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

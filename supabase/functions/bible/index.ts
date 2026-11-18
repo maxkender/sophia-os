@@ -12,8 +12,8 @@
  *
  * N'écrit que dans bible_comptes (posts, miniatures, stats auto). Ne touche ni à l'import ni à rien d'autre.
  */
-import { scrapeStats } from "../_shared/apify.ts";
-import { cheminMiniature, estLienCourt, estLienPost, type PostBible, statsProfil, troisMeilleurs } from "../_shared/bible.ts";
+import { downloadMedia, postsAvecImage } from "../_shared/apify.ts";
+import { cheminMiniature, estLienCourt, estLienPost, idPost, type PostBible, statsProfil, troisMeilleurs } from "../_shared/bible.ts";
 import { assertRole, json, messageErreur, serviceClient } from "../_shared/supabase.ts";
 
 type Db = ReturnType<typeof serviceClient>;
@@ -57,6 +57,12 @@ async function resoudre(url: string): Promise<{ url: string; resolu: string | nu
 
 /** La miniature d'un post par oEmbed (sans clé), téléchargée aussitôt. */
 async function miniatureOembed(lien: string, secours?: string | null): Promise<{ octets: Uint8Array; type: string }> {
+  // L'image du scraper d'abord (oEmbed refuse souvent nos serveurs), puis oEmbed.
+  if (secours) {
+    try {
+      return await telechargerImage(secours);
+    } catch { /* oEmbed */ }
+  }
   // Apify rend /video/ même pour un diaporama : on essaie aussi la forme /photo/, puis l'image du scraper.
   const essais = [lien, lien.includes("/video/") ? lien.replace("/video/", "/photo/") : lien.replace("/photo/", "/video/")];
   let derniere = "oEmbed sans miniature";
@@ -75,7 +81,6 @@ async function miniatureOembed(lien: string, secours?: string | null): Promise<{
       derniere = messageErreur(e).slice(0, 80);
     }
   }
-  if (secours) return await telecharger(secours);
   throw new Error(derniere);
 }
 
@@ -85,6 +90,15 @@ async function telecharger(url: string): Promise<{ octets: Uint8Array; type: str
   const type = r.headers.get("content-type")?.split(";")[0] ?? "image/jpeg";
   if (!type.startsWith("image/")) throw new Error(`pas une image (${type})`);
   return { octets: new Uint8Array(await r.arrayBuffer()), type };
+}
+
+/** Une image du scraper : le stockage d'Apify demande le jeton (downloadMedia), le reste se télécharge tel quel. */
+async function telechargerImage(url: string): Promise<{ octets: Uint8Array; type: string }> {
+  if (url.startsWith("https://api.apify.com/")) {
+    const octets = await downloadMedia(url);
+    return { octets, type: "image/jpeg" };
+  }
+  return await telecharger(url);
 }
 
 async function copier(db: Db, chemin: string, image: { octets: Uint8Array; type: string }): Promise<string> {
@@ -112,10 +126,10 @@ async function miniatures(db: Db, id: string) {
       return { ok: true, statut: "sans_liens" };
     }
     try {
-      const recents = await scrapeStats(handle, 12);
-      for (const p of recents) if (p.imageUrls[0]) imageScraper.set(p.webVideoUrl, p.imageUrls[0]);
-      const profil = recents.map((p) => ({ url: p.webVideoUrl, vues: p.stats.vues, createTime: p.createTime }));
-      stats = statsProfil(profil, recents.find((p) => p.auteur.abonnes != null)?.auteur.abonnes ?? null);
+      const recents = await postsAvecImage({ profiles: [handle], resultsPerPage: 12 });
+      for (const p of recents) if (p.image) imageScraper.set(p.url, p.image);
+      const profil = recents.map((p) => ({ url: p.url, vues: p.vues, createTime: p.createTime }));
+      stats = statsProfil(profil, recents.find((p) => p.abonnes != null)?.abonnes ?? null);
       posts = troisMeilleurs(profil).map((p) => ({ url: p.url, vues: p.vues }));
       source = "scraper";
     } catch (e) {
@@ -126,6 +140,15 @@ async function miniatures(db: Db, id: string) {
       await db.rpc("bible_miniatures_ecrire", { p_id: id, p_posts: null, p_statut: "sans_liens", p_erreur: "ajouter 3 liens de posts", p_stats: stats });
       return { ok: true, statut: "sans_liens" };
     }
+  } else if (Deno.env.get("APIFY_TOKEN")) {
+    // Liens donnés : une image de chaque post par le scraper (un seul passage pour les 3).
+    try {
+      for (const p of await postsAvecImage({ postURLs: posts.map((p) => p.url), resultsPerPage: 1 })) {
+        const idp = idPost(p.url);
+        const lien = posts.find((x) => idPost(x.url) === idp)?.url;
+        if (lien && p.image) imageScraper.set(lien, p.image);
+      }
+    } catch { /* oEmbed en secours */ }
   }
 
   const sortie: PostBible[] = [];

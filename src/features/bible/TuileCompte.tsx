@@ -4,7 +4,7 @@
  * Modifier la note, Supprimer.
  */
 import * as React from "react";
-import { ArrowLeft, ArrowRight, ImageOff, Loader2, Pencil, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ImageOff, Loader2, Pencil, RotateCcw, Sparkles, Tags, Trash2, TriangleAlert } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
@@ -111,6 +111,8 @@ export function TuileCompte({ c, aussi, actions, occupe }: { c: CompteBible; aus
           <>
             {c.etape === "a_importer" && <Action icone={ArrowRight} libelle="Prochain batch" fort onClick={() => actions.onEtape(c, "prochain_batch")} />}
             {c.etape === "prochain_batch" && <Action icone={ArrowLeft} libelle="Retirer" onClick={() => actions.onEtape(c, "a_importer")} />}
+            {c.etape !== "importe" && <Action icone={Check} libelle="Importé" ok onClick={() => actions.onEtape(c, "importe")} />}
+            {c.etape === "importe" && <Action icone={ArrowLeft} libelle="À importer" onClick={() => actions.onEtape(c, "a_importer")} />}
             <Action icone={Tags} titre="Changer de label" onClick={() => actions.onChangerLabel(c)} />
             <Action icone={Pencil} titre="Modifier la note et la remarque" onClick={ouvrir} />
             <Action icone={Trash2} libelle="Supprimer" danger onClick={() => actions.onSupprimer(c)} />
@@ -128,7 +130,7 @@ function texteErreur(erreur: string | null | undefined, post: boolean): string {
   return erreur;
 }
 
-function Action({ icone: Icone, libelle, titre, onClick, fort, danger }: { icone: typeof Tags; libelle?: string; titre?: string; onClick: () => void; fort?: boolean; danger?: boolean }) {
+function Action({ icone: Icone, libelle, titre, onClick, fort, danger, ok }: { icone: typeof Tags; libelle?: string; titre?: string; onClick: () => void; fort?: boolean; danger?: boolean; ok?: boolean }) {
   return (
     <button
       type="button"
@@ -139,6 +141,7 @@ function Action({ icone: Icone, libelle, titre, onClick, fort, danger }: { icone
         "inline-flex h-7 items-center gap-1 rounded-full border px-2 text-[11px] font-medium shadow-sm backdrop-blur transition",
         fort ? "border-stone-900 bg-stone-900 text-white hover:bg-stone-800" : "border-stone-200 bg-white/95 text-stone-700 hover:bg-white",
         danger && "text-red-600 hover:bg-red-50",
+        ok && "text-emerald-700 hover:bg-emerald-50",
       )}
     >
       <Icone className="size-3.5" />

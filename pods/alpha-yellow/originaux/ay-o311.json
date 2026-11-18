@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o311",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6749518c-c0de-4316-bf01-ca9fd912345e",
+ "titre": "quotes that shifted my mindset #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "Bad Love (Slowed)",
+ "musique_url": "https://www.tiktok.com/music/bad-love-slowed-7313738119294732290",
+ "inspirations": [
+  "6749518c-c0de-4316-bf01-ca9fd912345e"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 9 de la boîte (6749518c, no 8,4 k r 4,42) : accroche du parent mot pour mot, coupes gardées. Citations neuves et vérifiées de philosophes et auteurs anciens (Épictète, Nietzsche, Socrate via Platon, Franklin, Lao Tseu), aucune reprise du parent (Ford, Roosevelt, Marc Aurèle, Sénèque, Héraclite). Aucune star contemporaine.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1b357394-f869-450a-a0e5-6e56dfbf0333",
+   "texte_overlay": "quotes\nthat\nshifted\nmy\nmindset",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "\"Men are disturbed not by things, but by the views which they take of things.\" Epictetus. Most of your stress comes from the story you tell about what happened.",
+   "media_id": "1071c4f3-2206-4863-9a38-3ebac4623d00"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "\"He who has a why to live can bear almost any how.\" Nietzsche. When you know what you're working for, hard days stop feeling pointless.",
+   "media_id": "10e3791d-f16a-485f-98a7-07945ce3b60b"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "\"The unexamined life is not worth living.\" Socrates. Take time to ask why you do what you do. Most people never stop long enough to check.",
+   "media_id": "1157061a-90ad-4083-aa64-9445f98366fc"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "\"Well done is better than well said.\" Benjamin Franklin. Talking about your plans feels good. Quietly doing them is what actually changes your life.",
+   "media_id": "115d4f12-96af-4c38-bb29-62e331ee6a70"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "\"A journey of a thousand miles begins with a single step.\" Lao Tzu. My step is five minutes a day of history, art or science. Start with one small act today.",
+   "texte_sophia": "\"A journey of a thousand miles begins with a single step.\" Lao Tzu. I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. ",
+   "media_id": "4d3a1468-d39f-44ee-a19f-2fee7a4c1abd"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "\"First say to yourself what you would be, and then do what you have to do.\" Epictetus. Decide who you want to become, then act like him today.",
+   "media_id": "11d68de3-d33c-4f7b-826f-23c8e9d6544d"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Pick one of these and write it where you'll see it every morning. One good sentence, read every day, can change the way you think.",
+   "media_id": "11dc03ee-0a21-4a98-866c-b9f8920c4fc3"
+  }
+ ]
+}

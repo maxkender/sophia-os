@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o307",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "021742b5-3777-4b66-a7c0-ce6d9a7e5caa",
+ "titre": "How to completely restart your life from the inside #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "0.5 (slowed)",
+ "musique_url": "https://www.tiktok.com/music/0-5-slowed-7556607956322846737",
+ "inspirations": [
+  "021742b5-3777-4b66-a7c0-ce6d9a7e5caa"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 1 de la boîte (021742b5, es 1,5 k), 3e et dernière déclinaison après ay-o278 et ay-o292. Même promesse, autres mots, sans « mindset » pour ne pas toucher la ligne 9. Items neufs, aucun repris du parent, d'ay-o278 ni d'ay-o292.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "0d9e2693-ee74-4233-8aa2-82f89d3fed9a",
+   "texte_overlay": "How to completely restart\nyour life from the inside",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7692120508057406738/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Clean out your life like a messy room. Old clothes, old papers, old habits, old grudges. Making space is the first step to becoming someone new.",
+   "media_id": "09b1f4ec-f977-48df-a760-7ff207e17722"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Pick one keystone habit. Training, early nights or reading. One good habit pulls many others with it without much extra effort. Start with the easiest one.",
+   "media_id": "09c34a5c-3772-4adf-b791-02c12a795544"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Spend a day alone with a notebook. Write what you want in five years and what's in the way. Clarity is the fuel of every real restart.",
+   "media_id": "09f4ade0-f3d1-4b2f-9c1f-b8c23f47aafa"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Change your surroundings. Rearrange your room, find a new café, take a new route. A new setting makes new behaviour feel natural. Even a small change counts.",
+   "media_id": "0a48aeb8-7244-4e6f-83f1-311d16f010fd"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Fresh ideas every morning help you see your life with new eyes.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Fresh ideas every morning help you see your life with new eyes.",
+   "media_id": "3389a136-104a-40ad-837d-c723630827f6"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Say yes to new things for a month. A class, a trip, an invitation. Every new experience shows you a version of yourself you didn't know.",
+   "media_id": "0a78ae7b-b5da-46d1-8f5c-9e204e741e38"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Measure progress weekly, not daily. Some days feel like nothing changed. A week at a time shows you how far you've really come. Keep a short weekly note.",
+   "media_id": "0a917d4c-79a6-4fca-9121-42e96c03783f"
+  }
+ ]
+}

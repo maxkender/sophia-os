@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o313",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "6e183a84-ad61-4934-b2de-f81ff75d2f82",
+ "titre": "healthy habits everyone should build #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "addiction - Slowed",
+ "musique_url": "https://www.tiktok.com/music/addiction-slowed-7631225786641336336",
+ "inspirations": [
+  "6e183a84-ad61-4934-b2de-f81ff75d2f82"
+ ],
+ "notes": "cta C : défi « 30 jours », slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G1 de la ligne 11 de la boîte (6e183a84, en 2,1 k) : accroche du parent mot pour mot, coupes gardées. Items neufs, aucun repris du parent (vidage de tête, protéines, cercle social, une chose difficile, activité calme).",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1e74acf0-b8fa-4b8f-aeb6-520f2b8dbbbc",
+   "texte_overlay": "healthy habits everyone\nshould build",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Walk after meals. A ten-minute walk after lunch or dinner helps digestion, clears your head and adds up to hours of movement every week.",
+   "media_id": "1364141c-451a-441c-a13f-e299f4c139f6"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Get morning sunlight. Ten minutes outside before noon helps you feel awake in the day and sleep better at night. It's free and it takes almost no effort, so start tomorrow morning.",
+   "media_id": "13ddfaf1-b037-48c3-8102-e8e2e57abfa7"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Stretch for five minutes daily. Hips, back and shoulders get stiff from sitting. A short routine keeps you moving freely for years.",
+   "media_id": "13f5e53b-83d2-4e82-ac7d-7d811ff8367c"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Keep your phone out of the bedroom. A cheap alarm clock instead. You'll fall asleep faster and wake up without a flood of notifications.",
+   "media_id": "15749053-8d62-4cef-9005-ba2d2496a9a4"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Try this for 30 days: five minutes a day of history, art or science. Feeding your mind is as healthy as feeding your body well. Your body will thank you.",
+   "texte_sophia": "Try this for 30 days: I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. Feeding your mind is as healthy as feeding your body well.",
+   "media_id": "55c68d5c-8e8d-4dd7-92ca-c7b4308fff0a"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Drink more water than you think you need. Keep a bottle on your desk. Many headaches and afternoon slumps come from simple dehydration.",
+   "media_id": "15ed6a95-082c-4b13-98fa-7fb9781cb8bf"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Spend time in nature every week. A park, a forest, the sea. Green and blue spaces lower stress more than almost anything else. Go once this week.",
+   "media_id": "163c60f3-c263-455f-b32c-597a0aa1c953"
+  }
+ ]
+}

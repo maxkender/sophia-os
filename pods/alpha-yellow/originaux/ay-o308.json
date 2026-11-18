@@ -1,0 +1,63 @@
+{
+ "source_id": "ay-o308",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "cf0a0c60-7f7e-4bf3-958d-dc9b0bc243be",
+ "titre": "How to sound smart every time you speak #targetaudience #niche #lifemaxxing #personaldevelopment #selfimprovement",
+ "musique_titre": "original sound",
+ "musique_url": "https://www.tiktok.com/music/original-sound-7636558659853536016",
+ "inspirations": [
+  "cf0a0c60-7f7e-4bf3-958d-dc9b0bc243be"
+ ],
+ "notes": "cta A : conseil à la 1re personne, slide 6, sur une image sans visage. Images prises dans toute la banque (règle du 12/11). déclinaison G2 de la ligne 2 de la boîte (cf0a0c60, tr 3,6 k r 2,43), 2e déclinaison après ay-o293. Même promesse, autres mots. Items neufs, aucun repris du parent ni d'ay-o293.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "11d8614d-f345-4609-8e43-8a369e8676d9",
+   "texte_overlay": "How to sound smart\nevery time you speak",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7671454049719373087/1.jpg"
+  },
+  {
+   "position": 2,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/2.jpg",
+   "texte_overlay": "Use precise words instead of vague ones. Not \"it was good\" but \"it was surprisingly moving.\" Precision makes you sound thoughtful without trying.",
+   "media_id": "0b0e5697-753a-4680-aa0e-a13a5cbeec72"
+  },
+  {
+   "position": 3,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/3.jpg",
+   "texte_overlay": "Ask before you assume. \"What do you mean by that?\" Smart people clarify instead of guessing, and it makes conversations much better.",
+   "media_id": "0bb78d78-c8f3-4595-a9e2-f47491138996"
+  },
+  {
+   "position": 4,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/4.jpg",
+   "texte_overlay": "Admit what you don't know. \"I'm not sure, but I think...\" Honesty about limits makes everything else you say more believable. It makes people listen closer.",
+   "media_id": "0bbd03d9-969a-47b1-b6d1-5009b47f821b"
+  },
+  {
+   "position": 5,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/5.jpg",
+   "texte_overlay": "Connect ideas from different areas. A sports lesson for business, a history story for relationships. Unexpected links sound brilliant.",
+   "media_id": "0cbc69c4-91bf-4fb8-b084-5f816c2ae8aa"
+  },
+  {
+   "position": 6,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/6.jpg",
+   "texte_overlay": "Build your general knowledge. I do five minutes a day of history, art or science, and it gives me examples to use in almost every conversation.",
+   "texte_sophia": "I do five minutes a day on a micro-learning app like the Sophia app. History, art, science. It gives me examples to use in almost every conversation.",
+   "media_id": "379134f4-d37d-4178-aef1-94dd87407861"
+  },
+  {
+   "position": 7,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/7.jpg",
+   "texte_overlay": "Speak a little less than you want to. Short answers leave room for questions. People think you know more when you don't empty everything at once.",
+   "media_id": "0ddcea52-9d57-4a7d-b287-51feccf46157"
+  },
+  {
+   "position": 8,
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7689427930929319176/8.jpg",
+   "texte_overlay": "Summarise what the other person said. \"So your point is...\" It shows you understood, and it makes you sound calm and sharp. Then add your own view.",
+   "media_id": "0e122918-096a-480d-9911-ed9a549f266f"
+  }
+ ]
+}

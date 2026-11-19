@@ -3,7 +3,7 @@
 //   - Apify : le jeton est injecté par le proxy de la session (rien à fournir) ;
 //     hors session, APIFY_TOKEN dans l'environnement.
 //   - OS : BANQUE_JETON dans l'environnement (en-tête x-banque-jeton).
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from "node:fs";
 import type { Candidat } from "./pinterest.ts";
 
 export const ACTEUR = "epctex~pinterest-scraper";
@@ -18,9 +18,12 @@ export function lire<T>(chemin: string, defaut: T): T {
   return existsSync(chemin) ? (JSON.parse(readFileSync(chemin, "utf8")) as T) : defaut;
 }
 
+/** Écrit d'un coup (fichier temporaire, puis renommage) : une autre commande qui lit en même temps ne voit jamais un fichier à moitié écrit. */
 export function ecrire(chemin: string, valeur: unknown): void {
   mkdirSync("donnees", { recursive: true });
-  writeFileSync(chemin, JSON.stringify(valeur, null, 1));
+  const provisoire = `${chemin}.${process.pid}.tmp`;
+  writeFileSync(provisoire, JSON.stringify(valeur, null, 1));
+  renameSync(provisoire, chemin);
 }
 
 export const lireStock = () => lire<Record<string, Candidat>>(STOCK, {});

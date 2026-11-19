@@ -1,0 +1,261 @@
+{
+ "id": "as-022",
+ "fond": "images/c22-fond.jpg",
+ "titre": {
+  "en": "my holiday season apps for a cozy december",
+  "es": "mis apps de navidad para un diciembre cozy",
+  "it": "le mie app di natale per un dicembre cozy",
+  "pt-BR": "meus apps de natal pro fim de ano"
+ },
+ "legendes": {
+  "en": "gifts, secret santa and the trip home, sorted 🎄 #christmas #apprecommendations #holidayseason #cozy",
+  "es": "regalos, amigo invisible y el viaje a casa, resuelto 🎄 #navidad #appsrecomendadas #fiestas #cozy",
+  "it": "regali, Secret Santa e il viaggio verso casa, tutto pronto 🎄 #natale #appconsigliate #feste #cozy",
+  "pt-BR": "presentes, amigo secreto e a viagem pra casa, tudo resolvido 🎄 #natal #dicasdeapps #fimdeano #cozy"
+ },
+ "musique": {
+  "titre": "i smell snow",
+  "url": "https://www.tiktok.com/music/i-smell-snow-7298967503537965867"
+ },
+ "notes": "Full test (accroche neuve, saison des fêtes, au format de son « my most used apps ») : « my holiday season apps / for a cozy december », style bibliotheque. pt-BR : décembre = été au Brésil, « pro fim de ano ». Applis vérifiées us, es, it, br : Drawnames, Giftful, Sophia (3e, cta A), Holafly, Hopper. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c22-sapin.jpg",
+     "images/c22-cadeaux.jpg",
+     "images/c22-cocoa.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "my"
+      },
+      {
+       "t": "holiday",
+       "style": "script"
+      }
+     ],
+     [
+      {
+       "t": "season",
+       "style": "clair"
+      },
+      {
+       "t": "apps"
+      }
+     ]
+    ],
+    "pastille": "for a cozy december"
+   },
+   "es": {
+    "photos": [
+     "images/c22-sapin.jpg",
+     "images/c22-cadeaux.jpg",
+     "images/c22-cocoa.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "mis apps"
+      }
+     ],
+     [
+      {
+       "t": "de",
+       "style": "clair"
+      },
+      {
+       "t": "navidad",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "para un diciembre cozy"
+   },
+   "it": {
+    "photos": [
+     "images/c22-sapin.jpg",
+     "images/c22-cadeaux.jpg",
+     "images/c22-cocoa.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "le mie app"
+      }
+     ],
+     [
+      {
+       "t": "di",
+       "style": "clair"
+      },
+      {
+       "t": "natale",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "per un dicembre cozy"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c22-sapin.jpg",
+     "images/c22-cadeaux.jpg",
+     "images/c22-cocoa.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "meus apps"
+      }
+     ],
+     [
+      {
+       "t": "de",
+       "style": "clair"
+      },
+      {
+       "t": "natal",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "pro fim de ano"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Drawnames",
+    "dossier": "images/applis/drawnames",
+    "note": "Secret Santa without the paper hats: everyone gets a name and adds a wish list"
+   },
+   "es": {
+    "nom": "Drawnames",
+    "dossier": "images/applis/drawnames",
+    "note": "El amigo invisible sin papelitos: a cada uno le toca un nombre y añade su lista de deseos"
+   },
+   "it": {
+    "nom": "Drawnames",
+    "dossier": "images/applis/drawnames",
+    "note": "Il Secret Santa senza bigliettini: a ognuno tocca un nome e aggiunge la sua lista dei desideri"
+   },
+   "pt-BR": {
+    "nom": "Drawnames",
+    "dossier": "images/applis/drawnames",
+    "note": "Amigo secreto sem papelzinho: cada um tira um nome e monta sua lista de desejos"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Giftful",
+    "dossier": "images/applis/giftful",
+    "note": "One wishlist for everything, from any store, that you can share with family before the holidays"
+   },
+   "es": {
+    "nom": "Giftful",
+    "dossier": "images/applis/giftful",
+    "note": "Una lista de deseos para todo, de cualquier tienda, para compartir con la familia antes de las fiestas"
+   },
+   "it": {
+    "nom": "Giftful",
+    "dossier": "images/applis/giftful",
+    "note": "Una lista dei desideri per tutto, da qualsiasi negozio, da condividere con la famiglia prima delle feste"
+   },
+   "pt-BR": {
+    "nom": "Giftful",
+    "dossier": "images/applis/giftful",
+    "note": "Uma lista de desejos pra tudo, de qualquer loja, pra compartilhar com a família antes das festas"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Holafly",
+    "dossier": "images/applis/holafly",
+    "note": "An eSIM with unlimited data for traveling: you install it before you leave and you're online when you land"
+   },
+   "es": {
+    "nom": "Holafly",
+    "dossier": "images/applis/holafly",
+    "note": "Una eSIM con datos ilimitados para viajar: la instalas antes de salir y tienes internet al aterrizar"
+   },
+   "it": {
+    "nom": "Holafly",
+    "dossier": "images/applis/holafly",
+    "note": "Una eSIM con dati illimitati per viaggiare: la installi prima di partire e sei online appena atterri"
+   },
+   "pt-BR": {
+    "nom": "Holafly",
+    "dossier": "images/applis/holafly",
+    "note": "Um eSIM com dados ilimitados pra viajar: você instala antes de sair e já tem internet quando pousa"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Hopper",
+    "dossier": "images/applis/hopper",
+    "note": "Watches flight prices for you and tells you when to book, perfect for the trip home for the holidays"
+   },
+   "es": {
+    "nom": "Hopper",
+    "dossier": "images/applis/hopper",
+    "note": "Vigila los precios de los vuelos y te dice cuándo reservar, perfecto para volver a casa en las fiestas"
+   },
+   "it": {
+    "nom": "Hopper",
+    "dossier": "images/applis/hopper",
+    "note": "Controlla i prezzi dei voli e ti dice quando prenotare, perfetto per tornare a casa per le feste"
+   },
+   "pt-BR": {
+    "nom": "Hopper",
+    "dossier": "images/applis/hopper",
+    "note": "Acompanha o preço das passagens e avisa quando comprar, perfeito pra voltar pra casa nas festas"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

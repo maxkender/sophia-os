@@ -1,0 +1,258 @@
+{
+ "id": "as-021",
+ "fond": "images/c21-pluie.jpg",
+ "titre": {
+  "en": "apps that feel like a hug on hard days",
+  "es": "apps que son un abrazo para días difíciles",
+  "it": "app che sono un abbraccio per le giornate no",
+  "pt-BR": "apps que são um abraço pros dias difíceis"
+ },
+ "legendes": {
+  "en": "for the days that feel a little heavy 🤍 #selfcare #mentalhealth #apprecommendations #cozy",
+  "es": "para los días que pesan un poco 🤍 #autocuidado #saludmental #appsrecomendadas #cozy",
+  "it": "per le giornate un po' pesanti 🤍 #selfcare #salutementale #appconsigliate #cozy",
+  "pt-BR": "pros dias que pesam um pouquinho 🤍 #autocuidado #saudemental #dicasdeapps #cozy"
+ },
+ "musique": {
+  "titre": "last sip - Malia B.",
+  "url": "https://www.tiktok.com/music/original-7660064882242390032"
+ },
+ "notes": "Full test (accroche neuve au format de son « my most used apps / as someone with ADHD ») : « apps that feel like a hug / on hard days », style bibliotheque. Applis vérifiées us, es, it, br : How We Feel, Insight Timer, Sophia (3e, cta C), iBreathe, Quabble. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c21-fond.jpg",
+     "images/c21-mains.jpg",
+     "images/c21-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps that feel"
+      }
+     ],
+     [
+      {
+       "t": "like a",
+       "style": "clair"
+      },
+      {
+       "t": "hug",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "on hard days"
+   },
+   "es": {
+    "photos": [
+     "images/c21-fond.jpg",
+     "images/c21-mains.jpg",
+     "images/c21-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps que son"
+      }
+     ],
+     [
+      {
+       "t": "un",
+       "style": "clair"
+      },
+      {
+       "t": "abrazo",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "para días difíciles"
+   },
+   "it": {
+    "photos": [
+     "images/c21-fond.jpg",
+     "images/c21-mains.jpg",
+     "images/c21-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "app che sono"
+      }
+     ],
+     [
+      {
+       "t": "un",
+       "style": "clair"
+      },
+      {
+       "t": "abbraccio",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "per le giornate no"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c21-fond.jpg",
+     "images/c21-mains.jpg",
+     "images/c21-plaid.jpg"
+    ],
+    "lignes": [
+     [
+      {
+       "t": "apps que são"
+      }
+     ],
+     [
+      {
+       "t": "um",
+       "style": "clair"
+      },
+      {
+       "t": "abraço",
+       "style": "script"
+      }
+     ]
+    ],
+    "pastille": "pros dias difíceis"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "How We Feel",
+    "dossier": "images/applis/how-we-feel",
+    "note": "Helps you put a name on what you feel, then suggests little ways to feel better. Made with Yale scientists"
+   },
+   "es": {
+    "nom": "How We Feel",
+    "dossier": "images/applis/how-we-feel",
+    "note": "Te ayuda a ponerle nombre a lo que sientes y te sugiere pequeñas formas de sentirte mejor. Creada con científicos de Yale"
+   },
+   "it": {
+    "nom": "How We Feel",
+    "dossier": "images/applis/how-we-feel",
+    "note": "Ti aiuta a dare un nome a ciò che provi e ti suggerisce piccoli modi per stare meglio. Creata con scienziati di Yale"
+   },
+   "pt-BR": {
+    "nom": "How We Feel",
+    "dossier": "images/applis/how-we-feel",
+    "note": "Te ajuda a dar nome ao que você sente e sugere jeitinhos de se sentir melhor. Criado com cientistas de Yale"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Insight Timer",
+    "dossier": "images/applis/insight-timer",
+    "note": "Thousands of guided meditations and calming music for the days that feel heavy"
+   },
+   "es": {
+    "nom": "Insight Timer",
+    "dossier": "images/applis/insight-timer",
+    "note": "Miles de meditaciones guiadas y música relajante para los días que pesan"
+   },
+   "it": {
+    "nom": "Insight Timer",
+    "dossier": "images/applis/insight-timer",
+    "note": "Migliaia di meditazioni guidate e musica rilassante per le giornate pesanti"
+   },
+   "pt-BR": {
+    "nom": "Insight Timer",
+    "dossier": "images/applis/insight-timer",
+    "note": "Milhares de meditações guiadas e músicas calmas pros dias pesados"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Makes me feel smarter in 10 minutes: one lesson written by a professor, one quiz, and I'm done"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Me hace sentir más lista en 10 minutos: una lección escrita por un profesor, un quiz y listo"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Mi fa sentire più intelligente in 10 minuti: una lezione scritta da un professore, un quiz e ho finito"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Me faz sentir mais inteligente em 10 minutos: uma aula escrita por um professor, um quiz e pronto"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "iBreathe",
+    "dossier": "images/applis/ibreathe",
+    "note": "Simple breathing exercises with a soft animation to follow. Two minutes and my heart slows down"
+   },
+   "es": {
+    "nom": "iBreathe",
+    "dossier": "images/applis/ibreathe",
+    "note": "Ejercicios de respiración sencillos con una animación suave. Dos minutos y mi corazón se calma"
+   },
+   "it": {
+    "nom": "iBreathe",
+    "dossier": "images/applis/ibreathe",
+    "note": "Semplici esercizi di respirazione con un'animazione morbida da seguire. Due minuti e il cuore rallenta"
+   },
+   "pt-BR": {
+    "nom": "iBreathe",
+    "dossier": "images/applis/ibreathe",
+    "note": "Exercícios de respiração simples com uma animação suave pra acompanhar. Dois minutos e o coração desacelera"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Quabble",
+    "dossier": "images/applis/quabble",
+    "note": "A little duck that walks you through gentle self-care routines to ease stress and lift your mood"
+   },
+   "es": {
+    "nom": "Quabble",
+    "dossier": "images/applis/quabble",
+    "note": "Un patito que te acompaña en rutinas suaves de autocuidado para bajar el estrés y subir el ánimo"
+   },
+   "it": {
+    "nom": "Quabble",
+    "dossier": "images/applis/quabble",
+    "note": "Una paperella che ti accompagna in piccole routine di self-care per ridurre lo stress e tirarti su"
+   },
+   "pt-BR": {
+    "nom": "Quabble",
+    "dossier": "images/applis/quabble",
+    "note": "Um patinho que te guia em rotinas leves de autocuidado pra aliviar o estresse e levantar o humor"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

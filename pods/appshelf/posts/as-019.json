@@ -1,0 +1,212 @@
+{
+ "id": "as-019",
+ "fond": "images/c19-couv.jpg",
+ "titre": {
+  "en": "five apps for your soft-girl era",
+  "es": "cinco apps para tu era soft girl",
+  "it": "cinque app per la tua era soft girl",
+  "pt-BR": "cinco apps pra sua era soft girl"
+ },
+ "legendes": {
+  "en": "soft girl era loading 🎀 #softgirl #apprecommendations #cuteapps #selfcare",
+  "es": "cargando era soft girl 🎀 #softgirl #appsrecomendadas #appsbonitas #autocuidado",
+  "it": "era soft girl in caricamento 🎀 #softgirl #appconsigliate #appcarine #selfcare",
+  "pt-BR": "carregando a era soft girl 🎀 #softgirl #dicasdeapps #appsfofos #autocuidado"
+ },
+ "musique": {
+  "titre": "Sofa and Shelf",
+  "url": "https://www.tiktok.com/music/sofa-and-shelf-7684064688989800474"
+ },
+ "notes": "Preuve : « five apps / for your soft-girl era » (15,3 k, 28/10 ; 4,5 % d'enregistrements), style carte. Applis vérifiées us, es, it, br : EMMO, Sophia (2e, cta A), Cosmos, Skin Bliss, VSCO. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c19-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "for your soft-girl era"
+   },
+   "es": {
+    "photos": [
+     "images/c19-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para tu era soft girl"
+   },
+   "it": {
+    "photos": [
+     "images/c19-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per la tua era soft girl"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c19-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra sua era soft girl"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "EMMO",
+    "dossier": "images/applis/emmo",
+    "note": "A mood journal where you draw your own little emojis: pick a face, write one line, add a photo",
+    "fond": "images/c19-diary.jpg"
+   },
+   "es": {
+    "nom": "EMMO",
+    "dossier": "images/applis/emmo",
+    "note": "Un diario de humor donde dibujas tus propios emojis: eliges una carita, escribes una línea, añades una foto",
+    "fond": "images/c19-diary.jpg"
+   },
+   "it": {
+    "nom": "EMMO",
+    "dossier": "images/applis/emmo",
+    "note": "Un diario dell'umore dove disegni le tue emoji: scegli una faccina, scrivi una riga, aggiungi una foto",
+    "fond": "images/c19-diary.jpg"
+   },
+   "pt-BR": {
+    "nom": "EMMO",
+    "dossier": "images/applis/emmo",
+    "note": "Um diário de humor onde você desenha seus próprios emojis: escolhe uma carinha, escreve uma linha, põe uma foto",
+    "fond": "images/c19-diary.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "Short lessons on history, philosophy and science, written by professors, with a quiz after each one. 10 minutes a day",
+    "fond": "images/c19-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Lecciones cortas de historia, filosofía y ciencia, escritas por profesores, con un quiz después de cada una. 10 minutos al día",
+    "fond": "images/c19-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Lezioni brevi di storia, filosofia e scienza, scritte da professori, con un quiz dopo ognuna. 10 minuti al giorno",
+    "fond": "images/c19-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Aulas curtas de história, filosofia e ciência, escritas por professores, com um quiz depois de cada uma. 10 minutos por dia",
+    "fond": "images/c19-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Cosmos",
+    "dossier": "images/applis/cosmos",
+    "note": "A calm, ad-free space for inspiration: search by color or image and save everything you love",
+    "fond": "images/c19-moodboard.jpg"
+   },
+   "es": {
+    "nom": "Cosmos",
+    "dossier": "images/applis/cosmos",
+    "note": "Un espacio tranquilo y sin anuncios para inspirarte: busca por color o imagen y guarda todo lo que te encanta",
+    "fond": "images/c19-moodboard.jpg"
+   },
+   "it": {
+    "nom": "Cosmos",
+    "dossier": "images/applis/cosmos",
+    "note": "Uno spazio calmo e senza pubblicità per l'ispirazione: cerchi per colore o immagine e salvi tutto ciò che ami",
+    "fond": "images/c19-moodboard.jpg"
+   },
+   "pt-BR": {
+    "nom": "Cosmos",
+    "dossier": "images/applis/cosmos",
+    "note": "Um espaço calmo e sem anúncios pra se inspirar: busque por cor ou imagem e salve tudo o que você ama",
+    "fond": "images/c19-moodboard.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Skin Bliss",
+    "dossier": "images/applis/skin-bliss",
+    "note": "Plans your morning and night skincare routine and checks the ingredients of every product you own",
+    "fond": "images/c19-skincare.jpg"
+   },
+   "es": {
+    "nom": "Skin Bliss",
+    "dossier": "images/applis/skin-bliss",
+    "note": "Planifica tu rutina de skincare de mañana y de noche y revisa los ingredientes de cada producto que tienes",
+    "fond": "images/c19-skincare.jpg"
+   },
+   "it": {
+    "nom": "Skin Bliss",
+    "dossier": "images/applis/skin-bliss",
+    "note": "Pianifica la tua skincare del mattino e della sera e controlla gli ingredienti di ogni prodotto che hai",
+    "fond": "images/c19-skincare.jpg"
+   },
+   "pt-BR": {
+    "nom": "Skin Bliss",
+    "dossier": "images/applis/skin-bliss",
+    "note": "Planeja sua rotina de skincare de manhã e de noite e confere os ingredientes de cada produto que você tem",
+    "fond": "images/c19-skincare.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "VSCO",
+    "dossier": "images/applis/vsco",
+    "note": "Soft film presets that make every photo dreamy. My whole camera roll looks like a mood board",
+    "fond": "images/c19-photo.jpg"
+   },
+   "es": {
+    "nom": "VSCO",
+    "dossier": "images/applis/vsco",
+    "note": "Presets suaves estilo analógico que hacen cada foto de ensueño. Toda mi galería parece un moodboard",
+    "fond": "images/c19-photo.jpg"
+   },
+   "it": {
+    "nom": "VSCO",
+    "dossier": "images/applis/vsco",
+    "note": "Preset morbidi effetto pellicola che rendono ogni foto sognante. Tutta la mia galleria sembra un moodboard",
+    "fond": "images/c19-photo.jpg"
+   },
+   "pt-BR": {
+    "nom": "VSCO",
+    "dossier": "images/applis/vsco",
+    "note": "Presets suaves estilo filme que deixam cada foto sonhadora. Minha galeria inteira parece um moodboard",
+    "fond": "images/c19-photo.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7701790048211045645",
+  "vues": 15300,
+  "publie_le": "2026-10-28",
+  "accroche": "five apps for your soft-girl era"
+ }
+}

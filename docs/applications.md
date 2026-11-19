@@ -286,6 +286,19 @@ Fait :
 - le recrutement avant l'activation (§ 6) : Atala a sa ligne dans Allocation,
   il suffit de lui donner une part pour que les prochaines recrues soient des
   comptes Atala.
+- ses premières sources (19/11, depuis la Bible) : `@mondorunning`,
+  `@sydneysynced`, `@sslowrisee`, `@healthy_with_emma6`, `@runclubgirl`,
+  `@arunnersmind` ;
+- la pertinence élargie (0777, décision d'Adrien du 19/11) : le
+  self-improvement, la paix intérieure, le glow-up et le bien-être sont notés
+  HAUT (80-92), parce qu'une slide « va courir » y tient comme un conseil
+  parmi les autres ; la course pure reste à 90-100. La première version les
+  rangeait en « notes moyennes » : notés 55-60, ces posts ne passaient le
+  seuil d'import (63) qu'au-delà d'environ 10 000 vues, et
+  `@healthy_with_emma6` n'avait gardé que 7 posts sur 78. Les posts de ces
+  sources rejetés pour leur note ont été rouverts à la main ce jour-là
+  (pertinence et note remises à zéro, la file les renote) ; un post rejeté
+  n'est jamais renoté seul après un changement de consigne.
 
 Reste à faire, à l'écran :
 1. **Relire les deux prompts** (`pertinence_atala`, `placement_atala`). Ce sont

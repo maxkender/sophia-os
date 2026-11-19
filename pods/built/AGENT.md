@@ -54,7 +54,7 @@ Lance `npm install` une fois par session. `photos`, `livrer`, `etat` et `boite` 
 | --- | --- |
 | `npm run veille` | Relève ses posts en direct (Apify) et en fait des planches. Budget : 1 $ par semaine glissante. |
 | `npm run image -- <nom> "<ce qu'on voit>" [--format carre\|haut] [--n 2] [--couleur]` | Une image Seedream détourée (BiRefNet), en noir et blanc, dans `images/detoures/<nom>.png`. |
-| `npm run photos -- "man running"` | Cherche dans toute la banque (le label male_run compris), personnes entières permises, sans texte : `donnees/photos.json` et la planche `sortie/photos/<mots>.jpg`. |
+| `npm run photos -- "man running" [--toute-banque]` | Cherche dans la banque du label **male_run** (chaque mot en début de mot : « man » ne trouve pas « woman »), personnes entières permises, sans texte : `donnees/photos.json` et la planche `sortie/photos/<mots>.jpg`. `--toute-banque` : toute la banque de l'OS. |
 | `npm run detourer -- <id> <nom> [--couleur]` | Détoure une photo de la dernière recherche dans `images/detoures/<nom>.png` (noir et blanc) et note son id dans `donnees/banque.json`. |
 | `npm run rendu -- <id>` (ou `apercu`) | Rend chaque slide (`sortie/<id>/en/<n>.jpg`) et la planche `sortie/apercus/<id>.en.jpg`. |
 | `npm run livrer -- <id> [--essai <dossier>]` | Rend et dépose dans la file. Contrôle : une slide Atala (un conseil), le coureur pris dans la banque, aucune image deux fois, aucune concurrente, Atala citée nulle part ailleurs. |

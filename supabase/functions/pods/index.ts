@@ -41,11 +41,13 @@
  *   { action: "label", pod, limite? }   — agent : contenus du label avec texte
  *       source, rang et vues chez nous (de quoi voir ce qui marche).
  *   { action: "images", pod }   — agent : banque d'images propres du label.
- *   { action: "photos", pod, cherche, limite?, personnes? }   — agent : photos
- *       propres de TOUTE la banque dont la description (en anglais) contient
- *       chaque mot cherché, sans visage reconnaissable ni texte restant (pod
- *       10 : son label n'a pas de banque à lui). Sans personne entière, sauf
- *       `personnes: true` (podz 20 : des filles, sans visage mis en avant).
+ *   { action: "photos", pod, cherche, limite?, personnes?, label? }   — agent :
+ *       photos propres de TOUTE la banque (ou de la banque d'un label :
+ *       `label`, son slug, ex. « male-run ») dont la description (en anglais)
+ *       contient chaque mot cherché en début de mot, sans visage
+ *       reconnaissable ni texte restant (pod 10 : son label n'a pas de banque
+ *       à lui). Sans personne entière, sauf `personnes: true` (podz 20 : des
+ *       filles, sans visage mis en avant).
  *   { action: "top_posts", pod, compte?, limite? }   — agent : nos posts
  *       publiés (avec la slide Sophia) les plus vus, avec leur texte, leurs
  *       images et les slides TikTok d'origine du contenu (modèles de mise en page).
@@ -101,6 +103,7 @@ import {
   estSlideApp,
   LEGENDE_A_ECARTER,
   LEGENDE_A_ECARTER_PERSONNES,
+  motifDebutDeMot,
   metadonneesJpeg,
   PODS_AVEC_PREUVE,
   PREUVE_JOURS_MAX,
@@ -1918,9 +1921,19 @@ async function photosDeLaBanque(request: Request, supabase: Supabase, body: Reco
   const mots = motsCherches(String(body.cherche ?? ""));
   if (!mots.length) return json({ ok: false, error: "cherche : au moins un mot de 3 lettres (en anglais)" }, 400);
   const limite = Math.min(Math.max(Number(body.limite) || 48, 1), 120);
+  // `label` (slug) : seulement la banque de ce label (podz 22 : les coureurs du label male_run).
+  let labelId: string | null = null;
+  if (body.label !== undefined && body.label !== null) {
+    const slug = String(body.label);
+    if (!/^[a-z0-9-]{2,60}$/.test(slug)) return json({ ok: false, error: "label : un slug (ex. male-run)" }, 400);
+    const { data: l, error: lErr } = await supabase.from("labels").select("id").eq("slug", slug).maybeSingle();
+    if (lErr) return json({ ok: false, error: messageErreur(lErr) }, 500);
+    if (!l) return json({ ok: false, error: `label inconnu : ${slug}` }, 400);
+    labelId = (l as { id: string }).id;
+  }
   let q = supabase
     .from("media_library")
-    .select("id, url, caption, used_count")
+    .select(labelId ? "id, url, caption, used_count, media_labels!inner(label_id)" : "id, url, caption, used_count")
     .like("storage_path", "propre/%")
     // Les images ajoutées par un podz (Seedream…) restent à la banque de son label.
     .neq("source", "genere_ia")
@@ -1928,10 +1941,12 @@ async function photosDeLaBanque(request: Request, supabase: Supabase, body: Reco
     .not("visage_identifiable", "is", true)
     .not("visage_premier_plan", "is", true)
     .not("texte_restant", "is", true);
-  for (const m of mots) q = q.ilike("caption", `%${m}%`);
+  if (labelId) q = q.eq("media_labels.label_id", labelId);
+  for (const m of mots) q = q.filter("caption", "imatch", motifDebutDeMot(m));
   const { data, error } = await q.order("used_count", { ascending: true }).order("id").limit(limite);
   if (error) return json({ ok: false, error: messageErreur(error) }, 500);
-  return json({ ok: true, photos: data ?? [] });
+  const photos = ((data ?? []) as Array<Record<string, unknown>>).map(({ media_labels: _lien, ...p }) => p);
+  return json({ ok: true, photos });
 }
 
 const mediane = (xs: number[]) => {

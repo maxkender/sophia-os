@@ -1,12 +1,13 @@
 // Usage :
-//   npm run photos -- "man running" [--limite 48]
+//   npm run photos -- "man running" [--limite 48] [--toute-banque]
 //   puis : npm run detourer -- <id ou 8 premiers caractères> <nom>
 //
 // L'homme qui court de la slide Atala vient de la banque de l'OS (demande
 // d'Adrien du 19/11 : « image d'homme qui court dans la bibliothèque, label
-// male_run »), par l'action `photos` de la fonction `pods` : TOUTE la banque
-// (le label male_run en fait partie), dont la description (en anglais)
-// contient chaque mot cherché, sans texte, les moins utilisées d'abord, les
+// male_run »), par l'action `photos` de la fonction `pods` : la banque du
+// label male_run (`--toute-banque` : toute la banque de l'OS), dont la
+// description (en anglais) contient chaque mot cherché EN DÉBUT DE MOT (« man »
+// ne trouve pas « woman »), sans texte, les moins utilisées d'abord, les
 // personnes entières permises (`personnes: true`), jamais un portrait ni un
 // selfie.
 // - la recherche écrit donnees/photos.json et la planche sortie/photos/<mots>.jpg
@@ -30,11 +31,13 @@ type Photo = { id: string; url: string; caption: string; used_count: number | nu
 const racine = join(import.meta.dirname, "..");
 const args = process.argv.slice(2);
 
-const cherche = args.filter((a, i) => !a.startsWith("--") && !(i > 0 && args[i - 1].startsWith("--"))).join(" ");
+const cherche = args.filter((a, i) => !a.startsWith("--") && !(i > 0 && args[i - 1] === "--limite")).join(" ");
 if (!cherche.trim()) throw new Error('usage : npm run photos -- "man running" [--limite 48] | --garder <id> <nom>');
 const limite = Number(args.includes("--limite") ? args[args.indexOf("--limite") + 1] : 48);
 
-const r = await appelPod<{ photos: Photo[] }>({ action: "photos", cherche, limite, personnes: true });
+// La banque du label male_run (demande d'Adrien du 19/11), sauf --toute-banque.
+const label = args.includes("--toute-banque") ? undefined : "male-run";
+const r = await appelPod<{ photos: Photo[] }>({ action: "photos", cherche, limite, personnes: true, ...(label ? { label } : {}) });
 if (!r.ok) throw new Error(r.error);
 mkdirSync(join(racine, "donnees"), { recursive: true });
 writeFileSync(join(racine, "donnees", "photos.json"), JSON.stringify(r.photos, null, 1));

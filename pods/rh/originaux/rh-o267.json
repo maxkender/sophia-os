@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o267",
+ "type_bleo": "full_test",
+ "titre": "les 5 questions à poser à ton manager pendant ton premier mois #manager #nouveaujob #travail #carriere #jobtips",
+ "musique_titre": "take a moment to breathe.",
+ "musique_url": "https://www.tiktok.com/music/take-a-moment-to-breathe-7200846574183221250",
+ "inspirations": [
+  "d3d9cd2f-2ef4-4c9e-87df-b06c6dbdb1c8",
+  "b80c0573-ff44-459e-beeb-e54be7ea617d"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta D (l'appli est un item d'une liste), slide Sophia en position 6. Full test : accroche jamais faite chez nous (questions au manager le premier mois). Inspirations reprises de rh-o236. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "3a76ac0e",
+   "texte_overlay": "les 5 questions\nà poser à ton manager\npendant ton premier mois",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "16818a92",
+   "texte_overlay": "« à quoi tu verras que j'ai réussi mon premier trimestre ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "61c4cef5",
+   "texte_overlay": "« comment tu préfères qu'on communique ? mail, message, en vrai ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "34115e28",
+   "texte_overlay": "« qui je devrais rencontrer en priorité ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "a35b69f1",
+   "texte_overlay": "« qu'est-ce qui t'agace chez un nouveau ? »\nla réponse vaut de l'or",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7615203554717945110/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d9f2655",
+   "texte_overlay": "« qu'est-ce que je devrais apprendre en plus ? »\nmoi, j'ai ajouté ça à mes 5 minutes par jour",
+   "texte_sophia": "« qu'est-ce que je devrais apprendre en plus ? »\nmoi, j'ai ajouté ça à mes 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9d49a933",
+   "texte_overlay": "laquelle tu poses lundi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7686892050838588704/7.jpg"
+  }
+ ]
+}

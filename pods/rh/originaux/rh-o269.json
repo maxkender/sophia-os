@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o269",
+ "type_bleo": "full_test",
+ "titre": "comment j'ai survécu à mon premier open space #openspace #travail #bureau #concentration #jobtips",
+ "musique_titre": "BEST INTEREST",
+ "musique_url": "https://www.tiktok.com/music/best-interest-7162267272931706882",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (le premier open space). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "1a979667",
+   "texte_overlay": "comment j'ai survécu\nà mon premier\nopen space",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "1523bf52",
+   "texte_overlay": "un casque, même sans musique\nça veut dire « je suis concentrée »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "a8583291",
+   "texte_overlay": "je réserve une salle pour les tâches difficiles\n1 heure, 2 fois par semaine",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "12eb95a2",
+   "texte_overlay": "je réponds aux questions à heure fixe\nsauf urgence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "8154453a",
+   "texte_overlay": "je déjeune avec l'équipe 2 fois par semaine\net seule les autres jours",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "58227bf5",
+   "texte_overlay": "ma pause à moi\n5 minutes pour apprendre un truc, loin du bruit",
+   "texte_sophia": "ma pause à moi\n5 minutes sur l'appli Sophia pour apprendre un truc, loin du bruit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "0fdf2682",
+   "texte_overlay": "t'es en open space, toi ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "source_id": "rh-o275",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "ee3dac98-bebd-4eb1-a961-1818a15450a5",
+ "titre": "comment savoir pendant l'entretien que c'est gagné #entretien #recrutement #rechercheemploi #emploi #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "d9f07ab9-5d08-4307-b806-695a3fc1876a",
+  "e33deadc-e074-4832-869b-1b80a73356b3"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta B (consigne : « utilise l'appli Sophia… »), slide Sophia en position 5. Déclinaison G2 de la ligne #7 (parent ee3dac98) : même promesse, autres mots, signes différents de rh-o158 et rh-o262. Inspirations reprises de rh-o158. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dcd5fbe3",
+   "texte_overlay": "comment savoir\npendant l'entretien\nque c'est gagné",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "8caae407",
+   "texte_overlay": "il te parle du salaire\nsans que tu poses la question",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "62d53387",
+   "texte_overlay": "il te décrit ta première semaine\n« lundi, vous verriez… »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "7dcb01ab",
+   "texte_overlay": "il te demande ce dont tu aurais besoin\npour bien démarrer",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "9ab69c56",
+   "texte_overlay": "il s'intéresse à toi en dehors du CV\net il rebondit sur ce que tu racontes",
+   "texte_sophia": "il s'intéresse à toi en dehors du CV\net il rebondit sur ce que tu racontes. utilise l'appli Sophia 5 minutes par jour, t'auras toujours une histoire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7634195208338558230/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "0209d79d",
+   "texte_overlay": "il te raccompagne jusqu'à l'ascenseur\net la conversation continue",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/6.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "b5773229",
+   "texte_overlay": "rien n'est sûr avant l'appel.\nmais tu peux sourire",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  },
+  {
+   "position": 8,
+   "media_id": "2efbff38",
+   "texte_overlay": "ça t'est déjà arrivé ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7639791281610247456/7.jpg"
+  }
+ ]
+}

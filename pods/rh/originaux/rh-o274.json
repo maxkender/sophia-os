@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o274",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "c231dbd5-60c0-42be-b1ac-74d217097719",
+ "titre": "3 ans après, je fais encore comme ma première manager #manager #travail #carriere #emploi #jobtips",
+ "musique_titre": "Overcome",
+ "musique_url": "https://www.tiktok.com/music/overcome-7040203837050882050",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Déclinaison G2 de la ligne #5 (parent c231dbd5), 3e et dernière : même promesse, autres mots, leçons différentes de rh-o100, rh-o249 et rh-o261. Inspirations reprises de rh-o100. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ec9a66c8",
+   "texte_overlay": "3 ans après,\nje fais encore\ncomme ma première manager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "725421d6",
+   "texte_overlay": "je relis mes notes de réunion le soir même\net j'envoie un résumé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "116c92b6",
+   "texte_overlay": "je dis « je reviens vers toi demain » quand je ne sais pas\net je le fais",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "a6365362",
+   "texte_overlay": "je fête les petites victoires de l'équipe\nun message suffit",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "eb57bb4d",
+   "texte_overlay": "je pose une question avant de donner mon avis",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "92fd2b5a",
+   "texte_overlay": "j'ai toujours un sujet à partager à la pause\nun truc appris le matin, en 5 minutes",
+   "texte_sophia": "j'ai toujours un sujet à partager à la pause\nun truc appris le matin, en 5 minutes sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "9e6e47c4",
+   "texte_overlay": "qu'est-ce que tu fais encore comme ta première manager ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/4.jpg"
+  }
+ ]
+}

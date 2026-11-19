@@ -1,0 +1,57 @@
+{
+ "source_id": "rh-o266",
+ "type_bleo": "full_test",
+ "titre": "ce que j'ai appris en passant de stagiaire à salariée dans la même boîte #stage #premierjob #travail #carriere #jobtips",
+ "musique_titre": "Raindance",
+ "musique_url": "https://www.tiktok.com/music/raindance-7591537888661703446",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 6. Full test : accroche jamais faite chez nous (de stagiaire à salariée). Inspirations reprises de rh-o237. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "a395b54b",
+   "texte_overlay": "ce que j'ai appris\nen passant de stagiaire à salariée\ndans la même boîte",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "027cdd7f",
+   "texte_overlay": "on te regarde encore comme la stagiaire\nles 3 premiers mois. c'est normal",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "789d4a59",
+   "texte_overlay": "il faut redemander tes missions\nnoir sur blanc, avec ton manager",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "eab89942",
+   "texte_overlay": "ton salaire se discute maintenant\npas dans un an",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "72675f94",
+   "texte_overlay": "tes anciens collègues de stage partent\net toi tu restes. garde le contact",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "d0e567ec",
+   "texte_overlay": "j'ai continué à apprendre comme en stage\n5 minutes par jour, rien que pour moi",
+   "texte_sophia": "j'ai continué à apprendre comme en stage\n5 minutes par jour sur l'appli Sophia, rien que pour moi",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "decdd6ed",
+   "texte_overlay": "t'as été embauchée après ton stage ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

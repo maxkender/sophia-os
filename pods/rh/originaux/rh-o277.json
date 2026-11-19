@@ -1,0 +1,58 @@
+{
+ "source_id": "rh-o277",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "60288de6-f8d1-4e74-8bf0-4b284a5db6cf",
+ "titre": "j'ai copié 5 habitudes de la nouvelle qui a été promue en un an (partie 2) #travail #promotion #carriere #emploi #jobtips",
+ "musique_titre": "New Flag",
+ "musique_url": "https://www.tiktok.com/music/new-flag-7645695542928312362",
+ "inspirations": [
+  "63ffa170-7c0e-4890-acf5-b1522aad1cfa",
+  "48eff43a-0fb2-4cf8-9bbd-b9ec45ff4c93"
+ ],
+ "notes": "BLEO voie 1, routine du 19/11 (toute la banque, sans tri de fond). cta A (confession à la 1re personne), slide Sophia en position 5. Déclinaison G1 de la ligne #11 (parent 60288de6) : accroche du parent mot pour mot, autres habitudes. Inspirations reprises de rh-o072. On recadre sans rien inventer, aucune vraie entreprise.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "d454c574",
+   "texte_overlay": "j'ai copié 5 habitudes\nde la nouvelle\nqui a été promue en un an",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "db2d28b2",
+   "texte_overlay": "elle arrivait en réunion avec une proposition\npas juste un problème",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "1ffdadf6",
+   "texte_overlay": "elle remerciait les gens devant leur manager\npas en privé",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/2.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "39914ee3",
+   "texte_overlay": "elle demandait un retour après chaque projet\n« qu'est-ce que je pourrais mieux faire ? »",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/3.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "7709c348",
+   "texte_overlay": "elle avait toujours un truc nouveau à raconter\nmoi, j'ai copié : 5 minutes par jour à apprendre",
+   "texte_sophia": "elle avait toujours un truc nouveau à raconter\nmoi, j'ai copié : 5 minutes par jour sur l'appli Sophia",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7680581117312797984/3.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "b47d6cb3",
+   "texte_overlay": "elle disait non poliment\nquand ça ne servait pas ses priorités",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/4.jpg"
+  },
+  {
+   "position": 7,
+   "media_id": "aaea8743",
+   "texte_overlay": "laquelle tu copies en premier ?",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7667224275685838112/7.jpg"
+  }
+ ]
+}

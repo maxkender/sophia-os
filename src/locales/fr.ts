@@ -2072,6 +2072,22 @@ export const fr = {
         bloc: "Ce que la traduction en {{langue}} reçoit",
         blocVide: "Aucune correction retenue : la traduction ne reçoit rien de plus.",
       },
+      toutRetenir: {
+        titre_one: "{{count}} correction de relecteur attend ton tri",
+        titre_other: "{{count}} corrections de relecteurs attendent ton tri",
+        autres: "autres langues {{n}}",
+        aide: "Tout retenir les fait entrer d'un coup dans les prompts, sans tri une à une. Pour n'en retenir qu'une partie, ouvre « Corrections des relecteurs » dans la langue.",
+        bouton_one: "Tout retenir ({{count}})",
+        bouton_other: "Tout retenir ({{count}})",
+        enCours: "Retenue en cours…",
+        confirmer_one:
+          "Retenir la correction à trier ?\n\nElle entrera dans la traduction ou le placement dès le prochain post.",
+        confirmer_other:
+          "Retenir les {{count}} corrections à trier, dans toutes les langues ?\n\nElles entreront dans la traduction ou le placement dès le prochain post. Tu pourras en remettre une « proposée » ou l'écarter ensuite, une par une.",
+        fait_zero: "Aucune correction à retenir.",
+        fait_one: "{{count}} correction retenue.",
+        fait_other: "{{count}} corrections retenues.",
+      },
       relecturesAdmin: {
         titre: "Posts publiés envoyés aux relecteurs",
         aide: "Chaque mercredi, {{n}} slideshows publiés dans la langue (tirés au sort parmi les publiés des 14 derniers jours, un par contenu, au plus 3 par label) partent à chaque relecteur de la langue, tels qu'ils sont partis. Il réécrit, note, remarque ; ses réécritures sont découpées en corrections (onglet Corrections). Le bouton envoie {{n}} posts tout de suite.",

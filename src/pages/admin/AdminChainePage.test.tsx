@@ -39,6 +39,8 @@ const ecrirePrompt = vi.fn();
 const retoursApplications = vi.fn();
 const listerCorrections = vi.fn();
 const listerRegles = vi.fn();
+const compterProposees = vi.fn();
+const retenirProposees = vi.fn();
 
 vi.mock("@/features/moteur/api", () => ({
   listerLabels: () =>
@@ -78,6 +80,8 @@ vi.mock("@/features/relectureNative/apiCorrections", () => ({
   TYPES_CORRECTION: ["calque", "registre", "vocabulaire", "placement", "longueur", "casse", "sens", "autre"],
   blocCorrectionsNatives: (langue: string) => Promise.resolve(langue === "de" ? "=== RETOURS DES RELECTEURS NATIFS (DE) ===\n- [calque] évite « Insouciant »" : ""),
   listerCorrectionsNatives: (langue: string) => listerCorrections(langue),
+  compterProposees: () => compterProposees(),
+  retenirProposees: (...a: unknown[]) => retenirProposees(...a),
   compterVotesAExtraire: () => Promise.resolve(0),
   deciderCorrections: () => Promise.resolve(),
   extraireCorrections: () => Promise.resolve({ traites: 0, corrections: 0, echecs: [], restants: 0 }),
@@ -181,6 +185,7 @@ async function carte(nom: string) {
 describe("AdminChainePage — onglet Placement (les angles)", () => {
   beforeEach(() => {
     for (const f of [lister, activer, creer, modifier, enTest, supprimer, lirePrompt, ecrirePrompt, retoursApplications]) f.mockReset();
+    compterProposees.mockResolvedValue(0);
     lister.mockResolvedValue(ANGLES);
     lirePrompt.mockResolvedValue("");
     retoursApplications.mockImplementation(retoursFiltres);
@@ -341,7 +346,8 @@ describe("AdminChainePage — onglet Placement (les angles)", () => {
 
 describe("AdminChainePage — onglet Langues", () => {
   beforeEach(() => {
-    for (const f of [lister, lirePrompt, ecrirePrompt, retoursApplications, listerCorrections, listerRegles]) f.mockReset();
+    for (const f of [lister, lirePrompt, ecrirePrompt, retoursApplications, listerCorrections, listerRegles, compterProposees, retenirProposees]) f.mockReset();
+    compterProposees.mockResolvedValue(0);
     lister.mockResolvedValue(ANGLES);
     lirePrompt.mockImplementation((cle: string) =>
       Promise.resolve(cle === "traduction" ? "prompt générique fr" : cle === "traduction_de" ? "prompt allemand" : ""),
@@ -500,6 +506,19 @@ describe("AdminChainePage — onglet Langues", () => {
     expect(screen.queryByTestId("replie-regles")).toBeNull();
     expect(screen.queryByTestId("partie-relecteurs")).toBeNull();
     expect(screen.getByTestId("partie-placement")).toBeInTheDocument();
+  });
+
+  it("tout retenir : le bouton est en tête de l'onglet, quelle que soit la langue ouverte", async () => {
+    compterProposees.mockResolvedValue(435);
+    retenirProposees.mockResolvedValue(435);
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendre("/admin/chaine?langue=it");
+    const bandeau = await screen.findByTestId("tout-retenir");
+    expect(bandeau.compareDocumentPosition(await screen.findByTestId("panneau-langue")) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    fireEvent.click(within(bandeau).getByRole("button", { name: /Tout retenir \(435\)|Keep all \(435\)/ }));
+    await waitFor(() => expect(retenirProposees).toHaveBeenCalledWith());
+    expect(await within(bandeau).findByText(/435 corrections retenues\.|435 corrections kept\./)).toBeInTheDocument();
+    vi.restoreAllMocks();
   });
 
   it("la recherche filtre la liste", async () => {

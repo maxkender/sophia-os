@@ -2071,6 +2071,21 @@ export const en = {
         bloc: "What the {{langue}} translation receives",
         blocVide: "No kept correction: the translation receives nothing more.",
       },
+      toutRetenir: {
+        titre_one: "{{count}} reviewer correction is waiting to be sorted",
+        titre_other: "{{count}} reviewer corrections are waiting to be sorted",
+        autres: "other languages {{n}}",
+        aide: "Keep all sends them into the prompts in one go, without sorting one by one. To keep only some, open “Reviewers' corrections” in the language.",
+        bouton_one: "Keep all ({{count}})",
+        bouton_other: "Keep all ({{count}})",
+        enCours: "Keeping…",
+        confirmer_one: "Keep the correction waiting to be sorted?\n\nIt will enter translation or placement from the next post on.",
+        confirmer_other:
+          "Keep the {{count}} corrections waiting to be sorted, in every language?\n\nThey will enter translation or placement from the next post on. You can set one back to “proposed” or discard it afterwards, one by one.",
+        fait_zero: "No correction to keep.",
+        fait_one: "{{count}} correction kept.",
+        fait_other: "{{count}} corrections kept.",
+      },
       relecturesAdmin: {
         titre: "Published posts sent to reviewers",
         aide: "Every Wednesday, {{n}} slideshows published in the language (drawn at random among those published in the last 14 days, one per content, at most 3 per label) go to each reviewer of the language, as they went out. They rewrite, rate, remark; their rewrites are cut into corrections (Corrections tab). The button sends {{n}} posts right away.",

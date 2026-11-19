@@ -97,6 +97,35 @@ export async function deciderCorrections(ids: string[], statut: StatutCorrection
   if (error) throw error;
 }
 
+/** Les corrections proposées, toutes langues : ce qui attend un tri. */
+export async function compterProposees(): Promise<number> {
+  const { count, error } = await supabase
+    .from("corrections_natives")
+    .select("id", { count: "exact", head: true })
+    .eq("statut", "proposee");
+  if (error) throw error;
+  return count ?? 0;
+}
+
+/**
+ * Retient d'un coup toutes les corrections proposées, d'une langue ou de
+ * toutes (`langue` omise). Par filtre et non par liste d'ids : plusieurs
+ * centaines d'ids ne tiennent pas dans l'URL de la requête. Rend le nombre de
+ * corrections retenues.
+ */
+export async function retenirProposees(langue?: string): Promise<number> {
+  const { data: auth } = await supabase.auth.getUser();
+  const maintenant = new Date().toISOString();
+  let requete = supabase
+    .from("corrections_natives")
+    .update({ statut: "retenue", decide_par: auth?.user?.id ?? null, decide_le: maintenant, updated_at: maintenant }, { count: "exact" })
+    .eq("statut", "proposee");
+  if (langue) requete = requete.eq("langue", langue.toLowerCase());
+  const { count, error } = await requete;
+  if (error) throw error;
+  return count ?? 0;
+}
+
 export async function modifierCorrection(id: string, champs: { corrige: string | null; type: TypeCorrection }): Promise<void> {
   const corrige = (champs.corrige ?? "").trim() || null;
   const { error } = await supabase

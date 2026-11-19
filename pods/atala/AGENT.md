@@ -36,7 +36,7 @@ rejette est validée toute seule 5 h après son dépôt.
 - **Les légendes** : en minuscules, 2 lignes au plus (14 signes par ligne en style `objets`, 16 en `photos`) ; pas de mot seul sur la dernière ligne (reformule). Des conseils **vrais** et prudents (rien de médical, pas de régime).
 - **Les images**, Seedream sur fal (`npm run image`), regardées une à une (Read) avant de servir :
 	- style `objets` (celui de hannah, leur tube) : chaque vignette est un **objet détouré** (`--objet`) ; réutilise ceux d'`images/objets/` quand ils vont ;
-	- style `photos` (celui de katrina) : des photos carrées de course, de tenue, de repas (`npm run image -- <nom> "<scène>"`) ;
+	- style `photos` (celui de katrina) : **pas de style `photos`** (demande d'Adrien du 19/11) ; tout se fait en style `objets` ;
 	- la couverture : une coureuse détourée en pleine foulée, plein pied (`--objet --format haut`) ;
 	- jamais une vraie personne reconnaissable, jamais un logo de marque (pas de virgule Nike, pas de trois bandes, pas de Red Bull : un objet neutre), jamais de texte dans l'image.
 - **La slide Atala** : une seule par post (celle qui porte `"atala"` dans ses `do`), jamais la couverture, jamais dans les « Don't ». Ailleurs, Atala n'est jamais citée, ni dans le titre ni dans la légende TikTok (`npm run livrer` le vérifie).
@@ -85,7 +85,7 @@ Regarde **toujours** la planche, puis **chaque slide en taille réelle** avec l'
 ## L'ordre de travail
 
 1. **Les full tests et déclinaisons de ta boîte** (`npm run boite`, `pods/ROUTINE.md` §5) : ils passent d'abord.
-2. **Puis leurs tubes, en originaux** : d'abord les do & don'ts (style `objets`, leur 279 k), en alternant avec le style `photos` ; une grille quand le format est prêt.
+2. **Puis leurs tubes, en originaux** : les do & don'ts, toujours en style `objets` (leur 279 k ; jamais de style `photos`, demande d'Adrien du 19/11) ; une grille quand le format est prêt.
 3. **Le lundi**, la veille : leurs nouveaux posts entrent dans le manifeste, par vues.
 
 ## Règles

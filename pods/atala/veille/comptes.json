@@ -1,0 +1,7 @@
+{
+  "note": "Comptes relevés par `npm run veille` : les comptes modèles (@hannah.run5, @katrina.run). Budget Apify : 1 $ par semaine glissante.",
+  "comptes": [
+    "hannah.run5",
+    "katrina.run"
+  ]
+}

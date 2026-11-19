@@ -1,0 +1,53 @@
+{
+  "source_id": "cs-o139",
+  "type_bleo": "full_test",
+  "titre": "how i catch up after missing a week of school #studytok #studytips #school",
+  "musique_titre": "Vibin",
+  "musique_url": "https://www.tiktok.com/music/Vibin-7668271352941742081",
+  "inspirations": [],
+  "notes": "Full test (BLEO, jauge du 19/11 : 2 full tests sur 6). Accroche jamais faite chez nous (« missed a week », « missing » absents du label ; cs-o077 parlait d'une semaine sans étudier, ici d'une semaine d'absence). Accroches écrites : « how i catch up after missing a week of school » (retenue : une situation qui arrive à tout le monde), « what to do when you're absent » (écartée : plate), « catch up in 2 days » (écartée : promesse qui dépend). Santé générale seulement, rien de médical. Gestes vrais : demander la liste aux profs, les notes d'un ami, trier urgent et le reste, une leçon par soir, se tester sur chaque leçon rattrapée (place micabo, slide 6), demander de l'aide sur ce qui reste flou. Images prises dans toute la banque, sans tri de fond (Adrien, 17/11), les moins utilisées d'abord ; la slide micabo seule sur une photo sans personne. Son alterné.",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "e015bef4",
+      "texte_overlay": "how i catch up after missing\na week of school",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "03aa80fd",
+      "texte_overlay": "first, i ask each teacher one question:\n\"what did i miss that's on the next test?\"",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/2.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "c682b75e",
+      "texte_overlay": "i borrow a friend's notes and copy only the gaps.\nnot the whole week.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/3.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "e6634181",
+      "texte_overlay": "i sort everything: due this week / later / just read.\nthe first pile goes first.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/4.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "d7ec0c4f",
+      "texte_overlay": "one missed lesson per evening.\nnot all of them in one weekend.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/5.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "349b9b00",
+      "texte_overlay": "after each one, i quiz myself on it.\nso i know it's really caught up.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/6.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1e788096",
+      "texte_overlay": "anything still unclear goes on a list.\nfor the teacher, before the test. not after.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7681737168292678945/7.jpg"
+    }
+  ]
+}

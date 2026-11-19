@@ -13,6 +13,8 @@
 //              source. La tienne ne sert que si l'OS n'en rend aucune.
 //   --planche N  règle la planche : ses images absentes du fichier sont écartées
 //                et ne reviendront plus au tri.
+//   --parallele N  images traitées en même temps (3 par défaut, 6 au plus) :
+//                la description de l'OS prend quelques secondes par image.
 //   --essai      ne verse rien : écrit les images recadrées dans
 //                sortie/verser/<nom du fichier>/ et leur planche apercu.jpg, à
 //                REGARDER en grand avant de verser (pas besoin de BANQUE_JETON).
@@ -33,7 +35,8 @@ const opt = (n: string) => (args.includes(n) ? args[args.indexOf(n) + 1] : undef
 const essai = args.includes("--essai");
 const labelsDefaut = (opt("--labels") ?? "").split(",").map((l) => l.trim()).filter(Boolean);
 const planche = opt("--planche");
-const fichier = args.find((a, i) => a.endsWith(".json") && !["--labels", "--planche"].includes(args[i - 1]));
+const parallele = Math.min(Math.max(Number(opt("--parallele") ?? 3) || 3, 1), 6);
+const fichier = args.find((a, i) => a.endsWith(".json") && !["--labels", "--planche", "--parallele"].includes(args[i - 1]));
 if (!fichier) throw new Error("usage : verser --labels male_run[,…] [--planche N] [--essai] <decisions.json>");
 
 const { decisions, erreurs } = verifierDecisions(JSON.parse(readFileSync(fichier, "utf8")));
@@ -78,17 +81,17 @@ let refusees = 0;
 let quota = false;
 let sansDescription = 0;
 const dossierEssai = `sortie/verser/${basename(fichier, ".json")}`;
-const apercus: { court: string; jpeg: Buffer; note: string }[] = [];
+const apercus: { rang: number; court: string; jpeg: Buffer; note: string }[] = [];
 if (essai) mkdirSync(dossierEssai, { recursive: true });
-for (const { d, candidat, labels } of lignes) {
+async function traiter({ d, candidat, labels }: (typeof lignes)[number], rang: number): Promise<void> {
   const court = candidat.ref.slice(0, 6);
-  if (quota) break;
+  if (quota) return;
   try {
     const jpeg = await recadrer(candidat.image_url, d.cadrage);
     if (essai) {
       writeFileSync(`${dossierEssai}/${court}.jpg`, jpeg);
-      apercus.push({ court, jpeg, note: `${d.cadrage && d.cadrage !== "centre" ? ` ${d.cadrage}` : ""}${d.visage ? " visage" : ""}` });
-      continue;
+      apercus.push({ rang, court, jpeg, note: `${d.cadrage && d.cadrage !== "centre" ? ` ${d.cadrage}` : ""}${d.visage ? " visage" : ""}` });
+      return;
     }
     const r = await appelBanque<{ id: string; url: string; deja?: boolean; description?: string | null; description_par?: string }>({
       action: "ajouter",
@@ -102,7 +105,7 @@ for (const { d, candidat, labels } of lignes) {
       if (r.code === "quota_images") quota = true;
       refusees += 1;
       console.log(`${court} : REFUSÉ ${r.error}`);
-      continue;
+      return;
     }
     candidat.decision = "versee";
     candidat.motif = r.id;
@@ -118,6 +121,14 @@ for (const { d, candidat, labels } of lignes) {
     console.log(`${court} : ÉCHEC ${e instanceof Error ? e.message : e}`);
   }
 }
+// Quelques images à la fois, chacune prise dans la file par le premier libre.
+const file = lignes.map((ligne, rang) => ({ ligne, rang }));
+await Promise.all(
+  Array.from({ length: Math.min(parallele, file.length) }, async () => {
+    for (let suivante = file.shift(); suivante; suivante = file.shift()) await traiter(suivante.ligne, suivante.rang);
+  }),
+);
+apercus.sort((a, b) => a.rang - b.rang);
 
 let ecartees = 0;
 if (!essai && planche && !refusees) {

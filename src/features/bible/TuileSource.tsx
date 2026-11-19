@@ -1,5 +1,6 @@
 /**
- * 19/11 (Adrien) : une source dans le moodboard de la Bible (onglets En import, À l'essai, Weekly update, Arrêtées).
+ * 19/11 (Adrien) : une source dans le moodboard de la Bible (onglets En import, À l'essai, Weekly update, Essai
+ * raté, Arrêtées).
  * Même tuile qu'un compte repéré, avec ce que la page Sources montre : son état en une phrase, son r, son r face au
  * label, son stock, et 3 slides de ses posts les plus vus (nos médias).
  */

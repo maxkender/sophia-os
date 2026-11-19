@@ -40,9 +40,13 @@ const compte = (o: Partial<CompteBible>): CompteBible => ({
 });
 
 describe("l'onglet d'une source, calculé depuis son état", () => {
-  it("désactivée ou essai raté : Arrêtées", () => {
+  it("essai raté : sa propre case, la source est gardée ; désactivée : Arrêtées", () => {
+    expect(etapeDeLaSource(base({ essaiMax: 30, essaiVerdict: "ne_tient_pas" }))).toBe("essai_rate");
+    // même avec du stock et des mesures : elle ne retombe ni en « À l'essai » ni en « Weekly update »
+    expect(etapeDeLaSource(base({ importes: 30, valides: 24, essaiMax: 30, essaiVerdict: "ne_tient_pas", semaine: lundi({}) }))).toBe("essai_rate");
     expect(etapeDeLaSource(base({ actif: false }))).toBe("arretees");
-    expect(etapeDeLaSource(base({ essaiMax: 30, essaiVerdict: "ne_tient_pas" }))).toBe("arretees");
+    // désactivée à la main après un essai raté : c'est la désactivation qui compte
+    expect(etapeDeLaSource(base({ actif: false, essaiMax: 30, essaiVerdict: "ne_tient_pas" }))).toBe("arretees");
   });
 
   it("source neuve dans la file, ou dont le premier import tourne : En import", () => {
@@ -72,7 +76,7 @@ describe("l'onglet d'une source, calculé depuis son état", () => {
     expect(etapeDeLaSource(base({ essaiVerdict: "tient" }))).toBe("weekly");
     expect(etapeDeLaSource(base({}))).toBe("weekly");
     expect(compterSources([source({}), source({ id: "s2", importes: 30, essaiMax: 30 }), source({ id: "s3", actif: false })])).toEqual({
-      en_import: 0, essai: 1, weekly: 1, arretees: 1,
+      en_import: 0, essai: 1, weekly: 1, essai_rate: 0, arretees: 1,
     });
   });
 });
@@ -137,9 +141,16 @@ describe("l'état d'une source, en une phrase", () => {
     expect(texte({})).toBe("À jour");
   });
 
-  it("arrêtées", () => {
+  it("essai raté : la source est gardée avec ses slideshows validés, elle n'importe plus ; désactivée", () => {
+    expect(phraseEtat(source({ importes: 30, valides: 24, essaiMax: 30, essaiVerdict: "ne_tient_pas" }), REGLES)).toEqual({
+      texte: "Essai raté : gardée avec ses 24 slideshows validés, plus d'import", ton: "alerte",
+    });
+    expect(texte({ importes: 30, valides: 1, essaiMax: 30, essaiVerdict: "ne_tient_pas" })).toBe("Essai raté : gardée avec ses 1 slideshow validé, plus d'import");
+    expect(texte({ importes: 30, valides: 0, essaiMax: 30, essaiVerdict: "ne_tient_pas" })).toBe("Essai raté : gardée, plus d'import");
     expect(texte({ actif: false })).toBe("Désactivée");
-    expect(texte({ importes: 30, essaiMax: 30, essaiVerdict: "ne_tient_pas" })).toBe("Essai raté : arrêtée à 30 posts");
+    expect(compterSources([source({ essaiMax: 30, essaiVerdict: "ne_tient_pas" }), source({ id: "s2", actif: false })])).toEqual({
+      en_import: 0, essai: 0, weekly: 0, essai_rate: 1, arretees: 1,
+    });
   });
 });
 
@@ -337,6 +348,10 @@ describe("les règles, avec les vrais seuils", () => {
     expect(regleDeLaVue("en_import", REGLES)).toContain("Seules les mises à jour de la semaine sont étalées, 8 sources par jour.");
     expect(regleDeLaVue("prochain_batch", REGLES)).toContain("leur import part tout de suite");
     expect(regleDeLaVue("weekly", REGLES)).toContain("Les comptes à podzer validés y figurent à part, à titre indicatif.");
+    expect(regleDeLaVue("essai", REGLES)).toContain("sinon elle va dans « Essai raté » (gardée, plus importée)");
+    expect(regleDeLaVue("essai_rate", REGLES)).toContain("avec 10 posts mesurés chez nous, leur r est resté sous 0,95, et sous 0,95 face à leur label");
+    expect(regleDeLaVue("essai_rate", REGLES)).toContain("Rien n'est effacé : la source reste, ses slideshows validés restent en stock");
+    expect(regleDeLaVue("arretees", REGLES)).toBe("Les sources désactivées à la main : elles ne sont plus mises à jour.");
   });
 
   it("le bilan du lundi et le résultat d'un lancement", () => {

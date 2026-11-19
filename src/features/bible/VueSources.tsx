@@ -1,5 +1,6 @@
 /**
- * 19/11 (Adrien) : les onglets des sources dans la Bible (En import, À l'essai, Weekly update, Arrêtées). Le même
+ * 19/11 (Adrien) : les onglets des sources dans la Bible (En import, À l'essai, Weekly update, Essai raté,
+ * Arrêtées). Le même
  * moodboard que les comptes repérés (par app, puis par label), précédé de ce qui se passe dans l'étape : les sources
  * neuves en cours d'import, ou le bilan de la semaine (le lundi décide, les mises à jour partent chaque matin).
  */
@@ -95,7 +96,14 @@ export function VueSources({ etape, donnees, cartes, recherche, section }: {
 }) {
   const [semaine, setSemaine] = React.useState<FiltreSemaine>("toutes");
   const groupes = rangerSources(donnees.sources, donnees.labels, cartes, { etape, recherche, section, semaine });
-  const vide = etape === "en_import" ? "Aucune source en cours d'import." : etape === "essai" ? "Aucune source à l'essai." : etape === "weekly" ? "Aucune source ici." : "Aucune source arrêtée.";
+  const VIDE: Record<EtapeSource, string> = {
+    en_import: "Aucune source en cours d'import.",
+    essai: "Aucune source à l'essai.",
+    weekly: "Aucune source ici.",
+    essai_rate: "Aucune source n'a raté son essai.",
+    arretees: "Aucune source désactivée.",
+  };
+  const vide = VIDE[etape];
 
   return (
     <>

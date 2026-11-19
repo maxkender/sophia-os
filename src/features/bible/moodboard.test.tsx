@@ -231,6 +231,7 @@ describe("page Bible", () => {
       source({ semaine: { compteReferenceId: "s1", handle: "une.source", langue: "en", label: "smart_girl", posts: 20, r: 1.12, rVsLabel: 1.05, decision: "maj", raison: "r", meilleurVues: null, lanceeLe: "2026-11-17T05:40:00Z", importes: 12, valides: 9 } }),
       source({ id: "s2", handle: "source.ailleurs", labels: [{ id: "L1", nom: "smart_girl" }], importes: 30, valides: 24, essaiMax: 30, etape: "essai", perf: { posts: 6, r: 0.59, vuesMediane: 300 } }),
       source({ id: "s3", handle: "eteinte", actif: false, etape: "arretees" }),
+      source({ id: "s4", handle: "jco.mindset", importes: 30, valides: 24, essaiMax: 30, essaiVerdict: "ne_tient_pas", etape: "essai_rate", perf: { posts: 34, r: 0.46, vuesMediane: 950, rVsLabel: 0.44, labelNom: "smart_girl" } }),
     ], { semaine: { semaine: "2026-11-16", sources: [{ compteReferenceId: "s1", handle: "une.source", langue: "en", label: "smart_girl", posts: 20, r: 1.12, rVsLabel: 1.05, decision: "maj", raison: "r", meilleurVues: null, lanceeLe: "2026-11-17T05:40:00Z", importes: 12, valides: 9 }] } }));
     rendre();
     // une.source porte déjà le label de sa carte : seul source.ailleurs reste à faire (sa carte vise un autre label).
@@ -238,6 +239,17 @@ describe("page Bible", () => {
     expect(screen.getByRole("tab", { name: /À l'essai 1/ })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: /Weekly update 1/ })).toBeInTheDocument();
     expect(screen.getByRole("tab", { name: /Arrêtées 1/ })).toBeInTheDocument();
+    // Une source qui rate son essai n'est pas effacée : elle a sa case, avec son r et son stock.
+    fireEvent.click(screen.getByRole("tab", { name: /Essai raté 1/ }));
+    expect(screen.getByTestId("regle-etape")).toHaveTextContent("Rien n'est effacé : la source reste, ses slideshows validés restent en stock");
+    const ratee = (await screen.findByText(/jco\.mindset/)).closest("[data-source]") as HTMLElement;
+    expect(within(ratee).getByTestId("etat-jco.mindset")).toHaveTextContent("Essai raté : gardée avec ses 24 slideshows validés, plus d'import");
+    expect(ratee).toHaveTextContent("r 0,46");
+    expect(ratee).toHaveTextContent("×0,44 label");
+    expect(ratee).toHaveTextContent("stock 24 / 30");
+    fireEvent.click(screen.getByRole("tab", { name: /Arrêtées 1/ }));
+    expect(screen.queryByText(/jco\.mindset/)).toBeNull();
+    expect(await screen.findByText(/eteinte/)).toBeInTheDocument();
     fireEvent.click(screen.getByRole("tab", { name: /Prochain batch/ }));
     const reste = (await screen.findByText(/source\.ailleurs/)).closest("[data-compte]") as HTMLElement;
     expect(within(reste).getByText("déjà une source · smart_girl")).toBeInTheDocument();

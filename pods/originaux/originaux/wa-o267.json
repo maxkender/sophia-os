@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o267",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "8b07a269-0ca1-4584-96cb-d10ec890ce09",
+ "titre": "quiet skills that make people think you're a genius #genius #intelligence #skills #selfimprovement #learning",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "0fbd8952-b847-4dad-9c8b-f55a4b057f92"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 0fbd8952). déclinaison G1 de « quiet skills that make people think you re a genius » (parent 8b07a269). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "c0575f92-21ca-4228-9ee6-ea509844a333",
+   "texte_overlay": "quiet skills that make people\nthink you're a genius",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "48bcbbef-b2d1-44df-80ea-d2db51548697",
+   "texte_overlay": "summing up in one line\n\nafter a meeting, a video or a book, sum it up in a single sentence. people who can squeeze a long idea into one clear line always sound sharp and clear.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "c32a4958-a708-477f-84d2-a682007168d7",
+   "texte_overlay": "asking why twice\n\nwhen someone explains something, ask why one more time than feels polite. the second answer is where the real understanding is usually quietly hiding.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "38165c84-c58c-40fa-a2df-b142b461898e",
+   "texte_overlay": "saying i'm not sure\n\nadmit when you don't know, then say how you'd find out. calm uncertainty sounds far smarter than a confident guess, and people trust you far more for it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "e4114cc7-3c5d-47f1-8ec3-daba6905f4ed",
+   "texte_overlay": "knowing a bit of everything\n\nknowing a little about art, history and science makes you sound brilliant in any conversation. a few minutes a day of curious learning adds up faster than you'd ever expect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/5.jpg",
+   "texte_sophia": "knowing a bit of everything\n\nknowing a bit of everything makes you sound brilliant. the Sophia app turns it into one short lesson a day, art, history or science, and people now think i know everything."
+  },
+  {
+   "position": 6,
+   "media_id": "c87561e1-701b-415d-9319-8e49df1657cd",
+   "texte_overlay": "remembering a few numbers\n\nlearn a handful of useful numbers by heart: distances, dates, populations. one accurate figure in a conversation makes you sound instantly well informed.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7657228924216216854/6.jpg"
+  }
+ ]
+}

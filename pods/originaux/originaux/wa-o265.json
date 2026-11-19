@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o265",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "73831bad-ae53-4939-8b90-ec346a385935",
+ "titre": "things that make you more likeable without trying #likeable #socialskills #psychology #charisma #selfimprovement",
+ "musique_titre": "INTERESTELLAR",
+ "musique_url": "https://www.tiktok.com/music/interestellar-7420633921946782469",
+ "inspirations": [
+  "648e59e7-f960-4d66-80f9-bf89cd9c897f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 648e59e7). déclinaison G1 de « things that make you more likeable without trying » (parent 73831bad). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b4a6763b-7327-456b-a0cc-be6786ed9231",
+   "texte_overlay": "things that make you more\nlikeable without trying",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "c3ca6b7f-bceb-4a51-90ed-01d054c4ae6d",
+   "texte_overlay": "smiling with your eyes\n\na real smile reaches your eyes, not just your mouth. people feel the difference instantly, and a warm, genuine smile makes them relax around you right away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "125880e9-0b21-4a0d-ae92-37a3dbac192b",
+   "texte_overlay": "delight in small things\n\nshow your excitement about simple things: a lovely view, a good song, a funny story. people love being near someone who enjoys life without hiding it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "9ac762d6-3508-437c-b467-663666c32f85",
+   "texte_overlay": "knowing a little about a lot\n\ni used to stay quiet in groups, until i started learning a little about everything each day. having one interesting thing to share makes you so much easier to like.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/4.jpg",
+   "texte_sophia": "knowing a little about a lot\n\ni used to stay quiet in groups. now i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and i always have something to add that makes people smile."
+  },
+  {
+   "position": 5,
+   "media_id": "4174e99f-7e6e-4efc-a7f2-2415f7b5c471",
+   "texte_overlay": "admitting what you don't know\n\nsaying i've never heard of that, tell me more, makes people light up. curiosity about their world is far more likeable than pretending to know it all.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "1d96d495-56bd-4341-9c2d-587916fb7dc6",
+   "texte_overlay": "remembering small details\n\nremember someone's dog's name or the exam that made them nervous. small details show you care, and people never forget how that made them feel about you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664651951581203734/6.jpg"
+  }
+ ]
+}

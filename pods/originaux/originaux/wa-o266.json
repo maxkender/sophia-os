@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o266",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "a60dd609-1c1e-4acf-ac32-b135010601dd",
+ "titre": "things you should stop apologising for #selfrespect #confidence #boundaries #selfimprovement #mindset",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "adcb68de-e32c-4b29-b78e-1181e7bf8a56"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, adcb68de). déclinaison G1 de « things you should stop apologising for » (parent a60dd609). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "dfe9123e-84e9-4bfc-8cb7-0d99bf311b1b",
+   "texte_overlay": "things you should stop\napologising for",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "66f88013-bab2-4bd2-8968-78156da7b7c8",
+   "texte_overlay": "taking up space\n\nstop apologising for sitting down, asking a question or simply being in the room. you belong there just just as much as anyone else in the whole room does.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8428221d-318e-4974-98cb-e3ef061cba92",
+   "texte_overlay": "having needs\n\nstop apologising for needing rest, help or time alone. everyone has needs, and calmly saying yours out loud is a healthy thing, not a selfish or weak one.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "bde08548-4ab5-4cde-a946-dbb9626d2129",
+   "texte_overlay": "not knowing everything\n\ni stopped apologising for what i didn't know and started learning a little every day instead. curiosity feels so much better than constant nervous apologies.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/4.jpg",
+   "texte_sophia": "not knowing everything\n\ni stopped apologising for what i didn't know. now i take one lesson a day in the Sophia app, a bit of history or science, and every day i know a little more than yesterday."
+  },
+  {
+   "position": 5,
+   "media_id": "3fb58cb5-5902-45ac-b9af-4eb293189890",
+   "texte_overlay": "changing your mind\n\nstop apologising for changing your opinion when you learn something new. updating your views isn't weakness, it's proof that you're still learning and growing.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "a9c3520c-2e3d-42d2-80c3-eee26d07d63e",
+   "texte_overlay": "saying no\n\nstop apologising for saying no to things you don't want. a kind no protects your time, and the right people in your life will always understand it and respect it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7660059863829040406/6.jpg"
+  }
+ ]
+}

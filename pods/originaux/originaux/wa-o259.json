@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o259",
+ "type_bleo": "full_test",
+ "titre": "signs people quietly respect you more than you think #respect #psychology #socialskills #selfimprovement #signs",
+ "musique_titre": "stay high",
+ "musique_url": "https://www.tiktok.com/music/stay-high-7193063668878265094",
+ "inspirations": [
+  "4d79f4a2-fc0a-4486-b187-f66df926aaac"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 4d79f4a2). full test BLEO : accroche jamais faite (format « signs people quietly X you more than you think »). cta A. Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "326d72b8-9d3e-4a21-95a3-61ee5106f881",
+   "texte_overlay": "signs people quietly respect\nyou more than you think",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "cb369f17-7005-4eb6-81fb-a6ed0e6853ac",
+   "texte_overlay": "they ask your opinion\n\npeople come to you before making a decision, even about small things. we only ask for advice from those whose judgement we quietly trust and deeply respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "35ab0304-03f3-4f94-bb87-0e48146f9995",
+   "texte_overlay": "they lower their voice\n\nwhen you speak, the room gets a little quieter and people actually listen. attention is the clearest sign of respect, and it rarely comes by accident.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "92cbc629-53bd-412d-b4d0-29eef46a385c",
+   "texte_overlay": "they ask what you're learning\n\npeople are curious about what you've been reading or thinking about lately, because you always bring something new. being the curious one in the group earns a quiet kind of respect.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/4.jpg",
+   "texte_sophia": "they ask what you're learning\n\npeople always ask what i've been learning. i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and i always have something new to share with them."
+  },
+  {
+   "position": 5,
+   "media_id": "08ad604d-6fb8-4a52-940e-3d2473ca4207",
+   "texte_overlay": "they remember what you said\n\nsomeone repeats an idea you shared weeks ago. people only remember the words of those they take seriously, even if they never ever say it out loud to you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "50225449-e5ae-4923-8755-fa5a4cad6828",
+   "texte_overlay": "they keep their promises to you\n\npeople are careful to be on time and keep their word with you. we try hardest with the people whose opinion of us really matters, and that includes you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7663463887697710358/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,51 @@
+{
+ "source_id": "wa-o264",
+ "type_bleo": "declinaison",
+ "parent_contenu_id": "30107693-22c0-435e-bd0d-5cfb26b9bd1b",
+ "titre": "habits that give you a bold kind of confidence #confidence #bold #habits #selfimprovement #leadership",
+ "musique_titre": "Cinderella (Instrumental)",
+ "musique_url": "https://www.tiktok.com/music/cinderella-instrumental-7638943072840910864",
+ "inspirations": [
+  "9d63e1c9-e7d4-481e-b65f-e6045adbfa5a"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9d63e1c9). déclinaison G2 de « hobbies that will make you dangerously confident » (parent 30107693). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "ea77c12e-8a14-4430-b746-f29e02454132",
+   "texte_overlay": "habits that give you a\nbold kind of confidence",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "3c4c15e7-a4b2-4d0d-844a-6700cb6ec5d6",
+   "texte_overlay": "volunteering to speak\n\nin the next group project, be the one who says i'll present. the nerves last two minutes, but the respect you quietly earn from it lasts the whole year.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "dea87ecb-660f-4acf-a358-858677c8e00e",
+   "texte_overlay": "praising others out loud\n\nthis week, praise someone who did good work, out loud and in front of others. people who praise freely are the ones everyone naturally sees as leaders.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "70c8fb3f-65c6-4bc9-b83a-a38a25d4ae35",
+   "texte_overlay": "asking a real question\n\nonce a week, ask your boss or teacher a real question about how they think, not about the task. most people never do, and it makes you truly memorable.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d44b1c6a-62c0-4bea-934e-d0672399f7ae",
+   "texte_overlay": "a coffee break fact\n\nuse one coffee break a day to learn something new in 5 minutes, a short history or science fact. having one interesting thing to share makes speaking up so much easier.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/5.jpg",
+   "texte_sophia": "a coffee break fact\n\nuse one coffee break a day to learn something new. the Sophia app turns it into one short lesson, a history or science fact, and you always have something smart to share."
+  },
+  {
+   "position": 6,
+   "media_id": "c01572ec-a6b2-4290-bfef-7794119e597c",
+   "texte_overlay": "keeping your word\n\nsay clearly when you'll finish something, then finish a little early. every promise you keep adds a little more weight to your quiet, steady confidence.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7664332119908322582/6.jpg"
+  }
+ ]
+}

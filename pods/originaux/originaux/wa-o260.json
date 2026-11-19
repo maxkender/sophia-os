@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o260",
+ "type_bleo": "full_test",
+ "titre": "habits of people who are incredible listeners #listening #communication #socialskills #selfimprovement #empathy",
+ "musique_titre": "Flowers (Nature Sounds)",
+ "musique_url": "https://www.tiktok.com/music/flowers-nature-sounds-7636329965952911377",
+ "inspirations": [
+  "5b39aa5e-5308-40f5-8693-18773c10278f"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 5b39aa5e). full test BLEO : accroche jamais faite (format « habits of people who are incredible X »). cta C (slide Sophia en position 4, conseil à la 1re personne). Slide Sophia en position 4.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "b60acdbc-b4ae-4e00-9362-b0956ff07be0",
+   "texte_overlay": "habits of people who are\nincredible listeners",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "92ce41bf-6687-469f-9a4f-32364ae447bb",
+   "texte_overlay": "they put the phone away\n\nthey put their phone face down and out of sight the moment someone starts talking. full attention has become so rare that people feel it straight away.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "8cda6d98-59d4-46ea-a247-432d608fd67f",
+   "texte_overlay": "they ask the second question\n\nthey don't move on after the first answer. one more gentle question, like what was that like, shows they truly care about the story they're being told.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "28da986b-ca3d-401d-97de-81bac4c47f10",
+   "texte_overlay": "they bring their own curiosity\n\ngreat listeners are curious about everything, and learning something new each day keeps that curiosity alive. curious people find every story interesting, and the speaker can feel it.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/4.jpg",
+   "texte_sophia": "they bring their own curiosity\n\ni became a better listener when i got curious again. i spend 5 minutes a day on one lesson in the Sophia app, a myth or a planet, and now every story fascinates me."
+  },
+  {
+   "position": 5,
+   "media_id": "e8017f91-3813-4eb7-8b66-a4ad16602544",
+   "texte_overlay": "they don't rush to advise\n\nwhen someone shares a problem, they ask how it feels before offering any solution. feeling understood first is what people actually need most of the time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/5.jpg"
+  },
+  {
+   "position": 6,
+   "media_id": "46c7957d-80c6-4406-921c-2a6209c5912e",
+   "texte_overlay": "they remember the details\n\nthey remember the name of your dog or the exam you were nervous about. bringing it up later shows they listened, and that makes people feel truly valued.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7659697040602959126/6.jpg"
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source_id": "wa-o261",
+ "type_bleo": "full_test",
+ "titre": "habits that make you quietly lucky in life #luck #mindset #habits #selfimprovement #opportunity",
+ "musique_titre": "Take Me (To The Moon)",
+ "musique_url": "https://www.tiktok.com/music/take-me-to-the-moon-7644041584786426654",
+ "inspirations": [
+  "9474b26f-d26f-4af5-9adf-75db7767f3b3"
+ ],
+ "notes": "Inspiré d'un contenu du label weird_alpha qui a marché chez nous (@mentoridaily, 9474b26f). full test BLEO : accroche jamais faite (format « habits that make you quietly X »). cta B. Slide Sophia en position 5.",
+ "slides": [
+  {
+   "position": 1,
+   "media_id": "370cc0be-1573-4a8d-b3a2-8e3f88e49681",
+   "texte_overlay": "habits that make you\nquietly lucky in life",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/1.jpg"
+  },
+  {
+   "position": 2,
+   "media_id": "56208259-2c98-4443-b22d-ad2a5d1b64ed",
+   "texte_overlay": "saying yes to small invites\n\ngo to the coffee, the talk, the small event you'd normally skip. most lucky breaks start with a random conversation in a place you almost didn't bother to go.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/2.jpg"
+  },
+  {
+   "position": 3,
+   "media_id": "015867f1-7994-4f0f-af80-c64d834de00c",
+   "texte_overlay": "talking to strangers\n\nchat for a minute with the person next to you in a queue or a class. lucky people simply meet more people, so more chances find their way to them over time.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/3.jpg"
+  },
+  {
+   "position": 4,
+   "media_id": "82182d68-f381-4916-a8d9-43e8306047ba",
+   "texte_overlay": "noticing more\n\nlucky people notice opportunities others walk straight past. slowing down and paying attention is honestly half of what we all call good luck in the end.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/4.jpg"
+  },
+  {
+   "position": 5,
+   "media_id": "d63717f0-0d91-4ab4-b151-307c723eba5c",
+   "texte_overlay": "knowing a bit of everything\n\nthe more you know, the more connections you can spot. 5 minutes a day learning something new gives luck far more places to land in your busy everyday life.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/5.jpg",
+   "texte_sophia": "knowing a bit of everything\n\nthe more you know, the more you notice. the Sophia app turns learning into one short lesson a day, a planet or a myth, and those 5 minutes give luck more places to land."
+  },
+  {
+   "position": 6,
+   "media_id": "b2fc02f0-1916-4411-a16f-6fc28c871d71",
+   "texte_overlay": "trying again\n\nlucky people try things more often and don't take a no personally. the more times you try, the more often one of those tries quietly works out for you.",
+   "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7662395587160968470/6.jpg"
+  }
+ ]
+}

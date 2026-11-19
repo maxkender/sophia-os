@@ -69,7 +69,7 @@
       "to watch a tiktok?"
      ],
      "fr": "y'a vraiment urgence à regarder [[un tiktok]] ?",
-     "texte": "pick one screen and [[actually watch]]"
+     "texte": "pick one screen and [[actually watch the thing]]"
     }
    },
    "images": {
@@ -94,7 +94,7 @@
       "getting bored"
      ],
      "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
-     "texte": "you can't sit still [[for 10 minutes]]"
+     "texte": "you can't sit still [[for even 10 minutes]]"
     },
     "T2": {
      "en": [
@@ -197,7 +197,7 @@
       "can't"
      ],
      "fr": "tu veux décrocher [[mais t'y arrives pas]]",
-     "texte": "you check it [[mid-conversation]]"
+     "texte": "you check your phone [[mid-conversation]]"
     },
     "T2": {
      "en": [
@@ -276,7 +276,7 @@
       "moment"
      ],
      "fr": "[[arrête de remplir]] chaque temps mort",
-     "texte": "look up [[on your next walk]]"
+     "texte": "look up [[on your next walk outside]]"
     },
     "T5": {
      "en": [

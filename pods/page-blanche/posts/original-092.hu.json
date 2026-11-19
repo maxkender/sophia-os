@@ -25,10 +25,10 @@
      "remplacer": {
       "source": "sources/7678811813580164366_3.jpg",
       "boite": [
-       560,
+       1120,
        60,
-       560,
-       410
+       1040,
+       760
       ]
      }
     }
@@ -301,7 +301,7 @@
       "same time"
      ],
      "fr": "taper sans regarder, c'est [[penser et écrire en même temps]]",
-     "texte": "egy gondolatot hangosan elmagyarázni [[kicsit könnyebb]]"
+     "texte": "hangosan magyarázni [[kicsit könnyebb]]"
     },
     "T4": {
      "en": [
@@ -352,7 +352,7 @@
       "better at learning anything"
      ],
      "fr": "[[un livre te fait suivre une idée]] sur des chapitres entiers, et ça t'aide à [[tout apprendre]]",
-     "texte": "régen ott csak pörgettem. most, ha már úgyis telefonozom, csinálok egy 5 perces leckét [[a Sophia appban]]"
+     "texte": "régen ott pörgettem. most, ha úgyis telefonozom, jön egy 5 perces lecke [[a Sophia appban]]"
     },
     "T4": {
      "en": [

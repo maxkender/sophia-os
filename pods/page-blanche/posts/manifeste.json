@@ -5076,6 +5076,112 @@
    "notes": "déclinaison G1 de original-054, fr en it el, couverture par langue; cta B",
    "type_bleo": "declinaison",
    "parent_contenu_id": "7160941b-0c1e-4688-b21f-ad3bce44515d"
+  },
+  {
+   "post_id": "var-repartie-2",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#repartie #comebacks #confidence",
+   "musique": {
+    "titre": "Love is in the Air, Pt. 2",
+    "auteur": "Rock Burwell",
+    "original": false,
+    "id": "7636876081187588097",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636876081187588097"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685340052989398275_1",
+    "2": "7683541501007252758_4",
+    "3": "7691007701127564576_3",
+    "4": "7703525134610566433_6",
+    "5": "7680975889932225814_5",
+    "6": "7700620281760533792_6"
+   },
+   "notes": "déclinaison G2 (accroche reformulée) de var-repartie-1, fr de es hu fi, couverture par langue; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "ceb6baa1-6227-4912-9e26-b949e995179b"
+  },
+  {
+   "post_id": "var-cerveau-1",
+   "url": "https://www.tiktok.com/@amayareading/video/7689918962905124129?variante=var-cerveau-1",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#brainhealth #neuroscience #habits",
+   "musique": {
+    "titre": "Bliss",
+    "auteur": "Klsr",
+    "original": false,
+    "id": "7346226879747917826",
+    "url_tiktok": "https://www.tiktok.com/music/x-7346226879747917826"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7699118764788321558_1",
+    "2": "7684726544442346774_2",
+    "3": "7699118764788321558_5",
+    "4": "7705815524244081953_6",
+    "5": "7705815524244081953_4",
+    "6": "7684726544442346774_3"
+   },
+   "notes": "déclinaison G1 de 7689918962905124129, fr tr hu da, couverture par langue; cta B",
+   "type_bleo": "declinaison",
+   "parent_contenu_id": "199fadfe-7b2d-4a60-bdf5-85e4aa0216f7"
+  },
+  {
+   "post_id": "original-091",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#memory #socialskills #brainhacks",
+   "musique": {
+    "titre": "Love is in the Air, Pt. 2",
+    "auteur": "Rock Burwell",
+    "original": false,
+    "id": "7636876081187588097",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636876081187588097"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7685340052989398275_1",
+    "2": "7685340052989398275_3",
+    "3": "7694340359056313632_6",
+    "4": "7694340359056313632_4",
+    "5": "7685340052989398275_6",
+    "6": "7704751322830064929_6"
+   },
+   "notes": "full test BLEO (retenir les prénoms), en es de it tr sr, couverture par langue; cta C",
+   "type_bleo": "full_test"
+  },
+  {
+   "post_id": "original-092",
+   "url": "",
+   "publie_le": null,
+   "vues": null,
+   "slides": 6,
+   "legende": "#reading #booktok #brain",
+   "musique": {
+    "titre": "original sound",
+    "auteur": "levxpiano",
+    "original": true,
+    "id": "7636068211729599264",
+    "url_tiktok": "https://www.tiktok.com/music/x-7636068211729599264"
+   },
+   "statut": "original",
+   "composition": {
+    "1": "7708456205689113889_1",
+    "2": "7708456205689113889_2",
+    "3": "7708456205689113889_3",
+    "4": "7708456205689113889_5",
+    "5": "7708456205689113889_4",
+    "6": "7708456205689113889_6"
+   },
+   "notes": "full test BLEO (lire chaque jour, semaine par semaine), en hu tr de el, couverture par langue; cta A",
+   "type_bleo": "full_test"
   }
  ]
 }

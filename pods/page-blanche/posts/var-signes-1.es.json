@@ -50,7 +50,7 @@
       "slow"
      ],
      "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
-     "texte": "pones una película y a los 10 minutos ya estás [[scrolleando en el teléfono]], medio viéndola"
+     "texte": "pones una película y a los 10 minutos ya estás [[scrolleando en el teléfono]], viéndola a medias"
     },
     "T3": {
      "en": [
@@ -61,7 +61,7 @@
       "under-stimulating"
      ],
      "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
-     "texte": "quienes hacen mil cosas con pantallas a la vez [[filtran peor las distracciones]]"
+     "texte": "quienes usan varias pantallas a la vez todo el tiempo [[filtran peor las distracciones]]"
     },
     "T4": {
      "en": [
@@ -94,7 +94,7 @@
       "getting bored"
      ],
      "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
-     "texte": "no aguantas [[10 minutos sin moverte]]"
+     "texte": "no aguantas [[ni 10 minutos sin moverte]]"
     },
     "T2": {
      "en": [
@@ -121,7 +121,7 @@
       "consistent"
      ],
      "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
-     "texte": "la lección de 5 min de hoy fue por qué el cielo es azul, en [[la app Sophia]]"
+     "texte": "la lección de 5 minutos de hoy fue sobre por qué el cielo es azul, en [[la app Sophia]]"
     },
     "T5": {
      "en": [
@@ -172,7 +172,7 @@
       "feeling weirdly draining"
      ],
      "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
-     "texte": "déjalo [[en otra habitación]] para concentrarte"
+     "texte": "déjalo [[en otra habitación]] cuando necesites concentrarte"
     }
    },
    "images": {
@@ -197,7 +197,7 @@
       "can't"
      ],
      "fr": "tu veux décrocher [[mais t'y arrives pas]]",
-     "texte": "lo miras [[en plena conversación]]"
+     "texte": "miras el teléfono [[en plena conversación]]"
     },
     "T2": {
      "en": [
@@ -206,7 +206,7 @@
       "that's the problem"
      ],
      "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
-     "texte": "alguien te está hablando y tu mano ya está [[en el teléfono]]"
+     "texte": "alguien te está contando algo y tu mano ya está [[en el teléfono]]"
     },
     "T3": {
      "en": [
@@ -223,7 +223,7 @@
       "your self-control stronger"
      ],
      "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
-     "texte": "guárdalo en la mochila y [[mira a la persona]]"
+     "texte": "guárdalo en la mochila y [[mira a la persona de enfrente]]"
     }
    },
    "images": {
@@ -248,7 +248,7 @@
       "second nothing is happening"
      ],
      "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
-     "texte": "pasas el día caminando [[sin ver nada alrededor]]"
+     "texte": "pasas el día caminando [[sin ver nada a tu alrededor]]"
     },
     "T2": {
      "en": [
@@ -276,14 +276,14 @@
       "moment"
      ],
      "fr": "[[arrête de remplir]] chaque temps mort",
-     "texte": "levanta la vista [[al caminar]]"
+     "texte": "levanta la vista [[cuando caminas]]"
     },
     "T5": {
      "en": [
       "listen to your thoughts"
      ],
      "fr": "[[écoute tes pensées]]",
-     "texte": "[[mira a tu alrededor]]"
+     "texte": "[[mira bien a tu alrededor]]"
     }
    },
    "images": {

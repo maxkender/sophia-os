@@ -52,7 +52,7 @@
       "genuinely interests you"
      ],
      "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
-     "texte": "se te olvida porque estabas pensando [[qué decir después]]"
+     "texte": "se te olvida porque en ese momento estabas pensando [[qué decir después]]"
     },
     "T3": {
      "en": [
@@ -126,7 +126,7 @@
       "much harder to recover"
      ],
      "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
-     "texte": "cuanto más rara la imagen, [[más rápido vuelve]] la próxima vez que la veas"
+     "texte": "cuanto más rara la imagen, [[antes vuelve]] el nombre"
     }
    },
    "images": {
@@ -225,7 +225,7 @@
       "want to remember"
      ],
      "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
-     "texte": "la próxima vez que lo veas, [[su cara vuelve]] con él, incluso semanas después"
+     "texte": "la próxima vez que lo leas, [[vuelve su cara]], aunque pasen semanas"
     }
    },
    "images": {

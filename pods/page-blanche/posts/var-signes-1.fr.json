@@ -50,7 +50,7 @@
       "slow"
      ],
      "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
-     "texte": "tu lances un film et au bout de 10 min, t'es [[en train de scroller]], à moitié devant l'écran"
+     "texte": "tu lances un film et au bout de 10 min, t'es déjà [[en train de scroller]], à moitié devant l'écran"
     },
     "T3": {
      "en": [
@@ -94,7 +94,7 @@
       "getting bored"
      ],
      "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
-     "texte": "tu tiens pas en place [[plus de 10 min]]"
+     "texte": "t'arrives pas à rester [[10 min sans bouger]]"
     },
     "T2": {
      "en": [
@@ -121,7 +121,7 @@
       "consistent"
      ],
      "fr": "perso, j'ai remplacé une partie de mon scroll par [[5 min par jour sur l'appli Sophia]], et je m'y tiens",
-     "texte": "ma leçon de 5 min du jour : Camus et le mythe de Sisyphe, sur [[l'appli Sophia]]"
+     "texte": "ma leçon de 5 min du jour, c'était Camus et le mythe de Sisyphe, sur [[l'appli Sophia]]"
     },
     "T5": {
      "en": [
@@ -164,7 +164,7 @@
       "attentional fatigue"
      ],
      "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
-     "texte": "les scores de mémoire baissent [[quand le tel est sur la table]]"
+     "texte": "dans une étude, la mémoire flanche [[quand le tel est sur la table]]"
     },
     "T4": {
      "en": [
@@ -172,7 +172,7 @@
       "feeling weirdly draining"
      ],
      "fr": "du coup, même les trucs simples te [[lessivent sans raison]]",
-     "texte": "laisse-le [[dans une autre pièce]] pour bosser"
+     "texte": "laisse-le [[dans une autre pièce]] quand tu bosses"
     }
    },
    "images": {
@@ -206,7 +206,7 @@
       "that's the problem"
      ],
      "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
-     "texte": "quelqu'un te raconte un truc et ta main est [[déjà sur ton tel]]"
+     "texte": "quelqu'un te raconte sa journée et ta main est [[déjà sur ton tel]]"
     },
     "T3": {
      "en": [
@@ -223,7 +223,7 @@
       "your self-control stronger"
      ],
      "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
-     "texte": "laisse-le dans ton sac et [[regarde la personne]]"
+     "texte": "laisse-le dans ton sac et [[regarde la personne en face]]"
     }
    },
    "images": {
@@ -248,7 +248,7 @@
       "second nothing is happening"
      ],
      "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
-     "texte": "tu traverses ta journée [[sans rien voir autour]]"
+     "texte": "tu traverses ta journée [[sans rien voir autour de toi]]"
     },
     "T2": {
      "en": [
@@ -276,7 +276,7 @@
       "moment"
      ],
      "fr": "[[arrête de remplir]] chaque temps mort",
-     "texte": "lève la tête [[en marchant]]"
+     "texte": "lève la tête [[quand tu marches]]"
     },
     "T5": {
      "en": [

@@ -41,7 +41,7 @@
       "2x speed"
      ],
      "fr": "tu regardes tout [[en vitesse x2]]",
-     "texte": "nijedan film [[bez mobitela]]"
+     "texte": "više nijedan film [[bez mobitela]]"
     },
     "T2": {
      "en": [
@@ -50,7 +50,7 @@
       "slow"
      ],
      "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
-     "texte": "pustiš film i nakon 10 minuta već [[skrolaš po mobitelu]], a film pratiš samo napola"
+     "texte": "pustiš neki film i već nakon desetak minuta [[skrolaš po mobitelu]], a sam film pratiš samo napola"
     },
     "T3": {
      "en": [
@@ -61,7 +61,7 @@
       "under-stimulating"
      ],
      "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
-     "texte": "ljudi koji stalno skaču s ekrana na ekran puno teže [[odbacuju nevažne podražaje]]"
+     "texte": "ljudi koji stalno skaču s ekrana na ekran puno teže [[odbacuju nevažne podražaje oko sebe]]"
     },
     "T4": {
      "en": [
@@ -94,7 +94,7 @@
       "getting bored"
      ],
      "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
-     "texte": "ne možeš izdržati [[10 minuta na miru]]"
+     "texte": "ne možeš izdržati [[ni 10 minuta na miru]]"
     },
     "T2": {
      "en": [
@@ -155,7 +155,7 @@
       "day"
      ],
      "fr": "tu peux dormir 8 heures et [[avoir quand même la tête en vrac]] si ton cerveau se fait [[bombarder toute la journée]]",
-     "texte": "ne zvoni, ekran mu je ugašen, ali [[samo to što ti je na stolu]] već ti krade dio koncentracije"
+     "texte": "ne zvoni, ekran mu je ugašen, ali [[samo to što ti je na stolu]] već ti krade dobar dio koncentracije"
     },
     "T3": {
      "en": [
@@ -197,7 +197,7 @@
       "can't"
      ],
      "fr": "tu veux décrocher [[mais t'y arrives pas]]",
-     "texte": "gledaš mobitel [[usred razgovora]]"
+     "texte": "gledaš u mobitel [[usred razgovora]]"
     },
     "T2": {
      "en": [
@@ -223,7 +223,7 @@
       "your self-control stronger"
      ],
      "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
-     "texte": "drži ga u torbi i [[gledaj osobu]] ispred sebe"
+     "texte": "drži ga u torbi i [[gledaj osobu]] koja je ispred tebe"
     }
    },
    "images": {
@@ -248,7 +248,7 @@
       "second nothing is happening"
      ],
      "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
-     "texte": "prolaziš kroz dan [[a ne vidiš ništa oko sebe]]"
+     "texte": "prolaziš kroz cijeli dan [[a ne vidiš ništa oko sebe]]"
     },
     "T2": {
      "en": [
@@ -258,7 +258,7 @@
       "input"
      ],
      "fr": "30 secondes d'attente, une file, un ascenseur… et [[il te faut direct un truc à regarder]]",
-     "texte": "od kuće do stanice s pogledom u mobitelu, i [[ne sjećaš se ničega]] s puta"
+     "texte": "od kuće do stanice s pogledom u mobitelu, i [[ne sjećaš se ničega]] s cijelog puta"
     },
     "T3": {
      "en": [
@@ -276,7 +276,7 @@
       "moment"
      ],
      "fr": "[[arrête de remplir]] chaque temps mort",
-     "texte": "podigni pogled [[dok hodaš]]"
+     "texte": "podigni pogled [[kad hodaš vani]]"
     },
     "T5": {
      "en": [

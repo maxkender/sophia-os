@@ -52,7 +52,7 @@
       "genuinely interests you"
      ],
      "fr": "histoire, philo, physique, éco, langues, tout ce qui te passionne vraiment",
-     "texte": "ismi unutursun çünkü o an [[ne diyeceğini düşünüyorsun]]"
+     "texte": "ismi unutursun, çünkü o an sadece [[sonra ne diyeceğini düşünüyorsun]]"
     },
     "T3": {
      "en": [
@@ -126,7 +126,7 @@
       "much harder to recover"
      ],
      "fr": "dès que la journée s'agite, ce niveau de focus devient dur à retrouver",
-     "texte": "görüntü ne kadar tuhafsa, onu bir dahaki görüşünde [[o kadar hızlı geri gelir]]"
+     "texte": "görüntü ne kadar tuhafsa, isim [[o kadar hızlı geri gelir]]"
     }
    },
    "images": {
@@ -225,7 +225,7 @@
       "want to remember"
      ],
      "fr": "garde un [[carnet]] pour tout ce que tu veux vraiment retenir",
-     "texte": "bir dahaki sefere okuduğunda [[yüzü de aklına gelir]], haftalar sonra bile"
+     "texte": "tekrar okuduğunda [[yüzü de aklına gelir]], haftalar sonra bile"
     }
    },
    "images": {

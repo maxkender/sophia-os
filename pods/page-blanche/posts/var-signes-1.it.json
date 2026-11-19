@@ -41,7 +41,7 @@
       "2x speed"
      ],
      "fr": "tu regardes tout [[en vitesse x2]]",
-     "texte": "nessun film [[senza telefono]]"
+     "texte": "nessun film [[senza il telefono]]"
     },
     "T2": {
      "en": [
@@ -50,7 +50,7 @@
       "slow"
      ],
      "fr": "passer une vidéo de 20 min en 10, ça a l'air [[rentable]] mais ton cerveau retient qu'un rythme normal, c'est [[trop lent]]",
-     "texte": "metti un film e dopo 10 minuti stai già [[scrollando sul telefono]], guardandolo a metà"
+     "texte": "metti un film e dopo 10 minuti stai già [[scrollando sul telefono]], e il film lo guardi solo a metà"
     },
     "T3": {
      "en": [
@@ -61,7 +61,7 @@
       "under-stimulating"
      ],
      "fr": "à force, même les cours, les livres et les [[conversations]] te paraissent [[d'un ennui mortel]]",
-     "texte": "chi salta sempre tra più schermi fa più fatica [[a ignorare le distrazioni]]"
+     "texte": "chi salta di continuo tra più schermi fa molta più fatica [[a ignorare le distrazioni]]"
     },
     "T4": {
      "en": [
@@ -94,7 +94,7 @@
       "getting bored"
      ],
      "fr": "t'arrives pas à lire un livre [[sans t'ennuyer]]",
-     "texte": "non reggi [[10 minuti senza muoverti]]"
+     "texte": "non reggi [[nemmeno 10 minuti senza muoverti]]"
     },
     "T2": {
      "en": [
@@ -164,7 +164,7 @@
       "attentional fatigue"
      ],
      "fr": "zapper sans arrêt, scroller, les notifs : ton attention finit par saturer",
-     "texte": "in uno studio, la memoria rendeva meno [[col telefono sul tavolo]]"
+     "texte": "in uno studio, la memoria funzionava peggio [[col telefono sul tavolo]]"
     },
     "T4": {
      "en": [
@@ -206,7 +206,7 @@
       "that's the problem"
      ],
      "fr": "si t'ouvres tiktok sans même l'avoir décidé, [[le problème est là]]",
-     "texte": "qualcuno ti sta parlando e la tua mano è [[già sul telefono]]"
+     "texte": "qualcuno ti sta raccontando qualcosa e la tua mano è [[già sul telefono]]"
     },
     "T3": {
      "en": [
@@ -223,7 +223,7 @@
       "your self-control stronger"
      ],
      "fr": "complique-toi le scroll [[au lieu de]] forcer sur ta volonté",
-     "texte": "tienilo nella borsa e [[guarda chi hai davanti]]"
+     "texte": "tienilo nella borsa e [[guarda la persona che hai davanti]]"
     }
    },
    "images": {
@@ -248,7 +248,7 @@
       "second nothing is happening"
      ],
      "fr": "tu sors ton tel [[à la seconde où]] il se passe rien",
-     "texte": "cammini per strada [[senza notare niente intorno]]"
+     "texte": "cammini per strada [[senza notare niente intorno a te]]"
     },
     "T2": {
      "en": [

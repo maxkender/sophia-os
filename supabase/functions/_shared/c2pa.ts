@@ -12,6 +12,8 @@
  * base64 intermédiaire) — critique pour l’upscale SeedVR en Edge.
  */
 
+import { octetsDepuisBase64 } from "./base64_octets.ts";
+
 function enBase64(bytes: Uint8Array): string {
   let binaire = "";
   const CHUNK = 0x8000;
@@ -22,7 +24,7 @@ function enBase64(bytes: Uint8Array): string {
 }
 
 function deBase64(base64: string): Uint8Array {
-  return Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+  return octetsDepuisBase64(base64);
 }
 
 function concatBytes(parts: Uint8Array[]): Uint8Array {

@@ -262,6 +262,17 @@ export function motsCherches(cherche: string): string[] {
 export const LEGENDE_A_ECARTER =
   "(^|[^a-z])(woman|women|girls?|man|men|boys?|lady|ladies|child|children|kids?|students?|persons?|people|teenagers?|actor|actress|couple|baby|someone|faces?|head|eyes|profile|portrait|selfie|smiles?|smiling|texts?|titled|reads|says|logos?|collage|graphic|screenshot|posters?|memes?|quotes?|words|brand)([^a-z'’]|$)";
 
+/**
+ * Pour un podz dont les photos montrent des filles (podz 20, `personnes: true`
+ * dans l'action `photos`) : la personne entière est permise, mais pas un
+ * visage mis en avant (portrait, selfie, sourire, visage, yeux, profil), ni
+ * un acteur, ni du texte, un logo, un collage ou une capture d'écran. Les
+ * drapeaux de visage de la banque ne sont remplis que pour l'UGC : l'agent
+ * regarde chaque photo gardée en taille réelle.
+ */
+export const LEGENDE_A_ECARTER_PERSONNES =
+  "(^|[^a-z])(actor|actress|faces?|eyes|profile|portrait|selfie|smiles?|smiling|texts?|titled|reads|says|logos?|collage|graphic|screenshot|posters?|memes?|quotes?|words|brand)([^a-z'’]|$)";
+
 /** SHA-256 hexadécimal (jeton d'agent comparé à `pods.jeton_hash`). */
 export async function sha256Hex(texte: string): Promise<string> {
   const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(texte));

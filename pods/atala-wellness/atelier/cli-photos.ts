@@ -6,15 +6,18 @@
 // « piocher dans les photos des labels »), par l'action `photos` de la
 // fonction `pods` : TOUTE la banque, dont la description (en anglais) contient
 // chaque mot cherché, sans visage reconnaissable, sans texte, les moins
-// utilisées d'abord.
+// utilisées d'abord. Avec `personnes: true` : les filles entières sont
+// permises (« woman running », « girl reading »), jamais un visage mis en
+// avant (portrait, selfie, sourire) ; sans elle, l'action écarte toute
+// personne (elle sert aussi aux podz d'objets).
 // - la recherche écrit donnees/photos.json et la planche sortie/photos/<mots>.jpg
 //   (chaque vignette porte les 8 premiers caractères de son id) : REGARDE-la
 //   avec Read ;
 // - `--garder` télécharge la photo choisie (dans la dernière recherche) en
 //   images/banque/<nom>.jpg, réencodée sans métadonnées, et note son id dans
 //   donnees/banque.json : recopie-le dans `banque` du post.
-// La description peut se tromper : regarde chaque photo gardée en taille
-// réelle. Jamais une célébrité ni une scène de film ou de série (le 19/11, la
+// La description peut se tromper, et les drapeaux de visage de la banque ne
+// sont remplis que pour l'UGC : regarde chaque photo gardée en taille réelle. Jamais une célébrité ni une scène de film ou de série (le 19/11, la
 // banque marquait « sans visage » une actrice de Gilmore Girls), jamais une
 // marque lisible, jamais de texte.
 
@@ -57,12 +60,12 @@ const cherche = args.filter((a, i) => !a.startsWith("--") && !(i > 0 && args[i -
 if (!cherche.trim()) throw new Error('usage : npm run photos -- "woman running" [--limite 48] | --garder <id> <nom>');
 const limite = Number(args.includes("--limite") ? args[args.indexOf("--limite") + 1] : 48);
 
-const r = await appelPod<{ photos: Photo[] }>({ action: "photos", cherche, limite });
+const r = await appelPod<{ photos: Photo[] }>({ action: "photos", cherche, limite, personnes: true });
 if (!r.ok) throw new Error(r.error);
 mkdirSync(join(racine, "donnees"), { recursive: true });
 writeFileSync(join(racine, "donnees", "photos.json"), JSON.stringify(r.photos, null, 1));
 if (!r.photos.length) {
-  console.log(`aucune photo pour « ${cherche} » : essaie d'autres mots anglais (running, yoga, bed, coffee, walking, salad…)`);
+  console.log(`aucune photo pour « ${cherche} » : essaie d'autres mots anglais (woman running, jogging, yoga, bed, coffee, walking, salad…)`);
   process.exit(0);
 }
 mkdirSync(join(racine, "sortie", "photos"), { recursive: true });

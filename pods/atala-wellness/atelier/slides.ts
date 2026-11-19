@@ -45,7 +45,16 @@ export type TypeSlide = "couverture" | "habitude" | "atala";
  * - atala : `photo` (une fille qui court) ; texte `{ "titre", "intro", "paragraphes": [2],
  *   "appli": "Atala : AI Running Coach", "sous": "…", "legende": "the app:" }`.
  */
-export type Slide = { type: TypeSlide; photo?: string; photos?: string[]; [langue: string]: unknown };
+/**
+ * `cadrage` (facultatif) : où recadrer la photo quand elle n'a pas les
+ * proportions du cadre, de 0 (bord gauche / haut) à 1 (bord droit / bas) ;
+ * 0,5 par défaut (le centre). Ex. `{ "y": 0.8 }` pour une coureuse en bas
+ * d'une photo en hauteur. Une valeur par photo de la slide (couverture : dans
+ * l'ordre de `photos`), ou une seule pour toutes.
+ */
+export type Cadrage = { x?: number; y?: number };
+export type Slide = { type: TypeSlide; photo?: string; photos?: string[]; cadrage?: Cadrage | Cadrage[]; [langue: string]: unknown };
+const cadrageDe = (s: Slide, i = 0): Cadrage => (Array.isArray(s.cadrage) ? (s.cadrage[i] ?? {}) : (s.cadrage ?? {}));
 export type TexteCouverture = { titre: string; note: string };
 export type TexteHabitude = { titre: string; intro: string; paragraphes: string[]; chute: string };
 export type TexteAtala = { titre: string; intro: string; paragraphes: string[]; appli: string; sous: string; legende: string };
@@ -99,11 +108,12 @@ async function image(chemin: string): Promise<Image> {
 }
 
 /** La boîte remplie par l'image (recadrée au centre). */
-function remplir(ctx: Ctx, img: Image, x: number, y: number, l: number, h: number) {
+function remplir(ctx: Ctx, img: Image, x: number, y: number, l: number, h: number, cadrage: Cadrage = {}) {
   const k = Math.max(l / img.width, h / img.height);
   const lw = l / k;
   const hh = h / k;
-  ctx.drawImage(img, (img.width - lw) / 2, (img.height - hh) / 2, lw, hh, x, y, l, h);
+  const borne = (v: number | undefined) => Math.min(1, Math.max(0, v ?? 0.5));
+  ctx.drawImage(img, (img.width - lw) * borne(cadrage.x), (img.height - hh) * borne(cadrage.y), lw, hh, x, y, l, h);
 }
 
 function rectArrondi(ctx: Ctx, x: number, y: number, l: number, h: number, r: number) {
@@ -242,7 +252,7 @@ async function habitude(ctx: Ctx, s: Slide, c: TexteHabitude) {
   bloc(ctx, c.titre, M.titre.x, baseTitre, 1000, M.titre.taille, 62);
   const finIntro = bloc(ctx, c.intro, M.intro.x, baseTitre + M.intro.ecart, M.intro.largeur, M.intro.taille, M.intro.pas);
   const hautPhoto = finIntro + m.photo.ecart;
-  remplir(ctx, await image(s.photo), m.photo.x, hautPhoto, m.photo.l, m.photo.h);
+  remplir(ctx, await image(s.photo), m.photo.x, hautPhoto, m.photo.l, m.photo.h, cadrageDe(s));
   let base = hautPhoto + m.col.premiere;
   for (const p of c.paragraphes) base = bloc(ctx, p, m.col.x, base, m.col.l, M.texte.taille, M.texte.pas) + M.texte.pas + m.col.para;
   bloc(ctx, c.chute, m.chute.x, hautPhoto + m.photo.h + m.chute.ecart, m.chute.largeur, M.texte.taille, M.texte.pas);
@@ -260,7 +270,7 @@ async function atala(ctx: Ctx, s: Slide, c: TexteAtala) {
   bloc(ctx, c.titre, M.titre.x, baseTitre, 1000, M.titre.taille, 62);
   const finIntro = bloc(ctx, c.intro, M.intro.x, baseTitre + M.intro.ecart, M.intro.largeur, M.intro.taille, M.intro.pas);
   const hautPhoto = finIntro + m.photo.ecart;
-  remplir(ctx, await image(s.photo), m.photo.x, hautPhoto, m.photo.l, m.photo.h);
+  remplir(ctx, await image(s.photo), m.photo.x, hautPhoto, m.photo.l, m.photo.h, cadrageDe(s));
   let base = hautPhoto + m.col.premiere;
   for (const p of c.paragraphes) base = bloc(ctx, p, m.col.x, base, m.col.l, M.texte.taille, M.texte.pas) + M.texte.pas + m.col.para;
 
@@ -317,13 +327,13 @@ async function couverture(ctx: Ctx, s: Slide, c: TexteCouverture) {
   let basPhotos: number;
   if (photos.length === 2) {
     const yA = fin + COUV.a.ecart + 7;
-    remplir(ctx, await image(photos[0]), COUV.a.x, yA, COUV.a.l, COUV.a.h);
+    remplir(ctx, await image(photos[0]), COUV.a.x, yA, COUV.a.l, COUV.a.h, cadrageDe(s, 0));
     const yB = yA + COUV.b.decalage;
-    remplir(ctx, await image(photos[1]), COUV.b.x, yB, COUV.b.l, COUV.b.h);
+    remplir(ctx, await image(photos[1]), COUV.b.x, yB, COUV.b.l, COUV.b.h, cadrageDe(s, 1));
     basPhotos = yB + COUV.b.h;
   } else {
     const y = fin + COUV.seule.ecart;
-    remplir(ctx, await image(photos[0]), 1170 / 2 - COUV.seule.l / 2, y, COUV.seule.l, COUV.seule.h);
+    remplir(ctx, await image(photos[0]), 1170 / 2 - COUV.seule.l / 2, y, COUV.seule.l, COUV.seule.h, cadrageDe(s, 0));
     basPhotos = y + COUV.seule.h;
   }
   ctx.font = `${COUV.note.taille}px "${POLICE.texte}"`;

@@ -34,8 +34,9 @@ export function Bandeau({ b }: { b: BandeauCompte }) {
     onSuccess: () => qc.setQueryData<BandeauCompte[]>(["mes-bandeaux-compte"], (l) => (l ?? []).filter((x) => x.cle !== b.cle)),
   });
   const double = b.cle.startsWith("compte_double:");
-  // 19/11 : le nudge du jeudi d'un posteur Ruul (orange).
-  const nudge = b.cle.startsWith("nudge_jeudi:");
+  // 19/11 : le nudge du jeudi d'un posteur Ruul (orange), et la relance Ruul quand l'email n'arrive pas (orange aussi).
+  const relance = b.cle.startsWith("relance_ruul:");
+  const nudge = b.cle.startsWith("nudge_jeudi:") || relance;
   const Icone = double ? Sparkles : Info;
   return (
     <div
@@ -48,7 +49,7 @@ export function Bandeau({ b }: { b: BandeauCompte }) {
             ? "border-amber-200 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100"
             : "border-sky-200 bg-sky-50 text-sky-950 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100",
       )}
-      data-testid={double ? "bandeau-compte-double" : nudge ? "bandeau-nudge" : "bandeau-compte-arrete"}
+      data-testid={double ? "bandeau-compte-double" : relance ? "bandeau-relance-ruul" : nudge ? "bandeau-nudge" : "bandeau-compte-arrete"}
     >
       <Icone className={cn("hidden size-5 shrink-0 sm:block", double ? "text-emerald-600 dark:text-emerald-300" : nudge ? "text-amber-600 dark:text-amber-300" : "text-sky-600 dark:text-sky-300")} aria-hidden />
       <p className="flex-1 text-sm leading-relaxed">{b.texte}</p>

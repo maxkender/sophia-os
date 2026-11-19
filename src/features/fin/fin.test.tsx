@@ -64,6 +64,15 @@ describe("bandeau « un de vos comptes a été désactivé » (kills, partie 1)"
     await waitFor(() => expect(api.marquerBandeauVu).toHaveBeenCalledWith("compte_arrete:c1"));
   });
 
+  it("19/11 : la relance Ruul (email pas arrivé) : bandeau orange, « Got it » le ferme", async () => {
+    api.marquerBandeauVu.mockResolvedValue(undefined);
+    rendu(<Bandeau b={{ cle: "relance_ruul:2026-11-19", texte: "To get paid on Monday, you need to finish your Ruul setup." }} />);
+    expect(screen.getByTestId("bandeau-relance-ruul")).toHaveTextContent("finish your Ruul setup");
+    expect(screen.queryByTestId("bandeau-compte-arrete")).toBeNull();
+    fireEvent.click(screen.getByRole("button"));
+    await waitFor(() => expect(api.marquerBandeauVu).toHaveBeenCalledWith("relance_ruul:2026-11-19"));
+  });
+
   it("19/11 : le bandeau du 2e compte (vert) : compte, label, démarrage lundi, gain en plus", async () => {
     api.marquerBandeauVu.mockResolvedValue(undefined);
     const texte = "Good news: @leevi.voima242 is doing great, so you get a 2nd TikTok account in the \"classic_study\" style. It starts posting on Monday 23 Nov. From that week you are paid for 2 accounts: +10 $ per week (20 $ per week in total).";

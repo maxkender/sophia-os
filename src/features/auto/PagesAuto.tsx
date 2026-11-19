@@ -25,6 +25,7 @@ import { PageBonus } from "@/features/bonus/PageBonus";
 import { AgentRuul, DernierImportRuul } from "@/features/ruul/AgentRuul";
 import { PagePaieRuul } from "@/features/ruul/PagePaieRuul";
 import { PageRapportKills } from "@/features/ckd/rapportKills/PageRapportKills";
+import { InjoignablesRuul } from "@/features/ruul/InjoignablesRuul";
 import { StatutsRuulApi } from "@/features/ruul/StatutsRuulApi";
 import { VueParcoursRuul } from "@/features/ruul/VueParcoursRuul";
 import { PageAjoutRuul, PageCandidatsRuul, PageCohortesRuul } from "@/features/ruul/PagesRuul";
@@ -334,6 +335,7 @@ export function RuulSuiviPage() {
     <PageAuto cle="ruul_suivi">
       <div className="space-y-4">
         <StatutsRuulApi />
+        <InjoignablesRuul />
         <VueParcoursRuul />
         <Replie titre="Agent Ruul et imports">
           <DernierImportRuul />

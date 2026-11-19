@@ -1,0 +1,140 @@
+{
+ "id": "ig-018",
+ "type_bleo": "full_test",
+ "titre": {
+  "en": "apps for your soft girl era",
+  "fr": "les applis pour ton ère soft girl",
+  "es": "apps para tu etapa soft girl",
+  "it": "app per la tua fase soft girl",
+  "tr": "soft girl dönemin için uygulamalar"
+ },
+ "legendes": {
+  "en": "apps for your soft girl era #foryou #apps #softgirl #thatgirl",
+  "fr": "les applis pour ton ère soft girl #foryou #apps #softgirl #thatgirl",
+  "es": "apps para tu etapa soft girl #foryou #apps #softgirl #thatgirl",
+  "it": "app per la tua fase soft girl #foryou #apps #softgirl #thatgirl",
+  "tr": "soft girl dönemin için uygulamalar #foryou #apps #softgirl #thatgirl"
+ },
+ "musique": {
+  "titre": "Warm Stride",
+  "url": "https://www.tiktok.com/music/warm-stride-7604119249002563635"
+ },
+ "notes": "Full test (accroche neuve). Photos Seedream : lit-1, fille-26, bouquet-19. Applis (App Store US, 19/11) : How We Feel (4,9 ★, 30 k avis), Sophia en 2e (cta B), Picsart (4,7 ★, 1,2 M) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/lit-1.jpg",
+     "images/photos/fille-26.jpg",
+     "images/photos/bouquet-19.jpg"
+    ],
+    "titre": "apps for your\nsoft girl era"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/lit-1.jpg",
+     "images/photos/fille-26.jpg",
+     "images/photos/bouquet-19.jpg"
+    ],
+    "titre": "les applis pour ton\nère soft girl"
+   },
+   "es": {
+    "photos": [
+     "images/photos/lit-1.jpg",
+     "images/photos/fille-26.jpg",
+     "images/photos/bouquet-19.jpg"
+    ],
+    "titre": "apps para tu\netapa soft girl"
+   },
+   "it": {
+    "photos": [
+     "images/photos/lit-1.jpg",
+     "images/photos/fille-26.jpg",
+     "images/photos/bouquet-19.jpg"
+    ],
+    "titre": "app per la tua\nfase soft girl"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/lit-1.jpg",
+     "images/photos/fille-26.jpg",
+     "images/photos/bouquet-19.jpg"
+    ],
+    "titre": "soft girl dönemin\niçin uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/howwefeel",
+   "en": {
+    "nom": "how we feel",
+    "texte": "you find the right word for how you feel, with little ideas to feel better in the moment"
+   },
+   "fr": {
+    "nom": "how we feel",
+    "texte": "tu trouves le mot juste pour ce que tu ressens, avec des petites idées pour aller mieux"
+   },
+   "es": {
+    "nom": "how we feel",
+    "texte": "encuentras la palabra justa para lo que sientes, con pequeñas ideas para estar mejor al momento"
+   },
+   "it": {
+    "nom": "how we feel",
+    "texte": "trovi la parola giusta per quello che provi, con piccole idee per stare meglio"
+   },
+   "tr": {
+    "nom": "how we feel",
+    "texte": "ne hissettiğini anlatan doğru kelimeyi bulursun, o an daha iyi hissetmek için küçük fikirlerle"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "short lessons written by actual professors, you learn something new in just 10 minutes a day"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "des leçons courtes écrites par de vrais profs, pour apprendre un truc nouveau chaque jour en 10 minutes"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "lecciones cortas escritas por profesores de verdad, para aprender algo nuevo cada día en 10 minutos"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "lezioni brevi scritte da veri professori, così impari qualcosa di nuovo ogni giorno in 10 minuti"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "gerçek öğretmenlerin yazdığı kısa dersler, her gün 10 dakikada yeni bir şey öğrenmek için"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/picsart",
+   "en": {
+    "nom": "picsart",
+    "texte": "you edit your photos, cut out anything and add cute stickers in a few taps"
+   },
+   "fr": {
+    "nom": "picsart",
+    "texte": "tu retouches tes photos, tu détoures ce que tu veux et tu ajoutes des stickers mignons en deux clics"
+   },
+   "es": {
+    "nom": "picsart",
+    "texte": "editas tus fotos, recortas lo que quieras y añades stickers monísimos en pocos toques"
+   },
+   "it": {
+    "nom": "picsart",
+    "texte": "modifichi le tue foto, scontorni quello che vuoi e aggiungi sticker carinissimi"
+   },
+   "tr": {
+    "nom": "picsart",
+    "texte": "fotoğraflarını düzenler, istediğin her şeyi kesip tatlı çıkartmalar eklersin"
+   }
+  }
+ ]
+}

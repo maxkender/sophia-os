@@ -1,0 +1,169 @@
+{
+ "id": "ig-016",
+ "source": {
+  "url": "https://www.tiktok.com/@iinspogiirly/photo/7667894722093911328",
+  "vues": 1100000,
+  "publie_le": "2026-07-29",
+  "accroche": "it-girl bag essentiels"
+ },
+ "titre": {
+  "en": "apps every clean girl has",
+  "fr": "les applis de toute clean girl",
+  "es": "apps que toda clean girl tiene",
+  "it": "le app che ogni clean girl ha",
+  "tr": "her clean girl'ün kullandığı uygulamalar"
+ },
+ "legendes": {
+  "en": "apps every clean girl has #foryou #apps #cleangirl #thatgirl",
+  "fr": "les applis de toute clean girl #foryou #apps #cleangirl #thatgirl",
+  "es": "apps que toda clean girl tiene #foryou #apps #cleangirl #thatgirl",
+  "it": "le app che ogni clean girl ha #foryou #apps #cleangirl #thatgirl",
+  "tr": "her clean girl'ün kullandığı uygulamalar #foryou #apps #cleangirl #thatgirl"
+ },
+ "musique": {
+  "titre": "suara asli - yuda",
+  "url": "https://www.tiktok.com/music/suara-asli-7654957419163847432"
+ },
+ "notes": "Preuve : son « it-girl bag essentiels » du 29/07 (1,1 M), en liste d'applis « clean girl ». Photos Seedream : soins-3, fille-27-2, bouquet-17. Applis (App Store US, 19/11) : Nike Training Club (4,8 ★, 283 k avis), Unfold (4,9 ★, 159 k), Sophia en 3e (cta C), Daylio (4,8 ★, 63 k) ; toutes présentes en fr, es, it, tr.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/photos/soins-3.jpg",
+     "images/photos/fille-27-2.jpg",
+     "images/photos/bouquet-17.jpg"
+    ],
+    "titre": "apps every\nclean girl has"
+   },
+   "fr": {
+    "photos": [
+     "images/photos/soins-3.jpg",
+     "images/photos/fille-27-2.jpg",
+     "images/photos/bouquet-17.jpg"
+    ],
+    "titre": "les applis de\ntoute clean girl"
+   },
+   "es": {
+    "photos": [
+     "images/photos/soins-3.jpg",
+     "images/photos/fille-27-2.jpg",
+     "images/photos/bouquet-17.jpg"
+    ],
+    "titre": "apps que toda\nclean girl tiene"
+   },
+   "it": {
+    "photos": [
+     "images/photos/soins-3.jpg",
+     "images/photos/fille-27-2.jpg",
+     "images/photos/bouquet-17.jpg"
+    ],
+    "titre": "le app che ogni\nclean girl ha"
+   },
+   "tr": {
+    "photos": [
+     "images/photos/soins-3.jpg",
+     "images/photos/fille-27-2.jpg",
+     "images/photos/bouquet-17.jpg"
+    ],
+    "titre": "her clean girl'ün\nkullandığı uygulamalar"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/ntc",
+   "en": {
+    "nom": "nike training club",
+    "texte": "free workouts with real trainers that you can do at home or at the gym"
+   },
+   "fr": {
+    "nom": "nike training club",
+    "texte": "des séances gratuites avec de vrais coachs, chez toi ou à la salle, de 5 minutes à une heure"
+   },
+   "es": {
+    "nom": "nike training club",
+    "texte": "entrenamientos gratis con entrenadores de verdad, en casa o en el gimnasio, de 5 minutos a una hora"
+   },
+   "it": {
+    "nom": "nike training club",
+    "texte": "allenamenti gratis con veri trainer, a casa o in palestra, da 5 minuti a un'ora"
+   },
+   "tr": {
+    "nom": "nike training club",
+    "texte": "evde ya da salonda gerçek antrenörlerle ücretsiz antrenman yaparsın"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/unfold",
+   "en": {
+    "nom": "unfold",
+    "texte": "pretty templates to make your stories and reels look clean and aesthetic"
+   },
+   "fr": {
+    "nom": "unfold",
+    "texte": "de jolis templates pour que tes stories et tes reels soient clean et aesthetic"
+   },
+   "es": {
+    "nom": "unfold",
+    "texte": "plantillas bonitas para que tus stories y tus reels se vean limpios y aesthetic"
+   },
+   "it": {
+    "nom": "unfold",
+    "texte": "template carini per rendere le tue storie e i tuoi reel puliti ed estetici in un attimo"
+   },
+   "tr": {
+    "nom": "unfold",
+    "texte": "story'lerini ve reels'lerini sade ve estetik yapan güzel şablonlar burada"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "sophia",
+    "texte": "you learn one new thing a day, like why we dream, with a little quiz after so it sticks"
+   },
+   "fr": {
+    "nom": "sophia",
+    "texte": "tu apprends un truc nouveau par jour, comme pourquoi on rêve, avec un petit quiz après pour le retenir"
+   },
+   "es": {
+    "nom": "sophia",
+    "texte": "aprendes una cosa nueva al día, como por qué soñamos, con un quiz cortito después para que se te quede"
+   },
+   "it": {
+    "nom": "sophia",
+    "texte": "impari una cosa nuova al giorno, tipo perché sogniamo, con un piccolo quiz dopo così ti resta"
+   },
+   "tr": {
+    "nom": "sophia",
+    "texte": "her gün yeni bir şey öğrenirsin, mesela neden rüya gördüğümüzü, sonra aklında kalsın diye küçük bir test"
+   }
+  },
+  {
+   "type": "appli",
+   "dossier": "images/applis/daylio",
+   "en": {
+    "nom": "daylio",
+    "texte": "a little journal where you pick your mood and what you did, without writing a single line"
+   },
+   "fr": {
+    "nom": "daylio",
+    "texte": "un petit journal où tu choisis ton humeur et ce que tu as fait, sans écrire une seule ligne"
+   },
+   "es": {
+    "nom": "daylio",
+    "texte": "un diario donde eliges tu estado de ánimo y lo que hiciste, sin escribir ni una línea"
+   },
+   "it": {
+    "nom": "daylio",
+    "texte": "un piccolo diario dove scegli il tuo umore e cosa hai fatto, senza scrivere nulla"
+   },
+   "tr": {
+    "nom": "daylio",
+    "texte": "tek satır yazmadan ruh halini ve gün içinde ne yaptığını seçtiğin küçük bir günlük"
+   }
+  }
+ ]
+}

@@ -12,12 +12,20 @@
  "titre": {
   "fr": "j’ai testé des hacks de révision : voilà ma note sur 10",
   "es": "he probado trucos de estudio: esta es mi nota del 1 al 10",
-  "tr": "ders taktiklerini denedim: işte 10 üzerinden notum"
+  "tr": "ders taktiklerini denedim: işte 10 üzerinden notum",
+  "en": "i tried study hacks: here’s my rating out of 10",
+  "de": "ich habe Lerntricks getestet: hier ist meine Note von 1 bis 10",
+  "it": "ho provato i trucchi di studio: ecco il mio voto su 10",
+  "pt-BR": "testei truques de estudo: aqui vai minha nota de 0 a 10"
  },
  "legendes": {
   "fr": "lequel tu vas tester en premier ? 📝 #revisions #studyhacks #studytok #thatgirl #astuces",
   "es": "¿cuál vas a probar primero? 📝 #estudiar #studyhacks #studytok #thatgirl #trucos",
-  "tr": "ilk hangisini deneyeceksin? 📝 #ders #studyhacks #studytok #thatgirl #taktik"
+  "tr": "ilk hangisini deneyeceksin? 📝 #ders #studyhacks #studytok #thatgirl #taktik",
+  "en": "which one will you try first? 📝 #studyhacks #studytips #studytok #thatgirl #studying",
+  "de": "welchen probierst du zuerst? 📝 #lerntipps #studyhacks #studytok #thatgirl #lernen",
+  "it": "quale proverai per primo? 📝 #studiare #studyhacks #studytok #thatgirl #consigli",
+  "pt-BR": "qual você vai testar primeiro? 📝 #estudos #studyhacks #studytok #thatgirl #dicas"
  },
  "musique": {
   "titre": "100 Dean blunt slowed",
@@ -83,6 +91,74 @@
      "texte_bas_taille": 46,
      "y": 620
     }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "i tried these",
+     "lignes": [
+      "STUDY",
+      "HACKS"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "taille_script": 84,
+     "texte_bas": "here’s my rating out of 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ich habe getestet:",
+     "lignes": [
+      "LERN-",
+      "TRICKS"
+     ],
+     "taille": 170,
+     "interligne": 1,
+     "taille_script": 84,
+     "texte_bas": "meine Note von 1 bis 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "ho provato i",
+     "lignes": [
+      "TRUCCHI",
+      "DI STUDIO"
+     ],
+     "taille": 160,
+     "interligne": 1,
+     "taille_script": 84,
+     "texte_bas": "ecco il mio voto su 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "script_haut": "eu testei",
+     "lignes": [
+      "TRUQUES",
+      "DE ESTUDO"
+     ],
+     "taille": 160,
+     "interligne": 1,
+     "taille_script": 84,
+     "texte_bas": "minha nota de 0 a 10📝",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 46,
+     "y": 620
+    }
    }
   },
   {
@@ -127,6 +203,58 @@
      "y": 300,
      "titre": "klavye yerine elle yazmak✍️",
      "texte": "9/10\ndaha yavaş, akılda kalmasının sebebi de bu. klavyede düşünmeden kopyalıyorsun.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "writing by hand instead of typing✍️",
+     "texte": "9/10\nslower, and that’s exactly why it sticks. when you type, you copy without thinking.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mit der Hand statt mit der Tastatur schreiben✍️",
+     "texte": "9/10\nlangsamer, und genau deshalb bleibt es hängen. am Laptop tippst du ab, ohne nachzudenken.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "scrivere a mano invece che al computer✍️",
+     "texte": "9/10\npiù lento, ed è proprio per questo che ricordi. alla tastiera copi senza pensare.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "escrever à mão em vez de digitar✍️",
+     "texte": "9/10\nmais lento, e é exatamente por isso que fica. no teclado você copia sem pensar.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -183,6 +311,58 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "studying while walking🚶‍♀️",
+     "texte": "6/10\nperfect for vocabulary or dates. to understand a new chapter, sit down.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "beim Gehen lernen🚶‍♀️",
+     "texte": "6/10\nperfekt für Vokabeln oder Daten. für ein neues Kapitel setz dich hin.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "studiare camminando🚶‍♀️",
+     "texte": "6/10\nperfetto per ripetere vocaboli o date. per capire un capitolo nuovo, siediti.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "estudar andando🚶‍♀️",
+     "texte": "6/10\nperfeito pra vocabulário ou datas. pra entender um capítulo novo, sente.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   },
   {
@@ -233,6 +413,58 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "paper flashcards🗂️",
+     "texte": "8/10\nquestion on the front, answer on the back. the only problem: they get lost fast.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "Karteikarten aus Papier🗂️",
+     "texte": "8/10\nFrage vorne, Antwort hinten. einziges Problem: sie gehen schnell verloren.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "flashcard di carta🗂️",
+     "texte": "8/10\ndomanda davanti, risposta dietro. unico problema: si perdono subito.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "flashcards de papel🗂️",
+     "texte": "8/10\npergunta na frente, resposta atrás. o único problema: elas somem rápido.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   },
   {
@@ -277,6 +509,58 @@
      "y": 300,
      "titre": "başlamadan bütün masayı toplamak🧽",
      "texte": "4/10\ntemiz masa, evet. 40 dakika toplamak ise kılık değiştirmiş erteleme.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "cleaning your whole desk before starting🧽",
+     "texte": "4/10\na clean desk, yes. 40 min of tidying is just procrastination in disguise.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "vor dem Lernen den ganzen Schreibtisch aufräumen🧽",
+     "texte": "4/10\nein ordentlicher Tisch, ja. 40 Min. Aufräumen ist nur verkleidetes Aufschieben.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "riordinare tutta la scrivania prima di iniziare🧽",
+     "texte": "4/10\nuna scrivania pulita sì. 40 min di riordino sono solo procrastinazione travestita.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "arrumar a mesa inteira antes de começar🧽",
+     "texte": "4/10\nmesa limpa, sim. 40 min arrumando é só procrastinação disfarçada.",
      "grand": true,
      "taille": 42,
      "pas": 55,
@@ -334,6 +618,58 @@
      "base": 216,
      "annuler": false
     }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "getting quizzed every night🧠",
+     "texte": "10/10\ni put my lessons into micabo and do its quizzes before bed. what i miss comes back the next day.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "mich jeden Abend abfragen lassen🧠",
+     "texte": "10/10\nich packe meinen Stoff in micabo und mache vor dem Schlafen die Quiz. was ich falsch habe, kommt am nächsten Tag wieder.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "farmi interrogare ogni sera🧠",
+     "texte": "10/10\nmetto le lezioni su micabo e faccio i suoi quiz prima di dormire. quello che sbaglio torna il giorno dopo.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "ser testada toda noite🧠",
+     "texte": "10/10\ncoloco minhas aulas no micabo e faço os quizzes antes de dormir. o que eu erro volta no dia seguinte.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
    }
   },
   {
@@ -378,6 +714,58 @@
      "y": 300,
      "titre": "yatmadan hemen önce tekrar etmek📖",
      "texte": "7/10\n10 dakika, fazlası değil. gerisini uyku halleder ama 2 saat harcarsan değil.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "en": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "rereading right before bed📖",
+     "texte": "7/10\n10 min, no more. sleep does the rest, but not if you spend 2 hours on it.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "de": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "direkt vor dem Schlafen nochmal lesen📖",
+     "texte": "7/10\n10 Min., nicht mehr. der Schlaf macht den Rest, aber nicht, wenn du 2 Stunden dransitzt.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "it": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "rileggere subito prima di dormire📖",
+     "texte": "7/10\n10 min, non di più. il sonno fa il resto, ma non se ci passi 2 ore.",
+     "grand": true,
+     "taille": 42,
+     "pas": 55,
+     "base": 216,
+     "annuler": false
+    }
+   },
+   "pt-BR": {
+    "note": {
+     "x": 209,
+     "y": 300,
+     "titre": "reler logo antes de dormir📖",
+     "texte": "7/10\n10 min, não mais. o sono faz o resto, mas não se você passar 2 h nisso.",
      "grand": true,
      "taille": 42,
      "pas": 55,

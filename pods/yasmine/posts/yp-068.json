@@ -1,0 +1,670 @@
+{
+ "id": "yp-068",
+ "type_bleo": "full_test",
+ "titre": {
+  "fr": "comment je fais pour ne plus procrastiner le soir",
+  "en": "how i stopped procrastinating at night",
+  "es": "cómo dejé de procrastinar por la noche",
+  "de": "wie ich aufgehört habe, abends aufzuschieben",
+  "it": "come ho smesso di procrastinare la sera",
+  "pt-BR": "como eu parei de procrastinar à noite",
+  "tr": "akşamları ertelemeyi nasıl bıraktım"
+ },
+ "legendes": {
+  "fr": "tes soirées vont changer 🌙 #procrastination #revisions #studytok #thatgirl #soir",
+  "en": "your evenings are about to change 🌙 #procrastination #studytok #thatgirl #studytips #night",
+  "es": "tus noches van a cambiar 🌙 #procrastinacion #estudiar #studytok #thatgirl #noche",
+  "de": "deine Abende werden sich ändern 🌙 #prokrastination #lernen #studytok #thatgirl #abend",
+  "it": "le tue serate cambieranno 🌙 #procrastinazione #studiare #studytok #thatgirl #sera",
+  "pt-BR": "suas noites vão mudar 🌙 #procrastinacao #estudos #studytok #thatgirl #noite",
+  "tr": "akşamların değişecek 🌙 #erteleme #ders #studytok #thatgirl #akşam"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7623467906226981645"
+ },
+ "fond": {
+  "media_id": "4335992c-54f2-464d-b83f-1299ab9969b5",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e0cf8df1-8a0c-456b-94a8-2f4492f62bd6/3.jpg?v=1790677770414",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "full test (accroche neuve, jamais faite au label) au format notes iOS de @yasminespixels. cta A : micabo dans le texte de la note « je commence par un quiz de 5 min », sans capture. 7 langues, photos et son neufs",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "NE PLUS",
+      "PROCRASTINER",
+      "LE SOIR"
+     ],
+     "taille": 116,
+     "script_haut": "comment je fais pour",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PROCRAS-",
+      "TINATING AT",
+      "NIGHT"
+     ],
+     "taille": 140,
+     "script_haut": "how i stopped",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PROCRASTINAR",
+      "POR LA",
+      "NOCHE"
+     ],
+     "taille": 116,
+     "script_haut": "cómo dejé de",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "ABENDS",
+      "AUFZU-",
+      "SCHIEBEN"
+     ],
+     "taille": 150,
+     "script_haut": "wie ich aufgehört habe,",
+     "taille_script": 68,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PROCRASTINARE",
+      "LA SERA"
+     ],
+     "taille": 110,
+     "script_haut": "come ho smesso di",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "PROCRASTINAR",
+      "À NOITE"
+     ],
+     "taille": 116,
+     "script_haut": "como eu parei de",
+     "taille_script": 72,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "AKŞAMLARI",
+      "ERTELEMEYİ",
+      "NASIL",
+      "BIRAKTIM"
+     ],
+     "taille": 120,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "6a732198-ed4f-4382-aafb-01610b4a04ce",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bfc1fbd6-8cb2-40aa-8d9f-4c7ff8be8d53/8.jpg?v=1790607877948",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je commence avant le dîner🍽️",
+      "texte": "après manger, mon énergie s’effondre. le plus dur est fait avant.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i start before dinner🍽️",
+      "texte": "after eating my energy crashes. the hardest part is done before.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "empiezo antes de cenar🍽️",
+      "texte": "después de comer mi energía se hunde. lo más difícil ya está hecho.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich fange vor dem Abendessen an🍽️",
+      "texte": "nach dem Essen sackt meine Energie ab. das Schwerste ist dann schon erledigt.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "comincio prima di cena🍽️",
+      "texte": "dopo mangiato la mia energia crolla. il più difficile è già fatto.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "começo antes do jantar🍽️",
+      "texte": "depois de comer minha energia despenca. o mais difícil já foi.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "akşam yemeğinden önce başlıyorum🍽️",
+      "texte": "yemekten sonra enerjim düşüyor. en zor kısım öncesinde bitmiş oluyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "24558412-4969-45a7-bf16-02a113d28e85",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/05fe26be-0c88-44d4-819b-9b72707a690f/5.jpg?v=1790608120214",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mon téléphone part en mode nuit à 19 h📵",
+      "texte": "plus de notifications jusqu’au lendemain. le scroll s’arrête tout seul.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "my phone goes into night mode at 7pm📵",
+      "texte": "no more notifications until morning. the scrolling stops on its own.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mi móvil pasa a modo noche a las 19 h📵",
+      "texte": "se acabaron las notificaciones hasta mañana. el scroll se para solo.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mein Handy geht um 19 Uhr in den Nachtmodus📵",
+      "texte": "keine Benachrichtigungen bis morgen. das Scrollen hört von selbst auf.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "il telefono va in modalità notte alle 19📵",
+      "texte": "niente notifiche fino al giorno dopo. lo scroll si ferma da solo.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "meu celular entra no modo noite às 19h📵",
+      "texte": "nada de notificação até de manhã. o scroll para sozinho.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "telefonum saat 19’da gece moduna geçiyor📵",
+      "texte": "sabaha kadar bildirim yok. kaydırma kendiliğinden bitiyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "bb13a285-db20-44f2-a4e4-c934cf699a12",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/fc399c78-07ab-4d0b-a207-fe4fcbd4aca3/9.jpg?v=1790609025362",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "je commence par un quiz de 5 min🧠",
+      "texte": "sur micabo, sur le cours du jour. c’est tellement court que je n’ai pas d’excuse, et après je suis lancée.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "i start with a 5-min quiz🧠",
+      "texte": "on micabo, about today’s lesson. it’s so short i have no excuse, and then i’m on a roll.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "empiezo con un quiz de 5 min🧠",
+      "texte": "en micabo, sobre la clase del día. es tan corto que no tengo excusa, y luego ya estoy lanzada.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ich starte mit einem 5-Minuten-Quiz🧠",
+      "texte": "in micabo, zum Stoff von heute. so kurz, dass ich keine Ausrede habe, und danach bin ich drin.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "comincio con un quiz di 5 min🧠",
+      "texte": "su micabo, sulla lezione del giorno. è così breve che non ho scuse, e poi sono partita.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "começo com um quiz de 5 min🧠",
+      "texte": "no micabo, sobre a aula do dia. é tão curto que não tenho desculpa, e depois engreno.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "5 dakikalık bir testle başlıyorum🧠",
+      "texte": "micabo’da, günün dersinden. o kadar kısa ki bahanem kalmıyor, sonra kendiliğinden devam ediyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "33e18989-e4c6-4e80-8d8b-e658eec5430d",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f2603737-d11f-4fe5-8b3e-9c5ae1482be1/1.jpg?v=1791725689871",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une seule tâche sur ma liste📝",
+      "texte": "pas dix. une, et si je la finis, c’est bonus.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "only one task on my list📝",
+      "texte": "not ten. one, and if i finish it, the rest is a bonus.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una sola tarea en mi lista📝",
+      "texte": "no diez. una, y si la termino, lo demás es extra.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "nur eine Aufgabe auf meiner Liste📝",
+      "texte": "nicht zehn. eine, und wenn ich sie schaffe, ist alles andere Bonus.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un solo compito sulla lista📝",
+      "texte": "non dieci. uno, e se lo finisco, il resto è un bonus.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma tarefa só na minha lista📝",
+      "texte": "não dez. uma, e se eu terminar, o resto é bônus.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "listemde tek bir görev📝",
+      "texte": "on değil, bir. bitirirsem gerisi bonus.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "7358a4b6-74f2-45f0-8c8d-4493409028ca",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/55692dc5-f02c-4a63-bc50-773e8a88bd99/2.jpg?v=1791726905053",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une lumière forte sur mon bureau💡",
+      "texte": "dans la pénombre, mon cerveau croit que c’est l’heure de dormir.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a bright light on my desk💡",
+      "texte": "in dim light my brain thinks it’s bedtime.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una luz fuerte en mi escritorio💡",
+      "texte": "con poca luz mi cerebro cree que es hora de dormir.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "helles Licht am Schreibtisch💡",
+      "texte": "im Halbdunkel denkt mein Kopf, es ist Schlafenszeit.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una luce forte sulla scrivania💡",
+      "texte": "nella penombra il cervello crede che sia ora di dormire.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "uma luz forte na mesa💡",
+      "texte": "na penumbra meu cérebro acha que é hora de dormir.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "masamda güçlü bir ışık💡",
+      "texte": "loş ışıkta beynim uyku vakti sanıyor.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "af739cde-f7f5-45ff-8ed1-f60b90f3845a",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/35aa02fe-3dc2-418a-9a90-7397d43dfd1a/4.jpg",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "une heure de fin, pas négociable⏰",
+      "texte": "à 21 h j’arrête. savoir que ça finit me fait commencer.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "a non-negotiable end time⏰",
+      "texte": "at 9pm i stop. knowing it ends is what gets me started.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "una hora de fin, innegociable⏰",
+      "texte": "a las 21 h paro. saber que termina es lo que me hace empezar.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "eine feste Endzeit, nicht verhandelbar⏰",
+      "texte": "um 21 Uhr höre ich auf. zu wissen, dass es endet, bringt mich zum Anfangen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "un’ora di fine, non negoziabile⏰",
+      "texte": "alle 21 smetto. sapere che finisce è ciò che mi fa iniziare.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "um horário de parar, sem negociação⏰",
+      "texte": "às 21h eu paro. saber que acaba é o que me faz começar.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "pazarlıksız bir bitiş saati⏰",
+      "texte": "saat 21’de bırakıyorum. biteceğini bilmek başlamamı sağlıyor.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "source": {
+  "url": "",
+  "vues": 0,
+  "publie_le": "",
+  "titre": "comment je fais pour ne plus procrastiner le soir"
+ }
+}

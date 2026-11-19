@@ -1,0 +1,695 @@
+{
+ "id": "yp-067",
+ "source": {
+  "url": "https://www.tiktok.com/@yasminespixels/video/7667147856670706966",
+  "vues": 53800,
+  "enregistrements": 1330,
+  "publie_le": "2026-07-27",
+  "titre": "SCHOOL TIPS from a highschool graduate"
+ },
+ "type_bleo": "declinaison",
+ "titre": {
+  "fr": "tout juste bachelière : mes conseils pour le lycée",
+  "en": "fresh high school grad: my tips for high school",
+  "es": "recién graduada: mis consejos para el instituto",
+  "de": "frisch mit Abi: meine Tipps für die Schulzeit",
+  "it": "appena diplomata: i miei consigli per il liceo",
+  "pt-BR": "acabei de me formar: minhas dicas pro ensino médio",
+  "tr": "liseden yeni mezun oldum: lise tavsiyelerim"
+ },
+ "legendes": {
+  "fr": "ce que j’aurais aimé qu’on me dise en seconde 🤍 #lycee #conseils #studytok #thatgirl #bac",
+  "en": "what i wish someone told me freshman year 🤍 #highschool #studytips #studytok #thatgirl #advice",
+  "es": "lo que me habría gustado saber en primero 🤍 #instituto #consejos #studytok #thatgirl #estudiar",
+  "de": "was ich mir in der 10. Klasse gewünscht hätte 🤍 #schule #lerntipps #studytok #thatgirl #abitur",
+  "it": "quello che avrei voluto sapere in prima 🤍 #liceo #consigli #studytok #thatgirl #scuola",
+  "pt-BR": "o que eu queria ter ouvido no 1º ano 🤍 #ensinomedio #dicas #studytok #thatgirl #estudos",
+  "tr": "lise birde keşke bana söyleselerdi 🤍 #lise #tavsiye #studytok #thatgirl #ders"
+ },
+ "musique": {
+  "titre": "original sound",
+  "url": "https://www.tiktok.com/music/original-sound-7103472243455691526"
+ },
+ "fond": {
+  "media_id": "11323bc8-4fdb-496b-9e16-8cb0024050bf",
+  "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/bb8afc63-069c-4ad1-bcd4-f804cbef3b01/1.jpg?v=1787158313515",
+  "cadrage": {
+   "x": 0.5,
+   "y": 0.5
+  }
+ },
+ "notes": "déclinaison G2 de yp-015 (« conseils de lycée d’une jeune bachelière, partie 2 », gagnante : 1,1 k en es, 1 k en tr r 2,01), 1re sur 3 : même promesse reformulée, même format notes iOS, 6 conseils jamais donnés au label, photos et son neufs. cta A : micabo dans la note « transforme tes cours en quiz », sans capture. 7 langues",
+ "slides": [
+  {
+   "type": "couverture",
+   "fr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MES CONSEILS",
+      "POUR LE",
+      "LYCÉE"
+     ],
+     "taille": 120,
+     "script_haut": "tout juste bachelière,",
+     "taille_script": 72,
+     "texte_bas": "(ce que j’aurais aimé savoir)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 44,
+     "y": 620
+    }
+   },
+   "en": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MY TIPS",
+      "FOR HIGH",
+      "SCHOOL"
+     ],
+     "taille": 120,
+     "script_haut": "fresh high school grad:",
+     "taille_script": 68,
+     "texte_bas": "(what i wish i’d known)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 44,
+     "y": 620
+    }
+   },
+   "es": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MIS CONSEJOS",
+      "PARA EL",
+      "INSTITUTO"
+     ],
+     "taille": 120,
+     "script_haut": "recién graduada:",
+     "taille_script": 72,
+     "texte_bas": "(lo que me habría gustado saber)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 44,
+     "y": 620
+    }
+   },
+   "de": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MEINE TIPPS",
+      "FÜR DIE",
+      "SCHULZEIT"
+     ],
+     "taille": 120,
+     "script_haut": "frisch mit Abi:",
+     "taille_script": 72,
+     "texte_bas": "(was ich gern gewusst hätte)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 44,
+     "y": 620
+    }
+   },
+   "it": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "I MIEI",
+      "CONSIGLI PER",
+      "IL LICEO"
+     ],
+     "taille": 120,
+     "script_haut": "appena diplomata:",
+     "taille_script": 72,
+     "texte_bas": "(quello che avrei voluto sapere)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 44,
+     "y": 620
+    }
+   },
+   "pt-BR": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "MINHAS DICAS",
+      "PRO ENSINO",
+      "MÉDIO"
+     ],
+     "taille": 120,
+     "script_haut": "acabei de me formar:",
+     "taille_script": 72,
+     "texte_bas": "(o que eu queria ter sabido)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 44,
+     "y": 620
+    }
+   },
+   "tr": {
+    "couverture": {
+     "aligne": "centre",
+     "lignes": [
+      "LİSEDEN YENİ",
+      "MEZUN OLDUM:",
+      "LİSE",
+      "TAVSİYELERİM"
+     ],
+     "taille": 104,
+     "texte_bas": "(keşke bilseydim dediklerim)",
+     "texte_bas_x": 540,
+     "texte_bas_taille": 44,
+     "y": 620
+    }
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "63c28c01-7d98-4051-9870-a5bd96668297",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/1b15f90a-ad18-43ae-899c-a8986536f16e/6.jpg?v=1790611495316",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "fais-toi un emploi du temps de révision📆",
+      "texte": "une matière par soir, tu n’as plus à décider chaque jour.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "make a study schedule📆",
+      "texte": "one subject per night, so you don’t have to decide every day.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "hazte un horario de estudio📆",
+      "texte": "una asignatura por noche y ya no tienes que decidir cada día.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mach dir einen Lernplan📆",
+      "texte": "ein Fach pro Abend, dann musst du nicht jeden Tag neu entscheiden.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "fatti un orario di studio📆",
+      "texte": "una materia a sera, così non devi decidere ogni giorno.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "monte um cronograma de estudo📆",
+      "texte": "uma matéria por noite, e você não precisa decidir todo dia.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "kendine bir çalışma programı yap📆",
+      "texte": "her akşam bir ders, böylece her gün karar vermek zorunda kalmazsın.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "f3988857-7c31-4cfd-a743-fdc001d75f32",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/e506d142-61d6-4ab4-9f3a-a4ed090aa37b/9.jpg?v=1790606990404",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "prends des notes à ta façon✍️",
+      "texte": "des flèches, des abréviations, des dessins. tant que toi, tu te relis.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "take notes your own way✍️",
+      "texte": "arrows, abbreviations, doodles. as long as you can read them back.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "toma apuntes a tu manera✍️",
+      "texte": "flechas, abreviaturas, dibujos. mientras tú los entiendas.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "schreib mit, wie es für dich passt✍️",
+      "texte": "Pfeile, Abkürzungen, Zeichnungen. Hauptsache, du kannst es lesen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "prendi appunti a modo tuo✍️",
+      "texte": "frecce, abbreviazioni, disegni. basta che tu riesca a rileggerli.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "anote do seu jeito✍️",
+      "texte": "setas, abreviações, desenhos. contanto que você consiga reler.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "not alırken kendi yolunu bul✍️",
+      "texte": "oklar, kısaltmalar, çizimler. yeter ki sen okuyabil.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "app": true,
+   "photo": {
+    "media_id": "58674f35-9264-43d6-9b0a-33a27d763e62",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/f686ce68-26cd-4e51-ac5e-4c5b6f81999c/4.jpg?v=1791726009701",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "transforme tes cours en quiz🧠",
+      "texte": "je mets mes cours dans micabo et il me pose des questions. 10 min par jour, et je n’ai plus jamais tout à apprendre la veille.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "turn your lessons into quizzes🧠",
+      "texte": "i put my lessons into micabo and it asks me questions. 10 min a day, and i never have to learn everything the night before.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "convierte tus clases en quiz🧠",
+      "texte": "meto mis clases en micabo y me hace preguntas. 10 min al día y nunca tengo que aprenderlo todo la noche antes.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "mach aus deinem Stoff Quiz🧠",
+      "texte": "ich packe meinen Stoff in micabo und es stellt mir Fragen. 10 Min. am Tag, und ich muss nie wieder alles am Vorabend lernen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "trasforma le lezioni in quiz🧠",
+      "texte": "metto le lezioni su micabo e mi fa domande. 10 min al giorno, e non devo mai più studiare tutto la sera prima.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "transforme suas aulas em quiz🧠",
+      "texte": "coloco minhas aulas no micabo e ele me faz perguntas. 10 min por dia, e nunca mais preciso aprender tudo na véspera.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "derslerini teste çevir🧠",
+      "texte": "derslerimi micabo’ya koyuyorum, bana soru soruyor. günde 10 dakika ve artık her şeyi son gece öğrenmek zorunda kalmıyorum.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "4cb00c20-dd6f-414c-9eb4-ea984bebeb33",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/40d15af8-60ee-4a48-9742-84dc7970d1bc/5.jpg?v=1790607077237",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "entoure-toi de gens qui bossent👯",
+      "texte": "tes amies influencent tes notes plus que tu ne crois.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "surround yourself with people who study👯",
+      "texte": "your friends affect your grades more than you think.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "rodéate de gente que estudia👯",
+      "texte": "tus amigas influyen en tus notas más de lo que crees.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "umgib dich mit Leuten, die lernen👯",
+      "texte": "deine Freundinnen beeinflussen deine Noten mehr, als du denkst.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "circondati di persone che studiano👯",
+      "texte": "le tue amiche influenzano i tuoi voti più di quanto pensi.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "ande com gente que estuda👯",
+      "texte": "suas amigas influenciam suas notas mais do que você imagina.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "çalışan insanlarla vakit geçir👯",
+      "texte": "arkadaşların notlarını sandığından çok etkiler.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "9bd9bcf2-4968-4225-9f65-12fe89fb4dd1",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/825e2f63-ac59-4b22-8a83-27ec62441e44/6.jpg?v=1791725716950",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lis les consignes deux fois📄",
+      "texte": "la moitié des points perdus, c’est une question mal lue.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "read the instructions twice📄",
+      "texte": "half the points people lose come from misreading the question.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lee el enunciado dos veces📄",
+      "texte": "la mitad de los puntos que se pierden es por leer mal la pregunta.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "lies die Aufgabe zweimal📄",
+      "texte": "die Hälfte der verlorenen Punkte kommt von falsch gelesenen Fragen.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "leggi la consegna due volte📄",
+      "texte": "metà dei punti persi viene da una domanda letta male.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "leia o enunciado duas vezes📄",
+      "texte": "metade dos pontos perdidos vem de pergunta mal lida.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "soruyu iki kez oku📄",
+      "texte": "kaybedilen puanların yarısı yanlış okunan sorulardan gelir.",
+      "grand": true
+     }
+    ]
+   }
+  },
+  {
+   "type": "photo",
+   "photo": {
+    "media_id": "5f7bd811-9c34-42ac-8eb7-2f0ca33877f4",
+    "url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/propre/32c3f6ba-7fd0-4393-bdb4-f1fd6b105bc9/6.jpg?v=1790677631746",
+    "cadrage": {
+     "x": 0.5,
+     "y": 0.5
+    }
+   },
+   "fr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "profite aussi de ces années✨",
+      "texte": "les soirées, les amies, les bêtises. le lycée, ce n’est pas que les notes.",
+      "grand": true
+     }
+    ]
+   },
+   "en": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "enjoy these years too✨",
+      "texte": "the nights out, the friends, the silly moments. high school isn’t just grades.",
+      "grand": true
+     }
+    ]
+   },
+   "es": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "disfruta también de estos años✨",
+      "texte": "las salidas, las amigas, las tonterías. el instituto no son solo notas.",
+      "grand": true
+     }
+    ]
+   },
+   "de": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "genieß diese Jahre auch✨",
+      "texte": "die Abende, die Freundinnen, der Unsinn. Schule ist nicht nur Noten.",
+      "grand": true
+     }
+    ]
+   },
+   "it": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "goditi anche questi anni✨",
+      "texte": "le serate, le amiche, le sciocchezze. il liceo non sono solo voti.",
+      "grand": true
+     }
+    ]
+   },
+   "pt-BR": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "aproveite esses anos também✨",
+      "texte": "os rolês, as amigas, as bobeiras. o ensino médio não é só nota.",
+      "grand": true
+     }
+    ]
+   },
+   "tr": {
+    "notes": [
+     {
+      "x": 108,
+      "y": 300,
+      "titre": "bu yılların tadını da çıkar✨",
+      "texte": "geceler, arkadaşlar, saçmalıklar. lise sadece notlardan ibaret değil.",
+      "grand": true
+     }
+    ]
+   }
+  }
+ ],
+ "parent_contenu_id": "5ec5fa42-68e6-4f45-882f-d7e35d6800f4"
+}

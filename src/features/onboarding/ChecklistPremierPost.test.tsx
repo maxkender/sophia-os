@@ -7,6 +7,7 @@ const etatOnboarding = vi.fn();
 const mesReviewsNonVues = vi.fn();
 const mesNudges = vi.fn();
 let roleReel = "poster";
+let niche: string | null = null;
 
 vi.mock("@/features/moteur/api", () => ({
   aDejaPublie: () => aDejaPublie(),
@@ -15,6 +16,8 @@ vi.mock("@/features/moteur/api", () => ({
   mesNudges: () => mesNudges(),
 }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ roleReel, user: { id: "u1" } }) }));
+// La niche du label du compte (19/11) : null = inconnue, la question standard.
+vi.mock("./maNiche", () => ({ useNicheComptePrincipal: () => niche }));
 
 import { ChecklistPremierPost } from "./ChecklistPremierPost";
 
@@ -52,6 +55,7 @@ describe("ChecklistPremierPost", () => {
     vi.clearAllMocks();
     window.localStorage.clear();
     roleReel = "poster";
+    niche = null;
     aDejaPublie.mockResolvedValue(false);
     etatOnboarding.mockResolvedValue({ vu: true, etape: 0 });
     mesReviewsNonVues.mockResolvedValue([]);
@@ -102,6 +106,19 @@ describe("ChecklistPremierPost", () => {
     fireEvent.click(screen.getByRole("button", { name: "Continue" }));
     await waitFor(() => expect(screen.queryByText(TITRE)).toBeNull());
     expect(window.localStorage.getItem("checklist-premier-post:u1")).toBeTruthy();
+  });
+
+  it("19/11 : la niche du label du compte est nommée dans la question des commentaires et sur l'écran rouge", async () => {
+    niche = "running";
+    rendre();
+    expect(await screen.findByText(TITRE)).toBeInTheDocument();
+    const nommee = "Did you comment on at least 3 posts in the niche you're going to post in (running)?";
+    expect(screen.getByText(`4. ${nommee}`)).toBeInTheDocument();
+    expect(screen.queryByRole("radiogroup", { name: QUESTIONS[3] })).toBeNull();
+    for (const q of QUESTIONS.slice(0, 3)) repondre(q, "Yes");
+    repondre(nommee, "No");
+    fireEvent.click(screen.getByRole("button", { name: "Continue" }));
+    expect(screen.getByText("Comment on at least 3 posts in the niche you're going to post in (running)")).toBeInTheDocument();
   });
 
   it("déjà passée sur ce navigateur : rien, sans même lire la base", () => {

@@ -42,6 +42,21 @@ export const QUESTIONS_PREMIER_POST: readonly QuestionPremierPost[] = [
   },
 ];
 
+/**
+ * Les questions posées à CE posteur (19/11) : la niche du label de son compte
+ * est nommée dans la question des commentaires. Inconnue : la liste standard,
+ * telle quelle.
+ */
+export function questionsPremierPost(niche?: string | null): readonly QuestionPremierPost[] {
+  const nommee = (niche ?? "").trim();
+  if (!nommee) return QUESTIONS_PREMIER_POST;
+  return QUESTIONS_PREMIER_POST.map((q) =>
+    q.cle === "commentaires"
+      ? { ...q, question: q.question.replace(/\?$/, ` (${nommee})?`), action: `${q.action} (${nommee})` }
+      : q,
+  );
+}
+
 export const TEXTES_PREMIER_POST = {
   titre: "⚠️ BEFORE YOUR FIRST POST",
   intro: "Answer honestly. Skipping this can get your account banned right away.",
@@ -58,9 +73,12 @@ export function toutRepondu(reponses: Reponses): boolean {
   return QUESTIONS_PREMIER_POST.every((q) => reponses[q.cle] !== undefined);
 }
 
-/** Les questions répondues « No », dans l'ordre du pop-up. */
-export function manquants(reponses: Reponses): QuestionPremierPost[] {
-  return QUESTIONS_PREMIER_POST.filter((q) => reponses[q.cle] === "non");
+/** Les questions répondues « No », dans l'ordre du pop-up (avec leur texte : celui de `questionsPremierPost`). */
+export function manquants(
+  reponses: Reponses,
+  questions: readonly QuestionPremierPost[] = QUESTIONS_PREMIER_POST,
+): QuestionPremierPost[] {
+  return questions.filter((q) => reponses[q.cle] === "non");
 }
 
 /** Retour aux questions après l'écran rouge : les « No » sont à redonner. */

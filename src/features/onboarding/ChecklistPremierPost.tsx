@@ -8,11 +8,12 @@ import { useAuth } from "@/features/auth/AuthContext";
 import { aDejaPublie, etatOnboarding, mesNudges, mesReviewsNonVues } from "@/features/moteur/api";
 import { cn } from "@/lib/utils";
 
+import { useNicheComptePrincipal } from "./maNiche";
 import {
   checklistFaite,
   manquants,
   marquerChecklistFaite,
-  QUESTIONS_PREMIER_POST,
+  questionsPremierPost,
   sansLesNon,
   TEXTES_PREMIER_POST as T,
   toutRepondu,
@@ -41,6 +42,8 @@ function ChecklistSiNouveau({ uid }: { uid: string }) {
   const onboarding = useQuery({ queryKey: ["onboarding-etat"], queryFn: etatOnboarding, enabled: !faite });
   const reviews = useQuery({ queryKey: ["mes-reviews"], queryFn: mesReviewsNonVues, enabled: !faite });
   const nudges = useQuery({ queryKey: ["mes-nudges"], queryFn: mesNudges, enabled: !faite });
+  // 19/11 : la niche du label de son compte, nommée dans la question des commentaires.
+  const niche = useNicheComptePrincipal(!faite);
 
   if (faite || publie.data !== false) return null;
   const apres =
@@ -54,6 +57,7 @@ function ChecklistSiNouveau({ uid }: { uid: string }) {
 
   return (
     <ChecklistPremierPostDialog
+      niche={niche}
       onTermine={() => {
         marquerChecklistFaite(uid);
         setFaite(true);
@@ -64,18 +68,22 @@ function ChecklistSiNouveau({ uid }: { uid: string }) {
 
 /**
  * Le pop-up lui-même. `simulation` (page Tests) : bandeau « aperçu », la croix
- * revient, et rien n'est retenu.
+ * revient, et rien n'est retenu. `niche` : celle du label du compte, nommée
+ * dans la question des commentaires ; absente (l'aperçu), la question standard.
  */
 export function ChecklistPremierPostDialog({
   simulation = false,
+  niche = null,
   onTermine,
 }: {
   simulation?: boolean;
+  niche?: string | null;
   onTermine: () => void;
 }) {
   const [reponses, setReponses] = React.useState<Reponses>({});
   const [stop, setStop] = React.useState(false);
-  const aFaire = manquants(reponses);
+  const questions = questionsPremierPost(niche);
+  const aFaire = manquants(reponses, questions);
 
   const repondre = (cle: keyof Reponses, r: Reponse) => setReponses((avant) => ({ ...avant, [cle]: r }));
   const continuer = () => {
@@ -130,7 +138,7 @@ export function ChecklistPremierPostDialog({
                 </div>
               </div>
               <ol className="space-y-3">
-                {QUESTIONS_PREMIER_POST.map((q, i) => (
+                {questions.map((q, i) => (
                   <li key={q.cle} className="space-y-2 rounded-lg border p-3">
                     <p className="font-bold">
                       {i + 1}. {q.question}

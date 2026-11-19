@@ -9643,6 +9643,7 @@ export const en = {
         tiktokSansHandle: "3. Create your TikTok account",
         tiktokDetail: "With the handle, bio and profile picture from your dashboard, exactly as provided.",
         warmup: "4. Start warmup + follow 5 accounts, before {{dimanche}} midnight",
+        warmupNiche: "Scroll and follow accounts in your niche: {{niche}}.",
         post: "5. Your first post: {{lundi}}",
         disponible: "Your first post will be available on {{jour}} at {{heure}} ({{fuseau}}).",
         disponibleLocal: "Your first post will be available on {{jour}} at {{heure}} (your time).",

@@ -30,6 +30,7 @@ import {
   type EtapeDeclarable,
 } from "./cinqEtapesApi";
 import { formaterJour, partiesParis } from "./datesRuul";
+import { useMaNiche } from "./maNiche";
 
 function Pastille({ numero, etat }: { numero: number; etat: EtatCinq }) {
   return (
@@ -53,7 +54,8 @@ export const CONSEIL_FOLLOWS_DEFAUT =
 /**
  * La première semaine en 5 étapes, sur l'accueil du posteur (chantier du
  * 28 oct., partie G) : Log in · Join Slack (recommandé) · TikTok @handle ·
- * Start warmup + 5 follows avant dimanche minuit · 1er post le lundi, avec la
+ * Start warmup + 5 follows avant dimanche minuit (dans la niche du label du
+ * compte, nommée depuis le 19/11) · 1er post le lundi, avec la
  * règle du lien. Pas pour la cohorte Ruul (exclue), qui garde sa frise.
  * S'efface une fois la 1re semaine de posts finie.
  */
@@ -76,6 +78,8 @@ export function CinqEtapes({
   const monWarmup = useQuery({ queryKey: ["mon-warmup"], queryFn: lireMonWarmup, refetchInterval: 10 * 60_000 });
   const declarations = useQuery({ queryKey: ["mes-declarations"], queryFn: lireMesDeclarations });
   const textes = useQuery({ queryKey: ["mes-textes-debut"], queryFn: lireMesTextesDebut, staleTime: 60 * 60_000 });
+  // 19/11 : la niche du warm-up, celle du label de CE compte (un 2e compte peut en avoir une autre).
+  const niche = useMaNiche(compteId);
   if (!profil.data) return null;
   const aujourdhui = partiesParis(maintenant).date;
   const premierPost = premierPostLe({
@@ -151,6 +155,12 @@ export function CinqEtapes({
             </p>
           )}
           <RegleTexte regle="warmup" className="mt-1 p-2 text-xs" />
+          {/* Où scroller et qui suivre : la niche nommée, quand on connaît le label du compte. */}
+          {niche && (
+            <p className="mt-1 font-medium text-foreground" data-testid="niche-warmup">
+              {t("calendrier.cinq.warmupNiche", { niche })}
+            </p>
+          )}
           {warmupStartedAt && <BoutonDeclarer etape="warmup" libelle={t("calendrier.cinq.declarer.fait")} />}
         </>
       ),

@@ -13,7 +13,17 @@
   "it": "10/10 abilità da imparare in un giorno!",
   "es-419": "¡10/10 habilidades para aprender en un día!",
   "fr": "10/10 compétences à apprendre en une journée",
-  "es": "10/10 habilidades que puedes aprender en un día"
+  "es": "10/10 habilidades que puedes aprender en un día",
+  "cs": "10/10 dovedností, které se naučíš za jeden den!",
+  "sk": "10/10 zručností, ktoré sa naučíš za jeden deň!",
+  "hr": "10/10 vještina koje možeš naučiti u jednom danu!",
+  "sl": "10/10 veščin, ki se jih naučiš v enem dnevu!",
+  "hu": "10/10 készség, amit egy nap alatt megtanulhatsz!",
+  "nl": "10/10 skills die je in één dag kunt leren!",
+  "pl": "10/10 umiejętności do nauczenia w jeden dzień!",
+  "ro": "10/10 abilități pe care le înveți într-o zi!",
+  "sv": "10/10 färdigheter du kan lära dig på en dag!",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri!"
  },
  "legendes": {
   "en": "10/10 Skills You Can Learn In A Day! #skills #learnontiktok #selfmastery",
@@ -23,13 +33,23 @@
   "it": "10/10 abilità da imparare in un giorno! #imparacontiktok #crescitapersonale #abilità",
   "es-419": "¡10/10 habilidades para aprender en un día! #aprendeentiktok #desarrollopersonal #habilidades",
   "fr": "10/10 compétences à apprendre en une journée #apprendresurtiktok #développementpersonnel #compétences",
-  "es": "10/10 habilidades que puedes aprender en un día #aprendeentiktok #desarrollopersonal #habilidades"
+  "es": "10/10 habilidades que puedes aprender en un día #aprendeentiktok #desarrollopersonal #habilidades",
+  "cs": "10/10 dovedností, které se naučíš za jeden den! #dovednosti #seberozvoj #vzdělávání",
+  "sk": "10/10 zručností, ktoré sa naučíš za jeden deň! #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "10/10 vještina koje možeš naučiti u jednom danu! #vještine #osobnirazvoj #učenje",
+  "sl": "10/10 veščin, ki se jih naučiš v enem dnevu! #veščine #osebnarast #učenje",
+  "hu": "10/10 készség, amit egy nap alatt megtanulhatsz! #készségek #önfejlesztés #tanulás",
+  "nl": "10/10 skills die je in één dag kunt leren! #skills #zelfontwikkeling #leren",
+  "pl": "10/10 umiejętności do nauczenia w jeden dzień! #umiejętności #rozwójosobisty #nauka",
+  "ro": "10/10 abilități pe care le înveți într-o zi! #abilități #dezvoltarepersonală #învățare",
+  "sv": "10/10 färdigheter du kan lära dig på en dag! #färdigheter #självutveckling #lärande",
+  "tr": "Bir günde öğrenebileceğin 10/10 beceri! #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "sonido original",
   "url": "https://www.tiktok.com/music/sonido-original-7301405245357132549"
  },
- "notes": "cta A. Reprise de l'accroche de fa-002 et fa-020 (une seule fois sur 7 jours) : étapes nouvelles (avion de papier, mélange de cartes, Rubik's cube), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers).",
+ "notes": "cta A. Reprise de l'accroche de fa-002 et fa-020 (une seule fois sur 7 jours) : étapes nouvelles (avion de papier, mélange de cartes, Rubik's cube), autre CTA. Six langues (en, de, pt du Portugal, pt-BR, it, es-419), vidéos natives par langue, miniatures vérifiées (pas de visage tiers). 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr (titre et couverture de fa-002) ; faute de vidéo native, l'avion en papier devient le dessin en perspective en sl, et le mélange de cartes aussi en hu.",
  "slides": [
   {
    "type": "couverture",
@@ -171,6 +191,126 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "DOVEDNOSTÍ, KTERÉ SE",
+     "NAUČÍŠ ZA JEDEN DEN"
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZRUČNOSTÍ, KTORÉ SA",
+     "NAUČÍŠ ZA JEDEN DEŇ"
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VJEŠTINA KOJE MOŽEŠ",
+     "NAUČITI U JEDNOM DANU"
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠČIN, KI SE JIH",
+     "NAUČIŠ V ENEM DNEVU"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KÉSZSÉG, AMIT EGY NAP",
+     "ALATT MEGTANULHATSZ"
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS DIE JE IN",
+     "ÉÉN DAG KUNT LEREN"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "UMIEJĘTNOŚCI DO",
+     "NAUCZENIA W JEDEN DZIEŃ"
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITĂȚI PE CARE",
+     "LE ÎNVEȚI ÎNTR-O ZI"
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FÄRDIGHETER DU KAN",
+     "LÄRA DIG PÅ EN DAG"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "BİR GÜNDE",
+     "ÖĞRENEBİLECEĞİN BECERİ"
+    ]
    }
   },
   {
@@ -293,6 +433,156 @@
      "date": "hace 9 años",
      "duree": "3:40",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_nasjA1NiTmM4TPqnGVnW9OGIyLMoaWgWxkOxMN5mQfqg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "SLOŽ NEJLEPŠÍ",
+     "VLAŠTOVKU"
+    ],
+    "video": {
+     "id": "nlw7h1iARQM",
+     "titre": "Klasická vlaštovka - Jak složit vlaštovku z papíru - ORIGAMI",
+     "chaine": "Řeknijak",
+     "vues": "252 tis. zhlédnutí",
+     "date": "před 7 lety",
+     "duree": "3:01",
+     "avatar": "https://yt3.ggpht.com/Lm4WbCzJcPfTTLClSP1_7IO3Tx8KAkPjWvflkoRPkOAYZBacCKmhEdn3xFW1KaMlzGiPdBfSTLY=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POSKLADAJ NAJLEPŠIE",
+     "LIETADLO Z PAPIERA"
+    ],
+    "video": {
+     "id": "9peJaMkQZGA",
+     "titre": "Ako poskladať jednoduché lietadlo z papiera – Origami dizajn (Kreatívne a originálne)",
+     "chaine": "Marwin TV",
+     "vues": "112 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "2:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lPDVvGaEonTO--2LxytSnKoV0LmDdlUM-fv3fAbOB_lQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAPRAVI NAJBOLJI",
+     "AVION OD PAPIRA"
+    ],
+    "video": {
+     "id": "zx_kjQM8-6M",
+     "titre": "KAKO NAPRAVITI AVION KOJI JE SVIJETSKI REKORDER U LETU | How to Make a Paper Airplane",
+     "chaine": "NAJLA",
+     "vues": "370 tis. pregleda",
+     "date": "prije 4 godine",
+     "duree": "4:20",
+     "avatar": "https://yt3.ggpht.com/Js9UfPG0dC6dg6db494YR66Dfmt7xtUthoEPzXFvQEjR812u_CgKcL7vS9kKRvrgDaJ-PIqsuys=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "RIŠI V",
+     "PERSPEKTIVI"
+    ],
+    "video": {
+     "id": "GNHtsI6J55U",
+     "titre": "RISANJE ULICE V ENOBEŽIŠČNI LINEARNI PERSPEKTIVI",
+     "chaine": "<3 ART",
+     "vues": "18 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "37:03",
+     "avatar": "https://yt3.ggpht.com/dyUjanLT80669wyoUBPSCNEV-URsSGmug5PfDzq0r1ojM88gilCXneLPpEo-DFcjj641tAklhg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "HAJTOGASD A LEGJOBB",
+     "PAPÍRREPÜLŐT"
+    ],
+    "video": {
+     "id": "gGNVHHeMQIw",
+     "titre": "Papírrepülő hajtogatás , nagyon könnyű/ How to make paper aeroplane",
+     "chaine": "1001 kreativ",
+     "vues": "377 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_leTs_W1DA-Vh4od8WCMfIo3qMSc8KvD2OEYGTl-PhBlA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "VOUW HET BESTE",
+     "PAPIEREN VLIEGTUIG"
+    ],
+    "video": {
+     "id": "kVG_zBj0voE",
+     "titre": "Het verst vliegende vliegtuigje ter wereld| wereldrecord| papieren vliegtuigjes vouwen #8",
+     "chaine": "Niels Oste",
+     "vues": "371K weergaven",
+     "date": "6 jaar geleden",
+     "duree": "5:34",
+     "avatar": "https://yt3.ggpht.com/FIROo85TvCPX7Y0_CJTQrbyO7nK0QbrHKDff9Uga39m2vp93iyB-9XCOomoLci6uFF91ZR6RakQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZRÓB NAJLEPSZY",
+     "SAMOLOT Z PAPIERU"
+    ],
+    "video": {
+     "id": "SWeURLOz0Lc",
+     "titre": "SAMOLOT Z PAPIERU BARDZO DALEKO LATAJĄCY SAMOLOT Z PAPIERU -  DUŻY ZASIĘG BEST PAPER AIRPLANE",
+     "chaine": "Koler Creative",
+     "vues": "1,9 mln wyświetleń",
+     "date": "6 lat temu",
+     "duree": "3:58",
+     "avatar": "https://yt3.ggpht.com/WkmxumUj77r1htv8rqMssMk925wotMDDF1IopdWwHlz_rH8r03UiM4wsVeqzRc1h97oC8muULFs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "FĂ CEL MAI BUN",
+     "AVION DE HÂRTIE"
+    ],
+    "video": {
+     "id": "VkYEZewvz04",
+     "titre": "Faceți origami ușor - Cel mai bun avion de hartie din lume",
+     "chaine": "SIKANA Română",
+     "vues": "59 K de vizionări",
+     "date": "acum 10 ani",
+     "duree": "4:36",
+     "avatar": "https://yt3.ggpht.com/HACqt7Gr62GpCSHT3AVroOldaISFH_Y5-7EVRtMCF9-lHp3X1IT2mufiCqLXJMrepxEfQFkp1l0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "VIK DET BÄSTA",
+     "PAPPERSFLYGPLANET"
+    ],
+    "video": {
+     "id": "d63me1sUwRE",
+     "titre": "Bästa pappersflygplanet? Så viker du en superglidare!",
+     "chaine": "Lightflight",
+     "vues": "109 644 visningar",
+     "date": "för 4 år sen",
+     "duree": "1:12",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mDt5DcExCf9Bxh3iboCnWEsTktJhhOYSouicvGMpuGGQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "EN İYİ KAĞIT",
+     "UÇAĞI YAP"
+    ],
+    "video": {
+     "id": "ZP-sHuzfG2Q",
+     "titre": "Yere İnmeyen Kağıttan Uçak Yapımı (Çok Kolay)",
+     "chaine": "Paper Pilot",
+     "vues": "2,8 Mn görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "1:50",
+     "avatar": "https://yt3.ggpht.com/kRzS8eGXfNP56-vZ3WCJ8MrUG-UsvwUWXxp0sxMjZ_5x41jkQOw0zVAdx_8UKgwqUsejQVtJ_kM=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -417,6 +707,156 @@
      "duree": "5:46",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_lpUTHVfjXcdJfS76L-0iUtgwOlU79mJviqPxR5Y7F-=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "MÍCHEJ KARTY",
+     "JAKO PROFÍK"
+    ],
+    "video": {
+     "id": "VMZBwe42p-s",
+     "titre": "Jak Míchat Karty pro Začátečníky! Nauč se 3 způsoby Riffle míchání a Mostu za 5 minut.",
+     "chaine": "Karbaník",
+     "vues": "1,4 tis. zhlédnutí",
+     "date": "před 5 měsíci",
+     "duree": "7:49",
+     "avatar": "https://yt3.ggpht.com/R4rx3eXHDYttdm05miuXGp0twDNoEdmV64ZVLrnRf7kkVjsAVy_FTUQN9qHx4jiucnX3YtDTQww=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "MIEŠAJ KARTY",
+     "AKO PROFÍK"
+    ],
+    "video": {
+     "id": "K3MEWKZKPA8",
+     "titre": "Miešanie Kariet - Základný návod (Overhand Shuffle, Hindu Shuffle a Riffle Shuffle)",
+     "chaine": "Nandy Kudry",
+     "vues": "3,8 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "14:06",
+     "avatar": "https://yt3.ggpht.com/LcQRWoTUBEdEfTewnrZev9vYWBSY7ekAt_ri3VWdI5h85Ob0Xpb1W1ogQrl2ClK5YSinkzbZsQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "MIJEŠAJ KARTE",
+     "KAO PROFESIONALAC"
+    ],
+    "video": {
+     "id": "yr5maQm4eZQ",
+     "titre": "Kako pravilno miješati karte - Tin Golubić",
+     "chaine": "Tin Golubic",
+     "vues": "66 tis. pregleda",
+     "date": "prije 15 godina",
+     "duree": "1:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n5eKqFEsVhT8H_W1LvjkiXpCMxI4o_6NWmzVa4bP8Thw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "MEŠAJ KARTE",
+     "KOT PROFESIONALEC"
+    ],
+    "video": {
+     "id": "boZtSzN4Fj8",
+     "titre": "NAUČI SE MESATI KARTE 💪 IMAM IZZIV ZA VAS 😏",
+     "chaine": "Magic Aleksander",
+     "vues": "21 tis. ogledov",
+     "date": "pred 6 leti",
+     "duree": "7:42",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lNUHJ4i__s9n3d1_VyG9JmXNK7a0pvWdKte450Bt0AT98=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "RAJZOLJ",
+     "PERSPEKTÍVÁBAN"
+    ],
+    "video": {
+     "id": "8MrvLYTb47U",
+     "titre": "Egyiránypontos perspektíva",
+     "chaine": "István Havril",
+     "vues": "14 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "14:53",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nh2Uby23lR_1UCfw6UineXXSQIqHeU-2-O_-9AXBB588E=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "SCHUD KAARTEN",
+     "ALS EEN PRO"
+    ],
+    "video": {
+     "id": "QVHAautctZo",
+     "titre": "TUTORIAL: Leer kaarten schudden als een PRO!",
+     "chaine": "David Nathan Magic",
+     "vues": "66K weergaven",
+     "date": "6 jaar geleden",
+     "duree": "7:32",
+     "avatar": "https://yt3.ggpht.com/KAA_mov-9kGPrx0rr4QjQn98b12u-75RLqJpGtcVOci9lUCLFvfThwCf2S_1g9NC5x0idI1a=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "TASUJ KARTY",
+     "JAK PROFESJONALISTA"
+    ],
+    "video": {
+     "id": "vPmX-0N86p8",
+     "titre": "Jak efektownie tasować karty? - PORADNIK",
+     "chaine": "Mentalista • KX • Sztuka Iluzji",
+     "vues": "157 tys. wyświetleń",
+     "date": "6 lat temu",
+     "duree": "4:57",
+     "avatar": "https://yt3.ggpht.com/SEVvAR8HeJaQrY_SvE03XtqksEhMOwZUv24TMn_q57kJyp8v0b6W78OqrUzRjZe_8B3IXRMmOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "AMESTECĂ CĂRȚILE",
+     "CA UN PROFESIONIST"
+    ],
+    "video": {
+     "id": "PhqttRBeCHo",
+     "titre": "Amestecarea peste mana - miscare de baza cu carti de joc",
+     "chaine": "Magic House Academy",
+     "vues": "2,6 K de vizionări",
+     "date": "acum 4 ani",
+     "duree": "2:34",
+     "avatar": "https://yt3.ggpht.com/PWweNQBrGhxzDatuYdevsBlsDSfJ0dGnvPVwCywXDuv9ON4-ejQQHs_98rRxCL_00Slt6Mkd=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "BLANDA KORT",
+     "SOM ETT PROFFS"
+    ],
+    "video": {
+     "id": "IfWt5maLg4Q",
+     "titre": "LÄR DIG ATT BLANDA EN KORTLEK!",
+     "chaine": "Douglas Nordenbelt",
+     "vues": "13 215 visningar",
+     "date": "för 6 år sen",
+     "duree": "11:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mPPqDaGgNcgsSt1roPcZkAXbf0rb3M82Y9iYLQSJp6ZQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "KARTLARI BİR",
+     "PROFESYONEL GİBİ KARIŞTIR"
+    ],
+    "video": {
+     "id": "DzzG6h9jfCM",
+     "titre": "Deste Nasıl Karıştırılır ? | Riffle Shuffle",
+     "chaine": "Doruk Sayar",
+     "vues": "241 B görüntüleme",
+     "date": "7 yıl önce",
+     "duree": "7:47",
+     "avatar": "https://yt3.ggpht.com/i1uu4lwltMS2PO3_PUEkuB7pX25bnX8QzSSoMiFjpk2i5lBS7bhDM8SuiDgu_d-qFwMzr-9z=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -523,6 +963,136 @@
      "texte": [
       "aprende algo nuevo cada día,",
       "en 5 minutos."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "NOVÁ ZAJÍMAVOST",
+     "ZA 5 MINUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den něco nového,",
+      "za 5 minut."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "NOVÁ ZAUJÍMAVOSŤ",
+     "ZA 5 MINÚT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň niečo nové,",
+      "za 5 minút."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "NOVA ČINJENICA",
+     "ZA 5 MINUTA"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "NOVO DEJSTVO",
+     "V 5 MINUTAH"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "vsak dan se nauči nekaj novega,",
+      "v 5 minutah."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "ÚJ ÉRDEKESSÉG",
+     "5 PERC ALATT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap valami újat,",
+      "5 perc alatt."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "EEN NIEUW WEETJE",
+     "IN 5 MINUTEN"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "leer elke dag iets nieuws,",
+      "in 5 minuten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "NOWA CIEKAWOSTKA",
+     "W 5 MINUT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie czegoś nowego,",
+      "w 5 minut."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "O CURIOZITATE NOUĂ",
+     "ÎN 5 MINUTE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou în fiecare zi,",
+      "în 5 minute."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "EN NY KUL GREJ",
+     "PÅ 5 MINUTER"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt varje dag,",
+      "på 5 minuter."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "5 DAKİKADA",
+     "YENİ BİR BİLGİ"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni bir şey öğren,",
+      "5 dakikada."
      ]
     }
    }
@@ -647,6 +1217,156 @@
      "date": "hace 11 años",
      "duree": "38:31",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_ki1hWmCujGbk4_8wNHIVdZOe9p81HW8rK5uiib7ecptlU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "SLOŽ",
+     "RUBIKOVU KOSTKU"
+    ],
+    "video": {
+     "id": "B1NyZI_uva4",
+     "titre": "Jak složit 3x3 Rubikovu kostku pro začátečníky | FYFT.cz",
+     "chaine": "FYFT",
+     "vues": "478 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "32:49",
+     "avatar": "https://yt3.ggpht.com/sddxRMGkrNIv0Pb4JCGs0lHz5KTnC14BcBugdJMr6QePRyNuI7ccdgKPn4lEns26tDNgnEx7=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POSKLADAJ",
+     "RUBIKOVU KOCKU"
+    ],
+    "video": {
+     "id": "0_hQqnoIQPE",
+     "titre": "Skutočne najjednoduchší spôsob ako poskladať rubikovú kocku. pozri popis,druhé video,ako na žltú.",
+     "chaine": "Marek Krajčovič",
+     "vues": "365 tis. zhliadnutí",
+     "date": "pred 6 rokmi",
+     "duree": "14:35",
+     "avatar": "https://yt3.ggpht.com/O166dtOHE_WNYxS-9wRa6qfbvLz-VHvaJ8DIiUwKwGCPkH_1Mna9_9pB9Q15sRoCjJewKU7dwQE=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "SLOŽI",
+     "RUBIKOVU KOCKU"
+    ],
+    "video": {
+     "id": "r2JEev05mpk",
+     "titre": "Kako složiti Rubikovu kocku? (početnička metoda)",
+     "chaine": "Maja Zavišić",
+     "vues": "115 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kxh3w-x1vh8bcy7j3XWNKRlUEl6FaR89HsNSyUww8=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "SESTAVI",
+     "RUBIKOVO KOCKO"
+    ],
+    "video": {
+     "id": "RQnt54AIb3c",
+     "titre": "Kako sestaviti Rubikovo kocko? (enostaven vodič)",
+     "chaine": "Nik Škrlec",
+     "vues": "604 tis. ogledov",
+     "date": "pred 8 leti",
+     "duree": "37:24",
+     "avatar": "https://yt3.ggpht.com/bcc8ZDr84ZrNPLLJgFDm2dq_WJo_XAi0327VYBtUDvcmGC9-poNfFIubq9OKSStm3b4u62eH=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "RAKD KI A",
+     "RUBIK-KOCKÁT"
+    ],
+    "video": {
+     "id": "QPGLfKJubGA",
+     "titre": "Tanuld Meg Kirakni A Rubik Kockát 20 Perc Alatt | Rubik Kocka Kirakása Kezdőknek Egyszerűen Magyarul",
+     "chaine": "Rubik kocka - Rkocka",
+     "vues": "136 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "18:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgxUeV-bIdnPgufzxqs0VRrmeKkPiRSNDudd0evgh-Hw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LOS EEN",
+     "RUBIK'S KUBUS OP"
+    ],
+    "video": {
+     "id": "TNaWwq78BK8",
+     "titre": "kubus oplossen beginners ★  Rubik's kubus oplossen in 6 min ★ Rubik's cube 3x3 puzzel",
+     "chaine": "Martin Haenen",
+     "vues": "2 mln. weergaven",
+     "date": "12 jaar geleden",
+     "duree": "6:44",
+     "avatar": "https://yt3.ggpht.com/qRpNdVx-BgpnLIsH76i8r07FkptHNsYCQBy1MTCxkUNJvnacOGocVsME8gUYQsNUAg6uaH1jPw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "UŁÓŻ",
+     "KOSTKĘ RUBIKA"
+    ],
+    "video": {
+     "id": "3ErY8DbkGhw",
+     "titre": "Jak w najprostszy sposób rozwiązać klasyczną kostkę Rubika",
+     "chaine": "JASNA STRONA",
+     "vues": "3,9 mln wyświetleń",
+     "date": "7 lat temu",
+     "duree": "11:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mGpISWVI2lHYt-kjYJC5OAh6gHZEXlfLFzDnZAt-vltc0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "REZOLVĂ",
+     "CUBUL RUBIK"
+    ],
+    "video": {
+     "id": "7Pp7S8UJeI0",
+     "titre": "Cum sa rezolvi Cubul Rubik in 9 MINUTE | Cea mai simpla metoda - Tutorial pentru incepatori",
+     "chaine": "Domnu' Puzzle - Cristian Leana",
+     "vues": "97 K de vizionări",
+     "date": "acum 1 an",
+     "duree": "8:51",
+     "avatar": "https://yt3.ggpht.com/jlhnq0Mmx_QH1mF-MM5FQRVY2CGuBaZUekAxo31pTSLF2C48buiMtQiDlx7wPwCJCgHsS4vm=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÖS EN",
+     "RUBIKS KUB"
+    ],
+    "video": {
+     "id": "WTbUjcWKKvs",
+     "titre": "Hur man löser Rubiks kub - Lättaste metoden (utan svåra algoritmer)",
+     "chaine": "Cuboss",
+     "vues": "903 512 visningar",
+     "date": "för 5 år sen",
+     "duree": "26:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kLRaXJ2vtLAVNXM99YMzriS-UyrMkI_8b6okDvFilFa5M=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "ZEKA KÜPÜNÜ",
+     "ÇÖZ"
+    ],
+    "video": {
+     "id": "FoscW8F9kLU",
+     "titre": "ZEKA KÜPÜ NASIL ÇÖZÜLÜR (ÖĞRENME GARANTİLİ!)",
+     "chaine": "Tuna Özsoy",
+     "vues": "559 B görüntüleme",
+     "date": "10 yıl önce",
+     "duree": "14:03",
+     "avatar": "https://yt3.ggpht.com/nenigceom6iWbgHKDDqcQtOj7atM6qBNzusi05Hs72M3jaIjlYCbz8KNUmtVe5ujgQVndgeZ0JI=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

@@ -12,7 +12,17 @@
   "es": "10/10 habilidades que aprender antes de los 25",
   "de": "10/10 Skills, die du vor 25 lernen solltest",
   "it": "10/10 abilità da imparare prima dei 25 anni",
-  "pt": "10/10 habilidades para aprender antes dos 25"
+  "pt": "10/10 habilidades para aprender antes dos 25",
+  "cs": "10/10 dovedností, které se nauč do 25",
+  "sk": "10/10 zručností, ktoré sa nauč do 25",
+  "hr": "10/10 vještina koje trebaš naučiti prije 25.",
+  "sl": "10/10 veščin, ki se jih nauči pred 25. letom",
+  "hu": "10/10 készség, amit 25 éves korod előtt tanulj meg",
+  "nl": "10/10 skills om te leren voor je 25e",
+  "pl": "10/10 umiejętności do nauczenia przed 25.",
+  "ro": "10/10 abilități de învățat înainte de 25 de ani",
+  "sv": "10/10 färdigheter att lära sig innan du fyller 25",
+  "tr": "25 yaşından önce öğrenmen gereken 10/10 beceri"
  },
  "legendes": {
   "en": "10/10 Skills To Learn Before You Are 25 #selfimprovement #learnontiktok #selfmastery",
@@ -20,13 +30,23 @@
   "es": "10/10 habilidades que aprender antes de los 25 #desarrollopersonal #aprendeentiktok #superacionpersonal",
   "de": "10/10 Skills, die du vor 25 lernen solltest #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
   "it": "10/10 abilità da imparare prima dei 25 anni #crescitapersonale #imparacontiktok #miglioramentopersonale",
-  "pt": "10/10 habilidades para aprender antes dos 25 #desenvolvimentopessoal #aprendanotiktok #autoconhecimento"
+  "pt": "10/10 habilidades para aprender antes dos 25 #desenvolvimentopessoal #aprendanotiktok #autoconhecimento",
+  "cs": "10/10 dovedností, které se nauč do 25 #dovednosti #seberozvoj #vzdělávání",
+  "sk": "10/10 zručností, ktoré sa nauč do 25 #zručnosti #sebarozvoj #vzdelávanie",
+  "hr": "10/10 vještina koje trebaš naučiti prije 25. #vještine #osobnirazvoj #učenje",
+  "sl": "10/10 veščin, ki se jih nauči pred 25. letom #veščine #osebnarast #učenje",
+  "hu": "10/10 készség, amit 25 éves korod előtt tanulj meg #készségek #önfejlesztés #tanulás",
+  "nl": "10/10 skills om te leren voor je 25e #skills #zelfontwikkeling #leren",
+  "pl": "10/10 umiejętności do nauczenia przed 25. #umiejętności #rozwójosobisty #nauka",
+  "ro": "10/10 abilități de învățat înainte de 25 de ani #abilități #dezvoltarepersonală #învățare",
+  "sv": "10/10 färdigheter att lära sig innan du fyller 25 #färdigheter #självutveckling #lärande",
+  "tr": "25 yaşından önce öğrenmen gereken 10/10 beceri #beceriler #kişiselgelişim #öğrenme"
  },
  "musique": {
   "titre": "original sound",
   "url": "https://www.tiktok.com/music/original-sound-7478486760792673025"
  },
- "notes": "Sophia en carte d'appli à l'étape 3 « LEARN A BIT OF EVERYTHING », au milieu de la liste (leur slide Fathomly de fin disparaît). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en bandeau (une ligne en Inter Black) ; quatre compétences à nous, une vraie vidéo par langue.",
+ "notes": "Sophia en carte d'appli à l'étape 3 « LEARN A BIT OF EVERYTHING », au milieu de la liste (leur slide Fathomly de fin disparaît). Pas d'UnSwipe : une liste de compétences ne s'y prête pas. Ses titres en bandeau (une ligne en Inter Black) ; quatre compétences à nous, une vraie vidéo par langue. 19/11 : ajouté en cs, sk, hr, sl, hu, nl, pl, ro, sv et tr ; faute de vidéo native, « parler à n'importe qui » devient le langage corporel en sl, nl et sv.",
  "slides": [
   {
    "type": "couverture",
@@ -150,6 +170,206 @@
       }
      ]
     ]
+   },
+   "cs": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "DOVEDNOSTÍ, KTERÉ",
+     [
+      {
+       "t": "SE NAUČ DO "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sk": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ZRUČNOSTÍ, KTORÉ",
+     [
+      {
+       "t": "SA NAUČ DO "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VJEŠTINA ZA UČENJE",
+     [
+      {
+       "t": "PRIJE "
+      },
+      {
+       "t": "25.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "VEŠČIN ZA UČENJE",
+     [
+      {
+       "t": "PRED "
+      },
+      {
+       "t": "25. LETOM",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "hu": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "KÉSZSÉG, AMIT",
+     [
+      {
+       "t": "TANULJ MEG "
+      },
+      {
+       "t": "25 ELŐTT",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "nl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "SKILLS OM TE LEREN",
+     [
+      {
+       "t": "VOOR JE "
+      },
+      {
+       "t": "25E",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "pl": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "UMIEJĘTNOŚCI DO NAUKI",
+     [
+      {
+       "t": "PRZED "
+      },
+      {
+       "t": "25.",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "ro": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "ABILITĂȚI DE ÎNVĂȚAT",
+     [
+      {
+       "t": "ÎNAINTE DE "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "sv": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "FÄRDIGHETER ATT LÄRA",
+     [
+      {
+       "t": "INNAN DU FYLLER "
+      },
+      {
+       "t": "25",
+       "bronze": true
+      }
+     ]
+    ]
+   },
+   "tr": {
+    "lignes": [
+     [
+      {
+       "t": "10/10",
+       "bronze": true
+      }
+     ],
+     "BECERİ:",
+     [
+      {
+       "t": "25 YAŞINDAN ÖNCE ",
+       "bronze": true
+      },
+      {
+       "t": "ÖĞREN"
+      }
+     ]
+    ]
    }
   },
   {
@@ -242,6 +462,146 @@
      "date": "há 2 anos",
      "duree": "9:13",
      "avatar": "https://yt3.ggpht.com/2EifavcuONZwFGZvB_jzkUVAKqFyP7QEEdmdDIh-stkr-T2ntwP1Ryx3jmHLfQ37a9BnUa6GOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "POCHOP, JAK FUNGUJÍ PENÍZE"
+    ],
+    "video": {
+     "id": "ukhM4c-WXoM",
+     "titre": "Finanční gramotnost – NEZkreslená věda II",
+     "chaine": "Otevřená věda",
+     "vues": "347 tis. zhlédnutí",
+     "date": "před 11 lety",
+     "duree": "8:26",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kkBqW7uAONvhqfe-SlW7Jn9L1YgmBytSmhMHkhjlllzDM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "POCHOP, AKO FUNGUJÚ PENIAZE"
+    ],
+    "video": {
+     "id": "-vMb13gHcPE",
+     "titre": "Banky a bankový systém I Finančná gramotnosť",
+     "chaine": "StartUP Logics",
+     "vues": "5,9 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "3:33",
+     "avatar": "https://yt3.ggpht.com/WERO3NfDpVTEHPSIvZTzY2pU2IvGOB1qkT0xZdFiLSvm9DzrwO0fkQPIQXsLroRIekzNjElEJg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAUČI UPRAVLJATI NOVCEM"
+    ],
+    "video": {
+     "id": "_Sq88bMY0ks",
+     "titre": "4 Savjeta za Upravljanje Novcem",
+     "chaine": "Lectio Brevis",
+     "vues": "77 tis. pregleda",
+     "date": "prije 8 godina",
+     "duree": "11:20",
+     "avatar": "https://yt3.ggpht.com/LyNk_qZKypt5kbd7mhjJDhT1zXakm547T41_KWSiJRFNs3u88tPQXi1wq9LETYidUT7ggWnyyOw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAUČI SE FINANČNE PISMENOSTI"
+    ],
+    "video": {
+     "id": "g1U1topf348",
+     "titre": "Finančna pismenost za najstnike  in odrasle",
+     "chaine": "Marko Tomanič",
+     "vues": "131 ogledov",
+     "date": "pred 4 leti",
+     "duree": "7:15",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kmVfzB8yvuS1nLkM4ZHlJW3BBa7fJr2QOwJsS58tt9P6k=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "ÉRTSD MEG A PÉNZ MŰKÖDÉSÉT"
+    ],
+    "video": {
+     "id": "HSL4p4qaYqg",
+     "titre": "17 penzugyi tudatossag",
+     "chaine": "Pénzbook",
+     "vues": "4,5 E megtekintés",
+     "date": "4 évvel ezelőtt",
+     "duree": "3:20",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lgDXDxp3bMI0cl5obUE36XB2fBZV6aGmSAep4KOfSVZw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER HOE GELD WERKT"
+    ],
+    "video": {
+     "id": "E1vTt0OZJcA",
+     "titre": "Hoe werkt geldschepping?",
+     "chaine": "ScientificCouncilWRR",
+     "vues": "24K weergaven",
+     "date": "7 jaar geleden",
+     "duree": "4:31",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mC__edTm1-4FBcGkeBs-25RbyG5EaCBl9vCeTNe2Jg0Iw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "ZROZUM, JAK DZIAŁAJĄ PIENIĄDZE"
+    ],
+    "video": {
+     "id": "EttpdGdp0eU",
+     "titre": "Pieniądz - jego cechy i funkcje | Złoto jako pieniądze",
+     "chaine": "Prosta Ekonomia",
+     "vues": "132 tys. wyświetleń",
+     "date": "11 lat temu",
+     "duree": "4:27",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lMOwY_jDWClcD7bBcm0fizAxi0Nfgi6trP_IYDFleeiQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ CUM FUNCȚIONEAZĂ BANII"
+    ],
+    "video": {
+     "id": "kkUR9peE-6k",
+     "titre": "Istoria banilor - BNR Să vorbim despre bani și bănci",
+     "chaine": "Banca Națională a României",
+     "vues": "83 K de vizionări",
+     "date": "acum 12 ani",
+     "duree": "6:21",
+     "avatar": "https://yt3.ggpht.com/ETxhIPLzlbdLWry9WC0jeCTfM7jUL8xlX4ZWOEXG5wU9Ih_6Crgi4nxGghQ8j2ia4tedasSJkw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG HUR PENGAR FUNKAR"
+    ],
+    "video": {
+     "id": "9lv0qIVh8p8",
+     "titre": "Sara om privatekonomi",
+     "chaine": "Konsumentverket",
+     "vues": "214 315 visningar",
+     "date": "för 8 år sen",
+     "duree": "3:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lV-aoywr-kWkMrHyg51fMPS-9sfzHzOFyIC3lsmrzGkfM=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "PARANIN NASIL İŞLEDİĞİNİ ÖĞREN"
+    ],
+    "video": {
+     "id": "qhP_5DOQ7Ws",
+     "titre": "14 dakikada TÜM finansal sistemi anlatıyorum",
+     "chaine": "Basitçe Anlatıyorum",
+     "vues": "23 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "14:46",
+     "avatar": "https://yt3.ggpht.com/WrCzv6H1YPFKqWlGrl18ELH5O0JRHRJ5MbEfjHsB8xoEe7tioELX6JXRxp-Q9X4eNyL7txaGPw=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   },
@@ -336,6 +696,146 @@
      "duree": "8:23",
      "avatar": "https://yt3.ggpht.com/Z1MEhLTcH_KQnq6gcFJM2ROqR1NUIybbdI7eu7xx5MbrtlLnDy06Tsc6qVauNEJYC_Wy8Js8=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "JAK MLUVIT S KÝMKOLIV"
+    ],
+    "video": {
+     "id": "isCi9GgD2mQ",
+     "titre": "Jak mluvit s kýmkoliv. Typologie lidí v praxi.",
+     "chaine": "Pavel Procházka",
+     "vues": "309 tis. zhlédnutí",
+     "date": "před 2 lety",
+     "duree": "15:24",
+     "avatar": "https://yt3.ggpht.com/7qkSLG6DKlK2W6XEWnTyvausSZCtVTpRyxtGC58uUFKYU4am-5ikSlkJePB6SUw6zlhL1aaK=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "AKO SA ROZPRÁVAŤ S KÝMKOĽVEK"
+    ],
+    "video": {
+     "id": "xhts7QFUWQg",
+     "titre": "Prestaň rozprávať ako amatér | 5 Tipov ako zlepšiť komunikáciu",
+     "chaine": "Tomáš Vepi",
+     "vues": "12 tis. zhliadnutí",
+     "date": "pred 2 rokmi",
+     "duree": "8:19",
+     "avatar": "https://yt3.ggpht.com/Gll-rBV43edXEesNUFwJx4WgfpKOEMyRMY6rsQwfpJZ9LTWNEGID_VRskor7ffEuksDDYibN=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "KAKO RAZGOVARATI S BILO KIM"
+    ],
+    "video": {
+     "id": "u2db6CIweYw",
+     "titre": "Kako Započeti Razgovor Sa Bilo Kim",
+     "chaine": "Online Lekcije",
+     "vues": "188 tis. pregleda",
+     "date": "prije 6 godina",
+     "duree": "5:08",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kndmnvomlEwE9V4uQhJdiJ6yHE9seAWqySGtawHQV--e0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "BERI GOVORICO TELESA"
+    ],
+    "video": {
+     "id": "6CWfqIsuN1o",
+     "titre": "Zakaj je govorica telesa tako pomembna?",
+     "chaine": "Vesna Sodnik - Beseda",
+     "vues": "73 ogledov",
+     "date": "pred 4 leti",
+     "duree": "0:55",
+     "avatar": "https://yt3.ggpht.com/9VtpOJa43c5h4Lp1-nFBefgk14d4Z9zCRlRMM4LqGbFPrAXDuhnO6hwDrpPfmfo6fe-gwNflOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN BESZÉLJ BÁRKIVEL"
+    ],
+    "video": {
+     "id": "aKZteewQ-u8",
+     "titre": "Hogyan Beszélj Bárkivel?",
+     "chaine": "Törhetetlen",
+     "vues": "36 E megtekintés",
+     "date": "1 évvel ezelőtt",
+     "duree": "5:13",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k_iHRN_l0TsKsAqRXBnKvUhZMHXsLhXvCXgVIQHJzdJTRw7Wt_G9XEs4chamQySZQzjQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEES LICHAAMSTAAL"
+    ],
+    "video": {
+     "id": "N1MK3VNb420",
+     "titre": "4 Lichaamstaal - Geheimen Om Binnen Seconden Respect Te Krijgen",
+     "chaine": "De Mentale Hamer",
+     "vues": "851 weergaven",
+     "date": "1 jaar geleden",
+     "duree": "10:19",
+     "avatar": "https://yt3.ggpht.com/WYHCjaHOtpCl99wujkEDpO35w-8v98frcmw8cRWm1Jk62oKEXMYfmGX50meMYzYaQ_SRWksAoQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "JAK ROZMAWIAĆ Z KAŻDYM"
+    ],
+    "video": {
+     "id": "TWrOPQRFL84",
+     "titre": "Jak Rozmawiać z Każdym (nawet jako introwertyk)",
+     "chaine": "charyzma_exe",
+     "vues": "592 tys. wyświetleń",
+     "date": "1 rok temu",
+     "duree": "4:54",
+     "avatar": "https://yt3.ggpht.com/XMCaHayvCXPpCgh-O1rmS4PC2xXcHZ08aEkxfpaFBNqEQetUlKUeav27Zo1mL3JnMYzGrA6HdS4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "CUM SĂ VORBEȘTI CU ORICINE"
+    ],
+    "video": {
+     "id": "i9B_5Gte0FU",
+     "titre": "Cum să vorbești cu oricine, oriunde și oricând? Cum să devii un maestru al comunicării?",
+     "chaine": "Alexandru Bordea",
+     "vues": "2 K de vizionări",
+     "date": "acum 4 luni",
+     "duree": "7:41",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kpKkorYYVbAwZZVXmXKNikJhH2UfNvBBNkFunGPdO_w4fU=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄS KROPPSSPRÅK"
+    ],
+    "video": {
+     "id": "IMoRNvCr_74",
+     "titre": "F 32. Skapa trygghet med kroppsspråket",
+     "chaine": "YA-delegationen Arbetsplatslärande",
+     "vues": "5 301 visningar",
+     "date": "för 9 år sen",
+     "duree": "1:05",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nSWJY5-P2tQDf0CDqpk666mgxv_PtvIRf1fv8YMbH8dQ=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "HERKESLE NASIL KONUŞULUR"
+    ],
+    "video": {
+     "id": "YdpALaaNX8g",
+     "titre": "Konuşma sanatını artık öğrenmen gerekiyor...",
+     "chaine": "Çizgi Ruhu",
+     "vues": "292 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "4:00",
+     "avatar": "https://yt3.ggpht.com/Og1-OmJNDMI6H_9kcC1TCWZ_-JNEFBsHg1Y_1Qo9WpSoULp9h0qGya96N8ZKgBHNPUO1gABF=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -416,6 +916,126 @@
      "texte": [
       "aprenda algo novo todo dia,",
       "em 5 minutos."
+     ]
+    }
+   },
+   "cs": {
+    "titre": [
+     "VĚZ TROCHU O VŠEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč se každý den něco nového,",
+      "za 5 minut."
+     ]
+    }
+   },
+   "sk": {
+    "titre": [
+     "VEDZ TROCHU O VŠETKOM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauč sa každý deň niečo nové,",
+      "za 5 minút."
+     ]
+    }
+   },
+   "hr": {
+    "titre": [
+     "ZNAJ PONEŠTO O SVEMU"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "nauči nešto novo svaki dan,",
+      "za 5 minuta."
+     ]
+    }
+   },
+   "sl": {
+    "titre": [
+     "VEDI MALO O VSEM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "vsak dan se nauči nekaj novega,",
+      "v 5 minutah."
+     ]
+    }
+   },
+   "hu": {
+    "titre": [
+     "TUDJ MINDENRŐL EGY KICSIT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap valami újat,",
+      "5 perc alatt."
+     ]
+    }
+   },
+   "nl": {
+    "titre": [
+     "WEET VAN ALLES IETS"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "leer elke dag iets nieuws,",
+      "in 5 minuten."
+     ]
+    }
+   },
+   "pl": {
+    "titre": [
+     "WIEDZ TROCHĘ O WSZYSTKIM"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie czegoś nowego,",
+      "w 5 minut."
+     ]
+    }
+   },
+   "ro": {
+    "titre": [
+     "ȘTII CÂTE PUȚIN DIN TOATE"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "învață ceva nou în fiecare zi,",
+      "în 5 minute."
+     ]
+    }
+   },
+   "sv": {
+    "titre": [
+     "KUNNA LITE OM ALLT"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lär dig något nytt varje dag,",
+      "på 5 minuter."
+     ]
+    }
+   },
+   "tr": {
+    "titre": [
+     "HER ŞEYDEN BİRAZ BİL"
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni bir şey öğren,",
+      "5 dakikada."
      ]
     }
    }
@@ -511,6 +1131,146 @@
      "duree": "4:57",
      "avatar": "https://yt3.ggpht.com/EMv__pRqzJOLGZT7CtGn45GegIgQsAlqe7UqSKqt4BjWvbS_ZMXkNVdQtVr_FiCes-GXRfTomg=s176-c-k-c0x00ffffff-no-rj"
     }
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE PRVNÍ POMOC"
+    ],
+    "video": {
+     "id": "jJtjboa1onU",
+     "titre": "Metodické video - \"resuscitace\"",
+     "chaine": "Horská Služba - Jizerské hory",
+     "vues": "18 tis. zhlédnutí",
+     "date": "před 3 lety",
+     "duree": "3:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nGsPUxmg3OV6dLlplLdMTy9kGJuev9kKZBKX0E5K6lJco=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA PRVÚ POMOC"
+    ],
+    "video": {
+     "id": "4d7WVF0-ZN8",
+     "titre": "Postup resuscitácie dospelého dvomi záchrancami",
+     "chaine": "Slovenská Resuscitačná Rada",
+     "vues": "4,7 tis. zhliadnutí",
+     "date": "pred 5 rokmi",
+     "duree": "4:49",
+     "avatar": "https://yt3.ggpht.com/2-RUrlj7ZaFp1sOT2WJS4MYpSZkHdnYEJHp8V07csMzbqNIL3P5_e_bxD_IX51cX9W_XE4X7ox4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAUČI PRVU POMOĆ"
+    ],
+    "video": {
+     "id": "gLLJApyDN1E",
+     "titre": "Postupak oživljavanja odrasle osobe",
+     "chaine": "Croatian Red Cross Hrvatski Crveni kriz",
+     "vues": "744 pregleda",
+     "date": "prije 2 tjedna",
+     "duree": "1:32",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lT4bqcKKpQdza7f35t5bbUbAnjCox5oIyPYJGbSVO7XpI=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAUČI SE PRVO POMOČ"
+    ],
+    "video": {
+     "id": "_GJdHbEv-Y4",
+     "titre": "Tudi sam lahko pomagam pri oživljanju - Temeljni postopki oživljanja z uporabo defibrilatorja (AED)",
+     "chaine": "Alpacem Cement",
+     "vues": "5,4 tis. ogledov",
+     "date": "pred 7 leti",
+     "duree": "1:47",
+     "avatar": "https://yt3.ggpht.com/ZxcIPMAdWE0r8OQit82Cjvm-6zYtn85Lfv2zrj5Nan7s98GrJ-dopUnv95IIQsBlgJc_AY4jfA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ ELSŐSEGÉLYT"
+    ],
+    "video": {
+     "id": "UghNXnLlZqo",
+     "titre": "Alapszintű újraélesztés (BLS)",
+     "chaine": "Mozaik Education",
+     "vues": "272 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "3:28",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kFuMlZBgAiNUPV_CSzigZFr7r17cXeiX_tb02q72aEVG4=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER EERSTE HULP"
+    ],
+    "video": {
+     "id": "Qj2TjF0yZIs",
+     "titre": "Hoe Moet Je Reanimeren met een AED? | EHBO Doe Je Zo - Rode Kruis",
+     "chaine": "Rode Kruis",
+     "vues": "359K weergaven",
+     "date": "8 jaar geleden",
+     "duree": "2:38",
+     "avatar": "https://yt3.ggpht.com/yeobI--l8-10uRyaXHarmtV_jFCErFA1BlFKY0t2qmIwepUFLxG8P_dRtbUtjwnThZ3vi_ZwMA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ PIERWSZEJ POMOCY"
+    ],
+    "video": {
+     "id": "cEjv65ANBUg",
+     "titre": "Reanimacja - pierwsza pomoc przedmedyczna #reanimacja 🚑",
+     "chaine": "Kursy pierwszej pomocy Adrian Zadorecki",
+     "vues": "73 tys. wyświetleń",
+     "date": "2 lata temu",
+     "duree": "6:19",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lfV9kHj2uInlqhtUc-jXJD_nhb6wgZvz-eu01kHaNym363=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ PRIMUL AJUTOR"
+    ],
+    "video": {
+     "id": "9IPqhJDryIs",
+     "titre": "Suportul vital de bază   adult",
+     "chaine": "Manual Video de Prim Ajutor",
+     "vues": "103 K de vizionări",
+     "date": "acum 9 ani",
+     "duree": "3:02",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_ninhD620v-pMRm1X6Le7PVNqWa8Lny3EpIyu1nmPmDHg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG FÖRSTA HJÄLPEN"
+    ],
+    "video": {
+     "id": "fyPcYwnlbBI",
+     "titre": "HLR VUXEN – så gör du kompressioner och inblåsningar (hjärt- och lungräddning)",
+     "chaine": "Hjärtochlungräddning.se",
+     "vues": "104 750 visningar",
+     "date": "för 11 år sen",
+     "duree": "1:37",
+     "avatar": "https://yt3.ggpht.com/WQvwZerPlXcbsOChN5e5OMxdukbVfBHDngtIyvyIdWBTPbGwKepYpj-2fkluFxLFsFQYq1mFrNs=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "İLK YARDIMI ÖĞREN"
+    ],
+    "video": {
+     "id": "pXt_Rc7HOAg",
+     "titre": "YETİŞKİNLERDE TEMEL YAŞAM DESTEĞİ 8 YAŞ ÜSTÜ KİŞİLER",
+     "chaine": "Türk Kızılay",
+     "vues": "437 B görüntüleme",
+     "date": "11 yıl önce",
+     "duree": "2:06",
+     "avatar": "https://yt3.ggpht.com/1l50f91MjnPJt6xgKz9n6J-9NHizqc-lOspcAjM19g1Ev_7RoYiyxTGn9T3XTlbkwt_E5FKe=s176-c-k-c0x00ffffff-no-rj"
+    }
    }
   },
   {
@@ -603,6 +1363,146 @@
      "date": "há 2 anos",
      "duree": "41:20",
      "avatar": "https://yt3.ggpht.com/ytc/AIdro_kjf86gk7mnUBFuyHRocbhWSW0tnhNnuwYPGwoZPgcpxIk=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "cs": {
+    "titre": [
+     "NAUČ SE VAŘIT"
+    ],
+    "video": {
+     "id": "9GmfSRCYWJk",
+     "titre": "(1) Základy v kuchyni s nožem",
+     "chaine": "Rohlik.cz",
+     "vues": "29 tis. zhlédnutí",
+     "date": "před 10 lety",
+     "duree": "2:29",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mSeysSIy1iNUcjYaMgdkSF_TodIHbv6WYE-Vqy7iOcOA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sk": {
+    "titre": [
+     "NAUČ SA VARIŤ"
+    ],
+    "video": {
+     "id": "pr6Dfyuf96g",
+     "titre": "LIEVANCE 🥞 - JEDNODUCHÝ RECEPT NA LIEVANCE",
+     "chaine": "BAKLAZAN TV",
+     "vues": "135 tis. zhliadnutí",
+     "date": "pred 3 rokmi",
+     "duree": "1:43",
+     "avatar": "https://yt3.ggpht.com/5FtypOIGiNpOD_v4Qf3i8uc5FrEfOWT4aUux8YYwr4ydxH9YVYoHWegATBOmezZ2GB9M7niFfw=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hr": {
+    "titre": [
+     "NAUČI KUHATI"
+    ],
+    "video": {
+     "id": "7kKhtX1mk1A",
+     "titre": "Tomislav Špiček: 5 savjeta za kuhare početnike [100posto BUBBLE]",
+     "chaine": "100posto",
+     "vues": "58 tis. pregleda",
+     "date": "prije 9 godina",
+     "duree": "1:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mTWAY3upAw3ZxhkHrE77MBMfXHAiiJlnDeb7A9MSZhYg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sl": {
+    "titre": [
+     "NAUČI SE KUHATI"
+    ],
+    "video": {
+     "id": "yV2MSMNGOj4",
+     "titre": "Enostavno kuhanje za začetnike: Epizoda #1",
+     "chaine": "Ninas Space",
+     "vues": "1 tis. ogledov",
+     "date": "pred 4 leti",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/Xb32SoDhlgxF33OeagLOzaPsU6NkxtQ_OP8nP-BrAzMewTaAoL7Z9FJDQbRFh2hjEMurUouWwg=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "hu": {
+    "titre": [
+     "TANULJ MEG FŐZNI"
+    ],
+    "video": {
+     "id": "8LOrZmav3FU",
+     "titre": "Így készül a tökéletes rizs!",
+     "chaine": "Street Kitchen",
+     "vues": "527 E megtekintés",
+     "date": "9 évvel ezelőtt",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/3fJMKfBUrEM8w4WhBqBI-Md-eoeRjHcnuQZ9EGOOtgDa2nRkBRrVRwop9sZ-SlvEBei7E0lT0Q=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "nl": {
+    "titre": [
+     "LEER KOKEN"
+    ],
+    "video": {
+     "id": "w6jEPWElEvE",
+     "titre": "KOKEN OP KOKSNIVEAU | LES 1: het WETEN | Filmcursus van 22 lessen | 2 films per les | Weten & Doen",
+     "chaine": "Kookschool Castricum",
+     "vues": "6,4K weergaven",
+     "date": "2 jaar geleden",
+     "duree": "1:38:32",
+     "avatar": "https://yt3.ggpht.com/qvYo669wbHkEQs4hopAVlmXEbEuAaK5HOdTu_zFZeC5V0cLkfZjMwfZzIixNV8w07eXPTDau7w=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "pl": {
+    "titre": [
+     "NAUCZ SIĘ GOTOWAĆ"
+    ],
+    "video": {
+     "id": "HRZfSwuS_GQ",
+     "titre": "Jak nauczyć się gotować?",
+     "chaine": "Nietypowy gość",
+     "vues": "12 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "12:42",
+     "avatar": "https://yt3.ggpht.com/MdcnuFev-hjtuskurxs36p7mhuJrb1BO4uBEa63mxbvI0UjPY8hPShTSV51OQeBaQ0kuz5Gc8Q0=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "ro": {
+    "titre": [
+     "ÎNVAȚĂ SĂ GĂTEȘTI"
+    ],
+    "video": {
+     "id": "KnZaItqWgBc",
+     "titre": "Bucătar începător - Tăierea Legumelor",
+     "chaine": "Asociatia Consensual",
+     "vues": "6,5 K de vizionări",
+     "date": "acum 4 ani",
+     "duree": "3:34",
+     "avatar": "https://yt3.ggpht.com/fBGfLUyzhSS88bsPDv5B9qDtJDEKbcUEh2q6DqpS5gpjNT6Xd15s3URzDZF-SG5pdTROnKtTfA=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "sv": {
+    "titre": [
+     "LÄR DIG LAGA MAT"
+    ],
+    "video": {
+     "id": "0vYT3-4cJBw",
+     "titre": "5 Vanligaste Misstagen Man Gör I Köket!",
+     "chaine": "Filip Poon",
+     "vues": "54 978 visningar",
+     "date": "för 6 år sen",
+     "duree": "6:58",
+     "avatar": "https://yt3.ggpht.com/lOojMSNBHhSVAkuyRn-o6EjUeLxaGPSlP4xSUqibkwxN5qk4Vt4zmRO3hdJ8ACvriRytwmQj=s176-c-k-c0x00ffffff-no-rj"
+    }
+   },
+   "tr": {
+    "titre": [
+     "YEMEK YAPMAYI ÖĞREN"
+    ],
+    "video": {
+     "id": "K6uLIkoPODg",
+     "titre": "YEMEK YAPMAYI ÖĞRENMEK İSTEYENLERE SIFIRDAN DETAYLI ANLATIYORUM | DIŞARIDAN SAĞLIKSIZ YEMEKLERE SON",
+     "chaine": "Sadık Kılıç",
+     "vues": "151 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "3:55",
+     "avatar": "https://yt3.ggpht.com/Mfx0RRPl7s95oELIqV2l6we0DeFmXPN0hnvDB0U8d1SCYHP5Qx2_Ns3-BmpynMgJIJUGJ7UaIYs=s176-c-k-c0x00ffffff-no-rj"
     }
    }
   }

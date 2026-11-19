@@ -114,7 +114,7 @@ application.
 
    | Le nom contient | @ et bio des comptes | Exemple de @ |
    |---|---|---|
-   | `run`, `running`, `runner`, `marathon`, `trail`, `jogging` (mot entier) | running, en @ variés (voir plus bas) | `emma.mrtn`, `itsleaa`, `lou.sunday` |
+   | `run`, `running`, `runner`, `marathon`, `trail`, `jogging` (mot entier) | running, en @ variés (voir plus bas) | `emma.mrtn04`, `itsleaa217`, `lou2003.sunday` |
    | `study`, `etud` | études | `lea.revisions318` |
    | `rh`, `career`, `carriere` | carrière | `emma.career204` |
    | `psych`, `mental` | psycho | `noah.mind611` |
@@ -133,16 +133,23 @@ application.
    reconnaissent au premier coup d'œil. Les comptes d'un label de running
    tirent donc chacun une forme différente, parmi une quarantaine
    (`persona_handles_varies.ts`) :
-   - le nom seul, environ une fois sur deux : `emma.mrtn`, `clara_bonnet04`,
-     `leaa7`, `itsjade`, `cest.manon`, `theo.g99` ;
-   - le prénom et un mot, deux fois sur cinq : `lou.sunday`, `matcha.ines`,
-     `noahsmaps`, et de temps en temps un mot de course (`paul_foulees66`) ;
-   - deux mots sans nom, rarement : `slow.mornings`.
+   - le nom seul, environ une fois sur deux : `emma.mrtn04`, `clara_bonnet482`,
+     `leaa217`, `itsjade1999`, `cest.manon305`, `theo_g2004` ;
+   - le prénom et un mot, deux fois sur cinq : `lou.sunday22`, `matcha.ines671`,
+     `noahsmaps48`, et de temps en temps un mot de course (`paul_foulees66`) ;
+   - deux mots sans nom, rarement : `slow.mornings914`.
+
+   **Toujours un nombre**, de 2 à 4 chiffres (une année de naissance ou un
+   nombre quelconque) : un @ sans chiffres est presque toujours déjà pris sur
+   TikTok, et la recrue ne pourrait pas créer son compte. Les formes les plus
+   simples (prénom + nom entier, prénom seul, deux mots sans nom) en prennent
+   3 ou 4. Le nombre est à la fin, parfois juste après le prénom
+   (`emma04.mrtn`).
 
    Un mot de course apparaît dans moins d'un @ sur cinq, et une bio sur trois
    seulement parle de course. Le nom affiché reste « Prénom Nom », celui que le
-   @ reprend. Limite : un @ simple est plus souvent déjà pris sur TikTok ; la
-   recrue donne alors le sien dans « My TikTok account » et l'OS le remplace.
+   @ reprend. Si le @ est quand même pris, la recrue donne le sien dans « My
+   TikTok account » et l'OS le remplace.
    Pour passer un autre thème aux @ variés : l'ajouter à `THEMES_VARIES`
    (`persona_identite.ts`) et à `EXEMPLES_VARIES` (`groupesLabels.ts`).
 3. **Le genre** des comptes (prénoms, noms, photo de profil). Proposé d'après

@@ -87,7 +87,11 @@ describe("identité que le nom d'un label donne à ses comptes", () => {
     expect(Object.keys(EXEMPLES_VARIES).sort()).toEqual([...THEMES_VARIES].sort());
     for (const exemples of Object.values(EXEMPLES_VARIES)) {
       expect(exemples!.length).toBeGreaterThanOrEqual(3);
-      for (const h of exemples!) expect(h).toMatch(HANDLE_VALIDE);
+      for (const h of exemples!) {
+        expect(h).toMatch(HANDLE_VALIDE);
+        // Jamais de @ sans nombre : il serait déjà pris sur TikTok.
+        expect(h).toMatch(/\d{2,4}/);
+      }
     }
   });
 });

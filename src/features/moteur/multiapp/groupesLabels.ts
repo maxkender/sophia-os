@@ -42,17 +42,18 @@ export const THEME_ATTENDU: Readonly<Record<string, { theme: ThemeMots; suffixe:
 
 /**
  * Les thèmes dont les comptes prennent des @ variés (une forme différente à
- * chaque compte, le thème dans moins d'un @ sur cinq) au lieu de
- * `prenom.mot123`, avec quelques exemples de ce que ça donne. Les mêmes thèmes
- * que `THEMES_VARIES` du moteur (persona_identite.ts) : un test le vérifie.
+ * chaque compte, le thème dans moins d'un @ sur cinq, toujours un nombre) au
+ * lieu de `prenom.mot123`, avec quelques exemples de ce que ça donne. Les
+ * mêmes thèmes que `THEMES_VARIES` du moteur (persona_identite.ts) : un test
+ * le vérifie.
  */
 export const EXEMPLES_VARIES: Readonly<Partial<Record<ThemeMots, readonly string[]>>> = {
-  running: ["emma.mrtn", "itsleaa", "clara_bonnet04", "lou.sunday", "slow.mornings"],
+  running: ["emma.mrtn04", "itsleaa217", "clara_bonnet482", "lou2003.sunday", "slow.mornings914"],
 };
 
 /** Un @ d'exemple par thème, pour montrer à quoi ressembleront les comptes du label. */
 export const EXEMPLE_HANDLE: Readonly<Record<ThemeMots, string>> = {
-  running: "emma.mrtn",
+  running: "emma.mrtn04",
   etude: "lea.revisions318",
   carriere: "emma.career204",
   psycho: "noah.mind611",

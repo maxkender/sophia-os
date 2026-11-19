@@ -182,6 +182,7 @@ export function AdminRepartitionPage() {
     };
   }, [applications, preparation.data]);
   const slugsCandidates = React.useMemo(() => candidates.map((a) => a.slug), [candidates]);
+  const slugsEnPreparation = React.useMemo(() => [...enPreparation], [enPreparation]);
 
   const reglages = useQuery({
     queryKey: ["repartition-reglages"],
@@ -307,7 +308,11 @@ export function AdminRepartitionPage() {
             reglages={reglages.data}
           />
           <CartePodz applications={candidates} marchesParApp={marchesParApp} reglages={reglages.data} />
-          <CarteFileLabels />
+          <CarteFileLabels
+            slugsEnPreparation={slugsEnPreparation}
+            // Sans cible posée, le moteur s'abstient : rien à dire sur les parts.
+            partsCible={cible.data.source === "reglage" ? cible.data.parts : null}
+          />
         </>
       )}
 

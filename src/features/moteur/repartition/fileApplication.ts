@@ -26,6 +26,114 @@ import type { FileLabelCompteItem, FileLabelsApplication, ReglagesFileLabels } f
 /** `"general"` ou code langue. */
 export type CleFile = string;
 
+/** Une application dont on peut éditer la File. */
+export interface ApplicationFile {
+  slug: string;
+  nom: string;
+  actif: boolean;
+}
+
+/**
+ * Les applications dont la File s'édite : les actives, et celles EN
+ * PRÉPARATION dont la page donne les slugs (inactives, déjà dotées d'un label ;
+ * migration 0770). Sophia d'abord, puis par nom.
+ *
+ * Une application en préparation peut recevoir les recrues : il faut donc
+ * pouvoir dire dans quel label partent ses comptes, sinon ils se répartissent
+ * à parts égales entre tous ses labels.
+ */
+export function applicationsDeLaFile<T extends ApplicationFile>(
+  applications: readonly T[],
+  slugsEnPreparation: readonly string[] = [],
+): T[] {
+  const enPlus = new Set(slugsEnPreparation);
+  return applications
+    .filter((a) => a.actif || enPlus.has(a.slug))
+    .sort((a, b) =>
+      a.slug === SLUG_SOPHIA ? -1 : b.slug === SLUG_SOPHIA ? 1 : a.nom.localeCompare(b.nom),
+    );
+}
+
+/** Plafond d'un ajout en une fois : de quoi couvrir une vague d'embauches, pas une faute de frappe. */
+export const AJOUT_MAX_FILE = 200;
+
+/** Le nombre d'entrées demandé, ramené à un entier entre 1 et `AJOUT_MAX_FILE`. */
+export function nombreAjout(brut: unknown): number {
+  const n = Math.floor(Number(brut));
+  if (!Number.isFinite(n) || n < 1) return 1;
+  return Math.min(AJOUT_MAX_FILE, n);
+}
+
+/** Ajoute `n` fois la même entrée en fin de File : une entrée = un compte. */
+export function avecEntreesAjoutees(
+  items: readonly FileLabelCompteItem[],
+  item: FileLabelCompteItem,
+  n: number,
+): FileLabelCompteItem[] {
+  return [...items, ...Array.from({ length: nombreAjout(n) }, () => ({ ...item }))];
+}
+
+/** Des entrées qui se suivent et donnent le même label (et le même mode UGC). */
+export interface GroupeFile {
+  /** Rang (à partir de 0) de la première entrée du groupe dans la File. */
+  debut: number;
+  /** Nombre d'entrées, donc de comptes. */
+  n: number;
+  item: FileLabelCompteItem;
+}
+
+/**
+ * La File regroupée pour l'affichage : cinquante entrées du même label font
+ * une ligne « ×50 », pas cinquante lignes. L'ordre ne change pas, la File
+ * reste une liste à plat en base (une entrée = un compte, tirée dans l'ordre).
+ */
+export function groupesDeLaFile(items: readonly FileLabelCompteItem[]): GroupeFile[] {
+  const groupes: GroupeFile[] = [];
+  items.forEach((item, i) => {
+    const dernier = groupes[groupes.length - 1];
+    if (dernier && dernier.item.label_id === item.label_id && dernier.item.ugc === item.ugc) {
+      dernier.n += 1;
+    } else {
+      groupes.push({ debut: i, n: 1, item });
+    }
+  });
+  return groupes;
+}
+
+/** Retire `combien` entrées du groupe `index` (tout le groupe par défaut). */
+export function sansEntreesDuGroupe(
+  items: readonly FileLabelCompteItem[],
+  index: number,
+  combien?: number,
+): FileLabelCompteItem[] {
+  const g = groupesDeLaFile(items)[index];
+  if (!g) return [...items];
+  const n = Math.min(g.n, Math.max(1, Math.floor(combien ?? g.n)));
+  // Par la fin du groupe : les premières entrées gardent leur rang.
+  const fin = g.debut + g.n;
+  return [...items.slice(0, fin - n), ...items.slice(fin)];
+}
+
+/**
+ * Fait passer le groupe `index` avant le groupe précédent (`sens` −1) ou après
+ * le suivant (`sens` +1), en bloc. Aux extrémités, rien ne bouge.
+ */
+export function avecGroupeDeplace(
+  items: readonly FileLabelCompteItem[],
+  index: number,
+  sens: -1 | 1,
+): FileLabelCompteItem[] {
+  const groupes = groupesDeLaFile(items);
+  const voisin = index + sens;
+  if (!groupes[index] || !groupes[voisin]) return [...items];
+  const ordre = groupes.map((_, i) => i);
+  [ordre[index], ordre[voisin]] = [ordre[voisin]!, ordre[index]!];
+  return ordre.flatMap((i) => {
+    const g = groupes[i]!;
+    return items.slice(g.debut, g.debut + g.n);
+  });
+}
+
 export function itemsDeLaFile(file: FileLabelsApplication, cle: CleFile): FileLabelCompteItem[] {
   if (cle === "general") return file.items;
   return file.par_langue[cle] ?? [];

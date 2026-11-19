@@ -3,19 +3,26 @@ import { useTranslation } from "react-i18next";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { nomApplication } from "../applications";
 import { estLabelFileSlideshow } from "../fileLabelsSlideshow";
 import { LANGUES_CIBLES, nomLangue } from "../langues";
 import { ID_SOPHIA, SLUG_SOPHIA } from "../multiApp";
 import type { FileLabelCompteItem, Label as LabelOs, ReglagesFileLabels } from "../types";
-import { applicationsProposees } from "./choixCreation";
 import {
+  AJOUT_MAX_FILE,
+  applicationsDeLaFile,
+  avecEntreesAjoutees,
+  avecGroupeDeplace,
   avecItemsApplication,
   entreeHorsApplication,
   fileDeLApplication,
+  groupesDeLaFile,
   itemsDeLaFile,
   labelsAjoutables,
+  nombreAjout,
+  sansEntreesDuGroupe,
   ugcPossible,
   type CleFile,
 } from "./fileApplication";
@@ -25,13 +32,17 @@ const selectClass =
   "h-9 w-full rounded-md border border-input bg-background px-3 text-sm shadow-sm";
 
 /**
- * File des créateurs, PAR APPLICATION (Réglages → « Warmup & file de
- * labels »). Un sélecteur d'application (actives, Sophia par défaut) choisit la
- * tranche éditée (`par_application[slug]`, items + par_langue), avec la même
- * ergonomie qu'avant. Les labels proposés à l'ajout sont ceux qui servent
- * l'application (cochée dans `label_applications`) ; une entrée dont le
- * label ne la sert plus est signalée, pas masquée. La case « Compte UGC »
- * n'existe que pour Sophia.
+ * File des créateurs, PAR APPLICATION (page Allocation). Un sélecteur
+ * d'application (actives et en préparation, Sophia par défaut) choisit la
+ * tranche éditée (`par_application[slug]`, items + par_langue). Les labels
+ * proposés à l'ajout sont ceux qui servent l'application (cochée dans
+ * `label_applications`) ; une entrée dont le label ne la sert plus est
+ * signalée, pas masquée. La case « Compte UGC » n'existe que pour Sophia.
+ *
+ * UNE ENTRÉE = UN COMPTE, tirée dans l'ordre. Pour décider le label des
+ * cinquante prochains comptes, on ajoute cinquante entrées d'un coup (« Nombre
+ * de comptes ») ; la liste les montre par groupes (« ×50 »), mais la File
+ * reste une liste à plat en base.
  *
  * `onChange` reçoit le réglage COMPLET (toutes les applications), pour
  * l'affichage, et le CHANGEMENT (tranche, file, entrées) : la page le réapplique
@@ -50,6 +61,8 @@ export function FileLabelsApplicationEditeur({
   enCours,
   labels,
   labelsUgc,
+  slugsEnPreparation,
+  partsCible,
 }: {
   file: ReglagesFileLabels;
   onChange: (file: ReglagesFileLabels, changement: ChangementFileLabels) => void;
@@ -57,6 +70,18 @@ export function FileLabelsApplicationEditeur({
   enCours: boolean;
   labels: readonly LabelOs[] | undefined;
   labelsUgc: readonly string[] | undefined;
+  /**
+   * Slugs des applications EN PRÉPARATION (inactives, déjà dotées d'un label) :
+   * elles reçoivent des recrues, leur File s'édite donc aussi. Absent : les
+   * applications actives seules.
+   */
+  slugsEnPreparation?: readonly string[];
+  /**
+   * La cible posée dans « Répartition entre applis », en pourcentage par slug.
+   * Sert à prévenir quand la File éditée ne sera pas lue. `null` ou absent :
+   * cible inconnue ou non posée, rien n'est dit.
+   */
+  partsCible?: Readonly<Record<string, number>> | null;
 }) {
   const { t } = useTranslation();
   const applications = useApplicationsMulti();
@@ -73,8 +98,9 @@ export function FileLabelsApplicationEditeur({
   const [cle, setCle] = React.useState<CleFile>("general");
   const [labelAjout, setLabelAjout] = React.useState("");
   const [ugcAjout, setUgcAjout] = React.useState(false);
+  const [nombre, setNombre] = React.useState("1");
 
-  const apps = applicationsProposees(applications.data ?? []);
+  const apps = applicationsDeLaFile(applications.data ?? [], slugsEnPreparation);
   const app = (applications.data ?? []).find((a) => a.slug === slug) ?? null;
   // Sophia est connue sans lecture : son édition ne dépend pas du catalogue.
   const applicationId = slug === SLUG_SOPHIA ? ID_SOPHIA : (app?.id ?? null);
@@ -83,6 +109,13 @@ export function FileLabelsApplicationEditeur({
 
   const fileApp = fileDeLApplication(file, slug);
   const fileActive = itemsDeLaFile(fileApp, cle);
+  const groupes = groupesDeLaFile(fileActive);
+  // Le moteur ne donne un compte qu'à une application qui a une part dans la
+  // cible (`classerApplications` écarte une part nulle) : à 0 %, sa File n'est
+  // jamais lue. Sophia est à part : interrupteur éteint, tout compte part chez
+  // elle et sa File sert, on ne dit donc rien pour elle.
+  const sansPart =
+    !!partsCible && slug !== SLUG_SOPHIA && !((partsCible[slug] ?? 0) > 0);
   const ajoutables = applicationId ? labelsAjoutables(applicationId, labels ?? [], liensAjout) : [];
   const ugcIds = labelsUgc ?? [];
 
@@ -93,6 +126,7 @@ export function FileLabelsApplicationEditeur({
     setSlug(s);
     setLabelAjout("");
     setUgcAjout(false);
+    setNombre("1");
   }, []);
   // Application éteinte pendant l'édition : retour à Sophia, plutôt qu'un
   // sélecteur qui afficherait Sophia en écrivant dans l'autre tranche.
@@ -119,7 +153,7 @@ export function FileLabelsApplicationEditeur({
                 n.items.length + Object.values(n.par_langue).reduce((s, l) => s + l.length, 0);
               return (
                 <option key={a.id} value={a.slug}>
-                  {nomApplication(a)} ({total})
+                  {nomApplication(a)} ({total}){a.actif ? "" : ` — ${t("warmup.fileAppInactive")}`}
                 </option>
               );
             })}
@@ -130,6 +164,11 @@ export function FileLabelsApplicationEditeur({
 
       <p className="text-xs font-medium text-foreground">{t("warmup.fileApp", { app: nomApp })}</p>
       <p className="text-xs text-muted-foreground">{t("warmup.fileDesc", { app: nomApp })}</p>
+      {sansPart && (
+        <p className="rounded-md border border-warning/50 bg-warning/5 px-2.5 py-2 text-xs text-foreground" data-testid="file-sans-part">
+          {t("warmup.fileSansPart", { app: nomApp })}
+        </p>
+      )}
 
       <div className="space-y-1 sm:max-w-sm">
         <Label htmlFor="fileQueueKey">{t("warmup.fileChoisir")}</Label>
@@ -164,24 +203,38 @@ export function FileLabelsApplicationEditeur({
         </p>
       </div>
 
+      {fileActive.length > 0 && (
+        <p className="text-xs text-muted-foreground" data-testid="file-total">
+          {t("warmup.fileTotal", { count: fileActive.length })}
+        </p>
+      )}
       <ol className="space-y-1.5" data-testid="file-labels-items">
         {fileActive.length === 0 && (
           <li className="text-sm text-muted-foreground">
             {cle === "general" ? t("warmup.fileVideListe") : t("warmup.fileLangueVide")}
           </li>
         )}
-        {fileActive.map((item, i) => {
+        {groupes.map((g, gi) => {
+          const item = g.item;
           const lab = (labels ?? []).find((l) => l.id === item.label_id);
+          const nomLabel = lab?.nom ?? item.label_id.slice(0, 8);
           const horsSlideshow = lab ? !estLabelFileSlideshow(lab) : false;
           const horsApp = applicationId ? entreeHorsApplication(item, applicationId, liens) : false;
           return (
             <li
-              key={`${slug}-${cle}-${item.label_id}-${item.ugc}-${i}`}
+              key={`${slug}-${cle}-${item.label_id}-${item.ugc}-${g.debut}`}
               className="flex flex-wrap items-center justify-between gap-2 rounded-md border px-2.5 py-2 text-sm"
             >
               <span className="flex min-w-0 items-center gap-2 truncate">
-                <span className="text-muted-foreground">{i + 1}.</span>
-                <span className="truncate">{lab?.nom ?? item.label_id.slice(0, 8)}</span>
+                <span className="tabular-nums text-muted-foreground">
+                  {g.n > 1 ? `${g.debut + 1}–${g.debut + g.n}.` : `${g.debut + 1}.`}
+                </span>
+                <span className="truncate">{nomLabel}</span>
+                {g.n > 1 && (
+                  <Badge variant="secondary" className="shrink-0 tabular-nums">
+                    {t("warmup.fileGroupe", { count: g.n })}
+                  </Badge>
+                )}
                 {item.ugc && (
                   <Badge variant="secondary" className="shrink-0 text-[10px]">
                     UGC
@@ -203,12 +256,9 @@ export function FileLabelsApplicationEditeur({
                   type="button"
                   size="sm"
                   variant="ghost"
-                  disabled={i === 0 || enCours}
-                  onClick={() => {
-                    const items = [...fileActive];
-                    [items[i - 1], items[i]] = [items[i]!, items[i - 1]!];
-                    majFile(items);
-                  }}
+                  aria-label={t("warmup.fileMonter", { label: nomLabel })}
+                  disabled={gi === 0 || enCours}
+                  onClick={() => majFile(avecGroupeDeplace(fileActive, gi, -1))}
                 >
                   ↑
                 </Button>
@@ -216,22 +266,32 @@ export function FileLabelsApplicationEditeur({
                   type="button"
                   size="sm"
                   variant="ghost"
-                  disabled={i >= fileActive.length - 1 || enCours}
-                  onClick={() => {
-                    const items = [...fileActive];
-                    [items[i], items[i + 1]] = [items[i + 1]!, items[i]!];
-                    majFile(items);
-                  }}
+                  aria-label={t("warmup.fileDescendre", { label: nomLabel })}
+                  disabled={gi >= groupes.length - 1 || enCours}
+                  onClick={() => majFile(avecGroupeDeplace(fileActive, gi, 1))}
                 >
                   ↓
                 </Button>
+                {g.n > 1 && (
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="ghost"
+                    aria-label={t("warmup.fileRetirerUn", { label: nomLabel })}
+                    disabled={enCours}
+                    onClick={() => majFile(sansEntreesDuGroupe(fileActive, gi, 1))}
+                  >
+                    −1
+                  </Button>
+                )}
                 <Button
                   type="button"
                   size="sm"
                   variant="ghost"
                   className="text-destructive"
+                  aria-label={t("warmup.fileRetirerGroupe", { label: nomLabel, count: g.n })}
                   disabled={enCours}
-                  onClick={() => majFile(fileActive.filter((_, j) => j !== i))}
+                  onClick={() => majFile(sansEntreesDuGroupe(fileActive, gi))}
                 >
                   ×
                 </Button>
@@ -260,6 +320,19 @@ export function FileLabelsApplicationEditeur({
               ))}
           </select>
         </div>
+        <div className="w-40 space-y-1">
+          <Label htmlFor="ajoutNombre" className="whitespace-nowrap">{t("warmup.ajouterNombre")}</Label>
+          <Input
+            id="ajoutNombre"
+            type="number"
+            min={1}
+            max={AJOUT_MAX_FILE}
+            step={1}
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            className="h-9 tabular-nums"
+          />
+        </div>
         {ugcOk && (
           <label className="flex h-9 items-center gap-2 text-sm">
             <input
@@ -279,9 +352,12 @@ export function FileLabelsApplicationEditeur({
           size="sm"
           disabled={!labelAjout || enCours || (ugcOk && ugcAjout && !ugcIds.includes(labelAjout))}
           onClick={() => {
-            majFile([...fileActive, { label_id: labelAjout, ugc: ugcOk && ugcAjout }]);
+            majFile(
+              avecEntreesAjoutees(fileActive, { label_id: labelAjout, ugc: ugcOk && ugcAjout }, nombreAjout(nombre)),
+            );
             setLabelAjout("");
             setUgcAjout(false);
+            setNombre("1");
           }}
         >
           {t("warmup.ajouter")}

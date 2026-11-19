@@ -47,6 +47,15 @@ vi.mock("@/features/moteur/api", async (importOriginal) => ({
   lireReglages: () => lireReglages(),
 }));
 
+/** La carte de la File, espionnée : on vérifie ce que la page lui passe. */
+const carteFile = vi.fn();
+vi.mock("@/features/moteur/repartition/CarteFileLabels", () => ({
+  CarteFileLabels: (props: Record<string, unknown>) => {
+    carteFile(props);
+    return null;
+  },
+}));
+
 /** La projection, espionnée : on vérifie ce que la page lui passe. */
 const simulerTirages = vi.fn();
 vi.mock("@/features/moteur/repartition/tirages", async (importOriginal) => {
@@ -448,6 +457,29 @@ describe("AdminRepartitionPage — une application en préparation", () => {
     });
     renderPage();
     expect((await screen.findByTestId("alerte-inactives")).textContent).toMatch(/Atala/);
+  });
+
+  it("sa File s'édite depuis la carte « File des créateurs », avec la cible sous les yeux", async () => {
+    // Décider le label des prochains comptes d'Atala : il faut pouvoir choisir
+    // sa File alors qu'elle est inactive, et savoir si elle sera lue.
+    lireApplicationsEnPreparation.mockResolvedValue(["id-atala"]);
+    renderPage();
+    await screen.findByLabelText(/Cible de Atala|Target for Atala/);
+    await waitFor(() => expect(carteFile).toHaveBeenCalled());
+    const props = carteFile.mock.calls.at(-1)![0];
+    expect(props.slugsEnPreparation).toEqual(["atala"]);
+    // La cible posée (60 / 25 / 15, rien pour Atala) part telle quelle.
+    expect(props.partsCible).toEqual({ sophia: 60, unswipe: 25, micabo: 15 });
+  });
+
+  it("sans cible posée, la carte de la File ne reçoit aucune part", async () => {
+    lireCibleRepartitionApps.mockResolvedValue({
+      source: "defaut",
+      parts: { sophia: 100 / 3, unswipe: 100 / 3, micabo: 100 / 3 },
+    });
+    renderPage();
+    await waitFor(() => expect(carteFile).toHaveBeenCalled());
+    expect(carteFile.mock.calls.at(-1)![0].partsCible).toBeNull();
   });
 
   it("une lecture en panne se voit, elle ne retire pas l'application en silence", async () => {

@@ -1,0 +1,286 @@
+{
+ "id": "dr-024",
+ "format": "iceberg",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7696990065343532309",
+  "vues": 1100000,
+  "publie_le": "2026-10-15",
+  "accroche": "Iceberg of ADHD hobbies"
+ },
+ "titre": {
+  "en": "Iceberg of polymath hobbies",
+  "it": "Iceberg degli hobby da polimati",
+  "nl": "IJsberg van hobby's van veelweters"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #polymath #lockedin #selfimprovement",
+  "it": "#iceberg #hobby #polimata #crescitapersonale",
+  "nl": "#ijsberg #hobbys #veelweter #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "original sound - 432pa.hp",
+  "url": "https://www.tiktok.com/music/original-sound-7603872322981874462"
+ },
+ "notes": "Original sur son iceberg à 1,1 M (« Iceberg of ADHD hobbies », dont « polymathy » était le fond) : sujet « polymath ». Sophia au 2e étage (« a sophia lesson a day », icône). En, it, nl ; couverture : variantes 5, 6, 0.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "polymath hobbies",
+    "variante": 5
+   },
+   "it": {
+    "haut": "Iceberg degli",
+    "bas": "hobby da polimati",
+    "variante": 6
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van veelweters",
+    "variante": 0
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "reading books",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "coding",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "a sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "astronomy",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "flashcards",
+       "image": "images/objets/fiches.png"
+      },
+      {
+       "t": "sketching",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "chemistry",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "morse code",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "fossil hunting",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "learning latin",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "microscopy",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "geology",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "learning everything",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "it": {
+    "etages": [
+     [
+      {
+       "t": "leggere libri",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "scacchi",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "pianoforte",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "programmare",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia ogni giorno",
+       "image": "sophia"
+      },
+      {
+       "t": "astronomia",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "flashcard",
+       "image": "images/objets/fiches.png"
+      },
+      {
+       "t": "disegnare",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "chimica",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "alfabeto morse",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "calligrafia",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "cercare fossili",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "latino",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "microscopia",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "geologia",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "imparare tutto",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "non sei d'accordo?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "boeken lezen",
+       "image": "images/objets/pile-livres.png"
+      },
+      {
+       "t": "schaken",
+       "image": "images/objets/pion-echecs.png"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "coderen",
+       "image": "images/objets/ordinateur.png"
+      }
+     ],
+     [
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "sterrenkunde",
+       "image": "images/objets/telescope.png"
+      },
+      {
+       "t": "flashcards",
+       "image": "images/objets/fiches.png"
+      },
+      {
+       "t": "schetsen",
+       "image": "images/objets/carnet-croquis.png"
+      }
+     ],
+     [
+      {
+       "t": "scheikunde",
+       "image": "images/objets/fiole.png"
+      },
+      {
+       "t": "morsecode",
+       "image": "images/objets/manipulateur-morse.png"
+      },
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "fossielen zoeken",
+       "image": "images/objets/ammonite.png"
+      }
+     ],
+     [
+      {
+       "t": "latijn leren",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "microscopie",
+       "image": "images/objets/microscope.png"
+      },
+      {
+       "t": "geologie",
+       "image": "images/objets/geode.png"
+      }
+     ],
+     [
+      {
+       "t": "alles leren",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ]
+}

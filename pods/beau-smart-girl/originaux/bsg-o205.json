@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o205",
+  "type_bleo": "full_test",
+  "titre": "ce que j'ai appris en tenant un herbier toute une saison #herbier #nature #pourtoi",
+  "musique_titre": "the path less travelled",
+  "musique_url": "https://www.tiktok.com/music/the-path-less-travelled-7323527063020619777",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label (ni habitudes volées, ni mots rares, ni musée, ni livres par an). cta A. Activité concrète, aucun fait daté. Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "2bc4db4b",
+      "texte_overlay": "ce que j'ai appris en tenant\nun herbier toute une saison",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "8f8e1f63",
+      "texte_overlay": "1. on regarde enfin les plantes\n\nles trottoirs, les parcs, les bords de route.\nil y en a partout.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "615a9986",
+      "texte_overlay": "2. chaque plante a un nom\n\net souvent une histoire.\nje cherche les deux le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "bc0169ef",
+      "texte_overlay": "3. la patience, ça s'apprend\n\nune fleur met des semaines à sécher.\non ne peut pas tricher.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bedd754e",
+      "texte_overlay": "4. c'est le plus beau des carnets\n\ndes fleurs, des dates, des lieux.\nun journal sans mots.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "b30a0c6c",
+      "texte_overlay": "5. on devient curieuse de tout\n\navant, je ne savais nommer aucune fleur.\nmaintenant, j'apprends un truc sur le monde chaque matin. et chaque promenade devient une leçon.",
+      "texte_sophia": "5. on devient curieuse de tout\n\navant, je ne savais nommer aucune fleur.\nmaintenant, j'ouvre l'appli Sophia chaque matin. et chaque promenade devient une leçon.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "fd9c2277",
+      "texte_overlay": "tu as déjà fait un herbier ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

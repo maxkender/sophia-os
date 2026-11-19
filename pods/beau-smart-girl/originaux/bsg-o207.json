@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o207",
+  "type_bleo": "full_test",
+  "titre": "les petites choses qui ont rendu mes trajets à pied plus intéressants #marche #culture #pourtoi",
+  "musique_titre": "Touch daft punk",
+  "musique_url": "https://www.tiktok.com/music/touch-daft-punk-6933882638743063297",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label (ni habitudes volées, ni mots rares, ni musée, ni livres par an). cta C. Différent des trajets en transports (bsg-o178) : la marche. Aucun fait daté. Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "89b93efe",
+      "texte_overlay": "les petites choses qui ont rendu\nmes trajets à pied plus intéressants",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "67e5edfb",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "3f69a45c",
+      "texte_overlay": "1. je change de rue chaque jour\n\nmême trajet, autre chemin.\nla ville devient nouvelle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "6d0b5774",
+      "texte_overlay": "2. je lis les noms des rues\n\net je cherche qui étaient ces gens le soir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "f20fb06d",
+      "texte_overlay": "3. je regarde les façades\n\nune date gravée, une statue cachée,\nun balcon d'un autre siècle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "55a9d605",
+      "texte_overlay": "4. je marche sans écouteurs une fois par semaine\n\nles bruits de la ville racontent aussi des histoires.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "57f1a8b2",
+      "texte_overlay": "5. je note une chose vue\n\nune ligne par jour.\nmon trajet devient un journal.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "d652b544",
+      "texte_overlay": "c'est quoi ton plus beau trajet ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

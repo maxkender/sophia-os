@@ -1,0 +1,281 @@
+{
+ "id": "dr-023",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of stoic hobbies",
+  "de": "Der Eisberg der Stoiker-Hobbys",
+  "sv": "Isberget av stoikerns hobbyer"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #stoicism #lockedin #selfimprovement",
+  "de": "#eisberg #hobbys #stoizismus #selbstverbesserung",
+  "sv": "#isberg #hobbyer #stoicism #självutveckling"
+ },
+ "musique": {
+  "titre": "QUANTUM - PHNKR & dnvn & Phonk King",
+  "url": "https://www.tiktok.com/music/original-sound-7550638270103996417"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « stoic hobbies ». Fond : « the view from above », exercice stoïcien (Marc Aurèle, Pensées). Sophia au 2e étage (« one sophia lesson a day », icône). En, de, sv ; couverture : variantes 2, 3, 4.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "stoic hobbies",
+    "variante": 2
+   },
+   "de": {
+    "haut": "Der Eisberg der",
+    "bas": "Stoiker-Hobbys",
+    "variante": 3
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "stoikerns hobbyer",
+    "variante": 4
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "journaling",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "long walks",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "early mornings",
+       "image": "images/objets/reveil.png"
+      },
+      {
+       "t": "chess",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "cold showers",
+       "image": "images/objets/douche.png"
+      },
+      {
+       "t": "one sophia lesson a day",
+       "image": "sophia"
+      },
+      {
+       "t": "reading seneca",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "black tea",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "memento mori",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "minimalism",
+       "image": "images/objets/bol-bois.png"
+      },
+      {
+       "t": "writing letters",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "greek philosophy",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "reading by candlelight",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "latin quotes",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "solo hikes",
+       "image": "images/objets/jumelles.png"
+      }
+     ],
+     [
+      {
+       "t": "the view from above",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "de": {
+    "etages": [
+     [
+      {
+       "t": "tagebuch schreiben",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "spazieren gehen",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "früh aufstehen",
+       "image": "images/objets/reveil.png"
+      },
+      {
+       "t": "schach",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "kalt duschen",
+       "image": "images/objets/douche.png"
+      },
+      {
+       "t": "täglich sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "seneca lesen",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "schwarzer tee",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "memento mori",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "minimalismus",
+       "image": "images/objets/bol-bois.png"
+      },
+      {
+       "t": "briefe schreiben",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "griechische philosophie",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "lesen bei kerzenlicht",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "lateinische zitate",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "allein wandern",
+       "image": "images/objets/jumelles.png"
+      }
+     ],
+     [
+      {
+       "t": "der blick von oben",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "nicht einverstanden?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "skriva dagbok",
+       "image": "images/objets/carnet.png"
+      },
+      {
+       "t": "långa promenader",
+       "image": "images/objets/chaussures-marche.png"
+      },
+      {
+       "t": "tidiga morgnar",
+       "image": "images/objets/reveil.png"
+      },
+      {
+       "t": "schack",
+       "image": "images/objets/pion-echecs.png"
+      }
+     ],
+     [
+      {
+       "t": "kalla duschar",
+       "image": "images/objets/douche.png"
+      },
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "läsa seneca",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "svart te",
+       "image": "images/objets/tasse-the.png"
+      }
+     ],
+     [
+      {
+       "t": "memento mori",
+       "image": "images/objets/sablier.png"
+      },
+      {
+       "t": "minimalism",
+       "image": "images/objets/bol-bois.png"
+      },
+      {
+       "t": "skriva brev",
+       "image": "images/objets/lettre-cachet.png"
+      },
+      {
+       "t": "grekisk filosofi",
+       "image": "images/objets/buste-romain.png"
+      }
+     ],
+     [
+      {
+       "t": "läsa i levande ljus",
+       "image": "images/objets/bougie.png"
+      },
+      {
+       "t": "latinska citat",
+       "image": "images/objets/parchemin.png"
+      },
+      {
+       "t": "vandra ensam",
+       "image": "images/objets/jumelles.png"
+      }
+     ],
+     [
+      {
+       "t": "blicken ovanifrån",
+       "image": "images/objets/globe-ancien.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

@@ -1,0 +1,212 @@
+{
+ "id": "as-020",
+ "fond": "images/c20-couv.jpg",
+ "titre": {
+  "en": "five apps to help you travel smarter",
+  "es": "cinco apps para viajar mejor",
+  "it": "cinque app per viaggiare meglio",
+  "pt-BR": "cinco apps pra viajar melhor"
+ },
+ "legendes": {
+  "en": "from planning the whole trip on one map to a packing list that writes itself ✈️ #travelapps #apprecommendations #traveltips #cuteapps",
+  "es": "de planear todo el viaje en un mapa a una lista de maleta que se escribe sola ✈️ #appsdeviaje #appsrecomendadas #viajes #appsbonitas",
+  "it": "dal viaggio pianificato su una mappa alla lista della valigia che si scrive da sola ✈️ #appdiviaggio #appconsigliate #viaggi #appcarine",
+  "pt-BR": "do roteiro inteiro num mapa a uma lista de mala que se escreve sozinha ✈️ #appsdeviagem #dicasdeapps #viagem #appsfofos"
+ },
+ "musique": {
+  "titre": "Moon Jelly",
+  "url": "https://www.tiktok.com/music/moon-jelly-7659230036730251281"
+ },
+ "notes": "Preuve : « five apps / to help you travel smarter » (13,6 k, 29/09), style carte. Applis vérifiées us, es, it, br : Wanderlog, Polarsteps, Sophia (3e, cta B), PackPoint, Citymapper. Photos Seedream.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "photos": [
+     "images/c20-couv.jpg"
+    ],
+    "titre": "five apps",
+    "sous": "to help you travel smarter"
+   },
+   "es": {
+    "photos": [
+     "images/c20-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "para viajar mejor"
+   },
+   "it": {
+    "photos": [
+     "images/c20-couv.jpg"
+    ],
+    "titre": "cinque app",
+    "sous": "per viaggiare meglio"
+   },
+   "pt-BR": {
+    "photos": [
+     "images/c20-couv.jpg"
+    ],
+    "titre": "cinco apps",
+    "sous": "pra viajar melhor"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Wanderlog",
+    "dossier": "images/applis/wanderlog",
+    "note": "Plan the whole trip on one map: places, bookings and a day-by-day itinerary you can edit with friends",
+    "fond": "images/c20-carte.jpg"
+   },
+   "es": {
+    "nom": "Wanderlog",
+    "dossier": "images/applis/wanderlog",
+    "note": "Planifica todo el viaje en un mapa: sitios, reservas y un itinerario día a día que editas con tus amigas",
+    "fond": "images/c20-carte.jpg"
+   },
+   "it": {
+    "nom": "Wanderlog",
+    "dossier": "images/applis/wanderlog",
+    "note": "Pianifica tutto il viaggio su una mappa: posti, prenotazioni e un itinerario giorno per giorno da modificare con le amiche",
+    "fond": "images/c20-carte.jpg"
+   },
+   "pt-BR": {
+    "nom": "Wanderlog",
+    "dossier": "images/applis/wanderlog",
+    "note": "Planeje a viagem inteira num mapa: lugares, reservas e um roteiro dia a dia pra editar com as amigas",
+    "fond": "images/c20-carte.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Polarsteps",
+    "dossier": "images/applis/polarsteps",
+    "note": "Tracks your route while you travel and turns your photos into a travel diary, even a printed book",
+    "fond": "images/c20-rue.jpg"
+   },
+   "es": {
+    "nom": "Polarsteps",
+    "dossier": "images/applis/polarsteps",
+    "note": "Registra tu ruta mientras viajas y convierte tus fotos en un diario de viaje, incluso en un libro impreso",
+    "fond": "images/c20-rue.jpg"
+   },
+   "it": {
+    "nom": "Polarsteps",
+    "dossier": "images/applis/polarsteps",
+    "note": "Registra il tuo percorso mentre viaggi e trasforma le foto in un diario di viaggio, anche in un libro stampato",
+    "fond": "images/c20-rue.jpg"
+   },
+   "pt-BR": {
+    "nom": "Polarsteps",
+    "dossier": "images/applis/polarsteps",
+    "note": "Registra sua rota durante a viagem e transforma suas fotos num diário de viagem, até num livro impresso",
+    "fond": "images/c20-rue.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "app": "sophia",
+   "en": {
+    "nom": "Sophia",
+    "note": "A tiny lesson a day instead of doomscrolling: art, history, science, economics, then a quiz so it actually sticks",
+    "fond": "images/c20-couv.jpg"
+   },
+   "es": {
+    "nom": "Sophia",
+    "note": "Una mini lección al día en vez de hacer scroll sin fin: arte, historia, ciencia, economía, y luego un quiz para que se quede",
+    "fond": "images/c20-couv.jpg"
+   },
+   "it": {
+    "nom": "Sophia",
+    "note": "Una mini lezione al giorno invece di scrollare all'infinito: arte, storia, scienza, economia, poi un quiz perché resti davvero",
+    "fond": "images/c20-couv.jpg"
+   },
+   "pt-BR": {
+    "nom": "Sophia",
+    "note": "Uma mini aula por dia em vez de ficar rolando o feed: arte, história, ciência, economia, e depois um quiz pra fixar de verdade",
+    "fond": "images/c20-couv.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "PackPoint",
+    "dossier": "images/applis/packpoint",
+    "note": "Makes your packing list for you based on the weather and what you'll do there. No more forgotten chargers",
+    "fond": "images/c20-valise.jpg"
+   },
+   "es": {
+    "nom": "PackPoint",
+    "dossier": "images/applis/packpoint",
+    "note": "Te hace la lista de la maleta según el tiempo y lo que vas a hacer. Se acabaron los cargadores olvidados",
+    "fond": "images/c20-valise.jpg"
+   },
+   "it": {
+    "nom": "PackPoint",
+    "dossier": "images/applis/packpoint",
+    "note": "Ti prepara la lista della valigia in base al meteo e a cosa farai. Basta caricatori dimenticati",
+    "fond": "images/c20-valise.jpg"
+   },
+   "pt-BR": {
+    "nom": "PackPoint",
+    "dossier": "images/applis/packpoint",
+    "note": "Monta sua lista de mala de acordo com o clima e o que você vai fazer. Chega de esquecer o carregador",
+    "fond": "images/c20-valise.jpg"
+   }
+  },
+  {
+   "type": "appli",
+   "en": {
+    "nom": "Citymapper",
+    "dossier": "images/applis/citymapper",
+    "note": "The easiest way to get around a new city: metro, bus and walking, with live times",
+    "fond": "images/c20-metro.jpg"
+   },
+   "es": {
+    "nom": "Citymapper",
+    "dossier": "images/applis/citymapper",
+    "note": "La forma más fácil de moverte por una ciudad nueva: metro, bus y a pie, con horarios en directo",
+    "fond": "images/c20-metro.jpg"
+   },
+   "it": {
+    "nom": "Citymapper",
+    "dossier": "images/applis/citymapper",
+    "note": "Il modo più semplice per muoverti in una città nuova: metro, bus e a piedi, con orari in tempo reale",
+    "fond": "images/c20-metro.jpg"
+   },
+   "pt-BR": {
+    "nom": "Citymapper",
+    "dossier": "images/applis/citymapper",
+    "note": "O jeito mais fácil de se virar numa cidade nova: metrô, ônibus e a pé, com horários ao vivo",
+    "fond": "images/c20-metro.jpg"
+   }
+  },
+  {
+   "type": "fin",
+   "en": {
+    "haut": "save & follow",
+    "bande": "[ for more app recs! ]"
+   },
+   "es": {
+    "haut": "guarda y sigue",
+    "bande": "[ para más apps ]"
+   },
+   "it": {
+    "haut": "salva e segui",
+    "bande": "[ per altre app! ]"
+   },
+   "pt-BR": {
+    "haut": "salva e segue",
+    "bande": "[ pra mais apps! ]"
+   }
+  }
+ ],
+ "style": "carte",
+ "source": {
+  "url": "https://www.tiktok.com/@theappshelf/photo/7690970374930058526",
+  "vues": 13600,
+  "publie_le": "2026-09-29",
+  "accroche": "five apps to help you travel smarter"
+ }
+}

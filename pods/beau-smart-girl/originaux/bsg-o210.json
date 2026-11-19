@@ -1,0 +1,63 @@
+{
+  "source_id": "bsg-o210",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "a863e8a4-f304-461b-9a60-a2a268ecda43",
+  "titre": "how to stop caring about what others think #confidence #thatgirl",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [
+    "a863e8a4-f304-461b-9a60-a2a268ecda43"
+  ],
+  "notes": "G1, déclinaison de a863e8a4 (« how to stop caring about what others think », génération 0 ; meilleur passage it 5,8 k vues, r 4,72), en anglais. cta C. Items neufs (rien de repris du parent : ni conseil de qui, ni plaire à tous, ni réassurance, ni se concentrer sur les autres). Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "53658691",
+      "texte_overlay": "how to stop caring\nabout what others think",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "4bdef81d",
+      "texte_overlay": "if you only try one thing from this list:\nlearn one thing about the world every morning, for 7 days.\ntell me how it goes.",
+      "texte_sophia": "if you only try one thing from this list:\nthe Sophia app every morning, for 7 days.\ntell me how it goes.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "67368992",
+      "texte_overlay": "1. remember everyone is the main character\n\nof their own story.\nyou're a background extra at most.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "8aad5ade",
+      "texte_overlay": "2. write down what you actually value\n\nwhen you know your own rules,\nother people's opinions get quieter.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "c11a0b34",
+      "texte_overlay": "3. do one small thing alone this week\n\na café, a cinema, a museum.\nnobody stares. promise.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "5362e9ec",
+      "texte_overlay": "4. ask: will this matter in a year?\n\nalmost never.\nlet it go.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "1af9e743",
+      "texte_overlay": "5. spend time with people who make you braver\n\nthe right friends cheer, not judge.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "d99624f9",
+      "texte_overlay": "which one do you need most?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

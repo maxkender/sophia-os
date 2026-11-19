@@ -1,0 +1,54 @@
+{
+  "source_id": "bsg-o204",
+  "type_bleo": "full_test",
+  "titre": "comment je retiens les dates d'histoire sans les apprendre par cœur #histoire #etudes #pourtoi",
+  "musique_titre": "une barque sur l'océan",
+  "musique_url": "https://www.tiktok.com/music/une-barque-sur-locean-7221810714707495722",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label (ni habitudes volées, ni mots rares, ni musée, ni livres par an). cta B. Fait vérifié le 12/11 sur https://en.wikipedia.org/wiki/Statue_of_Liberty : « dedicated on October 28, 1886 ». Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "b4d16ec8",
+      "texte_overlay": "comment je retiens les dates d'histoire\nsans les apprendre par cœur",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "784e3d12",
+      "texte_overlay": "1. je les relie à une histoire\n\nune date seule s'oublie.\nune date avec une anecdote reste.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "063e1b9d",
+      "texte_overlay": "2. je fais une frise sur mon mur\n\nje la vois tous les jours.\nelle s'imprime toute seule.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "4badfb81",
+      "texte_overlay": "3. je retiens les anecdotes\n\nce matin, j'ai appris que la statue de la liberté a été inaugurée en 1886, un cadeau de la france.\n1886, je ne l'oublierai plus.",
+      "texte_sophia": "3. je retiens les anecdotes\n\nce matin, l'appli Sophia m'a appris que la statue de la liberté a été inaugurée en 1886, un cadeau de la france.\n1886, je ne l'oublierai plus.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "bfee72f2",
+      "texte_overlay": "4. je compare les époques\n\nqui vivait en même temps que qui ?\nles surprises aident à retenir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "219c2df2",
+      "texte_overlay": "5. je raconte au lieu de réciter\n\nà voix haute, comme une histoire.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "cc793ef8",
+      "texte_overlay": "enregistre-le pour tes révisions.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

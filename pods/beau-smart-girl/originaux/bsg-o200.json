@@ -1,0 +1,60 @@
+{
+  "source_id": "bsg-o200",
+  "type_bleo": "full_test",
+  "titre": "comment je me suis mise à l'aquarelle (sans aucun talent) #aquarelle #art #pourtoi",
+  "musique_titre": "Probe",
+  "musique_url": "https://www.tiktok.com/music/probe-7277602986661283842",
+  "inspirations": [],
+  "notes": "full test. Accroche jamais faite chez nous, récit « je », sans thème gagnant connu du label (ni habitudes volées, ni mots rares, ni musée, ni livres par an). cta C. Aucun fait daté. Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "6f8485a6",
+      "texte_overlay": "comment je me suis mise à l'aquarelle\n(sans aucun talent)",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "b36d843b",
+      "texte_overlay": "si tu ne testes qu'un truc de cette liste :\napprendre un truc sur le monde chaque matin, pendant 7 jours.\ntu me diras.",
+      "texte_sophia": "si tu ne testes qu'un truc de cette liste :\nl'appli Sophia chaque matin, pendant 7 jours.\ntu me diras.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "a621db9d",
+      "texte_overlay": "1. j'ai acheté le plus petit kit possible\n\nsix couleurs, un pinceau.\npas d'excuse pour ne pas commencer.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "3880f66b",
+      "texte_overlay": "2. je peins ce que j'ai sous les yeux\n\nune tasse, une pomme, la fenêtre.\npas besoin d'inspiration.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "7b6cc7c8",
+      "texte_overlay": "3. je copie les grands peintres\n\nune fleur de monet, un ciel de turner.\non apprend en regardant de près.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "8fba69cc",
+      "texte_overlay": "4. j'accepte les taches\n\nl'aquarelle fait ce qu'elle veut.\nc'est ce qui la rend belle.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "ec1da303",
+      "texte_overlay": "5. je date chaque peinture\n\nen trois mois, j'ai vu mes progrès.\net j'étais fière.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 8,
+      "media_id": "c1d0c7e2",
+      "texte_overlay": "tu as déjà essayé ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

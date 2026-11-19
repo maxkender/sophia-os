@@ -1,0 +1,281 @@
+{
+ "id": "dr-028",
+ "format": "iceberg",
+ "titre": {
+  "en": "Iceberg of art nerd hobbies",
+  "sv": "Isberget av konstnördens hobbyer",
+  "nl": "IJsberg van hobby's van kunstnerds"
+ },
+ "legendes": {
+  "en": "#iceberg #hobbies #arttok #lockedin #selfimprovement",
+  "sv": "#isberg #hobbyer #konst #självutveckling",
+  "nl": "#ijsberg #hobbys #kunst #zelfontwikkeling"
+ },
+ "musique": {
+  "titre": "orijinal ses - mr.soytari",
+  "url": "https://www.tiktok.com/music/original-sound-7678073315572189973"
+ },
+ "notes": "Full test (accroche neuve) au format de ses icebergs : « art nerd hobbies ». Sophia au 2e étage (« daily sophia lessons », icône). En, sv, nl ; couverture : variantes 1, 2, 3.",
+ "slides": [
+  {
+   "type": "iceberg_couverture",
+   "en": {
+    "haut": "Iceberg of",
+    "bas": "art nerd hobbies",
+    "variante": 1
+   },
+   "sv": {
+    "haut": "Isberget av",
+    "bas": "konstnördens hobbyer",
+    "variante": 2
+   },
+   "nl": {
+    "haut": "IJsberg van",
+    "bas": "hobby's van kunstnerds",
+    "variante": 3
+   }
+  },
+  {
+   "type": "iceberg",
+   "app": "sophia",
+   "en": {
+    "etages": [
+     [
+      {
+       "t": "museums",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "sketching",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "film photography",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "vinyl records",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "daily sophia lessons",
+       "image": "sophia"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "pottery",
+       "image": "images/objets/vase-ceramique.png"
+      },
+      {
+       "t": "oil painting",
+       "image": "images/objets/palette.png"
+      }
+     ],
+     [
+      {
+       "t": "calligraphy",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "art history",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "writing poetry",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "writing letters",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "greek vases",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "pressing flowers",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ],
+     [
+      {
+       "t": "restoring typewriters",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "disagreed?"
+   },
+   "sv": {
+    "etages": [
+     [
+      {
+       "t": "museer",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "skissa",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "analog fotografi",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "vinylskivor",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "sophia varje dag",
+       "image": "sophia"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "keramik",
+       "image": "images/objets/vase-ceramique.png"
+      },
+      {
+       "t": "oljemålning",
+       "image": "images/objets/palette.png"
+      }
+     ],
+     [
+      {
+       "t": "kalligrafi",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "konsthistoria",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "skriva poesi",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "skriva brev",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "grekiska vaser",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "pressa blommor",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ],
+     [
+      {
+       "t": "laga skrivmaskiner",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "håller inte med?"
+   },
+   "nl": {
+    "etages": [
+     [
+      {
+       "t": "musea",
+       "image": "images/objets/buste-romain.png"
+      },
+      {
+       "t": "schetsen",
+       "image": "images/objets/carnet-croquis.png"
+      },
+      {
+       "t": "analoge fotografie",
+       "image": "images/objets/appareil-argentique.png"
+      },
+      {
+       "t": "vinylplaten",
+       "image": "images/objets/tourne-disque.png"
+      }
+     ],
+     [
+      {
+       "t": "elke dag sophia",
+       "image": "sophia"
+      },
+      {
+       "t": "piano",
+       "image": "images/objets/piano.png"
+      },
+      {
+       "t": "pottenbakken",
+       "image": "images/objets/vase-ceramique.png"
+      },
+      {
+       "t": "olieverf",
+       "image": "images/objets/palette.png"
+      }
+     ],
+     [
+      {
+       "t": "kalligrafie",
+       "image": "images/objets/pinceau-calligraphie.png"
+      },
+      {
+       "t": "kunst",
+       "image": "images/objets/livre-ancien.png"
+      },
+      {
+       "t": "gedichten schrijven",
+       "image": "images/objets/plume.png"
+      },
+      {
+       "t": "brieven schrijven",
+       "image": "images/objets/lettre-cachet.png"
+      }
+     ],
+     [
+      {
+       "t": "griekse vazen",
+       "image": "images/objets/amphore.png"
+      },
+      {
+       "t": "bonsai",
+       "image": "images/objets/bonsai.png"
+      },
+      {
+       "t": "bloemen drogen",
+       "image": "images/objets/fleurs-sechees.png"
+      }
+     ],
+     [
+      {
+       "t": "typemachines repareren",
+       "image": "images/objets/machine-ecrire.png"
+      }
+     ]
+    ],
+    "question": "oneens?"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

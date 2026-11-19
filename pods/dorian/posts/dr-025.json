@@ -1,0 +1,172 @@
+{
+ "id": "dr-025",
+ "format": "liste",
+ "source": {
+  "url": "https://www.tiktok.com/@dorian.frog/photo/7694034602935012628",
+  "vues": 1200000,
+  "publie_le": "2026-10-07",
+  "accroche": "8 coding projects that are genuinely f*cking difficult"
+ },
+ "titre": {
+  "en": "5 math problems that are genuinely f*cking difficult",
+  "pt-BR": "5 problemas de matemática difíceis pra c*ralho",
+  "tr": "gerçekten çok zor 5 matematik problemi"
+ },
+ "legendes": {
+  "en": "#niche #math #smarttok #lockedin",
+  "pt-BR": "#matemática #nicho #conhecimento #estudos",
+  "tr": "#matematik #niş #bilgi #öğrenmek"
+ },
+ "musique": {
+  "titre": "original sound - splexedits",
+  "url": "https://www.tiktok.com/music/original-sound-7670769300528958239"
+ },
+ "notes": "Original sur sa liste à 1,2 M (« 8 coding projects that are genuinely f*cking difficult ») : même structure (difficulté /50), problèmes de maths ouverts. Faits : Goldbach (1742, vérifiée jusqu'à 4 × 10¹⁸) ; Collatz (non prouvée) ; Zhang 2013 (écart < 70 millions), Polymath 246 ; Riemann 1859, prix du millénaire Clay (1 M$) comme P vs NP. Tableaux AIC (domaine public) déjà dans la banque. En, pt-BR, tr ; une couverture par langue (cerveaux 09, 10, 11). Sophia en item 3 sur 6 (cta C), écran quiz traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 math problems that are genuinely f*cking difficult",
+    "image": "images/cerveau-09.jpg",
+    "legende": "(still unsolved)"
+   },
+   "pt-BR": {
+    "titre": "5 problemas de matemática difíceis pra c*ralho",
+    "image": "images/cerveau-10.jpg",
+    "legende": "(ainda sem solução)"
+   },
+   "tr": {
+    "titre": "gerçekten çok zor 5 matematik problemi",
+    "image": "images/cerveau-11.jpg",
+    "legende": "(hâlâ çözülemedi)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Goldbach's conjecture",
+    "difficulte": "41/50",
+    "texte": "every even number above 2 is the sum of two primes. 10 = 3 + 7. checked by computer up to 4 × 10¹⁸, never proven since 1742",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "pt-BR": {
+    "titre": "Conjectura de Goldbach",
+    "difficulte": "41/50",
+    "texte": "todo número par maior que 2 é a soma de dois primos. 10 = 3 + 7. verificada no computador até 4 × 10¹⁸, nunca provada desde 1742",
+    "image": "images/homme-chapeau.jpg"
+   },
+   "tr": {
+    "titre": "Goldbach sanısı",
+    "difficulte": "41/50",
+    "texte": "2'den büyük her çift sayı iki asal sayının toplamıdır. 10 = 3 + 7. bilgisayarla 4 × 10¹⁸'e kadar doğrulandı, 1742'den beri kanıtlanamadı",
+    "image": "images/homme-chapeau.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Collatz conjecture",
+    "difficulte": "44/50",
+    "texte": "take any number. even: halve it. odd: triple it and add 1. repeat. you always seem to reach 1. nobody can prove it. a child can understand it",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "pt-BR": {
+    "titre": "A conjectura de Collatz",
+    "difficulte": "44/50",
+    "texte": "pegue qualquer número. par: divida por 2. ímpar: multiplique por 3 e some 1. repita. parece que sempre chega em 1. ninguém consegue provar. uma criança entende",
+    "image": "images/tete-philosophe.jpg"
+   },
+   "tr": {
+    "titre": "Collatz sanısı",
+    "difficulte": "44/50",
+    "texte": "herhangi bir sayı al. çiftse ikiye böl. tekse üçle çarp ve 1 ekle. tekrarla. hep 1'e varıyor gibi. kimse kanıtlayamıyor. bir çocuk bile anlar",
+    "image": "images/tete-philosophe.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "difficulte": "5/50",
+    "texte": "what i open instead of scrolling: one lesson, one quiz, done. math and science are part of it",
+    "telephone": "quiz"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "difficulte": "5/50",
+    "texte": "o que eu abro em vez de rolar o feed: uma lição, um quiz, pronto. matemática e ciência fazem parte",
+    "telephone": "quiz"
+   },
+   "tr": {
+    "titre": "Sophia'da günde bir ders",
+    "difficulte": "5/50",
+    "texte": "kaydırmak yerine açtığım şey: bir ders, bir quiz, bitti. matematik ve bilim de var",
+    "telephone": "quiz"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "Twin primes",
+    "difficulte": "46/50",
+    "texte": "pairs of primes two apart, like 11 and 13. are there infinitely many? in 2013 yitang zhang proved there are infinitely many pairs less than 70 million apart. the record is now 246",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "pt-BR": {
+    "titre": "Primos gêmeos",
+    "difficulte": "46/50",
+    "texte": "pares de primos separados por 2, como 11 e 13. existem infinitos? em 2013, yitang zhang provou que há infinitos pares com distância menor que 70 milhões. o recorde hoje é 246",
+    "image": "images/vieil-homme-livre.jpg"
+   },
+   "tr": {
+    "titre": "İkiz asallar",
+    "difficulte": "46/50",
+    "texte": "aralarında 2 fark olan asallar, 11 ve 13 gibi. sonsuz sayıda var mı? 2013'te yitang zhang aralığı 70 milyonun altında kalan sonsuz çift olduğunu kanıtladı. rekor şu an 246",
+    "image": "images/vieil-homme-livre.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Riemann hypothesis",
+    "difficulte": "49/50",
+    "texte": "riemann proposed it in 1859. it describes how the prime numbers are spread out. prove it and the clay institute pays you $1 million",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "pt-BR": {
+    "titre": "A hipótese de Riemann",
+    "difficulte": "49/50",
+    "texte": "riemann a propôs em 1859. ela descreve como os números primos se distribuem. prove e o instituto clay te paga 1 milhão de dólares",
+    "image": "images/heraclite-sphere.jpg"
+   },
+   "tr": {
+    "titre": "Riemann hipotezi",
+    "difficulte": "49/50",
+    "texte": "riemann 1859'da ortaya attı. asal sayıların nasıl dağıldığını anlatır. kanıtla, clay enstitüsü sana 1 milyon dolar ödesin",
+    "image": "images/heraclite-sphere.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "P vs NP",
+    "difficulte": "50/50",
+    "texte": "if a solution is quick to check, is it always quick to find? another $1 million prize. if the answer is yes, a lot of modern encryption could break",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "pt-BR": {
+    "titre": "P vs NP",
+    "difficulte": "50/50",
+    "texte": "se uma solução é rápida de conferir, ela também é sempre rápida de encontrar? outro prêmio de 1 milhão. se a resposta for sim, boa parte da criptografia moderna pode cair",
+    "image": "images/portrait-raeburn.jpg"
+   },
+   "tr": {
+    "titre": "P - NP problemi",
+    "difficulte": "50/50",
+    "texte": "bir çözümü kontrol etmek kolaysa, bulmak da her zaman kolay mı? bir 1 milyon dolarlık ödül daha. cevap evetse modern şifrelemenin büyük kısmı çökebilir",
+    "image": "images/portrait-raeburn.jpg"
+   }
+  }
+ ]
+}

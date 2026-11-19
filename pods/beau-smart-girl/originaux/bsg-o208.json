@@ -1,0 +1,57 @@
+{
+  "source_id": "bsg-o208",
+  "type_bleo": "declinaison",
+  "parent_contenu_id": "38999d59-ede9-47d4-bf96-615b403ae7de",
+  "titre": "les leçons de lecture que je dois à mon grand-père #lecture #pourtoi",
+  "musique_titre": "effycore",
+  "musique_url": "https://www.tiktok.com/music/effycore-7668805365308114961",
+  "inspirations": [
+    "38999d59-ede9-47d4-bf96-615b403ae7de"
+  ],
+  "notes": "G2, déclinaison de 38999d59 (« les habitudes insolites que j'ai volées à mon grand-père qui a lu toute sa vie », G1 gagnante, génération 1 en français ; meilleur passage de 1,8 k vues, r 3,16), en français. Accroche reformulée : « les leçons de lecture que je dois à mon grand-père » (autres mots que bsg-o194). cta A. Items neufs (rien de repris de bsg-o100 ni de bsg-o194). Routine du 19/11 sur BLEO (par_jour passé à 11 ; toute la banque d'images, slide Sophia jamais sur une personne reconnaissable ; son en rotation). Jauge : 4 full tests et 7 déclinaisons ; seules les lignes 1 à 3 de la boîte se déclinent proprement, donc 3 déclinaisons et 8 full tests. Lignes sautées : 4 (« validé par les neurosciences »), 5 (« je notes »), 6 (accroche illisible), 7 et 10 (« backed by science », bienfaits santé invérifiables), 8 (« enterimarnt »), 9 (« other then »).",
+  "slides": [
+    {
+      "position": 1,
+      "media_id": "4d7c5c9f",
+      "texte_overlay": "les leçons de lecture\nque je dois à mon grand-père",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 2,
+      "media_id": "a23e4001",
+      "texte_overlay": "1. lire lentement, c'est permis\n\nil disait qu'un bon livre\nne se dévore pas, il se savoure.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 3,
+      "media_id": "45f69e4a",
+      "texte_overlay": "2. lire à voix haute aux autres\n\nle dimanche, il nous lisait un chapitre.\non attendait la suite toute la semaine.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 4,
+      "media_id": "546ccb04",
+      "texte_overlay": "3. garder les livres qu'on a aimés\n\nsa bibliothèque était son journal.\nchaque livre, un moment de sa vie.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 5,
+      "media_id": "1e893991",
+      "texte_overlay": "4. lire ce qu'on ne connaît pas\n\nun pays, une époque, un métier.\nil voyageait sans partir.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 6,
+      "media_id": "cd3a2b91",
+      "texte_overlay": "5. ne jamais arrêter d'apprendre\n\navant, je pensais qu'à son âge, on avait tout lu.\nmaintenant, j'apprends un truc sur le monde chaque matin. comme lui, je n'ai pas fini.",
+      "texte_sophia": "5. ne jamais arrêter d'apprendre\n\navant, je pensais qu'à son âge, on avait tout lu.\nmaintenant, j'ouvre l'appli Sophia chaque matin. comme lui, je n'ai pas fini.",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    },
+    {
+      "position": 7,
+      "media_id": "6dc73f1b",
+      "texte_overlay": "laquelle tu gardes ?",
+      "reference_url": "https://mbikecieskoobeizixig.supabase.co/storage/v1/object/public/medias/brut/7656139676008336672/1.jpg"
+    }
+  ]
+}

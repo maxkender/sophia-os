@@ -1,0 +1,143 @@
+{
+ "id": "at-003",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7698491321337597215",
+  "vues": 175700,
+  "publie_le": "2026-10-19",
+  "accroche": "beginner runner / do and don’ts"
+ },
+ "titre": {
+  "en": "beginner runner do and don’ts",
+  "fr": "débuter le running : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #beginnerrunner #runningtips #girlswhorun #runningadvice",
+  "fr": "#courseapied #running #debutante #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "La Mentira",
+  "url": "https://www.tiktok.com/music/la-mentira-6705056394258679809"
+ },
+ "notes": "Preuve : « beginner runner / do and don’ts » de @katrina.run (176 k vues, 19/10) ; même gabarit (objets), nos conseils. Aucun objet neuf : ceux d'at-001 et d'at-002 ; couverture : coureuse-profil-1. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta C` « my running coach » / « mon coach running »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-1.png",
+   "en": {
+    "titre": "beginner runner\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "débuter le running :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/chaussures.png",
+    "atala",
+    "images/objets/montre.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/tshirt-coton.png"
+   ],
+   "en": {
+    "titre": "your first runs",
+    "do": [
+     "proper\nrunning shoes",
+     "my\nrunning coach",
+     "walk breaks\nare fine"
+    ],
+    "dont": [
+     "going out\ntoo fast",
+     "a cotton tee"
+    ]
+   },
+   "fr": {
+    "titre": "au début",
+    "do": [
+     "des baskets\nde running",
+     "mon\ncoach running",
+     "marcher,\nc’est permis"
+    ],
+    "dont": [
+     "partir\ntrop vite",
+     "un t-shirt\nen coton"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/banane.png",
+    "images/objets/verre-eau.png",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/pates.png",
+    "images/objets/cafes.png"
+   ],
+   "en": {
+    "titre": "before a run",
+    "do": [
+     "a banana",
+     "a glass\nof water",
+     "kit ready"
+    ],
+    "dont": [
+     "a big\nplate of pasta",
+     "three coffees"
+    ]
+   },
+   "fr": {
+    "titre": "avant de courir",
+    "do": [
+     "une banane",
+     "un verre d’eau",
+     "ta tenue prête"
+    ],
+    "dont": [
+     "un gros plat\nde pâtes",
+     "trois cafés"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/rouleau.png",
+    "images/objets/the.png",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/halteres.png",
+    "images/objets/vin.png"
+   ],
+   "en": {
+    "titre": "after a run",
+    "do": [
+     "a foam roller",
+     "a cup of tea",
+     "8 hours\nof sleep"
+    ],
+    "dont": [
+     "heavy leg day",
+     "a glass\nof wine"
+    ]
+   },
+   "fr": {
+    "titre": "après la sortie",
+    "do": [
+     "ton rouleau",
+     "une tasse\nde thé",
+     "8 h\nde sommeil"
+    ],
+    "dont": [
+     "squats lourds",
+     "un verre\nde vin"
+    ]
+   }
+  }
+ ]
+}

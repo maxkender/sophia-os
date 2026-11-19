@@ -17,10 +17,13 @@ import {
   groupesDeLaFile,
   itemsDeLaFile,
   labelsAjoutables,
+  labelsDesAutresApplications,
+  lireLabelAutre,
   nombreAjout,
   sansEntreesDuGroupe,
   tirerDeLaFile,
   ugcPossible,
+  valeurLabelAutre,
 } from "./fileApplication";
 
 const ID_SOPHIA = "00000000-0000-4000-8000-000000000001";
@@ -196,5 +199,40 @@ describe("décider le label des N prochains comptes", () => {
     // Aux extrémités, rien ne bouge.
     expect(avecGroupeDeplace(file, 0, -1)).toEqual(file);
     expect(avecGroupeDeplace(file, 2, 1)).toEqual(file);
+  });
+});
+
+describe("les labels des autres applications dans « Ajouter un label »", () => {
+  const APPS = [
+    { id: ID_SOPHIA, slug: "sophia" },
+    { id: ID_UNSWIPE, slug: "unswipe" },
+    { id: ID_MICABO, slug: "micabo" },
+    { id: "id-vide", slug: "vide" },
+  ];
+
+  it("depuis Sophia : un groupe par autre application, avec les labels qui la servent", () => {
+    const groupes = labelsDesAutresApplications(APPS, "sophia", LABELS, LIENS);
+    expect(groupes.map((g) => [g.application.slug, g.labels.map((l) => l.id)])).toEqual([
+      // Le label manuel (UGCV) n'est jamais proposé, même s'il « sert » Unswipe.
+      ["unswipe", [CLASSIC.id, MEDICAL.id]],
+      ["micabo", [MEDICAL.id]],
+      // « vide » n'a aucun label : pas de groupe.
+    ]);
+  });
+
+  it("l'application qu'on édite n'est pas répétée dans les autres", () => {
+    const slugs = labelsDesAutresApplications(APPS, "unswipe", LABELS, LIENS).map((g) => g.application.slug);
+    expect(slugs).toEqual(["sophia", "micabo"]);
+  });
+
+  it("liens illisibles : aucun groupe, on ne sait pas qui sert quoi", () => {
+    expect(labelsDesAutresApplications(APPS, "sophia", LABELS, null)).toEqual([]);
+  });
+
+  it("la valeur d'une option se relit, et un label de l'application affichée n'en est pas une", () => {
+    const v = valeurLabelAutre("atala", "c9a8b949-c97c-4feb-b74d-0935bc7eb91c");
+    expect(lireLabelAutre(v)).toEqual({ slug: "atala", labelId: "c9a8b949-c97c-4feb-b74d-0935bc7eb91c" });
+    expect(lireLabelAutre("c9a8b949-c97c-4feb-b74d-0935bc7eb91c")).toBeNull();
+    expect(lireLabelAutre("")).toBeNull();
   });
 });

@@ -9736,6 +9736,7 @@ export const en = {
         "No label with UGC slideshows — mark at least one slideshow as UGC before adding a UGC queue entry.",
       fileIgnoreManuel: "Manual label — skipped at creation",
       ajouterLabel: "Add a label",
+      ajouterLabelAide: "Every label that can be queued, grouped by app. Picking a label from another app opens its queue: the entry goes there.",
       ajouterNombre: "Number of accounts",
       fileAppInactive: "inactive",
       fileSansPart:

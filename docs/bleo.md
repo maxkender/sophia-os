@@ -365,6 +365,8 @@ Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le ci
 
 *19/11 (0767) :* dans la Bible, un compte dont le label existe s'importe d'un clic depuis sa tuile (`bible_lancer_batch` n'exige plus l'étape « prochain batch »). Un bloc dont le label n'existe pas encore se corrige ou se rattache à un label de l'OS (`bible_carte_rattacher` ; si le label avait déjà son bloc, les comptes le rejoignent), et un compte se range sous n'importe quel label de l'OS (`bible_carte_du_label`). Les comptes « à podzer » se valident : jamais importés, ils se rangent dans « Weekly update », catégorie Podz, à titre indicatif (`a_podzer` et étape `importe`, sans source).
 
+*19/11 (0768) :* depuis « Source proposals », « Prochain batch » demande d'abord le label du compte : un bloc de la Bible, un label de l'OS, un nouveau label (créé tout de suite dans l'OS si on le coche), ou aucun (`sources_candidats_vers_bible` avec `p_choisir`). « À importer » reste un clic, sous le label que l'agent proposait.
+
 ## L'agent de langue
 
 > **Remplacé le 29/10 par la réécriture native** (page Notion « Révolution placement/traduction », menée par la session de la relecture native). Ce qui vaut aujourd'hui :

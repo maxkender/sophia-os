@@ -28,9 +28,16 @@ export async function lirePropositions(): Promise<Proposition[]> {
     .map((l) => ({ ...versCandidat(l), creeLe: l.created_at, labelNom: l.labels?.nom ?? null }));
 }
 
-/** La proposition devient un compte de la Bible, à l'étape demandée. Rend l'id du compte (pour ses miniatures). */
-export async function passerDansLaBible(id: string, etape: EtapeManuelle): Promise<{ bibleId: string; handle: string; deja: boolean }> {
-  const { data, error } = await supabase.rpc("sources_candidats_vers_bible", { p_id: id, p_etape: etape });
+/**
+ * La proposition devient un compte de la Bible, à l'étape demandée. Rend l'id du compte (pour ses miniatures).
+ * `carte` absent : sous le label que l'agent proposait (un concept arrive sans label). `carte` donné : c'est le bloc
+ * que l'admin a choisi (`null` : sans label), 0768.
+ */
+export async function passerDansLaBible(id: string, etape: EtapeManuelle, carte?: { id: string } | null): Promise<{ bibleId: string; handle: string; deja: boolean }> {
+  const { data, error } = await supabase.rpc(
+    "sources_candidats_vers_bible",
+    carte === undefined ? { p_id: id, p_etape: etape } : { p_id: id, p_etape: etape, p_carte: carte?.id ?? null, p_choisir: true },
+  );
   if (error) throw new Error(error.message);
   const r = (data ?? {}) as { bible_id?: string; handle?: string; deja?: boolean };
   return { bibleId: r.bible_id ?? "", handle: r.handle ?? "", deja: Boolean(r.deja) };

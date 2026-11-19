@@ -19,12 +19,12 @@ import { Button } from "@/components/ui/button";
 import { nomLangue } from "@/features/moteur/langues";
 import { cn } from "@/lib/utils";
 
-import { DialogueAjout, DialogueCarte, DialogueLabel } from "./DialoguesBible";
+import { DialogueAjout, DialogueCarte, DialogueChoixLabel, DialogueLabel } from "./DialoguesBible";
 import { type ComptePret, DialogueLancement } from "./LancementBatch";
 import {
   type Blocage, blocageImport, type CarteLabel, carteValidable, changerCarte, changerEtape, type CompteBible, compterEtapes, estPodzValide, estVueSource,
   etapeAvantImport, lancerBatch, LIBELLE_BADGE, LIBELLE_BLOCAGE, lireCartes, lireComptes, mettreCorbeille, modifierCompte, nomCarte, rafraichirMiniatures, ranger,
-  restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, validerCarte, validerPodz, type Vue, VUES,
+  restaurerCompte, type Section, SECTIONS, supprimerDefinitivement, valeurDuLabel, validerCarte, validerPodz, type Vue, VUES,
 } from "./moodboard";
 import { deciderProposition, lirePropositions, passerDansLaBible, type Proposition } from "./propositions";
 import { compterSources, ligneResultat, lireSources, regleDeLaVue, REGLES_DEFAUT, sectionDuLabel, sourcesParHandle } from "./sources";
@@ -63,6 +63,8 @@ export function PageBible() {
   const [aRanger, setARanger] = React.useState<CompteBible | null>(null);
   const [lancement, setLancement] = React.useState<ComptePret[] | null>(null);
   const [blocAModifier, setBlocAModifier] = React.useState<CarteLabel | null>(null);
+  /** La proposition qu'on envoie dans le prochain batch : on choisit d'abord son label. */
+  const [propositionARanger, setPropositionARanger] = React.useState<Proposition | null>(null);
   const [occupes, setOccupes] = React.useState<Set<string>>(new Set());
   const [erreur, setErreur] = React.useState<string | null>(null);
   /** Ce qu'une action vient de faire (un compte lancé, un bloc rattaché), dit en une phrase. */
@@ -167,12 +169,15 @@ export function PageBible() {
       setOccupes((s) => { const x = new Set(s); x.delete(p.id); return x; });
     }
   };
+  // La proposition entre dans la Bible. `carte` absent : sous le label que l'agent proposait ; donné : le bloc choisi.
+  const passer = (p: Proposition, etape: "a_importer" | "prochain_batch", carte?: CarteLabel | null) => surProposition(p, async () => {
+    const r = await passerDansLaBible(p.id, etape, carte);
+    // Ses 3 derniers TikToks, en arrière-plan : la tuile les montre dès qu'ils sont copiés.
+    if (r.bibleId) void rafraichirMiniatures(r.bibleId).catch(() => null).then(rafraichir);
+  });
   const actionsProposition: ActionsProposition = {
-    onPasser: (p, etape) => void surProposition(p, async () => {
-      const r = await passerDansLaBible(p.id, etape);
-      // Ses 3 derniers TikToks, en arrière-plan : la tuile les montre dès qu'ils sont copiés.
-      if (r.bibleId) void rafraichirMiniatures(r.bibleId).catch(() => null).then(rafraichir);
-    }),
+    // « À importer » : un clic. « Prochain batch » : on choisit (ou on crée) d'abord le label, pour qu'il parte prêt.
+    onPasser: (p, etape) => { if (etape === "prochain_batch") setPropositionARanger(p); else void passer(p, etape); },
     onDecider: (p, statut, raison) => void surProposition(p, () => deciderProposition(p.id, statut, raison)),
   };
   const validerLabel = async (carte: CarteLabel) => {
@@ -380,6 +385,17 @@ export function PageBible() {
 
       <DialogueLabel compte={aRanger} cartes={toutes} labels={labelsOs} onFermer={() => setARanger(null)} onChoisir={async (carte) => { if (aRanger) await agir(aRanger, () => changerCarte(aRanger.id, carte)); }} />
       <DialogueAjout ouvert={ajout} cartes={toutes} labels={labelsOs} onFermer={() => setAjout(false)} onFini={rafraichir} />
+      <DialogueChoixLabel
+        cible={propositionARanger ? { handle: propositionARanger.handle, valeur: propositionARanger.sorte === "label" ? valeurDuLabel(propositionARanger.labelId, toutes, labelsOs) : "" } : null}
+        titre="Envoyer dans le prochain batch"
+        bouton="Envoyer"
+        sansLabel
+        aide="Choisis le label du compte : un bloc de la Bible, un label de l'OS, ou un nouveau. Sans label, il ne pourra pas être importé."
+        cartes={toutes}
+        labels={labelsOs}
+        onFermer={() => setPropositionARanger(null)}
+        onChoisir={async (carte) => { if (propositionARanger) await passer(propositionARanger, "prochain_batch", carte); }}
+      />
       <DialogueCarte carte={blocAModifier} labels={labelsOs} onFermer={() => setBlocAModifier(null)} onFini={(message) => { setErreur(null); setInfo(message); rafraichir(); }} />
       <DialogueLancement
         prets={lancement}

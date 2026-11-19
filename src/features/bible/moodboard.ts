@@ -159,10 +159,11 @@ export async function lancerBatch(comptes: { id: string; langue: string }[]): Pr
   return ((data as { resultats?: ResultatLancement[] } | null)?.resultats ?? []) as ResultatLancement[];
 }
 
-/** Valide un label proposé : il devient un vrai label de l'OS, la carte passe à « existe ». */
-export async function validerCarte(id: string): Promise<void> {
-  const { error } = await supabase.rpc("label_propose_valider", { p_id: id });
+/** Valide un label proposé : il devient un vrai label de l'OS, la carte passe à « existe ». Rend l'id du label. */
+export async function validerCarte(id: string): Promise<string | null> {
+  const { data, error } = await supabase.rpc("label_propose_valider", { p_id: id });
   if (error) throw new Error(error.message);
+  return (data as { label_id?: string | null } | null)?.label_id ?? null;
 }
 
 /** Ce que la Bible sait de la source d'un compte (même handle), pour décider où il se range. */
@@ -226,6 +227,17 @@ export async function changerCarte(id: string, carte: CarteLabel): Promise<void>
     .update({ label_propose_id: carte.id, label_id: carte.label_id, ...APP_SECTION[carte.section] }).eq("id", id);
   if (error) throw new Error(error.message);
 }
+
+/** Dans une liste de choix, un label de l'OS qui n'a pas encore de bloc : « label:<id> ». */
+export const PREFIXE_LABEL = "label:";
+
+/** La valeur qui désigne un label de l'OS dans la liste de choix : son bloc s'il en a un, sinon le label lui-même. */
+export const valeurDuLabel = (labelId: string | null | undefined, cartes: CarteLabel[], labels: LabelOs[]): string => {
+  if (!labelId) return "";
+  const carte = cartes.find((c) => c.label_id === labelId);
+  if (carte) return carte.id;
+  return labels.some((l) => l.id === labelId) ? PREFIXE_LABEL + labelId : "";
+};
 
 /** Un label de l'OS, pour les listes de choix. */
 export interface LabelOs {

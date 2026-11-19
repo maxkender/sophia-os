@@ -1,0 +1,66 @@
+{
+ "id": "mi-001",
+ "source": {
+  "url": "https://www.tiktok.com/@bdnf.milly/photo/7684514161577053471",
+  "vues": 310800,
+  "publie_le": "2026-09-24",
+  "accroche": "How to / Study / for 10+ / Hours"
+ },
+ "fond": "noir",
+ "titre": { "en": "How to Train your Intelligence" },
+ "legendes": {
+  "en": "the brain follows its training #intelligence #iq #learning #brain #neuroplasticity"
+ },
+ "musique": { "titre": "825 hp", "url": "https://www.tiktok.com/music/825-hp-6891746453606123521" },
+ "notes": "Preuve : « How to Study for 10+ Hours » de @bdnf.milly (310,8 k vues, 24/09), même gabarit (couverture « How to / … / [IRM] / … », fond noir, 4 slides), sujet voisin de son « Habits that increase Intelligence » (142 k). Slide Sophia (3) : lire une leçon chaque soir comme un entraînement, le logo de Sophia au milieu (demande d'Adrien du 19/11 : le logo, jamais une capture). Faits vérifiés : hippocampe postérieur plus gros chez les chauffeurs de taxi londoniens, et d'autant plus qu'ils conduisent depuis longtemps (Maguire et al., PNAS 2000) ; trois mois de jonglage font grossir la matière grise des aires du mouvement visuel, qui régresse à l'arrêt (Draganski et al., Nature 2004) ; dormir peu après avoir appris retient mieux que rester éveillé le même temps (Gais, Lucas et Born, Learning & Memory 2006) ; se tester retient mieux à une semaine que relire (Roediger et Karpicke, Psychological Science 2006). Images : Seedream (images/), sans texte.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/irm-sagittale.jpg",
+   "en": {
+    "lignes": [
+     { "t": "How to", "taille": "petit" },
+     { "t": "Train", "taille": "grand" },
+     { "t": "your", "taille": "petit" },
+     { "t": "Intelligence", "taille": "grand" }
+    ],
+    "image_apres": 2
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Intelligence Is Trained, Not Fixed",
+    "blocs": [
+     { "p": "The brain physically adapts to what it is repeatedly asked to do. In a well-known study, London taxi drivers, who spend years memorizing thousands of streets, had a larger posterior hippocampus than other adults, and the difference grew with every year on the job." },
+     { "image": "images/irm-surlignee.jpg" },
+     { "p": "Even three months of practicing a new skill is enough: adults who learned to juggle showed measurable growth in the grey matter of areas that process movement, and it faded once they stopped. Intelligence behaves like a muscle. It follows the training it receives." }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "sophia": true,
+   "en": {
+    "titre": "Read A Lesson Every Night",
+    "blocs": [
+     { "p": "The simplest way to train it is a small daily dose of new knowledge. One short lesson every evening, in history, science, philosophy or psychology, gives the brain something new to encode, connect and store, night after night." },
+     { "p": "Timing matters. Information learned shortly before sleep is consolidated during the night: in studies, people who slept soon after learning remembered more than people who stayed awake for the same amount of time." },
+     { "image": "sophia" },
+     { "p": "I use Sophia for this: one short lesson before bed, every night, like a training session for the mind." }
+    ]
+   }
+  },
+  {
+   "type": "contenu",
+   "en": {
+    "titre": "Then Recall It In The Morning",
+    "blocs": [
+     { "p": "Reading is only half of the training. Before looking at anything, try to recall what you learned the night before: the key idea, a date, a name. This is called retrieval practice, one of the most reliable effects in cognitive science." },
+     { "image": "images/neurones.jpg" },
+     { "p": "Students who practiced recalling a text remembered far more of it a week later than students who simply reread it. Small reps, every night and every morning, for months: that is how the brain gets stronger." }
+    ]
+   }
+  }
+ ]
+}

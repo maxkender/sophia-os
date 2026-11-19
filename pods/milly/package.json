@@ -1,0 +1,25 @@
+{
+  "name": "pod-milly",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Podz 21 — originaux « intelligence, mémoire, nootropiques » au style de @bdnf.milly (fond uni, Cormorant Garamond, petites images de neurosciences), pour Sophia, en anglais : le logo de Sophia sur une slide de conseil (lire une leçon chaque soir), jamais une capture de l'appli.",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "typescript": "^7.0.2"
+  },
+  "scripts": {
+    "typecheck": "tsc -p .",
+    "veille": "NODE_USE_ENV_PROXY=1 node atelier/cli-veille.ts",
+    "rendu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "apercu": "NODE_USE_ENV_PROXY=1 node atelier/cli-rendu.ts",
+    "livrer": "NODE_USE_ENV_PROXY=1 node atelier/cli-livrer.ts",
+    "etat": "NODE_USE_ENV_PROXY=1 node atelier/cli-etat.ts",
+    "boite": "NODE_USE_ENV_PROXY=1 node atelier/cli-boite.ts",
+    "image": "NODE_USE_ENV_PROXY=1 node atelier/cli-image.ts",
+    "molecule": "NODE_USE_ENV_PROXY=1 node atelier/cli-molecule.ts"
+  }
+}

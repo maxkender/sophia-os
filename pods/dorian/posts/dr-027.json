@@ -1,0 +1,149 @@
+{
+ "id": "dr-027",
+ "format": "liste",
+ "titre": {
+  "en": "5 empires that lasted way longer than you think",
+  "it": "5 imperi che sono durati molto più di quanto pensi",
+  "pt-BR": "5 impérios que duraram muito mais do que você imagina"
+ },
+ "legendes": {
+  "en": "#history #empires #smarttok #lockedin",
+  "it": "#storia #imperi #cultura #curiosità",
+  "pt-BR": "#história #impérios #curiosidades #conhecimento"
+ },
+ "musique": {
+  "titre": "QUANTUM (Slowed) - PHNKR & dnvn & Phonk King",
+  "url": "https://www.tiktok.com/music/original-sound-7550638068775438337"
+ },
+ "notes": "Full test (accroche neuve) au format de ses listes à cerveau en IRM. Faits : Empire byzantin jusqu'en 1453 ; Venise 697-1797 (fin par Napoléon) ; Empire ottoman v. 1299-1922, de la Hongrie au golfe Persique ; Koush (Napata puis Méroé, v. 1070 av. J.-C.-IVe s.), 25e dynastie d'Égypte, plus de pyramides en Nubie qu'en Égypte ; Saint-Empire 800 (Charlemagne) ou 962-1806, mot de Voltaire (Essai sur les mœurs). Images Seedream et tableau AIC Magnasco. En, it, pt-BR ; une couverture par langue (cerveaux 01, 03, 05). Sophia en item 3 sur 6 (cta B), écran « cours » traduit.",
+ "slides": [
+  {
+   "type": "couverture",
+   "en": {
+    "titre": "5 empires that lasted way longer than you think",
+    "image": "images/cerveau-01.jpg",
+    "legende": "(centuries longer)"
+   },
+   "it": {
+    "titre": "5 imperi che sono durati molto più di quanto pensi",
+    "image": "images/cerveau-03.jpg",
+    "legende": "(secoli in più)"
+   },
+   "pt-BR": {
+    "titre": "5 impérios que duraram muito mais do que você imagina",
+    "image": "images/cerveau-05.jpg",
+    "legende": "(séculos a mais)"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Byzantine Empire",
+    "texte": "rome didn't end in 476. the eastern roman empire ruled from constantinople for almost another 1,000 years, until 1453",
+    "image": "images/constantinople.jpg"
+   },
+   "it": {
+    "titre": "L'Impero bizantino",
+    "texte": "roma non è finita nel 476. l'impero romano d'oriente governò da costantinopoli per quasi altri 1.000 anni, fino al 1453",
+    "image": "images/constantinople.jpg"
+   },
+   "pt-BR": {
+    "titre": "O Império Bizantino",
+    "texte": "roma não acabou em 476. o império romano do oriente governou de constantinopla por quase mais 1.000 anos, até 1453",
+    "image": "images/constantinople.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Republic of Venice",
+    "texte": "about 1,100 years, from 697 to 1797. a republic of merchants that outlived almost every kingdom around it, until napoleon ended it",
+    "image": "images/venise.jpg"
+   },
+   "it": {
+    "titre": "La Repubblica di Venezia",
+    "texte": "circa 1.100 anni, dal 697 al 1797. una repubblica di mercanti sopravvissuta a quasi tutti i regni intorno, finché napoleone la fece finire",
+    "image": "images/venise.jpg"
+   },
+   "pt-BR": {
+    "titre": "A República de Veneza",
+    "texte": "cerca de 1.100 anos, de 697 a 1797. uma república de mercadores que sobreviveu a quase todos os reinos ao redor, até napoleão acabar com ela",
+    "image": "images/venise.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "app": "sophia",
+   "en": {
+    "titre": "One lesson a day on Sophia",
+    "texte": "it's like a tiny lecture every morning: history, philosophy, science, economics. 10 minutes, then a quiz",
+    "telephone": "cours"
+   },
+   "it": {
+    "titre": "Una lezione al giorno su Sophia",
+    "texte": "come una piccola lezione universitaria ogni mattina: storia, filosofia, scienze, economia. 10 minuti, poi un quiz",
+    "telephone": "cours"
+   },
+   "pt-BR": {
+    "titre": "Uma lição por dia no Sophia",
+    "texte": "tipo uma mini aula toda manhã: história, filosofia, ciência, economia. 10 minutos, e depois um quiz",
+    "telephone": "cours"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Ottoman Empire",
+    "texte": "over 600 years, from about 1299 to 1922. at its peak it reached from hungary to the persian gulf",
+    "image": "images/ottoman.jpg"
+   },
+   "it": {
+    "titre": "L'Impero ottomano",
+    "texte": "oltre 600 anni, dal 1299 circa al 1922. al suo massimo andava dall'ungheria al golfo persico",
+    "image": "images/ottoman.jpg"
+   },
+   "pt-BR": {
+    "titre": "O Império Otomano",
+    "texte": "mais de 600 anos, de cerca de 1299 a 1922. no auge, ia da hungria ao golfo pérsico",
+    "image": "images/ottoman.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Kingdom of Kush",
+    "texte": "in today's sudan, for over 1,000 years. its kings even ruled egypt as pharaohs, and nubia has more pyramids than egypt",
+    "image": "images/kouch.jpg"
+   },
+   "it": {
+    "titre": "Il regno di Kush",
+    "texte": "nell'attuale sudan, per oltre 1.000 anni. i suoi re governarono perfino l'egitto come faraoni, e la nubia ha più piramidi dell'egitto",
+    "image": "images/kouch.jpg"
+   },
+   "pt-BR": {
+    "titre": "O Reino de Kush",
+    "texte": "no atual sudão, por mais de 1.000 anos. seus reis chegaram a governar o egito como faraós, e a núbia tem mais pirâmides que o egito",
+    "image": "images/kouch.jpg"
+   }
+  },
+  {
+   "type": "item",
+   "en": {
+    "titre": "The Holy Roman Empire",
+    "texte": "about 1,000 years, from charlemagne in 800 to 1806. voltaire joked it was neither holy, nor roman, nor an empire",
+    "image": "images/scene-historique.jpg"
+   },
+   "it": {
+    "titre": "Il Sacro Romano Impero",
+    "texte": "circa 1.000 anni, da carlo magno nell'800 al 1806. voltaire scherzava: non era né sacro, né romano, né un impero",
+    "image": "images/scene-historique.jpg"
+   },
+   "pt-BR": {
+    "titre": "O Sacro Império Romano",
+    "texte": "cerca de 1.000 anos, de carlos magno em 800 até 1806. voltaire brincava que não era nem sacro, nem romano, nem império",
+    "image": "images/scene-historique.jpg"
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

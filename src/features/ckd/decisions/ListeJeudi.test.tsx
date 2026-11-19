@@ -28,6 +28,14 @@ vi.mock("@/features/ckd/api", async (orig) => ({ ...(await orig<typeof import("@
 const statut = vi.hoisted(() => ({ lireExtras: vi.fn(async () => new Map()) }));
 vi.mock("./statutCompte", async (orig) => ({ ...(await orig<typeof import("./statutCompte")>()), ...statut }));
 const auth = vi.hoisted(() => ({ role: "admin" }));
+// 19/11 : la plateforme (Ruul / Upwork) et les infos Ruul.
+const canal = vi.hoisted(() => ({ ids: new Set<string>() }));
+vi.mock("@/features/ruul/canal", async (orig) => ({ ...(await orig<typeof import("@/features/ruul/canal")>()), useIdsRuul: () => canal.ids }));
+const ruulApi = vi.hoisted(() => ({
+  lireDecisionsRuul: vi.fn(async () => new Map<string, unknown>()),
+  nudgerRuul: vi.fn(async () => ({ ok: true, envoyes: 1, deja: 0, erreurs: [] as string[] })),
+}));
+vi.mock("./ruulDecisions", async (orig) => ({ ...(await orig<typeof import("./ruulDecisions")>()), ...ruulApi }));
 vi.mock("@/features/auth/AuthContext", () => ({ useAuth: () => ({ role: auth.role }) }));
 
 import { ListeJeudi } from "./ListeJeudi";
@@ -50,6 +58,7 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3 ; prompt 12 : la no
   beforeEach(async () => {
     vi.clearAllMocks();
     auth.role = "admin";
+    canal.ids = new Set();
     await i18n.changeLanguage("fr");
     api.lireSemaineComptes.mockResolvedValue([
       compte({ compte_id: "a", handle: "manque", cohorte_lundi: "2026-10-26", lien_passes: 4, lien_total: 4 }),
@@ -71,7 +80,10 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3 ; prompt 12 : la no
     // 5/11 : Recreate n'est jamais grisé ; non recommandé → confirmation « Ce compte fait X vues ».
     expect(within(ligne("complet")).getByRole("button", { name: "Recreate" })).not.toBeDisabled();
     expect(within(ligne("manque")).getByText("4/6")).toBeInTheDocument();
-    expect(screen.getByText("1 nudges · 2 recreates")).toBeInTheDocument();
+    expect(screen.getByTestId("compteur-upwork")).toHaveTextContent("Upwork : 1 nudge · 2 recreates");
+    expect(screen.getByTestId("compteur-ruul")).toHaveTextContent("Ruul : 0 nudge (email + bandeau) · 0 recreate");
+    // Badge de plateforme sur chaque ligne.
+    expect(within(ligne("manque")).getByTestId("badge-plateforme")).toHaveTextContent("UPWORK");
   });
 
   it("Recreate non recommandé : confirmation avec les vues ; refusée → rien ne change", async () => {
@@ -147,5 +159,53 @@ describe("Weekly decisions → Thursday (prompt 25, partie 3 ; prompt 12 : la no
     await waitFor(() => expect(document.querySelector('[data-compte="manque"]')).not.toBeNull());
     expect(document.querySelector('[data-compte="ancien"]')).toBeNull();
     expect(screen.getByTestId("section-rien")).toHaveTextContent("Rien à signaler (1)");
+  });
+});
+
+describe("19/11 : posteurs RUUL dans « Thursday: the new cohort »", () => {
+  beforeEach(async () => {
+    vi.clearAllMocks();
+    auth.role = "admin";
+    await i18n.changeLanguage("fr");
+    canal.ids = new Set(["pr"]);
+    api.lireSemaineComptes.mockResolvedValue([
+      compte({ compte_id: "r1", poster_id: "pr", handle: "alvaro.crecimiento355", cohorte_lundi: "2026-10-26", lien_passes: 3, lien_total: 3 }),
+      compte({ compte_id: "u1", poster_id: "pu", handle: "upwork.one", cohorte_lundi: "2026-10-26", lien_passes: 3, lien_total: 3 }),
+    ]);
+    ruulApi.lireDecisionsRuul.mockResolvedValue(new Map([["pr", {
+      poster_id: "pr", signe_at: "2026-11-09T19:57:30Z", inscrit: false, kyc: false, banque: false, pret: false, statut_api: "NOT_REGISTERED", tarif: 10,
+      emails: [{ objet: "Completa tu configuración de Ruul", at: "2026-10-28T12:00:00Z", statut: "hardBounces" }],
+      relances: [], reponses: [], demandes: [], dernier_nudge: null,
+    }]]));
+  });
+
+  it("badge RUUL, contrat Hub, pastilles, contexte email ; ni contrat Upwork ni conversation Upwork ; filtre Plateforme", async () => {
+    rendu();
+    await waitFor(() => expect(within(ligne("alvaro.crecimiento355")).getByTestId("ligne-ruul")).toBeInTheDocument());
+    const l = ligne("alvaro.crecimiento355");
+    expect(within(l).getByTestId("badge-plateforme")).toHaveTextContent("RUUL");
+    expect(within(l).getByTestId("contrat-hub")).toHaveTextContent("Contrat signé le 09/11 (Hub)");
+    expect(within(l).getByTestId("pastilles-ruul")).toHaveTextContent("Identité (KYC)");
+    expect(within(l).getByTestId("pastilles-ruul")).toHaveTextContent("Payable lundi : non");
+    expect(within(l).getByTestId("contexte-ruul")).toHaveTextContent("email revenu (hardBounces)");
+    expect(l.textContent).not.toMatch(/No Upwork contract|Pas de contrat Upwork|No contract|Kill blocked|link the contract first/i);
+    // Le @ est connu : pas de « Ask for @ » pour un posteur Ruul.
+    expect(within(l).queryByTestId("ligne-handle")).toBeNull();
+    // Le posteur Upwork garde sa ligne d'avant.
+    expect(within(ligne("upwork.one")).getByTestId("ligne-handle")).toBeInTheDocument();
+    expect(within(ligne("upwork.one")).queryByTestId("ligne-ruul")).toBeNull();
+    fireEvent.change(screen.getByTestId("filtre-plateforme"), { target: { value: "ruul" } });
+    expect([...document.querySelectorAll("[data-compte]")].map((e) => e.getAttribute("data-compte"))).toEqual(["alvaro.crecimiento355"]);
+  });
+
+  it("Send : le nudge Ruul part par email + bandeau (jamais par la file Slack) ; compteurs séparés", async () => {
+    vi.spyOn(window, "confirm").mockReturnValue(true);
+    rendu();
+    await waitFor(() => expect(document.querySelectorAll("[data-compte]")).toHaveLength(2));
+    expect(screen.getByTestId("compteur-ruul")).toHaveTextContent("Ruul : 1 nudge (email + bandeau)");
+    expect(screen.getByTestId("compteur-upwork")).toHaveTextContent("Upwork : 1 nudge");
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+    await waitFor(() => expect(ruulApi.nudgerRuul).toHaveBeenCalledWith("2026-10-26", ["r1"]));
+    expect(api.validerNudgesJeudi).toHaveBeenCalledWith("2026-10-26", ["u1"]);
   });
 });

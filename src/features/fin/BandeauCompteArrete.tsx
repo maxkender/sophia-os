@@ -34,6 +34,8 @@ export function Bandeau({ b }: { b: BandeauCompte }) {
     onSuccess: () => qc.setQueryData<BandeauCompte[]>(["mes-bandeaux-compte"], (l) => (l ?? []).filter((x) => x.cle !== b.cle)),
   });
   const double = b.cle.startsWith("compte_double:");
+  // 19/11 : le nudge du jeudi d'un posteur Ruul (orange).
+  const nudge = b.cle.startsWith("nudge_jeudi:");
   const Icone = double ? Sparkles : Info;
   return (
     <div
@@ -42,11 +44,13 @@ export function Bandeau({ b }: { b: BandeauCompte }) {
         "flex flex-col gap-3 rounded-xl border p-4 sm:flex-row sm:items-center",
         double
           ? "border-emerald-200 bg-emerald-50 text-emerald-950 dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-100"
-          : "border-sky-200 bg-sky-50 text-sky-950 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100",
+          : nudge
+            ? "border-amber-200 bg-amber-50 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100"
+            : "border-sky-200 bg-sky-50 text-sky-950 dark:border-sky-900 dark:bg-sky-950/40 dark:text-sky-100",
       )}
-      data-testid={double ? "bandeau-compte-double" : "bandeau-compte-arrete"}
+      data-testid={double ? "bandeau-compte-double" : nudge ? "bandeau-nudge" : "bandeau-compte-arrete"}
     >
-      <Icone className={cn("hidden size-5 shrink-0 sm:block", double ? "text-emerald-600 dark:text-emerald-300" : "text-sky-600 dark:text-sky-300")} aria-hidden />
+      <Icone className={cn("hidden size-5 shrink-0 sm:block", double ? "text-emerald-600 dark:text-emerald-300" : nudge ? "text-amber-600 dark:text-amber-300" : "text-sky-600 dark:text-sky-300")} aria-hidden />
       <p className="flex-1 text-sm leading-relaxed">{b.texte}</p>
       <Button size="sm" className="shrink-0 self-end sm:self-center" onClick={() => vu.mutate()} disabled={vu.isPending}>
         {t("auth.bandeauCompris")}

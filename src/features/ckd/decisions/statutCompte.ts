@@ -119,9 +119,11 @@ const semainesDepuis = (iso: string | null, maintenant: Date) =>
 export function evaluerCompte(
   c: CompteSemaine,
   x: ExtrasCompte | undefined,
-  o: { lundi: string; aujourdhui: string; maintenant: Date; page: "samedi" | "jeudi"; seuils?: SeuilsConfiance },
+  o: { lundi: string; aujourdhui: string; maintenant: Date; page: "samedi" | "jeudi"; seuils?: SeuilsConfiance; ruul?: boolean },
 ): EvaluationCompte {
   const seuils = o.seuils ?? SEUILS_DEFAUT;
+  // 19/11 (Max) : un posteur Ruul n'a pas de contrat Upwork (son contrat : la signature sur le Hub). Jamais « sans contrat ».
+  const sansContrat = Boolean(x?.sans_contrat) && !o.ruul;
   const recrue = Boolean(c.cohorte_lundi && c.cohorte_lundi > o.lundi);
   const signaux: Signal[] = [];
   const nudge = Boolean(c.nudge_envoye_at);
@@ -150,7 +152,7 @@ export function evaluerCompte(
     if ((x?.liens_a_verifier ?? 0) > 0) signaux.push({ cle: "liens_a_verifier", valeurs: { n: x!.liens_a_verifier } });
     if (x?.vues_baisse) signaux.push({ cle: "vues_baisse" });
   }
-  if (x?.sans_contrat) signaux.push({ cle: "sans_contrat" });
+  if (sansContrat) signaux.push({ cle: "sans_contrat" });
   // Un message du posteur pas encore traité (To read) : à traiter ; déjà traité par l'OS : à surveiller.
   if (x?.message_recu_at) signaux.push({ cle: x.to_read_n > 0 ? "message_recu" : "message_traite" });
   signaux.sort((a, b) => GRAVITE[a.cle] - GRAVITE[b.cle]);
@@ -186,7 +188,7 @@ export function evaluerCompte(
     [proposition, raison] = ["kill", "controle_samedi"];
   }
   // Pas de contrat relié : jamais de Kill (bloqué tant que le contrat n'est pas relié).
-  if (x?.sans_contrat && proposition === "kill") [proposition, raison] = ["keep", "sans_contrat"];
+  if (sansContrat && proposition === "kill") [proposition, raison] = ["keep", "sans_contrat"];
 
   return {
     statut,
@@ -195,7 +197,7 @@ export function evaluerCompte(
     proposition,
     raison,
     recrue,
-    contratAVerifier: Boolean(x && !x.sans_contrat && !nomsConcordent(x.freelance_nom, x.profil_nom)),
+    contratAVerifier: Boolean(x && !o.ruul && !x.sans_contrat && !nomsConcordent(x.freelance_nom, x.profil_nom)),
   };
 }
 

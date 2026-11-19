@@ -15,7 +15,7 @@ import { cn } from "@/lib/utils";
 
 import { resoudreLiens } from "./api";
 import {
-  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, modifierCarte,
+  ajouterComptes, type CarteLabel, carteDuLabel, carteValidable, type CompteBible, creerCarte, detacherCarte, handlesDuTexte, type LabelOs, labelsSansBloc, LIBELLE_BADGE, modifierCarte,
   nomCarte, PREFIXE_LABEL, rafraichirMiniatures, rattacherCarte, REMARQUE_UGC, type Section, SECTIONS, validerCarte,
 } from "./moodboard";
 import { nomLabelValide } from "./parse";
@@ -167,7 +167,18 @@ export function DialogueLabel({ compte, cartes, labels = [], onFermer, onChoisir
  * (ses comptes prennent ce label et deviennent importables ; si le label avait déjà son bloc, ils le rejoignent), ou
  * on corrige son nom, son app et sa DA avant de le créer.
  */
-export function DialogueCarte({ carte, labels, onFermer, onFini }: { carte: CarteLabel | null; labels: LabelOs[]; onFermer: () => void; onFini: (message: string) => void }) {
+export function DialogueCarte({ carte, labels, cartes, nbComptes, sectionDe, onFermer, onFini }: {
+  carte: CarteLabel | null; labels: LabelOs[];
+  /** Tous les blocs : pour prévenir quand le label choisi a déjà le sien (les comptes iraient le rejoindre). */
+  cartes: CarteLabel[];
+  /** Les comptes du bloc. */
+  nbComptes: number;
+  /** L'app d'un label de l'OS : pour prévenir quand elle n'est pas celle du bloc. */
+  sectionDe: (labelId: string) => Section;
+  onFermer: () => void;
+  /** Ce qui vient d'être fait, et de quoi l'annuler quand c'est un rattachement. */
+  onFini: (message: string, annuler?: () => Promise<string>) => void;
+}) {
   const [labelId, setLabelId] = React.useState("");
   const [nom, setNom] = React.useState("");
   const [section, setSection] = React.useState<Section>("sophia");
@@ -178,11 +189,12 @@ export function DialogueCarte({ carte, labels, onFermer, onFini }: { carte: Cart
     setLabelId(""); setErreur(null);
     setNom(carte?.nom ?? ""); setSection(carte?.section ?? "sophia"); setDescription(carte?.description_da ?? "");
   }, [carte]);
-  const faire = async (f: () => Promise<string>) => {
+  const faire = async (f: () => Promise<{ message: string; annuler?: () => Promise<string> }>) => {
     setOccupe(true);
     setErreur(null);
     try {
-      onFini(await f());
+      const r = await f();
+      onFini(r.message, r.annuler);
       onFermer();
     } catch (e) {
       setErreur((e as Error).message);
@@ -190,15 +202,37 @@ export function DialogueCarte({ carte, labels, onFermer, onFini }: { carte: Cart
       setOccupe(false);
     }
   };
-  const rattacher = () => faire(async () => {
-    const r = await rattacherCarte(carte!.id, labelId);
-    return r.fusion
-      ? `${r.comptes} compte${r.comptes > 1 ? "s" : ""} rangé${r.comptes > 1 ? "s" : ""} sous ${r.label}, qui avait déjà son bloc.`
-      : `Le bloc est rattaché à ${r.label} : ${r.comptes} compte${r.comptes > 1 ? "s" : ""} importable${r.comptes > 1 ? "s" : ""}.`;
-  });
+  // Ce que le rattachement va faire, dit AVANT : rejoindre un bloc qui existe déjà, ou changer d'app.
+  const labelNom = labels.find((l) => l.id === labelId)?.nom ?? "";
+  const blocDuLabel = labelId && carte ? cartes.find((c) => c.label_id === labelId && c.id !== carte.id) ?? null : null;
+  const appDuLabel = labelId ? sectionDe(labelId) : null;
+  const autreApp = Boolean(carte && appDuLabel && carte.section !== "idees" && appDuLabel !== carte.section);
+  const nomApp = (s: Section | null) => SECTIONS.find((x) => x.cle === s)?.libelle ?? "";
+  const comptes = `${nbComptes} compte${nbComptes > 1 ? "s" : ""}`;
+  const rattacher = () => {
+    if (!carte) return;
+    // Rejoindre un autre bloc ou changer d'app ne se fait pas d'un clic distrait : on le confirme, label nommé.
+    if ((blocDuLabel || autreApp) && !window.confirm(
+      `Rattacher « ${nomCarte(carte)} » (${comptes}, ${nomApp(carte.section)}) au label ${labelNom} (${nomApp(appDuLabel)}) ?`
+      + (blocDuLabel ? `\n\n${labelNom} a déjà son bloc : les comptes iront le rejoindre.` : "")
+      + "\n\nTu pourras annuler.",
+    )) return;
+    void faire(async () => {
+      const r = await rattacherCarte(carte.id, labelId);
+      return {
+        message: r.fusion
+          ? `${r.comptes} compte${r.comptes > 1 ? "s" : ""} de « ${nomCarte(carte)} » rangé${r.comptes > 1 ? "s" : ""} sous ${r.label}, qui avait déjà son bloc.`
+          : `Le bloc est rattaché à ${r.label} : ${r.comptes} compte${r.comptes > 1 ? "s" : ""} importable${r.comptes > 1 ? "s" : ""}.`,
+        annuler: async () => {
+          const d = await detacherCarte(carte.id);
+          return `Rattachement annulé : ${d.comptes} compte${d.comptes > 1 ? "s" : ""} de retour sous « ${nomCarte(carte)} ».`;
+        },
+      };
+    });
+  };
   const enregistrer = () => faire(async () => {
     await modifierCarte(carte!.id, { nom, section, description });
-    return `Le label proposé s'appelle ${nom}.`;
+    return { message: `Le label proposé s'appelle ${nom}.` };
   });
   return (
     <Dialog open={Boolean(carte)} onOpenChange={(o) => !o && onFermer()}>
@@ -217,7 +251,14 @@ export function DialogueCarte({ carte, labels, onFermer, onFini }: { carte: Cart
               </select>
               <Button onClick={rattacher} disabled={occupe || !labelId}>Rattacher</Button>
             </div>
-            <p className="text-[11px] text-stone-500">Les comptes du bloc prennent ce label et deviennent importables. Si le label a déjà son bloc, ils le rejoignent.</p>
+            {(blocDuLabel || autreApp) && (
+              <p className="rounded-md bg-amber-50 px-2 py-1.5 text-xs leading-snug text-amber-800 dark:bg-amber-950/40 dark:text-amber-200" data-testid="alerte-rattachement">
+                {autreApp && <>Ce bloc est rangé sous {nomApp(carte?.section ?? null)}, et {labelNom} est un label {nomApp(appDuLabel)}. </>}
+                {blocDuLabel && <>{labelNom} a déjà son bloc : les {comptes} de ce bloc iront le rejoindre. </>}
+                Tu pourras annuler.
+              </p>
+            )}
+            <p className="text-[11px] text-stone-500">Les comptes du bloc prennent ce label et deviennent importables. Le rattachement s'annule depuis le bloc.</p>
           </div>
           <div className="space-y-2 border-t border-stone-200 pt-4 dark:border-stone-800">
             <p className="text-xs font-medium text-stone-500">Ou corriger le label proposé</p>

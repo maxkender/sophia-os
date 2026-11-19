@@ -367,6 +367,8 @@ Mise à jour = importer ses posts publiés depuis `dernier_scrape_at`, par le ci
 
 *19/11 (0768) :* depuis « Source proposals », « Prochain batch » demande d'abord le label du compte : un bloc de la Bible, un label de l'OS, un nouveau label (créé tout de suite dans l'OS si on le coche), ou aucun (`sources_candidats_vers_bible` avec `p_choisir`). « À importer » reste un clic, sous le label que l'agent proposait.
 
+*19/11 (0769) :* un rattachement de bloc ne retire plus rien et s'annule. Le 19/11, le bloc `classic_girl_run` (Atala) a été rattaché par erreur à `beau_smart_girl` : ce label avait déjà son bloc, les 7 comptes y ont été versés et l'ancien bloc est passé `refuse`, sans chemin de retour (remis à la main depuis `bible_historique`). Désormais le bloc d'origine reste (vide, toujours dans les listes), la fenêtre prévient et demande confirmation quand le label est d'une autre app ou a déjà son bloc, et `bible_carte_detacher` annule (bouton « Annuler » du message, « Rendre N comptes à … » ou « Annuler le rattachement » sur le bloc).
+
 ## L'agent de langue
 
 > **Remplacé le 29/10 par la réécriture native** (page Notion « Révolution placement/traduction », menée par la session de la relecture native). Ce qui vaut aujourd'hui :

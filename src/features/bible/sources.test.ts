@@ -4,7 +4,7 @@ import type { SourceLundi } from "@/features/moteur/api";
 import type { FileSources } from "@/features/moteur/fileSources";
 import type { CompteReference } from "@/features/moteur/types";
 
-import { blocageImport, type CarteLabel, carteValidable, type CompteBible, estPodzValide, etapeAvantImport, labelsSansBloc, valeurDuLabel } from "./moodboard";
+import { blocageImport, blocsVersesDans, type CarteLabel, carteValidable, type CompteBible, estPodzValide, etapeAvantImport, labelsSansBloc, valeurDuLabel } from "./moodboard";
 import {
   assemblerSources, bilanSemaine, compterSources, etapeDeLaSource, ligneResultat, phraseEtat, rangerSources, regleDeLaVue, REGLES_DEFAUT, type ReglesSources,
   type SourceBible, sourcesParHandle, versRegles,
@@ -184,6 +184,15 @@ describe("un compte de la Bible face à sa source", () => {
     expect(valeurDuLabel("L7", [carte({})], labels)).toBe("label:L7");
     expect(valeurDuLabel("L99", [carte({})], labels)).toBe("");
     expect(valeurDuLabel(null, [carte({})], labels)).toBe("");
+  });
+
+  it("les blocs dont les comptes ont été versés dans un autre par un rattachement : ils peuvent revenir", () => {
+    const cible = carte({ id: "k3" });
+    const verse = carte({ id: "k1", label_id: null, rattachement: { label: "smart_girl", fusion: true, vers: "k3", comptes: ["c1", "c2"] } });
+    const vide = carte({ id: "k5", label_id: null, rattachement: { label: "smart_girl", fusion: true, vers: "k3", comptes: [] } });
+    const ailleurs = carte({ id: "k6", label_id: null, rattachement: { label: "x", fusion: true, vers: "k9", comptes: ["c7"] } });
+    const pris = carte({ id: "k7", rattachement: { label: "History", fusion: false, vers: null, comptes: ["c8"] } });
+    expect(blocsVersesDans(cible, [cible, verse, vide, ailleurs, pris]).map((c) => c.id)).toEqual(["k1"]);
   });
 
   it("un label se crée d'ici s'il est proposé ou nouveau, pour une app qui existe", () => {

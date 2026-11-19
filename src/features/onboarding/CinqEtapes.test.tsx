@@ -9,6 +9,9 @@ const api = vi.hoisted(() => ({
   warmup: null as null | Record<string, unknown>,
   declarations: [] as { etape: string; statut: string; declare_at: string }[],
   declarer: vi.fn(async () => "en_attente" as const),
+  // La niche du label du compte (19/11) : null = inconnue.
+  niche: null as string | null,
+  nicheDemandeePour: [] as (string | null | undefined)[],
 }));
 
 vi.mock("./cinqEtapesApi", () => ({
@@ -22,6 +25,12 @@ vi.mock("@/features/regles/api", () => ({
   useRegles: () => ({ textes: { lien: "Link rule", warmup: "Warmup rule", bienvenue: "" }, paie: {}, slack: "https://join.slack.com/t/x" }),
 }));
 vi.mock("./ChangerHandle", () => ({ ChangerHandle: () => null }));
+vi.mock("./maNiche", () => ({
+  useMaNiche: (compteId: string | null | undefined) => {
+    api.nicheDemandeePour.push(compteId);
+    return api.niche;
+  },
+}));
 
 import { CinqEtapes } from "./CinqEtapes";
 
@@ -52,6 +61,8 @@ describe("0497 : le dashboard des 5 étapes", () => {
     api.warmup = null;
     api.declarations = [];
     api.declarer.mockClear();
+    api.niche = null;
+    api.nicheDemandeePour = [];
   });
 
   it("étape 4 faite dès que le dernier relevé valide voit le compte prêt ; 1er post à 08:00 JST au Japon", async () => {
@@ -72,6 +83,31 @@ describe("0497 : le dashboard des 5 étapes", () => {
     expect(etape("slack")?.textContent).not.toMatch(/bot/i);
     fireEvent.click(screen.getByTestId("declarer-slack"));
     await waitFor(() => expect(api.declarer).toHaveBeenCalledWith("slack"));
+  });
+
+  it("19/11 : l'étape 4 nomme la niche du label de CE compte ; inconnue : rien de plus", async () => {
+    api.warmup = { compte_id: "c1", pret: false, abonnements: 2, existe: true, releve_at: "2026-11-01T17:01:00Z", warmup_started_at: "2026-10-30T09:00:00Z", pays: "DE" };
+    api.niche = "running";
+    const a = afficher();
+    const ligne = await screen.findByTestId("niche-warmup");
+    expect(ligne.textContent).toBe("Scroll and follow accounts in your niche: running.");
+    expect(etape("warmup")?.contains(ligne)).toBe(true);
+    // La niche du compte affiché, pas celle d'un autre compte du posteur.
+    expect(new Set(api.nicheDemandeePour)).toEqual(new Set(["c1"]));
+    a.unmount();
+
+    api.niche = null;
+    afficher();
+    await waitFor(() => expect(etape("warmup")?.getAttribute("data-etat")).toBe("en_cours"));
+    expect(screen.queryByTestId("niche-warmup")).toBeNull();
+  });
+
+  it("19/11 : étape 4 faite : la niche ne s'affiche plus (le détail est replié)", async () => {
+    api.warmup = { compte_id: "c1", pret: true, abonnements: 7, existe: true, releve_at: "2026-11-01T17:01:00Z", warmup_started_at: "2026-10-30T09:00:00Z", pays: "DE" };
+    api.niche = "running";
+    afficher();
+    await waitFor(() => expect(etape("warmup")?.getAttribute("data-etat")).toBe("fait"));
+    expect(screen.queryByTestId("niche-warmup")).toBeNull();
   });
 
   it("0 follow plus de 24 h après Start warmup : le conseil TikTok à l'étape 4", async () => {

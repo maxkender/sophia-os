@@ -130,16 +130,23 @@ application.
    compte : la niche où on lui demande de scroller et de s'abonner pendant le
    warm-up. C'est la dernière colonne, en anglais comme tous les textes aux
    posteurs (`NICHE_PAR_THEME`, `label_theme.ts` et sa copie `themeLabel.ts`).
-   Elle est dite à quatre endroits :
+   Elle est dite à six endroits :
    - les écrans d'accueil (« Your first week » et « Your warm-up »), qui la
      nomment quand le label du compte est lisible, sinon « your niche » ;
+   - l'étape 4 du dashboard, celle du warm-up : les 5 étapes d'un posteur
+     Upwork (`CinqEtapes`) et la checklist d'un posteur Ruul
+     (`ChecklistRuul`), une ligne « Scroll and follow accounts in your
+     niche: … », absente si le label n'est pas lisible ;
+   - la checklist du premier post (`ChecklistPremierPost`), dans la question
+     des commentaires ;
    - la bienvenue Upwork (réglage `accueil_message_texte`, variable `{niche}`) ;
    - les nudges « warmup » et « pret » de la page Onboarding posters (réglage
      `onboarding_nudges`, variable `{niche}`) ;
    - le message « Not warmed up » du dimanche soir.
 
-   Avant, ces trois messages disaient « general knowledge » à tout le monde,
-   même à un compte de running. Pour changer une niche : `NICHE_PAR_THEME`,
+   Côté dashboard, la niche est lue par le posteur lui-même sur les labels de
+   son compte (`maNiche.ts`). Avant, les trois messages disaient « general
+   knowledge » à tout le monde, même à un compte de running. Pour changer une niche : `NICHE_PAR_THEME`,
    dans les deux fichiers. Un compte à plusieurs labels prend la niche du
    premier, par ordre alphabétique, qui en a une à lui.
 

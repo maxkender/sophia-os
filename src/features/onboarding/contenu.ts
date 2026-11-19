@@ -14,7 +14,9 @@
  *
  * L'accueil est le même pour toutes les applications. Une seule chose suit le
  * compte (19/11) : la niche du warm-up, nommée d'après son label
- * (`ContexteAccueil.niche`, règle dans `moteur/themeLabel.ts`).
+ * (`ContexteAccueil.niche`, règle dans `moteur/themeLabel.ts`, lue par
+ * `maNiche.ts`). L'étape 4 du dashboard et la checklist du 1er post la
+ * nomment de la même façon.
  */
 
 /** Lien d'intégration de la démo Loom (« How to Post TikTok Slide Shows »). */

@@ -10,6 +10,7 @@ import { useRegles } from "@/features/regles/api";
 import { BoutonDeclarer } from "@/features/onboarding/BoutonDeclarer";
 import { prochaineVerification } from "@/features/onboarding/cinqEtapes";
 import { lireMesDeclarations } from "@/features/onboarding/cinqEtapesApi";
+import { useNicheComptePrincipal } from "@/features/onboarding/maNiche";
 import { enregistrerIdentiteRuul } from "@/features/moteur/api";
 import { cn } from "@/lib/utils";
 
@@ -201,6 +202,8 @@ export function ChecklistRuul() {
   const declarations = useQuery({ queryKey: ["mes-declarations"], queryFn: lireMesDeclarations, staleTime: 60_000 });
   const regles = useRegles();
   const o = q.data;
+  // 19/11 : la niche du warm-up, celle du label de son compte (lue seulement tant que la checklist s'affiche).
+  const niche = useNicheComptePrincipal(o?.ruul ? !onboardingRuulFini(o) : false);
   if (!o?.ruul || onboardingRuulFini(o)) return null;
   const f = etapesRuulFaites(o);
   const date = o.cohorte_lundi ? jourMois(o.cohorte_lundi, i18n.language ?? "en") : null;
@@ -226,6 +229,9 @@ export function ChecklistRuul() {
       detail: !f.warmup && (
         <div className="space-y-1">
           <p className="text-muted-foreground text-xs">{t("ruulOnboarding.warmupDetail", { n: o.abonnements })}</p>
+          {niche && (
+            <p className="font-medium text-xs" data-testid="niche-warmup">{t("calendrier.cinq.warmupNiche", { niche })}</p>
+          )}
           {warmupDeclare ? (
             <p className="text-success text-xs" data-testid="warmup-declare">{t("calendrier.cinq.declarer.merci", { heure: prochaineVerification("warmup") })}</p>
           ) : (

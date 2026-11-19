@@ -9651,6 +9651,7 @@ export const fr = {
         tiktokSansHandle: "3. Créer ton compte TikTok",
         tiktokDetail: "Avec le @, la bio et la photo de ton tableau de bord, exactement comme fournis.",
         warmup: "4. Start warmup + suivre 5 comptes, avant {{dimanche}} minuit",
+        warmupNiche: "Scrolle et abonne-toi à des comptes de ta niche : {{niche}}.",
         post: "5. Ton premier post : {{lundi}}",
         disponible: "Ton premier post sera disponible le {{jour}} à {{heure}} ({{fuseau}}).",
         disponibleLocal: "Ton premier post sera disponible le {{jour}} à {{heure}} (ton heure).",

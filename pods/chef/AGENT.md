@@ -51,7 +51,7 @@ Les podz :
 | 17 · Originaux @theappshelf (Sophia) | `appshelf` | `session_017c8FRWZLUvdhYUiNBvRmdo` | appshelf (Sophia seul, images finies, en anglais, genre femme ; cinq vraies applis dont Sophia, au style exact de @theappshelf ; lancé par Adrien le 15/11, pilote as-001) |
 | 18 · Originaux @iinspogiirly (Sophia) | `inspogirly` | `session_017c8FRY98W6VXYGxJbXtwx8` | inspogirly (Sophia seul, images finies, en anglais, genre femme ; « 4 apps every girl needs » au style exact de @iinspogiirly, couverture en trois photos, applis douces sans cycle, dont Sophia ; lancé par Adrien le 16/11, pilote ig-001) |
 | 19 · Originaux running (Atala) | `atala` | `session_017c8FRX6LoodgJ3P4ywyBzb` | dos_donts_run (Atala seul, images finies, en anglais et en français, genre femme ; les « do & don'ts » de @hannah.run5 et @katrina.run, le logo d'Atala parmi les « Do », jamais de page d'appli ; lancé par Adrien le 19/11, pilote at-001 ; Atala encore inactive) |
-| 20 · Originaux wellness (Atala) | `atala-wellness` | session à créer | wellness_run (Atala seul, images finies, en anglais, genre femme ; les listes d'habitudes wellness de @healthy_with_emma6 avec les photos de la banque, sa slide pub devient la slide Atala : une fille qui court et la carte d'Atala ; lancé par Adrien le 19/11, pilote aw-001 ; Atala encore inactive) |
+| 20 · Originaux wellness (Atala) | `atala-wellness` | `session_017c8FRZQgR2abup9nQqXhmu` | wellness_run (Atala seul, images finies, en anglais, genre femme ; les listes d'habitudes wellness de @healthy_with_emma6 avec les photos de la banque, sa slide pub devient la slide Atala : une fille qui court et la carte d'Atala ; lancé par Adrien le 19/11, pilote aw-001 ; Atala encore inactive) |
 
 ## Règles absolues
 

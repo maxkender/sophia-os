@@ -205,17 +205,25 @@ function LigneCorrection({ c }: { c: CorrectionNative }) {
  * découpées en corrections (bouton « Découper » ou cron), à retenir ou
  * écarter. Les retenues entrent dans la traduction de la langue dès le
  * prochain deck ; l'aperçu en bas montre le bloc tel que le modèle le reçoit.
+ *
+ * `langueFixe` : la section d'une seule langue, sans sélecteur ni aperçu,
+ * pour le panneau de la langue dans Traduction & placement (qui montre déjà
+ * les blocs).
  */
-export function SectionCorrections() {
+export function SectionCorrections({ langueFixe }: { langueFixe?: string } = {}) {
   const { t } = useTranslation();
   const qc = useQueryClient();
-  const relecteurs = useQuery({ queryKey: ["relecteurs-natifs"], queryFn: listerRelecteurs });
+  const relecteurs = useQuery({ queryKey: ["relecteurs-natifs"], queryFn: listerRelecteurs, enabled: !langueFixe });
   const langues = React.useMemo(
     () => [...new Set((relecteurs.data ?? []).map((r) => r.langue.toLowerCase()))].sort(),
     [relecteurs.data],
   );
   const [langueChoisie, setLangueChoisie] = React.useState<string | null>(null);
-  const langue = langueChoisie && langues.includes(langueChoisie) ? langueChoisie : (langues[0] ?? null);
+  const langue = langueFixe
+    ? langueFixe.toLowerCase()
+    : langueChoisie && langues.includes(langueChoisie)
+      ? langueChoisie
+      : (langues[0] ?? null);
   const [filtre, setFiltre] = React.useState<Filtre>("proposee");
   const [bilan, setBilan] = React.useState<string | null>(null);
 
@@ -232,7 +240,7 @@ export function SectionCorrections() {
   const bloc = useQuery({
     queryKey: [...CLE_CORRECTIONS, "bloc", langue],
     queryFn: () => blocCorrectionsNatives(langue!),
-    enabled: Boolean(langue),
+    enabled: Boolean(langue) && !langueFixe,
   });
   const rafraichir = () => void qc.invalidateQueries({ queryKey: CLE_CORRECTIONS });
   const extraire = useMutation({
@@ -265,7 +273,7 @@ export function SectionCorrections() {
   return (
     <div className="space-y-4" data-testid="section-corrections">
       <div className="space-y-1">
-        <h2 className="text-sm font-semibold">{t("relectureNative.corrections.titre")}</h2>
+        {!langueFixe && <h2 className="text-sm font-semibold">{t("relectureNative.corrections.titre")}</h2>}
         <p className="text-xs text-muted-foreground">{t("relectureNative.corrections.aide")}</p>
         <p className="text-xs text-muted-foreground">{t("relectureNative.corrections.rangement")}</p>
       </div>
@@ -274,22 +282,24 @@ export function SectionCorrections() {
           {messageErreur(erreur)}
         </p>
       )}
-      {relecteurs.isPending ? (
+      {!langueFixe && relecteurs.isPending ? (
         <p className="text-sm text-muted-foreground">{t("common.loading")}</p>
-      ) : langues.length === 0 ? (
+      ) : !langueFixe && langues.length === 0 ? (
         <p className="text-sm text-muted-foreground">{t("relectureNative.corrections.aucuneLangue")}</p>
       ) : (
         <div className="flex flex-wrap items-end gap-3">
-          <div className="space-y-1">
-            <Label htmlFor="correctionsLangue">{t("relectureNative.corrections.langue")}</Label>
-            <select id="correctionsLangue" className={selectClass} value={langue ?? ""} onChange={(e) => setLangueChoisie(e.target.value)}>
-              {langues.map((l) => (
-                <option key={l} value={l}>
-                  {drapeauLangue(l)} {nomLangue(l)}
-                </option>
-              ))}
-            </select>
-          </div>
+          {!langueFixe && (
+            <div className="space-y-1">
+              <Label htmlFor="correctionsLangue">{t("relectureNative.corrections.langue")}</Label>
+              <select id="correctionsLangue" className={selectClass} value={langue ?? ""} onChange={(e) => setLangueChoisie(e.target.value)}>
+                {langues.map((l) => (
+                  <option key={l} value={l}>
+                    {drapeauLangue(l)} {nomLangue(l)}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
           <Button size="sm" variant="outline" disabled={extraire.isPending || !langue || (aExtraire.data ?? 0) === 0} onClick={() => extraire.mutate()}>
             <Scissors />
             {extraire.isPending
@@ -335,15 +345,17 @@ export function SectionCorrections() {
               ))}
             </ul>
           )}
-          <Replie titre={t("relectureNative.corrections.bloc", { langue: nomLangue(langue) })}>
-            {bloc.data ? (
-              <pre className="max-h-96 overflow-auto rounded-md bg-muted/40 p-3 font-mono text-xs whitespace-pre-wrap" data-testid="bloc-corrections">
-                {bloc.data}
-              </pre>
-            ) : (
-              <p className="text-xs text-muted-foreground">{t("relectureNative.corrections.blocVide")}</p>
-            )}
-          </Replie>
+          {!langueFixe && (
+            <Replie titre={t("relectureNative.corrections.bloc", { langue: nomLangue(langue) })}>
+              {bloc.data ? (
+                <pre className="max-h-96 overflow-auto rounded-md bg-muted/40 p-3 font-mono text-xs whitespace-pre-wrap" data-testid="bloc-corrections">
+                  {bloc.data}
+                </pre>
+              ) : (
+                <p className="text-xs text-muted-foreground">{t("relectureNative.corrections.blocVide")}</p>
+              )}
+            </Replie>
+          )}
         </>
       )}
     </div>

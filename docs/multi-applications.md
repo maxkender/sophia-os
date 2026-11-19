@@ -44,6 +44,15 @@ Cinq choses ont changé depuis la rédaction de ce document :
    placement de cette application (`chargerRetoursApplication`, à la suite du
    prompt maître). Rangée à l'insertion par un déclencheur, modifiable dans
    Relecture native → Corrections (« Vaut pour »).
+   **Où le voir** (19/11) : Traduction & placement (`/admin/chaine`). Onglet
+   Langues, panneau d'une langue : ce que la traduction reçoit, puis « Ce que
+   le placement reçoit en plus, par application », un bloc par application tel
+   que le modèle le lit ; le tri des corrections et les règles de la langue
+   s'ouvrent dans le même panneau (les sections de Relecture native, sur cette
+   seule langue). Onglet Placement : les mêmes blocs pour l'application du
+   sélecteur, un par langue. L'aperçu recopie `blocRetoursApplication` du
+   moteur (`src/features/chaine/retoursApplication.ts`, un test tient les deux
+   identiques) et lit comme lui les 40 retours les plus récents.
 5. **Plus de fiches langue** (décision d'Adrien du 17/11). La page Fiches n'a
    plus que trois sortes (CTA, appli, label) ; le circuit de test « fiches »
    lit à leur place les règles et corrections des relecteurs natifs. Les

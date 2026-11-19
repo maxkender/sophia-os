@@ -12,10 +12,13 @@ import { messageErreur } from "@/features/bleo/format";
 
 import { BandeauBoucle } from "@/features/relectureNative/BandeauBoucle";
 import { blocCorrectionsNatives } from "@/features/relectureNative/apiCorrections";
+import { SectionCorrections } from "@/features/relectureNative/SectionCorrections";
+import { SectionRegles } from "@/features/relectureNative/SectionRegles";
 
-import { compterComptesParLangue, compterCorrectionsRetenuesParLangue, compterRelecteursParLangue, listerPromptsMeta } from "./api";
+import { compterComptesParLangue, compterCorrectionsLangue, compterRelecteursParLangue, listerPromptsMeta } from "./api";
 import { EditeurPrompt } from "./EditeurPrompt";
 import { lignesLangues, type LigneLangue, type SourcePrompt } from "./logique";
+import { RetoursApplications } from "./RetoursApplications";
 
 export const CLE_PROMPTS_META = ["prompts-meta", "traduction"] as const;
 
@@ -36,6 +39,12 @@ function formaterDate(iso: string | null, locale: string): string {
  * la traduction lit pour la langue choisie, et la localisation scolaire
  * commune en bas. Même règle que le moteur : prompt dédié, sinon le générique
  * pour le français, sinon les règles neutres du code.
+ *
+ * Toute la boucle des relecteurs natifs de la langue tient dans le panneau :
+ * ce que la traduction reçoit (règles et corrections de langue), ce que le
+ * placement de chaque application reçoit en plus (corrections propres à
+ * l'application, 0751), puis le tri des corrections et les règles à valider,
+ * les mêmes sections que Relecture native, sur cette seule langue.
  */
 export function SectionLangues({ langue, onLangue }: { langue: string | null; onLangue: (code: string) => void }) {
   const { t, i18n } = useTranslation();
@@ -43,7 +52,6 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
   const prompts = useQuery({ queryKey: CLE_PROMPTS_META, queryFn: () => listerPromptsMeta("traduction") });
   const comptes = useQuery({ queryKey: ["chaine", "comptes-par-langue"], queryFn: compterComptesParLangue });
   const relecteurs = useQuery({ queryKey: ["chaine", "relecteurs-par-langue"], queryFn: compterRelecteursParLangue });
-  const corrections = useQuery({ queryKey: ["corrections-natives", "retenues-par-langue"], queryFn: compterCorrectionsRetenuesParLangue });
 
   const lignes = React.useMemo(
     () => lignesLangues(LANGUES_CIBLES, nomLangue, comptes.data ?? {}, relecteurs.data ?? {}, prompts.data ?? [], recherche),
@@ -59,8 +67,15 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
     queryFn: () => blocCorrectionsNatives(choisie!.code),
     enabled: Boolean(choisie),
   });
-  const nCorrections = choisie ? (corrections.data?.[choisie.code.toLowerCase()] ?? 0) : 0;
-  const erreur = prompts.error ?? comptes.error ?? relecteurs.error;
+  // Clés sous « corrections-natives » : un tri fait plus bas relit les compteurs et les blocs.
+  const compte = useQuery({
+    queryKey: ["corrections-natives", "compte", choisie?.code],
+    queryFn: () => compterCorrectionsLangue(choisie!.code),
+    enabled: Boolean(choisie),
+  });
+  const n = compte.data ?? { deLangue: 0, dAppli: 0, aTrier: 0 };
+  const aDesRetours = Boolean(choisie && (choisie.relecteurs > 0 || n.deLangue + n.dAppli + n.aTrier > 0));
+  const erreur = prompts.error ?? comptes.error ?? relecteurs.error ?? compte.error;
   const nDedies = toutes.filter((l) => l.source === "dedie").length;
   const nNeutres = toutes.filter((l) => l.source === "neutre").length;
 
@@ -148,7 +163,10 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
                     {t("chaine.langues.lienRelecture")}
                   </Link>
                 </span>
-                <span data-testid="corrections-langue">{t("chaine.langues.corrections", { count: nCorrections })}</span>
+                <span data-testid="corrections-langue">
+                  {t("chaine.langues.correctionsLangue", { count: n.deLangue })} · {t("chaine.langues.correctionsAppli", { count: n.dAppli })} ·{" "}
+                  {t("chaine.langues.aTrier", { count: n.aTrier })}
+                </span>
               </div>
               <p className="text-xs text-muted-foreground">{t(`chaine.langues.explication.${choisie.source}`, { langue: nomLangue(choisie.code), cle: choisie.cle })}</p>
             </div>
@@ -164,6 +182,31 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
                 <p className="text-xs text-muted-foreground">{t("chaine.langues.blocVide")}</p>
               )}
             </Replie>
+
+            <Replie
+              titre={t("chaine.langues.retoursAppliTitre", { count: n.dAppli })}
+              aide={t("chaine.langues.retoursAppliAide", { langue: nomLangue(choisie.code) })}
+              testId="replie-retours-appli"
+            >
+              <RetoursApplications langue={choisie.code} />
+            </Replie>
+
+            {aDesRetours && (
+              <>
+                <Replie
+                  key={`tri-${choisie.code}`}
+                  paresseux
+                  titre={t("chaine.langues.triTitre", { count: n.aTrier })}
+                  aide={t("chaine.langues.triAide")}
+                  testId="replie-tri"
+                >
+                  <SectionCorrections langueFixe={choisie.code} />
+                </Replie>
+                <Replie key={`regles-${choisie.code}`} paresseux titre={t("chaine.langues.reglesTitre")} testId="replie-regles">
+                  <SectionRegles langueFixe={choisie.code} />
+                </Replie>
+              </>
+            )}
 
             <Replie titre={t("prompts.localisationScolaireTitle")} aide={t("prompts.localisationScolaireDesc")}>
               <EditeurPrompt cle="localisation_scolaire" rows={12} nu />

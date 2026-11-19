@@ -1,0 +1,826 @@
+{
+ "id": "ka-051",
+ "titre": {
+  "en": "10/10 cozy skills to learn",
+  "fr": "10/10 loisirs créatifs à apprendre",
+  "de": "10/10 gemütliche Skills zum Lernen",
+  "it": "10/10 hobby creativi da imparare",
+  "tr": "10/10 öğrenebileceğin el işi",
+  "hu": "10/10 kreatív hobbi",
+  "pl": "10/10 kreatywnych hobby",
+  "pt-BR": "10/10 hobbies criativos para aprender"
+ },
+ "legendes": {
+  "en": "10/10 cozy skills to learn #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 loisirs créatifs à apprendre #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 gemütliche Skills zum Lernen #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 hobby creativi da imparare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 öğrenebileceğin el işi #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 kreatív hobbi #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 kreatywnych hobby #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 hobbies criativos para aprender #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "som original",
+  "url": "https://www.tiktok.com/music/som-original-7218209310147562246"
+ },
+ "notes": "Full test (BLEO, 19/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (les loisirs créatifs). Décor branche2. Son format court à 3 compétences plus l'étape Sophia (crochet, broderie (point de croix en italien et en polonais), bougies), une vraie vidéo YouTube native par étape et par langue. Musique : « som original 7218209310147562246 » de son manifeste. Sophia en étape 3, cta C, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche2",
+   "en": {
+    "lignes": [
+     "COZY SKILLS",
+     "TO LEARN"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "LOISIRS",
+     "CRÉATIFS À",
+     "APPRENDRE"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "GEMÜTLICHE",
+     "SKILLS ZUM",
+     "LERNEN"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "HOBBY",
+     "CREATIVI DA",
+     "IMPARARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "ÖĞRENEBİLECEĞİN",
+     "EL İŞLERİ"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "KREATÍV",
+     "HOBBIK"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "KREATYWNE",
+     "HOBBY"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "HOBBIES",
+     "CRIATIVOS PARA",
+     "APRENDER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "CROCHET",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "aAxGTnVNJiE",
+     "titre": "How to Crochet for Absolute Beginners: Part 1",
+     "chaine": "simplydaisy",
+     "vues": "58M views",
+     "date": "11 years ago",
+     "duree": "8:36",
+     "avatar": "https://yt3.ggpht.com/zzV1RpIyT_M6UcyQ_0GeMJWged_T5U_BjkTvl8Jd1oGWfBQwvdf7_nBYWkTKGq45Z3PxMrwc=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 weeks"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DU CROCHET",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "JwPptEwX4DE",
+     "titre": "Cours de crochet n°1 – Débuter le crochet : réaliser une chaînette #Tutos",
+     "chaine": "Bergère de France",
+     "vues": "2,7 M de vues",
+     "date": "il y a 14 ans",
+     "duree": "0:51",
+     "avatar": "https://yt3.ggpht.com/JCYF_WTGfdTjWK_JhLO-jCxFfWaHl3TRpDvEh7WGHfrw0TjR99tRjTOR9N4P1A4xDyFVOrBTLg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semaines"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "HÄKELN",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "96fEPEkK0sQ",
+     "titre": "Häkel Grundlagen DIY / Häkeln lernen Luftmaschen, feste Maschen, halbe Stäbchen, Stäbchen",
+     "chaine": "DIY Inspiration",
+     "vues": "3,8 Mio. Aufrufe",
+     "date": "vor 11 Jahren",
+     "duree": "15:23",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lC8BIscTMXYYyye1VtA71rfoq63HigQUK2kLAfgB06Tw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Wochen"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME LAVORARE",
+     [
+      {
+       "t": "ALL'UNCINETTO",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XN3YTDAvAM8",
+     "titre": "Uncinetto corso basico - Lezione 1 - nodino iniziale e catenella",
+     "chaine": "Francesca Uncinettando Crochet&Love",
+     "vues": "2,7 Mln visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "12:19",
+     "avatar": "https://yt3.ggpht.com/eqd-ELUtTDgNt50P44r8yxyEXjBEL4yUog4HUnnbFdbrQR0oeU33BHizlkdhjvg7jsmZTbYJZA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 settimane"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "TIĞ İŞİ YAPILIR",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "pJ9noflmLuI",
+     "titre": "Tığ İşi Eğitimi – Bölüm 1 | Tığ Nasıl Tutulur? Zincir ve Sık İğne Yapımı",
+     "chaine": "Kübra Gücüyener",
+     "vues": "219 B görüntüleme",
+     "date": "1 yıl önce",
+     "duree": "10:32",
+     "avatar": "https://yt3.ggpht.com/XndET0YpLBazg41chtP5SRTcLnnG3WxGEQfkz7JKbcEqR8P32j1cQvwqsdnfuBxhXOIpGp3Rnw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hafta"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "HORGOLJ",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "N5e0yySFRPo",
+     "titre": "Horgolóiskola | horgolás alapok kezdőknek 2 | rövidpálca, félpálca, egyráhajtásos pálca és kúszószem",
+     "chaine": "Csináld magad - ötletek - DIY Ideas Hungarian",
+     "vues": "429 E megtekintés",
+     "date": "6 évvel ezelőtt",
+     "duree": "14:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kT6Zd08xpY2_8V0BNnnKYpPN122_kXah6ZSBNDQQ4eAw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hét"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "SZYDEŁKOWAĆ",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "eEcfSYHz_ss",
+     "titre": "Szydełkowanie dla początkujących. Jak zrobić półsłupek, słupek i magiczne kółko? pasart.pl",
+     "chaine": "pasart",
+     "vues": "1,1 mln wyświetleń",
+     "date": "8 lat temu",
+     "duree": "18:04",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nSCVz25ITt5qElitZTpR_-e1wSXVcsV06_uDxsItW7UNg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 tygodnie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "CROCHÊ",
+       "couleur": "#e96dad"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZQM1GS3uDz8",
+     "titre": "Aula de crochê para iniciantes | Aprenda crochê do zero em 5 passos - JNY Crochê",
+     "chaine": "JNY Crochê",
+     "vues": "18 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "24:33",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kvuUSLIvaRkzLDSmNHRUzcXpnEhIK8eoDyLl-jCI20lss=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 semanas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "EMBROIDER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "hVw1WVacVZo",
+     "titre": "20 Basic Hand Embroidery Stitches Sampler for Absolute Beginners",
+     "chaine": "Mordern craft",
+     "vues": "17M views",
+     "date": "3 years ago",
+     "duree": "14:21",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nbZZF_Hjxln4M4Ry605hn40qwVvofc2iO5aoXvFCGfxQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT",
+     [
+      {
+       "t": "BRODER",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fKOv9k4-_KQ",
+     "titre": "Broderie débutant, points de base et première broderie",
+     "chaine": "Moodlescript",
+     "vues": "829 k vues",
+     "date": "il y a 6 ans",
+     "duree": "27:45",
+     "avatar": "https://yt3.ggpht.com/zzT0APtMT3FqJWYDw6XDV1AuGLF9O3pSuVmrc8xk0EeA8sTIPCKyjqaa6ANedw01CVAw-SfMfUw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO LERNST DU",
+     [
+      {
+       "t": "STICKEN",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XhJ2avgRWyU",
+     "titre": "Sticken für Anfänger - 8 Basic Stickstiche zum Sticken lernen",
+     "chaine": "Linda Seel (Linda loves) und SALTYSEA by Linda Seel",
+     "vues": "1 Mio. Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "10:22",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_m7X6PJGU8AE3maq9EZ18K7vTwnr7ZQLG0Qoni04jD2_TLk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL PUNTO CROCE",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5Sdy8K3Vpfw",
+     "titre": "Punto Croce: regole base | Tutorial per principianti di Un Filo di Gloria",
+     "chaine": "Punto croce | Un filo di Gloria",
+     "vues": "523K visualizzazioni",
+     "date": "9 anni fa",
+     "duree": "3:13",
+     "avatar": "https://yt3.ggpht.com/jFUyks20VHWZdXKqiqjXXrxr5CkXvHcKUlEa0_3KvWug8p4iis9hd_TAGVizNgzIRuz0krA61A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "NAKIŞ YAPILIR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ABmdgiHDCPI",
+     "titre": "YENİ BAŞLAYANLAR İÇİN TEMEL NAKIŞ TEKNİKLERİ 1 / Embroidery  For Beginners | Running Stitich",
+     "chaine": "Esra'nın Nakış Atölyesi",
+     "vues": "18 B görüntüleme",
+     "date": "4 yıl önce",
+     "duree": "9:51",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n-sEkMOTjZUkoELUOFci2FGPdbRMZ5IRAJEGN3zTFHUg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "HÍMEZZ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YnPR29buxBQ",
+     "titre": "A HÍMZÉS ALAPJAI - 1. rész",
+     "chaine": "Antal Ágnes Embroidery",
+     "vues": "112 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "8:42",
+     "avatar": "https://yt3.ggpht.com/v3SKQSc4TYkNIDGmXagd3OWBIedoa2daYFDArnrHXtz5YbEKVOkJ_Or81Zwr4nMoDyCrgpe9PzE=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK",
+     [
+      {
+       "t": "HAFTOWAĆ",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "lkHndCIj0HI",
+     "titre": "Haft krzyżykowy-Jak zrobić?",
+     "chaine": "dorotka szmytkowska",
+     "vues": "208 tys. wyświetleń",
+     "date": "12 lat temu",
+     "duree": "1:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n1c0UEJ3QOjLOu-snBJEeNWIP-2vJlx_EOJLMhCwo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO",
+     [
+      {
+       "t": "BORDAR",
+       "couleur": "#5176e0"
+      }
+     ]
+    ],
+    "video": {
+     "id": "F0RH2bPu1Ys",
+     "titre": "Os 8 PONTOS BÁSICOS do Bordado Livre (Guia Completo) 🌹",
+     "chaine": "Rosalia Rosarinha Bordado",
+     "vues": "1 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "9:09",
+     "avatar": "https://yt3.ggpht.com/MDgbX0Shu2pIprCwl8PlnffdF-pp19ioNOOJuDI39bIBTnSyM8m1Nb0rYE72ODpHtFvW1pWx=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO SPEND",
+     [
+      {
+       "t": "LESS TIME",
+       "couleur": "#e07aa6"
+      }
+     ],
+     [
+      {
+       "t": "SCROLLING",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "what I open",
+      "instead of scrolling."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT MOINS",
+     [
+      {
+       "t": "SCROLLER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ce que j'ouvre",
+      "au lieu de scroller."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO SCROLLST",
+     [
+      {
+       "t": "DU WENIGER",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "was ich öffne,",
+      "statt zu scrollen."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME SCROLLARE",
+     [
+      {
+       "t": "MENO",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "quello che apro",
+      "invece di scrollare."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "DAHA AZ KAYDIRIRSIN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "kaydırmak yerine",
+      "açtığım şey."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN",
+     [
+      {
+       "t": "GÖRGESS KEVESEBBET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ezt nyitom meg",
+      "görgetés helyett."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK MNIEJ",
+     [
+      {
+       "t": "SCROLLOWAĆ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "to otwieram",
+      "zamiast scrollować."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ROLAR",
+     [
+      {
+       "t": "MENOS O FEED",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "o que eu abro",
+      "em vez de rolar o feed."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "CANDLES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "ZQk9l2ttcIA",
+     "titre": "A Beginners Guide To Making A Candle",
+     "chaine": "Cosy Owl Craft",
+     "vues": "2.3M views",
+     "date": "6 years ago",
+     "duree": "4:16",
+     "avatar": "https://yt3.ggpht.com/gBkhymUv2QisFoere5CBDwRGiELiushzHwUyTjdUsZqA6i80b8FLcFVCU_sZWkX-QxUTIXcIxQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "TES BOUGIES",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "9Kg0nBsbzbs",
+     "titre": "Faire une bougie écologique réutilisable à vie",
+     "chaine": "Minute Facile",
+     "vues": "399 k vues",
+     "date": "il y a 13 ans",
+     "duree": "3:07",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lkXlV44SGe8MiiimoT5mKvZRj4ucbjBMXYxc30JFkmDYM=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "KERZEN SELBST",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Xx9E0uTJNfg",
+     "titre": "Recycling-Kerzen | Kerzen selber machen | Kerzen aus Kerzenresten | DIY Bastelanleitung | mommymade",
+     "chaine": "mommymade",
+     "vues": "394.028 Aufrufe",
+     "date": "vor 7 Jahren",
+     "duree": "9:43",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_k1EmO3LYlqRG2Q0lxk8KruEauPxgkv02KSmhu-oALklw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "LE CANDELE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "r_xeAofsrjI",
+     "titre": "Come fare le candele in casa",
+     "chaine": "Dana Frigerio / Blossomzine",
+     "vues": "229K visualizzazioni",
+     "date": "8 anni fa",
+     "duree": "4:08",
+     "avatar": "https://yt3.ggpht.com/mPRXn64TDNgku2K5RlNfnmiYZuzL8P5ds6dpeTNZuYNFZxaLbj08fQ1xbgV9RB0lK2ciyjN0=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "MUM YAPILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "chejD7xndsg",
+     "titre": "Renkli Kokulu Mum Nasıl Yapılır? Evde Hediyelik Kolay Mum Yapımı",
+     "chaine": "Nasıl Mı?",
+     "vues": "524 B görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:04",
+     "avatar": "https://yt3.ggpht.com/gaPEVDLh418ofBO5YI0dh4Nz9Ddi7ehynLKw5s0h8D-alL2WXOQncpvfWJNM7gjJil6mTpVz3Mo=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN ÖNTS",
+     [
+      {
+       "t": "GYERTYÁT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "fmMwsa7WAVA",
+     "titre": "Gyertyaöntés lépésről lépésre",
+     "chaine": "Hobbiverzum",
+     "vues": "24 E megtekintés",
+     "date": "3 évvel ezelőtt",
+     "duree": "2:41",
+     "avatar": "https://yt3.ggpht.com/AWcpaU-sBqVCC8o4Fb6mpLOMwctRgj1QZt_jEmUJBjD9WVi1g5D_1hIkKWzVRFffBK1m8gXT=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "ŚWIECE",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "FmXRN-j-bLk",
+     "titre": "Jak zrobić świece sojowe 🤔?  / DIY naturalne świece zapachowe",
+     "chaine": "Igor Grzesiak",
+     "vues": "245 tys. wyświetleń",
+     "date": "5 lat temu",
+     "duree": "10:46",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_l9C0X30PmmSAChsPqpcM1DD3gdQjNmNRrF0WHTLPdsfA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "VELAS",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "XxIbtlpv0n8",
+     "titre": "Como fazer velas para vender e economizar",
+     "chaine": "Peter Paiva",
+     "vues": "570 mil visualizações",
+     "date": "há 4 anos",
+     "duree": "11:02",
+     "avatar": "https://yt3.ggpht.com/Fp1lrji1T_EeeskaQZ3zhfcaT-p4zuswsfSFNAN8gLXZ-NRd8y_2ohqHkS8nGUUWTgjiS1Wf=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

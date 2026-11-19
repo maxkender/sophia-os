@@ -1,0 +1,823 @@
+{
+ "id": "ka-053",
+ "titre": {
+  "en": "10/10 dishes you can learn to cook",
+  "fr": "10/10 plats que tu peux apprendre à cuisiner",
+  "de": "10/10 Gerichte, die du kochen lernen kannst",
+  "it": "10/10 piatti che puoi imparare a cucinare",
+  "tr": "10/10 yapmayı öğrenebileceğin yemek",
+  "hu": "10/10 étel, amit megtanulhatsz főzni",
+  "pl": "10/10 dań, które możesz nauczyć się gotować",
+  "pt-BR": "10/10 pratos que você pode aprender a fazer"
+ },
+ "legendes": {
+  "en": "10/10 dishes you can learn to cook #skills #selfimprovement #learnontiktok",
+  "fr": "10/10 plats que tu peux apprendre à cuisiner #developpementpersonnel #apprendresurtiktok #culturegenerale",
+  "de": "10/10 Gerichte, die du kochen lernen kannst #selbstverbesserung #lernenmittiktok #persönlichkeitsentwicklung",
+  "it": "10/10 piatti che puoi imparare a cucinare #crescitapersonale #imparasutiktok #abilità",
+  "tr": "10/10 yapmayı öğrenebileceğin yemek #kişiselgelişim #tiktoktaöğren #beceriler",
+  "hu": "10/10 étel, amit megtanulhatsz főzni #önfejlesztés #tanulástiktokon #készségek",
+  "pl": "10/10 dań, które możesz nauczyć się gotować #rozwójosobisty #uczsięnatiktoku #umiejętności",
+  "pt-BR": "10/10 pratos que você pode aprender a fazer #desenvolvimentopessoal #aprendanotiktok #habilidades"
+ },
+ "musique": {
+  "titre": "Solitude",
+  "url": "https://www.tiktok.com/music/solitude-7355730432355502096"
+ },
+ "notes": "Full test (BLEO, 19/11) dans les 8 langues de Kaja (en, fr, de, it, tr, hu, pl, pt-BR) : une accroche neuve au format de @kaja.learn, jamais faite chez nous (la cuisine du monde). Décor branche. Son format court à 3 compétences plus l'étape Sophia (sushis, pâte à pizza, pâtes fraîches), une vraie vidéo YouTube native par étape et par langue. Musique : « Solitude » de son manifeste. Sophia en étape 3, cta A, « 5 min a day ».",
+ "slides": [
+  {
+   "type": "couverture",
+   "decor": "branche",
+   "en": {
+    "lignes": [
+     "DISHES YOU",
+     "CAN LEARN",
+     "TO COOK"
+    ]
+   },
+   "fr": {
+    "lignes": [
+     "PLATS QUE TU",
+     "PEUX APPRENDRE",
+     "À CUISINER"
+    ]
+   },
+   "de": {
+    "lignes": [
+     "GERICHTE,",
+     "DIE DU KOCHEN",
+     "LERNEN KANNST"
+    ]
+   },
+   "it": {
+    "lignes": [
+     "PIATTI CHE",
+     "PUOI IMPARARE",
+     "A CUCINARE"
+    ]
+   },
+   "tr": {
+    "lignes": [
+     "YAPMAYI",
+     "ÖĞRENEBİLECEĞİN",
+     "YEMEKLER"
+    ]
+   },
+   "hu": {
+    "lignes": [
+     "ÉTELEK, AMIT",
+     "MEGTANULHATSZ FŐZNI"
+    ]
+   },
+   "pl": {
+    "lignes": [
+     "DANIA, KTÓRE",
+     "MOŻESZ NAUCZYĆ",
+     "SIĘ GOTOWAĆ"
+    ]
+   },
+   "pt-BR": {
+    "lignes": [
+     "PRATOS QUE",
+     "VOCÊ PODE",
+     "APRENDER"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "SUSHI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "yGG01tj9wi4",
+     "titre": "How To: Step-by-Step Sushi at Home",
+     "chaine": "KikkomanUSA",
+     "vues": "7M views",
+     "date": "16 years ago",
+     "duree": "6:18",
+     "avatar": "https://yt3.ggpht.com/l60PkN4XiE_F1wTouZRqw9vfflpeTAtE_UQhRlskPUAytxBvAioqz86ZtYTavZFpEv2BUrb6eg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DES SUSHIS",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SFDlOZZRM4c",
+     "titre": "Recette de Sushis Maki California Rolls",
+     "chaine": "Lilou KAM",
+     "vues": "1,5 M de vues",
+     "date": "il y a 6 ans",
+     "duree": "12:09",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kuiZRyuGC1AkV1bQfQm_Y1n19ZtTNJAzPkF0Wnrs5Y6Rk=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "SUSHI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "zVVKcWZXJuA",
+     "titre": "Sushi Basics / Maki, Inside Out & Nigiri – Sushi Reis & Ingwer / Sallys Welt",
+     "chaine": "Sallys Welt",
+     "vues": "2,6 Mio. Aufrufe",
+     "date": "vor 10 Jahren",
+     "duree": "26:56",
+     "avatar": "https://yt3.ggpht.com/bZeKSjJMUYfIt2VFJ-kQC0IBgFc5rtBk-ymrUZDB6um7mF4smkXyH90uUXiqe2277Pq_Ua7dKYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "IL SUSHI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "CIvNVAUb43Y",
+     "titre": "SUSHI FATTO IN CASA - Ricetta ORIGINALE GIAPPONESE di Sai Fukayama",
+     "chaine": "GialloZafferano",
+     "vues": "1,3 Mln visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "14:01",
+     "avatar": "https://yt3.ggpht.com/DIbS5q7AH-sy9nB9K6AfT-4yhagb4h1GI2u-9UQmcQCbtY8kV85MwumcnSGWYmUOl8shxYClsSI=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "SUŞİ YAPILIR",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uIgpY1DWhtA",
+     "titre": "EVDE SUŞİ NASIL YAPILIR SUSHI nasil yapilir? SUSHI TARİFİ",
+     "chaine": "Hayalimdeki Yemekler",
+     "vues": "352 B görüntüleme",
+     "date": "2 yıl önce",
+     "duree": "9:00",
+     "avatar": "https://yt3.ggpht.com/yxkmj-6tnVLcW-HT3FhAjDi-Y6AvybgENSvN6iY3ba5cExPzw2cc7AknmAP5KO8R2STdMlMxEw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KÉSZÍTS",
+     [
+      {
+       "t": "SUSHIT",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "mg5CNiLWQ-A",
+     "titre": "Így készíts tökéletes sushit házilag!",
+     "chaine": "Street Kitchen",
+     "vues": "392 E megtekintés",
+     "date": "7 évvel ezelőtt",
+     "duree": "10:06",
+     "avatar": "https://yt3.ggpht.com/3fJMKfBUrEM8w4WhBqBI-Md-eoeRjHcnuQZ9EGOOtgDa2nRkBRrVRwop9sZ-SlvEBei7E0lT0Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "SUSHI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "S6dcdkE-T-0",
+     "titre": "Jak robić sushi? cz. 1 | PASCAL W DOMU + sushi master Daniel",
+     "chaine": "Pascal Brodnicki",
+     "vues": "1,4 mln wyświetleń",
+     "date": "10 lat temu",
+     "duree": "7:14",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mcehRCcUafF-T3z-RaIr9hm9pheii2mstXmZnS1J-1T7A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "SUSHI",
+       "couleur": "#d6344c"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vJ4HmlhbOeE",
+     "titre": "SEJA SEU PRÓPRIO SUSHIMAKER, HOT ROLL COMPLETO + OUTRAS DICAS ! | GOHANCOOK",
+     "chaine": "Go Han Go",
+     "vues": "1,4 mi visualizações",
+     "date": "há 5 anos",
+     "duree": "10:55",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_n9ELT856x2tJlmDRTL0R5gJLRGrPAeLCO1zaZfzPQfMQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "PIZZA DOUGH",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "G-jPoROGHGE",
+     "titre": "How to Make Perfect Pizza Dough - For the House⎮NEW 2021",
+     "chaine": "Vito Iacopelli",
+     "vues": "11M views",
+     "date": "5 years ago",
+     "duree": "21:49",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_mLwRvAJ09vAicb2itW-60IsDvPERPLK1xkhPIypnKQuIU=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "UNE PÂTE À PIZZA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SF2F1xKTrdE",
+     "titre": "La vraie pâte à pizza : recette italienne",
+     "chaine": "Aux Fourneaux",
+     "vues": "4,6 M de vues",
+     "date": "il y a 11 ans",
+     "duree": "2:54",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lrP7sq3CK1uRtBVIJd2DCxODmRvWXeaCeY4HjwKOg2Nms=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "PIZZATEIG",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vf0god0LtP8",
+     "titre": "Wie man Pizza macht | SWR Handwerkskunst",
+     "chaine": "SWR Handwerkskunst",
+     "vues": "3,2 Mio. Aufrufe",
+     "date": "vor 4 Jahren",
+     "duree": "22:58",
+     "avatar": "https://yt3.ggpht.com/EBFLt4mLsAN4gBeQUyGiLuHFNinPNZ4jIRHzMWFDwmFpOe60J4Sg5TrtEckmKvs69ZfxfqvJsA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "LA PIZZA IN CASA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "6iIgri13C0o",
+     "titre": "PIZZA AL PIATTO come in pizzeria con IMPASTO 1000 BOLLE senza impastare",
+     "chaine": "Tutti a Tavola",
+     "vues": "3 Mln visualizzazioni",
+     "date": "3 anni fa",
+     "duree": "8:03",
+     "avatar": "https://yt3.ggpht.com/J0iiqPgfXUiBiJS5o0AajCtdZy4sK618MOGeH5U4kHh_XOsJp-53_okm01ZdIw_42VUQ9_2y2Q=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "PİZZA HAMURU YAPILIR",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Jxbumxu1uyk",
+     "titre": "Pizza Hamuru Tarifi | Nasıl Yapılır?",
+     "chaine": "Nefis Yemek Tarifleri | Bugün Ne Pişirsem?",
+     "vues": "11 Mn görüntüleme",
+     "date": "6 yıl önce",
+     "duree": "3:57",
+     "avatar": "https://yt3.ggpht.com/SlYKkIpSlt9fYd_LAEq1jWrCwR1hUmTnmw1oC7JpwiPz6K4_U-0q6rFIjYqo9occ6Zmo0fiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN KÉSZÍTS",
+     [
+      {
+       "t": "PIZZATÉSZTÁT",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "5iblGL2zv9c",
+     "titre": "Egy tuti pizzatészta recept - Nálunk 5-ösre vizsgázott 😍",
+     "chaine": "Egészségtál",
+     "vues": "192 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "2:37",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_nuQMdkziGU2teF_4-gYj0OsAsR5EqE-NlzFER_SUAxcg=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "DOMOWĄ PIZZĘ",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "4SV5-sq_G80",
+     "titre": "Najlepsza domowa pizza /The Best Homemade Pizza You'll Ever Eat /Oddaszfartucha",
+     "chaine": "Tomasz Strzelczyk ODDASZFARTUCHA",
+     "vues": "1,6 mln wyświetleń",
+     "date": "7 lat temu",
+     "duree": "11:43",
+     "avatar": "https://yt3.ggpht.com/V08hSI5i3DCQvdP_G9jPZwHhwv3RqloFvokIe6RVpzgbNJ24jGtusBNRkdvxqYutPsybGFlS0A=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "MASSA DE PIZZA",
+       "couleur": "#ec8713"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Y8cI68Q6VAc",
+     "titre": "MASSA DE PIZZA CASEIRA I MASSA PROFISSIONAL FEITA EM CASA",
+     "chaine": "Receitas de Pai",
+     "vues": "12 mi visualizações",
+     "date": "há 9 anos",
+     "duree": "10:42",
+     "avatar": "https://yt3.ggpht.com/CKD4cd6Qz43POlCIWaSMKafxk0Xc_YEENsrhK7trkgHlVB3NnSOT0EQgpQPeSxxollEiqg0zqA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "app": "sophia",
+   "en": {
+    "titre": [
+     "HOW TO",
+     [
+      {
+       "t": "FEED YOUR MIND",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "learn something new",
+      "every day."
+     ]
+    },
+    "sous": [
+     "5 min a day"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT NOURRIR",
+     [
+      {
+       "t": "TON ESPRIT",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "apprends un truc nouveau",
+      "chaque jour."
+     ]
+    },
+    "sous": [
+     "5 min par jour"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO FÜTTERST DU",
+     [
+      {
+       "t": "DEINEN KOPF",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "lerne jeden Tag",
+      "etwas Neues."
+     ]
+    },
+    "sous": [
+     "5 Min. am Tag"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME NUTRIRE",
+     [
+      {
+       "t": "LA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "impara qualcosa",
+      "di nuovo ogni giorno."
+     ]
+    },
+    "sous": [
+     "5 min al giorno"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "ZİHNİNİ BESLERSİN",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "her gün yeni",
+      "bir şey öğren."
+     ]
+    },
+    "sous": [
+     "günde 5 dk"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN TÁPLÁLD",
+     [
+      {
+       "t": "AZ ELMÉDET",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "tanulj minden nap",
+      "valami újat."
+     ]
+    },
+    "sous": [
+     "napi 5 perc"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK KARMIĆ",
+     [
+      {
+       "t": "SWÓJ UMYSŁ",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "ucz się codziennie",
+      "czegoś nowego."
+     ]
+    },
+    "sous": [
+     "5 min dziennie"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO ALIMENTAR",
+     [
+      {
+       "t": "SUA MENTE",
+       "couleur": "#e07aa6"
+      }
+     ]
+    ],
+    "carte": {
+     "nom": "SOPHIA",
+     "texte": [
+      "aprenda algo novo",
+      "todo dia."
+     ]
+    },
+    "sous": [
+     "5 min por dia"
+    ]
+   }
+  },
+  {
+   "type": "etape",
+   "en": {
+    "titre": [
+     "HOW TO MAKE",
+     [
+      {
+       "t": "FRESH PASTA",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "YNHqjFyk5gU",
+     "titre": "The Best Homemade Pasta You'll Ever Eat",
+     "chaine": "Tasty",
+     "vues": "6M views",
+     "date": "8 years ago",
+     "duree": "10:03",
+     "avatar": "https://yt3.ggpht.com/CfYIjL1dN06jrOxVxw4ElFs_0ShkZw9WpFmfkgoEx_-tdmG5Iv6CtlFmi3L-jkTmvTKfBXtMoMw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 hours"
+    ]
+   },
+   "fr": {
+    "titre": [
+     "COMMENT FAIRE",
+     [
+      {
+       "t": "DES PÂTES FRAÎCHES",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "Rjxt--TP4I4",
+     "titre": "🍝 Ma Pâte à pâtes fraîches",
+     "chaine": "Philippe Etchebest",
+     "vues": "941 k vues",
+     "date": "il y a 5 ans",
+     "duree": "5:23",
+     "avatar": "https://yt3.ggpht.com/TETeWVwZ0hc-qP_wWMN74dFRRcZOipEhGJ4MegZgjgKoo47wv-9igEfwLlf2lVZx2LPCIAOO=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 heures"
+    ]
+   },
+   "de": {
+    "titre": [
+     "SO MACHST DU",
+     [
+      {
+       "t": "NUDELN SELBST",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "SYQCosSMF94",
+     "titre": "Nudeln selber machen / Grundrezept Nudelteig & Variationen / Sallys Welt",
+     "chaine": "Sallys Welt",
+     "vues": "744.112 Aufrufe",
+     "date": "vor 8 Jahren",
+     "duree": "16:56",
+     "avatar": "https://yt3.ggpht.com/bZeKSjJMUYfIt2VFJ-kQC0IBgFc5rtBk-ymrUZDB6um7mF4smkXyH90uUXiqe2277Pq_Ua7dKYA=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 Stunden"
+    ]
+   },
+   "it": {
+    "titre": [
+     "COME FARE",
+     [
+      {
+       "t": "LA PASTA FRESCA",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "nSZUHw61K24",
+     "titre": "PASTA FRESCA ALL'UOVO - TAGLIATELLE FATTE IN CASA  Ricetta Facile in Diretta (Versione Corta)",
+     "chaine": "Fatto in Casa da Benedetta",
+     "vues": "2 Mln visualizzazioni",
+     "date": "6 anni fa",
+     "duree": "15:39",
+     "avatar": "https://yt3.ggpht.com/9H-mqH7bg3p2YbjgO9kzFmQZhI3RGbne8qmfU8NOQsvWqWmL_4yR2I5swai5lSv8lGeyYFQ-CPw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 ore"
+    ]
+   },
+   "tr": {
+    "titre": [
+     "NASIL",
+     [
+      {
+       "t": "EV MAKARNASI YAPILIR",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "QJcc84gL_KM",
+     "titre": "Ev Yapımı Makarna Tarifi | Nasıl Yapılır?",
+     "chaine": "Nefis Yemek Tarifleri | Bugün Ne Pişirsem?",
+     "vues": "296 B görüntüleme",
+     "date": "3 yıl önce",
+     "duree": "3:38",
+     "avatar": "https://yt3.ggpht.com/SlYKkIpSlt9fYd_LAEq1jWrCwR1hUmTnmw1oC7JpwiPz6K4_U-0q6rFIjYqo9occ6Zmo0fiw=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 saat"
+    ]
+   },
+   "hu": {
+    "titre": [
+     "HOGYAN GYÚRJ",
+     [
+      {
+       "t": "HÁZI TÉSZTÁT",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "vbWyBxyM7tA",
+     "titre": "Házi tészták 1. 🍴Házi gyúrt tészta készítése 🍴 - Lidl Főzőiskola Széll Tamással",
+     "chaine": "Lidl Magyarország",
+     "vues": "257 E megtekintés",
+     "date": "5 évvel ezelőtt",
+     "duree": "6:00",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_kKtBGk4-itgJpYw9YGiSpULdzspB5nZvfztDF0zfT8F0Y=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 óra"
+    ]
+   },
+   "pl": {
+    "titre": [
+     "JAK ZROBIĆ",
+     [
+      {
+       "t": "DOMOWY MAKARON",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "uWMTlofjCFw",
+     "titre": "Idealne ciasto na makaron. Jak zrobić domowy makaron? Jak przechowywać? Jak gotować? MENU Dorotki",
+     "chaine": "Menu Dorotki",
+     "vues": "447 tys. wyświetleń",
+     "date": "7 lat temu",
+     "duree": "19:59",
+     "avatar": "https://yt3.ggpht.com/ytc/AIdro_lPQ3MtCq9CKxrS7flD6tfnyvYJsXXeGPYylQWajFZkIQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 godziny"
+    ]
+   },
+   "pt-BR": {
+    "titre": [
+     "COMO FAZER",
+     [
+      {
+       "t": "MASSA FRESCA",
+       "couleur": "#24d329"
+      }
+     ]
+    ],
+    "video": {
+     "id": "LtIt6c7Rve0",
+     "titre": "MASSA DE MACARRÃO CASEIRO MAIS FÁCIL DO MUNDO -USEI 2 INGREDIENTES -NÃO USA CILINDRO-Isamara Amâncio",
+     "chaine": "Isamara Amâncio",
+     "vues": "1,2 mi visualizações",
+     "date": "há 6 anos",
+     "duree": "10:40",
+     "avatar": "https://yt3.ggpht.com/Td4AGKqwe-aUAJlZuHMtQvw0Rd6wqnsdXUbcIr87Ad23l8Doh3qADm6lxCaIBjA5-wMDf3Q_xuQ=s176-c-k-c0x00ffffff-no-rj"
+    },
+    "sous": [
+     "1-2 horas"
+    ]
+   }
+  }
+ ],
+ "type_bleo": "full_test"
+}

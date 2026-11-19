@@ -14,6 +14,7 @@ import { BandeauBoucle } from "@/features/relectureNative/BandeauBoucle";
 import { blocCorrectionsNatives } from "@/features/relectureNative/apiCorrections";
 import { SectionCorrections } from "@/features/relectureNative/SectionCorrections";
 import { SectionRegles } from "@/features/relectureNative/SectionRegles";
+import { ToutRetenir } from "@/features/relectureNative/ToutRetenir";
 
 import { compterComptesParLangue, compterCorrectionsLangue, compterRelecteursParLangue, listerPromptsMeta } from "./api";
 import { EditeurPrompt } from "./EditeurPrompt";
@@ -98,6 +99,7 @@ export function SectionLangues({ langue, onLangue }: { langue: string | null; on
   return (
     <div className="space-y-4" data-testid="section-langues">
       <p className="text-xs text-muted-foreground">{t("chaine.langues.aide", { dedies: nDedies, neutres: nNeutres, total: toutes.length })}</p>
+      <ToutRetenir />
       {erreur && (
         <p role="alert" className="text-sm text-destructive">
           {messageErreur(erreur)}

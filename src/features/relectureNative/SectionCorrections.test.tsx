@@ -12,6 +12,7 @@ const supprimer = vi.fn();
 const compterAExtraire = vi.fn();
 const extraire = vi.fn();
 const bloc = vi.fn();
+const retenirTout = vi.fn();
 
 vi.mock("./api", () => ({
   listerRelecteurs: () =>
@@ -30,6 +31,7 @@ vi.mock("./apiCorrections", async (importOriginal) => ({
   compterVotesAExtraire: (...a: unknown[]) => compterAExtraire(...a),
   extraireCorrections: (...a: unknown[]) => extraire(...a),
   blocCorrectionsNatives: (...a: unknown[]) => bloc(...a),
+  retenirProposees: (...a: unknown[]) => retenirTout(...a),
 }));
 
 import { SectionCorrections } from "./SectionCorrections";
@@ -75,7 +77,8 @@ function rendre() {
 
 describe("SectionCorrections", () => {
   beforeEach(() => {
-    for (const f of [lister, decider, modifier, supprimer, compterAExtraire, extraire, bloc]) f.mockReset();
+    for (const f of [lister, decider, modifier, supprimer, compterAExtraire, extraire, bloc, retenirTout]) f.mockReset();
+    retenirTout.mockResolvedValue(2);
     lister.mockResolvedValue(CORRECTIONS);
     compterAExtraire.mockResolvedValue(3);
     bloc.mockResolvedValue("=== RETOURS DES RELECTEURS NATIFS (DE) ===\n- [placement] au lieu de « eine App wie Sophia hilft dir », écris « ich les das auf Sophia »");
@@ -98,7 +101,7 @@ describe("SectionCorrections", () => {
     expect(within(screen.getByTestId("liste-corrections")).getAllByTestId("correction")).toHaveLength(4);
   });
 
-  it("retenir, écarter et retenir toutes les proposées passent par deciderCorrections", async () => {
+  it("retenir et écarter passent par deciderCorrections ; retenir toutes les proposées se fait par langue, sans liste d'ids", async () => {
     rendre();
     const liste = await screen.findByTestId("liste-corrections");
     const [c1] = within(liste).getAllByTestId("correction");
@@ -107,7 +110,8 @@ describe("SectionCorrections", () => {
     fireEvent.click(within(c1).getByRole("button", { name: /^(écarter|discard)$/i }));
     await waitFor(() => expect(decider).toHaveBeenCalledWith(["c1"], "ecartee"));
     fireEvent.click(screen.getByRole("button", { name: /retenir les 2 proposées|keep the 2 proposed/i }));
-    await waitFor(() => expect(decider).toHaveBeenCalledWith(["c1", "c2"], "retenue"));
+    await waitFor(() => expect(retenirTout).toHaveBeenCalledWith("de"));
+    expect(decider).toHaveBeenCalledTimes(2);
   });
 
   it("le bouton découpe les remarques de la langue et affiche le bilan", async () => {

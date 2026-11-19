@@ -23,6 +23,7 @@ import {
   listerCorrectionsNatives,
   modifierCorrection,
   rangerCorrection,
+  retenirProposees,
   supprimerCorrection,
   TYPES_CORRECTION,
   type CorrectionNative,
@@ -256,8 +257,9 @@ export function SectionCorrections({ langueFixe }: { langueFixe?: string } = {})
       rafraichir();
     },
   });
+  // Par filtre sur la langue, pas par liste d'ids : 243 ids ne tiennent pas dans l'URL.
   const toutRetenir = useMutation({
-    mutationFn: (ids: string[]) => deciderCorrections(ids, "retenue"),
+    mutationFn: () => retenirProposees(langue!),
     onSuccess: rafraichir,
   });
 
@@ -310,7 +312,7 @@ export function SectionCorrections({ langueFixe }: { langueFixe?: string } = {})
             <Button
               size="sm"
               disabled={toutRetenir.isPending}
-              onClick={() => toutRetenir.mutate(toutes.filter((c) => c.statut === "proposee").map((c) => c.id))}
+              onClick={() => toutRetenir.mutate()}
             >
               {t("relectureNative.corrections.toutRetenir", { n: n.proposee })}
             </Button>

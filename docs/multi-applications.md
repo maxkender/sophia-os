@@ -57,6 +57,10 @@ Sept choses ont changé depuis la rédaction de ce document :
    L'aperçu recopie `blocRetoursApplication` du moteur
    (`src/features/chaine/retoursApplication.ts`, un test tient les deux
    identiques) et lit comme lui les 40 retours les plus récents.
+   En tête de l'onglet Langues, « Tout retenir » passe d'un clic toutes les
+   corrections proposées en « retenue », toutes langues confondues, après
+   confirmation (`retenirProposees`, par filtre et non par liste d'ids). Le
+   bouton « Retenir les N proposées » d'une langue passe par la même fonction.
 5. **Plus de fiches langue** (décision d'Adrien du 17/11). La page Fiches n'a
    plus que trois sortes (CTA, appli, label) ; le circuit de test « fiches »
    lit à leur place les règles et corrections des relecteurs natifs. Les

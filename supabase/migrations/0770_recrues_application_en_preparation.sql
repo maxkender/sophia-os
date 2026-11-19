@@ -1,4 +1,4 @@
--- 0769 : une application EN PRÉPARATION peut recevoir les nouvelles recrues.
+-- 0770 : une application EN PRÉPARATION peut recevoir les nouvelles recrues.
 --
 -- LE BESOIN (19/11). Atala a ses labels (classic_girl_run, clean_girl_run,
 -- male_run…) mais elle est inactive : ses deux prompts sont des brouillons et
@@ -108,7 +108,7 @@ as $$
   --
   -- Comptage FRACTIONNAIRE de parts_applications (nulle = 100 % Sophia, cf.
   -- 0256). Sont rendues les applications qui servent la langue, actives OU en
-  -- préparation (0769 : inactives mais déjà dotées d'un label), y compris à
+  -- préparation (0770 : inactives mais déjà dotées d'un label), y compris à
   -- zéro compte : ce sont justement elles que Sainte-Laguë doit servir en
   -- premier. Une application en préparation ne reçoit un compte que si la
   -- cible lui donne une part ; ce compte ne publie rien avant l'activation.
@@ -161,7 +161,7 @@ as $$
 $$;
 
 comment on function public.stats_choix_application(text, text) is
-  'Candidats du marché (langue × pays) pour le choix d''application d''un nouveau compte : les applications qui servent la langue, actives ou en préparation (applications_en_preparation, 0769), avec leurs comptes fractionnaires sur ce marché. Le pays est résolu comme dans stats_choix_label (pays_defaut_langue), pour que les deux étages visent le même marché. Entrée de _shared/choix_application.ts. Réservée à service_role.';
+  'Candidats du marché (langue × pays) pour le choix d''application d''un nouveau compte : les applications qui servent la langue, actives ou en préparation (applications_en_preparation, 0770), avec leurs comptes fractionnaires sur ce marché. Le pays est résolu comme dans stats_choix_label (pays_defaut_langue), pour que les deux étages visent le même marché. Entrée de _shared/choix_application.ts. Réservée à service_role.';
 
 revoke all on function public.stats_choix_application(text, text) from public, anon, authenticated;
 grant execute on function public.stats_choix_application(text, text) to service_role;

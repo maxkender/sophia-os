@@ -172,7 +172,7 @@ export function AdminRepartitionPage() {
 
   // Les applications EN PRÉPARATION (inactives, déjà dotées d'un label) : elles
   // ne publient rien, mais peuvent recevoir les prochaines recrues. Lues en
-  // base par la fonction que lit aussi le moteur (0769).
+  // base par la fonction que lit aussi le moteur (0770).
   const preparation = useQuery({
     queryKey: ["repartition-preparation"],
     queryFn: lireApplicationsEnPreparation,

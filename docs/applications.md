@@ -169,7 +169,7 @@ groupe « Sans application », rien n'est supprimé.
 
 ## 6. Recruter avant l'activation
 
-Recruter et publier sont deux choses (migration 0769, 19/11).
+Recruter et publier sont deux choses (migration 0770, 19/11).
 
 - **Activer** une application ouvre la publication. C'est refusé tant que ses
   prompts sont des brouillons.

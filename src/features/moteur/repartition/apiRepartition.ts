@@ -250,7 +250,7 @@ function estFonctionAbsente(err: unknown): boolean {
 
 /**
  * Les applications EN PRÉPARATION : inactives, mais déjà servies par au moins
- * un label slideshow (`applications_en_preparation`, migration 0769). Elles
+ * un label slideshow (`applications_en_preparation`, migration 0770). Elles
  * peuvent recevoir de nouveaux comptes sans rien publier avant leur
  * activation.
  *

@@ -62,7 +62,7 @@ Six choses ont changé depuis la rédaction de ce document :
    lit à leur place les règles et corrections des relecteurs natifs. Les
    lignes `bleo_fiches` de sorte `langue` restent en base, plus lues.
 
-6. **Une application inactive peut recevoir les recrues** (0769, 19/11).
+6. **Une application inactive peut recevoir les recrues** (0770, 19/11).
    Recruter et publier sont deux choses : une application « en préparation »
    (inactive, déjà servie par un label slideshow) est candidate au choix
    d'application d'un nouveau compte, et le reçoit si la cible

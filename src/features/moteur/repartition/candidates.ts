@@ -1,7 +1,7 @@
 /**
  * Les applications qui peuvent recevoir un NOUVEAU compte.
  *
- * Recruter et publier sont deux choses (migration 0769) :
+ * Recruter et publier sont deux choses (migration 0770) :
  *  - une application ACTIVE publie, et reçoit des comptes ;
  *  - une application EN PRÉPARATION (inactive, mais déjà servie par au moins
  *    un label slideshow) ne publie rien, mais peut recevoir des comptes : ils

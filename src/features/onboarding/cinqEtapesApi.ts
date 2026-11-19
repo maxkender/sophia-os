@@ -1,3 +1,4 @@
+import { nicheDesLabels } from "@/features/moteur/themeLabel";
 import { supabase } from "@/lib/supabase/client";
 
 /** Ce que les 5 étapes lisent du profil du posteur : son lundi de cohorte (0391), Slack relié. */
@@ -23,6 +24,24 @@ export async function lireMaPremiereSemaine(): Promise<MaPremiereSemaine> {
     premierPostLienAt: premier.error ? null : ((premier.data as string | null) ?? null),
     montantSemaine: data?.ruul_tarif_semaine == null ? null : Number(data.ruul_tarif_semaine),
   };
+}
+
+/**
+ * 19/11 : la niche du warm-up d'un compte du posteur, d'après son label (il
+ * voit les labels de ses comptes, pas ceux des autres). Ne lève jamais : sans
+ * label lisible, null, et l'accueil dit « your niche » sans la nommer.
+ */
+export async function lireMaNiche(compteId: string): Promise<string | null> {
+  try {
+    const { data, error } = await supabase.from("compte_labels").select("labels(nom, slug)").eq("compte_id", compteId);
+    if (error) return null;
+    const noms = ((data ?? []) as unknown as { labels: { nom: string | null; slug: string | null } | null }[])
+      .map((l) => l.labels?.nom ?? l.labels?.slug ?? null)
+      .filter((n): n is string => Boolean(n));
+    return noms.length > 0 ? nicheDesLabels(noms) : null;
+  } catch {
+    return null;
+  }
 }
 
 /** 0497 : le compte du posteur, son dernier relevé VALIDE (illisible jamais) et « prêt » (compte_pret). */

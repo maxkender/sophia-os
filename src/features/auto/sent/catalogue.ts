@@ -37,8 +37,8 @@ export interface TexteCatalogue {
   videPermis?: boolean;
 }
 
-/** Les variables du message de bienvenue (fonction upwork, messageAccueil). */
-const VARIABLES_ACCUEIL = ["prenom", "url", "email", "lien_mot_de_passe", "handle", "slack", "date"] as const;
+/** Les variables du message de bienvenue (fonction upwork, messageAccueil) ; {niche} : celle du label du compte. */
+const VARIABLES_ACCUEIL = ["prenom", "url", "email", "lien_mot_de_passe", "handle", "niche", "slack", "date"] as const;
 /** Les variables d'un morceau de la relance du jour (_shared/relance_jour.ts, texteRelance). */
 const VARIABLES_RELANCE = ["prenom", "handle", "url", "lien_etapes", "date", "email", "lien_mot_de_passe", "follows", "slack"] as const;
 

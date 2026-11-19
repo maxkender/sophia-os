@@ -113,17 +113,35 @@ application.
 2. **Le nom**, en minuscules et tirets bas. Il n'est pas décoratif : il fixe
    l'identité des comptes du label. Le formulaire l'annonce avant de créer.
 
-   | Le nom contient | @ et bio des comptes | Exemple de @ |
-   |---|---|---|
-   | `run`, `running`, `runner`, `marathon`, `trail`, `jogging` (mot entier) | running, en @ variés (voir plus bas) | `emma.mrtn04`, `itsleaa217`, `lou2003.sunday` |
-   | `study`, `etud` | études | `lea.revisions318` |
-   | `rh`, `career`, `carriere` | carrière | `emma.career204` |
-   | `psych`, `mental` | psycho | `noah.mind611` |
-   | `plony`, `stoi`, `philo` | philo | `marc.stoic530` |
-   | `alpha`, `male` (hors `female`) | discipline | `jakob.discipline473` |
-   | `clean` | bien-être | `mia.glow385` |
-   | `girl`, `smart`, `beau` | lecture et culture | `lena.books129` |
-   | rien de tout ça | culture générale | `lea.culture218` |
+   | Le nom contient | @ et bio des comptes | Exemple de @ | Niche dite au posteur |
+   |---|---|---|---|
+   | `run`, `running`, `runner`, `marathon`, `trail`, `jogging` (mot entier) | running, en @ variés (voir plus bas) | `emma.mrtn04`, `itsleaa217`, `lou2003.sunday` | running |
+   | `study`, `etud` | études | `lea.revisions318` | study |
+   | `rh`, `career`, `carriere` | carrière | `emma.career204` | career advice |
+   | `psych`, `mental` | psycho | `noah.mind611` | psychology |
+   | `plony`, `stoi`, `philo` | philo | `marc.stoic530` | philosophy |
+   | `alpha`, `male` (hors `female`) | discipline | `jakob.discipline473` | self-improvement |
+   | `clean` | bien-être | `mia.glow385` | wellness |
+   | `girl`, `smart`, `beau` | lecture et culture | `lena.books129` | books and culture |
+   | rien de tout ça | culture générale | `lea.culture218` | general knowledge |
+
+   **La niche du warm-up suit le label** (19/11). L'accueil d'un posteur est
+   le même pour toutes les applications ; une seule chose dépend de son
+   compte : la niche où on lui demande de scroller et de s'abonner pendant le
+   warm-up. C'est la dernière colonne, en anglais comme tous les textes aux
+   posteurs (`NICHE_PAR_THEME`, `label_theme.ts` et sa copie `themeLabel.ts`).
+   Elle est dite à quatre endroits :
+   - les écrans d'accueil (« Your first week » et « Your warm-up »), qui la
+     nomment quand le label du compte est lisible, sinon « your niche » ;
+   - la bienvenue Upwork (réglage `accueil_message_texte`, variable `{niche}`) ;
+   - les nudges « warmup » et « pret » de la page Onboarding posters (réglage
+     `onboarding_nudges`, variable `{niche}`) ;
+   - le message « Not warmed up » du dimanche soir.
+
+   Avant, ces trois messages disaient « general knowledge » à tout le monde,
+   même à un compte de running. Pour changer une niche : `NICHE_PAR_THEME`,
+   dans les deux fichiers. Un compte à plusieurs labels prend la niche du
+   premier, par ordre alphabétique, qui en a une à lui.
 
    Le running passe avant le reste : `clean_girl_run` prend l'identité du
    running, mais garde le genre et la banque de photos de profil de

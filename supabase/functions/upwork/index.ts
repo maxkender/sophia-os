@@ -65,6 +65,7 @@ import {
 import { deduireTarif } from "../_shared/tarifs.ts";
 import { noteBonus } from "../_shared/bonus.ts";
 import { ecrireAuPosteur } from "../_shared/slack_posteur.ts";
+import { nicheDuPosteur } from "../_shared/niche_posteur.ts";
 import { type EtatParcours, lignesPointSoirRuul } from "../_shared/parcours_ruul.ts";
 import { avecLienMotDePasse, LIEN_APERCU, refusMotDePasseUpwork, refusPaiementUpwork } from "../_shared/lien_mot_de_passe.ts";
 import { noter429, passageDu } from "../_shared/frequences.ts";
@@ -3339,7 +3340,7 @@ async function accueillir(supabase: Supabase, par: string | null) {
         ...base, statut: "simule", raison: "test : rien n'est créé ni envoyé", cohorte_lundi: cohorte || null,
         message_texte: messageAccueil(modele, {
           prenom: details.prenom, url: OS_URL, email: "(login créé à la création)", lien_mot_de_passe: LIEN_APERCU,
-          slack, cohorte_lundi: cohorte, handle: "(@ généré à la création)",
+          slack, cohorte_lundi: cohorte, handle: "(@ généré à la création)", niche: "(niche du label, choisie à la création)",
         }),
       });
       bilan.simules++;
@@ -3538,9 +3539,10 @@ async function creerAccueilMaintenant(
   return { ok: true, statut: apres?.statut, raison: apres?.raison ?? null, poster_id: apres?.poster_id ?? null };
 }
 
-/** 0474 : le message « Not warmed up » (Slack, sinon Upwork). */
-const MESSAGE_PAS_CHAUD =
-  "You haven't warmed up your account enough. Warm it up tomorrow (Monday): scroll a few minutes, like and follow at least 5 accounts in the general knowledge niche. You start posting on Tuesday.";
+/** 0474 : le message « Not warmed up » (Slack, sinon Upwork). 19/11 : la niche du label de son compte. */
+function messagePasChaud(niche: string): string {
+  return `You haven't warmed up your account enough. Warm it up tomorrow (Monday): scroll a few minutes, like and follow at least 5 accounts in the ${niche} niche. You start posting on Tuesday.`;
+}
 
 /**
  * 0474 : le check du warm-up du dimanche soir. « ok » : rien ne part, elle
@@ -3553,18 +3555,19 @@ async function deciderWarmup(supabase: Supabase, par: string | null, posterId: s
   if (error) return { ok: false, error: error.message };
   if (decision === "ok") return { ok: true, decision };
   const { data: p } = await supabase.from("profiles").select("slack_user_id").eq("id", posterId).maybeSingle();
+  const message = messagePasChaud(await nicheDuPosteur(supabase, posterId));
   let canal = "slack";
   let statut = "envoye";
   let erreur: string | null = null;
   if (p?.slack_user_id) {
-    const r = await ecrireAuPosteur(supabase, posterId, MESSAGE_PAS_CHAUD);
+    const r = await ecrireAuPosteur(supabase, posterId, message);
     if (r.statut !== "envoye") {
       statut = "erreur";
       erreur = "erreur" in r ? r.erreur ?? r.statut : r.statut;
     }
   } else {
     canal = "upwork";
-    const r = await messagePosteur(supabase, par, posterId, MESSAGE_PAS_CHAUD, "warmup_check");
+    const r = await messagePosteur(supabase, par, posterId, message, "warmup_check");
     if (!r.ok) {
       statut = "erreur";
       erreur = "error" in r ? String(r.error ?? "non envoyé") : "non envoyé";
@@ -3755,6 +3758,7 @@ async function creerEtAccueillir(
   const pret = await texteBienvenue(supabase, cree.userId, messageAccueil(modele, {
     prenom: a.prenom, url: OS_URL, email: cree.email ?? "", slack,
     cohorte_lundi: a.cohorte_lundi, handle: await handleACreer(supabase, cree.userId),
+    niche: await nicheDuPosteur(supabase, cree.userId),
   }));
   if (pret.erreur) {
     const erreur = `message de bienvenue : ${pret.erreur}`;
@@ -4087,6 +4091,7 @@ async function accueillirExistant(
     prenom: (p.prenom as string | null) ?? (base.prenom as string | null) ?? null, url: OS_URL, email: (p.email as string | null) ?? "",
     slack, cohorte_lundi: cohorte,
     handle: await handleACreer(supabase, posterId),
+    niche: await nicheDuPosteur(supabase, posterId),
   }));
   if (pret.erreur) {
     const erreur = `message de bienvenue : ${pret.erreur}`;

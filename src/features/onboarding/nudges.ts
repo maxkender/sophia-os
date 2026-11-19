@@ -3,8 +3,10 @@
  * recrue est bloquée), modifiable dans l'OS (réglage `onboarding_nudges`),
  * envoyé sur Slack (bot « Sophia OS ») ou sur Upwork (conversation du contrat).
  * Sur Upwork, une recrue pas encore sur Slack reçoit aussi le lien Slack.
+ * 19/11 : {niche}, la niche du warm-up, suit le label du compte de la recrue.
  */
 import { invoke } from "@/features/moteur/api";
+import { NICHE_DEFAUT } from "@/features/moteur/themeLabel";
 import { envoyerSurUpwork } from "@/features/pipeline/api";
 import { OS_URL } from "@/features/recrutements/constantes";
 
@@ -19,8 +21,8 @@ export const NUDGES_DEFAUT: Record<EtapeOnboarding, string> = {
   slack: "Hi {prenom}, you're not on our Slack yet. Join now: {slack}\nUse your PERSONAL email and your FULL NAME (first and last name).",
   connexion: "Hi {prenom}, you haven't logged in to your dashboard yet: {url}\nLogin: {email} · Password: 12345678 (unless you already changed it). Please log in today.",
   tiktok: "Hi {prenom}, please create your TikTok account today: @{handle} (use exactly this name and your personal email). Then click Start warmup on your dashboard: {url}",
-  warmup: "Hi {prenom}, your TikTok account @{handle} is ready? Click Start warmup on your dashboard ({url}), then warm it up: scroll a few minutes, like and follow accounts in the general knowledge niche.",
-  pret: "Hi {prenom}, keep warming up @{handle}: scroll a few minutes, like and follow at least 5 accounts in the general knowledge niche, and don't post anything yet. You start posting on Monday {cohorte}.",
+  warmup: "Hi {prenom}, your TikTok account @{handle} is ready? Click Start warmup on your dashboard ({url}), then warm it up: scroll a few minutes, like and follow accounts in the {niche} niche.",
+  pret: "Hi {prenom}, keep warming up @{handle}: scroll a few minutes, like and follow at least 5 accounts in the {niche} niche, and don't post anything yet. You start posting on Monday {cohorte}.",
 };
 
 /** Les messages du réglage, complétés par ceux par défaut. */
@@ -43,7 +45,7 @@ export function situation(r: RecrueOnboarding): EtapeOnboarding {
  */
 export function composerNudge(
   modele: string,
-  r: Pick<RecrueOnboarding, "nom" | "email" | "handle" | "slack" | "cohorte_lundi">,
+  r: Pick<RecrueOnboarding, "nom" | "email" | "handle" | "slack" | "cohorte_lundi" | "niche">,
   canal: Canal,
   lienSlack: string,
 ): string {
@@ -51,7 +53,9 @@ export function composerNudge(
   const cohorte = r.cohorte_lundi
     ? new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", timeZone: "UTC" }).format(new Date(`${r.cohorte_lundi}T12:00:00Z`))
     : "";
-  const valeurs: Record<string, string> = { prenom, url: OS_URL, email: r.email ?? "", handle: r.handle ?? "", cohorte, slack: lienSlack };
+  // La niche du label de son compte ; pas lue : celle d'un compte de culture générale.
+  const niche = (r.niche ?? "").trim() || NICHE_DEFAUT;
+  const valeurs: Record<string, string> = { prenom, url: OS_URL, email: r.email ?? "", handle: r.handle ?? "", cohorte, slack: lienSlack, niche };
   // Une variable inconnue reste telle quelle.
   let texte = modele.replace(/\{(\w+)\}/g, (m, cle: string) => (cle in valeurs ? valeurs[cle] : m));
   if (canal === "upwork" && !r.slack && lienSlack && !texte.includes(lienSlack)) {

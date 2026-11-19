@@ -9739,6 +9739,9 @@ export const en = {
       ajouterLabel: "Add a label",
       ajouterLabelAide: "Every label that can be queued, grouped by app. Picking a label from another app opens its queue: the entry goes there.",
       ajouterNombre: "Number of accounts",
+      fileAussi: "Also queued:",
+      fileAussiApp_one: "{{app}} · {{count}} account",
+      fileAussiApp_other: "{{app}} · {{count}} accounts",
       fileAppInactive: "inactive",
       fileSansPart:
         "{{app}} has 0 % in “Split between apps”: the engine sends it no account, so this queue will not be read. Give it a share for the queue to be used.",

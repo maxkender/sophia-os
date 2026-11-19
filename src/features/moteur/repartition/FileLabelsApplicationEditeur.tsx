@@ -12,6 +12,7 @@ import { ID_SOPHIA, SLUG_SOPHIA } from "../multiApp";
 import type { FileLabelCompteItem, Label as LabelOs, ReglagesFileLabels } from "../types";
 import {
   AJOUT_MAX_FILE,
+  applicationOuverture,
   applicationsDeLaFile,
   avecEntreesAjoutees,
   avecGroupeDeplace,
@@ -25,6 +26,7 @@ import {
   lireLabelAutre,
   nombreAjout,
   sansEntreesDuGroupe,
+  totalDeLaFile,
   ugcPossible,
   valeurLabelAutre,
   type CleFile,
@@ -93,11 +95,15 @@ export function FileLabelsApplicationEditeur({
   // n'est signalé.
   const liens = liensQ.data ?? null;
 
-  const [slug, setSlug] = React.useState<string>(SLUG_SOPHIA);
+  // L'éditeur s'ouvre là où il y a quelque chose à voir : sur une File vide de
+  // Sophia, on croirait que la File d'une autre application a disparu.
+  const [slug, setSlug] = React.useState<string>(() => applicationOuverture(file));
   // Liens illisibles : la File Sophia propose tous les labels slideshow, comme
   // avant (manage-users saute une entrée qui ne sert pas Sophia) ; une autre
   // application ne propose rien tant qu'on ne sait pas ce qui la sert.
   const liensAjout = liens ?? (slug === SLUG_SOPHIA ? "tous" : null);
+  // Toujours la file générale à l'ouverture : un ajout part là où on s'y
+  // attend, jamais dans une file de langue choisie à notre place.
   const [cle, setCle] = React.useState<CleFile>("general");
   const [labelAjout, setLabelAjout] = React.useState("");
   const [ugcAjout, setUgcAjout] = React.useState(false);
@@ -124,6 +130,12 @@ export function FileLabelsApplicationEditeur({
   // Les labels des AUTRES applications, dans la même liste : on ne doit pas
   // avoir à deviner qu'il faut d'abord changer d'application plus haut. Pas en
   // mode UGC : une entrée UGC n'existe que pour Sophia.
+  // Les Files des AUTRES applications qui ont des comptes en attente : dites
+  // ici, sinon elles ne se voient que dans un sélecteur fermé.
+  const autresFiles = apps
+    .filter((a) => a.slug !== slug)
+    .map((a) => ({ app: a, n: totalDeLaFile(file, a.slug) }))
+    .filter((x) => x.n > 0);
   const ajoutablesFiltres = ajoutables.filter((l) => !ugcAjout || ugcIds.includes(l.id));
   const autresLabels = ugcAjout ? [] : labelsDesAutresApplications(apps, slug, labels ?? [], liens);
   const choisirLabel = (valeur: string) => {
@@ -180,6 +192,23 @@ export function FileLabelsApplicationEditeur({
           </select>
           <p className="text-xs text-muted-foreground">{t("warmup.fileApplicationAide")}</p>
         </div>
+      )}
+      {autresFiles.length > 0 && (
+        <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs" data-testid="file-autres">
+          <span className="text-muted-foreground">{t("warmup.fileAussi")}</span>
+          {autresFiles.map(({ app: a, n }) => (
+            <Button
+              key={a.slug}
+              type="button"
+              size="sm"
+              variant="outline"
+              className="h-7 px-2 text-xs"
+              onClick={() => changerApplication(a.slug)}
+            >
+              {t("warmup.fileAussiApp", { app: nomApplication(a), count: n })}
+            </Button>
+          ))}
+        </p>
       )}
 
       <p className="text-xs font-medium text-foreground">{t("warmup.fileApp", { app: nomApp })}</p>

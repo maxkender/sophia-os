@@ -54,6 +54,35 @@ export function applicationsDeLaFile<T extends ApplicationFile>(
     );
 }
 
+/** Nombre de comptes en attente dans la File d'une application, file générale et files de langue réunies. */
+export function totalDeLaFile(file: ReglagesFileLabels, slug: string): number {
+  const f = fileDeLApplication(file, slug);
+  return f.items.length + Object.values(f.par_langue).reduce((s, l) => s + l.length, 0);
+}
+
+/**
+ * L'application sur laquelle l'éditeur S'OUVRE : Sophia si sa File a des
+ * entrées ou si aucune File n'en a ; sinon l'application qui en a le plus.
+ *
+ * POURQUOI. L'éditeur s'ouvrait toujours sur Sophia. Avec 45 comptes en File
+ * pour Atala et aucun pour Sophia, on revenait sur la page pour lire « File
+ * générale (0) » : la File semblait vidée alors qu'elle servait ses comptes
+ * (19/11).
+ */
+export function applicationOuverture(file: ReglagesFileLabels): string {
+  if (totalDeLaFile(file, SLUG_SOPHIA) > 0) return SLUG_SOPHIA;
+  let meilleur = SLUG_SOPHIA;
+  let max = 0;
+  for (const slug of Object.keys(file.par_application ?? {})) {
+    const n = totalDeLaFile(file, slug);
+    if (n > max) {
+      max = n;
+      meilleur = slug;
+    }
+  }
+  return meilleur;
+}
+
 /** Plafond d'un ajout en une fois : de quoi couvrir une vague d'embauches, pas une faute de frappe. */
 export const AJOUT_MAX_FILE = 200;
 

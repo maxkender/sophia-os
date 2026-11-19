@@ -354,6 +354,56 @@ describe("FileLabelsApplicationEditeur — une application en préparation, et d
     expect(optionsAjout()).toEqual(["", SMART.id]);
   });
 
+  it("seule Atala a des comptes en File : l'éditeur s'ouvre sur elle, pas sur la File vide de Sophia", async () => {
+    // Le 19/11 au soir : 45 comptes en File pour Atala, et l'écran rouvert
+    // disait « File générale (0) ». La File semblait vidée.
+    const initial: ReglagesFileLabels = {
+      items: [],
+      par_langue: {},
+      par_application: {
+        sophia: { items: [], par_langue: {} },
+        atala: {
+          items: [
+            ...Array.from({ length: 5 }, () => ({ label_id: GIRL.id, ugc: false })),
+            ...Array.from({ length: 40 }, () => ({ label_id: MALE.id, ugc: false })),
+          ],
+          par_langue: {},
+        },
+      },
+    };
+    rendre(vi.fn(), initial, enPreparation);
+    const selApp = await screen.findByLabelText(/^(Application|App)$/);
+    await waitFor(() => expect(within(selApp).queryByRole("option", { name: /Atala/ })).not.toBeNull());
+    expect(selApp).toHaveValue("atala");
+    expect(screen.getByTestId("file-total").textContent).toMatch(/45 comptes|45 accounts/);
+    const lignes = within(screen.getByTestId("file-labels-items")).getAllByRole("listitem");
+    expect(lignes.map((l) => l.textContent)).toEqual([
+      expect.stringMatching(/1–5\.classic_girl_run×5/),
+      expect.stringMatching(/6–45\.male_run×40/),
+    ]);
+  });
+
+  it("depuis une autre application, les Files qui ont des comptes sont annoncées et s'ouvrent d'un clic", async () => {
+    const initial: ReglagesFileLabels = {
+      ...PROD,
+      par_application: {
+        ...PROD.par_application,
+        atala: { items: Array.from({ length: 45 }, () => ({ label_id: MALE.id, ugc: false })), par_langue: {} },
+      },
+    };
+    rendre(vi.fn(), initial, enPreparation);
+    // Sophia a une entrée (file danoise) : l'éditeur s'ouvre sur elle.
+    const selApp = await screen.findByLabelText(/^(Application|App)$/);
+    expect(selApp).toHaveValue("sophia");
+    const autres = await screen.findByTestId("file-autres");
+    expect(autres.textContent).toMatch(/(Aussi en File|Also queued)/);
+    fireEvent.click(within(autres).getByRole("button", { name: /Atala · 45 (comptes|accounts)/ }));
+    expect(selApp).toHaveValue("atala");
+    expect(screen.getByTestId("file-total").textContent).toMatch(/45 comptes|45 accounts/);
+    // Et de là, c'est la File de Sophia qui est annoncée.
+    expect(screen.getByTestId("file-autres").textContent).toMatch(/Sophia · 1 (compte|account)/);
+  });
+
   it("à 0 % dans la cible, la File ne sera pas lue : l'éditeur le dit", async () => {
     rendre(vi.fn(), undefined, { ...enPreparation, partsCible: { sophia: 100, atala: 0 } });
     // Sophia d'abord : rien à signaler, même si la cible ne dit rien d'elle.

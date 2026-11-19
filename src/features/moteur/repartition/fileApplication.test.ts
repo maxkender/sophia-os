@@ -8,6 +8,7 @@ import { describe, expect, it } from "vitest";
 import type { ReglagesFileLabels } from "../types";
 import {
   AJOUT_MAX_FILE,
+  applicationOuverture,
   applicationsDeLaFile,
   avecEntreesAjoutees,
   avecGroupeDeplace,
@@ -22,6 +23,7 @@ import {
   nombreAjout,
   sansEntreesDuGroupe,
   tirerDeLaFile,
+  totalDeLaFile,
   ugcPossible,
   valeurLabelAutre,
 } from "./fileApplication";
@@ -234,5 +236,49 @@ describe("les labels des autres applications dans « Ajouter un label »", () =>
     expect(lireLabelAutre(v)).toEqual({ slug: "atala", labelId: "c9a8b949-c97c-4feb-b74d-0935bc7eb91c" });
     expect(lireLabelAutre("c9a8b949-c97c-4feb-b74d-0935bc7eb91c")).toBeNull();
     expect(lireLabelAutre("")).toBeNull();
+  });
+});
+
+describe("sur quelle application l'éditeur s'ouvre", () => {
+  const e = (label_id: string) => ({ label_id, ugc: false });
+  const vide: ReglagesFileLabels = { items: [], par_langue: {}, par_application: { sophia: { items: [], par_langue: {} } } };
+  /** La File de production du 19/11 au soir : 45 comptes pour Atala, rien pour Sophia. */
+  const atalaSeule: ReglagesFileLabels = {
+    ...vide,
+    par_application: {
+      sophia: { items: [], par_langue: {} },
+      atala: { items: Array.from({ length: 45 }, () => e("l-run")), par_langue: {} },
+    },
+  };
+
+  it("le total d'une File compte la générale et les langues", () => {
+    expect(totalDeLaFile(PROD, "sophia")).toBe(2);
+    expect(totalDeLaFile(atalaSeule, "atala")).toBe(45);
+    expect(totalDeLaFile(atalaSeule, "sophia")).toBe(0);
+    expect(totalDeLaFile(atalaSeule, "inconnue")).toBe(0);
+  });
+
+  it("tout est vide : Sophia, comme avant", () => {
+    expect(applicationOuverture(vide)).toBe("sophia");
+    expect(applicationOuverture({ items: [], par_langue: {} })).toBe("sophia");
+  });
+
+  it("Sophia a des entrées : Sophia, même si une autre en a plus", () => {
+    expect(applicationOuverture(PROD)).toBe("sophia");
+    expect(
+      applicationOuverture({ ...atalaSeule, items: [e("l-smart")], par_application: { ...atalaSeule.par_application, sophia: { items: [e("l-smart")], par_langue: {} } } }),
+    ).toBe("sophia");
+  });
+
+  it("seule Atala a des comptes en File : c'est elle qu'on ouvre, pas une File vide", () => {
+    expect(applicationOuverture(atalaSeule)).toBe("atala");
+  });
+
+  it("plusieurs applications hors Sophia : celle qui a le plus de comptes", () => {
+    const deux: ReglagesFileLabels = {
+      ...atalaSeule,
+      par_application: { ...atalaSeule.par_application, micabo: { items: [e("l-study")], par_langue: { fr: [e("l-study")] } } },
+    };
+    expect(applicationOuverture(deux)).toBe("atala");
   });
 });

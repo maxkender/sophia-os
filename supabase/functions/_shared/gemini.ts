@@ -10,6 +10,7 @@ import { upscaleViaSeedVr } from "./fal_seedvr_upscale.ts";
 import { falAuthHeaders, falHebergerOctets, falKey, falQueueAwaitJson, falQueueSubmit } from "./fal_queue.ts";
 import { serviceClient } from "./supabase.ts";
 import { retirerContentCredentials } from "./c2pa.ts";
+import { octetsDepuisBase64 } from "./base64_octets.ts";
 
 const BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
@@ -815,7 +816,7 @@ Réponds UNIQUEMENT en JSON, sans bloc de code ni commentaire :
  */
 async function sembleDegeneree(base64: string): Promise<boolean> {
   try {
-    const bytes = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+    const bytes = octetsDepuisBase64(base64);
     const dims = dimensionsImage(bytes);
     if (!dims || dims.w === 0 || dims.h === 0) return false;
     const megapixels = (dims.w * dims.h) / 1_000_000;
@@ -1152,7 +1153,7 @@ export async function cleanImage(
     });
     try {
       const { mime: mimeIn } = mimeDepuisBase64(base64, "image/png");
-      const bytesIn = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+      const bytesIn = octetsDepuisBase64(base64);
       const ext =
         mimeIn.includes("png")
           ? "png"
@@ -1271,7 +1272,7 @@ async function inpaintFallback(image: Part, imageUrl: string): Promise<string | 
   const zones = await detecterZonesTexte(image);
   if (zones.length === 0) return null;
 
-  const bytes = Uint8Array.from(atob(base64), (c) => c.charCodeAt(0));
+  const bytes = octetsDepuisBase64(base64);
   return await effacerTexte(imageUrl, bytes, mime, zones);
 }
 

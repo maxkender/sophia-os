@@ -6,6 +6,7 @@ import {
   scrapePost,
   type ScrapedPost,
 } from "./apify.ts";
+import { octetsDepuisBase64 } from "./base64_octets.ts";
 import { deckLivre, estContenuLivre } from "./pods.ts";
 import { canoniserLangue, LANGUES_CIBLES } from "./langues_cibles.ts";
 import { positionConcurrent, sansConcurrent } from "./concurrents.ts";
@@ -2504,7 +2505,7 @@ async function nettoyerSlide(
   try {
     const { mime, ext } = mimeDepuisBase64(propreBase64, mimeDeclare);
     const path = `propre/${contenu.id}/${slide.position}.${ext}`;
-    const bytes = Uint8Array.from(atob(propreBase64), (c) => c.charCodeAt(0));
+    const bytes = octetsDepuisBase64(propreBase64);
     const { error: upErr } = await supabase.storage
       .from(BUCKET)
       .upload(path, bytes, {

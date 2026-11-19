@@ -229,6 +229,8 @@ Fait :
   versement sous un ou plusieurs labels (`banque/AGENT.md`, fonction Edge
   `banque`, migration 0771). Les podz d'un label retrouvent ces images avec
   leur commande `images`.
+  Au 19/11 au soir : 932 images, 314 sous `classic_girl_run`, 313 sous
+  `clean_girl_run`, 305 sous `male_run`. `manga_tok` n'en a pas reçu.
 
 Reste à faire, à l'écran :
 1. **Relire les deux prompts** (`pertinence_atala`, `placement_atala`). Ce sont

@@ -1,0 +1,143 @@
+{
+ "id": "at-004",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7703693124438117663",
+  "vues": 55500,
+  "publie_le": "2026-11-02",
+  "accroche": "fall runs / do and don’ts"
+ },
+ "titre": {
+  "en": "rainy runs do and don’ts",
+  "fr": "sous la pluie : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #rainyrun #runningtips #girlswhorun #fallrunning",
+  "fr": "#courseapied #running #pluie #conseil #girlswhorun"
+ },
+ "musique": {
+  "titre": "Dracula (with JENNIE)",
+  "url": "https://www.tiktok.com/music/dracula-with-jennie-7603221525400455169"
+ },
+ "notes": "Preuve : « fall runs / do and don’ts » de @katrina.run (56 k vues, 02/11) ; même gabarit (objets), un sujet de saison voisin (la pluie). Objets neufs : coureuse-pluie, coupe-vent, casquette, parapluie, journal, seche-cheveux. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta A` « an atala plan » / « un plan atala »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-pluie.png",
+   "en": {
+    "titre": "rainy runs\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "sous la pluie :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/coupe-vent.png",
+    "atala",
+    "images/objets/casquette.png"
+   ],
+   "dont": [
+    "images/objets/doudoune.png",
+    "images/objets/tshirt-coton.png"
+   ],
+   "en": {
+    "titre": "before you go",
+    "do": [
+     "a light\nrain jacket",
+     "an atala plan",
+     "a cap"
+    ],
+    "dont": [
+     "a heavy coat",
+     "a cotton tee"
+    ]
+   },
+   "fr": {
+    "titre": "avant de sortir",
+    "do": [
+     "un coupe-vent",
+     "un plan atala",
+     "une casquette"
+    ],
+    "dont": [
+     "une doudoune",
+     "du coton"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gilet.png",
+    "images/objets/chaussures.png",
+    "images/objets/montre.png"
+   ],
+   "dont": [
+    "images/objets/parapluie.png",
+    "images/objets/chrono.png"
+   ],
+   "en": {
+    "titre": "on the run",
+    "do": [
+     "be visible",
+     "shoes\nwith grip",
+     "slow down\na little"
+    ],
+    "dont": [
+     "an umbrella",
+     "sprinting on\nwet roads"
+    ]
+   },
+   "fr": {
+    "titre": "pendant",
+    "do": [
+     "sois visible",
+     "des semelles\nqui accrochent",
+     "ralentis\nun peu"
+    ],
+    "dont": [
+     "un parapluie",
+     "sprinter sur\nroute mouillée"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/journal.png",
+    "images/objets/pommeau.png",
+    "images/objets/the.png"
+   ],
+   "dont": [
+    "images/objets/seche-cheveux.png",
+    "images/objets/tenue.png"
+   ],
+   "en": {
+    "titre": "back home",
+    "do": [
+     "newspaper\nin your shoes",
+     "a warm shower",
+     "a hot tea"
+    ],
+    "dont": [
+     "hair dryer\non your shoes",
+     "your wet kit"
+    ]
+   },
+   "fr": {
+    "titre": "en rentrant",
+    "do": [
+     "journal dans\ntes baskets",
+     "douche chaude",
+     "un thé chaud"
+    ],
+    "dont": [
+     "sèche-cheveux\nsur baskets",
+     "rester trempée"
+    ]
+   }
+  }
+ ]
+}

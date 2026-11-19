@@ -1,0 +1,179 @@
+{
+ "id": "at-005",
+ "style": "objets",
+ "source": {
+  "url": "https://www.tiktok.com/@katrina.run/photo/7701469373592079647",
+  "vues": 191300,
+  "publie_le": "2026-10-27",
+  "accroche": "first 5k / do and don’ts"
+ },
+ "titre": {
+  "en": "first half marathon do and don’ts",
+  "fr": "premier semi : les do & don’ts"
+ },
+ "legendes": {
+  "en": "#running #halfmarathon #runningtips #girlswhorun #racetraining",
+  "fr": "#courseapied #semimarathon #running #runningtips #girlswhorun"
+ },
+ "musique": {
+  "titre": "Run Boy Run - Instrumental",
+  "url": "https://www.tiktok.com/music/run-boy-run-instrumental-6929219807355078657"
+ },
+ "notes": "Preuve : « first 5k / do and don’ts » de @katrina.run (191 k vues, 27/10) ; même gabarit, une étape voisine (le premier semi). Objet neuf : medaille ; sac-sport ; le reste d'at-001. Couverture : coureuse-profil-2. Logo d'Atala : vignette du milieu des « Do » de la slide 2 (`cta B` « your atala coach » / « ton coach atala »). Aucune page d'appli.",
+ "slides": [
+  {
+   "type": "couverture",
+   "image": "images/objets/coureuse-profil-2.png",
+   "en": {
+    "titre": "first half marathon\ndo and don’ts"
+   },
+   "fr": {
+    "titre": "premier semi :\nles do & don’ts"
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/montre.png",
+    "atala",
+    "images/objets/masque.png"
+   ],
+   "dont": [
+    "images/objets/chrono.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "training weeks",
+    "do": [
+     "one long run\na week",
+     "your\natala coach",
+     "real sleep"
+    ],
+    "dont": [
+     "every run\nat full speed",
+     "heavy squats\nthe day before"
+    ]
+   },
+   "fr": {
+    "titre": "l’entraînement",
+    "do": [
+     "une longue\nchaque semaine",
+     "ton\ncoach atala",
+     "bien dormir"
+    ],
+    "dont": [
+     "chaque sortie\nà fond",
+     "squats lourds\nla veille"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/pates.png",
+    "images/objets/verre-eau.png",
+    "images/objets/tenue.png"
+   ],
+   "dont": [
+    "images/objets/boite-chaussures.png",
+    "images/objets/sac-sport.png"
+   ],
+   "en": {
+    "titre": "race week",
+    "do": [
+     "more carbs",
+     "water all day",
+     "your kit,\nalready tested"
+    ],
+    "dont": [
+     "new shoes",
+     "an extra\ngym session"
+    ]
+   },
+   "fr": {
+    "titre": "la semaine J",
+    "do": [
+     "des pâtes\nen plus",
+     "bois souvent",
+     "ta tenue\ndéjà testée"
+    ],
+    "dont": [
+     "baskets neuves",
+     "une séance\nen plus"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/gel.png",
+    "images/objets/epingles.png",
+    "images/objets/banane.png"
+   ],
+   "dont": [
+    "images/objets/cafes.png",
+    "images/objets/legging.png"
+   ],
+   "en": {
+    "titre": "race day",
+    "do": [
+     "the gel\nyou’ve tested",
+     "bib pinned\nthe day before",
+     "a banana"
+    ],
+    "dont": [
+     "lots of coffee",
+     "new leggings\non race day"
+    ]
+   },
+   "fr": {
+    "titre": "le jour J",
+    "do": [
+     "le gel\ndéjà testé",
+     "ton dossard\nprêt la veille",
+     "une banane"
+    ],
+    "dont": [
+     "trop de café",
+     "legging neuf\nle jour J"
+    ]
+   }
+  },
+  {
+   "type": "dodont",
+   "do": [
+    "images/objets/medaille.png",
+    "images/objets/gobelet.png",
+    "images/objets/chaussures.png"
+   ],
+   "dont": [
+    "images/objets/telephone.png",
+    "images/objets/halteres.png"
+   ],
+   "en": {
+    "titre": "after the finish",
+    "do": [
+     "a photo with\nyour medal",
+     "water, then\nmore water",
+     "walk a little"
+    ],
+    "dont": [
+     "checking your\nsplits all day",
+     "gym the\nnext day"
+    ]
+   },
+   "fr": {
+    "titre": "après l’arrivée",
+    "do": [
+     "photo avec\nta médaille",
+     "de l’eau\net encore",
+     "marche un peu"
+    ],
+    "dont": [
+     "revoir ton\nchrono 50 fois",
+     "la salle\nle lendemain"
+    ]
+   }
+  }
+ ]
+}
